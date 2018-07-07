@@ -1,6 +1,6 @@
 ---
-title: Compilar configurações de DSC de automatização do Azure
-description: Este artigo descreve como compilar as configurações de configuração de estado pretendido (DSC) para a automatização do Azure.
+title: Compilar configurações no DSC de automatização do Azure
+description: Este artigo descreve como compilar configurações de Desired State Configuration (DSC) para a automatização do Azure.
 services: automation
 ms.service: automation
 ms.component: dsc
@@ -9,53 +9,53 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f7bb736ea65f5a1ed2f95dfe9d9d3466761a8bf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193990"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37900788"
 ---
-# <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilar configurações de DSC de automatização do Azure
+# <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilar configurações no DSC de automatização do Azure
 
-Pode compilar configurações de configuração de estado pretendido (DSC) de duas formas com a automatização do Azure: no portal do Azure e com o Windows PowerShell. A tabela seguinte ajuda-o a determinar quando deve utilizar o método com base em caraterísticas de cada:
+Pode compilar configurações de Desired State Configuration (DSC) de duas formas de automatização do Azure: no portal do Azure e com o Windows PowerShell. A tabela seguinte ajuda-o a determinar quando deve utilizar o método com base nas características de cada:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 * Método mais simples com a interface de utilizador interativa
 * Formulário para fornecer valores de parâmetros simples
 * Controlar facilmente o estado da tarefa
-* Acesso autenticado com início de sessão do Azure
+* Acesso autenticado com o início de sessão do Azure
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
-* Chamada a partir da linha de comandos com cmdlets do Windows PowerShell
+* Chamar a partir de linha de comandos com cmdlets do Windows PowerShell
 * Pode ser incluído numa solução automatizada com vários passos
-* Fornecer valores de parâmetros simples e complexos
+* Fornecer valores de parâmetros simples e complexas
 * Controlar o estado da tarefa
 * Cliente necessário para suportar os cmdlets do PowerShell
 * Passar ConfigurationData
-* As configurações que utilizarem credenciais de compilação
+* Compilar configurações que utilizam credenciais
 
-Depois de decidir um método de compilação, utilize os procedimentos seguintes para iniciar a compilação.
+Assim que decidir um método de compilação, utilize os procedimentos seguintes para iniciar a compilação.
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilar uma configuração de DSC com o portal do Azure
 
-1. Da sua conta de automatização, clique em **configurações de DSC**.
-2. Clique uma configuração para abrir o painel.
+1. A partir da sua conta de automatização, clique em **configurações de DSC**.
+2. Clique numa configuração para abrir o respetivo painel.
 3. Clique em **compilar**.
-4. Se a configuração não tem parâmetros, lhe for pedido para confirmar que pretende compilá-la. Se a configuração tiver parâmetros, o **compilar a configuração** é aberto o painel para que possam fornecer valores de parâmetros. Consulte o seguinte [ **parâmetros básicos** ](#basic-parameters) secção para obter mais detalhes sobre os parâmetros.
-5. O **tarefa de compilação** painel está aberto num modo a que pode controlar o estado da tarefa de compilação e as configurações de nó (documentos de configuração do MOF)-causado que seja colocada no servidor de solicitação do DSC do Azure da automatização.
+4. Se a configuração não tem parâmetros, lhe for pedido para confirmar se deseja compilá-lo. Se a configuração tiver parâmetros, o **compilar configuração** é aberto o painel para fornecer valores de parâmetros. Consulte o seguinte [ **parâmetros básicos** ](#basic-parameters) secção para saber mais sobre os parâmetros.
+5. O **tarefa de compilação** é aberto o painel para que pode controlar o estado da tarefa de compilação e as configurações de nó (documentos de configuração do MOF), causou seja colocada no servidor de solicitação de DSC do Azure Automation.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Compilar uma configuração de DSC com o Windows PowerShell
 
-Pode utilizar [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob) para iniciar a compilar com o Windows PowerShell. O código de exemplo seguinte inicia compilação de uma configuração de DSC chamada **SampleConfig**.
+Pode usar [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob) para iniciar a compilação com o Windows PowerShell. O código de exemplo seguinte inicia compilação de uma configuração de DSC chamada **SampleConfig**.
 
 ```powershell
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` Devolve um objeto de tarefa de compilação que pode utilizar para monitorizar o estado. Em seguida, pode utilizar este objeto de tarefa de compilação com [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) para determinar o estado da tarefa de compilação e [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) para ver o respetivos fluxos (saída). O código de exemplo seguinte inicia compilação do **SampleConfig** configuração, tem de aguardar até ser concluída e, em seguida, apresenta os fluxos.
+`Start-AzureRmAutomationDscCompilationJob` Devolve um objeto de tarefa de compilação que pode utilizar para monitorizar o estado. Em seguida, pode utilizar este objeto de tarefa de compilação com [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) para determinar o estado da tarefa de compilação, e [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) para ver os respetivos fluxos (saída). O código de exemplo seguinte inicia compilação do **SampleConfig** configuração, tem de aguardar até que ele foi concluída e, em seguida, exibe seus fluxos.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
@@ -70,9 +70,9 @@ $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any
 ```
 
 ## <a name="basic-parameters"></a>Parâmetros básicos
-Declaração de parâmetro nas configurações de DSC, incluindo os tipos de parâmetro e propriedades, funciona os mesmos que os runbooks de automatização do Azure. Consulte [iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md) para saber mais sobre os parâmetros do runbook.
+Declaração de parâmetro em configurações de DSC, incluindo tipos de parâmetros e propriedades, funciona tal como nos runbooks de automatização do Azure. Ver [a partir de um runbook na automatização do Azure](automation-starting-a-runbook.md) para saber mais sobre os parâmetros do runbook.
 
-O exemplo seguinte utiliza dois parâmetros denominados **FeatureName** e **IsPresent**, para determinar os valores de propriedades no **ParametersExample.sample** configuração de nó, gerada durante a compilação.
+O exemplo seguinte utiliza dois parâmetros, chamados **FeatureName** e **IsPresent**, para determinar os valores das propriedades do **ParametersExample.sample** nó configuração, gerada durante a compilação.
 
 ```powershell
 Configuration ParametersExample
@@ -103,17 +103,17 @@ Configuration ParametersExample
 }
 ```
 
-Pode compilar configurações de DSC utilizar parâmetros básicos no portal do Automation DSC do Azure, ou com o Azure PowerShell:
+Pode compilar configurações de DSC que utilizam parâmetros básicos, no portal do Azure Automation DSC, ou com o Azure PowerShell:
 
 ### <a name="portal"></a>Portal
 
-No portal, pode introduzir os valores de parâmetros depois de clicar em **compilar**.
+No portal, pode introduzir valores de parâmetro depois de clicar em **compilar**.
 
 ![texto alternativo](./media/automation-dsc-compile/DSC_compiling_1.png)
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell requer parâmetros um [tabela hash](http://technet.microsoft.com/library/hh847780.aspx) em que a chave corresponde ao nome de parâmetro e o valor igual ao valor de parâmetro.
+O PowerShell requer parâmetros num [hashtable](http://technet.microsoft.com/library/hh847780.aspx) em que a chave corresponde ao nome do parâmetro e o valor igual ao valor de parâmetro.
 
 ```powershell
 $Parameters = @{
@@ -124,16 +124,16 @@ $Parameters = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters
 ```
 
-Para obter informações sobre a transmitir PSCredentials como parâmetros, consulte <a href="#credential-assets"> **ativos de credenciais** </a> abaixo.
+Para obter informações sobre passando PSCredentials como parâmetros, consulte <a href="#credential-assets"> **ativos de credencial** </a> abaixo.
 
 ## <a name="composite-resources"></a>Recursos compostos
 
-**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração. Isto permite-lhe aplicar configurações com várias para um único recurso. Consulte [recursos compostos: utilizar uma configuração de DSC como um recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para saber mais sobre **composto de recursos**
+**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração. Isto permite-lhe aplicar várias configurações para um único recurso. Ver [recursos compostos: utilizar uma configuração de DSC como um recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para saber mais sobre **recursos compostos**
 
 > [!NOTE]
-> Para que **recursos composto** para compilar corretamente, deve primeiro garantir que quaisquer recursos de DSC que depende o compostos primeiro estão instalados no repositório de módulos de conta de automatização do Azure ou se não importar corretamente.
+> Para que **recursos compostos** para compilar corretamente, tem primeiro de garantir que quaisquer recursos de DSC que depende da composição primeiro estão instalados no repositório de módulos de conta de automatização do Azure ou não importar corretamente.
 
-Para adicionar um DSC **recursos composto**, tem de adicionar o módulo de recurso a um arquivo (*. zip). Vá para o repositório de módulos na sua conta de automatização do Azure. Em seguida, clique no botão 'Adicionar um módulo'.
+Para adicionar um DSC **recursos compostos**, tem de adicionar o módulo de recursos para um arquivo morto (*. zip). Vá para o repositório de módulos na sua conta de automatização do Azure. Em seguida, clique no botão "Adicionar um módulo".
 
 ![Adicionar módulo](./media/automation-dsc-compile/add_module.png)
 
@@ -141,15 +141,15 @@ Navegue para o diretório onde está localizado o arquivo. Selecione o ficheiro 
 
 ![Selecione o módulo](./media/automation-dsc-compile/select_dscresource.png)
 
-É direcionado novamente para o diretório de módulos, onde pode monitorizar o estado da sua **recursos composto** enquanto descompacta e regista com automatização do Azure.
+É direcionado novamente para o diretório de módulos, onde pode monitorizar o estado dos seus **recursos compostos** enquanto a Desempacote e registra a automatização do Azure.
 
-![Importar recurso composto](./media/automation-dsc-compile/register_composite_resource.png)
+![Importar recursos compostos](./media/automation-dsc-compile/register_composite_resource.png)
 
-Depois do módulo está registado, em seguida, pode clicar na mesma para validar que o **recursos composto** estão agora disponíveis para serem utilizados numa configuração.
+Assim que o módulo é registrado, em seguida, pode clicar no mesmo para validar que o **recursos compostos** estão agora disponíveis para ser utilizado numa configuração.
 
-![Validar composto recursos](./media/automation-dsc-compile/validate_composite_resource.png)
+![Validar recursos compostos](./media/automation-dsc-compile/validate_composite_resource.png)
 
-Em seguida, pode chamar o **recursos composto** para a configuração desta forma:
+Em seguida, pode chamar o **recursos compostos** em sua configuração da seguinte forma:
 
 ```powershell
 
@@ -171,12 +171,12 @@ Em seguida, pode chamar o **recursos composto** para a configuração desta form
 ```
 
 ## <a name="configurationdata"></a>ConfigurationData
-**ConfigurationData** permite separar estrutural configuração a partir de qualquer configuração específico do ambiente ao utilizar o PowerShell DSC. Consulte [separando "Que" a partir de "Onde" no DSC do PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
+**ConfigurationData** permite que separe estrutural configuração a partir de qualquer configuração específicos do ambiente ao utilizar o PowerShell DSC. Ver [separar "O que" a "Where" no PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
 
 > [!NOTE]
-> Pode utilizar **ConfigurationData** durante a compilação no DSC da automatização do Azure com o Azure PowerShell, mas não no portal do Azure.
+> Pode usar **ConfigurationData** ao compilar no DSC de automatização do Azure com o Azure PowerShell, mas não no portal do Azure.
 
-A configuração de DSC de exemplo seguinte utiliza **ConfigurationData** através de **$ConfigurationData** e **$AllNodes** palavras-chave. Terá também de [ **xWebAdministration** módulo](https://www.powershellgallery.com/packages/xWebAdministration/) para este exemplo:
+Utiliza a seguinte configuração de exemplo DSC **ConfigurationData** através da **$ConfigurationData** e **$AllNodes** palavras-chave. Também tem do [ **xWebAdministration** módulo](https://www.powershellgallery.com/packages/xWebAdministration/) para este exemplo:
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -197,7 +197,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Pode compilar a configuração de DSC anterior com o PowerShell. O PowerShell seguinte adiciona duas configurações de nó para o servidor de solicitação do DSC do Azure Automation: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
+É possível compilar a configuração de DSC anterior com o PowerShell. O PowerShell seguinte adiciona duas configurações de nó para o servidor de solicitação de DSC do Azure Automation: **ConfigurationDataSample.MyVM1** e **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -226,22 +226,22 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="assets"></a>Elementos
 
-Referências de recurso são os mesmos nas configurações de DSC de automatização do Azure e runbooks. O seguinte para obter mais informações, consulte:
+Referências de ativos são os mesmos em runbooks e configurações de DSC de automatização do Azure. Veja o seguinte para obter mais informações:
 
 * [Certificados](automation-certificates.md)
 * [Ligações](automation-connections.md)
 * [Credenciais](automation-credentials.md)
 * [Variáveis](automation-variables.md)
 
-### <a name="credential-assets"></a>Ativos de credenciais
+### <a name="credential-assets"></a>Ativos de credencial
 
-Enquanto as configurações de DSC na automatização do Azure podem referenciar ativos de credenciais utilizando **Get-AutomationPSCredential**, ativos de credenciais podem também ser transmitidos através dos parâmetros, se assim o desejar. Se uma configuração assume um parâmetro de **PSCredential** escreva, em seguida, tem de transmitir o nome de cadeia de um recurso de credencial de automatização do Azure como valor do parâmetro, que, em vez de um objeto PSCredential. Nos bastidores, o recurso de credencial de automatização do Azure com esse nome é obtido e transmitido para a configuração.
+Enquanto as configurações de DSC na automatização do Azure podem fazer referência a ativos de credencial usando **Get-AutomationPSCredential**, ativos de credencial podem também ser transmitidos através de parâmetros, se assim o desejar. Se uma configuração assume um parâmetro de **PSCredential** digite, em seguida, precisa passar o nome da cadeia de um recurso de credenciais da automatização do Azure como o valor do parâmetro, que, em vez de um objeto PSCredential. Em segundo plano, o recurso de credencial da automatização do Azure com esse nome é recuperado e passado para a configuração.
 
-Manter as credenciais seguras em configurações de nó (documentos de configuração do MOF) requer encriptar as credenciais no ficheiro MOF de configuração de nó. A automatização do Azure assume este passo adicional e encripta todo o ficheiro MOF. No entanto, atualmente tem indicar DSC do PowerShell é pode as credenciais ser debitado em texto simples durante a geração de MOF de configuração de nó, porque o PowerShell DSC não sabe que da automatização do Azure irá encriptar todo o ficheiro MOF após a respetiva geração através de uma tarefa de compilação.
+Mantendo credenciais seguras em configurações de nó (documentos de configuração do MOF), é necessário criptografar as credenciais no ficheiro MOF de configuração de nó. No entanto, atualmente tem de pedir ao DSC de PowerShell é muito bem as credenciais ter saída em texto simples durante a geração do MOF de configuração de nó, porque o PowerShell DSC não sabe que automatização do Azure vai encriptar todo o arquivo MOF após sua geração por meio de uma tarefa de compilação.
 
-Pode dizer DSC do PowerShell que pode as credenciais ser debitado em texto simples na configuração de nó geradas MOFs utilizando [ **ConfigurationData**](#configurationdata). Deverá passar `PSDscAllowPlainTextPassword = $true` através de **ConfigurationData** para o nome de cada bloco de nó que aparece na configuração de DSC e utiliza as credenciais.
+Pode dizer ao DSC de PowerShell que há problema as credenciais ter a saída em texto simples na configuração do nó gerado MOFs usando [ **ConfigurationData**](#configurationdata). Deve passar `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** para o nome de cada bloco de nó que aparece na configuração do DSC e utiliza as credenciais.
 
-O exemplo seguinte mostra uma configuração de DSC que utiliza um recurso de credencial de automatização.
+O exemplo seguinte mostra uma configuração de DSC que utiliza um recurso de credenciais de automatização.
 
 ```powershell
 Configuration CredentialSample
@@ -261,7 +261,7 @@ Configuration CredentialSample
 }
 ```
 
-Pode compilar a configuração de DSC anterior com o PowerShell. O PowerShell seguinte adiciona duas configurações de nó para o servidor de solicitação do DSC do Azure Automation: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
+É possível compilar a configuração de DSC anterior com o PowerShell. O PowerShell seguinte adiciona duas configurações de nó para o servidor de solicitação de DSC do Azure Automation: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -283,36 +283,36 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 > [!NOTE]
-> Depois de concluída a compilação poderá receber um erro a indicar: **o módulo de 'Management' não foi importado porque o snap-in 'Management' já foi importado.** Este aviso pode ser ignorado com segurança.
+> Quando a compilação for concluída poderá receber um erro a indicar: **o módulo "Management" não foi importado porque o snap-in "Management" já foi importado.** Este aviso pode ser ignorado com segurança.
 
-## <a name="importing-node-configurations"></a>Importar configurações de nó
+## <a name="importing-node-configurations"></a>Importação de configurações de nó
 
-Também pode importar configurações de nó (MOFs) que têm de ser compilado fora do Azure. Uma vantagem desta situação é que as configurações de nó podem ser assinadas.
-Uma configuração de nó assinada é verificada localmente num nó gerido pelo agente de DSC, garantindo que a configuração a ser aplicada ao nó provenientes de uma origem autorizada.
-
-> [!NOTE]
-> Pode utilizar Importar assinado configurações na sua conta de automatização do Azure, mas a automatização do Azure não suporta atualmente compilar configurações assinadas.
+Também pode importar configurações de nó (MOFs) que têm de ser compilado fora do Azure. Uma vantagem disso é que as configurações de nó podem ser assinadas.
+Uma configuração de nó assinado é verificada localmente num nó gerido por agente DSC, garantindo que a configuração a ser aplicada para o nó é proveniente de uma origem autorizada.
 
 > [!NOTE]
-> Um ficheiro de configuração do nó tem de ser não superior a 1 MB para permitir que seja possível importar para a automatização do Azure.
+> Pode utilizar Importar assinado configurações para a sua conta de automatização do Azure, mas a automatização do Azure não suporta atualmente compilar configurações assinadas.
 
-Pode saber como assinar configurações de nó em https://msdn.microsoft.com/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+> [!NOTE]
+> Um ficheiro de configuração de nó tem de ser não maior do que 1 MB para permiti-lo ser importado para a automatização do Azure.
+
+Pode saber como inscrever-se as configurações de nó em https://msdn.microsoft.com/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importar uma configuração de nó no portal do Azure
 
-1. Da sua conta de automatização, clique em **configurações de nó DSC** em **gestão de configuração**.
+1. A partir da sua conta de automatização, clique em **configurações de nó DSC** sob **gestão de configuração**.
 
     ![Configurações de nó DSC](./media/automation-dsc-compile/node-config.png)
-2. No **configurações de nó DSC** painel, clique em **adicionar um NodeConfiguration**.
-3. No **importação** painel, clique no ícone de pasta junto a **ficheiro de configuração de nó** caixa de texto para procurar um ficheiro de configuração do nó (MOF) no seu computador local.
+2. Na **configurações de nó DSC** painel, clique em **adicionar um NodeConfiguration**.
+3. No **importação** painel, clique no ícone de pasta junto aos **ficheiro de configuração de nó** caixa de texto para procurar um ficheiro de configuração de nó (MOF) no seu computador local.
 
     ![Procurar ficheiro local](./media/automation-dsc-compile/import-browse.png)
-4. Introduza um nome no **nome da configuração** caixa de texto. Este nome tem de corresponder ao nome da configuração a partir da qual a configuração do nó foi compilada.
+4. Introduza um nome na **nome da configuração** caixa de texto. Este nome tem de corresponder ao nome da configuração a partir do qual a configuração do nó foi compilada.
 5. Clique em **OK**.
 
 ### <a name="importing-a-node-configuration-with-powershell"></a>Importar uma configuração de nó com o PowerShell
 
-Pode utilizar o [importação AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration) cmdlet para importar uma configuração de nó para a sua conta de automatização.
+Pode utilizar o [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration) cmdlet para importar uma configuração de nó para sua conta de automatização.
 
 ```powershell
 Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"

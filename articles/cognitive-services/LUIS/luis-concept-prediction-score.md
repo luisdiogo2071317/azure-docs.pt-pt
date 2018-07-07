@@ -1,6 +1,6 @@
 ---
-title: Compreender a classificação de predição devolvida pelo LUIS - Azure | Microsoft Docs
-description: Saiba o que significa a classificação de predição na LUIS
+title: Compreender a pontuação de predição devolvida pelo LUIS - Azure | Documentos da Microsoft
+description: Saiba o que significa a pontuação de predição em LUIS
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,57 +9,55 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 88d5eb22186248024a356610addab0d43f68a961
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265993"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887135"
 ---
-# <a name="prediction-score"></a>Classificação de predição
-Uma pontuação de predição indica o nível de confiança que Luis tem para resultados de predição. 
+# <a name="prediction-score"></a>Classificação da predição
+Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 
 
-Uma pontuação de predição é normalmente entre zero (0) e um (1). Um exemplo de uma pontuação LUIS certeza elevada disponibilidade será 0,99. Um exemplo de uma pontuação de confiança baixa é 0.01. 
+Uma pontuação de predição é normalmente entre zero (0) e um (1). Um exemplo de uma pontuação de LUIS elevada confiança será 0,99. Um exemplo de uma pontuação de confiança baixa é a 0,01. 
 
 |Valor de pontuação|Confiança|
 |--|--|
-|1|correspondência definite|
+|1|correspondência definida|
 |0,99|confiança elevada|
 |0.01|confiança baixa|
-|0|Falha de definite para corresponder|
+|0|falha definida para corresponder|
 
-Quando um utterance resulta numa pontuação baixa confiança, LUIS realça que no [LUIS] [ LUIS] Web site **intenção** página, com o identificados **intenções de negócios com a etiqueta**  descritas com vermelho. 
+Quando uma expressão resulta numa pontuação de confiança de baixa, LUIS destaca que, na [LUIS](luis-reference-regions.md) site **intenção** página, com o identificados **intenção rotulado** descritos com red. 
 
 ![Discrepância de pontuação](./media/luis-concept-score/score-discrepancy.png)
 
-## <a name="top-scoring-intent"></a>A classificação superior intenção
-Cada predição utterance devolve um objetivo de classificação de topo. Esta é uma comparação numérica de pontuações de predição. As dois pontuações superiores podem ter uma diferença entre eles muito pequena. LUIS não indicar este proximidade diferente pontuações a devolver.  
+## <a name="top-scoring-intent"></a>Intenção da parte superior de classificação
+Predição de cada expressão retorna uma intenção da parte superior de classificação. Esta é uma comparação numérica de pontuações de predição. As pontuações de duas principais podem ter uma muito pequena diferença entre eles. LUIS não indicar este proximidade que não seja retornando as pontuações.  
 
-Se estiver preocupados com a proximidade do pontuações superiores, deverá devolver a classificação de todos os pendentes. Pode adicionar utterances as dois pendentes que indicam as diferenças com a opção de palavra e disposição ou pode ter a aplicação de chamar LUIS, tal como um chatbot, certifique-programáticas opções sobre como lidar com os dois pendentes superiores. 
+Se estiver preocupado a proximidade das pontuações superior, deverá devolver a classificação para todas as intenções. Pode adicionar expressões com para os dois objetivos que indicam as diferenças com a escolha do word e disposição ou pode ter o aplicativo de chamada de LUIS, como um chatbot, fazer escolhas programáticas sobre como lidar com os dois objetivos principais. 
 
-## <a name="return-prediction-score-for-all-intents"></a>Devolver o modelo de pontuação de predição para todos os pendentes
-Um resultado de teste ou de ponto final pode incluir todos os pendentes. Esta configuração está definida no [endpoint](https://aka.ms/v1-endpoint-api-docs) com o `verbose=true` par nome/valor de cadeia de consulta. 
+## <a name="return-prediction-score-for-all-intents"></a>Devolver a pontuação de previsão para todos os objetivos
+Um resultado de teste ou ponto de extremidade pode incluir todas as intenções. Esta configuração é definida no [ponto final](https://aka.ms/v1-endpoint-api-docs) com o `verbose=true` par nome/valor de cadeia de caracteres de consulta. 
 
-## <a name="review-intents-with-similar-scores"></a>Reveja pendentes com pontuações semelhantes
-Rever a classificação de todos os pendentes é uma boa forma de verificar que não só é identificada a intenção correta, mas que a próxima identificado pontuação da intenção é significativamente inferior consistentemente para utterances. 
+## <a name="review-intents-with-similar-scores"></a>Reveja os objetivos com pontuações semelhantes
+Rever a classificação para todas as intenções é uma excelente forma de verificar que não só é identificada a intenção correta, mas que a próxima identificadas pontuação da intenção é significativamente menor consistentemente para expressões com. 
 
-Se tem de vários pendentes pontuações de predição fechar, com base no contexto de um utterance LUIS pode alternar entre os pendentes. Para corrigir este problema, continue a adicionar utterances para cada tentativa com uma vasta variedade de nível contextual das diferenças.   
+Se tem de objetivos várias pontuações de predição de fechar, com base no contexto de uma expressão, LUIS pode alternar entre os objetivos. Para corrigir este problema, continue a adicionar expressões em cada intenção com uma maior variedade de diferenças contextuais.   
 
 ## <a name="e-exponent-notation"></a>Notação de I (expoente)
 
-Pontuações de predição podem utilizar a notação expoente; *apresentação* acima de 0-1-se no intervalo, tais como `9.910309E-07`. Este modelo de pontuação é uma indicação de um muito **pequeno** número.
+Pontuações de predição podem usar a notação expoente, *que aparece* acima 0-1 intervalo, tais como `9.910309E-07`. Esta pontuação é uma indicação de um muito **pequeno** número.
 
-|Classificação de notação i |Pontuação real|
+|Pontuação de notação E |Pontuação real|
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## <a name="differences-with-predictions"></a>Diferenças com predições
-Quando preparar o mesmo modelo de uma aplicação diferente e as pontuações não são neste mesmas, isto acontece porque há um elemento de randomness de preparação. Lugar, qualquer sobrepõem-se de um utterance a intenção de mais do que um significa que a intenção superior para o mesmo utterance pode alterar com base na formação.
+## <a name="differences-with-predictions"></a>Diferenças de previsões
+Quando treinar o mesmo modelo num aplicativo diferente, e as pontuações não nesse mesmas, isto acontece porque existe um elemento um pouco da aleatoriedade no treinamento. Em segundo lugar, a qualquer sobrepõem-se de uma expressão em mais do que uma intenção significa que a intenção de superior para a mesma expressão pode mudar com base na formação.
 
-Se o seu chatbot requer uma pontuação LUIS específica para indicar a confiança no objetivo, em vez disso, deve utilizar a diferença de pontuação entre os dois pendentes principais. Isto proporciona flexibilidade variações nos formação. 
+Se sua chatbot exigir uma pontuação de LUIS específica para indicar a confiança numa intenção, deve usar a diferença de pontuação entre os objetivos de duas principais. Isto proporciona flexibilidade para variações no treinamento. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+Ver [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.

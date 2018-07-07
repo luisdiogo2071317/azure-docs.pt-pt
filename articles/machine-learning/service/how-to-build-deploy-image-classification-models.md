@@ -1,6 +1,6 @@
 ---
-title: Criar e implementar um modelo de classificação de imagem utilizando o pacote do Azure Machine Learning para problemas de visão do computador.
-description: Saiba como criar, dar formação, testar e implementar um modelo de classificação do imagem do computador visão utilizando o pacote do Azure Machine Learning para problemas de visão do computador.
+title: Criar e implementar um modelo de classificação de imagem usando o pacote do Azure Machine Learning para imagem digitalizada.
+description: Saiba como criar, formar, testar e implementar um imagem classificação modelo de imagem digitalizada com o pacote do Azure Machine Learning para imagem digitalizada.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,34 +9,34 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 2c988f8651d0ae9a8662b502ca2ba2dbabb2defe
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116184"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888437"
 ---
-# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Criar e implementar modelos de classificação de imagem com o Azure Machine Learning
+# <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Criar e implementar modelos de classificação de imagens com o Azure Machine Learning
 
-Neste artigo, saiba como utilizar **Azure Machine Learning pacote para computador visão** (AMLPCV) para dar formação, testar e implementar um modelo de classificação de imagem. 
+Neste artigo, saiba como utilizar **pacote do Azure Machine Learning para imagem digitalizada** (AMLPCV) para dar formação, testar e implementar um modelo de classificação de imagem. 
 
-Um grande número de problemas no domínio de visão computador possam ser resolvido através da classificação de imagem. Estes problemas incluem a criação de modelos que responda às perguntas, tais como:
-+ _Não existe um OBJETO de imagem? Por exemplo, "preguiçoso", "carro", "são enviados" e assim sucessivamente_
-+ _Que tipo de gravidade de disease olho é evinced pela análise retinal este patient?_
+Um grande número de problemas do domínio de visão do computador pode ser resolvido com a classificação de imagens. Esses problemas incluem a criação de modelos que responder a perguntas como:
++ _É um OBJETO presente na imagem? Por exemplo, "cachorro", "car", "Enviar" e assim por diante_
++ _O que a classe de severidade de doenças de olho é evinced por verificação de retinal este paciente?_
 
-Quando criar e implementar este modelo com AMLPCV, leia os seguintes passos:
+Ao criar e implementar este modelo com AMLPCV, que execute os seguintes passos:
 1. Criação de conjunto de dados
-2. Visualização de imagem e anotação
-3. Imagem Augmentation
-4. Definição de modelo de rede neuronal profundo (DNN)
-5. Classificador formação
+2. Visualização da imagem e a anotação
+3. Aumento de imagem
+4. Definição de modelo de rede Neurais profundas (DNN)
+5. Treinamento de classificador
 6. Avaliação e visualização
-7. Implementação de serviço Web
-8. Serviço Web do teste de carga
+7. Implementação do serviço Web
+8. Serviço Web de teste de carga
 
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) é utilizado como o framework de aprendizagem profunda, formação é executada localmente numa máquina GPU ligada, tal como a ([profunda de VM de ciência de dados de aprendizagem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), e a implementação utilizar a CLI do Azure ML Operationalization.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) é utilizado como a estrutura de aprendizagem profunda, treinamento é executado localmente num computador com a tecnologia de GPU, como o ([VM de ciência de dados de aprendizagem profunda](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), e a implementação utiliza a CLI do Azure ML Operacionalização.
 
-Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para a referência de detalhado para cada módulo e uma classe.
+Consulte a [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para obter a referência detalhada para cada módulo e uma classe.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,33 +44,27 @@ Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages
 
 1. As seguintes contas e aplicação tem de ser configurados e instalados:
    - Uma conta de Experimentação do Azure Machine Learning 
-   - Uma conta de gestão de modelo do Azure Machine Learning
+   - Uma conta de gestão de modelos do Azure Machine Learning
    - O Azure Machine Learning Workbench instalado
 
-   Se estes três são ainda não foi criadas ou instaladas, siga o [instalação de início rápido do Azure Machine Learning e Workbench](../service/quickstart-installation.md) artigo. 
+   Se esses três são ainda não foi criados ou instalados, siga os [instalação manual de início rápido do Azure Machine Learning e Bancada de trabalho](../service/quickstart-installation.md) artigo. 
 
-1. O pacote de aprendizagem máquina do Azure para problemas de visão do computador tem de estar instalado. Saiba como [instalar este pacote aqui](https://aka.ms/aml-packages/vision).
+1. Tem de estar instalado o pacote de Aprendizado de máquina do Azure para imagem digitalizada. Saiba como [instalar este pacote aqui](https://aka.ms/aml-packages/vision).
 
-## <a name="sample-data-and-notebook"></a>Bloco de notas e dados de exemplo
+## <a name="sample-data-and-notebook"></a>Dados de exemplo e o bloco de notas
 
 ### <a name="get-the-jupyter-notebook"></a>Obter o bloco de notas do Jupyter
 
-Transferir o bloco de notas para executar o exemplo descrito aqui por si.
+Transferir o bloco de notas para executar o exemplo descrito aqui por conta própria.
 
 > [!div class="nextstepaction"]
 > [Obter o bloco de notas do Jupyter](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
 ### <a name="load-the-sample-data"></a>Carregar os dados de exemplo
 
-O exemplo seguinte utiliza um conjunto de dados constituída por 63 imagens de tableware. Cada imagem é identificada como pertencentes a um dos quatro diferentes classes (bowl cup, cutlery, plate). O número de imagens neste exemplo é pequeno para que este exemplo pode ser executado rapidamente. Na prática, devem ser fornecidas, pelo menos, 100 imagens por classe. Todas as imagens estão localizadas em *".. /sample_data/imgs_recycling / "* no subdiretórios chamados"bowl","cup","cutlery"e"plate".
+O exemplo seguinte utiliza um conjunto de dados consiste em imagens de tableware 63. Cada imagem é identificada como pertencente a um dos quatro diferentes classes (bowl, cup, cutlery, prato). O número de imagens neste exemplo é pequeno para que este exemplo pode ser executado rapidamente. Na prática, devem ser fornecidas, pelo menos, 100 imagens por classe. Todas as imagens estão localizadas em *"... /sample_data/imgs_recycling / "* em subdiretórios chamados"bowl","cup","cutlery"e"prato".
 
 ![Conjunto de dados do Azure Machine Learning](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
-
-## <a name="storage-context"></a>Contexto de armazenamento
-
-O contexto de armazenamento é utilizado para determinar onde serão armazenados vários ficheiros de saída, tais como imagens aumentados ou ficheiros de modelo DNN. Para obter mais informações sobre contextos de armazenamento, consulte o [StorageContext documentação](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-Normalmente, os conteúdos de armazenamento não necessitam de ser definida explicitamente. No entanto, para evitar o limite de 25 MB no tamanho projeto imposto o Workbench do Azure Machine Learning, defina o diretório de saídas para o pacote do Azure Machine Learning visão de computador para uma localização fora do projecto de Azure Machine Learning (".. /.. /.. /.. / cvtk_output "). Não se esqueça de remover o diretório de "cvtk_output" uma vez que já não é necessária.
 
 
 ```python
@@ -84,49 +78,39 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
 ## <a name="create-a-dataset"></a>Criar um conjunto de dados
 
-Depois de ter importado as dependências e definir o contexto de armazenamento, pode criar o objeto do conjunto de dados.
+Assim que tiver importado as dependências e defina o contexto de armazenamento, pode criar o objeto de conjunto de dados.
 
-Para criar esse objeto com o pacote do Azure Machine Learning para problemas de visão do computador, forneça o diretório de raiz das imagens no disco local. Este diretório tem de seguir a mesma estrutura geral de como o conjunto de dados tableware, ou seja, conter subdiretórios com as imagens reais:
+Para criar esse objeto com o pacote do Azure Machine Learning para imagem digitalizada, forneça o diretório de raiz das imagens no disco local. Este diretório tem de seguir a mesma estrutura geral de como o conjunto de dados tableware, ou seja, contém subdiretórios com as imagens reais:
 - raiz
     - etiqueta 1
     - etiqueta de 2
     - ...
     - etiqueta n
   
-Um modelo de classificação de imagem de preparação para um conjunto de dados diferentes é tão fácil como alterar o caminho raiz `dataset_location` no seguinte código para apontarem imagens diferentes.
+Um modelo de classificação de imagem de preparação para um conjunto de dados diferente é tão fácil como alterar o caminho de raiz `dataset_location` no código a seguir para apontar para diferentes imagens.
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -140,13 +124,13 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-O objeto do conjunto de dados fornece funcionalidades para transferir imagens a utilizar o [API de pesquisa do Bing imagem](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
+O objeto de conjunto de dados fornece uma funcionalidade para transferir imagens a utilizar o [API de pesquisa de imagens do Bing](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
 
-São suportados dois tipos de consultas de pesquisa: 
-+ Consultas de texto regular
-+ Consultas de URL da imagem
+Dois tipos de consultas de pesquisa são suportados: 
++ Consultas de texto normal
++ Consultas de URL de imagem
 
-Estas consultas, juntamente com a etiqueta de classe tem de ser fornecidas no interior de um ficheiro de texto codificada em JSON. Por exemplo:
+Estas consultas, juntamente com a etiqueta de classe devem ser fornecidas dentro de um arquivo de texto codificado em JSON. Por exemplo:
 
 ```json
 {
@@ -171,31 +155,30 @@ Estas consultas, juntamente com a etiqueta de classe tem de ser fornecidas no in
 }
 ```
 
-Além disso, tem de criar explicitamente um objeto de contexto para conter a chave de API de pesquisa do Bing imagem. Isto requer uma subscrição de API de pesquisa do Bing imagem.
+Além disso, tem de criar explicitamente um objeto de contexto para conter a chave de API de pesquisa de imagens do Bing. Isto requer uma subscrição de API de pesquisa de imagens do Bing.
 
-## <a name="visualize-and-annotate-images"></a>Visualizar e anotar imagens
+## <a name="visualize-and-annotate-images"></a>Visualize e anotar imagens
 
-Pode visualizar as imagens e etiquetas corretas no objeto do conjunto de dados com a miniaplicação seguinte. 
+É possível visualizar as imagens e etiquetas corretas no objeto de conjunto de dados utilizando a miniaplicação seguinte. 
 
-Se ocorrer o erro "O Javascript Widget não detetado", execute este comando para resolver este:
+Se ocorrer o erro "Não detectada o Javascript de Widget", execute este comando para resolvê-lo:
 <br>`jupyter nbextension enable --py --sys-prefix widgetsnbextension`
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
 
 ![Conjunto de dados do Azure Machine Learning](media/how-to-build-deploy-image-classification-models/image_annotation.png)
 
-## <a name="augment-images"></a>Aumentar imagens
+## <a name="augment-images"></a>Incrementar imagens
 
-O [ `augmentation` módulo](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) fornece funcionalidades para aumentar um objeto de conjunto de dados com todas as transformações descritas a [imgaug](https://github.com/aleju/imgaug) biblioteca. Transformações de imagem podem ser agrupadas num único pipeline, caso em que todas as transformações no pipeline são aplicadas em simultâneo cada imagem. 
+O [ `augmentation` módulo](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) fornece funcionalidades para incrementar um objeto de conjunto de dados usando todas as transformações descritas o [imgaug](https://github.com/aleju/imgaug) biblioteca. Transformações de imagem podem ser agrupadas num único pipeline, caso em que todas as transformações no pipeline são aplicadas em simultâneo cada imagem. 
 
-Se gostaria de aplicar os passos de augmentation diferentes em separado, ou qualquer outra forma, pode definir vários pipelines e transmita-los para o *augment_dataset* função. Para obter mais informações e exemplos de augmentation de imagem, consulte o [imgaug documentação](https://github.com/aleju/imgaug).
+Se gostaria de aplicar os passos do aumento diferentes em separado, ou de forma diferente, pode definir vários pipelines e passá-los para o *augment_dataset* função. Para obter mais informações e exemplos de aumento de imagem, consulte a [imgaug documentação](https://github.com/aleju/imgaug).
 
-A adição de imagens aumentadas ao conjunto de preparação é especialmente vantajoso para conjuntos de dados pequenos. Uma vez que o processo de formação DNN mais lento devido ao aumento do número de imagens de formação, recomendamos que comece experimentação sem augmentation.
+A adição de imagens aumentadas ao conjunto de preparação é benéfico sobretudo para conjuntos de dados pequeno. Uma vez que o processo de treinamento de DNN é mais lento devido ao aumento do número de imagens de formação, recomendamos que comece experimentação sem aumento.
 
 
 ```python
@@ -227,18 +210,18 @@ else:
 
 ## <a name="define-dnn-models"></a>Definir modelos de DNN
 
-São suportados os seguintes modelos de rede neuronal profunda pretrained com este pacote: 
-+ Resnet 18
-+ Resnet 34
-+ Resnet 50
-+ Resnet 101
-+ Resnet 152
+Os seguintes modelos de rede Neural profunda pretrained são suportados com este pacote: 
++ Utilizar o Resnet-18
++ Utilizar o Resnet-34
++ Utilizar o Resnet-50
++ Utilizar o Resnet-101
++ Utilizar o Resnet-152
 
-Estes DNNs podem ser utilizadas como classificador ou como featurizer. 
+Estes DNNs podem ser utilizados como classificador, ou como featurizer. 
 
-Podem encontrar mais informações sobre as redes [aqui](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), não sendo uma introdução básica a transferência de aprendizagem [aqui](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+Podem encontrar mais informações sobre as redes [aqui](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), e é uma introdução básica a aprendizagem de transferência [aqui](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
 
-Os parâmetros de classificação de imagem predefinido para este pacote são resolução de pixel 224 x 224 e um DNN Resnet-18. Estes parâmetros foram selecionados para funcionar melhor numa ampla variedade de tarefas. Precisão pode, muitas vezes, ser melhorada, por exemplo, aumentando a resolução da imagem a 500 x 500 pixéis, e/ou selecionar um modelo mais profundo (Resnet 50). No entanto, a alteração dos parâmetros pode ter num aumento significativo no tempo de preparação. Consulte o artigo sobre [como melhorar a precisão](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
+Os parâmetros de classificação de imagem padrão para este pacote são a resolução de pixel de 224 x 224 e um DNN de utilizar o Resnet-18. Estes parâmetros foram selecionados para funcionar melhor numa grande variedade de tarefas. Precisão pode, muitas vezes, ser aperfeiçoada, por exemplo, ao aumentar a resolução da imagem para 500 x 500 pixels, e/ou selecionar um modelo mais profundo (utilizar o Resnet-50). No entanto, alteração dos parâmetros têm um aumento significativo no tempo de treinamento. Consulte o artigo sobre [como melhorar a precisão](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
 
 
 ```python
@@ -264,16 +247,16 @@ dnn_model = CNTKTLModel(train_set.labels,
     Successfully downloaded ResNet18_ImageNet_CNTK
     
 
-## <a name="train-the-classifier"></a>Preparar o classificador
+## <a name="train-the-classifier"></a>Treinar o classificador
 
-Pode escolher um dos seguintes métodos para a pré-treinado DNN.
+Pode escolher um dos seguintes métodos para o DNN com formação prévia.
 
-  - **DNN refinement**, que trains DNN para efetuar a classificação diretamente. Enquanto formação DNN estiver lenta,-normalmente leva a obter os melhores resultados, uma vez que todas as ponderações de rede podem ser melhoradas durante a preparação para dar melhor exatidão.
+  - **Refinamento de DNN**, que prepara o DNN para executar a classificação diretamente. Enquanto o treinamento de DNN estiver lento, isso geralmente leva aos melhores resultados, uma vez que todos os pesos de rede podem ser melhorados durante o treinamento para dar maior precisão.
 
-  - **DNN featurization**, que é executada DNN como-é para obter uma representação de uma imagem inferior dimensional (512, 2048 ou 4096 floats). Esse representação, em seguida, é utilizada como entrada para preparar um classificador separado. Uma vez que o DNN é mantida inalterado, esta abordagem é muito mais rapidamente em comparação com DNN refinement, no entanto, a precisão não é bom como. Contudo, um classificador externo, como um SVM linear de preparação (conforme ilustrado no seguinte código) pode fornecer uma linha de base segura e ajudar a compreender a viabilidade de um problema.
+  - **DNN featurization**, que é executada DNN como-é obter uma representação inferior-dimensional de uma imagem (512, 2048 ou 4096 flutua). Essa representação, em seguida, é utilizada como entrada para treinar um classificador separado. Uma vez que o DNN é mantido inalterado, essa abordagem é muito mais rápido em comparação com Refinamento de DNN, no entanto, não é tão bom precisão. No entanto, treinar um classificador externo, como um SVM linear (como mostrado no código a seguir) pode fornecer uma linha de base segura e ajudam a compreender a viabilidade de um problema.
   
-TensorBoard pode ser utilizado para visualizar o progresso de formação. Para ativar TensorBoard:
-1. Adicione o parâmetro `tensorboard_logdir=PATH` conforme mostrado no seguinte código
+TensorBoard pode ser utilizado para visualizar o curso de treinamento. Para ativar TensorBoard:
+1. Adicione o parâmetro `tensorboard_logdir=PATH` conforme mostrado no código a seguir
 1. Iniciar o cliente de TensorBoard utilizando o comando `tensorboard --logdir=PATH` numa nova consola.
 1. Abra um browser, conforme indicado pelo TensorBoard, que, por predefinição é localhost:6006. 
 
@@ -356,13 +339,13 @@ if classifier_name == "dnn":
 ![PNG](media/how-to-build-deploy-image-classification-models/output_17_0.png)
 
 
-## <a name="evaluate-and-visualize-model-performance"></a>Avaliar e visualizar o desempenho do modelo
+## <a name="evaluate-and-visualize-model-performance"></a>Avaliar e visualize o desempenho do modelo
 
-Pode avaliar o desempenho do modelo treinado um conjunto de dados de teste independentes utilizando o módulo de avaliação. Algumas das métricas de avaliação calcula incluem:
+Pode avaliar o desempenho do modelo preparado num conjunto de dados independente de teste utilizando o módulo de avaliação. Algumas das métricas de avaliação computa incluem:
  
-+ Precisão (por predefinição uma média de classe)
-+ Curva ELI
-+ Curva ROC
++ Precisão (por predefinição a média de classe)
++ Curva de PR
++ Curva cor MULTICLASSE
 + Área em curva
 + Matriz de confusão
 
@@ -407,7 +390,6 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
@@ -420,18 +402,17 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```
 
 ![Conjunto de dados do Azure Machine Learning](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: implementar e consumir
+## <a name="operationalization-deploy-and-consume"></a>Operacionalização: implementar e consumir
 
-Operationalization é o processo de publicação modelos e código como serviços web e o consumo destes serviços para produzir resultados de negócios. 
+Operacionalização é o processo de publicação de modelos e código como serviços da web e o consumo de um destes serviços para produzir resultados de negócios. 
 
-Depois do seu modelo está preparado, pode implementar este modelo como um serviço web para utilizar o consumo [CLI do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Os modelos podem ser implementados para o computador local ou o cluster do serviço de contentor do Azure (ACS). Utilizar ACS, pode dimensionar o seu serviço web manualmente ou utilizar a funcionalidade de dimensionamento automático.
+Assim que é preparado o modelo, pode implementar esse modelo como um serviço web para a utilização de consumo [da CLI do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Os modelos podem ser implementados em seu computador local ou o cluster do Azure Container Service (ACS). Usando o ACS, pode dimensionar manualmente o seu serviço web ou utilizar a funcionalidade de dimensionamento automático.
 
 **Inicie sessão com a CLI do Azure**
 
@@ -441,17 +422,17 @@ Utilizar um [Azure](https://azure.microsoft.com/) conta com uma subscrição vá
 + Para mudar para outra subscrição do Azure, utilize o comando:
 <br>`az account set --subscription [your subscription name]`
 
-+ Para ver a conta de gestão do modelo atual, utilize o comando:
++ Para ver a conta de gestão de modelo atual, utilize o comando:
   <br>`az ml account modelmanagement show`
 
 **Criar e definir o seu ambiente de implementação de cluster**
 
-Só tem de definir o seu ambiente de implementação de uma vez. Se ainda não tem um, configure o ambiente de implementação utiliza agora [estas instruções](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+Apenas terá de definir o seu ambiente de implantação uma vez. Se ainda não tiver uma, configurar o ambiente de implantação agora usando [estas instruções](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
-Para ver o seu ambiente de implementação do Active Directory, utilize o seguinte comando da CLI:
+Para ver o seu ambiente de implantação do Active Directory, utilize o seguinte comando da CLI:
 <br>`az ml env show`
    
-Comando da CLI do Azure para criar e definir o ambiente de implementação de exemplo
+Comando da CLI do Azure de exemplo para criar e definir o ambiente de implantação
 
 ```CLI
 az provider register -n Microsoft.MachineLearningCompute
@@ -462,25 +443,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Gerir serviços web e implementações
+### <a name="manage-web-services-and-deployments"></a>Gerir implementações e serviços da web
 
-As APIs seguintes pode ser utilizadas para implementar modelos como serviços web, gerir esses serviços web e gerir implementações.
+As seguintes APIs pode ser utilizadas para implementar modelos como serviços da web, gerir os serviços da web e gerir implementações.
 
 |Tarefa|API|
 |----|----|
 |Criar o objeto de implementação|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |Implementar o serviço web|`deploy_obj.deploy()`|
-|Imagem de modelo de pontuação|`deploy_obj.score_image(local_image_path_or_image_url)`|
-|Eliminar o serviço web|`deploy_obj.delete()`|
-|Compilar a imagem do docker sem o serviço web|`deploy_obj.build_docker_image()`|
+|Imagem de pontuação|`deploy_obj.score_image(local_image_path_or_image_url)`|
+|Eliminar serviço web|`deploy_obj.delete()`|
+|Criar a imagem do docker sem o serviço web|`deploy_obj.build_docker_image()`|
 |Lista de implementação existente|`AMLDeployment.list_deployment()`|
 |Eliminar se o serviço existe com o nome da implementação|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**Documentação da API:** consulte o [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para a referência de detalhado para cada módulo e uma classe.
+**Documentação da API:** consulte a [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para obter a referência detalhada para cada módulo e uma classe.
 
-**Referência da CLI:** para mais avançadas operações relacionadas com a implementação, consulte o [modelo gestão referência CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**Referência da CLI:** para mais avançada operações relacionadas com a implantação, consulte a [referência da CLI de gestão de modelos](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Gestão de implementação no portal do Azure**: pode controlar e gerir as implementações no [portal do Azure](https://ms.portal.azure.com/). No portal do Azure, localize a sua página de conta de gestão de modelo do Machine Learning utilizando o respetivo nome. Em seguida, avance para a página de conta de gestão do modelo > Gestão de modelo > serviços.
+**Gestão de implementação no portal do Azure**: pode controlar e gerir as implementações no [portal do Azure](https://ms.portal.azure.com/). No portal do Azure, encontre a sua página de conta de gestão de modelos do Machine Learning usa seu nome. Em seguida, vá para a página de conta de gestão de modelos > Gestão de modelos > serviços.
 
 
 ```python
@@ -537,13 +518,13 @@ print("Deployment DONE")
 
 ### <a name="consume-the-web-service"></a>Consumir o serviço web 
 
-Depois de implementar o modelo como um serviço web, pode Pontuar imagens com o serviço web utilizando um dos seguintes métodos:
+Depois de implementar o modelo como um serviço web, pode classificar imagens com o serviço web usando um dos seguintes métodos:
 
-- O serviço web diretamente com a utilização de objeto de implementação de pontuação `deploy_obj.score_image(image_path_or_url)`
+- Pontuação do serviço web diretamente com o objeto de implementação que utilizar `deploy_obj.score_image(image_path_or_url)`
 
-- Utilize a chave de URL e o serviço de ponto final de serviço (nenhum para a implementação local) com: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
+- Utilize a chave de serviço e o URL de ponto final de serviço (nenhum para a implementação local): `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
-- Forma os pedidos de HTTP diretamente para o ponto final do serviço web de pontuação. Esta opção é para utilizadores avançados.
+- Forma os pedidos de HTTP diretamente para o ponto de final de serviço web de pontuação. Esta opção é para os utilizadores avançados.
 
 ### <a name="score-with-existing-deployment-object"></a>Com o objeto de implementação existente de pontuação
 
@@ -591,7 +572,7 @@ for img_index, img_obj in enumerate(test_set.images[:10]):
     print(return_json)
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Pontuar com o url de ponto final de serviço e a chave de serviço
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Classificar pelo url do ponto final de serviço e a chave de serviço
 
 `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
@@ -614,9 +595,9 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json)
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Pontuar diretamente o ponto final com o pedido de http
+### <a name="score-endpoint-with-http-request-directly"></a>Ponto final de pontuação com diretamente a solicitação de http
 
-O código de exemplo seguintes compõe o pedido HTTP diretamente no Python. No entanto, pode fazê-lo noutras linguagens de programação.
+O seguinte código de exemplo faz o pedido HTTP diretamente em Python. No entanto, pode fazê-lo em outras linguagens de programação.
 
 
 ```python
@@ -667,9 +648,9 @@ images = [test_set.images[0].storage_path, test_set.images[1].storage_path] # A 
 score_image_list_with_http(images, service_endpoint_url, service_key)
 ```
 
-### <a name="parse-serialized-result-from-web-service"></a>Analisar o resultado serializado do serviço web
+### <a name="parse-serialized-result-from-web-service"></a>Analisar o resultado serializado de serviço da web
 
-A saída do serviço web é uma cadeia JSON. Pode analisar esta cadeia JSON com diferentes classes de modelo DNN.
+A saída do serviço web é uma cadeia de caracteres do JSON. Pode analisar essa cadeia de caracteres do JSON com diferentes classes de modelo DNN.
 
 
 ```python
@@ -695,12 +676,12 @@ print("Class label:", dnn_model.class_map[class_index])
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o pacote do Azure Machine Learning para visão de computador nestes artigos:
+Saiba mais sobre o pacote do Azure Machine Learning para imagem digitalizada nestes artigos:
 
-+ Saiba como [melhorar a precisão deste modelo](how-to-improve-accuracy-for-computer-vision-models.md).
++ Saiba como [melhorar a precisão desse modelo](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Leia o [descrição geral do pacote e aprender a instalá-lo](https://aka.ms/aml-packages/vision).
++ Leitura a [descrição geral do pacote e Aprenda a instalá-lo](https://aka.ms/aml-packages/vision).
 
-+ Explorar o [documentação de referência](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) para este pacote.
++ Explore os [documentação de referência](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) para este pacote.
 
-+ Saiba mais sobre [outros pacotes do Python para o Azure Machine Learning](reference-python-package-overview.md).
++ Saiba mais sobre [outros pacotes de Python para o Azure Machine Learning](reference-python-package-overview.md).

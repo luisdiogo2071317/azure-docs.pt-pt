@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 9793b98c384346dc0de68061d42b4bcb3c513ed4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12105829f62b988760d3bbf18000466fd27b9aff
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866207"
+ms.locfileid: "37888336"
 ---
 # <a name="tutorial-use-patterns-to-improve-predictions"></a>Tutorial: Utilizar padrões para melhorar as previsões de indisponibilidade
 
@@ -29,7 +29,7 @@ Neste tutorial, utilize padrões para aumentar a predição de intenção e enti
 * Como adicionar uma função a uma entidade para encontrar contextualmente baseada em entidades
 * Como adicionar um Pattern.any para encontrar as entidades de forma livre
 
-Para este artigo, precisa de uma conta do [LUIS][LUIS] gratuita para criar a sua aplicação LUIS.
+Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md) gratuita para criar a sua aplicação LUIS.
 
 ## <a name="import-humanresources-app"></a>Aplicação de RecursosHumanos de importação
 Este tutorial importa uma aplicação de RecursosHumanos. A aplicação tem três objetivos: nenhum, GetEmployeeOrgChart, GetEmployeeBenefits. A aplicação tem duas entidades: número pré-criados e funcionários. A entidade Employee é uma entidade para extrair o nome de um funcionário. 
@@ -250,6 +250,4 @@ Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione as ret
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Utilize a lista de frase para melhorar a previsão](luis-tutorial-interchangeable-phrase-list.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Aprenda as melhores práticas para aplicações de LUIS](luis-concept-best-practices.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: c1bff75ebdba656127f7860bdb72d368a94ef20b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866547"
+ms.locfileid: "37888658"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e a política de atualização de recursos de infraestrutura
 Este documento informa como personalizar as várias configurações de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o seu cluster do Service Fabric. Pode personalizá-las através da [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -752,6 +752,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |FabricLogRoot |Cadeia | Não Permitido |Diretório de raiz do registo de recursos de infraestrutura do serviço. Trata-se em que são colocados os registos de SF e rastreios. |
 |NodesToBeRemoved|cadeia de caracteres, a predefinição é ""| Dinâmica |Os nós que devem ser removidos como parte da atualização de configuração. (Apenas para implementações de autónomo)|
 |ServiceRunAsAccountName |Cadeia | Não Permitido |O nome da conta sob a qual pretende executar o serviço de anfitrião de recursos de infraestrutura. |
+|SkipContainerNetworkResetOnReboot|bool, a predefinição é falso|NotAllowed|Se ignorar a repor rede de contentor na reinicialização.|
 |SkipFirewallConfiguration |Bool, a predefinição é falso | Não Permitido |Especifica se as definições da firewall tem de ser definido pelo sistema ou não. Isto aplica-se apenas se estiver a utilizar o firewall do windows. Se estiver a utilizar firewalls de terceiros, em seguida, tem de abrir as portas para o sistema e as aplicações para utilizar |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService

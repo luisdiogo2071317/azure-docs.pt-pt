@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d814bed6f126cb3b81d85c4e797a22d2ac22ddfb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4862e3aa976287512fd69fdfe9295e3f3328d5a7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856210"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887781"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -245,9 +245,13 @@ O hub do edge, que faz parte do runtime do edge, é otimizado para desempenho, p
 ### <a name="resolution"></a>Resolução
 Para o edge hub define uma variável de ambiente **OptimizeForPerformance** ao **falso**. Existem duas formas de fazer isso:
 
-Na IU: no portal de *detalhes do dispositivo*->*definir módulos*->*configurar definições de Runtime do Edge avançadas*, criar um ambiente variável chamada *OptimizeForPerformance* que está definido como *false* para o *Hub do Edge*.
+Na interface de Usuário: 
+
+No portal de *detalhes do dispositivo*->*definir módulos*->*configurar definições de Runtime do Edge avançadas*, criar uma variável de ambiente chamado *OptimizeForPerformance* que está definido como *false* para o *Hub do Edge*.
 
 ![optimizeforperformance][img-optimize-for-perf]
+
+**OR**
 
 No manifesto de implantação:
 

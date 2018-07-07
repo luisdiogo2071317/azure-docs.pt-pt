@@ -1,6 +1,6 @@
 ---
-title: Compreender os conceitos de extração de dados do LUIS - Azure | Microsoft Docs
-description: Saiba que tipo de dados pode ser extraído de compreensão de idiomas (LUIS)
+title: Compreender os conceitos de extração de dados do LUIS - Azure | Documentos da Microsoft
+description: Saiba de que tipo de dados pode ser extraído de compreensão de idiomas (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -9,29 +9,29 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 8d8620a1c53037be6f1a33083f41964655a04921
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4d18419a6ad8be6ee46944c34205e450212b23a8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112121"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888518"
 ---
 # <a name="data-extraction"></a>Extração de dados
-LUIS dá-lhe a capacidade de obter as informações da utterances de linguagem natural de um utilizador. As informações são extraídas de forma a que pode ser utilizado por um programa, aplicação ou chatbot qualquer ação.
+LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, uma aplicação ou um chatbot para tomar medidas.
 
-Nas secções seguintes, saiba que dados são devolvidos de entidades com exemplos de JSON e pendentes. Os dados hardest, a extrair são os dados adquiridos por máquina porque não é uma correspondência exata de texto. Extração de dados do aprendidas máquina [entidades](luis-concept-entity-types.md) deve fazer parte do [criação ciclo](luis-concept-app-iteration.md) até que tiver a certeza de que recebe os dados esperados. 
+As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON. Os dados mais difícil para extrair são os dados aprendidas por máquina, porque não é uma correspondência exata de texto. Extração de dados do aprendidas de máquina [entidades](luis-concept-entity-types.md) deve fazer parte do [criação ciclo](luis-concept-app-iteration.md) até que tiver a certeza de que recebe os dados esperados. 
 
 ## <a name="data-location-and-key-usage"></a>Utilização de localização e a chave de dados
-LUIS fornece os dados da publicado [endpoint](luis-glossary.md#endpoint). O **pedido HTTPS** (POST ou GET) contém o utterance, bem como algumas configurações opcionais, tais como a ambientes de teste ou de produção. 
+LUIS fornece os dados a partir do publicados [ponto final](luis-glossary.md#endpoint). O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, como ambientes de teste ou produção. 
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-O `appID` está disponível na **definições** página do seu LUIS aplicações, bem como parte do URL (depois de `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Apesar de poder utilizar a chave de criação livre/starter. enquanto estiver a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporte o [esperado utilização LUIS](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
+O `appID` está disponível na **definições** página da sua aplicação LUIS, assim como parte do URL (após `/apps/`) quando estiver a editar essa aplicação LUIS. O `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Embora seja possível usar a chave de criação gratuita/starter. enquanto está a aprender o LUIS, é importante alterar a chave de ponto final para uma chave que oferece suporte a seus [LUIS utilização esperada](luis-boundaries.md#key-limits). O `timezoneOffset` unidade é minutos.
 
-O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar, com base no modelo publicado atual do ponto final do teste ou de produção. O ponto final do URL for encontrado no [LUIS] [ LUIS] Web site **publicar** página. 
+O **resposta HTTPS** contém todas as informações de intenção e entidade LUIS pode determinar com base no modelo publicado atual do ponto final de transição ou produção. O ponto final do URL encontra-se no [LUIS](luis-reference-regions.md) site **Publish** página. 
 
-## <a name="data-from-intents"></a>Dados de pendentes
-Os dados primários são parte superior da classificação **nome intenção**. Utilizar o `MyStore` [início rápido](luis-quickstart-intents-only.md), a resposta do ponto final é:
+## <a name="data-from-intents"></a>Dados desde intenções
+Os dados primários são a parte superior de classificação **intenção nome**. Utilizar o `MyStore` [guia de introdução](luis-quickstart-intents-only.md), a resposta do ponto final é:
 
 ```JSON
 {
@@ -46,9 +46,9 @@ Os dados primários são parte superior da classificação **nome intenção**. 
 
 |Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
 |--|--|--|--|
-|Objetivo|Cadeia|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|Cadeia|topScoringIntent.intent|"GetStoreInfo"|
 
-Se a aplicação de chamar LUIS ou chatbot fizer uma decisão com base em mais do que uma pontuação intenção, devolver pontuações dos pendentes, definindo o parâmetro de cadeia de consulta, `verbose=true`. A resposta do ponto final é:
+Se a aplicação de chamada de LUIS ou chatbot fizer uma decisão com base na mais do que uma classificação de intenção, devolver pontuações dos objetivos ao definir o parâmetro de cadeia de consulta, `verbose=true`. A resposta do ponto final é:
 
 ```JSON
 {
@@ -71,14 +71,14 @@ Se a aplicação de chamar LUIS ou chatbot fizer uma decisão com base em mais d
 }
 ```
 
-Os pendentes são ordenadas do valor mais alto a classificação mais baixa.
+Os objetivos são ordenados da mais alta pontuação mais baixa.
 
 |Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|Classificação|
 |--|--|--|--|:--|
-|Objetivo|Cadeia|.intent pendentes [0]|"GetStoreInfo"|0.984749258|
-|Objetivo|Cadeia|.intent pendentes [1]|"None"|0.0168218873|
+|Intenção|Cadeia|.intent intenções [0]|"GetStoreInfo"|0.984749258|
+|Intenção|Cadeia|.intent intenções [1]|"None"|0.0168218873|
 
-Se adicionar domínios prebuilt, o nome da intenção indica o domínio, tal como `Utilties` ou `Communication` , bem como o objetivo:
+Se adicionar domínios pré-concebidos, o nome de intenção indica o domínio, tal como `Utilties` ou `Communication` , bem como a intenção:
 
 ```JSON
 {
@@ -106,17 +106,17 @@ Se adicionar domínios prebuilt, o nome da intenção indica o domínio, tal com
     
 |Domínio|Objeto de dados|Tipo de Dados|Localização dos Dados|Valor|
 |--|--|--|--|--|
-|Serviços Públicos|Objetivo|Cadeia|.intent pendentes [0]|"<b>Utilitários</b>. ShowNext"|
-|Comunicação|Objetivo|Cadeia|.intent pendentes [1]|<b>Comunicação</b>. StartOver"|
-||Objetivo|Cadeia|.intent pendentes [2]|"None"|
+|Serviços Públicos|Intenção|Cadeia|.intent intenções [0]|"<b>Utilitários</b>. ShowNext"|
+|Comunicação|Intenção|Cadeia|.intent intenções [1]|<b>Comunicação</b>. StartOver"|
+||Intenção|Cadeia|.intent intenções [2]|"None"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
-A maioria das aplicações e chatbots tem mais do que o nome de intenção. Estes dados adicionais, optional provém de entidades detetadas no utterance. Cada tipo de entidade devolve diferentes informações sobre a correspondência. 
+A maioria dos chatbots e as aplicações necessitam de mais do que o nome de intenção. Adicionais e opcionais vêm os dados detetadas na expressão de entidades. Cada tipo de entidade devolve diferentes informações sobre a correspondência. 
 
-Uma única palavra ou frase num utterance pode corresponder a mais de uma entidade. Nesse caso, é devolvida cada entidade correspondente com o respetivo modelo de pontuação. 
+Uma única palavra ou frase numa expressão pode corresponder a mais de uma entidade. Nesse caso, cada entidade correspondente é devolvida com sua pontuação. 
 
-Todas as entidades são devolvidas no **entidades** matriz da resposta do ponto final:
+Todas as entidades são retornadas no **entidades** matriz da resposta do ponto final:
 
 ```JSON
 "entities": [
@@ -140,19 +140,19 @@ Todas as entidades são devolvidas no **entidades** matriz da resposta do ponto 
 ```
 
 ## <a name="tokenized-entity-returned"></a>Entidade com token devolvida
-Vários [culturas](luis-supported-languages.md#tokenization) devolver o objeto de entidade com o `entity` valor [atomizada](luis-glossary.md#token). O startIndex e endIndex devolvido pelo LUIS no objeto de entidade não mapeiam para o valor novo, com token, mas em vez disso, para a consulta original para que, a extrair a entidade não processada através de programação. 
+Várias [culturas](luis-supported-languages.md#tokenization) devolve o objeto de entidade com o `entity` valor [com token](luis-glossary.md#token). O startIndex e endIndex devolvido pelo LUIS no objeto de entidade não mapeiam para o valor novo, com token, mas sim à consulta original para que extrair a entidade não processada por meio de programação. 
 
-Por exemplo, em alemão, a palavra `das Bauernbrot` é atomizada para `das bauern brot`. O valor tokenized, `das bauern brot`, é devolvido e o valor original pode ser determinado através de programação do startIndex e endIndex da consulta original, dando-lhe `das Bauernbrot`.
+Por exemplo, em alemão, a palavra `das Bauernbrot` é com token em `das bauern brot`. O valor de tokenized `das bauern brot`, é devolvido e o valor original pode ser determinado através de programação do startIndex e endIndex da consulta original, dando-lhe `das Bauernbrot`.
 
-## <a name="simple-entity-data"></a>Dados de entidade simples
+## <a name="simple-entity-data"></a>Dados de entidades simples
 
-A [entidade simple](luis-concept-entity-types.md) é um valor adquiridos por máquina. Pode ser uma palavra ou expressão. 
+R [entidade simple](luis-concept-entity-types.md) é um valor aprendidas por máquina. Pode ser uma palavra ou frase. 
 
 `Bob Jones wants 3 meatball pho`
 
-No utterance anterior, `Bob Jones` assinalada como como uma simples `Customer` entidade.
+Na expressão anterior, `Bob Jones` é identificado como um simples `Customer` entidade.
 
-Os dados devolvidos do ponto final incluem o nome da entidade, o texto do utterance detetado, a localização do texto detetado e a classificação:
+Os dados devolvidos a partir do ponto final incluem o nome da entidade, o texto detetado da expressão, a localização do texto detetado e a pontuação:
 
 ```JSON
 "entities": [
@@ -170,15 +170,15 @@ Os dados devolvidos do ponto final incluem o nome da entidade, o texto do uttera
 |--|--|--|
 |Entidade Simple|"Cliente"|"bob jones"|
 
-## <a name="hierarchical-entity-data"></a>Dados de entidade hierárquica
+## <a name="hierarchical-entity-data"></a>Dados de entidades hierárquicas
 
-[Hierárquica](luis-concept-entity-types.md) entidades são aprendidas de máquina e pode incluir uma palavra ou expressão. Elementos subordinados são identificados pelo contexto. Se estiver à procura de uma relação principal-subordinado com correspondência exata de texto, utilize um [lista](#list-entity-data) entidade. 
+[Hierárquica](luis-concept-entity-types.md) entidades são adquiridos de máquina e pode incluir uma palavra ou frase. Filhos são identificados por contexto. Se estiver procurando por uma relação principal-subordinado com correspondência exata de texto, utilize um [lista](#list-entity-data) entidade. 
 
 `book 2 tickets to paris`
 
-No utterance anterior, `paris` assinalada como um `Location::ToLocation` subordinado do `Location` entidade hierárquica. 
+Na expressão anterior, `paris` assinalada como uma `Location::ToLocation` subordinado do `Location` entidades hierárquicas. 
 
-Os dados devolvidos do ponto final incluem o nome da entidade e nome de elemento subordinado, o texto do utterance detetado, a localização do texto detetado e a classificação: 
+Os dados devolvidos a partir do ponto final incluem o nome da entidade e nome de subordinado, o texto detetado da expressão, a localização do texto detetado e a pontuação: 
 
 ```JSON
 "entities": [
@@ -194,18 +194,18 @@ Os dados devolvidos do ponto final incluem o nome da entidade e nome de elemento
 
 |Objeto de dados|Principal|Subordinado|Valor|
 |--|--|--|--|--|
-|Entidade hierárquica|Localização|ToLocation|"paris"|
+|Entidades hierárquicas|Localização|ToLocation|"paris"|
 
-## <a name="composite-entity-data"></a>Dados de entidade composto
-[Composto](luis-concept-entity-types.md) entidades são aprendidas de máquina e pode incluir uma palavra ou expressão. Por exemplo, considere uma entidade composta de prebuilt `number` e `Location::ToLocation` com utterance o seguinte:
+## <a name="composite-entity-data"></a>Dados de entidades compostos
+[Composto](luis-concept-entity-types.md) entidades são adquiridos de máquina e pode incluir uma palavra ou frase. Por exemplo, considere uma entidade composta de pré-criados `number` e `Location::ToLocation` com a seguinte expressão:
 
 `book 2 tickets to paris`
 
-Repare que `2`, o número e `paris`, o ToLocation ter palavras entre os mesmos que não fazem parte de qualquer das entidades. O sublinhado verde, utilizado num utterance identificado no [LUIS] [ LUIS] Web site, indica uma entidade composta.
+Tenha em atenção que `2`, o número e `paris`, o ToLocation ter palavras entre eles que não fazem parte de qualquer uma das entidades. O sublinhado verde, usado numa expressão etiquetado no [LUIS](luis-reference-regions.md) Web site, indica uma entidade composta.
 
 ![Entidade composta](./media/luis-concept-data-extraction/composite-entity.png)
 
-Entidades compostas são devolvidas num `compositeEntities` matriz e todas as entidades dentro de compostos também são devolvidas no `entities` matriz:
+Entidades compostas são retornadas numa `compositeEntities` matriz e todas as entidades dentro de composição também são retornadas no `entities` matriz:
 
 ```JSON
   "entities": [
@@ -253,23 +253,23 @@ Entidades compostas são devolvidas num `compositeEntities` matriz e todas as en
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
-|Entidade prebuilt - número|"builtin.number"|"2"|
-|Entidade hierárquica - localização|"Location::ToLocation"|"paris"|
+|Entidade pré-criados - número|"builtin.number"|"2"|
+|Entidades hierárquicas - localização|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Dados de entidades de lista
 
-A [lista](luis-concept-entity-types.md) entidade não é aprendidas máquina. É uma correspondência exata de texto. Uma lista representa os itens na lista, juntamente com os sinónimos para esses itens. LUIS marca qualquer correspondência para um item na lista de quaisquer como uma entidade na resposta. Pode ser um sinónimo na lista de mais do que um. 
+R [lista](luis-concept-entity-types.md) entidade não será adquirida máquina. É uma correspondência exata de texto. Uma lista representa os itens na lista, juntamente com os sinónimos para esses itens. LUIS marca qualquer correspondência com um item em qualquer lista como uma entidade na resposta. Um sinónimo pode estar em mais de uma lista. 
 
-Suponha que a aplicação tem uma lista, com o nome `Cities`, que permite variações dos nomes de cidade incluindo cidade de airport (Sea tac), o código de airport (SEA), o código postal de zip (98101) e o indicativo de telefone (206). 
+Suponha que a aplicação tem uma lista, com o nome `Cities`, o que possibilita para variações de nomes de cidade, incluindo a cidade do aeroporto (mar-tac), código do aeroporto (SEA), código postal de zip (98101) e o código de área de telefone (206). 
 
-|Item da lista|Item sinónimos|
+|Item da lista|Sinónimos de item|
 |---|---|
-|Seattle|SEA tac, sea, 98101, 206, + 1 |
+|Seattle|Mar-tac, mar, 98101, 206, + 1 |
 |Paris|cdg, roissy, ory, 75001, 1, +33|
 
 `book 2 tickets to paris`
 
-No utterance anterior, a palavra `paris` está mapeado para o item de paris como parte do `Cities` lista entidade. A entidade de lista corresponde de nome normalizado do item, bem como os sinónimos do item. 
+Na expressão anterior, a palavra `paris` é mapeado para o item de paris como parte do `Cities` lista entidade. A entidade de lista corresponde ao nome do item de normalizado os e os item de sinónimos. 
 
 ```JSON
 "entities": [
@@ -287,7 +287,7 @@ No utterance anterior, a palavra `paris` está mapeado para o item de paris como
 ]
 ```
 
-Outro utterance de exemplo, utilizando um sinónimo para Paris:
+Outra expressão de exemplo, com um sinónimo para Paris:
 
 `book 2 tickets to roissy`
 
@@ -307,8 +307,8 @@ Outro utterance de exemplo, utilizando um sinónimo para Paris:
 ]
 ```
 
-## <a name="prebuilt-entity-data"></a>Dados de entidade prebuilt
-[Prebuilt](luis-concept-entity-types.md) entidades são detetadas com base numa correspondência de expressão regular com a open source [Recognizers texto](https://github.com/Microsoft/Recognizers-Text) projeto. Entidades prebuilt são devolvidas na matriz de entidades e utilize o nome de tipo com o prefixo `builtin::`. O texto seguinte é um utterance de exemplo com as entidades prebuilt devolvidas:
+## <a name="prebuilt-entity-data"></a>Dados de entidade predefinidos
+[Pré-criados](luis-concept-entity-types.md) entidades são detetadas com base numa correspondência de expressão regular com o código-fonte aberto [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text) projeto. Entidades pré-concebidas são devolvidas da matriz de entidades e utilizar o nome do tipo com o prefixo `builtin::`. O texto seguinte é uma expressão de exemplo com as entidades retornadas de pré-criados:
 
 `Dec 5th send to +1 360-555-1212`
 
@@ -392,7 +392,7 @@ Outro utterance de exemplo, utilizando um sinónimo para Paris:
 ``` 
 
 ## <a name="regular-expression-entity-data"></a>Dados de entidades de expressão regular
-[Expressão regular](luis-concept-entity-types.md) entidades são detetadas com base numa correspondência de expressão regular a utilização de uma expressão que fornece ao criar a entidade. Quando utilizar `kb[0-9]{6}` como a definição de entidade de expressão regular, a seguinte resposta JSON é uma utterance de exemplo com as entidades de expressão regular devolvido para a consulta `When was kb123456 published?`:
+[Expressão regular](luis-concept-entity-types.md) entidades são detetadas com base numa correspondência de expressão regular a utilização de uma expressão que fornece ao criar a entidade. Ao usar `kb[0-9]{6}` como a definição de entidade de expressão regular, a resposta JSON seguinte é uma expressão de exemplo com as entidades de expressão regular retornado para a consulta `When was kb123456 published?`:
 
 ```JSON
 {
@@ -422,20 +422,20 @@ Outro utterance de exemplo, utilizando um sinónimo para Paris:
 }
 ```
 
-## <a name="extracting-names"></a>Nomes de extração
-É difícil obter nomes de um utterance porque um nome de pode ter praticamente qualquer combinação de letras e palavras. Consoante o tipo de nome está a extrair, tem várias opções. Não são regras mas mais diretrizes. 
+## <a name="extracting-names"></a>Extrair nomes
+Obtendo nomes de uma expressão é difícil porque um nome pode ser praticamente qualquer combinação de letras e palavras. Consoante o tipo de nome está a extrair, tem várias opções. Essas não são regras, mas mais diretrizes. 
 
-### <a name="names-of-people"></a>Nomes das pessoas
-Nome das pessoas pode ter algumas ligeiras formato consoante o idioma e cultura. Utilize uma entidade de hierárquica com nomes primeiro e últimos como elementos subordinados ou uma entidade simple com funções do nome próprio e apelido. Certifique-se de que lhe exemplos que utilizam o nome próprio e apelido em diferentes partes de utterance, utterances de comprimentos diferentes e utterances em todos os pendentes, incluindo a intenção. [Reveja](label-suggested-utterances.md) utterances de ponto final regularmente Etiquetar todos os nomes de que não foram corretamente prever. 
+### <a name="names-of-people"></a>Nomes de pessoas
+Nome das pessoas pode ter algum formato ligeiro dependendo do idioma e cultura. Utilizar uma entidade de hierárquica com primeiros e últimos nomes como filhos ou utilizar uma entidade com funções de nome próprio e apelido. Certifique-se de que dê exemplos que utilizam o nome próprio e apelido em diferentes partes da expressão, em expressões com extensões diferentes e expressões com em todos os objetivos, incluindo o None intenção. [Revisão](label-suggested-utterances.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
 
-### <a name="names-of-places"></a>Nomes dos locais
-Os nomes de localização são definidos e conhecidos como cidades, counties, Estados, provinces e países. Se a sua aplicação utiliza um conjunto de know das localizações, considere uma entidade de lista. Se precisar de localizar a que colocar todos os nomes, criar uma entidade simple e fornecer uma variedade de exemplos. Adicione uma lista de expressão de nomes local para impor que local nomes aspeto na sua aplicação. [Reveja](label-suggested-utterances.md) utterances de ponto final regularmente Etiquetar todos os nomes de que não foram corretamente prever. 
+### <a name="names-of-places"></a>Nomes de locais
+Nomes de localização são estabelecidos e conhecidos como cidades, condados, Estados, províncias e países. Se a sua aplicação utiliza um conjunto de saber de localizações, considere uma entidade de lista. Se precisar de encontrar a que colocar todos os nomes, crie uma entidade e fornecem uma variedade de exemplos. Adicione uma lista de frase de nomes de locais para reforçar que aspeto de nomes local como na sua aplicação. [Revisão](label-suggested-utterances.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
 
-### <a name="new-and-emerging-names"></a>Nomes de novo e emergentes
-Algumas aplicações necessitam de ser capazes de localizar os nomes de novo e emergentes, como produtos ou as empresas. Este é o tipo mais difícil de extração de dados. Começar com uma entidade simple e adicionam uma lista de expressão. [Reveja](label-suggested-utterances.md) utterances de ponto final regularmente Etiquetar todos os nomes de que não foram corretamente prever. 
+### <a name="new-and-emerging-names"></a>Nomes de novos e emergentes
+Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Este é o tipo mais difíceis de extração de dados. Começar com uma entidade e adicionar uma lista de frase. [Revisão](label-suggested-utterances.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
 
 ## <a name="pattern-roles-data"></a>Dados de funções padrão
-As funções são a nível contextual das diferenças de entidades. 
+As funções são as diferenças contextuais das entidades. 
 
 ```JSON
 {
@@ -495,8 +495,8 @@ As funções são a nível contextual das diferenças de entidades.
 }
 ```
 
-## <a name="patternany-entity-data"></a>Dados de entidade Pattern.any
-Pattern.any entidades são entidades de comprimento variável utilizadas na utterances de modelo de um [padrão](luis-concept-patterns.md). 
+## <a name="patternany-entity-data"></a>Dados de entidades de Pattern.any
+Entidades de Pattern.any são entidades de comprimento variável utilizadas em expressões de modelo de um [padrão](luis-concept-patterns.md). 
 
 ```JSON
 {
@@ -541,10 +541,10 @@ Pattern.any entidades são entidades de comprimento variável utilizadas na utte
 
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
-Se a análise de dados de sentimento estiver configurada, a resposta de json LUIS inclui a análise de dados de sentimento. Saiba mais sobre a análise de dados de sentimento no [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentação.
+Se a análise de sentimentos está configurada, a resposta de json de LUIS inclui a análise de sentimentos. Saiba mais sobre a análise de sentimentos no [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) documentação.
 
 ### <a name="sentiment-data"></a>Dados de sentimento
-Dados de sentimento são uma pontuação entre 1 e 0 que indica o positivo (próximo de 1) ou negativa (próximo de 0) sentimento dos dados.
+Dados de sentimento são uma pontuação entre 1 e 0 indicando o positivo (mais de perto como 1) nem negativa (mais próximo de 0) sentimentos dos dados.
 
 Quando estiver a cultura `en-us`, a resposta é:
 
@@ -555,7 +555,7 @@ Quando estiver a cultura `en-us`, a resposta é:
 }
 ```
 
-Para todos os outras culturas, a resposta é:
+Para todas as outras culturas, a resposta é:
 
 ```JSON
 "sentimentAnalysis": {
@@ -564,8 +564,8 @@ Para todos os outras culturas, a resposta é:
 ```
 
 
-### <a name="key-phrase-extraction-entity-data"></a>Dados de expressão de chave de entidade de extração
-A entidade de extração chave frase devolve expressões chaves utterance, fornecido pelo [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+### <a name="key-phrase-extraction-entity-data"></a>Dados de entidades de extração de expressões-chave
+A entidade de extração de expressões-chave devolve expressões-chave na expressão, fornecida pela [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 <!-- TBD: verify JSON-->
 ```JSON
@@ -576,12 +576,12 @@ A entidade de extração chave frase devolve expressões chaves utterance, forne
 ]
 ```
 
-## <a name="data-matching-multiple-entities"></a>Várias entidades de correspondência de dados
-LUIS devolve todas as entidades detetadas no utterance. Como resultado, o seu chatbot poderá ter de tomar decisão baseada nos resultados. Um utterance pode ter várias entidades num utterance:
+## <a name="data-matching-multiple-entities"></a>Correspondência de várias entidades de dados
+LUIS devolve todas as entidades detetadas na expressão. Como resultado, o seu chatbot poderá ter de tomar a decisão com base nos resultados. Uma expressão pode ter muitas entidades numa expressão:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-O ponto final LUIS pode detetar os mesmos dados em entidades diferentes: 
+O ponto de extremidade do LUIS pode detetar os mesmos dados em entidades diferentes: 
 
 ```JSON
 {
@@ -709,6 +709,4 @@ O ponto final LUIS pode detetar os mesmos dados em entidades diferentes:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+Ver [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.

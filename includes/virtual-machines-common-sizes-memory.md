@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 83dbe4b7bad8935e7d047a06d6d01ca74329027d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "36943526"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906648"
 ---
 Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de CPU que são ótimos para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
@@ -31,6 +31,10 @@ Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de 
 ## <a name="esv3-series"></a>Série Esv3 
 
 ACU: 160-190 <sup>1</sup>
+
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
 
 As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) e podem chegar aos 3.5GHz com o Intel Turbo Boost Technology 2.0 e utilizar o armazenamento premium. As instâncias da série Ev3 são ideais para aplicações empresariais com utilização intensiva da memória.
 
@@ -57,6 +61,10 @@ As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5
 
 ACU: 160-190 <sup>1</sup>
 
+Armazenamento Premium: Não suportado
+
+Cache de armazenamento Premium: Não suportado
+
 As instâncias da série Ev3 são baseadas no processador de 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) e pode chegar aos 3.5 GHz com o Intel Turbo Boost Technology 2.0. As instâncias da série Ev3 são ideais para aplicações empresariais com utilização intensiva da memória.
 
 O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar os discos de armazenamento premium, utilize os tamanhos ESv3. Os medidores de preços e de faturação dos tamanhos ESv3 são os mesmos do que os da série Ev3. 
@@ -80,6 +88,12 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 ## <a name="m-series"></a>Série M 
 
 ACU: 160-180 <sup>1</sup>
+
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
+
+Acelerador de escrita: [suportados](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -113,6 +127,10 @@ ACU: 160-180 <sup>1</sup>
 
 ACU: 180-240 <sup>1</sup>
 
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
+
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10,000 / 100 (264) |5,000 / 125 |2 / 2000 |
@@ -133,6 +151,10 @@ ACU: 180-240 <sup>1</sup>
 
 ACU: 180 - 240
 
+Armazenamento Premium: Não suportado
+
+Cache de armazenamento Premium: Não suportado
+
 | Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
@@ -148,6 +170,10 @@ ACU: 180 - 240
 ## <a name="dsv2-series-11-15"></a>11-15 de série DSv2
 
 ACU: 210-250 <sup>1</sup>
+
+O armazenamento Premium: suportado
+
+Cache de armazenamento Premium: Não suportado
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -171,6 +197,10 @@ ACU: 210-250 <sup>1</sup>
 ## <a name="dv2-series-11-15"></a>11-15 de série Dv2
 
 ACU: 210 - 250
+
+Armazenamento Premium: Não suportado
+
+Cache de armazenamento Premium: Não suportado
 
 | Tamanho              | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

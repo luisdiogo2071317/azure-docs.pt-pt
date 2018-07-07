@@ -1,6 +1,6 @@
 ---
-title: Pendentes de compreender LUIS aplicações do Azure | Microsoft Docs
-description: Descreve quais pendentes são aplicações de serviço de inteligente compreensão do idioma (LUIS).
+title: Objetivos de compreensão nas aplicações de LUIS no Azure | Documentos da Microsoft
+description: Descreve o que são intenções nas aplicações de Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,96 +9,94 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cbf1ad2da3bbc86f8c6861458ae9e5d5c49c56ce
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265157"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888583"
 ---
-# <a name="intents-in-luis"></a>Pendentes no LUIS
+# <a name="intents-in-luis"></a>Objetivos de LUIS
 
-Objetivo representa uma tarefa ou ação do utilizador que pretende efetuar. É um objetivo ou objetivo expressado num utilizador [utterance](luis-concept-utterance.md).
+Um objetivo representa uma tarefa ou ação o usuário quer executar. Este é um objetivo ou objetivo expressado num usuário [expressão](luis-concept-utterance.md).
 
-Defina um conjunto de pendentes que corresponde a ações que os utilizadores que querem tirar na sua aplicação. Por exemplo, uma aplicação levar define várias pendentes:
+Defina um conjunto de objetivos que corresponde a ações que os usuários querem tirar em seu aplicativo. Por exemplo, uma aplicação de viagens define vários objetivos:
 
-Viajam pendentes de aplicação   |   Utterances de exemplo   | 
+Objetivos de aplicações de deslocação   |   Expressões de exemplo   | 
 ------|------|
- BookFlight     |   "Livro-me um voo para Rio semana seguinte" <br/> "Viaje até-me Rio no 24th" <br/> "Preciso de um pedido de plane Domingo seguinte para Rio Alemanha Janeiro"    |
- Saudação     |   "Olá" <br/>"Olá" <br/>"Boa manhã"  |
- CheckWeather | "O que é a meteorologia, como no Boston?" <br/> "Mostrar previsão para este fim de semana" |
- Nenhuma         | "Get-me uma receitas de cookie"<br>"Os Lakers win?" |
+ BookFlight     |   "Programar-me um vôo para Rio próxima semana" <br/> "Voar-me para Rio no 24th" <br/> "Preciso de um pedido de suporte do plano seguinte Domingo a Rio de Janeiro"    |
+ Saudação     |   "Olá" <br/>"Hello" <br/>"Bom dia"  |
+ CheckWeather | "O que é o clima, como em Boston?" <br/> "Mostre-me a previsão para este fim de semana" |
+ Nenhuma         | "Get-me uma receita de cookie"<br>"Os Lakers ganhar?" |
 
-Todas as aplicações vêm com o objetivo predefinido, "[nenhum](#none-intent-is-fallback-for-app)" que é o objetivo de contingência. 
+Todas as aplicações vêm com a intenção predefinida, "[None](#none-intent-is-fallback-for-app)" que é a intenção de contingência. 
 
-## <a name="prebuilt-domains-provide-intents"></a>Domínios prebuilt fornecem pendentes
-Além de pendentes por si, pode utilizar prebuilt pendentes a partir de um dos domínios prebuilt. Para obter mais informações, consulte [utilizar domínios prebuilt nas aplicações LUIS](luis-how-to-use-prebuilt-domains.md) para saber mais sobre como personalizar pendentes a partir de um domínio prebuilt para utilização na sua aplicação.
+## <a name="prebuilt-domains-provide-intents"></a>Domínios pré-concebidos fornecem objetivos
+Além de objetivos que definir, pode utilizar os objetivos criados previamente a partir de um dos domínios criados previamente. Para obter mais informações, consulte [utilizar domínios pré-concebidos nas aplicações de LUIS](luis-how-to-use-prebuilt-domains.md) para saber mais sobre como personalizar os objetivos de um domínio pré-criado para utilização na sua aplicação.
 
-## <a name="return-all-intents-scores"></a>Devolver pontuações de todos os pendentes
-Atribuir um utterance para um objetivo único. Quando LUIS recebe um utterance no ponto final, devolve a intenção de principal de um para esse utterance. Se quiser pontuações para todos os pendentes para o utterance, pode fornecer `verbose=true` sinalizador a cadeia de consulta da API de [chamada de ponto final](https://aka.ms/v1-endpoint-api-docs). 
+## <a name="return-all-intents-scores"></a>Devolver as pontuações de todas as intenções
+Atribuição de uma expressão a um objetivo único. Quando o LUIS recebe uma expressão no ponto de extremidade, ele retorna a intenção de principal de um para essa expressão. Se pretender que as pontuações para todos os objetivos para a expressão, pode fornecer `verbose=true` sinalizador na seqüência de consulta da API [chamada de ponto final](https://aka.ms/v1-endpoint-api-docs). 
 
-## <a name="intent-compared-to-entity"></a>Objetivo em comparação comparado a entidade
-A intenção representa uma ação a chatbot deve tomar para o utilizador e baseado no utterance todo. A entidade representa palavras ou frases reconhecíveis contidas no interior do utterance. Um utterance pode ter apenas uma parte superior da classificação de intenção, mas pode ter várias entidades. 
+## <a name="intent-compared-to-entity"></a>Em comparação comparada a entidade de intenção
+A intenção representa a ação a chatbot deve levar para o utilizador e baseia-se a expressão inteira. A entidade representa palavras ou frases contidos dentro da expressão. Uma expressão pode ter apenas uma parte superior de intenção de classificação, mas ele pode ter muitas entidades. 
 
-<a name="how-do-intents-relate-to-entities"></a> Criar um objetivo quando o utilizador _intenção_ acionaria a uma ação na sua aplicação de cliente, como uma chamada para a função de checkweather(). Em seguida, crie uma entidade para representar parâmetros necessários para executar a ação. 
+<a name="how-do-intents-relate-to-entities"></a> Criar uma intenção de quando o usuário _intenção_ dispararia uma ação em seu aplicativo de cliente, como uma chamada para a função de checkweather(). Em seguida, crie uma entidade para representar os parâmetros necessários para executar a ação. 
 
-|Intenção de exemplo   | Entidade | Entidade no utterances de exemplo   | 
+|Intenção de exemplo   | Entidade | Entidade em expressões de exemplo   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | {"type": "localização", "entidade": "seattle"}<br>{"type": "builtin.datetimeV2.date","entity": "amanhã", "Resolução": "2018-05-23"} | O que a meteorologia tal como no `Seattle` `tomorrow`? |
-| CheckWeather | {"type": "date_range", "entidade": "este fim de semana"} | Mostrar a previsão de `this weekend` | 
+| CheckWeather | {"type": "localização", "entity": "porto"}<br>{"type": "builtin.datetimeV2.date","entity": "" amanhã, penso: "Resolução": "2018-05-23"} | E o clima, como na `Seattle` `tomorrow`? |
+| CheckWeather | {"type": "date_range", "entity": "este fim de semana"} | Mostre-me a previsão para `this weekend` | 
 
-## <a name="custom-intents"></a>Pendentes personalizados
+## <a name="custom-intents"></a>Objetivos personalizados
 
-Da mesma forma intentioned [utterances](luis-concept-utterance.md) corresponde a um objetivo único. Utterances na sua intenção podem utilizar qualquer [entidade](luis-concept-entity-types.md) na aplicação, uma vez que as entidades não sejam específicas de intenção. 
+Da mesma forma bem-intencionado [expressões com](luis-concept-utterance.md) correspondem a um objetivo único. Expressões com em sua intenção, podem utilizar qualquer [entidade](luis-concept-entity-types.md) na aplicação, uma vez que as entidades não são específicos de intenção. 
 
-## <a name="prebuilt-domain-intents"></a>Pendentes prebuilt domínio
+## <a name="prebuilt-domain-intents"></a>Objetivos de domínio pré-criado
 
-[Domínios prebuilt](luis-how-to-use-prebuilt-domains.md) ter pendentes com utterances.  
+[Domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md) ter intenções com expressões com.  
 
-## <a name="none-intent-is-fallback-for-app"></a>Nenhum intenção é de contingência para a aplicação
-O **nenhum** intenção é um objetivo de catch-all ou de contingência. É utilizado para lhe ensinar LUIS utterances que não são importantes no domínio de aplicação (área requerente). O **nenhum** intenção deve ter entre 10 e 20 por cento dos utterances totais da aplicação. Não deixe-o vazio. 
+## <a name="none-intent-is-fallback-for-app"></a>Nenhuma a intenção é contingência para a aplicação
+O **None** intenção é uma intenção catch-all ou de contingência. Ele é usado para ensinar LUIS expressões que não são importantes no domínio de aplicativo (área de assunto). O **None** intenção deve ter entre 10 e 20% das expressões total no aplicativo. Não deixe em branco. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Nenhum intenção ajuda a direção de conversação
-Quando um utterance é prever como a intenção e devolvido para o chatbot com esse predição a bot pode fazer perguntas mais ou forneça um menu para direcionar o utilizador escolhas válidos no chatbot. 
+Quando uma expressão é prevista como None intenção e retornado para o chatbot com essa previsão, o bot pode fazer mais perguntas ou fornecer um menu para direcionar o usuário escolhas válidas no chatbot. 
 
-### <a name="no-utterances-in-none-intent-skews-predictions"></a>Nenhum utterances em nenhum intenção skews predições
-Se não adicionar qualquer utterances para o **nenhum** LUIS intenção, força uma utterance que está fora do domínio para um dos pendentes do domínio. Isto irá desfasamento as pontuações de predição por teaching LUIS a intenção errada para a utterance. 
+### <a name="no-utterances-in-none-intent-skews-predictions"></a>Sem expressões de com em nenhum intenção inclina previsões
+Se não adicionar quaisquer expressões de com para o **None** intenção, LUIS força uma expressão que está fora do domínio em um dos objetivos de domínio. Isto irá distorcer as pontuações de predição ensinando LUIS a intenção errada para a expressão. 
 
-### <a name="add-utterances-to-the-none-intent"></a>Adicionar utterances como a intenção None
-O **nenhum** intenção é criada mas deixada em branco de propósito. Preencha-o com utterances que estão fora do seu domínio. Uma boa utterance para **nenhum** é algo de completamente fora da aplicação, bem como o setor a aplicação funciona. Por exemplo, uma aplicação levar não deve utilizar qualquer utterances para **nenhum** pode relacionadas com a viajar, tais como as reservas, de faturação, hospitality, prato, entretenimento em utilização e carga. 
+### <a name="add-utterances-to-the-none-intent"></a>Adicionar expressões com a intenção None
+O **None** intenção é criada mas deixada em branco com o objetivo. Preencha-o com expressões que estão fora do seu domínio. Uma expressão boa para **None** é algo totalmente fora da aplicação, bem como o setor a aplicação serve. Por exemplo, uma aplicação de viagens não deve utilizar qualquer expressão para **None** pode relacionadas com a viajar, como as reservas, faturação, comida, hospitalidade, carga, entretenimento em utilização. 
 
-O tipo de utterances restantes para a nenhum intenção? Começar a utilizar algo mais específico que o seu bot não deve responder a esses "que tipo de dinosaur tem teeth azul?" Esta é uma pergunta até que ponto fora de uma aplicação levar muito específica. 
+Que tipo de expressões com deixarei para None intenção? Começar com algo específico que o seu bot não deve responder a essas "que tipo de dinossauro tem dentes azuis?" Essa é uma pergunta muito específica até agora fora de uma aplicação de viagens. 
 
 ### <a name="none-is-a-required-intent"></a>Nenhuma é um objetivo necessário
-O **nenhum** intenção é um objetivo necessário e não pode ser eliminada ou mudada.
+O **None** intenção é um objetivo necessário e não pode ser eliminada ou renomeada.
 
-## <a name="negative-intentions"></a>Intenções negativos 
-Se pretende determinar positivas e negativos intenções, tal como "Posso **pretende** um carro" e "Posso **não** pretende um carro", pode criar duas pendentes (um positivos e um negativos) e adicione utterances adequados para cada. Ou pode criar um objetivo único e marcar os dois diferentes positivos e negativos termos como uma entidade.  
+## <a name="negative-intentions"></a>Intenções negativas 
+Se quiser determinar intenções tanto negativas como positivas, por exemplo, "eu **deseja** um carro" e "eu **não** desejam um carro", pode criar dois objetivos (uma positiva e uma negativa) e adicionar expressões apropriados para cada. Ou pode criar um objetivo único e marcar os dois diferentes positivos e negativos termos como uma entidade.  
 
-## <a name="intent-balance"></a>Saldo intenção
-Os pendentes de domínio de aplicação devem ter um equilíbrio de utterances entre cada tentativa. Não dispõe de um objetivo com 10 utterances e outra tentativa com 500 utterances. Não é balanceado. Se tiver nesta situação, reveja o objetivo com 500 utterances para ver se muitas dos pendentes podem reorganizar para um [padrão](luis-concept-patterns.md). 
+## <a name="intent-balance"></a>Saldo de intenção
+Os objetivos de domínio de aplicação devem ter um equilíbrio entre expressões com entre cada intenção. Não tiver um objetivo com expressões 10 com e o outro objetivo com expressões 500 com. Isso não fosse equilibrado. Se tiver esta situação, reveja a intenção com expressões 500 com para ver se muitos dos objetivos podem reorganizar num [padrão](luis-concept-patterns.md). 
 
-O **nenhum** intenção não está incluída no equilíbrio. Que objetivo deve conter a 10% dos utterances totais na aplicação.
+O **None** intenção não está incluída no saldo. Essa intenção deve conter 10% das expressões total na aplicação.
 
 ## <a name="intent-limits"></a>Limites de intenção
-Reveja [limites](luis-boundaries.md#model-boundaries) para compreender quantos pendentes pode adicionar a um modelo. 
+Revisão [limites](luis-boundaries.md#model-boundaries) para compreender quantos intenções pode adicionar a um modelo. 
 
-### <a name="if-you-need-more-than-the-maximum-number-of-intents"></a>Se precisar de mais do que o número máximo de pendentes 
-Em primeiro lugar, considere se o sistema está a utilizar demasiados pendentes. 
+### <a name="if-you-need-more-than-the-maximum-number-of-intents"></a>Se precisar de mais do que o número máximo de intenções 
+Em primeiro lugar, considere se o seu sistema está a utilizar demasiados intenções. 
 
-### <a name="can-multiple-intents-be-combined-into-single-intent-with-entities"></a>Podem pendentes vários ser combinados objetivo único com entidades 
-Pendentes são demasiado semelhantes podem tornar mais difícil LUIS distinguir entre eles. Pendentes devem ser diversificados suficiente para capturar as tarefas principais que o utilizador é solicitando, mas não precisam de capturar todos os caminho demora do seu código. Por exemplo, poderá ser separados pendentes numa aplicação levar BookFlight e FlightCustomerService mas BookInternationalFlight e BookDomesticFlight são demasiado semelhantes. Se o sistema tem de distingui-los, utilize entidades ou outros lógica vez pendentes. 
+### <a name="can-multiple-intents-be-combined-into-single-intent-with-entities"></a>Podem vários objetivos ser combinados num único objetivo com entidades 
+Objetivos que são muito semelhantes podem tornar mais difícil para o LUIS distinguir entre eles. Objetivos devem ser diversificados suficiente para capturar as principais tarefas que o utilizador está pedindo, mas não precisam de capturar cada caminho demora de seu código. Por exemplo, BookFlight e FlightCustomerService podem ser separados objetivos num aplicativo de viagem, mas BookInternationalFlight e BookDomesticFlight são muito semelhantes. Se o sistema precisar para distingui-los, utilize entidades ou outros lógica em vez de objetivos. 
 
-### <a name="dispatcher-model"></a>Modelo de emissor
-Saiba mais sobre combinar LUIS e de QnA maker de aplicações com o [modelo de emissão](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
+### <a name="dispatcher-model"></a>Modelo de Dispatcher
+Saiba mais sobre combinar o LUIS e QnA maker de aplicações com o [modelo de expedição](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
 
-### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Ajuda do pedido para aplicações com um número significativo de pendentes
-Se reduzir o número de pendentes ou dividir a sua pendentes em várias aplicações não funcionar, contacte o suporte. Se a sua subscrição do Azure inclui serviços de suporte, contacte [o suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
+### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Pedir ajuda para aplicações com o número significativo de intenções
+Se reduzir o número de objetivos ou divisão de suas intenções em várias aplicações não estiver a funcionar, contacte o suporte. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [entidades](luis-concept-entity-types.md), que são importantes palavras relevantes para pendentes
-* Saiba como [adicionar e gerir pendentes](luis-how-to-add-intents.md) na sua aplicação LUIS.
-* Reveja o objetivo [melhores práticas](luis-concept-best-practices.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Saiba mais sobre [entidades](luis-concept-entity-types.md), que são importantes palavras relevantes para as intenções
+* Saiba como [adicionar e gerir os objetivos](luis-how-to-add-intents.md) na sua aplicação LUIS.
+* Reveja a intenção [melhores práticas](luis-concept-best-practices.md)

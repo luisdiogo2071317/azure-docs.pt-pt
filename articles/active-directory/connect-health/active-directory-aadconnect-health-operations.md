@@ -1,9 +1,9 @@
 ---
 title: Operações do Azure Active Directory Connect Health
-description: Este artigo descreve as operações adicionais que podem ser efetuadas depois de ter implementado o Azure AD Connect Health.
+description: Este artigo descreve as operações adicionais que podem ser executadas depois de ter implementado o Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -13,146 +13,146 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 68be732b2a375d1667c743ac277ce653c78105f1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958730"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886874"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
-Este tópico descreve as várias operações, que pode realizar com o Azure Active Directory (Azure AD) Connect Health.
+Este tópico descreve as várias operações que pode realizar com o Azure Active Directory (Azure AD) Connect Health.
 
 ## <a name="enable-email-notifications"></a>Ativar notificações por e-mail
 Pode configurar o serviço do Azure AD Connect Health para enviar notificações por e-mail quando alertas indicam que a sua infraestrutura de identidade não está em bom estada. Isto ocorre quando é gerado um alerta e, quando está resolvido.
 
-![Definições de notificação de correio eletrónico do captura de ecrã do Azure AD Connect Health](./media/active-directory-aadconnect-health/email_noti_discover.png)
+![Definições de notificação de e-mail do captura de ecrã do Azure AD Connect Health](./media/active-directory-aadconnect-health/email_noti_discover.png)
 
 > [!NOTE]
-> Notificações por e-mail estão ativadas por predefinição.
+> Notificações de e-mail estão ativadas por predefinição.
 >
 >
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Para ativar notificações de e-mail do Azure AD Connect Health
-1. Abra o **alertas** painel para o serviço para os quais pretende receber a notificação por correio eletrónico.
-2. Na barra de ação, clique em **as definições de notificação**.
-3. No comutador de notificação de correio eletrónico, selecione **ON**.
+1. Abra o **alertas** painel para o serviço para o qual pretende receber a notificação por e-mail.
+2. A partir da barra de ação, clique em **definições de notificação**.
+3. No comutador de notificação por e-mail, selecione **ON**.
 4. Selecione a caixa de verificação se pretender que todos os administradores globais para receber notificações por e-mail.
-5. Se pretender receber notificações de e-mail em outros endereços de correio eletrónico, especifique-os no **destinatários de E-Mail adicionais** caixa. Para remover um endereço de correio eletrónico desta lista, faça duplo clique na entrada e selecione **eliminar**.
-6. Para finalizar as alterações, clique em **guardar**. As alterações entram em vigor apenas depois de guardar.
+5. Se pretender receber notificações de e-mail em outros endereços de e-mail, especifique-os na **destinatários de E-Mail adicionais** caixa. Para remover um endereço de e-mail desta lista, clique com o botão direito a entrada e selecione **eliminar**.
+6. Para finalizar as alterações, clique em **guardar**. As alterações entrem em vigor apenas depois de guardar.
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminar uma instância de servidor ou serviço
 
 >[!NOTE] 
-> Azure AD premium é necessária licença para os passos de eliminação.
+> Licença de premium do Azure AD é necessária para obter os passos de eliminação.
 
-Em alguns casos, pode querer remover a um servidor que está a ser monitorizado. Eis o que precisa de saber para remover um servidor do serviço do Azure AD Connect Health.
+Em alguns casos, poderá querer remover um servidor a ser monitorizado. Eis o que precisa saber para remover um servidor do serviço do Azure AD Connect Health.
 
 Quando estiver a eliminar um servidor, tenha em atenção o seguinte:
 
-* Esta ação para recolher quaisquer novos dados a partir desse servidor. Este servidor é removido do serviço de monitorização. Após esta ação não é possível visualizar novos alertas, monitorizar ou dados de análise de utilização para este servidor.
+* Esta ação para recolher mais dados a partir desse servidor. Este servidor é removido do serviço de monitoramento. Depois desta ação, não é possível visualizar novos alertas, monitorização ou dados de análise de utilização para este servidor.
 * Esta ação não desinstala o agente de estado de funcionamento do seu servidor. Se não o desinstalou o agente de estado de funcionamento antes de executar este passo, poderá ver erros relacionados com o agente de estado de funcionamento no servidor.
 * Esta ação não elimina os dados recolhidos a partir deste servidor. Os dados serem eliminados de acordo com a política de retenção de dados do Azure.
-* Depois de efetuar esta ação, se pretender iniciar a monitorização do mesmo servidor novamente, tem de desinstalar e reinstalar o agente de estado de funcionamento neste servidor.
+* Depois de efetuar esta ação, se deseja iniciar a monitorização do mesmo servidor novamente, tem de desinstalar e reinstalar o agente de estado de funcionamento neste servidor.
 
 ### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Eliminar um servidor do serviço do Azure AD Connect Health
 
 >[!NOTE] 
-> Azure AD premium é necessária licença para os passos de eliminação.
+> Licença de premium do Azure AD é necessária para obter os passos de eliminação.
 
-Azure AD Connect Health para serviços de Federação do Active Directory (AD FS) e do Azure AD Connect (sincronização):
+O Azure AD Connect Health para serviços de Federação do Active Directory (AD FS) e do Azure AD Connect (sincronização):
 
-1. Abra o **servidor** painel do **lista de servidores** painel ao selecionar o nome do servidor a remover.
-2. No **servidor** painel, na barra de ação, clique em **eliminar**.
-3. O confirme, escrevendo o nome do servidor na caixa de confirmação.
+1. Abra o **servidor** painel da **lista de servidores** painel ao selecionar o nome do servidor a ser removido.
+2. Sobre o **servidor** painel, a partir da barra de ação, clique em **eliminar**.
+3. Certifique-se ao escrever o nome do servidor na caixa de confirmação.
 4. Clique em **Eliminar**.
 
-Azure AD Connect Health para os serviços de domínio do Azure Active Directory:
+Azure AD Connect Health para o Azure Active Directory Domain Services:
 
 1. Abra o **controladores de domínio** dashboard.
 2. Selecione o controlador de domínio a ser removido.
-3. Na barra de ação, clique em **eliminar selecionado**.
+3. A partir da barra de ação, clique em **eliminar selecionado**.
 4. Confirme a ação para eliminar o servidor.
 5. Clique em **Eliminar**.
 
 ### <a name="delete-a-service-instance-from-azure-ad-connect-health-service"></a>Eliminar uma instância de serviço do serviço do Azure AD Connect Health
-Em alguns casos, pode querer remover uma instância de serviço. Eis o que precisa de saber para remover uma instância de serviço do serviço do Azure AD Connect Health.
+Em alguns casos, poderá querer remover uma instância de serviço. Eis o que precisa saber para remover uma instância de serviço do serviço do Azure AD Connect Health.
 
 Quando estiver a eliminar uma instância de serviço, tenha em atenção o seguinte:
 
-* Esta ação remove a instância de serviço atual do serviço de monitorização.
+* Esta ação remove a instância de serviço atual do serviço de monitoramento.
 * Esta ação não desinstalar ou remover o agente de estado de funcionamento de qualquer um dos servidores que foram monitorizados como parte desta instância de serviço. Se não o desinstalou o agente de estado de funcionamento antes de executar este passo, poderá ver erros relacionados com o agente de estado de funcionamento nos servidores.
 * Todos os dados desta instância de serviço são eliminados de acordo com a política de retenção de dados do Azure.
-* Depois de efetuar esta ação, se pretender iniciar a monitorização do serviço, desinstale e reinstale o agente de estado de funcionamento de todos os servidores. Depois de efetuar esta ação, se pretender iniciar a monitorização do mesmo servidor novamente, desinstalar, reinstalar e registar o agente de estado de funcionamento nesse servidor.
+* Depois de efetuar esta ação, se quiser iniciar a monitorização do serviço, desinstale e reinstale o agente de estado de funcionamento em todos os servidores. Depois de efetuar esta ação, se quiser iniciar a monitorização novamente o mesmo servidor, desinstalar, reinstalar e registar o agente de estado de funcionamento nesse servidor.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Para eliminar uma instância de serviço do serviço do Azure AD Connect Health
-1. Abra o **serviço** painel do **lista serviço** painel selecionando o identificador de serviço (nome do farm) que pretende remover.
-2. No **servidor** painel, na barra de ação, clique em **eliminar**.
-3. Confirmar, escrevendo o nome do serviço na caixa de confirmação (por exemplo: sts.contoso.com).
+1. Abra o **serviço** painel da **lista de serviço** painel selecionando o identificador de serviço (nome de farm) que pretende remover.
+2. Sobre o **servidor** painel, a partir da barra de ação, clique em **eliminar**.
+3. Confirme ao escrever o nome do serviço na caixa de confirmação (por exemplo: sts.contoso.com).
 4. Clique em **Eliminar**.
    <br><br>
 
-[//]: # (Início da secção RBAC)
+[//]: # (Início da seção RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Gerir o acesso com controlo de acesso baseado em funções
-[Controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) para o Azure AD Connect Health fornece acesso aos utilizadores e grupos que não sejam administradores globais. RBAC atribui funções para os utilizadores pretendidos e grupos e fornece um mecanismo para limitar os administradores globais no seu diretório.
+[Controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) para o Azure AD Connect Health fornece acesso a utilizadores e grupos que não sejam administradores globais. RBAC atribui funções para os usuários e grupos e fornece um mecanismo para limitar os administradores globais no seu diretório.
 
 ### <a name="roles"></a>Funções
-O Azure AD Connect Health suporta as seguintes funções incorporadas:
+O Azure AD Connect Health suporta as seguintes funções internas:
 
 | Função | Permissões |
 | --- | --- |
-| Proprietário |Os proprietários podem *gerir o acesso* (por exemplo, atribua uma função a um utilizador ou grupo), *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar definições* (para exemplo, as notificações de e-mail) no Azure AD Connect Health. <br>Por predefinição, os administradores globais do Azure AD são atribuídos esta função e não pode ser alterado. |
-| Contribuinte |Os contribuintes podem *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar definições* (por exemplo, notificações por correio eletrónico) no Azure AD Connect Health. |
-| Leitor |Os leitores podem *ver todas as informações* (por exemplo, ver alertas) no portal no Azure AD Connect Health. |
+| Proprietário |Os proprietários podem *gerir o acesso* (por exemplo, atribuir uma função a um utilizador ou grupo), *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar as definições de* (para exemplo, notificações por e-mail) no Azure AD Connect Health. <br>Por predefinição, os administradores globais do Azure AD são atribuídos esta função e não pode ser alterado. |
+| Contribuinte |Os contribuintes podem *ver todas as informações* (por exemplo, ver alertas) no portal, e *alterar as definições de* (por exemplo, notificações por e-mail) no Azure AD Connect Health. |
+| Leitor |Os leitores podem *ver todas as informações* (por exemplo, ver alertas) do portal no Azure AD Connect Health. |
 
-Todas as outras funções (por exemplo, os administradores de acesso de utilizador ou utilizadores do DevTest Labs) tem sem afetar a acesso no Azure AD Connect Health, mesmo que as funções estão disponíveis na experiência do portal.
+Todas as outras funções (por exemplo, os administradores de acesso de utilizador ou utilizadores do DevTest Labs) não tem nenhum impacto sobre a aceder no Azure AD Connect Health, mesmo que as funções estão disponíveis na experiência do portal.
 
 ### <a name="access-scope"></a>Âmbito de acesso
-O Azure AD Connect Health suporta acesso de gestão em dois níveis:
+O Azure AD Connect Health oferece suporte a gerir o acesso em dois níveis:
 
-* **Todas as instâncias de serviço**: Este é o caminho recomendado na maioria dos casos. Controla o acesso para todas as instâncias de serviço (por exemplo, um farm do AD FS) em todos os tipos de função que estão a ser monitorizados pelo Azure AD Connect Health.
-* **Instância de serviço**: em alguns casos, poderá ter de segregar acesso com base nos tipos de função ou por uma instância de serviço. Neste caso, pode gerir o acesso ao nível da instância de serviço.  
+* **Todas as instâncias de serviço**: Este é o caminho recomendado na maioria dos casos. Ele controla o acesso a todas as instâncias de serviço (por exemplo, um farm do AD FS) em todos os tipos de função que estão a ser monitorizados pelo Azure AD Connect Health.
+* **Instância de serviço**: em alguns casos, poderá ter de segregar o acesso com base em tipos de função ou por uma instância de serviço. Neste caso, pode gerir o acesso ao nível da instância de serviço.  
 
-Permissão é concedida se um utilizador final tem acesso no serviço de diretório ou nível de instância.
+Permissão é concedida se um utilizador final tem acesso no diretório ou o serviço de nível de instância.
 
-### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Permitir que os utilizadores ou de acesso a grupos para o Azure AD Connect Health
+### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Permitir que utilizadores ou o acesso de grupos para o Azure AD Connect Health
 Os passos seguintes mostram como permitir o acesso.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>Passo 1: Selecione o âmbito de acesso apropriadas
-Para permitir um acesso de utilizador no *todas as instâncias de serviço* nível no Azure AD Connect Health, abra o painel principal no Azure AD Connect Health.<br>
+#### <a name="step-1-select-the-appropriate-access-scope"></a>Passo 1: Selecionar o âmbito de acesso apropriado
+Para permitir um acesso de utilizador com o *todas as instâncias de serviço* nível no Azure AD Connect Health, abra o painel principal no Azure AD Connect Health.<br>
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Passo 2: Adicionar utilizadores e grupos e atribuir funções
-1. Do **configurar** secção, clique em **utilizadores**.<br>
+1. Partir do **configurar** secção, clique em **utilizadores**.<br>
    ![Barra lateral de recursos do captura de ecrã do Azure AD Connect Health](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Selecione **Adicionar**.
-3. No **selecionar uma função** painel, selecione uma função (por exemplo, **proprietário**).<br>
-   ![Janela de ligar os utilizadores RBAC de estado de funcionamento de captura de ecrã do Azure AD](./media/active-directory-aadconnect-health/RBAC_add.png)
+3. Na **selecionar uma função** painel, selecione uma função (por exemplo, **proprietário**).<br>
+   ![Janela de ligar utilizadores de RBAC do Estado de funcionamento de captura de ecrã do Azure AD](./media/active-directory-aadconnect-health/RBAC_add.png)
 4. Escreva o nome ou o identificador do destino de utilizador ou grupo. Pode selecionar um ou mais utilizadores ou grupos ao mesmo tempo. Clique em **Selecionar**.
-   ![Janela de ligar os utilizadores RBAC de estado de funcionamento de captura de ecrã do Azure AD](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+   ![Janela de ligar utilizadores de RBAC do Estado de funcionamento de captura de ecrã do Azure AD](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Selecione **OK**.<br>
-6. Depois de concluída a atribuição de função, os utilizadores e grupos são apresentados na lista.<br>
-   ![Janela de ligar utilizadores RBAC do Estado de funcionamento de captura de ecrã do Azure AD, com os novos utilizadores realçado](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+6. Depois de concluída a atribuição de função, os utilizadores e grupos são apresentadas na lista.<br>
+   ![Janela de ligar utilizadores de RBAC do Estado de funcionamento de captura de ecrã do Azure AD, com os novos utilizadores realçada](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
-Agora listados utilizadores e grupos têm acesso, de acordo com as respetivas funções atribuídas.
+Os usuários listados e grupos têm agora acesso, de acordo com suas funções.
 
 > [!NOTE]
-> * Os administradores globais sempre dispor de acesso completo a todas as operações, mas as contas de administrador global não estão presentes na lista anterior.
-> * A funcionalidade de convidar os utilizadores não é suportada no Azure AD Connect Health.
+> * Os administradores globais têm sempre acesso completo a todas as operações, mas as contas de administrador global não estão presentes na lista anterior.
+> * A funcionalidade de convidar utilizadores não é suportada no Azure AD Connect Health.
 >
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Passo 3: Partilhar a localização do painel com utilizadores ou grupos
-1. Depois de atribuir permissões, um utilizador pode aceder do Azure AD Connect Health acedendo [aqui](https://aka.ms/aadconnecthealth).
-2. No painel, o utilizador pode afixar o painel ou diferentes partes do mesmo ao dashboard. Basta clicar o **afixar ao dashboard** ícone.<br>
-   ![Captura de ecrã do Azure AD Connect RBAC de estado de funcionamento afixar painel, com o ícone de pino realçado](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+1. Depois de atribuir permissões, um usuário pode acessar o Azure AD Connect Health indo [aqui](https://aka.ms/aadconnecthealth).
+2. No painel, o utilizador pode afixar o painel ou partes diferentes do mesmo, ao dashboard. Basta clicar o **afixar ao dashboard** ícone.<br>
+   ![Captura de ecrã do Azure AD Connect RBAC de estado de funcionamento afixar painel, com o ícone de afixação realçado](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 > [!NOTE]
-> Um utilizador com a função de leitor atribuído não é possível obter a extensão do Azure AD Connect Health do Azure Marketplace. O utilizador não é possível efetuar o necessário "Criar" operação para o fazer. O utilizador pode receber para o painel acedendo a hiperligação anterior. Para utilização subsequente, o utilizador pode afixar painel ao dashboard.
+> Um utilizador com a função de leitor atribuída não é possível obter a extensão do Azure AD Connect Health no Azure Marketplace. O utilizador não é possível efetuar as informações necessárias "Criar" operação para fazer isso. O utilizador ainda pode receber para o painel acedendo a ligação anterior. Para uso subseqüente, o utilizador pode afixar painel ao dashboard.
 >
 >
 
 ### <a name="remove-users-or-groups"></a>Remover utilizadores ou grupos
-Pode remover um utilizador ou um grupo adicionado ao RBAC de estado de funcionamento ligar do Azure AD. Basta com o botão direito do utilizador ou grupo e selecione **remover**.<br>
-![Janela de ligar os utilizadores RBAC de estado de funcionamento de captura de ecrã do Azure AD, com remover realçado](./media/active-directory-aadconnect-health/RBAC_remove.png)
+Pode remover um utilizador ou grupo adicionado do Azure AD Connect Health RBAC. Simplesmente com o botão direito do utilizador ou grupo e selecione **remover**.<br>
+![Janela de ligar utilizadores de RBAC do Estado de funcionamento de captura de ecrã do Azure AD, com remover realçada](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # (Fim da secção RBAC)
 

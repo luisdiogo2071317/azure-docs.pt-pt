@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 93fda0b49f5f4893f80ee60f16ef16bc35edc5ee
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 54a7ecec653218af8f92b405bd0cf8c049d18616
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341277"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888454"
 ---
 # <a name="collaborating"></a>Colaborar
 
@@ -39,7 +39,7 @@ Um proprietário da aplicação pode adicionar os colaboradores a uma aplicaçã
 Se pretender partilhar várias aplicações com os colaboradores, cada aplicação tem de e-mail do colaborador adicionado. 
 
 ## <a name="managing-multiple-authors"></a>Gerir vários autores
-O [LUIS] [ LUIS] site atualmente não oferece a criação de ao nível da transação. Pode permitir que os autores funcione em versões independentes de uma versão base. Dois métodos diferentes são descritos nas seções a seguir.
+O [LUIS](luis-reference-regions.md#luis-website) site atualmente não oferece a criação de ao nível da transação. Pode permitir que os autores funcione em versões independentes de uma versão base. Dois métodos diferentes são descritos nas seções a seguir.
 
 ### <a name="manage-multiple-versions-inside-the-same-app"></a>Gerir facilmente várias versões na mesma aplicação
 Comece por [clonagem](luis-how-to-manage-versions.md#clone-a-version), de uma versão de base, para cada autor. 
@@ -62,6 +62,3 @@ Compreender [controle de versão](luis-concept-version.md) conceitos.
 Ver [as definições da aplicação](luis-how-to-collaborate.md) para saber como gerir colaboradores na sua aplicação LUIS.
 
 Ver [adicionar e-mail à lista de acesso](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342) com as APIs de criação.
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

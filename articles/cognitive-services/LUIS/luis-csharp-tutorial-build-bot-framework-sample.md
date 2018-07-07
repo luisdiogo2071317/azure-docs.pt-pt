@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7e8bf9046d432bd830f65e1934704ec5036fd1c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: af5079e8c448a0df6b1109f5f23e3e3a2871a167
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346635"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887271"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot de aplicação Web com o modelo do LUIS para c#
 
@@ -47,7 +47,7 @@ Crie um chatbot com compreensão de linguagem integrada.
     * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio ao seu bot é implementado na cloud (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selecione a subscrição [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano de serviço de aplicações, e [localização](https://azure.microsoft.com/regions/).
     * Selecione o **compreensão de idiomas (c#)** modelo para o **modelo do Bot** campo.
-    * Selecione o **localização da aplicação LUIS**. Este é o processo de criação [região] [ LUIS] a aplicação é criada no.
+    * Selecione o **localização da aplicação LUIS**. Este é o processo de criação [região](luis-reference-regions.md) a aplicação é criada no.
     * Selecione a caixa de verificação confirmação para o aviso legal. São os termos do aviso legal a caixa de verificação abaixo.
 
     ![Serviço de Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -153,7 +153,7 @@ Se o seu bot não está a funcionar, transfira o projeto no seu computador local
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre arquitetura de Bot
 Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e o [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDKs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Adicionar os objetivos de LUIS e caixas de diálogo de serviço de Bot de manipulação **ajudar**, **Cancelar**, e **saudação** intenções. Lembre-se de preparar, publicar e, a [criar](#build-the-bot) bot de aplicação web. LUIS e o bot deve ter as mesmo intenções.
 
@@ -170,7 +170,6 @@ Adicionar os objetivos de LUIS e caixas de diálogo de serviço de Bot de manipu
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+
 <!-- tested on Win10 -->

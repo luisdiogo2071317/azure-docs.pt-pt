@@ -1,6 +1,6 @@
 ---
-title: Tamanhos de VM do Windows Azure - as gerações anteriores | Microsoft Docs
-description: Lista as gerações anteriores de tamanhos disponíveis para máquinas virtuais do Windows no Azure. Apresenta informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para tamanhos de nesta série.
+title: Tamanhos de VM do Windows do Azure - as gerações anteriores | Documentos da Microsoft
+description: Lista as gerações anteriores de tamanhos disponíveis para máquinas de virtuais do Windows no Azure. Lista as informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede largura de banda para tamanhos nesta série.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 834f3e5e58f9beb06edf9234ce05ce915e759ad6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f0397acaa39ca91280285d9bd5135b0f0d3cf7c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661146"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902565"
 ---
-# <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores do tamanhos de máquinas virtuais
+# <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquina virtual
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-previous-gen.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "34661146"
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
-## <a name="other-sizes"></a>Outros tamanhos de
+## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](sizes-memory.md)
@@ -40,5 +40,5 @@ ms.locfileid: "34661146"
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
 

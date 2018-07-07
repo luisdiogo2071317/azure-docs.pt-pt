@@ -1,29 +1,29 @@
 ---
-title: Esquema de eventos de grelha de eventos do Azure
-description: Descreve as propriedades que são fornecidas para eventos com grelha de eventos do Azure
+title: Esquema de eventos do Azure Event Grid
+description: Descreve as propriedades que são fornecidas para eventos com o Azure Event Grid
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 04/17/2018
+ms.date: 07/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304067"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902236"
 ---
-# <a name="azure-event-grid-event-schema"></a>Esquema de eventos de grelha de eventos do Azure
+# <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
 
-Este artigo descreve as propriedades e o esquema que estão presentes todos os eventos. Eventos são compostos por um conjunto de propriedades de cadeia necessário cinco e um objeto de dados necessário. As propriedades são comuns a todos os eventos a partir de qualquer fabricante. O objeto de dados contém as propriedades que são específicas para cada publicador. Tópicos de sistema, estas propriedades são específicas ao fornecedor de recursos, tais como o Storage do Azure ou Event Hubs do Azure.
+Este artigo descreve as propriedades e o esquema que estão presentes para todos os eventos. Os eventos consistem num conjunto de propriedades de cadeia de caracteres necessárias cinco e um objeto de dados necessários. As propriedades são comuns a todos os eventos de qualquer fabricante. O objeto de dados tem propriedades que são específicas para cada editor. Para os tópicos de sistema, estas propriedades são específicas para o fornecedor de recursos, como o armazenamento do Azure ou Event Hubs do Azure.
 
-Origens de eventos enviam eventos à grelha de eventos do Azure numa matriz, que pode conter muitos objetos de eventos. Quando publicar eventos para um tópico da grelha de eventos, a matriz pode ter um tamanho total de 1 MB. Cada evento na matriz está limitado a 64 KB. Se um evento ou a matriz excede os limites de tamanho, receber a resposta **413 Payload demasiado grande**.
+Origens de eventos enviam eventos para o Azure Event Grid numa matriz, o que pode ter vários objetos de evento. Eventos para um tópico do event grid no lançamento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB. Se um evento ou a matriz é maior do que os limites de tamanho, receber a resposta **413 Payload demasiado grande**.
 
-Grelha de eventos envia os eventos para os subscritores numa matriz que contenha um único evento. Este comportamento podem ser alterados no futuro.
+Grelha de eventos envia os eventos para os assinantes numa matriz com um único evento. Este comportamento poderá mudar no futuro.
 
-Pode encontrar o esquema JSON para o evento de grelha de evento e o payload de dados de cada fabricante do Azure no [arquivo de esquema de eventos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+Pode encontrar o esquema JSON para o evento do Event Grid e payload de dados de cada publicador do Azure no [arquivo do esquema de eventos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
 ## <a name="event-schema"></a>Esquema de eventos
 
@@ -46,7 +46,7 @@ O exemplo seguinte mostra as propriedades que são utilizadas por todos os publi
 ]
 ```
 
-Por exemplo, se o esquema publicado um evento de armazenamento de Blobs do Azure:
+Por exemplo, o esquema publicado um evento de armazenamento de Blobs do Azure é:
 
 ```json
 [
@@ -78,35 +78,36 @@ Por exemplo, se o esquema publicado um evento de armazenamento de Blobs do Azure
 
 ## <a name="event-properties"></a>Propriedades do evento
 
-Todos os eventos contenham os seguintes dados de nível superior mesmos:
+Todos os eventos possuem os mesmos dados de nível superior seguintes:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
-| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
-| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos específicos do fornecedor de recursos. |
+| dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
-Para saber mais sobre as propriedades no objecto de dados, consulte a origem do evento:
+Para saber mais sobre as propriedades no objeto de dados, veja a origem do evento:
 
 * [Subscrições do Azure (operações de gestão)](event-schema-subscriptions.md)
 * [Armazenamento de blobs](event-schema-blob-storage.md)
 * [Hubs de Eventos](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
 * [Hub IoT](event-schema-iot-hub.md)
+* [Serviços de Multimédia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operações de gestão)](event-schema-resource-groups.md)
+* [Service Bus](event-schema-service-bus.md)
 
-Para tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem conter os campos mesmos como eventos definidos pelo recurso padrão.
+Para obter tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem ter os mesmos campos que eventos padrão definido pelo recurso.
 
-Quando publica eventos personalizados tópicos, crie assuntos para os eventos que tornam mais fácil para os subscritores de saber se estão interessados no evento. Os subscritores utilizam o assunto e rotas de filtro de eventos. Considere fornecer o caminho para onde o evento foi efetuada para que subscritores podem filtrar por segmentos de caminho. O caminho permite aos subscritores narrowly ou amplamente filtrar eventos. Por exemplo, se fornecer um caminho de três segmento como `/A/B/C` no assunto, os subscritores podem filtrar pelo primeiro segmento `/A` para obter um conjunto amplo de eventos. Os subscritores obter eventos com assuntos como `/A/B/C` ou `/A/D/E`. Outros subscritores podem filtrar por `/A/B` para obter um conjunto de eventos quanto mais estreitos forem.
+Quando publica eventos tópicos personalizados, crie assuntos para seus eventos que tornam fácil para os assinantes para saber se elas têm interesse no evento. Os subscritores utilizam o assunto para filtrar e encaminhar eventos. Considere fornecer o caminho para onde o evento ter acontecido, para que os assinantes podem filtrar por segmentos de caminho. O caminho permite que os subscritores de foco menor ou amplamente filtrar eventos. Por exemplo, se fornecer um caminho de três segmento como `/A/B/C` no assunto, os assinantes podem filtrar pelo primeiro segmento `/A` para obter um amplo conjunto de eventos. Os subscritores recebem eventos com os assuntos como `/A/B/C` ou `/A/D/E`. Outros subscritores podem filtrar por `/A/B` para obter um conjunto mais estreito de eventos.
 
-Por vezes, o requerente tem de obter mais detalhes sobre o que aconteceu. Por exemplo, o **contas do Storage** publicador fornece o assunto `/blobServices/default/containers/<container-name>/blobs/<file>` quando um ficheiro seja adicionado a um contentor. Um subscritor pode filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento. Um subscritor pode também filtrar ou rota pelo sufixo `.txt` apenas trabalhar com ficheiros de texto.
+Às vezes, o requerente tem mais detalhes sobre o que aconteceu. Por exemplo, o **contas de armazenamento** publicador fornece o assunto `/blobServices/default/containers/<container-name>/blobs/<file>` quando um ficheiro é adicionado a um contentor. Um subscritor pode filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento. Um subscritor pode também filtrar ou rota pelo sufixo `.txt` apenas trabalhar com arquivos de texto.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução à grelha de eventos do Azure, consulte [Novidades grelha de evento?](overview.md)
-* Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).
+* Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
+* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).

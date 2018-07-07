@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 605533f25b36a92a660301d28aa63cb2ecdd44f4
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196852"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37910060"
 ---
 Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA.
 
@@ -23,30 +23,30 @@ Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que 
 
 [!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-###  <a name="feature"></a>SKUs de gateway por conjunto de funcionalidades
+###  <a name="feature"></a>SKUs de gateway por conjunto de recursos
 
-O novo gateway VPN SKUs simplificam os conjuntos de funcionalidades oferecidos nos gateways:
+SKU de gateway VPN novo simplificam os conjuntos de funcionalidades oferecidos em gateways:
 
 | **SKU**| **Funcionalidades**|
 | ---    | ---         |
-|**Básico** (*)   | **VPN baseado na rota**: 10 túneis com P2S; sem autenticação RADIUS para P2S; nenhum IKEv2 para P2S<br>**VPN baseada em políticas**: (IKEv1): 1 túnel; nenhum P2S|
-| **VpnGw1, VpnGw2, and VpnGw3** | **VPN baseado na rota**: até 30 túneis (*), P2S, o BGP, a política de IPsec/IKE ativo-ativo, personalizada, coexistência ExpressRoute/VPN |
+|**Básico** (*)   | **VPN baseada em rota**: 10 túneis com P2S; sem autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em políticas**: (IKEv1): 1 túnel; nenhum P2S|
+| **VpnGw1, VpnGw2, and VpnGw3** | **VPN baseada em rota**: até 30 túneis (*), P2S, BGP, ativo-ativo, IPsec/IKE política personalizada, coexistência ExpressRoute/VPN |
 |        |             |
 
 ( * ) Pode configurar "PolicyBasedTrafficSelectors" para se ligar a um gateway de VPN baseada em rota (VpnGw1, VpnGw2, VpnGw3) para vários dispositivos com firewall baseada na política no local. Consulte [Gateways de ligação VPN para vários dispositivos VPN com base na política local com o PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter detalhes.
 
-(**) O SKU básico é considerado um SKU de legado. O SKU básico tem algumas limitações de funcionalidade. Não é possível redimensionar um gateway que utiliza um SKU básico para um dos SKUs de gateway nova, em vez disso, tem de alterar para um novo SKU, que envolve a eliminar e recriar o gateway de VPN.
+(\*\*) O SKU básico é considerado um SKU de legado. O SKU básico tem algumas limitações de recursos. Não pode redimensionar um gateway que utiliza um SKU básico para um dos novos SKUs de gateway, em vez disso, tem de alterar para um novo SKU, que envolve a eliminar e recriar o gateway de VPN.
 
 ###  <a name="workloads"></a>SKUs de gateway - vs de produção. Cargas de trabalho Dev-Test
 
-Devido às diferenças no SLAs e conjuntos de funcionalidades, recomendamos os seguintes SKUs de produção vs programador teste:
+Devido a diferenças na SLAs e conjuntos de recursos, é recomendável seguir os SKU para produção vs. dev / test:
 
 | **Carga de trabalho**                       | **SKU**               |
 | ---                                | ---                    |
 | **Produção, cargas de trabalho críticas** | VpnGw1, VpnGw2, VpnGw3 |
-| **Dev-test ou prova de conceito**   | Básico (*)                 |
+| **Dev-test ou prova de conceito**   | Basic (*)                 |
 |                                    |                        |
 
-(**) O SKU básico é considerado um SKU de legado e tem limitações de funcionalidade. Certifique-se de que a funcionalidade que precisa é suportada antes de utilizar o SKU básico.
+(\*\*) O SKU básico é considerado um SKU de legado e tem limitações de recursos. Certifique-se de que o recurso que precisa é suportado antes de utilizar o SKU básico.
 
-Se estiver a utilizar os SKUs antigos (Legado), as recomendações de SKU de produção são padrão e HighPerformance. Para informações e instruções para SKUs antigos, consulte [SKUs de Gateway (Legado)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Se estiver a utilizar os SKU antigos (Legado), as recomendações de SKU de produção são padrão e HighPerformance. Para obter informações e instruções para a SKU antigos, consulte [SKUs de Gateway (Legado)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

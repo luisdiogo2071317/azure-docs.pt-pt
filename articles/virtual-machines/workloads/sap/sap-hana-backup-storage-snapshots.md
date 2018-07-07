@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c7c90a2e24d8dbe7764825abe18c5a1e73b67499
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868743"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902304"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Cópia de segurança SAP HANA baseada em instantâneos de armazenamento
 
@@ -90,7 +90,8 @@ Para obter detalhes sobre onde pretende copiar estes scripts e detalhes sobre co
 
 - [Planear a sua infraestrutura de cópias de segurança de VMs no Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
 - [Aplicação consistente cópias de segurança consistentes de VMs do Linux do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
-- 
+
+
 
 No momento, a Microsoft não publicou preparar scripts e scripts de pós-instantâneos para o SAP HANA. Como o integrador de cliente ou sistema seria necessário criar esses scripts e configurar o procedimento com base na documentação do mencionado acima.
 
@@ -99,7 +100,7 @@ No momento, a Microsoft não publicou preparar scripts e scripts de pós-instant
 O processo de restauração de um aplicativo consistente cópia de segurança criada pela cópia de segurança do Azure está documentado no artigo [recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
 > [!IMPORTANT]
-> No artigo [recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm), há uma lista de exceções e os passos apresentados quando utilizar conjuntos de faixa de disco. Os discos repartidos são, provavelmente, a configuração de VM regular para SAP HANA. Por conseguinte, é essencial para ler o artigo e testar o processo de restauração para tais casos, tal como indicado no artigo. 
+> No artigo [recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) é uma lista de exceções e os passos apresentados ao utilizar conjuntos de faixa de disco. Os discos repartidos são, provavelmente, a configuração de VM regular para SAP HANA. Por conseguinte, é essencial para ler o artigo e testar o processo de restauração para tais casos, tal como indicado no artigo. 
 
 
 

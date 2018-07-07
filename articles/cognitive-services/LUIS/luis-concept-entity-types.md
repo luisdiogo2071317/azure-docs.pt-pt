@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3b87f89c8f0cb6a5b22923513d78fff9085f3598
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345333"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887808"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -197,7 +197,7 @@ Entidades compostas representam partes de um todo. Por exemplo, uma entidade com
 
 LUIS também fornece o tipo de entidade de lista que não será adquirida para máquina, mas permite que a sua aplicação LUIS especificar uma lista fixa de valores. Ver [limites de LUIS](luis-boundaries.md) referência para rever os limites do tipo de entidade de lista. 
 
-Se já considerada hierárquico e compostos e lista entidades e ainda precisa de mais do que o limite, contacte o suporte. Para fazê-lo, coletar informações detalhadas sobre o seu sistema, vá para o [LUIS] [ LUIS] Web site e, em seguida, selecione **suporte**. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
+Se já considerada hierárquico e compostos e lista entidades e ainda precisa de mais do que o limite, contacte o suporte. Para fazê-lo, coletar informações detalhadas sobre o seu sistema, vá para o [LUIS](luis-reference-regions.md#luis-website) Web site e, em seguida, selecione **suporte**. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -216,5 +216,3 @@ Ver [melhores práticas](luis-concept-best-practices.md) para obter mais informa
 Aprenda conceitos sobre o good [expressões com](luis-concept-utterance.md). 
 
 Ver [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua aplicação LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

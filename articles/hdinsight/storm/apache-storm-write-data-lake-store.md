@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 95dea2896bf1d116a14d8b51ada9e17f186d4373
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856261"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903137"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escrever para HDFS do Apache Storm no HDInsight
 
@@ -133,7 +133,7 @@ Este YAML define os seguintes itens:
 * `rotationPolicy`: Define quando deve rodar os ficheiros. Neste exemplo, é executada sem rotação.
 * `hdfs-bolt`: Utiliza os componentes anteriores como parâmetros de configuração para o `HdfsBolt` classe.
 
-Para obter mais informações sobre a estrutura de fluxo, consulte [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
+Para obter mais informações sobre a estrutura de fluxo, consulte [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configurar o cluster
 

@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
-description: Problemas conhecidos com a identidade de serviço gerida do Azure Active Directory.
+title: FAQ e problemas conhecidos com o Managed Service Identity (MSI) do Azure Active Directory
+description: Problemas conhecidos com a identidade do serviço gerido do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -10,102 +10,102 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930991"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37908078"
 ---
-# <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
+# <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ e problemas conhecidos com o Managed Service Identity (MSI) do Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas Mais Frequentes (FAQs)
 
-### <a name="does-msi-work-with-azure-cloud-services"></a>MSI funciona com Cloud Services do Azure?
+### <a name="does-msi-work-with-azure-cloud-services"></a>MSI funciona com serviços Cloud do Azure?
 
-Não, não existem nenhum planos para suportar MSI na Cloud Services do Azure.
+Não, não existem não existem planos para suportar o MSI nos serviços Cloud do Azure.
 
-### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI funciona com o Active Directory Authentication Library (ADAL) ou a biblioteca de autenticação da Microsoft (MSAL)?
+### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI funciona com o Active Directory Authentication Library (ADAL) ou o Microsoft Authentication Library (MSAL)?
 
-Não, MSI ainda não estiver integrado com o ADAL ou MSAL. Para obter mais informações sobre como adquirir um token MSI utilizando o ponto final de REST do MSI, consulte [como utilizar um Azure VM geridos serviço de identidade (MSI) para a aquisição do token](how-to-use-vm-token.md).
+Não, MSI ainda não estiver integrado com o ADAL ou MSAL. Para obter detalhes sobre como adquirir um token de MSI com o ponto final de REST de MSI, veja [como utilizar um Azure VM Managed Service Identity (MSI) para a aquisição do token](how-to-use-vm-token.md).
 
-### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>O que é o limite de segurança de uma identidade de serviço geridas?
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>O que é o limite de segurança de uma identidade do serviço gerido?
 
-O limite de segurança da identidade é o recurso ao qual está ligado a. Por exemplo, o limite de segurança para um MSI de Máquina Virtual, é a Máquina Virtual. Qualquer código em execução nessa VM, é capaz de ligar para o ponto final do MSI e pedir tokens. É a experiência semelhante com outros recursos que suportam MSI.
+O limite de segurança da identidade é o recurso ao qual está ligado a. Por exemplo, o limite de segurança para um MSI de Máquina Virtual, é a Máquina Virtual. Qualquer código em execução nessa VM, é capaz de chamar o ponto de extremidade do MSI e solicitar tokens. É a experiência de semelhante com outros recursos que suportam o MSI.
 
-### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>Posso utilizar o ponto final MSI VM IMDS ou o ponto final de extensão de VM de MSI?
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>Posso utilizar o ponto de extremidade do MSI VM IMDS ou o ponto de final de extensão de VM de MSI?
 
-Quando utilizar MSI com VMs, Aconselhamo-utilizando o ponto final IMDS de MSI. O serviço de metadados de instância do Azure é um ponto final de REST acessível para todas as VMs de IaaS criados através do Azure Resource Manager. Algumas das vantagens da utilização do MSI através de IMDS são:
+Ao utilizar o MSI com VMs, nós o encorajamos a utilizar o ponto de extremidade IMDS de MSI. O serviço de metadados de instância do Azure é um ponto final REST acessíveis a todas as VMs de IaaS criadas através do Azure Resource Manager. Algumas das vantagens de utilizar o MSI através de IMDS são:
 
-1. Todos os sistemas operativos do IaaS do Azure suportada pode utilizar o MSI através de IMDS. 
-2. Já não tem de instalar uma extensão da VM para ativar o MSI. 
-3. Os certificados utilizados por MSI deixam de estar presentes na VM. 
-4. O ponto final IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM. 
+1. Todos os sistemas de operativos de IaaS do Azure suportada pode utilizar o MSI sobre IMDS. 
+2. Já não tem de instalar uma extensão na sua VM para ativar o MSI. 
+3. Os certificados utilizados por MSI já não estão presentes na VM. 
+4. O ponto de extremidade IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM. 
 
-A extensão de VM de MSI ainda é disponíveis para ser utilizada hoje em dia; No entanto, daqui para a frente, será predefinida para utilizar o ponto final IMDS. A extensão de VM de MSI será iniciado um plano de preterição em breve. 
+A extensão de VM de MSI ainda está disponível para ser utilizada hoje. No entanto, mais adiante, será predefinida para utilizar o ponto de extremidade IMDS. A extensão de VM de MSI será iniciado num plano de descontinuação em breve. 
 
-Para obter mais informações sobre o serviço de Metada de instância do Azure, consulte [documentação IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+Para obter mais informações sobre o serviço de metadados de instância do Azure, consulte [documentação IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições suportadas de Linux?
 
-Todas as distribuições de Linux suportadas pelo IaaS do Azure podem ser utilizadas com MSI através de ponto final IMDS. 
+Todas as distribuições de Linux suportadas pelo Azure IaaS podem ser utilizadas com o MSI através do ponto de extremidade IMDS. 
 
-Nota: A extensão da VM MSI só suporta as distribuições de Linux seguintes:
-- CoreOS Stable
+Nota: A extensão de VM de MSI só suporta as seguintes distribuições de Linux:
+- Stable do CoreOS
 - CentOS 7.1
-- VM de RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
-Outras distribuições de Linux não são atualmente suportadas e extensão poderá falhar no distribuições não suportadas.
+Outras distribuições do Linux não são atualmente suportadas e extensão pode falhar em distribuições não suportadas.
 
-A extensão funciona em CentOS 6.9. No entanto, devido a falta de suporte do sistema no 6.9, a extensão será não automaticamente reiniciar se falhou ou parado. É reiniciado quando a VM for reiniciado. Para reiniciar manualmente a extensão, consulte [como, reiniciar a extensão MSI?](#how-do-you-restart-the-msi-extension)
+A extensão funciona no CentOS 6.9. No entanto, devido à falta de suporte do sistema no 6.9, a extensão será não automaticamente reinício se travasse ou parado. Reinicia quando a VM é reiniciada. Para reiniciar manualmente a extensão, consulte [como é reiniciar a extensão MSI?](#how-do-you-restart-the-msi-extension)
 
-### <a name="how-do-you-restart-the-msi-extension"></a>Como reiniciar a extensão MSI
-No Windows e determinadas versões do Linux, se a extensão é interrompido, o cmdlet seguinte pode ser utilizado para reiniciá-lo manualmente:
+### <a name="how-do-you-restart-the-msi-extension"></a>Como reiniciar a extensão MSI?
+No Windows e determinadas versões do Linux, se a extensão de parar, o cmdlet seguinte pode ser usado para reiniciar manualmente:
 
 ```powershell
 Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
 Em que: 
-- Nome da extensão e tipo para o Windows é: ManagedIdentityExtensionForWindows
-- Nome da extensão e tipo para Linux é: ManagedIdentityExtensionForLinux
+- Nome de extensão e tipo para Windows é: ManagedIdentityExtensionForWindows
+- Nome de extensão e o tipo para Linux é: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>"Scripts de automatização" Falha ao tentar exportar o esquema de extensão MSI
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>"Script de automação de" Falha ao tentar exportar de esquema para a extensão MSI
 
-Quando estiver ativada uma identidade de serviço gerida numa VM, o erro seguinte é apresentado ao tentar utilizar a funcionalidade de "Scripts de automatização" para a VM ou o respetivo grupo de recursos:
+Quando a identidade do serviço gerido estiver ativada numa VM, o seguinte erro é apresentado durante a tentativa de utilizar a funcionalidade de "Script de automatização" para a VM ou o respetivo grupo de recursos:
 
-![Erro de exportação de scripts de automatização de MSI](../media/msi-known-issues/automation-script-export-error.png)
+![Erro de exportação de script de automação de MSI](../media/msi-known-issues/automation-script-export-error.png)
 
-A extensão de VM de identidade de serviço geridas não suporta atualmente a capacidade para exportar a esquema para um modelo de grupo de recursos. Como resultado, o modelo gerado não mostra os parâmetros de configuração para ativar a identidade de serviço geridas no recurso. Estas secções podem ser adicionadas manualmente, ao seguir os exemplos [configurar uma identidade de serviço geridas da VM utilizando um modelo](qs-configure-template-windows-vm.md).
+A extensão de VM de identidade de serviço gerida não suporta atualmente a capacidade de exportar o seu esquema para um modelo de grupo de recursos. Como resultado, o modelo gerado não mostra os parâmetros de configuração para ativar a identidade do serviço gerido no recurso. Estas secções podem ser adicionadas manualmente ao seguir os exemplos [configurar uma identidade de serviço gerido da VM com um modelo](qs-configure-template-windows-vm.md).
 
-Quando a funcionalidade de exportação de esquema fica disponível para a extensão de VM de MSI, estas serão listadas no [exportar os grupos de recursos que contêm as extensões de VM](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Quando a funcionalidade de exportação de esquema fica disponível para a extensão de VM de MSI, serão listado na [e grupos de recursos de exportação, que contêm as extensões de VM](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
-### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Painel de configuração não é apresentada no portal do Azure
+### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Painel de configuração não é apresentado no portal do Azure
 
-Se o painel Configuração de VM não aparecer na sua VM, em seguida, MSI não foi ativado no portal na sua região ainda.  Verifique novamente mais tarde.  Também pode ativar MSI para a sua VM utilizando [PowerShell](qs-configure-powershell-windows-vm.md) ou [CLI do Azure](qs-configure-cli-windows-vm.md).
+Se o painel de configuração de VM não aparecer na sua VM, em seguida, MSI não foi ativado no portal da sua região ainda.  Verifique novamente mais tarde.  Também pode ativar o MSI para a sua VM, utilizando [PowerShell](qs-configure-powershell-windows-vm.md) ou o [CLI do Azure](qs-configure-cli-windows-vm.md).
 
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Não é possível atribuir o acesso às máquinas virtuais no painel de controlo de acesso (IAM)
+### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Não é possível atribuir acesso a máquinas virtuais no painel de controlo de acesso (IAM)
 
-Se **Máquina Virtual** não aparece no portal do Azure como uma opção para **atribuir acesso** no **controlo de acesso (IAM)** > **adicionar permissões**, em seguida, a identidade de serviço geridas não foi ativada no portal na sua região ainda. Verifique novamente mais tarde.  Pode ainda selecionar a identidade de serviço geridas para a atribuição de função ao pesquisar o Principal de serviço para o MSI.  Introduza o nome da VM no **selecione** campo e o Principal de serviço é apresentada no resultado da pesquisa.
+Se **Máquina Virtual** não é apresentado no portal do Azure como uma opção para **atribuir acesso a** na **controlo de acesso (IAM)** > **adicionar permissões**, em seguida, a identidade do serviço gerido tem ainda não foi ativada no portal da sua região. Verifique novamente mais tarde.  Pode ainda selecionar a identidade do serviço gerido para a atribuição de função ao pesquisar o Principal de serviço para o MSI.  Introduza o nome da VM no **selecione** campo e o Principal de serviço é apresentado no resultado da pesquisa.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM falha a iniciação após a ser movidos do grupo de recursos ou subscrição
 
-Se mover uma VM no estado de execução, este continua a ser executado durante a mudança. No entanto, após a mudança, se a VM estiver parada e reiniciada, ocorrerá uma falha ao iniciar. Este problema ocorre porque a VM não está a atualizar a referência à identidade do MSI e continua a apontar para, no grupo de recursos antigo.
+Se mover uma VM em execução, ele continua a ser executado durante a mudança. No entanto, após a mudança, se a VM é parada e reiniciada, ele irá falhar iniciar. Este problema ocorre porque a VM não está a ser atualizada a referência para a identidade MSI e continua para apontá-lo no grupo de recursos antigos.
 
 **Solução** 
  
-Acione uma atualização na VM para poder obter valores corretos para o MSI. Pode efetuar uma alteração de propriedade VM para atualizar a referência à identidade do MSI. Por exemplo, pode definir um novo valor de etiqueta na VM com o seguinte comando:
+Acione uma atualização na VM para que ele pode obter os valores corretos para o MSI. Pode fazer uma alteração de propriedade VM para atualizar a referência para a identidade MSI. Por exemplo, pode definir um novo valor de etiqueta na VM com o seguinte comando:
 
 ```azurecli-interactive
  az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
@@ -113,23 +113,24 @@ Acione uma atualização na VM para poder obter valores corretos para o MSI. Pod
  
 Este comando define uma nova etiqueta "fixVM" com um valor de 1 na VM. 
  
-Ao definir esta propriedade, atualiza a VM com o URI do recurso MSI correto e, em seguida, deve ser capaz de iniciar a VM. 
+Definindo essa propriedade, a VM atualiza com o URI do recurso de MSI correto e, em seguida, deve ser capaz de iniciar a VM. 
  
-Depois da VM é iniciada, a etiqueta pode ser removida utilizando os seguintes comandos:
+Assim que a VM é iniciada, a etiqueta pode ser removida ao utilizar o seguinte comando:
 
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Problemas conhecidos com identidades atribuídas do utilizador
+## <a name="known-issues-with-user-assigned-identities"></a>Problemas conhecidos relacionados com identidades de utilizador atribuído
 
-- As atribuições de atribuído identidade de utilizador estão apenas disponíveis para a VM e VMSS. Importante: Atribuições de identidade do utilizador atribuído serão alterado nos meses futuros.
-- Duplicados utilizador identidades atribuído na mesma VM/VMSS, fará com que a VM VMSS falhar. Isto inclui identidades, que são adicionadas com maiúsculas e minúsculas diferentes. Por exemplo, MyUserAssignedIdentity e myuserassignedidentity. 
-- O aprovisionamento da extensão VM a uma VM pode falhar devido a falhas de pesquisa DNS. Reiniciar a VM e tente novamente. 
-- Adicionar uma identidade de utilizador de 'inexistente' atribuído fará com que a VM falhar. 
-- Criar um utilizador atribuído a identidade com os carateres especiais (ou seja, um caráter de sublinhado) no nome, não é suportada.
-- Atribuir nomes de identidade do utilizador estão limitadas a 24 carateres para o cenário de ponto a ponto. Utilizador atribuído identidades com mais de 24 carateres de nomes irão falhar a ser atribuída.  
-- Quando adicionar um segundo utilizador atribuído a identidade, o clientID poderão não estar disponível para tokens de pedidos para a extensão da VM. Como uma mitigação, reinicie a extensão de VM de MSI com os seguintes comandos de dois bash:
+- Atribuições de identidade atribuída de utilizador estão apenas disponíveis para a VM e VMSS. Importante: As atribuições de identidade de utilizador atribuída serão alterados nos próximos meses.
+- Duplicado atribuído as identidades dos utilizadores na mesma VM/VMSS, fará com que a VM/VMSS falhe. Isto inclui a identidades que são adicionadas com maiúsculas/minúsculas diferentes. Por exemplo, MyUserAssignedIdentity e myuserassignedidentity. 
+- Aprovisionamento da extensão VM a uma VM pode falhar devido a falhas de pesquisa DNS. Reinicie a VM e tente novamente. 
+- Adicionar uma identidade atribuída ao utilizador "inexistente" fará com que a VM falhe. 
+- Criar um identidade com carateres especiais (por exemplo, um caráter de sublinhado) no nome do atribuída ao utilizador, não é suportada.
+- Atribuídos nomes de identidade do utilizador estão limitadas a 24 carateres para o cenário de ponta a ponta. Utilizador atribuído identidades com mais de 24 carateres de nomes irão falhar a ser atribuída.
+- Se utilizar a extensão de máquina virtual de identidade gerida, o limite suportado é atribuída de identidades geridas ao utilizador 32. Sem a extensão de máquina virtual de identidade gerida, o limite suportado é 512.  
+- Quando adicionar um segundo utilizador atribuído a identidade, o ID de cliente pode não estar disponível para tokens de pedidos para a extensão VM. Facilitar a reiniciar a extensão de VM de MSI com os seguintes comandos de dois bash:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Quando uma VM tem um utilizador atribuído a identidade, mas não atribuído a identidade de sistema, o portal de IU irá mostrar MSI como desativados. Para ativar o sistema atribuído de identidade, utilize um modelo Azure Resource Manager, um CLI do Azure ou um SDK.
+- Quando uma VM tem um identidade atribuída ao utilizador, mas nenhum sistema de identidade atribuída, o portal de interface do Usuário irá mostrar MSI como desativados. Para ativar o sistema de identidade atribuído, utilize um modelo Azure Resource Manager, uma CLI do Azure ou um SDK.

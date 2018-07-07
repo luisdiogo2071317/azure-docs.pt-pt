@@ -1,6 +1,6 @@
 ---
 title: Criar e implementar um modelo de previsão a utilizar o pacote do Azure Machine Learning para previsão.
-description: Saiba como criar, dar formação, testar e implementar um modelo de previsão a utilizar o pacote do Azure Machine Learning para previsão.
+description: Saiba como criar, formar, testar e implementar um modelo de previsão com o pacote do Azure Machine Learning para previsão.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,23 +9,23 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036640"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888675"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Criar e implementar modelos de previsão com o Azure Machine Learning
 
-Neste artigo, saiba como utilizar **Azure Machine Learning pacote para a previsão** (AMLPF) para rapidamente criar e implementar um modelo de previsão. O fluxo de trabalho é o seguinte:
+Neste artigo, saiba como utilizar **pacote do Azure Machine Learning para previsão** (AMLPF) para criar e implementar um modelo de previsão rapidamente. O fluxo de trabalho é o seguinte:
 
 1. Carregar e explorar dados
 2. Criar funcionalidades
-3. Dar formação e selecione o modelo de melhor
+3. Dar formação e selecionar o melhor modelo
 4. Implementar o modelo e consumir o serviço web
 
-Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages/forecasting) para obter uma lista completa de transformers e modelos, bem como a referência de detalhado para cada módulo e uma classe.
+Consulte a [documentação de referência do pacote](https://aka.ms/aml-packages/forecasting) para a lista completa de apresentam vários transformadores e modelos, bem como a referência detalhada para cada módulo e uma classe.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,40 +33,40 @@ Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages
 
 1. As seguintes contas e aplicação tem de ser configurados e instalados:
    - Uma conta de Experimentação do Azure Machine Learning 
-   - Uma conta de gestão de modelo do Azure Machine Learning
+   - Uma conta de gestão de modelos do Azure Machine Learning
    - O Azure Machine Learning Workbench instalado 
 
-    Se estes três são ainda não foi criadas ou instaladas, siga o [instalação de início rápido do Azure Machine Learning e Workbench](../service/quickstart-installation.md) artigo.
+    Se esses três são ainda não foi criados ou instalados, siga os [instalação manual de início rápido do Azure Machine Learning e Bancada de trabalho](../service/quickstart-installation.md) artigo.
 
-1. Tem de ser instalado do Azure Machine Learning pacote previsão. Saiba como [instalar este pacote aqui](https://aka.ms/aml-packages/forecasting).
+1. Tem de estar instalado o pacote de Aprendizado de máquina do Azure para a previsão. Saiba como [instalar este pacote aqui](https://aka.ms/aml-packages/forecasting).
 
 ## <a name="sample-data-and-jupyter-notebook"></a>Dados de exemplo e o bloco de notas do Jupyter
 
 ### <a name="sample-workflow"></a>Fluxo de trabalho de exemplo 
-O exemplo que segue o fluxo de trabalho:
+O exemplo segue o fluxo de trabalho:
  
-1. **Ingestão de dados**: carregar o conjunto de dados e convertê-la num TimeSeriesDataFrame. Este dataframe é um dados de séries de tempo estrutura fornecida pelo Azure Machine Learning pacote para a previsão, referido neste documento como **AMLPF**.
+1. **Ingestão de dados**: carregar o conjunto de dados e convertê-los TimeSeriesDataFrame. Este pacote de dados é uma série de dados de tempo estrutura fornecida pelo pacote do Azure Machine Learning para a previsão, descritos neste documento denominado **AMLPF**.
 
-2. **Criar funcionalidades**: utilizar vários featurization transformers, fornecidos pelo AMLPF para criar as funcionalidades.
+2. **Criar funcionalidades**: utilizar vários featurization apresentam vários transformadores fornecidas pelo AMLPF para criar recursos.
 
-3. **Formação e selecionar modelo melhor**: comparar o desempenho de vários modelos de série de tempo de univariate e modelos de machine learning. 
+3. **Educar e selecionar o melhor modelo**: comparar o desempenho de vários modelos de série de tempo de univariate e modelos de aprendizagem automática. 
 
-4. **Implementar a modelo**: implementar o pipeline de modelo treinado como um serviço web através do Azure Machine Learning Workbench, pelo que pode ser utilizada por outras pessoas.
+4. **Implementar o modelo**: implementar o pipeline de modelo treinado como um serviço web através do Azure Machine Learning Workbench, de modo que podem ser consumidos por outros utilizadores.
 
 ### <a name="get-the-jupyter-notebook"></a>Obter o bloco de notas do Jupyter
 
-Transferir o bloco de notas para executar os exemplos de código descritos neste documento por si.
+Download do bloco de notas para executar os exemplos de código aqui descritos por conta própria.
 
 > [!div class="nextstepaction"]
 > [Obter o bloco de notas do Jupyter](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
 
 ### <a name="explore-the-sample-data"></a>Explorar os dados de exemplo
 
-A aprendizagem previsão exemplos no código siga dependem de amostras a [o conjunto de dados do Dominick do University de Chicago Foods melhorar](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) para prever vendas juice laranja. Dominick era uma cadeia de grocery área metropolitana de Chicago.
+O machine learning exemplos no código a seguir exemplos dependem de previsão a [conjunto de dados da Dominick do Universidade de Chicago Foods mais](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) para prever vendas suco de laranja. Dominick era uma cadeia de acessar na área metropolitana de Chicago.
 
-### <a name="import-any-dependencies-for-this-sample"></a>Importar as dependências para este exemplo
+### <a name="import-any-dependencies-for-this-sample"></a>Importar todas as dependências para este exemplo
 
-Estas dependências devem ser importadas para os seguintes exemplos de código:
+Estas dependências têm de ser importadas para os seguintes exemplos de código:
 
 
 ```python
@@ -103,9 +103,9 @@ print('imports done')
     imports done
     
 
-## <a name="load-data-and-explore"></a>Carregar os dados e explorar
+## <a name="load-data-and-explore"></a>Carregar dados e explorar
 
-Este fragmento de código mostra o processo normal de começar com um conjunto de dados não processado, neste caso, o [dados a partir Foods do Dominick de melhorar](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Também pode utilizar a função de conveniência [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Este fragmento de código mostra o processo normal de começar com um conjunto de dados não processado, neste caso o [dados de pratos de mais de Dominick](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Também pode utilizar a função de conveniência [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -122,16 +122,16 @@ whole_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>arquivo</th>
+      <th>armazenar</th>
       <th>marca</th>
       <th>semana</th>
       <th>logmove</th>
-      <th>feat</th>
+      <th>recurso</th>
       <th>preço</th>
       <th>AGE60</th>
       <th>EDUC</th>
-      <th>ETHNIC</th>
-      <th>RECEITAS</th>
+      <th>ÉTNICOS</th>
+      <th>RENDIMENTO</th>
       <th>HHLARGE</th>
       <th>WORKWOM</th>
       <th>HVAL150</th>
@@ -152,10 +152,10 @@ whole_df.head()
       <td>3.87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
       <td>1.14</td>
@@ -172,10 +172,10 @@ whole_df.head()
       <td>3.87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
       <td>1.14</td>
@@ -192,10 +192,10 @@ whole_df.head()
       <td>3.87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
       <td>1.14</td>
@@ -212,10 +212,10 @@ whole_df.head()
       <td>3.87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
       <td>1.14</td>
@@ -232,10 +232,10 @@ whole_df.head()
       <td>3.87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>0.46</td>
       <td>2.11</td>
       <td>1.14</td>
@@ -247,11 +247,11 @@ whole_df.head()
 
 
 
-Os dados consistem de vendas semanais pela marca e o arquivo. O logaritmo de quantidade vendida está no _logmove_ coluna. Os dados também incluem algumas funcionalidades demográficos do cliente. 
+Os dados são compostos por vendas semanais por marca e o arquivo. O logaritmo de quantidade vendida está no _logmove_ coluna. Os dados também incluem alguns recursos de demográficos do cliente. 
 
-Para o modelo de série de tempo, terá de extrair os seguintes elementos deste dataframe: 
+Para modelar a série de tempo, terá de extrair os elementos a seguir este pacote de dados: 
 + Um eixo de data/hora 
-+ A quantidade de venda para ser prever
++ A quantidade de vendas para ser prever
 
 
 ```python
@@ -278,7 +278,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>arquivo</th>
+      <th>armazenar</th>
       <th>marca</th>
       <th>WeekLastDay</th>
       <th>Quantidade</th>
@@ -289,7 +289,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
       <th>0</th>
       <td>2</td>
       <td>tropicana</td>
-      <td>1990-06-20 23:59:59</td>
+      <td>06 de 1990-20 23:59:59</td>
       <td>8256</td>
     </tr>
     <tr>
@@ -334,11 +334,11 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
-Os dados contêm aproximadamente 250 diferentes combinações de arquivo e marca num intervalo de dados. Cada combinação define o seu próprio séries de tempo de vendas. 
+Os dados contêm aproximadamente 250 diferentes combinações de loja e marca num quadro de dados. Cada combinação define sua própria série de tempo de vendas. 
 
-Pode utilizar o [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) classe para modelar comodamente várias séries de uma estrutura de dados único utilizando o _grão_. O intervalo é especificado pelo `store` e `brand` colunas.
+Pode utilizar o [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) classe para modelar convenientemente várias séries numa estrutura de dados individual utilizando o _detalhamento_. O intervalo de agregação for especificado o `store` e `brand` colunas.
 
-A diferença entre _grão_ e _grupo_ grão estão sempre fisicamente significativo no mundo real, enquanto o grupo não tem de ser. As funções do pacote interno utilizam grupo para criar um modelo único de várias séries de tempo, se o utilizador Deteta este agrupamento ajuda a melhorar o desempenho do modelo. Por predefinição, grupo está configurado para ser igual ao Grão e é criado um modelo único para cada intervalo. 
+A diferença entre _intervalo de agregação_ e _grupo_ é que o intervalo de agregação sempre é fisicamente significativo no mundo real, enquanto o grupo não tem de ser. As funções do pacote interno utilizam grupo para criar um modelo único de várias séries de tempo se o usuário acredite que este agrupamento ajuda a melhorar o desempenho do modelo. Por predefinição, o grupo está definido para ser igual ao intervalo de agregação, e um único modelo foi concebido para cada intervalo de agregação. 
 
 
 ```python
@@ -368,14 +368,14 @@ whole_tsdf[['Quantity']].head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>arquivo</th>
+      <th>armazenar</th>
       <th>marca</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1990-06-20 23:59:59</th>
+      <th>06 de 1990-20 23:59:59</th>
       <th>2</th>
       <th>tropicana</th>
       <td>8256</td>
@@ -409,7 +409,7 @@ whole_tsdf[['Quantity']].head()
 
 
 
-Em representação TimeSeriesDataFrame, o eixo de tempo grão agora fazem parte do índice de moldura de dados e permitir que o facilitar o acesso ao datetime pandas repartir funcionalidade.
+Na representação TimeSeriesDataFrame, o eixo de tempo e o intervalo de agregação agora fazem parte do índice do quadro de dados e permitem o acesso fácil a datetime de pandas funcionalidade de fragmentação.
 
 
 ```python
@@ -433,14 +433,14 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>arquivo</th>
+      <th>armazenar</th>
       <th>marca</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1990-06-20 23:59:59</th>
+      <th>06 de 1990-20 23:59:59</th>
       <th>2</th>
       <th>dominicks</th>
       <td>10560</td>
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-O [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) função gera um relatório abrangente da moldura de dados de séries de tempo. O relatório inclui tanto uma descrição geral de dados, bem como as estatísticas específicas dos dados de série de tempo. 
+O [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) função gera um relatório abrangente da estrutura de dados de série de tempo. O relatório inclui tanto uma descrição geral de dados, bem como estatísticas específicas para os dados de séries de tempo. 
 
 
 ```python
@@ -663,11 +663,16 @@ whole_tsdf.ts_report()
 
 ![PNG](./media/how-to-build-deploy-forecast-models/output_15_6.png)
 
+![PNG](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+ 
 
 
 ## <a name="integrate-with-external-data"></a>Integrar com dados externos
 
-Por vezes, é útil para integrar dados externos, como as funcionalidades adicionais para a previsão. Neste exemplo de código, pode associa TimeSeriesDataFrame externos dados relacionados com Meteorologia.
+Por vezes, é útil integrar dados externos como funcionalidades adicionais para a previsão. Neste exemplo de código, adere TimeSeriesDataFrame com dados externos relacionados com Meteorologia.
 
 
 ```python
@@ -710,12 +715,12 @@ whole_tsdf.head()
       <th></th>
       <th>semana</th>
       <th>logmove</th>
-      <th>feat</th>
+      <th>recurso</th>
       <th>preço</th>
       <th>AGE60</th>
       <th>EDUC</th>
-      <th>ETHNIC</th>
-      <th>RECEITAS</th>
+      <th>ÉTNICOS</th>
+      <th>RENDIMENTO</th>
       <th>HHLARGE</th>
       <th>WORKWOM</th>
       <th>...</th>
@@ -732,7 +737,7 @@ whole_tsdf.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>arquivo</th>
+      <th>armazenar</th>
       <th>marca</th>
       <th></th>
       <th></th>
@@ -759,7 +764,7 @@ whole_tsdf.head()
   </thead>
   <tbody>
     <tr>
-      <th rowspan="5" valign="top">1990-06-20 23:59:59</th>
+      <th rowspan="5" valign="top">06 de 1990-20 23:59:59</th>
       <th rowspan="3" valign="top">2</th>
       <th>dominicks</th>
       <td>40</td>
@@ -768,17 +773,17 @@ whole_tsdf.head()
       <td>1.59</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>...</td>
       <td>2.11</td>
       <td>1.14</td>
       <td>1.93</td>
       <td>0.38</td>
       <td>10560</td>
-      <td>1990-06-14</td>
+      <td>06 de 1990-14</td>
       <td>72.00</td>
       <td>61.87</td>
       <td>9.74</td>
@@ -792,17 +797,17 @@ whole_tsdf.head()
       <td>3.17</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>...</td>
       <td>2.11</td>
       <td>1.14</td>
       <td>1.93</td>
       <td>0.38</td>
       <td>4480</td>
-      <td>1990-06-14</td>
+      <td>06 de 1990-14</td>
       <td>72.00</td>
       <td>61.87</td>
       <td>9.74</td>
@@ -816,17 +821,17 @@ whole_tsdf.head()
       <td>3.87</td>
       <td>0.23</td>
       <td>0.25</td>
-      <td>0.11</td>
+      <td>0,11</td>
       <td>10.55</td>
-      <td>0.10</td>
-      <td>0.30</td>
+      <td>0,10</td>
+      <td>0,30</td>
       <td>...</td>
       <td>2.11</td>
       <td>1.14</td>
       <td>1.93</td>
       <td>0.38</td>
       <td>8256</td>
-      <td>1990-06-14</td>
+      <td>06 de 1990-14</td>
       <td>72.00</td>
       <td>61.87</td>
       <td>9.74</td>
@@ -839,19 +844,19 @@ whole_tsdf.head()
       <td>7.49</td>
       <td>1</td>
       <td>1.59</td>
-      <td>0.12</td>
-      <td>0.32</td>
+      <td>0,12</td>
+      <td>0,32</td>
       <td>0,05</td>
       <td>10.92</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0.41</td>
       <td>...</td>
       <td>3.80</td>
-      <td>0.68</td>
+      <td>0,68</td>
       <td>1.60</td>
-      <td>0.74</td>
+      <td>0,74</td>
       <td>1792</td>
-      <td>1990-06-14</td>
+      <td>06 de 1990-14</td>
       <td>72.00</td>
       <td>61.87</td>
       <td>9.74</td>
@@ -863,19 +868,19 @@ whole_tsdf.head()
       <td>8.35</td>
       <td>0</td>
       <td>2.99</td>
-      <td>0.12</td>
-      <td>0.32</td>
+      <td>0,12</td>
+      <td>0,32</td>
       <td>0,05</td>
       <td>10.92</td>
-      <td>0.10</td>
+      <td>0,10</td>
       <td>0.41</td>
       <td>...</td>
       <td>3.80</td>
-      <td>0.68</td>
+      <td>0,68</td>
       <td>1.60</td>
-      <td>0.74</td>
+      <td>0,74</td>
       <td>4224</td>
-      <td>1990-06-14</td>
+      <td>06 de 1990-14</td>
       <td>72.00</td>
       <td>61.87</td>
       <td>9.74</td>
@@ -885,16 +890,16 @@ whole_tsdf.head()
 </table>
 
 
-## <a name="preprocess-data-and-impute-missing-values"></a>Processar previamente os dados e impute valores em falta
+## <a name="preprocess-data-and-impute-missing-values"></a>Pré-processar dados e impute valores em falta
 
-Comece por dividir os dados no conjunto de formação e testar um conjunto com o [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) função utilitário. O conjunto de teste resultante contém as últimas 40 observações de cada série de tempo. 
+Comece por divisão dos dados em conjunto de treinamento e um teste definido com o [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) função de utilitário. O conjunto de teste resultante contém as último 40 observações de cada série de tempo. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Modelos de série de tempo básico necessitam de séries de tempo contíguos. Verifique se a série é regular, o que significa que têm um índice de momento amostragem em intervalos regulares, utilizando o [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) função.
+Modelos de série de tempo básicas necessitam de séries de tempo contínuo. Certifique-se a série é regular, o que significa que têm um índice de tempo como amostra em intervalos regulares, utilizando o [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) função.
 
 
 ```python
@@ -969,7 +974,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Pode ver que a maioria da série (213 fora de 249) são dados. Um [transformação imputation](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) é necessário para preencher em falta valores da quantidade de vendas. Enquanto existem muitas opções de imputation, o código de exemplo seguinte utiliza uma interpolação linear.
+Pode ver que a maior parte da série (213 de 249) é irregulares. Uma [transformação de imputation](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) é necessário para preencher na ausência de valores de quantidade de vendas. Embora existam muitas opções de imputation, o código de exemplo seguinte utiliza uma interpolação linear.
 
 
 ```python
@@ -982,7 +987,7 @@ imputer = TimeSeriesImputer(input_column='Quantity',
 train_imputed_tsdf = imputer.transform(train_tsdf)
 ```
 
-Depois do código de imputation é executado, as séries todos os têm uma frequência regular:
+Depois do código de imputation é executado, a série de todos os tem uma frequência normal:
 
 
 ```python
@@ -995,18 +1000,18 @@ print(ts_regularity_imputed[ts_regularity_imputed['regular'] == False])
     Index: []
     
 
-## <a name="univariate-time-series-models"></a>Modelos de série de tempo Univariate
+## <a name="univariate-time-series-models"></a>Modelos de série de tempo de Univariate
 
-Agora que tem de limpar os dados, pode começar a modelação.  Comece por criar três modelos de univariate: o modelo de "naïve", o modelo de "naïve sazonais" e um modelo de "ARIMA".
-* O algoritmo de previsão da utiliza o valor de variável de destino real do último período como o valor previsto o período atual.
+Agora que tem de limpar os dados, pode começar a Modelagem.  Comece criando três modelos de univariate: o modelo de "ingênua", o modelo de "ingênua sazonais" e um modelo de "ARIMA".
+* O algoritmo de previsão Bayesiana utiliza o valor da variável destino real do último período como o valor previsto do período atual.
 
-* O algoritmo sazonais da utiliza o valor da variável destino real do mesmo ponto de tempo da época anterior, como o valor previsto do ponto de tempo atual. Alguns exemplos incluem a utilizar o valor real do mesmo mês do ano passado para a previsão meses do ano atual; Utilize a mesma hora de ontem para prever horas hoje. 
+* O algoritmo sazonais Bayesiana utiliza o valor da variável destino real do mesmo ponto no tempo a época anterior, como o valor previsto do ponto de tempo atual. Alguns exemplos incluem a utilizar o valor real do mesmo mês do ano passado para prever meses do ano atual; Utilize a mesma hora do passado para prever as horas de hoje. 
 
-* O algoritmo de suavização (ETS) exponencial gera previsões pela computação as médias ponderadas das últimas observações, com as ponderações em decadência exponencialmente como as observações obter anteriores. 
+* O algoritmo de suavização (ETS) exponencial gera previsões pela computação as médias ponderadas de observações sobre o passado, com os pesos em decadência exponencialmente à medida as observações se mais antigas. 
 
-* O algoritmo de AutoRegressive integrada mover médio (ARIMA) captura autocorrelation nos dados de séries de tempo. Para mais informações sobre ARIMA, consulte [esta ligação](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+* O algoritmo de regressão automática integrada mover média (ARIMA) captura autocorrelation nos dados de séries de tempo. Para obter mais informações sobre ARIMA, consulte [esta ligação](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
 
-Comece por definir determinados parâmetros de modelo com base na sua exploração de dados. 
+Comece por definir determinados parâmetros de modelo com base em sua exploração de dados. 
 
 
 ```python
@@ -1035,7 +1040,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combinar vários modelos
 
-O [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator permite-lhe combinar várias estimators e ajuste/prever nos mesmos utilizando uma linha de código.
+O [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) estimator permite-lhe combinar vários avaliadores e ajuste/prever neles usando uma linha de código.
 
 
 ```python
@@ -1046,18 +1051,18 @@ forecaster_union = ForecasterUnion(
 
 ### <a name="fit-and-predict"></a>Ajustar e prever
 
-Estimators no AMLPF siga a mesma API como scikit-saiba estimators: um método adequado para formação de modelo e um método de predição para gerar previsões. 
+Os avaliadores no AMLPF siga a mesma API como scikit-saiba estimadores: um método adequado para a preparação de modelos e um método de predict para gerar as previsões. 
 
-**Modelos de formação**  
-Uma vez que estes modelos são todos os modelos de univariate, um modelo é caber para cada base de dados. Utilizar AMLPF, todos os 249 modelos podem ajustar com chamada de função apenas um.
+**Preparação de modelos**  
+Uma vez que estes modelos são todos os modelos de univariate, um modelo é adequado para cada intervalo de agregação dos dados. Utilizar AMLPF, todos os modelos de 249 podem ajustar com chamada de função apenas um.
 
 
 ```python
 forecaster_union_fitted = forecaster_union.fit(train_imputed_tsdf)
 ```
 
-**Previsões de vendas em dados de teste**  
-Semelhante para o método adequado, pode criar predições para todas as 249 séries no conjunto de dados de teste com uma chamada para o `predict` função. 
+**Previsão de vendas em dados de teste**  
+Assim como o método adequado, pode criar previsões de indisponibilidade para todas as 249 séries no conjunto de dados de teste com uma chamada para o `predict` função. 
 
 
 ```python
@@ -1066,7 +1071,7 @@ forecaster_union_prediction = forecaster_union_fitted.predict(test_tsdf, retain_
 
 **Avaliar o desempenho do modelo**   
 
-Agora pode calcular os erros de previsão no conjunto de teste. Aqui, pode utilizar o erro de percentagem média de absoluto (MAPE). MAPE são o erro de percentagem absoluto de médio relativa os valores de vendas reais. O ```calc_error``` função fornece algumas funções incorporadas com base nas métricas frequentemente utilizadas erro. Também pode definir a nossa função de erro personalizada para calcular MedianAPE e transmita-o para o argumento de err_fun.
+Agora pode calcular os erros de previsão no conjunto de teste. Aqui pode usar o erro de percentagem absoluto mean (MAPE). MAPE é o erro de percentagem absoluto mean em relação aos valores de vendas reais. O ```calc_error``` função fornece algumas funções internas para métricas de erro mais usados. Também pode definir nossa função de erro personalizada para calcular MedianAPE e passá-lo para o argumento de err_fun.
 
 
 ```python
@@ -1128,7 +1133,7 @@ univariate_model_errors
     </tr>
     <tr>
       <th>2</th>
-      <td>naïve</td>
+      <td>ingênua</td>
       <td>103.57</td>
       <td>59.14</td>
     </tr>
@@ -1145,14 +1150,14 @@ univariate_model_errors
 
 ## <a name="build-machine-learning-models"></a>Criar modelos de machine learning
 
-Para além de modelos de univariate tradicionais, do Azure Machine Learning pacote para a previsão também permite-lhe criar modelos de machine learning.
+Além dos modelos de univariate tradicional, Azure Machine Learning pacote para a previsão também permite-lhe criar modelos de aprendizagem automática.
 
-Para estes modelos, comece por criar funcionalidades.
+Para esses modelos, comece por criar recursos.
 
-### <a name="feature-engineering"></a>Engenharia da funcionalidade
+### <a name="feature-engineering"></a>Engenharia de funcionalidades
 
-**Transformers**   
-O pacote fornece muitos transformers para dados de séries de tempo pré-processamentos e featurization. Os exemplos que se seguem demonstram a funcionalidade pré-processamentos e featurization.
+**Apresentam vários transformadores**   
+O pacote fornece apresentam vários transformadores muitas para dados de séries de tempo pré-processamento e featurization. Os exemplos que se seguem demonstram algumas das funcionalidades de pré-processamento e featurization.
 
 
 ```python
@@ -1182,7 +1187,7 @@ grain_featurizer = GrainIndexFeaturizer(overwrite_columns=True, ts_frequency=oj_
 ```
 
 **Pipelines**   
-Objetos de pipeline tornam mais fácil guardar um conjunto de passos, pelo que podem ser repetidas aplicadas a diferentes objetos. Além disso, podem ser pickled objetos de pipeline para torná-los facilmente portátil para outras máquinas para implementação. Pode encadeiam todos os transformers criou até ao momento através de um pipeline. 
+Objetos do pipeline facilitam a salvar um conjunto de passos, para que podem ser aplicadas repetidamente para objetos diferentes. Além disso, os objetos do pipeline podem ser pickled para torná-los facilmente transportável para outras máquinas para a implementação. Pode encadear todos apresentam vários transformadores que criou até agora com um pipeline. 
 
 
 ```python
@@ -1249,7 +1254,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-O [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) função encapsula a num wrapper sklearn estimators de regressão, de modo a que pode ser preparados no TimeSeriesDataFrame. O forecaster encapsulada também coloca cada grupo, neste arquivo maiúsculas, no mesmo modelo. O forecaster pode obter um modelo para um grupo de séries que foram consideradas semelhante e podem ser agrupados em conjunto. Um modelo para um grupo de séries utiliza, muitas vezes, os dados da série de tempo para melhorar previsões para série curto. Pode substituir estes modelos para outros modelos na biblioteca que suportam regressão. 
+O [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) função encapsula sklearn avaliadores de regressão, de modo a que pode ser treinados em TimeSeriesDataFrame. O forecaster encapsulada coloca também cada grupo, esse armazenamento caso, o mesmo modelo. O forecaster pode aprender um modelo para um grupo de série que foram considerada semelhantes e pode ser agrupado em conjunto. Um modelo para um grupo de série, muitas vezes, usa os dados da série de mais tempo para melhorar as previsões de série curta. Pode substituir estes modelos para os outros modelos na biblioteca, que oferecem suporte a regressão. 
 
 
 ```python
@@ -1318,7 +1323,7 @@ all_errors.sort_values('MedianAPE')
     </tr>
     <tr>
       <th>2</th>
-      <td>naïve</td>
+      <td>ingênua</td>
       <td>103.57</td>
       <td>59.14</td>
     </tr>
@@ -1363,13 +1368,13 @@ all_errors.sort_values('MedianAPE')
 
 
 
-Alguns modelos de machine learning foram capazes de tirar partido das funcionalidades foram adicionadas e semelhanças entre série para obter uma melhor exatidão da previsão.
+Alguns modelos de machine learning eram capazes de tirar partido de mais funcionalidades e as semelhanças entre séries para obter uma melhor precisão de previsão.
 
-**Validação cruzada e varrimento de parâmetro**    
+**A validação cruzada e varrimento de parâmetro**    
 
-O pacote feita algumas tradicional de machine learning funções para uma aplicação de previsão.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) validação cruzada temporariamente, respecting que seria e não seriam conhecido numa arquitetura de previsão. 
+O pacote adapta-se algumas funções para um aplicativo de previsão de aprendizagem tradicional.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) faz a validação cruzada-, respeitando o que seria e não deve ser conhecido numa estrutura de previsão. 
 
-A figura abaixo, cada quadrada representa dados de um ponto de tempo. Os quadrados azuis representam formação e quadrados laranja representam testes em cada subconjuntos de validação. Dados de teste tem de ser de pontos de tempo após o ponto de tempo maior formação. Caso contrário, dados futuros é podem fugir para dados de formação, fazendo com que a avaliação de modelo se torne inválido. 
+A figura abaixo, cada quadrado representa dados de um ponto de tempo. Quadrados azuis na representam o treinamento e quadrados laranja representam testes em cada subconjuntos de validação. Dados de testes deverão ser provenientes os pontos de tempo após o ponto de tempo de treinamento maior. Caso contrário, os dados futuros for vazando sobre os dados de treinamento, fazendo com que a avaliação de modelo para se tornar inválido. 
 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
@@ -1392,7 +1397,7 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
     
 
 **Criar o pipeline final**   
-Agora que identificou o modelo de melhor, pode criar e que se adeque ao seu pipeline final com todos os transformers e o modelo de melhor. 
+Agora que identificou o melhor modelo, pode criar e ajustar o seu pipeline final com apresentam vários transformadores todos os e o melhor modelo. 
 
 
 ```python
@@ -1411,13 +1416,13 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: implementar e consumir
+## <a name="operationalization-deploy-and-consume"></a>Operacionalização: implementar e consumir
 
-Nesta secção, implemente um pipeline como um serviço web do Azure Machine Learning e consumi-lo para formação e classificação. O serviço web implementado da classificação retrains o modelo e gera previsões em novos dados.
+Nesta secção, implemente um pipeline como um serviço web do Azure Machine Learning e seu uso para preparação e classificação. O serviço web implementado de classificação retrains o modelo e gera as previsões sobre novos dados.
 
-### <a name="set-model-deployment-parameters"></a>Definir os parâmetros de modelo de implementação
+### <a name="set-model-deployment-parameters"></a>Definir parâmetros de implementação do modelo
 
-Altere os parâmetros seguintes para os seus próprios valores. Certifique-se de que o seu ambiente do Azure Machine Learning, a conta de gestão de modelo e o grupo de recursos estão localizados na mesma região.
+Altere os parâmetros seguintes para seus próprios valores. Certifique-se de que o seu ambiente do Azure Machine Learning, a conta de gestão de modelos e o grupo de recursos estão localizados na mesma região.
 
 
 ```python
@@ -1456,7 +1461,7 @@ deployment_name = '<web service name>'
 deployment_working_directory = '<local working directory>'
 ```
 
-### <a name="define-the-azure-machine-learning-environment-and-deployment"></a>Definir o ambiente do Azure Machine Learning e implementação
+### <a name="define-the-azure-machine-learning-environment-and-deployment"></a>Definir o ambiente do Azure Machine Learning e a implantação
 
 
 ```python
@@ -1493,7 +1498,7 @@ aml_deployment.deploy()
 
 ### <a name="score-the-web-service"></a>O serviço web de pontuação
 
-Para pontuar um pequeno conjunto de dados, utilize o [pontuação](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) chamada de método para submeter um serviço web para todos os dados.
+Para classificar um pequeno conjunto de dados, utilize o [pontuação](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) chamada de método para submeter um serviço da web para todos os dados.
 
 
 ```python
@@ -1514,7 +1519,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-Para pontuar um grande conjunto de dados, utilize o [classificação paralelas](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) chamadas do modo para submeter vários serviço web, uma para cada grupo de dados.
+Para classificar um conjunto de dados grandes, utilize o [classificação paralela](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) modo para submeter o serviço web de vários chama, uma para cada grupo de dados.
 
 
 ```python
@@ -1525,8 +1530,8 @@ results = aml_web_service.score(score_context=score_context, method='parallel')
 
 Saiba mais sobre o pacote do Azure Machine Learning para previsão nestes artigos:
 
-+ Leia o [descrição geral do pacote e aprender a instalá-lo](https://aka.ms/aml-packages/forecasting).
++ Leitura a [descrição geral do pacote e Aprenda a instalá-lo](https://aka.ms/aml-packages/forecasting).
 
-+ Explorar o [referenciar docs](https://aka.ms/aml-packages/forecasting) para este pacote.
++ Explore os [referenciar docs](https://aka.ms/aml-packages/forecasting) para este pacote.
 
-+ Saiba mais sobre [outros pacotes do Python para o Azure Machine Learning](reference-python-package-overview.md).
++ Saiba mais sobre [outros pacotes de Python para o Azure Machine Learning](reference-python-package-overview.md).

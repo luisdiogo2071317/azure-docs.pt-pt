@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 80064584468c109d0bad49f1a22c485fa9cce846
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 99ba867b10c82d226948b13fda448cd24a33c553
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344523"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888733"
 ---
 # <a name="manage-your-luis-keys"></a>Gerir as chaves de LUIS
 Uma chave permite-lhe criar e publicar a sua aplicação do LUIS ou consultar o ponto final. 
@@ -72,5 +72,3 @@ Saiba mais sobre a publicação [regiões](luis-reference-regions.md) incluindo 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Utilize a chave para publicar a sua aplicação no **publicar aplicação** página. Para obter instruções sobre a publicação, consulte [publicar aplicação](luis-how-to-publish-app.md).
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

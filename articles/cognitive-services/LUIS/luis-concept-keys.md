@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe6bd0803098854c7ced1a7d816ebbc8cce23b09
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340618"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888627"
 ---
 # <a name="keys-in-luis"></a>Chaves de LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -31,7 +31,7 @@ LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key)
 
 Uma chave de criação, também conhecido como uma chave de arranque, é criada automaticamente quando cria uma conta de LUIS e é gratuito. Tem uma chave de criação em todas as suas aplicações de LUIS para cada tipo de criação [região](luis-reference-regions.md). A chave de criação é fornecida para criar a sua aplicação LUIS ou para testar as consultas de ponto final. 
 
-Para localizar a chave de criação, inicie sessão [LUIS] [ LUIS] e clique no nome da conta na barra de navegação do canto superior direito para abrir **definições de conta**.
+Para localizar a chave de criação, inicie sessão [LUIS](luis-reference-regions.md#luis-website) e clique no nome da conta na barra de navegação do canto superior direito para abrir **definições de conta**.
 
 ![Chave de criação](./media/luis-concept-keys/programatic-key.png)
 
@@ -70,10 +70,8 @@ Ver [limites de chaves](luis-boundaries.md#key-limits) e [regiões do Azure](lui
 Regiões de publicação são diferentes das regiões de criação. Certifique-se de que criar uma aplicação na região criação correspondente para a região de publicação que pretende.
 
 ## <a name="key-limit-errors"></a>Erros de chave de limite
-Se ultrapassar os seus por segundo quota, receberá um erro de HTTP 429. Se ultrapassar os seus por quota do mês, receberá um erro HTTP 403. Corrija estes erros obtendo um LUIS [ponto final](#endpoint-key) chave, [atribuir](luis-how-to-manage-keys.md#assign-endpoint-key) a chave para a aplicação no **publicar** página do [LUIS] [ LUIS] Web site.
+Se ultrapassar os seus por segundo quota, receberá um erro de HTTP 429. Se ultrapassar os seus por quota do mês, receberá um erro HTTP 403. Corrija estes erros obtendo um LUIS [ponto final](#endpoint-key) chave, [atribuir](luis-how-to-manage-keys.md#assign-endpoint-key) a chave para a aplicação no **publicar** página do [LUIS](luis-reference-regions.md#luis-website) Web site.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais [conceitos](luis-how-to-manage-keys.md#assign-endpoint-key) sobre chaves de criação e o ponto final.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

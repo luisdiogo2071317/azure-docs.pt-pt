@@ -1,5 +1,5 @@
 ---
-title: Gestão de dispositivos do Azure Active Directory FAQ | Microsoft Docs
+title: Gestão de dispositivos do Azure Active Directory perguntas frequentes | Documentos da Microsoft
 description: Gestão de dispositivos do Azure Active Directory FAQ.
 services: active-directory
 documentationcenter: ''
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309863"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901141"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
 
 
-**P: como registar o dispositivo macOS?**
+**P: como posso registrar um dispositivo macOS?**
 
 **R:** para registar o dispositivo macOS:
 
 1.  [Criar uma política de conformidade](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definir uma política de acesso condicional para dispositivos de macOS](active-directory-conditional-access-azure-portal.md) 
+2.  [Definir uma política de acesso condicional para dispositivos macOS](active-directory-conditional-access-azure-portal.md) 
 
-**Comentários:**
+**Observações:**
 
-- Os utilizadores que estão incluídos na sua política de acesso condicional tem um [a versão suportada do Office para macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) para aceder a recursos. 
+- Os utilizadores que estão incluídos na sua política de acesso condicional tem um [uma versão suportada do Office para macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) para aceder aos recursos. 
 
-- Durante a primeira tentativa de acesso, os utilizadores recebem um pedido para inscrever o dispositivo através do portal da empresa.
+- Durante a primeira tentativa de acesso, os utilizadores são-lhe pedidos para inscrever o dispositivo com o portal da empresa.
 
 ---
 
-**P: Posso registado o dispositivo recentemente. Por que motivo não é possível ver o dispositivo nas minhas informações de utilizador no portal do Azure?**
+**P: Posso registado o dispositivo recentemente. Por que motivo não vejo o dispositivo em minhas informações de utilizador no portal do Azure?**
 
-**R:** dispositivos Windows 10 que são híbrida do Azure AD associado não mostrar dos dispositivos dos utilizadores.
-Tem de utilizar a vista do todos os dispositivos no portal do Azure. Também pode utilizar o PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+**R:** dispositivos Windows 10 que estão associados ao Azure AD híbrido não aparecem em dispositivos de utilizador.
+Tem de utilizar a vista de todos os dispositivos no portal do Azure. Também pode utilizar o PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
-Os seguintes dispositivos estão listados dos dispositivos dos utilizadores:
+Apenas os seguintes dispositivos estão listados nos dispositivos de utilizador:
 
-- Todos os dispositivos pessoais que não são híbrida do Azure AD associada. 
+- Todos os dispositivos pessoais que não são do Azure AD híbrido associado. 
 - Todos os não - Windows 10 / dispositivos do Windows Server 2016.
 - Todos os dispositivos não Windows 
 
 --- 
 
-**P: como posso saber o que é o estado de registo do dispositivo do cliente?**
+**P: como posso saber o que é o estado de registo de dispositivo do cliente?**
 
 **R:** pode utilizar o portal do Azure, aceda a todos os dispositivos e procure o dispositivo com o ID de dispositivo. Verifique o valor na coluna de tipo de associação.
 
@@ -65,97 +65,109 @@ Se pretende verificar o estado de registo do dispositivo local de um dispositivo
 
 ---
 
-**P: Posso ter eliminado no portal do Azure ou utilizar o Windows PowerShell, mas o estado local no dispositivo a indicar que permanece registado?**
+**P: Posso ter eliminado no portal do Azure ou utilizando o Windows PowerShell, mas o estado local no dispositivo diz que permanece registado?**
 
-**R:** isto é propositado. O dispositivo não terão acesso aos recursos na nuvem. 
+**R:** isto é propositado. O dispositivo não terão acesso aos recursos na cloud. 
 
-Se pretender voltar a registar novamente, tem de ser uma ação manual para ser executada no dispositivo. 
+Se pretender voltar a registar novamente, uma ação manual tem de ser a executar no dispositivo. 
 
 Para limpar o estado de associação do Windows 10 e Windows Server 2016 que estão no local associados a um domínio do AD:
 
 1.  Abra a linha de comandos como administrador.
 
-2.  tipo `dsregcmd.exe /debug /leave`
+2.  Tipo `dsregcmd.exe /debug /leave`
 
 3.  Terminar sessão e inicie sessão acionar a tarefa agendada que regista o dispositivo com o Azure AD novamente. 
 
-Para versões de SO Windows de nível inferior que estão no local AD associados a um domínio:
+Para versões de SO do Windows de nível inferior que estão no local AD associados a um domínio:
 
 1.  Abra a linha de comandos como administrador.
 2.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-* * P: Como posso anulação da associação a um dispositivo do Azure AD associados localmente no dispositivo?
-**R:** 
-- Para dispositivos do Azure AD associados híbrida, certifique-se desativar o registo automático para que a tarefa agendada não registar o dispositivo novamente. Em seguida, abra a linha de comandos como um administrador e escreva `dsregcmd.exe /debug /leave`. Em alternativa, este comando pode ser executado como um script em vários dispositivos ao desassociar em massa.
+**P: como, desassocie um dispositivo do Azure AD associado localmente no dispositivo?**
 
-- Para puro associados do AD do Azure dispositivos, certifique-se de um administrador local offline conta ou criar um, como não conseguirá iniciar sessão com as credenciais de utilizador do Azure AD. Em seguida, aceda a **definições** > **contas** > **acesso ou escola**. Selecione a sua conta e clique em **desligar**. Siga as instruções e forneça as credenciais de administrador local quando lhe for pedido. Reinicie o dispositivo para concluir o processo de unjoin.
+**R:** 
+- Para dispositivos do Azure AD associado híbrida, certifique-se desativar o registro automático para que a tarefa agendada não volte a registar o dispositivo. Em seguida, abra a linha de comandos como administrador e tipo `dsregcmd.exe /debug /leave`. Em alternativa, este comando pode ser executado como um script em vários dispositivos de anulação da associação em massa.
+
+- Para puro associado do AD Azure dispositivos, certifique-se de que tem um administrador local offline de conta ou criar uma, como não será possível iniciar sessão com qualquer credenciais de utilizador do Azure AD. Em seguida, aceda a **configurações** > **contas** > **acesso profissional ou escolar**. Selecione a sua conta e clique em **desligar**. Siga as instruções e forneça as credenciais de administrador local quando lhe for pedido. Reinicie o dispositivo para concluir o processo de unjoin.
 
 ---
 
-**P: por que razão vejo entradas de dispositivo duplicado no portal do Azure?**
+**P: os usuários não consegue pesquisar impressoras dos dispositivos associados do Azure AD. Como posso ativar a impressão a partir de dispositivos associados do Azure AD?**
+
+**R:** para implantando impressoras para dispositivos associados do Azure AD, consulte [impressão de cloud híbrida](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Precisará de um servidor do Windows no local para implementar a impressão de cloud híbrida. Atualmente, o serviço de impressão baseado na nuvem não está disponível. 
+
+---
+
+**P: por que vejo as entradas de dispositivo duplicado no portal do Azure?**
 
 **R:**
 
--   Para Windows 10 e Windows Server 2016, se existem tentativas repetidas de anulação da associação ao e voltar a associar o mesmo dispositivo, podem existir as entradas duplicadas. 
+-   Para Windows 10 e Windows Server 2016, se existem tentativas repetidas de anulação da associação ao e voltar a associar o mesmo dispositivo, poderá haver entradas duplicadas. 
 
--   Se tiver utilizado a adicionar conta escolar ou profissional, cada utilizador do windows que utiliza a adicionar conta escolar ou profissional irá criar um novo registo de dispositivos com o mesmo nome de dispositivo.
+-   Se tiver utilizado a adicionar conta profissional ou escolar, cada utilizador do windows que utiliza a conta escolar ou profissional adicionar irá criar um novo registo de dispositivo com o mesmo nome de dispositivo.
 
--   Para versões de SO Windows de nível inferior que estão no local AD associados a um domínio utilizando o registo automático irá criar um novo registo de dispositivos com o mesmo nome de dispositivo para cada utilizador de domínio que inicia sessão no dispositivo. 
+-   Para versões de SO do Windows de nível inferior que estão no local AD associados a um domínio com o registo automático criará um novo registo de dispositivo com o mesmo nome de dispositivo para cada utilizador de domínio que inicia sessão no dispositivo. 
 
--   Um computador associado a do Azure AD que tenha sido apagado, reinstalado e novamente associado com o mesmo nome, será mostrado como outro registo com o mesmo nome de dispositivo.
+-   Um computador associado a do Azure AD que tenha sido apagado, reinstalado e novamente associado com o mesmo nome, será apresentado como outro registo com o mesmo nome de dispositivo.
 
 ---
 
-**P: por que razão pode um utilizador ainda aceder aos recursos de um dispositivo que posso tiver desativado no portal do Azure?**
+**P: por que pode um utilizador ainda aceder aos recursos de um dispositivo que desativou no portal do Azure?**
 
-**R:** pode demorar até uma hora para um revogar sejam aplicadas.
+**R:** pode demorar até uma hora para um revogar a ser aplicado.
 
 >[!Note] 
->Para dispositivos inscritos, recomendamos que apagar o dispositivo para garantir que os utilizadores não é possível aceder aos recursos. Para obter mais detalhes, consulte [inscrever dispositivos para gestão no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Para dispositivos inscritos, é recomendável limpar o dispositivo para garantir que os utilizadores não podem aceder os recursos. Para obter mais detalhes, consulte [inscrever dispositivos para gestão no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
-**P: por que razão os meus utilizadores vir "Que não pode chegar lá a partir daqui"?**
+**P: por que os meus utilizadores veem "não pode aceder aí a partir daqui"?**
 
-**R:** se configurou determinadas regras de acesso condicional para requerer um Estado de dispositivo específico e o dispositivo não cumpre os critérios, os utilizadores estão bloqueados e verá esta mensagem. Volte a avaliar as regras de política de acesso condicional e certifique-se de que o dispositivo é capaz de satisfazer os critérios para evitar esta mensagem.
-
----
-
-
-**P: Posso ver o registo de dispositivos com as informações de utilizador no portal do Azure e pode ver o estado, tal como registado no dispositivo. Estou que posso configurar corretamente para utilizar o acesso condicional?**
-
-**R:** o estado de associação do dispositivo, refletido pela deviceID, tem de corresponde à que sobre o Azure AD e cumprem os critérios de avaliação para o acesso condicional. Para obter mais detalhes, consulte [introdução ao registo de dispositivos do Azure Active Directory](active-directory-device-registration.md).
+**R:** se tiver configurado determinadas regras de acesso condicional para requerer um Estado de dispositivo específico e o dispositivo não cumpre os critérios, os utilizadores são bloqueados e ver esta mensagem. Inicie a avaliar as regras de política de acesso condicional e certifique-se de que o dispositivo é capaz de satisfazer os critérios para evitar esta mensagem.
 
 ---
 
-**P: por que motivo se receber uma mensagem "nome de utilizador ou palavra-passe está incorreto" para um dispositivo que posso ter apenas associado para o Azure AD?**
+**P: por que alguns dos meus utilizadores fazer get prompts MFA no Azure AD associado dispositivos?**
 
-**R:** são razões comuns para este cenário:
+**R:** se o usuário ingressa ou regista um dispositivo com o Azure AD com o multi-factor Authentication, o próprio dispositivo irá tornar-se de um segundo fator fidedigno para esse usuário específico. Posteriormente, sempre que o mesmo utilizador inicia sessão no dispositivo e acede a uma aplicação, o Azure AD considera o dispositivo como um segundo fator e permite que o utilizador de forma totalmente integrada aceder às suas aplicações sem pedidos adicionais do MFA. Este comportamento não é aplicável a qualquer outro utilizador iniciar sessão nesse dispositivo, para que todos os outros utilizadores aceder a que o dispositivo ainda poderia ser pedidos com um desafio MFA antes de aceder a aplicações que necessitam de MFA.
+
+---
+
+**P: Posso ver o registo de dispositivo sob as informações de utilizador no portal do Azure e pode ver o estado como registrado no dispositivo. Sou que eu configurar corretamente para utilizar o acesso condicional?**
+
+**R:** o estado de associação de dispositivo, refletido pela deviceID, tem de corresponder com isso no Azure AD e satisfazer quaisquer critérios de avaliação para o acesso condicional. Para obter mais detalhes, consulte [introdução ao registo de dispositivos do Azure Active Directory](active-directory-device-registration.md).
+
+---
+
+**P: por que motivo recebo uma mensagem de "nome de utilizador ou palavra-passe está incorreto" para um dispositivo que tem apenas associados ao Azure AD?**
+
+**R:** motivos comuns para este cenário:
 
 - As suas credenciais de utilizador já não são válidos.
 
-- O computador não consegue comunicar com o Azure Active Directory. Verifique a existência de quaisquer problemas de conectividade de rede.
+- O computador não consegue comunicar com o Azure Active Directory. Verificar a existência de quaisquer problemas de conectividade de rede.
 
-- Não foram cumpridos os pré-requisitos associação do Azure AD. Certifique-se de que seguiu os passos para [Extending capacidades da nuvem para dispositivos Windows 10 através da associação do Azure Active Directory](active-directory-azureadjoin-overview.md).  
+- Os pré-requisitos associação do Azure AD não foram cumpridos. Certifique-se de que seguiu os passos para [expandir recursos de nuvem para dispositivos Windows 10 através da associação do Azure Active Directory](active-directory-azureadjoin-overview.md).  
 
-- Inícios de sessão federados requer o seu servidor de Federação para suportar um ponto final ativo de WS-Trust. 
+- Inícios de sessão federados requer o seu servidor de Federação para dar suporte a um ponto final ativo de WS-Trust. 
 
-- Ativou pass-through Authentication e o utilizador tem uma palavra-passe temporária que tem de ser alteradas no início de sessão.
-
----
-
-**P: por que motivo consulte o "Oops... Ocorreu um erro!" diálogo ao tentar fazer do Azure AD associe o meu computador?**
-
-**R:** este é um resultado de configuração de inscrição do Azure Active Directory com o Intune. Certifique-se de que o utilizador tentar fazer a associação do Azure AD tem a licença do Intune correta atribuída. Para obter mais detalhes, consulte [configurar a gestão de dispositivos Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+- Ativou a Pass-through Authentication e o utilizador tem uma palavra-passe temporária que precisa ser alterada no início de sessão.
 
 ---
 
-**P: por que motivo meu tentativa de associação um PC falharem apesar de não recebi quaisquer informações de erro?**
+**P: por que razão vejo o "UPS... Ocorreu um erro!" caixa de diálogo quando tento fazer do Azure AD associar o meu PC?**
 
-**R:** uma causa provável é que o utilizador inicia sessão no dispositivo com a conta de administrador incorporada local. Crie uma conta local diferente antes de utilizar a associação do Azure Active Directory para concluir a configuração. 
+**R:** isso é resultado de configuração de inscrição do Azure Active Directory com o Intune. Certifique-se de que o usuário tentar fazer a associação do Azure AD tem correta licença do Intune atribuída. Para obter mais detalhes, consulte [configurar a gestão de dispositivos do Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+
+---
+
+**P: por que minha tentativa de associação um PC falhar embora eu não recebeu qualquer informação de erro?**
+
+**R:** uma causa provável é que o utilizador inicia sessão no dispositivo com a conta interna de administrador local. Crie uma conta local diferente antes de utilizar a associação do Azure Active Directory para concluir a configuração. 
 
 ---
 
@@ -169,9 +181,10 @@ Para versões de SO Windows de nível inferior que estão no local AD associados
 
 **R:** para informações de resolução de problemas, consulte:
 
-- [Resolução de problemas de registo automático de domínio associados a computadores com o Azure AD – Windows 10 e Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+- [Resolução de problemas de registo automático de domínio associados a computadores ao Azure AD – Windows 10 e Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
 
-- [Registo automático de domínio de resolução de problemas associados a computadores com o Azure AD para clientes de nível inferior do Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Resolução de problemas de registo automático de domínio associados a computadores ao Azure AD para clientes de nível inferior do Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

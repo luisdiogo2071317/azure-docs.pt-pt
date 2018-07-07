@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7c8f7fff5e3cf7334ce30a3fa90ae950f841662c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865302"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902521"
 ---
 # <a name="managed-service-identity-preview"></a>Identidade de Serviço Gerida (pré-visualização)
 
@@ -60,6 +60,9 @@ A identidade de serviço gerido para a aplicação web agora tem acesso ao espa�
 ### <a name="run-the-app"></a>Executar a aplicação
 
 Agora, modifique a página predefinida do aplicativo ASP.NET que criou. Também pode utilizar o código de aplicativo da web [este repositório de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
+
+>[!NOTE] 
+> Embora a funcionalidade MSI está em pré-visualização, não se esqueça de utilizar o [versão de pré-visualização da biblioteca do Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) para acessar as novas APIs. 
 
 Depois de iniciar a aplicação, o browser aponte para EventHubsMSIDemo.aspx. Em alternativa, defina-o como a página inicial. O código pode ser encontrado no arquivo EventHubsMSIDemo.aspx.cs. O resultado é um aplicativo web mínima com alguns campos de entrada e com **enviar** e **receber** botões que se ligam aos Hubs de eventos para enviar ou receber eventos. 
 

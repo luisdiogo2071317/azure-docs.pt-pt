@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4a5ace10c171d17235051c5bd666526318829fd7
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 27d6bbc628ac3183032a90d8f3ad98998c76a957
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867346"
+ms.locfileid: "37888835"
 ---
 # <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Usar o teste de batch para localizar problemas de precisão de previsão
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Neste artigo, também tem um [LUIS][LUIS] conta para criar a sua aplicação LUIS.
+> * Neste artigo, também tem um [LUIS](luis-reference-regions.md) conta para criar a sua aplicação LUIS.
 
 > [!Tip]
 > Se ainda não tiver uma subscrição, pode se registrar para uma [conta gratuita](https://azure.microsoft.com/free/).
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="create-new-app"></a>Criar nova aplicação
 Este artigo utiliza o domínio pré-criado HomeAutomation. O domínio pré-criado tem intenções, entidades e expressões com para controlar os dispositivos de HomeAutomation como luzes. Crie a aplicação, adicionar o domínio, formar e publicar.
 
-1. Na [LUIS] Web site, criar uma nova aplicação ao selecionar **criar nova aplicação** no **MyApps** página. 
+1. Na [LUIS](luis-reference-regions.md) Web site, criar uma nova aplicação ao selecionar **criar nova aplicação** no **MyApps** página. 
 
     ![Criar nova aplicação](./media/luis-tutorial-batch-testing/create-app-1.png)
 

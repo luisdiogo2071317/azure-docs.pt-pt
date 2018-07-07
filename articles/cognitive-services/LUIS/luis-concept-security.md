@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c581c26f867ca78a5ed12922c9e8760f5f903881
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f55574f7a9ffbcc2a1c8bd160bb66336b59c348c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345863"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888606"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Criação e o ponto final de acesso de utilizador
 Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, acesso de ponto final está disponível para todos os utilizadores que tem sua própria conta de LUIS tem o ID de. a aplicação pública 
 
 ## <a name="access-to-authoring"></a>Acesso a criação
-Acesso para a aplicação a partir da [LUIS] [ LUIS] Web site ou o [APIs de criação](https://aka.ms/luis-authoring-apis) é controlado pelo proprietário da aplicação. 
+Acesso para a aplicação a partir da [LUIS](luis-reference-regions.md#luis-website) Web site ou o [APIs de criação](https://aka.ms/luis-authoring-apis) é controlado pelo proprietário da aplicação. 
 
 O proprietário e todos os funcionários têm acesso para criar a aplicação. 
 
@@ -80,5 +80,3 @@ LUIS concluída com êxito o ISO 27001:2013 e auditoria de 27018:2014 ISO com ZE
 ## <a name="next-steps"></a>Passos Seguintes
 
 Ver [melhores práticas](luis-concept-best-practices.md) para aprender a utilizar as intenções e entidades para as melhores previsões.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

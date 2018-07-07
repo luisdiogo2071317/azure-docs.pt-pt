@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: eb8e55b3763c66dd2c8aabe92376bcb1278a0f45
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 291eb9ef7d8d089b443b55ac181e9fdd65fcb413
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346761"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888862"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -183,7 +183,7 @@ Os artigos que estavam anteriormente na seção Tutorial agora estão a ser a se
 |Criar uma aplicação do LUIS programaticamente usando [node. js](luis-tutorial-node-import-utterances-csv.md)|
 |Uso [entidade composta](luis-tutorial-composite-entity.md) para extrair dados agrupados|
 |Adicione [listar entidade](luis-tutorial-list-entity.md) para deteção de entidade maior com node. js|
-|Melhorar a exatidão da previsão com um [lista de frase](luis-tutorial-interchangeable-phrase-list.md), [padrões](luis-tutorial-pattern.md), e [testes de batch](luis-tutorial-batch-testing.md)|
+|Melhorar a exatidão da previsão com um [lista de frase](luis-quickstart-primary-and-secondary-data.md), [padrões](luis-tutorial-pattern.md), e [testes de batch](luis-tutorial-batch-testing.md)|
 |[Corrija a ortografia](luis-tutorial-batch-testing.md) com a API de verificação ortográfica do Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na conferência Build 2018, ouvi sobre um recurso de compreensão de idiomas ou uma demonstração, mas eu não se lembrar de que foi chamado? 
@@ -208,10 +208,8 @@ Vídeos:
 Projetos: 
 * [Bot de contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) demonstração - código-fonte no Github
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
 * [Perguntas de estouro de pilha etiquetadas com os LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [Fórum de (LUIS) de serviços de compreensão inteligentes de idiomas do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

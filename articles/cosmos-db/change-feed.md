@@ -1,7 +1,7 @@
 ---
-title: Suporte de feed de trabalhar com a alteração do BD Azure Cosmos | Microsoft Docs
-description: Utilize o suporte de feed de alteração de base de dados do Azure Cosmos para controlar as alterações em documentos e executar processamento baseadas em eventos como acionadores e manter os sistemas de caches e análise atualizado.
-keywords: alterar o feed
+title: Suporte de feed de trabalhar com a alteração no Azure Cosmos DB | Documentos da Microsoft
+description: Utilize o suporte de feed de alterações do Azure Cosmos DB para controlar as alterações em documentos e executar o processamento baseado em evento, como acionadores e manter atualizados os sistemas de caches e análise.
+keywords: feed de alterações
 services: cosmos-db
 author: rafats
 manager: kfile
@@ -10,93 +10,93 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 6b0aaa075b8b2881e269d79a67e75528d0d9a86a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129863"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902967"
 ---
-# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de feed de suporte do BD Azure Cosmos
+# <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de suporte de feed no Azure Cosmos DB
 
-[BD do Azure do Cosmos](../cosmos-db/introduction.md) são um fast e flexível globalmente replicados base de dados adequada para IoT, revenda, jogos e aplicações de registo operacional. É um padrão de conceção comuns nestas aplicações ao utilizar as alterações dos dados para iniciar ações adicionais. Estas ações adicionais pode ser qualquer um dos seguintes procedimentos: 
+[O Azure Cosmos DB](../cosmos-db/introduction.md) são um rápido e flexível globalmente replicados base de dados adequada para IoT, varejo, jogos e aplicações de registo operacional. Um padrão de design comum nesses aplicativos é usar as alterações dos dados para disparar ações adicionais. Estas ações adicionais podem ser qualquer um dos seguintes: 
 
-* Acionar uma notificação ou uma chamada a uma API, quando um documento é inserido ou modificado.
-* Fluxo de processamento de IoT ou efetuar a análise.
-* Movimento de dados adicionais por sincronizar com uma cache, o motor de busca ou do armazém de dados ou arquivar dados para armazenamento de frio.
+* Acionar uma notificação ou uma chamada para uma API quando um documento é inserido ou modificado.
+* Stream de processamento de IoT ou realizar as análises.
+* Movimento de dados adicionais ao sincronizar com uma cache, o motor de busca ou o armazém de dados ou arquivamento de dados no armazenamento amovível.
 
-O **alteração feed suporte** do BD Azure Cosmos permite-lhe criar soluções eficientes e dimensionáveis para cada um desses padrões, conforme mostrado na imagem seguinte:
+O **suporte de feed de alterações** no Azure Cosmos DB permite-lhe criar soluções eficientes e dimensionáveis para cada um desses padrões, conforme mostrado na imagem seguinte:
 
-![Utilizar base de dados do Azure Cosmos alteração feed análise em tempo real de energia e condicionada por eventos cenários de computação](./media/change-feed/changefeedoverview.png)
+![Usar as alterações do Azure Cosmos DB feed para análise em tempo real de energia e cenários de computação orientada para eventos](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Alteração de feed de suporte é fornecida para todos os contentores do BD Azure Cosmos e modelos de dados. No entanto, o feed de alteração de leitura com o cliente do SQL Server e serializa itens em formato JSON. Devido ao JSON de formatação, MongoDB, os clientes irão sentir um erro de correspondência entre documentos BSON formatado e o JSON com formato alteração feed.
+> Suporte de feed de alterações é fornecida para todos os modelos de dados e contentores no Azure Cosmos DB. No entanto, o feed de alterações é de leitura com o cliente do SQL e serializa os itens no formato JSON. Devido ao JSON de formatação, MongoDB, os clientes terão um erro de correspondência entre documentos BSON formatado e o JSON formatado de feed de alterações.
 
-No vídeo seguinte, o Azure Gestor de programa do Cosmos DB Andrew Liu demonstra como a alteração da base de dados do Azure Cosmos feed funciona.
+O vídeo seguinte, Andrew Liu gerente de programa do DB Cosmos Azure demonstra como a alteração do Azure Cosmos DB feed funciona.
 
 > [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
 >
 >
 
-## <a name="how-does-change-feed-work"></a>Como a alteração feed trabalho?
+## <a name="how-does-change-feed-work"></a>Como é que o alterar feed trabalho?
 
-Altere o feed suporte na base de dados do Azure Cosmos funciona através da escuta de uma coleção de BD do Cosmos do Azure para efetuar quaisquer alterações. -Lo, em seguida, devolve a lista ordenada de documentos que foram alteradas na ordem em que foram modificadas. As alterações são mantidas, podem ser processados no modo assíncrono e incremental e a saída pode ser distribuída por um ou mais consumidores para processamento paralelo. 
+Altere feed de suporte no Azure Cosmos DB funciona através da escuta de uma coleção do Azure Cosmos DB para efetuar quaisquer alterações. Em seguida, gera a saída de lista classificada de documentos que foram alteradas pela ordem em que foram modificadas. As alterações são mantidas, podem ser processadas de forma assíncrona e de forma incremental e a saída pode ser distribuída por um ou mais consumidores para processamento paralelo. 
 
-Pode ler a alteração do feed de três formas diferentes, tal como explicado posteriormente neste artigo:
+Pode ler a alteração do feed de três formas diferentes, tal como explicado neste artigo:
 
-*   [Utilizar as funções do Azure](#azure-functions)
+*   [Com as funções do Azure](#azure-functions)
 *   [Utilizar o Azure Cosmos DB SDK](#sql-sdk)
-*   [Utilizar a alteração da base de dados do Azure Cosmos feed biblioteca de processador](#change-feed-processor)
+*   [Usando a alteração do Azure Cosmos DB biblioteca processador do feed](#change-feed-processor)
 
-O feed de alteração está disponível para cada intervalo de chave de partição dentro da coleção de documentos e, por conseguinte, pode ser distribuído por um ou mais consumidores para processamento paralelo conforme mostrado na imagem seguinte.
+O feed de alterações está disponível para cada intervalo da chave de partição dentro da coleção de documentos e, portanto, pode ser distribuído por um ou mais consumidores para processamento paralelo conforme mostrado na imagem seguinte.
 
-![Feed de processamento distribuído de alteração de base de dados do Azure Cosmos](./media/change-feed/changefeedvisual.png)
+![Processamento distribuído de feed de alterações do Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
 
 Detalhes adicionais:
-* O feed de alteração está ativado por predefinição para todas as contas.
-* Pode utilizar o [débito aprovisionado](request-units.md) na sua região de escrita ou qualquer [ler região](distribute-data-globally.md) ler a partir da alteração do feed, tal como qualquer outra operação de base de dados do Azure Cosmos.
-* O feed de alteração inclui inserções e operações de atualização efetuadas para documentos dentro da coleção. Pode capturar eliminações ao definir um sinalizador de "eliminar de forma recuperável" dentro os documentos em vez de eliminações. Em alternativa, pode definir um período de expiração finita para os documentos através de [capacidade TTL](time-to-live.md), por exemplo, 24 horas e utilize o valor da propriedade para capturar as eliminações. Com esta solução, tem de processar alterações de dentro de um intervalo de tempo mais curto que o período de expiração do valor TTL.
-* Cada alteração a um documento é apresentada exatamente uma vez na alteração do feed, e clientes gerir os respetivos lógica de pontos de verificação. A biblioteca de processador de feed de alteração fornece pontos de verificação automático e ", pelo menos, uma vez" semântica.
-* A alteração mais recente para um determinado documento está incluída no registo de alterações. Alterações intermédias poderão não estar disponíveis.
-* O feed de alteração é ordenado by order of modificação dentro de cada valor de chave de partição. Não há nenhuma ordem garantida entre os valores de chave de partição.
-* As alterações podem ser sincronizadas a partir de qualquer ponto no tempo, ou seja, não existe nenhum período de retenção de dados fixa para o qual as alterações estão disponíveis.
-* As alterações estão disponíveis em segmentos de intervalos de chaves de partição. Esta capacidade permite alterações de coleções de grandes dimensões para ser processados em paralelo pelos vários consumidores/servidores.
-* As aplicações podem pedir vários feeds de alteração em simultâneo na mesma coleção.
-* ChangeFeedOptions.StartTime podem ser utilizados para fornecer um ponto de partida inicial, por exemplo, para localizar o token de continuação correspondente fornecido tempo relógio. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 seg. 
+* Feed de alterações está ativado por predefinição para todas as contas.
+* Pode utilizar o seu [débito aprovisionado](request-units.md) na sua região de escrita ou qualquer [região de leitura](distribute-data-globally.md) para ler a partir do feed de alterações, assim como qualquer outra operação do Azure Cosmos DB.
+* O feed de alterações inclui inserções e operações de atualização feitas para documentos dentro da coleção. Pode capturar eliminações ao definir um sinalizador de "eliminação de forma recuperável" dentro dos documentos em vez de eliminações. Em alternativa, pode definir um período de expiração finita para os seus documentos através de [capacidade TTL](time-to-live.md), por exemplo, 24 horas e utilize o valor dessa propriedade para capturar as eliminações. Com esta solução, deve processar alterações dentro de um intervalo de tempo mais curto do que o período de expiração do TTL.
+* Cada alteração a um documento exatamente uma vez aparece no feed de alterações e os clientes gerir a sua lógica de ponto de verificação. A biblioteca de processador do feed de alterações fornece pontos de verificação automática e ", pelo menos, uma vez" semântica.
+* A alteração mais recente para um determinado documento está incluída no log de alterações. Alterações intermédias poderão não estar disponíveis.
+* O feed de alterações é ordenado by order of modificação dentro de cada valor de chave de partição. Não há nenhuma ordem garantida em valores de chave de partição.
+* As alterações podem ser sincronizadas a partir de qualquer ponto anterior no tempo, ou seja, não há nenhum período de retenção de dados fixa para o qual as alterações ficam disponíveis.
+* As alterações estão disponíveis em blocos de intervalos de chaves de partição. Esta capacidade permite que as alterações de coleções de grandes para serem processados em paralelo por vários consumidores/servidores.
+* As aplicações podem solicitar vários feeds de mudança em simultâneo na mesma coleção.
+* ChangeFeedOptions.StartTime pode ser utilizado para fornecer um ponto de partida inicial, por exemplo, para encontrar o token de continuação correspondente a fornecido tempo do relógio. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 segundos. 
 
 ## <a name="use-cases-and-scenarios"></a>Cenários e casos de utilização
 
-O feed de alteração permite o processamento eficiente de grandes conjuntos de dados com um grande volume de escritas e oferece uma alternativa à consulta de um conjunto completo de dados para identificar o que mudou. 
+O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um grande volume de escritas e oferece uma alternativa ao consultar o conjunto de dados inteiro para identificar o que foi alterado. 
 
-Por exemplo, com uma alteração do feed, pode realizar as seguintes tarefas de forma eficiente:
+Por exemplo, com um feed de alterações, pode efetuar as seguintes tarefas com eficiência:
 
-* Atualize uma cache, o índice de pesquisa ou um armazém de dados com dados armazenados na base de dados do Azure Cosmos.
-* Implementar dados ao nível da aplicação e o arquivo de camadas, ou seja, armazenar "dados" na base de dados do Azure Cosmos e expira "dados amovíveis" para [Blob Storage do Azure](../storage/common/storage-introduction.md) ou [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Execute zero migrações de tempo inferior para outra conta de base de dados do Azure Cosmos com um esquema de partições diferente.
-* Implementar [pipelines de lambda no Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) com base de dados do Azure Cosmos. BD do Cosmos do Azure fornece uma solução de bases de dados dimensionável que pode processar ingestão e consulta e implementa arquiteturas de lambda com TCO baixa. 
-* Receber e armazenar dados de eventos de dispositivos, sensores, infraestrutura e de aplicações e processar esses eventos em tempo real com [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), ou [Apache O Spark](../hdinsight/spark/apache-spark-overview.md). 
+* Atualize uma cache, o índice de pesquisa ou um armazém de dados com dados armazenados no Azure Cosmos DB.
+* Implementar dados de nível de aplicativo e o arquivos de disposição em camadas, ou seja, armazenar os "dados" no Azure Cosmos DB e preparar o "dados amovíveis" [armazenamento de Blobs do Azure](../storage/common/storage-introduction.md) ou [do Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Execute migrações zero tempo de inatividade para outra conta do Azure Cosmos DB com um esquema de particionamento diferente.
+* Implemente [pipelines de lambda no Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) com o Azure Cosmos DB. O Azure Cosmos DB fornece uma solução de base de dados dimensionável que pode processar a ingestão e consulta e implementar arquiteturas de lambda com baixo custo total de propriedade. 
+* Receber, armazenar dados de eventos de dispositivos, sensores, infraestrutura e aplicações e processar esses eventos em tempo real com [do Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), ou [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
-A imagem seguinte mostra como pipelines de lambda que ambos ingestão e pode utilizar a consulta utilizando a base de dados do Azure Cosmos alteram feed suporte: 
+A imagem seguinte mostra como os pipelines de lambda que ingerir e pode utilizar a consulta com o Azure Cosmos DB alteram feed de suporte: 
 
-![Pipeline de lambda com base em Cosmos BD do Azure para ingestão e consulta](./media/change-feed/lambda.png)
+![Pipeline de lambda com base no Cosmos DB do Azure para ingestão e consulta](./media/change-feed/lambda.png)
 
-Além disso, no seu [sem servidor](http://azure.com/serverless) web apps e móveis, pode controlar eventos, tais como as alterações ao seu cliente Perfil, as preferências ou localização para acionar determinadas ações como enviar notificações push para os respetivos dispositivos utilizando [As funções do azure](#azure-functions). Se estiver a utilizar a base de dados do Azure Cosmos para criar um jogo, pode, por exemplo, utilize alterar o feed para implementar leaderboards em tempo real com base no pontuações de jogos concluídas.
+Além disso, no seu [sem servidor](http://azure.com/serverless) aplicações web e móveis, pode acompanhar eventos como alterações do seu cliente Perfil, as preferências ou localização para acionar a determinadas ações como enviar notificações push para os seus dispositivos com [Funções do azure](#azure-functions). Se estiver a utilizar o Azure Cosmos DB para criar um jogo, pode, por exemplo, utilize alterar feed para implementar as classificações em tempo real com base em classificações de jogos concluídos.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Utilizar as funções do Azure 
+## <a name="using-azure-functions"></a>Com as funções do Azure 
 
-Se estiver a utilizar as funções do Azure, é a forma mais simples para ligar a um feed de alteração de BD do Cosmos do Azure adicionar um acionador de base de dados do Azure Cosmos à sua aplicação de funções do Azure. Quando cria um acionador de BD do Cosmos Azure numa aplicação das funções do Azure, selecione a coleção de BD do Cosmos do Azure para ligar a e a função é acionada sempre que for efetuada uma alteração à coleção. 
+Se estiver a utilizar as funções do Azure, a forma mais simples para ligar a um feed de alterações do Azure Cosmos DB é adicionar um acionador do Azure Cosmos DB para a sua aplicação de funções do Azure. Quando cria um acionador do Azure Cosmos DB numa aplicação de funções do Azure, selecionar a coleção do Azure Cosmos DB para ligar a e a função é acionada sempre que for feita uma alteração à coleção. 
 
-Acionadores que podem ser criados no portal das funções do Azure, no portal do Azure Cosmos DB ou através de programação. Para obter mais informações, consulte [BD do Cosmos do Azure: através das funções do Azure de computação de base de dados sem servidor](serverless-computing-database.md).
+Acionadores podem ser criados no portal das funções do Azure, no portal do Azure Cosmos DB, ou por meio de programação. Para obter mais informações, consulte [do Azure Cosmos DB: computação de base de dados sem servidor com funções do Azure](serverless-computing-database.md).
 
 <a id="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>Utilizar o SDK
 
-O [SQL SDK](sql-api-sdk-dotnet.md) para a BD do Cosmos Azure dá-lhe potência para ler e gerir uma alteração do feed. Mas com energia excelente inclui muitas das responsabilidades, demasiado. Se pretender gerir pontos de verificação, lidar com os números de sequência de documento e ter um controlo granular sobre chaves de partição, em seguida, utilizando o SDK pode estar a abordagem à direita.
+O [SDK de SQL](sql-api-sdk-dotnet.md) para o Azure Cosmos DB dá-lhe todo o poder para ler e gerir um feed de alterações. Mas com muito poder, vem muita responsabilidades, demasiado. Se pretender gerir pontos de verificação, lidar com números de sequência de documento e ter um controlo granular sobre as chaves de partição, em seguida, utilizar o SDK pode ser a abordagem correta.
 
-Esta secção explica como utilizar o SDK do SQL Server para funcionar com uma alteração do feed.
+Esta secção descreve como utilizar o SDK de SQL para trabalhar com um feed de alterações.
 
-1. Inicie o lendo os seguintes recursos da appconfig. Instruções sobre como obter a chave de autorização e de ponto final estão disponíveis no [atualizar a cadeia de ligação](create-sql-api-dotnet.md#update-your-connection-string).
+1. Comece por ler os seguintes recursos de appconfig. Instruções sobre como obter a chave de ponto final e a autorização estão disponíveis no [atualizar a cadeia de ligação](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -127,7 +127,7 @@ Esta secção explica como utilizar o SDK do SQL Server para funcionar com uma a
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
 
-4. Chamada ExecuteNextAsync para cada intervalo de chave de partição:
+4. Chame ExecuteNextAsync para cada intervalo da chave de partição:
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
@@ -158,75 +158,75 @@ Esta secção explica como utilizar o SDK do SQL Server para funcionar com uma a
     ```
 
 > [!NOTE]
-> Em vez de `ChangeFeedOptions.PartitionKeyRangeId`, pode utilizar `ChangeFeedOptions.PartitionKey` para especificar uma chave de partição única para o qual pretende obter de uma alteração do feed. Por exemplo, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> Em vez de `ChangeFeedOptions.PartitionKeyRangeId`, pode utilizar `ChangeFeedOptions.PartitionKey` para especificar uma chave de partição única para o qual pretende obter um feed de alterações. Por exemplo, `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
-Se tiver vários leitores, pode utilizar **ChangeFeedOptions** distribuam a carga de leitura para diferentes threads ou diferentes clientes.
+Se tiver vários leitores, pode usar **ChangeFeedOptions** distribuam a carga de leitura para diferentes threads ou de diferentes clientes.
 
-E que é, com estes algumas linhas de código pode começar a ler o feed de alteração. Pode obter o código de conclusão utilizado neste artigo o [repositório do GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
+E isso é tudo, com estas algumas linhas de código pode começar a ler o feed de alterações. Pode obter o código completo usado neste artigo a partir da [repositório do GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed).
 
-No código no passo 4 acima, o **ResponseContinuation** nos últimos linha tem o último número de sequência lógica (LSN) do documento, que irá utilizar na próxima vez que o leia novos documentos após o seguinte número de sequência. Utilizando o **StartTime** do **ChangeFeedOption** pode alargar o net para obter os documentos. Se Sim, o **ResponseContinuation** é nulo, mas o **StartTime** ficar atrás no tempo, em seguida, irá obter todos os documentos que foram alterados desde o **StartTime**. No entanto, se sua **ResponseContinuation** tem um valor, em seguida, o sistema irá ajudá-lo a todos os documentos desde que LSN.
+No código no passo 4 acima, o **ResponseContinuation** nos últimos linha tem o último número de sequência lógica (LSN) do documento, que irá utilizar na próxima vez que ler novos documentos após o seguinte número de sequência. Ao utilizar o **StartTime** da **ChangeFeedOption** pode alargá sua rede para obter os documentos. Portanto, se sua **ResponseContinuation** for nulo, mas sua **StartTime** volta no tempo, em seguida, irá obter todos os documentos que sofreram alterações desde a **StartTime**. Mas, se sua **ResponseContinuation** tem um valor, em seguida, o sistema irá ajudá-lo a todos os documentos desde esse LSN.
 
-Por isso, a matriz de ponto de verificação apenas consiste em manter o LSN para cada partição. Mas, se não quiser lidar com as partições, pontos de verificação, LSN, a hora de início, etc. a opção mais simples consiste em utilizar a biblioteca de processador de feed de alteração.
+Por isso, a sua matriz de ponto de verificação apenas é manter o LSN para cada partição. Mas, se não pretender que lidar com as partições, pontos de verificação, LSN, hora de início, etc. a opção mais simples é usar o biblioteca processador do feed de alterações.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Utilizar a alteração de feed de biblioteca de processador 
+## <a name="using-the-change-feed-processor-library"></a>Usando a alteração de biblioteca processador do feed 
 
-O [biblioteca de processador de feed de alteração de base de dados do Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) podem ajudar a distribuir facilmente o processamento de eventos por vários consumidores. Esta biblioteca simplifica as alterações de leitura em partições e de vários threads funcionam em paralelo.
+O [biblioteca processador do feed de alterações do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) pode ajudá-lo facilmente distribuir o processamento de eventos por vários consumidores. Esta biblioteca simplifica as alterações de leitura em partições e de vários threads trabalhando em paralelo.
 
-A vantagem principal da biblioteca de processador de feed de alteração é que não tem de gerir cada partição e o token de continuação e não tem de consultar manualmente cada coleção.
+O principal benefício da biblioteca de processador do feed de alterações é que não precisa de gerir cada partição e o token de continuação e não tem que consultar cada coleção manualmente.
 
-A biblioteca de processador de feed de alteração simplifica as alterações de leitura em partições e de vários threads funcionam em paralelo.  Gere automaticamente as alterações de leitura em partições utilizando um mecanismo de concessão. Como pode ver na imagem seguinte, se iniciar duas clientes que utilizam a biblioteca de processador de feed de alteração, se dividem o trabalho entre si próprios. Como continuar a aumentar os clientes, estes mantém dividindo o trabalho entre si próprios.
+A biblioteca de processador do feed de alterações simplifica as alterações de leitura em partições e de vários threads trabalhando em paralelo.  Gere automaticamente as alterações de leitura por usando um mecanismo de concessão de partições. Como pode ver na imagem seguinte, se iniciar dois clientes que utilizam o biblioteca processador do feed de alterações, elas dividem o trabalho entre si. À medida que continua a aumentar os clientes, eles continuar dividindo o trabalho entre si.
 
-![Feed de processamento distribuído de alteração de base de dados do Azure Cosmos](./media/change-feed/change-feed-output.png)
+![Processamento distribuído de feed de alterações do Azure Cosmos DB](./media/change-feed/change-feed-output.png)
 
-O cliente esquerdo foi iniciado primeiro e iniciar a monitorização de todas as partições, em seguida, o cliente segundo foi iniciado e, em seguida, o primeiro permitem aceder de algumas das concessões a segunda cliente. Como pode ver esta é a forma nice para distribuir trabalho entre vários computadores e os clientes.
+O cliente do esquerda foi iniciado primeiro e ele começou a monitorização de todas as partições, em seguida, o segundo cliente foi iniciado e, em seguida, a primeira desistir de algumas das concessões para segundo cliente. Como pode ver isso é excelente maneira de distribuir o trabalho entre clientes e computadores diferentes.
 
-Tenha em atenção que se tiver dois funtions de Azure sem servidor a mesma coleção de monitorização e utilizar o mesmo período de concessão, em seguida, as duas funções podem obter documentos diferentes consoante o modo como a biblioteca de processador decide processs as partições.
+Tenha em atenção que se tiver dois funtions de Azure sem servidor a mesma coleção de monitorização e utilizar a concessão do mesmo, em seguida, as duas funções podem obter documentos diferentes consoante a forma como a biblioteca de processador decide processo as partições.
 
 <a id="understand-cf"></a>
-### <a name="understanding-the-change-feed-processor-library"></a>Noções sobre a alteração de feed de biblioteca de processador
+### <a name="understanding-the-change-feed-processor-library"></a>Noções básicas sobre a alteração de biblioteca processador do feed
 
-Existem quatro componentes principais de implementação a biblioteca de processador de feed de alteração: a coleção monitorizada, a coleção de concessão, o anfitrião do processador e os consumidores. 
+Existem quatro componentes principais de implementar a biblioteca de processador do feed de alterações: a coleção monitorizada, a coleção de concessão, o anfitrião do processador e os consumidores. 
 
 > [!WARNING]
 > Criar uma coleção tem implicações ao nível dos preços, pois está a reservar débito para a aplicação comunicar com o Azure Cosmos DB. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 
-**Coleção de monitorizado:** a coleção monitorizada é os dados a partir do qual o feed de alteração é gerado. Qualquer inserções e as alterações à coleção monitorizada são refletidas do feed de alteração da coleção. 
+**Coleção de monitorizado:** a coleção monitorizada é os dados a partir do qual o feed de alterações é gerado. Qualquer inserções e as alterações à coleção monitorizada são refletidas no feed de alterações da coleção. 
 
-**Coleção de concessão:** as coordenadas de coleção de concessão processar a alteração entre vários workers do feed. Uma coleção separada é utilizada para armazenar as concessões com uma concessão por partição. É vantajoso para armazenar esta coleção de concessão numa conta com a região de escrita próximo para onde está a executar a alteração de feed de processador diferente. Um objeto de concessão contém os seguintes atributos: 
-* Proprietário: Especifica o anfitrião que é proprietário da concessão
-* Continuação: Especifica a posição (token de continuação) para uma determinada partição do feed de alterações do
-* Timestamp: Hora da última concessão foi atualizada; o carimbo pode ser utilizado para verificar se é considerada a concessão expirou 
+**Coleção de concessão:** as coordenadas de coleção de concessão do feed de alterações em várias funções de trabalho de processamento. Uma coleção separada é utilizada para armazenar as concessões com uma concessão por partição. É vantajoso para armazenar esta coleção de concessão numa conta diferente com a região de escrita mais perto de onde está a executar o processador do feed de alterações. Um objeto de concessão contém os seguintes atributos: 
+* Proprietário: Especifica o host que detém a concessão
+* Continuação: Especifica a posição (token de continuação) na alteração do feed para uma partição específica
+* Timestamp: Hora da última concessão foi atualizada. o carimbo de hora pode ser usado para verificar se a concessão seja considerada expirada 
 
-**Anfitrião do processador:** cada anfitrião determina quantos partições para o processo com base em quantos outras instâncias dos anfitriões têm concessões ativas são. 
-1.  Quando um anfitrião é iniciado, adquire concessões para balancear a carga de trabalho em todos os anfitriões. Um anfitrião periodicamente é renovada de concessões de, pelo que concessões permanecem ativos. 
-2.  Pontos de verificação um anfitrião do token de continuação último para a concessão para cada ler. Para garantir a segurança de simultaneidade, o anfitrião verifica ETag para cada atualização de concessão. Também são suportadas outras estratégias de ponto de verificação.  
-3.  Após encerramento, um anfitrião versões todas as concessões, mas mantém as informações de continuação, para que possa retomar ler a partir do ponto de verificação armazenado mais tarde. 
+**Anfitrião do processador:** cada anfitrião determina quantas partições para o processo com base no número de outro instâncias de anfitriões tem concessões ativas. 
+1.  Quando um anfitrião é iniciado, ele adquire concessões a balancear a carga de trabalho em todos os anfitriões. Um anfitrião renova periodicamente concessões, para que as concessões permanecem ativas. 
+2.  Leia ao token de continuação última para a concessão para cada um pontos de verificação do anfitrião. Para garantir a segurança de simultaneidade, um anfitrião verifica a ETag para cada atualização de concessão. Também são suportadas outras estratégias de ponto de verificação.  
+3.  Após o encerramento, um host libera concessões de todos os mas mantém as informações de continuação, para que ele pode continuá ler a partir do ponto de verificação armazenado mais tarde. 
 
 Neste momento, o número de anfitriões não pode ser superior ao número de partições (concessões).
 
-**Os consumidores:** consumidores ou técnicos, existem threads que efetuam o processamento de alteração feed iniciado por cada anfitrião. Cada anfitrião do processador pode ter vários consumidores. Cada consumidor lê a alteração do feed da partição que está atribuído à e notifica o respetivo anfitrião de alterações e expirado concessões.
+**Os consumidores:** consumidores ou funções de trabalho, são os threads nos quais realizar o processamento de feed de alterações iniciado por cada anfitrião. Cada anfitrião do processador pode ter vários consumidores. Cada consumidor lê a alteração do feed da partição que está atribuída a e notifica o seu host de alterações e expirado concessões.
 
-Para compreender melhor como estes quatro elementos do feed de alteração de trabalho do processador em conjunto, vamos ver um exemplo no diagrama seguinte. A coleção monitorizada armazena documentos e utiliza a "Cidade" como a chave de partição. Vemos que a partição azul contém documentos com o campo "Cidade" de "I A" e assim sucessivamente. Existem dois anfitriões, cada um com dois os consumidores de ler a partir de quatro partições em paralelo. As setas mostram os consumidores ler a partir de um lugar para cima específico na alteração do feed. Na primeira partição, o darker azul representa alterações unread enquanto o leve azul representa as alterações efetuadas já leitura a alteração do feed. Os anfitriões de utilizam a coleção de concessão para armazenar um valor de "continuação" para controlar a posição actual de leitura para cada consumidor. 
+Para compreender melhor como essas quatro elementos de feed de alterações trabalho de processador em conjunto, vamos examinar um exemplo no diagrama seguinte. A coleção monitorizada Armazena os documentos e utiliza o argumento "city" como a chave de partição. Podemos ver que a partição azul contém documentos com o campo "city" de "A E" e assim por diante. Existem dois anfitriões, cada uma com dois os consumidores de leitura de quatro partições em paralelo. As setas mostram os consumidores de leitura a partir de um ponto específico no feed de alterações. A primeira partição, a azul mais escura representa as alterações não lidas enquanto o azul claro representa as alterações já leitura no feed de alterações. Os anfitriões usam a coleção de concessão para armazenar um valor de "continuação" para controlar a posição atual de leitura para cada consumidor. 
 
-![Utilizar a alteração da base de dados do Azure Cosmos feed anfitrião do processador](./media/change-feed/changefeedprocessornew.png)
+![Anfitrião do processador do feed usando a alteração do Azure Cosmos DB](./media/change-feed/changefeedprocessornew.png)
 
-### <a name="working-with-the-change-feed-processor-library"></a>Trabalhar com a alteração de feed de biblioteca de processador
+### <a name="working-with-the-change-feed-processor-library"></a>Trabalhar com o biblioteca processador do feed de alterações
 
-Antes de instalar a alteração de feed de pacote NuGet de processador, instale primeiro: 
+Antes de instalar a alteração do feed pacote NuGet de processador, primeiro instale: 
 
 * Microsoft.Azure.DocumentDB, a versão mais recente.
 * Newtonsoft, a versão mais recente
 
 Em seguida, instale o [pacote Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) e incluí-la como uma referência.
 
-Para implementar a biblioteca de feed de processador de alteração que precisa de executar os seguintes:
+Para implementar a biblioteca de processador do feed de alterações que precisa fazer a seguir:
 
-1. Implementar um **DocumentFeedObserver** objeto que implementa **IChangeFeedObserver**.
+1. Implementar um **DocumentFeedObserver** objeto, que implementa **IChangeFeedObserver**.
     ```csharp
     using System;
     using System.Collections.Generic;
@@ -335,7 +335,7 @@ Para implementar a biblioteca de feed de processador de alteração que precisa 
     private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
     ```
 
-5. criar o **ChangeFeedProcessorBuilder** depois de definir os objetos relevantes 
+5. criar a **ChangeFeedProcessorBuilder** depois de definir os objetos relevantes 
 
     ```csharp
             string hostName = Guid.NewGuid().ToString();
@@ -383,89 +383,89 @@ Para implementar a biblioteca de feed de processador de alteração que precisa 
             await result.StartAsync();
             Console.Read();
             await result.StopAsync();    
-            ```
+    ```
 
-That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
+Isso é tudo. Após estes passos alguns documentos serão comecem a aparecer para o **DocumentFeedObserver.ProcessChangesAsync** método.
 
-Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
+Acima de código é para fins de ilustração mostrar um tipo diferente de objetos e suas interações. Tem de definir variáveis adequadas e iniciá-las com valores corretos. Pode obter o código completo usado neste artigo a partir da [repositório do GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2).
 
 > [!NOTE]
-> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+> Nunca deve ter uma chave mestra em seu código ou no ficheiro de configuração, como mostra acima de código. Veja [como utilizar o Cofre de chaves foi possível obter as chaves](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
 
 
-## FAQ
+## <a name="faq"></a>FAQ
 
-### What are the different ways you can read Change Feed? and when to use each method?
+### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>Quais são as diferentes formas em que pode ler o Feed de alterações? e quando usar cada método?
 
-There are three options for you to read change feed:
+Existem três opções para a leitura do feed de alterações:
 
-* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
+* **[Utilizar o Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
    
-   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
+   Ao utilizar este método, obtém um nível baixo de controlo no feed de alterações. Pode gerir o ponto de verificação, pode acessar um etc de chave de partição específica. Se tiver vários leitores, pode usar [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) distribuam a carga de leitura para diferentes threads ou de diferentes clientes. .
 
-* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
+* **[Usando a alteração do Azure Cosmos DB biblioteca processador do feed](#change-feed-processor)**
 
-   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
+   Se quiser que a fim de terceirizar muito da complexidade de feed de alterações, em seguida, pode usar a biblioteca de processador do feed de alterações. Esta biblioteca oculta muito da complexidade, mas ainda o feed de alterações de dá que concluir o controlo de sessão. Esta biblioteca segue uma [padrão observador](https://en.wikipedia.org/wiki/Observer_pattern), sua função de processamento é chamada pelo SDK. 
 
-   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
+   Se tiver um feed de alterações de alto débito, pode instanciar vários clientes para ler o feed de alterações. Porque está a utilizar "alterar biblioteca processador do feed", ele dividirá automaticamente a carga entre diferentes clientes. Não tem de fazer nada. Toda aquela complexidade é processada pelo SDK. No entanto, se quiser ter seu próprio Balanceador de carga, em seguida, pode implementar IParitionLoadBalancingStrategy para a estratégia de partição personalizada. Implemente IPartitionProcessor – para que as alterações do processamento personalizado numa partição. No entanto, com o SDK, pode processar um intervalo de partição, mas se quiser processar uma chave de partição específica, em seguida, terá de utilizar o SDK para a API de SQL.
 
-* **[Using Azure Functions](#azure-functions)** 
+* **[Com as funções do Azure](#azure-functions)** 
    
-   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
+   A última opção função do Azure é a opção mais simples. Recomendamos que utilize esta opção. Quando cria um acionador do Azure Cosmos DB numa aplicação de funções do Azure, selecionar a coleção do Azure Cosmos DB para ligar a e a função é acionada sempre que for feita uma alteração à coleção. Veja uma [ecrã cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) da utilização do Azure de função e feed de alterações
 
-   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
+   Acionadores podem ser criados no portal das funções do Azure, no portal do Azure Cosmos DB, ou por meio de programação. O Visual Studio e o VS Code tem excelente suporte para escrever a função do Azure. Pode escrever e depurar o código no seu ambiente de trabalho e, em seguida, implementar a função com um só clique. Para obter mais informações, consulte [do Azure Cosmos DB: computação de base de dados sem servidor com funções do Azure](serverless-computing-database.md) artigo.
 
-### What is the sort order of documents in change feed?
+### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>O que é a ordem de classificação dos documentos no feed de alterações?
 
-Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
+Documentos de feed de alterações está disponível na ordem de seu tempo de modificação. Esta sequência de ordenação é garantida apenas por partição.
 
-### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
+### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>Para uma conta de várias regiões, o que acontece com a alteração do feed quando a região de escrita falha a ativação pós-falha? A feed de alterações também ativação pós-falha? A alteração do feed ainda apareceria contígua ou alteraria feed para repor a causa de ativação pós-falha?
 
-Yes, change feed will work across the manual failover operation and it will be contiguous.
+Sim, o feed de alterações irão funcionar em toda a operação de ativação pós-falha manual e vai ser contíguo.
 
-### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
+### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>O tempo que o feed de alterações manter os dados alterados se defino a propriedade de valor de TTL (Time TTL) para o documento como -1?
 
-Change feed will persist forever. If data is not deleted, it will remain in change feed.
+Feed de alterações serão mantidos para sempre. Se não for eliminados dados, irá permanecer no feed de alterações.
 
-### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
+### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>Como configurar as funções do Azure para ler a partir de uma região específica, como feed de alterações está disponível em todas as regiões de leitura por padrão?
 
-Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
+Atualmente não é possível configurar funções do Azure para ler a partir de uma região em particular. Existe um problema do GitHub no repositório das funções do Azure para definir as regiões preferenciais de quaisquer enlace do Azure Cosmos DB e o acionador.
 
-Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
+As funções do Azure utiliza a política de ligação predefinida. Pode configurar o modo de ligação nas funções do Azure e, por predefinição, ele lê a partir da região de escrita, então é melhor localizar conjuntamente as funções do Azure na mesma região.
 
-### What is the default size of batches in Azure Functions?
+### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>O que é o tamanho predefinido de lotes nas funções do Azure?
 
-100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
+100 documentos em cada invocação das funções do Azure. No entanto, este número pode ser configurado no arquivo Function. Aqui está concluída [lista de opções de configuração](../azure-functions/functions-run-local.md). Se estiver a desenvolver localmente, Atualize as definições de aplicação dentro do [Settings](../azure-functions/functions-run-local.md) ficheiro.
 
-### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
+### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Estou monitorando uma coleção e ler sua alteração feed, no entanto vejo não estou a obter o documento inserido, alguns documentos estão em falta. O que está acontecendo aqui?
 
-Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
+Certifique-se de que não existe nenhuma outra função da mesma coleção com a mesma coleção de concessão de leitura. Isso aconteceu comigo e, mais tarde percebi que os documentos em falta são processados pelo meu outras funções do Azure, que também está a utilizar a concessão do mesmo.
 
-Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
+Por conseguinte, se estiver a criar várias funções do Azure para ler o mesmo feed de alterações, em seguida, tem de utilizar a coleção de concessão diferentes ou utilizar a configuração de "leasePrefix" para partilhar a mesma coleção. No entanto, quando usa a biblioteca de processador do feed de alterações pode iniciar várias instâncias da sua função e o SDK irá dividir os documentos entre instâncias diferentes automaticamente por si.
 
-### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
+### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Meu documento é atualizado a cada segundo, e não estou a obter todas as alterações nas funções do Azure à escuta para o feed de alterações.
 
-Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+Feed de alteração de inquéritos de funções do Azure para cada 5 segundos, para que as alterações feitas entre 5 segundos perdem. O Azure Cosmos DB armazena apenas uma versão para cada cinco segundos, então obterá a alteração 5th no documento. No entanto, se pretender ir abaixo dos 5 segundos e pretende consultar a cada segundo de Feed de alterações, pode configurar o tempo de consulta "feedPollTime", consulte [do Azure Cosmos DB enlaces](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Ele é definido em milissegundos com padrão de 5000. Abaixo de 1 segundo é possível, mas não é mais adequada, começará a gravação de mais CPU.
 
-### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
+### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Eu inserido um documento da coleção da API do Mongo, mas quando receber o documento no feed de alterações, mostra um valor de id diferente. O que há de errado aqui?
 
-Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
+A coleção é a coleção de API do Mongo. Lembre-se de feed de alterações é de leitura com o cliente do SQL e serializa os itens no formato JSON. Devido ao JSON de formatação, MongoDB, os clientes terão um erro de correspondência entre documentos BSON formatado e o JSON formatado de feed de alterações. Está a ver é a representação de um documento BSON em JSON. Se usar atributos binários em contas de Mongo, eles são convertidos em JSON.
 
-### Is there a way to control change feed for updates only and not inserts?
+### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>Existe alguma forma para controlar apenas para atualizações do feed de alterações e não insere?
 
-Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
+Não hoje em dia, mas esta funcionalidade está no plano. Hoje em dia, pode adicionar um marcador de forma recuperável no documento para atualizações.
 
-### Is there a way to get deletes in change feed?
+### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Existe uma forma de obter as eliminações no feed de alterações?
 
-Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
+Atualmente o feed de alterações não registar eliminações. Feed de alterações está continuamente a melhorar e esta funcionalidade está no plano. Hoje em dia, pode adicionar um marcador de forma recuperável no documento para eliminação. Adicione um atributo no documento chamado "eliminado" e defini-lo como "true" e definir um valor de TTL do documento para que sejam eliminado automaticamente.
 
-### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
+### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Pode ler feed para documentos (por exemplo, os documentos que foram adicionados cinco anos atrás) do históricos de alterações?
 
-Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
+Sim, se o documento não é eliminado pode ler a alteração do feed com relação às General a origem da sua coleção.
 
-### Can I read change feed using JavaScript?
+### <a name="can-i-read-change-feed-using-javascript"></a>Pode ler o feed de alterações usando o JavaScript?
 
-Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
+Sim, suporte inicial do SDK node. js para o feed de alterações é adicionado recentemente. Pode ser utilizado como mostrado no exemplo seguinte, em, módulo documentdb de atualização para a versão atual antes de executar o código:
 
 ```js
 
@@ -502,54 +502,54 @@ query.executeNext((err, results, headers) =&gt; {
 
 ```
 
-### <a name="can-i-read-change-feed-using-java"></a>Pode ler feed de alteração com o Java?
+### <a name="can-i-read-change-feed-using-java"></a>Pode ler o feed de alterações com Java?
 
-Não está disponível na biblioteca de Java para ler o feed de alteração [repositório do Github](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). No entanto, atualmente biblioteca Java é algumas versões atrás biblioteca .NET. Logo que ambas as bibliotecas serão sincronizadas.
+Biblioteca de Java para ler o feed de alterações está disponível no [repositório do Github](https://github.com/Azure/azure-documentdb-changefeedprocessor-java). No entanto, atualmente biblioteca Java é trás biblioteca .NET. Em breve, ambas as bibliotecas será sincronizadas.
 
-### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Posso utilizar _etag, _lsn ou _ts para bookkeeping interno, o que posso obter em resposta?
+### <a name="can-i-use-etag-lsn-or-ts-for-internal-bookkeeping-which-i-get-in-response"></a>Posso utilizar _etag, _lsn ou TS para contábeis interno, o que posso obter na resposta?
 
-formato de _etag é interno e não deve depender no mesmo (não analisá-lo) porque esta pode alterar em qualquer altura.
-_ts é o carimbo de hora de modificação ou criação. Pode utilizar _ts para comparação cronológica.
-_lsn é um id de lote que é adicionado apenas para o feed de alteração, representa o id de transação da loja... Documentos muitos podem ter o mesmo _lsn.
-Um aspeto mais salientar, ETag no FeedResponse diferente _etag que vê o documento. _etag é um identificador interno e utilizados para simultaneidade, informa sobre a versão do documento e ETag é utilizada para sequenciar do feed.
+formato de _etag é interno e que não deve confiar nele (não analisá-lo) porque ele pode mudar em qualquer altura.
+TS é o carimbo de hora de criação ou modificação. Pode usar TS para comparação cronológica.
+é _lsn é um id de lote que é adicionada apenas para o feed de alterações, ele representa o id de transação a partir da loja.... Muitos documentos podem ter o mesmo _lsn.
+Mais uma coisa a observar, a ETag no FeedResponse é diferente de _etag que vê no documento. _etag é um identificador interno e usado para simultaneidade, ele instrui sobre a versão do documento e ETag é utilizado para o feed de sequenciamento.
 
-### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Ler o feed de alteração acrescenta qualquer custo adicional?
+### <a name="does-reading-change-feed-add-any-additional-cost-"></a>O feed de alterações de leitura adiciona quaisquer custos adicionais?
 
-São-lhe cobrados para o RU consumido ou seja, movimento de dados e para coleções de base de dados do Azure Cosmos sempre consumir RU. Os utilizadores serão cobrados RU consumida na coleção de concessão.
+São cobrados para o RU consumidos ou seja, o movimento de dados e para coleções do Azure Cosmos DB sempre consumir RU. Os utilizadores são cobrados RU consumido por coleção de concessão.
 
-### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Várias funções do Azure pode ler o feed de alteração de uma coleção?
+### <a name="can-multiple-azure-functions-read-one-collections-change-feed"></a>Várias funções do Azure pode ler a feed de alterações de uma coleção?
 
-Sim. Várias funções do Azure podem ler o feed de alteração da mesma coleção. No entanto, as funções do Azure tem de ter um leaseCollectionPrefix separado definido.
+Sim. Várias funções do Azure pode ler o feed de alterações da mesma coleção. No entanto, as funções do Azure tem de ter um leaseCollectionPrefix separado definido.
 
 ### <a name="should-the-lease-collection-be-partitioned"></a>A coleção de concessão deve ser particionada?
 
-Não, a coleção de concessão possam ser corrigida. Coleção de concessão particionada não é necessária e atualmente não é suportado.
+Não, a coleção de concessão pode ser corrigida. Não é necessária a coleção de concessão particionada e atualmente não é suportado.
 
-### <a name="can-i-read-change-feed-from-spark"></a>Posso ler alteração feed do Spark?
+### <a name="can-i-read-change-feed-from-spark"></a>Posso ler alterar feed do Spark?
 
-Sim, pode. Consulte [Azure Cosmos DB Spark conector](spark-connector.md). Eis um [ecrã cast](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) que mostra como pode processar alterações como uma transmissão em fluxo estruturada do feed.
+Sim, pode. Veja [conector do Spark do Azure Cosmos DB](spark-connector.md). Aqui está uma [ecrã cast](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s) que mostra como pode processar como uma transmissão em fluxo estruturada do feed de alterações.
 
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Se estiver a processar alterações feed utilizando as funções do Azure, diga um lote de 10 documentos e receber um erro no documento 7. Nesse caso os últimas três documentos não são processados como devo começar processamento do documento (revertidos falhado documento 7) no meu feed seguinte?
+### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>Se estiver a processar feed ao utilizar as funções do Azure de alterações, digamos que um lote de 10 documentos e, recebo um erro no documento iniciados a 7. Nesse caso os últimos três documentos não são processados como posso iniciar processamento do documento (ou seja, com falhas iniciados a 7 de documento) no meu feed seguinte?
 
-Para lidar com o erro, o padrão recomendado é moldar o seu código com o bloco try-catch. Detetar o erro e colocar em pausa esse documento uma fila (entregues) e, em seguida, definir lógica para lidar com os documentos que produziu o erro. Com este método se tiver um documento de 200 lote e apenas um documento falhou, não terá ausente acionar o lote de todo.
+Para lidar com o erro, o padrão recomendado é dispor seu código com o bloco try-catch. Capturar o erro e colocar esse documento numa fila (mensagens não entregues) e, em seguida, definir a lógica para lidar com os documentos que produziu o erro. Com este método se tiver um lote de documento de 200 e apenas um documento falhou, é necessário de jogar fora o lote inteiro.
 
-No caso de erro não deve rewind o ponto de verificação para início senão, será pode manter a obter esses documentos do feed de alteração. Lembre-se de que mantém de feed de alteração a captura de final snap último dos documentos, devido a esta que poderá perder o instantâneo anterior no documento. alteração feed mantém apenas um última versão do documento e entre em outros processos podem ficar e alterar o documento.
+No caso de erro não deve de retroceder o ponto de verificação de volta para a partir de outro será pode continuar a receber esses documentos de feed de alterações. Lembre-se de que mantém de feed de alterações a captura de final snap última dos documentos, devido a este poderá perder o instantâneo anterior no documento. feed de alterações mantém apenas uma última versão do documento, e entre os outros processos podem voltar e alterar o documento.
 
-Como manter a corrigir o seu código, vai encontrar logo que não existem documentos na fila de entregues.
-As funções do Azure denomina-se automaticamente pelo sistema de feed de alteração e o ponto de verificação etc é mantido internamente pela função do Azure. Se pretender reverter o ponto de verificação e controlar todos os aspetos do mesmo, deve considerar utilizar alteração feed SDK do processador.
+Como manter a corrigir o seu código, descobrirá em breve não existem documentos em fila de mensagens não entregues.
+As funções do Azure é chamado automaticamente pelo sistema de feed de alterações e o ponto de verificação etc é mantido internamente pela função do Azure. Se quiser reverter o ponto de verificação e controlar cada aspecto dela, deve considerar usar alteração SDK de processador do feed.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre como utilizar a base de dados do Azure Cosmos com as funções do Azure, consulte [BD do Cosmos do Azure: através das funções do Azure de computação de base de dados sem servidor](serverless-computing-database.md).
+Para obter mais informações sobre como utilizar o Azure Cosmos DB com as funções do Azure, veja [do Azure Cosmos DB: computação de base de dados sem servidor com funções do Azure](serverless-computing-database.md).
 
-Para obter mais informações sobre como utilizar a biblioteca de processador de feed de alteração, utilize os seguintes recursos:
+Para obter mais informações sobre como utilizar o biblioteca processador do feed de alterações, utilize os seguintes recursos:
 
 * [Página de informações](sql-api-sdk-dotnet-changefeed.md) 
 * [Pacote Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Código de exemplo que mostra os passos acima 1-6](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
+* [Código de exemplo que mostra os passos 1 a 6 acima](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Exemplos adicionais no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
-Para obter mais informações sobre como utilizar a alteração do feed através do SDK, utilize os seguintes recursos:
+Para obter mais informações sobre como utilizar o através do SDK do feed de alterações, utilize os seguintes recursos:
 
-* [Página de informações do SDK](sql-api-sdk-dotnet.md)
+* [Página de informações de SDK](sql-api-sdk-dotnet.md)

@@ -1,46 +1,46 @@
 ---
-title: Conjuntos de agente DC/OS para o serviço de contentor do Azure
-description: Como funcionam os agrupamentos de agente públicas e privadas com um cluster do serviço de contentor do Azure DC/OS
+title: Conjuntos de agentes do DC/OS para o Azure Container Service
+description: Como os conjuntos de agentes públicos e privados funcionam com um cluster DC/OS do Azure Container Service
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 81059fd75f0e61324221614c4bb8eccd94203478
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162267"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901063"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>Conjuntos de agente DC/OS para o serviço de contentor do Azure
-Clusters DC/SO no serviço de contentor do Azure contêm nós de agente em dois conjuntos, um conjunto público e um conjunto privado. Uma aplicação pode ser implementada para o agrupamento, que afeta a acessibilidade entre as máquinas no seu serviço de contentor. As máquinas podem ser expostas à internet (público) ou manter interno (privado). Este artigo fornece uma breve descrição geral do motivo que existem conjuntos de públicos e privados.
+# <a name="dcos-agent-pools-for-azure-container-service"></a>Conjuntos de agentes do DC/OS para o Azure Container Service
+Clusters de DC/OS no Azure Container Service contém nós de agente em dois conjuntos, um conjunto público e um pool privado. Um aplicativo pode ser implementado para o conjunto, que afetam a acessibilidade entre as máquinas no seu serviço de contentor. As máquinas podem ser expostas à internet (público) ou mantidas interno (privado). Este artigo fornece uma breve descrição geral de por que há agrupamentos públicos e privados.
 
 
-* **Agentes privados**: nós de agente privada executam através de uma rede não encaminháveis internos. Esta rede só é acessível da zona de administrador ou através de router de limite de zona público. Por predefinição, o DC/SO inicia as aplicações em nós de agente privada. 
+* **Agentes privados**: os nós de agente privado executados através de uma rede não encaminháveis internos. Esta rede só é acessível da zona de administrador ou através de router de limite de zona pública. Por predefinição, o DC/OS inicia aplicações em nós de agente privado. 
 
-* **Agentes públicos**: nós de agente público executam aplicações de DC/OS e serviços através de uma rede acessível publicamente. 
+* **Agentes públicos**: nós de agente público executar aplicações de DC/OS e serviços através de uma rede acessível ao público. 
 
-Para obter mais informações sobre a segurança de rede do DC/OS, consulte o [documentação de DC/SO](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+Para obter mais informações sobre a segurança de rede do DC/OS, consulte a [documentação de DC/OS](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
 
-## <a name="deploy-agent-pools"></a>Implementar os conjuntos de agente
+## <a name="deploy-agent-pools"></a>Implementar conjuntos de agentes
 
-Os agrupamentos do agente DC/SO no serviço de contentor do Azure são criados da seguinte forma:
+Os conjuntos de agentes do DC/OS no serviço de contentor do Azure são criados da seguinte forma:
 
-* O **conjunto privado** contém o número de nós de agente que especificou quando [implementar o cluster DC/SO](container-service-deployment.md). 
+* O **pool privado** contém o número de nós de agente que especifica quando [implementar o cluster DC/OS](container-service-deployment.md). 
 
-* O **conjunto público** inicialmente contém um número predeterminado de nós de agente. Este agrupamento é adicionado automaticamente quando o cluster DC/OS é aprovisionado.
+* O **conjunto público** inicialmente contém um número pré-determinado de nós de agente. Este agrupamento é adicionado automaticamente quando o cluster DC/OS é aprovisionado.
 
-O conjunto privado e o conjunto público são conjuntos de dimensionamento de máquina virtual do Azure. Pode redimensionar estes conjuntos após a implementação.
+O pool privado e o conjunto público são conjuntos de dimensionamento de máquina virtual do Azure. Pode redimensionar esses agrupamentos após a implementação.
 
-## <a name="use-agent-pools"></a>Utilizar conjuntos de agente
-Por predefinição, **Marathon** implementa qualquer aplicação nova para o *privada* nós de agente. Tem de ser explicitamente implementar a aplicação para o *pública* nós durante a criação da aplicação. Selecione o **opcional** separador e introduza **slave_public** para o **funções dos recursos aceites** valor. Este processo é documentado [aqui](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) e no [DC/SO](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentação.
+## <a name="use-agent-pools"></a>Utilizar conjuntos de agentes
+Por predefinição, **Marathon** implementa qualquer novo aplicativo para o *privada* nós de agente. Tem de implementar explicitamente o aplicativo para o *público* nós durante a criação do aplicativo. Selecione o **opcional** separador e introduza **slave_public** para o **funções dos recursos aceites** valor. Esse processo está documentado [aqui](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) e, no [DC/OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentação.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Leia mais sobre [gerir os contentores de DC/SO](container-service-mesos-marathon-ui.md).
+* Leia mais sobre [gerir os seus contentores do DC/OS](container-service-mesos-marathon-ui.md).
 
-* Saiba como [abrir a firewall](container-service-enable-public-access.md) fornecida pelo Azure, para permitir o acesso público aos contentores de DC/OS.
+* Saiba como [abrir a firewall](container-service-enable-public-access.md) fornecido pelo Azure para permitir o acesso público para os contentores do DC/OS.
 

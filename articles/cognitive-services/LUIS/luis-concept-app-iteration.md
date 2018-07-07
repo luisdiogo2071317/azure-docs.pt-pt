@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b1736630317d9cbcf2e7380df29bfa8c383b681d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346778"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888253"
 ---
 # <a name="authoring-cycle"></a>Ciclo de criação
 LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -48,8 +48,6 @@ Quando tiver terminado com um ciclo de criação, pode começar novamente. Comec
 ## <a name="batch-testing"></a>Testes em lote
 Teste de batch é uma forma de ver quantos expressões de exemplo são classificadas por LUIS. Os exemplos devem estar familiarizados com o LUIS e devem ser o nome corretamente com a intenção e entidades que pretende que o LUIS para localizar. Os resultados do teste indicam a eficiência com que executará nesse conjunto de expressões com os LUIS. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Conheça os conceitos [colaboração](luis-concept-collaborator.md).
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains

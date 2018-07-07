@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 694b195440936a6eb42520c3343b6ff13194cc79
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f897a3c85bebff3c4534679d45e8af49aacba44a
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888121"
 ---
 # <a name="versions"></a>Versões
 Criar modelos diferentes da mesma aplicação com [versões](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ O ID de versão é composto por carateres, dígitos ou "." e não pode ter mais 
 A versão inicial (0,1) é a versão de Active Directory predefinido. 
 
 ## <a name="active-version"></a>Versão do Active Directory
-Para [definir uma versão](luis-how-to-manage-versions.md#set-active-version) como o Active Directory significa que é atualmente editada e testado no [LUIS] [ LUIS] Web site. Defina uma versão como o Active Directory para acessar seus dados, a realização de atualizações, bem como para testar e publicá-lo.
+Para [definir uma versão](luis-how-to-manage-versions.md#set-active-version) como o Active Directory significa que é atualmente editada e testado no [LUIS](luis-reference-regions.md) Web site. Defina uma versão como o Active Directory para acessar seus dados, a realização de atualizações, bem como para testar e publicá-lo.
 
 O nome da versão atualmente ativa, é apresentado no painel superior, esquerdo após o nome da aplicação. 
 
@@ -57,10 +57,8 @@ Não são automaticamente disponíveis na sua aplicação versões treinadas [po
 ## <a name="collaborators"></a>Funcionários
 O proprietário e todos os [colaboradores](luis-how-to-collaborate.md) têm acesso total a todas as versões da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte how to add [controle de versão](luis-how-to-manage-versions.md) na página de definições da aplicação. 
 
 Aprenda a projetar [intenções](luis-concept-intent.md) para o modelo.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

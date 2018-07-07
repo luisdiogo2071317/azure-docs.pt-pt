@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: dfbedd7945231f4449735cc2f909b64190dcbe05
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568114"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37909973"
 ---
 Quando cria uma máquina virtual (VM) do Azure, tem de criar uma [rede virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) ou de utilizar uma VNet já existente. Também tem de decidir como pretende que se faça o acesso às VMs na VNet. É importante [planear antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e ter a certeza de que compreende os [limites dos recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -21,7 +21,7 @@ Na figura seguinte, as VMs são representadas como servidores Web e servidores d
 
 ![Rede virtual do Azure](./media/virtual-machines-common-network-overview/vnetoverview.png)
 
-Pode criar uma VNet antes de criar uma VM ou pode criar uma VM. Os recursos seguintes são criados para suportar a comunicação com as VMs:
+É possível criar uma VNet antes de criar uma VM ou pode criar uma VM. Os recursos seguintes são criados para suportar a comunicação com as VMs:
 
 - Interfaces de rede
 - Endereços IP
@@ -34,28 +34,28 @@ Para além destes recursos básicos, também deve considerar estes recursos opci
 
 ## <a name="network-interfaces"></a>Interfaces de rede
 
-Uma [interface de rede (NIC)](../articles/virtual-network/virtual-network-network-interface.md) é a interligação entre uma VM e uma rede virtual (VNet). As VMs têm de ter, pelo menos, uma NIC, mas podem ter mais, dependendo do tamanho da VM que criar. Saiba mais sobre quantas NICs a cada VM tamanho suporta para [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
+Uma [interface de rede (NIC)](../articles/virtual-network/virtual-network-network-interface.md) é a interligação entre uma VM e uma rede virtual (VNet). As VMs têm de ter, pelo menos, uma NIC, mas podem ter mais, dependendo do tamanho da VM que criar. Saiba mais sobre quantas NICs a cada VM suporta o tamanho para [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Pode criar uma VM com vários NICs e adicionar ou remover NICs através do ciclo de vida de uma VM. Vários NICs permitir que uma VM ligar a diferentes sub-redes e enviar ou receber tráfego através da interface mais adequada.
+Pode criar uma VM com várias NICs e adicionar ou remover NICs todo o ciclo de vida de uma VM. Várias NICs permitem que uma VM ligar a sub-redes diferentes e enviar ou receber tráfego através da interface mais adequada.
 
 Se a VM for adicionada a um conjunto de disponibilidade, todas as VMs dentro desse grupo têm de ter uma ou várias NICs. As VMs que tenham mais de uma NIC não têm, obrigatoriamente, de ter o mesmo número de interfaces, mas todas têm de ter, no mínimo, duas.
 
-Cada NIC ligada a uma VM tem de existir na mesma localização e subscrição que a VM. Cada NIC deve estar ligada a uma VNet que exista na mesma localização e subscrição do Azure que essa NIC. Pode alterar a sub-rede que VM está ligada à depois de criado, mas não é possível alterar a VNet. É atribuído um endereço MAC a cada NIC ligada a uma VM, o qual não muda até a VM ser eliminada.
+Cada NIC ligada a uma VM tem de existir na mesma localização e subscrição que a VM. Cada NIC deve estar ligada a uma VNet que exista na mesma localização e subscrição do Azure que essa NIC. Pode alterar a sub-rede de que uma VM está ligada ao depois de criado, mas não é possível alterar a VNet. É atribuído um endereço MAC a cada NIC ligada a uma VM, o qual não muda até a VM ser eliminada.
 
 Esta tabela lista os métodos que pode utilizar para criar uma interface de rede.
 
 | Método | Descrição |
 | ------ | ----------- |
 | Portal do Azure | Quando cria uma VM no portal do Azure, é criada automaticamente uma interface de rede por si (não pode utilizar uma NIC que tenha criado separadamente). O portal cria uma VM com apenas uma NIC. Se quiser criar uma VM com mais de uma NIC, tem de criá-la com outro método. |
-| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Utilize [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) com o **- PublicIpAddressId** parâmetro para fornecer o identificador do endereço IP público que criou anteriormente. |
-| [CLI do Azure](../articles/virtual-machines/linux/multiple-nics.md) | Para fornecer o identificador do endereço IP público que criou anteriormente, utilize [nic da rede az criar](https://docs.microsoft.com/cli/azure/network/nic#create) com o **– endereço de ip público** parâmetro. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Uso [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) com o **- PublicIpAddressId** parâmetro para fornecer o identificador do endereço IP público que criou anteriormente. |
+| [CLI do Azure](../articles/virtual-machines/linux/multiple-nics.md) | Para fornecer o identificador do endereço IP público que criou anteriormente, utilize [criar az rede nic](https://docs.microsoft.com/cli/azure/network/nic#create) com o **-public-ip-address** parâmetro. |
 | [Modelo](../articles/virtual-network/template-samples.md) | Utilize [Network Interface in a Virtual Network with Public IP Address (Interface de Rede numa Rede Virtual com Endereço IP Público)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como guia para implementar interfaces de rede através de um modelo. |
 
 ## <a name="ip-addresses"></a>Endereços IP 
 
 Pode atribuir estes tipos de [endereços IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) a uma NIC no Azure:
 
-- **Endereços IP públicos** - utilizados para comunicação de entrada e saída (sem tradução de endereços de rede [NAT]) com a Internet e outros recursos do Azure não ligados a uma VNet. A atribuição de endereços IP públicos a uma NIC é opcional. Endereços IP públicos têm uma cobrança nominal e existe um número máximo que pode ser utilizado por subscrição.
+- **Endereços IP públicos** - utilizados para comunicação de entrada e saída (sem tradução de endereços de rede [NAT]) com a Internet e outros recursos do Azure não ligados a uma VNet. A atribuição de endereços IP públicos a uma NIC é opcional. Endereços IP públicos têm um custo nominal e há um número máximo que pode ser utilizado por subscrição.
 - **Endereços IP privados** - utilizados para comunicação dentro de VNets, com a sua rede no local e com a Internet (com NAT). Tem de atribuir, pelo menos, um endereço IP privado a uma VM. Para saber mais sobre a NAT no Azure, leia [Understanding outbound connections in Azure (Compreender as ligações de saída no Azure)](../articles/load-balancer/load-balancer-outbound-connections.md).
 
 Pode atribuir endereços IP públicos a VMs ou a balanceadores de carga com acesso à Internet. Pode atribuir endereços IP privados a VMs e a balanceadores de carga internos. Para atribuir endereços IP a uma VM, é utilizada uma interface de rede.
@@ -68,7 +68,7 @@ Esta tabela lista os métodos que pode utilizar para criar um endereço IP.
 
 | Método | Descrição |
 | ------ | ----------- |
-| [Portal do Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Por predefinição, os endereços IP públicos são dinâmicos e o endereço associado aos mesmos pode mudar quando a VM é parada ou eliminada. Para garantir que a VM utiliza sempre o mesmo endereço IP público, crie um endereço IP público estático. Por predefinição, o portal atribui um endereço IP privado dinâmico a uma NIC quando é criada uma VM. Pode alterar este endereço IP estático para depois da VM é criada.|
+| [Portal do Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Por predefinição, os endereços IP públicos são dinâmicos e o endereço associado aos mesmos pode mudar quando a VM é parada ou eliminada. Para garantir que a VM utiliza sempre o mesmo endereço IP público, crie um endereço IP público estático. Por predefinição, o portal atribui um endereço IP privado dinâmico a uma NIC quando é criada uma VM. Pode alterar este endereço IP para estático depois da VM é criada.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Utiliza [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) com o parâmetro **-AllocationMethod** como Dinâmico ou Estático. |
 | [CLI do Azure](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Utiliza [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) com o parâmetro **--allocation-method** como Dinâmico ou Estático. |
 | [Modelo](../articles/virtual-network/template-samples.md) | Utilize [Network Interface in a Virtual Network with Public IP Address (Interface de Rede numa Rede Virtual com Endereço IP Público)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como guia para implementar endereços IP públicos através de um modelo. |
@@ -92,7 +92,7 @@ Esta tabela lista os métodos que pode utilizar para criar uma VNet e sub-redes.
 | [Portal do Azure](../articles/virtual-network/quick-create-portal.md) | Se permitir que o Azure crie uma VNet quando cria uma VM, o nome é uma combinação do nome do grupo de recursos que contém a VNet e de **-vnet**. O espaço de endereços é 10.0.0.0/24, o nome da sub-rede obrigatório é **default** e o intervalo de endereços da sub-rede é 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Utiliza [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) e [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) para criar uma sub-rede e uma VNet. Também pode utilizar [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) para adicionar uma sub-rede a uma VNet já existente. |
 | [CLI do Azure](../articles/virtual-network/quick-create-cli.md) | A sub-rede e a VNet são criadas ao mesmo tempo. Forneça um parâmetro **--subnet-name** para [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) com o nome da sub-rede. |
-| Modelo | É a forma mais fácil criar uma VNet e sub-redes para transferir um modelo existente, tal como [rede Virtual com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)e modificá-lo para as suas necessidades. |
+| Modelo | A forma mais fácil para criar uma VNet e sub-redes é transferir um modelo existente, como [rede Virtual com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)e modificá-lo para as suas necessidades. |
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
@@ -110,7 +110,7 @@ Esta tabela lista os métodos que pode utilizar para criar um grupo de seguranç
 
 | Método | Descrição |
 | ------ | ----------- |
-| [Portal do Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Quando cria uma VM no portal do Azure, é criado automaticamente um NSG e associado à NIC que o portal cria. O nome do NSG é uma combinação do nome da VM e de **-nsg**. Este NSG contém uma regra de entrada com prioridade de 1000, o serviço definido como RDP, o protocolo como TCP, a porta como a 3389 e a ação Permitir. Se quiser permitir outro tráfego de entrada para a VM, tem de adicionar regras ao NSG. |
+| [Portal do Azure](../articles/virtual-network/tutorial-filter-network-traffic.md) | Quando cria uma VM no portal do Azure, é criado automaticamente um NSG e associado à NIC que o portal cria. O nome do NSG é uma combinação do nome da VM e de **-nsg**. Este NSG contém uma regra de entrada com prioridade de 1000, o serviço definido como RDP, o protocolo como TCP, a porta como a 3389 e a ação Permitir. Se quiser permitir outro tráfego de entrada para a VM, tem de adicionar regras ao NSG. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Utilize [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) e indique as informações necessárias da regra. Utilize [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) para criar o NSG. Utilize [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) para configurar o NSG para a sub-rede. Utilize [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para adicionar o NSG à VNet. |
 | [CLI do Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Utilize [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) para criar inicialmente o NSG. Utilize [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) para adicionar regras ao NSG. Utilize [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) para adicionar o NSG à sub-rede. |
 | [Modelo](../articles/virtual-network/template-samples.md) | Utilize [Create a Network Security Group (Criar um Grupo de Segurança de Rede)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) como guia para implementar um grupo de segurança de rede através de um modelo. |
@@ -161,13 +161,13 @@ Esta tabela lista os métodos que pode utilizar para criar uma VM numa VNet.
 | ------ | ----------- |
 | [Portal do Azure](../articles/virtual-machines/windows/quick-create-portal.md) | Utiliza as predefinições de rede que foram mencionadas anteriormente para criar uma VM com uma única NIC. Para criar uma VM com várias NICs, tem de utilizar outro método. |
 | [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | Inclui a utilização de [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) para adicionar a NIC que criou antes à configuração da VM. |
-| [CLI do Azure](../articles/virtual-machines/linux/create-cli-complete.md) | Criar e ligar uma VM para uma Vnet, uma sub-rede e um NIC que criar como passos individuais. |
+| [CLI do Azure](../articles/virtual-machines/linux/create-cli-complete.md) | Criar e ligar uma VM a uma Vnet, a sub-rede e a NIC que criar como passos individuais. |
 | [Modelo](../articles/virtual-machines/windows/ps-template.md) | Utilize [Very simple deployment of a Windows VM (Implementação muito simples de uma VM do Windows)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como guia para implementar uma VM através de um modelo. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter os passos de VM específicos sobre como gerir redes virtuais do Azure para as VMs, consulte o [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) ou [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) tutoriais.
+Para obter passos sobre como gerir redes virtuais do Azure para VMs específicas da VM, consulte a [Windows](../articles/virtual-machines/windows/tutorial-virtual-network.md) ou [Linux](../articles/virtual-machines/linux/tutorial-virtual-network.md) tutoriais.
 
-Também existem tutoriais sobre como equilibrar as VMs e criar aplicações elevadas para [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) ou [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).
+Também há tutoriais sobre como balancear carga de VMs e criar aplicações de elevada disponibilidade para [Windows](../articles/virtual-machines/windows/tutorial-load-balancer.md) ou [Linux](../articles/virtual-machines/linux/tutorial-load-balancer.md).
 
 - Saiba como configurar [rotas definidas pelo utilizador e encaminhamento de IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Saiba como configurar [ligações VNet a VNet](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

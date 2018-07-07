@@ -1,19 +1,19 @@
 ---
 title: Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook
 description: Saiba como redirecionar os alertas de métricas do Azure para sistemas de outros, não pertencente ao Azure.
-author: johnkemnetz
+author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: johnkem
+ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 429c68c009e3784546b15dbcc1286d551274d2be
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856278"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887349"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook num alerta de métrica do Azure
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para serviços que enviam mensagens SMS, para registrar bugs, para notificar a equipa através de bate-papo ou serviços de mensagens ou para várias outras ações. 

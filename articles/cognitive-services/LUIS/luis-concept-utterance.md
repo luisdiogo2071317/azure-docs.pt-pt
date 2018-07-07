@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9b8556a30169561488a7b46f93af87b31e049e7a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345513"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886846"
 ---
 # <a name="utterances-in-luis"></a>Expressões com no LUIS
 
@@ -23,7 +23,7 @@ ms.locfileid: "37345513"
 Recolha as frases que acredita que os utilizadores introduzirem o. Inclua expressões com o que significa que a mesma coisa, mas são construídos de forma diferente de comprimento de palavra e colocação do word. 
 
 ## <a name="how-to-choose-varied-utterances"></a>Como escolher expressões com variadas
-Quando obter iniciado pela primeira vez [adição de expressões de exemplo] [ add-example-utterances] para o modelo do LUIS, aqui estão alguns princípios a ter em conta.
+Quando obter iniciado pela primeira vez [adição de expressões de exemplo](luis-how-to-add-example-utterances.md) para o modelo do LUIS, aqui estão alguns princípios a ter em conta.
 
 ### <a name="utterances-arent-always-well-formed"></a>Expressões com não estão sempre bem formados
 Pode ser uma frase, como "Reservar quarto-me um pedido para Paris", ou um fragmento de uma frase, como "Reserva" ou "Voo Paris."  Os utilizadores fazem, muitas vezes, os erros de ortografia. Ao planejar a sua aplicação, considere se é ou não verifique a ortografia entrada do usuário antes de o transmitir para LUIS. O [a API de verificação ortográfica do Bing] [ BingSpellCheck] integra-se com os LUIS. Pode associar a aplicação do LUIS com uma chave externa para a API de verificação de ortografia do Bing quando o publicar. Se não escrever expressões de utilizador de verificação, deve preparar o LUIS em expressões que incluem erros de digitação e erros de ortografia.
@@ -70,7 +70,6 @@ Depois do modelo estiver preparado, publicada e de recebimento [ponto final](lui
 Revisão [melhores práticas](luis-concept-best-practices.md) para saber mais.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ver [adicionar expressões de exemplo] [ add-example-utterances] para obter informações sobre uma aplicação LUIS para compreender as expressões de utilizador de treinamento.
+Ver [adicionar expressões de exemplo](luis-how-to-add-example-utterances.md) para obter informações sobre uma aplicação LUIS para compreender as expressões de utilizador de treinamento.
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text

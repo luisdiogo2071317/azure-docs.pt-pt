@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: eddfce08711043f81cee0b1c8d7ee8c6c02f6a45
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858743"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901124"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso a dados do Azure Cosmos DB
 Este artigo fornece uma descrição geral da proteção de acesso a dados armazenados no [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>Eliminar ou exportar dados de utilizador
+O Azure Cosmos DB permite-lhe pesquisar, selecione, modificar e eliminar quaisquer dados pessoais, localizados na base de dados ou coleções. O Azure Cosmos DB fornece APIs para localizar e eliminar os dados pessoais no entanto, é sua responsabilidade usar as APIs e definir a lógica necessária para apagar os dados pessoais. Cada API com vários modelo (API de SQL, API de MongoDB, Gremlin API, API de Cassandra, API de tabela) fornece SDKs que contêm métodos para procurar e eliminar os dados pessoais de idioma diferente. Também pode ativar a [altura de live (TTL)](time-to-live.md) funcionalidade para eliminar os dados automaticamente após um período especificado, sem incorrer em quaisquer custos adicionais.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a segurança de base de dados do Cosmos DB, veja [Cosmos DB: segurança de base de dados](database-security.md).

@@ -1,7 +1,7 @@
 ---
-title: Saiba como padrões de aumentam a exatidão da previsão | Microsoft Docs
+title: Saiba como padrões de aumentam a exatidão da previsão | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como padrões para aumentar pontuações de predição intenção e localizar as entidades de conceção.
+description: Saiba como padrões para aumentar as pontuações de predição de intenção e localizar as entidades de conceção.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -10,118 +10,116 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046263"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888284"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
-Padrões foram concebidos para melhorar a precisão quando várias utterances são muito semelhantes. Ao fornecer um padrão para o utterance, LUIS podem ter uma confiança elevada a predição. 
+Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes. Ao fornecer um padrão para a expressão, LUIS pode ter uma alta confiança na predição. 
 
-## <a name="patterns-solve-low-intent-confidence"></a>Padrões de resolverem confiança intenção baixa
-Considere uma aplicação de recursos humanos relatórios no gráfico organizacional em relação a um empregado. Fornecido nome e a relação de um empregado, LUIS devolve os empregados envolvidos. Considere um empregado, personalizada, com um Gestor de Alice de nome e uma equipa de subordinados com o nome: Miguel, Rebecca e Carl.
+## <a name="patterns-solve-low-intent-confidence"></a>Padrões de resolver a confiança de intenção baixa
+Considere uma aplicação de recursos humanos que os relatórios no organograma em relação a um funcionário. Dado o nome e a relação de um funcionário, LUIS retorne os funcionários envolvidos. Considere um funcionário, Tom, com um Gestor de Alice de nome e uma equipe de subordinados com o nome: Michael, Rebecca e Carl.
 
-![Imagem do organograma](./media/luis-concept-patterns/org-chart.png)
+![Imagem de gráfico de organização](./media/luis-concept-patterns/org-chart.png)
 
-|Expressões|Objetivo de prever|Pontuação intenção|
+|Expressões|Intenção prevista|Pontuação de intenção|
 |--|--|--|
-|Quem é o subordinado de personalizada?|GetOrgChart|.30|
-|Quem é o subordinado personalizada?|GetOrgChart|.30|
+|Quem é subordinada de José?|GetOrgChart|.30|
+|Quem é o subordinado de Tom?|GetOrgChart|.30|
 
-Se tiver uma aplicação entre 10 e 20 utterances com diferentes comprimentos de frase, ordem diferente do word e palavras mesmo diferentes (sinónimos de "subordinada", "Gerir", "relatório"), LUIS pode devolver uma pontuação baixa confiança. Para ajudar a LUIS compreender a importância da ordem word, crie um padrão. 
+Se tiver uma aplicação entre 10 e 20 expressões com diferentes comprimentos de sentença, ordem das palavras diferente e até mesmo palavras (sinónimos de "subordinado", "Gerir", "relatório"), o LUIS pode devolver uma pontuação de confiança baixa. Para ajudar a compreender a importância da ordem das palavras do LUIS, crie um padrão. 
 
-Padrões de resolverem as seguintes situações: 
+Padrões de resolver as seguintes situações: 
 
-* Quando o modelo de pontuação intenção for baixo
-* Se a intenção correta não é a classificação superior, mas demasiado prestes a atingir a classificação superior. 
+* Quando a classificação de intenção é baixa
+* Quando a intenção correta não é a classificação superior, mas muito próximo a classificação superior. 
 
-## <a name="patterns-are-not-a-guarantee-of-intent"></a>Padrões não são uma garantia de intenção de
-Padrões de utilizam uma combinação de tecnologias de predição. Definir um objetivo para um utterance modelo num padrão não é uma garantia da predição de intenção, mas é um sinal de forte. 
+## <a name="patterns-are-not-a-guarantee-of-intent"></a>Padrões não são uma garantia de intenção
+Padrões de utilizam uma combinação de tecnologias de predição. A definição de um objetivo de uma expressão de modelo num padrão não é uma garantia de predição intenção, mas é um sinal forte. 
 
-## <a name="patterns-do-not-improve-entity-detection"></a>Padrões não melhorar a deteção de entidade
-Enquanto padrões necessitarem de entidades, um padrão não ajuda a detetar a entidade. Um padrão destina-se apenas para o ajudar a predição com pendentes e as funções.  
+## <a name="patterns-do-not-improve-entity-detection"></a>Padrões não aperfeiçoar a detecção de entidade
+Embora padrões precisam entidades, um padrão não ajuda a detetar a entidade. Um padrão destina-se apenas para ajudar a predição com intenções e funções.  
 
-## <a name="patterns-use-entity-roles"></a>Padrões utilizam funções de entidade
-Se duas ou mais entidades num padrão reconhecimento do contexto estão relacionadas, padrões de utilizam a entidade [funções](luis-concept-roles.md) para extrair a nível contextual das informações sobre entidades. Isto é equivalente a elementos subordinados de entidade hierárquica, mas é **apenas** disponíveis no padrões. 
+## <a name="patterns-use-entity-roles"></a>Padrões de utilizam as funções de entidade
+Se dois ou mais entidades num padrão contextualmente estejam relacionadas, padrões de utilizam entidade [funções](luis-concept-roles.md) para extrair informações contextuais sobre entidades. Isso é equivalente a crianças de entidades hierárquicas, mas é **apenas** disponíveis em padrões. 
 
-## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de predição com e sem padrões
-Tendo em conta suficiente utterances de exemplo, LUIS conseguirão aumentar a confiança de predição sem padrões. Padrões de aumentam a classificação de confiança, sem ter de fornecer utterances tantos.  
+## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de previsão com e sem padrões
+Tendo em conta suficiente expressões de exemplo, LUIS seria capaz de aumentar a confiança da previsão sem padrões. Padrões de aumentam a pontuação de confiança, sem ter de fornecer expressões com tantos.  
 
 ## <a name="pattern-matching"></a>Correspondência de padrões
-Um padrão é correspondido com base em detetar as entidades dentro padrão pela primeira vez, em seguida, validar o resto das palavras e ordem de word do padrão. Entidades são necessários o padrão para um padrão corresponder. 
+Um padrão é correspondido com base em detetar as entidades dentro o padrão em primeiro lugar, em seguida, validar o resto das palavras e a ordem das palavras do padrão. Entidades são necessárias no padrão para um padrão corresponder. 
 
 ## <a name="pattern-syntax"></a>Sintaxe de padrão
-Sintaxe de padrão é um modelo para um utterance. O modelo deve conter palavras e entidades que pretende corresponder, bem como as palavras e pontuação que pretende ignorar. É **não** uma expressão regular. 
+Sintaxe de padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que deseja correspondência com, bem como palavras e pontuação que pretende ignorar. É **não** uma expressão regular. 
 
-As entidades de padrões são rodeadas por chavetas, `{}`. Padrões podem incluir entidades e entidades com funções. Pattern.any é uma entidade apenas utilizada em padrões. A sintaxe é explicada nas secções seguintes.
+Entidades em padrões são rodeadas por chavetas, `{}`. Padrões podem incluir entidades e entidades com funções. Pattern.any é uma entidade só é utilizada em padrões. A sintaxe é explicada nas seções a seguir.
 
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade a um modelo padrão
-Para adicionar uma entidade para o modelo de padrão, coloque o nome da entidade com chavetas, tais como `Who does {Employee} manage?`. 
+Para adicionar uma entidade no modelo padrão, coloque o nome da entidade com chavetas, como `Who does {Employee} manage?`. 
 
 ```
 Who does {Employee} manage?
 ```
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade e a função a um modelo padrão
-Uma função de entidade está em falta que como `{entity:role}` com o nome da entidade seguido por um vírgula, em seguida, o nome da função. Para adicionar uma entidade com uma função para o modelo de padrão, coloque o nome da entidade e o nome de função com chavetas, tais como `Book a ticket from {Location:Origin} to {Location:Destination}`. 
+Uma função de entidade é denotada como `{entity:role}` com o nome de entidade seguido por dois-pontos, em seguida, o nome da função. Para adicionar uma entidade com uma função no modelo padrão, coloque o nome da entidade e o nome de função com chavetas, como `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
 ```
 Book a ticket from {Location:Origin} to {Location:Destination}
 ```
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Sintaxe para adicionar um pattern.any ao modelo de padrão
-A entidade de Pattern.any permite-lhe adicionar uma entidade do comprimento diferentes para o padrão. Desde que o modelo de padrão é seguido, o pattern.any pode ser qualquer comprimento. 
+A entidade de Pattern.any permite-lhe adicionar uma entidade do comprimento diferentes para o padrão. O modelo padrão é seguido, desde que o pattern.any pode ser qualquer comprimento. 
 
-Para adicionar um **Pattern.any** entidade para o modelo de padrão, coloque a entidade de Pattern.any com chavetas, tais como `How much does {Booktitle} cost and what format is it available in?`.  
+Para adicionar um **Pattern.any** entidade no modelo padrão, coloque a entidade de Pattern.any com chavetas, como `How much does {Booktitle} cost and what format is it available in?`.  
 
 ```
 How much does {Booktitle} cost and what format is it available in?
 ```
 
-|Títulos de livro o padrão|
+|Títulos de livros no padrão|
 |--|
-|Quanto **roubar este livro** custo e o formato está disponível?|
-|Quanto **peça** custo e o formato está disponível?|
-|Quanto **o incidente curiosidade de preguiçoso no tempo-noite** custo e o formato está disponível?| 
+|Quanto **roubar esse livro** custo e que formato está disponível em?|
+|Quanto **perguntar** custo e que formato está disponível em?|
+|Quanto **o incidente curioso de Dog no tempo de noite** custo e que formato está disponível em?| 
 
-Nestes exemplos de título do livro, as nível contextual das palavras do título livro não são confusas para LUIS. LUIS sabe onde termina o título do livro porque está num padrão e marcados com uma entidade Pattern.any.
+Nestes exemplos de título do livro, as palavras contextuais do título do livro não são confusas para LUIS. LUIS sabe onde o título do livro termina porque é um padrão e marcado com uma entidade de Pattern.any.
 
-### <a name="explicit-lists"></a>Apresenta uma lista explícita
-Se o padrão contém um Pattern.any e permite que a sintaxe de padrão para a possibilidade de extração uma entidade incorreto com base no utterance, crie um [lista explícita](https://aka.ms/ExplicitList) através da API de criação para permitir a exceção. 
+### <a name="explicit-lists"></a>Listas explícitas
+Se o seu padrão contém um Pattern.any e permite que a sintaxe padrão para a possibilidade de uma extração de entidades incorreto com base na expressão, crie uma [lista explícita](https://aka.ms/ExplicitList) por meio da API de criação para permitir que a exceção. 
 
-Por exemplo, suponha que tem um padrão que contenha ambas sintaxe opcional, `[]`e a sintaxe de entidade, `{}`, combinados de forma para extrair dados incorretamente.
+Por exemplo, suponha que tenha um padrão que contém ambas as sintaxes opcional, `[]`e a sintaxe de entidade, `{}`, combinados numa forma de extrair dados incorretamente.
 
-Considere o padrão '[encontrar] e-mail sobre {assunto} [{pessoa}]'. No utterances seguintes, o **requerente** e **pessoa** entidade são extraídos corretamente e incorretamente:
+Considere o padrão '[find] e-mail sobre {subject} [de {pessoa}]'. Em expressões de com os seguintes, o **assunto** e **pessoa** entidade são extraídos corretamente e incorretamente:
 
 |Expressão|Entidade|Extração correta|
 |--|--|:--:|
-|e-mail sobre dogs a partir de Chris|requerente = dogs<br>pessoa = Chris|✔|
-|e-mail sobre man do La Mancha|requerente = de man<br>pessoa = La Mancha|X|
+|enviar um e-mail sobre cães Chris|assunto = cães<br>pessoa = Chris|✔|
+|enviar um e-mail sobre o homem de La Mancha|assunto = o homem<br>pessoa = La Mancha|X|
 
-Na tabela anterior, o utterance `email about the man from La Mancha`, o assunto deve ser `the man from La Mancha` (um título de livro) mas porque o requerente inclui o word opcional `from`, o título está incorretamente prever. 
+Na tabela anterior, a expressão `email about the man from La Mancha`, o assunto deve ser `the man from La Mancha` (um título do livro), mas porque o requerente inclui a palavra opcional `from`, o título está previsto incorretamente. 
 
-Para corrigir esta exceção o padrão, adicionar `the man from la mancha` como uma correspondência da lista explícita para a entidade de {requerente} utilizando o [API de criação de lista explícita](https://aka.ms/ExplicitList).
+Para corrigir essa exceção para o padrão, adicione `the man from la mancha` como uma correspondência de lista explícita para a entidade de {subject} utilizando o [API de criação para lista explícita](https://aka.ms/ExplicitList).
 
-### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxe para marcar o texto opcional utterance um modelo
-Marcar opcional texto utterance utilizando a sintaxe de parêntesis Reto de expressão regular `[]`. O texto opcional pode aninhar Parênteses Retos até duas Retos apenas.
+### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Sintaxe para marcar texto opcional numa expressão de modelo
+Marcar o texto opcional na expressão usando a sintaxe de colchete de expressão regular, `[]`. O texto opcional pode aninhar Parênteses Retos até dois Retos apenas.
 
 ```
 [find] email about {subject} [from {person}]
 ```
 
-Sinais de pontuação, tais como `.`, `!`, e `?` podem ser ignoradas utilizando parênteses Retos. Para ignorar estes marcas de escala, cada marca tem de estar num padrão separado. A sintaxe opcional atualmente não suporta a ignorar um item numa lista de vários itens.
+Marcas de pontuação, tal como `.`, `!`, e `?` podem ser ignorados com Parênteses Retos. Para poder ignorar essas marcas, cada marca deve estar num padrão separado. A sintaxe opcional atualmente não suporta a ignorar a um item numa lista de vários itens.
 
-## <a name="patterns-only"></a>Apenas padrões
-LUIS permite que uma aplicação sem qualquer utterances de exemplo na intenção. Esta utilização é permitida apenas se forem utilizados padrões. Padrões necessitam de pelo menos uma entidade em cada padrão. Para uma aplicação só de padrão, o padrão não deve conter entidades adquiridos por máquina porque esses requisitos requerem utterances de exemplo. 
+## <a name="patterns-only"></a>Padrões de apenas
+LUIS permite que uma aplicação sem quaisquer expressões de exemplo na intenção. Esta utilização é permitida apenas se os padrões são utilizados. Padrões exigem pelo menos uma entidade em cada padrão. Para uma aplicação só por padrão, o padrão não deve conter entidades aprendidas por máquina porque estes requerem a expressões de exemplo. 
 
 ## <a name="best-practices"></a>Melhores práticas
-Saiba [melhores práticas](luis-concept-best-practices.md).
+Saiba mais [melhores práticas](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar padrões neste tutorial](luis-tutorial-pattern.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

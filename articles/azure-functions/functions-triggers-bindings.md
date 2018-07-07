@@ -1,6 +1,6 @@
 ---
-title: Acionadores e enlaces de funções do Azure
-description: Saiba como utilizar acionadores e enlaces das funções do Azure para ligar a execução do código para serviços baseados na nuvem e eventos online.
+title: Acionadores e enlaces nas funções do Azure
+description: Saiba como utilizar acionadores e enlaces nas funções do Azure para ligar a sua execução de código para eventos online e serviços baseados na nuvem.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 305f7a54e290b8628401c21f033f8be7017d4a91
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083870"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887475"
 ---
-# <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
-Este artigo é uma descrição geral conceptual dos acionadores e enlaces de funções do Azure. As funcionalidades que são comuns a todos os enlaces e todos os idiomas suportados são descritas aqui.
+Este artigo é uma descrição geral conceptual dos acionadores e enlaces nas funções do Azure. Recursos que são comuns a todas as ligações e todos os idiomas suportados são descritos aqui.
 
 ## <a name="overview"></a>Descrição geral
 
-A *acionador* define a forma como uma função é invocada. Uma função tem de ter exatamente um acionador. Acionadores associou dados, o que é normalmente o payload que acionou a função.
+R *acionador* define como uma função é invocada. Uma função tem de ter exatamente um acionador. Acionadores tem associado a dados, o que é normalmente o payload que acionou a função.
 
-Entrada e saída *enlaces* proporcionam uma forma declarativa para ligar a dados a partir de dentro do seu código. Enlaces são opcionais e uma função pode ter vários de entrada e saída enlaces. 
+Entrada e saída *enlaces* proporcionam uma forma declarativa para ligar a dados a partir de seu código. Enlaces são opcionais e uma função pode ter várias entradas de ligações de saída. 
 
-Acionadores e enlaces permitem-lhe evitar codificar os detalhes dos serviços de está a trabalhar. A função recebe dados (por exemplo, o conteúdo de uma mensagem de fila) nos parâmetros de função. Enviar dados (por exemplo, para criar uma mensagem de fila) utilizando o valor de retorno da função, uma `out` parâmetro, ou um [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values).
+Acionadores e enlaces permitem-lhe evitar os detalhes dos serviços que está trabalhando com a codificar. A função recebe dados (por exemplo, o conteúdo de uma mensagem de fila) nos parâmetros de função. Enviar dados (por exemplo, para criar uma mensagem de fila), utilizando o valor de retorno da função, um `out` parâmetro, ou uma [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values).
 
-Quando desenvolver as funções utilizando o portal do Azure, acionadores e enlaces estão configurados num *function.json* ficheiro. O portal fornece uma IU para esta configuração, mas pode editar o ficheiro diretamente pela alteração para o **editor avançada**.
+Ao desenvolver funções com o portal do Azure, os acionadores e enlaces estão configurados num *Function* ficheiro. O portal fornece uma interface do Usuário para esta configuração, mas pode editar o ficheiro diretamente ao alterar para o **editor avançado**.
 
-Quando desenvolver as funções utilizando o Visual Studio para criar uma biblioteca de classe, configure acionadores e enlaces ao decorating métodos e os parâmetros com atributos.
+Ao desenvolver funções utilizando o Visual Studio para criar uma biblioteca de classes, configurar acionadores e enlaces de decoração de métodos e parâmetros com atributos.
 
-## <a name="example-trigger-and-binding"></a>Acionador de exemplo e enlace
+## <a name="example-trigger-and-binding"></a>Acionador de exemplo e ligação
 
-Suponha que pretende escrever uma nova linha no Table storage do Azure, sempre que uma nova mensagem é apresentada no armazenamento de filas do Azure. Este cenário pode ser implementado através de uma fila do Azure vínculo de saída de Acionador de armazenamento e um Table storage do Azure. 
+Suponha que queira escrever uma nova linha para o armazenamento de tabelas do Azure, sempre que uma nova mensagem aparece no armazenamento de filas do Azure. Este cenário pode ser implementado usando uma fila do Azure enlace de saída de Acionador do armazenamento e um armazenamento de tabelas do Azure. 
 
-Eis um *function.json* ficheiros para este cenário. 
+Aqui está uma *Function* ficheiros para este cenário. 
 
 ```json
 {
@@ -65,16 +65,16 @@ Eis um *function.json* ficheiros para este cenário.
 }
 ```
 
-O primeiro elemento no `bindings` matriz é o acionador de armazenamento de filas. O `type` e `direction` propriedades identificam o acionador. O `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para monitorizar está a ser `queueName`, e a cadeia de ligação tem a definição de aplicação identificada por `connection`.
+O primeiro elemento no `bindings` matriz é o acionador do armazenamento de fila. O `type` e `direction` propriedades identificar o acionador. O `name` propriedade identifica o parâmetro de função que recebe o conteúdo da mensagem de fila. O nome da fila para monitorizar está `queueName`, e a cadeia de ligação é na definição da aplicação identificada pelo `connection`.
 
-O elemento de segundo a `bindings` matriz é o Table Storage do Azure vínculo de saída. O `type` e `direction` propriedades identificam o enlace. O `name` propriedade especifica a forma como a função fornece a nova linha de tabela, neste caso, utilizando a função devolve o valor. O nome da tabela está a ser `tableName`, e a cadeia de ligação tem a definição de aplicação identificada por `connection`.
+O segundo elemento no `bindings` matriz é o armazenamento de tabelas do Azure enlace de saída. O `type` e `direction` propriedades identificar o enlace. O `name` propriedade especifica como a função fornece a nova linha de tabela, neste caso, utilizando a função devolver o valor. O nome da tabela está `tableName`, e a cadeia de ligação é na definição da aplicação identificada pelo `connection`.
 
-Para ver e editar o conteúdo do *function.json* no portal do Azure, clique em de **editor avançada** opção o **integrar** separador da sua função.
+Para ver e editar o conteúdo de *Function* no portal do Azure, clique nas **editor avançado** opção os **integrar** separador da sua função.
 
 > [!NOTE]
-> O valor de `connection` é o nome de uma definição de aplicação que contenha a cadeia de ligação, não a cadeia de ligação em si. Enlaces utilizam ligação cadeias armazenadas nas definições de aplicação para impor as melhores práticas que *function.json* não contém segredos do serviço.
+> O valor de `connection` é o nome de uma definição de aplicação que contém a cadeia de ligação, não a cadeia de ligação em si. Enlaces de ligação de utilizar cadeias de caracteres nas definições da aplicação para impor a melhor prática que *Function* não contém segredos de serviço.
 
-Eis o script código c# que funciona com este acionador e o enlace. Tenha em atenção que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order`; este nome é necessário porque o `name` valor da propriedade no *function.json* é `order` 
+Aqui está o script código c# que funciona com este acionador e a associação. Tenha em atenção que o nome do parâmetro que fornece o conteúdo da mensagem de fila é `order`; este nome é necessário porque o `name` valor da propriedade nas *Function* é `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -101,7 +101,7 @@ public class Person
 }
 ```
 
-O mesmo ficheiro function.json pode ser utilizado com uma função de JavaScript:
+O mesmo arquivo de Function pode ser utilizado com uma função de JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -119,7 +119,7 @@ function generateRandomId() {
 }
 ```
 
-Na biblioteca de classes, o mesmo acionador e informações de enlace &mdash; parâmetros de entrada e saída da função de nomes de filas e tabela, contas de armazenamento, &mdash; é fornecido por atributos em vez de um ficheiro de function.json. Segue-se um exemplo:
+Numa biblioteca de classes, o mesmo acionador e informações de enlace &mdash; parâmetros de entrada e saída de função de nomes de tabela e fila, contas de armazenamento, &mdash; é fornecido por atributos em vez de um ficheiro de Function. Segue-se um exemplo:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -151,82 +151,82 @@ Na biblioteca de classes, o mesmo acionador e informações de enlace &mdash; pa
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Para obter informações sobre os quais os enlaces estão na pré-visualização ou estão aprovados para utilização em produção, consulte [idiomas suportados](supported-languages.md).
+Para obter informações sobre as ligações estão em pré-visualização ou são aprovadas para utilização em produção, consulte [idiomas suportados](supported-languages.md).
 
-## <a name="register-binding-extensions"></a>Registar as extensões de enlace
+## <a name="register-binding-extensions"></a>Registe-se as extensões de enlace
 
-Em alguns ambientes de desenvolvimento, tem de explicitamente *registar* um enlace que pretende utilizar. Extensões de enlace são fornecidas na pacotes NuGet e para registar uma extensão é instalar um pacote. A tabela seguinte indica quando e como registar as extensões de enlace.
+Em alguns ambientes de desenvolvimento, precisa explicitamente *registar* uma ligação que pretende utilizar. Extensões de ligação são fornecidas nos pacotes NuGet e para registar uma extensão, instale um pacote. A tabela seguinte indica quando e como registar as extensões de enlace.
 
-|Ambiente de programação |Registo<br/> nas funções de 1. x  |Registo<br/> nas funções de 2. x  |
+|Ambiente de programação |Registo<br/> nas funções 1.x  |Registo<br/> nas funções 2.x  |
 |---------|---------|---------|
 |Portal do Azure|Automático|[Automático com linha de comandos](#azure-portal-development)|
-|Local utilizando as ferramentas de núcleos de funções do Azure|Automático|[Utilizar comandos da CLI de ferramentas de núcleo](#local-development-azure-functions-core-tools)|
-|Biblioteca de classes do c# utilizando o Visual Studio 2017|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
-|Biblioteca de classes do c# utilizando o Visual Studio Code|N/A|[Utilize o .NET Core CLI](#c-class-library-with-visual-studio-code)|
+|Local usando as ferramentas de núcleo das funções do Azure|Automático|[Utilizar comandos da CLI de ferramentas de núcleo](#local-development-azure-functions-core-tools)|
+|Biblioteca de classes do c# com o Visual Studio 2017|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
+|Biblioteca de classes do c# com o Visual Studio Code|N/A|[Utilizar o .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-Os seguintes tipos de enlace são exceções que não necessitam de registo explícito porque estão registados automaticamente em todas as versões e ambientes de: HTTP, temporizador e armazenamento do Azure (blobs, filas e tabelas). 
+Os seguintes tipos de ligação são exceções que não exigem Registro explícito, porque eles são automaticamente registrados em todas as versões e ambientes: HTTP, o temporizador e o armazenamento do Azure (blobs, filas e tabelas). 
 
 ### <a name="azure-portal-development"></a>Desenvolvimento de portal do Azure
 
-Esta secção aplica-se apenas às funções de 2. x. Extensões de enlace não têm de ser explicitamente registado nas funções de 1. x.
+Esta secção aplica-se apenas às funções 2.x. Extensões de enlace não tem de ser explicitamente registado nas funções 1.x.
 
-Quando criar uma função ou adicionar um enlace, serão apresentadas quando a extensão de enlace de Acionador ou necessita de registo. Responder ao pedido clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos um plano de consumo.
+Quando criar uma função ou adicionar um enlace, é solicitado quando a extensão para o acionador ou enlace requer o registo. Responder à solicitação clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos num plano de consumo.
 
-Só é necessário instalar cada extensão de uma vez para uma aplicação de função especificada. 
+Precisa apenas instalar cada extensão de uma vez para uma aplicação de função especificada. 
 
-### <a name="local-development-azure-functions-core-tools"></a>Azure funções principais ferramentas de desenvolvimento local
+### <a name="local-development-azure-functions-core-tools"></a>Local de desenvolvimento de ferramentas de núcleo de funções do Azure
 
-Esta secção aplica-se apenas às funções de 2. x. Extensões de enlace não têm de ser explicitamente registado nas funções de 1. x.
+Esta secção aplica-se apenas às funções 2.x. Extensões de enlace não tem de ser explicitamente registado nas funções 1.x.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
 ### <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de classes c# com o Visual Studio 2017
 
-No **Visual Studio 2017**, é possível instalar pacotes a partir da consola do Gestor de pacotes a utilizar o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) comando, conforme mostrado no exemplo seguinte:
+Na **Visual Studio 2017**, pode instalar pacotes a partir da consola do Gestor de pacotes utilizando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
 ```
 
-O nome do pacote a utilizar para um determinado enlace é fornecido no artigo de referência para esse enlace. Por exemplo, consulte o [pacotes secção do artigo de referência de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+O nome do pacote para utilizar para uma determinada associação é fornecido no artigo de referência para esse enlace. Por exemplo, veja a [secção do artigo de referência de ligação do Service Bus de pacotes](functions-bindings-service-bus.md#packages---functions-1x).
 
-Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais pacote em [NuGet.org](https://nuget.org). As versões principais que corresponde ao tempo de execução de funções 1. x ou 2. x estão especificados no artigo de referência para o enlace.
+Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais do pacote na [NuGet.org](https://nuget.org). As versões principais que correspondem ao runtime das funções 1.x ou 2.x são especificados no artigo de referência para o enlace.
 
 ### <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de classes c# com o Visual Studio Code
 
-No **Visual Studio Code**, poderá instalar pacotes a partir da linha de comandos utilizando a [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na .NET Core CLI, conforme mostrado no exemplo seguinte:
+Na **Visual Studio Code**, pode instalar pacotes a partir da linha de comandos com o [dotnet Adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na CLI do núcleo do .NET, conforme mostrado no exemplo a seguir:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 
-Só pode ser utilizada a CLI do .NET Core para o desenvolvimento de 2. x das funções do Azure.
+Só pode ser utilizada a CLI do .NET Core para o desenvolvimento de 2.x as funções do Azure.
 
-O nome do pacote a utilizar para um determinado enlace é fornecido no artigo de referência para esse enlace. Por exemplo, consulte o [pacotes secção do artigo de referência de enlace de Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+O nome do pacote para utilizar para uma determinada associação é fornecido no artigo de referência para esse enlace. Por exemplo, veja a [secção do artigo de referência de ligação do Service Bus de pacotes](functions-bindings-service-bus.md#packages---functions-1x).
 
-Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais pacote em [NuGet.org](https://nuget.org). As versões principais que corresponde ao tempo de execução de funções 1. x ou 2. x estão especificados no artigo de referência para o enlace.
+Substitua `<target_version>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais do pacote na [NuGet.org](https://nuget.org). As versões principais que correspondem ao runtime das funções 1.x ou 2.x são especificados no artigo de referência para o enlace.
 
-## <a name="binding-direction"></a>Direção de enlace
+## <a name="binding-direction"></a>Direção de ligação
 
-Todos os acionadores e enlaces de tem um `direction` propriedade no *function.json* ficheiro:
+Todos os acionadores e enlaces de tem uma `direction` propriedade no *Function* ficheiro:
 
 - Para acionadores, a direção é sempre `in`
-- Utilizam enlaces de entrada e de saída `in` e `out`
-- Alguns enlaces suportam uma direção especial `inout`. Se utilizar `inout`, apenas o **editor avançada** está disponível no **integrar** separador.
+- Ligações de entrada e saídas usam `in` e `out`
+- Algumas ligações oferecem suporte a uma direção especial `inout`. Se usar `inout`, apenas o **editor avançado** está disponível na **integrar** separador.
 
-Quando utiliza [atributos na biblioteca de classes](functions-dotnet-class-library.md) para configurar os acionadores e enlaces, a direção é fornecida no construtor de atributos ou inferida a partir do tipo de parâmetro.
+Quando utiliza [atributos numa biblioteca de classe](functions-dotnet-class-library.md) para configurar acionadores e enlaces, a direção é fornecida no construtor de atributos ou inferida do tipo de parâmetro.
 
 ## <a name="using-the-function-return-value"></a>Utilizar o valor de retorno da função
 
-Os idiomas que tenham um valor de retorno, é possível vincular um enlace de saída para o valor devolvido:
+Em idiomas que têm um valor de retorno, é possível vincular um enlace de saída para o valor de retorno:
 
-* Em c# biblioteca de classes, aplique o atributo de enlace de saída para o valor de retorno do método.
-* Outros idiomas, defina o `name` propriedade no *function.json* para `$return`.
+* No c# biblioteca de classes, aplica o atributo de enlace de saída para o valor de retorno do método.
+* Em outros idiomas, defina o `name` propriedade na *Function* para `$return`.
 
-Se precisar de mais de um item de escrita, utilize um [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values) em vez do valor de retorno. Se existirem vários enlaces de resultados, utilize o valor de retorno para apenas um deles.
+Se precisar de mais de um item de escrita, usar um [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values) em vez do valor de retorno. Se existirem vários enlaces de saída, utilize o valor de retorno para apenas um deles.
 
-Veja o exemplo de específicas do idioma:
+Veja o exemplo de idioma específico:
 
 * [C#](#c-example)
 * [Script do c# (.csx)](#c-script-example)
@@ -235,7 +235,7 @@ Veja o exemplo de específicas do idioma:
 
 ### <a name="c-example"></a>Exemplo do c#
 
-Código c# Eis que utiliza o valor de retorno para um enlace de saída, seguido de um exemplo de async:
+O código c# aqui está que utiliza o valor de retorno para um enlace de saída, seguido de um exemplo de async:
 
 ```cs
 [FunctionName("QueueTrigger")]
@@ -261,7 +261,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, Trace
 
 ### <a name="c-script-example"></a>Exemplo de script do c#
 
-Eis o enlace de saída *function.json* ficheiro:
+Este é o enlace de saída no *Function* ficheiro:
 
 ```json
 {
@@ -272,7 +272,7 @@ Eis o enlace de saída *function.json* ficheiro:
 }
 ```
 
-Eis o script código c#, seguido de um exemplo de async:
+Aqui está o script código c#, seguido de um exemplo de async:
 
 ```cs
 public static string Run(WorkItem input, TraceWriter log)
@@ -292,9 +292,9 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
-### <a name="f-example"></a>O F # exemplo
+### <a name="f-example"></a>Exemplo do F #
 
-Eis o enlace de saída *function.json* ficheiro:
+Este é o enlace de saída no *Function* ficheiro:
 
 ```json
 {
@@ -316,7 +316,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
-Eis o enlace de saída *function.json* ficheiro:
+Este é o enlace de saída no *Function* ficheiro:
 
 ```json
 {
@@ -327,7 +327,7 @@ Eis o enlace de saída *function.json* ficheiro:
 }
 ```
 
-Em JavaScript, o valor de retorno entra no segundo parâmetro para `context.done`:
+No JavaScript, o valor de retorno vai no segundo parâmetro para `context.done`:
 
 ```javascript
 module.exports = function (context, input) {
@@ -337,11 +337,11 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="binding-datatype-property"></a>Propriedade de tipo de dados de enlace
+## <a name="binding-datatype-property"></a>Propriedade de tipo de dados de ligação
 
-No .NET, utilize o tipo de parâmetro para definir o tipo de dados para dados de entrada. Por exemplo, utilize `string` ao vincular ao texto de um acionador de fila, uma matriz de bytes para leitura como binário e um tipo personalizado para anular a serialização para um objeto de POCO.
+No .NET, utilize o tipo de parâmetro para definir o tipo de dados para dados de entrada. Por exemplo, usar `string` para vincular ao texto de um acionador de fila, uma matriz de bytes para leitura como binário e um tipo personalizado para anular a serialização para um objeto POCO.
 
-Para os idiomas que são escritos dinamicamente, como JavaScript, utilize o `dataType` propriedade no *function.json* ficheiro. Por exemplo, para ler o conteúdo de um pedido HTTP no formato binário, defina `dataType` para `binary`:
+Para idiomas que são digitados dinamicamente, como JavaScript, utilize o `dataType` propriedade no *Function* ficheiro. Por exemplo, para ler o conteúdo de uma solicitação HTTP no formato binário, defina `dataType` para `binary`:
 
 ```json
 {
@@ -352,36 +352,36 @@ Para os idiomas que são escritos dinamicamente, como JavaScript, utilize o `dat
 }
 ```
 
-Outras opções para `dataType` são `stream` e `string`.
+Outras opções para `dataType` estão `stream` e `string`.
 
-## <a name="binding-expressions-and-patterns"></a>Expressões de enlace e padrões
+## <a name="binding-expressions-and-patterns"></a>Expressões de associação e padrões
 
-Uma das funcionalidades mais poderosas de acionadores e enlaces é *expressões de enlace*. No *function.json* ficheiros e de parâmetros de função e código, pode utilizar expressões de resolver para valores de várias origens.
+Um dos recursos mais poderosos de acionadores e enlaces é *expressões de enlace*. Na *Function* de ficheiros e nos parâmetros da função e código, pode usar expressões que resolva para valores de várias origens.
 
-Maior parte das expressões são identificados pelo encapsulamento-los chavetas. Por exemplo, numa função de Acionador de fila, `{queueTrigger}` é resolvido para o texto da mensagem de fila. Se o `path` enlace é de saída de propriedade para um blob `container/{queueTrigger}` e a função é acionada por uma mensagem de fila `HelloWorld`, um blob com o nome `HelloWorld` é criado.
+A maioria das expressões são identificadas, encapsulando-as chavetas. Por exemplo, numa função de Acionador de fila, `{queueTrigger}` é resolvido para o texto da mensagem de fila. Se o `path` propriedade para um blob de saída é de enlace `container/{queueTrigger}` e a função é acionada por uma mensagem de fila `HelloWorld`, um blob com o nome `HelloWorld` é criado.
 
-Tipos de expressões de enlace
+Tipos de expressões de associação
 
-* [Definições de aplicação](#binding-expressions---app-settings)
-* [Nome de ficheiro do acionador](#binding-expressions---trigger-file-name)
+* [Definições da aplicação](#binding-expressions---app-settings)
+* [Nome de ficheiro de Acionador](#binding-expressions---trigger-file-name)
 * [Metadados de Acionador](#binding-expressions---trigger-metadata)
-* [JSON payloads](#binding-expressions---json-payloads)
+* [Conteúdo JSON](#binding-expressions---json-payloads)
 * [Novo GUID](#binding-expressions---create-guids)
 * [Data e hora atuais](#binding-expressions---current-time)
 
-### <a name="binding-expressions---app-settings"></a>Expressões de enlace - as definições de aplicação
+### <a name="binding-expressions---app-settings"></a>Expressões de enlace - definições da aplicação
 
-Como melhor prática, os segredos e cadeias de ligação devem ser geridas utilizando as definições de aplicação, em vez de ficheiros de configuração. Isto limita o acesso a estes segredos e torna seguro armazenar os ficheiros, tais como *function.json* em repositórios de controlo de origem público.
+Como melhor prática, segredos e as cadeias de ligação devem ser geridas utilizando as definições da aplicação, em vez de arquivos de configuração. Isso limita o acesso a estes segredos e torna segura armazenar os ficheiros, tal como *Function* nos repositórios de controlo de origem pública.
 
-As definições de aplicações também são úteis sempre que pretender alterar a configuração com base no ambiente. Por exemplo, num ambiente de teste, pode querer monitorizar um contentor de armazenamento de fila ou blob diferente.
+Definições da aplicação também são úteis sempre que quiser alterar a configuração com base no ambiente. Por exemplo, num ambiente de teste, pode querer monitorizar um contentor de armazenamento de BLOBs ou filas diferente.
 
-Expressões de enlace de definição de aplicação são identificadas de forma diferente de outras expressões de enlace: estes são moldadas numa percentagem sinais em vez de chavetas. Por exemplo, se o caminho de enlace de saída do blob é `%Environment%/newblob.txt` e `Environment` valor de definição de aplicação é `Development`, será criado um blob no `Development` contentor.
+Expressões de associação de definição de aplicação são identificadas de forma diferente de outras expressões de enlace: eles são encapsulados em percentagem, em vez de chavetas. Por exemplo, se o caminho de enlace de saída do blob for `%Environment%/newblob.txt` e o `Environment` é o valor de definição de aplicação `Development`, será criado um blob a `Development` contentor.
 
-Quando uma função é executada localmente, os valores de definição de aplicação provenientes de *local.settings.json* ficheiro.
+Quando uma função é executada localmente, valores de definição de aplicação são provenientes do *Settings* ficheiro.
 
-Tenha em atenção que o `connection` propriedade de acionadores e enlaces é num caso especial e resolve automaticamente os valores das definições de aplicação, sem sinais por cento. 
+Tenha em atenção que o `connection` é um caso especial de propriedade de acionadores e enlaces e resolve automaticamente os valores como definições da aplicação, sem percentagem. 
 
-O exemplo seguinte é um acionador de armazenamento de filas do Azure que utiliza uma definição de aplicação `%input-queue-name%` para definir a fila para acionar.
+O exemplo seguinte é um acionador do armazenamento de filas do Azure que utiliza uma definição de aplicação `%input-queue-name%` para definir a fila para acionar.
 
 ```json
 {
@@ -397,7 +397,7 @@ O exemplo seguinte é um acionador de armazenamento de filas do Azure que utiliz
 }
 ```
 
-Pode utilizar a mesma abordagem em bibliotecas de classe:
+Pode utilizar a mesma abordagem nas bibliotecas de classes:
 
 ```csharp
 [FunctionName("QueueTrigger")]
@@ -409,11 +409,11 @@ public static void Run(
 }
 ```
 
-### <a name="binding-expressions---trigger-file-name"></a>Expressões de enlace - nome de ficheiro do acionador
+### <a name="binding-expressions---trigger-file-name"></a>Expressões de enlace - nome do ficheiro de Acionador
 
-O `path` para um Blob acionador pode ser um padrão que permite-lhe fazer referência ao nome do blob acionadora noutros enlaces e código de função. O padrão também pode incluir os critérios de filtragem que especifique que os blobs podem acionar uma invocação de função.
+O `path` para um Blob acionador pode ser um padrão que permite que fizer referência ao nome do blob acionadora em outros enlaces e código de função. O padrão também pode incluir os critérios de filtragem que especificam qual blobs, podem acionar uma invocação de função.
 
-Por exemplo, no acionador Blob seguinte enlace, o `path` padrão é `sample-images/{filename}`, que cria uma expressão de enlace com o nome `filename`:
+Por exemplo, no acionador de Blob seguinte ligação, o `path` padrão é `sample-images/{filename}`, que cria uma expressão de vinculação com o nome `filename`:
 
 ```json
 {
@@ -428,7 +428,7 @@ Por exemplo, no acionador Blob seguinte enlace, o `path` padrão é `sample-imag
     ...
 ```
 
-A expressão `filename` , em seguida, pode ser utilizado num enlace de saída para especificar o nome do blob a ser criado:
+A expressão `filename` , em seguida, pode ser utilizado num enlace de saída para especificar o nome do blob que está sendo criado:
 
 ```json
     ...
@@ -457,7 +457,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-A mesma capacidade de utilizar expressões de enlace e padrões se aplica a atributos em bibliotecas de classes. No exemplo seguinte, os parâmetros do construtor de atributo são os mesmos `path` valores como precedente *function.json* exemplos: 
+A mesma capacidade de utilizar expressões de associação e padrões de se aplica a atributos nas bibliotecas de classes. No exemplo a seguir, os parâmetros do construtor de atributo são os mesmos `path` valores como precedente *Function* exemplos: 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -473,23 +473,23 @@ public static void Run(
 
 ```
 
-Também pode criar as expressões para partes do nome do ficheiro, como a extensão. Para obter mais informações sobre como utilizar expressões e padrões na cadeia de caminho de Blob, consulte o [referência de enlace de blob de armazenamento](functions-bindings-storage-blob.md).
+Também pode criar expressões para partes do nome do ficheiro como a extensão. Para obter mais informações sobre como utilizar expressões e padrões na cadeia de caminho de Blob, consulte a [referência de ligação de blob de armazenamento](functions-bindings-storage-blob.md).
  
-### <a name="binding-expressions---trigger-metadata"></a>Expressões de enlace - acionar metadados
+### <a name="binding-expressions---trigger-metadata"></a>Expressões de enlace - metadados de Acionador
 
-Para além do payload de dados fornecido por um acionador (por exemplo, o conteúdo da mensagem de fila que acionou uma função), acionadores muitos forneça valores de metadados adicionais. Estes valores podem ser utilizados como parâmetros de entrada em c# e F # ou propriedades no `context.bindings` objeto em JavaScript. 
+O payload de dados fornecido por um acionador (por exemplo, o conteúdo da mensagem de fila que uma função acionada por um), além de muitos acionadores fornecem os valores de metadados adicionais. Estes valores podem ser utilizados como parâmetros de entrada em c# e F # ou propriedades no `context.bindings` objetos em JavaScript. 
 
-Por exemplo, um acionador de armazenamento de filas do Azure suporta as seguintes propriedades:
+Por exemplo, um acionador do armazenamento de filas do Azure suporta as seguintes propriedades:
 
-* QueueTrigger - acionar o conteúdo da mensagem se uma cadeia válida
+* QueueTrigger - conteúdo da mensagem a acionar se uma cadeia válida
 * DequeueCount
-* expirationTime
+* ExpirationTime
 * Id
 * InsertionTime
 * NextVisibleTime
 * PopReceipt
 
-Estes valores de metadados estão acessíveis no *function.json* propriedades do ficheiro. Por exemplo, suponha que utiliza um acionador de fila e a mensagem da fila contém o nome de um blob que pretende ler. No *function.json* ficheiro, pode utilizar `queueTrigger` propriedade de metadados no blob `path` propriedade, conforme mostrado no exemplo seguinte:
+Estes valores de metadados são acessíveis no *Function* propriedades do ficheiro. Por exemplo, suponha que usar um acionador de fila e a mensagem de fila contém o nome de um blob que pretende ler. Na *Function* arquivo, pode usar `queueTrigger` propriedade de metadados no blob `path` propriedade, conforme mostrado no exemplo a seguir:
 
 ```json
   "bindings": [
@@ -509,13 +509,13 @@ Estes valores de metadados estão acessíveis no *function.json* propriedades do
   ]
 ```
 
-Detalhes das propriedades de metadados para cada acionador são descritos no artigo de referência correspondente. Por exemplo, consulte [metadados de Acionador de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Também está disponível na documentação sobre o **integrar** separador do portal, no **documentação** secção abaixo da área de configuração do enlace.  
+Detalhes das propriedades de metadados para cada acionador são descritos no artigo de referência correspondente. Por exemplo, veja [metadados de Acionador de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Documentação também está disponível na **integrar** separador do portal, na **documentação** seção a seguir a área de configuração de ligação.  
 
-### <a name="binding-expressions---json-payloads"></a>Expressões de enlace - JSON payloads
+### <a name="binding-expressions---json-payloads"></a>Expressões de enlace - conteúdo JSON
 
-Quando um payload de Acionador é JSON, pode consultar as respetivas propriedades na configuração para noutros enlaces na mesma função e no código da função.
+Quando um payload de Acionador é um JSON, pode consultar as respetivas propriedades na configuração para outros enlaces na mesma função e no código de função.
 
-O seguinte exemplo mostra o *function.json* ficheiro para uma função de webhook que recebe um nome do blob no JSON: `{"BlobName":"HelloWorld.txt"}`. Um enlace de entrada do Blob lê o blob e o HTTP de saída do enlace devolve os conteúdos do blob na resposta HTTP. Tenha em atenção que o enlace de entrada do Blob obtém o nome do blob ao referir-se diretamente para o `BlobName` propriedade (`"path": "strings/{BlobName}"`)
+A exemplo a seguir mostra a *Function* ficheiro para uma função de webhook que recebe um nome de blob em JSON: `{"BlobName":"HelloWorld.txt"}`. Um enlace de entrada de BLOBs lê o blob e o HTTP enlace devolve os conteúdos do blob na resposta HTTP de saída. Tenha em atenção que o enlace de entrada do BLOBs obtém o nome de blob por consultar diretamente para o `BlobName` propriedade (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -530,7 +530,7 @@ O seguinte exemplo mostra o *function.json* ficheiro para uma função de webhoo
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -542,7 +542,7 @@ O seguinte exemplo mostra o *function.json* ficheiro para uma função de webhoo
 }
 ```
 
-Para isto funcionar em c# e F #, precisa de uma classe que define os campos para anular a serialização, como no exemplo seguinte:
+Para isso funcionar em c# e F #, precisa de uma classe que define os campos a ser desserializado, como no exemplo seguinte:
 
 ```csharp
 using System.Net;
@@ -564,7 +564,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-Em JavaScript, a desserialização de JSON é automaticamente executada.
+No JavaScript, desserialização de JSON é executada automaticamente.
 
 ```javascript
 module.exports = function (context, info) {
@@ -582,9 +582,9 @@ module.exports = function (context, info) {
 }
 ```
 
-#### <a name="dot-notation"></a>Notação de pontos
+#### <a name="dot-notation"></a>Notação de ponto
 
-Se algumas das propriedades do payload JSON são objetos com propriedades, pode fazer referência aos diretamente, utilizando a notação de pontos. Por exemplo, suponha que o JSON tem o seguinte aspeto:
+Se algumas das propriedades no payload JSON são objetos com propriedades, pode consultar às diretamente, usando a notação de ponto. Por exemplo, suponha que o seu JSON é semelhante a este:
 
 ```json
 {"BlobName": {
@@ -594,13 +594,13 @@ Se algumas das propriedades do payload JSON são objetos com propriedades, pode 
 }
 ```
 
-Pode consultar diretamente para `FileName` como `BlobName.FileName`. Com este formato JSON, eis o que o `path` propriedade no exemplo anterior deverá ter o seguinte aspeto:
+Pode consultar diretamente à `FileName` como `BlobName.FileName`. Com esse formato JSON, eis o que o `path` propriedade no exemplo anterior teria o seguinte aspeto:
 
 ```json
 "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
 ```
 
-Em c#, terá de duas classes:
+No c#, precisaria duas classes:
 
 ```csharp
 public class BlobInfo
@@ -616,7 +616,7 @@ public class BlobName
 
 ### <a name="binding-expressions---create-guids"></a>Expressões de enlace - criar GUIDs
 
-O `{rand-guid}` expressão de enlace cria um GUID. O seguinte caminho de blob num `function.json` ficheiro cria um blob com o nome como *50710cb5-84b9 - 4d 87 9d 83-a03d6976a682.txt*.
+O `{rand-guid}` enlace expressão cria um GUID. O seguinte caminho de blob num `function.json` arquivo cria um blob com um nome como *50710cb5-84b9 - 4d 87 9d 83-a03d6976a682.txt*.
 
 ```json
 {
@@ -629,7 +629,7 @@ O `{rand-guid}` expressão de enlace cria um GUID. O seguinte caminho de blob nu
 
 ### <a name="binding-expressions---current-time"></a>Expressões de enlace - hora atual
 
-A expressão de enlace `DateTime` é resolvido para `DateTime.UtcNow`. O seguinte caminho de blob num `function.json` ficheiro cria um blob com o nome como *2018-02-16T17-59-55Z.txt*.
+A expressão de vinculação `DateTime` é resolvido para `DateTime.UtcNow`. O seguinte caminho de blob num `function.json` arquivo cria um blob com um nome como *2018-02-16T17-59-55Z.txt*.
 
 ```json
 {
@@ -640,23 +640,23 @@ A expressão de enlace `DateTime` é resolvido para `DateTime.UtcNow`. O seguint
 }
 ```
 
-## <a name="binding-at-runtime"></a>Enlace no tempo de execução
+## <a name="binding-at-runtime"></a>Ligação em tempo de execução
 
-Em c# e outras linguagens .NET, pode utilizar um padrão de enlace imperativo, por oposição os enlaces declarativos no *function.json* e atributos. Enlace imperativo é útil quando os parâmetros de enlace tem de ser calculada ao tempo de tempo de execução, em vez de design. Para obter mais informações, consulte o [referência de programador do c#](functions-dotnet-class-library.md#binding-at-runtime) ou [referência para programadores script c#](functions-reference-csharp.md#binding-at-runtime).
+No c# e de outras linguagens .NET, pode usar um padrão de enlace imperativa, em oposição as ligações declarativas na *Function* e atributos. Ligação de imperativa é útil quando os parâmetros de ligação tem de ser computado em tempo de tempo de execução, em vez de design. Para obter mais informações, consulte a [referência para programadores sobre c#](functions-dotnet-class-library.md#binding-at-runtime) ou o [referência para programadores script c#](functions-reference-csharp.md#binding-at-runtime).
 
-## <a name="functionjson-file-schema"></a>esquema do ficheiro Function.JSON
+## <a name="functionjson-file-schema"></a>esquema de ficheiro Function
 
-O *function.json* esquema do ficheiro está disponível em [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
+O *Function* esquema de ficheiro está disponível no [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
 
-## <a name="handling-binding-errors"></a>Processamento de erros de enlace
+## <a name="handling-binding-errors"></a>Tratamento de erros de ligação
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-Ligações para todos os tópicos de erro relevantes para os serviços de suportado pelas funções, consulte o [códigos de erro de enlace](functions-bindings-error-pages.md#binding-error-codes) secção o [processamento de erros de funções do Azure](functions-bindings-error-pages.md) tópico de descrição geral.  
+Para obter ligações para todos os tópicos de erro relevantes para os vários serviços suportados por funções, consulte a [códigos de erro de ligação](functions-bindings-error-pages.md#binding-error-codes) secção a [tratamento de erros de funções do Azure](functions-bindings-error-pages.md) tópico de descrição geral.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre um enlace específico, consulte os artigos seguintes:
+Para obter mais informações sobre uma ligação específica, consulte os artigos seguintes:
 
 - [HTTP e webhooks](functions-bindings-http-webhook.md)
 - [Temporizador](functions-bindings-timer.md)
