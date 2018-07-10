@@ -138,10 +138,10 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
-        - name: Armazenamento do Azure Data Lake
-          href: connector-azure-data-lake-storage.md
-        - name: Azure Data Lake Store
+        - name: Armazenamento do Azure Data Lake Ger1
           href: connector-azure-data-lake-store.md
+        - name: Armazenamento do Azure Data Lake Ger2
+          href: connector-azure-data-lake-storage.md
         - name: Base de Dados do Azure para MySQL
           href: connector-azure-database-for-mysql.md
         - name: Base de Dados do Azure para PostgreSQL
@@ -277,11 +277,11 @@
         - name: Ferramenta Copiar Dados
           href: copy-data-tool.md
           items: null
-        - name: Carregar Armazenamento do Data Lake
+        - name: Carregar o Armazenamento do Data Lake Ger2
           href: load-azure-data-lake-storage-gen2.md
         - name: Carregar SQL Data Warehouse
           href: load-azure-sql-data-warehouse.md
-        - name: Carregar Data Lake Store
+        - name: Carregar o Armazenamento do Data Lake Ger1
           href: load-azure-data-lake-store.md
         - name: Ler ou escrever dados particionados
           href: how-to-read-write-partitioned-data.md

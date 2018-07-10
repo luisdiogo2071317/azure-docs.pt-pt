@@ -5,34 +5,31 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ab9ad821c6780c685c884a87f3075a5d58c1d73a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 016aa15f391daedae1b87fc6c7099b72b50f7160
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "34669327"
 ---
-Tamanhos de VM de objetivo geral fornecem equilibrado CPU para memória rácio. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
+Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
 
-- As VMs das séries A e Av2 podem ser implementados em vários tipos de hardware e processadores. O tamanho é limitado com base no hardware de forma a proporcionar um desempenho de processador consistente para a instância em execução, independentemente do hardware no qual está implementado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual.
+- As VMs da série Av2 podem ser implementadas numa variedade de tipos de hardware e de processadores. O tamanho é limitado com base no hardware de forma a proporcionar um desempenho de processador consistente para a instância em execução, independentemente do hardware no qual está implementado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual.
 
-- As VMs da série D foram concebidos para executar aplicações que exigem um maior desempenho de poder de computação e disco temporário. As VMs da série D fornecem processadores mais rápidos, um rácio de memória para vCPU superior e uma unidade de estado sólida (SSD) para o disco temporário. Para obter detalhes, consulte o anúncio no blogue do Azure, [Novos Tamanhos de Máquinas Virtuais da Série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+- A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se a mais recente Intel Xeon® E5-2673 v3 da geração 2,4 GHz (Haswell) ou E5 2673 v4 (Broadwell) de 2.3 GHz processadores, com o Intel Turbo Boost Technology 2.0, podendo chegar aos 3,1 GHz. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
-- A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Se baseia na mais recente Intel Xeon® E5-2673 v3 da geração 2.4 GHz (Haswell) ou processadores do E5-2673 v4 2.3 GHz (Broadwell) e com o Intel Turbo intensificação tecnologia 2.0, pode ir até GHz 3.1. A série Dv2 tem as mesmas configurações de memória e disco da série D.
+- As funcionalidades da série Dv3 o mesmo processador da série Dv2, mas numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de fins mais gerais e colocar o Dv3 em alinhamento com as VMs para fins gerais da maioria das outras clouds.  Memória foi expandida (a partir de ~3.5 GiB/Vcpus a 4 GiB/vCPU), enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hyperthreading.  O Dv3 já não tem os tamanhos VM de elevada da memória das famílias D/Dv2, aqueles foram movidos para a nova família Ev3.
 
-- As funcionalidades de série Dv3 o processador do mesmo como Dv2-série, mas numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de objetivo mais comum e colocar o Dv3 em alinhamento com o objetivo geral VMs da maioria das outras nuvens.  Memória foi expandida (a partir de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de disco e rede tem sido ajustados numa base por núcleo para alinhar com a mudança para Hyper-Threading.  O Dv3 já não tem os tamanhos VM de elevada da memória de famílias de D/Dv2, aqueles terem sido movidos para a nova família de Ev3.
-
-
-- Os tamanhos do escalão básico destinam-se, principalmente, ao desenvolvimento de cargas de trabalho e outras aplicações que não requerem balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória.
 
 ## <a name="b-series"></a>Série B
 
-As VMs burstable B-série são ideais para cargas de trabalho que não tem o desempenho total da CPU continuamente, como servidores web, desenvolvimento de bases de dados pequenas e ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece estes clientes a capacidade para comprar um tamanho VM com um desempenho de linha de base conscientes preços que permite que a instância VM criar cópias de segurança créditos quando a VM está a utilizar menor do que o desempenho de base. Quando a VM terem sido acumulados crédito, a VM pode impulsar linha de base da VM com até 100% de CPU, quando a aplicação requer o desempenho da CPU superior.
+As VMs burstable de série B são ideais para cargas de trabalho que não necessita de um desempenho total da CPU continuamente, como servidores web, desenvolvimento e pequenas bases de dados e os ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece estes clientes a possibilidade de comprar um tamanho de VM com um desempenho de linha de base consciente de preço que permite que a instância VM acumular créditos quando a VM estiver a utilizar menos do que o desempenho de base. Quando a VM acumular crédito, a VM pode ultrapassar os limites acima de linha de base da VM com até 100% da CPU quando seu aplicativo requer o desempenho de CPU superior.
 
 
-| Tamanho             | vCPU  | Memória: GiB | SSD Local: GiB | Base de desempenho de um núcleo | Créditos banked / hora | Os créditos de Banked máx. | Discos de dados máximos | Desempenho de disco local máx.: IOPS / MBps | Máx. uncached desempenho de disco: IOPS / MBps | NICs máximos |          
+| Tamanho             | vCPU  | Memória: GiB | SSD Local: GiB | Base de desempenho de um núcleo | Créditos banked / hora | Máx. Banked créditos | Discos de dados máximos | Desempenho de disco local máximo: IOPS / MBps | Max não colocado em cache o desempenho de disco: IOPS / MBps | NICs máximos |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1s  | 1           | 1              | 4                          | 10%                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1ms | 1           | 2              | 4                          | 20%                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
@@ -46,10 +43,10 @@ As VMs burstable B-série são ideais para cargas de trabalho que não tem o des
 
 ACU: 160-190
 
-Tamanhos de série Dsv3 baseiam a v3 GHz Intel Xeon® E5-2673 2.4 (Haswell) processador ou o mais recente v4 GHz Intel XEON® E5-2673 2.3 processador (Broadwell) que pode alcançar 3.5GHz com Intel Turbo intensificação tecnologia 2.0 e utilizar o armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
+Tamanhos da série Dsv3 baseiam-se de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou de mais recente 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processador que pode chegar aos 3,5 GHz com o Intel Turbo Boost Technology 2.0 e utilizar o armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
 
-| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
+| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / 1,000                                   |
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
@@ -58,13 +55,13 @@ Tamanhos de série Dsv3 baseiam a v3 GHz Intel Xeon® E5-2673 2.4 (Haswell) proc
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                                               |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / 30,000                                               |
 
-<sup>1</sup> série Dsv3 VM funcionalidade tecnologia® Hyper-Threading da Intel
+<sup>1</sup> as VMS da série Dsv3 funcionalidade Intel® Hyper-Threading Technology
 
 ## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
 ACU: 160-190
 
-Tamanhos de série Dv3 baseiam a v3 GHz Intel Xeon® E5-2673 2.4 (Haswell) 2.3 GHz Intel XEON® E5-2673 v4 ou processador processador (Broadwell) que pode alcançar 3.5GHz com Intel Turbo intensificação tecnologia 2.0. Os tamanhos da série Dv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
+Tamanhos da série Dv3 baseiam-se de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processador que pode chegar aos 3,5 GHz com o Intel Turbo Boost Technology 2.0. Os tamanhos da série Dv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
 O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar os discos de armazenamento premium, utilize os tamanhos Dsv3. Os medidores de preços e de faturação dos tamanhos Dsv3 são os mesmos do que os da série Dv3. 
 
@@ -78,14 +75,14 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / 16,000                             |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / 30,000                             |
 
-<sup>1</sup> série Dv3 VM funcionalidade tecnologia® Hyper-Threading da Intel
+<sup>1</sup> as VMS da série Dv3 funcionalidade Intel® Hyper-Threading Technology
 
 
 ## <a name="dsv2-series"></a>Série DSv2
 
 ACU: 210-250
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 48 |2 / 750 |
 | Standard_DS2_v2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 96 |2 / 1500 |
@@ -99,7 +96,7 @@ ACU: 210-250
 
 ACU: 210-250
 
-| Tamanho           | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Discos de dados máximos | Débito: IOPS | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
+| Tamanho           | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Discos de dados máximos | Débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8x500            | 2 / 1500                                     |
@@ -108,41 +105,13 @@ ACU: 210-250
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
 
-
-## <a name="ds-series"></a>Série DS
-
-ACU: 160
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 32 |2 / 500 |
-| Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2 / 1000 |
-| Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
-| Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
-
-<br>
-
-## <a name="d-series"></a>Série D 
-
-ACU: 160
-
-| Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
-| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
-| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
-| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
-
-<br>
-
-
 ## <a name="av2-series"></a>Série Av2
 
 ACU: 100
 
 
 
-| Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | Os NICs de máximo / esperado largura de banda de rede (Mbps) | 
+| Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
@@ -154,42 +123,7 @@ ACU: 100
 
 <br>
 
-## <a name="a-series"></a>Série A
-
-ACU: 50-100
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento (HDD) temporário: GiB | Discos de dados máximos | Débito máximo do disco de dados: IOPS | Os NICs de máximo / esperado largura de banda de rede (Mbps)  |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
-| Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
-| Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / 500 |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4 / 2000 |
-| Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
-<br>
-
-<sup>1</sup> A0 o tamanho é excessiva subscrito no hardware físico. Apenas para este tamanho específico, outras implementações de cliente podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é indicado abaixo como a linha de base esperada, sujeito a uma variabilidade aproximada de 15%.
-
-### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 a A4 que utiliza a CLI e o PowerShell
-No modelo de implementação clássica, alguns nomes de tamanhos de VMs são ligeiramente diferentes, como na CLI e no PowerShell:
-
-* Standard_A0 é ExtraSmall 
-* Standard_A1 é Small
-* Standard_A2 é Medium
-* Standard_A3 é Large
-* Standard_A4 é ExtraLarge
-
-## <a name="basic-a"></a>Básico A
-
-|Tamanho – Tamanho\Nome | vCPU |Memória|NICs (Máx)|Tamanho máximo do disco temporário |Um máximo de discos de dados (1023 GB cada)|Um máximo de IOPS (300 por disco)|
-|---|---|---|---|---|---|---|
-|A0\Basic_A0|1|768 MB|2| 20 GB|1|1 x 300|
-|A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 x 300|
-|A2\Basic_A2|2|3,5 GB|2| 60 GB|4|4 x 300|
-|A3\Basic_A3|4|7 GB|2| 120 GB |8|8 x 300|
-|A4\Basic_A4|8|14 GB|2| 240 GB |16|16 x 300|
 
 
-Tenha em atenção que o número de discos de dados para VMs clássicas pode ser inferior ao número de discos de dados para as VMs do Azure Resource Manager.
+
+
