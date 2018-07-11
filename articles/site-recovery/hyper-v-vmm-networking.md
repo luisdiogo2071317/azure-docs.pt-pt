@@ -1,63 +1,63 @@
 ---
-title: Configurar a ligação a um site secundário no local após a ativação pós-falha com o Azure Site Recovery de endereçamento IP | Microsoft Docs
-description: Descreve como configurar o endereçamento IP para ligar a VMs num site secundário no local após a ativação pós-falha do Azure Site Recovery.
+title: Configurar para ligar a um site secundário no local após a ativação pós-falha com o Azure Site Recovery de endereçamento IP | Documentos da Microsoft
+description: Descreve como configurar o endereçamento de IP para ligar a VMs num site secundário no local após a ativação pós-falha do Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 531705bc704b3366c1c670ecf07c809ade67bc55
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 40a4b53229aad8f226cf3edcdba4ecbc6682e623
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29378891"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917613"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar a ligação a um site secundário no local após a ativação pós-falha de endereçamento IP
 
-Após a ativação pós-falha de VMs de Hyper-V em nuvens do System Center Virtual Machine Manager (VMM) para um site secundário, tem de ser capaz de ligar para a réplica VMs. Este artigo ajuda-o para efetuar este procedimento. 
+Depois de efetuar a ativação pós-falha de VMs de Hyper-V em clouds do System Center Virtual Machine Manager (VMM) para um site secundário, tem de ser capaz de ligar a VMs de réplica. Este artigo ajuda-o a fazê-lo. 
 
 ## <a name="connection-options"></a>Opções de ligação
 
-Após a ativação pós-falha, existem algumas formas de lidar com endereçamento IP para as VMs da réplica: 
+Após a ativação pós-falha, existem duas formas de lidar com endereçamento IP para VMs de réplica: 
 
-- **Manter o mesmo endereço IP após a ativação pós-falha**: neste cenário, a VM replicada tem o mesmo endereço IP da VM principal. Isto simplifica a rede relacionado com problemas após a ativação pós-falha, mas requer alguns cálculos de infraestrutura.
+- **Manter o mesmo endereço IP após a ativação pós-falha**: neste cenário, a VM replicada tem o mesmo endereço IP da VM principal. Isso simplifica a rede relacionado com problemas após a ativação pós-falha, mas requer algum trabalho de infraestrutura.
 - **Utilizar um endereço IP diferente após a ativação pós-falha**: neste cenário a VM obtém um novo endereço IP após a ativação pós-falha. 
  
 
 ## <a name="retain-the-ip-address"></a>Manter o endereço IP
 
-Se pretender manter os endereços IP do site primário, após a ativação pós-falha para o site secundário, pode:
+Se pretende manter os endereços IP a partir do site primário, após a ativação pós-falha para o site secundário, pode:
 
 - Implemente uma sub-rede Stretch entre a primária e os sites secundários.
-- Execute uma ativação pós-falha de sub-rede completa do primário para o site secundário. Terá de atualizar as rotas para indicar a nova localização dos endereços IP.
+- Execute uma ativação pós-falha de sub-rede completa dos principais para site secundário. Terá de atualizar as rotas para indicar a nova localização dos endereços IP.
 
 
 ### <a name="deploy-a-stretched-subnet"></a>Implementar uma sub-rede Stretch
 
-Numa configuração de Stretch, a sub-rede está disponível em simultâneo em sites primários e secundários. Numa sub-rede Stretch, quando move uma máquina e a respetiva configuração de endereço IP (Layer 3) para o site secundário, a rede automaticamente encaminha o tráfego para a nova localização. 
+Numa configuração de Stretch, a sub-rede está disponível em simultâneo em sites primários e secundários. Numa sub-rede Stretch, quando move uma máquina e a respetiva configuração de endereço IP (camada 3) para o site secundário, a rede automaticamente encaminha o tráfego para a nova localização. 
 
-- De uma perspetiva de (camada de ligação de dados) de camada 2, terá de equipamento de rede que pode gerir uma VLAN Stretch.
-- Por alongar a VLAN, o domínio de falhas potenciais expande a ambos os sites. Isto torna-se um ponto único de falha. Enquanto pouco provável, neste cenário, poderá não conseguir isolar um incidente como um storm difusão. 
+- De uma perspectiva de (camada de ligação de dados) de camada 2, terá de equipamento de rede que pode gerir uma VLAN Stretch.
+- Por alongamento a VLAN, o domínio de falha potenciais estende para ambos os sites. Isso se torna um ponto único de falha. Embora seja pouco provável, neste cenário que poderá não conseguir isolar um incidente, como um storm de difusão. 
 
 
 ### <a name="fail-over-a-subnet"></a>Efetuar a ativação pós-falha de uma sub-rede
 
-Pode falhar toda a sub-rede desfrutar das vantagens da Stretch sub-rede, sem realmente alongá-lo. Nesta solução, uma sub-rede está disponível no site de origem ou de destino, mas não em ambas em simultâneo.
+Pode efetuar a ativação ao longo de toda a rede para obter os benefícios da sub-rede Stretch, sem alongamento, na verdade, ele. Nesta solução, uma sub-rede está disponível no site de origem ou destino, mas não em ambos simultaneamente.
 
-- Para manter o espaço de endereços IP na eventualidade de ocorrer uma ativação pós-falha, pode dispor programaticamente para a infraestrutura de router para mover as sub-redes de um site para outro.
-- Quando ocorre uma ativação pós-falha, sub-redes mover-se com as respetivas VMs associados.
-- A principal desvantagem desta abordagem é que o se ocorrer uma falha, terá de mover toda a sub-rede.
+- Para manter o espaço de endereços IP em caso de uma ativação pós-falha, por meio de programação pode fazer com que a infraestrutura de router para mover as sub-redes de um site para outro.
+- Quando ocorre uma ativação pós-falha, sub-redes mover-se com as respetivas VMs associadas.
+- A principal desvantagem dessa abordagem é que, em caso de falha, precisa mover toda a rede.
 
 #### <a name="example"></a>Exemplo
 
-Eis um exemplo de ativação pós-falha de sub-rede concluída. 
+Eis um exemplo de ativação pós-falha de sub-rede completa. 
 
-- Antes da ativação pós-falha, o site primário tem aplicações sejam executadas na sub-rede 192.168.1.0/24.
-- Durante a ativação pós-falha, todas as VMs nesta sub-rede executar a ativação pós-falha para o site secundário e manter os seus endereços IP. 
-- As rotas entre todos os sites tenham de ser modificados para refletir o facto de que todas as VMs numa sub-rede 192.168.1.0/24 agora movido para o site secundário.
+- Antes da ativação pós-falha, o site primário tem aplicações em execução na sub-rede 192.168.1.0/24.
+- Durante a ativação pós-falha, todas as VMs nesta sub-rede com ativação pós-falha para o site secundário e mantém os seus endereços IP. 
+- Rotas entre todos os sites tenham de ser modificados para refletir o fato de que todas as VMs na sub-rede 192.168.1.0/24 agora foram movidas para o site secundário.
 
 Os gráficos seguintes ilustram as sub-redes antes e após a ativação pós-falha.
 
@@ -70,15 +70,15 @@ Os gráficos seguintes ilustram as sub-redes antes e após a ativação pós-fal
 
 ![Após a ativação pós-falha](./media/hyper-v-vmm-networking/network-design3.png)
 
-Após a ativação pós-falha, a recuperação de sites atribui um endereço IP para cada interface de rede na VM. O endereço é alocado do conjunto de endereços IP estático na rede de relevante, para cada instância VM.
+Após a ativação pós-falha, o Site Recovery aloca um endereço IP para cada interface de rede na VM. O endereço é alocado a partir do conjunto de endereços IP estático na rede relevante, para cada instância VM.
 
-- Se o conjunto de endereços IP no site secundário é o mesmo que o site de origem, a recuperação de Site atribui o mesmo endereço IP (da VM de origem), para a VM de réplica. O endereço IP é reservado no VMM, mas não está definida como o endereço IP de ativação pós-falha no anfitrião Hyper-V. O endereço IP de ativação pós-falha num anfitrião Hyper-v estiver definido para apenas antes da ativação pós-falha.
-- Se o mesmo endereço IP não estiver disponível, a recuperação de sites aloca outro endereço IP disponível do conjunto.
-- Se as VMs utilizam DHCP, a recuperação de Site não gere os endereços IP. Tem de verificar que o servidor DHCP no site secundário pode alocar endereços do mesmo intervalo de que o site de origem.
+- Se o conjunto de endereços IP no site secundário é o mesmo que o site de origem, o Site Recovery aloca o mesmo endereço IP (da VM de origem), para a VM de réplica. O endereço IP é reservado no VMM, mas ele não está definido como o endereço IP de ativação pós-falha do anfitrião de Hyper-V. O endereço IP de ativação pós-falha num anfitrião Hyper-v é definido apenas antes da ativação pós-falha.
+- Se o mesmo endereço IP não estiver disponível, o Site Recovery aloca outro endereço IP disponível do conjunto.
+- Se as VMs usam DHCP, a recuperação de Site não gere os endereços IP. Tem de verificar que o servidor DHCP no site secundário pode alocar endereços do mesmo intervalo de que o site de origem.
 
 ### <a name="validate-the-ip-address"></a>Validar o endereço IP
 
-Depois de ativar a proteção para uma VM, pode utilizar seguintes script de exemplo para verificar o endereço atribuído à VM. Este endereço IP é definido como o endereço IP de ativação pós-falha e atribuído à VM no momento da ativação pós-falha:
+Depois de ativar a proteção para uma VM, pode utilizar após o script de exemplo para verificar o endereço atribuído à VM. Este endereço IP é definido como o endereço IP de ativação pós-falha e atribuído à VM no momento da ativação pós-falha:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -87,12 +87,12 @@ Depois de ativar a proteção para uma VM, pode utilizar seguintes script de exe
     $ip.address 
     ```
 
-## <a name="use-a-different-ip-address"></a>Utilizar um endereço IP diferentes
+## <a name="use-a-different-ip-address"></a>Utilizar um endereço IP diferente
 
-Neste cenário, os endereços IP de VMs com ativação pós-falha são alterados. A desvantagem desta solução é a manutenção necessária.  Entradas DNS e a cache poderão ter de ser atualizados. Isto pode resultar num período de inatividade, que pode ser mitigado da seguinte forma:
+Neste cenário, os endereços IP das VMs com ativação pós-falha são alterados. A desvantagem dessa solução é a manutenção necessária.  Entradas DNS e a cache poderão ter de ser atualizado. Isso pode resultar em tempo de inatividade, que pode ser atenuado da seguinte forma:
 
-- Utilize os valores TTL baixos para aplicações de intranet.
-- Utilize o seguinte script de um plano de recuperação do Site Recovery para uma atualização atempada do servidor DNS. Não precisa do script se utilizar o registo de DNS dinâmico.
+- Utilize valores de TTL baixas para aplicativos de intranet.
+- Utilize o seguinte script num plano de recuperação do Site Recovery, para uma atualização atempada do servidor DNS. O script não é necessário se utilizar o registo de DNS dinâmico.
 
     ```
     param(
@@ -108,14 +108,14 @@ Neste cenário, os endereços IP de VMs com ativação pós-falha são alterados
     
 ### <a name="example"></a>Exemplo 
 
-Neste exemplo temos de endereços IP diferentes em sites primários e secundários e existe um site terceiro que aplicações alojadas no site primário ou de recuperação de site pode ser acedido.
+Neste exemplo temos diferentes endereços IP em todos os sites primários e secundários, e há um site de terceiro que aplicações alojadas no principal ou recuperação de site pode ser acedido.
 
-- Antes de ativação pós-falha, as aplicações são 192.168.1.0/24 sub-rede alojada no site primário.
+- Antes da ativação pós-falha, as aplicações são 192.168.1.0/24 sub-rede alojada no site primário.
 - Após a ativação pós-falha, as aplicações são configuradas na sub-rede 172.16.1.0/24 no site secundário.
-- Todos os três sites podem aceder umas às outras.
-- Após a ativação pós-falha, serão restauradas as aplicações na sub-rede de recuperação.
-- Este cenário não é necessário para efetuar a ativação pós-falha de toda a sub-rede e sem alterações são necessárias para reconfigurar as rotas de rede ou VPN. A ativação pós-falha e algumas atualizações DNS, certifique-se de que as aplicações permanecem acessíveis.
-- Se o DNS está configurado para permitir atualizações dinâmicas, em seguida, as VMs irão registar-se utilizando o novo endereço IP, quando for iniciado após a ativação pós-falha.
+- Todos os três sites podem aceder a si.
+- Após a ativação pós-falha, aplicações serão restauradas na sub-rede de recuperação.
+- Neste cenário não é necessário fazer a ativação pós-falha toda a rede e sem alterações são necessárias para reconfigurar as rotas de rede ou VPN. A ativação pós-falha e algumas atualizações DNS, certifique-se de que as aplicações permanecem acessíveis.
+- Se o DNS está configurado para permitir atualizações dinâmicas, em seguida, as VMs serão registram-se com o novo endereço IP, quando for iniciado após a ativação pós-falha.
 
 **Antes da ativação pós-falha**
 

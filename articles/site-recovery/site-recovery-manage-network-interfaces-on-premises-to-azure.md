@@ -1,59 +1,59 @@
 ---
-title: Gerir as interfaces de rede no Azure Site Recovery para no local para a replicação do Azure | Microsoft Docs
-description: Descreve como gerir interfaces de rede no local para a replicação do Azure com o Azure Site Recovery
+title: Gerir as interfaces de rede no Azure Site Recovery para o local para a replicação do Azure | Documentos da Microsoft
+description: Descreve como gerir as interfaces de rede para o local para a replicação do Azure com o Azure Site Recovery
 services: site-recovery
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: cf16a0e67aaf2d2c73649adccabf3e5eb0540bd3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 75220d964f3e1208c85d34c1da97fab32044e62b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072475"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917113"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gerir as interfaces de rede de máquina virtual no local para a replicação do Azure
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gerir as interfaces de rede de máquina virtual para o local para a replicação do Azure
 
-Uma máquina virtual (VM) no Azure tem de ter, pelo menos, uma interface de rede ligada ao mesmo. Pode ter como muitas anexadas ao mesmo como o suporta de tamanho VM de interfaces de rede.
+Uma máquina virtual (VM) no Azure tem de ter, pelo menos, uma interface de rede ligada ao mesmo. Ele pode ter como muitos anexados a ele como o suporte de tamanho VM de interfaces de rede.
 
-Por predefinição, a primeira interface de rede ligada a uma máquina virtual do Azure está definida como a interface de rede principal. Todas as outras interfaces de rede na máquina virtual são interfaces de rede secundárias. Também por predefinição, todo o tráfego de saída da máquina virtual é enviado o endereço IP que está atribuído à configuração de IP primária da interface de rede principal.
+Por predefinição, a primeira interface de rede ligada a uma máquina virtual do Azure é definida como a interface de rede principal. Todas as outras interfaces de rede na máquina virtual são interfaces de rede secundárias. Também por predefinição, todo o tráfego de saída da máquina virtual é enviado o endereço IP que está atribuído a configuração de IP principal da interface de rede principal.
 
-Num ambiente no local, as máquinas virtuais ou servidores podem ter várias interfaces de rede para redes diferentes no ambiente. Redes diferentes, normalmente, são utilizados para efetuar operações específicas, tais como atualizações, a manutenção e o acesso à internet. Quando estiver a migrar ou entrar em ativação pós-falha para o Azure a partir de um ambiente no local, tenha em atenção que as interfaces de rede na mesma máquina virtual tem todos os de estar ligadas à mesma rede virtual.
+Num ambiente no local, máquinas virtuais ou servidores podem ter várias interfaces de rede para redes diferentes dentro do ambiente. Redes diferentes são normalmente utilizadas para a execução de operações específicas, tais como atualizações, manutenção e acesso à internet. Quando está migrando ou fazer failover para o Azure a partir de um ambiente no local, tenha em atenção que as interfaces de rede na mesma máquina virtual devem todas estar ligadas à mesma rede virtual.
 
-Por predefinição, o Azure Site Recovery cria como interfaces numa máquina virtual do Azure de rede estão ligadas ao servidor no local. Pode evitar criar interfaces de rede redundantes durante a migração ou a ativação pós-falha ao editar as definições de interface de rede com as definições para a máquina virtual replicada.
+Por predefinição, o Azure Site Recovery cria como interfaces numa máquina virtual do Azure de rede estão ligados ao servidor no local. Pode evitar a criação de interfaces de rede redundantes durante a migração ou a ativação pós-falha ao editar as definições de interface de rede nas definições para a máquina virtual replicada.
 
 ## <a name="select-the-target-network"></a>Selecione a rede de destino
 
-Para VMware e máquinas físicas e para máquinas virtuais Hyper-V (sem System Center Virtual Machine Manager), pode especificar a rede virtual de destino para máquinas virtuais individuais. Para máquinas virtuais do Hyper-V geridas com o Virtual Machine Manager, utilize [mapeamento da rede](site-recovery-network-mapping.md) mapear redes VM num servidor de origem do Virtual Machine Manager e redes do Azure de destino.
+Para o VMware e máquinas físicas e para máquinas de virtuais de Hyper-V (sem System Center Virtual Machine Manager), pode especificar a rede virtual de destino para máquinas virtuais individuais. Para máquinas de virtuais de Hyper-V gerenciadas com o Virtual Machine Manager, utilize [mapeamento da rede](site-recovery-network-mapping.md) para mapear as redes VM num servidor de origem do Virtual Machine Manager e redes do Azure de destino.
 
-1. Em **replicado itens** num cofre dos serviços de recuperação, selecione qualquer item replicada para aceder às definições para que o item replicada.
+1. Sob **itens replicados** num cofre dos serviços de recuperação, selecione qualquer item replicado para aceder às definições do item replicado.
 
-2. Selecione o **computação e rede** separador para aceder as definições de rede para o item replicada.
+2. Selecione o **computação e rede** separador para acessar as configurações de rede para o item replicado.
 
-3. Em **propriedades de rede**, escolha uma rede virtual da lista de interfaces de rede disponíveis.
+3. Sob **propriedades de rede**, escolha uma rede virtual a partir da lista de interfaces de rede disponíveis.
 
     ![Definições de rede](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network.png)
 
 Modificar a rede de destino afeta todas as interfaces de rede para que a máquina virtual específica.
 
-Para nuvens do Virtual Machine Manager, modificar o mapeamento da rede afeta todas as máquinas virtuais e as respetivas interfaces de rede.
+Para as nuvens do Virtual Machine Manager, a modificação de mapeamento de rede afeta todas as máquinas virtuais e suas interfaces de rede.
 
 ## <a name="select-the-target-interface-type"></a>Selecione o tipo de interface de destino
 
-Sob o **interfaces de rede** secção o **computação e rede** painel, pode ver e editar as definições da interface de rede. Também pode especificar o tipo de interface de rede de destino.
+Sob o **interfaces de rede** secção a **computação e rede** painel, pode ver e editar as definições de interface de rede. Também pode especificar o tipo de interface de rede de destino.
 
-- A **primário** interface de rede não é necessária para a ativação pós-falha.
-- Interfaces de todos os outro rede selecionada, se qualquer um, são **secundário** interfaces de rede.
-- Selecione **não utilize** para excluir uma interface de rede da criação na ativação pós-falha.
+- R **primário** interface de rede é necessária para a ativação pós-falha.
+- Interfaces de todos os outro rede selecionada, se houver, são **secundário** interfaces de rede.
+- Selecione **não use** para excluir uma interface de rede da criação, a ativação pós-falha.
 
-Por predefinição, quando estiver a ativar a replicação, a recuperação de sites seleciona todas as interfaces de rede detetados no servidor no local. Marca uma como **primário** e todos os outros como **secundário**. Qualquer interfaces subsequentes adicionados no servidor no local estão marcados **não utilize** por predefinição. Quando estiver a adicionar mais interfaces de rede, certifique-se de que o tamanho de destino correto máquina virtual do Azure está selecionado para acomodar todas as interfaces de rede necessários.
+Por predefinição, quando estiver a ativar a replicação, o Site Recovery seleciona todas as interfaces de rede detetados no servidor no local. Marca um como **primário** e todos os outros como **secundário**. Qualquer interface subsequente, adicionado no servidor no local é marcado **não use** por predefinição. Quando estiver a adicionar mais interfaces de rede, certifique-se de que o tamanho de destino da máquina virtual do Azure correta está selecionado para acomodar todas as interfaces de rede necessária.
 
 ## <a name="modify-network-interface-settings"></a>Modificar as definições de interface de rede
 
-Pode modificar a sub-rede e o endereço IP para interfaces de rede de um item replicadas. Se não for especificado um endereço IP, a recuperação de sites atribuir o endereço IP disponível seguinte da sub-rede para a interface de rede na ativação pós-falha.
+É possível modificar a sub-rede e o endereço IP para interfaces de rede de um item replicado. Se não for especificado um endereço IP, Site Recovery atribuir o endereço IP disponível seguinte a partir da sub-rede para a interface de rede a ativação pós-falha.
 
 1. Selecione qualquer interface de rede disponível para abrir as definições de interface de rede.
 
@@ -61,7 +61,7 @@ Pode modificar a sub-rede e o endereço IP para interfaces de rede de um item re
 
 3. Introduza o endereço IP pretendido (conforme necessário).
 
-    ![Definições da interface de rede](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
+    ![Definições de interface de rede](./media/site-recovery-manage-network-interfaces-on-premises-to-azure/network-interface-settings.png)
 
 4. Selecione **OK** para concluir a edição e voltar para o **computação e rede** painel.
 
@@ -70,4 +70,4 @@ Pode modificar a sub-rede e o endereço IP para interfaces de rede de um item re
 6. Selecione **guardar** para guardar todas as alterações.
 
 ## <a name="next-steps"></a>Passos Seguintes
-  [Saiba mais](../virtual-network/virtual-network-network-interface-vm.md) sobre interfaces de rede para máquinas virtuais do Azure.
+  [Saiba mais](../virtual-network/virtual-network-network-interface-vm.md) sobre as interfaces de rede para máquinas virtuais do Azure.

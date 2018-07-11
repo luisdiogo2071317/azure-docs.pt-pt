@@ -1,42 +1,45 @@
 ---
-title: Utilizar o controlo de acesso baseado em funções para gerir o Azure Site Recovery | Microsoft Docs
+title: Utilizar o controlo de acesso baseado em funções para gerir o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como aplicar e utilizar o controlo de acesso baseado em funções (RBAC) para gerir as implementações do Azure Site Recovery
 ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.date: 07/06/2018
 author: mayanknayar
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: 9d1d6aac463e5b9cf9994bfefac1aa1c38bb1e03
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284746"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919731"
 ---
-# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Utilizar o controlo de acesso baseado em funções para gerir o acesso de recuperação de sites
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Utilizar o controlo de acesso baseado em funções para gerir o acesso do Site Recovery
 
-O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Utilizar o RBAC, pode segregar responsabilidades na sua equipa e conceder apenas permissões de acesso específico aos utilizadores conforme necessário para efetuar tarefas específicas.
+O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Utilizando o RBAC, pode separar responsabilidades dentro da sua equipa e conceder apenas permissões de acesso específico aos utilizadores, conforme necessário para executar tarefas específicas.
 
 O Azure Site Recovery fornece 3 funções incorporadas para controlar as operações de gestão do Site Recovery. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
-* [Contribuinte do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - esta função tem todas as permissões necessárias para gerir as operações do Azure Site Recovery num cofre dos Serviços de Recuperação. No entanto, um utilizador com esta função não consegue criar nem eliminar um cofre dos Serviços de Recuperação, nem atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para os administradores de recuperação de desastres que podem ativar e gerir a recuperação após desastre para aplicações ou organizações completos, como o caso may seja.
-* [Operador de recuperação de sites](../role-based-access-control/built-in-roles.md#site-recovery-operator) -esta função tem permissões para executar e gerir as operações de ativação pós-falha e a reativação pós-falha. Um utilizador com esta função não é possível ativar ou desativar a replicação, criar ou eliminar cofres, registar a nova infraestrutura ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação de desastre quem pode máquinas virtuais de ativação pós-falha ou as aplicações quando indicado pelos proprietários da aplicação e os administradores de TI uma situação real ou simulado desastre como uma DR desagregar. Post resolução de desastre, o operador de DR pode voltar a proteger e a reativação pós-falha as máquinas virtuais.
+* [Contribuinte do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - esta função tem todas as permissões necessárias para gerir as operações do Azure Site Recovery num cofre dos Serviços de Recuperação. No entanto, um utilizador com esta função não consegue criar nem eliminar um cofre dos Serviços de Recuperação, nem atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para os administradores de recuperação de desastre que podem ativar e gerir a recuperação após desastre para aplicações ou organizações completas, como o caso may ter.
+* [Operador do site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-operator) -esta função tem permissões para executar e gerir as operações de ativação pós-falha e reativação pós-falha. Um utilizador com esta função não é possível ativar ou desativar a replicação, criar ou eliminar cofres, registar uma nova infraestrutura ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação após desastre que pode máquinas de virtuais de ativação pós-falha ou analise de aplicações quando indicado pelos proprietários da aplicação e os administradores de TI numa situação de desastre reais ou simulados, como um DR. Após a resolução do desastre, o operador de DR pode voltar a proteger e a reativação pós-falha as máquinas virtuais.
 * [Leitor do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-reader) - esta função tem permissões para ver todas as operações de gestão do Site Recovery. Esta função é mais adequada para um executivo de monitorização de IT que pode monitorizar o estado atual da proteção e emitir pedidos de suporte, se necessário.
 
-Se estiver à procura para definir as suas próprias funções para o controlo ainda mais, consulte como [criar funções personalizadas](../role-based-access-control/custom-roles.md) no Azure.
+Se estiver procurando para definir suas próprias funções para o controle ainda mais, veja como [criar funções personalizadas](../role-based-access-control/custom-roles.md) no Azure.
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Permissões necessárias para ativar a replicação para novas máquinas virtuais
-Quando uma nova máquina Virtual é replicado para o Azure utilizando o Azure Site Recovery, níveis de acesso do utilizador associada são validadas para garantir que o utilizador tem as permissões necessárias para utilizar os recursos do Azure fornecidos ao Site Recovery.
+Quando uma nova máquina Virtual é replicado para o Azure com o Azure Site Recovery, níveis de acesso do utilizador associado são validados para garantir que o utilizador tem as permissões necessárias para utilizar os recursos do Azure fornecidos para o Site Recovery.
 
-Para ativar a replicação para uma nova máquina virtual, tem de ter um utilizador:
+Para ativar a replicação para uma nova máquina virtual, um utilizador tem de ter:
 * Permissão para criar uma máquina virtual no grupo de recursos selecionado
 * Permissão para criar uma máquina virtual na rede virtual selecionada
-* Permissão para escrever na conta de armazenamento selecionada
+* Permissão de escrita para a conta de armazenamento selecionada
 
-Um utilizador tem as seguintes permissões de replicação de uma nova máquina virtual.
+Um utilizador tem as seguintes permissões para concluir a replicação de uma nova máquina virtual.
 
 > [!IMPORTANT]
->Certifique-se de que as permissões relevantes estão adicionadas por modelo de implementação (Gestor de recursos / clássico) utilizado para a implementação de recursos.
+>Certifique-se de que permissões relevantes são adicionadas pelo modelo de implementação (Gestor de recursos / clássico) utilizado para a implementação de recursos.
 
 | **Tipo de Recurso** | **Modelo de implementação** | **Permissão** |
 | --- | --- | --- |
@@ -66,7 +69,7 @@ Um utilizador tem as seguintes permissões de replicação de uma nova máquina 
 | Grupo de Recursos | Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
-Considere utilizar o 'Contribuinte de Máquina Virtual' e 'Clássico contribuinte de Máquina Virtual' [funções incorporadas](../role-based-access-control/built-in-roles.md) para a implementação do Resource Manager e clássico modelos, respetivamente.
+Considere a utilização de "Contribuinte de Máquina Virtual" e "Contribuinte de Máquina Virtual clássica" [funções incorporadas](../role-based-access-control/built-in-roles.md) para a implementação do Resource Manager e clássica modela, respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md): começar a utilizar o RBAC no portal do Azure.
@@ -74,4 +77,4 @@ Considere utilizar o 'Contribuinte de Máquina Virtual' e 'Clássico contribuint
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Resolução de problemas de controlo de acesso baseado em funções](../role-based-access-control/troubleshooting.md): Obtenha sugestões sobre como corrigir problemas comuns.
+* [Resolução de problemas de controlo de acesso baseado em funções](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir problemas comuns.

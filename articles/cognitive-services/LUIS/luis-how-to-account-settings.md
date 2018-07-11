@@ -8,16 +8,16 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1b5caf199cd5bfe0fa462950cc1f7beb3f2872b2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 8a1565b3816f2c6597ac941ac9a0ac48bc2c7bb7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887611"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915712"
 ---
-# <a name="manage-your-luis-account"></a>Gerir a conta do LUIS
+# <a name="manage-account-and-authoring-key"></a>Gerir conta e chave de criação
 As duas informações cruciais para uma conta de LUIS são a conta de utilizador e a chave de criação. Suas informações de início de sessão são gerenciadas ao [account.microsoft.com](https://account.microsoft.com). A chave de criação é gerenciada a partir da [LUIS](luis-reference-regions.md) site **definições** página. 
 
 ## <a name="authoring-key"></a>Chave de criação

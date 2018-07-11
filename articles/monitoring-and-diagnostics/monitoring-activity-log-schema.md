@@ -1,6 +1,6 @@
 ---
-title: Esquema de eventos de registo de atividade do Azure
-description: Compreender o esquema de eventos para dados emitidos para o registo de atividade
+title: Esquema de eventos de registo de atividades do Azure
+description: Compreender o esquema de eventos para dados emitidos para o registo de atividades
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264556"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917232"
 ---
-# <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividade do Azure
-O **registo de atividade do Azure** é um registo que fornece informações sobre quaisquer eventos ao nível da subscrição ocorridas no Azure. Este artigo descreve o esquema de eventos por categoria de dados.
+# <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
+O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./monitoring-diagnostic-logs-schema.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativa
-Esta categoria contém o registo de todos os criar, as operações de atualização, eliminação e a ação executada através do Resource Manager. Os exemplos dos tipos de eventos que poderá ver nesta categoria incluem "criar a máquina virtual" e "Eliminar grupo de segurança" cada ação executada por um utilizador ou aplicação utilizando o Gestor de recursos é modelada como uma operação num tipo de recurso específico. Se o tipo de operação é escrita, Delete ou ação, os registos de início e de êxito ou falha dessa operação é registadas no ficheiro a categoria administrativa. A categoria administrativa também inclui todas as alterações para o controlo de acesso baseado em funções numa subscrição.
+Esta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
 
-### <a name="sample-event"></a>Eventos de exemplo
+### <a name="sample-event"></a>Evento de exemplo
 ```json
 {
     "authorization": {
@@ -112,31 +112,31 @@ Esta categoria contém o registo de todos os criar, as operações de atualizaç
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| Autorização |Blob de propriedades do RBAC do evento. Normalmente, inclui as propriedades "action", "função" e "âmbito". |
-| chamador |Endereço de e-mail do utilizador que efetuou a operação, afirmação UPN ou afirmação SPN com base na disponibilidade. |
+| Autorização |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
+| chamador |Endereço de e-mail do utilizador que efetuou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. |
 | canais |Um dos seguintes valores: "Admin", "Operação" |
-| afirmações |O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Gestor de recursos. |
-| correlationId |Normalmente, um GUID no formato de cadeia. Eventos que partilham um correlationId pertencem à mesma ação de uber. |
+| afirmações |O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
+| correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
 | descrição |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
-| httpRequest |BLOB que descrevem os pedidos de Http. Normalmente inclui o "clientRequestId", "clientIpAddress" e "method" (método HTTP. Por exemplo, colocar). |
-| nível |Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" e "Verboso" |
+| httpRequest |BLOB que descreve o pedido de Http. Normalmente inclui o "clientRequestId", "clientIpAddress" e "método" (método HTTP. Por exemplo, colocar). |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
-| resourceProviderName |Nome do fornecedor de recursos para o recurso afectado |
-| resourceId |Id de recurso do recurso afetado. |
-| operationId |Um GUID partilhado entre os eventos que correspondem a uma única operação. |
+| resourceProviderName |Nome do fornecedor de recursos para o recurso afetado |
+| resourceId |ID de recurso do recurso afetado. |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes do evento. |
-| status |Cadeia que descrevem o estado da operação. Alguns valores comuns são: foi iniciado em curso, com êxito, falha, Active Directory, a resolvido. |
-| subStatus |Normalmente, o código de estado HTTP do resto correspondente chamar, mas também pode incluir outras cadeias que descrevem um subestado, como estes valores comuns: OK (código de estado de HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), não conteúdo (código de estado de HTTP: 204), pedido incorreto (código de estado de HTTP: 400), não foi encontrado (código de estado de HTTP: 404), conflito (código de estado HTTP : 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503), tempo limite do Gateway (código de estado HTTP: 504). |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento. |
+| status |A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: iniciado, em curso, com êxito, falha, Active Directory, resolvido. |
+| subStatus |Normalmente, o código de estado HTTP do resto correspondente chamar, mas também pode incluir outras cadeias de caracteres que descreve um subestado, por exemplo, estes valores comuns: OK (código de estado HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), sem conteúdo (estado de HTTP Código: 204), pedido incorreto (código de estado HTTP: 400), não foi encontrado (código de estado HTTP: 404), conflito (código de estado HTTP: 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503), tempo limite do Gateway (código de estado HTTP: 504). |
 | eventTimestamp |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
-| submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
-| subscriptionId |ID da subscrição do Azure. |
+| submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId |ID de subscrição do Azure. |
 
 ## <a name="service-health"></a>Estado de funcionamento do serviço
-Esta categoria contém o registo de qualquer incidentes de estado de funcionamento do serviço ocorridas no Azure. Um exemplo do tipo de evento que vir esta categoria é de "Azure SQL Server nos EUA Leste estão a ocorrer um período de indisponibilidade." Eventos do serviço do Estado de funcionamento são fornecidos em cinco varieties: ação necessária, recuperação assistido, incidentes, manutenção, informações ou segurança e surgem apenas se tiver um recurso na subscrição que seria afetada pelo evento.
+Esta categoria contém o registo de qualquer incidentes de estado de funcionamento do serviço que ocorreram no Azure. Um exemplo do tipo de evento, que veria nesta categoria é "do SQL Azure na região E.U.A. Leste está a sofrer um período de indisponibilidade." Eventos de estado de funcionamento do serviço são fornecidos em cinco variedades: é necessária qualquer ação de recuperação assistido, incidente, manutenção ou segurança e só serão apresentadas se tiver um recurso na subscrição que seria afetada pelo evento.
 
-### <a name="sample-event"></a>Eventos de exemplo
+### <a name="sample-event"></a>Evento de exemplo
 ```json
 {
   "channels": "Admin",
@@ -191,12 +191,12 @@ Esta categoria contém o registo de qualquer incidentes de estado de funcionamen
   }
 }
 ```
-Consulte o [notificações de estado de funcionamento do serviço](./monitoring-service-notifications.md) artigo para obter a documentação sobre os valores nas propriedades.
+Consulte a [notificações de estado de funcionamento de serviço](./monitoring-service-notifications.md) artigo de documentação sobre os valores nas propriedades.
 
 ## <a name="alert"></a>Alerta
-Esta categoria contém o registo de todas as ativações de alertas do Azure. Um exemplo do tipo de evento que vir esta categoria é "% de CPU no myVM foi superior a 80 para os últimos 5 minutos." Um conceito de alerta de ter uma variedade de sistemas do Azure – pode definir uma regra de algumas ordenação e receber uma notificação quando as condições corresponderem dessa regra. Sempre que um tipo de alerta do Azure suportado 'ativa,' ou as condições são cumpridas para gerar uma notificação, um registo da ativação também é enviado para esta categoria do registo de atividade.
+Esta categoria contém o registo de todas as ativações de alertas do Azure. Um exemplo do tipo de evento, que veria nesta categoria é "% da CPU no myVM foi mais de 80 durante os últimos 5 minutos." Uma variedade de sistemas do Azure tem um conceito de alerta – pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem essa regra. Sempre que um tipo de alerta do Azure suportado 'ativa,' ou as condições são cumpridas para gerar uma notificação, um registo da ativação também é emitidos via push para esta categoria de registo de atividades.
 
-### <a name="sample-event"></a>Eventos de exemplo
+### <a name="sample-event"></a>Evento de exemplo
 
 ```json
 {
@@ -262,54 +262,54 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/alertRules |
 | canais | Sempre "Admin, operação" |
-| afirmações | Blob JSON com o tipo de recurso ou SPN (nome principal do serviço), do motor de alerta. |
-| correlationId | Um GUID no formato de cadeia. |
+| afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, de mecanismo de alerta. |
+| correlationId | Um GUID no formato de cadeia de caracteres. |
 | descrição |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do evento de alerta. |
-| nível |Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" e "Verboso" |
-| resourceGroupName |Nome do grupo de recursos para o recurso afetado se se tratar de um alerta de métrico. Para outros tipos de alerta, este é o nome do grupo de recursos que contém o alerta em si. |
-| resourceProviderName |Nome do fornecedor de recursos para o recurso afetado se se tratar de um alerta de métrico. Para outros tipos de alerta, este é o nome do fornecedor de recursos para o alerta em si. |
-| resourceId | Nome do ID do recurso para o recurso afetado se se tratar de um alerta de métrico. Para outros tipos de alerta, este é o ID de recurso do recurso alerta em si. |
-| operationId |Um GUID partilhado entre os eventos que correspondem a uma única operação. |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
+| resourceGroupName |Nome do grupo de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o nome do grupo de recursos que contém o alerta em si. |
+| resourceProviderName |Nome do fornecedor de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o nome do fornecedor de recursos para o alerta em si. |
+| resourceId | Nome do ID do recurso para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o ID de recurso do próprio recurso do alerta. |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes do evento. |
-| status |Cadeia que descrevem o estado da operação. Alguns valores comuns são: foi iniciado em curso, com êxito, falha, Active Directory, a resolvido. |
-| subStatus | Normalmente, é nulo para alertas. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento. |
+| status |A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: iniciado, em curso, com êxito, falha, Active Directory, resolvido. |
+| subStatus | Normalmente, null para alertas. |
 | eventTimestamp |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
-| submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
-| subscriptionId |ID da subscrição do Azure. |
+| submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId |ID de subscrição do Azure. |
 
 ### <a name="properties-field-per-alert-type"></a>Campo de propriedades por tipo de alerta
-O campo de propriedades irá conter valores diferentes consoante a origem do evento de alerta. Dois fornecedores de evento de alerta comuns são alertas de registo de atividade e métricas alertas.
+O campo de propriedades irá conter valores diferentes dependendo da origem do evento de alerta. Dois provedores de eventos de alertas comuns são alertas de registo de atividades e alertas de métricas.
 
-#### <a name="properties-for-activity-log-alerts"></a>Propriedades de alertas de registo de atividade
+#### <a name="properties-for-activity-log-alerts"></a>Propriedades de alertas de registo de atividades
 | Nome do elemento | Descrição |
 | --- | --- |
-| properties.subscriptionId | O ID de subscrição provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| properties.eventDataId | O ID de dados de eventos provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| properties.resourceGroup | O grupo de recursos provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| properties.resourceId | O ID de recurso provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| properties.eventTimestamp | O carimbo de eventos do evento de registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| properties.operationName | O nome de operação do atividade do registo de eventos que provocou a esta regra de alerta de registo de atividade ser ativado. |
-| Properties.status | O estado provenientes do evento do registo de atividade que provocou a esta regra de alerta de registo de atividade ser ativado.|
+| properties.subscriptionId | O ID de subscrição do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
+| properties.eventDataId | O ID de dados de eventos do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
+| properties.resourceGroup | O grupo de recursos do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
+| properties.resourceId | O ID de recurso do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
+| properties.eventTimestamp | O evento carimbo de hora do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
+| properties.operationName | O nome da operação do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado. |
+| Properties | O estado do evento de registo de atividade que causou esta regra de alerta de registo de atividade a ser ativado.|
 
-#### <a name="properties-for-metric-alerts"></a>Propriedades de alertas métricas
+#### <a name="properties-for-metric-alerts"></a>Propriedades de alertas de métricas
 | Nome do elemento | Descrição |
 | --- | --- |
-| properties.RuleUri | ID de recurso a métrica de regra de alerta em si. |
-| properties.RuleName | O nome da métrica a regra de alerta. |
-| properties.RuleDescription | A descrição da regra de alerta métrica (como definido na regra de alerta). |
-| properties.Threshold | O valor de limiar utilizado na avaliação de métrica a regra de alerta. |
-| properties.WindowSizeInMinutes | O tamanho da janela utilizado na avaliação de métrica de regra de alerta. |
-| Propriedades. Agregação | O tipo de agregação definido na regra de alerta métrica. |
-| Propriedades. Operador | O operador condicional utilizado na avaliação de métrica de regra de alerta. |
-| properties.MetricName | O nome da métrica da métrica utilizado na avaliação de métrica de regra de alerta. |
-| properties.MetricUnit | A unidade métrica para a métrica utilizada na avaliação de métrica de regra de alerta. |
+| properties.RuleUri | ID de recurso da regra de alerta de métrica em si. |
+| properties.RuleName | O nome da regra de alerta de métrica. |
+| properties.RuleDescription | A descrição do que a regra de alerta de métrica (conforme definido na regra de alerta). |
+| properties.Threshold | O valor de limiar utilizado na avaliação de regra de alerta de métrica. |
+| properties.WindowSizeInMinutes | O tamanho da janela usado na avaliação de regra de alerta de métrica. |
+| Propriedades. Agregação | O tipo de agregação definido na regra de alerta de métrica. |
+| Propriedades. Operador | O operador condicional utilizado na avaliação de regra de alerta de métrica. |
+| properties.MetricName | O nome da métrica da métrica utilizado na avaliação de regra de alerta de métrica. |
+| properties.MetricUnit | A unidade de métrica para a métrica utilizada na avaliação de regra de alerta de métrica. |
 
 ## <a name="autoscale"></a>Dimensionamento Automático
-Esta categoria contém o registo de quaisquer eventos relacionados com a operação do motor de dimensionamento automático com base em quaisquer definições de dimensionamento automático que definiu na sua subscrição. Um exemplo do tipo de evento que vir esta categoria é "Escala de dimensionamento automático ação falhou". Utilizar o dimensionamento automático, pode automaticamente aumentar ou reduzir horizontalmente em número de instâncias de um tipo de recurso suportados com base na hora do dia e/ou carga dados (métricos) através de uma definição de dimensionamento automático. Quando as condições são cumpridas à escala, ou reduza verticalmente, o início e foi concluída com êxito ou falha eventos serão registados nesta categoria.
+Esta categoria contém o registo de quaisquer eventos relacionados com a operação do mecanismo de dimensionamento automático com base em quaisquer definições de dimensionamento automático que definiu na sua subscrição. Um exemplo do tipo de evento, que veria nesta categoria é "Aumento do dimensionamento automático a ação falhou." Utilizo o dimensionamento automático, pode automaticamente aumentar ou reduzir horizontalmente o número de instâncias num tipo de recurso suportados com base na hora do dia e/ou carga dados (métricas) através de uma definição de dimensionamento automático. Quando as condições são cumpridas para aumentar ou reduzir verticalmente, o início e foi concluída com êxito ou falhados de eventos serão registados nesta categoria.
 
-### <a name="sample-event"></a>Eventos de exemplo
+### <a name="sample-event"></a>Evento de exemplo
 ```json
 {
   "caller": "Microsoft.Insights/autoscaleSettings",
@@ -369,34 +369,34 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| chamador | Sempre Microsoft.Insights/autoscaleSettings |
+| chamador | Sempre insights/autoscalesettings |
 | canais | Sempre "Admin, operação" |
-| afirmações | Blob JSON com o tipo de recurso ou SPN (nome principal do serviço), do motor de dimensionamento automático. |
-| correlationId | Um GUID no formato de cadeia. |
+| afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, do motor de dimensionamento automático. |
+| correlationId | Um GUID no formato de cadeia de caracteres. |
 | descrição |Descrição de texto estático do evento de dimensionamento automático. |
 | eventDataId |Identificador exclusivo do evento de dimensionamento automático. |
-| nível |Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" e "Verboso" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
 | resourceGroupName |Nome do grupo de recursos para a definição de dimensionamento automático. |
 | resourceProviderName |Nome do fornecedor de recursos para a definição de dimensionamento automático. |
-| resourceId |Id de recurso de definição de dimensionamento automático. |
-| operationId |Um GUID partilhado entre os eventos que correspondem a uma única operação. |
+| resourceId |ID de recurso da definição de dimensionamento automático. |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes do evento. |
-| Propriedades. Descrição | Descrição detalhada do que o motor de dimensionamento automático estava a fazer. |
-| properties.ResourceName | ID de recurso do recurso afetado (o recursos em que estava a ser efetuada a ação de dimensionamento) |
-| properties.OldInstancesCount | O número de instâncias antes da ação de dimensionamento automático demorou em vigor. |
-| properties.NewInstancesCount | O número de instâncias depois da ação de dimensionamento automático demorou em vigor. |
-| properties.LastScaleActionTime | Timestamp quando ocorreu a ação de dimensionamento automático. |
-| status |Cadeia que descrevem o estado da operação. Alguns valores comuns são: foi iniciado em curso, com êxito, falha, Active Directory, a resolvido. |
-| subStatus | Normalmente, é nulo para o dimensionamento automático. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento. |
+| Propriedades. Descrição | Descrição detalhada do que estava fazendo o mecanismo de dimensionamento automático. |
+| properties.ResourceName | ID de recurso do recurso afetado (o recurso no qual estava a ser efetuada a ação de dimensionamento) |
+| properties.OldInstancesCount | O número de instâncias antes da ação de dimensionamento automático demorou efeito. |
+| properties.NewInstancesCount | O número de instâncias após a ação de dimensionamento automático demorou efeito. |
+| properties.LastScaleActionTime | O carimbo de hora de quando ocorreu a ação de dimensionamento automático. |
+| status |A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: iniciado, em curso, com êxito, falha, Active Directory, resolvido. |
+| subStatus | Normalmente, null para dimensionamento automático. |
 | eventTimestamp |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
-| submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
-| subscriptionId |ID da subscrição do Azure. |
+| submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId |ID de subscrição do Azure. |
 
 ## <a name="security"></a>Segurança
-Esta categoria contém o registo de todos os alertas gerados pelo centro de segurança do Azure. Um exemplo do tipo de evento que vir esta categoria é "ficheiro de extensão duplo suspeita executado".
+Esta categoria contém o registo de todos os alertas gerados pelo centro de segurança do Azure. Um exemplo do tipo de evento, que veria nesta categoria é "ficheiro de extensão dupla suspeito executado".
 
-### <a name="sample-event"></a>Eventos de exemplo
+### <a name="sample-event"></a>Evento de exemplo
 ```json
 {
     "channels": "Operation",
@@ -460,30 +460,30 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
 | Nome do elemento | Descrição |
 | --- | --- |
 | canais | Sempre "operação" |
-| correlationId | Um GUID no formato de cadeia. |
+| correlationId | Um GUID no formato de cadeia de caracteres. |
 | descrição |Descrição de texto estático do evento de segurança. |
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
 | ID |Identificador de recurso exclusivo do evento de segurança. |
-| nível |Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" ou "Verboso" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" ou "Verbose" |
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
-| resourceProviderName |Nome do fornecedor de recursos de centro de segurança do Azure. Sempre "Microsoft.Security". |
+| resourceProviderName |Nome do fornecedor de recursos para o Centro de segurança do Azure. Sempre "Microsoft.Security". |
 | resourceType |O tipo de recurso que gerou o evento de segurança, tais como "Microsoft.Security/locations/alerts" |
-| resourceId |Id de recurso do alerta de segurança. |
-| operationId |Um GUID partilhado entre os eventos que correspondem a uma única operação. |
+| resourceId |ID de recurso do alerta de segurança. |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes do evento. Estas propriedades irão variar consoante o tipo de alerta de segurança. Consulte [nesta página](../security-center/security-center-alerts-type.md) para obter uma descrição dos tipos de alertas do Centro de segurança. |
-| Propriedades. Gravidade |O nível de gravidade. Os valores possíveis são "Alta", "Médio" ou "Baixa." |
-| status |Cadeia que descrevem o estado da operação. Alguns valores comuns são: foi iniciado em curso, com êxito, falha, Active Directory, a resolvido. |
-| subStatus | Normalmente, é nulo para eventos de segurança. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento. Estas propriedades irão variar consoante o tipo de alerta de segurança. Ver [esta página](../security-center/security-center-alerts-type.md) para obter uma descrição dos tipos de alertas do Centro de segurança. |
+| Propriedades. Gravidade |O nível de gravidade. Os valores possíveis são "Alta", "Média" ou "Baixa". |
+| status |A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: iniciado, em curso, com êxito, falha, Active Directory, resolvido. |
+| subStatus | Normalmente, null para eventos de segurança. |
 | eventTimestamp |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
-| submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
-| subscriptionId |ID da subscrição do Azure. |
+| submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId |ID de subscrição do Azure. |
 
 ## <a name="recommendation"></a>Recomendação
-Esta categoria contém o registo de quaisquer novas recomendações que são gerados para os serviços. Um exemplo de uma recomendação seria "conjuntos de disponibilidade de utilização para tolerância a falhas melhorada." Existem 4 tipos de eventos de recomendação que podem ser gerados: elevada disponibilidade, desempenho, segurança e otimização de custos. 
+Esta categoria contém o registo de quaisquer novas recomendações que são gerados para os seus serviços. Um exemplo de uma recomendação seria "conjuntos de disponibilidade de utilização para tolerância de falhas melhorada." Existem 4 tipos de eventos de recomendação que podem ser gerados: elevada disponibilidade, desempenho, segurança e otimização de custos. 
 
-### <a name="sample-event"></a>Eventos de exemplo
+### <a name="sample-event"></a>Evento de exemplo
 ```json
 {
     "channels": "Operation",
@@ -540,28 +540,52 @@ Esta categoria contém o registo de quaisquer novas recomendações que são ger
 | Nome do elemento | Descrição |
 | --- | --- |
 | canais | Sempre "operação" |
-| correlationId | Um GUID no formato de cadeia. |
-| descrição |Descrição de texto estático do evento recomendação |
+| correlationId | Um GUID no formato de cadeia de caracteres. |
+| descrição |Descrição de texto estático do evento de recomendação |
 | eventDataId | Identificador exclusivo do evento de recomendação. |
-| categoria | Sempre "Recommendation" |
+| categoria | Sempre "recomendação" |
 | ID |Identificador de recurso exclusivo do evento de recomendação. |
-| nível |Nível do evento. Um dos seguintes valores: "Críticas", "Error", "Aviso", "Informativa" ou "Verboso" |
+| nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" ou "Verbose" |
 | operationName |Nome da operação.  Sempre "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
-| resourceProviderName |Nome do fornecedor de recursos para o recurso que esta recomendação se aplica, como "Microsoft. Compute" |
-| resourceType |Nome do tipo de recurso para o recurso que esta recomendação se aplica, como "MICROSOFT.COMPUTE/virtualmachines" |
-| resourceId |Id de recurso do recurso que se aplica a recomendação |
-| status | Sempre "ativo" |
-| submissionTimestamp |Timestamp quando o evento ficou disponível para consulta. |
-| subscriptionId |ID da subscrição do Azure. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário) que descrevem os detalhes da recomendação.|
-| properties.recommendationSchemaVersion| Versão do esquema das propriedades da recomendação publicados na entrada de registo de atividade |
-| properties.recommendationCategory | Categoria da recomendação. Os valores possíveis são "Elevada disponibilidade", "Desempenho", "Segurança" e "Custo" |
-| properties.recommendationImpact| Impacto da recomendação. Os valores possíveis são "Alta", "Médio", "Baixa" |
+| resourceProviderName |Nome do fornecedor de recursos para o recurso que esta recomendação aplica-se, por exemplo, "Microsoft. Compute" |
+| resourceType |Nome do tipo de recurso para o recurso que esta recomendação aplica-se, por exemplo, "MICROSOFT.COMPUTE/virtualmachines" |
+| resourceId |ID de recurso do recurso que a recomendação aplica-se a |
+| status | Sempre ativo"" |
+| submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
+| subscriptionId |ID de subscrição do Azure. |
+| propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes da recomendação.|
+| properties.recommendationSchemaVersion| Versão do esquema das propriedades da recomendação publicado na entrada de registo de atividades |
+| properties.recommendationCategory | Categoria da recomendação. Os valores possíveis são "Alta disponibilidade", "Desempenho", "Segurança" e "Custo" |
+| properties.recommendationImpact| Impacto da recomendação. Os valores possíveis são "Alta", "Medium", "Baixa" |
 | properties.recommendationRisk| Risco da recomendação. Os valores possíveis são "Error", "Aviso", "None" |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>Mapeamento de esquema de registos de diagnóstico
+
+Quando o registo de atividades do Azure para uma conta de armazenamento ou o espaço de nomes de Hubs de eventos de transmissão em fluxo, os dados seguem os [esquema de registos de diagnóstico do Azure](./monitoring-diagnostic-logs-schema.md). Este é o mapeamento das propriedades do esquema acima para o esquema de registos de diagnóstico:
+
+| Propriedade de esquema de registos de diagnóstico | Propriedade de esquema da API REST do Log de atividade | Notas |
+| --- | --- | --- |
+| hora | eventTimestamp |  |
+| resourceId | resourceId | subscriptionId, resourceType, resourceGroupName são inferidos do resourceId. |
+| operationName | operationName.value |  |
+| categoria | Parte do nome da operação | Abertas do tipo de operação - "Escrever" / "eliminar" / "Action" |
+| resultType | Status.Value | |
+| resultSignature | Substatus.Value | |
+| resultDescription | descrição |  |
+| durationMs | N/A | Sempre 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| identidade | Propriedades de autorização e afirmações |  |
+| Nível | Nível |  |
+| localização | N/A | Localização de onde o evento foi processado. *Esta não é a localização do recurso, mas em vez disso, em que o evento foi processado. Esta propriedade será removida numa atualização futura.* |
+| Propriedades | properties.eventProperties |  |
+| properties.eventCategory | categoria | Se properties.eventCategory não estiver presente, a categoria é "Administração" |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | propriedades |  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre o registo de atividade (anteriormente os registos de auditoria)](monitoring-overview-activity-logs.md)
-* [Fluxo de registo de atividade do Azure para os Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+* [Saiba mais sobre o registo de Atividades (anteriormente conhecido como registos de auditoria)](monitoring-overview-activity-logs.md)
+* [O registo de atividades do Azure para os Hubs de eventos do Stream](monitoring-stream-activity-logs-event-hubs.md)

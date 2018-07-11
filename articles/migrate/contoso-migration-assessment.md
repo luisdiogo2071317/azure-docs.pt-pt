@@ -1,115 +1,115 @@
 ---
-title: Avaliar as cargas de trabalho no local para a migração de Contoso para o Azure | Microsoft Docs
-description: Saiba como Contoso avalia as respetivas máquinas no local para a migração para o Azure com a migração do Azure e a base de dados no
+title: Avaliar cargas de trabalho no local para a migração da Contoso para o Azure | Documentos da Microsoft
+description: Saiba como Contoso avalia a suas máquinas no local para migração para o Azure com o Azure Migration e migração de base de dados
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: fb987c95afc0f77386f4f78c44f3c6825f86ee43
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f0bbfd7c63ba187ef535168cbac05c3e09420d43
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232498"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917834"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar as cargas de trabalho no local para a migração para o Azure
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar cargas de trabalho no local para migração para o Azure
 
-Este artigo mostra como Contoso avalia a respetiva aplicação SmartHotel no local, em preparação para a migração para o Azure.
+Este artigo mostra-lhe como Contoso avalia seu aplicativo de SmartHotel no local, em preparação para a sua migração para o Azure.
 
-Este documento é o terceiro na série de artigos que documente a forma como a empresa fictícia com Contoso migra respetivos recursos no local para a nuvem do Microsoft Azure. A série inclui informações de fundo e uma série de cenários de implementação que ilustram como configurar uma infraestrutura de migração, avaliar a adequabilidade dos recursos no local para a migração e executar diferentes tipos de migrações. Cenários de crescimento em complexidade e será adicionado artigos adicionais ao longo do tempo.
+Este documento é a terceira série de artigos que documentam como a empresa fictícia Contoso migra os respetivos recursos no local para a cloud do Microsoft Azure. A série contém informações gerais e uma série de cenários de implementação que mostram como configurar uma infraestrutura de migração, avaliar a adequação de recursos no local para migração e executar diferentes tipos de migrações. Cenários de crescem em complexidade e estamos a adicionar artigos adicionais ao longo do tempo.
 
 **Artigo** | **Detalhes** | **Estado**
 --- | --- | ---
-[Artigo 1: Descrição geral](contoso-migration-overview.md) | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigo e as aplicações de exemplo, que vamos utilizar. | Disponível
-[Artigo 2: Implementar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como Contoso prepara a infraestrutura do Azure e no local para a migração. A mesma infraestrutura é utilizada para todos os cenários de migração de Contoso. | Disponível
-Artigo 3: Avaliar a recursos no local (neste artigo)  | Mostra como Contoso executa uma avaliação da respetiva aplicação de SmartHotel de duas camadas no local em execução no VMware. Avaliar a VMs de aplicação com o [Azure migrar](migrate-overview.md) serviço e a base de dados de SQL Server de aplicação com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
-[Artigo 4: Realojamento para as VMs do Azure e uma instância do SQL gerida](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como Contoso migra a aplicação de SmartHotel para o Azure. São migradas o front-end de aplicação VM utilizando [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação utilizando o [migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância do SQL Server geridos. | Disponível
-[Artigo 5: Realojamento para as VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como Contoso migrar a respetiva aplicação SmartHotel VMs utilizando apenas a recuperação de sites.
-[Artigo 6: Realojamento para as VMs do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como Contoso migra a aplicação de SmartHotel. Podem utilizar a recuperação de sites para migrar a aplicação VMs e o serviço de base de dados de migração para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
-[Artigo 7: Realojamento uma aplicação do Linux para as VMs do Azure](contoso-migration-rehost-linux-vm.md) | Mostra como Contoso migra a respetiva aplicação de Linux osService utilizando o Azure Site Recovery.
-[Artigo 8: Uma aplicação do Linux para as VMs do Azure e o servidor do Azure MySQL de realojamento](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a aplicação do Linux osService, utilizar a recuperação de sites para a migração de VM e o MySQL Workbench para migrar (para uma instância de servidor de MySQL do Azure. | Disponível
+[Artigo 1: Descrição geral](contoso-migration-overview.md) | Fornece uma descrição geral da estratégia de migração da Contoso, a série de artigos e as aplicações de exemplo que usamos. | Disponível
+[Artigo 2: Implementar uma infraestrutura do Azure](contoso-migration-infrastructure.md) | Descreve como o Contoso prepara a sua infraestrutura do Azure e no local, para a migração. A mesma infra-estrutura é utilizada para todos os cenários de migração da Contoso. | Disponível
+Artigo 3: Avaliar a recursos no local (Este artigo)  | Mostra como Contoso é executado uma avaliação da sua aplicação de SmartHotel de duas camadas do local em execução no VMware. Avaliar a VMs de aplicação com o [do Azure Migrate](migrate-overview.md) serviço e a base de dados do SQL Server do aplicativo com o [Assistente de migração de base de dados do Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponível
+[Artigo 4: Realojamento para VMs do Azure e uma instância gerida de SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstra como a Contoso migra a aplicação de SmartHotel para o Azure. Estes migrar o front-end de aplicação VM através de [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)e a base de dados de aplicação com o [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) serviço, para migrar para uma instância gerida de SQL. | Disponível
+[Artigo 5: Realojar em VMs do Azure](contoso-migration-rehost-vm.md) | Mostra como Contoso migrar a sua aplicação SmartHotel VMs com apenas o Site Recovery.
+[Artigo 6: Realojar em VMs do Azure e grupos de disponibilidade do SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Mostra como a Contoso migra a aplicação de SmartHotel. Utilizam o Site Recovery para migrar as VMs da aplicação e o serviço de migração de base de dados para migrar a base de dados de aplicação para um grupo de disponibilidade do SQL Server. | Disponível
+[Artigo 7: Realojar uma aplicação do Linux para VMs do Azure](contoso-migration-rehost-linux-vm.md) | Mostra como Contoso migra a sua aplicação do Linux osService com o Azure Site Recovery.
+[Artigo 8: Realojar uma aplicação do Linux para VMs do Azure e o servidor MySQL do Azure](contoso-migration-rehost-linux-vm-mysql.md) | Demonstra como Contoso migra a aplicação de Linux osService, utilizar o Site Recovery para a migração de VM e o MySQL Workbench para migrar (para uma instância do servidor MySQL do Azure. | Disponível
 
 
 ## <a name="overview"></a>Descrição geral
 
-Tenha em conta a migração para o Azure, da empresa Contoso pretende executar uma avaliação técnica e financeira para descobrir se as respetivas cargas de trabalho no local são adequadas para a migração para a nuvem. Em particular, a equipa da Contoso pretende avaliar a compatibilidade de máquina e da base de dados para migração e estimar os custos para executar os respetivos recursos no Azure e de capacidade.
+Ao considerar a migração para o Azure, a empresa Contoso quer realizar uma avaliação técnica e financeira para saber se as suas cargas de trabalho no local são adequadas para migração para a cloud. Em particular, a equipe de Contoso pretende avaliar a compatibilidade de máquina e da base de dados para a migração e estimar a capacidade e os custos para executar os respetivos recursos no Azure.
 
-Para obter as respetivas wet feet e compreende melhor as tecnologias envolvidas, que vai para avaliar a dois das suas aplicações no local, resumidos na tabela seguinte. Tenha em atenção que se estiver a avaliar para cenários de migração que aplicações de realojamento e refactorize para migração. Saiba mais sobre realojar e refactoring no [descrição geral da migração de Contoso](contoso-migration-overview.md).
+Para se habituar ao e compreende melhor as tecnologias envolvidas, vai avaliar duas das suas aplicações no local, resumidos na tabela seguinte. Tenha em atenção que se estiver a avaliar para cenários de migração que aplicações de realojamento e o refactor para migração. Saiba mais sobre o realojamento e refatoração no [descrição geral da migração da Contoso](contoso-migration-overview.md).
 
-**Nome da aplicação**  | **Plataforma** | **Camadas de aplicação** | **Detalhes**
+**Nome da aplicação**  | **Plataforma** | **Escalões de aplicação** | **Detalhes**
 --- | --- | --- | ---
-SmartHotel<br/><br/> Gere os requisitos de levar Contoso | Em execução no Windows com uma base de dados do SQL Server | Aplicação de duas camadas de mensagens em fila com o Web site ASP.NET de front-end execução de uma VM (WEBVM) e o SQL Server em execução no outro VM (SQLVM) | As VMs são VMware, em execução num anfitrião ESXi gerido pelo vCenter server.<br/><br/> A aplicação de exemplo que pode ser transferida do [GitHub](https://github.com/Microsoft/SmartHotel360).
-OSTicket<br/><br/> Suporte técnico do app Service de contoso | Em execução no Linux/Apache, com um PHP MySQL (LAMP). | Aplicação de duas camadas com um Web site PHP de front-end de uma VM (OSTICKETWEB) e a base de dados MySQL em execução no outro VM (OSTICKETMYSQL) | A aplicação é utilizada pelo cliente do serviço de aplicações para controlar problemas para os empregados internos e clientes externos.<br/><br/> A aplicação de exemplo que pode ser transferida do [GitHub](https://github.com/osTicket/osTicket).
+SmartHotel<br/><br/> Gere os requisitos de deslocação de Contoso | Em execução no Windows com uma base de dados do SQL Server | Aplicação em duas camadas com o Web site ASP.NET de front-end em execução numa VM (WEBVM) e o SQL Server em execução em outra VM (SQLVM) | As VMs são VMware, em execução num anfitrião ESXi gerido pelo vCenter server.<br/><br/> A aplicação de exemplo pode ser transferida a partir [GitHub](https://github.com/Microsoft/SmartHotel360).
+OSTicket<br/><br/> Aplicativo de suporte técnico do serviço de contoso | Em execução no Linux/Apache, com um PHP MySQL (LAMP). | Aplicação em duas camadas com um Web site PHP de front-end numa VM (OSTICKETWEB) e a base de dados MySQL em execução em outra VM (OSTICKETMYSQL) | A aplicação é utilizada pelo cliente do serviço de aplicações para controlar problemas para os funcionários internos e clientes externos.<br/><br/> A aplicação de exemplo pode ser transferida a partir [GitHub](https://github.com/osTicket/osTicket).
 
 ## <a name="current-architecture"></a>Arquitetura atual
 
 
-Eis um diagrama que mostra a infraestrutura no local Contoso atual.
+Aqui está um diagrama que mostra a infra-estrutura de locais de Contoso atual.
 
 ![Arquitetura de contoso](./media/contoso-migration-assessment/contoso-architecture.png)  
 
-- Contoso tem um centro de dados principal, localizado na cidade de Nova Iorque no Leste dos Estados Unidos.
-- Têm três ramos locais adicionais nos Estados Unidos.
-- O Centro de dados principal está ligado à internet com uma ligação de ethernet de metro de fibra (500 mbps).
-- Cada ramo está ligado localmente à internet através de ligações de classe de negócio, com túneis IPSec VPN voltar ao centro de dados principal. Isto permite que os respetivos toda a rede estar permanentemente ligados e otimiza a conectividade à internet.
-- O Centro de dados principal é totalmente virtualizado com o VMware. Têm dois anfitriões de Virtualização de ESXi 6.5, geridos pelo vCenter Server 6.5.
+- A Contoso tiver um Data Center principal localizado na cidade de Nova Iorque no Leste dos Estados Unidos.
+- Eles têm três ramos locais adicionais nos Estados Unidos.
+- O datacenter principal está ligado à internet com uma ligação de ethernet metro fiber (500 mbps).
+- Cada ramo está ligado localmente para a internet através de ligações de classe de negócio, com túneis de IPSec VPN para o datacenter principal. Isso permite que seus toda a rede estar conectada permanentemente e otimiza a conectividade à internet.
+- O Centro de dados principal é totalmente virtualizado com o VMware. Eles têm dois anfitriões de Virtualização do ESXi 6.5, geridas pelo vCenter Server 6.5.
 - A Contoso utiliza o Active Directory para gestão de identidades e servidores DNS na rede interna.
-- Executam os controladores de domínio no Centro de dados em VMs de VMware. Os controladores de domínio locais ramos executados em servidores físicos.
+- Executam os controladores de domínio no Centro de dados em VMs de VMware. Executam os controladores de domínio em ramos locais em servidores físicos.
 
 
 
 
 
-## <a name="business-drivers"></a>Controladores de negócio
+## <a name="business-drivers"></a>Fatores comerciais
 
-A equipa de TI liderança trabalhou coincida com os respetivos parceiros de negócios para compreender o que a empresa pretende alcançar com esta migração:
+A equipe de liderança de TI tem trabalhado em estreita colaboração com seus parceiros de negócios para compreender o que a empresa quer alcançar com esta migração:
 
-- **Crescimento de negócio de endereços**: Contoso está a crescer e assim existe pressão na infraestrutura e sistemas no local.
-- **Aumentar a eficiência**: Contoso tem de remover procedimentos desnecessários e simplificar processos para os programadores e os utilizadores.  Necessidades IT para ser rápido e hora não waste ou dinheiro, deste modo, entrega mais rápida nos requisitos de cliente.
-- **Aumentar a agilidade**: Contoso TI tem de ser mais responder às necessidades do negócio. Tem de ser capaz de reagir mais rapidamente do que as alterações no marketplace, para ativar o sucesso num economia global.  Não pode obter de forma ou tornar-se um bloqueador de janelas de negócio.
-- **Escala**: como o crescimentos de negócio com êxito, Contoso TI tem de fornecer sistemas que são capazes de aumentam com o mesmo ritmo.
+- **Resolver o crescimento do negócio**: Contoso está a crescer e assim há pressão em seus sistemas no local e a infraestrutura.
+- **Aumentar a eficiência**: a Contoso precisa de remover procedimentos desnecessários e simplificar processos para seus desenvolvedores e usuários.  Necessidades de negócio IT velocidade e não desperdício de tempo ou dinheiro, entregando assim mais rapidamente sobre os requisitos dos clientes.
+- **Aumente a agilidade**: Contoso TI tem de ser mais reativos para com as necessidades do negócio. Tem de ser capaz de reagir mais rapidamente do que as alterações no marketplace, para ativar o sucesso numa economia global.  Ele não pode obter na forma como ou se tornar um bloqueador de negócios.
+- **Dimensionamento**: à medida que a empresa cresce com êxito, TI da Contoso tem de fornecer sistemas que são capazes de aumentar ao ritmo mesmo.
 
 ## <a name="assessment-goals"></a>Objetivos de avaliação
 
-A equipa de nuvem Contoso tiver afixado baixo objetivos para as avaliações de migração:
+A equipe de cloud Contoso tiver afixado para baixo de objetivos para suas avaliações de migração:
 
-- Após a migração de aplicações do Azure devem ter as mesmas capacidades de desempenho, como sucede no respetivo ambiente de VMWare no local.  Mover para a nuvem não significa que o desempenho da aplicação seja menos crítico.
-- Contoso tem de compreender a compatibilidade das respetivas aplicações e bases de dados com os requisitos do Azure, bem como as opções de alojamento no Azure.
-- Administração de base de dados da Contoso deve ser minimizada depois das aplicações movido para a nuvem.  
-- A Contoso pretende compreender não apenas as opções de migração, mas também os custos associados a infraestrutura depois de esta ser movida para a nuvem.
+- Após a migração, e aplicações no Azure devem ter as mesmas capacidades de desempenho, como sucede no respetivo ambiente de VMWare no local.  Mover para a nuvem não significa que o desempenho de aplicações é menos crítico.
+- A Contoso precisa de compreender a compatibilidade de seus aplicativos e bancos de dados com os requisitos do Azure, bem como as suas opções de alojamento no Azure.
+- Administração de banco de dados da Contoso deve ser minimizada depois de aplicações foram movidos para a cloud.  
+- Contoso quer compreender não apenas as opções de migração, mas também os custos associados com a infraestrutura depois que for movido para a cloud.
 
 ## <a name="assessment-tools"></a>Ferramentas de avaliação
-Contoso está a utilizar as ferramentas da Microsoft para a avaliação. Estas ferramentas alinharem com os seus objetivos e devem fornecer-lhes com todas as informações que precisam.
+Contoso está a utilizar as ferramentas da Microsoft para a avaliação. Essas ferramentas aos seus objetivos e devem fornecê-los com todas as informações que precisam.
 
 **Tecnologia** | **Descrição** | **Custo**
 --- | --- | ---
-[Assistente de migração de base de dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Irá utilizarem DMA para avaliar e detetar problemas de compatibilidade, que podem afetar a respetiva funcionalidade de base de dados no Azure. DMA avalia paridade de funcionalidades entre origens SQL e destinos e recomenda melhorias de desempenho e fiabilidade. | É uma ferramenta transferível gratuita.
-[Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso irá utilizar este serviço para avaliar as respetivas VMs de VMware. Avalia a adequabilidade da migração das máquinas e disponibiliza estimativas de dimensionamento e custos para a execução no Azure.  | Não existe atualmente (pode 2018) sem qualquer encargo para utilizar este serviço.
+[Assistente de migração de base de dados (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Eles usarão o DMA para avaliar e detetar problemas de compatibilidade que podem afetar sua funcionalidade de base de dados no Azure. O DMA avalia a paridade de funcionalidades entre o SQL origens e destinos e recomenda melhorias de desempenho e confiabilidade. | É uma ferramenta transferível gratuita.
+[Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso irá utilizar este serviço para avaliar as respetivas VMs de VMware. Avalia a adequabilidade da migração das máquinas e disponibiliza estimativas de dimensionamento e custos para a execução no Azure.  | Não existe atualmente (talvez de 2018) sem custos para utilizar este serviço.
 [Mapa do Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | O Azure Migrate utiliza o Mapa de Serviços para mostrar as dependências entre as máquinas que quer migrar. |  O Mapa de Serviços faz parte do Azure Log Analytics. Atualmente, pode ser utilizado durante 180 dias sem incorrer em custos.
 
-Neste cenário, a Contoso transfere e executa DMA para avaliar a base de dados do SQL Server no local para a respetiva aplicação levar. Utilizar o Azure migrar com o mapeamento de dependência para avaliar a aplicação VMs, antes da migração para o Azure.
+Neste cenário, o Contoso transfere e executa o DMA para avaliar a base de dados do SQL Server no local para a respetiva aplicação de viagens. Que utilizar o Azure migrate com o mapeamento da dependência para avaliar as VMs da aplicação antes da migração para o Azure.
 
 
 
-## <a name="assessment-architecture"></a>Arquitetura de avaliação
+## <a name="assessment-architecture"></a>Arquitetura da avaliação
 
 
 ![A arquitetura da avaliação da migração](./media/contoso-migration-assessment/migration-assessment-architecture.png)
 
-- Contoso é um nome fictício que representa uma organização empresarial típica. 
-- Contoso tem um centro de dados no local (**contoso datacenter**), com controladores de domínio no local (CONTOSODC1, CONTOSODC2).
-- VMs de VMware estão localizadas num VMware ESXI anfitriões com a versão 6.5. Anfitriões: **contosohost1**, **contosohost2**
-- O ambiente VMware é gerido pelo vCenter server 6.5 (**venter**, em execução numa VM.
-- A aplicação de levar SmartHotel:
-    - A aplicação está em camadas através de duas VMs de VMware, **WEBVM** e **SQLVM**.
-    - As VMs estão localizadas no anfitrião do VMware ESXi **contosohost1.contoso.com**.
-    - As VMs estão em execução Datacenter do Windows Server 2008 R2 com SP1.
+- Contoso é um nome fictício que representa uma organização empresarial típica.
+- A Contoso tiver um datacenter no local (**contoso-datacenter**), com controladores de domínio no local (CONTOSODC1, CONTOSODC2).
+- VMware VMs estão localizadas num VMware ESXI anfitriões que executam a versão 6.5. Anfitriões: **contosohost1**, **contosohost2**
+- O ambiente do VMware é gerido pelo vCenter server 6.5 (**venter**, em execução numa VM.
+- Aplicação de viagens SmartHotel:
+    - A aplicação está em camadas em duas VMs de VMware, **WEBVM** e **SQLVM**.
+    - As VMs estão localizadas no anfitrião ESXi do VMware **contosohost1.contoso.com**.
+    - As VMs estão em execução o Centro de dados do Windows Server 2008 R2 com SP1.
 - O ambiente do VMware é gerido pelo vCenter Server (**vcenter.contoso.com**) em execução numa VM.
-- O OSTicket Service aplicação do suporte técnico:
-    - A aplicação está em camadas através de duas VMs, **OSTICKETWEB** e **OSTICKETMYSQL**.
-    - As VMs estão em execução no Ubuntu Linux Server 16.04-LTS.
+- O OSTicket aplicativo de suporte técnico do serviço:
+    - A aplicação está em camadas em duas VMs, **OSTICKETWEB** e **OSTICKETMYSQL**.
+    - As VMs em execução no servidor do Linux Ubuntu 16.04-LTS.
     - A VM OSTICKETWEB está em execução Apache 2 e o PHP 7.0.
     - A VM OSTICKETMYSQL está em execução MySQL 5.7.22.
 
@@ -118,80 +118,80 @@ Neste cenário, a Contoso transfere e executa DMA para avaliar a base de dados d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Segue-se que Contoso (e) precisa para a avaliação:
+Eis o que Contoso (e) precisa para a avaliação:
 
-- Acesso de proprietário ou contribuinte da subscrição do Azure ou para um grupo de recursos na subscrição do Azure.
+- Acesso de proprietário ou contribuinte para a subscrição do Azure ou para um grupo de recursos na subscrição do Azure.
 - Um vCenter Server no local a executar a versão 5.5, 6.0 ou 6.5.
 - Uma conta só de leitura no vCenter Server ou permissões para criar uma.
 - Permissões para criar uma VM no vCenter Server com um modelo .OVA.
 - Pelo menos, um anfitrião ESXi a executar a versão 5.0 ou posterior.
 - Pelo menos, duas VMs do VMware no local, uma a executar uma base de dados do SQL Server.
-- Permissões para instalar agentes do Azure migrar em cada VM.
+- Permissões para instalar agentes do Azure Migrate em cada VM.
 - As VMs devem ter conectividade à Internet direta.
         - Pode restringir o acesso à Internet aos [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).
-        -Se máquinas sem conectividade internet, o [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) tem de ser instalado nos mesmos.
+        -If máquinas sem conectividade de internet, o [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) tem de ser instalado nos mesmos.
 - Do FQDN da VM a executar a instância do SQL Server, para avaliação da base de dados.
 - A Firewall do Windows em execução na VM do SQL Server deve permitir ligações externas na porta TCP 1433 (predefinição), para que seja possível ligar o DMA.
 
 
-## <a name="assessment-overview"></a>Descrição geral de avaliação
+## <a name="assessment-overview"></a>Descrição geral da avaliação
 
-Eis como Contoso vai fazer a avaliação:
+Aqui está como Contoso vai fazer a avaliação:
 
 
 > [!div class="checklist"]
-> * **Passo 1: Transferir e instalar DMA**: DMA preparar para a avaliação da base de dados do SQL Server no local.
-> * **Passo 2: Avaliar a base de dados com DMA**: executar e analisar a avaliação de base de dados.
-> * **Passo 3: Preparar para a avaliação de VM com o Azure migrar**: Configurar contas no local e otimizar VMware definições.
-> * **Passo 4: Detetar VMs no local com o Azure migrar**: criar um recoletor Azure migrar VM. Em seguida, executam o recoletor para detetar as VMs para avaliação.
-> * **Passo 5: Preparar para análise de dependência com o Azure migrar**: instalar o Azure migrar agentes nas VMs, para que estes possam ver o mapeamento de dependência entre as VMs.
-> * **Passo 6: Avaliar as VMs com o Azure migrar**: verificar as dependências, as VMs de grupo e executar a avaliação. Após a avaliação estiver pronta, estes analisá-lo durante a preparação da migração.
+> * **Passo 1: Transferir e instalar o DMA**: Prepare o DMA para avaliação da base de dados do SQL Server no local.
+> * **Passo 2: Avaliar a base de dados com o DMA**: executar e analisar a avaliação da base de dados.
+> * **Passo 3: Preparar a avaliação da VM com o Azure Migrate**: Configurar contas no local e o ajuste de VMware definições.
+> * **Passo 4: Detetar VMs no local com o Azure Migrate**: criar uma VM do recoletor do Azure Migrate. Em seguida, eles são executados o recoletor para detetar VMs para avaliação.
+> * **Passo 5: Preparar para a análise de dependência com o Azure Migrate**: instalar o Azure Migrate agentes nas VMs, para que eles podem ver o mapeamento das dependências entre as VMs.
+> * **Passo 6: Avaliar as VMs com o Azure Migrate**: Verifique as dependências, agrupe as VMs e execute a avaliação. Depois da avaliação estiver pronta, eles analisá-los em preparação para a migração.
 
 
-## <a name="step-1-download-and-install-the-dma"></a>Passo 1: Transfira e instale o DMA
+## <a name="step-1-download-and-install-the-dma"></a>Passo 1: Transferir e instalar o DMA
 
-1. Contoso transfere DMA do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
-    - O assistente pode ser instalado em qualquer computador que pode ligar à instância do SQL Server. Não tem de executá-lo na máquina do SQL Server.
-    - Não deve ser executado na máquina de anfitrião do SQL Server.
-2. Se executam o ficheiro de configuração transferido (DownloadMigrationAssistant.msi), para iniciar a instalação.
-3. No **concluir** página, selecione **iniciar dados migração assistente Microsoft** antes de concluir o assistente.
+1. Contoso transfere o DMA no [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
+    - O assistente pode ser instalado em qualquer máquina que pode ligar à instância do SQL. Não tem de executá-lo na máquina do SQL Server.
+    - Ele não deve ser executado na máquina de anfitrião do SQL Server.
+2. Eles são executados o ficheiro de configuração transferido (Downloadmigrationassistant), para iniciar a instalação.
+3. Sobre o **concluir** página, selecione **iniciar Microsoft Data Migration Assistant** antes de concluir o assistente.
 
-## <a name="step-2-run-and-analyze-the-database-assessment-for-smarthotel"></a>Passo 2: Executar e analisar a avaliação de base de dados para SmartHotel
+## <a name="step-2-run-and-analyze-the-database-assessment-for-smarthotel"></a>Passo 2: Executar e analisar a avaliação da base de dados para SmartHotel
 
-Agora Contoso pode executar uma avaliação para analisar o respetivo servidor de SQL no local para a aplicação de SmartHotel.
+Agora a Contoso pode executar uma avaliação para analisar o respetivo servidor de SQL no local para a aplicação de SmartHotel.
 
-1. No Assistente de migração da base de dados, pode clicar em **novo**, selecione **avaliação**e atribua a avaliação de um nome de projeto - **SmartHotel**.
-2. O utilizador selecionar o **tipo de servidor de origem** como **do SQL Server em Azure Virtual Machines**. 
+1. No Assistente de migração de base de dados, clique **New**, selecione **avaliação**e dê a avaliação de um nome de projeto - **SmartHotel**.
+2. Eles selecionam a **tipo de servidor de origem** como **SQL Server em Azure Virtual Machines**.
 
     ![Selecionar origem](./media/contoso-migration-assessment/dma-assessment-1.png)
 
     > [!NOTE]
-      Neste momento, o DMA não suporta a avaliação para a migração para uma Instância Gerida do SQL. Como solução, Contoso utiliza o SQL Server numa VM do Azure como destino supposed para a avaliação.
+      Neste momento, o DMA não suporta a avaliação para a migração para uma Instância Gerida do SQL. Como solução, Contoso utiliza o SQL Server numa VM do Azure como o suposto destino para a avaliação.
 
-3. No **versão de destino selecione**, selecionarão 2017 do SQL Server como a versão de destino. Precisam de Selecione esta opção, porque é a versão utilizada pela instância gerida do SQL Server.
-4. O utilizador selecionar para detetar informações sobre a compatibilidade e as novas funcionalidades:
-    - **Problemas de compatibilidade** tenha em atenção as alterações que poderá interromper a migração ou que requerem um ajuste secundária antes da migração. Mantém-lo informado sobre as funcionalidades atualmente em utilização que foram preteridas. Os problemas estão organizados por nível de compatibilidade.
-    - **Recomendação de novas funcionalidades** notas novas funcionalidades na plataforma de servidor de SQL de destino que podem ser utilizadas para a base de dados após a migração. As funcionalidades estão organizadas por Desempenho, Segurança e Armazenamento.
+3. Na **versão de destino selecione**, eles selecionam o SQL Server 2017 como a versão de destino. Terá de selecionar esta opção, porque é a versão utilizada pela instância gerida de SQL.
+4. Eles selecionam para detetar informações sobre a compatibilidade e as novas funcionalidades:
+    - **Problemas de compatibilidade** tenha em atenção as alterações que podem interromper a migração ou que exigem um pequeno Ajuste antes da migração. Ele mantém-lo informado sobre quaisquer funcionalidades atualmente em utilização que foram preteridas. Os problemas estão organizados por nível de compatibilidade.
+    - **Recomendação de novas funcionalidades** notas de novos recursos na plataforma do SQL Server de destino que podem ser utilizados para a base de dados após a migração. As funcionalidades estão organizadas por Desempenho, Segurança e Armazenamento.
 
     ![Selecionar o destino](./media/contoso-migration-assessment/dma-assessment-2.png)
 
-2. No **ligar a um servidor**, introduza o nome da VM a executar a base de dados e as credenciais para aceder ao mesmo. Tem de ativar **certificado de servidor de confiança** para se certificar de que podem obter ao SQL Server. Em seguida, pode clicar em **Connect**.
+2. Na **ligar a um servidor**, introduza o nome da VM a executar a base de dados e as credenciais para aceder ao mesmo. Tem de ativar **certificado de servidor fidedigno** para se certificar de que eles podem chegar a SQL Server. Em seguida, clique em **Connect**.
 
     ![Selecionar o destino](./media/contoso-migration-assessment/dma-assessment-3.png)
 
-3. No **Adicionar origem**, adicionarem a base de dados que pretendem avaliar e clique em **seguinte** para iniciar a avaliação.
+3. Na **Adicionar origem**, adicionam a base de dados que pretendem avaliar e clique em **próxima** para iniciar a avaliação.
 4. A avaliação é criada.
-    
+
     ![Criar avaliação](./media/contoso-migration-assessment/dma-assessment-4.png)
 
-5. No **resultados de revisão**, podem ver os resultados da avaliação.
+5. Na **resultados de revisão**, eles podem ver os resultados da avaliação.
 
 
 ### <a name="analyze-the-database-assessment"></a>Analisar a avaliação da base de dados
 
-Os resultados são apresentados, assim que estiverem disponíveis. Se corrijam estes problemas que necessitam de clicar em **reiniciar avaliação** para executar novamente a avaliação.
+Os resultados são apresentados quando eles estão disponíveis. Se eles corrijam problemas que necessitam de clicar em **reiniciar avaliação** voltar a executar a avaliação.
 
-1. No **problemas de compatibilidade** relatórios, estes Verifique a existência de problemas de cada nível de compatibilidade. Os níveis de compatibilidade são mapeados para as versões do SQL Server da seguinte forma:
+1. Na **problemas de compatibilidade** comunicar, eles verificam para quaisquer problemas em cada nível de compatibilidade. Os níveis de compatibilidade são mapeados para as versões do SQL Server da seguinte forma:
 
     - 100: SQL Server 2008/Base de Dados Azure SQL
     - 110: SQL Server 2012/Base de Dados Azure SQL
@@ -201,29 +201,29 @@ Os resultados são apresentados, assim que estiverem disponíveis. Se corrijam e
 
     ![Problemas de compatibilidade](./media/contoso-migration-assessment/dma-assessment-5.png)
 
-2. No **funcionalidade recomendações** comunicar, Contoso pode ver as funcionalidades de armazenamento, segurança e desempenho que recomenda a avaliação após a migração. São recomendadas uma variedade de funcionalidades, incluindo OLTP na memória e Columnstore, Stretch Database, sempre encriptados, máscara de dados dinâmicos e encriptação de dados transparente (TDE).
+2. Na **recomendações de funcionalidades** comunicar, a Contoso pode ver recursos de desempenho, segurança e armazenamento que a avaliação lhe recomenda após a migração. São recomendadas uma variedade de funcionalidades, incluindo OLTP dentro da memória e Columnstore, Stretch Database, Always Encrypted, máscara de dados dinâmicos e encriptação de dados transparente (TDE).
 
     ![Recomendações de funcionalidades](./media/contoso-migration-assessment/dma-assessment-6.png)
 
     > [!NOTE]
-    > Recomendamos que Contoso [permite TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) para todos os SQL Server e bases de dados, este é ainda mais crítico quando as bases de dados na nuvem. TDE só deve ser ativada após a migração. Se o TDE já estiver ativada, terá de mover o certificado ou chave assimétrica à base de dados mestra do servidor de destino. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+    > Recomendamos que Contoso [permite a TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) para todos os SQL Server bases de dados e isso é ainda mais crítico quando as bases de dados estão na cloud. TDE só deve ser ativada após a migração. Se a TDE já estiver ativada, terá de mover o certificado ou chave assimétrica para a base de dados mestra do servidor de destino. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
 
-2. Podem exportar a avaliação no formato JSON ou CSV.
+2. Eles podem exportar a avaliação no formato JSON ou CSV.
 
-Tenha em atenção que se estiver a executar uma avaliação de escala maior, pode:
+Tenha em atenção que se estiver a executar uma avaliação numa escala maior, pode:
 
-- Executar em simultâneo vários avaliações e ver o estado das avaliações abrindo o **todas as avaliações** página.
+- Executar várias avaliações em simultâneo e ver o estado das mesmas na abrindo o **todas as avaliações** página.
 - [Consolidar avaliações numa base de dados do SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
-- [Consolidar as avaliações de para um relatório do Power BI](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
+- [Consolidar avaliações num relatório do PowerBI](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 
-## <a name="step-3-prepare-for-vm-assessment-with-azure-migrate"></a>Passo 3: Preparar para a avaliação de VM com o Azure migrar
+## <a name="step-3-prepare-for-vm-assessment-with-azure-migrate"></a>Passo 3: Preparar a avaliação da VM com o Azure Migrate
 
-Contoso tem de criar uma conta de VMware que migrar Azure irão utilizar automaticamente detetar VMs para avaliação, verifique as permissões para criar uma VM, tenha em atenção as portas que têm de ser aberta e definir as estatísticas de nível de definições.
+Contoso precisa para criar uma conta do Mvware que o Azure Migrate vai utilizar automaticamente detetar VMs para avaliação, verifique as permissões para criar uma VM, tenha em atenção as portas que têm de ser aberta e definir as estatísticas de nível de definições.
 
 ### <a name="set-up-a-vmware-account"></a>Configurar uma conta do VMware
 
- Deteção VM requer uma conta de só de leitura no vCenter, com as seguintes propriedades: 
+ Deteção de VMS exige uma conta só de leitura no vCenter, com as seguintes propriedades:
 
 - Tipo de utilizador: pelo menos um utilizador só de leitura.
 - Permissões: objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura.
@@ -232,16 +232,16 @@ Contoso tem de criar uma conta de VMware que migrar Azure irão utilizar automat
 
 ### <a name="verify-permissions-to-create-a-vm"></a>Verificar as permissões para criar VMs
 
-Contoso Certifique-se de que tem as permissões para criar uma VM ao importar um ficheiro. Formato de OVA. [Saiba mais](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
+Verifique se a Contoso, tem permissões para criar uma VM ao importar um ficheiro no. Formato de OVA. [Saiba mais](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
 
 ### <a name="verify-ports"></a>Verificar as portas
 
-A avaliação de Contoso utiliza o mapeamento de dependência. Esta funcionalidade requer um agente instalado em VMs que pretende avaliar. O agente tem de conseguir ligar ao Azure da porta TCP 443 em cada VM. [Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid) sobre os requisitos da ligação.
+A avaliação de Contoso utiliza o mapeamento da dependência. Esta funcionalidade requer um agente instalado nas VMs que pretende avaliar. O agente tem de conseguir ligar ao Azure a partir da porta TCP 443 em cada VM. [Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid) sobre os requisitos da ligação.
 
 
 ### <a name="set-statistics-settings"></a>Configurar as definições das estatísticas
 
-Antes de poderem iniciar a implementação, Contoso tem de configurar as definições de estatísticas para o vCenter Server para o nível 3. Tenha em atenção que:
+Antes de começar a implementação, Contoso tem de definir as definições de estatísticas para o vCenter Server para o nível 3. Tenha em atenção que:
 
 - Depois de definir o nível, terá de aguardar pelo menos um dia antes de executar a avaliação. Caso contrário, aquela poderá não funcionar conforme esperado.
 - Se o nível for superior a 3, a avaliação funcionará, mas:
@@ -253,9 +253,9 @@ Antes de poderem iniciar a implementação, Contoso tem de configurar as defini�
 
 Se definir o nível da seguinte forma:
 
-1. No cliente Web o vSphere, estas abrem a instância do servidor vCenter.
-2. No **gerir** > **definições** > **geral**, pode clicar em **editar**.
-3. No **estatísticas**, configuram a estatística definições de nível **nível 3**.
+1. No vSphere Web Client, que abrem a instância de servidor do vCenter.
+2. Na **Manage** > **definições** > **geral**, clicarem **editar**.
+3. Na **estatísticas**, eles definido a estatística definições de nível de como **nível 3**.
 
     ![Nível de estatísticas do vCenter](./media/contoso-migration-assessment/vcenter-statistics-level.png)
 
@@ -263,11 +263,11 @@ Se definir o nível da seguinte forma:
 
 ## <a name="step-4-discover-vms"></a>Passo 4: Detetar VMs
 
-Para detetar VMs, Contoso cria um projeto do Azure migrar. Transferir e configurar o recoletor VM e execute o recoletor para detetar as respetivas VMs no local.
+Para detetar VMs, a Contoso cria um projeto do Azure Migrate. Transferir e configurar a VM do recoletor e execute o recoletor para detetar as suas VMs no local.
 
 ### <a name="create-a-project"></a>Criar um projeto
 
-1. No [portal do Azure](https://portal.azure.com), estes procurem **Azure migrar**e criar um projeto (ContosoMigration).
+1. Na [portal do Azure](https://portal.azure.com), estes procurem **Azure Migrate**e crie um projeto (ContosoMigration).
 2. Se especificar um nome de projeto, a subscrição do Azure e criar um novo grupo de recursos do Azure, **ContosoFailoverRG**. Tenha em atenção que:
 
     - Só pode criar um projeto do Azure Migrate na região E.U.A. Centro-Oeste ou E.U.A. Leste.
@@ -279,55 +279,54 @@ Para detetar VMs, Contoso cria um projeto do Azure migrar. Transferir e configur
 
 ### <a name="download-the-collector-appliance"></a>Transferir a aplicação recoletora
 
-O Azure Migrate cria uma VM no local, conhecida como aplicação recoletora. Esta VM deteta as VMs VMware no local e envia os metadados sobre as mesmas para o serviço Azure Migrate. Para configurar a aplicação do recoletor, Contoso transfere um. Modelo de OVA e importa-os para o servidor vCenter no local para criar a VM.
+O Azure Migrate cria uma VM no local, conhecida como aplicação recoletora. Esta VM deteta as VMs VMware no local e envia os metadados sobre as mesmas para o serviço Azure Migrate. Para configurar a aplicação recoletora, Contoso transfere um. Modelo de OVA e o importa para o vCenter server no local para criar a VM.
 
-1. No projeto do Azure migrar > **introdução** > **detetar & avaliação** > **detetar máquinas**, transferem o. Ficheiro de modelo OVA.
-2. Se copiar o ID de projeto e a chave. Estas são necessárias para configurar o recoletor.
+1. No projeto do Azure Migrate > **introdução** > **detetar e avaliar** > **detetar máquinas**, transferem o. Ficheiro de modelo OVA.
+2. Eles copie o ID do projeto e a chave. Estes são necessárias para configurar o recoletor.
 
     ![Transferir o ficheiro .ova](./media/contoso-migration-assessment/download-ova.png)
 
 ### <a name="verify-the-collector-appliance"></a>Verificar a aplicação recoletora
 
-Antes de implementar a VM, Contoso verifica se o. Ficheiro OVA é seguro.
+Antes de implementar a VM, a Contoso verifica se o. Ficheiro OVA é seguro.
 
-1. No computador no qual o ficheiro transferido, estas abrem uma janela de comandos de administrador.
-2. Se executam o seguinte comando para gerar o hash para o OVA:
+1. No computador no qual o ficheiro transferido, abrem uma janela de comando de administrador.
+2. Eles executam o seguinte comando para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. O hash gerado deve corresponder a estas definições (versão 1.0.9.7)
+3. O hash gerado deve corresponder a estas definições (versão 1.0.9.12)
 
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
 ### <a name="create-the-collector-appliance"></a>Criar a aplicação recoletora
 
-Agora Contoso pode importar o ficheiro transferido para o vCenter Server e aprovisionar o servidor de configuração de VM.
+Agora a Contoso pode importar o ficheiro transferido para o vCenter Server e aprovisionar a VM do servidor de configuração.
 
-1. Na consola do cliente vSphere, pode clicar em **ficheiro** > **implementar o modelo de OVF**.
+1. Na consola do vSphere Client, clique **arquivo** > **implementar o modelo OVF**.
 
     ![Implementar OVF](./media/contoso-migration-assessment/vcenter-wizard.png)
 
-2. No Assistente de implementação de modelo OVF > **origem**, especificarem a localização da. Ficheiro OVA.
-3. No **nome e localização**, especificam um nome amigável para a VM do recoletor e a localização de inventário em que a VM será alojada. Também especificar o anfitrião ou cluster no qual será executada a aplicação do recoletor.
-5. No **armazenamento**, especificarem a localização de armazenamento e, em **formato de disco**, como pretende aprovisionar o armazenamento.
-7. No **mapeamento da rede**, especificarem a rede à qual se ligará o recoletor de VM. A rede necessita de conectividade à Internet para enviar metadados para o Azure.
+2. No Assistente de implementação de modelo OVF > **origem**, eles especificam a localização da. Ficheiro OVA.
+3. Na **nome e localização**, eles especificam um nome amigável para a VM do recoletor e a localização do inventário em que a VM será alojada. Eles também especificam o anfitrião ou cluster em que a aplicação recoletora será executado.
+5. Na **armazenamento**, eles especificam a localização de armazenamento e, na **formato de disco**, como pretende aprovisionar o armazenamento.
+7. Na **mapeamento da rede**, eles especificam a rede à qual se ligará a VM do recoletor. A rede necessita de conectividade à Internet para enviar metadados para o Azure.
 8. Reveja as definições e selecione **ligar após a implementação**> **concluir**. Após a criação da aplicação, é enviada uma mensagem a confirmar a conclusão bem-sucedida.
 
 ### <a name="run-the-collector-to-discover-vms"></a>Executar o recoletor para detetar VMs
 
-Agora executam o recoletor para detetar as VMs. Tenha em atenção que o recoletor atualmente suporta apenas "Inglês (Estados Unidos)" como o idioma do sistema operativo e o idioma de interface do recoletor.
+Agora eles são executados o recoletor para detetar VMs. Tenha em atenção que o recoletor atualmente apenas suporta "Inglês (Estados Unidos)" como idioma do sistema operativo e o idioma da interface do recoletor.
 
-1. No vSphere cliente consola > **abrir a consola**, se especificarem o idioma, fuso horário e preferências de palavra-passe para o recoletor VM.
-2. No ambiente de trabalho, clique o **executar recoletor** atalho.
+1. No vSphere cliente da consola > **abra a consola**, eles especificam o idioma, fuso horário e preferências de palavra-passe para a VM do recoletor.
+2. Na área de trabalho, clique em o **executar recoletor** atalho.
 
     ![Atalho do recoletor](./media/contoso-migration-assessment/collector-shortcut.png)
 
-4. No Azure migrar Recoletor > **configurar pré-requisitos**, aceite os termos de licenciamento e ler as informações de terceiros.
-5. O recoletor verifica se a VM tem acesso à internet, que a hora está sincronizada e que o serviço do recoletor está em execução (está instalado por predefinição na VM). Também é instalada VMWare PowerCLI.
+4. No Recoletor do Azure Migrate > **configurar pré-requisitos**, aceitar os termos de licenciamento e leia as informações de terceiros.
+5. O recoletor verifica que a VM tem acesso à internet, que a hora está sincronizada e que o serviço do recoletor está em execução (está instalado por predefinição na VM). Ele também instala o VMWare PowerCLI.
 
     > [!NOTE]
     > Estamos a pressupor que a VM tem acesso direto à Internet, sem um proxy.
@@ -335,107 +334,107 @@ Agora executam o recoletor para detetar as VMs. Tenha em atenção que o recolet
     ![Verificar os pré-requisitos](./media/contoso-migration-assessment/collector-verify-prereqs.png)
 
 
-5. No **especificar detalhes do servidor vCenter**, especificarem o nome (FQDN) ou o endereço IP do servidor vCenter e as credenciais só de leitura utilizadas para deteção.
-7. O utilizador selecionar um âmbito de deteção VM. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs.
+5. Na **especificar detalhes do vCenter Server**, especifica o nome (FQDN) ou o endereço IP do servidor vCenter e as credenciais só de leitura utilizado para a deteção.
+7. Eles selecionam um âmbito de deteção de VMS. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs.
 
     ![Ligar ao vCenter](./media/contoso-migration-assessment/collector-connect-vcenter.png)
 
-6. No **projeto de migração de especificar**, especificam o ID de projeto migrar do Azure e a chave foi copiada a partir do portal. Pode obtê-las novamente no projeto **descrição geral** página > **detetar máquinas**.  
+6. Na **especificar projeto de migração**, especifica o ID do projeto do Azure Migrate e a chave que copiou do portal. Pode obtê-las novamente no projeto **descrição geral** página > **detetar máquinas**.  
 
     ![Ligar ao Azure](./media/contoso-migration-assessment/collector-connect-azure.png)
 
-7. No **ver o progresso da coleção** Contoso pode monitorizar a deteção e verifique esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de deteção aproximado.
+7. Na **ver o progresso da coleção** Contoso pode monitorizar a deteção e verifique se os metadados recolhidos das VMs estão no âmbito. O recoletor fornece um período de deteção aproximado.
 
-    ![Recolha em curso](./media/contoso-migration-assessment/collector-collection-process.png) 
+    ![Recolha em curso](./media/contoso-migration-assessment/collector-collection-process.png)
 
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 
-Após a conclusão da recolha, a Contoso verifica que as VMs de aparecer no portal.
+Após a conclusão da coleção, a Contoso verifica se as VMs aparecem no portal.
 
-1. No projeto do Azure migrar > **gerir** > **máquinas**, verifique a que são apresentadas as VMs que pretende detetar.
+1. No projeto do Azure Migrate > **Manage** > **máquinas**, eles verificam se as VMs que pretende detetar aparecem.
 
     ![Máquinas detetadas](./media/contoso-migration-assessment/discovery-complete.png)
 
-3. Tenha em atenção que as máquinas não têm, atualmente, os agentes do Azure Migrate instalados. Contoso tem de instalar estes no dependências para ver.
+3. Tenha em atenção que as máquinas não têm, atualmente, os agentes do Azure Migrate instalados. A Contoso precisa de instalá-los em para se poder ver dependências.
 
     ![Máquinas detetadas](./media/contoso-migration-assessment/machines-no-agent.png)
 
 
 
-## <a name="step-5-prepare-for-dependency-analysis"></a>Passo 5: Preparar para análise de dependência
+## <a name="step-5-prepare-for-dependency-analysis"></a>Passo 5: Preparar para a análise de dependência
 
-Para ver as dependências entre as VMs que pretendem aceder a Contoso, estes transferiram e instalar agentes a aplicação VMs. Contoso é em todas as VMs para as suas aplicações, o Windows e Linux.
+Para ver as dependências entre as VMs que pretendem aceder a Contoso, eles transferirem em instalar agentes as VMs da aplicação. Contoso fá-lo em todas as VMs para as aplicações, Windows e Linux.
 
 ### <a name="take-a-snapshot"></a>Criar um Instantâneo
 
-Estes manter uma cópia da VM antes de modificar os mesmos, por um instantâneo antes dos agentes estiverem instalados.
+Eles mantenham uma cópia da VM antes de modificá-los, tirando um instantâneo antes dos agentes estiverem instalados.
 
 ![Instantâneo da máquina](./media/contoso-migration-assessment/snapshot-vm.png)
 
 
 ### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes da VM
 
-1. No **máquinas** página, o utilizador selecionar a máquina e, em seguida, **requer a instalação** no **dependências** coluna.
-2. No **detetar máquinas** página fazem o seguinte:
+1. Na **máquinas** página, selecionam a máquina e, em seguida **requer a instalação** no **dependências** coluna.
+2. Sobre o **detetar máquinas** página que fazem o seguinte:
     - Transferir o agente MMA e de dependência para cada VM do Windows
-    - Transferir o agente MMA e de dependência para cada VM com Linux
-3. Agora copie o ID da área de trabalho e a chave. Precisam de estes ao instalar o MMA.
+    - Transferir o agente MMA e de dependência para cada VM do Linux
+3. Agora copie o ID de área de trabalho e a chave. Eles precisam estes ao instalar o MMA.
 
     ![Transferência do agente](./media/contoso-migration-assessment/download-agents.png)
 
 ### <a name="install-the-agents-on-windows-vms"></a>Instalar os agentes em VMs do Windows
 
-A instalação são executadas em cada VM.
+Eles são executados a instalação em cada VM.
 
 #### <a name="install-the-mma-on-windows-vms"></a>Instalar o MMA em VMs do Windows
 
-1. Faça duplo clique o agente transferido.
-2. No **pasta de destino**, manter a pasta de instalação predefinida > **seguinte**.
-2. No **opções de configuração do agente**, selecionarão **ligar o agente ao Log Analytics do Azure** > **seguinte**.
+1. Eles faça duplo clique no agente transferido.
+2. Na **pasta de destino**, que mantenham a pasta de instalação predefinida > **próxima**.
+2. Na **opções de configuração do agente**, eles selecionam **ligar o agente ao Azure Log Analytics** > **seguinte**.
 
     ![Instalação do MMA](./media/contoso-migration-assessment/mma-install.png)
-    
-5. No **Log Analytics do Azure**, estes colagem o ID da área de trabalho e a chave que copiou do portal. 
+
+5. Na **do Azure Log Analytics**, eles colar o ID de área de trabalho e a chave que copiou do portal.
 
     ![Instalação do MMA](./media/contoso-migration-assessment/mma-install2.png)
 
-6. No **pronto para instalar**, podem agora instalar o MMA.
+6. Na **pronto para instalar**, agora podem instalar o MMA.
 
-#### <a name="install-the-dependency-agent-on-windows-vms"></a>Instale o agente de dependência em VMs do Windows
+#### <a name="install-the-dependency-agent-on-windows-vms"></a>Instalar o agente de dependência em VMs do Windows
 
-1. Faça duplo clique o agente de dependência transferido.
-2. Se aceitam os termos de licenciamento e aguarde a conclusão da instalação.
+1. Eles faça duplo clique no agente de dependência transferido.
+2. Eles aceitam os termos de licenciamento e aguarde a conclusão da instalação.
 
     ![Agente de Dependência](./media/contoso-migration-assessment/dependency-agent.png)
 
 
 ### <a name="install-the-agents-on-linux-vms"></a>Instalar os agentes em VMs do Linux
 
-A instalação são executadas em cada VM.
+Eles são executados a instalação em cada VM.
 
 #### <a name="install-the-mma-on-linux-vms"></a>Instalar o MMA em VMs do Linux
 
-1. Efetuar a instalação da biblioteca de ctypes python em cada VM utilizando: **apt sudo-get instalar o python ctypeslib**.
+1. Eles instalarem a biblioteca de ctypes python em cada VM com: **sudo apt-get instalar python ctypeslib**.
 2. Eles devem executar o comando para instalar o agente MMA como raiz.  Para se tornar a execução de raiz, o seguinte comando e introduza a palavra-passe de raiz: **sudo -i**.
-3. Agora que instalam o agente MMA.
-    - O ID da área de trabalho correto e a chave inserir o comando.
-    - Os comandos são para 64 bits.
-    - O **ID da área de trabalho** e **chave primária** pode ser encontrada no interior do Portal do OMS > **definições**, no **origens ligadas** separador.
-    - Execute os seguintes comandos para transferir o agente do OMS, validar a soma de verificação e instalar/integrar o agente.
+3. Agora que instalarem o agente MMA.
+    - Insira o ID de área de trabalho correto e a chave para o comando.
+    - Os comandos estão para 64 bits.
+    - O **ID da área de trabalho** e **chave primária** podem ser encontrados no Portal do OMS > **definições**, no **origens ligadas** separador.
+    - Execute os seguintes comandos para transferir o agente do OMS, validar a soma de verificação e instalação/carregar o agente.
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
     ```
- 
+
 
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Instalar o agente de dependência em VMs do Linux
 
-Após a instalação MMA, Contoso pode instalar o agente de dependência em VMs do Linux.
+Após a instalação do MMA, a Contoso pode instalar o agente de dependência nas VMs do Linux.
 
-1. O agente de dependência é instalado em computadores com Linux utilizando InstallDependencyAgent-Linux64.bin, um script de shell com um binário de extração. Podem executar o ficheiro utilizando o partilhar, ou adicionar permissões para o próprio ficheiro de execução.
+1. O agente de dependência é instalado em computadores com Linux utilizar InstallDependencyAgent-Linux64.bin, um script de shell com um binário auto-extraível. Podem executar o ficheiro ao utilizar sh ou adicionar permissões para o próprio ficheiro de execução.
 
 2. Se instalarem o agente de dependência de Linux como raiz:
 
@@ -444,14 +443,14 @@ Após a instalação MMA, Contoso pode instalar o agente de dependência em VMs 
     ```
 
 
-## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Passo 6: Executar e analisar a avaliação de VM
+## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Passo 6: Executar e analisar a avaliação da VM
 
-Contoso agora pode verificar as dependências de máquina e criar um grupo. Em seguida, executam a avaliação para o grupo.
+Contoso agora pode verificar as dependências das máquinas e crie um grupo. Em seguida, eles são executados a avaliação para o grupo.
 
-### <a name="verify-dependencies-and-create-a-group"></a>Certifique-se as dependências e criar um grupo
+### <a name="verify-dependencies-and-create-a-group"></a>Verifique as dependências e criar um grupo
 
 
-1. Para as máquinas analisar, pode clicar em **dependências de vista**.
+1. Para as máquinas analisar, clicarem **ver dependências**.
 
     ![Ver as dependências das máquinas](./media/contoso-migration-assessment/view-machine-dependencies.png)
 
@@ -462,12 +461,12 @@ Contoso agora pode verificar as dependências de máquina e criar um grupo. Em s
     - As máquinas dependentes com os agentes do Azure Migrate instalados são apresentadas como caixas separadas
     - As máquinas que não têm os agentes instalados mostram as informações de porta e de endereço IP.
 
-3. Para máquinas com o agente instalado (WEBVM), pode clicar na caixa de máquina para ver mais informações, incluindo o FQDN, o sistema operativo e o endereço MAC.
+3. Para computadores com o agente instalado (WEBVM), eles clicam na caixa da máquina para ver mais informações, incluindo o FQDN, o sistema operativo e o endereço MAC.
 
     ![Ver dependências de grupo](./media/contoso-migration-assessment/sqlvm-dependencies.png)
 
-4. Agora, selecionarem as VMs para adicionar ao grupo (SQLVM e WEBVM).  Estes podem utilize CTRL + clique para selecionar várias VMs.
-5. Pode clicar em **criar grupo**e especifique um nome (smarthotelapp).
+4. Agora, selecionam as VMs para adicionar ao grupo (SQLVM e WEBVM).  Eles podem usar CTRL + clique para selecionar várias VMs.
+5. Clicarem **criar grupo**e especifique um nome (smarthotelapp).
 
 > [!NOTE]
     > Para ver dependências mais granulares, pode expandir o intervalo de tempo. Pode selecionar uma duração específica ou datas de início e de fim.
@@ -476,19 +475,19 @@ Contoso agora pode verificar as dependências de máquina e criar um grupo. Em s
 ### <a name="run-an-assessment"></a>Executar uma avaliação
 
 
-1. No **grupos** página, abra o grupo (smarthotelapp) e clique em **Criar avaliação**.
+1. Sobre o **grupos** página, abra o grupo (smarthotelapp) e clique em **Criar avaliação**.
 
     ![Criar uma avaliação](./media/contoso-migration-assessment/run-vm-assessment.png)
 
 2. A avaliação aparece na página **Gerir** > **Avaliações**.
 
-Contoso utilizadas as predefinições de avaliação, mas pode personalizar as definições. [Saiba mais](how-to-modify-assessment.md).
+Contoso utilizado as predefinições de avaliação, mas pode personalizar as definições. [Saiba mais](how-to-modify-assessment.md).
 
 
 
 ### <a name="analyze-the-vm-assessment"></a>Analisar a avaliação da VM
 
-Uma avaliação de Azure migrar inclui informações sobre a compatibilidade de VMs no local para o Azure, sugerida Dimensionar para a VM do Azure e os custos do Azure mensais estimados.
+Uma avaliação do Azure Migrate incluem informações sobre a compatibilidade de VMs no local para o Azure, dimensionamento certo sugerido para VM do Azure e custos do Azure mensais estimados.
 
 ![Relatório de avaliação](./media/contoso-migration-assessment/assessment-overview.png)
 
@@ -496,10 +495,10 @@ Uma avaliação de Azure migrar inclui informações sobre a compatibilidade de 
 
 ![Apresentação da avaliação](./media/contoso-migration-assessment/assessment-display.png)
 
-Uma avaliação obtém uma classificação de confiança de 1 estrela para estrela 5 (1 estrela a ser a mais baixa e estrela 5 a ser a mais elevada).
+Uma avaliação obtém uma classificação de confiança de 1 a 5 estrelas (1 estrela corresponde a ser a mais baixa e 5 a mais alta).
 - A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação.
 - A classificação ajuda a calcular a fiabilidade das recomendações de tamanho disponibilizadas pelo Azure Migrate.
-- Classificação de confiança é útil quando estão a fazer *com base no desempenho dimensionamento* como migrar Azure poderá não ter pontos de dados suficientes para efetuar o dimensionamento baseados em utilização. Para o *dimensionamento no local*, a classificação de confiança é sempre de 5 estrelas, dado que o Azure Migrate tem todos os pontos de dados de que precisa para dimensionar a VM.
+- Classificação de confiança é útil quando estiver fazendo *dimensionamento com base no desempenho* como o Azure Migrate poderá não ter pontos de dados suficientes para fazer o dimensionamento baseado em utilização. Para o *dimensionamento no local*, a classificação de confiança é sempre de 5 estrelas, dado que o Azure Migrate tem todos os pontos de dados de que precisa para dimensionar a VM.
 - Consoante a percentagem de pontos de dados disponíveis, é fornecida a classificação de confiança para a avaliação:
 
    **Disponibilidade de pontos de dados** | **Classificação de confiança**
@@ -541,16 +540,16 @@ Esta vista mostra o custo total de computação e armazenamento da execução da
 
 ## <a name="clean-up-after-assessment"></a>Limpar após a avaliação
 
-- Depois de concluída a avaliação, a Contoso mantém a aplicação de migração do Azure para avaliações futuras.
-- Se desativar a VM de VMware. Estes irá iniciá-lo novamente quando avaliam VMs adicionais.
-- Estes irá manter o projeto de migração do Contoso no Azure.  Está atualmente implementada no grupo de recursos ContosoFailoverRG, do leste-na região do Azure.
--  O recoletor VM ter uma licença de avaliação de 180 dias. Se este limite expirar, estas terá de transferir e voltar a configurar o recoletor.
+- Depois de concluída a avaliação, a Contoso retém a aplicação de migração do Azure para avaliações futuras.
+- Eles desativar a VM de VMware. Eles começarão-lo novamente quando eles avaliar VMs adicionais.
+- Eles irá manter o projeto de migração da Contoso no Azure.  Está atualmente implementada no grupo de recursos de ContosoFailoverRG, na região E.u.a. leste do Azure.
+-  A VM do recoletor tem uma licença de avaliação de 180 dias. Se este limite expirar, precisam de transferir e configurar o recoletor novamente.
 
 
 ## <a name="conclusion"></a>Conclusão
 
-Neste cenário Contoso avaliado à respetiva base de dados de aplicação SmartHotel utilizando a ferramenta DMA e as VMs no local utilizando o serviço Azure migrar. Se, em seguida, revisto avaliações para se certificar de que os recursos no local, estará pronto para a migração para o Azure.
+Neste cenário Contoso avaliado a respetiva base de dados de aplicação SmartHotel usando a ferramenta DMA e as VMs no local com o serviço Azure Migrate. Eles, em seguida, revimos as avaliações para se certificar de que os recursos no local estão prontos para a migração para o Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-No seguinte artigo nesta série, a Contoso realojar respetiva aplicação SmartHotel no Azure com uma migração de comparação de precisão e shift. Contoso migra o front-end WEBVM para a aplicação com o Azure Site Recovery e a base de dados de aplicação para um Azure geridos instância de SQL, utilizando o serviço de migração de base de dados. [Introdução ao](contoso-migration-rehost-vm-sql-managed-instance.md) com esta implementação.
+No próximo artigo desta série, a Contoso realojar sua SmartHotel de aplicação no Azure com uma migração lift-and-shift. Contoso migra do WEBVM front-end para a aplicação com o Azure Site Recovery e a base de dados de aplicação para uma instância SQL do Azure geridos, com o serviço de migração de base de dados. [Introdução ao](contoso-migration-rehost-vm-sql-managed-instance.md) com esta implementação.

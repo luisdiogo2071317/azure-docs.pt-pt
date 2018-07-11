@@ -1,5 +1,5 @@
 ---
-title: Mapear redes virtuais entre duas regiões do Azure no Azure Site Recovery | Microsoft Docs
+title: Mapear as redes virtuais entre duas regiões do Azure no Azure Site Recovery | Documentos da Microsoft
 description: O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou para um datacenter secundário.
 services: site-recovery
 documentationcenter: ''
@@ -12,92 +12,92 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 9294940785deb0834a419de8320286783635d68e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072138"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916745"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Mapear redes virtuais em diferentes regiões do Azure
+# <a name="map-virtual-networks-in-different-azure-regions"></a>Mapear as redes virtuais em diferentes regiões do Azure
 
 
-Este artigo descreve como mapear duas instâncias do Azure Virtual Network localizadas em diferentes regiões Azure entre si. Mapeamento de rede assegura que quando é criada uma máquina virtual replicada no destino da região do Azure, a máquina virtual também é criada na rede virtual que está mapeada para a rede virtual da máquina virtual de origem.  
+Este artigo descreve como mapear duas instâncias da rede Virtual do Azure localizados em diferentes regiões do Azure entre si. Mapeamento de rede assegura que quando uma máquina virtual replicada é criada na região do Azure de destino, a máquina virtual também é criada na rede virtual que está mapeada para a rede virtual da máquina virtual de origem.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de mapear redes, certifique-se de que criou um [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) na região de origem e a região do Azure de destino.
+Antes de mapear redes, certifique-se de que criou uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) na região de origem e a região do Azure de destino.
 
-## <a name="map-virtual-networks"></a>Mapear redes virtuais
+## <a name="map-virtual-networks"></a>Mapear as redes virtuais
 
-Para mapear uma Azure virtual network que está localizada numa região do Azure (rede de origem) a uma rede virtual que está localizada numa região de outro (rede de destino), máquinas virtuais do Azure, aceda a **infraestrutura de recuperação de Site**  >  **Mapeamento de rede**. Crie um mapeamento da rede.
+Para mapear uma rede virtual do Azure que está localizada numa região do Azure (rede de origem) para uma rede virtual que está localizada em outra região (rede de destino), para máquinas virtuais do Azure, aceda a **infraestrutura do Site Recovery**  >  **Mapeamento de rede**. Crie um mapeamento de rede.
 
-![Janela de mapeamentos de rede - criar um mapeamento da rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
-
-
-No exemplo seguinte, a máquina virtual está em execução na região Ásia Oriental. A máquina virtual está a ser replicada para a região Sudeste asiático.
-
-Para criar um mapeamento de rede a partir da região de Oriental à região Sudeste asiático, selecione a localização de rede de origem e a localização de rede de destino. Em seguida, selecione **OK**.
-
-![Adicionar a janela de mapeamento de rede - selecionar localizações de origem e destino para a rede de origem](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+![Janela de mapeamentos de rede - criar um mapeamento de rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-Repetir o processo anterior para criar um mapeamento de rede a partir da região de Sudeste asiático à região Ásia Oriental.
+No exemplo seguinte, a máquina virtual está em execução na região Leste asiático. A máquina virtual está a ser replicada para a região do Sudeste asiático.
 
-![Adicionar o painel de mapeamento de rede - selecionar localizações de origem e destino para a rede de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+Para criar um mapeamento de rede a partir da região da Ásia Oriental para a região do Sudeste asiático, selecione a localização de rede de origem e a localização de rede de destino. Em seguida, selecione **OK**.
+
+![Adicionar a janela de mapeamento de rede - Selecione as localizações de origem e destino para a rede de origem](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Mapear uma rede, ao ativar a replicação
+Repita o processo anterior para criar um mapeamento de rede a partir da região do Sudeste asiático para a região da Ásia Oriental.
 
-Quando se replica uma máquina virtual de uma região do Azure noutra região pela primeira vez, não se existir nenhum mapeamento da rede, pode definir a rede de destino quando configurou a replicação. Com base nesta definição, a recuperação de sites do Azure cria mapeamentos de rede a região de origem para a região de destino e a região de destino para a região de origem.   
+![Adicionar o painel de mapeamento de rede - Selecione as localizações de origem e destino para a rede de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+
+
+## <a name="map-a-network-when-you-enable-replication"></a>Mapear uma rede, quando ativa a replicação
+
+Quando replicar uma máquina virtual de uma região do Azure para outra região pela primeira vez, não se existir nenhum mapeamento de rede, pode definir a rede de destino quando configurar a replicação. Com base nesta definição, do Azure Site Recovery cria mapeamentos de rede de região de origem para a região de destino e de região de destino para a região de origem.   
 
 ![Configurar o painel de definições – escolha a localização de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
-Por predefinição, a recuperação de sites cria uma rede na região de destino que é idêntica à rede de origem. Recuperação de sites cria uma rede adicionando **-asr** como um sufixo ao nome de rede de origem. Para escolher uma rede que já tiver sido criada, selecione **personalizar**.
+Por predefinição, o Site Recovery cria uma rede na região de destino que é idêntica à rede de origem. O site Recovery cria uma rede adicionando **-asr** como sufixo ao nome da rede de origem. Para escolher uma rede que já tenha sido criada, selecione **personalizar**.
 
-![Personalizar o painel de definições de destino - nome do grupo de recursos do conjunto de destino e o nome de rede virtual de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+![Personalizar o painel de definições de destino - nome do grupo de recursos do conjunto de destino e nome de rede virtual de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
 
-Se já tiver ocorrido mapeamento da rede, não é possível alterar a rede virtual de destino ao ativar a replicação. Neste caso, para alterar a rede virtual de destino, modifique o mapeamento de rede existente.  
+Se já tiver ocorrido mapeamento da rede, não é possível alterar a rede virtual de destino, quando ativa a replicação. Neste caso, para alterar a rede virtual de destino, modifique o mapeamento de rede existente.  
 
 ![Destino de personalizar o painel de definições - definir o nome de grupo de recursos de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
 
 ![Modificar o painel de mapeamento de rede - modificar um nome de rede virtual de destino existente](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
 
 > [!IMPORTANT]
-> Se modificar um mapeamento de rede de região A região B, certifique-se de que também modificar o mapeamento da rede de região B região A.
+> Se modificar um mapeamento de rede de região A região B, certifique-se de que também modificar o mapeamento de rede de região B para a região A.
 >
 >
 
 
 ## <a name="subnet-selection"></a>Seleção de sub-rede
-A sub-rede da máquina virtual de destino está selecionada com base no nome de sub-rede da máquina virtual de origem. Se uma sub-rede que tem o mesmo nome que a máquina virtual de origem está disponível na rede de destino, essa sub-rede está definida para a máquina virtual de destino. Se uma sub-rede com o mesmo nome não existir na rede de destino, por ordem alfabética primeira sub-rede está definida como a sub-rede de destino.
+A sub-rede da máquina virtual de destino é selecionada com base no nome da sub-rede da máquina virtual de origem. Se uma sub-rede que tem o mesmo nome que a máquina virtual de origem está disponível na rede de destino, que a sub-rede está definida para a máquina virtual de destino. Se uma sub-rede com o mesmo nome não existir na rede de destino, por ordem alfabética primeira sub-rede está definida como a sub-rede de destino.
 
 Para modificar a sub-rede, vá para o **computação e rede** definições para a máquina virtual.
 
-![Janela de propriedades de computação de rede e de computação](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+![Janela de propriedades de computação de computação e rede](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="ip-address"></a>Endereço IP
 
-O endereço IP para cada interface de rede da máquina virtual de destino está configurado conforme descrito nas secções seguintes.
+O endereço IP para cada interface de rede da máquina virtual de destino está definido conforme descrito nas seções a seguir.
 
 ### <a name="dhcp"></a>DHCP
-Se a interface de rede da máquina virtual de origem utiliza DHCP, a interface de rede da máquina virtual de destino seja também definida para utilizar DHCP.
+Se a interface de rede da máquina virtual de origem utilizar DHCP, a interface de rede da máquina virtual de destino também é definida para utilizar DHCP.
 
 ### <a name="static-ip-address"></a>Endereço IP estático
-Se a interface de rede da máquina virtual de origem utilizar um endereço IP estático, a interface de rede da máquina virtual de destino também está configurada para utilizar um endereço IP estático. As secções seguintes descrevem como um endereço IP estático está definido.
+Se a interface de rede da máquina virtual de origem utilizar um endereço IP estático, a interface de rede da máquina virtual de destino também é definida para utilizar um endereço IP estático. As secções seguintes descrevem como um endereço IP estático está definido.
 
 #### <a name="same-address-space"></a>Mesmo espaço de endereços
 
-Se a sub-rede de origem e a sub-rede de destino tem o mesmo espaço de endereços, o endereço IP da interface de rede da máquina virtual de origem está definido como o endereço IP de destino. Se o mesmo endereço IP não estiver disponível, o seguinte endereço IP disponível é definido como o endereço IP de destino.
+Se a sub-rede de origem e a sub-rede de destino tiverem o mesmo espaço de endereços, o endereço IP da interface de rede da máquina virtual de origem está definido como o endereço IP de destino. Se o mesmo endereço IP não estiver disponível, o endereço IP disponível seguinte está definido como o endereço IP de destino.
 
-#### <a name="different-address-spaces"></a>Espaços de endereços diferente
+#### <a name="different-address-spaces"></a>Espaços de endereços diferentes
 
-Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereços diferente, o seguinte endereço IP disponível na sub-rede de destino está definido como o endereço IP de destino.
+Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereços diferentes, o endereço seguinte disponível de IP na sub-rede de destino está definido como o endereço IP de destino.
 
 Para modificar o IP de destino em cada interface de rede, vá para o **computação e rede** definições para a máquina virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Reveja [redes orientações para replicar máquinas virtuais do Azure](site-recovery-azure-to-azure-networking-guidance.md).
+* Revisão [documentação de orientação para replicar máquinas virtuais do Azure de rede](site-recovery-azure-to-azure-networking-guidance.md).

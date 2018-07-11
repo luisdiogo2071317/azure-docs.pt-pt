@@ -1,34 +1,34 @@
 ---
-title: Arquitetura do Azure para o Azure replicação no Azure Site Recovery | Microsoft Docs
-description: Este artigo fornece uma descrição geral dos componentes e arquitetura utilizada quando replicar VMs do Azure entre regiões do Azure utilizando o serviço do Azure Site Recovery.
+title: Arquitetura de replicação do Azure para o Azure no Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada ao replicar VMs do Azure entre regiões do Azure com o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33ab90f958e5033c0c563e4fd8921ee1f7d57c47
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716232"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915678"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Arquitetura de replicação do Azure para o Azure
+# <a name="azure-to-azure-replication-architecture"></a>Arquitetura da replicação do Azure para o Azure
 
 
-Este artigo descreve a arquitetura utilizada quando replicar, efetuar a ativação pós-falha e recuperar máquinas virtuais do Azure (VMs) entre regiões do Azure, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo descreve a arquitetura utilizada ao replicar, efetuar a ativação pós-falha e recuperar máquinas virtuais do Azure (VMs) entre regiões do Azure, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
 
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
 
-O seguinte gráfico fornece uma vista de alto nível de um ambiente de VM do Azure numa região específica (neste exemplo, a localização EUA Leste). Num ambiente VM do Azure:
-- As aplicações podem estar a executar em VMs com discos geridos ou não geridos discos distribuídos por contas de armazenamento.
-- As VMs podem ser incluídas numa ou mais sub-redes dentro de uma rede virtual.
+O gráfico a seguir fornece uma visão geral de um ambiente de VM do Azure numa região específica (neste exemplo, a localização E.U.A. Leste). Num ambiente de VM do Azure:
+- Aplicações podem ser executado em VMs com discos geridos ou discos não geridos espalhadas em contas de armazenamento.
+- As VMs podem ser incluídas numa ou mais sub-redes numa rede virtual.
 
 
 **Replicação do Azure para o Azure**
@@ -39,35 +39,35 @@ O seguinte gráfico fornece uma vista de alto nível de um ambiente de VM do Azu
 
 ### <a name="step-1"></a>Passo 1
 
-Ao ativar a replicação de VM do Azure, os seguintes recursos são criados automaticamente na região de destino, com base nas definições de região de origem. Pode personalizar as definições de recursos de destino conforme necessário.
+Quando ativa a replicação de VM do Azure, os recursos a seguir são criados automaticamente na região de destino, com base nas definições de região de origem. Pode personalizar as definições de recursos de destino conforme necessário.
 
-![Ativar o processo de replicação, o passo 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Ativar o processo de replicação, passo 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
 **Recurso** | **Detalhes**
 --- | ---
-**Grupo de recursos de destino** | O grupo de recursos aos quais as VMs replicadas pertencem após a ativação pós-falha. A localização deste grupo de recursos pode estar em qualquer região do Azure, exceto a região do Azure na qual as máquinas virtuais de origem estão alojadas.
-**Rede virtual de destino** | A rede virtual no qual as VMs replicadas estão localizadas após a ativação pós-falha. Um mapeamento da rede é criado entre redes virtuais de origem e de destino e vice-versa.
-**Contas de armazenamento de cache** | Replicar as alterações VM de origem para uma conta de armazenamento de destino, são controladas e enviados para a conta de armazenamento de cache numa localização de origem. Este passo garante um impacto mínimo no aplicações de produção em execução na VM.
-**As contas de armazenamento de destino (se não utilizar a VM de origem gerido discos)**  | Contas de armazenamento na localização de destino para o qual os dados são replicados.
-* * Réplica discos geridos pelo (se a origem a VM está em discos geridos pelo) * *  | Gerido discos na localização de destino para o qual os dados são replicados.
+**Grupo de recursos de destino** | O grupo de recursos ao qual as VMs replicadas pertencem após a ativação pós-falha. A localização deste grupo de recursos pode estar em qualquer região do Azure, exceto a região do Azure na qual as máquinas de virtuais de origem estão alojadas.
+**Rede virtual de destino** | A rede virtual na qual replicadas estão localizadas as VMs após a ativação pós-falha. É criado um mapeamento de rede entre redes virtuais de origem e destino e vice-versa.
+**Contas de armazenamento em cache** | Antes das alterações VM de origem são replicadas para uma conta de armazenamento de destino, sejam rastreadas e enviados para a conta de armazenamento de cache na localização de origem. Este passo garante um impacto mínimo sobre aplicações de produção em execução na VM.
+**Contas de armazenamento de destino (se a origem de que VM não utiliza discos geridos)**  | Contas de armazenamento na localização de destino ao qual os dados são replicados.
+* * Réplica discos geridos (se a origem de VM está em discos geridos) * *  | Os discos na localização de destino ao qual os dados são replicados geridos.
 **Conjuntos de disponibilidade de destino**  | Conjuntos de disponibilidade na qual as VMs replicadas estão localizadas após a ativação pós-falha.
 
 ### <a name="step-2"></a>Passo 2
 
-Como a replicação está ativada, o serviço de mobilidade de extensão de recuperação de Site é automaticamente instalado na VM:
+Como a replicação estiver ativada, o serviço de mobilidade de extensão do Site Recovery é automaticamente instalado na VM:
 
-1. A VM está registada com a recuperação de Site.
+1. A VM está registada com o Site Recovery.
 
-2. Replicação contínua está configurada para a VM. Operações de escrita de dados nos discos de VM continuamente são transferidas para a conta de armazenamento de cache, na localização de origem.
+2. A replicação contínua está configurada para a VM. Escritas de dados nos discos de VM continuamente são transferidas para a conta de armazenamento de cache, no local de origem.
 
    ![Ativar o processo de replicação, o passo 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 
- Recuperação de site nunca necessita de conectividade de entrada para a VM. Conectividade de saída só é necessário para o seguinte.
+ Recuperação de site não tem necessidade conectividade de entrada para a VM. Conectividade de saída só é necessária para o seguinte.
 
- - Endereços IP/os URLs do serviço de recuperação de sites
- - Endereços de IP/os URLs de autenticação do Office 365
- - Endereços IP de conta de armazenamento de cache
+ - Endereços URLs/IP do serviço de recuperação de sites
+ - Endereços URLs/IP de autenticação do Office 365
+ - Endereços IP da conta de armazenamento de cache
 
 Se ativar a consistência multi-VM, as máquinas no grupo de replicação comunicam entre si pela porta 20004. Certifique-se de que não há nenhum dispositivo de firewall a bloquear a comunicação interna entre as VMs através da porta 20004.
 
@@ -76,11 +76,11 @@ Se pretender que as VMs do Linux pertençam a um grupo de replicação, certifiq
 
 ### <a name="step-3"></a>Passo 3
 
-Após a conclusão da replicação contínua em curso, escritas em disco imediatamente são transferidas para a conta de armazenamento de cache. Recuperação do site processa os dados e envia-a para o destino da conta de armazenamento ou réplica discos geridos pelo. Depois dos dados são processados, pontos de recuperação são gerados na conta de armazenamento de destino em alguns minutos.
+Após a replicação contínua em curso, escritas em disco imediatamente são transferidas para a conta de armazenamento de cache. Site Recovery processa os dados e envia-os para o destino de conta de armazenamento ou a réplica de discos geridos. Depois dos dados são processados, pontos de recuperação são gerados na conta de armazenamento de destino intervalos de poucos minutos.
 
 ## <a name="failover-process"></a>Processo de ativação pós-falha
 
-Quando seleciona uma ativação pós-falha, as VMs são criadas no grupo de recursos de destino, a rede virtual de destino, a sub-rede de destino e, no conjunto de disponibilidade de destino. Durante uma ativação pós-falha, pode utilizar qualquer ponto de recuperação.
+Quando iniciar uma ativação pós-falha, as VMs são criadas no grupo de recursos de destino, a rede virtual de destino, a sub-rede de destino e no conjunto de disponibilidade de destino. Durante uma ativação pós-falha, pode utilizar qualquer ponto de recuperação.
 
 ![Processo de ativação pós-falha](./media/concepts-azure-to-azure-architecture/failover.png)
 

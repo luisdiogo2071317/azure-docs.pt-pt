@@ -1,84 +1,84 @@
 ---
-title: Reproteção efetuada a ativação pós-falha de VMs do Azure para a região principal do Azure com o Azure Site Recovery | Microsoft Docs
-description: Descreve como voltar a proteger as VMs do Azure numa região secundária, após a ativação pós-falha de uma região primária, utilizando o Azure Site Recovery.
+title: Voltar a proteger efetuar a ativação pós-falha de VMs do Azure para a região primária do Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Descreve como voltar a proteger as VMs do Azure numa região secundária, após a ativação pós-falha de uma região primária, com o Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6a57226f81e626e620033750c58d5998d8e7e894
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716589"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918871"
 ---
-# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteção efetuada a ativação pós-falha de VMs do Azure para a região primária
+# <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Voltar a proteger efetuar a ativação pós-falha de VMs do Azure para a região primária
 
 
-Quando lhe [efetuar a ativação pós-falha](site-recovery-failover.md) VMs do Azure de uma região para a utilização de outro [do Azure Site Recovery](site-recovery-overview.md), o arranque de VMs de cópia de segurança na região secundária, num Estado não protegido. Se falhar novamente as VMs para a região primária, terá de fazer o seguinte:
+Quando [efetuar a ativação pós-falha](site-recovery-failover.md) VMs do Azure de uma região para outro e usando [do Azure Site Recovery](site-recovery-overview.md), o arranque de VMs de cópia de segurança na região secundária, num estado desprotegido. Se a reativação pós-falha de VMs para a região primária, tem de fazer o seguinte:
 
-- Proteja as VMs na região secundária, de modo a que são iniciados replicar a região primária. 
-- Depois de concluir só e estiver a replicar as VMs, pode efetuá-los através da secundário, a região primária.
+- Voltar a proteger as VMs na região secundária, para que comecem a replicar para a região primária. 
+- Após a conclusão de nova proteção e as VMs estão a replicar, pode realizar a ativação-los ao longo do secundário para a região primária.
 
 > [!WARNING]
-> Se já [migrados](migrate-overview.md#what-do-we-mean-by-migration) máquinas a partir de principal para a região secundária, mover a VM para outro grupo de recursos ou eliminado a VM do Azure, não é possível voltar a proteger a VM ou efetuar a pós-falha.
+> Se tiver [migrados](migrate-overview.md#what-do-we-mean-by-migration) máquinas dos principais para a região secundária, movida a VM para outro grupo de recursos ou eliminado a VM do Azure, não é possível voltar a proteger a VM ou realizar a ativação pós-falha.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. A ativação pós-falha da VM do primário para a região secundária tem de ser consolidada.
+1. A ativação pós-falha da VM dos principais para a região secundária tem de ser consolidada.
 2. O site de destino principal deve estar disponível e deverá conseguir aceder ou criar recursos nessa região.
 
 ## <a name="reprotect-a-vm"></a>Voltar a proteger uma VM
 
-1. No **cofre** > **replicado itens**, com o botão direito a ativação pós-falha da VM e selecione **voltar a proteger**. A direção deve mostrar de secundária ao principal. 
+1. Na **cofre** > **itens replicados**, com o botão direito a ativação pós-falha VM e selecione **voltar a proteger**. A direção de nova proteção deve mostrar a partir do secundário para o primário. 
 
   ![Voltar a proteger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-2. Reveja os conjuntos de disponibilidade, armazenamento, rede e grupo de recursos. Em seguida, clique em **OK**. Se existirem quaisquer recursos marcados como novo, estes são criados como parte do processo de só.
-3. A tarefa implementa o site de destino com os dados mais recentes. Após a que, replicação de diferenças ocorre. Em seguida, pode ativação pós-falha para o site primário. Pode selecionar a conta de armazenamento ou a rede que pretende utilizar durante a voltar a proteger, utilizando a opção de personalizar.
+2. Reveja os conjuntos de disponibilidade, armazenamento, rede e grupo de recursos. Em seguida, clique em **OK**. Se existirem quaisquer recursos marcados como novo, eles são criados como parte do processo de nova proteção.
+3. A tarefa de nova proteção realiza o seeding do site de destino com os dados mais recentes. Depois que terminar, a replicação de diferenças ocorre. Em seguida, pode efetuar a ativação pós-falha para o site primário. Pode selecionar a conta de armazenamento ou a rede que pretende utilizar durante a voltar a proteger, utilizando a opção de personalizar.
 
-  ![Personalizar a opção](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+  ![Opção de personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
-### <a name="customize-reprotect-settings"></a>Personalizar as definições de reproteção
+### <a name="customize-reprotect-settings"></a>Personalizar as definições de voltar a proteger
 
-Pode personalizar as seguintes propriedades do destino VMe durante só.
+Pode personalizar as seguintes propriedades do destino VMe durante a nova proteção.
 
 ![Personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Propriedade |Notas  |
 |---------|---------|
-|Grupo de recursos de destino     | Modificar o grupo de recursos de destino em que a VM ser criada. Como parte de uma só, a VM de destino foi eliminado. Pode escolher um novo grupo de recursos no qual pretende criar a VM após a ativação pós-falha.        |
-|Rede virtual de destino     | A rede de destino não pode ser alterada durante a tarefa de reproteção. Para alterar a rede, Refazer o mapeamento da rede.         |
-|Armazenamento de destino (VM secundário não utiliza discos geridos)     | Pode alterar a conta de armazenamento que utiliza a VM após a ativação pós-falha.         |
-|Réplica geridas discos (secundária VM utiliza discos geridos)    | Recuperação de sites cria discos de réplica gerido na região primária para espelhar discos geridos a VM secundário.         | 
+|Grupo de recursos de destino     | Modifique o grupo de recursos de destino no qual a VM é criada. Como a parte da nova proteção, a VM de destino é eliminado. Pode escolher um novo grupo de recursos no qual pretende criar a VM após a ativação pós-falha.        |
+|Rede virtual de destino     | A rede de destino não pode ser alterada durante a tarefa de reproteção. Para alterar a rede, Refazer o mapeamento de rede.         |
+|Armazenamento de destino (VM secundária não utilizam discos geridos)     | Pode alterar a conta de armazenamento que a VM utiliza após a ativação pós-falha.         |
+|(A VM secundária utiliza discos geridos) de discos geridos de réplica    | Site Recovery cria discos geridos de réplica na região primária para espelhar os discos geridos da VM secundário.         | 
 |Armazenamento de cache     | Pode especificar uma conta de armazenamento de cache a utilizar durante a replicação. Por predefinição, é possível criar uma nova conta de armazenamento de cache, se não existir.         |
-|Conjunto de Disponibilidade     |Se a VM com a região secundária faz parte de um conjunto de disponibilidade, pode escolher um conjunto de disponibilidade para a VM de destino na região primária. Por predefinição, a recuperação de Site tenta localizar o conjunto na região primária de disponibilidade existente e utilizá-lo. Durante a personalização, pode especificar um novo conjunto de disponibilidade.         |
+|Conjunto de Disponibilidade     |Se a VM na região secundária fizer parte de um conjunto de disponibilidade, pode escolher um conjunto de disponibilidade para a VM de destino na região primária. Por predefinição, o Site Recovery tenta localizar o conjunto na região primária de disponibilidade existente e utilizá-lo. Durante a personalização, pode especificar um novo conjunto de disponibilidade.         |
 
 
-### <a name="what-happens-during-reprotection"></a>O que acontece durante só?
+### <a name="what-happens-during-reprotection"></a>O que acontece durante a nova proteção?
 
-Por predefinição ocorre o seguinte:
+Por predefinição, ocorre o seguinte:
 
 1. É criada uma conta de armazenamento de cache na região primária
-2. Se a conta de armazenamento de destino (a original conta do storage na região primária) não existe, é criado um novo. O nome da conta de armazenamento atribuído é o nome da conta de armazenamento utilizado pela VM secundária, o sufixo com "asr".
-3. Se a VM utiliza discos geridos, as réplica geridas discos são criados na região primária para armazenar os dados replicados a partir de discos da VM secundário. 
-4. Se o conjunto de disponibilidade de destino não existe, uma nova é criada como parte da tarefa de reproteção, se necessário. Se tiver personalizado as definições de, em seguida, o conjunto selecionado é utilizado.
+2. Se a conta de armazenamento de destino (a conta de armazenamento original na região primária) não existir, é criado um novo. O nome da conta de armazenamento atribuída é o nome da conta de armazenamento utilizado pela VM secundária, o sufixo com "asr".
+3. Se a sua VM utilizar discos geridos, geridos de réplica são criados discos na região primária para armazenar os dados replicados a partir de discos da VM secundário. 
+4. Se o conjunto de disponibilidade de destino não existir, uma nova é criada como parte do trabalho de voltar a proteger, se necessário. Se tiver personalizado as definições da nova proteção, em seguida, o conjunto selecionado é utilizado.
 
-Quando acionar uma tarefa de reproteção e o destino da que VM existe, ocorre o seguinte:
+Quando acionar uma tarefa de reproteção e o destino que VM existe, ocorre o seguinte:
 
-1. Os componentes necessários são criados como parte de reproteção. Se já existirem, são reutilizados.
-2. O lado do destino que VM é desativada se estiver em execução.
-3. O disco VM de lado de destino é copiado pela recuperação de sites para um contentor, como um blob de seed.
-4. O lado do destino VM, em seguida, é eliminado.
-5. A origem atual é utilizar o blob de seed lado VM (secundário) para replicar. Isto garante que apenas deltas são replicadas.
-6. As alterações principais entre o disco de origem e o blob de seed são sincronizadas. Esta operação pode demorar algum tempo a concluir.
-7. Depois de concluída a tarefa de reproteção, a replicação de diferenças começa e cria um ponto de recuperação de acordo com a política de replicação.
-8. Depois da tarefa de reproteção for bem sucedida, a VM aciona um estado protegido.
+1. Os componentes necessários são criados como parte da nova proteção. Se já existirem, são reutilizadas.
+2. Lado do destino que VM está desativada se ele é executado.
+3. O disco VM do lado de destino é copiado pelo Site Recovery para um contentor, como um blob de seed.
+4. VM do lado do destino, em seguida, é eliminado.
+5. O blob de seed é utilizado pela origem atual lado VM (secundário) para replicar. Isto garante que apenas deltas serão replicadas.
+6. Grandes alterações entre o disco de origem e o blob de seed são sincronizadas. Esta ação pode demorar algum tempo a concluir.
+7. Depois de concluída a tarefa de reproteção, a replicação delta começa e cria um ponto de recuperação em conformidade com a política de replicação.
+8. Depois da tarefa de reproteção for bem-sucedida, o VM entra num estado protegido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois da VM estiver protegida, pode iniciar uma ativação pós-falha. A ativação pós-falha será encerrado a VM com a região secundária e cria e inicia VM na região primária, com algum período de indisponibilidade breves. Recomendamos que escolha um período de tempo em conformidade e que execute uma ativação pós-falha de teste, mas a iniciar uma ativação pós-falha completa para o site primário. [Saiba mais](site-recovery-failover.md) sobre a ativação pós-falha.
+Depois da VM está protegida, pode iniciar uma ativação pós-falha. A ativação pós-falha encerra a VM na região secundária e cria e inicializa a VM na região primária, com um pequeno período de indisponibilidade. Recomendamos que escolha um período de tempo em conformidade e que execute uma ativação pós-falha de teste, mas iniciando um failover completo para o site primário. [Saiba mais](site-recovery-failover.md) sobre a ativação pós-falha.
 

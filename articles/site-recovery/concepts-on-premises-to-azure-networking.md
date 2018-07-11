@@ -1,70 +1,70 @@
 ---
-title: Configurar o endereçamento IP para ligar após a ativação pós-falha para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Descreve como configurar a ligação para VMs do Azure após a ativação pós-falha no local com o Azure Site Recovery de endereçamento IP
+title: Configurar o endereçamento de IP para ligar após a ativação pós-falha para o Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Descreve como configurar a ligar para VMs do Azure após a ativação pós-falha do local com o Azure Site Recovery de endereçamento IP
 services: site-recovery
 documentationcenter: ''
 author: mayanknayar
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 9d4bf43ea727bbf7df79532499007dbd23eea925
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 99b8287b79a7cf9802ab3b71ce4c90032706bc63
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071642"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919248"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar a ligação após a ativação pós-falha para o Azure de endereçamento IP
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurar a ligação após a ativação pós-falha do Azure de endereçamento IP
 
-Este artigo explica os requisitos de rede para estabelecer a ligação para VMs do Azure, depois de utilizar o [do Azure Site Recovery](site-recovery-overview.md) serviço de replicação e ativação pós-falha para o Azure.
+Este artigo explica os requisitos de rede para ligar a VMs do Azure, depois de utilizar o [do Azure Site Recovery](site-recovery-overview.md) serviço para a replicação e ativação pós-falha do Azure.
 
-Neste artigo, irá aprender:
+Neste artigo aprenderá sobre:
 
 > [!div class="checklist"]
 > * Pode utilizar os métodos de ligação
-> * Como utilizar um endereço IP diferentes para replicar as VMs do Azure
+> * Como utilizar um endereço IP diferente para replicar VMs do Azure
 > * Como manter os endereços IP para VMs do Azure após a ativação pós-falha
 
-## <a name="connecting-to-replica-vms"></a>Ligar para a réplica de VMs
+## <a name="connecting-to-replica-vms"></a>Ligar a VMs de réplica
 
-Ao planear a replicação e a estratégia de ativação pós-falha, uma das perguntas chaves é como ligar à VM do Azure após a ativação pós-falha. Existem duas opções ao conceber a estratégia de rede para a réplica de VMs do Azure:
+Ao planear a replicação e a estratégia de ativação pós-falha, uma das principais perguntas é como se pode ligar à VM do Azure após a ativação pós-falha. Existem duas opções de ao planear a estratégia de rede de VMs do Azure de réplica:
 
-- **Utilize o endereço IP diferente**:, pode optar por utilizar um intervalo de endereços IP diferentes para a rede VM do Azure replicada. Neste cenário a VM obtém um novo endereço IP após a ativação pós-falha e é necessária uma atualização DNS.
-- **Manter o mesmo endereço IP**: pode querer utilizar o mesmo intervalo de endereços IP que no site primário no local, para a rede Azure após a ativação pós-falha. Manter o mesmo IP endereços simplifica a recuperação ao reduzir relacionadas com a rede problemas após a ativação pós-falha. No entanto, quando está a replicar para o Azure, terá de atualizar as rotas com a nova localização dos endereços IP após a ativação pós-falha.
+- **Utilizar endereço IP diferente**: pode optar por utilizar um intervalo de endereços IP diferente para a rede de VM do Azure replicada. Neste cenário a VM obtém um novo endereço IP após a ativação pós-falha, e é necessária uma atualização DNS.
+- **Manter o mesmo endereço IP**: pode pretender utilizar o intervalo de endereços IP mesmo que no seu site no local primário, para a rede do Azure após a ativação pós-falha. Manter o mesmo IP endereços simplifica a recuperação ao reduzir a rede problemas relacionados com após a ativação pós-falha. No entanto, quando está a replicar para o Azure, terá de atualizar as rotas com a nova localização dos endereços IP após a ativação pós-falha.
 
-## <a name="retaining-ip-addresses"></a>Endereços IP de retenção
+## <a name="retaining-ip-addresses"></a>Mantendo os endereços IP
 
-Recuperação de sites fornece a capacidade de manter IP fixo endereços quando efetuar a ativação pós-falha para o Azure, com uma sub-rede de ativação pós-falha.
+Site Recovery fornece a capacidade de manter o IP fixo endereços quando efetuar a ativação pós-falha para o Azure, com uma sub-rede de ativação pós-falha.
 
-- Com a ativação pós-falha de sub-rede, uma sub-rede específica está presente no Site 1 ou 2 do Site, mas nunca em ambos os sites em simultâneo.
-- Para manter o espaço de endereços IP na eventualidade de ocorrer uma ativação pós-falha, é através de programação dispor para a infraestrutura de router mover as sub-redes de um site para outro.
-- Durante a ativação pós-falha, as sub-redes que se deslocam-se com as VMs protegidas associadas. A principal desvantagem é que o se ocorrer uma falha, terá de mover a sub-rede de toda.
+- Com a sub-rede de ativação pós-falha, uma sub-rede específica esteja presente no Site 1 ou 2 de Site, mas nunca em ambos os sites em simultâneo.
+- Para manter o espaço de endereços IP em caso de uma ativação pós-falha, por meio de programação fazer com que a infraestrutura de router para mover as sub-redes de um site para outro.
+- Durante a ativação pós-falha, as sub-redes mover-se com as VMs protegidas associadas. A principal desvantagem é que, em caso de falha, terá de mover a sub-rede de toda.
 
 
 ### <a name="failover-example"></a>Exemplo de ativação pós-falha
 
-Vamos ver um exemplo de ativação pós-falha para o Azure utilizando numa empresa fictícia, o Banco Woodgrove.
+Vamos examinar um exemplo para a ativação pós-falha para o Azure através de uma empresa fictícia, o Woodgrove Bank.
 
-- Banco Woodgrove aloja as suas aplicações empresariais num site no local. Se alojam as aplicações móveis no Azure.
-- Não há conectividade a VPN site a site entre a rede de limite no local e a rede virtual do Azure. Devido a ligação VPN, a rede virtual no Azure aparece como uma extensão da rede no local.
-- Woodgrove pretende replicar as cargas de trabalho no local para o Azure com a recuperação de Site.
- - Woodgrove tem as aplicações que dependem hard-coded endereços IP, pelo que precisam para manter os endereços IP para as aplicações, após a ativação pós-falha para o Azure.
- - Recursos em execução no Azure, utilize o IP endereço intervalo 172.16.1.0/24, 172.16.2.0/24.
+- O Woodgrove Bank aloja as aplicações de negócio num site no local. Eles hospedam as aplicações móveis no Azure.
+- Não existe conectividade de site-site VPN entre a rede de borda no local e a rede virtual do Azure. Devido a ligação de VPN, a rede virtual no Azure é apresentada como uma extensão da rede no local.
+- O Woodgrove quer replicar cargas de trabalho no local para o Azure com o Site Recovery.
+ - O Woodgrove tem as aplicações que dependem endereços IP embutido em, pelo que precisam para manter os endereços IP para as aplicações, após a ativação pós-falha para o Azure.
+ - Recursos em execução no Azure utilizam o IP endereço intervalo 172.16.1.0/24, 172.16.2.0/24.
 
 ![Antes da ativação pós-falha de sub-rede](./media/site-recovery-network-design/network-design7.png)
 
 **Infraestrutura antes da ativação pós-falha**
 
 
-Para Woodgrove ser capaz de replicar as respetivas VMs no Azure, mantendo os endereços IP, aqui que a empresa precisa de fazer:
+O Woodgrove precisasse ser capaz de replicar respetivas VMs para o Azure, mantendo os endereços IP, aqui que a empresa precisa de fazer:
 
 
-1. Crie rede virtual do Azure na qual serão criadas as VMs do Azure após a ativação pós-falha do local máquinas. Deve ser uma extensão de rede no local, para que as aplicações podem efetuar a ativação pós-falha totalmente integrada.
-2. Antes da ativação pós-falha, no Site Recovery, se atribuir o mesmo endereço IP nas propriedades da máquina. Após a ativação pós-falha, a recuperação de Site atribui este endereço à VM do Azure.
-3. Após a ativação pós-falha é executado e as VMs do Azure são criadas com o mesmo endereço IP, que se ligarem à rede através um [ligação Vnet a Vnet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Esta ação pode ser colocado em script.
-4. Se necessitam de modificar rotas para refletir que 192.168.1.0/24 foi agora movido para o Azure.
+1. Crie rede virtual do Azure na qual as VMs do Azure serão criadas após a ativação pós-falha de máquinas no local. Deve ser uma extensão da rede no local, para que os aplicativos podem efetuar a ativação pós-falha totalmente integrada.
+2. Antes da ativação pós-falha, no Site Recovery, que atribuir o mesmo endereço IP nas propriedades da máquina. Após a ativação pós-falha, o Site Recovery atribui este endereço à VM do Azure.
+3. Depois de ativação pós-falha é executado e as VMs do Azure são criadas com o mesmo endereço IP, se ligam à rede, com um [ligação Vnet a Vnet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Esta ação pode ser colocado em script.
+4. É necessário modificar as rotas, para refletir que essa 192.168.1.0/24 agora foi movido para o Azure.
 
 
 **Infraestrutura após a ativação pós-falha**
@@ -73,16 +73,16 @@ Para Woodgrove ser capaz de replicar as respetivas VMs no Azure, mantendo os end
 
 #### <a name="site-to-site-connection"></a>Ligação site a site
 
-Para além da ligação vnet a vnet, após a ativação pós-falha, pode configurar Woodgrove conectividade VPN de site para site:
-- Quando configurar uma ligação site a site, na rede do Azure que só pode encaminhar o tráfego para a localização no local (local ntwork) se o intervalo de endereços IP é diferente do intervalo de endereços IP no local. Isto acontece porque o Azure não suporta sub-redes Stretch. Por isso, se tiver de sub-rede 192.168.1.0/24 no local, não é possível adicionar um 192.168.1.0/24 local da rede na rede do Azure. Isto é esperado porque o Azure não sabe que não existem sem VMs do Active Directory na sub-rede e que a sub-rede está a ser criada para a recuperação de desastre apenas.
-- Para conseguir corretamente encaminhar o tráfego de rede fora de uma rede do Azure, as sub-redes na rede e da rede local não pode entrar em conflito.
+Para além da ligação de vnet a vnet, após a ativação pós-falha, o Woodgrove pode definir a conectividade VPN de site a site:
+- Quando configurar uma ligação site a site, na rede do Azure que apenas pode encaminhar tráfego para a localização no local (rede local) se o intervalo de endereços IP é diferente do intervalo de endereços IP no local. Isto acontece porque o Azure não suporta a sub-redes Stretch. Então, se tiver de sub-rede 192.168.1.0/24 no local, não é possível adicionar um 192.168.1.0/24 local da rede na rede do Azure. Isso é esperado, porque o Azure não sabe que não há nenhum VMs do Active Directory na sub-rede e que a sub-rede está a ser criada para apenas a recuperação após desastre.
+- Para ser capaz de encaminhar corretamente o tráfego de rede fora de uma rede do Azure, as sub-redes na rede e a rede local não podem entrar em conflito.
 
 
 
 
 ## <a name="assigning-new-ip-addresses"></a>Atribuir novos endereços IP
 
-Isto [blogue](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como configurar a infraestrutura de rede do Azure quando não precisa de manter os endereços IP após a ativação pós-falha. Começa com uma descrição da aplicação, analisa como definir a segurança de rede no local e no Azure e conclui com informações sobre como executar as ativações pós-falha.
+Isso [mensagem de blogue](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como configurar a infraestrutura de rede do Azure quando não precisar de manter os endereços IP após a ativação pós-falha. Ele começa com uma descrição da aplicação, analisa como configurar redes no local e no Azure e termina com informações sobre como executar as ativações pós-falha.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Executar uma ativação pós-falha](site-recovery-failover.md)

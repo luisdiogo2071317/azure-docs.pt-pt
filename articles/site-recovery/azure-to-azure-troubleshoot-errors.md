@@ -1,61 +1,61 @@
 ---
-title: Azure Site Recovery de resolução de problemas para problemas de replicação do Azure para o Azure e erros | Microsoft Docs
-description: Erros e problemas de resolução de problemas quando replicar máquinas virtuais do Azure para recuperação após desastre
+title: O Azure Site Recovery de resolução de problemas para erros e problemas de replicação do Azure para o Azure | Documentos da Microsoft
+description: Erros e problemas de resolução de problemas ao replicar máquinas virtuais do Azure para recuperação após desastre
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: e6f694e601c506adae217e6348b4bf388cc24390
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211835"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916045"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
+# <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
-Este artigo descreve os problemas comuns no quando replicar e recuperar máquinas virtuais do Azure a partir de uma região noutra região do Azure Site Recovery e explica como resolvê-los. Para obter mais informações sobre as configurações suportadas, consulte o [matriz de suporte para replicar as VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve os problemas comuns no Azure Site Recovery quando replicar e recuperar máquinas virtuais do Azure a partir de uma região para outra região e explica como solucionar esses problemas. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemas de quota de recursos do Azure (código de erro 150097)
-A subscrição deve ser ativada para criar as VMs do Azure na região de destino que pretende utilizar como a região de recuperação após desastre. Além disso, a sua subscrição deve ter quota suficiente ativada para criar as VMs do tamanho específico. Por predefinição, a recuperação de sites escolhe o mesmo tamanho da VM de destino como a VM de origem. Se o tamanho correspondente não estiver disponível, o tamanho de possíveis mais próximo é selecionado automaticamente. Se não houver nenhum tamanho correspondente que suporte a configuração de VM de origem, é apresentada esta mensagem de erro:
+Sua assinatura deve estar ativada para criar VMs do Azure na região de destino que pretende utilizar como a sua região de recuperação após desastre. Além disso, a sua subscrição deve tem quota suficiente ativada para criar VMs de tamanho específico. Por predefinição, o Site Recovery escolhe o mesmo tamanho da VM de destino da VM de origem. Se o tamanho correspondente não estiver disponível, o tamanho mais próximo possível será escolhido automaticamente. Se não houver nenhum tamanho correspondente que suporte a configuração de VM de origem, é apresentada esta mensagem de erro:
 
 **Código de erro** | **Causas possíveis** | **Recomendação**
 --- | --- | ---
-150097<br></br>**Mensagem**: não foi possível ativar a replicação da máquina virtual VmName. | -O ID de subscrição não pode estar ativado para criar quaisquer VMs na localização de região de destino.</br></br>-O ID de subscrição pode não estar ativado ou não tem quota suficiente para criar específicos tamanhos de VM na localização de região de destino.</br></br>-Um destino adequado de tamanho da VM que corresponde à origem de contagem de VM NIC (2) não for encontrado para o ID de subscrição na localização de região de destino.| Contacte [ao apoio de faturação do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para permitir a criação de VM para os tamanhos VM necessários na localização de destino para a sua subscrição. Depois de estar ativado, repita a operação falhada.
+150097<br></br>**Mensagem**: não foi possível ativar a replicação para a máquina virtual VmName. | -O seu ID de subscrição poderá não estar ativada para criar todas as VMs na localização de região de destino.</br></br>-O seu ID de subscrição não pode ser ativada ou não tem quota suficiente para criar os tamanhos VM específicos na localização de região de destino.</br></br>-Um tamanho VM que corresponde à origem de contagem de NIC de VM (2) de destino adequado não for encontrado para o ID de subscrição na localização de região de destino.| Contacte [suporte de faturação do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para permitir a criação de VM para os tamanhos VM necessários na localização de destino para a sua subscrição. Depois de ser ativada, repita a operação falhada.
 
-### <a name="fix-the-problem"></a>Corrija o problema
-Pode contactar [ao apoio de faturação do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para ativar a sua subscrição criar as VMs de tamanhos necessários na localização de destino.
+### <a name="fix-the-problem"></a>Corrigir o problema
+Pode contactar [suporte de faturação do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para ativar a sua subscrição criar VMs de tamanhos necessários na localização de destino.
 
-Se a localização de destino tiver uma restrição de capacidade, desative a replicação e ative-o para outra localização em que a sua subscrição tem quota suficiente para criar VMs os tamanhos necessários.
+Se a localização de destino tem uma restrição de capacidade, desative a replicação e ative-o para uma localização diferente em que a sua subscrição tem quota suficiente para criar VMs dos tamanhos necessários.
 
 ## <a name="trusted-root-certificates-error-code-151066"></a>Certificados de raiz fidedigna (código de erro 151066)
 
-Se todos os certificados de raiz fidedigna mais recentes não estão presentes na VM, poderá falhar a tarefa "ativar a replicação". Sem os certificados, a autenticação e autorização de chamadas de serviço de recuperação de sites da VM falharem. É apresentada a mensagem de erro para a tarefa de recuperação de Site "ativar a replicação de" falhada:
+Se todos os certificados de raiz fidedigna mais recentes não estão presentes na VM, poderá falhar a tarefa "ativar replicação". Sem os certificados, a autenticação e autorização de chamadas de serviço de recuperação de sites da VM falharem. É apresentada a mensagem de erro para a tarefa de recuperação de sites "ativar replicação" falhada:
 
-**Código de erro** | **Uma causa possível** | **Recommendations (Recomendações)**
+**Código de erro** | **Causa possível** | **Recommendations (Recomendações)**
 --- | --- | ---
-151066<br></br>**Mensagem**: Falha na configuração de recuperação de sites. | Necessários fidedignos certificados de raiz utilizado para autorização e autenticação não estão presentes na máquina. | -Para uma VM com o sistema operativo do Windows, certifique-se de que os certificados de raiz fidedigna estão presentes na máquina. Para informações, consulte [configurar raízes confiáveis e certificados não permitidos](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Para uma VM com o sistema operativo Linux, siga as orientações para certificados de raiz fidedigna publicados pelo distribuidor de versão do sistema operativo Linux.
+151066<br></br>**Mensagem**: Falha na configuração do Site Recovery. | Necessários fidedignos utilizados certificados de raiz para autorização e autenticação não estão presentes na máquina. | -Para uma VM com o sistema operativo do Windows, certifique-se de que os certificados de raiz fidedigna estão presentes na máquina. Para obter informações, consulte [configurar raízes confiáveis e não são permitidas certificados](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Para uma VM a executar o sistema operativo Linux, siga as orientações para certificados de raiz fidedigna publicada pelo distribuidor de versão do sistema operativo Linux.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 **Windows**
 
-Instale todas as atualizações mais recentes do Windows na VM para que todos os certificados de raiz fidedigna estão presentes na máquina. Se estiver num ambiente desligado, siga o processo de atualização do Windows padrão na sua organização para obter os certificados. Se os certificados necessários não estão presentes na VM, as chamadas para o serviço de recuperação de sites falharem por motivos de segurança.
+Instale todas as atualizações mais recentes do Windows na VM para que todos os certificados de raiz fidedigna estão presentes na máquina. Se fizer parte de um ambiente desligado, siga o processo de atualização padrão do Windows na sua organização para obter os certificados. Se os certificados necessários não estão presentes na VM, as chamadas para o serviço de recuperação de Site falharem por motivos de segurança.
 
-Siga o processo normal do Windows update management ou certificado atualização gestão na sua organização para obter todos os certificados de raiz mais recentes e a lista de revogação do certificado atualizado nas VMs.
+Siga o processo normal do Windows update gestão ou o certificado atualização management na sua organização para obter todos os certificados de raiz mais recentes e a lista de revogação de certificado atualizado nas VMs.
 
-Para verificar se o problema está resolvido, visite login.microsoftonline.com a partir de um browser no VM.
+Para verificar se o problema está resolvido, vá para login.microsoftonline.com partir de um browser na VM.
 
 **Linux**
 
-Siga as orientações fornecidas pelo sua distribuidor Linux para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificados mais recente na VM.
+Siga as orientações fornecidas pelo distribuidor do Linux para obter os certificados de raiz fidedigna mais recentes e a mais recente lista de revogação de certificado na VM.
 
-Uma vez SuSE Linux utiliza symlinks para manter uma lista de certificados, siga estes passos:
+Como o SuSE Linux usa links simbólicos, para manter uma lista de certificados, siga estes passos:
 
-1.  Inicie sessão como utilizador raiz.
+1.  Inicie sessão como um utilizador de raiz.
 
 2.  Execute este comando para alterar o diretório.
 
@@ -65,19 +65,19 @@ Uma vez SuSE Linux utiliza symlinks para manter uma lista de certificados, siga 
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Se não for encontrado o certificado de AC de raiz da Symantec, execute o seguinte comando para transferir o ficheiro. Procure quaisquer erros e siga as ações recomendadas para falhas de rede.
+4. Se não for encontrado o certificado de AC de raiz da Symantec, execute o seguinte comando para transferir o ficheiro. Verifique se existem quaisquer erros e siga a ação recomendada para falhas de rede.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Verifique se o certificado de AC de raiz Baltimore se encontra presente.
+5. Verifique se o certificado de AC de raiz Baltimore está presente.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Se o certificado de AC de raiz Baltimore não for encontrado, transfira o certificado.  
+6. Se não for encontrado o certificado de AC de raiz Baltimore, transfira o certificado.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Verifique se o certificado de DigiCert_Global_Root_CA se encontra presente.
+7. Verifique se o certificado de DigiCert_Global_Root_CA está presente.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
@@ -87,11 +87,11 @@ Uma vez SuSE Linux utiliza symlinks para manter uma lista de certificados, siga 
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Execute script de rehash para atualizar o certificado de hashes de assunto para os certificados recentemente transferidos.
+9. Execute o script de rehash para atualizar o certificado de hashes de assunto para os certificados acabado de transferir.
 
     ``# c_rehash``
 
-10. Verifique se o requerente codifica como symlinks são criados para os certificados.
+10. Verifique se o assunto codifica como links simbólicos são criados para os certificados.
 
     - Comando
 
@@ -120,15 +120,15 @@ Uma vez SuSE Linux utiliza symlinks para manter uma lista de certificados, siga 
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Criar uma cópia do ficheiro VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com filename b204d74a.0
+11. Criar uma cópia do ficheiro VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com b204d74a.0 de nome de ficheiro
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Criar uma cópia do ficheiro Baltimore_CyberTrust_Root.pem com filename 653b494a.0
+12. Criar uma cópia do ficheiro Baltimore_CyberTrust_Root.pem com 653b494a.0 de nome de ficheiro
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
-13. Criar uma cópia do ficheiro DigiCert_Global_Root_CA.pem com filename 3513523f.0
+13. Criar uma cópia do ficheiro DigiCert_Global_Root_CA.pem com 3513523f.0 de nome de ficheiro
 
     ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
 
@@ -146,71 +146,71 @@ Uma vez SuSE Linux utiliza symlinks para manter uma lista de certificados, siga 
       -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de URLs de recuperação de Site ou IP (código de erro 151037 ou 151072)
+## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de IP ou URLs do Site Recovery (código de erro 151037 ou 151072)
 
-Para replicação de recuperação de Site para o trabalho, a conectividade de saída para URLs específico ou de IP, intervalos é necessário da VM. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá ver um destas mensagens de erro:
+Para replicação do Site Recovery para o trabalho, a conectividade de saída para URLs ou IP específicos a intervalos é necessária da VM. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá ver uma das seguintes mensagens de erro:
 
 **Códigos de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
 --- | --- | ---
-151037<br></br>**Mensagem**: Falha ao registar a máquina virtual do Azure Site Recovery. | -Utilizar NSG para controlar o acesso de saída na VM e o IP necessário intervalos não estão na lista de permissões de acesso de saída.</br></br>-Utilizar ferramentas de firewall de terceiros e necessários intervalos IP/os URLs não estão na lista de permissões.</br>| -Se estiver a utilizar o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que os URLs de pré-requisitos ou a intervalos IP do datacenter estão na lista de permissões. Para informações, consulte [orientações de proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-Se estiver a utilizar as regras do NSG para controlar a conectividade de rede de saída na VM, certifique-se de que os intervalos IP do datacenter pré-requisitos estão na lista de permissões. Para informações, consulte [orientações do grupo de segurança de rede](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Mensagem**: Falha na configuração de recuperação de sites. | Não é possível estabelecer ligação a pontos finais do serviço de recuperação de sites. | -Se estiver a utilizar o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que os URLs de pré-requisitos ou a intervalos IP do datacenter estão na lista de permissões. Para informações, consulte [orientações de proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-Se estiver a utilizar as regras do NSG para controlar a conectividade de rede de saída na VM, certifique-se de que os intervalos IP do datacenter pré-requisitos estão na lista de permissões. Para informações, consulte [orientações do grupo de segurança de rede](https://aka.ms/a2a-nsg-guidance).
+151037<br></br>**Mensagem**: Falha ao registar a máquina virtual do Azure com o Site Recovery. | -O que estiver a utilizar o NSG para controlar o acesso de saída na VM e o IP necessário intervalos não estão na lista de permissões para acesso de saída.</br></br>-O que está a utilizar ferramentas de firewall de terceiros e os necessários intervalos IP/URLs não estão na lista de permissões.</br>| – Se estiver a utilizar o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que os URLs de pré-requisito ou intervalos IP do datacenter estão na lista de permissões. Para obter informações, consulte [documentação de orientação do proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>– Se estiver a utilizar as regras do NSG para controlar a conectividade de rede de saída na VM, certifique-se de que os intervalos IP do datacenter pré-requisitos estão na lista de permissões. Para obter informações, consulte [orientação do grupo de segurança de rede](https://aka.ms/a2a-nsg-guidance).
+151072<br></br>**Mensagem**: Falha na configuração do Site Recovery. | Não é possível estabelecer ligação a pontos finais de serviço de recuperação de sites. | – Se estiver a utilizar o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que os URLs de pré-requisito ou intervalos IP do datacenter estão na lista de permissões. Para obter informações, consulte [documentação de orientação do proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>– Se estiver a utilizar as regras do NSG para controlar a conectividade de rede de saída na VM, certifique-se de que os intervalos IP do datacenter pré-requisitos estão na lista de permissões. Para obter informações, consulte [orientação do grupo de segurança de rede](https://aka.ms/a2a-nsg-guidance).
 
-### <a name="fix-the-problem"></a>Corrija o problema
-Lista branca [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou o [necessário intervalos IP](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga os passos a [rede documento de orientação](site-recovery-azure-to-azure-networking-guidance.md).
+### <a name="fix-the-problem"></a>Corrigir o problema
+A lista branca [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou o [necessário intervalos de IP](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga os passos no [documento de orientação para funcionamento em rede](site-recovery-azure-to-azure-networking-guidance.md).
 
-## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Disco não localizado na máquina (código de erro 150039)
+## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Não foi encontrado na máquina (código de erro 150039) de disco
 
-Tem de ser inicializado num disco novo anexado à VM.
+Um disco novo anexado à VM tem de ser inicializado.
 
 **Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
 --- | --- | ---
-150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser reportado de dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi ligado à VM, mas não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor do LUN em que o disco foi ligado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser comunicado pela dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi anexado à VM, mas ele não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor LUN em que o disco foi anexado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para Windows: [Attach e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
-### <a name="fix-the-problem"></a>Corrija o problema
-Certifique-se de que os discos de dados tem sido inicializados e, em seguida, repita a operação:
+### <a name="fix-the-problem"></a>Corrigir o problema
+Certifique-se de que os discos de dados foram inicializados e, em seguida, repita a operação:
 
-- Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
-- Para Linux: [adicionar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+- Para Windows: [Attach e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Para Linux: [adicione um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Se o problema persistir, contacte o suporte.
 
 
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível ver a VM do Azure para a seleção "ativar a replicação"
+## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível ver a VM do Azure para seleção em "ativar replicação"
 
-Se não vir a VM que pretende ativar a replicação, este poderá devido a uma configuração obsoleta da recuperação de sites ficar na VM do Azure. A configuração obsoleta pode ser deixada na VM do Azure nos seguintes casos:
+Se não vir a VM que pretende ativar para a replicação, pode ser devido a uma configuração de recuperação de Site obsoleta deixado na VM do Azure. A configuração obsoleta poderá apresentar numa VM do Azure nos seguintes casos:
 
-- Ativar a replicação para a VM do Azure utilizando a recuperação de Site e, em seguida, eliminar o Cofre de recuperação de sites sem explicitamente a desativação da replicação da VM.
-- Ativar a replicação para a VM do Azure utilizando a recuperação de Site e, em seguida, eliminar o grupo de recursos que contém o Cofre de recuperação de sites sem explicitamente a desativação da replicação da VM.
+- Ativar a replicação para a VM do Azure utilizando a recuperação de Site e, em seguida, eliminar o Cofre de recuperação de sites sem explicitamente a desativar a replicação na VM.
+- Ativar a replicação para a VM do Azure utilizando a recuperação de Site e, em seguida, eliminar o grupo de recursos que contém o Cofre de recuperação de sites sem explicitamente a desativar a replicação na VM.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
-Pode utilizar [remover o script de configuração de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deverá conseguir ver a VM após a remoção da configuração obsoleta.
+Pode usar [remover o script de configuração de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deve ser capaz de ver a VM depois de remover a configuração obsoleta.
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Estado de aprovisionamento da VM não é válido (código de erro 150019)
 
-Para ativar a replicação da VM, o estado de aprovisionamento deve ser **com êxito**. Pode verificar o estado VM, seguindo os passos abaixo.
+Para ativar a replicação da VM, deve ser o estado de aprovisionamento **bem-sucedido**. Pode verificar o estado VM ao seguir os passos abaixo.
 
-1.  Selecione o **Explorador de recursos** de **todos os serviços** no portal do Azure.
-2.  Expanda o **subscrições** lista e selecione a sua subscrição.
-3.  Expanda o **ResourceGroups** lista e selecione o grupo de recursos da VM.
-4.  Expanda o **recursos** lista e selecione a máquina virtual
-5.  Verifique o **provisioningState** campo na vista de instância no lado direito.
+1.  Selecione o **Explorador de recursos** partir **todos os serviços** no portal do Azure.
+2.  Expanda a **subscrições** lista e selecione a sua subscrição.
+3.  Expanda a **ResourceGroups** lista e selecione o grupo de recursos da VM.
+4.  Expanda a **recursos** lista e selecione a sua máquina virtual
+5.  Verifique os **provisioningState** campo na vista de instância no lado direito.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
-- Se **provisioningState** é **falha**, contacte o suporte com os detalhes para a resolução de problemas.
-- Se **provisioningState** é **atualização**, outra extensão foi possível obter implementar. Verifique se existem quaisquer operações em curso na VM, aguarde que estas concluídas e repita a recuperação de Site falha **ativar a replicação** tarefa.
+- Se **provisioningState** é **falha**, contacte o suporte com detalhes para resolver problemas.
+- Se **provisioningState** é **atualização**, outra extensão foi possível obter implementar. Verifique se existem quaisquer operações em curso na VM, aguarde que estas seja concluída e tente novamente a recuperação de Site com falha **ativar a replicação** tarefa.
 
 
-## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM + /Safari/Chrome erro do serviço de cópia sombra de volumes (código de erro 151025)
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM c++ /CLI erro de serviço de cópia sombra de volumes (código de erro 151025)
 **Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
 --- | --- | ---
-151025<br></br>**Mensagem**: a extensão de recuperação do Site não conseguiu instalar | -Serviço de "System aplicação COM+" desativado.</br></br>-O serviço 'Cópia sombra de volumes' está desativado.| Definir serviços 'sistema aplicação COM+' e 'Cópia sombra de volumes' para o modo de arranque automático ou manual.
+151025<br></br>**Mensagem**: extensão de recuperação de Site Falha ao instalar | -Serviço de "sistema aplicação COM+" desativado.</br></br>-O serviço de "Cópia de sombra de volume" está desativado.| Definir serviços "sistema aplicação COM+" e "Cópia de sombra de volumes" para o modo de arranque automático ou manual.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
-Pode abrir a consola de 'serviços de' e certifique-se "Sistema aplicação COM+" e 'Cópia sombra de volumes' não estão definida como 'Desativado' de tipo de arranque.
-  ![com erro](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+Pode abrir a consola de "Serviços" e certifique-se o "sistema aplicação COM+" e "Cópia de sombra de Volume" não estão definida como "Disabled" de tipo de arranque.
+  ![Erro de com](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Replicar máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

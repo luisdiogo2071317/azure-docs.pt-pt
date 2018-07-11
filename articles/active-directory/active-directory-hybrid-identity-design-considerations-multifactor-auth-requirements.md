@@ -1,9 +1,9 @@
 ---
-title: Estrutura de identidade híbrida - requisitos de multi-factor authentication do Azure | Microsoft Docs
-description: Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação.
+title: Design de identidade híbrida - requisitos de multi-factor authentication do Azure | Documentos da Microsoft
+description: Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas que escolher quando está a autenticar o utilizador e antes de permitir o acesso à aplicação. Assim que essas condições são cumpridas, o utilizador é autenticado e permissão para aceder à aplicação.
 documentationcenter: ''
 services: active-directory
-author: femila
+author: billmath
 manager: billmath
 editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
@@ -16,48 +16,48 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: fe5ac8386394bf659de8d9905827359900f08d93
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 0c4d3edabbef6fe5626ce85c753cc7775ff2f1b9
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801039"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915406"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para a sua solução de identidade híbrida
-Neste mundo de mobilidade, com utilizadores que acedem aos dados e aplicações na nuvem e de qualquer dispositivo, proteger esta informação tornou essencial da.  Todos os dias há um novo título sobre uma violação de segurança.  Contudo, não há nenhuma garantia de tais danos, o multi-factor authentication, fornece uma camada adicional de segurança para ajudar a evitar estas violações.
-Comece por ao avaliar os requisitos de organizações para autenticação multifator. Ou seja, o que é a organização tentar proteger.  Esta avaliação é importante definir os requisitos técnicos para configurar e ativar os utilizadores de organizações para autenticação multifator.
+Neste mundo de mobilidade, com utilizadores que acedem aos dados e aplicações na cloud e a partir de qualquer dispositivo, proteger essas informações se tornou imprescindível.  Todos os dias é uma Manchete novo sobre uma violação de segurança.  Embora, não há nenhuma garantia em relação a tais violações, autenticação multifator, fornece uma camada adicional de segurança para ajudar a evitar essas falhas.
+Comece a avaliar os requisitos de organizações para multi-factor authentication. Ou seja, o que é a organização tentar proteger.  Essa avaliação é importante definir os requisitos técnicos para configurar e ativar os utilizadores de organizações para multi-factor authentication.
 
 > [!NOTE]
-> Se não estiver familiarizado com a MFA e o que faz, recomenda-se vivamente que leia o artigo [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md) antes de continuar a ler nesta secção.
+> Se não estiver familiarizado com a MFA e o que ele faz, é altamente recomendável que leia o artigo [o que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md) antes de continuar a ler esta secção.
 > 
 > 
 
-Certifique-se responder às seguintes:
+Certifique-se responder a seguir:
 
-* É a sua empresa tentar proteger aplicações da Microsoft? 
+* É da sua empresa a tentar proteger aplicações da Microsoft 
 * Como estas aplicações são publicadas?
-* A sua empresa fornecer acesso remoto para permitir que os funcionários acedam a aplicações no local?
+* É da sua empresa oferece acesso remoto para permitir que os funcionários para acederem a aplicações no local?
 
-Se Sim, que tipo de acesso remoto? Também terá de avaliar onde estarão localizados os utilizadores que estão a aceder a estas aplicações. Esta avaliação é outro passo importante para definir a estratégia de autenticação multifator adequada. Certifique-se responder às seguintes questões:
+Se Sim, o tipo de acesso remoto? Também é necessário avaliar onde estarão localizados os utilizadores que estão a aceder a estas aplicações. Essa avaliação é outro passo importante para definir a estratégia de uma autenticação multifator adequada. Certifique-se responder às seguintes perguntas:
 
-* Onde os utilizadores que vão ser localizado?
-* Podem podem estar localizados em qualquer local?
-* A sua empresa pretende estabelecer as restrições de acordo com a localização do utilizador?
+* Em que os utilizadores vão ser localizado?
+* Podem, estes estar localizados em qualquer lugar?
+* Sua empresa pretende estabelecer restrições de acordo com a localização do utilizador?
 
-Assim que compreender estes requisitos, é importante avaliar também os requisitos do utilizador para autenticação multifator. Esta avaliação é importante porque irá definir os requisitos para disponibilizando a autenticação multifator. Certifique-se responder às seguintes questões:
+Assim que compreender estes requisitos, é importante também avaliar os requisitos do utilizador para autenticação multifator. Essa avaliação é importante porque ele será definir os requisitos para implementar o multi-factor authentication. Certifique-se responder às seguintes perguntas:
 
 * Os utilizadores estão familiarizados com a autenticação multifator?
-* Algumas utilizações será necessárias para fornecer autenticação adicional?  
-  * Se Sim, o tempo, quando estiver a partir de redes externas ou ao aceder aos aplicações específicas ou sob outras condições?
-* Os utilizadores necessitarão formação sobre como configurar e implementar a autenticação multifator?
-* Quais são os cenários de chaves da sua empresa pretende ativar a multi-factor authentication para os seus utilizadores?
+* Alguns usos será necessários para fornecer autenticação adicional?  
+  * Se Sim, o tempo todo, na migração de redes externas ou ao aceder ao aplicações específicas ou em outras condições?
+* Os usuários exigirão treinamento sobre como configurar e implementar a autenticação multifator?
+* Quais são os cenários-chave que sua empresa quiser ativar a autenticação multifator para os seus utilizadores?
 
-Depois de as respostas a perguntas anterior, será capaz de compreender se existem já implementado a autenticação multifator no local. Esta avaliação é importante definir os requisitos técnicos para configurar e ativar os utilizadores de organizações para autenticação multifator. Certifique-se responder às seguintes questões:
+Depois de responder às perguntas anteriores, será capaz de compreender se existem já implementado a autenticação multifator no local. Essa avaliação é importante definir os requisitos técnicos para configurar e ativar os utilizadores de organizações para multi-factor authentication. Certifique-se responder às seguintes perguntas:
 
-* A sua empresa precisa de proteger contas privilegiadas com a MFA?
-* A sua empresa precisa de ativar a MFA para determinados aplicação por motivos de conformidade?
-* A sua empresa precisa de ativar a MFA para todos os utilizadores elegíveis destas aplicações ou apenas os administradores?
-* Tem de tem MFA sempre ativada ou apenas quando os utilizadores tem sessão iniciados fora da rede empresarial?
+* A sua empresa precisa de proteger as contas com privilégios com a MFA?
+* A sua empresa precisa de ativar a MFA para determinados aplicativo por motivos de conformidade?
+* A sua empresa precisa de ativar a MFA para todos os utilizadores elegíveis de aplicativos ou apenas os administradores?
+* Precisa tem MFA sempre ativada ou apenas quando os utilizadores tem sessão iniciados fora da rede empresarial?
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Definir uma estratégia de adoção de identidade híbrida](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)

@@ -13,19 +13,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/04/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 13876991583292ec04120b9d59fb150ad236e864
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858566"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918055"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Criar cópias de segurança da base de dados do SQL Server no Azure
 
-Bases de dados do SQL Server são cargas de trabalho críticas que requerem baixa objetivo de ponto de recuperação (RPO) e a retenção de longa duração. O Azure Backup fornece uma solução de SQL Serverbackup que requer zero infraestrutura, o que significa que nenhum servidor de cópia de segurança complexa, nenhum agente de gestão ou armazenamento de cópia de segurança para gerir. O Azure Backup Fornece gerenciamento centralizado para as cópias de segurança em todos os servidores SQL, ou até mesmo diferentes cargas de trabalho.
+Bases de dados do SQL Server são cargas de trabalho críticas que requerem baixa objetivo de ponto de recuperação (RPO) e a retenção de longa duração. O Azure Backup fornece uma solução de cópia de segurança do SQL Server que requer zero infraestrutura, o que significa que nenhum servidor de cópia de segurança complexa, nenhum agente de gestão ou armazenamento de cópia de segurança para gerir. O Azure Backup Fornece gerenciamento centralizado para as cópias de segurança em todos os servidores SQL, ou até mesmo diferentes cargas de trabalho.
 
  Neste artigo, vai aprender:
 
@@ -78,7 +78,7 @@ Os itens seguintes são as limitações conhecidas na pré-visualização públi
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>Sistemas operativos e versões do SQL server
 
-Os seguintes sistemas operativos suportados e as versões do SQL Server se aplicam ao marketplace SQL máquinas virtuais do Azure e externas as máquinas virtuais (em que o SQL Server manualmente está instalado).
+Os seguintes sistemas operativos são suportados. SQL marketplace máquinas virtuais do Azure e máquinas de virtuais externas (em que o SQL Server manualmente está instalado), são suportados.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -131,7 +131,7 @@ As relações vantajosas entre as opções são: capacidade de gerenciamento, um
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definir permissões para as VMs de SQL externas
 
-Para fazer backup de uma máquina virtual, o Azure Backup requer o **AzureBackupWindowsWorkload** extensão ser instalada. Se estiver a utilizar máquinas de virtuais do Azure marketplace, avançar diretamente para [bases de dados do SQL detetar server](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que aloja as bases de dados SQL não foi criada no Azure marketplace, conclua a secção seguinte para instalar a extensão e definir as permissões apropriadas. Para além da **AzureBackupWindowsWorkload** extensão, o Azure Backup requer privilégios de sysadmin do SQL para proteger as bases de dados SQL. Ao detetar as bases de dados na máquina virtual, o Azure Backup cria uma conta, NT Service\AzureWLBackupPluginSvc. Para o Azure Backup detetar as bases de dados SQL, a conta NT Service\AzureWLBackupPluginSvc tem de ter de início de sessão SQL e as permissões de administrador do sistema do SQL. O procedimento seguinte explica como fornecer estas permissões.
+Para fazer backup de uma máquina virtual, o Azure Backup requer o **AzureBackupWindowsWorkload** extensão ser instalada. Se estiver a utilizar máquinas de virtuais do Azure marketplace, avançar diretamente para [bases de dados do SQL detetar server](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que aloja as bases de dados SQL não foi criada no Azure marketplace, conclua a secção seguinte para instalar a extensão e definir as permissões apropriadas. Para além da **AzureBackupWindowsWorkload** extensão, o Azure Backup requer privilégios de sysadmin do SQL para proteger as bases de dados SQL. Ao detetar as bases de dados na máquina virtual, o Azure Backup cria uma conta, NT Service\AzureWLBackupPluginSvc. Para o Azure Backup detetar as bases de dados SQL, a conta NT Service\AzureWLBackupPluginSvc tem de ter SQL e SQL permissões de administrador do sistema. O procedimento seguinte explica como fornecer estas permissões.
 
 Para configurar permissões:
 
@@ -168,13 +168,13 @@ Depois de associar a base de dados com o Cofre dos serviços de recuperação, a
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>Corrigir permissões de administrador do sistema do SQL
 
-Durante o processo de instalação, se vir o erro **UserErrorSQLNoSysadminMembership**, início de sessão no SQL Server Management Studio (SSMS) com uma conta que tenha permissão de sysadmin do SQL. Exceto se precisar de permissões especiais, deverá conseguir utilizar a autenticação do Windows para reconhecer a conta.
+Durante o processo de instalação, se vir o erro **UserErrorSQLNoSysadminMembership**, utilizar uma conta com permissões de administrador do sistema do SQL para iniciar sessão para o SQL Server Management Studio (SSMS). A menos que precise permissões especiais, autenticação do Windows deverá funcionar.
 
 1. No SQL Server, abra a **inícios de sessão/segurança** pasta.
 
     ![Abra as pastas do SQL Server e de segurança e de início de sessão para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Na pasta de inícios de sessão, clique com o botão direito do rato e selecione **novo início de sessão**e no início de sessão - nova caixa de diálogo, clique em **pesquisa**
+2. Na pasta de inícios de sessão, clique com botão direito e selecione **novo início de sessão**e no início de sessão - nova caixa de diálogo, clique em **pesquisa**
 
     ![Abrir caixa de diálogo de pesquisa no início de sessão - novo](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -190,7 +190,7 @@ Durante o processo de instalação, se vir o erro **UserErrorSQLNoSysadminMember
 
     As permissões necessárias agora devem existir.
 
-6. Embora a corrigir o erro de permissões, ainda tem de associar a base de dados com o Cofre dos serviços de recuperação. No portal do Azure **servidores protegidos** lista, clique com o botão direito num erro de servidor e selecione **Redeteção de DBs**.
+6. Embora a corrigir o erro de permissões, ainda tem de associar a base de dados com o Cofre dos serviços de recuperação. No portal do Azure **servidores protegidos** lista, o servidor no erro com o botão direito e selecione **Redeteção de DBs**.
 
     ![Verifique se que o servidor tem as permissões adequadas](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -335,7 +335,7 @@ Para configurar a proteção de base de dados SQL:
 
 Uma política de cópia de segurança define uma matriz de quando são executadas as cópias de segurança e quanto tempo as cópias de segurança são retidas. Pode utilizar o Azure Backup para agendar a três tipos de cópia de segurança de bases de dados SQL:
 
-* Cópia de segurança completa - uma cópia de segurança completa da base de dados faz backup de todo o banco de dados. Uma cópia de segurança completa contém todos os dados num banco de dados específico ou conjunto de grupos de ficheiros ou ficheiros e suficiente registo para recuperar esses dados. No máximo, pode acionar uma cópia de segurança completa por dia. Pode optar por realizar um backup completo num intervalo diário ou semanal. 
+* Cópia de segurança completa - uma cópia de segurança completa da base de dados faz backup de todo o banco de dados. Uma cópia de segurança completa contém todos os dados numa base de dados específica ou conjunto de grupos de ficheiros ou ficheiros e suficiente registo para recuperar esses dados. No máximo, pode acionar uma cópia de segurança completa por dia. Pode optar por realizar um backup completo num intervalo diário ou semanal. 
 * Cópia de segurança diferencial - um backup diferencial baseia-se a cópia de segurança de dados completa mais recente, anterior. Uma cópia de segurança diferencial captura apenas os dados que foram alterados desde a cópia de segurança completa. No máximo, pode acionar uma cópia de segurança diferencial por dia. Não é possível configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
 * Backup de log de transação - uma cópia de segurança do registo permite restauro de ponto no tempo até específicas de um segundo. No máximo, pode configurar cópias de segurança do registo transacional a cada 15 minutos.
 
@@ -394,13 +394,16 @@ Para criar uma política de cópia de segurança
 
 8. Quando efetuar todas as edições para a política de cópia de segurança, clique em **OK**. 
 
-   ![período de retenção diferencial](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![aceite a nova política](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restaurar uma base de dados SQL
 
 Cópia de segurança do Azure fornece funcionalidades para restaurar bases de dados individuais para uma data específica ou a hora, até um específico em segundo lugar, usando backups de log de transação. Com base em tempos de restauro fornecer, cópia de segurança do Azure automaticamente determina o adequado completas, diferenciais e a cadeia de backups de log necessário para restaurar os dados.
 
 Em alternativa, pode selecionar um backup completo ou diferenciais específico para restaurar para um ponto de recuperação específico, em vez de uma hora específica.
+ > [!Note]
+ > Antes de acionar o restauro da base de dados "Mestra" Inicie o SQL Server no modo de utilizador único com a opção de arranque "-m AzureWorkloadBackup". O argumento -m é o nome do cliente, apenas este cliente terá permissão para abrir a ligação. Para todas as bases de dados do sistema (modelo, mestra, msdb) pare o serviço SQL Agent antes de acionar o restauro. Feche todas as aplicações que podem tentar roubar uma ligação a qualquer um desses bds.
+>
 
 Para restaurar uma base de dados
 
@@ -613,7 +616,7 @@ Esta seção fornece informações sobre as várias cópias de segurança do Azu
 ### <a name="monitor-jobs"></a>Monitorizar Tarefas
 Cópia de segurança do Azure que está a ser uma solução de classe empresarial fornece notificação para qualquer falhas (consulte a secção de alertas de cópia de segurança abaixo) e alertas de cópia de segurança avançados. Se pretender continuar a monitorizar tarefas específicas pode utilizar qualquer uma das opções seguintes com base nos seus requisitos:
 
-#### <a name="using-azure-portal---recovery-services-vault-for-all-ad-hoc-operations"></a>Com o portal do Azure -> cofre dos serviços de recuperação para todas as operações do ad-hoc
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>Utilizar o portal do Azure para todas as operações do ad hoc
 O Azure mostra de cópia de segurança acionada manualmente todas as tarefas ou de ad hoc, no portal de tarefas de cópia de segurança. As tarefas disponíveis no portal inclusão: todos os configurar operações de cópia de segurança, manualmente acionada por operações de cópia de segurança, operações de restauração, registo e detetar operações de base de dados e parar as operações de cópia de segurança. 
 ![menu de configuração avançada](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -621,10 +624,10 @@ O Azure mostra de cópia de segurança acionada manualmente todas as tarefas ou 
 > Todos os trabalhos de backup agendados incluindo completo, o backup de Log e diferenciais não será apresentado no portal do e pode ser monitorizada com SQL Server Management Studio, conforme descrito abaixo.
 >
 
-#### <a name="using-sql-server-management-studio-ssms-for-backup-jobs"></a>Usando o SQL Server Management Studio (SSMS) para tarefas de cópia de segurança
-O Azure Backup utiliza as APIs nativas do SQL para todas as operações de cópia de segurança. Usando APIs nativas, pode buscar todas as informações de tarefa do [tabela de backupset SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) na base de dados msdb. 
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>Utilizar o SQL Server Management Studio para tarefas de cópia de segurança
+O Azure Backup utiliza as APIs nativas do SQL para todas as operações de cópia de segurança. Com as APIs nativas, pode buscar todas as informações de tarefa do [tabela de backupset SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) na base de dados msdb.
 
-Pode utilizar o abaixo a consulta como exemplo para obter todas as tarefas de cópia de segurança para uma base de dados específico com o nome "DB1". Pode personalizar o abaixo a consulta para obter mais informações monitorização avançada.
+O exemplo seguinte é uma consulta para obter todas as tarefas de cópia de segurança para uma base de dados com o nome **DB1**. Personalize a consulta para monitorização mais avançada.
 ```
 select CAST (
 Case type
@@ -745,6 +748,42 @@ Para anular o registo de um SQL server depois de remover a proteção, mas antes
 5. No menu de servidores protegidos, o servidor protegido com o botão direito e selecione **eliminar**. 
 
    ![retomar a proteção de base de dados](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>FAQ sobre o backup de banco de dados SQL
+
+A secção seguinte fornece informações adicionais sobre a cópia de segurança do SQL da base de dados.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>Posso limitar a velocidade da política de cópia de segurança de SQL para que ele minimiza o impacto sobre o SQL server
+
+Sim, pode limitar a taxa a que executa a política de cópia de segurança. Para alterar a definição:
+
+1. No SQL Server, na `C:\Program Files\Azure Workload Backup\bin` pasta, abra **TaskThrottlerSettings.json**.
+
+2. Na **TaskThrottlerSettings.json** de ficheiros, alterar **DefaultBackupTasksThreshold** para um valor inferior, por exemplo, 5.
+
+3. Guarde as alterações e feche o ficheiro.
+
+4. No SQL Server, abra o Gestor de tarefas e reinicie o **serviço de coordenador de carga de trabalho de cópia de segurança do Azure**.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Pode executar um backup completo de uma réplica secundária
+
+Não, esta funcionalidade não é suportada.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>Tarefas de cópia de segurança bem-sucedida criar alertas
+
+Não. Tarefas de cópia de segurança com êxito não geram alertas. Os alertas são enviados apenas para tarefas de cópia de segurança que não obedeçam.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>Detalhes da tarefa de cópia de segurança agendada são apresentadas no menu tarefas
+
+Não. O menu de tarefas mostra detalhes da tarefa ad hoc, mas não mostra as tarefas de cópia de segurança agendadas. Os alertas de tarefa falhada, se as tarefas de cópia de segurança agendadas falharem, encontrará todos os detalhes. Se pretender monitorizar todas as agendada e tarefas de cópia de segurança ad hoc, [utilizar o SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>Se eu selecionar um SQL server serão bases de dados futuros adicionados automaticamente
+
+Não. Quando configurar a proteção para um SQL server, se selecionar a caixa de verificação ao nível do servidor, ele adiciona todas as bases de dados. No entanto, se adicionar bases de dados para o SQL server depois de configurar a proteção, tem de adicionar manualmente as novas bases de dados para protegê-los. As bases de dados não estão incluídos automaticamente a proteção configurada.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Ao alterar o modelo de recuperação como reiniciar proteção
+
+Se alterar o modelo de recuperação, acionar uma cópia de segurança completa e backups de log serão iniciada conforme esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

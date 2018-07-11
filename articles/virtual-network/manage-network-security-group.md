@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 774d429b960e56e998e9d964b9de1e6461816734
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901702"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920516"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -253,21 +253,25 @@ Não é possível eliminar um grupo de segurança de aplicações, se tiver qual
 
 Para executar tarefas em grupos de segurança de rede, as regras de segurança e grupos de segurança de aplicações, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuído a permissões adequadas listadas nas tabelas seguintes:
 
-### <a name="network-security-groups"></a>Grupos de segurança de rede
+### <a name="network-security-group"></a>Grupo de segurança de rede
 
 | Ação                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Obter grupo de segurança de rede                                          |
-| Microsoft.Network/ruleTables/write                            |   Criar ou atualizar o grupo de segurança de rede                             |
-| Microsoft.Network/ruleTables/delete                           |   Eliminar o grupo de segurança de rede                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Associar um grupo de segurança de rede a uma interface de rede ou sub-rede |
-| Microsoft.Network/ruleTables/rules/read                       |   Obter regra                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Criar ou atualizar a regra                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Eliminar regra                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Obter grupo de segurança de rede eficiente de Interface de rede              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   Obtém o salto seguinte a partir de uma VM                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Obter grupo de segurança de rede                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Criar ou atualizar o grupo de segurança de rede                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Eliminar o grupo de segurança de rede                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Associar um grupo de segurança de rede a uma interface de rede ou sub-rede 
 
-### <a name="application-security-groups"></a>Grupos de segurança de aplicações
+
+### <a name="network-security-group-rule"></a>Regra do grupo de segurança de rede
+
+| Ação                                                        |   Nome                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Obter regra                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Criar ou atualizar a regra                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Eliminar regra                                                         |
+
+### <a name="application-security-group"></a>Grupo de segurança de aplicações
 
 | Ação                                                                     | Nome                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |

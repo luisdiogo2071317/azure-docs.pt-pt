@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 9f7fbcc804229de69c3c72fb33ae03c88af70145
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857502"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917640"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -51,9 +51,9 @@ Está pronto para começar!
 
 Um conjunto de dados de formação de voz consiste num conjunto de arquivos de áudio, junto com um arquivo de texto que contém as transcrições de todos esses arquivos de áudio.
 
-Preparar-se esses arquivos em ambas as direções: a escrever um script e fazê-lo, lidos por talentos de voz, ou usar áudio publicamente disponíveis e transcrição de texto. No último caso, edite disfluencies dos arquivos de áudio, como "um" e outros sons de preenchimento, stutters, mumbled palavras ou mispronunciations.
+Preparar-se esses arquivos em ambas as direções: um escrever um script e fazê-lo, lidos pelo talentos de voz, ou usar áudio publicamente disponíveis e transcrever para texto. No último caso, edite disfluencies dos arquivos de áudio, como "um" e outros sons de preenchimento, stutters, mumbled palavras ou mispronunciations.
 
-Para produzir um tipo de voz bom, é importante que as gravações são feitas num ambiente silencioso com um microfone de alta qualidade. Volume consistente, falando taxa, fala pitch e expressivas mannerisms de voz são essenciais para criar uma voz digital excelente. Para criar uma voz para uso em produção, recomendamos que usar o talento de studio e de voz de gravação profissional.
+Para produzir um tipo de voz bom, é importante que as gravações são feitas num ambiente silencioso com um microfone de alta qualidade. Volume consistente, falando taxa, fala pitch e expressivas mannerisms de voz são essenciais para criar uma voz digital excelente. Para criar uma voz para uso em produção, recomendamos que usar o talento de studio e de voz de gravação profissional. Para obter mais detalhes, consulte [exemplos de como grave voz para uma voz personalizada](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Arquivos de áudio
 
@@ -63,12 +63,12 @@ Arquivos de áudio devem estar preparados da seguinte forma. Outros formatos nã
 
 | **Propriedade** | **Valor** |
 | ------------ | --------- |
-| Formato de ficheiro  | RIFF (WAV)|
-| Frequência de amostragem| pelo menos de 16 000 Hz |
-| Formato de exemplo| PCM, 16 bits |
+| Formato do Ficheiro  | RIFF (WAV)|
+| Taxa de Amostragem| pelo menos de 16 000 Hz |
+| Formato de Exemplo| PCM, 16 bits |
 | Nome de Ficheiro    | Numérico, com `.wav` extensão |
-| Formato de arquivo| Zip      |
-| Tamanho máximo de arquivo|200 MB|
+| Formato do Arquivo| Zip      |
+| Tamanho Máximo do Arquivo|200 MB|
 
 Coloque o conjunto de arquivos de áudio numa única pasta sem subdiretórios e todo o conjunto como um único arquivo de ficheiro ZIP do pacote.
 
@@ -235,5 +235,5 @@ O ponto final personalizado é funcionalmente idêntico ao ponto final do padrã
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Preparar a sua subscrição de avaliação de conversão de voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer a conversão de voz em c#](quickstart-csharp-windows.md)

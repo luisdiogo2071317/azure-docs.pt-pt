@@ -1,73 +1,73 @@
 ---
-title: Replicar VMs de Hyper-V com o PowerShell e o Azure Resource Manager | Microsoft Docs
-description: Automatizar a replicação de VMs de Hyper-V para o Azure com o Azure Site Recovery com o PowerShell e do Azure Resource Manager.
+title: Replicar VMs de Hyper-V com o PowerShell e o Azure Resource Manager | Documentos da Microsoft
+description: Automatize a replicação de VMs de Hyper-V para o Azure com o Azure Site Recovery com o PowerShell e do Azure Resource Manager.
 services: site-recovery
 author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 13456dc53f85f6f26aab222ab0cb499aabb7d1cc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596709"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916236"
 ---
-# <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação após desastre para o Azure para as VMs de Hyper-V com o PowerShell e do Azure Resource Manager
+# <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação após desastre para o Azure das VMs de Hyper-V com o PowerShell e do Azure Resource Manager
 
-[O Azure Site Recovery](site-recovery-overview.md) contribui para a continuidade do negócio e a estratégia de recuperação (BCDR) desastres através da orquestração da replicação, ativação pós-falha e recuperação de máquinas de virtuais (VMs) do Azure e no local VMs e servidores físicos.
+[O Azure Site Recovery](site-recovery-overview.md) contribui para a continuidade do negócio e a estratégia de recuperação (BCDR) após desastre através da orquestração da replicação, ativação pós-falha e recuperação de máquinas virtuais do Azure (VMs) e as VMs e servidores físicos no local.
 
-Este artigo descreve como utilizar o Windows PowerShell, juntamente com o Azure Resource Manager, para replicar VMs Hyper-V para o Azure. O exemplo utilizado neste artigo mostra como replicar uma única VM em execução num anfitrião Hyper-V, para o Azure.
+Este artigo descreve como utilizar o Windows PowerShell, juntamente com o Azure Resource Manager, para replicar VMs Hyper-V para o Azure. No exemplo utilizado neste artigo mostra-lhe como replicar uma única VM em execução num anfitrião Hyper-V, para o Azure.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-O Azure PowerShell fornece cmdlets para gerir o Azure com o Windows PowerShell. Cmdlets do PowerShell da recuperação de site, disponíveis com o Azure PowerShell para o Azure Resource Manager, ajudar a proteger e recuperar os seus servidores no Azure.
+O Azure PowerShell disponibiliza os cmdlets para gerir o Azure com o Windows PowerShell. Cmdlets do PowerShell da recuperação de site, disponíveis com o Azure PowerShell para o Azure Resource Manager, ajudar a proteger e recuperar os seus servidores no Azure.
 
-Não precisa de ser um especialista de PowerShell para utilizar este artigo, mas é necessário compreender os conceitos básicos, tais como módulos, cmdlets e sessões. Leitura [introdução com o Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), e [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Não precisa de ser um especialista de PowerShell para utilizar este artigo, mas é necessário compreender os conceitos básicos, como módulos, cmdlets e sessões. Leia [introdução ao Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), e [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
-> Parceiros da Microsoft no programa de fornecedor de solução em nuvem (CSP) podem configurar e gerir a proteção de servidores de cliente para as respetivas subscrições de CSP (subscrições de inquilino).
+> Parceiros da Microsoft no programa de fornecedor de soluções Cloud (CSP) podem configurar e gerir a proteção de servidores de cliente para suas respetivas subscrições de CSP (subscrições de inquilino).
 >
 >
 
 ## <a name="before-you-start"></a>Antes de começar
-Certifique-se de que tem os pré-requisitos:
+Certifique-se de que tem estes pré-requisitos necessários:
 
-* A [Microsoft Azure](https://azure.microsoft.com/) conta. Pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Além disso, pode ler sobre [preços do Microsoft Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell 1.0. Para obter informações sobre esta versão e como instalá-lo, consulte [Azure PowerShell 1.0.](https://azure.microsoft.com/)
-* O [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) e [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) módulos. Pode obter as versões mais recentes estes módulos do [galeria do PowerShell](https://www.powershellgallery.com/)
+* R [Microsoft Azure](https://azure.microsoft.com/) conta. Pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Além disso, pode ler sobre [preços do Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
+* Azure PowerShell 1.0. Para obter informações sobre esta versão e como instalá-lo, consulte [do Azure PowerShell 1.0.](https://azure.microsoft.com/)
+* O [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) e [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) módulos. Pode obter as versões mais recentes destes módulos do [galeria do PowerShell](https://www.powershellgallery.com/)
 
-Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-requisitos:
+Além disso, o exemplo específico, descrito neste artigo tem os seguintes pré-requisitos:
 
-* Um anfitrião de Hyper-V com Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 que contém uma ou mais VMs. Servidores Hyper-V devem estar ligadas à Internet, diretamente ou através de um proxy.
+* Anfitrião Hyper-V com o Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 que contém uma ou mais VMs. Servidores de Hyper-V devem estar ligados à Internet, diretamente ou através de um proxy.
 * As VMs que pretende replicar devem estar em conformidade com [estes pré-requisitos](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Passo 1: Iniciar sessão na sua conta do Azure
 
-1. Abra uma consola do PowerShell e execute este comando para iniciar sessão sua conta do Azure. O cmdlet apresenta uma página web pede-lhe as credenciais da conta: **Connect-AzureRmAccount**.
+1. Abra uma consola do PowerShell e execute este comando para iniciar sessão na sua conta do Azure. O cmdlet exibirá uma página da web pede-lhe as credenciais da conta: **Connect-AzureRmAccount**.
     - Em alternativa, pode incluir as credenciais da conta como um parâmetro no **Connect-AzureRmAccount** cmdlet, utilizando o **-Credential** parâmetro.
-    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especificar o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou inquilino. Por exemplo: **Connect-AzureRmAccount-inquilino "fabrikam.com"**
-2. Associe a subscrição que pretende utilizar com o acount, uma vez que uma conta pode ter várias subscrições:
+    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especifica o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou o inquilino. Por exemplo: **Connect-AzureRmAccount-inquilino "fabrikam.com"**
+2. Associe a subscrição que pretende utilizar com a conta, uma vez que uma conta pode ter várias subscrições:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
-3. Certifique-se de que a sua subscrição está registada para utilizar os fornecedores do Azure para serviços de recuperação e de recuperação do Site, utilizando estes comandos:
+3. Certifique-se de que a sua subscrição está registada para utilizar os fornecedores do Azure para serviços de recuperação e a recuperação de Site, utilizando estes comandos:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
-4. Certifique-se de que no resultado do comando, o **RegistrationState** está definido como **registada**, pode avançar para o passo 2. Caso contrário, deve registar o fornecedor em falta na sua subscrição, executando estes comandos:
+4. Certifique-se de que no resultado do comando, o **RegistrationState** está definida como **registado**, pode avançar para o passo 2. Caso contrário, deve registar o fornecedor em falta na sua subscrição, ao executar estes comandos:
 
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery` `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
-5. Certifique-se de que os fornecedores registados com êxito, utilizando os seguintes comandos:
+5. Certifique-se de que os fornecedores registado com êxito, com os comandos seguintes:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
 ## <a name="step-2-set-up-the-vault"></a>Passo 2: Configurar o Cofre
 
-1. Criar um grupo de recursos do Azure Resource Manager no qual pretende criar o cofre, ou utilizar um grupo de recursos existente. Crie um novo grupo de recursos da seguinte forma. A variável de $ResourceGroupName contém o nome do grupo de recursos que pretende criar e a variável de $Geo contém a região do Azure na qual pretende criar o grupo de recursos (por exemplo, "sul do Brasil").
+1. Criar um grupo de recursos do Azure Resource Manager no qual pretende criar o cofre ou utilize um grupo de recursos existente. Crie um novo grupo de recursos da seguinte forma. A variável $ResourceGroupName contém o nome do grupo de recursos que pretende criar e a variável $Geo contém a região do Azure na qual pretende criar o grupo de recursos (por exemplo, "sul do Brasil").
 
     `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo` 
 
@@ -76,10 +76,10 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
         $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    Pode obter uma lista de cofres existentes com o **Get-AzureRmRecoveryServicesVault** cmdlet.
+    Pode recuperar uma lista de cofres existentes com o **Get-AzureRmRecoveryServicesVault** cmdlet.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Passo 3: Definir o contexto do Cofre de serviços de recuperação
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Passo 3: Definir o contexto do cofre dos serviços de recuperação
 
 Defina o contexto do cofre da seguinte forma:
 
@@ -92,8 +92,8 @@ Defina o contexto do cofre da seguinte forma:
         $sitename = "MySite"                #Specify site friendly name
         New-AzureRmSiteRecoverySite -Name $sitename
 
-2. Este cmdlet inicia uma tarefa de recuperação de Site para criar o site e devolve um objeto de tarefa de recuperação de sites. Aguarde a tarefa seja concluída e certifique-se de que a tarefa foi concluída com êxito.
-3. Utilize o **cmdlet Get-AzureRmSiteRecoveryJob**, para obter o objeto de trabalho e verificar o estado atual da tarefa.
+2. Este cmdlet inicia uma tarefa de recuperação de sites para criar o site e retorna um objeto de tarefa de recuperação de sites. Aguarde a tarefa seja concluída e certifique-se de que a tarefa foi concluída com êxito.
+3. Utilize o **cmdlet Get-AzureRmSiteRecoveryJob**, para recuperar o objeto de tarefa e verificar o estado atual da tarefa.
 4. Gerar e transferir uma chave de registo para o site, da seguinte forma:
 
     ```
@@ -101,21 +101,21 @@ Defina o contexto do cofre da seguinte forma:
         Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
     ```
 
-5. Copie a chave transferida para o anfitrião de Hyper-V. Tem a chave para registar o anfitrião de Hyper-V para o site.
+5. Copie a chave de transferido para o anfitrião de Hyper-V. Precisa da chave para registar o anfitrião de Hyper-V para o site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Passo 5: Instalar o fornecedor e o agente
+## <a name="step-5-install-the-provider-and-agent"></a>Passo 5: Instalar o fornecedor e agente
 
-1. Transferir o instalador para a versão mais recente do fornecedor de [Microsoft](https://aka.ms/downloaddra).
-2. Execute o instalador num anfitrião theHyper-V.
-3. No final da instalação continue para o passo de registo.
+1. Transferir o instalador para a versão mais recente do fornecedor em [Microsoft](https://aka.ms/downloaddra).
+2. Execute o instalador no anfitrião theHyper-V.
+3. No final da instalação, continue para o passo de registo.
 4. Quando lhe for pedido, forneça a chave de transferido e concluir o registo de anfitrião do Hyper-V.
-5. Certifique-se de que o anfitrião de Hyper-V está registado para o site, da seguinte forma:
+5. Certifique-se de que o anfitrião de Hyper-V está registrado para o site da seguinte forma:
 
         $server =  Get-AzureRmSiteRecoveryServer -FriendlyName $server-friendlyname
 
 ## <a name="step-6-create-a-replication-policy"></a>Passo 6: Criar uma política de replicação
 
-Antes de começar, tenha em atenção que a conta de armazenamento especificada deve estar na mesma região do Azure que o Cofre e deve ter a georreplicação ativada.
+Antes de começar, tenha em atenção que a conta de armazenamento especificada deve ser na mesma região do Azure que o Cofre e deve ter a georreplicação ativada.
 
 1. Crie uma política de replicação da seguinte forma:
 
@@ -126,7 +126,7 @@ Antes de começar, tenha em atenção que a conta de armazenamento especificada 
 
         $PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
-2. Verifique a tarefa devolvida para se certificar de que a criação de política de replicação é concluída com êxito.
+2. Verifique a tarefa retornada para se certificar de que a criação de política de replicação for bem-sucedida.
 
 3. Obter o contentor de proteção que corresponde ao site, da seguinte forma:
 
@@ -135,7 +135,7 @@ Antes de começar, tenha em atenção que a conta de armazenamento especificada 
 
      $Policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $PolicyName   $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy $Policy -PrimaryProtectionContainer $protectionContainer
 
-4. Aguarde que a tarefa de associação seja concluído com êxito.
+4. Aguarde que a tarefa de associação seja concluída com êxito.
 
 ## <a name="step-7-enable-vm-protection"></a>Passo 7: Ativar a proteção de VM
 
@@ -143,12 +143,12 @@ Antes de começar, tenha em atenção que a conta de armazenamento especificada 
 
         $VMFriendlyName = "Fabrikam-app"                    #Name of the VM
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
-2. Proteger a VM. Se a VM estiver a proteger tem mais do que um disco ligado ao mesmo, especifique o disco do sistema operativo utilizando o *OSDiskName* parâmetro.
+2. Protege a VM. Se a VM estiver a proteger tiver mais do que um disco ligado à mesma, especifique o disco do sistema operativo ao utilizar o *OSDiskName* parâmetro.
 
         $Ostype = "Windows"                                 # "Windows" or "Linux"
         $DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
 
-3. Aguarde que as VMs para atingir um estado protegido após a replicação inicial. Isto pode demorar algum tempo, dependendo de fatores como a quantidade de dados a replicar e a largura de banda disponível a montante para o Azure. Quando está num estado protegido no local, o estado da tarefa e StateDescription são atualizados da seguinte forma: 
+3. Aguarde que as VMs a atingir um estado protegido após a replicação inicial. Esta ação pode demorar algum tempo, dependendo de fatores como a quantidade de dados a serem replicados e a largura de banda disponível a montante para o Azure. Quando um estado protegido estiver em vigor, o estado da tarefa e StateDescription são atualizados da seguinte forma: 
 
         PS C:\> $DRjob = Get-AzureRmSiteRecoveryJob -Job $DRjob
 
@@ -157,7 +157,7 @@ Antes de começar, tenha em atenção que a conta de armazenamento especificada 
 
         PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
         Completed
-4. Atualizar propriedades de recuperação (por exemplo, o tamanho de função VM,) e a rede do Azure para o qual pretende anexar a NIC de VM após a ativação pós-falha.
+4. Atualizar propriedades de recuperação (por exemplo, o tamanho da função VM,) e a rede do Azure ao qual pretende anexar o NIC da VM após a ativação pós-falha.
 
         PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
 
@@ -199,10 +199,10 @@ Antes de começar, tenha em atenção que a conta de armazenamento especificada 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
 
         $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
-2. Certifique-se de que o teste é criada a VM no Azure. A tarefa de ativação pós-falha de teste está suspensa depois de criar a VM de teste no Azure.
+2. Certifique-se de que o teste de VM é criada no Azure. A tarefa de ativação pós-falha de teste está suspenso depois de criar a VM de teste no Azure.
 3. Para limpar e concluir a ativação pós-falha de teste, execute:
 
         $TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
+[Saiba mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com os cmdlets do PowerShell do Azure Resource Manager.
