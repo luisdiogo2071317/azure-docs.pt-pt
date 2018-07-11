@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344836"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952543"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é a compreensão de idiomas (LUIS)?
 Compreensão de idiomas (LUIS) é um serviço baseado na nuvem que se aplica a aprendizagem automática personalizada ao texto de linguagem natural conversacional, um utilizador para prever o significado geral e extrair informações relevantes e detalhadas. 
@@ -99,7 +99,7 @@ Um exemplo [expressão](luis-how-to-add-example-utterances.md) é a introdução
 Após a sua aplicação LUIS é publicada e recebe as expressões de utilizador real, LUIS, fornece vários métodos para melhorar a exatidão da previsão: [aprendizagem ativa](#active-learning) de expressões de ponto de extremidade, [frase listas](#phrase-lists) para o domínio inclusão, do Word e [padrões](#patterns) para reduzir o número de expressões com necessários.
 
 ### <a name="active-learning"></a>Aprendizagem ativa
-Na [aprendizagem ativa](label-suggested-utterances.md) processo, LUIS, pode adaptar-se a sua aplicação LUIS para expressões do mundo real com selecionando expressões que recebeu no ponto final para revisão. Pode aceitar ou corrija a predição de ponto de extremidade, voltar a preparar e volte a publicar. LUIS aprende rapidamente com esse processo interativo, levando a quantidade mínima de seu tempo e esforço. 
+Na [aprendizagem ativa](luis-how-to-review-endoint-utt.md) processo, LUIS, pode adaptar-se a sua aplicação LUIS para expressões do mundo real com selecionando expressões que recebeu no ponto final para revisão. Pode aceitar ou corrija a predição de ponto de extremidade, voltar a preparar e volte a publicar. LUIS aprende rapidamente com esse processo interativo, levando a quantidade mínima de seu tempo e esforço. 
 
 ### <a name="phrase-lists"></a>Listas de expressões 
 LUIS fornece [frases listas](luis-concept-feature.md) para que pode indicar importantes palavras ou frases ao seu domínio de modelo. LUIS utiliza estas listas para adicionar o significado adicional a essas palavras e frases que caso contrário, não seriam encontrados no modelo.

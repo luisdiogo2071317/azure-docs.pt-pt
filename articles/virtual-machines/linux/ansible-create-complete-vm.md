@@ -1,9 +1,9 @@
 ---
-title: Utilize Ansible para criar uma VM com Linux completa no Azure | Microsoft Docs
-description: Saiba como utilizar Ansible para criar e gerir um ambiente de máquina virtual completado do Linux no Azure
+title: Utilizar o Ansible para criar uma VM de Linux completa no Azure | Documentos da Microsoft
+description: Saiba como utilizar o Ansible para criar e gerir um ambiente completo de máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,33 +14,33 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 63228f8bf8729f1bf3796a77516490ae7088d5ed
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716463"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930849"
 ---
-# <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Criar um ambiente de máquina virtual completado do Linux no Azure com Ansible
-Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar Ansible para gerir as máquinas virtuais (VMs) no Azure, os mesmos como faria com qualquer outro recurso. Este artigo mostra como criar um ambiente de Linux completado e de recursos com Ansible de suporte. Também pode aprender como [criar uma VM básica com Ansible](ansible-create-vm.md).
+# <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Criar um ambiente completo de máquina virtual do Linux no Azure com o Ansible
+Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir máquinas virtuais (VMs) no Azure, o mesmo como faria com qualquer outro recurso. Este artigo mostra-lhe como criar um ambiente completo do Linux e de recursos com o Ansible de suporte. Também pode saber como [criar uma VM básica com o Ansible](ansible-create-vm.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para gerir recursos do Azure com Ansible, precisa do seguinte:
+Para gerir recursos do Azure com o Ansible, precisa do seguinte:
 
-- Ansible e os módulos de SDK Python do Azure instalados no sistema anfitrião.
-    - Instalar Ansible [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), e [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
-- Credenciais do Azure e Ansible configurado para utilizá-los.
-    - [Criar as credenciais do Azure e configurar Ansible](ansible-install-configure.md#create-azure-credentials)
+- O Ansible e os módulos do Azure Python SDK instalados no sistema anfitrião.
+    - Instalar o Ansible no [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), e [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
+- Credenciais do Azure e o Ansible configurado para utilizá-los.
+    - [Criar credenciais do Azure e configurar o Ansible](ansible-install-configure.md#create-azure-credentials)
 - CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. 
-    - Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). Também pode utilizar [nuvem Shell](/azure/cloud-shell/quickstart) partir do seu browser.
+    - Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). Também pode utilizar [Cloud Shell](/azure/cloud-shell/quickstart) partir do seu browser.
 
 
 ## <a name="create-virtual-network"></a>Criar a rede virtual
-Vamos examinar cada secção de um manual de comunicação social Ansible e criar os recursos do Azure individuais. Para a conclusão manual de comunicação social, consulte [nesta secção do artigo](#complete-ansible-playbook).
+Vamos examinar cada seção do playbooks do Ansible e criar recursos do Azure individuais. Para o playbook completado, consulte [esta secção do artigo](#complete-ansible-playbook).
 
-A secção seguinte um manual de comunicação social Ansible cria uma rede virtual denominada *myVnet* no *10.0.0.0/16* espaço de endereços:
+A seguinte secção em playbooks do Ansible cria uma rede virtual denominada *myVnet* no *10.0.0.0/16* espaço de endereços:
 
 ```yaml
 - name: Create virtual network
@@ -50,7 +50,7 @@ A secção seguinte um manual de comunicação social Ansible cria uma rede virt
     address_prefixes: "10.0.0.0/16"
 ```
 
-Para adicionar uma sub-rede, a secção seguinte cria uma sub-rede designada *mySubnet* no *myVnet* rede virtual:
+Para adicionar uma sub-rede, a seção a seguir cria uma sub-rede denominada *mySubnet* no *myVnet* rede virtual:
 
 ```yaml
 - name: Add subnet
@@ -63,7 +63,7 @@ Para adicionar uma sub-rede, a secção seguinte cria uma sub-rede designada *my
 
 
 ## <a name="create-public-ip-address"></a>Criar endereço IP público
-Para aceder aos recursos através da Internet, crie e atribua um endereço IP público à VM. A secção seguinte um manual de comunicação social Ansible cria um endereço IP público com o nome *myPublicIP*:
+Para acessar recursos na Internet, criar e atribuir um endereço IP público à VM. A seguinte secção em playbooks do Ansible cria um endereço IP público com o nome *myPublicIP*:
 
 ```yaml
 - name: Create public IP address
@@ -74,8 +74,8 @@ Para aceder aos recursos através da Internet, crie e atribua um endereço IP p�
 ```
 
 
-## <a name="create-network-security-group"></a>Criar o grupo de segurança de rede
-Grupos de segurança de rede controlar o fluxo de tráfego de rede que entra e sai da VM. A secção seguinte um manual de comunicação social Ansible cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup* e define uma regra para permitir o tráfego na porta TCP 22 SSH:
+## <a name="create-network-security-group"></a>Criar grupo de segurança de rede
+Grupos de segurança de rede controlar o fluxo de tráfego de rede e para a sua VM. A seguinte secção em playbooks do Ansible cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup* e define uma regra para permitir o tráfego SSH na porta TCP 22:
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -92,8 +92,8 @@ Grupos de segurança de rede controlar o fluxo de tráfego de rede que entra e s
 ```
 
 
-## <a name="create-virtual-network-interface-card"></a>Criar o cartão de interface de rede virtual
-Uma placa de interface de rede virtual (NIC) liga-se a VM para uma determinada rede virtual, o endereço IP público e o grupo de segurança de rede. A secção seguinte um manual de comunicação social Ansible cria uma NIC virtual com o nome *myNIC* ligados aos recursos da rede virtuais que criou:
+## <a name="create-virtual-network-interface-card"></a>Criar placa de interface de rede virtual
+Uma placa de interface de rede virtual (NIC) liga-se a sua VM para uma determinada rede virtual, o endereço IP público e o grupo de segurança de rede. A seguinte secção em playbooks do Ansible cria uma NIC virtual com o nome *myNIC* ligado para os recursos de rede virtual que criou:
 
 ```yaml
 - name: Create virtual network inteface card
@@ -108,7 +108,7 @@ Uma placa de interface de rede virtual (NIC) liga-se a VM para uma determinada r
 
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-O último passo consiste em criar uma VM e utilizar todos os recursos criados. A secção seguinte um manual de comunicação social Ansible cria uma VM chamada *myVM* e anexa o NIC virtual com o nome *myNIC*. Introduza os seus próprios dados de chaves públicos completos no *key_data* emparelhe da seguinte forma:
+A etapa final é criar uma VM e utilizar todos os recursos criados. A seguinte secção em playbooks do Ansible cria uma VM com o nome *myVM* e anexa o NIC virtual com o nome *myNIC*. Introduza os dados de chave públicos completos na *key_data* emparelhar da seguinte forma:
 
 ```yaml
 - name: Create VM
@@ -129,8 +129,8 @@ O último passo consiste em criar uma VM e utilizar todos os recursos criados. A
       version: latest
 ```
 
-## <a name="complete-ansible-playbook"></a>Concluir o manual de comunicação social Ansible
-Para reunir todas estas secções, crie um manual de comunicação social Ansible denominado *azure_create_complete_vm.yml* e cole o seguinte conteúdo. Introduza os seus próprios dados de chaves públicos completos no *key_data* par:
+## <a name="complete-ansible-playbook"></a>Concluir o manual de comunicação do Ansible
+Para reunir todas estas secções, criar playbooks do Ansible com o nome *azure_create_complete_vm.yml* e cole o seguinte conteúdo. Introduza os dados de chave públicos completos na *key_data* par:
 
 ```yaml
 - name: Create Azure VM
@@ -190,19 +190,19 @@ Para reunir todas estas secções, crie um manual de comunicação social Ansibl
         version: latest
 ```
 
-Ansible necessita de um grupo de recursos para implementar todos os recursos em. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Ansible precisa para implementar todos os seus recursos num grupo de recursos. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Para criar o ambiente de VM completado com Ansible, execute o manual de comunicação social da seguinte forma:
+Para criar o ambiente de VM completado com o Ansible, execute o playbook da seguinte forma:
 
 ```bash
 ansible-playbook azure_create_complete_vm.yml
 ```
 
-O resultado semelhante ao seguinte exemplo mostra que a VM foi criada com êxito:
+O resultado será semelhante ao seguinte exemplo mostra que a VM tiver sido criada com êxito:
 
 ```bash
 PLAY [Create Azure VM] ****************************************************
@@ -233,4 +233,4 @@ localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Este exemplo cria um ambiente de VM completado, incluindo os recursos de rede virtuais necessários. Para obter um exemplo mais direto criar uma VM para recursos de rede existentes com opções predefinidas, consulte [criar uma VM](ansible-create-vm.md).
+Este exemplo cria um ambiente de VM completo, incluindo os recursos de rede virtual necessários. Para obter um exemplo mais direto criar uma VM nos recursos de rede existente com as opções predefinidas, consulte [criar uma VM](ansible-create-vm.md).

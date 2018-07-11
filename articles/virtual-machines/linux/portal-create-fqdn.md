@@ -1,9 +1,9 @@
 ---
-title: Criar o FQDN para uma VM com Linux no portal do Azure | Microsoft Docs
-description: Saiba como criar um nome de domínio completamente qualificado, ou FQDN, para um Gestor de recursos com base em máquina virtual no portal do Azure.
+title: Criar o FQDN para uma VM do Linux no portal do Azure | Documentos da Microsoft
+description: Saiba como criar um nome de domínio completamente qualificado ou FQDN, para um Gerenciador de recursos com base em máquina virtual no portal do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,28 +14,28 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81182f5a03821dc42aed2390d9a0145460b1ddd7
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: ada68fcb1c480be6d70a925895e968fe714639ac
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
-ms.locfileid: "26707292"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928289"
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Criar um nome de domínio completamente qualificado no portal do Azure para uma VM com Linux
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Criar um nome de domínio completamente qualificado no portal do Azure para uma VM do Linux
 
-Quando cria uma máquina virtual (VM) no [portal do Azure](https://portal.azure.com), é criado automaticamente um recurso IP público para a máquina virtual. Utilize este endereço IP para aceder remotamente a VM. Embora o portal não cria um [nome de domínio completamente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), ou FQDN, pode adicionar uma assim que a VM ser criada. Este artigo demonstra os passos para criar um nome DNS ou um FQDN.
+Quando cria uma máquina virtual (VM) no [portal do Azure](https://portal.azure.com), um recurso IP público para a máquina virtual é criado automaticamente. Utilize este endereço IP para aceder remotamente à VM. Embora o portal não cria um [nome de domínio completamente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), ou FQDN, pode adicionar um quando a VM é criada. Este artigo demonstra os passos para criar um nome DNS ou o FQDN.
 
 ## <a name="create-a-fqdn"></a>Criar um FQDN
-Este artigo pressupõe que já criou uma VM. Se necessário, pode [criar uma VM no portal do](quick-create-portal.md) ou [com a CLI do Azure](quick-create-cli.md). Assim que a VM está a funcionar, siga estes passos:
+Este artigo pressupõe que já criou uma VM. Se for necessário, pode [criar uma VM no portal do](quick-create-portal.md) ou [com a CLI do Azure](quick-create-cli.md). Assim que a sua VM está a funcionar, siga estes passos:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Pode agora ligar remotamente para a VM com este nome DNS, tal como com `ssh azureuser@mydns.westus.cloudapp.azure.com`.
+Pode agora ligar remotamente à VM com este nome DNS, tal como com `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
-## <a name="next-steps"></a>Passos seguintes
-Agora que a VM tem um nome IP e DNS público, pode implementar comuns das estruturas de aplicações ou serviços como o nginx, MongoDB, Docker, etc.
+## <a name="next-steps"></a>Passos Seguintes
+Agora que a VM tem um nome IP e DNS público, pode implementar comuns estruturas de aplicações ou serviços, como o nginx, MongoDB, Docker, etc.
 
-Também pode ler mais sobre [com o Resource Manager](../../azure-resource-manager/resource-group-overview.md) para sugestões sobre como criar as suas implementações do Azure.
+Também pode ler mais sobre [com o Resource Manager](../../azure-resource-manager/resource-group-overview.md) para obter dicas sobre a criação de suas implementações do Azure.
 

@@ -1,9 +1,9 @@
 ---
-title: Inicie sessão para uma VM com Linux com credenciais do Azure Active Directory | Microsoft Docs
-description: Este howto, irá aprender a criar e configurar uma VM com Linux para utilizar a autenticação do Azure Active Directory para inícios de sessão do utilizador
+title: Iniciar sessão a uma VM do Linux com as credenciais do Azure Active Directory | Documentos da Microsoft
+description: Este foquei, saiba como criar e configurar uma VM do Linux para utilizar a autenticação do Azure Active Directory para inícios de sessão do utilizador
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,57 +12,58 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
-ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.date: 06/17/2018
+ms.author: cynthn
+ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652877"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934557"
 ---
-# <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual com Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
+# <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
-Para melhorar a segurança de máquinas de virtuais (VMs) com Linux no Azure, pode integrar com a autenticação do Azure Active Directory (AD). Quando utiliza a autenticação do Azure AD para VMs com Linux, centralmente controlar e impor políticas que permitem ou negam o acesso às VMs. Este artigo mostra como criar e configurar uma VM com Linux para utilizar a autenticação do Azure AD.
+Para melhorar a segurança de máquinas de virtuais do Linux (VMs) no Azure, pode integrar com a autenticação do Azure Active Directory (AD). Quando utiliza a autenticação do Azure AD para VMs do Linux, centralmente controlar e impor políticas que permitem ou negam o acesso às VMs. Este artigo mostra-lhe como criar e configurar uma VM do Linux utilizar autenticação do Azure AD.
 
 > [!NOTE]
-> Esta funcionalidade está em pré-visualização e não é recomendada para utilização com as máquinas virtuais de produção ou cargas de trabalho. Utilize esta funcionalidade numa máquina virtual de teste que pretende eliminar depois de teste.
+> Esta funcionalidade está em pré-visualização e não é recomendada para utilização com máquinas virtuais de produção ou cargas de trabalho. Utilize esta funcionalidade numa máquina virtual de teste que pretende eliminar depois de teste.
 
-Existem várias vantagens da utilização de autenticação do Azure AD para início de sessão para VMs com Linux no Azure, incluindo:
+Há muitos benefícios de usar a autenticação do Azure AD para iniciar sessão VMs do Linux no Azure, incluindo:
 
 - **Segurança melhorada:**
-  - Pode utilizar credenciais AD da sua empresa para iniciar sessão VMs do Linux do Azure. Não é necessário para criar contas de administrador local e gerir a duração da credencial.
-  - Ao reduzir a dependência em contas de administrador local, não precisa de preocupar com perda/roubo de credenciais, os utilizadores a configurar credenciais fracas, etc.
-  - A complexidade de palavra-passe e as políticas de duração de palavra-passe configuradas para o diretório do Azure AD ajudam a proteger VMs com Linux, bem como.
-  - Para início de sessão mais seguro para máquinas virtuais do Azure, pode configurar a autenticação multifator.
-  - A capacidade de início de sessão para VMs com Linux no Azure Active Directory também funciona para os clientes que utilizam [os serviços de Federação](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - Pode utilizar as credenciais empresariais do AD para iniciar sessão para VMs Linux do Azure. Não é necessário para criar contas de administrador local e gerir o ciclo de vida de credencial.
+  - Ao reduzir a dependência em contas de administrador local, não é necessário se preocupar sobre perda/roubo de credenciais, os utilizadores que configurar credenciais fracas etc.
+  - A complexidade de palavra-passe e as políticas de tempo de vida de palavra-passe configuradas para o diretório do Azure AD ajudam a proteger VMs do Linux também.
+  - Para o início de sessão mais seguro para máquinas virtuais do Azure, pode configurar a autenticação multifator.
+  - A capacidade de iniciar sessão para VMs do Linux no Azure Active Directory também funciona para os clientes que utilizam [serviços de Federação](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
-- **Colaboração totalmente integrada:** controlo de acesso With Role-Based (RBAC), pode especificar quem pode iniciar sessão para uma VM indicada como um utilizador normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de equipa, pode atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito mais simples do que ter de eliminar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a conta de utilizador é desativada ou removida do Azure AD, já não ter acesso aos recursos.
+- **Colaboração direta:** controlo de acesso With Role-Based (RBAC), pode especificar quem pode iniciar sessão para uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de sua equipe, é possível atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito simples do que que limpar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a respetiva conta de utilizador é desabilitada ou removida do Azure AD, deixam de ter acesso aos seus recursos.
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure e as distribuições do Linux suportados
+### <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure suportadas e distribuições do Linux
 
-As distribuições de Linux seguintes são atualmente suportadas durante a pré-visualização desta funcionalidade:
+As seguintes distribuições de Linux são atualmente suportadas durante a pré-visualização desta funcionalidade:
 
 | Distribuição | Versão |
 | --- | --- |
 | CentOS | CentOS 6.9 e CentOS 7.4 |
-| VM de RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 17.10 |
+| Debian | Debian 9 |
+| Red Hat Enterprise Linux | RHEL 6, 7 DO RHEL | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 e Ubuntu Server 18.04 |
 
 As seguintes regiões do Azure atualmente são suportadas durante a pré-visualização desta funcionalidade:
 
-- Todas as regiões do Azure global
+- Todas as regiões globais do Azure
 
 >[!IMPORTANT]
-> Para utilizar esta funcionalidade de pré-visualização, implementar apenas uma distro suportada de Linux e numa região do Azure suportada. A funcionalidade não é suportada no Azure Government ou sovereign nuvens.
+> Para utilizar esta funcionalidade de pré-visualização, apenas implantar uma distribuição Linux suportada e, numa região do Azure suportada. A funcionalidade não é suportada no Azure Government ou clouds soberanas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.31 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
 
-Criar um grupo de recursos com [criar grupo az](/cli/azure/group#az-group-create), em seguida, crie uma VM com [az vm criar](/cli/azure/vm#az-vm-create) utilizando um distro suportado e numa região suportada. O exemplo seguinte implementa uma VM chamada *myVM* que utiliza *Ubuntu 16.04 LTS* para um grupo de recursos denominado *myResourceGroup* no *southcentralus*  região. Nos exemplos a seguir, pode fornecer o seu grupo de recursos e nomes VM conforme necessário.
+Criar um grupo de recursos com [criar grupo az](/cli/azure/group#az-group-create), em seguida, crie uma VM com [az vm criar](/cli/azure/vm#az-vm-create) usando uma distribuição suportada e numa região suportada. O exemplo seguinte implementa uma VM com o nome *myVM* que utiliza *Ubuntu 16.04 LTS* para um grupo de recursos com o nome *myResourceGroup* no *southcentralus*  região. Nos exemplos a seguir, pode fornecer seu próprio grupo de recursos e os nomes VM conforme necessário.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -77,9 +78,9 @@ az vm create \
 
 São necessários alguns minutos para criar a VM e os recursos de suporte.
 
-## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar o início de sessão do Azure AD extensão da VM
+## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar o início de sessão do Azure AD a extensão de VM
 
-Para iniciar sessão para uma VM com Linux com credenciais do Azure AD, instale o registo do Azure Active Directory na extensão VM. Extensões VM são aplicações de pequenas a indicar tarefas de configuração e a automatização de pós-implementação em máquinas virtuais do Azure. Utilize [conjunto de extensão de vm az](/cli/azure/vm/extension#az-vm-extension-set) para instalar o *AADLoginForLinux* extensão da VM com o nome *myVM* no *myResourceGroup* recursos grupo:
+Para iniciar sessão a uma VM do Linux com credenciais do Azure AD, instale o registo do Azure Active Directory na extensão VM. Extensões de VM são pequenos aplicativos que fornecem as tarefas de automatização e configuração de pós-implementação em máquinas virtuais do Azure. Uso [conjunto de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) para instalar o *AADLoginForLinux* extensão na VM com o nome *myVM* no *myResourceGroup* recursos grupo:
 
 ```azurecli-interactive
 az vm extension set \
@@ -89,19 +90,19 @@ az vm extension set \
     --vm-name myVM
 ```
 
-O *provisioningState* de *com êxito* é apresentada assim que a extensão é instalada na VM.
+O *provisioningState* dos *Succeeded* é mostrada uma vez que a extensão é instalada na VM.
 
-## <a name="configure-role-assignments-for-the-vm"></a>Configurar as atribuições de função da VM
+## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função de VM
 
-Política de controlo de acesso baseado em funções (RBAC) do Azure determina quem pode iniciar sessão para a VM. Duas funções RBAC são utilizadas para autorizar o início de sessão VM:
+Política de controlo de acesso baseado em funções (RBAC) do Azure determina quem pode iniciar sessão na VM. Duas funções RBAC são utilizadas para autorizar o início de sessão da VM:
 
-- **Início de sessão do administrador do Virtual Machine**: os utilizadores com esta função atribuída podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador de raiz do administrador do Windows ou Linux.
-- **Início de sessão de utilizador de máquina virtual**: os utilizadores com esta função atribuída podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador normais.
+- **Início de sessão de administrador de máquinas virtuais**: os utilizadores com esta função atribuída podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador de raiz do administrador do Windows ou Linux.
+- **Início de sessão de utilizador de máquina virtual**: os utilizadores com esta função atribuída, podem iniciar sessão a uma máquina virtual do Azure com privilégios de utilizador normais.
 
 > [!NOTE]
-> Para permitir que um utilizador inicie sessão VM através de SSH, tem de atribuir um o *início de sessão do administrador do Virtual Machine* ou *início de sessão de utilizador de Máquina Virtual* função. Um utilizador do Azure com o *proprietário* ou *contribuinte* funções atribuídas para uma VM não automaticamente dispõe de privilégios de início de sessão para a VM através de SSH.
+> Para permitir que um utilizador inicie sessão VM através de SSH, deve atribuir a *início de sessão de administrador do Virtual Machine* ou *início de sessão de utilizador de Máquina Virtual* função. Um utilizador do Azure com o *proprietário* ou *contribuinte* funções atribuídas para uma VM automaticamente não tem privilégios para iniciar sessão VM através de SSH.
 
-O exemplo seguinte utiliza [de criação da atribuição de função az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a *início de sessão do administrador do Virtual Machine* função para a VM para o utilizador do Azure atual. O nome de utilizador da sua conta do Azure Active Directory é obtida com [mostrar de conta az](/cli/azure/account#az-account-show)e o *âmbito* está definido para a VM criada no passo anterior com [mostrar de vm az](/cli/azure/vm#az-vm-show). O âmbito também foi possível atribuir a um nível de grupo ou de subscrição de recursos e aplicam permissões de herança RBAC normais. Para obter mais informações, consulte [controlos de acesso baseado em funções](../../azure-resource-manager/resource-group-overview.md#access-control)
+O exemplo seguinte utiliza [criação da atribuição de função de az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a *início de sessão de administrador de máquinas virtuais* função para a VM para o seu utilizador do Azure atual. O nome de utilizador da sua conta do Azure Active Directory é obtido com [show de conta de az](/cli/azure/account#az-account-show)e o *âmbito* está definida para a VM criada no passo anterior com [show de vm de az](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um nível de subscrição ou grupo de recursos e aplicam as permissões de herança de RBAC normais. Para obter mais informações, consulte [controlos de acesso baseado em funções](../../azure-resource-manager/resource-group-overview.md#access-control)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -114,46 +115,46 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Se o domínio do AAD e o domínio de nome de utilizador de início de sessão não corresponderem, tem de especificar o ID de objeto da sua conta de utilizador com o *– id de objeto assignee*, não apenas o nome de utilizador *– assignee*. Pode obter o ID de objeto para a sua conta de utilizador com [lista de utilizadores do ad az](/cli/azure/ad/user#az-ad-user-list).
+> Se o seu domínio do AAD e o domínio do nome de utilizador de início de sessão não corresponderem, tem de especificar o ID de objeto da sua conta de utilizador com o *– o id de objeto detentor*, não apenas o nome de utilizador para *– detentor*. Pode obter o ID de objeto para a sua conta de utilizador com [lista de utilizadores do ad az](/cli/azure/ad/user#az-ad-user-list).
 
-Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos recursos da sua subscrição do Azure, consulte utilizar o [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [portal do Azure](../../role-based-access-control/role-assignments-portal.md), ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos recursos da sua subscrição do Azure, veja a utilizar o [CLI do Azure 2.0](../../role-based-access-control/role-assignments-cli.md), [portal do Azure](../../role-based-access-control/role-assignments-portal.md), ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Também pode configurar o Azure AD para exigir a autenticação multifator para um utilizador específico iniciar sessão para a máquina virtual Linux. Para obter mais informações, consulte [introdução ao Azure multi-factor Authentication na nuvem](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Também pode configurar o Azure AD para exigir autenticação multifator para um utilizador específico iniciar sessão na máquina virtual do Linux. Para obter mais informações, consulte [introdução à Azure multi-factor Authentication na cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
-## <a name="log-in-to-the-linux-virtual-machine"></a>Inicie sessão na máquina de virtual com Linux
+## <a name="log-in-to-the-linux-virtual-machine"></a>Inicie sessão na máquina virtual do Linux
 
-Em primeiro lugar, ver o endereço IP público da sua VM com [mostrar de vm az](/cli/azure/vm#az-vm-show):
+Em primeiro lugar, ver o endereço IP público da VM com [show de vm de az](/cli/azure/vm#az-vm-show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Inicie sessão máquina virtual Linux do Azure com as suas credenciais do Azure AD. O `-l` parâmetro permite-lhe especificar os seus próprios endereços de conta do Azure AD. Especifique o endereço IP público da sua VM como saída no comando anterior:
+Inicie sessão na máquina virtual Linux do Azure com as suas credenciais do Azure AD. O `-l` parâmetro permite-lhe especificar o seu endereço de conta do Azure AD. Especifique o endereço IP público da sua VM como saída no comando anterior:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
 ```
 
-Lhe for pedido para iniciar sessão Azure AD com um código de utilização única no [ https://microsoft.com/devicelogin ](https://microsoft.com/devicelogin). Copie e cole o código de utilização única a página de início de sessão de dispositivo, conforme mostrado no exemplo seguinte:
+Lhe for pedido para iniciar sessão no Azure AD com um código de utilização única em [ https://microsoft.com/devicelogin ](https://microsoft.com/devicelogin). Copie e cole o código de utilização única página de início de sessão do dispositivo, conforme mostrado no exemplo a seguir:
 
 ```bash
 ~$ ssh -l azureuser@contoso.onmicrosoft.com 13.65.237.247
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJS3K6X4D to authenticate. Press ENTER when ready.
 ```
 
-Quando lhe for pedido, introduza as credenciais de início de sessão do AD do Azure na página de início de sessão. A seguinte mensagem é apresentada no browser quando tem de ser autenticadas com êxito:
+Quando lhe for pedido, introduza as credenciais de início de sessão do Azure AD a página de início de sessão. A seguinte mensagem de erro é apresentada no navegador da web, quando tem de ser autenticado com êxito:
 
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
-Feche a janela do browser, voltar para o SSH linha de comandos e prima a **Enter** chave. Tem agora sessão iniciada para a máquina virtual do Linux do Azure com as permissões de função conforme atribuído, tais como *VM utilizador* ou *VM administrador*. Se a sua conta de utilizador está atribuída a *início de sessão do administrador do Virtual Machine* função, pode utilizar o `sudo` para executar comandos que necessitam de privilégios de raiz.
+Feche a janela do browser, devolva o SSH linha de comandos e prima a **Enter** chave. Tem agora sessão iniciada para a máquina virtual do Linux do Azure com as permissões de função como atribuído, como *utilizador de VM* ou *administrador da VM*. Se a sua conta de utilizador é atribuída a *início de sessão de administrador do Virtual Machine* função, pode usar o `sudo` para executar comandos que exigem privilégios de raiz.
 
 ## <a name="troubleshoot-sign-in-issues"></a>Resolver problemas de início de sessão
 
-Alguns erros comuns ao tentar SSH com credenciais do Azure AD incluem não funções do RBAC atribuídas e repetido pedidos para iniciar sessão. Utilize as secções seguintes para corrigir estes problemas.
+Alguns erros comuns quando tenta colocar SSH com credenciais do Azure AD incluem não existem funções RBAC atribuídas e repetido pedidos para iniciar sessão. Utilize as secções seguintes para corrigir esses problemas.
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: função RBAC não atribuída
 
-Se vir o seguinte erro na sua linha SSH, certifique-se de que tem [RBAC políticas configuradas](#configure-rbac-policy-for-the-virtual-machine) para a VM que concede o utilizador está a *início de sessão do administrador do Virtual Machine* ou *Virtual Início de sessão do utilizador do computador* função:
+Se vir o seguinte erro na sua linha de comandos SSH, certifique-se de que tenha [configurado políticas RBAC](#configure-rbac-policy-for-the-virtual-machine) para a VM que concede ao usuário ou o *início de sessão de administrador de máquinas virtuais* ou *Virtual Início de sessão do utilizador do computador* função:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com
@@ -164,18 +165,18 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 
-### <a name="continued-ssh-sign-in-prompts"></a>SSH contínuo início de sessão dos avisos
+### <a name="continued-ssh-sign-in-prompts"></a>Contínuos pedidos de início de sessão do SSH
 
-Se concluir com êxito o passo de autenticação num web browser, poderá ser imediatamente a pedido para voltar a iniciar sessão com um código de raiz. Normalmente, este erro é causado por um erro de correspondência entre o nome de início de sessão que especificou na linha de SSH e a conta que iniciou sessão com o Azure AD com. Para corrigir este problema:
+Se concluir com êxito a etapa de autenticação num navegador da web, poderão ser imediatamente a pedido para iniciar sessão novamente com um novo código. Este erro normalmente é causado por um erro de correspondência entre o nome de início de sessão que especificou na linha de comandos SSH e a conta que iniciou sessão no Azure AD com. Para corrigir este problema:
 
-- Certifique-se de que o nome de início de sessão que especificou na linha de SSH está correto. Um erro de digitação no nome de início de sessão pode causar um erro de correspondência entre o nome de início de sessão que especificou na linha de SSH e a conta que iniciou sessão com o Azure AD com. Por exemplo, o que escreveu *azuresuer@contoso.onmicrosoft.com* em vez de *azureuser@contoso.onmicrosoft.com*.
-- Se tiver múltiplas contas de utilizador, certifique-se que não fornecer uma conta de utilizador diferente na janela do browser quando iniciar sessão no Azure AD.
-- Linux é um sistema de operativo maiúsculas e minúsculas. Há uma diferença entre 'Azureuser@contoso.onmicrosoft.com'e'azureuser@contoso.onmicrosoft.com', que pode causar um erro de correspondência. Certifique-se de que especificou o UPN com a sensibilidade correta na linha de SSH.
+- Certifique-se de que o nome de início de sessão que especificou na linha de comandos SSH está correto. Um erro de digitação no nome do início de sessão pode causar um erro de correspondência entre o nome de início de sessão que especificou na linha de comandos SSH e a conta que iniciou sessão no Azure AD com. Por exemplo, que escreveu *azuresuer@contoso.onmicrosoft.com* em vez de *azureuser@contoso.onmicrosoft.com*.
+- Se tiver várias contas de utilizador, certifique-se de que não fornecer uma conta de utilizador diferente na janela do browser, ao iniciar sessão com o Azure AD.
+- Linux é um sistema de operativo diferencia maiúsculas de minúsculas. Existe uma diferença entre "Azureuser@contoso.onmicrosoft.com"e"azureuser@contoso.onmicrosoft.com', que pode causar um erro de correspondência. Certifique-se de que especifica o UPN com a sensibilidade correta na linha de comandos SSH.
 
-## <a name="preview-feedback"></a>Pré-visualização comentários
+## <a name="preview-feedback"></a>Comentários de pré-visualização
 
-Partilhar os seus comentários sobre este problemas de funcionalidade ou no relatório de pré-visualização utilizá-la no [fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+Partilhe os seus comentários sobre esta pré-visualização funcionalidade ou reportar problemas usá-lo no [fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o Azure Active Directory, consulte [que é o Azure Active Directory](../../active-directory/active-directory-whatis.md) e [como começar com o Azure Active Directory](../../active-directory/get-started-azure-ad.md)
+Para obter mais informações sobre o Azure Active Directory, consulte [o que é o Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) e [como começar com o Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)

@@ -3,7 +3,7 @@ title: Redes virtuais e máquinas virtuais do Windows no Azure | Microsoft Docs
 description: Saiba mais sobre a rede e como está relacionada com as noções básicas da criação de máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: iainfou
-ms.openlocfilehash: 56e749ea2ed465d80fc68b3c2d61d5b8b03a9944
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.author: cynthn
+ms.openlocfilehash: be472eb78646140baa1b6cc09d11f77fa5874513
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190896"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927660"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais no Azure 
 

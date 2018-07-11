@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de pilha do Microsoft Azure | Microsoft Docs
-description: Resolução de pilha do Azure.
+title: Resolução de problemas do Microsoft Azure Stack | Documentos da Microsoft
+description: O Azure Stack de resolução de problemas.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,68 +12,57 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 53bb89daee47d5f380786246070cf5cddb69b731
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229895"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929564"
 ---
-# <a name="microsoft-azure-stack-troubleshooting"></a>Resolução de problemas de pilha do Microsoft Azure
+# <a name="microsoft-azure-stack-troubleshooting"></a>Resolução de problemas do Microsoft Azure Stack
 
-*Aplica-se a: Azure da pilha Kit de desenvolvimento*
+Este documento fornece informações de resolução de problemas comuns para o Azure Stack. 
 
-Este documento fornece informações de resolução de problemas comuns de pilha do Azure. 
+> [!NOTE]
+> Uma vez que o Azure Stack Technical Development Kit (ASDK) é oferecido como um ambiente de avaliação, não existe nenhum oficial de suporte dos serviços de suporte de cliente do Microsoft. Se estiver tendo um problema, certifique-se verificar a [fórum MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter mais ajuda e informações.  
 
-Porque o Kit de desenvolvimento de técnica de pilha do Azure é fornecido como um ambiente de avaliação, não são suportadas oficial do suporte técnico da Microsoft. Se estiver a ter um problema não documentado, certifique-se verificar o [fórum MSDN do Azure pilha](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  
-
-As recomendações de resolução de problemas que são descritos nesta secção são derivadas de várias origens e podem ou não poderão resolver o problema específico. Exemplos de código são fornecidos tal como está e não podem ser garantidos resultados esperados. Nesta secção está sujeita a edições frequentes e atualizações, melhoramentos ao produto são implementados.
+As recomendações para a solução de problemas que são descritos nesta secção são derivadas de várias origens e podem ou não podem ser resolvido o problema específico. Exemplos de código são fornecidos tal como estão e não for possível garantir os resultados esperados. Esta secção é sujeitos a edições freqüentes e atualizações, melhorias ao produto são implementadas.
 
 ## <a name="deployment"></a>Implementação
 ### <a name="deployment-failure"></a>Falha de implementação
-Se ocorrer uma falha durante a instalação, pode reiniciar a implementação do passo falhado utilizando-opção volte a executar o script de implementação.  
+Se ocorrer uma falha durante a instalação, pode reiniciar implementação a partir do passo falhado, utilizando a – opção nova execução do script de implementação.  
 
-
-### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>No final da implementação, a sessão do PowerShell é aberta e não mostra resultados
-Este comportamento é, provavelmente, apenas o resultado do comportamento predefinido de uma janela de comando do PowerShell, quando foi selecionada. A implementação do kit de desenvolvimento, na verdade, é concluída com êxito, mas o script foi colocada em pausa quando selecionar a janela. Pode verificar a configuração foi concluída, procurando a palavra "selecionar" no titlebar da janela de comando.  Prima a tecla ESC para anular-a e a mensagem de conclusão deve ser apresentada depois.
+### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>No final da implementação de ASDK, a sessão do PowerShell ainda está aberta e não mostra nenhuma saída.
+Este comportamento é provavelmente somente o resultado do comportamento predefinido de uma janela de comando do PowerShell, quando foi selecionada. A implementação do kit de desenvolvimento foi concluída com êxito, mas o script foi colocada em pausa quando selecionar a janela. Pode verificar a configuração foi concluída para procurar a palavra "selecionar" na barra de títulos da janela de comando.  Prima a tecla ESC para desmarcá-lo e a mensagem de conclusão deve ser mostrada depois dela.
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 ### <a name="default-image-and-gallery-item"></a>Item de imagem e galeria predefinido
-Tem de adicionar um item de imagem e da galeria do Windows Server antes de implementar VMs na pilha do Azure.
+Tem de adicionar um item de imagem e a galeria do Windows Server antes de implementar VMs no Azure Stack.
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Depois de reiniciar o meu anfitrião de pilha do Azure, algumas VMs poderão não iniciar automaticamente.
-Depois de reiniciar o seu anfitrião, poderá reparar serviços do Azure pilha não estão imediatamente disponíveis.  Isto acontece porque a pilha de Azure [infraestrutura VMs](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) e RPs demorar um pouco bit para verificar a consistência, mas, eventualmente, será automaticamente iniciado.
+### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Depois de reiniciar o meu host do Azure Stack, algumas VMs podem não iniciar automaticamente.
+Depois de reiniciar o seu anfitrião, poderá reparar serviços do Azure Stack não estão disponíveis imediatamente.  Isto acontece porque o Azure Stack [VMs de infraestrutura](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) e fornecedores de recursos demoram algum tempo para verificar a consistência, mas, eventualmente, serão iniciada automaticamente.
 
-Também poderá reparar que inquilino que VMS não iniciar automaticamente após um reinício do anfitrião de kit de desenvolvimento de pilha do Azure. Este é um problema conhecido e requer apenas alguns passos manuais para colocá-los online:
+Também pode observar esse inquilino que VMS não são iniciados automaticamente após um reinício do anfitrião do kit de desenvolvimento do Azure Stack. Isso é um problema conhecido e requer apenas alguns passos manuais para colocá-los online:
 
-1.  No anfitrião de kit de desenvolvimento de pilha do Azure, iniciar **Gestor de clusters de ativação pós-falha** no menu Iniciar.
+1.  No anfitrião de kit de desenvolvimento do Azure Stack, inicie **Gestor de clusters de ativação pós-falha** do Menu Iniciar.
 2.  Selecione o cluster **S Cluster.azurestack.local**.
 3.  Selecione **funções**.
-4.  VMs de inquilino são apresentados num *guardado* estado. Assim que estiver a executar todas as VMs de infraestrutura, as VMs de inquilino com o botão direito e selecione **iniciar** para retomar a VM.
+4.  VMs de inquilino são apresentados numa *guardado* estado. Assim que estiver a executar todas as VMs de infraestrutura, as VMs do inquilino com o botão direito e selecione **iniciar** para retomar a VM.
 
-### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Tem de eliminar algumas máquinas virtuais, mas ainda ver os ficheiros VHD no disco. Este comportamento é esperado?
-Sim, isto é comportamento esperado. Foi concebido desta forma porque:
+### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Eliminou algumas máquinas virtuais, mas ainda verá os arquivos VHD no disco. Este comportamento é esperado?
+Sim, este comportamento está previsto. Ele foi projetado desta forma, porque:
 
-* Quando elimina uma VM, VHDs não são eliminados. Os discos estão separados recursos no grupo de recursos.
-* Quando uma conta de armazenamento é eliminada, a eliminação está visível imediatamente através do Azure Resource Manager, mas os discos que podem conter ainda são mantidos no armazenamento até que a recolha de lixo é executado.
+* Quando elimina uma VM, os VHDs não são eliminados. Os discos são recursos separados, no grupo de recursos.
+* Quando uma conta de armazenamento é excluída, a eliminação está visível imediatamente através do Azure Resource Manager, mas os discos podem conter ainda são mantidos no armazenamento até que a coleta de lixo é executado.
 
-Se vir "orphan" VHDs, é importante saber se o que fazem parte da pasta para a conta de armazenamento que foi eliminada. Se a conta de armazenamento não foi eliminada, é normal são ainda não existe.
+Se vir "orphan" VHDs, é importante saber se elas fazem parte da pasta para uma conta de armazenamento que foi eliminada. Se a conta de armazenamento não foi eliminada, é normal que eles ainda estão ali.
 
-Pode ler mais sobre como configurar a recuperação de limiar e a pedido de retenção no [gerir contas de armazenamento](azure-stack-manage-storage-accounts.md).
+Pode ler mais sobre como configurar a recuperação de limiar e sob demanda de retenção no [gerir contas de armazenamento](azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Armazenamento
 ### <a name="storage-reclamation"></a>Recuperação de armazenamento
-Pode demorar até fourteen horas para a capacidade de reclamada a aparecer no portal. Recuperação de espaço depende de vários fatores, incluindo a percentagem de utilização dos ficheiros de contentor interno no arquivo de blob de bloco. Por conseguinte, dependendo da quantidade de dados é eliminado, não há nenhuma garantia, a quantidade de espaço que foi recuperado quando executa o recoletor de lixo.
-
-## <a name="windows-azure-pack-connector"></a>Conector do Windows Azure Pack
-* Se alterar a palavra-passe da conta azurestackadmin depois de implementar o kit de desenvolvimento de pilha do Azure, já não pode configurar o modo de cloud multi. Por conseguinte, não é possível estabelecer ligação ao ambiente do Windows Azure Pack de destino.
-* Depois de configurar o modo de vários cloud:
-    * Um utilizador pode ver o dashboard apenas depois de serem repor as definições do portal. (No portal de utilizador, clique no ícone de definições do portal (engrenagem ícone no canto superior direito). Em **restaurar predefinições**, clique em **aplicar**.)
-    * Os títulos de dashboard podem não aparecer. Se este problema ocorrer, tem de adicionar manualmente-las novamente.
-    * Alguns mosaicos poderão não mostrar corretamente quando os adicionar primeiro ao dashboard. Para corrigir este problema, atualize o browser.
-
-
+Pode demorar até 14 horas para a capacidade de recuperada a aparecer no portal. Recuperação de espaço depende de vários fatores, incluindo a percentagem de utilização de ficheiros de contentor interno no arquivo de BLOBs de bloco. Por conseguinte, dependendo da quantidade de dados é eliminado, não é garantido a quantidade de espaço que poderia ser recuperado quando o coletor de lixo é executado.
 

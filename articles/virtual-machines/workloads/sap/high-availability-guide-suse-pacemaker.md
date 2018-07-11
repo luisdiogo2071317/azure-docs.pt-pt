@@ -1,6 +1,6 @@
 ---
-title: Configurar Pacemaker no SUSE Linux Enterprise Server no Azure | Microsoft Docs
-description: Configurar Pacemaker no SUSE Linux Enterprise Server no Azure
+title: Configurar Pacemaker no SUSE Linux Enterprise Server no Azure | Documentos da Microsoft
+description: Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -15,37 +15,39 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: ba44a8988c4af68abf4d155a2b9cb490b6122d39
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656419"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921508"
 ---
-# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurar Pacemaker no SUSE Linux Enterprise Server no Azure
+# <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
 
-Existem duas opções para configurar um cluster de Pacemaker no Azure. Pode utilizar um agente de fencing, que trata da reiniciar um nó falha através das APIs do Azure ou pode utilizar um dispositivo SBD.
+Existem duas opções para configurar um cluster de Pacemaker no Azure. Pode utilizar um agente de delimitação por barreiras, que trata da reinicialização de um nó com falha através das APIs do Azure ou pode utilizar um dispositivo SBD.
 
-O dispositivo SBD necessita de uma máquina virtual adicional que age como um servidor de destino iSCSI e fornece um dispositivo SBD. Este servidor de destino iSCSI no entanto pode ser partilhada com outros clusters Pacemaker. A vantagem de utilizar um dispositivo SBD é uma hora de ativação pós-falha mais rápida e, se estiver a utilizar SBD dispositivos no local, não requer quaisquer alterações no modo de funcionamento de pacemaker cluster. O fencing SBD ainda pode utilizar o agente do Azure fence como uma cópia de segurança fencing mecanismo no caso do servidor de destino iSCSI não está disponível.
+O dispositivo SBD necessita de uma máquina virtual adicional que age como um servidor de destino iSCSI e fornece um dispositivo SBD. Este servidor de destino iSCSI no entanto pode ser partilhado com outros clusters Pacemaker. A vantagem de utilizar um dispositivo SBD é um menor tempo de ativação pós-falha e, se estiver a utilizar SBD dispositivos no local, não requer quaisquer alterações no modo de funcionamento do cluster pacemaker. A delimitação por barreiras SBD ainda pode utilizar o agente do Azure de cerca de cópia de segurança barreiras mecanismo, no caso do servidor de destino iSCSI não está disponível.
 
-Se não pretende investir em máquinas virtuais adicionais, também pode utilizar o agente do Azure Fence. O downside é que uma ativação pós-falha pode demorar entre 10 a 15 minutos, se parar um recurso falha ou os nós de cluster não é possível comunicar que entre si já.
+Se não pretender que a investir numa máquina virtual adicional, também pode utilizar o agente de cerca de Azure. A desvantagem é que uma ativação pós-falha pode demorar entre 10 a 15 minutos, se falha de parar um recurso ou os nós do cluster não é possível comunicar que uns aos outros mais.
 
-![Pacemaker na descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+![Pacemaker no Descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
-## <a name="sbd-fencing"></a>SBD fencing
+## <a name="sbd-fencing"></a>A delimitação por barreiras SBD
 
-Se pretender utilizar um dispositivo SBD para fencing, siga estes passos.
+Se pretender utilizar um dispositivo SBD para delimitação por barreiras, siga estes passos.
 
 ### <a name="set-up-an-iscsi-target-server"></a>Configurar um servidor de destino iSCSI
 
-Terá primeiro de criar uma máquina de virtual de destino iSCSI, se ainda não tiver um. servidores de destino iSCSI podem ser partilhados com vários clusters Pacemaker.
+Tem primeiro de criar uma máquina de virtual de destino iSCSI, se ainda não tiver um. servidores de destino iSCSI podem ser compartilhados com vários clusters Pacemaker.
 
-1. Implementar um novo SP1 de 12 SLES ou superior numa máquina virtual e ligar à máquina através de ssh. A máquina não precisa de ser grande. Um tamanho de máquina virtual como Standard_E2s_v3 ou Standard_D2s_v3 é suficiente.
+1. Implementar um novo SP1 de 12 do SLES ou superior numa máquina virtual e ligar à máquina através de ssh. A máquina não tem de ser grande. Um tamanho de máquina virtual como Standard_E2s_v3 ou Standard_D2s_v3 é suficiente.
 
 1. Atualizar SLES
 
@@ -55,7 +57,7 @@ Terá primeiro de criar uma máquina de virtual de destino iSCSI, se ainda não 
 
 1. Remover pacotes
 
-   Para evitar um problema conhecido com targetcli e SLES 12 SP3, desinstale os seguintes pacotes. Pode ignorar erros de pacotes que não não possível localizar
+   Para evitar um problema conhecido com targetcli e SLES 12 SP3, desinstale os seguintes pacotes. Pode ignorar erros sobre os pacotes que não podem ser encontradas
    
    <pre><code>
    sudo zypper remove lio-utils python-rtslib python-configshell targetcli
@@ -76,9 +78,9 @@ Terá primeiro de criar uma máquina de virtual de destino iSCSI, se ainda não 
 
 ### <a name="create-iscsi-device-on-iscsi-target-server"></a>Criar dispositivo do iSCSI no servidor de destino iSCSI
 
-Anexe um novo disco de dados para a máquina de virtual de destino iSCSI pode ser utilizada para este cluster. O disco de dados pode ser tão pequeno como 1 GB e devem ser colocado numa conta de armazenamento Premium ou um disco de gerido para Premium para beneficiar do [único SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines).
+Anexe um disco de dados novo à máquina de virtual de destino iSCSI que pode ser utilizada para este cluster. O disco de dados pode ser tão pequeno como 1 GB e tem de ser colocado numa conta de armazenamento Premium ou um disco gerido de Premium para beneficiar a [único SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
-Execute o seguinte comando **VM de destino iSCSI** para criar um disco iSCSI para o novo cluster. No exemplo seguinte, **cl1** é utilizado para identificar o novo cluster e **prod-cl1-0** e **prod-cl1-1** são os nomes de anfitriões de nós do cluster. Substitua-as com os nomes de anfitriões de nós de cluster.
+Execute o seguinte comando **VM de destino iSCSI** para criar um disco iSCSI para o novo cluster. No exemplo a seguir **cl1** é utilizado para identificar o novo cluster e **cl1-prod-0** e **cl1-prod-1** são os nomes de anfitrião de nós do cluster. Substituí-los com os nomes de anfitrião dos nós do cluster.
 
 <pre><code>
 # List all data disks with the following command
@@ -110,13 +112,13 @@ sudo targetcli saveconfig
 
 ### <a name="set-up-sbd-device"></a>Configurar o dispositivo SBD
 
-Ligar ao dispositivo de iSCSI que foi criado no último passo do cluster.
+Ligar ao dispositivo iSCSI que foi criado no último passo do cluster.
 Execute os seguintes comandos em nós do novo cluster que pretende criar.
-Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1]** - só é aplicável ao nó de 1 ou **[2]** - apenas aplicável a nó 2.
+Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
 1. **[A]**  Ligar para os dispositivos de iSCSI
 
-   Em primeiro lugar, ative os serviços SBD e o iSCSI.
+   Em primeiro lugar, ative os serviços SBD e iSCSI.
 
    <pre><code>
    sudo systemctl enable iscsid
@@ -124,25 +126,25 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo systemctl enable sbd
    </code></pre>
 
-1. **[1]**  Alterar o nome do iniciador no primeiro nó
+1. **[1]**  Alterar o nome de iniciador no primeiro nó
 
    <pre><code>
    sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Altera o conteúdo do ficheiro a corresponder as ACLs utilizado ao criar o dispositivo de iSCSI num servidor de destino iSCSI
+   Alterar o conteúdo do ficheiro de acordo com as ACLs que utilizou quando criou o dispositivo de iSCSI no servidor de destino iSCSI
 
    <pre><code>   
    InitiatorName=<b>iqn.2006-04.prod-cl1-0.local:prod-cl1-0</b>
    </code></pre>
 
-1. **[2]**  Altere o nome do iniciador no segundo nó
+1. **[2]**  Alterar o nome de iniciador para o segundo nó
 
    <pre><code>
    sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   Altera o conteúdo do ficheiro a corresponder as ACLs utilizado ao criar o dispositivo de iSCSI num servidor de destino iSCSI
+   Alterar o conteúdo do ficheiro de acordo com as ACLs que utilizou quando criou o dispositivo de iSCSI no servidor de destino iSCSI
 
    <pre><code>
    InitiatorName=<b>iqn.2006-04.prod-cl1-1.local:prod-cl1-1</b>
@@ -157,7 +159,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo systemctl restart iscsi
    </code></pre>
 
-   Ligue os dispositivos de iSCSI. No exemplo abaixo, 10.0.0.17 é o endereço IP do servidor de destino iSCSI e 3260 é a porta predefinida. <b>iqn.2006 04.cl1.local:cl1</b> é o nome de destino que está listado quando executar o comando primeiro.
+   Ligue os dispositivos de iSCSI. No exemplo abaixo, 10.0.0.17 é o endereço IP do servidor de destino iSCSI e 3260 é a porta predefinida. <b>iqn.2006 04.cl1.local:cl1</b> é o nome de destino que está listado ao executar o primeiro comando.
 
    <pre><code>
    sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>
@@ -166,7 +168,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   Certifique-se de que o dispositivo de iSCSI está disponível e tenha em atenção feito o nome do dispositivo (por exemplo seguintes/dev/sde)
+   Certifique-se de que o dispositivo de iSCSI está disponível bem como observar feito o nome do dispositivo (no exemplo seguinte/desenvolvimento/sde)
 
    <pre><code>
    lsscsi
@@ -188,19 +190,19 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    # lrwxrwxrwx 1 root root  9 Feb  7 12:39 /dev/disk/by-id/scsi-SLIO-ORG_cl1_3fe4da37-1a5a-4bb6-9a41-9a4df57770e4 -> ../../sde
    </code></pre>
 
-   O comando lista três os IDs do dispositivo. Recomendamos a utilização de ID que começa com 3 scsi, no exemplo acima isto é
+   O comando lista as três identificações de dispositivo. Recomendamos que está a utilizar o ID que começa com scsi-3, no exemplo acima isso
    
    **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
 
 1. **[1]**  Criar o dispositivo SBD
 
-   Utilize o ID de dispositivo do dispositivo iSCSI para criar um novo dispositivo SBD no primeiro nó do cluster.
+   Utilize o ID de dispositivo do dispositivo iSCSI para criar um novo dispositivo SBD no primeiro nó de cluster.
 
    <pre><code>
    sudo sbd -d <b>/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df</b> -1 10 -4 20 create
    </code></pre>
 
-1. **[A]**  Adaptar a SBD de configuração
+1. **[A]**  Adaptar-se a configuração SBD
 
    Abra o ficheiro de configuração SBD
 
@@ -208,7 +210,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   Alterar a propriedade do dispositivo SBD, ativar a integração de pacemaker e alterar o modo de início de SBD.
+   Alterar a propriedade do dispositivo SBD, permitir a integração de pacemaker e alterar o modo de início de SBD.
 
    <pre><code>
    [...]
@@ -225,15 +227,15 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
 
-   Agora carregue o módulo
+   Agora, carregar o módulo
 
    <pre><code>
    sudo modprobe -v softdog
    </code></pre>
 
-## <a name="cluster-installation"></a>Instalação do cluster
+## <a name="cluster-installation"></a>Instalação de cluster
 
-Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1]** - só é aplicável ao nó de 1 ou **[2]** - apenas aplicável a nó 2.
+Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
 1. **[A]**  Atualizar SLES
 
@@ -241,7 +243,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo zypper update
    </code></pre>
 
-1. **[1]**  Ativar ssh acesso
+1. **[1]**  Ativar o ssh acesso
 
    <pre><code>
    sudo ssh-keygen
@@ -254,7 +256,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-2. **[2]**  Ativar ssh acesso
+2. **[2]**  Ativar o ssh acesso
 
    <pre><code>
    sudo ssh-keygen
@@ -270,29 +272,29 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[1]**  Ativar ssh acesso
+1. **[1]**  Ativar o ssh acesso
 
    <pre><code>
    # insert the public key you copied in the last step into the authorized keys file on the first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]**  Extensão instalar HA
+1. **[A]**  Agentes de cerca de instalar
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install fence-agents
    </code></pre>
 
-1. **[A]**  Configurar a resolução de nome de anfitrião   
+1. **[A]**  Configurar a resolução de nomes de anfitrião   
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o cluster independente de DNS que pode ser um ponto único de falhas de demasiado.
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independentes do DNS que também poderia ser um ponto único de falhas.
 
    <pre><code>
    sudo vi /etc/hosts
    </code></pre>
    
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e nome de anfitrião para corresponder ao seu ambiente   
+   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente   
    
    <pre><code>
    # IP address of the first cluster node
@@ -301,7 +303,7 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[1]**  Instalar o Cluster
+1. **[1]**  Instalar Cluster
    
    <pre><code>
    sudo ha-cluster-init
@@ -329,17 +331,17 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Configurar corosync para utilizar outro transporte e adicionar nodelist. Cluster não funciona em contrário.
+1. **[A]**  Configurar corosync para utilizar outro transporte e adicionar nodelist. Cluster caso contrário, não funciona.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Adicione o seguinte conteúdo de negrito para o ficheiro se os valores não forem há ou diferentes.
+   Adicione o seguinte conteúdo de negrito para o ficheiro se os valores não forem existe ou diferente. Certifique-se alterar o token para 30000 para permitir que a memória preservação da manutenção. Ver [este artigo para Linux] [ virtual-machines-linux-maintenance] ou [Windows] [ virtual-machines-windows-maintenance] para obter mais detalhes.
    
    <pre><code> 
    [...]
-     <b>token:          5000
+     <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
      consensus:      6000
@@ -386,25 +388,25 @@ Os seguintes itens são o prefixo um **[A]** - aplicáveis a todos os nós, **[1
 
 ## <a name="create-stonith-device"></a>Criar dispositivo STONITH
 
-O dispositivo STONITH utiliza um Principal de serviço para autorizar contra o Microsoft Azure. Siga estes passos para criar um Principal de serviço.
+O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Microsoft Azure. Siga estes passos para criar um Principal de serviço.
 
 1. Ir para <https://portal.azure.com>
-1. Abra o painel do Azure Active Directory  
-   Aceda às propriedades e anotar o ID de diretório. Este é o **ID de inquilino**.
-1. Clique em registos de aplicação
+1. Abra o painel Azure Active Directory  
+   Vá para propriedades e anote o ID de diretório. Este é o **ID de inquilino**.
+1. Clique em registos de aplicações
 1. Clique em Adicionar
-1. Introduza um nome, selecione o tipo de aplicação "Aplicação Web/API", introduza um URL de início de sessão (por exemplo http://localhost) e clique em criar
+1. Introduza um nome, selecione o tipo de aplicação "Aplicação/API da Web", introduza um URL de início de sessão (por exemplo http://localhost) e clique em criar
 1. O URL de início de sessão não é utilizado e pode ser qualquer URL válido
 1. Selecione a nova aplicação e clique em chaves no separador Definições
 1. Introduza uma descrição para uma nova chave, selecione "Nunca expira" e clique em Guardar
-1. Anote o valor. É utilizado como o **palavra-passe** para o Principal de serviço
-1. Anote o ID de aplicação. É utilizado como o nome de utilizador (**ID de início de sessão** nos passos abaixo) do Principal de serviço
+1. Anote o valor. Ele é usado como o **palavra-passe** para o Principal de serviço
+1. Anote o ID da aplicação. Ele é usado como o nome de utilizador (**ID de início de sessão** nos passos abaixo) de Principal de serviço
 
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Criar uma função personalizada para o agente de fence
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Criar uma função personalizada para o agente de cerca
 
-O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. Terá de conceder as permissões do Principal de serviço para iniciar e parar (desalocar) todas as máquinas virtuais do cluster. Se já não foi possível criar a função personalizada, pode criá-la utilizando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) ou [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
+O Principal de serviço não tem permissões para aceder aos seus recursos do Azure por predefinição. Tem de conceder as permissões do Principal de serviço para iniciar e parar (desaloque) todas as máquinas virtuais do cluster. Se já não tiver criado a função personalizada, pode criá-la utilizando [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) ou [da CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
 
-Utilize o seguinte conteúdo para o ficheiro de entrada. Terá de adaptar o conteúdo para as suas subscrições, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a entrada segundo na AssignableScopes.
+Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conteúdo para as suas subscrições, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os Ids da sua subscrição. Se tiver apenas uma subscrição, remova a segunda entrada assignablescopes.
 
 ```json
 {
@@ -428,14 +430,14 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. Terá de adaptar o cont
 
 ### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]**  Atribuir a função personalizada para o Principal de serviço
 
-Atribua a função personalizada "Linux Fence agente função" que foi criado no capítulo último para o Principal de serviço. Não utilize a função de proprietário já!
+Atribua a função personalizada "Linux cerca agente de função" que foi criado no último capítulo para o Principal de serviço. Não utilize a função de proprietário mais!
 
 1. Ir para https://portal.azure.com
-1. Abra o painel de recursos de todos os
+1. Abra o painel de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
-1. Clique em controlo de acesso (IAM)
+1. Clique em controle de acesso (IAM)
 1. Clique em Adicionar
-1. Selecione a função "Função de agente do Linux Fence"
+1. Selecione a função de "Função de agente de cerca de Linux"
 1. Introduza o nome da aplicação que criou acima
 1. Clique em OK
 
@@ -454,16 +456,16 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 
 </code></pre>
 
-### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]**  Cria fence topologia para SBD fencing
+### <a name="1-create-fence-topology-for-sbd-fencing"></a>**[1]**  Criar cerca de topologia para a delimitação por barreiras SBD
 
-Se pretender utilizar um dispositivo SBD, ainda Recomendamos que utilize um agente do Azure fence como uma cópia de segurança no caso do servidor de destino iSCSI não está disponível.
+Se pretender utilizar um dispositivo SBD, ainda Recomendamos que utilize um agente de Azure cerca de cópia de segurança no caso do servidor de destino iSCSI não está disponível.
 
 <pre><code>
 sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>
-### **[1] ** Ativar a utilização de um dispositivo STONITH
+### **[1] ** Permitem a utilização de um dispositivo STONITH
 
 <pre><code>
 sudo crm configure property stonith-enabled=true 
@@ -471,7 +473,7 @@ sudo crm configure property stonith-enabled=true
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Azure máquinas virtuais de planeamento e implementação de SAP][planning-guide]
+* [Máquinas de virtuais de planeamento e implementação de SAP do Azure][planning-guide]
 * [Implementação de máquinas virtuais do Azure para SAP][deployment-guide]
 * [Implementação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer elevada disponibilidade e o plano de recuperação de desastres do SAP HANA em VMs do Azure, consulte o artigo [disponibilidade elevada do SAP HANA em Azure Virtual Machines (VMs)][sap-hana-ha]
+* Para saber como estabelecer a elevada disponibilidade e o plano de recuperação após desastre do SAP HANA em VMs do Azure, veja [disponibilidade elevada do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]

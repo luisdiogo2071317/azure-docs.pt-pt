@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 496c32e70ad58f64b31c1f6fcf913884fcd4abc1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348240"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37967871"
 ---
 As organizações têm necessidades de computação em grande escala. Estas cargas de trabalho de Macrocomputação incluem o design de engenharia e análise, cálculos de riscos financeiros, composição de imagem, modelação complexa, simulações Monte Carlo e muito mais. 
 
@@ -58,7 +58,7 @@ Visite o [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketpla
 * [VM para Windows e Linux de ciência de dados do Azure](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
-* [Intel Cloud Edition para Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.lustre-cloud-edition-eval?tab=Overview)
+* [Intel Cloud Edition para Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
 
  
@@ -189,7 +189,7 @@ Exemplos de clientes que tem resolvido os problemas de negócios com soluções 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [D3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
@@ -201,7 +201,7 @@ Exemplos de clientes que tem resolvido os problemas de negócios com soluções 
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre as soluções de Macrocomputação para [simulação de engenharia](https://simulation.azure.com/), [composição](https://azure.microsoft.com/solutions/big-compute/rendering/), [banca e mercados de capitais](https://finance.azure.com/), e [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Para os anúncios mais recentes, veja o [blogue da equipa do Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e o [blogue do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 

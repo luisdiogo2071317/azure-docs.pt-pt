@@ -8,15 +8,20 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 0f3f2347dd277cb155bf5edf3f8c30da34788b65
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a519cd242b88916d1a11df47c0b7450594848ef5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437764"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920554"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividades do Azure
 Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell ou CLI de várias plataformas para arquivar sua [ **registo de atividades do Azure** ](monitoring-overview-activity-logs.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter o registo de atividades mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estática. Se só precisa de manter seus eventos durante 90 dias ou menos não é necessário configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de Atividades são mantidos na plataforma do Azure durante 90 dias sem ativar arquivamento.
+
+> [!WARNING]
+> O formato dos dados de registo na conta de armazenamento vai ser alterados para linhas de JSON de 1 de Novembro de 2018. [Veja este artigo para obter uma descrição do impacto e como atualizar a sua ferramenta para lidar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, precisa [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) ao qual pode arquivar o registo de atividades. É altamente recomendável que não use uma conta de armazenamento existente que tenha outros, não monitorizar dados armazenados na mesma, para que pode controlar melhor acesso a dados de monitorização. No entanto, se também são arquivar os registos de diagnóstico e métricas para uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o registo de atividades também para manter todos os dados de monitorização numa localização central. A conta de armazenamento não tem de estar na mesma subscrição que a subscrição que emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.

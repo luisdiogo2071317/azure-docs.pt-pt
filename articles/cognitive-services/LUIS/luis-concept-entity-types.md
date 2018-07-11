@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 83e5a8db9162ef1587664c0a353252c04ade45d8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 7dc3d0ce70ca0df2c5cf951ae53ee0566451801f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887808"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952812"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -77,7 +77,7 @@ LUIS oferece muitos tipos de entidades; entidades previamente concebidas, máqui
 **Pré-criados** entidades são entidades personalizadas fornecidas pelo LUIS. Algumas destas entidades definidas no código aberto [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text) projeto. Existem muitas [exemplos](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) no diretório /Specs para as culturas suportadas. Se sua cultura específica ou a entidade não é atualmente suportada, contribuem para o projeto. 
 
 <a name="machine-learned"></a>
-**Ficou a saber de máquina** entidades funcionam melhor quando testado por meio [consultas de ponto final](luis-concept-test.md#endpoint-testing) e [expressões de ponto final de revisão](label-suggested-utterances.md). 
+**Ficou a saber de máquina** entidades funcionam melhor quando testado por meio [consultas de ponto final](luis-concept-test.md#endpoint-testing) e [expressões de ponto final de revisão](luis-how-to-review-endoint-utt.md). 
 
 <a name="regex"></a>
 **Entidades de expressão regular** são definidos por uma expressão regular, o utilizador fornece como parte da definição de entidade. 

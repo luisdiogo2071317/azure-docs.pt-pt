@@ -1,9 +1,9 @@
 ---
-title: Criar uma VM com Linux no Azure com vários NICs | Microsoft Docs
-description: Saiba como criar uma VM com Linux com vários NICs anexados ao mesmo utilizando os modelos do Azure CLI 2.0 ou do Resource Manager.
+title: Criar uma VM do Linux no Azure com várias NICs | Documentos da Microsoft
+description: Saiba como criar uma VM do Linux com vários NICs ligados ao mesmo com os modelos da CLI 2.0 do Azure ou do Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -13,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
-ms.author: iainfou
-ms.openlocfilehash: 2ad04b17fc4c5bafb7fa0b7eea946832430a4f17
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936756"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932277"
 ---
-# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com a rede de várias placas de interface
-Pode criar uma máquina virtual (VM) no Azure com várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com vários NICs anexados e como adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
+# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com rede várias placas de interface
+Pode criar uma máquina virtual (VM) no Azure que tenha várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com várias NICs ligadas a si e como adicionar ou remover NICs a uma VM existente. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM.
 
-Este artigo fornece detalhes sobre como criar uma VM com vários NICs com o 2.0 CLI do Azure. 
+Este artigo fornece detalhes sobre como criar uma VM com vários NICs com a CLI 2.0 do Azure. 
 
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login).
+Instalar a versão mais recente [CLI do Azure 2.0](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
 
-Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *mystorageaccount*, e *myVM*.
+Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *mystorageaccount*, e *myVM*.
 
 Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
@@ -38,7 +38,7 @@ Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_gr
 az group create --name myResourceGroup --location eastus
 ```
 
-Criar a rede virtual com [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e sub-rede designada *mySubnetFrontEnd*:
+Criar a rede virtual com [vnet de rede de az criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e a sub-rede com o nome *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -49,7 +49,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Crie uma sub-rede para o tráfego de back-end com [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). O exemplo seguinte cria uma sub-rede designada *mySubnetBackEnd*:
+Crie uma sub-rede para o tráfego de back-end com [criar a sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). O exemplo seguinte cria uma sub-rede denominada *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -59,7 +59,7 @@ az network vnet subnet create \
     --address-prefix 192.168.2.0/24
 ```
 
-Criar um grupo de segurança de rede com [az rede nsg criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
+Crie um grupo de segurança de rede com [nsg de rede de az criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -68,7 +68,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Criar e configurar vários NICs
-Criar dois NICs com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria dois NICs, com o nome *myNic1* e *myNic2*, ligados do grupo de segurança de rede com um NIC a ligação a cada sub-rede:
+Criar dois NICs com [nic da rede de az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria dois NICs, com o nome *myNic1* e *myNic2*, ligado o grupo de segurança de rede, com uma NIC para ligar a cada sub-rede:
 
 ```azurecli
 az network nic create \
@@ -85,8 +85,8 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nics"></a>Criar uma VM e anexe os NICs
-Quando criar a VM, especifique os NICs que criou com `--nics`. Terá também de tenha cuidado quando selecionar o tamanho da VM. Existem limites para o número total de NICs que pode adicionar a uma VM. Leia mais sobre [tamanhos de VM com Linux](sizes.md). 
+## <a name="create-a-vm-and-attach-the-nics"></a>Criar uma VM e ligar as NICs
+Ao criar a VM, especifique os NICs que criou com `--nics`. Terá também de ter cuidado ao selecionar o tamanho da VM. Existem limites para o número total de NICs que podem ser adicionados a uma VM. Leia mais sobre [tamanhos de VM do Linux](sizes.md). 
 
 Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM com o nome *myVM*:
 
@@ -101,12 +101,12 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
+Adicionar tabelas de roteamento para o SO convidado, concluindo os passos em [configurar o sistema operacional convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
-## <a name="add-a-nic-to-a-vm"></a>Adicionar uma NIC para uma VM
-Os passos anteriores, criados uma VM com vários NICs. Também pode adicionar NICs a uma VM existente com o 2.0 CLI do Azure. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade. Se necessário, pode [redimensionar uma VM](change-vm-size.md).
+## <a name="add-a-nic-to-a-vm"></a>Adicionar uma NIC a uma VM
+Os passos anteriores criaram uma VM com várias NICs. Também pode adicionar NICs a uma VM existente com a CLI 2.0 do Azure. Diferentes [tamanhos de VM](sizes.md) suporta um número variável de NICs, então, da mesma forma a dimensionar sua VM. Se for necessário, pode [redimensionar uma VM](change-vm-size.md).
 
-Crie outra NIC com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria um NIC com o nome *myNic3* ligada ao back-end sub-rede e de rede de grupo de segurança criado nos passos anteriores:
+Crie outro NIC com [nic da rede de az criar](/cli/azure/network/nic#az_network_nic_create). O exemplo seguinte cria um NIC com o nome *myNic3* ligada ao back-end sub-rede e de rede de grupo de segurança criado nos passos anteriores:
 
 ```azurecli
 az network nic create \
@@ -117,14 +117,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Para adicionar uma NIC para uma VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
+Para adicionar um NIC a uma VM existente, desaloque a VM com [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte desaloca a VM com o nome *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Adicionar a NIC com [az vm nic adicionar](/cli/azure/vm/nic#az_vm_nic_add). O exemplo seguinte adiciona *myNic3* para *myVM*:
+Adicionar a NIC com o [az vm nic adicionar](/cli/azure/vm/nic#az_vm_nic_add). O exemplo seguinte adiciona *myNic3* ao *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -133,22 +133,22 @@ az vm nic add \
     --nics myNic3
 ```
 
-Iniciar a VM com [início de vm az](/cli/azure/vm#az_vm_start):
+Iniciar a VM com [início de vm de az](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
+Adicionar tabelas de roteamento para o SO convidado, concluindo os passos em [configurar o sistema operacional convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Remover um NIC de uma VM
-Para remover um NIC de VM existente, Desalocação da VM com [az vm desalocar](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte deallocates VM com o nome *myVM*:
+Para remover um NIC de uma VM existente, desaloque a VM com [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte desaloca a VM com o nome *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Remova a NIC com [az vm nic remover](/cli/azure/vm/nic#az_vm_nic_remove). O exemplo a seguir remove *myNic3* de *myVM*:
+Remover a NIC com o [az vm nic remover](/cli/azure/vm/nic#az_vm_nic_remove). O exemplo seguinte remove *myNic3* partir *myVM*:
 
 ```azurecli
 az vm nic remove \
@@ -157,7 +157,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Iniciar a VM com [início de vm az](/cli/azure/vm#az_vm_start):
+Iniciar a VM com [início de vm de az](/cli/azure/vm#az_vm_start):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -165,7 +165,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Criar vários NICs com modelos do Resource Manager
-Modelos Azure Resource Manager utilizam declarativos ficheiros JSON para definir o seu ambiente. Pode ler um [descrição geral do Gestor de recursos do Azure](../../azure-resource-manager/resource-group-overview.md). Modelos do Resource Manager fornecem uma forma de criar várias instâncias de um recurso durante a implementação, tais como criar vários NICs. Utilizar *cópia* para especificar o número de instâncias para criar:
+Modelos Azure Resource Manager utilizam ficheiros declarativos do JSON para definir o seu ambiente. Pode ler uma [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Modelos do Resource Manager fornecem uma forma de criar várias instâncias de um recurso durante a implementação, como a criação de várias NICs. Utilizar *cópia* para especificar o número de instâncias para criar:
 
 ```json
 "copy": {
@@ -174,31 +174,31 @@ Modelos Azure Resource Manager utilizam declarativos ficheiros JSON para definir
 }
 ```
 
-Leia mais sobre [criar várias instâncias utilizando *cópia*](../../resource-group-create-multiple.md). 
+Leia mais sobre [criar várias instâncias usando *cópia*](../../resource-group-create-multiple.md). 
 
-Também pode utilizar um `copyIndex()` a em seguida, anexe um número para um nome de recurso, o que permite-lhe criar `myNic1`, `myNic2`, etc. O seguinte mostra um exemplo de acrescentar o valor de índice:
+Também pode utilizar um `copyIndex()` para, em seguida, anexar um número para um nome de recurso, o que permite que crie `myNic1`, `myNic2`, etc. O código a seguir mostra um exemplo de acrescentar o valor de índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Pode ler um exemplo completo de [criar vários NICs com modelos do Resource Manager](../../virtual-network/template-samples.md).
+Pode ler um exemplo completo de [criando vários NICs com modelos do Resource Manager](../../virtual-network/template-samples.md).
 
-Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
+Adicionar tabelas de roteamento para o SO convidado, concluindo os passos em [configurar o sistema operacional convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
-## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para vários NICs
-Quando adicionar vários NICs para uma VM com Linux, terá de criar regras de encaminhamento. Estas regras permitir que a VM enviar e receber tráfego, que pertence a um NIC específico. Caso contrário, tráfego que pertença a *eth1*, não pode ser processada por exemplo, corretamente, a rota predefinida definida.
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o sistema operacional convidado para vários NICs
+Quando adiciona várias NICs a uma VM do Linux, tem de criar regras de encaminhamento. Estas regras permitem que a VM enviar e receber tráfego que pertence a uma NIC específicas. O tráfego, caso contrário, que pertence *eth1*, por exemplo, não consegue processar corretamente a rota padrão definido.
 
-Para corrigir este problema de encaminhamento, adicione duas tabelas de encaminhamento para */etc/iproute2/rt_tables* da seguinte forma:
+Para corrigir este problema de encaminhamento, adicione duas tabelas de roteamento para */etc/iproute2/rt_tables* da seguinte forma:
 
 ```bash
 echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Para efetuar a alteração persistente e aplicadas durante a ativação da pilha de rede, edite */etc/sysconfig/network-scripts/ifcfg-eth0* e */etc/sysconfig/network-scripts/ifcfg-eth1*. Alterar a linha *"NM_CONTROLLED = yes"* para *"NM_CONTROLLED = não"*. Sem este passo, o adicional regras/encaminhamento não são automaticamente aplicadas.
+Para efetuar a alteração persistente e aplicadas durante a ativação da pilha de rede, edite */etc/sysconfig/network-scripts/ifcfg-eth0* e */etc/sysconfig/network-scripts/ifcfg-eth1*. Alterar a linha *"NM_CONTROLLED = yes"* ao *"NM_CONTROLLED = não"*. Sem essa etapa, o adicional regras/encaminhamento não são automaticamente aplicadas.
  
-Em seguida, expandem as tabelas de encaminhamento. Vamos supor que temos a seguinte configuração no local:
+Em seguida, expanda as tabelas de roteamento. Vamos supor que temos a seguinte configuração no local:
 
 *Encaminhamento*
 
@@ -218,7 +218,7 @@ eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0
 eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 ```
 
-Em seguida, teria de criar os seguintes ficheiros e adicionar as regras adequadas e as rotas a cada:
+Em seguida, seria criar os seguintes ficheiros e adicionar as regras adequadas e as rotas a cada:
 
 - */etc/sysconfig/network-scripts/rule-eth0*
 
@@ -254,8 +254,8 @@ Para aplicar as alterações, reinicie o *rede* service da seguinte forma:
 systemctl restart network
 ```
 
-As regras de encaminhamento corretamente estão agora no local e pode estabelecer ligação com a interface, conforme necessário.
+As regras de encaminhamento estão corretamente em vigor e se pode ligar a cada interface conforme necessário.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Reveja [tamanhos de VM com Linux](sizes.md) ao tentar criar uma VM com vários NICs. Preste atenção para o número máximo de NICs suporta cada tamanho da VM. 
+Revisão [tamanhos de VM do Linux](sizes.md) ao tentar criar uma VM com várias NICs. Preste atenção para o número máximo de NICs oferece suporte a cada tamanho de VM. 

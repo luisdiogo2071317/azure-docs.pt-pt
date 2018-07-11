@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 4d18419a6ad8be6ee46944c34205e450212b23a8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888518"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952594"
 ---
 # <a name="data-extraction"></a>Extração de dados
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, uma aplicação ou um chatbot para tomar medidas.
@@ -426,13 +426,13 @@ Outra expressão de exemplo, com um sinónimo para Paris:
 Obtendo nomes de uma expressão é difícil porque um nome pode ser praticamente qualquer combinação de letras e palavras. Consoante o tipo de nome está a extrair, tem várias opções. Essas não são regras, mas mais diretrizes. 
 
 ### <a name="names-of-people"></a>Nomes de pessoas
-Nome das pessoas pode ter algum formato ligeiro dependendo do idioma e cultura. Utilizar uma entidade de hierárquica com primeiros e últimos nomes como filhos ou utilizar uma entidade com funções de nome próprio e apelido. Certifique-se de que dê exemplos que utilizam o nome próprio e apelido em diferentes partes da expressão, em expressões com extensões diferentes e expressões com em todos os objetivos, incluindo o None intenção. [Revisão](label-suggested-utterances.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
+Nome das pessoas pode ter algum formato ligeiro dependendo do idioma e cultura. Utilizar uma entidade de hierárquica com primeiros e últimos nomes como filhos ou utilizar uma entidade com funções de nome próprio e apelido. Certifique-se de que dê exemplos que utilizam o nome próprio e apelido em diferentes partes da expressão, em expressões com extensões diferentes e expressões com em todos os objetivos, incluindo o None intenção. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
 
 ### <a name="names-of-places"></a>Nomes de locais
-Nomes de localização são estabelecidos e conhecidos como cidades, condados, Estados, províncias e países. Se a sua aplicação utiliza um conjunto de saber de localizações, considere uma entidade de lista. Se precisar de encontrar a que colocar todos os nomes, crie uma entidade e fornecem uma variedade de exemplos. Adicione uma lista de frase de nomes de locais para reforçar que aspeto de nomes local como na sua aplicação. [Revisão](label-suggested-utterances.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
+Nomes de localização são estabelecidos e conhecidos como cidades, condados, Estados, províncias e países. Se a sua aplicação utiliza um conjunto de saber de localizações, considere uma entidade de lista. Se precisar de encontrar a que colocar todos os nomes, crie uma entidade e fornecem uma variedade de exemplos. Adicione uma lista de frase de nomes de locais para reforçar que aspeto de nomes local como na sua aplicação. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
 
 ### <a name="new-and-emerging-names"></a>Nomes de novos e emergentes
-Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Este é o tipo mais difíceis de extração de dados. Começar com uma entidade e adicionar uma lista de frase. [Revisão](label-suggested-utterances.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
+Algumas aplicações tem de conseguir encontrar os nomes de novos e emergentes, como produtos ou as empresas. Este é o tipo mais difíceis de extração de dados. Começar com uma entidade e adicionar uma lista de frase. [Revisão](luis-how-to-review-endoint-utt.md) expressões de ponto final em intervalos regulares para rotular todos os nomes que não foram previstos corretamente. 
 
 ## <a name="pattern-roles-data"></a>Dados de funções padrão
 As funções são as diferenças contextuais das entidades. 

@@ -1,9 +1,9 @@
 ---
-title: Criar uma VM com Linux no Azure a partir de um modelo | Microsoft Docs
-description: Como utilizar a CLI do Azure para criar uma VM com Linux a partir de um modelo do Resource Manager
+title: Criar uma VM do Linux no Azure a partir de um modelo | Documentos da Microsoft
+description: Como utilizar a CLI do Azure para criar uma VM do Linux a partir de um modelo do Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2b4dde9796336112d6c8a68d16d0b3006b3fee
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936419"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930244"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos Azure Resource Manager
-Este artigo mostra como implementar rapidamente uma máquina virtual (VM) do Linux com modelos Azure Resource Manager e a CLI do Azure. 
+Este artigo mostra-lhe como implementar rapidamente uma máquina virtual (VM) do Linux com modelos Azure Resource Manager e a CLI do Azure. 
 
 
 ## <a name="templates-overview"></a>Descrição geral de modelos
-Modelos Azure Resource Manager são ficheiros JSON que definem a infraestrutura e a configuração da sua solução do Azure. Ao utilizar um modelo, pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente. Para saber mais sobre o formato do modelo e como pode construir, consulte o artigo [criar o primeiro modelo Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Para ver a sintaxe JSON para tipos de recursos, consulte [Define resources in Azure Resource Manager templates (Definir recursos nos modelos do Azure Resource Manager)](/azure/templates/).
+Modelos Azure Resource Manager são ficheiros JSON que definem a infraestrutura e a configuração da sua solução do Azure. Ao utilizar um modelo, pode implementar repetidamente a solução durante o ciclo de vida da mesma e ter a confiança de que os recursos são implementados num estado consistente. Para saber mais sobre o formato do modelo e como construí-lo, consulte [criar o primeiro modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Para ver a sintaxe JSON para tipos de recursos, consulte [Define resources in Azure Resource Manager templates (Definir recursos nos modelos do Azure Resource Manager)](/azure/templates/).
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupVM* no *eastus* região:
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. O exemplo seguinte cria um grupo de recursos chamado *myResourceGroupVM* no *eastus* região:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-O exemplo seguinte cria uma VM a partir [este modelo Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create). Autenticação de SSH só é permitida. Quando solicitado, forneça o valor da sua própria chave pública SSH, tais como o conteúdo do *~/.ssh/id_rsa.pub*. Se precisar de criar um par de chaves SSH, consulte [como criar e utilizar um par de chaves SSH para VMs com Linux no Azure](mac-create-ssh-keys.md).
+O exemplo seguinte cria uma VM a partir [este modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create). É permitida apenas a autenticação SSH. Quando solicitado, forneça o valor de sua própria chave pública SSH, como o conteúdo do *~/.ssh/id_rsa.pub*. Se precisar de criar um par de chaves SSH, veja [como criar e utilizar um par de chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create \
@@ -51,7 +51,7 @@ No exemplo anterior, que especificou um modelo armazenado no GitHub. Também pod
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
-Para SSH para a VM, obter o endereço IP público com [mostrar de vm az](/cli/azure/vm#az-vm-show):
+Para encaminhar o SSH para a VM, obtenha o endereço IP público com [show de vm de az](/cli/azure/vm#az-vm-show):
 
 ```azurecli
 az vm show \
@@ -62,11 +62,11 @@ az vm show \
     --output tsv
 ```
 
-Pode, em seguida, SSH para a VM como habitualmente. Fornece-lhe próprio endereço IP público do comando anterior:
+Pode, em seguida, SSH à VM como habitualmente. Fornece-lhe próprio endereço IP público no comando anterior:
 
 ```bash
 ssh azureuser@<ipAddress>
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste exemplo, criou uma VM com Linux básico. Para mais modelos de Gestor de recursos que incluem estruturas de aplicações ou criar ambientes mais complexas, procure o [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+Neste exemplo, criou uma VM do Linux básica. Para obter mais modelos do Resource Manager que incluem estruturas de aplicações ou crie ambientes mais complexos, procurar as [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).

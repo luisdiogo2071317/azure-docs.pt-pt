@@ -1,65 +1,64 @@
 ---
-title: Orientações sobre a implementação de aplicações web do Azure, utilizando modelos | Microsoft Docs
-description: Recomendações para criação de modelos Azure Resource Manager para implementar as aplicações web.
+title: Orientações sobre a implementação de aplicações web do Azure com os modelos | Documentos da Microsoft
+description: Recomendações para a criação de modelos Azure Resource Manager para implementar aplicações web.
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807327"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927677"
 ---
-# <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientações sobre a implementação de aplicações web utilizando os modelos Azure Resource Manager
+# <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Documentação de orientação sobre a implementação de aplicações web utilizando modelos Azure Resource Manager
 
-Este artigo fornece recomendações para criação de modelos Azure Resource Manager para implementar soluções de App Service do Azure. Estas recomendações podem ajudar a evitar problemas comuns.
+Este artigo fornece recomendações para a criação de modelos Azure Resource Manager para implementar soluções de serviço de aplicações do Azure. Estas recomendações podem ajudar a evitar problemas comuns.
 
-## <a name="define-dependencies"></a>Definir dependências
+## <a name="define-dependencies"></a>Definir as dependências
 
-Definir as dependências para aplicações web requer uma compreensão dos como interagem recursos dentro de uma aplicação web. Se especificar dependências por uma ordem incorreta, poderá causar erros de implementação ou criar uma condição provável de antecipação que parar a implementação.
+Definição de dependências para aplicações web requer uma compreensão de como os recursos dentro de uma aplicação web interagem. Se especificar dependências numa ordem incorreta, poderá causar erros de implementação ou criar uma condição de corrida que paralisa a implementação.
 
 > [!WARNING]
-> Se incluir uma extensão de site MSDeploy no seu modelo, tem de definir quaisquer recursos de configuração como dependente do recurso de MSDeploy. As alterações de configuração fazer com que o site reiniciar no modo assíncrono. Ao tornar os recursos de configuração depende de MSDeploy, certifique-se de que MSDeploy é concluída antes do site for reiniciado. Sem estas dependências, o site poderá reiniciar durante o processo de implementação de MSDeploy. Para um modelo de exemplo, consulte [WordPress modelo com a dependência de implementar Web](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
+> Se incluir uma extensão de site de MSDeploy no seu modelo, tem de definir quaisquer recursos de configuração como dependente do recurso de MSDeploy. Alterações de configuração com que o site de forma assíncrona a reiniciar. Ao tornar os recursos de configuração depende de MSDeploy, garante que MSDeploy é concluída antes de reinicia o site. Sem essas dependências, o site poderá reiniciar durante o processo de implementação de MSDeploy. Para um modelo de exemplo, consulte [modelo de WordPress com a dependência de implementar Web](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
 
-A imagem seguinte mostra a ordem da dependência de vários recursos do serviço de aplicações:
+A imagem seguinte mostra a ordem da dependência para vários recursos de serviço de aplicações:
 
 ![Dependências de aplicações Web](media/web-sites-rm-template-guidance/web-dependencies.png)
 
-Implementar recursos pela seguinte ordem:
+Implementar recursos na seguinte ordem:
 
 **Camada 1**
-* Plano de serviço aplicacional.
+* Plano do serviço de aplicações.
 * Quaisquer outros recursos relacionados, como bases de dados ou contas de armazenamento.
 
 **Camada 2**
-* Web aplicação – depende do plano do App Service.
-* Instância do Azure do Application Insights que tenha como destino o farm de servidores – depende do plano do App Service.
+* Web app – depende o plano do serviço de aplicações.
+* A instância do Azure Application Insights que tenha como destino o farm de servidores – depende o plano do serviço de aplicações.
 
 **Camada 3**
-* Origem de controlo - depende da aplicação web.
-* Extensão de site de MSDeploy – depende da aplicação web.
-* Instância da aplicação Insights que tenha como destino o farm de servidores – depende da aplicação web.
+* Origem de controle – depende a aplicação web.
+* Extensão de site de MSDeploy, depende da aplicação web.
+* Instância do Application Insights que tenha como destino o farm de servidores – depende a aplicação web.
 
 **Camada 4**
-* Certificado de serviço de aplicações – depende do controlo de origem ou MSDeploy se qualquer um dos está presente. Caso contrário, depende da aplicação web.
-* Definições de configuração (cadeias de ligação, os valores de Web. config, as definições de aplicação) – depende de controlo de origem ou MSDeploy se a está presente. Caso contrário, depende da aplicação web.
+* Certificado de serviço de aplicações – depende do controlo de origem ou MSDeploy se qualquer um dos está presente. Caso contrário, ele depende a aplicação web.
+* Definições de configuração (cadeias de ligação, os valores de Web. config, as definições da aplicação) – depende de controlo de origem ou MSDeploy se qualquer um estiver presente. Caso contrário, ele depende a aplicação web.
 
 **Camada 5**
-* Anfitrião enlaces do nome – depende o certificado se estiver presente. Caso contrário, depende de um recurso de nível mais elevado.
-* Site extensões – depende das definições de configuração se estiverem presentes. Caso contrário, depende de um recurso de nível mais elevado.
+* Enlaces de nome - do anfitrião depende do certificado se estiver presente. Caso contrário, depende de um recurso de nível superior.
+* Extensões – de sites depende das definições de configuração, se estiver presente. Caso contrário, depende de um recurso de nível superior.
 
-Normalmente, a solução inclui apenas algumas destas recursos e as camadas. Para as camadas em falta, mapear inferiores recursos para a camada seguinte superior.
+Normalmente, a solução inclui apenas alguns desses recursos e camadas. Para os escalões em falta, mapear recursos inferior ao escalão mais elevado de avançar.
 
-O exemplo seguinte mostra faz parte de um modelo. O valor da cadeia de configuração de ligação depende a extensão de MSDeploy. A extensão de MSDeploy depende a aplicação web e a base de dados. 
+O exemplo seguinte mostra a parte de um modelo. O valor da configuração da cadeia de ligação depende da extensão de MSDeploy. A extensão de MSDeploy depende a aplicação web e a base de dados. 
 
 ```json
 {
@@ -88,19 +87,19 @@ O exemplo seguinte mostra faz parte de um modelo. O valor da cadeia de configura
 }
 ```
 
-Para um exemplo de prontos para execução que utiliza o código acima, consulte [modelo: criar uma simples aplicação de Web de Umbraco](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Para obter um exemplo de ready-to-run que usa o código acima, veja [modelo: criar uma simples aplicação de Web do Umbraco](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
-## <a name="find-information-about-msdeploy-errors"></a>Localizar informações sobre os erros de MSDeploy
+## <a name="find-information-about-msdeploy-errors"></a>Encontre informações sobre erros de MSDeploy
 
-Se o seu modelo do Resource Manager utiliza MSDeploy, as mensagens de erro de implementação podem ser complicadas perceber. Para obter mais informações, após a implementação, tente os seguintes passos:
+Se o modelo do Resource Manager utiliza MSDeploy, as mensagens de erro de implementação podem ser difícil de entender. Para obter mais informações após uma falha na implementação, experimente os seguintes passos:
 
 1. Vá para o site [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console).
-2. Procure a pasta no D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Procure os ficheiros appManagerStatus.xml e appManagerLog.xml. O primeiro ficheiro regista o estado. O segundo ficheiro regista informações sobre o erro. Se o erro não é claro que, pode incluí-la quando está a pedir para obter ajuda no fórum do.
+2. Navegue até à pasta na D:\home\LogFiles\SiteExtensions\MSDeploy.
+3. Procure os ficheiros appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo regista o estado. O segundo arquivo regista informações sobre o erro. Se o erro não está claro para, pode incluí-lo quando está pedindo para obter ajuda no Fórum.
 
 ## <a name="choose-a-unique-web-app-name"></a>Escolha um nome de aplicação web exclusivo
 
-O nome da sua aplicação web tem de ser globalmente exclusivo. Pode utilizar uma convenção de nomenclatura que é provável que seja exclusivo ou pode utilizar o [uniqueString função](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) para melhorar a gerar um nome exclusivo.
+O nome da sua aplicação web tem de ser globalmente exclusivo. Pode usar uma convenção de nomenclatura que é provável que seja exclusivo, ou pode utilizar o [uniqueString função](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) para ajudar a gerar um nome exclusivo.
 
 ```json
 {
@@ -111,6 +110,30 @@ O nome da sua aplicação web tem de ser globalmente exclusivo. Pode utilizar um
 }
 ```
 
+## <a name="deploy-web-app-certificate-from-key-vault"></a>Implementar o certificado de aplicação web do Key Vault
+
+Se o seu modelo inclui uma [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) recurso para o enlace SSL e o certificado é armazenado no Cofre de chaves, deve certificar-se de que a identidade de serviço de aplicações pode aceder ao certificado.
+
+No global Azure, o principal de serviço do serviço de aplicações tem o ID de **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para conceder acesso ao Key Vault para o principal de serviço de serviço de aplicações, utilize:
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+No Azure Government, o principal de serviço do serviço de aplicações tem o ID de **6a02c803-dafd-4136-b4c3-5a6f318b4714**. Use essa identificação no exemplo anterior.
+
+No seu Cofre de chaves, selecione **certificados** e **gerar/importar** para carregar o certificado.
+
+![Importar certificado](media/web-sites-rm-template-guidance/import-certificate.png)
+
+No seu modelo, forneça o nome do certificado para o `keyVaultSecretName`.
+
+Para um modelo de exemplo, consulte [implementar um certificado de aplicação Web do segredo do Key Vault e utilizá-lo para criar o enlace SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para um tutorial sobre como implementar aplicações web com um modelo, consulte [aprovisionar e implementar micro-serviços previsibilidade no Azure](app-service-deploy-complex-application-predictably.md).
+* Para obter um tutorial sobre como implementar aplicações web com um modelo, consulte [aprovisionar e implementar microsserviços de forma previsível no Azure](app-service-deploy-complex-application-predictably.md).

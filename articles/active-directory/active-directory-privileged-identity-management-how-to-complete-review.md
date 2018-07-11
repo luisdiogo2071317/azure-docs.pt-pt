@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a3de94aa11b9326a9eadfb3385db83724f427ff2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc6376a7bf1abd81e7a5ff17549a7b4a193edec4
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447239"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950585"
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como concluir uma revisão de acesso no Azure AD Privileged Identity Management
 Os administradores de função com privilégios podem rever acesso privilegiado de uma vez um [revisão de segurança foi iniciada](active-directory-privileged-identity-management-how-to-start-security-review.md). O Azure AD Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de segurança](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -32,7 +32,7 @@ Depois do período de avaliação de segurança está acima ou tem concluído a 
 
 No painel de detalhes a revisão de acesso, há um número opções para gerir essa revisão.
 
-![Botões de revisão de acesso do PIM - captura de ecrã][1]
+![Botões de revisão de acesso do PIM - captura de ecrã](./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png)
 
 ### <a name="remind"></a>Lembrar
 Se uma revisão de acesso está configurada para que os utilizadores rever si próprios, o **lembrar** botão envia uma notificação. 
@@ -54,7 +54,3 @@ Se não estiver interessado em qualquer outra a revisão, eliminá-lo. O **elimi
 
 ## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png

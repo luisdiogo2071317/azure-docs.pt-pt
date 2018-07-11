@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f91cfcce3643d96f241cb5408efc2455367c336
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435709"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928595"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>O meu primeiro runbook do Fluxo de Trabalho do PowerShell
 
@@ -113,7 +113,10 @@ testou e publicou o runbook, mas até o momento, não faz nada de útil. Deseja 
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** e **Login-AzureRmAccount** agora são aliases **Connect-AzureRMAccount**. Se o **Connect-AzureRMAccount** cmdlet não existir, pode usar **Add-AzureRmAccount** ou **Login-AzureRmAccount**, ou pode atualizar os módulos na sua Automação Conta para as versões mais recentes.
+   > **Add-AzureRmAccount** e **Login-AzureRmAccount** agora são aliases **Connect-AzureRMAccount**. Se o **Connect-AzureRMAccount** cmdlet não existir, pode usar **Add-AzureRmAccount** ou **Login-AzureRmAccount**, ou pode [atualizar seus módulos ](automation-update-azure-modules.md) na conta de automatização para as versões mais recentes. 
+
+> [!NOTE]
+> Talvez seja preciso [atualizar seus módulos](automation-update-azure-modules.md) , mesmo que acabou de criar uma nova conta de automatização.
 
 5. Clique em **painel de teste** para que pode testar o runbook.
 6. Clique em **Iniciar** para iniciar o teste. Depois de terminar, deverá receber um resultado parecido ao seguinte que mostra informações básicas da sua conta. Isto confirma que a credencial é válida.<br><br> ![Autenticar](media/automation-first-runbook-textual/runbook-auth-output.png)

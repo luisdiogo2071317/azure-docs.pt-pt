@@ -9,18 +9,18 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: e416eec29ff9f4ac96eabf11c87424abeba0c75b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4144db7474f20f464d14722431d5d4a2546a8c5a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855722"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949854"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Ativar a aprendizagem ativa, revendo os discursos de ponto final
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. 
 
 ## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa
-Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é efetuado pelo proprietário da aplicação ou funcionário para validar as expressões selecionadas para [rever](label-suggested-utterances.md), incluindo a intenção correta e todas as entidades na intenção. Depois de rever as expressões, formar e publicar a aplicação novamente. 
+Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é efetuado pelo proprietário da aplicação ou funcionário para validar as expressões selecionadas para [rever](luis-how-to-review-endoint-utt.md), incluindo a intenção correta e todas as entidades na intenção. Depois de rever as expressões, formar e publicar a aplicação novamente. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>As expressões são na lista de revisão
 LUIS adiciona expressões com a lista de revisão quando a parte superior disparando intenção tem uma pontuação baixa ou pontuações de principais dois objetivos estão muito próximos. 
@@ -39,4 +39,4 @@ Se a aplicação for grande, pode optar por rever algumas expressões de com e e
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [rever](Label-Suggested-Utterances.md) expressões de ponto final
+* Saiba como [rever](luis-how-to-review-endoint-utt.md) expressões de ponto final

@@ -1,6 +1,6 @@
 ---
-title: Modelo Azure Resource Manager funciona - matrizes e objetos | Microsoft Docs
-description: Descreve as funções para utilizar num modelo Azure Resource Manager para trabalhar com objetos e matrizes.
+title: As funções de modelo Azure Resource Manager - matrizes e objetos | Documentos da Microsoft
+description: Descreve as funções para utilizar num modelo do Azure Resource Manager para trabalhar com matrizes e objetos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360245"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929685"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto de modelos Azure Resource Manager 
+# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos Azure Resource Manager 
 
-O Resource Manager fornece várias funções para trabalhar com objetos e matrizes.
+Resource Manager fornece várias funções para trabalhar com matrizes e objetos.
 
 * [array](#array)
-* [Unir](#coalesce)
+* [Coalesce](#coalesce)
 * [concat](#concat)
 * [contém](#contains)
 * [createArray](#createarray)
@@ -43,7 +43,7 @@ O Resource Manager fornece várias funções para trabalhar com objetos e matriz
 * [tirar](#take)
 * [União](#union)
 
-Para obter uma matriz de valores de cadeia delimitada por um valor, consulte [dividir](resource-group-template-functions-string.md#split).
+Para obter uma matriz de valores de cadeia de caracteres delimitadas por um valor, consulte [dividir](resource-group-template-functions-string.md#split).
 
 <a id="array" />
 
@@ -56,15 +56,15 @@ Converte o valor para uma matriz.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Sim |int, string, matriz ou objeto |O valor para converter para uma matriz. |
+| convertToArray |Sim |int, string, matriz ou objeto |O valor a converter numa matriz. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
 Uma matriz.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) mostra como utilizar a função de matriz com diferentes tipos.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) mostra como utilizar a função de matriz com tipos diferentes.
 
 ```json
 {
@@ -77,7 +77,7 @@ O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/
         },
         "stringToConvert": {
             "type": "string",
-            "defaultValue": "a"
+            "defaultValue": "efgh"
         },
         "objectToConvert": {
             "type": "object",
@@ -108,7 +108,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
-| stringOutput | Array | ["a"] |
+| stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -125,25 +125,25 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="coalesce" />
 
-## <a name="coalesce"></a>Unir
+## <a name="coalesce"></a>Coalesce
 `coalesce(arg1, arg2, arg3, ...)`
 
-Devolve o primeiro valor não nulo de parâmetros. Cadeias vazias, as matrizes vazias e objetos em branco não são nulos.
+Devolve o primeiro valor não nulo de parâmetros. Objetos vazios, prázdná pole e as cadeias vazias não são nulos.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, matriz ou objeto |O primeiro valor para testar um valor nulo. |
-| args adicionais |Não |int, string, matriz ou objeto |Valores adicionais para testar um valor nulo. |
+| arg1 |Sim |int, string, matriz ou objeto |O primeiro valor para testar os null. |
+| argumentos adicionais |Não |int, string, matriz ou objeto |Valores adicionais para testar os null. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-O valor dos parâmetros não nulo primeiro, que pode ser uma cadeia, int, matriz ou objeto. Nulos se todos os parâmetros são nulos. 
+O valor dos parâmetros não nulo primeiro, que pode ser uma cadeia de caracteres, int, matriz ou objeto. NULL se todos os parâmetros são nulos. 
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) mostra a saída das utilizações diferentes dos coalesce.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) mostra a saída de usos diferentes dos coalesce.
 
 ```json
 {
@@ -195,9 +195,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | stringOutput | Cadeia | predefinição |
 | intOutput | Int | 1 |
-| objectOutput | Object | {"primeira": "predefinido"} |
+| objectOutput | Object | {"primeiro": "padrão"} |
 | arrayOutput | Array | [1] |
-| emptyOutput | bool | Verdadeiro |
+| emptyOutput | Bool | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -216,23 +216,23 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="concat"></a>concat
 `concat(arg1, arg2, arg3, ...)`
 
-Combina várias matrizes e devolve matriz concatenada, ou combina vários valores de cadeia e devolve a cadeia concatenada. 
+Combina várias matrizes e retorna a matriz concatenada, ou combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada. 
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia ou matriz |A primeira cadeia ou matriz para concatenação. |
-| argumentos adicionais |Não |cadeia ou matriz |As matrizes adicionais ou cadeias por ordem sequencial para concatenação. |
+| arg1 |Sim |matriz ou cadeia de caracteres |A primeira matriz ou cadeia de caracteres para concatenação. |
+| argumentos adicionais |Não |matriz ou cadeia de caracteres |Matrizes adicionais ou ordem sequencial, de concatenação de cadeias de caracteres. |
 
-Esta função pode demorar qualquer número de argumentos e pode aceitar as cadeias ou matrizes para os parâmetros.
+Esta função pode levar a qualquer número de argumentos e pode aceitar as cadeias de caracteres ou matrizes para os parâmetros.
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 Uma cadeia ou matriz de valores concatenados.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
 
 ```json
 {
@@ -285,7 +285,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) mostra como combinar os dois valores de cadeia e devolver uma cadeia concatenada.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) mostra como combinar os dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
 
 ```json
 {
@@ -330,22 +330,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="contains"></a>contém
 `contains(container, itemToFind)`
 
-Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia contém uma subcadeia.
+Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| contentor |Sim |cadeia, objecto ou matriz |O valor que contém o valor a localizar. |
-| itemToFind |Sim |cadeia ou int |O valor a localizar. |
+| contentor |Sim |cadeia de caracteres, objeto ou matriz |O valor que contém o valor a localizar. |
+| itemToFind |Sim |cadeia de caracteres ou int |O valor a localizar. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-**Verdadeiro** se o item for encontrado; caso contrário, **falso**.
+**TRUE** se o item for encontrado; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) mostra como utilizar contém tipos diferentes:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) mostra como utilizar contém com tipos diferentes:
 
 ```json
 {
@@ -400,12 +400,12 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringTrue | bool | Verdadeiro |
-| stringFalse | bool | Falso |
-| objectTrue | bool | Verdadeiro |
-| objectFalse | bool | Falso |
-| arrayTrue | bool | Verdadeiro |
-| arrayFalse | bool | Falso |
+| stringTrue | Bool | Verdadeiro |
+| stringFalse | Bool | Falso |
+| objectTrue | Bool | Verdadeiro |
+| objectFalse | Bool | Falso |
+| arrayTrue | Bool | Verdadeiro |
+| arrayFalse | Bool | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -424,22 +424,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="createarray"></a>createarray
 `createArray (arg1, arg2, arg3, ...)`
 
-Cria uma matriz de parâmetros.
+Cria uma matriz dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Cadeia, número inteiro, matriz ou objeto |O primeiro valor na matriz. |
-| argumentos adicionais |Não |Cadeia, número inteiro, matriz ou objeto |Valores adicionais na matriz. |
+| arg1 |Sim |Cadeia de caracteres, inteiros, matriz ou objeto |O primeiro valor na matriz. |
+| argumentos adicionais |Não |Cadeia de caracteres, inteiros, matriz ou objeto |Valores adicionais na matriz. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
 Uma matriz.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) mostra como utilizar createArray com tipos diferentes:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) mostra como utilizar createArray com tipos diferentes:
 
 ```json
 {
@@ -484,8 +484,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
-| objectArray | Array | [{"um": "a", "dois": "b", "três": "c"}] |
-| arrayArray | Array | [["", "dois", "três"]] |
+| objectArray | Array | [{"um": "a", "duas": "b", "três": "c"}] |
+| arrayArray | Array | [["um", "duas", "três"]] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -511,15 +511,15 @@ Determina se uma matriz, um objeto ou uma cadeia vazia.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |cadeia, objecto ou matriz |O valor para verificar se está vazia. |
+| itemToTest |Sim |cadeia de caracteres, objeto ou matriz |O valor a verificar se está vazia. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Devolve **verdadeiro** se o valor está vazio; caso contrário, **falso**.
+Devolve **True** se o valor está vazio; caso contrário, **falso**.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) verifica se uma matriz, o objeto e a cadeia estão vazias.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) verifica se uma matriz, o objeto e a cadeia de caracteres são vazios.
 
 ```json
 {
@@ -562,9 +562,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | bool | Verdadeiro |
-| objectEmpty | bool | Verdadeiro |
-| stringEmpty | bool | Verdadeiro |
+| arrayEmpty | Bool | Verdadeiro |
+| objectEmpty | Bool | Verdadeiro |
+| stringEmpty | Bool | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -583,21 +583,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="first"></a>primeiro
 `first(arg1)`
 
-Devolve o primeiro elemento da matriz ou o primeiro caráter da cadeia.
+Devolve o primeiro elemento da matriz ou o primeiro caráter da cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia ou matriz |O valor para obter o primeiro elemento ou caráter. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caráter. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-O tipo (string, int, matriz ou objeto) do primeiro elemento de uma matriz ou o primeiro caráter de uma cadeia.
+O tipo (string, int, matriz ou objeto) do primeiro elemento numa matriz ou o primeiro caráter de uma cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) mostra como utilizar a função primeiro com uma matriz e a cadeia.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) mostra como usar a primeira função com uma matriz e a cadeia de caracteres.
 
 ```json
 {
@@ -648,23 +648,23 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="intersection"></a>intersecção
 `intersection(arg1, arg2, arg3, ...)`
 
-Devolve uma matriz única ou o objeto com os elementos comuns entre os parâmetros.
+Devolve uma matriz simples ou o objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz nem um objeto |O primeiro valor a utilizar para localizar elementos comuns. |
-| arg2 |Sim |matriz nem um objeto |O segundo valor a utilizar para localizar elementos comuns. |
-| argumentos adicionais |Não |matriz nem um objeto |Valores adicionais a utilizar para localizar elementos comuns. |
+| arg1 |Sim |matriz ou objeto |O primeiro valor de localizar elementos comuns. |
+| arg2 |Sim |matriz ou objeto |O segundo valor a utilizar para localizar elementos comuns. |
+| argumentos adicionais |Não |matriz ou objeto |Valores adicionais de localizar elementos comuns. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Uma matriz nem um objeto com os elementos comuns.
+Uma matriz ou um objeto com os elementos comuns.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) mostra como utilizar a intersecção com matrizes e objetos:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) mostra como utilizar a interseção com matrizes e objetos:
 
 ```json
 {
@@ -708,7 +708,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"um": "a", "três": "c"} |
-| arrayOutput | Array | ["dois", "três"] |
+| arrayOutput | Array | ["duas", "três"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -731,16 +731,16 @@ Devolve um objeto JSON.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia |O valor para converter para JSON. |
+| arg1 |Sim |cadeia |O valor a converter em JSON. |
 
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-O objeto JSON na cadeia de carateres especificada, ou um objeto vazio quando **nulo** está especificado.
+O objeto JSON a partir da cadeia especificado, ou um objeto vazio quando **nulo** está especificado.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) mostra como utilizar a função de json com matrizes e objetos:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) mostra como utilizar a função de json com matrizes e objetos:
 
 ```json
 {
@@ -785,21 +785,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="last"></a>última
 `last (arg1)`
 
-Devolve o último elemento da matriz ou o último caráter da cadeia.
+Devolve o último elemento da matriz ou o último caráter da cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia ou matriz |O valor para obter o último elemento ou caráter. |
+| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caráter. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-O tipo (string, int, matriz ou objeto) do último elemento de uma matriz ou o último caráter de uma cadeia.
+O tipo (string, int, matriz ou objeto) do último elemento numa matriz ou o último caráter de uma cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) mostra como utilizar a última função com uma matriz e a cadeia.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) mostra como utilizar a última função com uma matriz e a cadeia de caracteres.
 
 ```json
 {
@@ -831,7 +831,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Cadeia | três |
-| stringOutput | Cadeia | I |
+| stringOutput | Cadeia | i |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -850,21 +850,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="length"></a>comprimento
 `length(arg1)`
 
-Devolve o número de elementos de uma matriz ou carateres numa cadeia.
+Devolve o número de elementos numa matriz ou carateres numa cadeia.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia ou matriz |A matriz a utilizar para obter o número de elementos ou a cadeia a utilizar para obter o número de carateres. |
+| arg1 |Sim |matriz ou cadeia de caracteres |A matriz a utilizar para obter o número de elementos, ou a cadeia de caracteres para utilizar para obter o número de carateres. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Um inteiro. 
+Um int. 
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) mostra como utilizar o comprimento com uma matriz e a cadeia:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) mostra como utilizar o comprimento com uma matriz e a cadeia de caracteres:
 
 ```json
 {
@@ -917,7 +917,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
-Pode utilizar esta função com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo seguinte, o parâmetro **siteNames** iria fazer referência a uma matriz de nomes a utilizar quando criar os web sites.
+Pode utilizar esta função com uma matriz para especificar o número de iterações durante a criação de recursos. No exemplo a seguir, o parâmetro **siteNames** se referiria a uma matriz de nomes a utilizar ao criar os web sites.
 
 ```json
 "copy": {
@@ -933,21 +933,21 @@ Para obter mais informações sobre como utilizar esta função com uma matriz, 
 ## <a name="max"></a>máx.
 `max(arg1)`
 
-Devolve o valor máximo de uma matriz de números inteiros ou uma lista separada por vírgulas de números inteiros.
+Devolve o valor máximo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de números inteiros ou lista de números inteiros separados por vírgulas |A coleção para obter o valor máximo. |
+| arg1 |Sim |matriz de números inteiros ou lista separada por vírgulas de números inteiros |A coleção para obter o valor máximo. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Um int que representa o valor máximo.
+Um inteiro que representa o valor máximo.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) mostra como utilizar máx com uma matriz e uma lista de números inteiros:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) mostra como utilizar max com uma matriz e uma lista de números inteiros:
 
 ```json
 {
@@ -997,21 +997,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="min"></a>min.
 `min(arg1)`
 
-Devolve o valor mínimo de uma matriz de números inteiros ou uma lista separada por vírgulas de números inteiros.
+Devolve o valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz de números inteiros ou lista de números inteiros separados por vírgulas |A coleção para obter o valor mínimo. |
+| arg1 |Sim |matriz de números inteiros ou lista separada por vírgulas de números inteiros |A coleção para obter o valor mínimo. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Um int que representa o valor mínimo.
+Um inteiro que representa o valor mínimo.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) mostra como utilizar min com uma matriz e uma lista de números inteiros:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) mostra como utilizar min com uma matriz e uma lista de números inteiros:
 
 ```json
 {
@@ -1061,7 +1061,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="range"></a>intervalo
 `range(startingInteger, numberOfElements)`
 
-Cria uma matriz de números inteiros de um número inteiro de iniciar e contendo um número de itens.
+Cria uma matriz de inteiros a partir de um partir de número inteiro e que contém um número de itens.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -1070,13 +1070,13 @@ Cria uma matriz de números inteiros de um número inteiro de iniciar e contendo
 | startingInteger |Sim |Int |O primeiro número inteiro na matriz. |
 | numberofElements |Sim |Int |O número de números inteiros na matriz. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Uma matriz de números inteiros.
+Uma matriz de inteiros.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) mostra como utilizar a função de intervalo:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) mostra como usar a função de intervalo:
 
 ```json
 {
@@ -1125,22 +1125,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="skip"></a>Ignorar
 `skip(originalValue, numberToSkip)`
 
-Devolve uma matriz com todos os elementos após o número especificado na matriz ou devolve uma cadeia com todos os carateres após o número especificado na cadeia.
+Devolve uma matriz com todos os elementos após o número especificado na matriz ou retorna uma cadeia de caracteres com todos os carateres após o número especificado na cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |cadeia ou matriz |A matriz ou a cadeia a utilizar para a ignorar. |
-| numberToSkip |Sim |Int |O número de elementos ou carateres para ignorar. Se este valor for 0 ou inferior, são devolvidos todos os elementos ou carateres no valor. Se for maior do que o comprimento da cadeia ou matriz, é devolvida uma cadeia ou matriz vazia. |
+| 2=datacorrectionreason |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a utilizar para a ignorar. |
+| numberToSkip |Sim |Int |O número de elementos ou carateres para ignorar. Se este valor for 0 ou inferior, são devolvidos todos os elementos ou caracteres no valor. Se for maior do que o comprimento da matriz ou cadeia de caracteres, é devolvida uma matriz vazia ou uma cadeia de caracteres. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia ou matriz.
+Uma matriz ou cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) ignora o número especificado de elementos na matriz e o número especificado de carateres existentes numa cadeia.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) ignora o número especificado de elementos na matriz e o número especificado de carateres numa cadeia.
 
 ```json
 {
@@ -1206,22 +1206,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="take"></a>tirar
 `take(originalValue, numberToTake)`
 
-Devolve uma matriz com o número especificado de elementos desde o início da matriz ou uma cadeia com o número especificado de carateres a partir do início da cadeia.
+Devolve uma matriz com o número especificado de elementos desde o início da matriz ou uma cadeia de caracteres com o número especificado de carateres desde o início da cadeia de caracteres.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |cadeia ou matriz |A matriz ou a cadeia para colocar os elementos da. |
-| numberToTake |Sim |Int |O número de elementos ou carateres a tomar. Se este valor for 0 ou inferior, é devolvida uma cadeia ou matriz vazia. Se for maior do que o comprimento da cadeia ou matriz indicado, são devolvidos todos os elementos na matriz ou cadeia. |
+| 2=datacorrectionreason |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres para tirar os elementos da. |
+| numberToTake |Sim |Int |O número de elementos ou carateres a tomar. Se este valor for 0 ou menos, uma matriz vazia ou uma cadeia de caracteres é devolvida. Se for maior do que o comprimento do determinada matriz ou cadeia de caracteres, todos os elementos da matriz ou cadeia de caracteres são devolvidos. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia ou matriz.
+Uma matriz ou cadeia de caracteres.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) demora o número especificado de elementos da matriz e carateres de uma cadeia.
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) usa o número especificado de elementos da matriz e carateres de uma cadeia.
 
 ```json
 {
@@ -1267,7 +1267,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["", "dois"] |
+| arrayOutput | Array | ["um", "duas"] |
 | stringOutput | Cadeia | em |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -1287,23 +1287,23 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="union"></a>União
 `union(arg1, arg2, arg3, ...)`
 
-Devolve uma matriz única ou o objeto com todos os elementos de parâmetros. Valores duplicados ou chaves só estão incluídas de uma vez.
+Devolve uma matriz simples ou o objeto com todos os elementos dos parâmetros. Valores duplicados ou chaves só estão incluídas uma vez.
 
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz nem um objeto |O primeiro valor a utilizar para aderir elementos. |
-| arg2 |Sim |matriz nem um objeto |O segundo valor a utilizar para aderir elementos. |
-| argumentos adicionais |Não |matriz nem um objeto |Valores adicionais a utilizar para aderir elementos. |
+| arg1 |Sim |matriz ou objeto |O primeiro valor a utilizar para aderir a elementos. |
+| arg2 |Sim |matriz ou objeto |O segundo valor a utilizar para aderir a elementos. |
+| argumentos adicionais |Não |matriz ou objeto |Valores adicionais a utilizar para aderir a elementos. |
 
-### <a name="return-value"></a>Valor devolvido
+### <a name="return-value"></a>Valor de retorno
 
-Uma matriz nem um objeto.
+Uma matriz ou objeto.
 
 ### <a name="example"></a>Exemplo
 
-O seguinte [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) mostra como utilizar union com matrizes e objetos:
+O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) mostra como utilizar a União com matrizes e objetos:
 
 ```json
 {
@@ -1346,8 +1346,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"um": "a", "dois": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
-| arrayOutput | Array | ["", "dois", "três", "quatro"] |
+| objectOutput | Object | {"um": "a", "duas": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
+| arrayOutput | Array | ["um", "duas", "três", "quatro"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1363,7 +1363,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
-* Para ver como implementar o modelo que criou, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
+* Para ver como implementar o modelo que criou, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 

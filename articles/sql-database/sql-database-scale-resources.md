@@ -1,0 +1,62 @@
+---
+title: Recursos de dimensionamento de banco de dados SQL do Azure | Documentos da Microsoft
+description: Este artigo explica como dimensionar a sua base de dados ao adicionar ou remover recursos alocados.
+services: sql-database
+author: jovanpop-msft
+ms.reviewer: carlrab
+ms.service: sql-database
+ms.topic: conceptual
+ms.date: 07/07/2018
+ms.author: jovanpop
+manager: craigg
+ms.openlocfilehash: f55ce511f6ba90c27e149ac90bbd2c8aa0b3c742
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921515"
+---
+# <a name="scale-database-resources"></a>Dimensionar os recursos da base de dados
+
+Base de dados SQL do Azure permite-lhe adicionar dinamicamente mais recursos à base de dados com o período de indisponibilidade mínimo.
+
+## <a name="overview"></a>Descrição geral
+
+Quando a pedido para a sua aplicação cresce de meia dúzia de dispositivos e clientes para milhões, a base de dados do Azure SQL dimensiona rapidamente sem período de indisponibilidade mínimo. A escalabilidade é uma das características mais importantes de PaaS que permite-lhe adicionar dinamicamente mais recursos ao seu serviço quando necessário. Base de dados SQL do Azure permite-lhe alterar facilmente a recursos (potência da CPU, memória, débito de e/s e armazenamento) alocados para seus bancos de dados.  
+Pode mitigar problemas de desempenho devido à maior utilização da sua aplicação que não é possível corrigir com indexação ou métodos de reescrita de consulta. Adição de mais recursos permite-lhe reagir rapidamente quando a base de dados atinge os limites de recursos atual e necessita de mais poder para processar a carga de trabalho de entrada. Base de dados SQL do Azure também permite-lhe reduzir verticalmente os recursos que não são necessários para reduzir o custo.
+Não precisa se preocupar sobre a compra de hardware e alterar a infraestrutura subjacente. Dimensionamento da base de dados pode ser facilmente feito através do portal do Azure com um controlo de deslize.
+
+![Aumente o desempenho da base de dados](media/sql-database-scalability/scale-performance.svg)
+
+Base de dados SQL do Azure oferece um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md). 
+-   O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória e recursos de e/s em três escalões de serviço para suportar leves para cargas de trabalho de base de dados de ou pesadas: Basic, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
+-   O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) (pré-visualização) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento.
+Pode criar a sua primeira aplicação numa base de dados pequena e individual a um baixo custo por mês e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
+
+
+> [!NOTE]
+> A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade.
+>
+
+
+Uma Base de Dados SQL do Azure única suporta a escalabilidade dinâmica manual, mas não o dimensionamento automático. Para uma experiência mais *automática*, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados.
+No entanto, existem scripts que podem ajudar a automatizar a escalabilidade para uma única base de dados do Azure SQL. Por exemplo, veja [Utilizar o PowerShell para monitorizar e dimensionar uma Base de Dados SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md).
+
+
+Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade de dimensionar dinamicamente o seus bancos de dados:
+-   Na [base de dados do Azure SQL única](sql-database-single-database-scale.md), pode utilizar tanto [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) modelos para definir a quantidade máxima de recursos que serão atribuídos a cada base de dados.
+-   [Instância gerida do SQL do Azure](sql-database-managed-instance.md) usa [vCores](/azure/sql-database/sql-database-managed-instance#vcore-based-purchasing-model-preview) modo e permite-lhe definir o máximo de núcleos de CPU e máximo de armazenamento atribuído à sua instância. Todas as bases de dados dentro da instância irão partilhar os recursos alocados à instância.
+-   [Os conjuntos elásticos SQL do Azure](sql-database-elastic-pool-scale.md) permitem-lhe definir o limite máximo de recursos por grupo de bases de dados no conjunto.
+
+## <a name="alternative-scale-methods"></a>Métodos de dimensionamento alternativo
+Dimensionar os recursos é o mais fácil e a forma mais eficiente para melhorar o desempenho da base de dados sem alterar o código de base de dados ou aplicação.
+Em alguns casos, até mesmo os escalões de desempenho mais elevados e otimizações de desempenho não podem processar a carga de trabalho na forma com êxito e econômica. Em que casos tem outras opções para dimensionar a sua base de dados:
+-   [Escalamento leitura](sql-database-read-scale-out.md) é uma funcionalidade disponível em onde está a obter uma réplica só de leitura dos seus dados onde pode executar a exigência de consultas só de leitura, como relatórios. Réplica só de vermelho irá processar a carga de trabalho só de leitura sem afetar a utilização de recursos na sua base de dados primária.
+-   [Fragmentação de base de dados](sql-database-elastic-scale-introduction.md) é um conjunto de técnicas que lhe permite dividir os dados em várias bases de dados e dimensionar de forma independente.
+
+## <a name="next-steps"></a>Passos Seguintes
+- Para obter informações sobre como melhorar o desempenho de base de dados ao alterar o código de base de dados, consulte [localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).
+- Para obter informações sobre o que lhe permite otimizar a sua base de dados de inteligência de base de dados incorporada, consulte [otimização automática](sql-database-automatic-tuning.md).
+- Para obter informações sobre o Escalamento de leitura no serviço de base de dados do Azure SQL, consulte como [utilizar réplicas só de leitura para cargas de trabalho de consulta só de leitura de balanceamento de carga](sql-database-read-scale-out.md).
+- Para obter informações sobre uma fragmentação de base de dados, consulte [aumentar horizontalmente com a base de dados do Azure SQL](sql-database-elastic-scale-introduction.md).
+

@@ -15,97 +15,73 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: aa0891126ad6fa05a39b9245e4fe85b61218ec40
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222465"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928911"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obter dados com a API de relatórios do Azure Active Directory com certificados
 
-As [APIs de relatórios Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
+As [APIs de relatórios Azure Active Directory (Azure AD)](active-directory-reporting-api-getting-started-azure-portal.md) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação. Se desejar acessar a API de relatórios de AD do Azure sem intervenção do utilizador, pode configurar o acesso ao utilizar certificados.
 
-Se pretender aceder à API de Relatórios do Azure AD sem a intervenção do utilizador, pode configurar o acesso para utilizar certificados
+Isso envolve os seguintes passos:
 
-Este artigo:
+1. [Instale os pré-requisitos](#install-prerequisites)
+2. [Registre-se o certificado na sua aplicação](#register-the-certificate-in-your-app)
+3. [Obter um acesso de token para MS Graph API](#get-an-access-token-for-ms-graph-api)
+4. [Consultar os pontos de extremidade do MS Graph API](#query-the-ms-graph-api-endpoints)
 
-- Fornece os passos necessários para aceder à API de relatórios do Azure AD com certificados.
-- Parte do princípio de que concluiu os [pré-requisitos para aceder à API de relatórios do Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md). 
-
-
-Para aceder à API de relatórios com certificados, tem de:
-
-1. Instalar os pré-requisitos
-2. Definir o certificado na sua aplicação 
-3. Conceder permissões
-4. Obter um token de acesso
-
-
-
-
-Para obter informações sobre o código de origem, veja [Leverage Report API Module (Tirar Partido do Módulo da API de Relatório)](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 
 ## <a name="install-prerequisites"></a>Pré-requisitos da instalação
 
-Tem de ter instalado o Azure AD PowerShell V2 e o módulo AzureADUtils.
+1. Primeiro, certifique-se de que concluiu o [pré-requisitos para aceder ao Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md). 
 
-1. Siga as instruções em [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md) para transferir e instalar o Azure AD PowerShell V2.
+2. Baixe e instale o Azure AD Powershell V2, seguir as instruções em [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md)
 
-2. Transfira o módulo Utils do Azure AD em [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
-  Este módulo disponibiliza vários cmdlets de utilitário, incluindo:
-    - A versão mais recente da ADAL através de Nuget
+3. Instalar o MSCloudIDUtils do [PowerShellGallery - MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Este módulo disponibiliza vários cmdlets de utilitário, incluindo:
+    - As bibliotecas ADAL necessárias à autenticação
     - Tokens de acesso de utilizador, chaves de aplicação e certificados, através da ADAL
     - Graph API que processa resultados paginados
 
-**Para instalar o módulo Utils do Azure AD:**
+4. Se for a primeira vez utilizando o módulo executar **Install-MSCloudIdUtilsModule** para concluir a configuração, caso contrário, pode simplesmente importá-lo utilizando o **Import-Module** comando do Powershell.
 
-1. Crie um diretório para guardar o módulo do utilitário (por exemplo, c:\azureAD) e transfira o módulo a partir do GitHub.
-2. Abra uma sessão do PowerShell e aceda ao diretório que acabou de criar. 
-3. Importe o módulo e instale-o no caminho do módulo do PowerShell, utilizando o cmdlet Install-AzureADUtilsModule. 
+A sua sessão deve ter um aspeto semelhante a este ecrã:
 
-A sessão deverá ter um aspeto semelhante a este ecrã:
+  ![Windows Powershell](./media/active-directory-reporting-api-with-certificates/module-install.png)
 
-  ![Windows Powershell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
+## <a name="register-the-certificate-in-your-app"></a>Registre-se o certificado na sua aplicação
 
-## <a name="set-the-certificate-in-your-app"></a>Definir o certificado na sua aplicação
+1. Em primeiro lugar, aceda à página de registo da aplicação. Pode fazê-lo ao navegar para o [portal do Azure](https://portal.azure.com), clicando em **Azure Active Directory**, em seguida, clicar em **registos das aplicações** e escolher a sua aplicação na lista. 
 
-**Para definir o certificado na sua aplicação:**
+2. Em seguida, siga os passos para [registar o certificado com o Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-azure-ad) para a aplicação. 
 
-1. [Obtenha o ID de Objeto](active-directory-reporting-api-prerequisites-azure-portal.md#get-your-applications-client-id) da sua aplicação no Portal do Azure. 
+3. Tenha em atenção que o ID da aplicação e o thumbprint do certificado que acabou de registar com a sua aplicação. Para encontrar o thumbprint, a partir da sua página de aplicativo no portal, aceda a **configurações** e clique em **chaves**. O thumbprint será sob o **chaves públicas** lista.
 
-  ![Portal do Azure](./media/active-directory-report-api-with-certificates/azure-portal.png)
-
-2. Abra uma sessão do PowerShell e utilize o cmdlet Connect-AzureAD para ligar ao Azure AD.
-
-  ![Portal do Azure](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
-
-3. Utilize o cmdlet New-AzureADApplicationCertificateCredential a partir de AzureADUtils para adicionar uma credencial de certificado ao mesmo. 
-
->[!Note]
->Tem de indicar o ID de Objeto da aplicação que capturou anteriormente, bem como o objeto do certificado (para o obter, utilize a unidade Cert:).
->
-
-
-  ![Portal do Azure](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-## <a name="get-an-access-token"></a>Obter um token de acesso
+## <a name="get-an-access-token-for-ms-graph-api"></a>Obter um acesso de token para MS Graph API
 
-Para obter um token de acesso, utilize o cmdlet **Get-AzureADGraphAPIAccessTokenFromCert** a partir de AzureADUtils. 
+Para obter um acesso token para a Graph API do MS, utilize o **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet do módulo do PowerShell de MSCloudIdUtils. 
 
 >[!NOTE]
->Tem de utilizar o ID da Aplicação em vez do ID de Objeto que utilizou na secção anterior.
+>Tem de utilizar o ID da aplicação (também conhecido como ClientID) e o thumbprint do certificado do certificado com a chave privada instalada no arquivo de certificados do computador (arquivo de certificados CurrentUser ou LocalMachine).
 >
 
- ![Portal do Azure](./media/active-directory-report-api-with-certificates/application-id.png)
+ ![Portal do Azure](./media/active-directory-reporting-api-with-certificates/getaccesstoken.png)
 
 ## <a name="use-the-access-token-to-call-the-graph-api"></a>Utilizar o token de acesso para chamar a Graph API
 
-Agora, pode criar o script. Segue-se um exemplo que utiliza o cmdlet **Invoke-AzureADGraphAPIQuery** a partir de AzureADUtils. Este cmdlet processa resultados paginados múltiplos e, em seguida, envia-os para o pipeline do PowerShell. 
+Agora, pode utilizar o token de acesso no seu script de Powershell para consultar a Graph API. Abaixo está um exemplo usando o **Invoke-MSCloudIdMSGraphQuery** cmdlet a partir de MSCloudIDUtils enumerar o ponto final signins ou diectoryAudits. Este cmdlet processa resultados paginados múltiplos e, em seguida, envia-os para o pipeline do PowerShell.
 
- ![Portal do Azure](./media/active-directory-report-api-with-certificates/script-completed.png)
+### <a name="query-the-directoryaudits-endpoint"></a>Consultar o ponto de extremidade DirectoryAudits
+ ![Portal do Azure](./media/active-directory-reporting-api-with-certificates/query-directoryAudits.png)
 
-Agora, está pronto para exportar para um CSV e guardar num sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
+ ### <a name="query-the-signins-endpoint"></a>Consultar o ponto de extremidade SignIns
+ ![Portal do Azure](./media/active-directory-reporting-api-with-certificates/query-signins.png)
+
+Agora, pode optar por exportar estes dados para um CSV e guardar num sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

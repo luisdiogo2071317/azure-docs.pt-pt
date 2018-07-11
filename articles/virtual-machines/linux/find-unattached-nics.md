@@ -1,9 +1,9 @@
 ---
-title: Localizar e eliminar desanexados Azure NICs | Microsoft Docs
-description: Como encontrar e eliminar as NICs do Azure que não estão anexados às VMs com o 2.0 CLI do Azure
+title: Localizar e eliminar NICs desanexados do Azure | Documentos da Microsoft
+description: Como encontrar e eliminar NICs do Azure que não estão ligados às VMs com a CLI 2.0 do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: iainfou
-ms.openlocfilehash: c730866fe73305a37b37038699a7f729085a16aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: cynthn
+ms.openlocfilehash: 54315b2b66b9fb11ae904593c285eb7623cccdbb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427320"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930516"
 ---
-# <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Como encontrar e eliminar a interface de rede desanexados placas (NICs) para as VMs do Azure
-Quando elimina uma máquina virtual (VM) no Azure, as placas de interface de rede (NICs) não são eliminadas por predefinição. Se criar e eliminar várias VMs, os NICs dos continuam a utilizar os concessões de endereços IP internos. Como criar outros NICs de VM, poderá ser não é possível obter uma concessão IP no espaço de endereços da sub-rede. Este artigo mostra como encontrar e eliminar desanexados NICs.
+# <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Como encontrar e eliminar a interface de rede desanexada (NICs) pode ser feito para VMs do Azure
+Quando elimina uma máquina virtual (VM) no Azure, os cartões de interface de rede (NICs) não são eliminados por predefinição. Se cria e eliminar várias VMs, NICs não utilizados continuam a utilizar o as concessões de endereço IP internas. À medida que cria a outros NICs de VM, pode ser não é possível obter uma concessão de IP no espaço de endereços da sub-rede. Este artigo mostra-lhe como encontrar e eliminar NICs desanexados.
 
 ## <a name="find-and-delete-unattached-nics"></a>Localizar e eliminar NICs desanexados
 
-O *virtualMachine* propriedade para um NIC armazena o grupo de recursos e ID de VM a NIC está ligada a. O script seguinte repetido ao longo de todos os NICs numa subscrição e verifica se o *virtualMachine* propriedade é nula. Se esta propriedade for nula, o NIC não está ligado a uma VM.
+O *virtualMachine* propriedade para uma NIC armazena o ID e grupo de recursos da VM a NIC está ligada a. O script seguinte executa loop em todos os NICs numa subscrição e verifica se o *virtualMachine* propriedade é nula. Se esta propriedade for nula, a NIC não está ligada a uma VM.
 
-Para ver todos os NICs desanexados, tem vivamente recomendado para ser executado primeiro o script com o *deleteUnattachedNics* variável à *0*. Para eliminar todos os NICs desanexados depois de analisar o resultado da lista, execute o script com *deleteUnattachedNics* para *1*.
+Para ver todos os NICs desanexados, ele tem altamente recomendável a primeira execução do script com o *deleteUnattachedNics* variável à *0*. Para eliminar todos os NICs desanexados depois de rever a saída de lista, execute o script com *deleteUnattachedNics* ao *1*.
 
 ```azurecli
 # Set deleteUnattachedNics=1 if you want to delete unattached NICs

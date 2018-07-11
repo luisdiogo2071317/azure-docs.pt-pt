@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 283dcdc718231e5f0f82fb98fe71b77aa54d741b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3b225a012abe4796172327d8a723338e8de67749
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867689"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930023"
 ---
 # <a name="integrate-speech-service"></a>Integre o serviço de voz
 O [serviço de voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar uma única solicitação receber áudio e retornar a predição de LUIS objetos JSON.
@@ -28,7 +28,7 @@ Neste artigo, terá um livre [LUIS] [ LUIS] conta de Web site para importar o ap
 No portal do Azure, [crie](luis-how-to-azure-subscription.md#create-luis-endpoint-key) um **compreensão de idiomas** chave (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importar recursos humanos LUIS aplicação
-Os objetivos e expressões com para este artigo são a partir da aplicação de recursos humanos LUIS disponível a partir da [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repositório do Github. Transfira o [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) ficheiro, guarde-o com a extensão *. JSON, e [importar](create-new-app.md#import-new-app) -lo para o LUIS. 
+Os objetivos e expressões com para este artigo são a partir da aplicação de recursos humanos LUIS disponível a partir da [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repositório do Github. Transfira o [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) ficheiro, guarde-o com a extensão *. JSON, e [importar](luis-how-to-start-new-app.md#import-new-app) -lo para o LUIS. 
 
 Esta aplicação tem intenções, entidades e expressões com relacionados com o domínio de recursos humanos. Expressões com de exemplo incluem:
 

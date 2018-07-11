@@ -3,7 +3,7 @@ title: Log Analytics para fornecedores de serviços | Documentos da Microsoft
 description: O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e fornecedores de serviços de alojamento, gerirem e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/05/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 13f36f67e76b75176940a0f36121be30ba27d519
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340870"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931995"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>Funcionalidades de análise de registo para fornecedores de serviços
+# <a name="log-analytics-for-service-providers"></a>O log Analytics para fornecedores de serviços
 O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
 
 As grandes empresas compartilham diversas semelhanças com fornecedores de serviços, especialmente quando existe uma equipa de TI centralizada, que é responsável por gerenciar IT para muitas unidades de negócios diferentes. Para simplificar, este documento utiliza o termo *fornecedor de serviços* , mas a mesma funcionalidade também está disponível para empresas e outros clientes.
@@ -61,7 +61,8 @@ As vantagens desta arquitetura são:
 * O fornecedor de serviços pode efetuar análises em todos os clientes.
 
 As desvantagens dessa arquitetura são:
-* É difícil de separar os dados entre os clientes. O método apenas bom para o fazer é usar o nome de domínio do computador.
+* Esta arquitetura é aplicável apenas para dados baseados em agente da VM, não abordará origens de dados de recursos de infraestrutura PaaS, SaaS e no Azure.
+* Talvez seja difícil separar os dados entre os clientes quando eles são mesclados numa única área de trabalho. O método apenas bom para o fazer consiste em utilizar o nome de domínio completamente qualificado do computador (FQDN) ou por meio de subscrição do Azure ID. 
 * Todos os dados de todos os clientes serão armazenados na mesma região com uma única fatura e as mesmas definições de retenção e a configuração.
 * Recursos de infraestrutura do Azure e PaaS serviços como o diagnóstico do Azure e auditoria do Azure requer a área de trabalho para estar no mesmo inquilino, como o recurso, portanto, eles não é possível enviar os registos para a área de trabalho central.
 * Todos os agentes VM de todos os clientes serão autenticados para a área de trabalho de cental usando o mesmo ID de área de trabalho e a chave. Não existe nenhum método para bloquear os registos de um cliente específico sem interromper a outros clientes.

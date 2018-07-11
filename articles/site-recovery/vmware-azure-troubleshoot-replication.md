@@ -1,49 +1,50 @@
 ---
-title: "Resolver problemas de replicação de VM de VMware e replicação do servidor físico para o Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece a resolução de problemas para problemas comuns de replicação quando replicar VMs de VMware e servidores físicos para o Azure com o Azure Site Recovery."
+title: Resolver problemas de replicação de VM de VMware e de replicação de servidor físico para o Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece a resolução de problemas para problemas comuns de replicação ao replicar VMs de VMware e servidores físicos para o Azure com o Azure Site Recovery.
 services: site-recovery
-author: asgang
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: asgang
-ms.openlocfilehash: 9291840428c9a8d7ba5d65bc94ce5964728316f3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951653"
 ---
-# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação para as VMs VMware e servidores físicos
+# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação de VMs de VMware e servidores físicos
 
-UO poderá receber uma mensagem de erro específico ao proteger as máquinas virtuais VMware ou servidores físicos, utilizando o Azure Site Recovery. Este artigo descreve alguns problemas comuns que poderão surgir quando replicar no local as VMs VMware e servidores físicos a utilização do Azure [do Azure Site Recovery](site-recovery-overview.md).
+Poderá receber uma mensagem de erro específico ao proteger as suas máquinas de virtuais de VMware ou servidores físicos com o Azure Site Recovery. Este artigo descreve alguns problemas comuns que poderá encontrar ao replicar no local VMs de VMware e servidores físicos para o Azure com [do Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="initial-replication-issues"></a>Problemas da replicação inicial.
+## <a name="initial-replication-issues"></a>Problemas de replicação inicial.
 
-Em muitos casos, as falhas de replicação inicial que estamos a encontrar no suporte são devido a problemas de conectividade entre o servidor de processo do servidor de origem ou processo servidor para o Azure. Para a maioria dos casos, pode resolver estes problemas, seguindo os passos listados abaixo.
+Em muitos casos, as falhas de replicação inicial que podemos encontrar no suporte são devido a problemas de conectividade entre o servidor de processo do servidor de origem ou processo server para o Azure. Na maioria dos casos, pode solucionar esses problemas, seguindo os passos listados abaixo.
 
-### <a name="verify-the-source-machine"></a>Verificar se a máquina de origem
-* A partir de linha de comandos de máquina do servidor de origem, utilize Telnet ping do servidor de processos com a porta https (predefinição 9443), conforme mostrado abaixo para ver se existem quaisquer problemas de conectividade de rede ou problemas de bloqueios de porta de firewall.
+### <a name="verify-the-source-machine"></a>Certifique-se a máquina de origem
+* Na linha de comando de máquina do servidor de origem, use o Telnet para executar ping no servidor de processo com a porta de https (predefinição 9443), conforme mostrado abaixo para ver se existem problemas de conectividade de rede ou problemas de bloqueio de porta de firewall.
 
     `telnet <PS IP address> <port>`
 > [!NOTE]
-    > Utilizar o Telnet, não utilize PING para testar a conectividade.  Se o Telnet não estiver instalado, siga a lista de passos [aqui](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+    > Utilizar o Telnet, não utilize o PING para testar a conectividade.  Se o Telnet não estiver instalado, siga a lista de passos [aqui](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
 
-Se não for possível estabelecer ligação, permitir que a porta de entrada 9443 no servidor de processos e verifique se o problema ainda sai. Foi alguns casos em que o servidor de processos foi atrás de rede de Perímetro, o qual foi fazendo com que este problema.
+Se não conseguir ligar, permitir a entrada de porta 9443 no servidor de processos e verifique se o problema ainda é encerrado. Há alguns casos em que o servidor de processos estava por trás da rede de Perímetro, o que estava causando esse problema.
 
-* Verifique o estado do serviço `InMage Scout VX Agent – Sentinel/OutpostStart` se não estiver em execução e verifique se o problema ainda existe.   
+* Verificar o estado do serviço `InMage Scout VX Agent – Sentinel/OutpostStart` se não estiver em execução e verifique se o problema ainda existe.   
 
 ## <a name="verify-the-process-server"></a>Verifique se o servidor de processos
 
-* **Verifique se o servidor de processo é ativamente enviar por push dados para o Azure**
+* **Verifique se o servidor de processos ativamente é enviar dados para o Azure**
 
-A partir da máquina do servidor de processos, abra o Gestor de tarefas (prima Ctrl-Shift-Esc). Aceda ao separador de desempenho e clique em ligação 'Abra Monitor de recursos'. No Gestor de recursos, aceda ao separador de rede. Verifique se cbengine.exe em 'Processos com a atividade de rede' está a enviar ativamente grande volume (em MB) de dados.
+A partir da máquina do servidor de processos, abra o Gestor de tarefas (prima Ctrl-Shift-Esc). Vá até a guia de desempenho e clique em ligação de "Open Monitor de recursos". Do Resource Manager, aceda ao separador de rede. Verifique se cbengine.exe em "Processos com a atividade de rede" ativamente é o envio de grande volume (em MB) de dados.
 
 ![Ativar a replicação](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
 Caso contrário, siga os passos listados abaixo:
 
-* **Verifique se o servidor de processos é capaz de ligar o Blob do Azure**: selecione e verifique cbengine.exe para ver as 'ligações TCP' para verificar se existe conectividade do servidor de processos ao URL do blob Storage do Azure.
+* **Verifique se o servidor de processos é capaz de ligar os BLOBs do Azure**: selecione e verifique cbengine.exe para ver as "conexões TCP" para ver se existe conectividade entre o servidor de processos e o URL do blob de armazenamento do Azure.
 
 ![Ativar a replicação](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
@@ -55,33 +56,33 @@ Se não, em seguida, aceda ao painel de controlo > serviços, verifique se os se
      * Microsoft Azure Site Recovery Service
      * tmansvc
      *
-(Re) Inicie qualquer serviço, que não está em execução e verifique se o problema ainda existe.
+(Re) Comece a qualquer serviço, que não está em execução e verifique se o problema ainda existe.
 
-* **Verifique se o servidor de processos é capaz de ligar ao endereço IP público do Azure através da porta 443**
+* **Verifique se o servidor de processos é capaz de se ligar ao endereço IP público do Azure através da porta 443**
 
-Abra o CBEngineCurr.errlog mais recente do `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` e procure: 443 e ligação tentativa falhada.
+Abra o CBEngineCurr.errlog mais recente do `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` , procure por: 443 e ligação tentativa falhada.
 
 ![Ativar a replicação](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-Se existirem problemas, em seguida, a partir da linha de comandos do servidor de processos, utilizam telnet ping o seu endereço de IP público do Azure (mascarado nos acima imagem) foi encontrado no CBEngineCurr.currLog através da porta 443.
+Se existirem problemas, em seguida, na linha de comando do servidor de processos, utilizam o telnet para enviar um ping de seu endereço de IP público do Azure (mascarado no acima imagem) encontrado na CBEngineCurr.currLog através da porta 443.
 
       telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
-Se não for possível estabelecer ligação, em seguida, verifique se o problema de acesso devido a firewall ou Proxy, tal como descrito no passo seguinte.
+Se não for possível estabelecer ligação, em seguida, verifique se o problema de acesso é devido a firewall ou Proxy, conforme descrito no passo seguinte.
 
 
-* **Verifique se firewall de baseadas no endereço IP no servidor de processos não está a bloquear o acesso**: Se estiver a utilizar um regras de firewall baseadas no endereço IP no servidor, em seguida, transferir a lista completa de Microsoft Azure Datacenter intervalos de IP do [aqui](https://www.microsoft.com/download/details.aspx?id=41653) e adicioná-los à sua configuração de firewall para se certificar de que permitem a comunicação com o Azure (e a porta HTTPS (443)).  Permita os intervalos de endereços IP da região do Azure da sua subscrição e para a região E.U.A. Oeste (utilizada para Controlo de Acesso e Gestão de Identidades).
+* **Verifique se firewall de baseadas no endereço IP no servidor de processos não está a bloquear acesso**: Se estiver a utilizar um regras de firewall baseadas no endereço IP no servidor, em seguida, transfira a lista completa de Microsoft Azure intervalos IP do Datacenter do [aqui](https://www.microsoft.com/download/details.aspx?id=41653) e adicione-os à sua configuração de firewall para garantir que eles permitem a comunicação com o Azure (e a porta HTTPS (443)).  Permita os intervalos de endereços IP da região do Azure da sua subscrição e para a região E.U.A. Oeste (utilizada para Controlo de Acesso e Gestão de Identidades).
 
-* **Verifique se firewall baseada no URL no servidor de processos não está a bloquear o acesso**: Se estiver a utilizar regras de firewall baseada no URL no servidor, certifique-se os seguintes URLs são adicionados à configuração da firewall.
+* **Verifique se firewall baseado em URL no servidor de processos não está a bloquear o acesso**: Se estiver a utilizar regras de firewall baseado em URL no servidor, certifique-se os seguintes URLs são adicionados à configuração da firewall.
 
   `*.accesscontrol.windows.net:` Utilizado para controlo de acesso e gestão de identidades
 
   `*.backup.windowsazure.com:` Utilizado para transferência de dados de replicação e orquestração
 
-  `*.blob.core.windows.net:` Utilizado para acesso à conta de armazenamento que armazena os dados replicados
+  `*.blob.core.windows.net:` Utilizado para acesso à conta de armazenamento que armazena dados replicados
 
   `*.hypervrecoverymanager.windowsazure.com:` Utilizado para operações e gestão de replicação e orquestração
 
-  `time.nist.gov` e `time.windows.com`: utilizado para verificar a sincronização de hora entre o sistema e a hora global.
+  `time.nist.gov` e `time.windows.com`: utilizado para verificar a sincronização da hora entre o sistema e a hora global.
 
 URLs para **Cloud do Azure Government**:
 
@@ -94,17 +95,17 @@ URLs para **Cloud do Azure Government**:
 `* .ugi.backup.windowsazure.us`
 
 * **Verifique se as definições de Proxy no servidor de processos não estão a bloquear o acesso**.  Se estiver a utilizar um servidor Proxy, certifique-se de que o nome do servidor proxy está a resolver pelo servidor DNS.
-Para verificar que forneceu no momento da configuração do servidor de configuração. Aceda a chave de registo
+Para verificar o que fornecidos no momento da configuração do servidor de configuração. Vá para a chave de registo
 
     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
-Agora Certifique-se de que as mesmas definições estão a ser utilizadas pelo agente do Azure Site Recovery para enviar dados.
-Cópia de segurança do Microsoft Azure Search
+Agora Certifique-se de que as mesmas definições estão a ser utilizadas pelo agente de recuperação de sites do Azure para enviar dados.
+Pesquisa do Microsoft Azure Backup
 
-Abra-o e clique na ação > alterar propriedades. No separador de configuração de Proxy, deverá ver o endereço de proxy, que deve ser a mesmo, conforme exibido as definições de registo. Caso contrário, mude para o mesmo endereço.
+Abra-o e clique em ação > alterar propriedades. No separador de configuração de Proxy, deverá ver o endereço de proxy, que deve ser a mesmo, conforme mostrado pelas definições de registo. Caso contrário,. Altere-o para o mesmo endereço.
 
 
-* **Verifique se a largura de banda de limitação não é restrita no servidor de processos**: aumentar a largura de banda e verifique se o problema ainda existe.
+* **Verifique se a limitação de largura de banda não está restrito no servidor de processos**: aumentar a largura de banda e verificar se o problema ainda existe.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se precisar de mais ajuda, em seguida, publicar a sua consulta [fórum do Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Temos uma Comunidade de Active Directory e um dos nossos engenheiros conseguirá ajudá-lo.
+Se precisar de mais ajuda, em seguida, publique a sua consulta [fórum do Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Temos uma Comunidade ativa e um dos nossos engenheiros será capaz de ajudá-lo.

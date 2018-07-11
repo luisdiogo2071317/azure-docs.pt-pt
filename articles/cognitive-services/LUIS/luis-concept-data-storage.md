@@ -9,24 +9,24 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 24e179e24423412a5ff25a64157e273b1a025a6f
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 515bcf4e06de562d1c83082824daa4dca0b54226
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888699"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950520"
 ---
 # <a name="data-storage-and-removal"></a>Armazenamento de dados e de remoção
 LUIS armazena dados criptografados num arquivo de dados do Azure correspondente para a região especificada pela chave. Estes dados são armazenados durante 30 dias. 
 
 ## <a name="export-and-delete-app"></a>Exportar e eliminar a aplicação
-Os utilizadores têm controlo total sobre [exportação](create-new-app.md#export-app) e [eliminar](create-new-app.md#delete-app) a aplicação. 
+Os utilizadores têm controlo total sobre [exportação](luis-how-to-start-new-app.md#export-app) e [eliminar](luis-how-to-start-new-app.md#delete-app) a aplicação. 
 
 ## <a name="utterances-in-an-intent"></a>Expressões com numa intenção
 Eliminar usadas para treinamento de expressões de exemplo [LUIS](luis-reference-regions.md). Se eliminar uma expressão de exemplo da sua aplicação LUIS, ele é removido do serviço web LUIS e não está disponível para exportação.
 
 ## <a name="utterances-in-review"></a>Expressões com revisão
-Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no  **[página de expressões de ponto final de revisão](label-suggested-utterances.md)**. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
+Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no  **[página de expressões de ponto final de revisão](luis-how-to-review-endoint-utt.md)**. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
 
 ## <a name="accounts"></a>Contas
 Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com os seus registos e as expressões de exemplo. Os dados são retidos durante 60 dias antes da conta e os dados são eliminados permanentemente.
@@ -44,4 +44,4 @@ Para efeitos de retenção de dados e eliminação, uma aplicação LUIS inativa
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a exportar e eliminar uma aplicação](create-new-app.md)
+> [Saiba mais sobre a exportar e eliminar uma aplicação](luis-how-to-start-new-app.md)

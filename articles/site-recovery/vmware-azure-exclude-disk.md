@@ -3,15 +3,15 @@ title: Excluir discos da proteção com o Azure Site Recovery | Documentos da Mi
 description: Descreve por que e como excluir discos de VM da replicação para VMware para o Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/01/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 6a0b8891e25a764ecd0430696e155b2bd8e06e13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342611"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921285"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Excluir discos da replicação do VMware para o cenário do Azure
 

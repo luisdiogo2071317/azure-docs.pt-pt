@@ -1,5 +1,5 @@
 ---
-title: Preparar a sua aplicação LUIS - Azure | Microsoft Docs
+title: Preparar a sua aplicação LUIS – Azure | Documentos da Microsoft
 description: Utilize a compreensão de idiomas (LUIS) para preparar o seu modelo.
 services: cognitive-services
 author: v-geberr
@@ -9,41 +9,41 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4593954e9e0a60beaa5ee86df848f908b23c6b20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ec731ee2110b21a35d76d53fae4a1a6756fb5b8
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355430"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951819"
 ---
 # <a name="train-your-luis-app"></a>Preparar a sua aplicação LUIS
 
-Formação é o processo de teaching a sua aplicação de compreensão de idiomas (LUIS) para melhorar a compreensão de linguagem natural. Preparar a sua aplicação LUIS após as atualizações ao modelo de como adicionar, editar, etiquetas ou eliminar entidades, pendentes ou utterances. 
+Treinamento é o processo de ensinar a sua aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com. 
 
 <!--
 When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
 
-Formação e [testar](luis-concept-test.md) uma aplicação é um processo iterativo. Depois de preparar a sua aplicação LUIS, testá-lo com utterances de exemplo para ver se as entidades e pendentes são reconhecidas corretamente. Se não estiver, efetue as atualizações da aplicação de LUIS, formação e teste novamente. 
+Treinamento e [teste](luis-concept-test.md) uma aplicação é um processo iterativo. Depois de preparar a aplicação do LUIS, testá-la com expressões de exemplo para ver se as intenções e entidades são reconhecidas corretamente. Se não estiverem, fazer atualizações para a aplicação LUIS, formação e teste novamente. 
 
 ## <a name="train-your-app"></a>Preparar a sua aplicação
-Para iniciar o processo iterativo, primeiro terá de preparar a sua aplicação LUIS, pelo menos, uma vez. Certifique-se que cada intenção tem pelo menos um utterance antes de formação.
+Para iniciar o processo iterativo, primeiro tem de preparar a sua aplicação LUIS, pelo menos, uma vez. Certifique-se que cada intenção tem, pelo menos, uma expressão antes de treinamento.
 
-1. Aceder à sua aplicação, selecionando o respetivo nome na **aplicações My** página. 
+1. Aceder à sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página. 
 
-2. Na sua aplicação, selecione **formação** no painel superior. 
+2. Na sua aplicação, selecione **Train** no painel superior. 
 
-    ![Botão de formação](./media/luis-how-to-train/train-button.png)
+    ![Botão de Train](./media/luis-how-to-train/train-button.png)
 
-3. Quando a formação estiver concluída, é apresentada uma barra de notificação verde na parte superior do browser.
+3. Quando o treinamento estiver concluído, uma barra de notificação de verde é apresentada na parte superior do navegador.
 
-    ![Página de aplicação de teste e formação](./media/luis-how-to-train/train-success.png)
+    ![Treinar e testar a aplicação de página](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 
 >[!NOTE]
->Se tiver uma ou mais pendentes na sua aplicação que não contêm utterances de exemplo, não é possível preparar a sua aplicação. Adicione utterances para todos os seus pendentes. Para obter mais informações, consulte [adicionar utterances exemplo](luis-how-to-add-example-utterances.md).
+>Se tiver uma ou mais objetivos na sua aplicação que não contêm as expressões de exemplo, não é possível preparar a sua aplicação. Adicione expressões para todos os seus objetivos. Para obter mais informações, consulte [adicionar expressões de exemplo](luis-how-to-add-example-utterances.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Etiqueta utterances sugeridos com LUIS](Label-Suggested-Utterances.md) 
-* [Utilize as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 
+* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endoint-utt.md) 
+* [Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 

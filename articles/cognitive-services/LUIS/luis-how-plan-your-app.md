@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 66036da19b0c7f49935b32272e963b3766497605
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2ce202bbb1479db18fb88cfef4d510ae4cb39a78
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438179"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952105"
 ---
 # <a name="plan-your-luis-app"></a>Planear a sua aplicação LUIS
 
@@ -53,7 +53,7 @@ Uma entidade hierárquica é um tipo especial de um **simples** entidade; a defi
 
 Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente a entidade hierárquica [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
 
-### <a name="composite-entity"></a>Entidade composta
+### <a name="composite-entity"></a>entidade composta
 Uma entidade composta é constituída por outras entidades que formam as partes de um todo. 
 
 ![entidade composta](./media/luis-plan-your-app/composite-entity.png)
@@ -82,7 +82,7 @@ Uma entidade de expressão regular permite que o LUIS extrair dados de uma expre
 Ver [extração de dados](luis-concept-data-extraction.md#regular-expression-entity-data) para saber mais sobre a extração de entidades de expressão regular do ponto de extremidade de resposta da consulta JSON. Experimente o [guia de introdução](luis-quickstart-intents-regex-entity.md) para saber mais sobre como utilizar uma entidade de expressão regular.
 
 ## <a name="after-getting-endpoint-utterances"></a>Depois de obter a expressão de ponto final
-Depois da aplicação obtenha expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](label-suggested-utterances.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
+Depois da aplicação obtenha expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](luis-how-to-review-endoint-utt.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
 
 ### <a name="patternany-entity"></a>Entidade de Pattern.any
 Patterns.any é um marcador de posição de comprimento variável usado apenas numa [do padrão](luis-concept-patterns.md) expressão de modelo para marcar onde a entidade começa e termina. Expressão de modelo está em conformidade com [sintaxe correta](luis-concept-patterns.md#pattern-syntax) para identificar as entidades e ignorable texto.

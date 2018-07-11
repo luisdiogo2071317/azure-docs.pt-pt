@@ -10,15 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eb9e4c58343e1f628ff862009b1d12dad07a1c91
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442445"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928737"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não é possível a aceder a extensão do Azure AD B2C no portal do Azure?
+Existem dois motivos comuns para por que da extensão do Azure AD não está a funcionar para.  O Azure AD B2C requer a sua função de utilizador no diretório para ser administrador global.  Contacte o administrador se acha que devem ter acesso.  Se tiver privilégios de administrador global, certifique-se de que está num diretório do Azure AD B2C e não um diretório do Azure Active Directory.  Pode ver as instruções para [criar um diretório do Azure AD B2C aqui](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Pode utilizar funcionalidades do Azure AD B2C no meu inquilino do Azure AD existente, com base em funcionários?
 O Azure AD e do Azure AD B2C são ofertas de produtos separada e não podem coexistir no mesmo inquilino.  Um inquilino do Azure AD representa uma organização.  Um inquilino do Azure AD B2C representa uma coleção de identidades a serem utilizadas com aplicações das entidades confiadoras.  Com as políticas personalizadas (em pré-visualização pública), o Azure AD B2C pode federar com o Azure AD, que permite a autenticação de funcionários numa organização.

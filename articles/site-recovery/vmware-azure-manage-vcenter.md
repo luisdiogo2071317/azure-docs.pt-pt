@@ -1,50 +1,50 @@
 ---
-title: " Gerir servidores VMware vcenter Server no Azure Site Recovery | Microsoft Docs"
+title: " Gerir servidores VMware vCenter no Azure Site Recovery | Documentos da Microsoft"
 description: Este artigo descreve como adicionar e gerir o VMware vCenter no Azure Site Recovery.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: 48b6cf9b90b429520df435aee00f57ea7b588748
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: ramamill
+ms.openlocfilehash: 6f3edf8e5d7a6fda1795991ac0a21cc316c29414
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285003"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950449"
 ---
-# <a name="manage-vmware-vcenter-servers"></a>Gerir servidores VMware vcenter Server 
+# <a name="manage-vmware-vcenter-servers"></a>Gerir servidores VMware vCenter 
 
-Este artigo aborda as várias operações de recuperação de sites que podem ser executadas no VMware vCenter. Certifique-se a [pré-requisitos](vmware-physical-azure-support-matrix.md#replicated-machines) antes de começar.
+Este artigo aborda as várias operações de recuperação de sites que podem ser realizadas num VMware vCenter. Verifique se o [pré-requisitos](vmware-physical-azure-support-matrix.md#replicated-machines) antes de começar.
 
 
-## <a name="set-up-an-account-for-automatic-discovery"></a>Configure uma conta para a deteção automática
+## <a name="set-up-an-account-for-automatic-discovery"></a>Configurar uma conta para a deteção automática
 
-Recuperação de sites precisa de aceder ao VMware para o servidor de processos detetar automaticamente máquinas virtuais e para ativação pós-falha e a reativação pós-falha de máquinas virtuais. Crie uma conta de acesso da seguinte forma:
+Recuperação de sites precisa de aceder ao VMware para o servidor de processos detetar automaticamente as máquinas virtuais e para a ativação pós-falha e reativação pós-falha de máquinas virtuais. Crie uma conta de acesso da seguinte forma:
 
 1. Inicie sessão no computador do servidor de configuração.
-2. Abra a iniciação cspsconfigtool.exe utilizando o atalho do ambiente de trabalho.
-3. Clique em **adicionar conta** no **gerir conta** separador.
+2. Abra o lançamento cspsconfigtool.exe usando o atalho de ambiente de trabalho.
+3. Clique em **adicionar conta** sobre o **gerir conta** separador.
 
   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
-1. Forneça os detalhes da conta e clique em **OK** adicioná-lo.  A conta deve ter os privilégios resumidos na tabela seguinte. 
+1. Forneça os detalhes da conta e clique em **OK** para adicioná-lo.  A conta deve ter os privilégios resumidos na tabela seguinte. 
 
-Demora cerca de 15 minutos para as informações de conta sincronizado com o serviço de recuperação de sites.
+Demora cerca de 15 minutos para as informações da conta a ser sincronizada a cópia de segurança com o serviço Site Recovery.
 
 ### <a name="account-permissions"></a>Permissões de conta
 
 |**Tarefa** | **Conta** | **Permissões** | **Detalhes**|
 |--- | --- | --- | ---|
-|**Deteção automática/migrar (sem a reativação pós-falha)** | Precisa de, pelo menos, um utilizador só de leitura | Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua o **sem acesso** função com o **Propagate para subordinado** objeto, para os objetos subordinados (anfitriões vSphere, datastores, máquinas virtuais e redes).|
-|**Replicação/ativação pós-falha** | Precisa de, pelo menos, um utilizador só de leitura| Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua o **sem acesso** função com o **Propagate para subordinado** objeto para os objetos subordinados (anfitriões vSphere, datastores, máquinas virtuais e redes).<br/><br/> Útil para fins de migração, mas não completa replicação, ativação pós-falha, reativação pós-falha.|
-|**Replicação/ativação pós-falha/reativação pós-falha** | Sugerimos que crie uma função (AzureSiteRecoveryRole) com as permissões necessárias e, em seguida, atribua a função a um grupo ou utilizador de VMware | Objeto de centro de dados –> Propagate ao objeto do subordinado função = AzureSiteRecoveryRole<br/><br/> Arquivo de Dados -> Alocar espaço, navegar no arquivo de dados, operações de ficheiro de baixo nível, remover ficheiros, atualizar ficheiros de máquinas virtuais<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> Atribuir VM a agrupamento de recursos, migrar VMs desligadas, migrar VMs ligadas<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder a perguntas, ligação de dispositivos, configurar suportes de dados em CD, configurar suportes de dados em disquete, desligar, ligar, instalação de ferramentas de VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registar, anular o registo<br/><br/> Máquina virtual -> Aprovisionamento -> Permitir transferência de máquinas virtuais, permitir carregamento de ficheiros de máquinas virtuais<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua o **sem acesso** função com o **Propagate para subordinado** objeto, para os objetos subordinados (anfitriões vSphere, datastores, máquinas virtuais e redes).|
+|**Deteção automática/migrar (sem ativação pós-falha)** | Tem de, pelo menos, um utilizador só de leitura | Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua a **sem acesso** função com o **propagar ao filho** objeto, aos objetos subordinados (anfitriões vSphere, arquivos de dados, máquinas virtuais e redes).|
+|**A replicação/ativação pós-falha** | Tem de, pelo menos, um utilizador só de leitura| Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua a **sem acesso** função com o **propagar ao filho** objeto aos objetos subordinados (anfitriões vSphere, arquivos de dados, máquinas virtuais e redes).<br/><br/> Útil para fins de migração, mas a replicação completa não, a ativação pós-falha e reativação pós-falha.|
+|**A replicação/ativação pós-falha/reativação pós-falha** | Sugerimos que cria uma função (AzureSiteRecoveryRole) com as permissões necessárias e, em seguida, atribua a função a um grupo ou utilizador de VMware | Objeto Data Center –> propagar ao objeto subordinado, função = AzureSiteRecoveryRole<br/><br/> Arquivo de Dados -> Alocar espaço, navegar no arquivo de dados, operações de ficheiro de baixo nível, remover ficheiros, atualizar ficheiros de máquinas virtuais<br/><br/> Rede -> Atribuição de rede<br/><br/> Recursos -> Atribuir VM a agrupamento de recursos, migrar VMs desligadas, migrar VMs ligadas<br/><br/> Tarefas -> Criar tarefa, atualizar tarefa<br/><br/> Máquina virtual -> Configuração<br/><br/> Máquina virtual -> Interagir -> responder a perguntas, ligação de dispositivos, configurar suportes de dados em CD, configurar suportes de dados em disquete, desligar, ligar, instalação de ferramentas de VMware<br/><br/> Máquina virtual -> Inventário -> Criar, registar, anular o registo<br/><br/> Máquina virtual -> Aprovisionamento -> Permitir transferência de máquinas virtuais, permitir carregamento de ficheiros de máquinas virtuais<br/><br/> Máquina virtual -> Instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.<br/><br/> Para restringir o acesso, atribua a **sem acesso** função com o **propagar ao filho** objeto, aos objetos subordinados (anfitriões vSphere, arquivos de dados, máquinas virtuais e redes).|
 
 
-## <a name="add-vmware-server-to-the-vault"></a>Adicionar o servidor VMware para o Cofre de
+## <a name="add-vmware-server-to-the-vault"></a>Adicionar servidor VMware no Cofre
 
-1. No portal do Azure, abra o seu Cofre > **infraestrutura de recuperação de Site** > **servidores de configuração**e abra o servidor de configuração.
-2. No **detalhes** página, clique em **+ vCenter**.
+1. No portal do Azure, abra o Cofre > **infraestrutura do Site Recovery** > **servidores de configuração**e abra o servidor de configuração.
+2. Sobre o **detalhes** página, clique em **+ vCenter**.
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
@@ -52,25 +52,25 @@ Demora cerca de 15 minutos para as informações de conta sincronizado com o ser
 
 Modificar as credenciais utilizadas para ligar ao servidor vCenter ou anfitrião ESXi da seguinte forma:
 
-1. Inicie sessão no servidor de configuração e, inicie o cspsconfigtool.exe no ambiente de trabalho.
-2. Clique em **adicionar conta** no **gerir conta** separador.
+1. Inicie sessão no servidor de configuração e inicie o cspsconfigtool.exe da área de trabalho.
+2. Clique em **adicionar conta** sobre o **gerir conta** separador.
 
   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
-3. Forneça os detalhes da conta nova e clique em **OK** adicioná-lo. A conta deve ter os privilégios listados [acima](#account-permissions).
-4. No portal do Azure, abra o Cofre > **infraestrutura de recuperação de Site** > **servidores de configuração**e abra o servidor de configuração.
-5. No **detalhes** página, clique em **atualização do servidor**.
+3. Forneça os detalhes da conta nova e clique em **OK** para adicioná-lo. A conta deve ter os privilégios listados [acima](#account-permissions).
+4. No portal do Azure, abra o Cofre > **infraestrutura do Site Recovery** > **servidores de configuração**e abra o servidor de configuração.
+5. Na **detalhes** página, clique em **atualizar servidor**.
 6. Depois de concluída a tarefa de atualização do servidor, selecione o vCenter Server, para abrir o vCenter **resumo** página.
-7. Selecione a conta recentemente adicionada no **conta de anfitriões vSphere/servidor vCenter** campo e clique em **guardar**.
+7. Selecione a conta recentemente adicionada no **conta de anfitrião do vCenter server/vSphere** campo e clique em **guardar**.
 
     ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
-## <a name="delete-a-vcenter-server"></a>Eliminar um vCenter server
+## <a name="delete-a-vcenter-server"></a>Eliminar um servidor vCenter
 
-1. No portal do Azure, abra o seu Cofre > **infraestrutura de recuperação de Site** > **servidores de configuração**e abra o servidor de configuração.
-2. No **detalhes** página, selecione o servidor vCenter.
-3. Clique em de **eliminar** botão.
+1. No portal do Azure, abra o Cofre > **infraestrutura do Site Recovery** > **servidores de configuração**e abra o servidor de configuração.
+2. Sobre o **detalhes** , selecione o servidor vCenter.
+3. Clique nas **eliminar** botão.
 
   ![eliminar conta](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
-Se necessitar de modificar o endereço IP do vCenter, o FQDN ou a porta, terá de eliminar o servidor vCenter e adicione-a novamente para o portal.
+Se precisar de modificar o endereço IP do vCenter, FQDN ou porta, em seguida, terá de eliminar o servidor vCenter e adicioná-lo novamente para o portal.

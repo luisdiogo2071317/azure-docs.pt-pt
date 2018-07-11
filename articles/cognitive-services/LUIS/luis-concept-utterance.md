@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4a3571acade7b7bd304c91eadc90b1a9f6e53860
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886846"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951904"
 ---
 # <a name="utterances-in-luis"></a>Expressões com no LUIS
 
@@ -51,7 +51,7 @@ Em cada iteração do modelo, não adicione uma grande quantidade de expressões
 
 LUIS baseia-se em vigor modelos com expressões com cuidadosamente selecionadas. Adicionar expressões com demasiados não é importante porque introduz confusão.  
 
-É melhor começar com algumas expressões, em seguida, [rever expressões de ponto final](label-suggested-utterances.md) para extração correta de entidade e de predição de intenção.
+É melhor começar com algumas expressões, em seguida, [rever expressões de ponto final](luis-how-to-review-endoint-utt.md) para extração correta de entidade e de predição de intenção.
 
 ## <a name="ignoring-words-and-punctuation"></a>A ignorar a palavras e pontuação
 Se pretender ignorar palavras específicas ou pontuação na expressão de exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 
@@ -61,10 +61,10 @@ O treinamento é determinística: a predição de expressão poderia variam lige
 
 ## <a name="testing-utterances"></a>Teste de expressões 
 
-Os desenvolvedores devem começar a testar seus aplicativos de LUIS com tráfego real através do envio expressões com para o ponto final. Estas expressões são utilizados para melhorar o desempenho dos objetivos e entidades com [rever expressões com](label-suggested-utterances.md). Testes submetidos com o site do LUIS painel de teste não são enviados através do ponto final e não contribuem para a aprendizagem ativa. 
+Os desenvolvedores devem começar a testar seus aplicativos de LUIS com tráfego real através do envio expressões com para o ponto final. Estas expressões são utilizados para melhorar o desempenho dos objetivos e entidades com [rever expressões com](luis-how-to-review-endoint-utt.md). Testes submetidos com o site do LUIS painel de teste não são enviados através do ponto final e não contribuem para a aprendizagem ativa. 
 
 ## <a name="review-utterances"></a>Expressões de revisão
-Depois do modelo estiver preparado, publicada e de recebimento [ponto final](luis-glossary.md#endpoint) consultas, [rever as expressões](label-suggested-utterances.md) sugerido pelo LUIS. LUIS seleciona expressões com ponto final com pontuações de baixas para a intenção ou a entidade. 
+Depois do modelo estiver preparado, publicada e de recebimento [ponto final](luis-glossary.md#endpoint) consultas, [rever as expressões](luis-how-to-review-endoint-utt.md) sugerido pelo LUIS. LUIS seleciona expressões com ponto final com pontuações de baixas para a intenção ou a entidade. 
 
 ## <a name="best-practices"></a>Melhores práticas
 Revisão [melhores práticas](luis-concept-best-practices.md) para saber mais.

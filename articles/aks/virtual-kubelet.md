@@ -1,6 +1,6 @@
 ---
-title: Executar virtual kubelet num cluster do Azure Kubernetes serviço (AKS)
-description: Utilize virtual kubelet para executar Kubernetes contentores em instâncias de contentor do Azure.
+title: Executar o Virtual Kubelet num cluster do Azure Kubernetes Service (AKS)
+description: Saiba como utilizar o Virtual Kubelet com o Azure Kubernetes Service (AKS) para executar contentores de Linux e Windows no Azure Container Instances.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -8,35 +8,66 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 04fdb1620dc6e7147ed10ae6eeeaeb3eeae14b62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097364"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952483"
 ---
-# <a name="virtual-kubelet-with-aks"></a>Virtual Kubelet com AKS
+# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)
 
-Instâncias de contentor do Azure (ACI) fornece um ambiente alojado para a execução de contentores no Azure. Quando utilizar ACI, não é necessário para gerir a infraestrutura de computação subjacente, Azure processa esta gestão por si. Ao executar contentores no ACI, são-lhe cobrados por segundo para cada contentor em execução.
+O Azure Container Instances (ACI) fornecem um ambiente de hospedagem para executar contentores no Azure. Ao utilizar o ACI, não é necessário para gerir a infraestrutura de computação subjacentes, o Azure trata esse gerenciamento para. Ao executar contentores no ACI, são cobradas por segundo para cada contentor em execução.
 
-Quando utilizar o fornecedor de Virtual Kubelet para instâncias de contentor do Azure, os contentores de Linux e Windows podem ser agendados uma instância do contentor como se fosse um nó de Kubernetes padrão. Esta configuração permite-lhe tirar partido das capacidades de Kubernetes e o benefício de valor e o custo de gestão de instâncias de contentor.
+Ao usar o Virtual Kubelet fornecedor do Azure Container Instances, contentores do Linux e Windows podem ser agendadas numa instância de contentor, como se fosse um nó de Kubernetes padrão. Esta configuração permite-lhe tirar partido das capacidades do Kubernetes e o benefício de valor e o custo de gestão de instâncias do contentor.
 
 > [!NOTE]
-> Virtual Kubelet for um projeto de código aberto experimental e deve ser utilizada como tal. Para contribuir, problemas de ficheiros e ler mais sobre virtual kubelet, consulte o [Virtual Kubelet GitHub projeto][vk-github].
+> Virtual Kubelet é um projeto de código-fonte aberto experimental e deve ser utilizado como tal. Para contribuir, problemas de ficheiros e ler mais sobre o virtual kubelet, consulte a [projeto Virtual Kubelet GitHub][vk-github].
 
-Esta configuração o Kubelet Virtual para instâncias de contentor num AKS detalhes de documento.
+Este detalhes de documento, configurar o Virtual Kubelet para instâncias de contentor num AKS.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Este documento parte do princípio de que tem um cluster AKS. Se precisar de um cluster AKS, consulte o [início rápido do Azure Kubernetes serviço (AKS)][aks-quick-start].
+Este documento parte do princípio de que tem um cluster do AKS. Se precisar de um cluster do AKS, consulte a [início rápido do Azure Kubernetes Service (AKS)][aks-quick-start].
 
-Também precisa da versão da CLI do Azure **2.0.33** ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Também tem a versão da CLI do Azure **2.0.33** ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-[Helm](https://docs.helm.sh/using_helm/#installing-helm) também é necessário para instalar o Kubelet Virtual.
+Para instalar o Virtual Kubelet [Helm](https://docs.helm.sh/using_helm/#installing-helm) também é necessário.
+
+### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados em RBAC
+
+Se o seu cluster do AKS tem a capacidade de RBAC, tem de criar uma conta de serviço e o enlace de função para utilização com Tiller. Para obter mais informações, consulte [controlo de acesso baseado em funções do Helm][helm-rbac].
+
+R *ClusterRoleBinding* também tem de ser criada para o Virtual Kubelet. Para criar uma ligação, crie um ficheiro denominado *rbac virtualkubelet.yaml* e cole a seguinte definição:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: virtual-kubelet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+```
+
+Aplicar o vínculo com o [kubectl aplicam-se] [ kubectl-apply] e especifique seus *rbac virtualkubelet.yaml* ficheiro, conforme mostrado no exemplo a seguir:
+
+```
+$ kubectl apply -f rbac-virtual-kubelet.yaml
+
+clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+```
+
+Pode continuar a instalar o Virtual Kubelet no seu cluster do AKS.
 
 ## <a name="installation"></a>Instalação
 
-Utilize o [az aks install-conector] [ aks-install-connector] comando para instalar Virtual Kubelet. O exemplo seguinte implementa o conector de Linux e Windows.
+Utilize o [az aks install-connector] [ aks-install-connector] comando para instalar o Virtual Kubelet. O exemplo seguinte implementa o conector do Linux e do Windows.
 
 ```azurecli-interactive
 az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
@@ -50,18 +81,18 @@ Estes argumentos estão disponíveis para o `aks install-connector` comando.
 | `--name` `-n` | Nome do cluster gerido. | Sim |
 | `--resource-group` `-g` | Nome do grupo de recursos. | Sim |
 | `--os-type` | Tipo de sistema operativo de instâncias de contentor. Valores permitidos: ambos, Linux, Windows. Predefinição: Linux. | Não |
-| `--aci-resource-group` | O grupo de recursos no qual pretende criar os grupos de contentor ACI. | Não |
-| `--location` `-l` | A localização para criar os grupos de contentor ACI. | Não |
-| `--service-principal` | Principal de serviço utilizado para autenticação de APIs do Azure. | Não |
-| `--client-secret` | Segredo associado ao serviço principal. | Não |
-| `--chart-url` | URL de um gráfico de Helm que instala o conector ACI. | Não |
+| `--aci-resource-group` | O grupo de recursos no qual pretende criar os grupos de contentor do ACI. | Não |
+| `--location` `-l` | A localização para criar os grupos de contentor do ACI. | Não |
+| `--service-principal` | Principal de serviço utilizado para autenticação para APIs do Azure. | Não |
+| `--client-secret` | Segredo associado ao principal de serviço. | Não |
+| `--chart-url` | URL de um gráfico do Helm que instala o conector ACI. | Não |
 | `--image-tag` | A tag de imagem da imagem de contentor virtual kubelet. | Não |
 
-## <a name="validate-virtual-kubelet"></a>Validar Virtual Kubelet
+## <a name="validate-virtual-kubelet"></a>Validar o Virtual Kubelet
 
-Para validar que Virtual Kubelet foi instalado, devolver uma lista de nós de Kubernetes utilizando o [kubectl obter nós] [ kubectl-get] comando.
+Para validar que o Virtual Kubelet foi instalado, retornar uma lista de nós do Kubernetes com o [kubectl obter nós] [ kubectl-get] comando.
 
-```console
+```
 $ kubectl get nodes
 
 NAME                                    STATUS    ROLES     AGE       VERSION
@@ -72,9 +103,9 @@ virtual-kubelet-virtual-kubelet-linux   Ready     agent     4m        v1.8.3
 virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 ```
 
-## <a name="run-linux-container"></a>Execute o contentor do Linux
+## <a name="run-linux-container"></a>Executar o contentor do Linux
 
-Crie um ficheiro denominado `virtual-kubelet-linux.yaml` e copie o seguinte YAML. Substitua o `kubernetes.io/hostname` valor com o nome do nó Kubelet virtuais do Linux. Tome nota que um [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
+Crie um ficheiro denominado `virtual-kubelet-linux.yaml` e copie o YAML seguinte. Substitua o `kubernetes.io/hostname` valor com o nome do nó Virtual Kubelet de Linux. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -100,24 +131,24 @@ spec:
         effect: NoSchedule
 ```
 
-Execute a aplicação com o [kubectl criar] [ kubectl-create] comando.
+Execute a aplicação com o [criar kubectl] [ kubectl-create] comando.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
-Utilize o [kubectl obter pods] [ kubectl-get] comando com o `-o wide` argumento para uma lista de pods com o nó agendado de saída. Tenha em atenção que o `aci-helloworld` pod agendado no `virtual-kubelet-virtual-kubelet-linux` nós.
+Utilize o [kubectl obter pods] [ kubectl-get] comando com o `-o wide` argumento para uma lista de pods com o nó agendado de saída. Tenha em atenção que o `aci-helloworld` pod foi agendada ao `virtual-kubelet-virtual-kubelet-linux` nó.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
 aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
 ```
 
-## <a name="run-windows-container"></a>Execute o contentor do Windows
+## <a name="run-windows-container"></a>Execute contentores do Windows
 
-Crie um ficheiro denominado `virtual-kubelet-windows.yaml` e copie o seguinte YAML. Substitua o `kubernetes.io/hostname` valor com o nome do nó Kubelet Virtual do Windows. Tome nota que um [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
+Crie um ficheiro denominado `virtual-kubelet-windows.yaml` e copie o YAML seguinte. Substitua o `kubernetes.io/hostname` valor com o nome do nó Virtual Kubelet do Windows. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -143,24 +174,24 @@ spec:
         effect: NoSchedule
 ```
 
-Execute a aplicação com o [kubectl criar] [ kubectl-create] comando.
+Execute a aplicação com o [criar kubectl] [ kubectl-create] comando.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Utilize o [kubectl obter pods] [ kubectl-get] comando com o `-o wide` argumento para uma lista de pods com o nó agendado de saída. Tenha em atenção que o `nanoserver-iis` pod agendado no `virtual-kubelet-virtual-kubelet-win` nós.
+Utilize o [kubectl obter pods] [ kubectl-get] comando com o `-o wide` argumento para uma lista de pods com o nó agendado de saída. Tenha em atenção que o `nanoserver-iis` pod foi agendada ao `virtual-kubelet-virtual-kubelet-win` nó.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
 nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
 ```
 
-## <a name="remove-virtual-kubelet"></a>Remover Virtual Kubelet
+## <a name="remove-virtual-kubelet"></a>Remover o Virtual Kubelet
 
-Utilize o [az aks remove-conector] [ aks-remove-connector] comando para remover Virtual Kubelet. Substitua os valores de argumento com o nome do conector, AKS cluster e o grupo de recursos de cluster AKS.
+Utilize o [az aks remove-connector] [ aks-remove-connector] comando para remover o Virtual Kubelet. Substitua os valores de argumento com o nome do conector do cluster do AKS e o grupo de recursos de cluster do AKS.
 
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
@@ -168,7 +199,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre Kubelet Virtual no [Virtual Kubelet Github projet][vk-github].
+Saiba mais sobre o Virtual Kubelet, o [Github de Virtual Kubelet projet][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
@@ -182,3 +213,5 @@ Saiba mais sobre Kubelet Virtual no [Virtual Kubelet Github projet][vk-github].
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

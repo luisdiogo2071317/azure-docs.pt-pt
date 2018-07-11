@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 1bd24af0498755b7cdcb170624fd8f9f3b39c85a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347425"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927779"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 Quando concluir a criação e teste a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicação mostra todas as associadas HTTP [pontos de extremidade](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e, por [chave](luis-how-to-manage-keys.md), em seguida, são integradas em qualquer aplicação cliente, chatbot ou back-end. 
@@ -67,7 +67,7 @@ O **incluir todos os prever a intenção pontuações** caixa de seleção permi
 
 Esta definição permite que seu aplicativo de chamada de LUIS para tomar uma decisão programática com base em classificações dos objetivos retornados ou chatbot. Em geral dos principais dois objetivos são mais interessantes. Se a classificação superior é a intenção, que sua chatbot pode optar por fazer uma pergunta de seguimento que fizer uma escolha definitiva entre a intenção None e a intenção pontuação alta nenhum. 
 
-As intenções e suas pontuações também estão incluídos os registos de ponto final. Pode [exportar](create-new-app.md#export-app) esses registos e analisar as pontuações. 
+As intenções e suas pontuações também estão incluídos os registos de ponto final. Pode [exportar](luis-how-to-start-new-app.md#export-app) esses registos e analisar as pontuações. 
 
 ```
 {
@@ -151,7 +151,7 @@ Testar o ponto de final publicado ao selecionar o URL na **ponto final** coluna.
 
 ![Resposta JSON de um ponto de final HTTP publicado](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Ver [gerir chaves](./luis-how-to-manage-keys.md) adicionar chaves à sua aplicação do LUIS, e saber mais sobre como chaves de mapeiam para as regiões.
 * Ver [treinar e testar a aplicação](interactive-test.md) para obter instruções sobre como testar a aplicação publicada na consola de teste.

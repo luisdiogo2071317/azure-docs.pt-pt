@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 7afa50484c3ebf258bbdd2b7f16c9cd051710d28
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9609a0fa5599bd34fa52f7c0311369fb27aaf955
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437897"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951163"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em c# com o Reliable Services
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Criação de ServiceProxy é uma operação simples, para que possa criar tantos
 
 ### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica que cria instâncias de proxy para interfaces de comunicação remota diferente. Se usar a api `ServiceProxy.Create` para a criação de proxy, em seguida, o framework cria um singleton ServiceProxy.
-É útil criar um manualmente quando precisa substituir [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) propriedades.
+É útil criar um manualmente quando precisa substituir [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) propriedades.
 A criação do Factory é uma operação dispendiosa. ServiceProxyFactory mantém um cache interna do cliente de comunicação.
 Prática recomendada é colocar em cache ServiceProxyFactory durante mais tempo.
 

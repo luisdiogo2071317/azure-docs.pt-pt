@@ -1,86 +1,86 @@
 ---
-title: Resolver problemas de falhas durante a reativação pós-falha de VMs do Azure para VMware no local com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve formas de resolver erros comuns de reativação pós-falha e só durante a reativação pós-falha para VMware a partir do Azure utilizando o Azure Site Recovery.
+title: Resolver problemas de falhas durante a reativação pós-falha de VMs do Azure para o VMware no local com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo descreve formas de resolver erros comuns de reativação pós-falha e a nova proteção durante a reativação pós-falha para o VMware do Azure ao utilizar o Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 480c3524ad4fb8a8c6ea02f09b8d27f254da9b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29941041"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920976"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Resolver problemas de reativação pós-falha a partir do Azure para VMware
+# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Resolver problemas de reativação pós-falha do Azure para o VMware
 
-Este artigo descreve como resolver problemas que poderão surgir quando houver VMs atrás do Azure para a infraestrutura do VMware no local, após a ativação pós-falha para o Azure utilizando [do Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve como resolver problemas que poderão surgir quando realizar a ativação VMs atrás do Azure à sua infraestrutura de VMware no local, após a ativação pós-falha para o Azure, utilizando [do Azure Site Recovery](site-recovery-overview.md).
 
-Reativação pós-falha essencialmente envolve dois passos principais. Para o primeiro passo, após a ativação pós-falha, terá de voltar a proteger as VMs do Azure no local para que iniciar a replicação. O segundo passo consiste em executar uma ativação pós-falha do Azure para falhar novamente para o site no local.
+Reativação pós-falha essencialmente envolve dois passos principais. Para o primeiro passo, após a ativação pós-falha, terá de voltar a proteger as VMs do Azure para o local para que comecem a ser replicadas. O segundo passo é executar uma ativação pós-falha do Azure para reativação pós-falha para o seu site no local.
 
-## <a name="troubleshoot-reprotection-errors"></a>Resolver erros só
+## <a name="troubleshoot-reprotection-errors"></a>Resolver erros de nova proteção
 
-Esta secção fornece detalhes sobre os erros só comuns e como corrija-os.
+Esta secção fornece detalhes sobre os erros de nova proteção comuns e como corrigi-las.
 
 ### <a name="error-code-95226"></a>Código de erro 95226
 
-**Reproteção falhou porque a máquina virtual do Azure não conseguiu aceder ao servidor de configuração no local.**
+**Voltar a proteger falhou uma vez que a máquina virtual do Azure não conseguiu aceder ao servidor de configuração no local.**
 
 Este erro ocorre quando:
 
-* A VM do Azure não consegue contactar o servidor de configuração no local. A VM não pode ser detetada e registada no servidor de configuração.
-* O serviço de aplicação do InMage Scout não está em execução na VM do Azure após a ativação pós-falha. O serviço é necessário para as comunicações com o servidor de configuração no local.
+* A VM do Azure não é possível contactar o servidor de configuração no local. A VM não pode ser detetada e registrada no servidor de configuração.
+* O serviço InMage Scout application não está em execução na VM do Azure após a ativação pós-falha. O serviço é necessário para comunicações com o servidor de configuração no local.
 
 Para resolver este problema:
 
-* Certifique-se de que a rede VM do Azure permite que a VM do Azure comunicar com o servidor de configuração no local. Pode configurar uma VPN de site a site para o seu centro de dados no local ou configurar uma ligação ExpressRoute do Azure com o peering privado da rede virtual de VM do Azure.
-* Se a VM pode comunicar com o servidor de configuração no local, iniciar sessão para a VM. Em seguida, verifique o serviço de aplicação do InMage Scout. Se vir que este não está em execução, inicie o serviço manualmente. Que tipo de iniciar o serviço de verificação está definida como **automática**.
+* Verifique que a rede de VM do Azure permite que a VM do Azure comunicar com o servidor de configuração no local. Pode configurar uma VPN de site a site para o seu datacenter no local ou configurar uma ligação do ExpressRoute do Azure com o peering privado na rede virtual da VM do Azure.
+* Se a VM pode comunicar com o servidor de configuração no local, inicie sessão na VM. Em seguida, verifique o serviço InMage Scout application. Se vir que ele não está em execução, inicie o serviço manualmente. Verificação de que tipo de iniciar o serviço está definida como **automática**.
 
 ### <a name="error-code-78052"></a>Código de erro 78052
 
 **Não foi possível concluir a proteção da máquina virtual.**
 
-Este problema pode ocorrer se já existir uma VM com o mesmo nome no servidor de destino principal ao qual está a reativar novamente.
+Este problema pode acontecer se já existe uma VM com o mesmo nome no servidor de destino mestre para o qual está a reativar novamente.
 
 Para resolver este problema:
 
-* Selecione um servidor de destino mestre diferente no outro anfitrião para que os cria a máquina num anfitrião diferente, onde os nomes não entrar em conflito.
-* Também pode utilizar vMotion para mover o destino principal para outro anfitrião onde a colisão de nomes não ocorrerá. Se a VM existente é uma máquina stray, alterá-lo para que a nova VM pode ser criada no mesmo anfitrião ESXi.
+* Selecione um servidor de destino mestre diferente num host diferente para que a nova proteção cria a máquina num anfitrião diferente, onde os nomes não entrar em conflito.
+* Também pode utilizar vMotion para mover o destino principal para outro anfitrião onde a colisão de nomes não acontecerá. Se a VM existente for uma máquina stray, renomeá-lo para que a nova VM pode ser criada no mesmo anfitrião ESXi.
 
 
 ### <a name="error-code-78093"></a>Código de erro 78093
 
-**A VM não está em execução, num estado bloqueado, ou não está acessível.**
+**A VM não está em execução, em estado suspenso, ou não está acessível.**
 
 Para resolver este problema:
 
-Para voltar a proteger uma VM de efetuada a ativação pós-falha, a VM do Azure deve estar em execução para que regista de serviço de mobilidade com a configuração server no local e pode iniciar a replicação através da comunicação com o servidor de processos. Se a máquina num incorreta de rede ou não está em execução (suspensos Estado ou encerrar baixo), o servidor de configuração não consegue contactar o serviço de mobilidade na VM para começar a só.
+Para voltar a proteger uma VM com ativação pós-falha, a VM do Azure tem de executar para que os registros do serviço de mobilidade com o configuration server no local e pode iniciar a replicação através da comunicação com o servidor de processos. Se o computador estiver num incorreta de rede ou não está em execução (suspenso Estado ou desligar para baixo), o servidor de configuração não é possível contactar o serviço de mobilidade na VM para começar a nova proteção.
 
-* Reinicie a VM para que possa começar a comunicar back no local.
+* Reinicie a VM para que possa começar a se comunicar ao site no local.
 * Reinicie a tarefa de reproteção depois de iniciar a máquina virtual do Azure.
 
 ### <a name="error-code-8061"></a>Código de erro 8061
 
 **O arquivo de dados não está acessível a partir do anfitrião ESXi.**
 
-Verifique o [mestra pré-requisitos de destino e arquivos de dados suportados](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) para reativação pós-falha.
+Verifique os [dominar os pré-requisitos de destino e arquivos de dados suportados](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) para reativação pós-falha.
 
 
 ## <a name="troubleshoot-failback-errors"></a>Resolver erros de reativação pós-falha
 
-Esta secção descreve erros comuns que poderá encontrar durante a reativação pós-falha.
+Esta secção descreve os erros comuns que poderá encontrar durante a reativação pós-falha.
 
 ### <a name="error-code-8038"></a>Código de erro 8038
 
 **Falha ao colocar a máquina de virtual no local devido ao erro.**
 
-Este problema ocorre quando a VM no local seja colocada de cópia de segurança num anfitrião que não tem memória suficiente aprovisionada. 
+Este problema ocorre quando a VM no local é colocada num anfitrião que não tem memória suficiente aprovisionada. 
 
 Para resolver este problema:
 
 * Aprovisione mais memória no anfitrião ESXi.
-* Além disso, pode utilizar vMotion para mover a VM para outro anfitrião ESXi que tenha memória suficiente para efetuar o arranque a VM.
+* Além disso, pode utilizar o vMotion para mover a VM para outro anfitrião ESXi que tenha memória suficiente para efetuar o arranque da VM.

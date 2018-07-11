@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7174a78aeb339c864b2eea384b794646c215bc25
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: b60aa551d55907fcac7953efa61473c845e3c2ae
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344007"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951061"
 ---
 # <a name="api-v2-migration-guide"></a>Guia de migração do API v2
 A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs vão ser preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
@@ -133,7 +133,7 @@ Várias APIs que retornam metadados de LUIS têm nomes novos.
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Exemplo" o nome mudado para "sugestão"
-LUIS sugere expressões a partir de existente [expressões de ponto final](label-suggested-utterances.md) que pode melhorar o modelo. Na versão anterior, isso foi chamado **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugerir**. Isso é chamado **[rever expressões de ponto final](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** no Web site do LUIS.
+LUIS sugere expressões a partir de existente [expressões de ponto final](luis-how-to-review-endoint-utt.md) que pode melhorar o modelo. Na versão anterior, isso foi chamado **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugerir**. Isso é chamado **[rever expressões de ponto final](luis-how-to-review-endoint-utt.md)** no Web site do LUIS.
 
 | versão | rota |
 |--|--|

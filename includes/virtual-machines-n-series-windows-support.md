@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f3d57f8f1f3631421618e31e943606a16e6bf5b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a07f1622f2d41d105c79fa5354d97aa079567e62
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670024"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935802"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
-### <a name="nvidia-tesla-cuda-drivers"></a>Controladores NVIDIA Tesla (CUDA)
+### <a name="nvidia-tesla-cuda-drivers"></a>Controladores de NVIDIA Tesla (CUDA)
 
-Controladores de NVIDIA Tesla (CUDA) para NC, NCv2, NCv3 e VMs de série ND (opcionais para a série NV) são suportadas apenas em sistemas operativos listados na seguinte tabela. Ligações de transferência de controladores são actual no momento da publicação. Para os controladores mais recentes, visite o Web site da [NVIDIA](http://www.nvidia.com/).
+Controladores de NVIDIA Tesla (CUDA) para NC, a NCv2, NCv3 e VMs de série ND (opcionais para a série NV) são suportados apenas em sistemas operativos listados na tabela seguinte. Ligações de transferência do controlador são atualizadas no momento da publicação. Para os controladores mais recentes, visite o Web site da [NVIDIA](http://www.nvidia.com/).
 
 > [!TIP]
-> Como alternativa à instalação manual do controlador CUDA na VM do Windows Server, pode implementar um Azure [máquinas de virtuais de ciência de dados](../articles/machine-learning/data-science-virtual-machine/overview.md) imagem. As edições de DSVM para o Windows Server 2016 pré-instalar controladores NVIDIA CUDA, CUDA profunda neuronal biblioteca de rede e outras ferramentas.
+> Como alternativa à instalação de controlador CUDA manual numa VM do Windows Server, pode implementar do Azure [máquina de Virtual de ciência de dados](../articles/machine-learning/data-science-virtual-machine/overview.md) imagem. As edições DSVM do Windows Server 2016 previamente instalar controladores de NVIDIA CUDA, CUDA Deep Neural biblioteca de rede e outras ferramentas.
 
 
 | SO | Controlador |
@@ -31,11 +31,11 @@ Controladores de NVIDIA Tesla (CUDA) para NC, NCv2, NCv3 e VMs de série ND (opc
 | Windows Server 2012 R2 | [397.44](http://us.download.nvidia.com/Windows/Quadro_Certified/397.44/397.44-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
 
 
-### <a name="nvidia-grid-drivers"></a>Controladores NVIDIA grelha
+### <a name="nvidia-grid-drivers"></a>Controladores de GRID da NVIDIA
 
-Microsoft redistribui com os programas de instalação de controlador de grelha NVIDIA para VMs NV série utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores de grelha em VMs do Azure NV, apenas nos sistemas operativos listados na seguinte tabela. Estes incluem de licenciamento para Software para a GPU Virtual grelha no Azure.
+Microsoft redistribui programas de instalação de controladores de NVIDIA GRID para VMs de série NV utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em sistemas operativos listados na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure.
 
 | SO | Controlador |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 | [GRELHA 6.1 (391.58)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [GRELHA 6.1 (391.58)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 | [GRELHA 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [GRELHA 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |

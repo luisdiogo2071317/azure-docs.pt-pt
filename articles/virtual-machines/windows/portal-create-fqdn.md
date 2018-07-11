@@ -1,9 +1,9 @@
 ---
-title: Criar o FQDN para uma VM do Windows no portal do Azure | Microsoft Docs
-description: Saiba como criar um nome de domínio completamente qualificado, ou FQDN, para um Gestor de recursos com base em máquina virtual no portal do Azure.
+title: Criar um FQDN para uma VM Windows no portal do Azure | Documentos da Microsoft
+description: Saiba como criar um nome de domínio completamente qualificado ou FQDN, para um Gerenciador de recursos com base em máquina virtual no portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,28 +14,28 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ebc1ef89b24a9aa21f39e5b05051c16351f08cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79b3e3ba01076dcfe5820fb832fa1839398c6c04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
-ms.locfileid: "26707413"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927610"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Criar um nome de domínio completamente qualificado no portal do Azure para uma VM do Windows
 
-Quando cria uma máquina virtual (VM) no [portal do Azure](https://portal.azure.com), é criado automaticamente um recurso IP público para a máquina virtual. Utilize este endereço IP para aceder remotamente a VM. Embora o portal não cria um [nome de domínio completamente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), ou FQDN, pode criar um assim que a VM ser criada. Este artigo demonstra os passos para criar um nome DNS ou um FQDN.
+Quando cria uma máquina virtual (VM) no [portal do Azure](https://portal.azure.com), um recurso IP público para a máquina virtual é criado automaticamente. Utilize este endereço IP para aceder remotamente à VM. Embora o portal não cria um [nome de domínio completamente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), ou FQDN, pode criar um quando a VM é criada. Este artigo demonstra os passos para criar um nome DNS ou o FQDN.
 
 ## <a name="create-a-fqdn"></a>Criar um FQDN
-Este artigo pressupõe que já criou uma VM. Se necessário, pode [criar uma VM no portal do](quick-create-portal.md) ou [com o Azure PowerShell](quick-create-powershell.md). Assim que a VM está a funcionar, siga estes passos:
+Este artigo pressupõe que já criou uma VM. Se for necessário, pode [criar uma VM no portal do](quick-create-portal.md) ou [com o Azure PowerShell](quick-create-powershell.md). Assim que a sua VM está a funcionar, siga estes passos:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Agora pode ligar remotamente para a VM com este nome DNS, tal como para o protocolo de ambiente de trabalho remoto (RDP).
+Agora pode ligar remotamente à VM com este nome DNS, tais como para o protocolo RDP (Remote Desktop).
 
-## <a name="next-steps"></a>Passos seguintes
-Agora que a VM tem um nome IP e DNS público, pode implementar comuns das estruturas de aplicações ou serviços como o IIS, SQL Server ou SharePoint.
+## <a name="next-steps"></a>Passos Seguintes
+Agora que a VM tem um nome IP e DNS público, pode implementar arquiteturas de aplicações comuns ou serviços, como o IIS, o SQL ou o SharePoint.
 
-Também pode ler mais sobre [com o Resource Manager](../../azure-resource-manager/resource-group-overview.md) para sugestões sobre como criar as suas implementações do Azure.
+Também pode ler mais sobre [com o Resource Manager](../../azure-resource-manager/resource-group-overview.md) para obter dicas sobre a criação de suas implementações do Azure.
 

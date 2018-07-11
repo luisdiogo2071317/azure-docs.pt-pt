@@ -11,11 +11,11 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: HT
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939179"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934473"
 ---
 Até aqui, tem executado o código da aplicação como se fosse o único programador a trabalhar na aplicação. Nesta secção, irá aprender até que ponto o Azure Dev Spaces simplifica o desenvolvimento em equipa ao:
 * Permita que uma equipa de programadores trabalhe no mesmo ambiente, ao trabalhar num espaço de desenvolvimento partilhado ou em espaços de desenvolvimento distintos, conforme necessário...

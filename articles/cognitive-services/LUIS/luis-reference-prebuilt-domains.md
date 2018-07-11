@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: fe035c744e7cbc291fa392205239f331410412dc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866336"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931633"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
 
-[Domínios personalizados](create-new-app.md), por outro lado, começar com nenhum intenções e modelos. Pode adicionar qualquer intenções de domínio pré-criado e entidades para um modelo personalizado.
+[Domínios personalizados](luis-how-to-start-new-app.md), por outro lado, começar com nenhum intenções e modelos. Pode adicionar qualquer intenções de domínio pré-criado e entidades para um modelo personalizado.
 
 ## <a name="list-of-prebuilt-domains"></a>Lista de domínios pré-concebidos
 LUIS oferece 20 domínios pré-concebidos. 
@@ -154,14 +154,14 @@ Mostra o domínio fornece intenções e entidades relacionadas com a pesquisa de
 | ContentRating | Classificação como G ou R para filmes de conteúdo de mídia.|Vídeo de crianças.<br/>PG classificada.|
 | Genre | O gênero de um filme, o jogo, a aplicação ou a música.|Comedies<br/>Dramas<br/>Engraçado|
 | Palavra-chave| Uma palavra-chave de pesquisa genérico especificando um atributo a não existe nas ranhuras de suporte de dados mais específicas.|Soundtracks<br/>Rio de lua<br/>Amelia Earhart|
-| Idioma | Classificação como G ou R para filmes de conteúdo de mídia.|Francês<br/>Português<br/>Coreano|
+| Idioma | Idioma utilizado na mídia, como um idioma falado de filme ou música.|Francês<br/>Português<br/>Coreano|
 | MediaFormat | O adicional tipo técnico especial em que o suporte de dados está formatado.|HD filmes<br/>Filmes 3D<br/>Disponível para download|
 | MediaSource | O mercado para adquirir o suporte de dados ou arquivo.|Netflix<br/>Primos|
 | MediaSubTypes| Tipos de suportes de dados mais pequenos do que os filmes e jogos.|Demonstrações<br/>DLC<br/>Trailers|
 | Nationality| O país onde foi criada um filme, mostrar ou música.|Francês<br/>Alemão<br/>Coreano|
 | Pessoa| O ator, diretor, produtor, músico ou artista associados a um filme, uma aplicação, jogo ou programa de TV.|Madonna<br/>Stanley Kubrick|
 | Função| Função desempenhada por uma pessoa na criação de suportes de dados.|Faz grandes<br/>Relativos ao<br/>Por|
-| Título| O nome de um filme, aplicação, jogos, programa de TV ou música.|Amigos<br/>Minecraft|
+| Cargo| O nome de um filme, aplicação, jogos, programa de TV ou música.|Amigos<br/>Minecraft|
 | Tipo| O formato de tipo ou suporte de dados de um filme, aplicação, jogos, programa de TV ou música.|Música<br/>MovieTV <br/>Mostra|
 | UserRating| Estrela de utilizador ou de classificação de miniaturas.|5 estrelas<br/>3 estrelas<br/>4 estrelas|
 
@@ -234,7 +234,7 @@ O domínio de HomeAutomation fornece intenções e entidades relacionadas para c
 | Nome da entidade | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
 | Dispositivo | Um tipo de dispositivo que pode ser ativado ou desativado.|Criador de café<br/>termóstato<br/>luzes|
-| Operação | O estado a definir do dispositivo.|bloqueio<br/>abrir<br/>em<br/>desativado|
+| Operação | O estado a definir do dispositivo.|bloqueio<br/>Abrir<br/>em<br/>desativado|
 | Espaço | A localização ou o espaço que o dispositivo estiver no.|sala de estar<br/>carvalho<br/>cozinha|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -324,7 +324,7 @@ Remove all items from my vacation list
 | Origem de dados | Localização das notas.|OneDrive<br/>Google docs<br/>meu computador|
 | Tipo de dados | O tipo de ficheiro ou documento, normalmente associados à programas de software específico.|Slides<br/>Folha de cálculo<br/>Folha de Cálculo|
 | Texto | O texto de uma nota ou lembrete.|Esticar antes de movimentação<br/>amanhã longo prazo.|
-| Título | Título de uma nota.|groceries<br/>pessoas para chamar<br/>tarefas pendentes|
+| Cargo | Título de uma nota.|groceries<br/>pessoas para chamar<br/>tarefas pendentes|
 
 ## <a name="ondevice"></a>OnDevice 
 O domínio de OnDevice fornece intenções e entidades relacionadas para controlar o dispositivo.

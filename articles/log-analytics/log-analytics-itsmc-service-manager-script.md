@@ -1,6 +1,6 @@
 ---
-title: A atribuição de script para criar aplicação Web do Service Manager para estabelecer ligação com o conector de gestão de serviços de TI no Azure | Microsoft Docs
-description: Crie uma aplicação Web do Service Manager utilizando um script automático para estabelecer ligação com o conector de gestão de serviços de TI no Azure e monitorizar e gerir centralmente os itens de trabalho ITSM.
+title: Automatizada de script para criar aplicação Web do Service Manager para estabelecer ligação com o conector de gestão do serviço de TI no Azure | Documentos da Microsoft
+description: Crie uma aplicação Web do Service Manager utilizando um script automatizado para estabelecer ligação com o conector de gestão do serviço de TI no Azure e monitorizar e gerir centralmente os itens de trabalho ITSM.
 services: log-analytics
 documentationcenter: ''
 author: jyothirmaisuri
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: na
-ms.openlocfilehash: 15626a9dd2e889470477e34d6f1ebd47cce1411b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128661"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950129"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager, utilizando o script automatizado
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager utilizando o script automatizado
 
-Utilize o seguinte script para criar a aplicação Web na sua instância do Service Manager. Mais informações sobre a ligação do Service Manager estão aqui: [aplicação Web do Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Utilize o seguinte script para criar a aplicação Web para a sua instância do Service Manager. Obter mais informações sobre a ligação do Service Manager estão aqui: [aplicação Web do Service Manager](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Execute o script, fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
 - Localização
-- Detalhes do servidor do Service Manager (nome do servidor, domínio, nomedeutilizador e palavra-passe)
-- Prefixo de nome de site para a sua aplicação Web
-- Espaço de nomes de barramento de serviço.
+- Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de utilizador e palavra-passe)
+- Prefixo do nome do site para a sua aplicação Web
+- Espaço de nomes do ServiceBus.
 
-O script irá criar a aplicação Web utilizando o nome que especificou (juntamente com alguns cadeias adicionais para o tornar único). Gera o **URL da aplicação Web**, **ID de cliente**, e **segredo do cliente**.
+O script irá criar a aplicação Web com o nome que especificou (juntamente com algumas cadeias de caracteres adicionais para o tornar único). Ele gera os **URL de aplicação Web**, **ID de cliente**, e **segredo do cliente**.
 
 Guarde estes valores, irá necessitar destes valores quando criar uma ligação com o conector de gestão do serviço de TI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- Windows Management Framework 5.0 ou posterior.
-Windows 10 tem 5.1 por predefinição. Pode transferir a estrutura de [aqui](https://www.microsoft.com/download/details.aspx?id=53347):
+ Windows Management Framework 5.0 ou superior.
+Windows 10 tem 5.1 por predefinição. Pode baixar o framework a partir [aqui](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Utilize o seguinte script:
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: f55574f7a9ffbcc2a1c8bd160bb66336b59c348c
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 90b53bf1334a68fcea813653a7f6d28f362fbd2e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888606"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950653"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Criação e o ponto final de acesso de utilizador
 Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, acesso de ponto final está disponível para todos os utilizadores que tem sua própria conta de LUIS tem o ID de. a aplicação pública 
@@ -33,7 +33,7 @@ O proprietário e todos os funcionários têm acesso para criar a aplicação.
 |Tornar a aplicação pública|Quando uma aplicação é pública, qualquer pessoa com uma chave de criação ou ponto de extremidade pode consultar a aplicação.|
 |Modificar modelo|
 |Publicar|
-|Reveja as expressões de ponto final para [aprendizagem ativa](label-suggested-utterances.md)|
+|Reveja as expressões de ponto final para [aprendizagem ativa](luis-how-to-review-endoint-utt.md)|
 |Preparar|
 
 ## <a name="access-to-endpoint"></a>Acesso ao ponto final

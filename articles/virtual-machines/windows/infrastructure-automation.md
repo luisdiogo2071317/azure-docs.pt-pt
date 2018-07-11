@@ -1,9 +1,9 @@
 ---
-title: Utilizar ferramentas de automatização de infraestrutura para VMs do Windows no Azure | Microsoft Docs
-description: Saiba como utilizar as ferramentas de automatização de infraestrutura, como o DSC do PowerShell, Ansible, Chef, Puppet e da automatização do Azure para criar e gerir máquinas virtuais do Windows no Azure
+title: Utilizar ferramentas de automatização de infraestruturas para VMs do Windows no Azure | Documentos da Microsoft
+description: Saiba como utilizar ferramentas de automatização de infraestrutura, como o PowerShell DSC, Ansible, Chef, Puppet e a automatização do Azure para criar e gerir máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 445a46a904631a91af9542eed95cf796ef18fc86
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 28dce13220bf62e77911fe136964d3fffa0715fb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913319"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932443"
 ---
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]

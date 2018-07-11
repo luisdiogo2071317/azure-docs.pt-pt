@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 66964e4ed0877cc47dd7d2b5f3c6a62f4fa006b1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348189"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935807"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -91,7 +91,7 @@ Gerida discos suporta três principais padrão funções:
 
 **Existe uma forma que pode copiar ou exportar um disco gerido para uma conta de armazenamento privado?**
 
-Pode gerar uma assinatura de só de leitura de acesso partilhado (SAS) URI para o disco gerido e utilizá-lo para copiar o conteúdo para um armazenamento de conta ou no local de armazenamento privado. Pode utilizar o URI de SAS com o portal do Azure, Azure PowerShell, a CLI do Azure ou [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+Pode gerar uma assinatura de só de leitura de acesso partilhado (SAS) URI para o disco gerido e utilizá-lo para copiar o conteúdo para um armazenamento de conta ou no local de armazenamento privado. Pode utilizar o URI de SAS com o portal do Azure, Azure PowerShell, CLI do Azure, ou [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Pode criar uma cópia do meu disco gerido?**
 
@@ -125,6 +125,10 @@ Não. Não é possível atualizar a propriedade de nome de computador. A nova VM
 **Onde posso encontrar modelos do Azure Resource Manager de exemplo para criar VMs com discos geridos?**
 * [Lista de modelos a utilizar discos geridos](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+**Conjuntamente posso localizar discos geridos e não na mesma VM?**
+
+Não.
 
 ## <a name="standard-ssd-disks-preview"></a>Discos SSD Standard (pré-visualização)
 
@@ -286,7 +290,7 @@ O tipo de partição que o Azure suporta para o disco de sistema operativo é o 
 
 **O que é o maior tamanho de blob de página que é suportado?**
 
-O maior tamanho de blob de página suportados pelo Azure é de 8 TB (8,191 GB). O tamanho de blog de página maxmium quando anexado a uma VM, como dados ou discos do sistema operativo é 4 TB (4095 GB).
+O maior tamanho de blob de página suportados pelo Azure é de 8 TB (8,191 GB). O tamanho do blog de páginas máxima quando anexado a uma VM, como dados ou discos do sistema operativo é 4 TB (4095 GB).
 
 **É necessário utilizar uma nova versão das ferramentas do Azure para criar, anexar, redimensionar e carregar discos superiores a 1 TB?**
 

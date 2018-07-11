@@ -1,20 +1,21 @@
 ---
-title: "Arquitetura de replicação do servidor VMware/físico no Azure Site Recovery | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar no local as VMs VMware ou servidores físicos Windows/Linux para um site VMware secundário com o Azure Site Recovery e componentes"
+title: Arquitetura de replicação de VMware/servidor físico no Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece uma descrição geral dos componentes e da arquitetura utilizada ao replicar no local VMs de VMware ou servidores físicos do Windows/Linux para um site de VMware secundário com o Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 97a990aa3ed9043280888900d8fc7b604b6c22b5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921403"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Servidor VM de VMware/físico à arquitetura de replicação de VMware
+# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Servidor VM de VMware/físico para a arquitetura da replicação de VMware
 
-Este artigo descreve a arquitetura e processos utilizados quando replicar, efetuar a ativação pós-falha e recuperar máquinas de virtuais de VMware no local (VMs) ou servidores físicos Windows/Linux para uma secundária VMware site a utilizar [do Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve a arquitetura e os processos utilizados ao replicar, efetuar a ativação pós-falha e recuperar máquinas de virtuais de VMware no local (VMs) ou servidores físicos do Windows/Linux para uma secundária através de site de VMware [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 237a19b76268e1207c9de438a4f79d3dc8382476
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903814"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931087"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -82,7 +82,8 @@ Ativar/desativar definições
 | Tipo            | Nome a apresentar | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/A       |
+| Propriedade do dispositivo | Localização do dispositivo   | localização  | localização    |
+| Texto            | Fabricados no     | manufacturedIn   | N/A       |
 
 
 ### <a name="add-a-real-device"></a>Adicionar um dispositivo real
@@ -152,19 +153,24 @@ Pode ver os valores de propriedades comunicadas e medidas de telemetria e config
 
 1. Uso **Device Explorer** para navegar para o **medidas** página para o dispositivo MXChip real que adicionou:
 
-    ![Navegue para o dispositivo real](media/howto-connect-devkit/realdevice.png)
+    ![Navegue para o dispositivo real](media/howto-connect-devkit/realdevicenew.png)
 
 1. Sobre o **medidas** página, pode ver a telemetria provenientes do dispositivo MXChip:
 
-    ![Ver telemetria do dispositivo real](media/howto-connect-devkit/realtelemetry.png)
+    ![Ver telemetria do dispositivo real](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. Sobre o **propriedades** página, pode ver o último número die comunicado pelo dispositivo:
+1. Sobre o **propriedades** página, pode ver o último número de die e a localização do dispositivo comunicado pelo dispositivo:
 
-    ![Ver as propriedades do dispositivo](media/howto-connect-devkit/deviceproperties.png)
+    ![Ver as propriedades do dispositivo](media/howto-connect-devkit/devicepropertynew.png)
 
 1. Sobre o **definições** página, pode atualizar as definições no dispositivo MXChip:
 
-    ![Ver definições de dispositivo](media/howto-connect-devkit/settings.png)
+    ![Ver definições de dispositivo](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. Sobre o **Dashboard** página, pode ver a localização do mapa
+
+    ![Ver o dashboard do dispositivo](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>Baixe o código-fonte
 

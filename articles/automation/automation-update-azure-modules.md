@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f968bd75c7aee4ad390f9206bb1fa210e7fcd8ff
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903154"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929037"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na automatização do Azure
 
@@ -47,7 +47,7 @@ Uma vez que os módulos são atualizados regularmente pelo grupo de produtos, as
 > [!NOTE]
 > A automatização do Azure utiliza os módulos mais recentes na sua conta de automatização quando é executada uma nova tarefa agendada.    
 
-Se utilizar cmdlets destes módulos do PowerShell do Azure nos runbooks, quer para executar este processo de atualização de todos os meses, ou então, para se certificar de que tem os módulos mais recentes.
+Se utilizar cmdlets destes módulos do PowerShell do Azure nos runbooks, quer para executar este processo de atualização de todos os meses, ou então, para se certificar de que tem os módulos mais recentes. Utilizações de automatização do Azure em que a ligação de AzureRunAsConnection para autenticar ao atualizar os módulos, se o principal de serviço expirou ou já não existe no nível da subscrição, a atualização de módulo irá falhar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

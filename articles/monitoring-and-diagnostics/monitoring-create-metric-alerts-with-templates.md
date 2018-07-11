@@ -1,6 +1,6 @@
 ---
 title: Criar um alerta de métrica com um modelo do Resource Manager
-description: Saiba como utilizar um modelo do Resource Manager para criar um alerta de métrico.
+description: Saiba como utilizar um modelo do Resource Manager para criar um alerta de métrica.
 author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,31 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263451"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932216"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
-Este artigo mostra como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) configurar [alertas métricas mais recentes](monitoring-near-real-time-metric-alerts.md) no Monitor do Azure. Modelos do Resource Manager permitem-lhe programaticamente configurar alertas de uma forma consistente e reproduzível nos seus ambientes. Alertas de métricas mais recentes estão atualmente disponíveis no [este conjunto de tipos de recursos](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Este artigo mostra como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas mais recente](monitoring-near-real-time-metric-alerts.md) no Azure Monitor. Modelos do Resource Manager permitem-lhe por meio de programação posso configurar alertas de uma forma consistente e reproduzível em seus ambientes. Alertas de métricas mais recentes estão atualmente disponíveis na [este conjunto de tipos de recurso](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+> [!IMPORTANT]
+> Modelo do Resource Manager especificado para o alerta de métrica não irá funcionar para o tipo de recurso: Microsoft.OperationalInsights/workspaces; suporte para as métricas do Log Analytics está em pré-visualização. Os utilizadores interessados em utilizar a funcionalidade de pré-visualização com o modelo de recursos, pode contactar [comentários de alertas do Azure](mailto:azurealertsfeedback@microsoft.com)
+
 
 Os passos básicos são os seguintes:
 
 1. Utilize um dos modelos abaixo como um ficheiro JSON que descreve como criar o alerta.
 2. Edite e utilize o ficheiro de parâmetros correspondente como um JSON para personalizar o alerta
-3. Implementar a modelo através de [qualquer método de implementação](../azure-resource-manager/resource-group-template-deploy.md).
+3. Implementar o modelo através de [qualquer método de implementação](../azure-resource-manager/resource-group-template-deploy.md).
 
 
-## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Modelo do Resource Manager para um alerta de métrico simple
-Para criar um alerta com um modelo do Resource Manager, pode cria um recurso do tipo `Microsoft.Insights/metricAlerts` e preencha as propriedades de todos os relacionados. Segue-se um modelo de exemplo que cria uma regra de alerta métrica.
+## <a name="resource-manager-template-for-a-simple-metric-alert"></a>Modelo do Resource Manager para um alerta de métrica simple
+Para criar um alerta com um modelo do Resource Manager, crie um recurso do tipo `Microsoft.Insights/metricAlerts` e preencher todas as respetivas propriedades. Segue-se um modelo de exemplo que cria uma regra de alerta de métrica.
 
-Guarde o json abaixo como simplemetricalert.json para efeitos deste percurso através de.
+Guarde o json abaixo como simplemetricalert.json para efeitos destas instruções.
 
 ```json
 {
@@ -180,11 +184,11 @@ Guarde o json abaixo como simplemetricalert.json para efeitos deste percurso atr
 }
 ```
 
-Obter uma explicação sobre o esquema e as propriedades para uma regra de alerta [aqui](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+Obter uma explicação sobre o esquema e propriedades para uma regra de alerta [está disponível aqui](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
 
-Pode definir os valores para os parâmetros da linha de comandos ou através de um ficheiro de parâmetros. É fornecido um ficheiro de parâmetros de exemplo abaixo. 
+Pode definir os valores para os parâmetros na linha de comando ou por meio de um ficheiro de parâmetros. Um ficheiro de parâmetros de exemplo é fornecido abaixo. 
 
-Guarde o json abaixo como simplemetricalert.parameters.json e modifique-o conforme necessário.
+Guardar o json abaixo como simplemetricalert.parameters.json e modificá-la conforme necessário.
 
 ```json
 {
@@ -226,7 +230,7 @@ Guarde o json abaixo como simplemetricalert.parameters.json e modifique-o confor
 ```
 
 
-Pode criar o alerta métrico utilizando o ficheiro de modelo e os parâmetros com o PowerShell ou a CLI do Azure.
+É possível criar o alerta de métrica utilizando o ficheiro de modelo e parâmetros com o PowerShell ou da CLI do Azure.
 
 Utilizar o Azure PowerShell
 
@@ -253,12 +257,12 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Enquanto o alerta métrico foi possível criar um grupo de recursos diferente para o recurso de destino, recomendamos que utilize o mesmo grupo de recursos como o recurso de destino.
+> Embora o alerta de métrica pode ser criado num grupo de recursos diferentes para o recurso de destino, recomendamos que utilize o mesmo grupo de recursos como o recurso de destino.
 
-## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Modelo do Resource Manager para um alerta de métrico mais avançado
-Alertas de métricas mais recentes suportam alertas nas métricas multidimensionais, bem como para suportar vários critérios. Pode utilizar o modelo seguinte para criar um alerta de métrico mais avançado nas métricas dimensional e especificar vários critérios.
+## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>Modelo do Resource Manager para um alerta de métrica mais avançado
+Suporte de alertas de métricas mais recente alertas em métricas multidimensionais, bem como suporte a vários critérios. Pode usar o modelo seguinte para criar um alerta de métrica mais avançado em métricas dimensionais e especificar vários critérios.
 
-Guarde o json abaixo como advancedmetricalert.json para efeitos deste percurso através de.
+Guarde o json abaixo como advancedmetricalert.json para efeitos destas instruções.
 
 ```json
 {
@@ -374,9 +378,9 @@ Guarde o json abaixo como advancedmetricalert.json para efeitos deste percurso a
 }
 ```
 
-Pode utilizar o modelo acima, juntamente com o ficheiro de parâmetros fornecido abaixo. 
+Pode usar o modelo acima, juntamente com o ficheiro de parâmetro fornecido abaixo. 
 
-Guarde e modificar o json abaixo como advancedmetricalert.parameters.json para efeitos deste percurso através de.
+Guarde e modificar o json abaixo como advancedmetricalert.parameters.json para efeitos destas instruções.
 
 ```json
 {
@@ -443,7 +447,7 @@ Guarde e modificar o json abaixo como advancedmetricalert.parameters.json para e
 ```
 
 
-Pode criar o alerta métrico utilizando o ficheiro de modelo e os parâmetros com o PowerShell ou a CLI do Azure do diretório de trabalho atual
+É possível criar o alerta de métrica utilizando o ficheiro de modelo e parâmetros com o PowerShell ou da CLI do Azure a partir do seu atual diretório de trabalho
 
 Utilizar o Azure PowerShell
 ```powershell
@@ -470,7 +474,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Enquanto o alerta métrico foi possível criar um grupo de recursos diferente para o recurso de destino, recomendamos que utilize o mesmo grupo de recursos como o recurso de destino.
+> Embora o alerta de métrica pode ser criado num grupo de recursos diferentes para o recurso de destino, recomendamos que utilize o mesmo grupo de recursos como o recurso de destino.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Leia mais sobre [alertas no Azure](monitoring-overview-unified-alerts.md)

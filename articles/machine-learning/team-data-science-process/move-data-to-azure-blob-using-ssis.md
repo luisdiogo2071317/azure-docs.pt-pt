@@ -1,6 +1,6 @@
 ---
-title: Mover dados de ou para armazenamento de Blobs do Azure com conectores SSIS | Microsoft Docs
-description: Mova dados de ou para a utilização de conectores SSIS de Blob Storage do Azure.
+title: Mover dados de ou para armazenamento de Blobs do Azure com conectores SSIS | Documentos da Microsoft
+description: Mova dados de ou para armazenamento de Blobs do Azure com conectores SSIS.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,79 +15,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 165180c49de75cf4b635a89dacec311d5370acd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5db1e7b9c97a0c19ef5ec0a41ea675c33c4d46fc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837750"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950921"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados de ou para armazenamento de Blobs do Azure com conectores SSIS
-O [SQL Server Integration Services Feature Pack para o Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para ligar ao Azure, a transferência de dados entre origens de dados do Azure e no local e o processamento de dados armazenados no Azure.
+O [SQL Server Integration Services Feature Pack para o Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para ligar ao Azure, transferir dados entre origens de dados do Azure e no local e processar os dados armazenados no Azure.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Assim que os clientes terem movidos dados no local para a nuvem, pode aceder-lhe a partir de qualquer serviço do Azure para tirar total partido do conjunto de tecnologias do Azure. Esta pode ser utilizada, por exemplo, no Azure Machine Learning ou num cluster do HDInsight.
+Assim que os clientes terem sido movidos dados no local para a cloud, eles podem aceder a partir de qualquer serviço do Azure para aproveitar todo o potencial do conjunto de tecnologias do Azure. Ele pode ser usado, por exemplo, no Azure Machine Learning ou num cluster do HDInsight.
 
-Isto é, geralmente, ser o primeiro passo para a [SQL](sql-walkthrough.md) e [HDInsight](hive-walkthrough.md) instruções.
+Isso costuma ser o primeiro passo para o [SQL](sql-walkthrough.md) e [HDInsight](hive-walkthrough.md) orientações passo a passo.
 
-Para ver um debate canónicos cenários que utilizam SSIS para realizar as necessidades de negócio comuns em cenários de integração de dados de híbridos, consulte [fazê-lo mais com SQL Server Integration Services Feature Pack para o Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogue.
+Para uma discussão sobre cenários canônicos que usar o SSIS para realizar a necessidades comerciais comuns em cenários de integração de dados híbridos, consulte [fazer mais com o SQL Server Integration Services Feature Pack para o Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blog.
 
 > [!NOTE]
-> Para obter uma introdução completa para o armazenamento de Blobs do Azure, consulte [Noções básicas de Blob do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para obter uma introdução completa para o armazenamento de Blobs do Azure, consulte [Noções básicas de Blobs do Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) e, a [serviço de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para efetuar as tarefas descritas neste artigo, tem de ter uma subscrição do Azure e configurar uma conta de armazenamento do Azure. Tem de conhecer a chave de conta e o nome conta de armazenamento do Azure para carregar ou transferir dados.
+Para executar as tarefas descritas neste artigo, tem de ter uma subscrição do Azure e uma conta de armazenamento do Azure configurada. Deve saber a sua chave de conta e o nome conta de armazenamento do Azure para carregar ou transferir dados.
 
-* Para configurar um **subscrição do Azure**, consulte [um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Para obter instruções sobre como criar um **conta de armazenamento** e para obter a conta e informações da chave, consulte [contas do storage do Azure sobre](../../storage/common/storage-create-storage-account.md).
+* Para configurar uma **subscrição do Azure**, consulte [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Para obter instruções sobre como criar uma **conta de armazenamento** e, para obter a conta e informações da chave, veja [sobre as contas de armazenamento](../../storage/common/storage-create-storage-account.md).
 
 Para utilizar o **conectores SSIS**, tem de transferir:
 
-* **SQL Server 2014 ou padrão de 2016 (ou superior)**: instalação inclui o SQL Server Integration Services.
-* **Microsoft SQL Server 2014 ou o pacote da funcionalidade de serviços de integração de 2016 para o Azure**: estes podem ser transferidos, respetivamente, do [serviços de integração do SQL Server 2014](http://www.microsoft.com/download/details.aspx?id=47366) e [integração do SQL Server 2016 Serviços](https://www.microsoft.com/download/details.aspx?id=49492) páginas.
+* **SQL Server 2014 ou 2016 Standard (ou superior)**: instalação inclui o SQL Server Integration Services.
+* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack para o Azure**: estes podem ser transferidos, respectivamente, a partir de [serviços de integração do SQL Server 2014](http://www.microsoft.com/download/details.aspx?id=47366) e [integração do SQL Server 2016 Serviços](https://www.microsoft.com/download/details.aspx?id=49492) páginas.
 
 > [!NOTE]
-> SSIS é instalado com o SQL Server, mas não está incluído na versão rápida. Para obter informações sobre as aplicações estão incluídas nas várias edições do SQL Server, consulte [edições do SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, consulte [edições do SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 
-Para os materiais de formação em SSIS, consulte [às mãos na formação de SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
+Para obter materiais de treinamento sobre o SSIS, veja [mãos no treinamento para SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Para obter informações sobre a obtenção de cópia de segurança e execução utilizar SISS para criar Consulte simple de extração, transformação e carregamento (ETL) de pacotes, [SSIS Tutorial: criar um pacote de ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
+Para obter informações sobre como obter a cópia de segurança operacional com SISS para criar Consulte de extração, transformação e carregamento (ETL) de pacotes, simple [SSIS Tutorial: criar um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
-## <a name="download-nyc-taxi-dataset"></a>Transferir o conjunto de dados NYC Taxi
-O exemplo descrito aqui utilizar um conjunto de dados publicamente disponível – o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O conjunto de dados consiste em cerca de 173 milhões taxi rides no NYC no ano 2013. Existem dois tipos de dados: viagem fornece detalhes sobre dados e fare dados. Como é não existe um ficheiro de cada mês, temos 24 ficheiros em todos os, cada um dos quais é aproximadamente 2GB descomprimido.
+## <a name="download-nyc-taxi-dataset"></a>Transferir o conjunto de dados de táxis de NYC
+O exemplo descrito aqui usar um conjunto de dados publicamente disponível – a [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O conjunto de dados consiste em cerca de 173 milhões táxis passes em NYC no ano de 2013. Existem dois tipos de dados: viagem fornece detalhes sobre os dados de dados e Europeia. Como há um arquivo para todos os meses, temos 24 ficheiros em todos, cada uma delas é aproximadamente 2GB descomprimido.
 
-## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para armazenamento de Blobs do Azure
-Para mover dados através de SSIS funcionalidade pacote no local para o armazenamento de Blobs do Azure, utilizamos uma instância do [ **a tarefa de carregar Blob do Azure**](https://msdn.microsoft.com/library/mt146776.aspx), mostrados aqui:
+## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para o armazenamento de Blobs do Azure
+Para mover dados com o SSIS feature pack no local para o armazenamento de Blobs do Azure, podemos usar uma instância do [ **tarefa de carregamento de Blobs do Azure**](https://msdn.microsoft.com/library/mt146776.aspx), mostrado aqui:
 
-![configurar dados-ciência-vm](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
+![Configurar-data--vm de ciência](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
-Os parâmetros que utiliza as tarefas são descritos aqui:
+Os parâmetros que utiliza a tarefa são descritos aqui:
 
 | Campo | Descrição |
 | --- | --- |
-| **AzureStorageConnection** |Especifica um Gestor de ligações de armazenamento do Azure existente ou cria uma nova que se refere a uma conta de armazenamento do Azure que aponta para onde estão alojados os ficheiros de blob. |
-| **BlobContainer** |Especifica o nome do contentor do blob que contêm os ficheiros carregados como blobs. |
-| **BlobDirectory** |Especifica o diretório de blob armazenar o ficheiro carregado como um blob de bloco. O diretório de blob é uma estrutura hierárquica virtual. Se já existir um blob, it ia substituído. |
-| **LocalDirectory** |Especifica o diretório local que contém os ficheiros para ser carregado. |
-| **FileName** |Especifica um nome de filtro para selecionar os ficheiros com o padrão de nome especificado. Por exemplo, MySheet\*xls\* inclui ficheiros como MySheet001.xls e MySheetABC.xlsx |
-| **TimeRangeFrom/TimeRangeTo** |Especifica um filtro de intervalo de tempo. Ficheiros modificados após *TimeRangeFrom* e antes de *TimeRangeTo* estão incluídos. |
+| **AzureStorageConnection** |Especifica um Gerenciador de conexões de armazenamento do Azure existente ou cria um novo, o que se refere a uma conta de armazenamento do Azure que aponta para onde os ficheiros de blob estão alojados. |
+| **BlobContainer** |Especifica o nome do contentor de BLOBs que contêm os ficheiros carregados como blobs. |
+| **BlobDirectory** |Especifica o diretório de BLOBs onde o ficheiro carregado é armazenado como um blob de blocos. O diretório de BLOBs é uma estrutura hierárquica virtual. Se o blob já existir, it ia substituído. |
+| **LocalDirectory** |Especifica o diretório de local que contém os ficheiros a carregar. |
+| **FileName** |Especifica um filtro de nomes para selecionar os ficheiros com o padrão de nome especificado. Por exemplo, MySheet\*. xls\* inclui arquivos como MySheet001.xls e MySheetABC.xlsx |
+| **TimeRangeFrom/TimeRangeTo** |Especifica um filtro de intervalo de tempo. Ficheiros modificados após *TimeRangeFrom* e antes *TimeRangeTo* estão incluídos. |
 
 > [!NOTE]
-> O **AzureStorageConnection** credenciais têm de ser correta e o **BlobContainer** tem de existir antes da transferência é tentada.
+> O **AzureStorageConnection** as credenciais têm de estar correto e o **BlobContainer** tem de existir antes da transferência é tentada.
 > 
 > 
 
-## <a name="download-data-from-azure-blob-storage"></a>Transferência de dados do blob storage do Azure
-Para transferir dados do blob storage do Azure para armazenamento no local com SSIS, utilize uma instância do [a tarefa de carregar Blob do Azure](https://msdn.microsoft.com/library/mt146779.aspx).
+## <a name="download-data-from-azure-blob-storage"></a>Transferir dados do armazenamento de Blobs do Azure
+Para transferir dados do armazenamento de Blobs do Azure para armazenamento no local com o SSIS, utilize uma instância do [tarefas de carregamento de Blobs do Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
-## <a name="more-advanced-ssis-azure-scenarios"></a>Cenários mais avançados de SSIS-Azure
-O pacote de funcionalidades SSIS permite fluxos mais complexos para ser processada por tarefas de empacotamento em conjunto. Por exemplo, o blob foi feed de dados diretamente para um cluster do HDInsight, cuja saída pode ser transferida para um blob e, em seguida, para o armazenamento no local. SSIS pode executar tarefas do Hive e do Pig num cluster do HDInsight utilizando conectores SSIS adicionais:
+## <a name="more-advanced-ssis-azure-scenarios"></a>Cenários mais avançados do SSIS-Azure
+O feature pack do SSIS permite fluxos mais complexos ser tratada por tarefas de empacotamento em conjunto. Por exemplo, os dados de blob poderá alimentar diretamente para um cluster do HDInsight, cuja saída pode ser transferida para um blob e, em seguida, para armazenamento no local. SSIS pode executar tarefas do Pig e Hive num cluster HDInsight utilizando a conectores adicionais do SSIS:
 
-* Para executar um script de ramo de registo num cluster do Azure HDInsight com SSIS, utilize [tarefas de ramo de registo do Azure HDInsight](https://msdn.microsoft.com/library/mt146771.aspx).
-* Para executar um script de Pig num cluster do Azure HDInsight com SSIS, utilize [Azure HDInsight Pig tarefas](https://msdn.microsoft.com/library/mt146781.aspx).
+* Para executar um script do Hive num cluster HDInsight do Azure com o SSIS, utilize [do Azure HDInsight Hive tarefas](https://msdn.microsoft.com/library/mt146771.aspx).
+* Para executar um script Pig num cluster HDInsight do Azure com o SSIS, utilize [do Azure HDInsight Pig tarefas](https://msdn.microsoft.com/library/mt146781.aspx).
 

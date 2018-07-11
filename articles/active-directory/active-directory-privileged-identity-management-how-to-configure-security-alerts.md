@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447562"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952465"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Como configurar alertas de segurança no Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Alertas de segurança
 Azure Privileged Identity Management (PIM) gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece no dashboard do PIM. Selecione o alerta para ver um relatório que lista os utilizadores ou funções que acionou o alerta.
 
-![Alertas de segurança de dashboard do PIM - captura de ecrã][1]
+![Alertas de segurança de dashboard do PIM - captura de ecrã](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Alerta | Gravidade | Acionador | Recomendação |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Pode personalizar algumas dos alertas de segurança no PIM para trabalhar com o 
 1. Entrar para o [portal do Azure](https://portal.azure.com/) e selecione o **Azure AD Privileged Identity Management** mosaico no dashboard.
 2. Selecione **geridos funções com privilégios** > **definições** > **definições de alertas**.
    
-    ![Navegar para as definições de alertas de segurança][2]
+    ![Navegar para as definições de alertas de segurança](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>Alerta de "Funções estão a ser ativadas com demasiada frequência"
 Este alerta for acionado, se um utilizador ativa a mesma função com privilégios a várias vezes dentro de um período de tempo especificado. Pode configurar o período de tempo e o número de ativações.
@@ -66,8 +66,3 @@ Este alerta for acionado, se um utilizador der um determinado período de tempo 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

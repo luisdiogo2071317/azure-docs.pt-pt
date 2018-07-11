@@ -9,12 +9,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 8b4f9c17557b405bc5f4e78947952826724fc784
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: af3a96c978a3b22fcbc6296642e4749c863dff9e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865067"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928578"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e eliminar os dados dos clientes na compreensão de idiomas (LUIS) nos serviços cognitivos
 
@@ -35,7 +35,7 @@ Os utilizadores de LUIS tem controlo total para eliminar qualquer conteúdo de u
 
 | | **Conta de utilizador** | **Aplicação** | **Utterance(s)** | **Consultas de utilizador final** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Link](luis-how-to-account-settings.md) | [Link](create-new-app.md#delete-app) | [Link](create-new-app.md#delete-app) | [Link](create-new-app.md#delete-app) |
+| **Portal** | [Link](luis-how-to-account-settings.md) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-how-to-start-new-app.md#delete-app) |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 

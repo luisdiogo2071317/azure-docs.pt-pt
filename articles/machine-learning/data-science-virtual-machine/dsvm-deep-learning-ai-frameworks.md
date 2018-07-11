@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: af2a6b19d74e02b9368722cadf4d57aef377d43a
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865442"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952829"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Arquiteturas de Aprendizagem Profunda e AI
 O [máquina de Virtual de ciência de dados](http://aka.ms/dsvm) (DSVM) e o [VM de aprendizagem profunda](http://aka.ms/dsvm/deeplearning) suporta um número de estruturas de aprendizagem profunda para ajudar a criar aplicativos de Inteligência Artificial (IA) com análise preditiva e capacidades cognitivas como imagem e compreensão de idiomas. 
@@ -66,7 +66,7 @@ Aqui estão os detalhes sobre todas as estruturas disponíveis na DSVM de aprend
 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Arquitetura de aprendizagem profunda      |
+| O que é?   | API de alto nível de aprendizagem profunda      |
 | Edições DSVM suportados      | Windows, Linux     |
 | Como é ele configurado / instalado no DSVM?  | TensorFlow está instalado no Python 3.5 [Linux e Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) e o Python 3.6 na [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links para amostras      | https://github.com/fchollet/keras/tree/master/examples      |

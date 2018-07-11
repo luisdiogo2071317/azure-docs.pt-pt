@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58ff2b5bbf338f3af78b693aef57cf6293dc08b7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436513"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930312"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
@@ -158,7 +158,7 @@ Guardar a *Export-RunAsCertificateToHybridWorker* runbook para o seu computador 
 
 ## <a name="job-behavior"></a>Comportamento de tarefa
 
-Tarefas são processadas um pouco diferente nos Runbook Workers híbridos do que quando eles são executados em áreas de segurança do Azure. Uma das principais diferenças é que não existe nenhum limite na duração de tarefa nos Runbook Workers híbridos. Se tiver um runbook de longa execução que pretende garantir que é resiliente a reinicialização possível, por exemplo se a máquina que aloja a função de trabalho híbrida reiniciar. Se reiniciar a máquina de anfitrião de trabalho híbrida, em seguida, qualquer tarefa de runbook em execução reinicia desde o início ou a partir do último ponto de verificação para runbooks de fluxo de trabalho do PowerShell. Se uma tarefa de runbook for reiniciada mais de 3 vezes, em seguida, ele está suspensa.
+Tarefas são processadas um pouco diferente nos Runbook Workers híbridos do que quando eles são executados em áreas de segurança do Azure. Uma das principais diferenças é que não existe nenhum limite na duração de tarefa nos Runbook Workers híbridos. Runbooks foi executado no Azure áreas de segurança estão limitadas a 3 horas devido a [justa](automation-runbook-execution.md#fair-share). Se tiver um runbook de longa execução que pretende garantir que é resiliente a reinicialização possível, por exemplo se a máquina que aloja a função de trabalho híbrida reiniciar. Se reiniciar a máquina de anfitrião de trabalho híbrida, em seguida, qualquer tarefa de runbook em execução reinicia desde o início ou a partir do último ponto de verificação para runbooks de fluxo de trabalho do PowerShell. Se uma tarefa de runbook for reiniciada mais de 3 vezes, em seguida, ele está suspensa.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

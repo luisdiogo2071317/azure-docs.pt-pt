@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dbd2ef6270d0f270dabb6a1f5461e09fc37102db
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859596"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919867"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -39,9 +39,9 @@ Se estiver a implementar num ambiente de inquilino, eis uma forma de configurar 
 1.  Criar um utilizador por inquilino e e usando [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribuir permissões só de leitura a pertencentes da VM para um inquilino específico. Em seguida, utilize as credenciais para a deteção. RBAC garante que o utilizador correspondente do vCenter terão acesso apenas de inquilinos específica da VM.
 2. Configurar o RBAC para os utilizadores de inquilino diferente conforme descrito no exemplo a seguir para 1 utilizador e o utilizador n. º 2:
 
-    - Na **nome de utilizador** e **palavra-passe**, especifique as credenciais de conta só de leitura que o recoletor utilizará para detetar VMs no 
+    - Na **nome de utilizador** e **palavra-passe**, especifique as credenciais de conta só de leitura que o recoletor utilizará para detetar VMs no
     - Datacenter1 - conceder permissões só de leitura ao utilizador n. º 1 e 2 a utilizador. Não propagar essas permissões para todos os objetos subordinados, porque definirá permissões no individual VM.
-    
+
       - VM1 (inquilino n. º 1) (apenas permissão de leitura ao utilizador n. º 1)
       - VM2 (inquilino n. º 1) (apenas permissão de leitura ao utilizador n. º 1)
       - VM3 (inquilino n. º 2) (apenas permissão de leitura ao utilizador n. º 2)
@@ -125,6 +125,14 @@ Verifique que o ficheiro OVA é seguro antes de a implementar:
    Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
+
+    Para a versão ova 1.0.9.12
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     Para a versão OVA 1.0.9.8
 

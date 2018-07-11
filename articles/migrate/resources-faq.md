@@ -4,20 +4,28 @@ description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 07/10/2018
 ms.author: snehaa
-ms.openlocfilehash: c85e512dede7c14e7b678297ed524fa7a1d7e79d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859528"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952754"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
 Este artigo contém perguntas mais frequentes sobre o Azure Migrate. Se tiver quaisquer consultas adicionais depois de ler este artigo, publique o [fórum do Azure Migrate](http://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Geral
+
+### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>O Azure Migrate suporta a avaliação de apenas as cargas de trabalho VMware?
+
+Sim, do Azure Migrate só suporta atualmente a avaliação das cargas de trabalho do VMware. Suporte para Hyper-V e servidores físicos será ativado no futuro.
+
+### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate precisa vCenter Server para detetar um ambiente do VMware?
+
+Sim, o Azure Migrate requer o vCenter Server para detetar um ambiente de VMware. Não suporta a deteção de anfitriões ESXi que não são geridos por um vCenter Server.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como é o Azure Migrate diferente do Azure Site Recovery?
 
@@ -38,11 +46,9 @@ O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site 
 
 **Recuperação após desastre do VMware/Hyper-V para o Azure**: se pretende fazer a recuperação após desastre (DR) no Azure com o Azure Site Recovery (recuperação de sites), utilize o Site Recovery Deployment Planner para planejamento de DR. Site Recovery Deployment Planner faz uma avaliação profunda ASR específicos do seu ambiente no local. Fornece recomendações que são necessários pelo Site Recovery para operações bem-sucedidas de DR, como replicação, ativação pós-falha das suas máquinas virtuais.  
 
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate precisa vCenter Server para detetar um ambiente do VMware?
-
-Sim, o Azure Migrate requer o vCenter Server para detetar um ambiente de VMware. Não suporta a deteção de anfitriões ESXi que não são geridos por um vCenter Server.
-
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Que regiões do Azure são suportados pelo Azure Migrate?
+
+O Azure Migrate suporta atualmente E.U.A. leste e e.u.a. Centro-Oeste como localizações de projeto de migração. Tenha em atenção que, mesmo que só pode criar projetos de migração nos e.u.a. centro-oeste e este dos E.U.A., ainda pode avaliar as máquinas para [várias localizações dos destinos](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). A localização do projeto só é utilizada para armazenar os dados detetados.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Como ligar o site no local para o Azure Migrate?
 
@@ -51,7 +57,6 @@ A ligação pode ser através da internet ou utilizar o ExpressRoute com peering
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Pode posso proteger a VM que configurar com o. Modelo de OVA?
 
 Componentes adicionais (por exemplo, software antivírus) é possível adicionar o. Modelo de OVA, desde que forem deixadas com as regras de comunicação e de firewall necessárias para a aplicação do Azure Migrate trabalhar é.   
-
 
 ## <a name="discovery-and-assessment"></a>Deteção e avaliação
 
@@ -89,13 +94,19 @@ Os dados coletados pela aplicação recoletora são armazenados na localização
 
 Para a visualização de dependência, se instalar agentes nas VMs, os dados recolhidos pelos agentes do dependência são armazenados nos EUA numa área de trabalho do OMS criado na subscrição do utilizador. Estes dados são eliminados quando eliminar a área de trabalho do OMS na sua subscrição. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são encriptados em descanso e em trânsito?
+
+Sim, os dados recolhidos são encriptados em inatividade tanto em trânsito. Os metadados recolhidos pela aplicação da são enviados de forma segura para o serviço Azure Migrate pela internet através de https. Os metadados recolhidos são armazenados na [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e, na [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) numa subscrição Microsoft e são encriptados em descanso.
+
+Os dados recolhidos pelos agentes do dependência é também criptografado em trânsito (canal de https seguro) e são armazenados numa área de trabalho do Log Analytics na subscrição do utilizador. Também são encriptado em inatividade.
+
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Como o recoletor se comunique com o vCenter Server e o serviço Azure Migrate?
 
 A aplicação recoletor liga-se ao vCenter Server (porta 443) utilizando as credenciais fornecidas pelo utilizador na aplicação. Ele consulta o vCenter Server com o VMware PowerCLI para recolher os metadados sobre as VMs geridas pelo vCenter Server. Recolhe os dados de configuração acerca das VMs (núcleos, memória, discos, etc. NIC), bem como o histórico de desempenho de cada VM para o último mês do vCenter Server. Os metadados recolhidos, em seguida, é enviado para o serviço Azure Migrate (através da internet através de https) para avaliação. [Saiba mais](concepts-collector.md)
 
-### <a name="can-i-connect-to-multiple-vcenter-servers"></a>Posso ligar a vários servidores vCenter?
+### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Pode ligar a aplicação recoletora mesmo para vários servidores vCenter?
 
-Precisa de uma aplicação de conector configurados para cada servidor.
+Sim, uma aplicação de recoletor único pode ser utilizada para detetar o vCenter vários servidores, mas não em simultâneo. Terá de executar as deteções um após o outro.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>É o. Modelo de OVA utilizado pelo Site Recovery é integrado com o. OVA utilizados pelo Azure Migrate?
 
@@ -104,12 +115,6 @@ Atualmente, não há nenhuma integração. A. Modelo de OVA no Site Recovery é 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Alterei a minha tamanho da máquina. Pode executar novamente a avaliação?
 
 Se alterar as definições numa VM que pretende avaliar, o acionador detetar novamente com a aplicação recoletora. A aplicação, utilize o **iniciar novamente a recolha** opção para fazer isso. Depois de terminar a coleção, selecione o **recalcular** opção para a avaliação no portal, para obter os resultados da avaliação atualizada.
-
-### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são encriptados em descanso e em trânsito?
-
-Sim, os dados recolhidos são encriptados em inatividade tanto em trânsito. Os metadados recolhidos pela aplicação da são enviados de forma segura para o serviço Azure Migrate pela internet através de https. Os metadados recolhidos são armazenados na [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e, na [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) numa subscrição Microsoft e são encriptados em descanso.
-
-Os dados recolhidos pelos agentes do dependência é também criptografado em trânsito (canal de https seguro) e são armazenados numa área de trabalho do Log Analytics na subscrição do utilizador. Também são encriptado em inatividade.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Como posso descobrir um ambiente de multi-inquilino no Azure Migrate?
 

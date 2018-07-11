@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: ec023ad796c57141cb35cce15b3d982adf2b8659
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: bd586c6abb27ae0c07ac7c832fba7c1f38e4e5c6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887764"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950164"
 ---
 # <a name="batch-testing"></a>Testes em lote
  Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. 
@@ -100,7 +100,7 @@ As duas secções do gráfico em verde correspondeu a predição esperada.
 
 Se o teste indica que a sua aplicação LUIS não reconhece o corretas intenções e entidades, pode trabalhar para melhorar o desempenho da sua aplicação LUIS expressões com mais de etiquetagem ou adicionar recursos. 
 
-* [Identifique expressões sugeridas com os LUIS](Label-Suggested-Utterances.md) 
+* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endoint-utt.md) 
 * [Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 
 * [Compreender o teste com este tutorial do batch](luis-tutorial-batch-testing.md)
 * [Aprenda conceitos de teste de batch](luis-concept-batch-test.md).

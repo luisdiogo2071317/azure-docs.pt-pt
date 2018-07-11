@@ -1,109 +1,121 @@
 ---
-title: Base de dados SQL do Azure deteção & classificação | Microsoft Docs
-description: Base de dados SQL do Azure deteção & classificação
+title: Dados de base de dados SQL do Azure deteção e classificação | Documentos da Microsoft
+description: Dados de base de dados SQL do Azure deteção e classificação
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646784"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950815"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Base de dados SQL do Azure deteção e a classificação
-Deteção de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas de incorporadas no Azure SQL Database para **detetar**, **classificar**, **etiquetas**  &  **proteger** os dados confidenciais nas suas bases de dados.
-Detetar e classificar os dados mais confidenciais (empresas, financeiras, cuidados de saúde, PII, etc.) pode desempenham um papel no seu stature de proteção de informações organizacionais. Que possa servir como a infraestrutura para:
-* Ajudar a cumprir os requisitos de conformidade de regulamentação e normas de privacidade de dados.
-* Vários cenários de segurança, tais como (auditoria) de monitorização e alertas anómalos acesso a dados confidenciais.
-* Controlar o acesso ao e proteger a segurança das bases de dados que contém dados altamente confidenciais.
+# <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
+Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados do Azure SQL para **detetar**, **classificar**, **etiquetagem**  &  **proteger** os dados confidenciais em seus bancos de dados.
+A detetar e classificar os dados mais confidenciais (comerciais, financeiros, saúde, PII, etc.) pode desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
+* Ajudar a atender a requisitos de conformidade a normas e de normas de privacidade de dados.
+* Vários cenários de segurança, como monitorização (auditoria) e os alertas no anómalo acesso a dados confidenciais.
+* Controlar o acesso ao e o sistema de proteção de segurança de bases de dados que contém dados altamente confidenciais.
 
-Deteção de dados & classificação faz parte o [proteção contra ameaças avançadas do SQL Server](sql-advanced-threat-protection.md) oferta (ATP), que é um pacote unificado para capacidades avançadas de segurança do SQL Server. Deteção de dados & classificação podem ser acedido e gerido através do portal do central ATP do SQL Server.
+Dados de deteção e classificação faz parte do [proteção contra ameaças avançadas do SQL](sql-advanced-threat-protection.md) oferta (ATP), o que é um pacote unificado para funções de segurança avançadas do SQL. Dados de deteção e classificação podem ser acedida e geridos através do portal SQL ATP central.
 
 > [!NOTE]
-> Este documento está relacionada com apenas a SQL Database do Azure. Para o SQL Server (no local), consulte [deteção de dados do SQL Server e a classificação](https://go.microsoft.com/fwlink/?linkid=866999).
+> Este documento está relacionado com a base de dados do Azure SQL apenas. Para o SQL Server (no local), consulte [deteção de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>O que é a deteção de dados e a classificação?
-Deteção de dados & classificação apresenta um conjunto de serviços avançados e novas funcionalidades do SQL Server, que formam uma nova paradigma de proteção de informações do SQL Server diversificada proteger os dados, não apenas a base de dados:
-* **Deteção & recomendações** – o motor de classificação analisa a base de dados e identifica as colunas que contêm dados potencialmente confidenciais. -Lo, em seguida, fornece uma forma fácil de rever e aplicar as recomendações de classificação apropriado através do portal do Azure.
-* **Etiquetagem** – etiquetas de classificação de sensibilidade podem ser etiquetadas forma permanente em colunas com novos atributos de metadados de classificação introduzidos no motor de SQL Server. Estes metadados, em seguida, podem ser utilizados para com base na sensibilidade de auditoria e proteção cenários avançados.
-* **Resultado da consulta definir sensibilidade** – é calculada a sensibilidade de conjunto de resultados de consulta em tempo real para fins de auditoria.
-* **Visibilidade** -o estado de classificação de base de dados pode ser visualizado no dashboard detalhado no portal. Além disso, pode transferir um relatório (no formato de Excel) a serem utilizadas para compatibilidade & fins de auditorias, bem como outras necessidades.
+## <a id="subheading-1"></a>O que é a classificação e de deteção de dados?
+Dados de deteção e classificação apresenta um conjunto de serviços avançados e novas capacidades de SQL, formando um novo paradigma de proteção de informações de SQL com o objetivo de proteger os dados, não apenas a base de dados:
+* **Recomendações de & deteção** – o motor de classificação analisa a sua base de dados e identifica as colunas que contêm dados potencialmente confidenciais. Ele, em seguida, fornece uma forma fácil para rever e aplicar as recomendações de classificação apropriado através do portal do Azure.
+* **Etiquetagem** – etiquetas de classificação de sensibilidade podem ser etiquetadas persistentemente em colunas com novos atributos de metadados de classificação introduzidos no motor do SQL. Estes metadados, em seguida, podem ser utilizado para com base na sensibilidade a auditoria e proteção cenários avançados.
+* **Resultado da consulta de definir a sensibilidade** – a sensibilidade de conjunto de resultados de consulta é calculada em tempo real para fins de auditoria.
+* **Visibilidade** -o estado de classificação de base de dados pode ser visualizado num dashboard detalhado no portal. Além disso, pode baixar um relatório (no formato Excel) a ser utilizado para conformidade e fins de auditoria, bem como outras necessidades.
 
 ## <a id="subheading-2"></a>Detetar, classificar e etiquetar colunas confidenciais
-A secção seguinte descreve os passos para detetar, classificar e etiquetar colunas que contêm dados sensíveis na sua base de dados, bem como visualizar o estado de classificação atual da base de dados e exportar relatórios.
+A secção seguinte descreve os passos para deteção, classificação e etiquetagem colunas que contêm dados confidenciais na sua base de dados, bem como visualizar o estado de classificação atual da base de dados e exportar relatórios.
 
 A classificação inclui dois atributos de metadados:
-* Etiquetas – os atributos de classificação principal utilizadas para definir o nível de sensibilidade dos dados armazenados na coluna.  
+* Etiquetas – os atributos de classificação principal, utilizadas para definir o nível de sensibilidade dos dados armazenados na coluna.  
 * Tipos de informações – proporcionam granularidade adicional para o tipo de dados armazenados na coluna.
 
-## <a name="classify-your-sql-database"></a>Classificar a sua base de dados do SQL Server
+## <a name="classify-your-sql-database"></a>Classificar a base de dados SQL
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
-2. Navegue para **Advanced Threat Protection** sob o cabeçalho de segurança no seu painel SQL Database do Azure. Clique para ativar a proteção avançada contra ameaças e, em seguida, clique em de **deteção de dados & classificação (pré-visualização)** cartão.
+2. Navegue para **proteção avançada contra ameaças** sob o cabeçalho de segurança no seu painel de SQL Database do Azure. Clique para ativar a proteção avançada contra ameaças e, em seguida, clique nas **deteção de dados e classificação (pré-visualização)** cartão.
 
-   ![Uma base de dados de análise](./media/sql-data-discovery-and-classification/data_classification.png) 
+   ![Uma base de dados de análise](./media/sql-data-discovery-and-classification/data_classification.png)
 
-3. O **descrição geral** separador inclui um resumo do Estado de classificação atual da base de dados, incluindo uma lista detalhada de todas as colunas classificadas, também pode filtrar para ver apenas as partes do esquema específico, tipos de informações e as etiquetas. Se ainda não ainda classificado quaisquer colunas [avance para o passo 5](#step-5).
+3. O **descrição geral** guia inclui um resumo do Estado de classificação atual da base de dados, incluindo uma lista detalhada de todas as colunas classificadas, também pode filtrar para ver apenas partes do esquema específico, tipos de informações e as etiquetas. Se ainda não classificado quaisquer colunas [avance para o passo 5](#step-5).
 
-   ![Resumo do estado atual de classificação](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png) 
+   ![Resumo do Estado de classificação atual](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png)
 
-4. Para transferir um relatório no formato de Excel, clique em de **exportar** opção no menu superior da janela.
+4. Para transferir um relatório no formato do Excel, clique nas **exportar** opção no menu superior da janela.
 
-   ![Exportar para Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png) 
+   ![Exportar para Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5.  <a id="step-5"></a>Para começar a classificar os dados, clique em de **separador classificação** na parte superior da janela.
+5.  <a id="step-5"></a>Para começar a classificar seus dados, clique nas **separador de classificação** na parte superior da janela.
 
-    ![Classificar a dados](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png) 
+    ![Classificar dados](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
-6. O motor de classificação analisa a base de dados em colunas que contém dados potencialmente sensíveis e fornece uma lista de **recomendado classificações de coluna**. Para visualizar e aplicar classificação recomendações:
+6. O motor de classificação analisa a sua base de dados para colunas que contêm dados potencialmente confidenciais e fornece uma lista de **recomendado classificações de coluna**. Para visualizar e aplicar recomendações de classificação:
 
-    * Para ver a lista de classificações de coluna recomendados, clique no painel recomendações na parte inferior da janela:
-    
-      ![Classificar os dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png) 
+    * Para ver a lista de classificações de coluna recomendada, clique no painel de recomendações na parte inferior da janela:
 
-    * Reveja a lista de recomendações – para aceitar uma recomendação para uma coluna específica, selecione a caixa de verificação na coluna esquerda da linha relevante. Também pode marcar *todas as recomendações* como aceite marcando a caixa de verificação no cabeçalho de tabela de recomendações.
+      ![Classifique os seus dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-       ![Lista de recomendação de revisão](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png) 
+    * Reveja a lista de recomendações – para aceitar uma recomendação para uma coluna de específica, marque a caixa de verificação na coluna esquerda da linha relevante. Também é possível marcar *todas as recomendações* como aceites marcando a caixa de verificação no cabeçalho da tabela de recomendações.
 
-    * Para aplicar as recomendações selecionadas, clique na azul **aceitar recomendações selecionadas** botão.
+       ![Lista de recomendações de revisão](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-      ![Aplicar recomendações](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png) 
+    * Para aplicar as recomendações selecionadas, clique na azul **aceitar as recomendações selecionadas** botão.
 
-7. Também pode **classificar manualmente** colunas como alternativa, ou além disso, a classificação com base na Recomendação:
+      ![Aplicar recomendações](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
+
+7. Também pode **classificar manualmente** colunas como uma alternativa ou além disso, para a classificação baseada na Recomendação:
 
     * Clique em **Adicionar classificação** no menu superior da janela.
-  
-      ![Adicione manualmente a classificação](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png) 
 
-    * Na janela do contexto que se abre, selecione o esquema > tabela > coluna que pretende classificar e a etiqueta de tipo e sensibilidade de informações. Em seguida, clique na azul **Adicionar classificação** na parte inferior da janela de contexto.
+      ![Adicionar manualmente a classificação](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-      ![Selecionar coluna a classificar](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png) 
+    * Na janela de contexto que se abre, selecione o esquema > tabela > coluna que pretende classificar e a etiqueta de tipo e a confidencialidade de informações. Em seguida, clique na azul **Adicionar classificação** na parte inferior da janela do contexto.
 
-8. Para concluir a classificação e forma permanente etiqueta colunas (etiquetas) a base de dados com novos metadados de classificação, clique em **guardar** no menu superior da janela.
+      ![Selecione a coluna para classificar](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
-   ![Guardar](./media/sql-data-discovery-and-classification/10_data_classification_save.png) 
+8. Para concluir a sua classificação e colunas (etiqueta) a base de dados com os novos metadados de classificação de etiqueta persistentemente, clique em **guardar** no menu superior da janela.
+
+   ![Guardar](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>Auditoria de acesso a dados confidenciais
 
-Um aspeto importante do paradigma de proteção de informações é a capacidade para monitorizar o acesso a dados confidenciais. [Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) foi melhorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidos por a consulta.
+Um aspecto importante do paradigma de proteção de informações é a capacidade de monitorizar o acesso a dados confidenciais. [Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) foi aprimorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidas pelo a consulta.
 
-![Registo de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png) 
+![Registo de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Passos seguintes
+## <a id="subheading-4"></a>Classificação automatizada/Programmatic
 
-- Saiba mais sobre [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
-- Considere configurar [auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorização e auditoria de acesso a dados confidenciais classificados.
+Pode usar o T-SQL para adicionar ou remover as classificações de coluna, bem como obter todas as classificações para a base de dados.
+
+> [!NOTE]
+> Quando utilizar o T-SQL para gerir as etiquetas, não há nenhuma validação adicionadas a uma coluna de etiquetas existentes na política de proteção de informações da empresa (o conjunto de etiquetas que são apresentados no portais recomendações). É therefor depende de para validar isto.
+
+* Adicionar/atualizar a classificação de uma ou mais colunas: [adicionar a classificação de sensibilidade](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+## <a id="subheading-5"></a>Passos seguintes
+
+- Saiba mais sobre [proteção do SQL avançada contra ameaças](sql-advanced-threat-protection.md).
+- Considere configurar [auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorização e auditoria de acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
-[Next Steps]: #subheading-4
+[Automated/Programmatic classification]: #subheading-4
+[Next Steps]: #subheading-5

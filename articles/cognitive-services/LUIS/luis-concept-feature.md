@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: v-geberr
-ms.openlocfilehash: 597948947303b7fdf16f24576620d6f39d7c51f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: b82d5261bbe9d9b153be1cb6e1ff1ba61803c8c2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887451"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928935"
 ---
 # <a name="phrase-list-features-in-luis"></a>Recursos de lista de frase do LUIS
 
@@ -23,24 +23,31 @@ No machine learning, um *funcionalidade* é uma distinção característica ou a
 Adicione recursos para um modelo de idioma para fornecer sugestões sobre como a reconhecer a entrada que deseja identificar ou classificar. Recursos ajudam o LUIS reconhecer intenções e entidades, mas as funcionalidades não são objetivos ou as entidades em si. Em vez disso, recursos podem fornecer exemplos de termos relacionados.  
 
 ## <a name="what-is-a-phrase-list-feature"></a>O que é uma funcionalidade de lista de frase?
-Uma lista de frase inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e deve ser tratado de maneira semelhante (por exemplo, nomes de cidades ou produtos). O que LUIS aprende sobre uma delas é aplicada automaticamente para os outros também. Isso não é um fechada [listar entidade](luis-concept-entity-types.md#types-of-entities) (exact correspondências de texto) de palavras correspondentes.
+Uma lista de frase inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e deve ser tratado de maneira semelhante (por exemplo, nomes de cidades ou produtos). O que LUIS aprende sobre uma delas é aplicada automaticamente para os outros também. Esta lista não é um fechada [listar entidade](luis-concept-entity-types.md#types-of-entities) (exact correspondências de texto) de palavras correspondentes.
 
 Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um sinal de segundo para LUIS sobre essas palavras.
 
 ## <a name="how-to-use-phrase-lists"></a>Como utilizar listas de frase
-Num aplicativo de agente de viagens, crie uma lista de frase com o nome "Cidades", que contém os valores de Londres, Paris e Cairo. Se identificar um dos seguintes valores como uma entidade simple numa [expressão de exemplo](luis-how-to-add-example-utterances.md#add-simple-entity-label) numa intenção, LUIS aprende a reconhecer os outros. 
+A aplicação de recursos humanos [tutorial simples de entidade](luis-quickstart-primary-and-secondary-data.md), a aplicação utiliza uma **tarefa** lista de frase de tipos de tarefa como programador, roofer e secretário. Se um dos seguintes valores o rótulo como uma entidade aprendidas por máquina, LUIS aprende a reconhecer os outros. 
 
-Uma lista de expressão pode ser intercambiáveis ou não intercambiáveis. Uma *intercambiáveis* lista frase é para os valores que são sinónimos, e um *não intercambiáveis* lista frase destina-se para os valores que não são sinónimos, mas são semelhantes de outra forma. 
+Uma lista de expressão pode ser intercambiáveis ou não intercambiáveis. Uma *intercambiáveis* lista frase é para os valores que são sinónimos, e um *não intercambiáveis* lista de expressão se destina aos valores que não são sinónimos, mas ainda assim tem um sinal adicional na aplicação. 
 
-## <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>Apresenta uma lista de frase ajuda a identificar as entidades comutáveis simples
-Frase comutáveis listas são uma boa maneira de otimizar o desempenho da sua aplicação LUIS. Se a sua aplicação tiver problemas ao prever expressões com a intenção correta, ou no reconhecimento de entidades, pense se as expressões contenham palavras invulgares ou palavras que podem ser ambíguas em significado. Essas palavras são bons candidatos para incluir numa lista frase.
+<a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Apresenta uma lista de frase ajuda a identificar as entidades intercambiáveis simples
+Frase intercambiáveis listas são uma boa maneira de otimizar o desempenho da sua aplicação LUIS. Se a sua aplicação tiver problemas ao prever expressões com a intenção correta, ou no reconhecimento de entidades, pense se as expressões contenham palavras invulgares ou palavras que podem ser ambíguas em significado. Essas palavras são bons candidatos para incluir numa lista frase.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Apresenta uma lista de frase ajuda identificar intenções ao contexto de compreensão melhor
-Utilize listas de frase para palavras de raras, proprietárias e externas. LUIS pode não ser possível reconhecer palavras raras e proprietárias, como palavras estrangeiras (fora da cultura da aplicação) e, portanto, devem ser adicionados a uma lista de frase. Esta lista de frase deve ser marcada não-intercambiáveis, para indicar que o conjunto de palavras raro constitui uma classe que deve aprender a reconhecer o LUIS, mas não são sinónimos ou intercambiáveis entre si.
-
 Uma lista de expressão não é uma instrução para o LUIS para efetuar a correspondência strict ou etiqueta sempre o todos os termos da lista de frase exatamente da mesma. É simplesmente uma dica. Por exemplo, poderia ter uma lista de expressão que indica "Patti" e "Selma" são nomes, mas LUIS ainda pode usar informações contextuais para reconhecer o que significa algo diferente de "Tornar uma reserva para 2 no cliente de Patti para o jantar" e "encontrar me orientar instruções para Selma, Geórgia". 
 
 Adicionar uma lista de frase é uma alternativa à adição de mais expressões de exemplo para um objetivo. 
+
+## <a name="an-interchangeable-phrase-list"></a>Uma lista de frase intercambiáveis
+Utilize uma lista de frase intercambiáveis quando a lista de palavras ou fases cria uma classe ou um grupo. Um exemplo é uma lista de meses, como "Janeiro", "Fevereiro", "Março"; ou nomes como "João", "Maria", "Francisco".  Estas listas são intercambiáveis no sentido de que a expressão poderia ser rotulado com o mesmo objetivo ou entidade se uma palavra diferente na lista de frase fosse usada. Por exemplo, se "Mostrar o calendário de Janeiro" tem a mesma intenção como "Mostrar, de Fevereiro, o calendário", em seguida, as palavras que devem ser de uma lista de intercambiável. 
+
+## <a name="a-non-interchangeable-phrase-list"></a>Uma lista de expressão não intercambiáveis
+Utilize uma lista de expressão não intercambiáveis não sinônimos palavras ou expressões que podem ser agrupados em seu domínio. 
+
+Por exemplo, utilize uma lista de expressão não intercambiáveis palavras raras, proprietárias e externa. LUIS pode não ser possível reconhecer palavras raras e proprietárias, como palavras estrangeiras (fora da cultura da aplicação). A definição não intercambiáveis indica que o conjunto de palavras raro constitui uma classe que deve aprender a reconhecer o LUIS, mas não são sinónimos ou intercambiáveis entre si.
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quando utilizar listas de frase em relação a entidades de lista
 Embora uma lista de frase e entidades de lista podem afetar os discursos em todas as intenções, cada um faz isso de forma diferente. Utilize uma lista de frase para afetar a pontuação de predição de intenção. Utilize uma entidade de lista para afetar a extração de entidades para obter uma correspondência exata de texto. 
@@ -53,7 +60,7 @@ Quando quer ser capaz de reconhecer novas instâncias de uma entidade, como um a
 Listas de frase são como vocabulário específicas de domínio que o ajudam a com a melhorar a qualidade da compreensão dos objetivos e entidades. Um uso comum de uma lista de frase é nomes próprios, como os nomes das cidades. Um nome de cidade pode ter várias palavras, incluindo hífenes ou apóstrofos.
  
 ### <a name="dont-use-a-phrase-list"></a>Não utilize uma lista de frase 
-Uma entidade de lista define explicitamente a cada valor de uma entidade pode demorar e apenas identifica os valores que correspondem exatamente. Uma entidade de lista pode ser adequada para uma aplicação em que todas as instâncias de uma entidade são conhecidas e não alterados com frequência, como os itens de comida num menu de restaurante alterado com pouca frequência. Se precisar de uma correspondência exata do texto de uma entidade, não utilize uma lista de frase. 
+Uma entidade de lista define explicitamente a cada valor de uma entidade pode demorar e apenas identifica os valores que correspondem exatamente. Uma entidade de lista pode ser adequada para uma aplicação em que todas as instâncias de uma entidade são conhecidas e não são alterados frequentemente. Os exemplos são itens de comida num menu de restaurante alterado com pouca frequência. Se precisar de uma correspondência exata do texto de uma entidade, não utilize uma lista de frase. 
 
 ## <a name="best-practices"></a>Melhores práticas
 Saiba mais [melhores práticas](luis-concept-best-practices.md).
