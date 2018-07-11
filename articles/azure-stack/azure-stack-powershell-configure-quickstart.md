@@ -1,6 +1,6 @@
 ---
-title: Instalar e configurar o PowerShell para início rápido do Azure pilha | Microsoft Docs
-description: Saiba mais sobre como instalar e configurar o PowerShell para a pilha do Azure.
+title: Instalar e configurar o PowerShell para o início rápido do Azure Stack | Documentos da Microsoft
+description: Saiba mais sobre como instalar e configurar o PowerShell para o Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465748"
 ---
-# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Começar a trabalhar com o PowerShell na pilha do Azure
+# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Começar a trabalhar com o PowerShell no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Este guia de introdução ajuda-o a instalar e configurar um ambiente de pilha do Azure com o PowerShell. O script que fornecemos neste artigo tem um âmbito para o **operador de pilha do Azure** apenas.
+Este início rápido ajuda-o para instalar e configurar um ambiente do Azure Stack com o PowerShell. O script que fornecemos neste artigo tem como escopo o **operador do Azure Stack** apenas.
 
-Este artigo é uma versão condensed dos passos descritos a [instale o PowerShell]( azure-stack-powershell-install.md), [descarregar as ferramentas de]( azure-stack-powershell-download.md), e [configurar o ambiente de PowerShell o operador de pilha do Azure]( azure-stack-powershell-configure-admin.md) artigos. Ao utilizar os scripts neste tópico, pode configurar o PowerShell para ambientes de pilha do Azure que são implementadas com o Azure Active Directory ou os serviços de Federação do Active Directory (AD FS).  
+Este artigo é uma versão condensada dos passos descritos no [instalar o PowerShell]( azure-stack-powershell-install.md), [transferir ferramentas]( azure-stack-powershell-download.md), e [configurar o ambiente de PowerShell do operador Azure Stack]( azure-stack-powershell-configure-admin.md) artigos. Usando os scripts neste tópico, pode configurar o PowerShell para ambientes do Azure Stack que são implementadas com o Azure Active Directory ou os serviços de Federação do Active Directory (AD FS).  
 
 
-## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurar o PowerShell para implementações baseadas no Azure Active Directory
+## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurar o PowerShell para Implantações com base no Azure Active Directory
 
-Inicie sessão no seu Kit de desenvolvimento de pilha do Azure ou um cliente externo baseado em Windows se estiver ligado através de VPN. Abra uma sessão elevada do ISE do PowerShell e, em seguida, execute o seguinte script. Certifique-se de que atualiza o **TenantName**, **ArmEndpoint**, e **GraphAudience** variáveis conforme necessário para a configuração do seu ambiente:
+Inicie sessão para o seu Kit de desenvolvimento do Azure Stack ou um cliente externo com base no Windows, se estiver ligado através de VPN. Abra uma sessão elevada do ISE do PowerShell e, em seguida, execute o seguinte script. Certifique-se atualizar o **TenantName**, **ArmEndpoint**, e **GraphAudience** variáveis para a configuração do seu ambiente, conforme necessário:
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -97,9 +98,9 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -TenantId $TenantID 
 ```
 
-## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configurar o PowerShell para implementações do AD FS com base em
+## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configurar o PowerShell para o AD FS-Implantações com base no
 
-Pode utilizar o seguinte script se estiver a utilizar o Azure pilha quando ligado à internet. No entanto se estiver a utilizar o Azure pilha sem conectividade à internet, utilize o [desligado forma de instalar o PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) e os cmdlets para configurar o PowerShell permanecerá igual à mostrada neste script. Inicie sessão no seu Kit de desenvolvimento de pilha do Azure ou um cliente externo baseado em Windows se estiver ligado através de VPN. Abra uma sessão elevada do ISE do PowerShell e, em seguida, execute o seguinte script. Certifique-se de que atualiza o **ArmEndpoint** e **GraphAudience** variáveis conforme necessário para a configuração do seu ambiente:
+Pode utilizar o script a seguir se estiver a utilizar o Azure Stack quando estiver ligado à internet. No entanto se estiver a utilizar o Azure Stack sem conectividade à internet, utilize o [desligado a forma de instalar o PowerShell](azure-stack-powershell-install.md) e os cmdlets para configurar o PowerShell irá permanecer a mesmos, conforme mostrado neste script. Inicie sessão para o seu Kit de desenvolvimento do Azure Stack ou um cliente externo com base no Windows, se estiver ligado através de VPN. Abra uma sessão elevada do ISE do PowerShell e, em seguida, execute o seguinte script. Certifique-se atualizar o **ArmEndpoint** e **GraphAudience** variáveis para a configuração do seu ambiente, conforme necessário:
 
 ```powershell
 
@@ -172,9 +173,9 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> Para especificar um grupo de recursos, terá de ter um grupo de recursos na sua subscrição. Para mais informações sobre as subscrições, consulte [descrição geral do plano, oferta, quota e subscrição](azure-stack-plan-offer-quota-overview.md)
+> Para especificar um grupo de recursos, terá de ter um grupo de recursos na sua subscrição. Para obter mais informações sobre as subscrições, veja [descrição geral do plano, oferta, quota e subscrição](azure-stack-plan-offer-quota-overview.md)
 
-Depois de criar o grupo de recursos, o **estado de aprovisionamento** propriedade está definida como **com êxito**.
+Depois de criar o grupo de recursos, o **estado de aprovisionamento** estiver definida como **Succeeded**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

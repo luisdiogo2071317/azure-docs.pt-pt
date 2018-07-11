@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346829"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465842"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
@@ -100,9 +100,6 @@ Para adicionar um servidor de hospedagem independente que já está configurado,
    * Para utilizar um SKU existente, escolher um SKU disponível e, em seguida, selecione **criar**.
    * Para criar um SKU, selecione **+ criar novo SKU**. Na **criar SKU**, introduza as informações necessárias e, em seguida, selecione **OK**.
 
-     > [!IMPORTANT]
-     > Caracteres especiais, incluindo espaços e períodos, não são suportados no **nome** campo. Utilize os exemplos na captura de ecrã seguinte para introduzir valores para o **família**, **escalão**, e **Edition** campos.
-
      ![Criação de um SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Fornecer elevada disponibilidade com o SQL grupos de Disponibilidade AlwaysOn
@@ -119,16 +116,18 @@ Configurar instâncias do SQL Always On requer passos adicionais e requer três 
 
 Deve habilitar [Seeding automático](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada grupo de disponibilidade para cada instância do SQL Server.
 
-Para ativar o seeding automático em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL para cada instância:
+Para ativar o seeding automático em todas as instâncias, editar e, em seguida, execute o seguinte comando SQL na réplica primária para cada instância secundária:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-Em instâncias secundárias, editar e, em seguida, execute o seguinte comando SQL para cada instância:
+Tenha em atenção que o grupo de disponibilidade deve estar entre parênteses Retos.
+
+Em nós do secundários, execute o seguinte comando SQL:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,7 +155,7 @@ Utilize estes comandos para definir a opção de servidor de autenticação de b
 
    Sob **servidores de alojamento de SQL**, pode ligar-se o fornecedor de recursos do SQL Server para as instâncias reais do SQL Server que servem de back-end do fornecedor de recursos.
 
-3. Preencha o formulário com os detalhes de ligação para a sua instância do SQL Server. Certifique-se de que utiliza o endereço FQDN sempre no serviço de escuta (e número de porta opcional.) Forneça as informações para a conta configurada com privilégios de administrador do sistema.
+3. Preencha o formulário com os detalhes de ligação para a sua instância do SQL Server. Certifique-se de que utiliza o endereço FQDN do sempre no serviço de escuta (e o nome de instância e o número de porta opcional). Forneça as informações para a conta configurada com privilégios de administrador do sistema.
 
 4. Selecione a caixa de grupo de Disponibilidade AlwaysOn para ativar o suporte para as instâncias de SQL grupo de Disponibilidade AlwaysOn.
 
@@ -188,6 +187,6 @@ Como melhor prática, todos os servidores de hospedagem num SKU devem ter as mes
 
 Crie planos e ofertas para tornar as bases de dados SQL disponíveis para os utilizadores. Adicionar a **Microsoft.SqlAdapter** para o plano de serviço e criar uma quota de novo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Adicionar bases de dados](azure-stack-sql-resource-provider-databases.md)
