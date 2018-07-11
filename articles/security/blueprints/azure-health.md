@@ -1,6 +1,6 @@
 ---
-title: Blueprint de análise do Estado de funcionamento do Azure
-description: Orientações para implementar um Blueprint de análise do Estado de funcionamento HIPAA/HITRUST
+title: Esquema de análise do Estado de funcionamento do Azure
+description: Orientações para implementar um plano de gráfico de análise de estado de funcionamento HIPAA/HITRUST
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,62 +15,62 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37113236"
 ---
-# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e conformidade Blueprint - os dados de estado de funcionamento HIPAA/HITRUST e AI
+# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
 ## <a name="overview"></a>Descrição geral
 
-**A segurança do Azure e a conformidade Blueprint - os dados de estado de funcionamento HIPAA/HITRUST e AI oferece uma implementação de ativar a chave de uma solução de PaaS do Azure para demonstrar como de forma segura de inserção, armazenar, analisar e interaja com os dados de estado de funcionamento ao ser capaz de estar em conformidade da indústria requisitos. O blueprint ajuda a acelerar a adoção de nuvem e de utilização para clientes com dados que são regulados.**
+**O Azure no Security and Compliance Blueprint - dados de estado de funcionamento HIPAA/HITRUST e AI oferece uma implementação de chave na mão de uma solução de PaaS do Azure para demonstrar como em segurança ingerir, armazenar, analisar e interagir com dados de estado de funcionamento enquanto a capacidade de cumprir a conformidade do setor requisitos. O plano gráfico ajuda a acelerar a adoção da cloud e a utilização para os clientes com dados que são controlados.**
 
-A segurança do Azure e a conformidade Blueprint - os dados de estado de funcionamento HIPAA/HITRUST e AI Blueprint fornece ferramentas e orientações para ajudar a implementar segura, Health Insurance Portability e Accountability Act (HIPAA) e estado de funcionamento informações confiar Alliance (HITRUST) pronto ambiente de plataforma-como-um-serviço (PaaS) para ingestão relacionadas, armazenar, analisar e interagir com os registos médicas pessoais e não pessoais num ambiente de nuvem segura, multicamadas, implementado como uma solução ponto-a-ponto. Este showcases uma arquitetura de referência comuns e foi concebido para simplificar a adoção do Microsoft Azure. Esta arquitetura fornecida ilustra uma solução para satisfazer as necessidades das organizações para procurar uma abordagem baseada na nuvem para reduzir o custo de implementação e o fardo.
+O Azure no Security and Compliance Blueprint - dados de estado de funcionamento HIPAA/HITRUST e AI esquema fornece ferramentas e orientações para ajudar a implementar um seguro, Health Insurance Portability e Accountability Act (HIPAA) e estado de funcionamento informações Trust Alliance (HITRUST) pronto ambiente de plataforma-como-serviço (PaaS) para ingerir, armazenar, analisar e interagir com os registos médicos pessoais e não pessoais num ambiente de cloud segura e com várias camadas, implementado como uma solução ponto-a-ponto. Ele demonstra uma arquitetura de referência comuns e foi projetado para simplificar a adoção do Microsoft Azure. Esta arquitetura fornecida ilustra uma solução para satisfazer as necessidades das organizações que procuram uma abordagem com base na cloud para reduzir a carga e o custo da implementação.
 
 ![](images/components.png)
 
-A solução foi concebida para consumir um conjunto de dados de exemplo formatado utilizando rápido Healthcare interoperabilidade recursos (FHIR), um padrão em todo o mundo para trocar informações de cuidados de saúde eletronicamente e armazená-las de forma segura. Os clientes, em seguida, podem utilizar o Azure Machine Learning para tirar partido das ferramentas de inteligência de negócio poderoso e de análise para rever as predições efetuadas nos dados de exemplo. Como um exemplo de um tipo de experiência que pode facilitar o Azure Machine Learning, o blueprint inclui um conjunto de dados de exemplo, scripts e ferramentas para prever a duração do período de um patient num local hospital. 
+A solução foi concebida para consumir um conjunto de dados de exemplo formatado com o rápido cuidados de saúde interoperabilidade recursos (FHIR), um padrão em todo o mundo para a troca de informações de cuidados de saúde eletronicamente e armazená-los de forma segura. Os clientes podem, em seguida, utilizar o Azure Machine Learning para tirar partido de ferramentas poderosas de business intelligence e análises para rever as predições efetuadas nos dados de exemplo. Como exemplo do tipo de experimentação que pode facilitar o Azure Machine Learning, o plano gráfico inclui um conjunto de dados de exemplo, scripts e ferramentas para prever a duração da estadia de um doente num local hospital. 
 
-Este blueprint destina-se para servir como base modular para os clientes ajustar os seus requisitos específicos, desenvolver novo Azure Machine learning experimentações para resolver ambos os cenários de caso de utilização clinical e operacional. Foi concebido para ser segura e compatível quando implementado; No entanto, os clientes são responsáveis para configurar corretamente as funções e a implementar quaisquer modificações. Tenha em atenção o seguinte:
+Este esquema deve ser usado como uma base modular para os clientes que se ajustar às suas necessidades específicas, desenvolver novas do Azure Machine learning experimentações para resolver ambos os cenários de casos de utilização clínica e operacional. Ele foi projetado para ser seguras e em conformidade quando implantados; No entanto, os clientes são responsáveis por configurar corretamente o funções e implementar qualquer modificação. Tenha em atenção o seguinte:
 
--   Este blueprint fornece uma linha de base para ajudar os clientes utilizam o Microsoft Azure num HITRUST e ambiente HIPAA.
+-   Esta arquitetura fornece uma linha de base para ajudar os clientes a utilizar o Microsoft Azure num HITRUST e o ambiente da HIPAA.
 
--   Embora o blueprint foi concebido para ser alinhado com a HIPAA e HITRUST (através do quadro comum de segurança - CSF), este não deve ser considerada compatível até certificadas por um auditor por lei HIPAA e HITRUST requisitos de certificação externo.
+-   Embora o plano gráfico foi concebido para estar alinhado com a HIPAA e HITRUST (por meio do quadro comum de segurança - CSF), ele não deve ser considerado em conformidade até certificada por um auditor externo por HIPAA e HITRUST, os requisitos de certificação.
 
--   Os clientes são responsáveis por realizar revisões adequados de segurança e conformidade de qualquer solução criado com esta arquitetura dos.
+-   Os clientes são responsáveis por conduzir as revisões de segurança e conformidade adequadas de qualquer solução criados com esta arquitetura básica.
 
 ## <a name="deploying-the-automation"></a>Implementar a automatização
 
-- Para implementar a solução, siga as instruções fornecidas a orientação de implementação. 
+- Para implementar a solução, siga as instruções fornecidas as orientações de implantação. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
-Para uma descrição geral de como funciona esta solução, veja este [vídeo](https://aka.ms/healthblueprintvideo) explicar e demonstrar a implementação.
+Para obter uma descrição geral de como funciona esta solução, veja este [vídeo](https://aka.ms/healthblueprintvideo) explicar e demonstrar a implementação.
 
-- Pergunta frequentes pode ser encontrada no [FAQ](https://aka.ms/healthblueprintfaq) orientações.
+- Perguntas frequentes podem ser encontrada na [FAQ](https://aka.ms/healthblueprintfaq) orientações.
 
--   **Diagrama da arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o blueprint e cenário de utilizar o exemplo.
+-   **Diagrama da arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o esquema e o exemplo a utilizar o cenário de caso.
 
--   **Modelos de implementação**. Nesta implementação, [modelos Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são utilizados para implementar automaticamente os componentes da arquitetura no Microsoft Azure, especificando os parâmetros de configuração durante a configuração.
+-   **Modelos de implementação**. Nesta implementação, [modelos Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são utilizados para implementar automaticamente os componentes da arquitetura para o Microsoft Azure, especificando os parâmetros de configuração durante a configuração.
 
--   **[Scripts de implementação de automatizada](https://aka.ms/healthblueprintdeploy)**. Estes scripts ajudam a implementar a solução. Os scripts consistem em:
+-   **[Automatizada scripts de implantação](https://aka.ms/healthblueprintdeploy)**. Estes scripts ajudar a implementar a solução. Os scripts são compostas por:
 
 
 -   Uma instalação do módulo e [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) script de configuração é utilizada para instalar e certifique-se de que funções de administrador global e de módulos do PowerShell necessários estão configuradas corretamente. 
--   Uma instalação de script do PowerShell é utilizada para implementar a solução, fornecida através de um ficheiro. zip que contém uma demonstração pré-criadas funções.
+-   Uma instalação de script do PowerShell é utilizada para implementar a solução, fornecida por meio de um ficheiro. zip que contém um funções pré-criados de demonstração.
 
 ## <a name="solution-components"></a>Componentes da solução
 
 
-A arquitetura dos é composto pelos seguintes componentes:
+A arquitetura básica é composta pelos seguintes componentes:
 
--   **[Modelo de ameaça](https://aka.ms/healththreatmodel)**  um modelo de ameaça abrangente é fornecido no formato tm7 para utilização com o [ferramenta de modelação de ameaça do Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=49168), que mostra os componentes da solução, os dados fluem entre-los e a confiança limites. O modelo pode ajudar os clientes os pontos de risco potencial na infraestrutura do sistema quando desenvolver os componentes do machine learning ou modificações adicionais.
+-   **[Modelo de risco](https://aka.ms/healththreatmodel)**  um modelo de ameaças abrangente é fornecido no formato de tm7 para utilização com o [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), mostrando os componentes da solução, os dados fluem entre eles e a confiança limites. O modelo pode ajudar os clientes a compreender os pontos do potencial risco de na infraestrutura de sistema durante o desenvolvimento de componentes do machine learning ou outras modificações.
 
--   **[Matriz de implementação do cliente](https://aka.ms/healthcrmblueprint)**  livro do Microsoft Excel de uma lista os requisitos de HITRUST relevantes e explica como o cliente e da Microsoft são responsáveis por reunião, cada um deles.
+-   **[Matriz de implementação do cliente](https://aka.ms/healthcrmblueprint)**  livro do Excel da Microsoft de uma lista os requisitos de HITRUST relevantes e explica como a Microsoft e o cliente são responsáveis por cada um de reunião.
 
--   **[Revisão do Estado de funcionamento.](https://aka.ms/healthreviewpaper)** A solução foi revista por Coalfire sistemas, Inc. A conformidade de estado de funcionamento (HIPAA e PCI HITRUST) Reveja e orientações para a implementação fornece um auditor\'revisão s da solução e considerações para transformar blueprint para uma implementação de prontos para produção.
+-   **[Revisão do Estado de funcionamento.](https://aka.ms/healthreviewpaper)** A solução foi avaliada por Coalfire systems, Inc. A conformidade de estado de funcionamento (HIPAA e HITRUST) revisão e orientações para a implementação fornece um auditor\'revisão s da solução e considerações para transformar o plano gráfico para uma implementação de prontos para produção.
 
 # <a name="architectural-diagram"></a>Diagrama da arquitetura
 
@@ -80,66 +80,66 @@ A arquitetura dos é composto pelos seguintes componentes:
 ## <a name="roles"></a>Funções
 
 
-O blueprint define duas funções de utilizadores administrativos (operadores) e três funções de utilizador na gestão de hospital e patient cuidado. Uma função de sexto está definida para um auditor avaliar a compatibilidade com a HIPAA e outras normas. Azure baseada em funções controlo de acesso (RBAC) permite precisamente direcionadas para gestão de acesso para cada utilizador da solução através de funções incorporadas e personalizadas. Consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) e [funções incorporadas para controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para obter informações detalhadas sobre o RBAC, funções e permissões.
+O esquema define duas funções para os utilizadores administrativos (operadores) e três funções para os utilizadores na gestão hospitalar e assistência aos pacientes. Uma função de sexta está definida para um auditor avaliar a compatibilidade com a HIPAA e outros regulamentos. Do Azure com base em função de controlo de acesso (RBAC) permite precisamente focada gestão de acesso para cada usuário da solução através de funções incorporadas e personalizadas. Ver [introdução ao controlo de acesso baseado em funções no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) e [funções incorporadas para controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para obter informações detalhadas sobre as RBAC, funções e permissões.
 
 ### <a name="site-administrator"></a>Administrador do site
 
 
-O administrador do site é responsável pela subscrição do cliente do Azure. Controlar a implementação geral, mas tem sem acesso a registos patient.
+O administrador do site é responsável pela subscrição do cliente do Azure. Controlar a implementação geral, mas não têm acesso a registos dos doentes.
 
--   Predefinição atribuições de funções: [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Padrão de atribuições de funções: [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Atribuições de função personalizada: n/d
 
 -   Âmbito: subscrição
 
-### <a name="database-analyst"></a>Analista de base de dados
+### <a name="database-analyst"></a>Analista de banco de dados
 
-O analista de base de dados administra a instância do SQL Server e base de dados.
-Têm sem acesso a registos patient.
+O analista de banco de dados administra a instância do SQL Server e base de dados.
+Eles não têm acesso a registos dos doentes.
 
--   Atribuições de função incorporada: [contribuinte da BD SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contribuidor do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
-
--   Atribuições de função personalizada: n/d
-
--   Âmbito: ResourceGroup
-
- ### <a name="data-scientist"></a>Scientist de dados
-
-
-O scientist dados funciona o serviço Azure Machine Learning. Pode importar, exportar e gerir os dados e executar relatórios. O scientist de dados tem acesso a dados patient, mas não tem privilégios administrativos.
-
--   Atribuições de função incorporada: [contribuinte de conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Atribuições de funções incorporadas: [contribuinte da BD SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [contribuinte do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Atribuições de função personalizada: n/d
 
 -   Âmbito: ResourceGroup
 
-### <a name="chief-medical-information-officer-cmio"></a>Diretor médicas informações responsável pela (CMIO)
+ ### <a name="data-scientist"></a>Cientista de dados
 
 
-O CMIO straddles divisão entre informatics/technology e profissionais de cuidados de saúde numa organização cuidados de saúde. Os seus deveres incluem, geralmente, através da análise para determinar se os recursos estão a ser atribuídos adequadamente dentro da organização.
+Cientista de dados funciona o serviço Azure Machine Learning. Pode importar, exportar e gerir os dados e executar relatórios. Cientista de dados tem acesso aos dados dos pacientes, mas não tem privilégios administrativos.
 
--   Atribuições de função incorporada: nenhuma
+-   Atribuições de funções incorporadas: [contribuinte de conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
-### <a name="care-line-manager"></a>Se o Gestor de linha
+-   Atribuições de função personalizada: n/d
+
+-   Âmbito: ResourceGroup
+
+### <a name="chief-medical-information-officer-cmio"></a>Diretor de informação médica (CMIO)
 
 
-O Gestor de linha cuidado é diretamente envolvido com o cuidado de patients.
-Esta função exige monitorizar o estado de doentes individuais, bem como garantir que existe pessoal disponível para responder às necessidades específicas de prestação de cuidados de saúde dos seus doentes. O Gestor de linha cuidado é responsável pela adição e atualizar registos patient.
+O CMIO faz a ponte entre a informática/tecnologia e profissionais de cuidados de saúde numa organização de saúde. As suas obrigações incluem a utilização da análise para determinar se os recursos estão a ser alocados adequadamente dentro da organização.
 
--   Atribuições de função incorporada: nenhuma
+-   Atribuições de funções incorporadas: nenhum
 
--   Atribuições de função personalizada: tem o privilégio para executar HealthcareDemo.ps1 para ambos os admissão Patient e Discharge.
+### <a name="care-line-manager"></a>Gestor de linha de cuidados de saúde
+
+
+O Gestor de linha de cuidados de saúde está diretamente envolvido no cuidado dos doentes.
+Esta função exige monitorizar o estado de doentes individuais, bem como garantir que existe pessoal disponível para responder às necessidades específicas de prestação de cuidados de saúde dos seus doentes. O Gestor de linha de cuidados de saúde é responsável por adicionar e atualizar os registos dos pacientes.
+
+-   Atribuições de funções incorporadas: nenhum
+
+-   Atribuições de função personalizada: tem o privilégio para executar HealthcareDemo.ps1 fazer ambos os admissão do doente e proprietários.
 
 -   Âmbito: ResourceGroup
 
 ### <a name="auditor"></a>Auditor
 
 
-O auditor avalia a solução de compatibilidade. Têm sem acesso direto à rede.
+O auditor avalia a solução de conformidade. Eles não têm acesso direto à rede.
 
--   Atribuições de função incorporada: [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Atribuições de funções incorporadas: [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Atribuições de função personalizada: n/d
 
@@ -148,86 +148,86 @@ O auditor avalia a solução de compatibilidade. Têm sem acesso direto à rede.
 ## <a name="example-use-case"></a>Caso de utilização de exemplo
 
 
-O caso de utilização de exemplo incluído com este blueprint ilustra como o Blueprint pode ser utilizada para ativar o machine learning e análise dos dados de estado de funcionamento na nuvem. Contosoclinic é um pequeno hospital localizado nos Estados Unidos. Os administradores de rede do hospital pretendem utilizar o Azure Machine Learning para prever melhor a duração do período de um patient no momento da admittance, para aumentar a eficiência operacional da carga de trabalho e melhorar a qualidade dos cuidado pode fornecer.
+O caso de utilização de exemplo incluído com esse plano gráfico ilustra como o plano gráfico pode ser utilizado para ativar o machine learning e análises em dados de estado de funcionamento na cloud. Contosoclinic é um pequeno hospital localizado nos Estados Unidos. Os administradores de rede do hospital pretendem utilizar o Azure Machine Learning para prever melhor a duração do tempo de permanência de um doente no momento da admittance, para aumentar a eficiência da carga de trabalho operacional e melhorar a qualidade dos cuidados de saúde pode fornecer.
 
-### <a name="predicting-length-of-stay"></a>Duração do período de prever
+### <a name="predicting-length-of-stay"></a>Prever a duração da estadia
 
 
-O cenário de utilização por exemplo utiliza o Azure Machine Learning para prever a duração de um patient recentemente admitted ao comparar os detalhes médicas tirados na introdução patient agregados dados históricos de patients anteriores.
-O blueprint inclui um grande conjunto de registos médicas anónimos para demonstrar as capacidades de formação e preditivos da solução. Numa implementação de produção, os clientes teria de utilizar os seus próprios registos para preparar a solução para as predições mais exatas ao refletir os detalhes do seu ambiente, instalações e patients exclusivos.
+O cenário de caso de utilização de exemplo utiliza o Azure Machine Learning para prever a duração de um doente recentemente admitted do tempo de permanência ao comparar os detalhes de médicos sido extraídos às prende dos pacientes agregados dados históricos de pacientes anteriores.
+O plano gráfico inclui um amplo conjunto de registos médicos anónimos para demonstrar os recursos de treinamento e preditivos da solução. Numa implementação de produção, os clientes usaria seus próprios registros para preparar a solução para predições mais precisas, que reflete os detalhes exclusivos de seu ambiente, instalações e pacientes.
 
-### <a name="users-and-roles"></a>Utilizadores e funções
+### <a name="users-and-roles"></a>Os utilizadores e funções
 
 
 **Administrador do site – Alex**
 
 *E-mail: Alex\_SiteAdmin*
 
-Tarefa de Alex consiste em avaliar as tecnologias que podem reduzir a carga de gestão de uma rede no local e reduzir os custos de gestão. Alex tem sido avaliar o Azure há algum tempo, mas tem enfrentou configurar os serviços que ele tem de cumprir os requisitos de conformidade HiTrust para armazenar dados Patient na nuvem. Selecionou AI de estado de funcionamento do Azure para implementar uma solução de estado de funcionamento de conformidade pronto, o que foi resolvido os requisitos para cumprir os requisitos de cliente para HiTrust Alex.
+Tarefa de Alex é avaliar as tecnologias que podem reduzir a carga de gerenciamento de uma rede no local e reduzir os custos de gestão. Alex tem sido avaliar o Azure há algum tempo, mas tiver dificuldade configurar os serviços que ele tem de cumprir os requisitos de conformidade de HiTrust para armazenar os dados dos doentes na cloud. Alex selecionou ia de estado de funcionamento do Azure para implementar uma solução de estado de funcionamento de conformidade prontas, o que ainda tratada os requisitos para cumprir os requisitos de cliente para HiTrust.
 
-**Dados Scientist – Debra**
+**Cientista de dados – Debra**
 
 *E-mail: Debra\_DataScientist*
 
-Debra é responsável pela utilizando e criar modelos de analisam registos médicas, para fornecer informações de patient cuidado. Debra utiliza o SQL Server e R análises linguagem de programação para criar os modelos.
+Debra é responsável por uso e a criação de modelos que analisam os registos médicos proporcionar informações sobre o cuidado de pacientes. Debra utiliza o SQL e a linguagem de programação estatística R para criar seus modelos.
 
-**Analista de base de dados – Danny**
+**Analista de banco de dados – Danny**
 
 *E-mail: Danny\_DBAnalyst*
 
-Danny é o contacto principal para tudo sobre o Microsoft SQL Server que armazena todos os dados patient para Contosoclinic. Danny é um administrador experiente do SQL Server que recentemente tornou-se familiarizado com a SQL Database do Azure.
+Danny é o contacto principal para qualquer coisa sobre o Microsoft SQL Server que armazena todos os dados dos pacientes para Contosoclinic. Danny é um administrador experiente do SQL Server, que recentemente tornou-se familiarizado com a base de dados do Azure SQL.
 
-**Diretor médicas informações responsável pela – Caroline**
+**Diretor de informação médica – Caroline**
 
-Caroline está a trabalhar com Chris o Gestor de linha mais importantes para si e Debra Scientist os dados para determinar que fatores afetam patient duração do período.
-Caroline utiliza serão as predições da solução (LOS) comprimento-de-mantenha-se para determinar se os recursos estão a ser atribuídos adequadamente na rede hospital. Por exemplo, através do dashboard fornecido nesta solução.
+Caroline está trabalhando com Chris o Gestor de linha de cuidado e Debra cientista de dados para determinar quais os fatores que afetam seus pacientes duração da estadia.
+Caroline utiliza as previsões de solução de (LOS) a duração da estadia para determinar se os recursos estão a ser alocados adequadamente na rede hospital. Por exemplo, usando o dashboard fornecido nesta solução.
 
-**Mais importantes para si linha Manager--Chris**
+**Se importa com o Gestor de linha – Chris**
 
 *E-mail: Chris\_CareLineManager*
 
-Como o indivíduo diretamente responsável por gerir admissão patient e discharges em Contosoclinic, Chris utiliza serão as predições geradas pela solução LOS para garantir que está disponíveis para fornecer cuidado para patients enquanto estes são permanecendo no pessoal adequado a instalações.
+Como a pessoa diretamente responsável por gerenciar a admissão do doente e as altas em Contosoclinic, Chris utiliza as previsões geradas pela solução LOS para se certificar de que o pessoal suficiente está disponíveis para fornecer cuidado aos pacientes, enquanto eles estão mantendo-se na recurso.
 
 **Auditor – Han**
 
 *E-mail: Han\_Auditor*
 
-Han é um auditor certificado que tenha a experiência de auditoria para o ficheiro ISO, SOC e HiTrust. Han foi recrutado para rever a rede do Contosoclinc. Han pode rever o cliente responsabilidade matriz fornecido com a solução para se certificar de que o blueprint e uma solução de LOS podem ser utilizados para armazenar, processo e apresentar dados pessoais confidenciais.
+Han é um auditor de certificado que tenha a experiência de auditoria para ISO, SOC e HiTrust. Han foi contratado para rever a rede do Contosoclinc. Han pode rever o cliente responsabilidade matriz fornecida com a solução para garantir que o esquema e a solução de LOS podem ser usados para armazenam, processam e exibir os dados pessoais confidenciais.
 
 
 # <a name="design-configuration"></a>Configuração de design
 
 
-Esta secção fornece detalhes sobre as configurações predefinidas e as medidas de segurança incorporadas no Blueprint indicada para:
+Esta seção detalha as configurações predefinidas e medidas de segurança incorporadas no esquema descrito para:
 
-- **INSERÇÃO** origens de dados não processados, incluindo a origem de dados FHIR
+- **INGESTÃO** origens de dados não processados incluindo a origem de dados FHIR
 - **ARQUIVO** informações confidenciais
-- **ANALISAR** e prever resultados
-- **INTERAGIR** com os resultados e predições
+- **ANALISAR** e prever os resultados
+- **INTERAGIR** com os resultados e previsões de indisponibilidade
 - **IDENTIDADE** gestão da solução
 - **SEGURANÇA** ativada funcionalidades
 
 
 ## <a name="identity"></a>IDENTIDADE 
 
-### <a name="azure-active-directory-and-role-based-access-control-rbac"></a>Azure Active Directory e o controlo de acesso baseado em funções (RBAC)
+### <a name="azure-active-directory-and-role-based-access-control-rbac"></a>O Azure Active Directory e o controlo de acesso baseado em funções (RBAC)
 
 
 **Autenticação:**
 
--   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) é o Microsoft\'s multi-inquilino baseado na nuvem diretório e identidade do serviço de gestão. Todos os utilizadores para a solução foram criados no Azure Active Directory, incluindo os utilizadores que acedem a base de dados do SQL Server.
+-   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) é o Microsoft\'s multi-inquilino com base na cloud diretório e identidade do serviço de gestão. Todos os utilizadores para a solução foram criados no Azure Active Directory, incluindo os utilizadores que acedem a base de dados SQL.
 
 
 
--   Autenticação para a aplicação é executada a utilizar o Azure AD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+-   Autenticação para a aplicação é executada com o Azure AD. Para obter mais informações, consulte [integrar aplicações com o Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
--   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades que afetam as identidades da organização, configura as respostas automatizadas detetadas ações suspeitas relacionada com as identidades da organização, e investiga incidentes suspeitas e executa uma ação adequada resolvê-los.
+-   [O Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) Deteta potenciais vulnerabilidades que afetam as identidades da sua organização, configura as respostas automáticas para detetado ações suspeitas relacionadas com identidades da sua organização, e Investiga os incidentes suspeitos e tome as medidas adequadas para resolvê-los.
 
--   [Azure baseada em funções controlo de acesso (RBAC)](/azure/role-based-access-control/role-assignments-portal) permite precisamente direcionadas para gestão de acesso ao Azure. Acesso de subscrição está limitado ao administrador da subscrição e o acesso do Cofre de chaves do Azure é limitado para o administrador do site. As palavras-passe seguras (12 carateres no mínimos com, pelo menos, uma letra em maiúsculas/inferior, o número e o caráter especial) são necessárias.
+-   [Do Azure com base em função de controlo de acesso (RBAC)](/azure/role-based-access-control/role-assignments-portal) permite a gestão de acesso direcionado precisamente para o Azure. Acesso à subscrição está limitado ao administrador da subscrição e o acesso do Azure Key Vault é limitado ao administrador do site. Palavras-passe seguras (12 carateres no mínimos, pelo menos uma letra de canto superior/inferior, o número e o caráter especial) são necessárias.
 
--   Autenticação multifator é suportada quando o parâmetro - enableMFA é ativado durante a implementação.
+-   Autenticação multifator é suportada quando o comutador - enableMFA é ativado durante a implementação.
 
--   Expirarem palavras-passe após 60 dias quando o parâmetro - enableADDomainPasswordPolicy é ativado durante a implementação.
+-   As palavras-passe expirarem após 60 dias, quando o comutador - enableADDomainPasswordPolicy é ativado durante a implementação.
 
 **Funções:**
 
@@ -237,147 +237,147 @@ Esta secção fornece detalhes sobre as configurações predefinidas e as medida
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
--   Incluem dados armazenados no Cofre de chaves:
+-   Dados armazenados no Cofre de chaves incluem:
 
-    -   Chave de informações da aplicação
-    -   Chave de acesso de armazenamento de dados patient
-    -   Cadeia de ligação patient
-    -   Nome da tabela de dados patient
-    -   Ponto final do serviço Web do Azure ML
-    -   Chave de API do serviço do Azure ML
+    -   Chave do Application insight
+    -   Chave de acesso de armazenamento de dados dos pacientes
+    -   Cadeia de ligação dos pacientes
+    -   Nome da tabela de dados dos pacientes
+    -   Ponto final de serviço Web do Azure ML
+    -   Chave de API de serviço do Azure ML
 
--   Políticas de acesso avançadas são configuradas numa base necessário
--   As políticas de acesso do Cofre de chaves estão definidas com permissões mínimas para chaves e segredos
--   Todas as chaves e segredos no Cofre de chaves tem datas de expiração
--   Todas as chaves no Cofre de chaves protegidas pelo HSM \[tipo de chave = chave RSA 2048 protegidas de HSM bits\]
--   Todos os utilizadores/identidades são concedidas as permissões necessárias mínimas com controlo de acesso baseado em ' (RBAC) da função
--   Aplicações não partilham um cofre de chaves, a menos que confiam uns nos outros e precisam de acesso para os mesmos segredos no tempo de execução
--   Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, a 365 dias.
--   Operações de criptografia permitidas para as chaves estão limitadas a perfis necessários
+-   Políticas de acesso avançadas são configuradas de forma necessidade
+-   Políticas de acesso do Cofre de chaves são definidas com o mínimo permissões necessárias para chaves e segredos
+-   Todas as chaves e segredos no Cofre de chaves tenham datas de expiração
+-   Todas as chaves no Cofre de chaves estão protegidas por HSM \[tipo de chave = a chave RSA de 2048 protegidas de HSM bits\]
+-   Todos os utilizadores/identidades são concedidas as permissões mínimas necessárias usando o controle de acesso baseado em ' (RBAC) da função
+-   Aplicações não partilham um Key Vault, a menos que confiam uns aos outros e eles precisarem de acesso para os segredos mesmo no tempo de execução
+-   Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, 365 dias.
+-   Operações de criptografia permitidas para as chaves estão limitadas aos obrigatórios
 
 ## <a name="ingest"></a>INGESTÃO 
 
 ### <a name="azure-functions"></a>Funções do Azure
-A solução foi concebida para utilizar [das funções do Azure](/azure/azure-functions/) para processar o comprimento de exemplo do mantenha-se de dados utilizadas em demonstração de análise. Capacidades de três nas funções foram criadas.
+A solução foi projetada para usar [as funções do Azure](/azure/azure-functions/) para processar o comprimento de exemplo de dados mantenha-se usada na demonstração analytics. Três capacidades nas funções foram criadas.
 
-**1. Importação em volume de dados de phi de dados de cliente**
+**1. Importação em massa de dados de phi de dados do cliente**
 
-Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatientAdmission** comutador conforme descrito na **implementar e executar a demonstração** executa o pipeline de processamento seguintes:
-1. **Armazenamento de Blobs do Azure** -exemplo de ficheiro. csv de Patient dados carregados para o armazenamento
-2. **Grelha de evento** -eventos publica dados da função do Azure (importação em volume - eventos de blob)
-3. **Função do Azure** - efetua o processamento e armazena os dados para o armazenamento de SQL Server utilizando a função segura - eventos (tipo; url do blob)
-4. **BD do SQL** - o arquivo de base de dados de utilização de dados de Patient etiquetas para classificação e o processo de ML é arrancou para fazer a experimentação de preparação.
+Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatientAdmission** mudar conforme descrito na **implementar e executar a demonstração** executa o pipeline de processamento seguintes:
+1. **Armazenamento de Blobs do Azure** -exemplo de ficheiro. csv de dados de pacientes carregadas para o armazenamento
+2. **Grelha de eventos** -dados de eventos publica a função do Azure (importação em massa - eventos de BLOBs)
+3. **Função do Azure** , realiza o processamento e armazena os dados para o armazenamento de SQL usando a função de segurança, eventos (do tipo; url do blob)
+4. **BD SQL** - o armazenamento de banco de dados para dados dos doentes com etiquetas para classificação e o processo de ML é inicializado para fazer a experimentação de preparação.
 
 ![](images/dataflow.png)
 
-Além disso, a função do azure foi concebida para ler e proteger os dados confidenciais designados no conjunto de dados de exemplo utilizando as etiquetas seguintes:
+Além disso, a função do azure foi concebida para ler e proteger dados confidenciais designados no conjunto de dados de exemplo com as seguintes tags:
 - dataProfile = > "ePHI"
 - proprietário = > \<UPN de administrador do Site\>
 - ambiente = > "Piloto"
-- departamento = > "Ecossistema Global" a etiquetagem foi aplicada ao conjunto de dados de exemplo onde patient 'names' foi identificado como texto não encriptado.
+- departamento = > "Ecossistema Global", a marcação foi aplicada ao conjunto de dados de exemplo em que o paciente "nomes" foi identificada como texto não encriptado.
 
-**2. Admissão de patients novo**
+**2. Admissão dos doentes novo**
 
-Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatientadmission** comutador conforme descrito na **implementar e executar a demonstração** executa o pipeline de processamento seguintes: ![](images/securetransact.png) 
+Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatientadmission** mudar conforme descrito na **implementar e executar a demonstração** executa o pipeline de processamento seguintes: ![](images/securetransact.png) 
  **1. Função do Azure** acionada e a função de pedidos para um [token de portador](/rest/api/) do Azure Active directory.
 
-**2. O Cofre de chaves** pedida para um segredo associado ao token de pedido.
+**2. Key Vault** pedida para um segredo associado ao token do pedido.
 
-**3. Funções do Azure validar o pedido e autorizar o pedido de acesso ao Cofre de chaves.
+**3. Funções do Azure validar o pedido e autorizar o pedido de acesso ao Key Vault.
 
-**4. O Cofre de chaves** devolve o segredo, neste caso, a cadeia de ligação de base de dados do SQL Server.
+**4. Key Vault** devolve o segredo, neste caso, a cadeia de ligação de BD SQL.
 
-**5. Função do Azure** utiliza a cadeia de ligação para ligar à base de dados do SQL Server de forma segura e continua o processamento adicional para armazenar dados ePHI.
+**5. Função do Azure** utiliza a cadeia de ligação para ligar em segurança à base de dados SQL e continua o processamento adicional para armazenar dados de ePHI.
 
-Para alcançar o armazenamento dos dados, um esquema de API comuns foi implementado seguindo rápido Healthcare interoperabilidade recursos (FHIR, pronunciados fire). A função foi fornecida os elementos de exchange FHIR seguintes:
+Para alcançar o armazenamento dos dados, um esquema de API comum foi implementado seguindo rápida de cuidados de saúde de recursos de interoperabilidade (FHIR, pronunciado fire). A função foi fornecida os elementos de exchange FHIR seguintes:
 
--   [Esquema patient](https://www.hl7.org/fhir/patient.html) "quem" inclui informações sobre um patient.
+-   [Esquema de pacientes](https://www.hl7.org/fhir/patient.html) abrange "quem" informações sobre um paciente.
 
--   [Esquema de observação](https://www.hl7.org/fhir/observation.html) abrange o elemento central no healthcare, utilizada para suportar o diagnóstico, monitorizar o progresso, determinar as linhas de base e padrões de e até mesmo capturar demográficas características. 
+-   [Esquema de observação](https://www.hl7.org/fhir/observation.html) abrange o elemento central nos cuidados de saúde, usado para oferecer suporte a diagnósticos, monitorizar o progresso, determinar as linhas de base e padrões de e até mesmo capturar demográficas características. 
 
--   [Encontrar o esquema](https://www.hl7.org/fhir/encounter.html) abrange os tipos de encontros como ambulatory, emergência, casa estado de funcionamento, inpatient e encontros virtuais.
+-   [Encontrar o esquema](https://www.hl7.org/fhir/encounter.html) casa de bastidores os tipos de encontros como ambulatory, emergência, estado de funcionamento, impaciente e encontros virtual.
 
--   [Esquema de condição](https://www.hl7.org/fhir/condition.html) inclui informações detalhadas sobre uma condição, problema, diagnóstico, ou outros eventos, situação, problema ou conceito clinical que tem risen a um nível de preocupação.  
+-   [Esquema de condição](https://www.hl7.org/fhir/condition.html) aborda informações detalhadas sobre uma condição, problema, diagnóstico, ou outros eventos, situação, problema ou clinical conceito que tem risen para um nível de preocupação.  
 
 
 
 ### <a name="event-grid"></a>Event Grid
 
 
-A solução suporta grelha de eventos do Azure, um único serviço para gerir o encaminhamento de todos os eventos de uma origem para qualquer destino, desde que:
+A solução suporta o Azure Event Grid, um único serviço para gerir o encaminhamento de todos os eventos a partir de qualquer origem, para qualquer destino, desde que:
 
 -   [Segurança e autenticação](/azure/event-grid/security-authentication)
 
--   [Controlo de acesso baseado em funções](/azure/event-grid/security-authentication#management-access-control) para várias operações de gestão como listar as subscrições de evento, criar novos e gerar chaves
+-   [Controlo de acesso baseado em funções](/azure/event-grid/security-authentication#management-access-control) para várias operações de gestão, como a listagem subscrições de eventos, criar novas e geração de chaves
 
 -   Auditoria
 
-## <a name="store"></a>ARQUIVO 
+## <a name="store"></a>LOJA 
 
-### <a name="sql-database-and-server"></a>Base de dados do SQL Server e servidor 
+### <a name="sql-database-and-server"></a>Base de dados SQL e o servidor 
 
 
--   [Encriptação de dados transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) fornece encriptação em tempo real e a desencriptação de dados armazenados na SQL Database do Azure, utilizando uma chave armazenada num cofre de chaves do Azure.
+-   [Encriptação de dados transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) fornece encriptação em tempo real e a descriptografia dos dados armazenados no Azure SQL Database, usando uma chave armazenada no Azure Key Vault.
 
--   [Avaliação da vulnerabilidade SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) é uma fácil de configurar a ferramenta que pode detetar, controlar e remediar potenciais vulnerabilidades de base de dados.
+-   [Avaliação de vulnerabilidades do SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) é fácil configurar a ferramenta que pode detetar, controlar e remediar potenciais vulnerabilidades das bases de dados.
 
--   [Deteção de ameaças de base de dados do SQL Server](/azure/sql-database/sql-database-threat-detection) ativada.
+-   [Deteção de ameaças da base de dados de SQL](/azure/sql-database/sql-database-threat-detection) ativada.
 
--   [Auditoria de base de dados SQL](/azure/sql-database/sql-database-auditing) ativada.
+-   [A auditoria de base de dados SQL](/azure/sql-database/sql-database-auditing) ativada.
 
--   [Métricas de base de dados SQL e o registo de diagnóstico](/azure/sql-database/sql-database-metrics-diag-logging) ativada.
+-   [Métricas de base de dados SQL e o registo de diagnósticos](/azure/sql-database/sql-database-metrics-diag-logging) ativada.
 
--   [Regras de firewall de nível do servidor e da base de dados](/azure/sql-database/sql-database-firewall-configure) ter sido tightened.
+-   [Regras de firewall de nível do servidor e da base de dados](/azure/sql-database/sql-database-firewall-configure) ter sido fortalecida.
 
--   [Sempre encriptado colunas](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) são utilizadas para proteger patient nomes, média e o apelido.
-    Além disso, a encriptação de coluna de base de dados também utiliza o Azure Active Directory (AD) para autenticar a aplicação a SQL Database do Azure.
+-   [Sempre encriptado colunas](/azure/sql-database/sql-database-always-encrypted-azure-key-vault) são utilizadas para proteger seus pacientes, médio, nomes e apelidos.
+    Além disso, a encriptação de coluna de base de dados também utiliza o Azure Active Directory (AD) para autenticar a aplicação à base de dados do Azure SQL.
 
--   Acesso à base de dados SQL e SQL Server está configurado, de acordo com o princípio do menor privilégio.
+-   Acesso à base de dados SQL e o SQL Server está configurado, de acordo com o princípio de privilégio mínimo.
 
--   Apenas os endereços IP necessários são permissão de acesso através da firewall do SQL Server.
+-   Apenas os endereços IP necessários têm permissão para aceder através da firewall do SQL.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 
 
--   [Dados em movimento são transferidos utilizando TLS/SSL apenas](/azure/storage/common/storage-require-secure-transfer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json).
+-   [Os dados em movimento são transferidos utilizando TLS/SSL apenas](/azure/storage/common/storage-require-secure-transfer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json).
 
--   Não é permitido o acesso anónimo para contentores.
+-   Acesso anónimo não é permitido para contentores.
 
--   Regras de alertas são configuradas para o registo de atividade anónima.
+-   Regras de alerta são configuradas para controlar a atividade de anônima.
 
--   HTTPS é necessário para aceder a recursos da conta de armazenamento.
+-   O HTTPS é necessário para aceder a recursos da conta de armazenamento.
 
--   Dados de pedido de autenticação são iniciados e monitorizados.
+-   Dados de pedidos de autenticação são iniciados e monitorizados.
 
--   Dados no Blob storage são encriptados em pausa.
+-   Dados no armazenamento de BLOBs são encriptados em inatividade.
 
 ## <a name="analyze"></a>ANALISAR
 
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [O registo está ativado](/azure/machine-learning/studio/web-services-logging) do Machine Learning serviços web.
-- utilizar [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench necessita de um desenvolvimento de experimentações, que fornece a capacidade de prever a um conjunto de solução. [Integrar o workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) pode ajudar a simplificar a gestão de experimentações.
+-   [O registo está ativado](/azure/machine-learning/studio/web-services-logging) para Machine Learning web services.
+- usando [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Bancada de trabalho requer o desenvolvimento de experimentações, que fornece a capacidade de prever a um conjunto de solução. [Integrar o workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) podem ajudar a simplificar a gestão de experimentações.
 
 ## <a name="security"></a>SEGURANÇA
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
-- [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) fornece uma vista centralizada de estado de segurança dos seus recursos do Azure. De forma rápida, pode verificar que os controlos de segurança adequados são cumpridos e corretamente configurado e que possa identificar rapidamente quaisquer recursos que necessitam da atenção. 
+- [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) fornece uma visão centralizada do Estado de segurança dos seus recursos do Azure. Rapidamente, pode verificar que os controlos de segurança adequados estão implementados e corretamente configurado, e pode identificar rapidamente os recursos que requerem atenção. 
 
-- [Azure Advisor](/azure/advisor/advisor-overview) é um consultor de nuvem personalizado que o ajuda a seguir as melhores práticas para otimizar as implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
+- [O Assistente do Azure](/azure/advisor/advisor-overview) é consultor da cloud personalizado que o ajuda a seguir as melhores práticas para otimizar as suas implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights](/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para programadores de web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Detetar anomalias de desempenho. inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
+- [O Application Insights](/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Deteta anomalias de desempenho. inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ### <a name="azure-alerts"></a>Alertas do Azure
-- [Alertas oferecem um método de monitorização de serviços do Azure e permitem-lhe configurar condições através de dados. Alertas também fornecem notificações quando os dados de monitorização corresponde a uma condição de alerta.
+- [Os alertas oferecem um método para monitorizar serviços do Azure e permitem-lhe configurar as condições em dados. Os alertas também fornecem notificações quando os dados de monitorização corresponde a uma condição de alerta.
 
 ### <a name="operations-management-suite-oms"></a>Operations Management Suite (OMS)
 [Operations Management Suite (também conhecido como OMS)](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gestão.
 
 -   Área de trabalho está ativada para o Centro de segurança
 
--   Área de trabalho está ativada para a carga de trabalho de monitorização
+-   Área de trabalho está ativada para a carga de trabalho monitorização
 
 -   Monitorização da carga de trabalho está ativada para:
 
@@ -387,12 +387,12 @@ A solução suporta grelha de eventos do Azure, um único serviço para gerir o 
 
     -   Azure SQL DB Analytics
 
-    -   [Análise do Azure WebApp](/azure/log-analytics/log-analytics-azure-web-apps-analytics) solução
+    -   [Análise de aplicação Web do Azure](/azure/log-analytics/log-analytics-azure-web-apps-analytics) solução
 
     -   Análise do Key Vault
 
     -   Monitorização de Alterações
 
--   [Conector do Application Insights (pré-visualização)](/azure/log-analytics/log-analytics-app-insights-connector) está ativado
+-   [Conector do Application Insights (pré-visualização)](/azure/log-analytics/log-analytics-app-insights-connector) está ativada
 
--   [Análise de registos de atividade](/azure/log-analytics/log-analytics-activity) está ativado
+-   [Log analytics da atividade](/azure/log-analytics/log-analytics-activity) está ativada

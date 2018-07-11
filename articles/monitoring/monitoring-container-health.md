@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2018
+ms.date: 07/08/2018
 ms.author: magoedte
-ms.openlocfilehash: e7d3fdf9e6f027ab1c23a057ad6e039d50cab9ad
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436427"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37917348"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) contentor (pré-visualização)
 
@@ -54,7 +54,7 @@ Esse recurso depende de um agente em contentores do OMS para Linux recolher dado
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Ativar a monitorização de estado de funcionamento de contentor para um novo cluster
-Apenas pode ativar a monitorização do seu cluster do AKS, quando implementar a partir do portal do Azure.  Siga os passos no artigo guia de introdução [implementar um cluster do Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  Quando estiver a utilizar o **monitorização** página, selecione **Sim** para a opção **Ativar monitorização** para ativar e, em seguida, selecione um existente ou criar uma nova área de trabalho do Log Analytics.  
+Pode ativar a monitorização de um novo cluster do AKS durante a implementação do portal do Azure.  Siga os passos no artigo guia de introdução [implementar um cluster do Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  Quando estiver a utilizar o **monitorização** página, selecione **Sim** para a opção **Ativar monitorização** para ativar e, em seguida, selecione um existente ou criar uma nova área de trabalho do Log Analytics.  
 
 Depois de a monitorização está ativada, todas as tarefas de configuração são concluídas com êxito, pode monitorizar o desempenho do seu cluster a partir de uma das seguintes formas:
 
@@ -66,7 +66,7 @@ Depois de a monitorização está ativada, todas as tarefas de configuração s�
 Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Ativar a monitorização de estado de funcionamento de contentor para os clusters geridos existentes
-Ativar a monitorização do seu contentor do AKS já implementado pode ser feito a partir do portal do Azure ou com o modelo Azure Resource Manager fornecido com o cmdlet do PowerShell **New-AzureRmResourceGroupDeployment** ou CLI do Azure.  
+Pode ativar a monitorização de um cluster do AKS já implementado a partir do portal do Azure ou com o modelo Azure Resource Manager fornecido com o cmdlet do PowerShell **New-AzureRmResourceGroupDeployment** ou da CLI do Azure.  
 
 
 ### <a name="enable-from-azure-portal"></a>Ativar a partir do portal do Azure
@@ -75,13 +75,11 @@ Execute os seguintes passos para ativar a monitorização do seu contentor do AK
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **contentores**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **serviços de Kubernetes**.<br><br> ![Portal do Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Na lista de contentores, selecione um contentor.
 3. Na página de descrição geral do contentor, selecione **monitorizar o estado de funcionamento do contentor** e o **inclusão de registos e de estado de funcionamento do contentor** é apresentada a página.
-4. Na **inclusão de registos e de estado de funcionamento do contentor** página, se tiver um existentes do Log Analytics a área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  A lista preselects área de trabalho predefinida e localização do contentor do AKS é implementada na subscrição. Ou pode selecionar **criar novo** e especifique uma nova área de trabalho na mesma subscrição.<br><br> ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. Na **inclusão de registos e de estado de funcionamento do contentor** página, se tiver um existentes do Log Analytics a área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  A lista preselects área de trabalho predefinida e localização do contentor do AKS é implementada na subscrição.<br><br> ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    Se selecionou **criar novo**, o **criar nova área de trabalho** é apresentado o painel. O **região** predefinições para a região seu recurso de contentor é criado e pode aceitar a predefinição ou selecione uma região diferente e, em seguida, especifique um nome para a área de trabalho.  Clique em **criar** para aceitar a sua seleção.<br><br> ![Definir a área de trabalho para monintoring de contentor](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >Neste momento que não é possível criar uma nova área de trabalho na região e.u.a. centro-oeste, só pode selecionar uma área de trabalho pré-existente nessa região.  Apesar de poder selecionar essa região na lista, irá iniciar a implementação, mas falhar em breve, posteriormente.  
-    >
+>[!NOTE]
+>Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização do cluster, siga os passos em [Cretae uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md) e certifique-se de que criar a área de trabalho na mesma subscrição que é o contentor do AKS implementado.  
+>
  
 Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster. 
 
@@ -243,10 +241,11 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
         ```
 Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster.  
 
-## <a name="verify-agent-deployed-successfully"></a>Verifique se o agente implementado com êxito
+## <a name="verify-agent-and-solution-deployment"></a>Verificar a implementação de agente e solução
+Com a versão do agente *06072018* e superior, é possível verificar que o agente e a solução foram implementados com êxito.  Com as versões anteriores do agente, apenas pode verificar a implementação do agente.
 
 ### <a name="agent-version-06072018-and-higher"></a>Versão do agente 06072018 e superior
-Para verificar a versão de agente do OMS *06072018* ou superior está implementado corretamente, execute os seguintes comandos: 
+Execute o seguinte comando para verificar se que o agente é implementado com êxito.   
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -260,7 +259,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-Para verificar uma nova implementação, execute o seguinte comando:
+Para verificar a implementação da solução, execute o seguinte comando:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -524,7 +523,7 @@ Se o estado de funcionamento do contentor foi ativado e configurado com êxito, 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Verificar o estado da implementação da versão do agente *06072018* ou superior, executando o seguinte comando:
+2. Verifique o estado de implementação de solução com a versão do agente *06072018* ou superior, executando o seguinte comando:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 

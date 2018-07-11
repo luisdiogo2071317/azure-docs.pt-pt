@@ -1,7 +1,7 @@
 ---
-title: Importar dados para o Machine Learning Studio | Microsoft Docs
-description: Como importar os seus dados no Azure Machine Learning Studio de várias origens de dados. Saiba que tipos de dados e formatos de dados são suportados.
-keywords: Importar dados, o formato de dados, os tipos de dados, as origens de dados, dados de formação
+title: Importar dados para Machine Learning Studio | Documentos da Microsoft
+description: Como importar os dados para o Azure Machine Learning Studio a partir de várias origens de dados. Saiba quais tipos de dados e formatos de dados são suportados.
+keywords: Importar dados, formato de dados, os tipos de dados, origens de dados, dados de treinamento
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -17,81 +17,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "34837468"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os seus dados de preparação para o Azure Machine Learning Studio a partir de várias origens de dados
-Para utilizar os seus próprios dados no Machine Learning Studio para desenvolver e dar formação sobre uma solução de Análise Preditiva, pode: 
+Para utilizar os seus dados no Machine Learning Studio para desenvolver e formar uma solução de Análise Preditiva, pode: 
 
-* carregar dados a partir de um **ficheiro local** antecedência do disco rígido para criar um módulo de conjunto de dados na sua área de trabalho
-* aceder a dados a partir de um dos vários **origens de dados online** enquanto a sua experimentação está a ser executado utilizando o [importar dados] [ import-data] módulo 
-* utilizar dados a partir de outro Azure Machine learning **experimentação** guardada como um conjunto de dados
-* utilizar dados a partir de um local **base de dados do SQL Server**
+* carregar dados a partir de um **ficheiro local** antes do tempo do disco rígido para criar um módulo de conjunto de dados na sua área de trabalho
+* aceder a dados de um dos vários **origens de dados online** durante a execução de sua experiência com o [importar dados] [ import-data] módulo 
+* utilizar dados do outro Azure Machine learning **experimentar** guardado como um conjunto de dados
+* utilizar dados de uma local **base de dados do SQL Server**
 
-Cada uma destas opções está descrita em um dos tópicos no menu abaixo. Estes tópicos mostram como importar dados a partir destas diversas origens de dados para utilizar no Machine Learning Studio. 
+Cada uma destas opções é descrita em um dos tópicos no menu abaixo. Estes tópicos mostram-lhe como importar dados esses dados de várias origens para utilizar no Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 > [!NOTE]
-> Um número de conjuntos de dados de exemplo estão disponíveis no Machine Learning Studio, pode utilizar para dados de preparação. Para obter informações acerca deste assunto, consulte [utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio](use-sample-datasets.md)).
+> Um número de conjuntos de dados de exemplo estão disponíveis no Machine Learning Studio, que pode utilizar para os dados de treinamento. Para obter informações sobre elas, consulte [utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio](use-sample-datasets.md)).
 > 
 > 
 
-Este tópico introdutórias também descreve como obter os dados pronto a utilizar no Machine Learning Studio e descreve os formatos de dados e os tipos de dados são suportados. 
+Este tópico introdutório também aborda como obter dados pronto para utilização no Machine Learning Studio e descreve quais formatos de dados e os tipos de dados são compatíveis. 
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
-## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Obter dados pronto a utilizar no Azure Machine Learning Studio
-O Machine Learning Studio foi concebido para trabalhar com dados retangular ou tabela, tais como os dados de texto delimitado por ou estruturados dados a partir de uma base de dados, embora em algumas circunstâncias não retangular dados podem ser utilizados.
+## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Obter dados prontos a utilizar no Azure Machine Learning Studio
+O Machine Learning Studio foi projetado para trabalhar com dados retangulares ou em tabela, como dados de texto delimitados ou estruturado de dados a partir de uma base de dados, embora em algumas circunstâncias os dados não retangulares podem ser usados.
 
-É melhor se os seus dados são relativamente limpo. Ou seja, poderá ser útil para problemas tais como cadeias unquoted asseguramos antes de carregar os dados na sua experiência.
+É melhor se seus dados forem relativamente limpos. Ou seja, desejará se encarregar de problemas, como cadeias de caracteres unquoted antes de carregar os dados na sua experimentação.
 
-No entanto, existem módulos disponíveis no Machine Learning Studio, que permitem algumas manipulação de dados dentro da sua experimentação. Consoante os algoritmos do machine learning que irá utilizar, poderá ter de decidir como vai processar problemas estruturais de dados, como os valores em falta e dados dispersos e existem módulos que podem ajudar. Procure no **transformação de dados** secção da paleta do módulo para módulos que realizam estas funções.
+No entanto, existem módulos disponíveis no Machine Learning Studio, que permitem alguma manipulação de dados dentro de sua experiência. Consoante os algoritmos de machine learning que irá utilizar, poderá ter de decidir como irá lidar com problemas de estrutural de dados, tais como valores em falta e dados dispersos, e existem módulos que podem ajudar com isso. Consulte a **transformação de dados** secção da paleta do módulo para módulos que executar estas funções.
 
-Em qualquer momento na sua experimentação, pode ver ou transferir os dados que são produzidos por um módulo clicando na porta de saída. Consoante o módulo, poderá transferir diferentes opções disponíveis ou poderá visualizar os dados dentro do seu browser no Machine Learning Studio.
+Em qualquer ponto na sua experimentação pode ver ou transferir os dados que são produzidos por um módulo ao clicar na porta de saída. Dependendo do módulo, pode haver opções diferentes de download disponível ou poderá visualizar os dados dentro de seu navegador da web no Machine Learning Studio.
 
 ## <a name="data-formats-and-data-types-supported"></a>Tipos de dados e formatos de dados suportados
-Pode importar um número de tipos de dados para a sua experimentação, consoante o mecanismo de utilizar para importar os dados e onde é proveniente de:
+Pode importar um número de tipos de dados na sua experimentação, dependendo de qual mecanismo é utilizado para importar dados e de onde vem de:
 
-* Texto simples (*.txt)
+* Texto sem formatação (. txt)
 * Valores separados por vírgulas (CSV) com um cabeçalho (. csv) ou sem (. nh.csv)
-* Separador valores separados por (TSV) com um cabeçalho (.tsv) ou sem (. nh.tsv)
+* Separador valores separados (TSV) com um cabeçalho. (tsv) ou sem (. nh.tsv)
 * Ficheiro do Excel
 * Tabela do Azure
 * Tabela do Hive
 * Tabela de base de dados SQL
 * Valores de OData
-* Dados SVMLight (.svmlight) (consulte o [SVMLight definição](http://svmlight.joachims.org/) para obter informações de formato)
-* Atributo de dados de formato de ficheiro de relação (ARFF) (.arff) (consulte o [definição ARFF](http://weka.wikispaces.com/ARFF) para obter informações de formato)
+* Dados de SVMLight (.svmlight) (consulte a [SVMLight definição](http://svmlight.joachims.org/) para informações de formato)
+* Atributo de dados do formato de ficheiro de relação (ARFF) (.arff) (consulte a [definição ARFF](http://weka.wikispaces.com/ARFF) para informações de formato)
 * Ficheiro zip (. zip)
-* Ficheiro de objeto ou a área de trabalho de R (. RData)
+* Ficheiro de objeto ou área de trabalho de R (. RData)
 
-Se importar dados num formato como ARFF inclui metadados, o Machine Learning Studio utiliza estes metadados para definir o cabeçalho e o tipo de dados de cada coluna.
+Se importar dados num formato como ARFF que inclui metadados, o Machine Learning Studio usa esses metadados para definir o cabeçalho e o tipo de dados de cada coluna.
 
-Se importar dados, tais como TSV ou CSV com o formato que não inclua estes metadados, o Machine Learning Studio infere o tipo de dados para cada coluna pelos dados de amostragem. Se os dados também não tem cabeçalhos de coluna, o Machine Learning Studio fornece nomes predefinidos.
+Se importar dados, tais como o formato TSV ou CSV, que não inclua estes metadados, o Machine Learning Studio infere o tipo de dados para cada coluna, os dados de amostragem. Se os dados também não tem cabeçalhos de coluna, o Machine Learning Studio dispõe nomes predefinidos.
 
-Pode especificar explicitamente ou alterar os tipos de cabeçalhos e dados de colunas utilizando o [Editar metadados][edit-metadata].
+É possível especificar explicitamente ou alterar os cabeçalhos e tipos de dados para colunas com o [Editar metadados][edit-metadata].
 
-O seguinte **tipos de dados** são reconhecidos pelo Machine Learning Studio:
+O seguinte procedimento **tipos de dados** são reconhecidos pelo Machine Learning Studio:
 
 * Cadeia
 * Número inteiro
-* duplo
+* Valor de duplo
 * Booleano
 * DateTime
-* TimeSpan
+* Período de tempo
 
-O Machine Learning Studio utiliza um tipo de dados internos chamado ***dados tabela*** para transmitir dados entre módulos. Explicitamente pode converter os dados numa tabela de dados utilizando o formato de [converter para o conjunto de dados] [ convert-to-dataset] módulo.
+O Machine Learning Studio utiliza um tipo de dados interno chamado ***tabela de dados*** para passar dados entre os módulos. Explicitamente pode converter os dados em formato de tabela de dados com o [converter para o conjunto de dados] [ convert-to-dataset] módulo.
 
-Qualquer módulo que aceita os formatos que não seja a tabela de dados irá converter os dados de tabela de dados silenciosamente antes de passá-lo para o módulo seguinte.
+Qualquer módulo que formatos que não seja a tabela de dados irá converter os dados à tabela de dados silenciosamente antes de passá-lo ao módulo seguinte.
 
-Se necessário, pode converter a tabela de dados formato no CSV, TSV, ARFF, ou SVMLight utilizando outros módulos de conversão.
-Procure no **conversões de formato de dados** secção da paleta do módulo para módulos que realizam estas funções.
+Se necessário, pode converter o formato de tabela de dados no CSV, TSV, ARFF ou formato de SVMLight com outros módulos de conversão.
+Consulte a **conversões de formato de dados** secção da paleta do módulo para módulos que executar estas funções.
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/

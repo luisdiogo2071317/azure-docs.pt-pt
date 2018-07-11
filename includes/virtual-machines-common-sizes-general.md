@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 016aa15f391daedae1b87fc6c7099b72b50f7160
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "34669327"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37907048"
 ---
 Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
 
@@ -25,6 +25,10 @@ Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ide
 
 
 ## <a name="b-series"></a>Série B
+
+O armazenamento Premium: suportado
+
+Cache de armazenamento Premium: Não suportado
 
 As VMs burstable de série B são ideais para cargas de trabalho que não necessita de um desempenho total da CPU continuamente, como servidores web, desenvolvimento e pequenas bases de dados e os ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece estes clientes a possibilidade de comprar um tamanho de VM com um desempenho de linha de base consciente de preço que permite que a instância VM acumular créditos quando a VM estiver a utilizar menos do que o desempenho de base. Quando a VM acumular crédito, a VM pode ultrapassar os limites acima de linha de base da VM com até 100% da CPU quando seu aplicativo requer o desempenho de CPU superior.
 
@@ -43,6 +47,10 @@ As VMs burstable de série B são ideais para cargas de trabalho que não necess
 
 ACU: 160-190
 
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
+
 Tamanhos da série Dsv3 baseiam-se de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou de mais recente 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processador que pode chegar aos 3,5 GHz com o Intel Turbo Boost Technology 2.0 e utilizar o armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
 
@@ -60,6 +68,10 @@ Tamanhos da série Dsv3 baseiam-se de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) 
 ## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
 ACU: 160-190
+
+Armazenamento Premium: Não suportado
+
+Cache de armazenamento Premium: Não suportado
 
 Tamanhos da série Dv3 baseiam-se de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processador que pode chegar aos 3,5 GHz com o Intel Turbo Boost Technology 2.0. Os tamanhos da série Dv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
@@ -82,6 +94,10 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 ACU: 210-250
 
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
+
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 48 |2 / 750 |
@@ -96,6 +112,10 @@ ACU: 210-250
 
 ACU: 210-250
 
+Armazenamento Premium: Não suportado
+
+Cache de armazenamento Premium: Não suportado
+
 | Tamanho           | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Discos de dados máximos | Débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
@@ -109,7 +129,9 @@ ACU: 210-250
 
 ACU: 100
 
+Armazenamento Premium: Não suportado
 
+Cache de armazenamento Premium: Não suportado
 
 | Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

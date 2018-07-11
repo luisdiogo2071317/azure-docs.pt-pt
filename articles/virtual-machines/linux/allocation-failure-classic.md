@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de falhas de atribuição de VM do Azure com Linux no modelo de implementação clássica | Microsoft Docs
-description: Resolver problemas de falhas de alocação quando criar, reiniciar ou redimensionar uma VM com Linux clássico no Azure
+title: Resolução de problemas de falhas de alocação de VM Linux do Azure no modelo de implementação clássica | Documentos da Microsoft
+description: Resolver problemas de falhas de alocação ao criar, reiniciar ou redimensionar uma VM clássica do Linux no Azure
 services: virtual-machines-Linux, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: genli
 ms.openlocfilehash: d03580e688b993b9b0ea5ca0ea436e1a47a4b0bd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "31529479"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Passos de resolução de problemas específicos para cenários de falha de alocação no modelo de implementação clássica

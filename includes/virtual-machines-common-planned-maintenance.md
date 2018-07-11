@@ -9,13 +9,13 @@ ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "37910036"
 ---
-O Azure efetua periodicamente atualizações para melhorar a fiabilidade, desempenho e segurança da infraestrutura do anfitrião para máquinas virtuais. Estas vão de atualizações de componentes de software no ambiente de alojamento (como o sistema operativo, hipervisor e vários agentes implementadas no anfitrião), a aplicação de patches a atualizar componentes de rede, a desativação de hardware. A maioria destas atualizações são efetuadas sem nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto:
+O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o desempenho e a segurança da infraestrutura de anfitrião para máquinas virtuais. Estas atualizações variam entre a aplicação de patches a componentes de software no ambiente de alojamento (como o sistema operativo, o hipervisor e vários agentes implementados no anfitrião) à atualização de componentes de rede e desativação de hardware. A maioria destas atualizações são efetuadas sem nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto:
 
 - Se uma atualização sem reinicialização for possível, o Azure utiliza preservação da manutenção de memória para colocar em pausa a VM, enquanto o anfitrião é atualizado ou a VM é movida para um anfitrião já atualizado completamente.
 

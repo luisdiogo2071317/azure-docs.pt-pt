@@ -7,11 +7,11 @@
 
     ![Página de localização de instalação de serviço de mobilidade](./media/site-recovery-install-mob-svc-gui/mobility2.png)
 
-4. Utilize o **progresso da instalação** página para monitorizar o progresso do programa de instalação.
+4. Utilize o **progresso da instalação** página para monitorizar o progresso do instalador.
 
     ![Página de progresso da instalação de serviço de mobilidade](./media/site-recovery-install-mob-svc-gui/mobility3.png)
 
-5. Após a conclusão da instalação, selecione **continuar a configuração** para registar o serviço de mobilidade com o seu servidor de configuração.
+5. Depois de concluída a instalação, selecione **continuar a configuração** para registar o serviço de mobilidade com o seu servidor de configuração.
 
     ![Página de registo do serviço de mobilidade](./media/site-recovery-install-mob-svc-gui/mobility4.png)
 

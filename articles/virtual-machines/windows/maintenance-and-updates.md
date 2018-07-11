@@ -1,6 +1,6 @@
 ---
-title: Atualizações para as VMs do Windows no Azure e manutenção | Microsoft Docs
-description: Descrição geral da manutenção atualizações e para máquinas virtuais do Windows em execução no Azure.
+title: Manutenção e atualizações para VMs do Windows no Azure | Documentos da Microsoft
+description: Descrição geral de manutenção e atualizações para máquinas de virtuais do Windows em execução no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: cynthn
 ms.openlocfilehash: a2222b77f049f0aa4d311abf85340c5efd5258e5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "30190281"
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Manutenção planeada para máquinas virtuais no Azure
@@ -28,4 +28,4 @@ ms.locfileid: "30190281"
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-Para obter informações sobre a gestão de manutenção que seja necessário um reinício, consulte [planeada de processamento de notificações de manutenção](maintenance-notifications.md).
+Para obter informações sobre como gerir a necessidade de um reinício de manutenção, consulte [planejado de manipulação de notificações de manutenção](maintenance-notifications.md).
