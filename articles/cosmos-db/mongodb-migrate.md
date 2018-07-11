@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: cacda277082f62c9d98a7459cb5dbf74375bfd87
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795351"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100301"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importar dados do MongoDB 
 
@@ -82,7 +82,7 @@ Exemplo:
         
     * Por predefinição, o Azure Cosmos DB aprovisiona uma coleção do MongoDB nova com mil unidades de pedido por segundo (RU/seg.). Antes de começar a migração com mongoimport, mongorestore ou mongomirror, crie previamente todas as coleções a partir do [portal do Azure](https://portal.azure.com) ou dos controladores e ferramentas do MongoDB. Se a coleção for superior a 10 GB, certifique-se de que cria uma [coleção fragmentada/particionada](partition-data.md) com uma chave de fragmentação adequada.
 
-    * No [portal do Azure](https://portal.azure.com), aumente o débito das coleções de 1000 RUs/seg. em coleções de partição individual e para 2500 RUs/seg. em coleções fragmentadas apenas para a migração. Com o débito mais elevado, pode evitar limitações e realizar a migração em menos tempo. Com a faturação à hora no Azure Cosmos DB, pode reduzir o débito imediatamente após a migração, para reduzir os custos.
+    * No [portal do Azure](https://portal.azure.com), aumente o débito das coleções de 1000 RUs/seg. em coleções de partição individual e para 2500 RUs/seg. em coleções fragmentadas apenas para a migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Com a faturação à hora no Azure Cosmos DB, pode reduzir o débito imediatamente após a migração, para reduzir os custos.
 
     * Para além de aprovisionar RUs/seg. ao nível da coleção, também pode aprovisionar RU/seg. para um conjunto de coleções ao nível da base de dados principal. Para tal, é necessário criar previamente a base de dados e as coleções, bem como definir uma chave fragmentada para cada coleção.
 

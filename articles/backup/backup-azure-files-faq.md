@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286405"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434846"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -34,10 +34,10 @@ Sim. A proteção das Partilhas de Ficheiros do Azure ligadas a Grupos de Sincro
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Quando estava a tentar criar cópias de segurança de partilhas de ficheiros, cliquei numa Conta de Armazenamento para ver que partilhas havia na mesma. No entanto, não as protegi. Como posso proteger estas partilhas de ficheiros com qualquer outro Cofre?
 Ao tentar criar cópias de segurança, selecionar uma Conta de Armazenamento para ver que partilhas de ficheiros há na mesma regista essa Conta no Cofre a partir do qual as cópias estão a ser feitas. Se optar por proteger as partilhas de ficheiros com outro cofre, [Anule o registo](troubleshoot-azure-files.md#configuring-backup) da Conta de Armazenamento escolhida nesse Cofre.
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Posso alterar o Cofre no qual crio as cópias de segurança das minhas partilhas de ficheiros.
+### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>Posso alterar o Cofre no qual crio as cópias de segurança das minhas partilhas de ficheiros?
 Sim. No entanto, terá de [Parar a Proteção](backup-azure-files.md#stop-protecting-an-azure-file-share) no Cofre ligado, [Anular o registo](troubleshoot-azure-files.md#configuring-backup) dessa Conta de Armazenamento e, em seguida, protegê-la noutro Cofre.
 
-### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em que área geográficas posso criar cópias de segurança de partilhas de Ficheiros do Azure? <br/>
+### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em que áreas geográficas posso criar cópias de segurança de partilhas de Ficheiros do Azure <br/>
 A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmente em Pré-visualização e está disponível apenas nas seguintes áreas geográficas: 
 -   Leste da Austrália (AE) 
 - Sudeste da Austrália (ASE) 
@@ -68,7 +68,7 @@ A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmen
 Envie uma mensagem para [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se precisar de a utilizar numa área geográfica específica que não esteja listada acima.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Quantas partilhas de ficheiros do Azure posso proteger num Cofre?<br/>
-Durante a pré-visualização, pode proteger partilhas de ficheiros do Azure de um máximo de 25 Contas de Armazenamento por Cofre. Também pode proteger até 200 partilhas de ficheiros do Azure num único cofre.
+Durante a pré-visualização, pode proteger partilhas de ficheiros do Azure de um máximo de 50 Contas de Armazenamento por Cofre. Também pode proteger até 200 partilhas de ficheiros do Azure num único cofre.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger duas partilhas de ficheiros diferentes da mesma Conta de Armazenamento em cofres diferentes?
 Não. As partilhas de ficheiros numa Conta de Armazenamento só podem ser protegidas pelo mesmo Cofre.

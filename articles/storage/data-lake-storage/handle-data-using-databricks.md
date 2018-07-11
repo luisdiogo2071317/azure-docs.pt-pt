@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061601"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344712"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados com o Azure Databricks
 
@@ -103,7 +103,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databricks e, em seguida, executar fragmentos de código para configurar a conta de armazenamento.
 
-1. No [Portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
+1. No [portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
 
 2. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
@@ -117,7 +117,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
 
 4. Introduza o seguinte código na primeira célula e execute o código:
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
 
 O próximo passo é carregar um ficheiro de dados de exemplo para a conta de armazenamento para transformá-lo mais tarde no Azure Databricks. 
 
-1. Se ainda não tem uma conta criada para o Armazenamento do Data Lake Ger2, siga o início rápido para criar uma conta de Armazenamento do Data Lake Ger2.
-2. Os dados de exemplo (**small_radio_json.json**) estão disponíveis no repositório [Controlo de Exemplos e Problemas do U-SQL](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). Transfira o ficheiro JSON e anote o caminho onde guarda o ficheiro.
-3. Carregue os dados para a conta de armazenamento. O método utilizado para carregar os dados para a sua conta de armazenamento difere consoante tenha, ou não, o Serviço de Espaço de Nomes Hierárquico (HNS) ativado.
+> [!NOTE]
+> Se ainda não tiver uma conta compatível com o Armazenamento do Azure Data Lake Ger2, siga o [início rápido para criar uma](./quickstart-create-account.md).
 
-    Se o Serviço de Espaço de Nomes Hierárquico está ativado na sua conta ADLS Ger2, pode utilizar o Azure Data Factory, distp ou AzCopy (versão 10) para processar o carregamento. A versão 10 do AzCopy só está disponível para clientes de pré-visualização. Para utilizar o AzCopy a partir da Cloud Shell:
+1. Transfira (**small_radio_json**) do repositório [Exemplos de U-SQL e Deteção de Problemas](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) e anote o caminho onde guarda o ficheiro.
+
+2. Em seguida, carregue os dados de exemplo para a conta de armazenamento. O método utilizado para carregar os dados para a sua conta de armazenamento difere consoante tenha, ou não, o espaço de nomes hierárquico ativado.
+
+    Se o espaço de nomes hierárquico está ativado na sua conta de Armazenamento do Azure criada para a conta Ger2, pode utilizar o Azure Data Factory, distp ou AzCopy (versão 10) para processar o carregamento. A versão 10 do AzCopy só está disponível para clientes de pré-visualização. Para utilizar o AzCopy, cole o código seguinte numa janela de comando:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ Regresse ao seu Bloco de Notas do DataBricks e introduza o seguinte código numa
 
 1. Adicione o fragmento seguinte a uma célula de código vazia e substitua os valores dos marcadores de posição por aqueles que guardou anteriormente na conta de armazenamento~.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ Regresse ao seu Bloco de Notas do DataBricks e introduza o seguinte código numa
 
 2. Agora, pode carregar o ficheiro json de exemplo como um dataframe no Azure Databricks. Cole o código seguinte numa nova célula e, em seguida, prima **SHIFT + ENTER** (garantindo que substitui os valores do marcador de posição):
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Execute o código abaixo para ver os conteúdos do dataframe.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ Os dados de exemplo em bruto **small_radio_json.json** capturam o público-alvo 
 
 1. Comece por obter apenas as colunas *firstName*, *lastName*, *gender*, *location* e *level* do dataframe que já criou.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ Os dados de exemplo em bruto **small_radio_json.json** capturam o público-alvo 
 
 2.  Pode transformar mais os dados para mudar o nome da coluna **level** para **subscription_type**.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ Conforme mencionado antes, o conector SQL Data Warehouse utiliza o Armazenamento
 
 1. Indique a configuração para aceder à conta de Armazenamento do Azure a partir do Azure Databricks.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Especifique uma pasta temporária que será utilizada ao mover dados entre o Azure Databricks e o Azure SQL Data Warehouse.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Execute o seguinte fragmento para armazenar as chaves de acesso do armazenamento de Blobs do Azure na configuração. Desta forma, não é necessário manter a chave de acesso em texto simples no bloco de notas.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Indique os valores para ligar à instância do Azure SQL Data Warehouse. Como parte dos pré-requisitos, teve de criar um armazém de dados do SQL.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ Conforme mencionado antes, o conector SQL Data Warehouse utiliza o Armazenamento
 
 5. Execute o fragmento seguinte para carregar o dataframe transformado, **renamedColumnsDF**, como uma tabela no SQL Data Warehouse. Este fragmento cria uma tabela chamada **SampleTable** na base de dados SQL.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")
@@ -317,7 +320,7 @@ Conforme mencionado antes, o conector SQL Data Warehouse utiliza o Armazenamento
         .save()
     ```
 
-6. Ligue à base de dados do SQL e confirme que vê **SampleTable**.
+6. Ligue à base de dados SQL e confirme que vê **SampleTable**.
 
     ![Verificar sampletable](./media/handle-data-using-databricks/verify-sample-table.png "Verificar sampletable")
 

@@ -1,92 +1,95 @@
 ---
-title: Adicionar pendentes prebuilt e entidades para extrair dados comuns na compreensão de idiomas - Azure | Microsoft Docs
-description: Saiba como utilizar pendentes prebuilt e entidades para extrair diferentes tipos de dados de entidade.
+title: Adicionar intenções pré-concebidas e entidades para extrair dados comuns no Language Understanding - Azure | Microsoft Docs
+description: Saiba como utilizar intenções pré-concebidas e entidades para extrair diferentes tipos de dados de entidade.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 075cb270641ca995eec95aa6aa8986c90077148a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085502"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112201"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Adicionar intenções e entidades pré-concebidas
-Adicione pendentes prebuilt e entidades para a aplicação de início rápido de recursos humanos para obter rapidamente intenção extração de dados e de predição. 
+Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-* Adicionar prebuilt pendentes 
-* Adicionar entidades prebuilt datetimeV2 e número
-* Dar formação e publicar
-* Consultar LUIS e receber a resposta de predição
+* Adicionar intenções pré-concebidas 
+* Adicionar datetimeV2 e número de entidades pré-concebidas
+* Preparar e publicar
+* Consultar o LUIS e receber a resposta de predição
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se não tiver o [recursos humanos](luis-quickstart-intents-only.md) aplicação a partir do tutorial anterior, [importar](create-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site, do [LUIS-Samples ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Repositório do Github.
+Se não tiver a aplicação de [Recursos Humanos](luis-quickstart-intents-only.md) do tutorial anterior, [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website) a partir do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `prebuilts`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
-## <a name="add-prebuilt-intents"></a>Adicionar prebuilt pendentes
-LUIS fornece várias pendentes prebuilt para o ajudar com intenções comum do utilizador.  
+## <a name="add-prebuilt-intents"></a>Adicionar intenções pré-concebidas
+O LUIS oferece várias intenções pré-concebidas para ajudar com intenções comuns do utilizador.  
 
-1. Certifique-se a aplicação fica no **criar** secção LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+1. Certifique-se de que a aplicação está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
 
     [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
-2. Selecione **adicionar intenção de domínio prebuilt**. 
+2. Selecione **Adicionar intenção de domínio pré-concebido**. 
 
-    [ ![Página de captura de ecrã de pendentes com o botão de intenção de Adicionar domínio prebuilt realçado](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+    [ ![Captura de ecrã da página Intenções com o botão Adicionar intenção de domínio pré-concebido realçado](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
 
 3. Procurar `Utilities`. 
 
-    [ ![Captura de ecrã da caixa de diálogo pendentes prebuilt com utilitários na caixa de pesquisa](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [ ![Captura de ecrã da caixa de diálogo de intenções pré-concebidas com Utilitários na caixa de pesquisa](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Selecione os pendentes seguintes e selecione **feito**: 
+4. Selecione as intenções seguintes e selecione **Concluído**: 
 
     * Utilities.Cancel
     * Utilities.Confirm
     * Utilities.Help
-    * Utilities.Stop
     * Utilities.StartOver
+    * Utilities.Stop
 
-## <a name="add-prebuilt-entities"></a>Adicionar prebuilt entidades
-LUIS fornece várias entidades prebuilt para extração de dados comuns. 
 
-1. Selecione **entidades** no menu de navegação esquerdo.
+## <a name="add-prebuilt-entities"></a>Adicionar entidades pré-concebidas
+O LUIS oferece várias entidades pré-concebidas para extração de dados comuns. 
 
-    [ ![Lista de captura de ecrã de pendentes com entidades realçado na navegação à esquerda](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
+1. Selecione **Entidades** no menu de navegação esquerdo.
 
-2. Selecione **gerir entidades prebuilt** botão.
+    [ ![Captura de ecrã da lista Intenções com Entidades destacadas na navegação esquerda](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
 
-    [ ![Lista de captura de ecrã de entidades com gerir entidades prebuilt realçadas](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+2. Selecione o botão **Gerir entidades pré-concebidas**.
 
-3. Selecione **número** e **datetimeV2** , em seguida, selecione na lista de entidades prebuilt **feito**.
+    [ ![Captura de ecrã da Lista de entidades com Gerir entidades pré-concebidas realçado](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
 
-    ![Captura de ecrã do selecione número na caixa de diálogo de entidades prebuilt](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+3. Selecione **número** e **datetimeV2** na lista de entidades pré-concebidas e, em seguida, selecione **Concluído**.
 
-## <a name="train-and-publish-the-app"></a>Dar formação e publicar a aplicação
+    ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+
+## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar). 
 
-    ![Botão de formação](./media/luis-quickstart-intents-only/train-button.png)
+    ![Botão de preparação](./media/luis-quickstart-intents-only/train-button.png)
 
     A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
-    ![Na barra de estado preparado](./media/luis-quickstart-intents-only/trained.png)
+    ![Barra de estado preparado](./media/luis-quickstart-intents-only/trained.png)
 
-2. Na parte superior, lado direito do Web site LUIS, selecione o **publicar** botão para abrir a página de publicar. A ranhura de produção está selecionada por predefinição. Selecione o **publicar** botão pela escolha da ranhura de produção. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+2. No lado direito superior do site do LUIS, selecione o botão **Publish** (Publicar) para abrir a página Publish (Publicar). 
 
-    Não é necessário que criar uma chave de LUIS no portal do Azure antes de publicar ou antes de testar o URL de ponto final. Todas as aplicações de LUIS tem uma chave de arranque livre para a criação. Proporciona a criação ilimitados e um [alguns pedidos de ponto final](luis-boundaries.md#key-limits). 
+3. O bloco de produção está selecionado por predefinição. Selecione o botão **Publish** (Publicar) na opção de bloco de produção. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
-## <a name="query-endpoint-with-an-utterance"></a>Ponto final de consulta com um utterance
-Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. Vá para o final do URL no endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, o utterance **consulta**. 
+    Não precisa de criar uma chave de ponto final do LUIS no portal do Azure antes de publicar ou antes de testar o URL do ponto final. Cada aplicação do LUIS tem uma chave de iniciante gratuita para a criação. Oferece-lhe criação ilimitada e [alguns resultados de ponto final](luis-boundaries.md#key-limits). 
 
-O resultado prever a intenção de Utilities.Cancel e extraiu a data 3 de Março e o número 3. 
+## <a name="query-endpoint-with-an-utterance"></a>Consultar ponto final com uma expressão
+Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. Vá para o final do URL no endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
+
+O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março e o número 3. 
 
     ```
     {
@@ -163,10 +166,15 @@ O resultado prever a intenção de Utilities.Cancel e extraiu a data 3 de Março
     }
     ```
 
-Adicionando mais rápida e facilmente pendentes prebuilt e entidades, a aplicação cliente pode adicionar a gestão de conversação e extrair os tipos de dados comuns. 
+Existem dois valores de 3 de março porque a expressão não indicou se 3 de março é no passado ou no futuro. Cabe à aplicação de chamadas do LUIS fazer uma suposição ou pedir esclarecimentos, se assim for preciso. 
+
+Ao adicionar rápida e facilmente intenções e entidades pré-concebidas, a aplicação cliente pode adicionar gestão de conversação e extrair tipos de dados comuns. 
+
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar uma entidade de expressão regular para a aplicação](luis-quickstart-intents-regex-entity.md)
+> [Adicionar uma entidade de expressão regular à aplicação](luis-quickstart-intents-regex-entity.md)
 

@@ -1,155 +1,154 @@
 ---
-title: Detetar problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
-description: Este tutorial mostra como utilizar as regras e ações para detetar automaticamente problemas baseadas em limiares dispositivos na solução de monitorização remota.
+title: Detetar problemas do dispositivo numa solução de monitorização remota baseada no Azure | Microsoft Docs
+description: Este tutorial mostra-lhe como utilizar as regras e ações para detetar automaticamente problemas com dispositivos baseados no limiar na solução de Monitorização Remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
-services: iot-suite
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+services: iot-accelerators
+ms.date: 06/08/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627318"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098486"
 ---
-# <a name="detect-issues-using-threshold-based-rules"></a>Detetar problemas através de regras baseadas em limiares
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
 
-Este tutorial mostra as capacidades do motor de regras de na solução de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
+Neste tutorial, vai configurar o acelerador de soluções de Monitorização Remota para detetar problemas com os seus dispositivos IoT ligados. Para detetar os problemas dos seus dispositivos, adicione regras que geram alertas no dashboard de soluções.
 
-Contoso tem uma regra que gera um alerta crítico quando o pressão comunicadas por um **Chiller** dispositivo excede 250 PSI. Como um operador, pretende identificar **Chiller** inicial de dispositivos que poderão ter sensores problemáticas procurando picos de pressão. Para identificar estes dispositivos, crie uma regra para gerar um aviso quando a pressão excede 150 PSI.
+Para apresentar as regras e alertas, o tutorial utiliza um dispositivo de arrefecimento simulado. O arrefecimento é gerido por uma organização chamada Contoso e é ligado ao acelerador de soluções de Monitorização Remota. A Contoso já tem uma regra que gera um alerta crítico quando a pressão num sistema de arrefecimento ultrapassa 298 PSI. Enquanto operador na Contoso, deve identificar os dispositivos de arrefecimento que possam ter sensores problemáticos, ao procurar picos de pressão iniciais. Para identificar esses dispositivos, adicione uma regra que gera um alerta de aviso quando a pressão no sistema de arrefecimento ultrapassa 150 PSI.
 
-Tem também foi disse que um alerta crítico tem de ser acionado quando a humidade média do **Chiller** dispositivo nos últimos cinco minutos for superior a 80% e a temperatura do **Chiller** dispositivo no é maior do que 75 graus fahrenheit últimos 5 minutos.
+Também lhe foi pedido para criar um alerta crítico para um sistema de arrefecimento quando, durante os últimos cinco minutos, a humidade média no dispositivo foi superior a 80% e a temperatura do dispositivo foi superior a 75 graus fahrenheit.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial:
 
 >[!div class="checklist"]
 > * Ver as regras na sua solução
-> * Criar uma nova regra
-> * Criar uma nova regra com várias condições
+> * Criar uma regra
+> * Criar uma regra com várias condições
 > * Editar uma regra existente
-> * Eliminar uma regra
+> * Ativar e desativar regras
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este tutorial, precisa de uma instância implementada a solução de monitorização remota na sua subscrição do Azure.
+Para seguir este tutorial, precisa de uma instância implementada do acelerador de soluções de Monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+Se ainda não tiver implementado o acelerador de soluções de Monitorização Remota, deverá concluir o início rápido [Implementar uma solução de monitorização remota baseada na cloud](quickstart-remote-monitoring-deploy.md).
 
-## <a name="view-the-rules-in-your-solution"></a>Ver as regras na sua solução
+## <a name="view-the-existing-rules"></a>Ver as regras existentes
 
-O **regras** página na solução mostra uma lista de todas as regras de atuais:
+A página **Regras** no acelerador de soluções apresenta uma lista de todas as regras atuais:
 
-![Página de regras e ações](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2.png)
+[![Página de regras](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Para ver apenas as regras que se aplicam ao **Chiller** dispositivos, aplicar um filtro:
+Para ver apenas as regras que se aplicam a dispositivos de arrefecimento, aplique um filtro:
 
-![Filtrar a lista de regras](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2.png)
+[![Filtrar a lista de regras](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
 
-Pode ver mais informações sobre uma regra e editá-lo ao selecionar na lista:
+Pode ver mais informações sobre uma regra e editá-la ao selecionar na lista:
 
-![Ver detalhes da regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2.png)
+[![Ver detalhes da regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
 
-Para desativar, ativar ou eliminar uma ou mais regras, selecione várias regras na lista:
+Para desativar ou ativar uma ou mais regras, selecione uma ou mais regras na lista:
 
-![Selecione várias regras](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
+[![Selecionar várias regras](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
-## <a name="create-a-new-rule"></a>Criar uma nova regra
+## <a name="create-a-rule"></a>Criar uma regra
 
-Para adicionar uma nova regra que gera um aviso quando a pressão num **Chiller** dispositivo excede 150 PSI, escolha **nova regra**:
-
-![Criar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2.png)
-
-Utilize os seguintes valores para criar a regra:
+Para criar uma regra que gera um aviso quando a pressão num dispositivo de arrefecimento ultrapassa 150 PSI, clique em **Nova regra**. Utilize os seguintes valores para criar a regra:
 
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
-| Nome da regra        | Aviso de chiller                       |
-| Descrição      | Pressão chiller excedeu 150 PSI |
-| Grupo de dispositivos     | **Chillers** grupo de dispositivos             |
-| Cálculo      | Instantâneas                               |
-| Campo de condição 1| pressure                              |
-| Operador de condição 1 | Mais do que                      |
-| Valor da condição 1    | 150                               |
-| Nível de Serverity  | Aviso                               |
+| Nome da regra        | Aviso do sistema de arrefecimento                       |
+| Descrição      | A pressão do sistema de arrefecimento excedeu 150 PSI |
+| Grupo de dispositivos     | Grupo de dispositivos do **sistema de arrefecimento**             |
+| Cálculo      | Instantâneo                               |
+| Condição 1 Campo| pressure                              |
+| Condição 1 operador | Maior que                      |
+| Condição 1 valor    | 150                               |
+| Nível de gravidade  | Aviso                               |
 
-Para guardar a nova regra, escolha **aplicar**.
+[![Criar regra de aviso](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
 
-Pode ver quando a regra é acionada no **regras** página ou no **Dashboard** página.
+Para guardar a nova regra, clique em **Aplicar**.
 
-## <a name="create-a-new-rule-with-multiple-conditions"></a>Criar uma nova regra com várias condições
+Pode ver quando a regra está acionada na página **Regras** ou na página **Dashboard**:
 
-Para criar uma nova regra com várias condições que gera um crítico de alertas quando a humidade média do **Chiller** dispositivo nos últimos cinco minutos for superior a 80% e a temperatura do **Chiller** dispositivo nos últimos cinco minutos é maior do que 75 graus fahrenheit, escolha **nova regra**:
+[![Regra de aviso acionada](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-![Criar regra de mult](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+## <a name="create-a-rule-with-multiple-conditions"></a>Criar uma regra com várias condições
 
-Utilize os seguintes valores para criar a regra:
+Para criar uma regra com várias condições que gera um alerta crítico quando, nos últimos cinco minutos para um dispositivo de arrefecimento, a humidade média é superior a 80% e a temperatura média é superior a 75 graus fahrenheit, clique em **Nova regra**. Utilize os seguintes valores para criar a regra:
 
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
-| Nome da regra        | Humidade chiller e temp crítico    |
-| Descrição      | Humidade e a temperatura são críticas |
-| Grupo de dispositivos     | **Chillers** grupo de dispositivos             |
+| Nome da regra        | Humidade de arrefecimento e temp essenciais    |
+| Descrição      | A humidade e a temperatura são essenciais |
+| Grupo de dispositivos     | Grupo de dispositivos do **sistema de arrefecimento**             |
 | Cálculo      | Média                               |
 | Período de tempo      | 5                                     |
-| Campo de condição 1| humidade                              |
-| Operador de condição 1 | Mais do que                      |
-| Valor da condição 1    | 80                               |
-| Nível de Serverity  | Crítica                              |
+| Condição 1 Campo| humidade                              |
+| Condição 1 operador | Maior que                      |
+| Condição 1 valor    | 80                                |
+| Nível de gravidade  | Crítica                              |
 
-Para adicionar a segunda condição, clique em "+ Adicionar condição".
+[![Criar regra de várias condições parte 1](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
-![Criar a condição 2](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
-
-Utilize os seguintes valores na nova condição:
+Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize os seguintes valores para a nova condição:
 
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
-| Campo de condição 2| temperatura                           |
-| Operador de condição 2 | Mais do que                      |
-| Valor da condição 2    | 75                                |
+| Condição 2 Campo| temperatura                           |
+| Condição 2 operador | Maior que                      |
+| Condição 2 valor    | 75                                |
 
-Para guardar a nova regra, escolha **aplicar**.
+[![Criar regra de várias condições parte dois](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
-Pode ver quando a regra é acionada no **regras** página ou no **Dashboard** página.
+Para guardar a nova regra, clique em **Aplicar**.
+
+Pode ver quando a regra está acionada na página **Regras** ou na página **Dashboard**:
+
+[![Regra de várias condições acionada](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
 ## <a name="edit-an-existing-rule"></a>Editar uma regra existente
 
-Para efetuar uma alteração a uma regra existente, selecione-o na lista de regras.
+Para fazer uma alteração a uma regra existente, selecione-a na lista de regras e clique em **Editar**:
 
-![Editar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2.png)
+[![Editar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
 
-<!--## Disable a rule
+## <a name="disable-a-rule"></a>Desativar uma regra
 
-To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
+Para desativar temporariamente uma regra, pode desativá-la na lista de regras. Escolha a regra a desativar e, em seguida, escolha **Desativar**. O **Estado** da regra é alterado na lista para indicar que a regra está agora desativada. Pode voltar a ativar uma regra que desativou anteriormente com o mesmo procedimento.
 
-![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable.png)
+[![Desativar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
-You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
+Pode ativar e desativar várias regras ao mesmo tempo, ao selecionar várias regras na lista.
 
-<!--## Delete a rule
+<!-- ## Delete a rule
 
 To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
 You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Este tutorial mostrou, como para:
+Se planear avançar para o próximo tutorial, deixe o acelerador de soluções de Monitorização Remota implementado. Para reduzir os custos de execução do acelerador de soluções enquanto não estiver a utilizá-lo, pode parar os dispositivos simulados no painel de definições:
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Ver as regras na sua solução
-> * Criar uma nova regra
-> * Editar uma regra existente
-> * Eliminar uma regra
+[![Pausar telemetria](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
 
-Agora que aprendeu como detetar problemas através de regras baseadas em limiares, os passos sugeridos são saber como:
+Pode reiniciar os dispositivos simulados quando estiver pronto para iniciar o próximo tutorial.
 
-* [Gerir e configurar os seus dispositivos](iot-accelerators-remote-monitoring-manage.md).
-* [Resolver problemas e resolver problemas de dispositivo](iot-accelerators-remote-monitoring-maintain.md).
-* [Testar a sua solução com dispositivos simulados](iot-accelerators-remote-monitoring-test.md).
+Se já não precisar do acelerador de soluções, elimine-o na página [Soluções aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard):
 
-<!-- Next tutorials in the sequence -->
+![Eliminar solução](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Este tutorial mostrou como utilizar a página **Regras** no acelerador de soluções de Monitorização Remota, para criar e gerir regras que acionam alertas na solução. Para saber como utilizar o acelerador de soluções para gerir e configurar os seus dispositivos ligados, avance para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Configurar e gerir dispositivos ligados à sua solução de monitorização](iot-accelerators-remote-monitoring-manage.md)

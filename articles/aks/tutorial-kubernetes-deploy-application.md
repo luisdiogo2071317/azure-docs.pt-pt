@@ -2,30 +2,30 @@
 title: Tutorial do Kubernetes no Azure – Implementar Aplicação
 description: Tutorial de AKS – Implementar Aplicação
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067678"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101051"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicações no Serviço Kubernetes do Azure (AKS)
 
-Neste tutorial, parte quatro de oito, a aplicação de exemplo é implementada num cluster do Kubernetes. Os passos concluídos incluem:
+Neste tutorial, parte quatro de sete, a aplicação de exemplo é implementada num cluster do Kubernetes. Os passos concluídos incluem:
 
 > [!div class="checklist"]
 > * Atualizar ficheiros de manifesto Kubernetes
 > * Executar uma aplicação no Kubernetes
 > * Testar a aplicação
 
-Nos tutoriais subsequentes, esta aplicação é aumentada horizontalmente, atualizada e o Log Analytics é configurado para monitorizar o cluster de Kubernetes.
+Nos tutoriais subsequentes, esta aplicação é aumentada horizontalmente e atualizada.
 
 Este tutorial pressupõe um conhecimento básico dos conceitos do Kubernetes. Para obter informações detalhadas sobre o Kubernetes, veja a [documentação do Kubernetes][kubernetes-documentation].
 

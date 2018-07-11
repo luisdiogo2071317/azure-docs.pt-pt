@@ -6,32 +6,27 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360109"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435549"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
-Com o Visual Studio e o [Azure SDK](https://azure.microsoft.com/downloads/), pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. Em alternativa, pode definir uma Máquina Virtual, a Virtual Network e a Conta do Storage e implemente essa infraestrutura juntamente com um script que é executado na Máquina Virtual. O projeto de implementação **Grupo de Recursos do Azure** permite-lhe implementar todos os recursos necessários numa operação única e repetida. Para obter mais informações sobre como implementar e gerir os recursos, consulte o artigo [Descrição geral do Azure Resource Manager](resource-group-overview.md).
+Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, implemente uma aplicação Web e uma Base de Dados SQL.  
 
-Os projetos do Grupo de Recursos do Azure contêm modelos JSON do Azure Resource Manager, que definem os recursos que implementou para o Azure. Para saber mais sobre os elementos do modelo do Resource Manager, consulte [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md). O Visual Studio permite-lhe editar estes modelos e fornece ferramentas que simplificam o trabalho com modelos.
-
-Neste artigo, implemente uma aplicação Web e uma Base de Dados SQL. No entanto, os passos são quase os mesmos para qualquer tipo de recurso. De igual forma, pode facilmente implementar uma Máquina Virtual e os respetivos recursos relacionados. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação.
-
-Este artigo mostra o Visual Studio 2017. Se utilizar o Visual Studio 2015 Update 2 e o Microsoft Azure SDK para .NET 2.9 ou o Visual Studio 2013 com o Azure SDK 2.9, a experiência é basicamente a mesma. Pode utilizar a versão 2.6 ou posterior do Azure SDK. No entanto, a sua experiência de interface do utilizador pode ser diferente da interface do utilizador que é mostrada neste artigo. Recomendamos vivamente que instale a versão mais recente do [Azure SDK](https://azure.microsoft.com/downloads/) antes de iniciar os passos. 
+Este artigo mostra como utilizar o [Visual Studio 2017 com o desenvolvimento do Azure e as cargas de trabalho ASP.NET instaladas](/dotnet/azure/dotnet-tools). Se utilizar o Visual Studio 2015 Update 2 e o Microsoft Azure SDK para .NET 2.9 ou o Visual Studio 2013 com o Azure SDK 2.9, a experiência é basicamente a mesma.
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
-Neste procedimento, cria um projeto de Grupo de Recursos do Azure com um modelo **Aplicação Web + SQL Server**.
+Nesta secção, cria um projeto de Grupo de Recursos do Azure com um modelo **Aplicação Web + SQL**.
 
 1. No Visual Studio, selecione **Ficheiro**, **Novo Projeto**, **C#** ou **Visual Basic** (a linguagem que selecionar não afeta as fases posteriores, uma vez que estes projetos têm apenas conteúdo JSON e do PowerShell). Em seguida, selecione **Nuvem** e, em seguida, o projeto **Grupo de Recursos do Azure**.
    
@@ -52,18 +47,18 @@ Neste procedimento, cria um projeto de Grupo de Recursos do Azure com um modelo 
    
     ![mostrar nós](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    Uma vez que escolhemos o modelo Aplicação Web + SQL para este exemplo, verá os seguintes ficheiros: 
+    Uma vez que escolhe o modelo Aplicação Web + SQL para este exemplo, verá os seguintes ficheiros: 
    
    | Nome de ficheiro | Descrição |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que invoca comandos do PowerShell para implementar no Azure Resource Manager.<br />**Nota** O Visual Studio utiliza este script do PowerShell para implementar o modelo. Quaisquer alterações que efetuar neste script afetam a implementação no Visual Studio, por isso, tenha cuidado. |
+   | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager.<br />**Nota** O Visual Studio utiliza este script do PowerShell para implementar o modelo. Quaisquer alterações que efetuar neste script afetam a implementação no Visual Studio, por isso, tenha cuidado. |
    | WebSiteSQLDatabase.json |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |
-   | WebSiteSQLDatabase.parameters.json |Um ficheiro de parâmetros que contém valores necessários para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. |
+   | WebSiteSQLDatabase.parameters.json |Um ficheiro de parâmetros que tem os valores que são precisos para o modelo. Passa nos valores dos parâmetros para personalizar cada implementação. |
    
-    Todos os projetos de implementação do grupo de recursos contêm estes ficheiros básicos. Outros projetos poderão conter ficheiros adicionais para suportar outras funcionalidades.
+    Todos os projetos de implementação do grupo de recursos têm estes ficheiros básicos. Outros projetos poderão ter ficheiros adicionais para suportar outras funcionalidades.
 
 ## <a name="customize-the-resource-manager-template"></a>Personalizar o modelo do Resource Manager
-Pode personalizar um projeto de implementação ao modificar os modelos JSON que descrevem os recursos que pretende implementar. O JSON significa JavaScript Object Notation e é um formato de dados serializados com o qual é fácil de trabalhar. Os ficheiros JSON utilizam um esquema que é referenciado na parte superior de cada ficheiro. Se pretende compreender o esquema, pode transferi-lo e analisá-lo. O esquema define os elementos que são válidos, os tipos e formatos dos campos, os valores possíveis dos valores enumerados, etc. Para saber mais sobre os elementos do modelo do Resource Manager, consulte [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+Pode personalizar um projeto de implementação ao modificar os modelos JSON que descrevem os recursos que pretende implementar. O JSON significa JavaScript Object Notation e é um formato de dados serializados com o qual é fácil de trabalhar. Os ficheiros JSON utilizam um esquema que é referenciado na parte superior de cada ficheiro. Se pretende compreender o esquema, pode transferi-lo e analisá-lo. O esquema define os elementos que são válidos, os tipos e formatos dos campos e os valores possíveis de uma propriedade. Para saber mais sobre os elementos do modelo do Resource Manager, consulte [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
 Para trabalhar no seu modelo, abra **WebSiteSQLDatabase.json**.
 
@@ -141,7 +136,7 @@ Agora, está pronto para implementar o projeto. Quando implementa um projeto do 
    
     **administratorLogin** especifica o nome de utilizador do administrador do SQL Server. Não utilize nomes de administradores comuns, como **sa** ou **admin**. 
    
-    **administratorLoginPassword** especifica a palavra-passe do administrador do SQL Server. A opção **Guardar palavras-passe como texto simples no ficheiro de parâmetros** não é segura; por isso, não a selecione. Uma vez que a palavra-passe não é guardada como texto simples, tem de fornecer novamente esta palavra-passe durante a implementação. 
+    **administratorLoginPassword** especifica a palavra-passe do administrador do SQL Server. A opção **Guardar palavras-passe como texto simples no ficheiro de parâmetros** não é segura; por isso, não a selecione. Uma vez que a palavra-passe não é guardada como texto simples, tem de indicar novamente esta palavra-passe durante a implementação. 
    
     **databaseName** especifica um nome para a base de dados criar. 
    
@@ -194,18 +189,18 @@ Neste momento, implementou a infraestrutura para a sua aplicação, mas não exi
    
     As propriedades são:
    
-   * As **Propriedades Adicionais** contêm a localização de transição do pacote de implementação Web que é enviada para o Armazenamento do Azure. Anote a pasta (ExampleApp) e o ficheiro (package.zip). É necessário saber estes valores, uma vez que os fornece como parâmetros ao implementar a aplicação. 
-   * O **Incluir Caminho do Ficheiro** contém o caminho onde o pacote é criado. O **Incluir Destinos** contém o comando que a implementação executa. 
+   * As **Propriedades Adicionais** têm a localização de transição do pacote de implementação Web que é enviada para o Armazenamento do Azure. Anote a pasta (ExampleApp) e o ficheiro (package.zip). É necessário saber estes valores, uma vez que os fornece como parâmetros ao implementar a aplicação. 
+   * O **Incluir Caminho do Ficheiro** tem o caminho onde o pacote é criado. O **Incluir Destinos** tem o comando que a implementação executa. 
    * O valor predefinido de **Build;Package** permite a implementação para criar um pacote de implementação Web (package.zip).  
      
-     Não é necessário um perfil de publicação, uma vez que a implementação obtém as informações necessárias das propriedades para criar o pacote.
+     Não precisa de um perfil de publicação, uma vez que a implementação obtém as informações necessárias das propriedades para criar o pacote.
 7. Volte a WebSiteSQLDatabase.json e adicione um recurso ao modelo.
    
     ![adicionar recurso](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Desta vez, selecione **Implementação Web de Aplicações Web**. 
    
     ![adicionar implementação Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Reimplemente o projeto do grupo de recursos no grupo de recursos. Desta vez, existem alguns parâmetros novos. Não é necessário fornecer valores para **_artifactsLocation** ou **_artifactsLocationSasToken** porque o Visual Studio gera automaticamente esses valores. No entanto, tem de definir o nome da pasta e do ficheiro como o caminho que contém o pacote de implementação (apresentado como **ExampleAppPackageFolder** e **ExampleAppPackageFileName** na imagem seguinte). Forneça os valores que viu anteriormente nas propriedades de referência (**ExampleApp** e **package.zip**).
+9. Reimplemente o projeto do grupo de recursos no grupo de recursos. Desta vez, existem alguns parâmetros novos. Não precisa de indicar os valores para **_artifactsLocation** ou **_artifactsLocationSasToken** porque o Visual Studio gera automaticamente esses valores. No entanto, tem de definir o nome da pasta e do ficheiro como o caminho que contém o pacote de implementação (apresentado como **ExampleAppPackageFolder** e **ExampleAppPackageFileName** na imagem seguinte). Forneça os valores que viu anteriormente nas propriedades de referência (**ExampleApp** e **package.zip**).
    
     ![adicionar implementação Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
    
@@ -218,11 +213,11 @@ Neste momento, implementou a infraestrutura para a sua aplicação, mas não exi
      ![mostrar aplicação implementada](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="add-an-operations-dashboard-to-your-deployment"></a>Adicionar um dashboard de operações à implementação
-Agora que criámos uma solução, está na altura de percorrer o último quilómetro e torná-la operacional. Não está limitado apenas aos recursos disponíveis através da interface do Visual Studio. Podemos tirar partido da utilização de dashboards partilhados, que estão definidos como recursos em JSON. Podemos fazê-lo ao editar o modelo e ao adicionar um recurso personalizado. 
+Não está limitado apenas aos recursos disponíveis através da interface do Visual Studio. Pode personalizar a sua implementação, ao adicionar um recurso personalizado ao seu modelo. Para mostrar a adição de um recurso, adicione um dashboard operacional para gerir os recursos que implementou.
 
-1. Abra o ficheiro WebsiteSqlDeploy.json e adicione o seguinte bloco de código json após o recurso da conta de armazenamento, mas antes do ] da secção de recursos.
+1. Abra o ficheiro WebsiteSqlDeploy.json e adicione o seguinte JSON após o recurso da conta de armazenamento, mas antes do `]` da secção de recursos.
 
-```json
+  ```json
     ,{
       "properties": {
         "lenses": {
@@ -297,23 +292,19 @@ Agora que criámos uma solução, está na altura de percorrer o último quilóm
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-}
-```
+  }
+  ```
 
-2. Volte a implementar o grupo de recursos e, ao observar o dashboard no portal do Azure, verá o dashboard partilhado adicionado à lista de opções. 
+2. Voltar a implementar o grupo de recursos. Observe o dashboard no portal do Azure e repare que o dashboard partilhado foi adicionado à sua lista de opções.
 
-    ![Dashboard Personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+   ![Dashboard Personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
+3. Selecione o dashboard.
 
+   ![Dashboard Personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-   > [!NOTE] 
-   > O acesso ao dashboard pode ser gerido através de grupos do RBAC e as personalizações podem ser publicadas no recurso depois deste ser implementado. Tenha em atenção que quando voltar a implementar o grupo de recursos, este será reposto novamente para a predefinição no modelo. Deve considerar atualizar o modelo com as personalizações. Para obter ajuda sobre como fazê-lo, veja [Criar programaticamente Dashboards do Azure](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+Pode gerir o acesso ao dashboard através de grupos do RBAC. Também pode personalizar a aparência do dashboard após a sua implementação. No entanto, se voltar a implementar o grupo de recursos, o dashboard ficará no estado predefinido no seu modelo. Para obter mais informações sobre a criação de dashboards, veja [Criar Dashboards do Azure programaticamente](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-
-    ![Dashboard Personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
-    
-    
 ## <a name="next-steps"></a>Passos seguintes
-* Para saber mais sobre como gerir os recursos através do portal, veja [Using the Azure portal to manage your Azure resources (Utilizar o Portal do Azure para gerir os recursos do Azure)](resource-group-portal.md).
 * Para saber mais sobre modelos, consulte o artigo [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 

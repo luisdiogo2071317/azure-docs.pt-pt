@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029609"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100356"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: ferramenta de migração de dados
 
@@ -450,7 +450,7 @@ Estão disponíveis várias opções avançadas durante a importação. Em prime
 
 O importador de registos sequenciais do Azure Cosmos DB inclui as seguintes opções avançadas adicionais:
 
-1. Número de Pedidos Paralelos: a predefinição da ferramenta é dois pedidos paralelos. Se os documentos a importar forem pequenos, considere aumentar o número de pedidos paralelos. Se este número aumentar muito, a importação pode apresentar problemas de limitação.
+1. Número de Pedidos Paralelos: a predefinição da ferramenta é dois pedidos paralelos. Se os documentos a importar forem pequenos, considere aumentar o número de pedidos paralelos. Se este número aumentar muito, a importação pode apresentar limite de velocidade.
 2. Desativar a Geração Automática de Id: se todos os documentos a importar contiverem um campo de id, selecionar esta opção pode aumentar o desempenho. Os documentos em que falta um campo de id exclusivo não são importados.
 3. Atualizar Documentos Existentes: a predefinição da ferramenta é não substituir os documentos existentes com conflitos de id. A seleção desta opção permite substituir os documentos existentes com ids correspondentes. Esta funcionalidade é útil para as migrações de dados agendadas que atualizam os documentos existentes.
 4. Número de Tentativas em Caso de Falha: especifica o número de vezes a tentar a ligação ao Azure Cosmos DB em caso de falhas transitórias (por exemplo, interrupção de conectividade de rede).

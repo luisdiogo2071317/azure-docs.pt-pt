@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 6fcd6389e3ff23c1cb2b2f0e5183ea43bae9f313
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796143"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081217"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao Azure Cosmos DB: Graph API
 
@@ -45,7 +45,7 @@ A Graph API do Azure Cosmos DB fornece:
 - Níveis de consistência ajustáveis.
 - SLAs abrangentes, incluindo um SLA de 99,99% de disponibilidade para todas as contas de região única e para todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões.
 
-Para consultar o Azure Cosmos DB, pode utilizar a linguagem transversal de gráficos do [Apache TinkerPop](http://tinkerpop.apache.org), o [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), ou outros sistemas de gráficos compatíveis com o TinkerPop, como o [Apache Spark GraphX](spark-connector-graph.md).
+Para consultar o Azure Cosmos DB, pode utilizar a linguagem de percurso em gráfico do [Apache TinkerPop](http://tinkerpop.apache.org) ou do [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
 Este artigo fornece uma descrição geral da Graph API do Azure Cosmos DB e explica como pode utilizá-la para armazenar gráficos enormes com milhares de milhões de vértices e margens. Pode consultar os gráficos com latência de milissegundos e desenvolver facilmente o esquema e estrutura do gráfico.
 
@@ -93,7 +93,7 @@ O Azure Cosmos DB oferece as seguintes funcionalidades diferenciadas em compara�
 
 * Compatibilidade com o Apache TinkerPop
 
- O Azure Cosmos DB suporta de forma nativa o padrão Apache TinkerPop e pode ser integrado com outros sistemas de gráficos compatíveis com o TinkerPop. Assim, pode migrar facilmente de outra base de dados de gráficos, como o Titan ou Neo4j, ou utilizar o Azure Cosmos DB com arquiteturas de análise de gráficos, como o [Apache Spark GraphX](spark-connector-graph.md).
+ O Azure Cosmos DB suporta de forma nativa o padrão Apache TinkerPop e pode ser integrado com outros sistemas de gráficos compatíveis com o TinkerPop. Assim, pode migrar facilmente de outra base de dados de gráficos, como o Titan ou Neo4j, ou utilizar o Azure Cosmos DB com arquiteturas de análise de gráficos, como o Apache Spark GraphX.
 
 * Níveis de consistência ajustáveis
 

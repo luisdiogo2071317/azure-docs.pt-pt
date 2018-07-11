@@ -10,12 +10,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: aafb86e7ebc99ea48e09b34b58682c983fe9f293
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063110"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085393"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Início Rápido: Criar uma conta de armazenamento de Pré-visualização do Armazenamento do Azure Data Lake Ger2
 
@@ -50,7 +50,7 @@ O botão inicia uma shell interativa que pode utilizar para executar os passos n
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
+Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido requer a execução da versão 2.0.38 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Descrição geral da criação de uma conta de Armazenamento do Azure Data Lake Ger2
 
@@ -115,6 +115,15 @@ Para remover um grupo de recursos através do portal do Azure:
 2. Encontre o grupo de recursos a eliminar e clique com o botão direito do rato em **Mais** (**...** ) no lado direito da lista.
 3. Selecione **Eliminar grupo de recursos** e confirme.
 
+
+## <a name="upgrade-your-powershell-module"></a>Atualizar o módulo do powershell
+
+Para interagir com o Armazenamento do Data Lake Ger2 através do PowerShell, terá de atualizar o seu módulo para a versão de pré-visualização.
+
+Para tal, abra um PowerShell elevado e introduza o seguinte comando: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Em seguida, reinicie a shell.
+
 ## <a name="create-an-account-using-powershell"></a>Criar uma conta com o PowerShell
 
 Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã para autenticar.
@@ -151,7 +160,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos
@@ -162,6 +171,12 @@ Para remover o grupo de recursos e os respetivos recursos associados, incluindo 
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
+## <a name="upgrade-your-cli-module"></a>Atualizar o seu módulo da CLI
+
+Para interagir com o Armazenamento do Data Lake Ger2 através da CLI, terá de adicionar a extensão à sua shell.
+
+Para o fazer: com o Cloud Shell ou uma shell local, introduza o seguinte comando: `az extension add --name storage-preview`
+
 ## <a name="create-an-account-using-azure-cli"></a>Criar uma conta com a CLI do Azure 
 
 Para iniciar o Azure Cloud Shell, inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -171,6 +186,7 @@ Para iniciar sessão na sua instalação local da CLI, execute o comando de iní
 ```cli
 az login
 ```
+
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group#az_group_create). 
@@ -195,7 +211,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos

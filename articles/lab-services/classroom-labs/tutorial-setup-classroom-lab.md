@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 39683c89db57dbeefd190a51415c783d012785e0
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 163763bf1203a045326c7163b5f6da9aa417d8cf
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303780"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081861"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -61,7 +61,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 
 ## <a name="set-up-the-template"></a>Configurar o modelo 
-Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure a máquina virtual do modelo para que seja configurado com exatamente o que pretende fornecer aos utilizadores do laboratório. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Publique o modelo para público para tornar as instâncias da VM de modelo disponíveis para os seus utilizadores de laboratório. 
+Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure a máquina virtual do modelo para que seja configurado com exatamente o que pretende fornecer aos utilizadores do laboratório. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Publique o modelo para tornar as instâncias da VM de modelo disponíveis para os seus utilizadores de laboratório. 
 
 ### <a name="set-title-and-description"></a>Definir o título e a descrição
 1. Na secção **Modelo**, selecione **Editar** (ícone de lápis) para o modelo. 
@@ -96,8 +96,8 @@ Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do
 2. Agora, selecione o botão **Publicar**. Este processo poderá demorar algum tempo consoante quantas VMs estão a ser criadas, sendo o mesmo número de utilizadores permitidos no laboratório.
     
     > [!IMPORTANT]
-    > Depois de um modelo estar disponível publicamente, não é possível alterar o acesso para privado. 
-4. Mude para a página **Máquinas virtuais** e confirme que vê cinco máquinas virtuais que estão no estado **Não atribuído**. Estas VMs ainda não estão atribuídas a estudantes. 
+    > Depois de um modelo ser publicado, não pode ser anulado. 
+4. Mude para a página **Máquinas virtuais** e confirme que vê as máquinas virtuais que estão no estado **Não atribuído**. Estas VMs ainda não estão atribuídas a estudantes. 
 
     ![Máquinas virtuais](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Aguarde até que as VMs sejam criadas. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 

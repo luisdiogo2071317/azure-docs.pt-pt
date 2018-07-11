@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335827"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127860"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>Tutorial: Criar uma aplicação com uma entidade de lista
+# <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Adicionar entidade de lista
 Neste tutorial, vai criar uma aplicação que demonstra como obter dados que correspondem a uma lista predefinida. 
 
 <!-- green checkmark -->
@@ -30,12 +30,12 @@ Neste tutorial, vai criar uma aplicação que demonstra como obter dados que cor
 Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [domínio personalizado](luis-quickstart-intents-regex-entity.md) de entidades regex, [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
+Se não tiver a aplicação de Recursos Humanos do tutorial [entidade regex](luis-quickstart-intents-regex-entity.md), [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
 
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `list`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
 ## <a name="purpose-of-the-list-entity"></a>Objetivo da entidade de lista
-Esta aplicação prevê expressões sobre como mover um colaborador de um edifício para outro. Esta aplicação utiliza uma entidade de lista para extrair um colaborador. O colaborador pode ser referenciado pelo nome, número de telefone, e-mail ou número de segurança social federal dos E.U.A.. 
+Esta aplicação prevê expressões sobre como mover um colaborador de um edifício para outro. Esta aplicação utiliza uma entidade de lista para extrair um colaborador. O colaborador pode ser referenciado pelo nome, número de telefone, e-mail ou número de segurança social federal dos E.U.A. 
 
 Uma entidade de lista pode conter muitos itens com sinónimos para cada item. Para uma pequena a média empresa, a entidade de lista é utilizada para extrair as informações do colaborador. 
 
@@ -97,8 +97,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |234-56-7891 para hh-2345|
 
     [ ![Captura de ecrã da página Intenção com as novas expressões realçadas](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    Esta aplicação tem a entidade de número pré-concebida adicionada do tutorial anterior, pelo que cada número está etiquetado. Esta informação pode ser suficiente para a sua aplicação cliente, mas o número não está marcado com o tipo. Criar uma nova entidade com um nome adequado permite à aplicação cliente processar a entidade quando é devolvida pelo LUIS.
 
 ## <a name="create-an-employee-list-entity"></a>Criar uma entidade de lista de colaborador
 Agora que a intenção **MoveEmployee** tem expressões, o LUIS tem de compreender o que é um colaborador. 
@@ -298,10 +296,10 @@ O chatbot tem agora informações suficientes para determinar a ação principal
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados da entidade para executar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Delete** (Eliminar). Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como adicionar uma entidade hierárquica](luis-quickstart-intent-and-hier-entity.md)
+> [Adicione uma entidade hierárquica à aplicação](luis-quickstart-intent-and-hier-entity.md)
 

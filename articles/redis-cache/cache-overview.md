@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062764"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096197"
 ---
 # <a name="what-is-azure-redis-cache"></a>O que é a Cache de Redis do Azure?
 
@@ -27,7 +27,7 @@ A Cache de Redis do Azure é baseada na popular [Cache de Redis](https://redis.i
 
 A Cache de Redis do Azure também pode ser utilizada como um arquivo da estrutura de dados na memória, uma base de dados não relacional distribuída e um mediador de mensagens. O desempenho da aplicação é melhorado ao tirar partido do desempenho da latência baixa e do alto débito do motor de Redis.
 
-A Cache de Redis do Azure dá-lhe acesso a uma cache de Redis segura e dedicada, gerida pela Microsoft, e acessível a partir de qualquer aplicação no Azure.
+A Cache de Redis do Azure dá-lhe acesso a uma cache de Redis segura e dedicada, gerida pela Microsoft, e acessível a partir de qualquer aplicação dentro ou fora do Azure.
 
 ## <a name="why-use-azure-redis-cache"></a>Porquê utilizar a Cache de Redis do Azure?
 

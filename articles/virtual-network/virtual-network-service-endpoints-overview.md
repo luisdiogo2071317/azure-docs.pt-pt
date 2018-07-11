@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824691"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443635"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -28,11 +28,13 @@ Os pontos finais de serviço da Rede Virtual (VNet) expandem o seu espaço de en
 
 Esta funcionalidade está disponível para os seguintes serviços e regiões do Azure:
 
-- **Armazenamento do Azure**: Disponibilidade Geral em todas as regiões do Azure
-- **Base de Dados SQL do Azure**: Disponibilidade Geral em todas as regiões do Azure
-- **Azure Cosmos DB**: Disponibilidade Geral em todas as regiões da cloud pública do Azure 
-- **Azure SQL Data Warehouse**: Pré-visualização em todas as regiões da cloud pública do Azure
+- **[Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Disponibilidade Geral em todas as regiões do Azure.
+- **[Base de Dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponibilidade Geral em todas as regiões do Azure.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponibilidade Geral em todas as regiões da cloud pública do Azure. 
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Pré-visualização em todas as regiões da cloud pública do Azure.
 - **Serviços de base de dados do Azure para PostgreSQL e MySQL**: pré-visualização em regiões do Azure onde o serviço de base de dados está disponível.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em pré-visualização.
+- **[Hubs de Eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponível em pré-visualização.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -68,7 +70,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 - Os pontos finais de serviço são configurados numa sub-rede de uma rede virtual. Os pontos finais funcionam com qualquer tipo de instância de computação em execução nessa sub-rede.
 - Pode configurar vários pontos finais de serviço para todos os serviços do Azure suportados (por exemplo, Armazenamento ou Base de Dados SQL do Microsoft Azure) numa sub-rede.
-- No Azure SQL, as redes virtuais têm de estar na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual. Em todos os outros serviços, os recursos de serviço do Azure podem ser protegidos para redes virtuais em qualquer região. 
+- Na Base de Dados SQL do Azure, as redes virtuais têm de estar na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual. Em todos os outros serviços, os recursos de serviço do Azure podem ser protegidos para redes virtuais em qualquer região. 
 - A rede virtual onde o ponto final está configurado pode existir na mesma subscrição ou numa subscrição diferente que a do recurso de serviço do Azure. Para obter mais informações sobre as permissões necessárias para configurar pontos finais e para proteger serviços do Azure, veja [Aprovisionamento](#Provisioning).
 - Para os serviços suportados, pode proteger recursos novos ou existentes para redes virtuais através de pontos finais de serviço.
 
@@ -80,7 +82,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 - Com pontos finais de serviço, as entradas de DNS dos serviços do Azure permanecem inalteradas e continuam a resolver endereços IP atribuídos ao serviço do Azure.
 - Grupos de segurança de rede (NSGs) com pontos finais de serviço:
   - Por predefinição, os NSGs permitem tráfego de saída da Internet e, por isso, também permitem o tráfego da sua VNet para os serviços do Azure. A operação permanece inalterada com os pontos finais de serviço. 
-  - Se pretende negar todo o tráfego de saída da Internet e permitir apenas o tráfego para serviços específicos do Azure, pode fazê-lo ao utilizar __"etiquetas de serviço do Azure"__ nos seus NSGs. Pode especificar os serviços do Azure suportados como destino nas regras do NSG e a manutenção dos endereços IP indicando que cada etiqueta é fornecida pelo Azure. Para obter mais informações, consulte [Etiquetas de Serviço do Azure para NSGs.](https://aka.ms/servicetags) 
+  - Se pretende negar todo o tráfego de saída da Internet e permitir apenas o tráfego para serviços específicos do Azure, pode fazê-lo com as [etiquetas de serviço](security-overview.md#service-tags) nos seus NSGs. Pode especificar os serviços do Azure suportados como destino nas regras do NSG e a manutenção dos endereços IP indicando que cada etiqueta é fornecida pelo Azure. Para obter mais informações, consulte [Etiquetas de Serviço do Azure para NSGs.](security-overview.md#service-tags) 
 
 ### <a name="scenarios"></a>Cenários
 
@@ -124,5 +126,5 @@ Para um recurso de serviço do Azure (como uma conta do Armazenamento do Microso
 - Saiba como [proteger uma conta do Armazenamento do Microsoft Azure para uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger uma conta da Base de Dados SQL do Microsoft Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
--  Início rápido: [modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto final de serviço numa Sub-rede da VNet e na conta de Armazenamento do Azure segura dessa sub-rede.
+-  Início rápido: [modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto final de serviço numa sub-rede da VNet e na conta de Armazenamento do Azure segura dessa sub-rede.
 

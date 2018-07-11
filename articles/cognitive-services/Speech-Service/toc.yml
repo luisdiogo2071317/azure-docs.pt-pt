@@ -39,8 +39,10 @@
       href: how-to-customize-language-model.md
     - name: Personalizar pronúncia
       href: how-to-customize-pronunciation.md
-    - name: Personalizar Tipos de Voz (Voz de Marca do Bot)
+    - name: Personalizar tipos de voz (voz de marca do bot)
       href: how-to-customize-voice-font.md
+    - name: Gravar amostras de voz
+      href: record-custom-voice-samples.md
     - name: Preparar transcrições
       href: prepare-transcription.md
     - name: Utilizar fluxos de áudio personalizados

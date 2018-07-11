@@ -1,5 +1,5 @@
 ---
-title: Agrupar e implementar uma aplicação de contentores do Service Fabric | Microsoft Docs
+title: Compactar e implementar contentores como uma aplicação do Service Fabric no Azure | Microsoft Docs
 description: Neste tutorial, saiba como gerar uma definição de aplicação do Azure Service Fabric com o Yeoman e como compactar a aplicação.
 services: service-fabric
 documentationcenter: ''
@@ -16,32 +16,33 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642799"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108778"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Tutorial: compactar e implementar contentores como uma aplicação do Service Fabric
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Compactar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
 
-Este tutorial é a segunda parte de uma série. Neste tutorial, é utilizada uma ferramenta de gerador de modelos (Yeoman) para gerar uma definição de aplicação do Service Fabric. Esta aplicação pode, depois, ser utilizada para implementar contentores no Service Fabric. Neste tutorial, ficará a saber como: 
+Este tutorial é a segunda parte de uma série. Neste tutorial, é utilizada uma ferramenta de gerador de modelos (Yeoman) para gerar uma definição de aplicação do Service Fabric. Esta aplicação pode, depois, ser utilizada para implementar contentores no Service Fabric. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Instalar o Yeoman  
+> * Instalar o Yeoman
 > * Criar um pacote de aplicação com o Yeoman
 > * Configurar as definições no pacote da aplicação para utilização com contentores
-> * Criar a aplicação  
-> * Implementar e executar a aplicação 
+> * Criar a aplicação
+> * Implementar e executar a aplicação
 > * Limpar a aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Vão ser utilizadas as imagens de contentor enviadas para o Azure Container Registry que foram criadas na [Parte 1](service-fabric-tutorial-create-container-images.md) desta série de tutoriais.
-- Vai ser [configurado](service-fabric-tutorial-create-container-images.md) o ambiente de desenvolvimento do Linux.
+* Vão ser utilizadas as imagens de contentor enviadas para o Azure Container Registry que foram criadas na [Parte 1](service-fabric-tutorial-create-container-images.md) desta série de tutoriais.
+* Vai ser [configurado](service-fabric-tutorial-create-container-images.md) o ambiente de desenvolvimento do Linux.
 
 ## <a name="install-yeoman"></a>Instalar o Yeoman
-O Service Fabric proporciona ferramentas estruturais que ajudam a criar aplicações a partir do terminal com o gerador de modelos Yeoman. Siga os passos abaixo para confirmar que tem o gerador de modelos Yeoman. 
+
+O Service Fabric proporciona ferramentas estruturais que ajudam a criar aplicações a partir do terminal com o gerador de modelos Yeoman. Siga os passos abaixo para confirmar que tem o gerador de modelos Yeoman.
 
 1. Instale o nodejs e o NPM no computador. Os utilizadores de Mac OSX terão de utilizar o gestor de pacotes Homebrew
 
@@ -49,14 +50,14 @@ O Service Fabric proporciona ferramentas estruturais que ajudam a criar aplicaç
     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
     sudo apt-get install -y nodejs 
     ```
-2. Instalar o gerador de modelos Yeoman no seu computador a partir do NPM 
+2. Instalar o gerador de modelos Yeoman no seu computador a partir do NPM
 
     ```bash
     sudo npm install -g yo
     ```
 3. Instalar o gerador de contentores Yeoman do Service Fabric
 
-    ```bash 
+    ```bash
     sudo npm install -g generator-azuresfcontainer
     ```
 
@@ -79,7 +80,7 @@ A imagem seguinte mostra a entrada e a saída da execução do comando yo:
 ? Name your application TestContainer
 ? Name of the application service: azurevotefront
 ? Input the Image Name: <acrName>.azurecr.io/azure-vote-front:v1
-? Commands: 
+? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/TestContainer/ApplicationManifest.xml
    create TestContainer/TestContainer/azurevotefrontPkg/ServiceManifest.xml
@@ -92,7 +93,7 @@ A imagem seguinte mostra a entrada e a saída da execução do comando yo:
 Para adicionar outro serviço de contentores a uma aplicação já criada com o Yeoman, execute os seguintes passos:
 
 1. Altere o diretório um nível para o diretório **TestContainer**, como, por exemplo, *./TestContainer*
-2. Execute `yo azuresfcontainer:AddService` 
+2. Execute `yo azuresfcontainer:AddService`
 3. Dê ao serviço o nome “azurevoteback”
 4. Indique o caminho da imagem do contentor para Redis - “alpine:redis”
 5. Prima Enter para deixar a secção Comandos vazia
@@ -103,7 +104,7 @@ São apresentadas todas as entradas para adicionar o serviço utilizado:
 ```bash
 ? Name of the application service: azurevoteback
 ? Input the Image Name: alpine:redis
-? Commands: 
+? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
    create TestContainer/azurevotebackPkg/config/Settings.xml
@@ -111,13 +112,15 @@ São apresentadas todas as entradas para adicionar o serviço utilizado:
 ```
 
 Ao longo do resto do tutorial, vamos trabalhar no diretório **TestContainer**. Por exemplo, *./TestContainer/TestContainer*. O conteúdo deste diretório deve ser o seguinte.
+
 ```bash
 $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Configurar o manifesto da aplicação com credenciais para o Azure Container Registry
-Para que o Service Fabric extraia as imagens de contentores do Azure Container Registry, temos de indicar as credenciais em **ApplicationManifest.xml**. 
+
+Para que o Service Fabric extraia as imagens de contentores do Azure Container Registry, temos de indicar as credenciais em **ApplicationManifest.xml**.
 
 Inicie sessão na sua instância do ACR. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
@@ -133,7 +136,7 @@ Em seguida, execute o comando seguinte para obter a palavra-passe do seu registo
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-Em **ApplicationManifest.xml**, adicione o fragmento de código no elemento **ServiceManifestImport** do serviço de front-end. Insira o **acrName** no campo **AccountName** e a palavra-passe devolvida com o comando anterior é utilizada no campo **Password**. É disponibilizado um **ApplicationManifest.xml** completo na parte final deste documento. 
+Em **ApplicationManifest.xml**, adicione o fragmento de código no elemento **ServiceManifestImport** do serviço de front-end. Insira o **acrName** no campo **AccountName** e a palavra-passe devolvida com o comando anterior é utilizada no campo **Password**. É disponibilizado um **ApplicationManifest.xml** completo na parte final deste documento.
 
 ```xml
 <Policies>
@@ -142,12 +145,13 @@ Em **ApplicationManifest.xml**, adicione o fragmento de código no elemento **Se
   </ContainerHostPolicies>
 </Policies>
 ```
+
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Configurar a comunicação e o mapeamento de portas de porta para anfitrião do contentor
 
 ### <a name="configure-communication-port"></a>Configurar a porta da comunicação
 
 Configure um ponto final de HTTP de modo a que os clientes possam comunicar com o seu serviço. Abra o ficheiro *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* e declare um recurso de ponto final no elemento **ServiceManifest**.  Adicione o protocolo, a porta e o nome. Neste tutorial, o serviço escuta na porta 80. O fragmento seguinte é colocado na etiqueta *ServiceManifest* do recurso.
-  
+
 ```xml
 <Resources>
   <Endpoints>
@@ -159,7 +163,7 @@ Configure um ponto final de HTTP de modo a que os clientes possam comunicar com 
 </Resources>
 
 ```
-  
+
 Da mesma forma, modifique o Manifesto do Serviço do serviço de back-end. Abra *./TestContainer/azurevotebackPkg/ServiceManifest.xml* e declare um recurso de ponto final no elemento **ServiceManifest**. Neste tutorial, a predefinição de redis 6379 é mantida. O fragmento seguinte é colocado na etiqueta *ServiceManifest* do recurso.
 
 ```xml
@@ -172,11 +176,13 @@ Da mesma forma, modifique o Manifesto do Serviço do serviço de back-end. Abra 
   </Endpoints>
 </Resources>
 ```
-Indicar **UriScheme** regista automaticamente o ponto final do contentor no serviço Nomenclatura do Service Fabric para deteção. É disponibilizado um ficheiro de exemplo completo ServiceManifest.xml do serviço de back-end na parte final deste artigo. 
+
+Indicar **UriScheme** regista automaticamente o ponto final do contentor no serviço Nomenclatura do Service Fabric para deteção. É disponibilizado um ficheiro de exemplo completo ServiceManifest.xml do serviço de back-end na parte final deste artigo.
 
 ### <a name="map-container-ports-to-a-service"></a>Mapear portas de contentores para um serviço
-Para expor os contentores no cluster, também temos de criar um enlace de porta em “ApplicationManifest.xml”. A política **PortBinding** referencia os **Pontos finais** que definimos nos ficheiros **ServiceManifest.xml**. Os pedidos recebidos para estes pontos finais são mapeados para as portas dos contentores que estão abertas e vinculadas aqui. No ficheiro **ApplicationManifest.xml**, adicione o seguinte código para vincular as portas 80 e 6379 aos pontos finais. É disponibilizado um **ApplicationManifest.xml** completo na parte final deste documento. 
-  
+
+Para expor os contentores no cluster, também temos de criar um enlace de porta em “ApplicationManifest.xml”. A política **PortBinding** referencia os **Pontos finais** que definimos nos ficheiros **ServiceManifest.xml**. Os pedidos recebidos para estes pontos finais são mapeados para as portas dos contentores que estão abertas e vinculadas aqui. No ficheiro **ApplicationManifest.xml**, adicione o seguinte código para vincular as portas 80 e 6379 aos pontos finais. É disponibilizado um **ApplicationManifest.xml** completo na parte final deste documento.
+
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
@@ -190,9 +196,9 @@ Para expor os contentores no cluster, também temos de criar um enlace de porta 
 ```
 
 ### <a name="add-a-dns-name-to-the-backend-service"></a>Adicionar um nome DNS ao serviço de back-end
-  
-Para que o Service Fabric atribua este nome DNS ao serviço de back-end, o nome tem de ser especificado em **ApplicationManifest.xml**. Adicione o atributo **ServiceDnsName** ao elemento **Service**, conforme mostrado: 
-  
+
+Para que o Service Fabric atribua este nome DNS ao serviço de back-end, o nome tem de ser especificado em **ApplicationManifest.xml**. Adicione o atributo **ServiceDnsName** ao elemento **Service**, conforme mostrado:
+
 ```xml
 <Service Name="azurevoteback" ServiceDnsName="redisbackend.testapp">
   <StatelessService ServiceTypeName="azurevotebackType" InstanceCount="1">
@@ -202,16 +208,16 @@ Para que o Service Fabric atribua este nome DNS ao serviço de back-end, o nome 
 ```
 
 O serviço de front-end lê uma variável de ambiente para saber o nome DNS da instância do Redis. Esta variável de ambiente já está definida no Dockerfile que foi utilizado para gerar a imagem do Docker e não é necessário realizar qualquer ação aqui.
-  
+
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
-  
-O fragmento de código seguinte ilustra de que forma é que o código Python do front-end escolhe a variável de ambiente descrita no Dockerfile. Não é necessário realizar nenhuma ação aqui. 
+
+O fragmento de código seguinte ilustra de que forma é que o código Python do front-end escolhe a variável de ambiente descrita no Dockerfile. Não é necessário realizar nenhuma ação aqui.
 
 ```python
 # Get DNS Name
-redis_server = os.environ['REDIS'] 
+redis_server = os.environ['REDIS']
 
 # Connect to the Redis store
 r = redis.StrictRedis(host=redis_server, port=6379, db=0)
@@ -220,13 +226,14 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 Nesta fase do tutorial, o modelo de uma aplicação Service Package está disponível para implementação num cluster. No tutorial subsequente, esta aplicação é implementada e executada num cluster do Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
+
 Para implementar a aplicação num cluster no Azure, crie o seu próprio cluster.
 
-Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são executados pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric). 
+Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Estes são executados pela equipa do Service Fabric, onde qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric).
 
-Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o PowerShell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo. 
+Para realizar operações de gestão no cluster de grupo seguro, pode utilizar o Service Fabric Explorer, a CLI ou o PowerShell. De modo a utilizar o Service Fabric Explorer, tem de transferir o ficheiro PFX do site do Cluster de Grupo e importar o certificado para o seu arquivo de certificados (Windows ou Mac) ou para o próprio browser (Ubuntu). Não há nenhuma palavra-passe para os certificados autoassinados do cluster de grupo.
 
-Para realizar operações de gestão com o Powershell ou a CLI, vai precisar do PFX (Powershell) ou do PEM (CLI). Para converter o PFX num ficheiro PEM, execute o seguinte comando:  
+Para realizar operações de gestão com o Powershell ou a CLI, vai precisar do PFX (Powershell) ou do PEM (CLI). Para converter o PFX num ficheiro PEM, execute o seguinte comando:
 
 ```bash
 openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
@@ -235,7 +242,8 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 Para obter informações sobre como criar o seu próprio cluster, veja [Crie um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Criar e implementar a aplicação no cluster
-Pode implementar a aplicação no cluster do Azure com a CLI do Service Fabric. Se a CLI do Service Fabric não estiver instalada no seu computador, siga [estas](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) instruções para instalá-la. 
+
+Pode implementar a aplicação no cluster do Azure com a CLI do Service Fabric. Se a CLI do Service Fabric não estiver instalada no seu computador, siga [estas](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) instruções para instalá-la.
 
 Ligue ao cluster do Service Fabric no Azure. Substitua o ponto final do exemplo pelo seu próprio. O ponto final tem de ser um URL completo semelhante ao seguinte.
 
@@ -258,7 +266,8 @@ Para ligar à aplicação em execução, abra um browser e aceda ao url do clust
 ![votingapp][votingapp]
 
 ## <a name="clean-up"></a>Limpeza
-Utilize o script de desinstalação fornecido no modelo para eliminar a instância da aplicação do cluster local e anular o registo do tipo de aplicação. Este comando demora algum tempo a limpar a instância e o comando “install'sh” não pode ser executado imediatamente a seguir a este script. 
+
+Utilize o script de desinstalação fornecido no modelo para eliminar a instância da aplicação do cluster local e anular o registo do tipo de aplicação. Este comando demora algum tempo a limpar a instância e o comando “install'sh” não pode ser executado imediatamente a seguir a este script.
 
 ```bash
 ./uninstall.sh
@@ -267,12 +276,13 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
 ## <a name="examples-of-completed-manifests"></a>Exemplos de manifestos concluídos
 
 ### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
-    <Policies> 
+    <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
         <PortBinding ContainerPort="80" EndpointRef="azurevotefrontTypeEndpoint"/>
@@ -281,7 +291,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
-      <Policies> 
+      <Policies>
         <ContainerHostPolicies CodePackageRef="Code">
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
@@ -302,7 +312,8 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
 </ApplicationManifest>
 ```
 
-### <a name="front-end-servicemanifestxml"></a>ServiceManifest.xml do front-end 
+### <a name="front-end-servicemanifestxml"></a>ServiceManifest.xml do front-end
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
@@ -312,7 +323,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
       <StatelessServiceType ServiceTypeName="azurevotefrontType" UseImplicitHost="true">
    </StatelessServiceType>
    </ServiceTypes>
-   
+
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
@@ -320,8 +331,8 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      <EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -337,6 +348,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
 ```
 
 ### <a name="redis-servicemanifestxml"></a>ServiceManifest.xml do Redis
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotebackPkg" Version="1.0.0"
@@ -346,7 +358,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
       <StatelessServiceType ServiceTypeName="azurevotebackType" UseImplicitHost="true">
    </StatelessServiceType>
    </ServiceTypes>
-   
+
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
@@ -354,8 +366,8 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
+      <EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>
@@ -367,16 +379,17 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
   </Resources>
  </ServiceManifest>
 ```
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, foram agrupados vários contentores numa aplicação do Service Fabric com o Yeoman. Depois, a aplicação foi implementada e executada num cluster do Service Fabric. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
-> * Instalar o Yeoman  
+> * Instalar o Yeoman
 > * Criar um pacote de aplicação com o Yeoman
 > * Configurar as definições no pacote da aplicação para utilização com contentores
-> * Criar a aplicação  
-> * Implementar e executar a aplicação 
+> * Criar a aplicação
+> * Implementar e executar a aplicação
 > * Limpar a aplicação
 
 Avance para o próximo tutorial para saber mais sobre a ativação pós-falha e o dimensionamento da aplicação no Service Fabric.
@@ -386,5 +399,3 @@ Avance para o próximo tutorial para saber mais sobre a ativação pós-falha e 
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
-

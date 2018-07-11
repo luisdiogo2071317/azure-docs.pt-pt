@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302982"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127718"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para as Ligações Híbridas do Azure Relay com a CLI do Azure e o Event Grid
 
@@ -55,7 +55,7 @@ Subscreva um tópico para comunicar ao Event Grid os eventos que pretende contro
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-O script seguinte obtém o ID do recurso do espaço de nomes de reencaminhamento. Constrói o ID para a ligação híbrida e subscreve um tópico do Event Grid. Define o tipo de ponto final `hybridconnection` e utiliza o ID da ligação híbrida para o ponto final.
+O script seguinte obtém o ID do recurso do espaço de nomes de reencaminhamento. Constrói o ID para a ligação híbrida e subscreve um tópico do Event Grid. O script define o tipo de ponto final `hybridconnection` e utiliza o ID da ligação híbrida para o ponto final.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Criar aplicação para processar eventos
+
+Precisa de uma aplicação que possa recuperar eventos a partir da ligação híbrida. O [exemplo do Consumidor de Ligação Híbrida do Microsoft Azure Event Grid para C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) realiza essa operação. Já terminou os passos dos pré-requisitos.
+
+1. Certifique-se de que tem a versão 15.5 ou posterior do Visual Studio 2017.
+
+1. Clone o repositório para o seu computador local.
+
+1. Carregue o projeto HybridConnectionConsumer no Visual Studio.
+
+1. Em Program.cs, substitua `<relayConnectionString>` e `<hybridConnectionName>` pela cadeia de ligação de reencaminhamento e pelo nome da ligação híbrida que criou.
+
+1. Compilar e executar a aplicação a partir do Visual Studio.
+
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o seu tópico
 
-Vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Em primeiro lugar, vamos obter o URL e a chave do tópico personalizado. Novamente, utilize o nome do tópico de `<topic_name>`.
+Vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Este artigo mostra como utilizar a CLI do Azure para acionar o evento. Em alternativa, pode utilizar a [aplicação do publicador do Event Grid](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
+
+Em primeiro lugar, vamos obter o URL e a chave do tópico personalizado. Novamente, utilize o nome do tópico de `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

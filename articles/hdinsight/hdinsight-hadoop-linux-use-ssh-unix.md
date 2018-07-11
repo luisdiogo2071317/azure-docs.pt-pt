@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046783"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446610"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ligar ao HDInsight (Hadoop) através de SSH
 
@@ -137,7 +137,19 @@ Para obter informações sobre como alterar a palavra-passe da conta do utilizad
 
 ## <a id="domainjoined"></a>Autenticação: HDInsight associado a um domínio
 
-Se estiver a utilizar um __cluster do HDInsight associado a um domínio__, tem de utilizar o comando `kinit` depois de se ligar com SSH. Este comando pede-lhe um utilizador e uma palavra-passe de domínio e autentica a sua sessão com o domínio do Azure Active Directory associado ao cluster.
+Se estiver a utilizar um __cluster do HDInsight associado a um domínio__, tem de utilizar o comando `kinit` depois de se ligar ao utilizador local do SSH. Este comando pede-lhe um utilizador e uma palavra-passe de domínio e autentica a sua sessão com o domínio do Azure Active Directory associado ao cluster.
+
+Também pode ativar a Autenticação Kerberos em cada nó associado a um domínio (por exemplo, nó principal, nó periférico), para o ssh utilizar a conta de domínio. Para editar este ficheiro de configuração de sshd:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+anule o comentário e altere `KerberosAuthentication` para `yes`
+
+```bash
+sudo service sshd restart
+```
+
+Para verificar se a autenticação Kerberos foi concluída com êxito em qualquer altura, utilize o comando `klist`.
 
 Para obter mais informações, veja [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) (Configurar o HDInsight associado a um domínio).
 

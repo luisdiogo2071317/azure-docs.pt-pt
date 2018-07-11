@@ -54,6 +54,7 @@
 #### [Restaurar principais de serviço em falta](active-directory-ds-troubleshoot-service-principals.md)
 #### [Erros de Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolva os erros de inquilino não correspondentes](active-directory-ds-mismatched-tenant-error.md)
+### [Domínios suspensos](active-directory-ds-suspension.md)
 
 
 # Referência

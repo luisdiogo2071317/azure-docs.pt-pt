@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062046"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345496"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementar o Azure Machine Learning como um módulo do IoT Edge - pré-visualização
 
@@ -60,7 +60,7 @@ Edite o ficheiro de configuração do IoT Edge:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Atualize a secção **ligar** da configuração. Por exemplo:
+Atualize a secção **ligar** da configuração do endereço IP. Por exemplo:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -125,7 +125,7 @@ Verifique se a imagem de contentor foi criada e armazenada com êxito no registo
 1. Se já implementou o módulo do tempSensor no seu dispositivo IoT Edge, este poderá ser automaticamente populado. Se ainda não estiver na sua lista de módulos, adicione-o.
 
     1. Clique em **Adicionar** e selecione **Módulo do IoT Edge**.
-    2. No campo **Nome**, introduza `tempsensor`.
+    2. No campo **Nome**, introduza `tempSensor`.
     3. No campo **URI da Imagem**, introduza `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Selecione **Guardar**.
 

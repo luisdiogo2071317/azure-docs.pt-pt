@@ -1,64 +1,64 @@
 ---
-title: Criar um servidor de Analysis Services no Azure | Microsoft Docs
+title: Início Rápido - Criar um servidor do Analysis Services com o portal do Azure | Microsoft Docs
 description: Saiba como criar uma instância de servidor do Analysis Services no Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/23/2018
+ms.service: azure-analysis-services
+ms.topic: quickstart
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c49e886ee5b980e8fd059d72eb2e4a3f0dc895c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 92209d82a6db18b7f1e1a5adbb52c1899bf4593f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950704"
 ---
-# <a name="create-an-analysis-services-server-in-azure-portal"></a>Criar um servidor de Analysis Services no portal do Azure
-Este artigo explica como criar um recurso de servidor do Analysis Services na sua subscrição do Azure.
+# <a name="quickstart-create-a-server---portal"></a>Início Rápido: Criar um servidor - Portal
 
-Antes de começar, tem de: 
+Este início rápido descreve como criar um recurso de servidor do Analysis Services na sua subscrição do Azure com o portal.
+
+## <a name="prerequisites"></a>Pré-requisitos 
 
 * **Subscrição do Azure**: aceda à [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
-* **Azure Active Directory**: sua subscrição tem de ser associada a um inquilino do Azure Active Directory. E, terá de iniciar sessão no Azure com uma conta no diretório do Azure Active Directory. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+* **Azure Active Directory**: a sua subscrição tem de estar associada a um inquilino do Azure Active Directory. E tem de ter sessão iniciada no Azure com uma conta nesse Azure Active Directory. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure 
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com)
+[Iniciar sessão no portal](https://portal.azure.com)
 
 
 ## <a name="create-a-server"></a>Criar um servidor
 
-1. Clique em **+ criar um recurso** > **dados + análise** > **Analysis Services**.
+1. Clique em **+ Criar um recurso** > **Dados + Análise** > **Analysis Services**.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
-2. No **Analysis Services**, preencha os campos obrigatórios e, em seguida, prima **criar**.
-   
-    ![Criar servidor do](./media/analysis-services-create-server/aas-create-server-blade.png)
+2. No **Analysis Services**, preencha os campos obrigatórios e, em seguida, prima **Criar**.
    
    * **Nome do servidor**: escreva um nome exclusivo utilizado para referenciar o servidor.
-   * **Subscrição**: selecione a subscrição deste servidor será associado.
-   * **Grupo de recursos**: criar um novo grupo de recursos ou selecione uma que já tem. Grupos de recursos foram concebidos para ajudar a gerir uma coleção de recursos do Azure. Para obter mais informações, consulte [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
-   * **Localização**: localização de centro de dados do Azure este aloja o servidor. Escolha uma localização mais próximo da sua base de utilizadores maior.
-   * **Escalão de preço**: selecione um escalão de preço. Se estiver a testar e pretende instalar a base de dados do modelo de exemplo, selecione o livre **D1** camada. Para obter mais informações, consulte [preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
-    * **Administrador**: por predefinição, esta será a conta que tem sessão iniciada com. Pode escolher uma conta diferente do Azure Active Directory.
-    * **Definição de armazenamento de cópia de segurança**: opcional. Se já tiver um [conta de armazenamento](../storage/common/storage-introduction.md), pode especificá-la como predefinição para cópia de segurança do modelo da base de dados. Também pode especificar [cópia de segurança e restaurar](analysis-services-backup.md) definições mais tarde.
-    * **Expiração de chave de armazenamento**: opcional. Especificar um período de expiração de chave de armazenamento.
-3. Clique em **Criar**.
+   * **Subscrição**: selecione a subscrição à qual este servidor será associado.
+   * **Grupo de recursos**: crie um novo grupo de recursos ou selecione um que já tenha. Os grupos de recursos são concebidos para ajudá-lo a gerir uma coleção de recursos do Azure. Para saber mais, veja [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
+   * **Localização**: esta localização do datacenter do Azure aloja o servidor. Escolha a localização mais perto da sua base de utilizadores.
+   * **Escalão de preço**: selecionar um escalão de preço. Se estiver a testar e pretende instalar a base de dados do modelo de exemplo, selecione o escalão **D1** gratuito. Para saber mais, veja [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
+    * **Administrador**: por predefinição, esta será a conta em que tem sessão iniciada. Pode escolher uma conta diferente do Azure Active Directory.
+    * **Definição do Armazenamento de Cópias de Segurança**: opcional. Se já tiver uma [conta de armazenamento](../storage/common/storage-introduction.md), pode especificá-la como a predefinição para a cópia de segurança de base de dados modelo. Também pode especificar as definições da [cópia de segurança e restauro](analysis-services-backup.md) mais tarde.
+    * **Expiração da chave de armazenamento**: opcional. Especifique um período de expiração da chave de armazenamento.
 
-Criar normalmente tem num minuto. Se tiver selecionado **adicionar ao Portal**, navegue até ao seu portal para ver o novo servidor. Ou, navegue para **todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
+Criar o servidor, normalmente, demora menos de um minuto. Se tiver selecionado **Adicionar ao Portal**, navegue até ao seu portal para ver o seu novo servidor. Ou navegue até **Todos os serviços** > **Analysis Services** para ver se o servidor está pronto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não é necessário, elimine o servidor. No seu servidor **descrição geral**, clique em **eliminar**. 
+
+Quando já não precisar, elimine o seu servidor. Na **Descrição Geral** do servidor, clique em **Eliminar**. 
 
  ![Limpeza](./media/analysis-services-create-server/aas-create-server-cleanup.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
-[Adicionar um modelo de dados de exemplo](analysis-services-create-sample-model.md) ao seu servidor.  
-[Instale um gateway de dados no local](analysis-services-gateway-install.md) se o modelo de dados liga-se a origens de dados no local.  
-[Implementar um projeto de modelo em tabela](analysis-services-deploy.md) do Visual Studio.   
-
-
+> [!div class="nextstepaction"]
+> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)   
+> [!div class="nextstepaction"]
+> [Tutorial: Adicionar um modelo de exemplo ao servidor](analysis-services-create-sample-model.md)

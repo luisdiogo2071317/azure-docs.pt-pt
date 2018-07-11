@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso e permissões com RBAC - RBAC do Azure | Microsoft Docs
-description: Introdução à gestão de acessos com controlo de acesso baseado em funções do Azure no Portal do Azure. Utilize atribuições de funções para atribuir permissões no diretório.
+title: O que é o controlo de acesso baseado em funções (RBAC) no Azure? | Microsoft Docs
+description: Tenha uma descrição geral do controlo de acesso baseado em funções (RBAC) no Azure. Utilize atribuições de funções para controlar o acesso a recursos no Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,62 +8,92 @@ manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2018
+ms.date: 07/02/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
-ms.openlocfilehash: 4a964d127d4d45d10a1f9d39b585b8c59e30ae90
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.reviewer: bagovind
+ms.openlocfilehash: 4dcfb71e0adb05922603715e4dbcbdb243305927
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438205"
 ---
-# <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao controlo de acesso baseado em funções no portal do Azure
-Segurança e orientado para empresas devem focar-se em fornecer aos funcionários as permissões exatas que precisam. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. Azure baseada em funções controlo de acesso (RBAC) ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure.
+# <a name="what-is-role-based-access-control-rbac"></a>O que é o controlo de acesso baseado em funções (RBAC)?
 
-Utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso aos utilizadores que precisam para desempenhar as suas funções. Em vez de dar everybody sem restrições permissões na sua subscrição do Azure ou recursos, pode permitir que apenas determinadas ações. Por exemplo, utilize o RBAC para permitir que um empregado gerir máquinas virtuais numa subscrição, enquanto outro pode gerir bases de dados SQL dentro da mesma subscrição.
+A gestão de acesso para recursos na cloud é uma função crítica para qualquer organização que está a utilizar a cloud. O controlo de acesso baseado em funções (RBAC) ajuda-o a gerir quem tem acesso aos recursos do Azure, o que fazem com esses recursos e a que áreas têm acesso.
 
-## <a name="basics-of-access-management-in-azure"></a>Noções básicas de gestão de acesso no Azure
-Cada subscrição do Azure está associada um diretório do Azure Active Directory (AD). Os utilizadores, grupos e a esse diretório de aplicações podem gerir os recursos na subscrição do Azure. Atribua estes direitos de acesso utilizando o portal do Azure, as ferramentas da linha de comandos do Azure e APIs de gestão do Azure.
+O RBAC é um sistema de autorização criado com base no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que fornece gestão pormenorizada de acesso de recursos no Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções. Em vez de dar a todas as pessoas permissões sem restrições na sua subscrição do Azure ou recursos, pode permitir apenas determinadas ações num âmbito específico.
 
-Conceder acesso ao atribuir a função RBAC adequada aos utilizadores, grupos e aplicações num determinado âmbito. O âmbito de uma atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso. Uma função atribuída a um âmbito principal também concede acesso a subordinados contidos. Por exemplo, um utilizador com acesso a um grupo de recursos pode gerir todos os recursos que contém, como Web sites, sub-redes e máquinas virtuais.
+## <a name="what-can-i-do-with-rbac"></a>O que posso fazer com o RBAC?
 
-![Relação entre elementos do Azure Active Directory - diagrama](./media/overview/rbac_aad.png)
+Seguem-se alguns exemplos do que pode fazer com o RBAC:
 
-A função RBAC que atribuir determinam os recursos que o utilizador, grupo ou aplicação pode gerir esse âmbito.
+- Permitir a um utilizador gerir máquinas virtuais numa subscrição e a outro utilizador gerir redes virtuais
+- Permitir a um grupo DBA gerir bases de dados SQL numa subscrição
+- Permitir a um utilizador gerir todos os recursos num grupo de recursos, como máquinas virtuais, sites e sub-redes
+- Permitir a uma aplicação aceder a todos os recursos num grupo de recursos
 
-## <a name="built-in-roles"></a>Funções incorporadas
-RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de recursos:
+## <a name="how-rbac-works"></a>Como funciona o RBAC
 
-* **Proprietário** tem acesso total a todos os recursos, incluindo o direito para delegar o acesso a outras pessoas.
-* **Contribuidor** pode criar e gerir todos os tipos de recursos do Azure, mas não é possível conceder acesso a outras pessoas.
-* **Leitor** pode ver os recursos do Azure existentes.
+A forma de controlar o acesso a recursos com o RBAC é criar atribuições de funções. Este é um conceito fundamental para compreender de que forma as permissões são impostas. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito.
 
-O resto das funções do RBAC do Azure permite a gestão de recursos do Azure específicos. Por exemplo, a função de contribuinte de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Se não atribuir-lhes acesso para a rede virtual ou a sub-rede que a máquina virtual estabelece ligação ao. 
+### <a name="security-principal"></a>Principal de segurança
 
-[Funções incorporadas do RBAC](built-in-roles.md) lista as funções disponíveis no Azure. Especifica as operações e o âmbito de cada função incorporada concede a utilizadores. Se estiver à procura para definir as suas próprias funções para o controlo ainda mais, consulte como criar [funções personalizadas no Azure RBAC](custom-roles.md).
+Um *principal de segurança* é um objeto que representa um utilizador, grupo ou principal de serviço que está a solicitar acesso aos recursos do Azure.
 
-## <a name="resource-hierarchy-and-access-inheritance"></a>Herança de recursos de acesso e de hierarquia
-* Cada **subscrição** no Azure pertence a um só diretório. (Mas cada diretório pode ter mais do que uma subscrição).
-* Cada **grupo de recursos** pertence a apenas uma subscrição.
-* Cada **recursos** pertence a apenas um grupo de recursos.
+![Principal de segurança para uma atribuição de função](./media/overview/rbac-security-principal.png)
 
-Acesso que conceda em âmbitos principal é herdado, os âmbitos subordinados. Por exemplo:
+- Utilizador – Um indivíduo que tem um perfil no Azure Active Directory. Também pode atribuir funções a utilizadores noutros inquilinos. Para obter informações sobre utilizadores noutras organizações, veja [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Grupo – Um conjunto de utilizadores criado no Azure Active Directory. Quando atribui uma função a um grupo, todos os utilizadores nesse grupo têm essa função. 
+- Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma *identidade de utilizador* (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
 
-* Atribuir a função de leitor a um grupo do Azure AD no âmbito de subscrição. Os membros desse grupo podem ver cada grupo de recursos e recursos na subscrição.
-* Atribuir a função de contribuinte a uma aplicação no âmbito do grupo de recursos. -Pode gerir os recursos de todos os tipos nesse grupo de recursos, mas não outros grupos de recursos na subscrição.
+### <a name="role-definition"></a>Definição de função
 
-## <a name="azure-rbac-vs-classic-subscription-administrators"></a>RBAC do Azure vs. os administradores da subscrição clássica
-[Os administradores da subscrição clássico e coadministradores](../billing/billing-add-change-azure-subscription-administrator.md) têm acesso total à subscrição do Azure. Gerir recursos com o [portal do Azure](https://portal.azure.com), APIs do Azure Resource Manager e o modelo de implementação clássica APIs. No modelo RBAC, os administradores clássicos são atribuídos a função de proprietário no âmbito de subscrição.
+Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. As funções podem ser de nível elevado, como proprietário, ou específicas, como leitor de máquina virtual.
 
-Apenas o portal do Azure e as novas APIs do Azure Resource Manager suportam RBAC do Azure. Utilizadores e aplicações que são atribuídas a funções RBAC não é possível utilizar o modelo de implementação clássico do Azure APIs.
+![Definição de função para atribuição de função](./media/overview/rbac-role-definition.png)
 
-## <a name="authorization-for-management-vs-data-operations"></a>Autorização para gestão versus operações de dados
-RBAC do Azure suporta apenas operações de gestão de recursos do Azure no portal do Azure e APIs do Azure Resource Manager. Não é possível autorizar o todas as operações de nível de dados para recursos do Azure. Por exemplo, podem autorizar alguém para gerir contas de armazenamento, mas não os blobs ou tabelas dentro de uma conta de armazenamento. Da mesma forma, uma base de dados do SQL Server pode ser gerido, mas não as tabelas dentro da mesma.
+O Azure inclui várias [funções incorporadas](built-in-roles.md) que pode utilizar. São apresentadas em seguida quatro funções incorporadas fundamentais. As três primeiras aplicam-se a todos os tipos de recursos.
 
-## <a name="next-steps"></a>Próximos Passos
-* Introdução ao [controlo de acesso baseado em funções no portal do Azure](role-assignments-portal.md).
-* Consulte as [Funções incorporadas do RBAC](built-in-roles.md)
-* Definir as suas [Funções personalizadas no Azure RBAC](custom-roles.md)
+- [Proprietário](built-in-roles.md#owner) – Tem acesso total a todos os recursos, incluindo o direito de delegar o acesso a outras pessoas.
+- [Contribuidor](built-in-roles.md#contributor) – Pode criar e gerir todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
+- [Leitor](built-in-roles.md#reader) – Pode ver os recursos do Azure existentes.
+- [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator) – Permite gerir o acesso do utilizador aos recursos do Azure.
+
+As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite a um utilizador criar e gerir máquinas virtuais. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
+
+O Azure introduziu operações de dados (atualmente em pré-visualização) que permitem conceder acesso aos dados num objeto. Por exemplo, se um utilizador tiver acesso a dados de leitura a uma conta de armazenamento, pode ler os blobs ou as mensagens nessa conta de armazenamento. Para obter mais informações, veja [Compreender definições de função](role-definitions.md).
+
+### <a name="scope"></a>Âmbito
+
+O *âmbito* é o limite aplicado ao acesso. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
+
+No Azure, pode especificar um âmbito em vários níveis: subscrição, grupo de recursos ou recurso. Os âmbitos estão estruturados numa relação principal-subordinado em que cada subordinado terá apenas um principal.
+
+![Âmbito de uma atribuição de função](./media/overview/rbac-scope.png)
+
+O acesso que atribuir a um âmbito principal é herdado no âmbito subordinado. Por exemplo:
+
+- Se atribuir a função [Leitor](built-in-roles.md#reader) a um grupo no âmbito da subscrição, os membros desse grupo pode ver cada grupo de recursos e recurso na subscrição.
+- Se atribuir a função [Contribuidor](built-in-roles.md#contributor) a uma aplicação no âmbito do grupo de recursos, pode gerir recursos de todos os tipos no grupo de recursos, mas não outros grupos de recursos na subscrição.
+
+O Azure também inclui um âmbito acima das subscrições chamado [grupos de gestão](../azure-resource-manager/management-groups-overview.md), que está em pré-visualização. Os grupos de gestão são uma forma de gerir várias subscrições. Quando especificar o âmbito para o RBAC, pode especificar um grupo de gestão ou uma subscrição, grupo de recursos ou hierarquia de recursos.
+
+### <a name="role-assignment"></a>Atribuição de função
+
+Uma *atribuição de função* é o processo de associar uma definição de função a um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de concessão de acesso. O acesso é concedido ao criar uma atribuição de função e o acesso é revogado ao remover uma atribuição de função.
+
+O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exemplo, foi atribuída a função [Contribuidor](built-in-roles.md#contributor) ao grupo Marketing para o grupo de recursos de vendas farmacêuticas. Isto significa que os utilizadores no grupo Marketing podem criar ou gerir qualquer recurso do Azure no grupo de recursos de vendas farmacêuticas. Os utilizadores do grupo Marketing não têm acesso aos recursos fora o grupo de recursos de vendas farmacêuticas, a menos que façam parte de outra atribuição de função.
+
+![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
+
+Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Pode ter até 2000 atribuições de funções em cada subscrição. Para criar e remover atribuições de funções, precisa de ter a permissão `Microsoft.Authorization/roleAssignments/*`. Esta permissão é concedida através das funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator).
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Início Rápido: Conceder acesso a um utilizador com o RBAC e o Portal do Azure](quickstart-assign-role-user-portal.md)
+- [Gerir o acesso através do RBAC e do portal do Azure](role-assignments-portal.md)
+- [Compreender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)

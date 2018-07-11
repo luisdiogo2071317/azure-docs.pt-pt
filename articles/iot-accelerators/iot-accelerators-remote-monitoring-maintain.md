@@ -1,95 +1,89 @@
 ---
-title: Resolver problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
-description: Este tutorial mostra como resolver problemas e remediar problemas de dispositivos na solução de monitorização remota.
+title: Utilizar alertas e corrigir problemas de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial mostra como Utilizar alertas para identificar e corrigir problemas com dispositivos ligados ao acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: 9a620d91238393ba0bde89f521f790b58ab35baf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.date: 06/18/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628077"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081793"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Resolver problemas e resolver problemas do dispositivo
+# <a name="troubleshoot-and-remediate-device-issues"></a>Resolver e remediar problemas nos dispositivos
 
-Este tutorial mostra como utilizar o **manutenção** página na solução para resolver problemas e resolver problemas do dispositivo. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
+Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para identificar e corrigir problemas com os seus dispositivos IoT ligados. Utilize alertas no dashboard do acelerador de soluções para identificar problemas e, em seguida, executar tarefas remotas para corrigir esses problemas.
 
-Contoso consiste em testar uma nova **protótipo** dispositivo no campo. Como um operador de Contoso, repare durante os testes que o **protótipo** dispositivo inesperadamente é acionar um alerta de temperatura no dashboard. Agora tem investigue o comportamento neste defeituoso **protótipo** dispositivo.
+A Contoso está a testar um novo dispositivo **Protótipo** no campo. Enquanto operador da Contoso, observe durante os testes que o dispositivo **Protótipo** está a acionar um alerta de temperatura inesperadamente no dashboard. Agora deve investigar o comportamento deste dispositivo **Protótipo** com falhas e resolver o problema.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial:
 
 >[!div class="checklist"]
-> * Utilize o **manutenção** página para investigar o alerta
-> * Chamar um método de dispositivo para corrigir o problema
+> * Investigar um alerta de um dispositivo
+> * Resolver o problema do dispositivo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este tutorial, precisa de uma instância implementada a solução de monitorização remota na sua subscrição do Azure.
+Para seguir este tutorial, precisa de uma instância implementada do acelerador de soluções de Monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+Se ainda não tiver implementado o acelerador de soluções de Monitorização Remota, deverá concluir o início rápido [Implementar uma solução de monitorização remota baseada na cloud](quickstart-remote-monitoring-deploy.md).
 
-## <a name="use-the-maintenance-dashboard"></a>Utilize o dashboard de manutenção
+## <a name="investigate-an-alert"></a>Investigar um alerta
 
-No **Dashboard** página reparar que existem alertas de temperatura inesperado proveniente da regra associada a **protótipo** dispositivos:
+Na página **Dashboard**, observe que existem alertas de temperatura inesperados provenientes da regra associada aos dispositivos **Protótipo**:
 
-![A mostrar no dashboard de alertas](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm.png)
+[![Alertas apresentados no dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
-Para investigar o problema, escolha o **explorar alerta** opção junto ao alerta do:
+Para investigar melhor o problema, escolha a opção **Explorar Alerta** junto ao alerta:
 
-![Explore o alerta a partir do dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm.png)
+[![Explorar alerta do dashboard](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
-A vista de detalhes do alerta mostra:
+A vista de detalhe do alerta mostra:
 
 * Quando o alerta foi acionado
 * Informações de estado sobre os dispositivos associados ao alerta
 * Telemetria dos dispositivos associados ao alerta
 
-![Detalhes do alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail.png)
+[![Detalhes do alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
-Para confirmar o alerta, selecione o **alerta ocorrências** e escolha **Acknowledge**. Esta ação permite outros operadores que tem visto o alerta e estiver a trabalhar no mesmo.
+Para reconhecer o alerta, selecione todas as **Ocorrências de alerta** e escolha **Reconhecer**. Esta ação permite que outros operadores saibam que viu o alerta e está a tentar resolver o problema:
 
-![Confirmar os alertas](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge.png)
+[![Reconhecer os alertas](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
 
-Quando confirmar o alerta, o estado da ocorrência mudar para **confirmado**.
+Ao reconhecer o alerta, o estado da ocorrência é alterado para **Reconhecido**.
 
-Na lista, pode ver o **protótipo** responsável pela que despoletou o alerta de temperatura do dispositivo:
+Na lista, pode ver o dispositivo **Protótipo** responsável por acionar o alerta de temperatura do dispositivo:
 
-![Lista os dispositivos a causar o alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+[![Listar os dispositivos que causam o alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
-## <a name="remediate-the-issue"></a>Corrigir o problema
+## <a name="resolve-the-issue"></a>Resolver o problema
 
-Para corrigir o problema com o **protótipo** dispositivo, tem de chamar o **DecreaseTemperature** método no dispositivo.
+Para resolver o problema com o dispositivo **Protótipo**, terá de chamar o método **DecreaseTemperature** no dispositivo.
 
-Para funcionar num dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **tarefas**. O **protótipo** o modelo de dispositivo Especifica seis métodos de um dispositivo tem de suportar:
+Para tomar decisões sobre um dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **Tarefas**. O modelo do dispositivo **Protótipo** especifica seis métodos que um dispositivo tem de suportar:
 
-![Ver os métodos do que dispositivo suporta](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods.png)
+[![Ver os métodos que o dispositivo suporta](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Escolha **DecreaseTemperature** e defina o nome da tarefa para **DecreaseTemperature**. Em seguida, escolha **aplicar**:
+Escolha **DecreaseTemperature** e defina o nome da tarefa como **DecreaseTemperature**. Em seguida, escolha **Aplicar**:
 
-![Criar a tarefa para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob.png)
+[![Criar a tarefa para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-Para controlar o estado da tarefa no **manutenção** página, escolha **tarefas**. Utilize o **tarefas** ver para controlar todas as tarefas e chama o método na solução:
+Para controlar o estado da tarefa, clique em **Ver estado da tarefa**. Utilize a vista **Tarefas** para controlar todas as tarefas e chamadas de método na solução:
 
-![Monitorizar a tarefa para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob.png)
+[![Monitorizar a tarefa para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-Para ver os detalhes de uma tarefa específica ou chamada de método, escolha a mesma na lista no **tarefas** vista:
+Pode verificar que a temperatura do dispositivo diminuiu ao ver a telemetria na página **Dashboard**:
 
-![Ver detalhes da tarefa](./media/iot-accelerators-remote-monitoring-maintain/maintenancejobdetail.png)
+[![Ver a diminuição na temperatura](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, vimos como:
+Este tutorial mostrou-lhe como utilizar os alertas para identificar problemas com os seus dispositivos e como agir sobre estes dispositivos para resolver os problemas. Para saber como ligar um dispositivo físico ao acelerador de soluções, avance para os artigos de procedimentos.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Utilize o **manutenção** página para investigar o alerta
-> * Chamar um método de dispositivo para corrigir o problema
-
-Agora que aprendeu como gerir problemas de dispositivos, o passo seguinte sugerido é saber como [testar a sua solução com dispositivos simulados](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+Agora que aprendeu a gerir problemas de dispositivos, o próximo passo sugerido é saber como [Ligar o seu dispositivo ao acelerador de soluções de Monitorização Remota](iot-accelerators-connecting-devices.md).

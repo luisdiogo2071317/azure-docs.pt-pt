@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063127"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082853"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implementar um módulo do IoT Edge do Python no seu dispositivo simulado
 
@@ -34,7 +34,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O dispositivo Azure IoT Edge que criou no início rápido para dispositivos [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+* O dispositivo Azure IoT Edge que criou no início rápido para [Linux](quickstart-linux.md).
+
+   >[!Note]
+   >Os módulos de Python para o Azure IoT Edge não suportam dispositivos Windows ou ARM. 
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extensão Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
@@ -71,7 +75,7 @@ Utilize o pacote do Python **cookiecutter** para criar um modelo de solução do
 
 3. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 
-4. Na paleta de comandos, escreva e execute o comando **Azure: Iniciar sessão** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
+4. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 
 5. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
@@ -85,10 +89,10 @@ A janela do VS Code carrega a área de trabalho da solução do IoT Edge. Existe
 
 ### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
 
-O ficheiro de ambiente armazena as credenciais do seu repositório de contentor e partilha-as com o runtime do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo do IoT Edge. 
+O ficheiro de ambiente armazena as credenciais do seu repositório de contentor e partilha-as com o runtime do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge. 
 
 1. No explorador do VS Code, abra o ficheiro **.env**. 
-2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu registo de contentor do Azure. 
+2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry. 
 3. Guarde este ficheiro. 
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
@@ -220,7 +224,7 @@ Pode utilizar o portal do Azure para implementar o seu módulo do Python para um
 
 1. Para monitorizar os dados que chegam ao hub IoT, clique em **...** e selecione **Iniciar Monitorização de Mensagens D2C**.
 2. Para monitorizar a mensagem D2C para um dispositivo específico, clique com o botão direito do rato na lista e selecione **Iniciar Monitorização de Mensagens D2C**.
-3. Para parar a monitorização de dados, execute o comando **Azure IoT Hub: Parar monitorização da mensagem D2C** na paleta de comandos. 
+3. Para parar a monitorização de dados, execute o comando **Azure IoT Hub: Stop monitoring D2C message** na paleta de comandos. 
 4. Para ver ou atualizar o módulo duplo, clique com o botão direito do rato no módulo na lista e selecione **Editar módulo duplo**. Para atualizar o módulo duplo, guarde o ficheiro JSON duplo e clique com o botão direito do rato na área de editor e selecione **Atualizar Módulo Duplo**.
 5. Para ver os registos do Docker, pode instalar o [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) para o VS Code e localizar os módulos em execução localmente no explorador do Docker. No menu de contexto, clique em **Mostrar Registos** para ver no terminal integrado. 
 

@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: a15a64c1ccf1e40179a46baf9815f669ac4adfde
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751133"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113362"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gerir grupos de bases de dados com Tarefas de Base de Dados Elástica
 
@@ -85,7 +85,7 @@ A *Base de dados da tarefa* não tem literalmente de ser nova, mas deve ser uma 
 Durante a criação do agente de tarefa, um esquema, tabelas e uma função chamada *jobs_reader* são criados na *Base de dados da tarefa*. A função é criada com as seguintes permissões e tem como objetivo dar aos administradores um melhor controlo de acesso para a monitorização de tarefas:
 
 
-|Nome da função  |permissões de esquema «jobs»  |permissões de esquema «jobs_internal»  |
+|Nome da função  |permissões de esquema "jobs"  |permissões de esquema "jobs_internal"  |
 |---------|---------|---------|
 |**jobs_reader**     |    SELECIONAR     |    Nenhuma     |
 
@@ -190,7 +190,7 @@ Para garantir que os recursos não são sobrecarregados quando executar tarefas 
 É importante salientar algumas diferenças entre o SQL Server Agent (disponível no local e como parte da Instância Gerida da Base de Dados SQL) e o agente de Tarefa Elástica da Base de Dados SQL do Azure (agora disponível para a Base de Dados SQL e o SQL Data Warehouse).
 
 
-|  |Tarefas Elásticas  |Agente do SQL Server |
+|  |Tarefas Elásticas  |SQL Server Agent |
 |---------|---------|---------|
 |Âmbito     |  Qualquer número de Bases de Dados SQL do Azure e/ou de armazéns de dados na mesma cloud do Azure que o agente de tarefa. Os destinos podem estar em diferentes servidores lógicos, subscrições e/ou regiões. <br><br>Os grupos de destino podem ser compostos por bases de dados individuais ou armazéns de dados, ou por todas as bases de dados num servidor, conjunto, ou por todos os shardmaps (enumerados dinamicamente durante a execução da tarefa). | Qualquer base de dados individual na mesma instância do SQL Server do que o agente SQL. |
 |APIs e Ferramentas suportadas     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |

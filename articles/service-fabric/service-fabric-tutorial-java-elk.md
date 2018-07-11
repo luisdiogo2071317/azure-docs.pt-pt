@@ -1,5 +1,5 @@
 ---
-title: Monitorizar as aplicações no Azure Service Fabric com o ELK | Microsoft Docs
+title: Monitorizar as aplicações no Service Fabric com o ELK no Azure | Microsoft Docs
 description: Neste tutorial, saiba como configurar o ELK e monitorizar as suas aplicações do Service Fabric.
 services: service-fabric
 documentationcenter: java
@@ -15,21 +15,22 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 2c948a137abdbbf6ef8c64d26065030db1633a0a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949825"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112508"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorizar as aplicações do Service Fabric com o ELK 
-Este tutorial é a quarta parte de uma série. Mostra como utilizar o ELK (Elasticsearch, Logstash e Kibana) para monitorizar as aplicações do Service Fabric em execução no Azure. 
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorizar as aplicações do Service Fabric com o ELK
+
+Este tutorial é a quarta parte de uma série. Mostra como utilizar o ELK (Elasticsearch, Logstash e Kibana) para monitorizar as aplicações do Service Fabric em execução no Azure.
 
 Na quarta parte da série, ficará a saber como:
 > [!div class="checklist"]
 > * Configurar o servidor do ELK no Azure
 > * Configurar o Logstash para receber registos dos Hubs de Eventos
-> * Visualizar os registos da plataforma e da aplicação no Kibana 
+> * Visualizar os registos da plataforma e da aplicação no Kibana
 
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
@@ -40,13 +41,16 @@ Nesta série de tutoriais, ficará a saber como:
 > * [Configurar CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de começar este tutorial:
-- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Configure a sua aplicação para emitir os registos para a localização especificada na [segunda parte](service-fabric-tutorial-debug-log-local-cluster.md).
-- Conclua a [terceira parte](service-fabric-tutorial-java-deploy-azure.md) e tenha um cluster do Service Fabric em execução configurado para enviar registos para os Hubs de Eventos. 
-- A política nos Hubs de Eventos com a permissão "Escutar" e a chave primária associada da terceira série.
+
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Configure a sua aplicação para emitir os registos para a localização especificada na [segunda parte](service-fabric-tutorial-debug-log-local-cluster.md).
+* Conclua a [terceira parte](service-fabric-tutorial-java-deploy-azure.md) e tenha um cluster do Service Fabric em execução configurado para enviar registos para os Hubs de Eventos.
+* A política nos Hubs de Eventos com a permissão "Escutar" e a chave primária associada da terceira série.
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
+
 Se não conseguiu criar a aplicação de votação de exemplo na [primeira parte desta série de tutoriais](service-fabric-tutorial-create-java-app.md), pode transferi-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
 
 ```bash
@@ -54,9 +58,10 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
 ## <a name="create-an-elk-server-in-azure"></a>Criar um servidor do ELK no Azure
-Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tiver um, avance para a secção **Configurar o Logstash**. No entanto, se não tiver um, os passos seguintes criam um no Azure. 
 
-1. Criar um ELK Certificada pelo [Bitnami](https://ms.portal.azure.com/#create/bitnami.elk4-6) no Azure. Para a finalidade do tutorial, não existem quaisquer especificações a seguir para a criação deste servidor. 
+Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tiver um, avance para a secção **Configurar o Logstash**. No entanto, se não tiver um, os passos seguintes criam um no Azure.
+
+1. Criar um ELK Certificada pelo [Bitnami](https://ms.portal.azure.com/#create/bitnami.elk4-6) no Azure. Para a finalidade do tutorial, não existem quaisquer especificações a seguir para a criação deste servidor.
 
 2. Aceda ao seu recurso no portal do Azure e introduza o separador **Diagnósticos de Arranque** na secção **Suporte + Resolução de Problemas**. Em seguida, clique no separador **Registo Série**.
 
@@ -72,24 +77,24 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
     [   26.029413] bitnami[1496]: #########################################################################
     ```
 
-4. Prima o botão Ligar na página Descrição Geral do servidor no portal do Azure para obter os detalhes de início de sessão. 
+4. Prima o botão Ligar na página Descrição Geral do servidor no portal do Azure para obter os detalhes de início de sessão.
 
     ![Ligação à VM](./media/service-fabric-tutorial-java-elk/vmconnection.png)
 
 5. SSH no servidor que aloja a imagem do ELK com o seguinte comando
 
     ```bash
-    ssh [USERNAME]@[CONNECTION-IP-OF-SERVER] 
-    
-    Example: ssh testaccount@104.40.63.157 
+    ssh [USERNAME]@[CONNECTION-IP-OF-SERVER]
+
+    Example: ssh testaccount@104.40.63.157
     ```
 
-## <a name="set-up-elk"></a>Configurar o ELK 
+## <a name="set-up-elk"></a>Configurar o ELK
 
 1. O primeiro passo é carregar o ambiente de ELK
 
     ```bash
-    sudo /opt/bitnami/use_elk 
+    sudo /opt/bitnami/use_elk
     ```
 
 2. Se estiver a utilizar um ambiente existente, tem de executar o seguinte comando para parar o serviço Logstash
@@ -98,13 +103,13 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
     sudo /opt/bitnami/ctlscript.sh stop logstash
     ```
 
-3. Execute o seguinte comando para instalar o plug-in do Logstash nos Hubs de Eventos. 
+3. Execute o seguinte comando para instalar o plug-in do Logstash nos Hubs de Eventos.
 
     ```bash
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Crie ou modifique o ficheiro de configuração do Logstash existente com o seguinte conteúdo: se estiver a criar o ficheiro, tem de ser criado em ```/opt/bitnami/logstash/conf/access-log.conf``` se utilizar a imagem do ELK Bitnami no Azure. 
+4. Crie ou modifique o ficheiro de configuração do Logstash existente com o seguinte conteúdo: se estiver a criar o ficheiro, tem de ser criado em ```/opt/bitnami/logstash/conf/access-log.conf``` se utilizar a imagem do ELK Bitnami no Azure.
 
     ```json
     input
@@ -118,7 +123,7 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
             partitions => 4
         }
     }
-    
+
     output {
          elasticsearch {
              hosts => [ "127.0.0.1:9200" ]
@@ -128,7 +133,7 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
 
 5. Para verificar a configuração, execute o seguinte comando:
 
-    ```bash 
+    ```bash
     /opt/bitnami/logstash/bin/logstash -f /opt/bitnami/logstash/conf/ --config.test_and_exit
     ```
 
@@ -144,18 +149,18 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Aceda ao dashboard do Kibana em **http://SERVER-IP** e introduza o nome de utilizador e a palavra-passe do Kibana. Se utilizou a imagem do ELK no Azure, o nome de utilizador predefinido é "user" e a palavra-passe é a obtida nos **Diagnósticos de Arranque**. 
+8. Aceda ao dashboard do Kibana em **http://SERVER-IP** e introduza o nome de utilizador e a palavra-passe do Kibana. Se utilizou a imagem do ELK no Azure, o nome de utilizador predefinido é "user" e a palavra-passe é a obtida nos **Diagnósticos de Arranque**.
 
-    ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)    
+    ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Ter um servidor do ELK operacional no Azure 
+> * Ter um servidor do ELK operacional no Azure
 > * Configurar o servidor para receber as informações de diagnóstico do cluster do Service Fabric
 
 Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]
 > [Configurar CI/CD com o Jenkins](service-fabric-tutorial-java-jenkins.md)
-

@@ -3,7 +3,7 @@ title: Início Rápido - Criar uma VM do Linux no portal do Azure | Microsoft Do
 description: Neste início rápido, vai aprender a utilizar o portal do Azure para criar uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012888"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447963"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
@@ -63,7 +63,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com
 
     ![Captura de ecrã que mostra os tamanhos de VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. Em **Definições**, mantenha todas as predefinições e selecione **OK**.
+5. Na página **Definições**, em **Rede** > **Grupo de Segurança de Rede** > **Selecionar portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o resto das predefinições e selecione **OK**.
 
 6. Na página de resumo, selecione **Criar** para iniciar a implementação da VM.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 Quando terminar, `exit` da sessão SSH e volte às propriedades da VM no portal do Azure.
 
-## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web
-
-Um Grupo de Segurança de Rede (NSG) protege os tráfegos de entrada e de saída. Quando cria uma VM a partir do portal do Azure, é criada uma regra de entrada na porta 22 para ligações SSH. Como esta VM aloja um servidor Web, tem de ser criada uma regra NSG para a porta 80.
-
-1. Na página de descrição geral da VM, selecione **Redes**.
-2. É apresentada a lista de regras de entrada e saída existentes. Selecione **Adicionar regra de porta de entrada**.
-3. Selecione a opção **Básico** na parte superior e *HTTP* na lista de serviços disponíveis. A porta 80, uma prioridade e o nome são detalhes indicados para si.
-4. Para criar a regra, selecione **Adicionar**.
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 

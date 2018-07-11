@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dde7691d2fe4503de8a671d7f29e36558d474699
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775528"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440398"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -33,7 +33,7 @@ Na tabela seguinte, destacam-se algumas das principais diferenças.
 | --- | --- |
 | Débito elevado |Débito variável |
 | Desempenho previsível |Latência variável |
-| Preços fixos |Preços variáveis de utilização  |
+| Preços fixos |Preços variáveis de utilização |
 | Possibilidade de aumentar e reduzir verticalmente a carga de trabalho |N/D |
 | Tamanho da mensagem até 1 MB |Tamanho da mensagem até 256 KB |
 
@@ -57,7 +57,7 @@ Se tiver código em execução nas mensagens Standard e quiser transportar para 
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução às Mensagens Premium
 
-A introdução às Mensagens Premium é simples e o processo é semelhante ao das Mensagens Standard. Comece por [criar um espaço de nomes](service-bus-create-namespace-portal.md) no [portal do Azure](https://portal.azure.com). Confirme que seleciona **Premium** em **Escolher o escalão de preço**.
+A introdução às Mensagens Premium é simples e o processo é semelhante ao das Mensagens Standard. Comece por [criar um espaço de nomes](service-bus-create-namespace-portal.md) no [portal do Azure](https://portal.azure.com). Certifique-se de que seleciona **Premium**, em **Escalão de preço**. Clique em **Ver informações completas de preços** para obter mais informações sobre cada escalão.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -65,10 +65,10 @@ Também pode criar [espaços de nomes Premium com modelos do Azure Resource Mana
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre Mensagens do Service Bus, veja os tópicos seguintes.
+Para saber mais sobre Mensagens do Service Bus, veja as ligações seguintes:
 
-* [Introducing Azure Service Bus Premium Messaging (Introdução às Mensagens Premium do Azure Service Bus) (mensagem de blogue)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium Messaging (Introdução às Mensagens Premium do Azure Service Bus) (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Introdução às Mensagens Premium do Azure Service Bus (mensagem de blogue)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introdução às Mensagens Premium do Azure Service Bus (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Descrição geral de Mensagens do Service Bus](service-bus-messaging-overview.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 

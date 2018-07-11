@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 013369c84ca7f2ec232f542549c22260eca46980
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062539"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096921"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Tutorial: Aceder a dados de Pré-visualização de Armazenamento do Azure Data Lake Ger2 com o DataBricks através do Spark
 
@@ -61,7 +61,7 @@ O passo seguinte consiste em criar um [cluster do DataBricks](https://docs.azure
 8. Clique em **Criar Cluster** na parte superior da página (este processo pode demorar até 5 minutos a concluir).
 9. Quando o processo for concluído, selecione **Azure Databricks** na parte superior esquerda da barra de navegação.
 10. Selecione **Bloco de Notas** na secção **Novo** na parte inferior da página.
-11. Introduza um nome à sua escolha no campo **Nome**.
+11. Introduza um nome à sua escolha no campo **Nome** e selecione **Python** como linguagem.
 12. Todos os outros campos podem ser deixados como valores predefinidos.
 13. Selecione **Criar**.
 14. Cole o código seguinte na célula **Cmd 1** e substitua os valores pelos valores preservados da sua conta de armazenamento.
@@ -96,7 +96,7 @@ Volte a abrir o DataBricks no seu browser e execute os seguintes passos:
 5. Selecione **Criar**.
 6. Cole o código seguinte na célula **Cmd 1** (este código é guardado automaticamente no editor).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  

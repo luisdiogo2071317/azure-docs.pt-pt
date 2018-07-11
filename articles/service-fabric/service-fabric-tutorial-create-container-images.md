@@ -1,5 +1,5 @@
 ---
-title: Criar imagens de contentor para o Azure Service Fabric | Microsoft Docs
+title: Criar imagens de contentor no Service Fabric no Azure | Microsoft Docs
 description: Neste tutorial, saiba como criar imagens de contentor para uma aplicação do Service Fabric com vários contentores.
 services: service-fabric
 documentationcenter: ''
@@ -16,25 +16,25 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 13cf13ce4a1456731d08f356ca405119ce1a6480
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29558190"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114045"
 ---
-# <a name="tutorial-create-container-images-for-service-fabric"></a>Tutorial: criar imagens de contentor para o Service Fabric
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
 
-Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Linux Service Fabric. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como: 
+Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Service Fabric do Linux. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Clonar a origem de aplicação a partir do GitHub  
+> * Clonar a origem de aplicação a partir do GitHub
 > * Criar uma imagem de contentor a partir da origem de aplicação
 > * Implementar uma instância do Azure Container Registry (ACR)
 > * Marcar uma imagem de contentor para o ACR
 > * Carregar os ficheiros de imagem para o ACR
 
-Nesta série de tutoriais, ficará a saber como: 
+Nesta série de tutoriais, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar imagens de contentor para o Service Fabric
@@ -43,13 +43,13 @@ Nesta série de tutoriais, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Configuração de ambiente de desenvolvimento do Linux para o Service Fabric. Siga as instruções [aqui](service-fabric-get-started-linux.md) para configurar o seu ambiente do Linux. 
-- Este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-- Além disso, requer que tenha uma subscrição do Azure disponível. Para mais informações sobre uma versão de avaliação gratuita, clique [aqui](https://azure.microsoft.com/free/).
+* Configuração de ambiente de desenvolvimento do Linux para o Service Fabric. Siga as instruções [aqui](service-fabric-get-started-linux.md) para configurar o seu ambiente do Linux.
+* Este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+* Além disso, requer que tenha uma subscrição do Azure disponível. Para mais informações sobre uma versão de avaliação gratuita, clique [aqui](https://azure.microsoft.com/free/).
 
 ## <a name="get-application-code"></a>Obter o código da aplicação
 
-A aplicação de exemplo utilizada neste tutorial é uma aplicação de votos. A aplicação consiste num componente Web front-end e uma instância do Redis em back-end. Os componentes estão agrupados em imagens de contentores. 
+A aplicação de exemplo utilizada neste tutorial é uma aplicação de votos. A aplicação consiste num componente Web front-end e uma instância do Redis em back-end. Os componentes estão agrupados em imagens de contentores.
 
 Utilize o git para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento.
 
@@ -59,11 +59,11 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-A solução contém duas pastas e um ficheiro "docker-compose.yml". A pasta "azure-vote" contém o serviço front-end Python, juntamente com o Dockerfile utilizado para criar a imagem. O diretório "Voting" contém o pacote de aplicação do Service Fabric implementado para o cluster. Estes diretórios contêm os recursos necessários para este tutorial.  
+A solução contém duas pastas e um ficheiro "docker-compose.yml". A pasta "azure-vote" contém o serviço front-end Python, juntamente com o Dockerfile utilizado para criar a imagem. O diretório "Voting" contém o pacote de aplicação do Service Fabric implementado para o cluster. Estes diretórios contêm os recursos necessários para este tutorial.
 
 ## <a name="create-container-images"></a>Criar imagens de contentor
 
-No diretório **azure-vote**, execute o seguinte comando para criar a imagem para o componente Web do front-end. Este comando utiliza o Dockerfile neste diretório para criar a imagem. 
+No diretório **azure-vote**, execute o seguinte comando para criar a imagem para o componente Web do front-end. Este comando utiliza o Dockerfile neste diretório para criar a imagem.
 
 ```bash
 docker build -t azure-vote-front .
@@ -86,13 +86,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
-Primeiro, execute o comando **az login** para iniciar sessão na sua conta do Azure. 
+Primeiro, execute o comando **az login** para iniciar sessão na sua conta do Azure.
 
 ```bash
 az login
 ```
 
-Em seguida, utilize o comando **az account** para mudar a sua subscrição de forma a criar o registo de contentor do Azure. Tem de introduzir o ID de subscrição da sua subscrição do Azure no lugar de <subscription_id>. 
+Em seguida, utilize o comando **az account** para mudar a sua subscrição de forma a criar o registo de contentor do Azure. Tem de introduzir o ID de subscrição da sua subscrição do Azure no lugar de <subscription_id>.
 
 ```bash
 az account set --subscription <subscription_id>
@@ -106,13 +106,13 @@ Crie um grupo de recursos com o comando **az group create**. Neste exemplo, é c
 az group create --name <myResourceGroup> --location westus
 ```
 
-Crie um registo de contentor do Azure com o comando **az acr create**. Substitua \<acrName> pelo nome do registo de contentor que pretende criar na sua subscrição. O nome tem de ser alfanumérico e único. 
+Crie um registo de contentor do Azure com o comando **az acr create**. Substitua \<acrName> pelo nome do registo de contentor que pretende criar na sua subscrição. O nome tem de ser alfanumérico e único.
 
 ```bash
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. Anote este valor. 
+Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. Anote este valor.
 
 ## <a name="log-in-to-your-container-registry"></a>Iniciar sessão no registo do contentor
 
@@ -164,7 +164,6 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 Depois de marcada, execute "docker images" para verificar a operação.
 
-
 Saída:
 
 ```bash
@@ -210,13 +209,13 @@ Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância pri
 Neste tutorial, uma aplicação foi obtida do Github e foram criadas imagens de contentor e enviadas para um registo. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
-> * Clonar a origem de aplicação a partir do GitHub  
+> * Clonar a origem de aplicação a partir do GitHub
 > * Criar uma imagem de contentor a partir da origem de aplicação
 > * Implementar uma instância do Azure Container Registry (ACR)
 > * Marcar uma imagem de contentor para o ACR
 > * Carregar os ficheiros de imagem para o ACR
 
-Avance para o próximo tutorial para saber mais sobre agrupar contentores numa aplicação do Service Fabric através do Yeoman. 
+Avance para o próximo tutorial para saber mais sobre agrupar contentores numa aplicação do Service Fabric através do Yeoman.
 
 > [!div class="nextstepaction"]
 > [Agrupar e implementar contentores como uma aplicação do Service Fabric](service-fabric-tutorial-package-containers.md)

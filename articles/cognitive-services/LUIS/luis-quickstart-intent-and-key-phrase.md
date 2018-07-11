@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063413"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340955"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Tutorial: saiba como devolver dados de entidade keyPhrase 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Tutorial: 7. Adicionar a entidade KeyPhrase 
 Neste tutorial, vai utilizar uma aplicação que demonstra como extrair o assunto-chave de expressões.
 
 <!-- green checkmark -->
@@ -35,7 +35,7 @@ Se não tiver a aplicação de Recursos Humanos do tutorial [entidade simples](l
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `keyphrase`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
 ## <a name="keyphrase-entity-extraction"></a>Extração da entidade keyPhrase
-O assunto-chave é indicado pela entidade previamente criada, **keyPhrase**. Esta entidade devolve o assunto-chave na expressão
+O assunto-chave é indicado pela entidade previamente criada, **keyPhrase**. Esta entidade devolve o assunto-chave na expressão.
 
 As expressões seguintes mostram exemplos de expressões-chave:
 
@@ -68,9 +68,9 @@ Adicione a entidade pré-concebida keyPhrase para extrair o assunto das express�
     <!-- TBD: asking Carol
     You won't see these entities labeled in utterances on the intents pages. 
     -->
-5. Selecione **Intenções** no menu do lado esquerdo e, em seguida, selecione a expressão **Utilities.Confirm**. A entidade keyPhrase está etiquetada em várias expressões. 
+5. Selecione **Intenções** no menu do lado esquerdo e, em seguida, selecione a intenção **Utilities.Confirm**. A entidade keyPhrase está etiquetada em várias expressões. 
 
-    [ ![Captura de ecrã da expressão Utilities.Confirm com keyPhrases etiquetada nas expressões](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
+    [ ![Captura de ecrã da intenção Utilities.Confirm com keyPhrases etiquetada nas expressões](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 A nova versão `keyphrase` da aplicação precisa de ser treinada.  
@@ -201,10 +201,10 @@ O chatbot tem agora informações suficientes para determinar o passo seguinte n
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados de keyPhrase da expressão para efetuar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Delete** (Eliminar). Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação que devolva sentimentos juntamente com a predição de intenção](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Adicionar análise de sentimentos a uma aplicação](luis-quickstart-intent-and-sentiment-analysis.md)
 

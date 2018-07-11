@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842327"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344903"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 
@@ -90,7 +90,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma red
     |Espaço de endereços| 10.0.0.0/16|
     |Subscrição | Selecione a sua subscrição.|
     |Grupo de recursos|Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**.|
-    |Localização|Selecione *E.U.A. Leste*.|
+    |Localização|Selecione *E.U.A. Leste*|
     |Nome da sub-rede|Público|
     |Intervalo de endereços|10.0.0.0/24|
     
@@ -145,7 +145,7 @@ Uma NVA é uma VM que executa uma função de rede, como encaminhamento, proteç
 
     A criação da VM demora alguns minutos. Não continue para o passo seguinte enquanto o Azure não acabar de criar a VM e não for aberta uma caixa com informações sobre a VM.
 
-7. Na caixa que foi aberta após a criação da VM, em **DEFINIÇÕES**, selecione **Redes** e selecione **myvmnva158** (a interface de rede que o Azure criou para a VM tem um número diferente a seguir a **myvmnva**), conforme mostrado na imagem seguinte.
+7. Na caixa que foi aberta após a criação da VM, em **DEFINIÇÕES**, selecione **Redes** e selecione **myvmnva158** (a interface de rede que o Azure criou para a VM tem um número diferente a seguir a **myvmnva**), conforme mostrado na imagem seguinte:
 
     ![Redes de VM](./media/tutorial-create-route-table-portal/virtual-machine-networking.png) 
 
@@ -252,7 +252,7 @@ Pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Não avan
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo: 
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir **myResourceGroup** nos resultados da pesquisa, selecione-o.
+1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 

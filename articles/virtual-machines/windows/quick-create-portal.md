@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012585"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444615"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no portal do Azure
 
@@ -29,7 +29,7 @@ As máquinas virtuais do Azure (VMs) podem ser criadas através do portal do Azu
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -43,13 +43,13 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
     ![Introduza as informações básicas sobre a VM no painel do portal](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Selecione **Criar novo grupo de recursos** e forneça um nome, como *myResourceGroup*. Selecione a **Localização** que quer e, em seguida, **OK**.
+5. Selecione **Criar novo grupo de recursos** e forneça um nome, como *myResourceGroup*. Selecione a **Localização** e, em seguida, **OK**.
 
-4. Selecione um tamanho para a VM. Pode filtrar por *Tipo de computação* ou *Tipo de disco*, por exemplo. Um tamanho de VM sugerido é *D2s_v3*.
+4. Selecione um tamanho para a VM. Pode filtrar por *Tipo de computação* ou *Tipo de disco*, por exemplo. Um tamanho de VM sugerido é *D2s_v3*. Clique em **Selecionar** depois de escolher um tamanho.
 
     ![Captura de ecrã que mostra os tamanhos de VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. Em **Definições**, mantenha todas as predefinições e selecione **OK**.
+5. Na página **Definições**, em **Rede** > **Grupo de Segurança de Rede** > **Selecionar portas de entrada públicas**, selecione **HTTP** e **RDP (3389)** na lista pendente. Deixe o resto das predefinições e selecione **OK**.
 
 6. Na página de resumo, selecione **Criar** para iniciar a implementação da VM.
 
@@ -69,7 +69,7 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual. Estas
 
 3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Escreva o nome de utilizador como *vmname*\**, introduza a palavra-passe que criou para a máquina virtual e clique em **OK**.
 
-4. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em **Sim** ou **Continuar** para continuar com a ligação.
+4. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em **Sim** ou **Continuar** para criar a ligação.
 
 ## <a name="install-web-server"></a>Instalar o servidor Web
 
@@ -81,18 +81,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Quando terminar, feche a ligação RDP à VM.
 
-## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web
-
-Um Grupo de Segurança de Rede (NSG) protege os tráfegos de entrada e de saída. Quando cria uma VM a partir do portal do Azure, é criada uma regra de entrada na porta 3389 para ligações RDP. Como esta VM aloja um servidor Web, tem de ser criada uma regra NSG para a porta 80.
-
-1. Na página de descrição geral da VM, selecione **Redes**.
-2. É apresentada a lista de regras de entrada e saída existentes. Selecione **Adicionar regra de porta de entrada**.
-3. Selecione a opção **Básico** na parte superior e *HTTP* na lista de serviços disponíveis. A porta 80, uma prioridade e o nome são detalhes indicados para si.
-4. Para criar a regra, selecione **Adicionar**.
 
 ## <a name="view-the-iis-welcome-page"></a>Ver a página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um browser à sua escolha para ver a página de boas-vindas do IIS predefinida. Utilize o endereço IP público da VM que obteve no passo anterior. O exemplo seguinte mostra o site do IIS predefinido:
+No portal, selecione a VM e na descrição geral da VM, utilize o botão **Clicar para copiar** à direita do endereço IP para copiá-lo e colá-lo num separador do browser. A página de boas-vindas do IIS predefinida será aberta e deverá ser semelhante ao seguinte:
 
 ![Site predefinido do IIS](./media/quick-create-powershell/default-iis-website.png)
 
@@ -102,7 +94,7 @@ Quando já não forem necessários, pode eliminar o grupo de recursos, a máquin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
+Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquinas virtuais do Windows do Azure](./tutorial-manage-vm.md)

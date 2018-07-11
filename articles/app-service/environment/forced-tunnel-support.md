@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114978"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar o Ambiente de Serviço de Aplicações com túnel forçado
 
@@ -37,6 +38,7 @@ Para saber mais sobre o encaminhamento numa rede virtual, veja [Rotas definidas 
 Se quiser encaminhar o tráfego de saída do ASE sem ser diretamente para a Internet, tem as seguintes opções:
 
 * Ativar o ASE para ter acesso direto à Internet
+* Configurar a sub-rede do ASE para ignorar as rotas BGP
 * Configurar a sub-rede do ASE para utilizar Pontos Finais de Serviço para o SQL do Azure e o Armazenamento do Azure
 * Adicionar os seus próprios IPs à firewall do SQL do Azure do ASE
 
@@ -58,8 +60,22 @@ Se a rede já estiver a encaminhar tráfego no local, em seguida, terá de criar
 
 ![Acesso direto à Internet][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurar a sub-rede do ASE para ignorar as rotas BGP ## 
+
+Pode configurar a sub-rede do ASE para ignorar todas as rotas BGP.  Quando isto é configurado, o ASE poderá aceder às respetivas dependências sem problemas.  No entanto, terá de criar UDRs para ativar as suas aplicações para acederem a recursos no local.
+
+Para configurar a sub-rede do ASE para ignorar as rotas BGP:
+
+* crie um UDR e atribua-o à sua sub-rede do ASE, se ainda não tinha um.
+* No portal do Azure, abra a IU para a tabela de rotas atribuída à sua sub-rede do ASE.  Selecione a Configuração.  Defina a propagação de rotas BGP como Desativada.  Clique em Guardar. A documentação sobre a desativação da mesma está no documento [Criar uma tabela de rotas][routetable].
+
+Depois deste procedimento, as suas aplicações já não poderão ter acesso no local. Para resolver este problema, edite o UDR atribuído à sub-rede do ASE e adicione rotas aos intervalos de endereços no local. O Próximo tipo de salto deve ser definido para o Gateway de rede virtual. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configurar o ASE com Pontos Finais de Serviço ##
+
+ > [!NOTE]
+   > Os pontos finais de serviço com SQL não funcionam com o ASE nas regiões do Governo dos Estados Unidos.  As seguintes informações são válidas apenas em regiões públicas do Azure.  
 
 Para encaminhar todo o tráfego de saída do ASE, exceto o que vai para o SQL do Azure e o Armazenamento do Azure, efetue os seguintes passos:
 
@@ -141,3 +157,4 @@ Além de simplesmente interromper a comunicação, pode afetar negativamente o A
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

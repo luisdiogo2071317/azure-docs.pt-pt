@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061850"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097483"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Tutorial: balancear carga de tráfego interno com Balanceador de Carga Básico para VMs com o Portal do Azure
 
@@ -75,10 +75,10 @@ Nesta secção, irá criar duas máquinas virtuais para o conjunto de back-end d
     - *myAvailabilitySet* - no nome do novo Conjunto de disponibilidade que criar.
     -  *myVNet* - certifique-se de que está selecionado como a rede virtual.
     - *myBackendSubnet* - certifique-se de que está selecionado como a sub-rede.
-    - *myNetworkSecurityGroup* - no nome do novo grupo de segurança de rede (firewall) que tem de criar.
+5. Sob **Grupo de Segurança de Rede**, selecione **Avançado**. Em seguida, em **Grupo de segurança de rede (firewall)**, selecione **Nenhum**.
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
-7. Com os passos 1-6, crie uma segunda VM, com o nome *VM2* com *myAvailabilityset* como Conjunto de disponibilidade, *myVnet* como rede virtual, *myBackendSubnet* como sub-rede e *myNetworkSecurityGroup* como respetivo Grupo de Segurança de Rede. 
+7. Com os passos 1-6, crie uma segunda VM, com o nome *VM2* com *myAvailabilityset* como Conjunto de disponibilidade, *myVnet* como rede virtual, *myBackendSubnet* como sub-rede e selecione **Nenhum** no **Grupo de segurança de rede (firewall)**. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página Web predefinida
 
@@ -100,33 +100,6 @@ Nesta secção, irá criar duas máquinas virtuais para o conjunto de back-end d
 5. Feche a ligação RDP com *myVM1*.
 6. Repita os passos 1 a 5 com *myVM2* para instalar o IIS e personalizar a página Web predefinida.
 
-## <a name="create-nsg-rules"></a>Criar regras de NSG
-
-Nesta secção, vai criar regras de NSG para permitir ligações de entrada através de HTTP e RDP.
-
-1. Clique em **Todos os recursos** no menu da esquerda e, em seguida, na lista de recursos, clique em **myNetworkSecurityGroup**, que se encontra no grupo de recursos **myResourceGroupLB**.
-2. Em **Definições**, clique em **Regras de segurança de entrada** e, em seguida, clique em**Adicionar**.
-3. Introduza estes valores para a regra de segurança de entrada com o nome *myHTTPRule* para permitir ligações HTTP de entrada através da porta 80:
-    - *Service Tag* - na **Origem**.
-    - *Internet* - na **Etiqueta do serviço de origem**
-    - *80* - nos **Intervalos de portas de destino**
-    - *TCP* - no **Protocolo**
-    - *Allow* - na **Ação**
-    - *100* - na **Prioridade**
-    - *myHTTPRule* - no nome
-    - *Allow HTTP* - na descrição
-4. Clique em **OK**.
- 
-5. Repita os passos 2 a 4 para criar outra regra com o nome *myRDPRule* para permitir uma ligação RDP de entrada através da porta 3389 com os seguintes valores:
-    - *Service Tag* - na **Origem**.
-    - *Internet* - na **Etiqueta do serviço de origem**
-    - *3389* - nos **Intervalos de portas de destino**
-    - *TCP* - no **Protocolo**
-    - *Allow* - na **Ação**
-    - *200* - na **Prioridade**
-    - *myRDPRule* - no nome
-    - *Allow RDP* - na descrição
-
 ## <a name="create-basic-load-balancer-resources"></a>Criar recursos do Balanceador de Carga Básico
 
 Nesta secção, vai configurar as definições de balanceador de carga de um conjunto de endereços de back-end e de uma sonda de estado de funcionamento, bem como especificar o balanceador de carga e regras NAT.
@@ -139,7 +112,7 @@ Para distribuir o tráfego pelas VMs, um conjunto de endereços de back-end cont
 1. Clique em **Todos os recursos**, no menu da esquerda, e clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Conjuntos de back-end** e, em seguida, clique em **Adicionar**.
 3. Na página **Adicionar um conjunto de back-end**, faça o seguinte:
-    - No nome, escreva *myBackEndPool como o nome do conjunto de back-end.
+    - No nome, escreva *myBackEndPool* como o nome do conjunto de back-end.
     - Em **Associado a**, no menu pendente, clique em **Conjunto de disponibilidade**
     - Em **Conjunto de disponibilidade**, clique em **myAvailabilitySet**.
     - Clique em **Adicionar uma configuração de IP de rede de destino** para adicionar cada máquina virtual (*myVM1* & *myVM2*) que criou para o conjunto de back-end.

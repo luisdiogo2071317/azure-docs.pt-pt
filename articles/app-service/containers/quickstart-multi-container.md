@@ -1,7 +1,7 @@
 ---
 title: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores do Azure com uma configuração do Docker Compose
 description: Implemente a sua primeira aplicação com vários contentores na Aplicação Web para Contentores do Azure em minutos
-keywords: serviço de aplicações do azure, aplicação web, linux, docker, compose,vários contentores, contentor, kubernetes
+keywords: serviço de aplicações do azure, aplicação web, linux, docker, compor, vários contentores, vários contentores, aplicação web para contentores, vários contentores, contentor, kubernetes, wordpress, bd do azure para mysql, base de dados de produção com contentores
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753722"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127425"
 ---
-# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>Criar uma aplicação com vários contentores (pré-visualização) ao utilizar a Aplicação Web para Contentores
+# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Criar uma aplicação com vários contentores (pré-visualização) ao utilizar a Aplicação Web para Contentores
 
-A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Este início rápido mostra como implementar uma aplicação com vários contentores na Aplicação Web para Contentores no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) com uma configuração do Docker Compose. Para o Kubernetes, siga os passos do Kubernetes no [tutorial de vários contentores](tutorial-multi-container-app.md).
+A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Este início rápido mostra como implementar uma aplicação com vários contentores na Aplicação Web para Contentores no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) com uma configuração do Docker Compose. Para o Kubernetes e uma solução completa ponto a ponto com a BD do Azure para MySQL, siga o [tutorial de vários contentores](tutorial-multi-container-app.md).
 
-Este início rápido deverá ser concluído no Cloud Shell, mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). Este início rápido irá utilizar um ficheiro de configuração do Docker Compose.
+Este início rápido deverá ser concluído no Cloud Shell, mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
 
 ![Aplicação com vários contentores de exemplo na Aplicação Web para Contentores][1]
 
@@ -36,7 +36,7 @@ Este início rápido deverá ser concluído no Cloud Shell, mas também poderá 
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Para este início rápido, utilize o ficheiro compose do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mas irá modificá-lo ao incluir a Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis. O ficheiro de configuração pode ser encontrado em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Neste início rápido, irá utilizar o ficheiro compose do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). O ficheiro de configuração pode ser encontrado em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -48,10 +48,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-Em seguida, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu diretório de início rápido.
+Em seguida, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu diretório de início rápido. Em seguida, mude para o diretório `multicontainerwordpress`.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -100,11 +102,9 @@ Quando o plano do Serviço de Aplicações tiver sido criado, a CLI do Azure mos
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
-No seu terminal do Cloud Shell, mude para o diretório `multicontainerwordpress`. Crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações de `myAppServicePlan`com o comando[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
+No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 

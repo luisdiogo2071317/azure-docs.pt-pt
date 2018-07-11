@@ -9,28 +9,28 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958434"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340938"
 ---
-# <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Tutorial: Criar uma aplicação que devolva sentimentos juntamente com a predição de intenção
+# <a name="tutorial-8--add-sentiment-analysis"></a>Tutorial: 8.  Adicionar análise de sentimentos
 Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Compreender a análise de sentimentos
 > * Utilizar a aplicação LUIS no domínio de Recursos Humanos (RH) 
-> * Adicionar a análise de sentimentos
+> * Adicionar análise de sentimentos
 > * Preparar e publicar a aplicação
 > * Consultar o ponto final da aplicação para ver a resposta JSON de LUIS 
 
-Para este artigo, precisa de uma conta do [LUIS][LUIS] gratuita para criar a sua aplicação LUIS.
+Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se não tiver a aplicação de Recursos Humanos do tutorial [entidades de keyPhrase](luis-quickstart-intent-and-key-phrase.md), [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Se não tiver a aplicação de Recursos Humanos do tutorial [entidade de keyPhrase pré-concebida](luis-quickstart-intent-and-key-phrase.md), [importe](create-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `sentiment`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
@@ -53,7 +53,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
     [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-2. Selecione **Criar nova intenção**.
+2. Selecione **Create new intent** (Criar nova intenção).
 
     [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
@@ -63,7 +63,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
 4. Adicione várias expressões que indiquem que um colaborador está a fazer algo bem ou uma área que precisa de ser melhorada:
 
-    Lembre-se de que nesta aplicação de Recursos Humanos, os colaboradores estão definidos na entidade de lista, `Employee`, pelo nome, e-mail, número de extensão do telefone, número de telemóvel e os respetivos E.U.A. federal segurança números de segurança social federais dos E.U.A.. 
+    Lembre-se de que nesta aplicação de Recursos Humanos, os colaboradores estão definidos na entidade de lista, `Employee`, pelo nome, e-mail, número de extensão do telefone, número de telemóvel e os respetivos E.U.A. federal segurança números de segurança social federais dos E.U.A. 
 
     |Expressões|
     |--|
@@ -212,13 +212,10 @@ O chatbot tem agora informações suficientes para determinar o passo seguinte n
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados de sentimento da expressão para efetuar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Delete** (Eliminar). Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione o menu de três pontos (…) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Chamar a API de ponto final do LUIS com C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

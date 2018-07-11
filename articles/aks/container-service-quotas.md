@@ -2,17 +2,18 @@
 title: Quotas e disponibilidade das regiões do Serviço Kubernetes do Azure (AKS)
 description: As quotas predefinidas e a disponibilidade das regiões do Serviço Kubernetes do Azure (AKS).
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 04/26/2018
-ms.author: nepeters
-ms.openlocfilehash: 4fb03df470972a2920854ec18554d1cb4b310e88
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/13/2018
+ms.author: iainfou
+ms.openlocfilehash: 6d4fa9a06f3baeb51505c3e6060e9689428f8386
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100722"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>As quotas e a disponibilidade das regiões do Serviço Kubernetes do Azure (AKS)
 
@@ -28,12 +29,18 @@ Aplicam-se todas as outras limitações de rede, computação e armazenamento pa
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Serviço Kubernetes do Azure (AKS) está disponível para pré-visualização nas seguintes regiões:
-- EUA Leste
-- Europa Ocidental
-- EUA Central
+O Azure Container Service (AKS) está disponível nas seguintes regiões:
+
+- Leste da Austrália
 - Canadá Central
 - Leste do Canadá
+- EUA Central
+- EUA Leste
+- Europa do Norte
+- Reino Unido Sul
+- Europa Ocidental
+- EUA Oeste
+- EUA Oeste 2
 
 ## <a name="next-steps"></a>Passos seguintes
 

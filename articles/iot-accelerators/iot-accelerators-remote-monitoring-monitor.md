@@ -1,120 +1,119 @@
 ---
-title: Avançadas de monitorização na solução de monitorização remota - Azure | Microsoft Docs
-description: Este tutorial mostra como monitorizar dispositivos com o dashboard de solução de monitorização remota.
+title: Monitorizar os seus dispositivos IoT a partir de uma solução do Azure | Microsoft Docs
+description: Neste tutorial irá aprender a monitorizar os seus dispositivos IoT com o acelerador de soluções de Monitorização Remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 02/22/2018
-ms.topic: conceptual
-ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.date: 06/08/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 5f42ed0fa5362959e5619f2d550ca1ae3711ed65
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627404"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097466"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Efetuar a monitorização avançada com a solução de monitorização remota
+# <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorizar os seus dispositivos IoT
 
-Este tutorial mostra as capacidades do dashboard de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
+Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para monitorizar os seus dispositivos IoT ligados. Utilize o dashboard de soluções para ver telemetria, informações do dispositivo, alertas e KPIs.
 
-Neste tutorial, utilize dois dispositivos de camião Contoso simulados para saber como monitorizar os seus dispositivos a partir do dashboard de acelerador solução. Como um operador de Contoso, terá de monitorizar a localização e o comportamento dos seus trucks no campo.
+Para apresentar estas funcionalidades de monitorização, o tutorial utiliza dois dispositivos de camião simulado. Os camiões são geridos por uma organização chamada Contoso e estão ligados ao acelerador de soluções de Monitorização Remota. Enquanto operador da Contoso, tem de monitorizar a localização e o comportamento dos camiões no campo.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial:
 
 >[!div class="checklist"]
 > * Filtrar os dispositivos no dashboard
 > * Ver telemetria em tempo real
 > * Ver detalhes do dispositivo
-> * Ver alertas dos seus dispositivos
-> * Ver o sistema KPIs
+> * Ver alertas a partir dos seus dispositivos
+> * Ver os KPIs do sistema
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este tutorial, precisa de uma instância implementada a solução de monitorização remota na sua subscrição do Azure.
+Para seguir este tutorial, precisa de uma instância implementada do acelerador de soluções de Monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-deploy.md) tutorial.
+Se ainda não tiver implementado o acelerador de soluções de Monitorização Remota, deverá concluir o início rápido [Implementar uma solução de monitorização remota baseada na cloud](quickstart-remote-monitoring-deploy.md).
 
-## <a name="choose-the-devices-to-display"></a>Escolha os dispositivos para apresentar
+## <a name="choose-the-devices-to-display"></a>Selecionar os dispositivos a apresentar
 
-Para selecionar os dispositivos que apresentam no **Dashboard** página, utilize filtros. Para apresentar apenas o **camião** dispositivos, escolha o incorporado **Trucks** filtro na lista pendente de filtro:
+Para selecionar os dispositivos ligados que são apresentados na página **Dashboard**, utilize os filtros. Para apresentar apenas os dispositivos de **Camião**, escolha o filtro **Camiões** incorporado na lista pendente de filtros:
 
-![Filtrar por trucks no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter.png)
+[![Filtrar camiões no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Ao aplicar um filtro, apenas os dispositivos que correspondam às condições filtro apresentam no mapa no **Dashboard** página:
+Quando aplicar um filtro, escolha apenas os dispositivos que correspondem às condições de filtro apresentadas no mapa na página **Dashboard**:
 
-![Apresentar trucks no mapa](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap.png)
+[![São apresentados apenas os camiões no mapa](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
-O filtro também determina quais os dispositivos que vê no **telemetria** gráfico:
+O filtro também determina quais os dispositivos que pode ver no gráfico **Telemetria**:
 
-![Apresenta a telemetria camião no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry.png)
+[![A telemetria de camião é apresentada no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-expanded.png#lightbox)
 
-Para criar, editar e eliminar os filtros, escolha **gerir filtros**.
+Para criar, editar e eliminar filtros, escolha **Gerir grupos de dispositivos**.
 
 ## <a name="view-real-time-telemetry"></a>Ver telemetria em tempo real
 
-O acelerador solução rastreia dados de telemetria em tempo real de detalhado no gráfico no **Dashboard** página. O gráfico de telemetria mostra informações de telemetria para os dispositivos selecionados pelo filtro de atual:
+O acelerador de soluções rastreia a telemetria em tempo real no gráfico na página **Dashboard**. A parte superior do gráfico de telemetria mostra os tipos de telemetria disponíveis para os dispositivos selecionados pelo filtro atual:
 
-![Desenho de telemetria camião](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview.png)
+[![Tipos de telemetria de camião](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
-Para selecionar os valores de telemetria para ver, escolha o tipo de telemetria na parte superior do gráfico:
+Para ver a telemetria da temperatura, clique em **Temperatura**:
 
-![Desenho de telemetria camião](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry.png)
+[![Gráfico da telemetria de temperatura de camião](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
-<!-- 05/01 - this features appears to have been removed
-To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
+## <a name="use-the-map"></a>Utilizar o mapa
 
-![Pause and restart telemetry display](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
+O mapa apresenta informações sobre os camiões simulados selecionados pelo filtro atual. Pode ampliar e fazer um deslocamento panorâmico do mapa para apresentar localizações com mais ou menos detalhe. A cor do ícone de um dispositivo no mapa indica se estão ativos **Alertas** ou **Avisos** para o dispositivo. É apresentado um resumo do número de **Alertas** e **Avisos** à esquerda do mapa.
 
-## <a name="use-the-map"></a>Utilize o mapa
+Para ver os detalhes do dispositivo, faça um deslocamento panorâmico e amplie o mapa para localizar o dispositivo e, em seguida, selecione o dispositivo no mapa. Em seguida, clique na etiqueta do dispositivo para abrir o painel **Detalhes do dispositivo**. Os detalhes do dispositivo incluem:
 
-O mapa apresenta informações sobre os trucks simuladas selecionado pelo filtro de atual. Pode ampliem e desloquem o mapa para visualizar localizações detalhadamente mais ou menos. Os ícones de dispositivo no mapa indicam qualquer **alertas** ou **avisos** que estão ativos para o dispositivo. Um resumo do número de **alertas** e **avisos** apresenta à esquerda do mapa.
+* Valores de telemetria recentes
+* Métodos que o dispositivo suporta
+* Propriedades do dispositivo
 
-<!-- 05/01 - cannot select a deice on the map
-To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
+[![Ver detalhes do dispositivo no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
 
-* Recent telemetry values
-* Methods the device supports
-* Device properties
+## <a name="view-alerts"></a>Ver alertas
 
-![View device details on the dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail.png)-->
+O painel **Alertas** mostra informações detalhadas sobre os alertas mais recentes dos seus dispositivos:
 
-## <a name="view-alerts-from-your-devices"></a>Ver alertas dos seus dispositivos
+[![Ver alertas do dispositivo no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
-O mapa realça os dispositivos no filtro atual com **alertas** e **avisos**. O **alertas** painel mostra informações detalhadas sobre os alertas mais recentes dos seus dispositivos:
+Pode utilizar um filtro para ajustar o intervalo de tempo para os alertas recentes. Por predefinição, o painel apresenta alertas desde a última hora:
 
-![Ver alertas do sistema no dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms.png)
+[![Filtrar os alertas por hora](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-expanded.png#lightbox)
 
-Pode utilizar o **Dashboard** filtro para ajustar o intervalo de tempo para os alertas recentes. Por predefinição, o painel apresenta os alertas de última hora:
+## <a name="view-the-system-kpis"></a>Ver os KPIs do sistema
 
-![Filtrar os alertas por hora](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter.png)
+A página **Dashboard** apresenta KPIs do sistema calculados pelo acelerador de soluções no painel **Análise**:
 
-## <a name="view-the-system-kpis"></a>Ver o sistema KPIs
+[![KPIs do Dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis-expanded.png#lightbox)
 
-O **Dashboard** página apresenta os KPIs de sistema:
+O dashboard mostra três KPIs para os alertas selecionados pelos filtros atuais do dispositivo e do período de tempo:
 
-![KPIs de dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardkpis.png)
+* O número de alertas ativos para as regras que acionaram a maioria dos alertas.
+* A proporção de alertas por tipo de dispositivo.
+* A percentagem de alertas que são alertas críticos.
 
-Pode utilizar o **Dashboard** filtro para ajustar o intervalo de tempo para a agregação de KPI. Por predefinição, o painel apresenta KPIs agregados ao longo de última hora.
+Os mesmos filtros que definem o período de tempo para os alertas, e controlam os dispositivos que são apresentados, determinam como os KPIs são agregados. Por predefinição, o painel mostra KPIs agregados ao longo da última hora.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Este tutorial mostrou como utilizar o **Dashboard** página para filtrar e monitorizar os trucks simuladas aprovisionados na sua solução de monitorização remota:
+Se planear avançar para o próximo tutorial, deixe o acelerador de soluções de Monitorização Remota implementado. Para reduzir os custos de execução do acelerador de soluções enquanto não estiver a utilizá-lo, pode parar os dispositivos simulados no painel de definições:
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Filtrar os dispositivos no dashboard
-> * Ver telemetria em tempo real
-> * Ver detalhes do dispositivo
-> * Ver alertas dos seus dispositivos
-> * Ver o sistema KPIs
+[![Pausar telemetria](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-expanded.png#lightbox)
 
-Agora que aprendeu como monitorizar os seus dispositivos, os passos sugeridos são saber como:
+Pode reiniciar os dispositivos simulados quando estiver pronto para iniciar o próximo tutorial.
 
-* [Detetar problemas através de regras baseadas em limiares](iot-accelerators-remote-monitoring-automate.md).
-* [Gerir e configurar os seus dispositivos](iot-accelerators-remote-monitoring-manage.md).
-* [Resolver problemas e resolver problemas de dispositivo](iot-accelerators-remote-monitoring-maintain.md).
-* [Testar a sua solução com dispositivos simulados](iot-accelerators-remote-monitoring-test.md).
+Se já não precisar do acelerador de soluções, elimine-o na página [Soluções aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard):
 
-<!-- Next tutorials in the sequence -->
+![Eliminar solução](media/iot-accelerators-remote-monitoring-monitor/deletesolution.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Este tutorial mostrou como utilizar a página **Dashboard** no acelerador de soluções da Monitorização Remota, para filtrar e monitorizar os camiões simulados. Para saber como utilizar o acelerador de soluções para detetar problemas com os seus dispositivos ligados, avance para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Detetar problemas dos dispositivos ligados à sua solução de monitorização](iot-accelerators-remote-monitoring-automate.md)

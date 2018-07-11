@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335776"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445434"
 ---
 # <a name="azure-storage-account-options"></a>Opções de contas do Armazenamento do Azure
 
@@ -46,7 +46,10 @@ As contas de armazenamento GPv2 expõem o atributo de **Camada de acesso** ao n�
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>Atualizar uma conta de armazenamento para GPv2
 
-Os utilizadores podem atualizar uma conta de armazenamento GPv1 ou de Blob para uma conta GPv2 em qualquer altura com o PowerShell ou a CLI do Azure. Esta alteração não pode ser revertida e não são permitidas quaisquer outras alterações.
+Os utilizadores podem atualizar uma conta de armazenamento GPv1 ou de Blob para uma conta GPv2 em qualquer altura com o portal do Azure, o PowerShell ou a CLI do Azure. Esta alteração não pode ser revertida e não são permitidas quaisquer outras alterações.
+
+#### <a name="upgrade-with-azure-portal"></a>Atualizar com o portal do Azure
+Para atualizar uma conta de Armazenamento de blobs ou GPv1 para uma conta GPv2 com o portal do Azure, comece por iniciar sessão no [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Selecione **Definições** > **Configuração**. Verá então o botão **Atualizar** juntamente com uma nota sobre o processo de atualização.
 
 #### <a name="upgrade-with-powershell"></a>Atualizar com o PowerShell
 
@@ -262,9 +265,9 @@ Também pode ser calculado o custo de transferência de dados de georreplicaçã
 
 ## <a name="migrating-existing-data"></a>Migração de dados existentes
 
-Uma conta GPv1 pode ser facilmente atualizada para GPv2 sem tempo de inatividade ou alterações à API e sem ser necessário migrar dados. Por este motivo, recomenda-se vivamente a migração das contas GPv1 para contas GPv2, em vez das contas de armazenamento de Blobs.
+Uma conta GPv1 ou de Armazenamento de blobs pode ser facilmente atualizada para GPv2 sem tempo de inatividade ou alterações à API e sem ser preciso migrar dados. Por este motivo, recomenda-se vivamente a migração das contas GPv1 para contas GPv2, em vez das contas de armazenamento de Blobs. Para obter mais informações sobre a atualização para GPv2, veja [Atualizar uma conta de armazenamento para GPv2](#upgrade-a-storage-account-to-gpv2).
 
-No entanto, se precisar de migrar para uma conta de Armazenamento de blobs e não puder utilizar contas GPv2, pode utilizar as instruções seguintes. 
+No entanto, se precisar de migrar de uma conta GPv1 para uma conta de Armazenamento de blobs e não puder utilizar contas GPv2, pode utilizar as instruções seguintes. 
 
 Uma conta do Blob Storage é especializada para o armazenamento apenas de blobs de blocos e de acréscimo. Não é possível converter as contas de armazenamento para fins gerais existentes, que lhe permitem armazenar tabelas, filas, ficheiros, discos e também blobs, em contas do Armazenamento de blobs. Para utilizar as camadas de armazenamento, tem de criar contas do Armazenamento de blobs novas e migrar os dados existentes para as mesmas. 
 

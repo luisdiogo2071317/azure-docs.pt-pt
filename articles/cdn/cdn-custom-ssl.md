@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235503"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342230"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
@@ -45,7 +45,7 @@ Neste tutorial, ficará a saber como:
 > - Utilizar um certificado gerido pela CDN 
 > - Utilize o seu próprio certificado
 > - Validar o domínio
-> - Desativar o protocolo HTTPS no domínio personalizado
+> - Desativar o protocolo HTTPS no domínio personalizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -177,7 +177,7 @@ O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu d
 
 Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e adiciona-o ao certificado Nomes Alternativos do Requerente (SAN). DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será renovado automaticamente antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
+Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será renovado automaticamente antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 
 Normalmente, a validação automática demora alguns minutos. Se não vir o seu domínio validado ao fim de uma hora, abra um pedido de suporte.
 
@@ -214,7 +214,7 @@ Siga as instruções do formulário; tem duas opções de verificação:
 
 - Pode aprovar apenas o nome de anfitrião específico utilizado neste pedido. É necessária aprovação adicional para pedidos subsequentes.
 
-Após a aprovação, a DigiCert adiciona o seu nome de domínio personalizado ao certificado SAN. O certificado é válido durante um ano e será renovado automaticamente antes de expirar.
+Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido durante um ano e será renovado automaticamente antes de expirar.
 
 ## <a name="wait-for-propagation"></a>Aguardar pela propagação
 
@@ -288,11 +288,11 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
 1. *Quem é o fornecedor do certificado e que tipo de certificado é utilizado?*
 
-    Com a **CDN do Azure da Verizon**, a Microsoft utiliza um certificado de Nomes Alternativos do Requerente (SAN), que é fornecido pela DigiCert. Os certificados SAN podem proteger vários nomes de domínio completamente qualificados com um único certificado. Com a **CDN do Azure Standard da Microsoft**, é utilizado um certificado único fornecido pela DigiCert.
+    Para a **CDN do Azure da Verizon** e a **CDN do Azure da Microsoft**, é utilizado um certificado dedicado/único dado pela Digicert para o seu domínio personalizado. 
 
-2. Utiliza TLS/SSL baseado em IP ou em SNI?
+2. *Utiliza TLS/SSL baseado em IP ou em SNI?*
 
-    A **CDN do Azure da Verizon** utiliza TLS/SSL baseado em IP. A **CDN do Azure Standard da Microsoft** utiliza o SNI baseado em TLS/SSL.
+    A **CDN do Azure da Verizon** e a **CDN do Azure Standard da Microsoft** utilizam SNI TLS/SSL.
 
 3. *E se não receber o e-mail de verificação do domínio da DigiCert?*
 
@@ -310,6 +310,10 @@ A tabela seguinte mostra o progresso da operação que ocorre quando desativa o 
 
     Não, atualmente os registos Autorização de Autoridade de Certificação não são necessários. No entanto, se tiver um, o mesmo tem de incluir a DigiCert como AC válida.
 
+7. *A 20 de junho de 2018, a CDN do Azure da Verizon começou a utilizar um certificado dedicado com SNI TLS/SSL, por predefinição. O que acontece aos meus domínios personalizados existentes que utilizam o certificado de Nomes Alternativos do Requerente (SAN) e TLS/SSL baseado em IP?*
+
+    Os domínios existentes serão gradualmente migrados para um único certificado nos meses seguintes se a Microsoft analisar que apenas os pedidos de cliente do SNI são realizados na sua aplicação. Se a Microsoft detetar alguns pedidos de cliente não SNI feitos na sua aplicação, os seus domínios permanecerão no certificado SAN com TLS/SSL baseado em IP. De qualquer forma, não haverá interrupções no seu serviço ou suporte aos seus pedidos de cliente, independentemente se esses pedidos são SNI ou não.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -320,7 +324,7 @@ Neste tutorial, ficou a saber como:
 > - Utilizar um certificado gerido pela CDN 
 > - Utilize o seu próprio certificado
 > - Valide o domínio
-> - Desativar o protocolo HTTPS no domínio personalizado
+> - Desativar o protocolo HTTPS no domínio personalizado.
 
 Avance para o próximo tutorial para saber como configurar a colocação em cache no seu ponto final da CDN.
 

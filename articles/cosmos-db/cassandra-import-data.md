@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795079"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095677"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: importar dados do Cassandra
 
@@ -57,7 +57,7 @@ Para importar os dados do Cassandra para o Azure Cosmos DB para utilizar com a A
 1. Crie previamente e dimensione a sua tabela:
     * Por predefinição, o Azure Cosmos DB aprovisiona uma nova tabela do API para Cassandra com 1.000 unidades de pedido por segundo (RU/s) (a criação baseada em CQL é aprovisionada com 400 RU/s). Antes de iniciar a migração ao utilizar cqlsh, pré-crie todas as suas tabelas do [portal do Azure](https://portal.azure.com) ou a partir de cqlsh. 
 
-    * Do [portal do Azure](https://portal.azure.com), aumente o débito das tabelas de débito predefinido (400 ou 1000 RU/s) para 10 000 RU/s para a duração da migração. Com o débito mais elevado, pode evitar limitações e realizar a migração em menos tempo. Com a faturação à hora no Azure Cosmos DB, pode reduzir o débito imediatamente após a migração, para reduzir os custos.
+    * Do [portal do Azure](https://portal.azure.com), aumente o débito das tabelas de débito predefinido (400 ou 1000 RU/s) para 10 000 RU/s para a duração da migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Com a faturação à hora no Azure Cosmos DB, pode reduzir o débito imediatamente após a migração, para reduzir os custos.
 
 2. Determine os encargos de RU durante uma operação. Pode fazê-lo ao utilizar o SDK da API do Azure Cosmos DB Cassandra à sua escolha. Este exemplo mostra a versão do .NET dos encargos de obter RU. 
 
