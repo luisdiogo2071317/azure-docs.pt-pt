@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849996"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473991"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](active-directory-aadconnect-get-started-express.md) não satisfaz a sua implementação ou topologia.
@@ -67,7 +67,7 @@ Esta conta é utilizada apenas para criar uma conta de serviço no Azure AD e de
 Se a conta de administrador global tiver a MFA ativada, terá de fornecer novamente a palavra-passe no pop-up início de sessão e completar o desafio MFA. O desafio pode ser fornecer um código de verificação ou uma chamada telefónica.  
 ![Início de Sessão de Utilizador no MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-A conta de administrador global também pode ter a opção [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) ativada.
+A conta de administrador global também pode ter a opção [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) ativada.
 
 Se receber um erro e tiver problemas com a conectividade, veja [Resolver problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
 
@@ -261,7 +261,7 @@ Introduza os servidores em que pretende instalar o AD FS. Pode adicionar um ou m
 ![Servidores do AD FS](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
 ### <a name="specify-the-web-application-proxy-servers"></a>Especificar os servidores Proxy de Web Apps
-Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy da aplicação Web está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
+Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy de Web Apps está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
 
 > [!NOTE]
 > <li> Se a conta utilizada não for um administrador local nos servidores WAP, ser-lhe-ão pedidas as credenciais de administrador.</li>

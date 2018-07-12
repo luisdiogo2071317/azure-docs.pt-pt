@@ -7,7 +7,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
-2. Crie um integration runtime autoalojado. 
+2. Criar um integration runtime autoalojado. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName

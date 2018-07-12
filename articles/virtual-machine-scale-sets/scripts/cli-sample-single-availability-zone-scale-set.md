@@ -3,7 +3,7 @@ title: Exemplos da CLI do Azure 2.0 - conjunto de dimensionamento de zona única
 description: Exemplos da CLI 2.0 do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f881d90628f5e4b5c4fc3fe56ecb1b3377d8ba42
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 007e9b9c7d7124e4cb836e0f4b9404207a36293d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246479"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618200"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu numa única Zona de Disponibilidade. Depois de executar o script, pode aceder à máquina virtual através de RDP.

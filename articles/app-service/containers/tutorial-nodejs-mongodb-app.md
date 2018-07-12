@@ -16,11 +16,11 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29932750"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472956"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js e MongoDB no Serviço de Aplicações do Azure no Linux
 
@@ -32,7 +32,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Saiba como:
+O que aprende com o saiba como:
 
 > [!div class="checklist"]
 > * Criar uma base de dados do CosmosDB com a API do MongoDB no Azure
@@ -48,7 +48,7 @@ Saiba como:
 
 Para concluir este tutorial:
 
-1. [Instale o Git](https://git-scm.com/).
+1. [Instale o Git](https://git-scm.com/)
 1. [Instalar o Node.js v6.0 ou posterior e NPM](https://nodejs.org/)
 1. [Instalar o Gulp.js](http://gulpjs.com/) (exigido pelo [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/)

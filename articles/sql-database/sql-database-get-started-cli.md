@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: carlrab
 ms.openlocfilehash: d4bb27ddc4ff9385fd46fc7554af2af16ef40558
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187288"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597545"
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Criar uma única base de dados SQL do Azure com a CLI do Azure
 
@@ -30,7 +30,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Defina variáveis para utilização nos scripts neste guia de início rápido.
+Defina variáveis para utilização nos scripts neste início rápido.
 
 ```azurecli-interactive
 # The data center and resource name for your resources
@@ -79,7 +79,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>Criar uma base de dados no servidor com dados de exemplo
 
-Crie uma base de dados com um [nível de desempenho S0](sql-database-service-tiers-dtu.md) no servidor com o comando [az sql db create](/cli/azure/sql/db#az_sql_db_create). O exemplo seguinte cria uma base de dados denominada `mySampleDatabase` e carrega os dados de exemplo AdventureWorksLT para esta base de dados. Substitua estes valores predefinidos conforme quiser (outros guias de início rápido nesta coleção são criados mediante os valores neste guia de início rápido).
+Crie uma base de dados com um [nível de desempenho S0](sql-database-service-tiers-dtu.md) no servidor com o comando [az sql db create](/cli/azure/sql/db#az_sql_db_create). O exemplo seguinte cria uma base de dados denominada `mySampleDatabase` e carrega os dados de exemplo AdventureWorksLT para esta base de dados. Substitua estes valores predefinidos conforme quiser (outros inícios rápidos nesta coleção são criados mediante os valores neste início rápido).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \

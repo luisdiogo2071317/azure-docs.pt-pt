@@ -15,11 +15,11 @@ ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 90cd9b4b29c0860355d318201df49262afd82de5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154437"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38472666"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação Web .NET Core e Base de Dados SQL no Serviço de Aplicações do Azure
 
@@ -39,7 +39,7 @@ Saiba como:
 > * Implementar a aplicação no Azure
 > * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Transmitir os registos de diagnóstico em fluxo a partir do Azure
-> * Gerir a aplicação no Portal do Azure
+> * Gerir a aplicação no portal do Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Saiba como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/)
+* [Instale o Git](https://git-scm.com/).
 * [Instale o .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Criar uma aplicação .NET Core local
@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> Pode ser ainda mais restritivo na sua regra de firewall [Utilizando apenas os endereços IP de saída que a aplicação utiliza](app-service-ip-addresses.md#find-outbound-ips).
+> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](app-service-ip-addresses.md#find-outbound-ips).
 >
 
 ### <a name="create-a-database"></a>Criar uma base de dados
@@ -365,7 +365,7 @@ Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a 
 
 ## <a name="manage-your-azure-web-app"></a>Gerir a aplicação Web do Azure
 
-Aceda ao [Portal do Azure](https://portal.azure.com) para ver a aplicação Web que criou.
+Aceda ao [portal do Azure](https://portal.azure.com) para ver a aplicação Web que criou.
 
 No menu à esquerda, clique em **Serviços Aplicacionais** e clique no nome da sua aplicação Web do Azure.
 
@@ -373,7 +373,7 @@ No menu à esquerda, clique em **Serviços Aplicacionais** e clique no nome da s
 
 Por predefinição, o portal mostra a página **Descrição Geral** da aplicação Web. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
-![Página Serviço de Aplicações no Portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
+![Página Serviço de Aplicações no portal do Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -388,7 +388,7 @@ O que aprendeu:
 > * Implementar a aplicação no Azure
 > * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Transmitir os registos do Azure para o seu terminal
-> * Gerir a aplicação no Portal do Azure
+> * Gerir a aplicação no portal do Azure
 
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
 

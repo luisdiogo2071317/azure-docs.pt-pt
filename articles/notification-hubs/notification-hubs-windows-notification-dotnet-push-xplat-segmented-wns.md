@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 9b9e3b910162653c14c398e2c3392709abcd5fd8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776690"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38631749"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Tutorial: Enviar notificações para dispositivos Windows específicos que executem aplicações da Plataforma Universal do Windows
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -35,7 +35,7 @@ Os cenários de difusão são ativados ao incluir uma ou mais *etiquetas* durant
 > [!NOTE]
 > O Visual Studio 2017 não suporta as versões de projetos da Loja Windows e do Windows Phone 8.1 e anteriores. Para obter mais informações, veja [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Segmentação e Compatibilidade de Plataformas do Visual Studio 2017) 
 
-Neste tutorial, siga os seguintes passos:
+Neste tutorial, siga os passos seguintes:
 
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel

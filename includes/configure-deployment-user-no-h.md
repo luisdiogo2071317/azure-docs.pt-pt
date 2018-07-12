@@ -9,11 +9,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 463e8b0122339831d5d6a65b6e41d4f697a82013
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28986140"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38731926"
 ---
 No Cloud Shell, crie credenciais de implementação com o comando [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Para a implementação de FTP e Git local numa aplicação Web, é preciso este utilizador de implementação. O nome de utilizador e a palavra-passe estão ao nível da conta. _São diferentes das credenciais da sua subscrição do Azure._
 

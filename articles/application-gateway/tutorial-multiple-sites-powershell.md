@@ -10,11 +10,11 @@ ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 5e6b3d8630268d68691a68eee6c3aadc408b78f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356108"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586955"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
 
@@ -285,13 +285,13 @@ Introduza o nome de domínio na barra de endereço do seu browser. Como, por exe
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 
-Altere o endereço para o outro domínio e deverá ver algo semelhante ao seguinte exemplo:
+Altere o endereço para o outro domínio, e deverá ver algo semelhante ao seguinte exemplo:
 
 ![Testar o site fabrikam no gateway de aplicação](./media/tutorial-multiple-sites-powershell/application-gateway-iistest2.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados com [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados, com [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
 ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29530171"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630102"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Carregar computadores Linux para o Centro de Segurança do Azure
 Depois de carregar as subscrições do Azure, pode ativar o Centro de Segurança para os recursos Linux em execução fora do Azure, por exemplo, no local ou noutras clouds, ao aprovisionar o Agente para Linux.

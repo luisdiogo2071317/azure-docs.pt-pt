@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 824235cfdae6df9d852875281346e35a18277f74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651683"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531665"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar inventário através do PowerShell e tópicos/subscrições
 
 O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. 
 
-Este tutorial mostra como enviar e receber mensagens de e para uma fila do Service Bus através do PowerShell, para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila através da [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+Este tutorial mostra como enviar e receber mensagens de e para uma fila do Service Bus através do PowerShell, para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -88,11 +88,11 @@ New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName na
 Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Depois da execução do cmdlet `Get-AzureRmServiceBusKey`, copie e cole a cadeia de ligação e o nome de fila selecionado numa localização temporária, como o Bloco de notas. Vai precisar dele no próximo passo.
+Depois da execução do cmdlet `Get-AzureRmServiceBusKey`, copie e cole a cadeia de ligação e o nome de fila selecionado numa localização temporária, como o Bloco de notas. Vai precisar deles no próximo passo.
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Depois de criar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
+Depois de criar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
 
 Para executar o código, faça o seguinte:
 
@@ -122,7 +122,7 @@ Para executar o código, faça o seguinte:
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
-8. Observe 10 mensagens que estão a ser enviadas para a fila e subsequentemente recebidas da fila:
+8. Observe as 10 mensagens que estão a ser enviadas para a fila e subsequentemente recebidas da fila:
 
    ![saída do programa](./media/service-bus-quickstart-powershell/dotnet.png)
 

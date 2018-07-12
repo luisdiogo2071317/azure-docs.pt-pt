@@ -3,7 +3,7 @@ title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtu
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais com o Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
-ms.author: iainfou
-ms.openlocfilehash: ea2f51d79411c6edbf6ebc92b6abd7942e5bc3f0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: 9df1ce48f3851fb0d5576315ac63f9f923059ffa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247346"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630119"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI 2.0 do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI 2.0 do Azure.
