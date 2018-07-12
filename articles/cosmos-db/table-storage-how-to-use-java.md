@@ -597,7 +597,7 @@ catch (Exception e)
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started) (Introdução ao Serviço Tabela do Azure em Java)
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)
-* [Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)[Azure Storage Client SDK Reference]
+* [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)
 * [Azure Storage REST API][Azure Storage REST API] (API REST do Armazenamento do Azure)
 * [Azure Storage Team Blog][Azure Storage Team Blog] (Blogue da Equipa do Armazenamento do Azure)
 
