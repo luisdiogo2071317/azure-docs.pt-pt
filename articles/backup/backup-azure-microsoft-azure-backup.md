@@ -1,20 +1,20 @@
 ---
-title: Utilizar o servidor de cópia de segurança do Azure para cópia de segurança de cargas de trabalho para o Azure
-description: Utilize o servidor de cópia de segurança do Azure para proteger ou cópia de segurança de cargas de trabalho para o portal do Azure.
+title: Utilizar o Azure Backup Server para fazer cópias de segurança de cargas de trabalho para o Azure
+description: Utilize o Azure Backup Server para proteger ou cópia de segurança de cargas de trabalho para o portal do Azure.
 services: backup
 author: PVRK
 manager: shivamg
-keywords: servidor do backup do Azure; proteger cargas de trabalho; cópia de segurança de cargas de trabalho
+keywords: servidor de cópia de segurança do Azure. proteger cargas de trabalho; fazer cópias de segurança de cargas de trabalho
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/27/2018
+ms.date: 7/10/2018
 ms.author: adigan
-ms.openlocfilehash: 0364643c087453e423544937052aa6aad233b3b3
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 67243aca9f5f578402ff79422783148af53798c6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099670"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38546022"
 ---
 # <a name="install-and-configure-azure-backup-server"></a>Instalar e configurar o servidor de cópia de segurança do Azure
 > [!div class="op_single_selector"]
@@ -23,64 +23,64 @@ ms.locfileid: "37099670"
 >
 >
 
-Este artigo explica como preparar o ambiente para fazer cópias de segurança de cargas de trabalho utilizando o servidor de cópia de segurança do Azure. Com o servidor de cópia de segurança do Azure, pode proteger cargas de trabalho de aplicações como VMs de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e clientes Windows de uma única consola.
+Este artigo explica como preparar o ambiente para fazer cópias de segurança de cargas de trabalho com o Azure Backup Server. Com o servidor de cópia de segurança do Azure, pode proteger cargas de trabalho de aplicação, como VMs de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e clientes Windows de um único console.
 
 > [!NOTE]
-> Servidor de cópia de segurança do Azure agora pode proteger as VMs VMware e fornece capacidades de segurança melhorada. Instalação do produto, conforme explicado nas secções abaixo; aplica atualização 1 e o agente de cópia de segurança mais recente do Azure. Para saber mais sobre a cópia de segurança de servidores do VMware com o servidor de cópia de segurança do Azure, consulte o artigo [utilizar servidor de cópia de segurança do Azure para cópia de segurança de um servidor VMware](backup-azure-backup-server-vmware.md). Para saber mais sobre as capacidades de segurança, consulte [documentação de funcionalidades de segurança de cópia de segurança do Azure](backup-azure-security-feature.md).
+> O Azure Backup Server agora pode proteger as VMs VMware e fornece capacidades de segurança melhorada. Instalar o produto, conforme explicado nas secções abaixo; aplica atualização 1 e o agente de cópia de segurança mais recente do Azure. Para saber mais sobre como fazer backup de servidores de VMware no servidor de cópia de segurança do Azure, veja o artigo [utilizar o Azure Backup Server para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md). Para saber mais sobre as capacidades de segurança, consulte [documentação de funcionalidades de segurança de cópia de segurança do Azure](backup-azure-security-feature.md).
 >
 >
 
-Também pode proteger a infraestrutura como um cargas de trabalho do serviço (IaaS) como VMs no Azure.
+Também pode proteger a infraestrutura como um cargas de trabalho do serviço (IaaS), como VMs no Azure.
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e procedimentos para restaurar VMs implementadas utilizando o modelo do Resource Manager.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e procedimentos para restaurar VMs implementadas com o modelo do Resource Manager.
 >
 >
 
-Servidor do Backup do Azure herda muito a funcionalidade de cópia de segurança da carga de trabalho do Data Protection Manager (DPM). Ligações neste artigo, a documentação do DPM para explicar alguns da funcionalidade partilhada. Embora o servidor de cópia de segurança do Azure partilha muito a mesma funcionalidade que o DPM. Servidor de cópia de segurança do Azure não fazer cópias de segurança em banda, nem é feita a integração com o System Center.
+O Azure Backup Server herda grande parte da funcionalidade de cópia de segurança da carga de trabalho do Data Protection Manager (DPM). Este artigo liga para documentação do DPM para explicar algumas das funcionalidades compartilhadas. No entanto, servidor de cópia de segurança do Azure partilha grande parte a mesma funcionalidade que o DPM. O Azure Backup Server não fazer cópias de segurança em banda, nem é feita a integração com o System Center.
 
 ## <a name="choose-an-installation-platform"></a>Escolha uma plataforma de instalação
-Para obter o servidor de cópia de segurança do Azure, cópias de segurança e em execução, o primeiro passo é configurar um servidor do Windows. O servidor pode ser no Azure ou no local.
+A primeira etapa para colocar o servidor de cópia de segurança do Azure em funcionamento é configurar um servidor do Windows. O servidor pode ser no Azure ou no local.
 
 ### <a name="using-a-server-in-azure"></a>Utilizar um servidor no Azure
-Ao escolher um servidor para executar o servidor de cópia de segurança do Azure, recomenda-se que começar com uma imagem de galeria do Windows Server 2012 R2 Datacenter ou Datacenter do Windows Server 2016. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual no Azure, mesmo se nunca tiver utilizado o Azure. Os requisitos mínimos recomendados para a máquina virtual (VM) do servidor devem ser: A2 padrão com dois núcleos e 3.5 GB de RAM.
+Ao escolher um servidor para executar o servidor de cópia de segurança do Azure, recomenda-se que começar com uma imagem da galeria do Datacenter do Windows Server 2012 R2 ou Windows Server 2016 Datacenter. O artigo [criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar a trabalhar com o recomendado da máquina virtual no Azure, mesmo se nunca utilizou o Azure. Os requisitos mínimos recomendados para a máquina do servidor virtual (VM) devem ser: A2 padrão com dois núcleos e 3,5 GB de RAM.
 
-Proteger cargas de trabalho com o servidor de cópia de segurança do Azure tem muitas nuances. O artigo [instalar o DPM como uma máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explica estes nuances. Antes de implementar a máquina, leia este artigo completamente.
+Proteger cargas de trabalho com o Azure Backup Server tem muitos nuances. O artigo [instalar o DPM como máquina virtual do Azure](https://technet.microsoft.com/library/jj852163.aspx), ajuda a explica tais nuances. Antes de implementar a máquina, leia este artigo completamente.
 
 ### <a name="using-an-on-premises-server"></a>Utilizar um servidor no local
-Se não pretender executar o servidor de base no Azure, pode executar o servidor de uma VM de Hyper-V, uma VM de VMware ou um anfitrião físico. Os requisitos mínimos recomendados para o hardware de servidor são dois núcleos e 4 GB de RAM. Os sistemas operativos suportados estão listados na seguinte tabela:
+Se não pretender executar o servidor de base no Azure, pode executar o servidor numa VM de Hyper-V, uma VM de VMware ou num host físico. Os requisitos mínimos recomendados para o hardware de servidor são dois núcleos e 4 GB de RAM. Os sistemas operativos suportados estão listados na tabela a seguir:
 
 | Sistema Operativo | Plataforma | SKU |
 |:--- | --- |:--- |
-| Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials (em diante no MABS v2) |
+| Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials (e posteriores para o MABS v2) |
 | Windows Server 2012 R2 SPs mais recentes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 e SPs mais recentes |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup |
 
-Pode eliminar a duplicados do armazenamento do DPM utiliza a eliminação de duplicados do Windows Server. Saiba mais sobre como [DPM e eliminação de duplicados](https://technet.microsoft.com/library/dn891438.aspx) funcionam em conjunto, quando implementados em VMs de Hyper-V.
+Pode eliminar duplicados no armazenamento do DPM com a eliminação de duplicados do Windows Server. Saiba mais sobre como [DPM e eliminação de duplicados](https://technet.microsoft.com/library/dn891438.aspx) funcionam em conjunto, quando implementada nas VMs de Hyper-V.
 
 > [!NOTE]
-> Servidor de cópia de segurança do Azure foi concebido para ser executado num servidor dedicado e especializado. Não é possível instalar o servidor de cópia de segurança do Azure em:
+> O Azure Backup Server foi concebido para ser executado num servidor dedicado e especializado. Não é possível instalar o servidor de cópia de segurança do Azure em:
 > - Um computador em execução como um controlador de domínio
 > - Um computador no qual a função de Servidor de Aplicações está instalada
 > - Um computador que é um servidor de gestão do System Center Operations Manager
 > - Um computador no qual o Exchange Server está em execução
 > - Um computador que é um nó de um cluster
 
-Sempre associe o servidor de cópia de segurança do Azure a um domínio. Se planear mover o servidor a um domínio diferente, instalar o servidor de cópia de segurança do Azure pela primeira vez, em seguida, associar o servidor para o novo domínio. Mover uma máquina do servidor de cópia de segurança do Azure existente para um novo domínio após a conclusão da implementação *não suportado*.
+Sempre associe o servidor de cópia de segurança do Azure a um domínio. Se planear mover o servidor para um domínio diferente, instalar o servidor de cópia de segurança do Azure pela primeira vez, em seguida, associe o servidor para o novo domínio. Mover uma máquina do servidor de cópia de segurança do Azure existente para um novo domínio após a implantação *nepodporuje*.
 
-Quer enviar dados de cópia de segurança para o Azure, ou mantenha-o localmente, o servidor de cópia de segurança do Azure tem de ser registado com um cofre dos serviços de recuperação.
+Se envia dados de cópia de segurança para o Azure ou mantê-lo localmente, o servidor de cópia de segurança do Azure tem de estar registado com um cofre dos serviços de recuperação.
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por predefinição, os cofres dos serviços de recuperação utilizam o armazenamento georredundante. Se este cofre é o seu Cofre primário, deixe a opção de armazenamento definida para o armazenamento georredundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por predefinição, os cofres dos serviços de recuperação utilizam o armazenamento georredundante. Se este cofre é o Cofre primário, deixe a opção de armazenamento definida para armazenamento georredundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
-1. Selecione o cofre para abrir o dashboard do cofre e o menu definições. Se o **definições** menu não abrir, clique em **todas as definições** no dashboard do cofre.
-2. No **definições** menu, clique em **infraestrutura de cópia de segurança** > **configuração de cópia de segurança** para abrir o **configuração de cópia de segurança**painel. No **configuração de cópia de segurança** menu, escolha a opção de replicação de armazenamento para o cofre.
+1. Selecione o cofre para abrir o dashboard do cofre e o menu de definições. Se o **configurações** menu não abre, clique em **todas as definições** no dashboard do cofre.
+2. Na **definições** menu, clique em **infraestrutura de cópia de segurança** > **configuração de cópia de segurança** para abrir o **configuração de cópia de segurança**painel. Sobre o **configuração de cópia de segurança** menu, escolha a opção de replicação de armazenamento para o cofre.
 
     ![Lista de cofres de cópia de segurança](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -107,145 +107,145 @@ Para editar a definição de replicação de armazenamento:
     ![Abrir painel do cofre](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
 4. Clique em **cópia de segurança** para abrir o Assistente de introdução.
 
-    ![Introdução de cópia de segurança](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+    ![Cópia de segurança de introdução](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-    No **introdução à cópia de segurança** painel que abre, **objetivos de cópia de segurança** serão automaticamente selecionadas.
+    Na **introdução à cópia de segurança** painel que aparece, **objetivos de cópia de segurança** será selecionada automaticamente.
 
-    ![Abrir de cópia de segurança objetivos predefinido](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+    ![Aberto de cópia de segurança objetivos padrão](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-5. No **objetivo de cópia de segurança** painel, do **onde está a carga de trabalho em execução** menu, selecione **no local**.
+5. Na **objetivo de cópia de segurança** painel, da **em que a sua carga de trabalho é executado** menu, selecione **locais**.
 
-    ![no local e cargas de trabalho como objetivos](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
+    ![cargas de trabalho como objetivos e no local](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    Do **que itens pretende cópia de segurança?** menu pendente, selecione as cargas de trabalho que pretende proteger com o servidor de cópia de segurança do Azure e, em seguida, clique em **OK**.
+    Do **o que fazer quiser a cópia de segurança?** menu pendente, selecione as cargas de trabalho que pretende proteger com o Azure Backup Server e, em seguida, clique em **OK**.
 
-    O **introdução à cópia de segurança** assistente comutadores o **preparar a infraestrutura** opção para efetuar cópias de segurança de cargas de trabalho para o Azure.
+    O **introdução à cópia de segurança** comutadores de assistente a **preparar a infraestrutura** opção para efetuar cópias de segurança de cargas de trabalho para o Azure.
 
    > [!NOTE]
-   > Se apenas pretender fazer uma cópia de segurança de ficheiros e pastas, recomenda-se com o agente de cópia de segurança do Azure e seguir as orientações no artigo, [primeiras impressões: cópia de segurança ficheiros e pastas](backup-try-azure-backup-in-10-mins.md). Se pretender proteger mais de ficheiros e pastas ou estiver a planear expandir as necessidades de proteção no futuro, selecione essas cargas de trabalho.
+   > Se pretender apenas fazer uma cópia de segurança de ficheiros e pastas, recomendamos utilizar o agente de cópia de segurança do Azure e seguir as orientações neste artigo, [primeiras impressões: efetuar cópias de segurança ficheiros e pastas](backup-try-azure-backup-in-10-mins.md). Se pretender proteger mais de ficheiros e pastas, ou se estiver a planear expandir as necessidades de proteção no futuro, selecione essas cargas de trabalho.
    >
    >
 
-    ![Introdução ao Assistente de introdução de alterações](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+    ![Introdução a alteração do Assistente de introdução](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. No **preparar a infraestrutura** painel apresentada, clique em de **transferir** ligações para instalar o servidor de cópia de segurança do Azure e as credenciais do Cofre de transferência. Utilize as credenciais do cofre durante o registo do servidor de cópia de segurança do Azure para o Cofre de serviços de recuperação. As ligações remetem o utilizador para o Centro de transferências onde o pacote de software pode ser transferido.
+6. Na **preparar infraestrutura** painel apresentado, clique no **transferir** ligações para instalar o Azure Backup Server e as credenciais do Cofre de Download. Utilize as credenciais do cofre durante o registo do servidor de cópia de segurança do Azure para o Cofre dos serviços de recuperação. As ligações levá-lo ao centro de Download, onde o pacote de software pode ser baixado.
 
-    ![Preparar a infraestrutura de cópia de segurança do servidor do Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
+    ![Preparar infraestrutura para o servidor de cópia de segurança do Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
-7. Selecione todos os ficheiros e clique em **seguinte**. Transferir todos os ficheiros feitos página de transferência da cópia de segurança do Microsoft Azure e coloque todos os ficheiros na mesma pasta.
+7. Selecione todos os ficheiros e clique em **seguinte**. Transferir todos os ficheiros que chegam da página de download do Microsoft Azure Backup e coloque todos os ficheiros na mesma pasta.
 
     ![1 do Centro de transferências](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Uma vez que o tamanho de transferência dos ficheiros em conjunto > 3G, um 10 Mbps transferi-ligação pode demorar até 60 minutos para a transferência concluir.
+    Uma vez que o tamanho do download de todos os arquivos em conjunto é > 3G, num 10 Mbps ligação de transferência pode demorar até 60 minutos para a transferência seja concluída.
 
 ### <a name="extracting-the-software-package"></a>Extrair o pacote de software
-Depois de transferir todos os ficheiros, clique em **MicrosoftAzureBackupInstaller.exe**. Isto iniciará a **Assistente de configuração de cópia de segurança do Microsoft Azure** para extrair os ficheiros de configuração para uma localização especificada por si. Continuar com o assistente e clique em de **extrair** botão para iniciar o processo de extração.
+Depois de baixar todos os ficheiros, clique em **MicrosoftAzureBackupInstaller.exe**. Isso iniciará o **Assistente de configuração de cópia de segurança do Microsoft Azure** para extrair os ficheiros de configuração para uma localização especificada por si. Continuar através do assistente e clique nas **extrair** botão para iniciar o processo de extração.
 
 > [!WARNING]
-> É necessário, pelo menos, 4GB de espaço livre para extrair os ficheiros de configuração.
+> Pelo menos 4GB de espaço livre é necessário para extrair os ficheiros de configuração.
 >
 >
 
 ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Depois do processo de extração completo, selecione a caixa para iniciar a raiz extraídos *setup.exe* para começar a instalar o servidor de cópia de segurança do Microsoft Azure e clique em de **concluir** botão.
+Depois do processo de extração completo, marque a caixa para iniciar o recentemente extraídos *setup.exe* para começar a instalar o Microsoft Azure Backup Server e clique nas **concluir** botão.
 
 ### <a name="installing-the-software-package"></a>Instalar o pacote de software
-1. Clique em **cópia de segurança do Microsoft Azure** para iniciar o Assistente de configuração.
+1. Clique em **Microsoft Azure Backup** para iniciar o Assistente de configuração.
 
     ![Assistente de configuração de cópia de segurança do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. No ecrã de boas-vindas, clique o **seguinte** botão. Isto leva-o para o *verificações de pré-requisitos* secção. Neste ecrã, clique em **verifique** para determinar se tiverem sido cumpridos os pré-requisitos de hardware e software para o servidor de cópia de segurança do Azure. Se todos os pré-requisitos são cumpridos com êxito, verá uma mensagem a indicar que o computador cumpre os requisitos. Clique em de **seguinte** botão.
+2. No ecrã de boas-vindos, clique nas **seguinte** botão. Isto leva-o para o *verificações de pré-requisitos* secção. Neste ecrã, clique em **verificar** para determinar se foram cumpridos os pré-requisitos de hardware e software para o servidor de cópia de segurança do Azure. Se todos os pré-requisitos são cumpridos com êxito, verá uma mensagem a indicar que o computador cumpre os requisitos. Clique nas **seguinte** botão.
 
-    ![Verificação do servidor de cópia de segurança do Azure - boas-vindas e pré-requisitos](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Servidor de cópia de segurança do Microsoft Azure requer o SQL Server Standard. Além disso, o pacote de instalação do servidor de cópia de segurança do Azure integra integrados nos binários do SQL Server adequados necessários se não pretender utilizar o seu próprio SQL. Ao iniciar com uma nova instalação do servidor de cópia de segurança do Azure, deve escolher a opção **instalar um novo instância do SQL Server com esta configuração** e clique em de **verificar e instalar** botão. Depois dos pré-requisitos estão instalados com êxito, clique em **seguinte**.
+    ![Servidor de cópia de segurança do Azure - pré-requisitos e bem-vindo de verificação](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+3. Microsoft Azure Backup Server requer o SQL Server Standard. Além disso, o pacote de instalação do servidor de cópia de segurança do Azure inclui integrados nos binários do SQL Server apropriados necessários se não pretender utilizar o seu próprio SQL. Ao iniciar com uma nova instalação do servidor de cópia de segurança do Azure, deve escolher a opção **instalar nova instância do SQL Server com esta configuração** e clique nas **verificar e instalar** botão. Assim que os pré-requisitos estão instalados com êxito, clique em **seguinte**.
 
-    ![Servidor de cópia de segurança do Azure - verificação do SQL Server](./media/backup-azure-microsoft-azure-backup/sql/01.png)
+    ![Servidor de cópia de segurança do Azure - verificação SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Se ocorrer uma falha com uma recomendação para reiniciar a máquina, fazê-lo e clique em **verifique novamente**.
+    Se ocorrer uma falha com uma recomendação para reiniciar a máquina, fazê-lo e clique em **verificar novamente**.
 
    > [!NOTE]
-   > Servidor de cópia de segurança do Azure não irá funcionar com uma instância remota do SQL Server. A instância que está a ser utilizada pelo servidor de cópia de segurança do Azure tem de ser local.
+   > O Azure Backup Server não irá funcionar com uma instância remota do SQL Server. A instância que está a ser utilizada pelo servidor de cópia de segurança do Azure tem de ser local.
    >
    >
-4. Forneça uma localização para a instalação de ficheiros do servidor de cópia de segurança do Microsoft Azure e clique em **seguinte**.
+4. Forneça uma localização para a instalação dos ficheiros do servidor de cópia de segurança do Microsoft Azure e clique em **seguinte**.
 
     ![PreReq2 de cópia de segurança do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    A localização scratch é um requisito para cópia de segurança em do Azure. Certifique-se de que a localização de scratch é, pelo menos, 5% dos dados a ser planeados a cópia de segurança para a nuvem. Para a proteção de disco, discos separados tem de ser configurado depois de concluída a instalação. Para obter mais informações sobre agrupamentos de armazenamento, consulte [configurar agrupamentos de armazenamento e armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
-5. Forneça uma palavra-passe segura para contas de utilizador locais restritas e clique em **seguinte**.
+    A localização de rascunho é um requisito para a cópia no Azure. Certifique-se de que a localização de rascunho é, pelo menos, 5% dos dados em planeadas a cópia de segurança para a cloud. Para a proteção de disco, discos separados tem de ser configurado depois de concluída a instalação. Para obter mais informações sobre agrupamentos de armazenamento, consulte [configurar agrupamentos de armazenamento e armazenamento no disco](https://technet.microsoft.com/library/hh758075.aspx).
+5. Forneça uma palavra-passe forte para contas de usuário local restritas e clique em **seguinte**.
 
     ![PreReq2 de cópia de segurança do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/security-screen.png)
-6. Selecione se pretende utilizar *Microsoft Update* para procurar atualizações e clique em **seguinte**.
+6. Selecione se pretende utilizar *Microsoft Update* para verificar a existência de atualizações e clique em **próxima**.
 
    > [!NOTE]
-   > Recomenda-se ter o Windows Update redirecionar para o Microsoft Update oferece segurança e atualizações importantes para o Windows e outros produtos, como o servidor de cópia de segurança do Microsoft Azure.
+   > Recomendamos ter a atualização do Windows redirecionar para o Microsoft Update, que oferece segurança e atualizações importantes para o Windows e outros produtos, como o Microsoft Azure Backup Server.
    >
    >
 
     ![PreReq2 de cópia de segurança do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
-7. Reveja o *resumo de definições* e clique em **instalar**.
+7. Reveja os *resumo de definições* e clique em **instalar**.
 
     ![PreReq2 de cópia de segurança do Microsoft Azure](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
-8. A instalação ocorre em fases. Na primeira fase, o Microsoft Azure Recovery Services Agent está instalado no servidor. O assistente também verifica a conectividade à Internet. Se a conectividade à Internet está disponível para poder continuar com a instalação, caso contrário, é necessário fornecer os detalhes do proxy para estabelecer ligação à Internet.
+8. A instalação ocorre em fases. Na primeira fase, o agente de serviços de recuperação do Microsoft Azure está instalado no servidor. O assistente também verifica a existência de conectividade à Internet. Se a ligação à Internet pode continuar com a instalação; caso contrário, tem de fornecer detalhes do proxy para estabelecer ligação à Internet.
 
-    O passo seguinte consiste em configurar o Microsoft Azure Recovery Services Agent. Como parte da configuração, terá de fornecer as credenciais do cofre para registar a máquina no Cofre de serviços de recuperação. Também irá fornecer uma frase de acesso para encriptar/desencriptar os dados enviados entre o Azure e o local. Automaticamente pode gerar uma frase de acesso ou fornecer a suas próprias mínimo frase de acesso de 16 caracteres. Continue com o assistente até que o agente tiver sido configurado.
+    A próxima etapa é configurar o agente de serviços de recuperação do Microsoft Azure. Como parte da configuração, terá de fornecer suas credenciais do cofre para registar a máquina para o Cofre dos serviços de recuperação. Também deve fornecer uma frase de acesso para encriptar/desencriptar os dados enviados entre o Azure e o local. Automaticamente pode gerar uma frase de acesso ou fornecer seu próprio frase de acesso mínimo 16 carateres. Continue o assistente até que o agente foi configurado.
 
-    ![PreReq2 Serer de cópia de segurança do Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
-9. Após a conclusão com êxito do registo do servidor de cópia de segurança do Microsoft Azure, o Assistente de configuração geral prossegue para a instalação e configuração do SQL Server e os componentes de servidor de cópia de segurança do Azure. Uma vez concluída a instalação de componentes do SQL Server, os componentes de servidor de cópia de segurança do Azure estão instalados.
+    ![PreReq2 Server de cópia de segurança do Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+9. Depois de concluir com êxito o registo do servidor de cópia de segurança do Microsoft Azure, o Assistente de configuração geral prossegue para a instalação e configuração do SQL Server e os componentes de servidor de cópia de segurança do Azure. Depois de concluída a instalação de componentes do SQL Server, os componentes de servidor de cópia de segurança do Azure estão instalados.
 
     ![Servidor do Backup do Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
-Quando concluir o passo de instalação, os ícones de ambiente de trabalho do produto irão ter sido criados, bem como. Apenas, faça duplo clique no ícone para iniciar o produto.
+Quando tiver concluído o passo de instalação, ícones de área de trabalho do produto foi criados também. Basta clicar duas vezes no ícone para iniciar o produto.
 
 ### <a name="add-backup-storage"></a>Adicionar armazenamento de cópia de segurança
-A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre a adição de discos, consulte [configurar agrupamentos de armazenamento e armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
+A primeira cópia de segurança é mantida no armazenamento ligado à máquina do servidor de cópia de segurança do Azure. Para obter mais informações sobre como adicionar discos, consulte [configurar agrupamentos de armazenamento e armazenamento no disco](https://technet.microsoft.com/library/hh758075.aspx).
 
 > [!NOTE]
-> Terá de adicionar o armazenamento de cópia de segurança mesmo que se pretende enviar dados para o Azure. A arquitetura atual do servidor de cópia de segurança do Azure, o Cofre de cópia de segurança do Azure mantém o *segundo* cópia dos dados enquanto o armazenamento local contém a cópia de segurança primeiro (e obrigatória).
+> Tem de adicionar armazenamento de cópia de segurança, mesmo que pretenda enviar dados para o Azure. A arquitetura atual do servidor de cópia de segurança do Azure, o Cofre de cópias de segurança do Azure mantém os *segundo* cópia dos dados enquanto o armazenamento local contém a cópia de segurança do primeira (e obrigatória).
 >
 >
 
 ## <a name="network-connectivity"></a>Conectividade de rede
-Servidor de cópia de segurança do Azure necessita de conectividade para o serviço de cópia de segurança do Azure para o produto a funcionar com êxito. Para validar se o computador tem conectividade para o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola do PowerShell de servidor de cópia de segurança do Azure. Se a saída do cmdlet for TRUE, em seguida, existe a conectividade, caso contrário, há sem conectividade.
+O Azure Backup Server precisa de conectividade para o serviço de cópia de segurança do Azure para o produto a funcionar com êxito. Para validar se o computador tem conectividade para o Azure, utilize o ```Get-DPMCloudConnection``` cmdlet na consola do PowerShell de servidor de cópia de segurança do Azure. Se a saída do cmdlet for TRUE, em seguida, existe a conectividade, caso contrário não existe nenhuma conectividade.
 
-Ao mesmo tempo, a subscrição do Azure tem de estar em bom estado de funcionamento. Para saber o estado da sua subscrição e geri-lo, inicie sessão para o [portal subscrição](https://account.windowsazure.com/Subscriptions).
+Ao mesmo tempo, a subscrição do Azure tem de estar em bom estado de funcionamento. Para obter informações sobre o estado da sua subscrição e geri-lo, inicie sessão para o [portal de subscrições](https://account.windowsazure.com/Subscriptions).
 
-Depois de saber o estado da conetividade do Azure e da subscrição do Azure, pode utilizar a tabela abaixo para descobrir o impacto sobre a funcionalidade de cópia de segurança/restauro fornecida.
+Sabe o estado da conetividade do Azure e da subscrição do Azure, pode utilizar a tabela abaixo para obter informações sobre o impacto sobre a funcionalidade de cópia de segurança/restauro fornecida.
 
-| Estado de conectividade | Subscrição do Azure | Criar uma cópia de segurança do Azure | Cópia de segurança para disco | Restaurar a partir do Azure | Restaurar a partir do disco |
+| Estado de conectividade | Subscrição do Azure | Criar uma cópia de segurança do Azure | Criar cópias de segurança em disco | Restaurar a partir do Azure | Restaurar a partir de disco |
 | --- | --- | --- | --- | --- | --- |
 | Ligado |Ativa |Permitido |Permitido |Permitido |Permitido |
 | Ligado |Fora do prazo |Parada |Parada |Permitido |Permitido |
-| Ligado |Desaprovisionada |Parada |Parada |Pontos de recuperação de paragem e o Azure eliminados |Parada |
-| Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Desaprovisionada |Parada |Parada |Pontos de recuperação de paragem e o Azure eliminados |Parada |
+| Ligado |Desaprovisionamento |Parada |Parada |Pontos de recuperação de parada e do Azure eliminados |Parada |
+| Perda de conectividade > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
+| Perda de conectividade > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
+| Perda de conectividade > 15 dias |Desaprovisionamento |Parada |Parada |Pontos de recuperação de parada e do Azure eliminados |Parada |
 
-### <a name="recovering-from-loss-of-connectivity"></a>Recuperar a partir de perda de conectividade
-Se tiver uma firewall ou um proxy que está a impedir o acesso ao Azure, terá de lista branca os seguintes endereços de domínio no perfil da firewall/proxy:
+### <a name="recovering-from-loss-of-connectivity"></a>Recuperar da perda de conectividade
+Se tiver uma firewall ou um proxy que está a impedir o acesso para o Azure, terá de lista de permissões os seguintes endereços de domínio no perfil de firewall/proxy:
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com
 * \*.windows.net
 
-Depois de conectividade para o Azure foi restaurada para a máquina do servidor de cópia de segurança do Azure, as operações que podem ser efetuadas são determinadas pelo Estado de subscrição do Azure. A tabela acima tem os detalhes sobre as operações permitidos depois da máquina é "ligada".
+Depois de conectividade para o Azure foi restaurada para a máquina do servidor de cópia de segurança do Azure, as operações que podem ser executadas são determinadas pelo Estado de subscrição do Azure. A tabela acima tem detalhes sobre as operações permitidas uma vez que a máquina for "ligada".
 
-### <a name="handling-subscription-states"></a>Processamento de Estados de subscrição
-É possível efetuar uma subscrição do Azure de um *expirado* ou *Deprovisioned* estado para o *Active Directory* estado. No entanto isto tem algumas implicações sobre o comportamento do produto enquanto o estado não é *Active Directory*:
+### <a name="handling-subscription-states"></a>Manipulação de Estados de subscrição
+É possível tirar uma subscrição do Azure a partir de um *expirado* ou *desaprovisionada* estado para o *Active* estado. No entanto isso tem algumas implicações no comportamento do produto, enquanto o estado não é *Active Directory*:
 
-* A *Deprovisioned* subscrição perde a funcionalidade para o período em que é desaprovisionada. No ativar *Active Directory*, a funcionalidade de produto de cópia de segurança/restauro é revived. Os dados de cópia de segurança no disco local também podem ser obtidos se de que foi guardado com um período de retenção suficientemente grande. No entanto, os dados de cópia de segurança no Azure são irretrievably perdidos depois da subscrição introduz o *Deprovisioned* estado.
-* Um *expirado* subscrição apenas perde a funcionalidade para até que foi efetuada *Active Directory* novamente. As cópias de segurança agendadas para o período de que a subscrição foi *expirado* não será executado.
+* R *desaprovisionada* subscrição perde a funcionalidade para o período em que é desaprovisionada. No decisivo *Active Directory*, a funcionalidade de produto de cópia de segurança/restauro é reativada. Os dados de cópia de segurança no disco local também podem ser obtidos se ele foi mantido com um período de retenção suficientemente grande. No entanto, os dados de cópia de segurança no Azure são irremediavelmente perdidos depois de insere a subscrição do *desaprovisionada* estado.
+* Uma *expirado* subscrição apenas perde a funcionalidade para até que ele se tornou *Active Directory* novamente. Quaisquer cópias de segurança agendadas para o período de que a subscrição foi *expirado* não será executado.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se o servidor de cópia de segurança do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
-Também pode consultar [perguntas mais frequentes relacionadas com a cópia de segurança do Azure](backup-azure-backup-faq.md)
+Se o Microsoft Azure Backup server falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
+Também pode consultar [FAQs relacionados com a cópia de segurança do Azure](backup-azure-backup-faq.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Pode obter informações detalhadas [preparar o ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site Microsoft TechNet. Também contém informações sobre configurações suportadas em que servidor de cópia de segurança do Azure podem ser implementado e utilizado.
+Pode obter informações detalhadas [preparar o ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Também contém informações sobre configurações suportadas em que servidor de cópia de segurança do Azure podem ser implementado e utilizado.
 
-Pode utilizar estes artigos para obter uma compreensão mais aprofundada da proteção de carga de trabalho utilizando o servidor de cópia de segurança do Microsoft Azure.
+Pode utilizar estes artigos para obter uma compreensão mais aprofundada de proteção de carga de trabalho usando o Microsoft Azure Backup server.
 
 * [Cópia de segurança do SQL Server](backup-azure-backup-sql.md)
 * [Cópia de segurança do SharePoint server](backup-azure-backup-sharepoint.md)

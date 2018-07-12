@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 63659b5606e4bab8365f4f7a94c42a0fa5eafee6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4d51b099532d3052acc190231ec4be17765a427e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928377"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971028"
 ---
 # <a name="introduction"></a>Introdução
 Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](monitoring-overview-unified-alerts.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](insights-alerts-portal.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto. 
@@ -28,7 +28,7 @@ Também pode utilizar alertas de métricas mais recente em populares registos do
 > Métrica específica e/ou de dimensão só será apresentada se os dados para o mesmo existem num período de escolhido. Estas métricas estão disponíveis para clientes com áreas de trabalho do Log Analytics do Azure em E.U.A. leste, e.u.a. centro-oeste e Europa Ocidental. Métricas do Log Analytics está atualmente em pré-visualização pública e sujeitas a alterações.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST suporte
-Atualmente, pode criar alertas de métricas mais recente apenas no portal do Azure, [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes, com o PowerShell e a interface de linha de comandos (CLI 2.0 do Azure) do Azure estará disponível brevemente.
+Atualmente, pode criar alertas de métricas mais recente apenas no portal do Azure, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes, com o PowerShell e a interface de linha de comandos (CLI 2.0 do Azure) do Azure estará disponível brevemente.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e dimensões suportadas
 Alertas de métricas mais recente suportam alertas de métricas que usam dimensões. Pode usar as dimensões para filtrar a métrica para o nível certo. Podem ser exploradas e visualizadas a partir de todas as métricas suportadas, juntamente com dimensões aplicáveis [do Azure Monitor - Explorador de métricas (pré-visualização)](monitoring-metric-charts.md).

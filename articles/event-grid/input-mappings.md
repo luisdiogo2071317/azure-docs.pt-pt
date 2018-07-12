@@ -1,6 +1,6 @@
 ---
-title: O mapeamento de campos personalizados para o esquema de grelha de eventos do Azure
-description: Descreve como converter o esquema personalizado para o esquema de grelha de eventos do Azure.
+title: Campo personalizado do mapa ao esquema do Azure Event Grid
+description: Descreve como converter seu esquema personalizado para o esquema do Azure Event Grid.
 services: event-grid
 author: tfitzmac
 manager: timlt
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301972"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38578922"
 ---
-# <a name="map-custom-fields-to-event-grid-schema"></a>O mapeamento de campos personalizados para o esquema de grelha de eventos
+# <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados ao esquema do Event Grid
 
-Se os dados de eventos não corresponde a esperada [esquema de grelha de evento](event-schema.md), pode continuar a utilizar a grelha de eventos para o evento de rota para subscritores. Este artigo descreve como mapear o esquema para o esquema de grelha de eventos.
+Se os dados de evento não corresponde a esperada [esquema de grelha de eventos](event-schema.md), ainda pode utilizar o Event Grid para eventos de rota para assinantes. Este artigo descreve como mapear o seu esquema para o esquema do Event Grid.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="original-event-schema"></a>Esquema de evento original
+## <a name="original-event-schema"></a>Esquema de eventos do original
 
-Vamos imaginar que tem uma aplicação que envia eventos no seguinte formato:
+Vamos supor que tenha um aplicativo para enviar eventos no seguinte formato:
 
 ```json
 [
@@ -35,19 +35,19 @@ Vamos imaginar que tem uma aplicação que envia eventos no seguinte formato:
 ]
 ```
 
-Embora esse formato não corresponde ao esquema necessário, o evento grelha permite-lhe mapear os campos para o esquema. Em alternativa, pode receber os valores no esquema original.
+Embora esse formato não corresponde ao esquema necessário, o Event Grid permite-lhe mapear seus campos para o esquema. Em alternativa, pode receber os valores no esquema original.
 
-## <a name="create-custom-topic-with-mapped-fields"></a>Criar tópico personalizado com campos mapeados
+## <a name="create-custom-topic-with-mapped-fields"></a>Criar um tópico personalizado com campos mapeados
 
-Ao criar um tópico personalizado, especifique como mapear os campos do seu evento original para o esquema de grelha de eventos. Existem três propriedades a que utilizar para personalizar o mapeamento de:
+Ao criar um tópico personalizado, especifique como mapear campos do seu evento original para o esquema de grelha de eventos. Existem três propriedades que usar para personalizar o mapeamento:
 
-* O `--input-schema` parâmetro especifica o tipo de esquema. As opções disponíveis são *cloudeventv01schema*, *customeventschema*, e *eventgridschema*. O valor predefinido é eventgridschema. Ao criar personalizado mapeamento entre o esquema e o esquema de grelha de eventos, utilize customeventschema. Eventos no esquema CloudEvents, utilize cloudeventv01schema.
+* O `--input-schema` parâmetro especifica o tipo de esquema. As opções disponíveis são *cloudeventv01schema*, *customeventschema*, e *eventgridschema*. O valor predefinido é eventgridschema. Quando criar personalizado mapeamento entre o esquema e o esquema de grelha de eventos, utilize customeventschema. Quando eventos forem no esquema do CloudEvents, use cloudeventv01schema.
 
-* O `--input-mapping-default-values` parâmetro especifica os valores predefinidos para os campos no esquema grelha de eventos. Pode definir os valores predefinidos para *requerente*, *eventtype*, e *dataversion*. Normalmente, utilize este parâmetro quando o esquema personalizado não inclui um campo que corresponde a uma desses três campos. Por exemplo, pode especificar que dataversion está sempre definido como **1.0**.
+* O `--input-mapping-default-values` parâmetro especifica os valores predefinidos para a campos no esquema do Event Grid. Pode definir os valores predefinidos para *assunto*, *eventtype*, e *dataversion*. Normalmente, utilize este parâmetro quando o seu esquema personalizado não inclui um campo que corresponde a um desses três campos. Por exemplo, pode especificar esse dataversion está sempre definido como **1.0**.
 
-* O `--input-mapping-fields` parâmetro mapeia os campos do seu esquema para o esquema de grelha de eventos. Especifique os valores no espaço de valores separados por pares chave-valor. Para o nome da chave, utilize o nome do campo da grelha de eventos. Para o valor, utilize o nome do seu campo. Pode utilizar os nomes de chaves para *id*, *tópico*, *eventtime*, *requerente*, *eventtype*e *dataversion*.
+* O `--input-mapping-fields` parâmetro mapeia os campos do seu esquema para o esquema de grelha de eventos. Especifique os valores em pares chave/valor, separadas por espaços. O nome da chave, utilize o nome do campo de grelha de eventos. O valor, utilize o nome do campo. Pode utilizar nomes de chaves para *id*, *tópico*, *eventtime*, *assunto*, *eventtype*e *dataversion*.
 
-O exemplo seguinte cria um tópico personalizado com algumas mapeado e predefinido campos:
+O exemplo seguinte cria um tópico personalizado com algumas mapeado e campos predefinidos:
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -63,13 +63,13 @@ az eventgrid topic create \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
-## <a name="subscribe-to-event-grid-topic"></a>Subscrever o tópico de grelha de eventos
+## <a name="subscribe-to-event-grid-topic"></a>Subscrever o tópico do event grid
 
-Quando subscrever o tópico personalizado, especifique o esquema que pretende utilizar para receber os eventos. Utilizar o `--event-delivery-schema` parâmetro e defina-o como *cloudeventv01schema*, *eventgridschema*, ou *inputeventschema*. O valor predefinido é eventgridschema.
+Ao subscrever o tópico personalizado, especifique o esquema que pretende utilizar para receber os eventos. Utilizar o `--event-delivery-schema` parâmetro e defina-o como *cloudeventv01schema*, *eventgridschema*, ou *inputeventschema*. O valor predefinido é eventgridschema.
 
-Os exemplos nesta secção utilizam o armazenamento de filas para o processador de eventos. Para obter mais informações, consulte [encaminhar eventos personalizados para o armazenamento de filas do Azure](custom-event-to-queue-storage.md).
+Os exemplos nesta secção utilizam um armazenamento de filas para o manipulador de eventos. Para obter mais informações, consulte [encaminhar eventos personalizados para o armazenamento de filas do Azure](custom-event-to-queue-storage.md).
 
-O exemplo seguinte subscreve um tópico da grelha de eventos e utiliza o esquema de grelha do evento predefinido:
+O exemplo seguinte subscreve um tópico do event grid e utiliza o esquema de grelha de eventos padrão:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -80,7 +80,7 @@ az eventgrid event-subscription create \
   --endpoint <storage-queue-url>
 ```
 
-O exemplo seguinte utiliza o esquema da entrada do evento:
+O exemplo seguinte utiliza o esquema de entrada do evento:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -92,9 +92,9 @@ az eventgrid event-subscription create \
   --endpoint <storage-queue-url>
 ```
 
-## <a name="publish-event-to-topic"></a>Publicar o evento de tópico
+## <a name="publish-event-to-topic"></a>Publicar o evento para o tópico
 
-Agora está pronto para enviar um evento para o tópico personalizado e ver o resultado do mapeamento. O script seguinte para publicar um evento no [esquema de exemplo](#original-event-schema):
+Está agora pronto para enviar um evento para o tópico personalizado e ver o resultado do mapeamento. O seguinte script para publicar um evento no [esquema de exemplo](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
@@ -105,9 +105,9 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Agora, observe o armazenamento de filas. As duas subscrições entregar eventos em esquemas diferentes.
+Agora, examine seu armazenamento de filas. As duas subscrições entregar eventos em esquemas diferentes.
 
-A subscrição primeiro utilizado o esquema de grelha de eventos. O formato do evento fornecido é:
+A primeira assinatura utilizado o esquema de grelha de eventos. O formato do evento entregue é:
 
 ```json
 {
@@ -126,9 +126,9 @@ A subscrição primeiro utilizado o esquema de grelha de eventos. O formato do e
 }
 ```
 
-Estes campos contêm os mapeamentos do tópico personalizado. **myEventTypeField** está mapeado para **EventType**. Os valores predefinidos para **DataVersion** e **requerente** são utilizados. O **dados** objeto contém os campos de esquema de evento original.
+Estes campos contêm os mapeamentos do tópico personalizado. **myEventTypeField** é mapeado para **EventType**. Os valores predefinidos para **DataVersion** e **assunto** são utilizados. O **dados** objeto contém os campos de esquema original do evento.
 
-A segunda subscrição utilizado o esquema de eventos de entrada. O formato do evento fornecido é:
+A segunda assinatura utilizado o esquema de eventos de entrada. O formato do evento entregue é:
 
 ```json
 {
@@ -138,10 +138,10 @@ A segunda subscrição utilizado o esquema de eventos de entrada. O formato do e
 }
 ```
 
-Tenha em atenção que os campos originais foram fornecidos.
+Tenha em atenção que os campos originais foram entregues.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter informações sobre a entrega de eventos e de tentativas, [entrega de mensagens de evento grelha e volte a tentar](delivery-and-retry.md).
-* Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
-* Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).
+* Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+* Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
+* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

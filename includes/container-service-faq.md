@@ -64,7 +64,7 @@ Pode encontrar URLs frequentemente utilizados para o seu cluster no portal do Az
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Como posso saber qual a versão do orquestrador em execução no meu cluster?
 
-* DC/OS: veja a [documentação do Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: veja a [documentação do Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: executar `docker version`
 * Kubernetes: executar `kubectl version`
 

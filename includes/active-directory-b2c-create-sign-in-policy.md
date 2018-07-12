@@ -1,4 +1,4 @@
-Se pretender ativar apenas o início de sessão na sua aplicação, utilize um **início de sessão** política. Esta política descreve as experiências de que os clientes passarão durante o início de sessão e os conteúdos de tokens que a aplicação receberá em inícios de sessão com êxito.
+Se pretender ativar apenas o início de sessão na sua aplicação, utilize um **início de sessão** política. Esta política descreve as experiências que os clientes terão durante o início de sessão e os conteúdos de tokens que a aplicação receberá nos inícios de sessão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 Clique em **políticas de início de sessão**.

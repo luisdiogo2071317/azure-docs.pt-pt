@@ -16,12 +16,12 @@ ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4322ab5c90b04cf4eb0591e97e5e026664a2769
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442377"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548133"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisitos de subscrição do Azure Active Directory Privileged Identity Management
 
@@ -38,7 +38,7 @@ Se não tiver a certeza se a sua organização tem uma versão de avaliação ou
 2. Introduza `Connect-MsolService` para se autenticar como um utilizador no seu inquilino.
 3. Introduza `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Este comando obtém uma lista das subscrições no seu inquilino. Se não existirem não existem linhas devolvidas, terá de obter uma Azure AD Premium P2, avaliação, compra uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição para utilizar o Azure AD Privileged Identity Management.  Para obter uma versão de avaliação e começar a utilizar o Azure AD Privileged Identity Management, leia [introdução ao Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Este comando obtém uma lista das subscrições no seu inquilino. Se não existirem não existem linhas devolvidas, terá de obter uma Azure AD Premium P2, avaliação, compra uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição para utilizar o Azure AD Privileged Identity Management.  Para obter uma versão de avaliação e começar a utilizar o Azure AD Privileged Identity Management, leia [introdução ao Azure AD Privileged Identity Management](pim-getting-started.md).
 
 Se este comando devolve uma linha na qual SkuPartNumber é "AAD_PREMIUM_P2" ou "EMSPREMIUM" e IsTrial for "True", isto indica que uma versão de avaliação do Azure AD Premium P2 está presente no inquilino.  Se o estado da subscrição não está ativado e não tiver uma subscrição P2 do Azure AD Premium ou EMS E5, comprar, em seguida, tem de comprar uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição para continuar a utilizar o Azure AD Privileged Identity Management.
 
@@ -61,5 +61,5 @@ Quando uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição expira, ou
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Introdução ao Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Funções no Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Introdução ao Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Funções no Azure AD Privileged Identity Management](pim-roles.md)

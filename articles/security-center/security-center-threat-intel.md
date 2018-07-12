@@ -3,23 +3,23 @@ title: Informações sobre ameaças no Centro de Segurança do Azure | Microsoft
 description: Saiba como utilizar a capacidade de informações sobre ameaças no Centro de Segurança do Azure para identificar potenciais ameaças nas suas VMs e computadores.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774578"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561369"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Informações sobre ameaças no Centro de Segurança do Azure
 Este artigo ajuda-o a utilizar as informações sobre ameaças do Centro de Segurança do Azure para lidar com problemas relacionados com segurança.
@@ -43,20 +43,24 @@ Um dos passos de um [processo de resposta a incidentes de segurança](https://do
 - Identificar os sistemas que foram comprometidos.
 - Identificar os ficheiros que foram acedidos e determinar a sensibilidade desses ficheiros.
 
-Pode utilizar os dados de informações sobre ameaças no Centro de Segurança para o ajudar com estas tarefas. 
+Pode utilizar os dados de informações sobre ameaças no Centro de Segurança para o ajudar com estas tarefas.
 
 ## <a name="access-the-threat-intelligence"></a>Aceder às informações sobre ameaças
 Para visualizar as informações sobre ameaças atuais relativamente ao seu ambiente, primeiro tem de selecionar a área de trabalho onde as suas informações residem. Se só tiver uma área de trabalho, ignore o seletor de áreas de trabalho e aceda diretamente ao dashboard **Informações sobre ameaças**. Para aceder ao dashboard:
 
 1. Abra o dashboard **Centro de Segurança**.
 
-2. No painel do lado esquerdo, em **Deteção**, selecione **Informações sobre ameaças**. É apresentado o dashboard das **Informações Sobre Ameaças**.
+2. No painel esquerdo, sob **proteção contra ameaças** selecionar **informações sobre ameaças**. É aberto um mapa.
+
+    ![Mapa das informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. Na parte superior do mapa, selecione **ver informações sobre ameaças clássico**. O **informações sobre ameaças** dashboard abre.
 
     ![Dashboard Informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para o plano Standard para utilizar esta funcionalidade. Se a coluna mais à direita mostrar **PRECISA DE ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança do Azure. 
-    > 
+    > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para o plano Standard para utilizar esta funcionalidade. Se a coluna mais à direita mostrar **PRECISA DE ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança do Azure.
+    >
 3. Se tiver mais do que uma área de trabalho para investigar, priorize a investigação de acordo com a coluna **IP malicioso**. Mostra o número atual de IPs maliciosos nesta área de trabalho. Selecione a área de trabalho que pretende utilizar e o dashboard **Informações sobre ameaças** é apresentado.
 
     ![Dados de informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ Neste artigo, aprendeu a utilizar as informações sobre ameaças no Centro de S
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de resolução de problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança. 
+* [Guia de resolução de problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre respostas para as perguntas mais frequentes sobre o serviço.
 * [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
-

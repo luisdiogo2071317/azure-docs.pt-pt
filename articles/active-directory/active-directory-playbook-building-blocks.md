@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d2a63a1a9b335b7765c5eaf8c90e1d755b2ce9c9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867125"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451704"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -372,7 +372,7 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 
 Os aplicativos escolhidos podem ter requisitos de aprovisionamento, então vai imediatamente a aplicação pode fazer com que alguns erros. Se o aplicativo escolhido suporta o aprovisionamento com o azure ad e é configurado, pode usar isso como uma oportunidade para mostrar o fluxo todo trabalho ponto a ponto. Consulte o bloco de construção para [SaaS configuração de SSO federado](#saas-federated-sso-configuration) para obter recomendações
 
-## <a name="self-service-password-reset"></a>Reposição de palavra-passe Self-Service
+## <a name="self-service-password-reset"></a>Reposição Autónoma de Palavra-passe
 
 Obter uma estimativa de tempo para concluir: 15 minutos
 
@@ -468,24 +468,24 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Identificar o administrador global que vai fazer parte da prova de conceito da PIM | [Começar a utilizar o Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| Identificar o administrador global que irá tornar-se o administrador de segurança | [Começar a utilizar o Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Diferentes funções administrativas no Azure Active Directory PIM](active-directory-privileged-identity-management-roles.md) |
-| Opcional: Confirme se os administradores globais têm acesso ao e-mail para notificações por e-mail no PIM | [O que é o Azure AD Privileged Identity Management?: configurar as definições de ativação de função](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identificar o administrador global que vai fazer parte da prova de conceito da PIM | [Começar a utilizar o Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| Identificar o administrador global que irá tornar-se o administrador de segurança | [Começar a utilizar o Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Diferentes funções administrativas no Azure Active Directory PIM](privileged-identity-management/pim-roles.md) |
+| Opcional: Confirme se os administradores globais têm acesso ao e-mail para notificações por e-mail no PIM | [O que é o Azure AD Privileged Identity Management?: configurar as definições de ativação de função](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>Passos
 
 | Passo | Recursos |
 | --- | --- |
-| Início de sessão para https://portal.azure.com como um administrador global (GA) e o painel PIM de arranque. O Administrador Global, que executa este passo é implantado como o administrador de segurança.  Vamos chamar esta GA1 de ator | [Utilizar o Assistente de segurança no Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identifique o administrador global e movê-los de permanente para elegíveis. Deve ser um administrador separada da utilizada no passo 1 para efeitos de clareza. Vamos chamar esta GA2 de ator | [O Azure AD Privileged Identity Management: Como adicionar ou remover uma função de utilizador](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[O que é o Azure AD Privileged Identity Management?: configurar as definições de ativação de função](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Início de sessão para https://portal.azure.com como um administrador global (GA) e o painel PIM de arranque. O Administrador Global, que executa este passo é implantado como o administrador de segurança.  Vamos chamar esta GA1 de ator | [Utilizar o Assistente de segurança no Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identifique o administrador global e movê-los de permanente para elegíveis. Deve ser um administrador separada da utilizada no passo 1 para efeitos de clareza. Vamos chamar esta GA2 de ator | [O Azure AD Privileged Identity Management: Como adicionar ou remover uma função de utilizador](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[O que é o Azure AD Privileged Identity Management?: configurar as definições de ativação de função](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Agora, inicie sessão como GA2 para https://portal.azure.com e tente alterar o "User Settings". Observe que algumas opções são bloqueadas. | |
-| Num novo separador e na mesma sessão como o passo 3, navegue agora até https://portal.azure.com e adicionar o painel PIM ao dashboard. | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: adicionar a aplicação de Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Pedir ativação à função de Administrador Global | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: ativar uma função](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| Num novo separador e na mesma sessão como o passo 3, navegue agora até https://portal.azure.com e adicionar o painel PIM ao dashboard. | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: adicionar a aplicação de Privileged Identity Management](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Pedir ativação à função de Administrador Global | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: ativar uma função](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Tenha em atenção que se GA2 nunca tiver inscrito para a MFA, registo do MFA do Azure será necessário |  |
 | Regresse ao separador original no passo 3 e clique no botão Atualizar no browser. Tenha em atenção que agora tem acesso para alterar o "User settings" | |
 | Opcionalmente, se os administradores globais têm o e-mail ativado, pode verificar GA1 e da GA2 caixa de entrada e ver a notificação da função a ser ativada |  |
-| 8 Verifique o histórico de auditoria e observe o relatório para confirmar a elevação de GA2 é apresentado. | [O que é o Azure AD Privileged Identity Management?: função actividade de revisão](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 Verifique o histórico de auditoria e observe o relatório para confirmar a elevação de GA2 é apresentado. | [O que é o Azure AD Privileged Identity Management?: função actividade de revisão](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Considerações
 

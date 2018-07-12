@@ -1,5 +1,5 @@
 ---
-title: Etiqueta de recursos do Azure para a organização lógica | Microsoft Docs
+title: Etiquetar recursos do Azure para a organização lógica | Documentos da Microsoft
 description: Mostra como aplicar etiquetas para organizar os recursos do Azure para faturação e gestão.
 services: azure-resource-manager
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: tomfitz
 ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602929"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466265"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "34602929"
 
 ## <a name="powershell"></a>PowerShell
 
-Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se não tiver versão 6.0 ou posterior, [atualizar a versão](/powershell/azure/install-azurerm-ps).
+Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se não tiver a versão 6.0 ou posterior, [atualizar a versão](/powershell/azure/install-azurerm-ps).
 
 Para ver as etiquetas existentes de um *grupo de recursos*, utilize:
 
@@ -70,7 +70,7 @@ Para obter *recursos com uma etiqueta específica*, utilize:
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
-Para obter *recursos que têm um nome de tag específica*, utilize:
+Para obter *recursos que tenham um nome de etiqueta específica*, utilize:
 
 ```powershell
 (Get-AzureRmResource -TagName Dept).Name
@@ -168,25 +168,25 @@ Este script devolve o formato seguinte:
 }
 ```
 
-Ou, para ver as etiquetas existentes para um *recursos que tem um grupo de recurso, tipo e nome*, utilize:
+Ou, para ver as etiquetas existentes de um *recursos que tem um grupo de nome, o tipo e o recurso especificado*, utilize:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Quando criar ciclos através de uma coleção de recursos, pode querer mostrar o ID de recurso por recurso. Um exemplo completo é mostrado posteriormente neste artigo. Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
+Ao fazer o looping através de uma coleção de recursos, pode querer mostrar o ID de recurso por recurso. Um exemplo completo é mostrado neste artigo. Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
 
 ```azurecli
 az resource show --id <resource-id> --query tags
 ```
 
-Para obter grupos de recursos que tenham uma tag específica, utilize `az group list`:
+Para obter os grupos de recursos que tenham uma etiqueta específica, utilize `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Para obter todos os recursos que tenham uma etiqueta específica e o valor, utilize `az resource list`:
+Para obter todos os recursos que tenham uma etiqueta específica e um valor, utilize `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
@@ -206,7 +206,7 @@ Para adicionar etiquetas a um *recurso que não tenha etiquetas*, utilize:
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para adicionar etiquetas a um recurso que já tenha etiquetas, obter as etiquetas existentes, reformatar esse valor e volte a aplicar as etiquetas existentes e novas: 
+Para adicionar etiquetas a um recurso que já tem etiquetas, obter as etiquetas existentes, reformatar esse valor e volte a aplicar as etiquetas existentes e novas: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -230,7 +230,7 @@ do
 done
 ```
 
-Aplicar todas as etiquetas de um grupo de recursos para os respetivos recursos e *etiquetas existentes nos recursos de manter*, utilize o seguinte script:
+Para aplicar todas as etiquetas de um grupo de recursos para seus próprios recursos, e *reter etiquetas existentes nos recursos*, utilize o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -258,22 +258,22 @@ done
 
 ## <a name="rest-api"></a>API REST
 
-O portal do Azure e o PowerShell utilizam ambos o [API de REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/) em segundo plano. Se precisar de integrar a etiquetagem para outro ambiente, pode obter etiquetas utilizando **obter** no ID de recurso e atualizar o conjunto de etiquetas utilizando um **PATCH** chamada.
+O portal do Azure e o PowerShell utilizam o [a API de REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/) em segundo plano. Se precisar de integrar a marcação para outro ambiente, pode obter etiquetas usando **obter** no ID de recurso e atualizar o conjunto de etiquetas utilizando um **aplicar o PATCH** chamar.
 
 ## <a name="tags-and-billing"></a>As etiquetas e faturação
 
-Pode utilizar etiquetas para agrupar os dados de faturação. Por exemplo, se estiver a executar várias VMs para diferentes organizações, utilize as etiquetas para utilização do grupo pelo centro de custos. Também pode utilizar etiquetas para categorizar os custos pelo ambiente de tempo de execução, tais como a utilização de faturação para VMs em execução no ambiente de produção.
+Pode utilizar etiquetas para agrupar os dados de faturas. Por exemplo, se estiver a executar várias VMs para organizações diferentes, use as marcas para utilização do grupo pelo centro de custos. Também pode utilizar etiquetas para categorizar os custos ao ambiente de tempo de execução, como a utilização de faturação para VMs em execução no ambiente de produção.
 
-Pode obter informações sobre etiquetas através de [utilização de recursos do Azure e RateCard APIs](../billing/billing-usage-rate-card-overview.md) ou o ficheiro de valores separados por vírgulas (CSV) de utilização. Transferir o ficheiro de utilização do [portal de contas do Azure](https://account.windowsazure.com/) ou [EA portal](https://ea.azure.com). Para obter mais informações sobre acesso programático para as informações de faturação, consulte [obter informações acerca do consumo de recursos do Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para operações de REST API, consulte [referência de API de REST de faturação do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Pode obter informações sobre etiquetas através do [utilização de recursos do Azure e RateCard APIs](../billing/billing-usage-rate-card-overview.md) ou o ficheiro de valores separados por vírgulas (CSV) de utilização. Transferir o ficheiro de utilização a partir da [portal de contas do Azure](https://account.windowsazure.com/) ou [portal EA](https://ea.azure.com). Para obter mais informações sobre o acesso programático a informações de faturação, consulte [obter informações sobre o consumo de recursos do Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para operações de REST API, consulte [referência de API de REST de faturação do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-Quando transferir a utilização de CSV para serviços que suportam etiquetas com faturação, as etiquetas são apresentadas no **etiquetas** coluna. Para obter mais informações, consulte [compreender a fatura do Microsoft Azure](../billing/billing-understand-your-bill.md).
+Ao baixar a utilização de CSV para serviços que suportam etiquetas com a faturação, as etiquetas aparecem na **etiquetas** coluna. Para obter mais informações, consulte [compreender a sua fatura do Microsoft Azure](../billing/billing-understand-your-bill.md).
 
-![Consulte as etiquetas na faturação](./media/resource-group-using-tags/billing_csv.png)
+![Ver etiquetas de faturação](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Pode aplicar restrições e convenções na sua subscrição através da utilização de políticas personalizadas. Uma política que definir poderão exigir que todos os recursos têm um valor para uma tag específica. Para obter mais informações, consulte [o que é a política do Azure?](../azure-policy/azure-policy-introduction.md)
-* Para uma introdução ao utilizar o Azure PowerShell quando estiver a implementar recursos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
-* Para uma introdução ao utilizar a CLI do Azure quando estiver a implementar recursos, consulte [utilizando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Pode aplicar restrições e convenções na sua subscrição ao utilizar políticas personalizadas. Uma política que definir pode exigir que todos os recursos tenham um valor para uma etiqueta específica. Para obter mais informações, consulte [o que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
+* Para uma introdução à utilização do Azure PowerShell, quando estiver a implementar recursos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
+* Para uma introdução à utilização da CLI do Azure, quando estiver a implementar recursos, consulte [com a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

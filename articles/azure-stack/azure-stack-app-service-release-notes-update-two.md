@@ -1,6 +1,6 @@
 ---
-title: 2 notas de versão de atualização do serviço de aplicações na pilha do Azure | Microsoft Docs
-description: Saiba mais sobre as novidades na atualização dois para o serviço de aplicações na pilha do Azure, os problemas conhecidos e onde pode transferir a atualização.
+title: 2 notas de versão de atualização do serviço de aplicações no Azure Stack | Documentos da Microsoft
+description: Saiba mais sobre as novidades na atualização dois para o serviço de aplicações no Azure Stack, os problemas conhecidos e onde pode transferir a atualização.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,75 +15,75 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 8e1790b7d0b3a210a9142fc8580ff8ed4d64311c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: be09773a1ce3e80547d9e5f0e9de2a2d9e093c60
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360395"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970922"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicações no notas de versão de atualização 2 de pilha do Azure
+# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicações no notas de versão de atualização 2 do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Estas notas de versão descrevem as melhorias e correções no App Service do Azure no Azure pilha Update 2 e a quaisquer problemas conhecidos. Problemas conhecidos são divididos em problemas diretamente relacionada com a implementação, o processo de atualização e a problemas com a compilação (pós-instalação).
+Estas notas de versão descrevem as melhorias e correções no serviço de aplicações do Azure no Azure Stack atualização 2 e os problemas conhecidos. Problemas conhecidos são divididos em problemas diretamente relacionados com a implementação, o processo de atualização e a problemas com a compilação (após a instalação).
 
 > [!IMPORTANT]
-> Aplicar a atualização 1804 ao seu sistema de pilha do Azure integrado ou implementar o kit de desenvolvimento de pilha do Azure mais recente antes de implementar 1.2 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1804 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.2 de serviço de aplicações do Azure.
 >
 >
 
-## <a name="build-reference"></a>Referência de compilação
+## <a name="build-reference"></a>Criar a referência
 
-O serviço de aplicação no Azure pilha Update 2 número de compilação é **72.0.13698.10**
+O serviço de aplicações no número de compilação de atualização 2 do Azure Stack é **72.0.13698.10**
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> Novas implementações do serviço de aplicações do Azure na pilha do Azure agora requerem um [certificado de caráter universal de três requerente](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias na forma no qual o SSO para Kudu agora é processada no App Service do Azure. O requerente nova é  **\*. sso.appservice.\< região\>.\< DomainName\>.\< extensão\>**
+> Novas implementações do serviço de aplicações do Azure no Azure Stack agora exigem uma [certificado de caráter universal de assunto de três](azure-stack-app-service-before-you-get-started.md#get-certificates) devido a melhorias na forma em que o SSO para Kudu agora é processada no serviço de aplicações do Azure. É o novo assunto  **\*. sso.appservice.\< região\>.\< DomainName\>.\< extensão\>**
 >
 >
 
-Consulte o [documentação antes de começar a utilizar](azure-stack-app-service-before-you-get-started.md) antes de iniciar a implementação.
+Consulte a [documentação antes de começar a utilizar](azure-stack-app-service-before-you-get-started.md) antes de iniciar a implementação.
 
 ### <a name="new-features-and-fixes"></a>Novas funcionalidades e correções
 
-App Service do Azure no Azure pilha Update 2 inclui as seguintes melhorias e correções:
+Serviço de aplicações do Azure no Azure Stack Update 2 inclui as seguintes melhorias e correções:
 
-- Atualizações **inquilino de serviço de aplicações, administrador, portais de funções e as ferramentas do Kudu**. Consistente com a versão do SDK de Portal de pilha do Azure.
+- Atualiza para **inquilino de serviço de aplicações, o administrador, portais de funções e ferramentas de Kudu**. Consistente com a versão do SDK do Portal do Azure Stack.
 
-- Atualizações ao serviço de núcleo para melhorar a fiabilidade e ativar o diagnóstico mais fácil de problemas comuns de mensagens de erro.
+- Atualizações de serviço básico para melhorar a fiabilidade e ativar mais fácil diagnóstico dos problemas comuns de mensagens de erro.
 
-- **Atualizações para as seguinte estruturas de aplicações e ferramentas**:
-  - Foram adicionadas .net Framework 4.7.1
-  - Adicionar **Node.JS** versões:
+- **Atualizações para as seguintes arquiteturas de aplicações e ferramentas**:
+  - Foi adicionado .net Framework 4.7.1
+  - Adicionado **node. js** versões:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
     - NodeJS 8.10.0
     - NodeJS 8.11.1
-  - Adicionar **NPM** versões:
+  - Adicionado **NPM** versões:
     - 5.6.0
-  - Atualização .net Core componentes para estar consistente com o serviço de aplicações do Azure na nuvem pública.
+  - Atualizado o .net Core componentes para ser consistente com o serviço de aplicações do Azure na nuvem pública.
   - Kudu atualizado
 
-- Ranhuras de troca automática da implementação funcionalidade ativada - [configuração automática de comutação](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Ranhuras de troca automática da implementação de funcionalidade ativada - [configurando a troca automática](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
 
-- Testar na funcionalidade de produção ativada - [introdução ao testar na produção](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+- Teste de funcionalidade de produção ativada - [introdução ao teste na produção](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Proxies de funções do Azure ativada - [trabalhar com os Proxies de funções do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
+- Habilitado - os Proxies de funções do Azure [trabalhar com os Proxies de funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
 
-- Adicionar extensão de administração do serviço de aplicações suportam o UX para:
+- Extensão de administração do serviço de aplicações suporta a experiência do Usuário adicionado para:
   - Rotação secreta
-  - Rotação de certificado
-  - Rotação de credencial de sistema
+  - Rotação de certificados
+  - Rotação de credenciais do sistema
   - Rotação de cadeia de ligação
 
-### <a name="known-issues-post-installation"></a>Problemas conhecidos (pós-instalação)
+### <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
-- Trabalhadores não conseguem alcançar o servidor de ficheiros quando o serviço de aplicações está implementado na rede virtual existente e o servidor de ficheiros só está disponível na rede privada.
+- Os trabalhos são não é possível alcançar o servidor de ficheiros quando o serviço de aplicações é implementado numa rede virtual existente e o servidor de ficheiros só está disponível na rede privada.
 
-Se optar por implementar uma rede virtual existente e um endereço IP para ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazê-lo, aceda a WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
- * Origem: nenhuma
+Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+ * Origem: qualquer
  * Intervalo de portas de origem: *
  * Destino: Endereços IP
  * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
@@ -93,11 +93,11 @@ Se optar por implementar uma rede virtual existente e um endereço IP para ligar
  * Prioridade: 700
  * Nome: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para administradores de nuvem funcionamento do serviço de aplicações do Azure na pilha do Azure
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para os administradores de nuvem operacional de serviço de aplicações do Azure no Azure Stack
 
-Consulte a documentação do [notas de versão 1804 de pilha do Azure](azure-stack-update-1804.md)
+Consulte a documentação no [notas de versão do Azure Stack 1804](azure-stack-update-1804.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral do App Service do Azure, consulte [do serviço de aplicações do Azure na descrição geral do Azure pilha](azure-stack-app-service-overview.md).
-- Para obter mais informações sobre como preparar a implementação do serviço de aplicações na pilha do Azure, consulte [antes de começar com o serviço de aplicações na pilha de Azure](azure-stack-app-service-before-you-get-started.md).
+- Para uma descrição geral do serviço de aplicações do Azure, consulte [serviço de aplicações do Azure no Descrição geral do Azure Stack](azure-stack-app-service-overview.md).
+- Para obter mais informações sobre como preparar a implementação de serviço de aplicações no Azure Stack, veja [antes de começar com o serviço de aplicações no Azure Stack](azure-stack-app-service-before-you-get-started.md).

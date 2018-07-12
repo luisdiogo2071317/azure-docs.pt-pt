@@ -1,4 +1,4 @@
-Se desejar activar a edição do perfil na sua aplicação, utilize um **Editar perfil** política. Esta política descreve as experiências de que os clientes passarão durante a edição de perfil e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
+Se pretender ativar a edição de perfil na sua aplicação, utilize um **edição de perfil** política. Esta política descreve as experiências que os clientes terão durante a edição de perfis e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

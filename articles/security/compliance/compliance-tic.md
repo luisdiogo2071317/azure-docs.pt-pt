@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 7b813500eecba3aa1902c28b9b7c56da6c4516b7
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: MT
+ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967538"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969950"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Documentação de orientação de ligação de Internet fidedigna
 
@@ -199,7 +199,7 @@ As políticas de exemplo seguintes podem ser úteis para cenários de conformida
 |Localizações permitidas | Certifique-se de que todos os recursos são implementados em regiões com a configuração de VNets e o observador de rede em conformidade  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |Tipos de recursos, tais como PublicIPs não permitidos  | Proibir a implementação de tipos de recursos, o que não têm um plano de conformidade. Por exemplo, esta política pode ser utilizada para proibir a implementação de recursos de endereço IP público. Enquanto as regras do NSG podem ser utilizadas para bloquear o tráfego de Internet de entrada com eficiência, evitar o uso de IPs públicos ainda mais reduz a superfície de ataque.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
-### <a name="azure-traffic-analytics"></a>Análise de tráfego do Azure
+### <a name="azure-traffic-analyticshttpsazuremicrosoftcomen-inblogtraffic-analytics-in-preview"></a>Azure [análise de tráfego](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
 
 Análise de tráfego do Azure observador de rede consome dados de registo de fluxo e outros registos para fornecer a descrição geral de alto nível de tráfego de rede. Estes dados podem ser útil para auditoria de conformidade de classificação TIC e identificar pontos problemáticos. Um dashboard de alto nível pode servir-se rapidamente ecrã de que as VMs estão a comunicar com a internet, o que, em seguida, forneceria uma lista direcionada para o encaminhamento do PEDI.
 

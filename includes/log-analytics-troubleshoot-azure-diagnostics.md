@@ -21,4 +21,4 @@ No PowerShell, se receber a seguinte mensagem de erro, terá de atualizar a vers
 
 `Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Atualizar a versão do PowerShell para o Novembro de 2016 (v2.3.0) ou versão posterior, utilizando as instruções no [introdução aos cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) artigo.
+Atualizar a versão do PowerShell para Novembro de 2016 (v2.3.0) ou versão posterior, com as instruções no [introdução aos cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) artigo.

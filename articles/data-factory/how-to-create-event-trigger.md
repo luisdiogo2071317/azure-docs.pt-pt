@@ -1,5 +1,5 @@
 ---
-title: Criar acionadores baseada em eventos no Azure Data Factory | Microsoft Docs
+title: Criar acionadores baseados em eventos no Azure Data Factory | Documentos da Microsoft
 description: Saiba como criar um acionador no Azure Data Factory que executa um pipeline em resposta a um evento.
 services: data-factory
 documentationcenter: ''
@@ -10,74 +10,79 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: douglasl
-ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062126"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969583"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
-Este artigo descreve os acionadores baseada em eventos que podem criar seus pipelines de fábrica de dados.
+Este artigo descreve os acionadores baseados em eventos que podem ser criados em seus pipelines do Data Factory.
 
-Arquitetura condicionada por eventos (EDA) é um padrão de integração de dados comuns que envolve a produção, deteção e consumo e reação eventos. Cenários de integração de dados requerem, muitas vezes, os clientes do Data Factory acionar pipelines com base em eventos. Fábrica de dados está agora integrada [grelha de eventos do Azure](https://azure.microsoft.com/services/event-grid/), pipelines que lhe permite acionar um evento.
+Arquitetura condicionada por eventos (EDA) é um padrão de integração de dados comum, que envolve a produção, de deteção, de consumo e de reação a eventos. Cenários de integração de dados requerem muitas vezes, os clientes do Data Factory acionar pipelines com base em eventos. Fábrica de dados está agora integrada [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), que permite acionar pipelines num evento.
+
+> [!NOTE]
+> A integração descrita neste artigo depende [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Certifique-se de que a sua subscrição está registada com o fornecedor de recursos do Event Grid. Para mais informações, veja [fornecedores de recursos e os tipos de](../azure-resource-manager/resource-manager-supported-services.md#portal).
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
-### <a name="create-a-new-event-trigger"></a>Criar um novo acionador de eventos
+### <a name="create-a-new-event-trigger"></a>Criar um novo disparador de eventos
 
-Um evento de típico é a chegada de um ficheiro ou da eliminação de um ficheiro, na sua conta do Storage do Azure. Pode criar um acionador que responde a este evento no seu pipeline do Data Factory.
+Um evento típico é a chegada de um ficheiro ou a eliminação de um arquivo, na sua conta de armazenamento do Azure. Pode criar um acionador que responda a este evento no seu pipeline de fábrica de dados.
 
 > [!NOTE]
-> Esta integração suporta apenas a versão 2 contas do Storage (objetivo geral).
+> Esta integração suporta apenas a versão 2 contas de armazenamento (para fins gerais).
 
-![Criar o novo acionador de eventos](media/how-to-create-event-trigger/event-based-trigger-image1.png)
-
-### <a name="select-the-event-trigger-type"></a>Selecione o tipo de Acionador de evento
-
-Assim que o ficheiro chega na sua localização de armazenamento e o blob correspondente é criado, este evento é acionado e executa o pipeline do Data Factory. Pode criar um acionador que responde a um evento de criação de blob, um evento de eliminação de BLOBs ou ambos os eventos, no seus pipelines de fábrica de dados.
-
-![Tipo de accionador Selecione como eventos](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+![Criar novo acionador de eventos](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
 ### <a name="configure-the-event-trigger"></a>Configurar o acionador de eventos
 
-Com o **caminho do Blob começa com** e **caminho do Blob termina com** propriedades, pode especificar os contentores, pastas e os nomes de BLOBs para os quais pretende receber eventos. Pode utilizar diversas padrões para ambos **caminho do Blob começa com** e **caminho do Blob termina com** propriedades, conforme ilustrado nos exemplos neste artigo. É necessária, pelo menos, uma destas propriedades.
+Com o **caminho do Blob começa com** e **caminho do Blob termina com** propriedades, pode especificar os contentores, pastas e nomes de BLOBs para o qual pretende receber eventos. Pode usar a variedade de padrões para ambos **caminho do Blob começa com** e **caminho do Blob termina com** propriedades, conforme mostrado nos exemplos neste artigo. Pelo menos uma destas propriedades é necessária.
 
-![Configurar o acionador de eventos](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+![Configurar o acionador de eventos](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+
+### <a name="select-the-event-trigger-type"></a>Selecione o tipo de Acionador do evento
+
+Assim que o ficheiro é recebido no seu local de armazenamento e o blob correspondente é criado, este evento aciona e executa o pipeline de fábrica de dados. Pode criar um acionador que responde a um evento de criação de blob, um evento de eliminação de BLOBs ou os dois eventos, em seus pipelines do Data Factory.
+
+![Tipo de Acionador Selecione como evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
 ## <a name="json-schema"></a>JSON schema
 
-A tabela seguinte fornece uma descrição geral dos elementos de esquema que estão relacionados com acionadores baseada em eventos:
+A tabela seguinte fornece uma descrição geral dos elementos do esquema relacionados com acionadores baseados em eventos:
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | O ID de recurso do Azure Resource Manager da conta de armazenamento. | Cadeia | ID do Gestor de recursos do Azure | Sim |
-| **Eventos** | O tipo de eventos que fazer com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação. |
-| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, '/ registos/blobs/Dezembro /' apenas serão acionados o acionador para os blobs na pasta Dezembro sob o contentor de registos. | Cadeia   | | Tem de ser fornecida, pelo menos, uma destas propriedades: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, 'december/boxes.csv' apenas serão acionados o acionador para blobs com o nome caixas numa pasta Dezembro. | Cadeia   | | Tem de ser fornecida, pelo menos, uma destas propriedades: blobPathBeginsWith, blobPathEndsWith. |
+| **scope** | O ID de recurso do Azure Resource Manager da conta de armazenamento. | Cadeia | ID de Gestor de recursos do Azure | Sim |
+| **eventos** | O tipo de eventos que fazem com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação. |
+| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, '/ registos/blobs/Dezembro /' será disparado somente o acionador para blobs na pasta Dezembro sob o contentor de registos. | Cadeia   | | Tem de ser fornecida, pelo menos, uma destas propriedades: blobPathBeginsWith, blobPathEndsWith. |
+| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, "december/boxes.csv" será disparado somente o acionador para blobs com o nome caixas numa pasta de Dezembro. | Cadeia   | | Tem de ser fornecida, pelo menos, uma destas propriedades: blobPathBeginsWith, blobPathEndsWith. |
 
-## <a name="examples-of-event-based-triggers"></a>Exemplos de acionadores baseada em eventos
+## <a name="examples-of-event-based-triggers"></a>Exemplos de acionadores baseados em eventos
 
-Esta secção fornece exemplos das definições de Acionador baseada em eventos.
+Esta secção fornece exemplos de definições do acionador baseado em evento.
 
--   **Caminho do blob começa com**('containername /') – recebe eventos para os BLOBs no contentor.
--   **Caminho do blob começa com**('/ blobs/containername/foldername') – recebe eventos para os blobs no contentor de containername e foldername pasta.
--   **Caminho do blob começa com**('/ containername/blobs/foldername/file.txt') – recebe eventos para um blob com o nome file.txt na pasta foldername no recipiente do containername.
+-   **Caminho do blob começa com**("/ containername /") – recebe eventos para qualquer blob no contentor.
+-   **Caminho do blob começa com**("/ containername/blobs/foldername") – recebe eventos para os blobs no contentor de containername e na pasta foldername.
+-   **Caminho do blob começa com**("/ containername/blobs/foldername/file.txt') – recebe eventos para um blob com o nome file.txt na pasta foldername no contentor containername.
 -   **Caminho do blob termina com**('file.txt') – Receives eventos para um blob com o nome file.txt em qualquer caminho.
--   **Caminho do blob termina com**('/ containername/blobs/file.txt') – recebe eventos para um blob com o nome file.txt em containername do contentor.
+-   **Caminho do blob termina com**("/ containername/blobs/file.txt') – recebe eventos para um blob com o nome file.txt em containername de contentor.
 -   **Caminho do blob termina com**('foldername/file.txt') – Receives eventos para um blob com o nome file.txt na pasta de foldername em qualquer contentor.
 
 > [!NOTE]
-> Tem de incluir o `/blobs/` segmento do caminho sempre especificar o contentor e pasta, contentor e pasta de ficheiros ou de contentores e, de ficheiros.
+> Tem de incluir o `/blobs/` segmento do caminho sempre que especifique o contentor e pasta, contentor e a pasta de ficheiro ou contêiner e de ficheiros.
 
-## <a name="using-blob-events-trigger-properties"></a>Utilizar as propriedades de Acionador de eventos de Blob
+## <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapear as propriedades de Acionador para parâmetros do pipeline
 
-Quando um acionador de eventos do blob é acionado, disponibiliza duas variáveis para o pipeline: *folderPath* e *fileName*. Para aceder a estas variáveis, utilize o `@triggerBody().fileName` ou `@triggerBody().folderPath` expressões.
+Quando um evento é acionado para um blob específico, o evento captura o nome de ficheiro e caminho de pasta do blob para as propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para utilizar os valores dessas propriedades num pipeline, tem de mapear as propriedades para parâmetros do pipeline. Depois de mapear as propriedades para parâmetros, pode aceder os valores capturados pelo acionador através do `@pipeline.parameters.parameterName` expressão em todo o pipeline.
 
-Por exemplo, considere um acionador configurado para accionar quando é criado um blob com `.csv` como o valor do `blobPathEndsWith`. Quando um ficheiro. csv é ignorado para a conta de armazenamento, o *folderPath* e *fileName* descrevem a localização do ficheiro. csv. Por exemplo, *folderPath* tem o valor `/containername/foldername/nestedfoldername` e *fileName* tem o valor `filename.csv`.
+![O mapeamento de propriedades para parâmetros do pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Por exemplo, na captura de ecrã anterior. o acionador está configurado para acionar quando um caminho de blob que termine em `.csv` é criado na conta de armazenamento. Como resultado, quando um blob com o `.csv` extensão é criada em qualquer lugar na conta de armazenamento, o `folderPath` e `fileName` propriedades capturar a localização do blob novo. Por exemplo, `@triggerBody().folderPath` tem um valor como `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` tem um valor como `filename.csv`. Estes valores são mapeados no exemplo para os parâmetros do pipeline `sourceFolder` e `sourceFile`. Pode usá-los em todo o pipeline como `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile` , respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter informações detalhadas sobre acionadores, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md#triggers).
+Para obter informações detalhadas sobre os acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).

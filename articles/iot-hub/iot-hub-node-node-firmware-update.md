@@ -1,6 +1,6 @@
 ---
-title: Atualização de firmware do dispositivo IoT hub do Azure (nó) | Microsoft Docs
-description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilize os SDKs IoT do Azure para Node.js para implementar uma aplicação de dispositivo simulada e uma aplicação de serviço que aciona a atualização de firmware.
+title: Atualização de firmware do dispositivo com o IoT Hub do Azure (Node) | Documentos da Microsoft
+description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilize os SDKs IoT do Azure para node. js para implementar uma aplicação de dispositivo simulado e uma aplicação de serviço que aciona a atualização de firmware.
 author: juanjperez
 manager: cberlin
 ms.service: iot-hub
@@ -9,56 +9,56 @@ ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: juanpere
 ms.openlocfilehash: 0cd8c019cf9a65e0e72227ba99c1995a45ed4067
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634971"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452435"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Utilize a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (nó/nó)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Utilizar a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (nó)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-No [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, vimos como utilizar o [dispositivo duplo] [ lnk-devtwin] e [direcionar métodos ] [ lnk-c2dmethod] primitivos reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmos primitivos do IoT Hub e fornece orientações e mostra como efetuar uma atualização de firmware simulada ponto-a-ponto.  Este padrão é utilizado na implementação de atualização de firmware para o exemplo de dispositivo Intel Edison.
+Na [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, viu como usar o [dispositivo duplo] [ lnk-devtwin] e [métodos diretos ] [ lnk-c2dmethod] primitivos para reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmo primitivos de IoT Hub e fornece orientação e mostra-lhe como fazer uma atualização de firmware simulada do ponto-a-ponto.  Esse padrão é usado na implementação de atualização de firmware para o exemplo de dispositivo do Intel Edison.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Crie uma aplicação de consola do Node.js que chama o método direto firmwareUpdate na aplicação do dispositivo simulado através do seu IoT hub.
-* Criar uma aplicação de dispositivo simulado que implementa um **firmwareUpdate** método direto. Este método inicia um processo de fase multi que aguarda para transferir a imagem de firmware, transfere a imagem de firmware e, finalmente, aplica-se a imagem do firmware. Durante cada fase da atualização, o dispositivo utiliza as propriedades que relatados para elaborar relatórios sobre o progresso.
+* Crie uma aplicação de consola node. js que chama o método direto firmwareUpdate na aplicação do dispositivo simulado através do IoT hub.
+* Criar uma aplicação de dispositivo simulado que implementa uma **firmwareUpdate** método direto. Este método inicia um processo de vários estágio que aguarda a transferência da imagem de firmware, transfere a imagem de firmware e, finalmente, aplica-se a imagem de firmware. Durante cada fase da atualização, o dispositivo utiliza as propriedades comunicadas para comunicar o progresso.
 
-No final deste tutorial, tem duas aplicações de consola do Node.js:
+No final deste tutorial, tem duas aplicações de consola node. js:
 
-**dmpatterns_fwupdate_service.js**, que chama um método direto na aplicação do dispositivo simulado, mostra a resposta e periodicamente (cada 500ms) apresenta a atualização comunicado propriedades.
+**dmpatterns_fwupdate_service.js**, que chama um método direto na aplicação do dispositivo simulado, apresenta a resposta, e periodicamente (cada 500 MS) apresenta a atualização propriedades comunicadas.
 
-**dmpatterns_fwupdate_device.js**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe um método direto firmwareUpdate, é executada através de um processo com múltiplos estado para simular a atualização de firmware, incluindo: a aguardar que a imagem transferir, transferir a nova imagem e, finalmente, aplicar a imagem.
+**dmpatterns_fwupdate_device. js**, que liga ao seu hub IoT com a identidade de dispositivo que criou anteriormente, recebe um método direto firmwareUpdate, é executado através de um processo com múltiplos estado para simular um incluindo de atualização de firmware: a aguardar que a imagem Baixe, transferir a nova imagem e, finalmente, a aplicação da imagem.
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Versão do node.js 4.0.x ou posterior <br/>  [Preparar o ambiente de desenvolvimento] [ lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou Linux.
+* Versão node. js 4.0.x ou posterior, <br/>  [Preparar o ambiente de desenvolvimento] [ lnk-dev-setup] descreve como instalar o node. js para este tutorial no Windows ou Linux.
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Siga o [introdução à gestão de dispositivos](iot-hub-node-node-device-management-get-started.md) artigo para criar o hub IoT e obter a cadeia de ligação do IoT Hub.
+Siga os [introdução à gestão de dispositivos](iot-hub-node-node-device-management-get-started.md) artigo para criar o hub IoT e obter a cadeia de ligação do IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Acionar uma atualização de firmware remota no dispositivo com um método direto
-Nesta secção, crie uma aplicação de consola do Node.js que inicia uma atualização de firmware remota num dispositivo. A aplicação utiliza um método direto para iniciar a atualização e utiliza consultas de duplo de dispositivo para obter periodicamente o estado da atualização de firmware do Active Directory.
+Nesta secção, vai criar uma aplicação de consola node. js que inicia uma atualização de firmware remoto num dispositivo. A aplicação utiliza um método direto para iniciar a atualização e utiliza consultas de gémeos de dispositivo para obter periodicamente o estado da atualização de firmware do Active Directory.
 
-1. Crie uma pasta vazia designada **triggerfwupdateondevice**.  No **triggerfwupdateondevice** pasta, crie um ficheiro de Package. JSON utilizando o seguinte comando na sua linha de comandos.  Aceite todas as predefinições:
+1. Criar uma pasta vazia designada **triggerfwupdateondevice**.  Na **triggerfwupdateondevice** pasta, crie um ficheiro Package. JSON com o seguinte comando na sua linha de comandos.  Aceite todas as predefinições:
    
     ```
     npm init
     ```
-2. Na sua linha de comandos a **triggerfwupdateondevice** pasta, execute o seguinte comando para instalar o **azure-iot-hub** pacote:
+2. Sua linha de comandos do **triggerfwupdateondevice** pasta, execute o seguinte comando para instalar o **do azure-iot-hub** pacote:
    
     ```
     npm install azure-iothub --save
     ```
-3. Com um editor de texto, crie um **dmpatterns_getstarted_service.js** ficheiros o **triggerfwupdateondevice** pasta.
-4. Adicione o seguinte 'exigir' instruções no início do **dmpatterns_getstarted_service.js** ficheiro:
+3. Com um editor de texto, crie uma **dmpatterns_getstarted_service.js** de ficheiros a **triggerfwupdateondevice** pasta.
+4. Adicione as seguintes declarações no início de "necessitam" a **dmpatterns_getstarted_service.js** ficheiro:
    
     ```
     'use strict';
@@ -87,7 +87,7 @@ Nesta secção, crie uma aplicação de consola do Node.js que inicia uma atuali
         });
     };
     ```
-7. Adicione a seguinte função para invocar o método firmwareUpdate para reiniciar o dispositivo de destino:
+7. Adicione a seguinte função para invocar o método firmwareUpdate reiniciar o dispositivo de destino:
    
     ```
     var startFirmwareUpdateDevice = function() {
@@ -111,7 +111,7 @@ Nesta secção, crie uma aplicação de consola do Node.js que inicia uma atuali
       });
     };
     ```
-8. Por fim, adicione a seguinte função código para iniciar a sequência de atualização de firmware e iniciar periodicamente que mostra as propriedades que relatados:
+8. Por fim, adicione a seguinte função para o código para iniciar a sequência de atualização de firmware e comece a ser apresentado periodicamente as propriedades comunicadas:
    
     ```
     startFirmwareUpdateDevice();
@@ -124,22 +124,22 @@ Nesta secção, crie uma aplicação de consola do Node.js que inicia uma atuali
 ## <a name="run-the-apps"></a>Executar as aplicações
 Já está pronto para executar as aplicações.
 
-1. Na linha de comandos no **manageddevice** pasta, execute o seguinte comando para começar a escutar o método direta de reinício.
+1. A linha de comandos do **manageddevice** pasta, execute o seguinte comando para começar a escutar o método direto de reinício.
    
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. Na linha de comandos no **triggerfwupdateondevice** pasta, execute o seguinte comando para acionar a reiniciar o computador remoto e a consulta para o dispositivo duplo localizar a última hora de reinício.
+2. A linha de comandos do **triggerfwupdateondevice** pasta, execute o seguinte comando para acionar a reinicialização remota e a consulta para o dispositivo duplo localizar a última hora de reinício.
    
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. Pode ver a resposta de dispositivo para o método direto na consola do.
+3. Ver a resposta de dispositivo para o método direto na consola do.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, é utilizado um método direto para acionar uma atualização de firmware remota num dispositivo e utilizado as propriedades que relatados para seguir o progresso da atualização de firmware.
+Neste tutorial, utilizou um método direto para acionar uma atualização de firmware remoto num dispositivo e utilizadas as propriedades reportadas para seguir o progresso da atualização de firmware.
 
-Para saber como expandir o seu IoT chama o método de solução e agenda em vários dispositivos, consulte o [agenda e as tarefas de difusão] [ lnk-tutorial-jobs] tutorial.
+Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja a [agendar e transmitir tarefas] [ lnk-tutorial-jobs] tutorial.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

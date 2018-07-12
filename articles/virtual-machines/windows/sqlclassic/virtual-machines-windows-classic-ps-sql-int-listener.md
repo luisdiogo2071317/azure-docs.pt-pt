@@ -1,6 +1,6 @@
 ---
-title: Configurar um serviço de escuta do ILB para grupos de disponibilidade Always On no Azure | Microsoft Docs
-description: Este tutorial utiliza recursos criados com o modelo de implementação clássica e cria uma escuta do grupo Always On disponibilidade no Azure que utiliza um balanceador de carga interno.
+title: Configurar um serviço de escuta ILB para grupos de disponibilidade Always On no Azure | Documentos da Microsoft
+description: Este tutorial utiliza recursos criados com o modelo de implementação clássica e cria um sempre no serviço de escuta no Azure que utiliza um balanceador de carga interno.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -16,13 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0466265ad5a24e8ea6dc5079e2b4006d74e7dde0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240753"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452537"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta do ILB para grupos de disponibilidade Always On no Azure
+# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta ILB para grupos de disponibilidade Always On no Azure
 > [!div class="op_single_selector"]
 > * [Serviço de escuta interno](../classic/ps-sql-int-listener.md)
 > * [Serviço de escuta externo](../classic/ps-sql-ext-listener.md)
@@ -32,38 +32,38 @@ ms.locfileid: "30240753"
 ## <a name="overview"></a>Descrição geral
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo abrange a utilização do modelo de implementação clássica. Recomendamos que as implementações mais novas utilizem o modelo do Resource Manager.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager e clássica](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implementação clássica. Recomendamos que as implementações mais novas utilizem o modelo de Gestor de recursos.
 
 Para configurar um serviço de escuta para um grupo de disponibilidade Always On no modelo do Resource Manager, consulte [configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-O grupo de disponibilidade pode conter réplicas que são apenas no local ou para o Azure apenas, ou que abrangem no local e o Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões que utilizem várias redes virtuais. Os procedimentos deste artigo partem do princípio de que já tem [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas ainda não tiver configurado um serviço de escuta.
+O grupo de disponibilidade pode conter réplicas que estão apenas no local ou no Azure apenas ou que abrangem no local e o Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões que utilizam várias redes virtuais. Os procedimentos neste artigo partem do princípio de que já [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas ainda não tiver configurado um serviço de escuta.
 
-## <a name="guidelines-and-limitations-for-internal-listeners"></a>Diretrizes e limitações para os serviços de escuta internas
-A utilização de um balanceador de carga interno (ILB) com um serviço de escuta do grupo de disponibilidade no Azure está sujeita às seguintes diretrizes:
+## <a name="guidelines-and-limitations-for-internal-listeners"></a>Diretrizes e limitações para serviços de escuta internos
+A utilização de um balanceador de carga interno (ILB) com um serviço de escuta do grupo de disponibilidade no Azure está sujeitas a as seguintes diretrizes:
 
 * O serviço de escuta do grupo de disponibilidade é suportado no Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
-* Escuta do grupo de disponibilidade interna apenas um é suportada para cada serviço em nuvem, porque o serviço de escuta está configurado para o ILB e existe apenas um ILB para cada serviço em nuvem. No entanto, é possível criar vários serviços de escuta externos. Para obter mais informações, consulte [configurar um serviço de escuta externo para grupos de disponibilidade Always On no Azure](../classic/ps-sql-ext-listener.md).
+* Apenas um serviço de escuta de grupo de disponibilidade interno é suportado para cada serviço cloud, porque o serviço de escuta é configurado para o ILB e há apenas um ILB para cada serviço em nuvem. No entanto, é possível criar várias escutas externas. Para obter mais informações, consulte [configurar um serviço de escuta externo para grupos de disponibilidade Always On no Azure](../classic/ps-sql-ext-listener.md).
 
 ## <a name="determine-the-accessibility-of-the-listener"></a>Determinar a acessibilidade do serviço de escuta
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-Este artigo foca-se sobre a criação de um serviço de escuta que utiliza um ILB. Se precisar de um serviço de escuta público ou externo, consulte a versão deste artigo que descreve a definição de segurança de um [escuta externa](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Este artigo se concentra na criação de um serviço de escuta que utiliza um ILB. Se precisar de um serviço de escuta externo ou público, consulte a versão deste artigo que aborda a definição de segurança de um [serviço de escuta externo](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Criar os pontos finais VM com balanceamento de carga com direta do servidor retorno
-Primeiro de criar um ILB, executando o script posteriormente nesta secção.
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Criar pontos finais da VM com balanceamento de carga com direta do servidor retorno
+Cria um ILB pela primeira vez ao executar o script posteriormente nesta secção.
 
-Crie um ponto final com balanceamento de carga para cada VM que aloja uma réplica do Azure. Se tiver réplicas em várias regiões, cada réplica para essa região deve estar no mesmo serviço em nuvem na mesma rede virtual do Azure. Criação de réplicas do grupo que abrangem várias regiões do Azure de disponibilidade necessita de configurar várias redes virtuais. Para obter mais informações sobre como configurar cruzada conectividade de rede virtual, consulte [configurar a rede virtual para conectividade de rede virtual](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Crie um ponto final com balanceamento de carga para cada VM que aloja uma réplica do Azure. Se tiver de réplicas em várias regiões, cada réplica para essa região tem de estar no mesmo serviço cloud na mesma rede virtual do Azure. Criação de réplicas do grupo que abrangem várias regiões do Azure de disponibilidade exige a configuração de várias redes virtuais. Para obter mais informações sobre como configurar cruzada conectividade de rede virtual, consulte [configurar a rede virtual para conectividade de rede virtual](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-1. No portal do Azure, aceda a cada VM que aloja uma réplica para ver os detalhes.
+1. No portal do Azure, vá para cada VM que aloja uma réplica para ver os detalhes.
 
-2. Clique em de **pontos finais** separador para cada VM.
+2. Clique nas **pontos de extremidade** separador para cada VM.
 
-3. Certifique-se de que o **nome** e **Porta pública** do serviço de escuta ponto final que pretende utilizar não já estão em utilização. O exemplo nesta secção, o nome é *MyEndpoint*, e a porta é *1433*.
+3. Certifique-se de que o **Name** e **Porta pública** do serviço de escuta do ponto final que pretende utilizar não estão já em utilização. O exemplo nesta secção, o nome é *MyEndpoint*, e a porta é *1433*.
 
 4. No seu cliente local, transfira e instale a versão mais recente [módulo do PowerShell](https://azure.microsoft.com/downloads/).
 
 5. Inicie o PowerShell do Azure.  
-    Abre uma nova sessão PowerShell com os módulos de administração do Azure carregados.
+    É aberta uma nova sessão do PowerShell, com os módulos do Azure de administrativos carregados.
 
 6. Execute `Get-AzurePublishSettingsFile`. Este cmdlet direciona-o para um browser para transferir um ficheiro de definições de publicação para um diretório local. Pode ser pedido para as credenciais de início de sessão para a sua subscrição do Azure.
 
@@ -71,23 +71,23 @@ Crie um ponto final com balanceamento de carga para cada VM que aloja uma répli
 
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
-    Após a importação do ficheiro de definições de publicação, pode gerir a sua subscrição do Azure na sessão do PowerShell.
+    Depois do ficheiro de definições de publicação foi importado, pode gerir a sua subscrição do Azure na sessão do PowerShell.
 
 8. Para *ILB*, atribuir um endereço IP estático. Examine a configuração de rede virtual atual, executando o seguinte comando:
 
         (Get-AzureVNetConfig).XMLConfiguration
-9. Tenha em atenção o *sub-rede* de nome para a sub-rede que contém as VMs que alojam as réplicas. Este nome é utilizado no parâmetro $SubnetName no script.
+9. Tenha em atenção a *sub-rede* dê um nome para a sub-rede que contém as VMs que alojam as réplicas. Este nome é utilizado no parâmetro $SubnetName no script.
 
-10. Tenha em atenção o *VirtualNetworkSite* nome e a iniciar *AddressPrefix* para a sub-rede que contém as VMs que alojam as réplicas. Procurar um endereço IP disponível através da transmissão de ambos os valores para o `Test-AzureStaticVNetIP` de comandos e ao examinar o *AvailableAddresses*. Por exemplo, se a rede virtual é denominada *MyVNet* e tem um intervalo de endereços de sub-rede que inicia no *172.16.0.128*, o seguinte comando seria lista endereços disponíveis:
+10. Tenha em atenção a *VirtualNetworkSite* nome e a partir de *AddressPrefix* para a sub-rede que contém as VMs que alojam as réplicas. Procurar um endereço IP disponível pela transmissão de ambos os valores para o `Test-AzureStaticVNetIP` de comandos e ao examinar a *AvailableAddresses*. Por exemplo, se a rede virtual com o nome *MyVNet* e tem um intervalo de endereços de sub-rede que começa com *172.16.0.128*, o seguinte comando apresentará endereços disponíveis:
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Selecione um dos endereços disponíveis e utilizá-lo no parâmetro $ILBStaticIP do script no próximo passo.
 
-12. Copie o seguinte script do PowerShell para um editor de texto e defina os valores das variáveis de acordo com o seu ambiente. As predefinições foram fornecidas para alguns parâmetros.  
+12. Copie o seguinte script do PowerShell para um editor de texto e defina os valores das variáveis de acordo com seu ambiente. Foram fornecidas as predefinições para alguns parâmetros.  
 
-    As implementações existentes que utilizam grupos de afinidade não é possível adicionar um ILB. Para obter mais informações sobre os requisitos do ILB, consulte [descrição geral do Balanceador de carga interno](../../../load-balancer/load-balancer-internal-overview.md).
+    As implementações existentes que utilizam grupos de afinidade não é possível adicionar um ILB. Para obter mais informações sobre os requisitos de ILB, veja [descrição geral do Balanceador de carga interno](../../../load-balancer/load-balancer-internal-overview.md).
 
-    Além disso, se o grupo de disponibilidade abranger regiões do Azure, tem de executar o script de uma vez cada centro de dados para o serviço em nuvem e os nós que residem em que Centro de dados.
+    Além disso, se o seu grupo de disponibilidade se estende por regiões do Azure, tem de executar uma vez o script em cada datacenter para o serviço em nuvem e nós que residem em que datacenter.
 
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -105,9 +105,9 @@ Crie um ponto final com balanceamento de carga para cada VM que aloja uma répli
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Depois de ter de definir as variáveis, copie o script do editor de texto à sua sessão do PowerShell para executá-la. Se a linha de comandos ainda mostra **>>**, prima Enter novamente para se certificar de que o script entra em execução.
+13. Depois de ter de definir as variáveis, copie o script do editor de texto à sua sessão do PowerShell para executá-lo. Se continua a mostrar a linha de comandos **>>**, pressione Enter novamente para certificar-se de que o script começa a ser executado.
 
-## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Certifique-se de que KB2854082 está instalado, se necessário
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Certifique-se de que o KB2854082 está instalado se for necessário
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
 ## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Abrir as portas de firewall em nós do grupo de disponibilidade
@@ -115,7 +115,7 @@ Crie um ponto final com balanceamento de carga para cada VM que aloja uma répli
 
 ## <a name="create-the-availability-group-listener"></a>Criar o serviço de escuta do grupo de disponibilidade
 
-Crie o serviço de escuta do grupo de disponibilidade em dois passos. Em primeiro lugar, crie o recurso de cluster de ponto de acesso de cliente e configurar as dependências. Segundo, configure os recursos de cluster no PowerShell.
+Crie o serviço de escuta do grupo de disponibilidade em duas etapas. Primeiro, crie o recurso de cluster de ponto de acesso de cliente e configurar as dependências. Em segundo lugar, configure os recursos do cluster no PowerShell.
 
 ### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>Criar o ponto de acesso de cliente e configurar as dependências de cluster
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
@@ -127,7 +127,7 @@ Crie o serviço de escuta do grupo de disponibilidade em dois passos. Em primeir
         $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
         (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
-2. Das VMs, copie o script do PowerShell para o seu sistema operativo para um editor de texto e, em seguida, definir as variáveis para valores que apontou anteriormente.
+2. Em uma das VMs, copie o script do PowerShell para o seu sistema operativo para um editor de texto e, em seguida, defina as variáveis para valores que apontou anteriormente.
 
     Para o Windows Server 2012 ou posterior, utilize o seguinte script:
 
@@ -151,18 +151,18 @@ Crie o serviço de escuta do grupo de disponibilidade em dois passos. Em primeir
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Após definir as variáveis, abra uma janela elevada do Windows PowerShell, cole o script do editor de texto para a sua sessão do PowerShell para executá-la. Se a linha de comandos ainda mostra **>>**, prima Enter novamente para se certificar de que o script entra em execução.
+3. Depois de ter de definir as variáveis, abra uma janela elevada do Windows PowerShell, cole o script a partir do editor de texto para a sua sessão do PowerShell para executá-lo. Se continua a mostrar a linha de comandos **>>**, prima Enter novamente para certificar-se de que o script começa a ser executado.
 
 4. Repita os passos anteriores para cada VM.  
-    Este script configura o recurso de endereço IP com o endereço IP do serviço de nuvem e define outros parâmetros, tais como a porta da sonda. Quando o recurso de endereço IP seja colocado online, pode responder a consulta na porta sonda do ponto de final com balanceamento de carga que criou anteriormente.
+    Este script configura o recurso de endereço IP com o endereço IP do serviço em nuvem e define outros parâmetros, tais como a porta de sonda. Quando o recurso de endereço IP é colocado online, pode responder a consulta na porta de pesquisa do ponto de final com balanceamento de carga que criou anteriormente.
 
-## <a name="bring-the-listener-online"></a>Coloque online o serviço de escuta
+## <a name="bring-the-listener-online"></a>Colocar o serviço de escuta online
 [!INCLUDE [Bring-Listener-Online](../../../../includes/virtual-machines-ag-listener-bring-online.md)]
 
 ## <a name="follow-up-items"></a>Itens de seguimento
 [!INCLUDE [Follow-up](../../../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>O serviço de escuta do grupo de disponibilidade (dentro da mesma rede virtual) de teste
+## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>Testar o serviço de escuta do grupo de disponibilidade (dentro da mesma rede virtual)
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes

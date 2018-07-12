@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f09fa7b3f2aff38a016626af2d538f1eab3f5e8
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856628"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970494"
 ---
 # <a name="durable-functions-overview"></a>Descrição geral de funções durável
 
 *Funções duráveis* é uma extensão da [as funções do Azure](functions-overview.md) e [WebJobs do Azure](../app-service/web-sites-create-web-jobs.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
 
-A extensão permite definir fluxos de trabalho com monitorização de estado num novo tipo de função chamada uma *função de orquestrador*. Aqui estão algumas das vantagens das funções do orchestrator:
+A extensão permite definir fluxos de trabalho com monitorização de estado num novo tipo de função chamada uma [ *função de orquestrador*](durable-functions-types-features-overview.md#orchestrator-functions). Aqui estão algumas das vantagens das funções do orchestrator:
 
 * Elas definem os fluxos de trabalho no código. Não existem esquemas JSON ou designers são necessários.
 * Podem chamar outras funções de modo síncrono e assíncrono. Saída de funções chamadas pode ser guardada para variáveis locais.
@@ -340,7 +340,7 @@ As funções do Orchestrator com fiabilidade mantêm seu estado de execução us
 
 A utilização de origem do evento por esta extensão é transparente. Nos bastidores, o `await` operador numa função de orquestrador produz o controle do orchestrator thread para o dispatcher do Framework de tarefa durável. O dispatcher, em seguida, consolida todas as novas ações que a função de orquestrador agendada (por exemplo, chamar uma ou mais funções de subordinado ou agendamento de um temporizador durável) para o armazenamento. Esta ação de consolidação transparente acrescenta para o *histórico de execução* da instância de orquestração. O histórico é armazenado numa tabela de armazenamento. A ação de consolidação, em seguida, adiciona uma mensagem numa fila para agendar o trabalho real. Neste momento, a função de orquestrador pode ser baixada da memória. A faturação para o mesmo deixa de se estiver a utilizar o plano de consumo de funções do Azure.  Quando existe mais de trabalho, a função é reiniciada e seu estado é reconstruído.
 
-Depois de uma função de orquestração recebe mais de trabalho (por exemplo, é recebida uma mensagem de resposta ou expira um temporizador durável), o orchestrator reativado novamente e novamente executa a função completa desde o início para reconstruir o estado local. Se durante esta repetição, o código tenta chamar uma função (ou fazer qualquer outra async trabalho), a estrutura de tarefa durável atua com o *histórico de execução* da orquestração atual. Se ele encontrar-se ao que já executou a função de atividade e gerou um resultado, ele replays resultado essa função e o código do orchestrator continua a ser executado. Isso continua até que o código de função obtém a um ponto onde seja concluído ou tem trabalho agendado de async novo a acontecer.
+Depois de uma função de orquestração recebe mais de trabalho (por exemplo, é recebida uma mensagem de resposta ou expira um temporizador durável), o orchestrator reativado novamente e novamente executa a função completa desde o início para reconstruir o estado local. Se durante esta repetição, o código tenta chamar uma função (ou fazer qualquer outra async trabalho), a estrutura de tarefa durável atua com o *histórico de execução* da orquestração atual. Se achar que o [função de atividade](durable-functions-types-features-overview.md#activity-functions) já foi executado e gerou um resultado, ele replays resultado essa função e o código do orchestrator continua a ser executado. Isso continua até que o código de função obtém a um ponto onde seja concluído ou tem trabalho agendado de async novo a acontecer.
 
 ### <a name="orchestrator-code-constraints"></a>Restrições de código do Orchestrator
 
@@ -384,7 +384,7 @@ Devem haver um controle em todos os problemas conhecidos a [problemas do GitHub]
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Continue a ler a documentação das funções duráveis](durable-functions-bindings.md)
+> [Continue a ler a documentação das funções duráveis](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Instalar a extensão Durable Functions e os exemplos](durable-functions-install.md)

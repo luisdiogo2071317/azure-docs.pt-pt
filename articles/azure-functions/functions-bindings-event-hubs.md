@@ -1,6 +1,6 @@
 ---
-title: Enlaces de Event Hubs do Azure para as funções do Azure
-description: Compreenda como utilizar os enlaces de Event Hubs do Azure das funções do Azure.
+title: Enlaces de Hubs de eventos do Azure para as funções do Azure
+description: Compreenda como utilizar os enlaces de Hubs de eventos do Azure nas funções do Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -16,73 +16,73 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 64914a1b3efe81a152f5463f74c70c22f01ec0c1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724049"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970677"
 ---
-# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
-Este artigo explica como trabalhar com [Event Hubs do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) enlaces para as funções do Azure. Funções do Azure suporta acionam e de saída vínculos para os Event Hubs.
+Este artigo explica como trabalhar com [os Hubs de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) enlaces das funções do Azure. Funções do Azure suporta acionaram e enlaces dos Hubs de eventos de saída.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
+## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-Para a versão das funções do Azure 1. x, os enlaces de Event Hubs são fornecidos no [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) pacote NuGet, versão 2. x.
-Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) repositório do GitHub.
+Para a versão das funções do Azure 1.x, os enlaces de Hubs de eventos são fornecidos na [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) pacote NuGet, versão 2.x.
+Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) repositório do GitHub.
 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
-Para encontrar funções de 2. x, utilize o [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pacote, versão 3.
-Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) repositório do GitHub.
+Para as funções 2.x, utilize o [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pacote, a versão 3.x.
+Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) repositório do GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Acionador
 
-Utilize o acionador de Event Hubs para responder a um evento enviado para um fluxo de eventos de hub de eventos. Tem de ter acesso de leitura para o hub de eventos para configurar o acionador.
+Utilize o acionador de Hubs de eventos para responder a um evento enviado para um fluxo de eventos do hub de eventos. Tem de ter acesso de leitura para o hub de eventos para configurar o acionador.
 
-Quando uma função de Acionador de Event Hubs é acionada, a mensagem que aciona é transmitida para a função como uma cadeia.
+Quando é acionada uma função de Acionador de Hubs de eventos, a mensagem que aciona ele é passada para a função como uma cadeia de caracteres.
 
 ## <a name="trigger---scaling"></a>Acionar - dimensionamento
 
-Cada instância de uma função de Event Hub-Triggered é copiada por apenas 1 instância do EventProcessorHost (EPH). Os Event Hubs garantem que apenas 1 EPH pode obter uma concessão numa determinada partição.
+Cada instância de uma função de Event Hub-Triggered conta com apenas 1 instância do EventProcessorHost (EPH). Os Hubs de eventos garante que apenas 1 EPH pode obter uma concessão numa determinada partição.
 
-Por exemplo, suponha que começam com a seguinte configuração e pressupostos para um Hub de eventos:
+Por exemplo, suponha que começamos com a seguinte configuração e suposições para um Hub de eventos:
 
 1. 10 partições.
-1. 1000 eventos distribuído uniformemente em todas as partições = mensagens de > 100 em cada partição.
+1. 1000 eventos distribuídos uniformemente por todas as partições = > 100 mensagens em cada partição.
 
-Quando a sua função primeiro está ativada, não há apenas 1 instância da função. Vamos chamar esta instância de função Function_0. Function_0 terão 1 EPH que gere para obter uma concessão em todas as partições de 10. Será iniciada ler eventos de partições 0-9. A partir deste ponto, irá ocorrer um dos seguintes:
+Quando a sua função é habilitada pela primeira vez, existe apenas 1 instância da função. Vamos chamar esta instância de função Function_0. Function_0 terá 1 EPH que gere para obter uma concessão sobre todas as partições de 10. Irá começar a ler eventos de 0 a 9 de partições. A partir deste ponto, irá ocorrer um dos seguintes:
 
-* **É necessária a instância de função apenas 1** -Function_0 é capaz de processar todos os 1000 antes de lógica de dimensionamento das funções do Azure se inicia. Por conseguinte, todas as mensagens de 1000 são processadas pelo Function_0.
+* **É necessária a instância de função apenas 1** -Function_0 é capaz de processar todos os 1000 antes de lógica de dimensionamento das funções do Azure entra em ação. Portanto, todas as mensagens de 1000 são processadas pelo Function_0.
 
-* **Adicionar 1 instância de função mais** -lógica das funções do Azure de dimensionamento determina que Function_0 tem mais de mensagens que pode processá-lo, pelo que é criada uma nova instância, Function_1,. Os Event Hubs Deteta que uma nova instância EPH está a tentar ler as mensagens. Os Event Hubs iniciará o balanceamento de carga as partições entre as instâncias EPH, por exemplo, partições 0-4 estão atribuídas ao Function_0 e partições 5 9 estão atribuídas a Function_1. 
+* **Adicionar 1 instância de função mais** -lógica das funções do Azure de dimensionamento determina que Function_0 tem mais mensagens do que consegue processar, pelo que uma nova instância, Function_1, é criada. Os Hubs de eventos Deteta que uma nova instância EPH está a tentar ler as mensagens. Os Hubs de eventos serão iniciado o balanceamento de carga as partições entre as instâncias EPH, por exemplo, partições de 0 a 4 são atribuídas a Function_0 e partições 5-9 são atribuídas a Function_1. 
 
-* **Adicionar N mais instâncias de função** -lógica das funções do Azure de dimensionamento determina que Function_0 e Function_1 têm mais mensagens que o podem processar. Será dimensionado novamente para Function_2... N, em que N é maior do que as partições do Hub de eventos. Os Event Hubs carregará balancear as partições Function_0 … 9 instâncias.
+* **Adicionar N mais instâncias de função** -lógica das funções do Azure de dimensionamento determina que Function_0 e Function_1 têm mais mensagens do que o que podem ser processadas. Irá dimensionar novamente para Function_2... N, onde N é maior do que as partições do Hub de eventos. Os Hubs de eventos irão carregar balancear as partições Function_0... 9 instâncias.
 
-O facto de que N é maior do que o número de partições é dimensionamento lógica exclusivo atual das funções do Azure. Isto é feito para se certificar de que existem sempre instâncias de EPH prontamente disponível para obter rapidamente o bloqueio de partition(s) à medida que ficam disponíveis a partir de outras instâncias. Os utilizadores só são-lhe cobrados os recursos utilizados quando executa a instância de função e desta sobre-aprovisionar não serem cobrados.
+O fato de que N é maior do que o número de partições é dimensionamento lógica único atual das funções do Azure. Isso é feito para garantir que sempre há instâncias de EPH prontamente disponível para obter rapidamente o bloqueio de partição (ões) à medida que ficam disponíveis a partir de outras instâncias. Os utilizadores só são cobrados os recursos utilizados quando a instância de função for executada e não são cobradas deste aprovisionamento excessivo.
 
-Se todas as execuções de função tenha êxito sem erros, os pontos de verificação são adicionados à conta de armazenamento associados. Quando a apontar verificação for bem sucedida, todas as mensagens de 1000 nunca devem ser obtidas novamente.
+Se todas as execuções de função for bem-sucedida sem erros, os pontos de verificação são adicionados à conta de armazenamento associados. Quando a verificação for bem sucedida, todas as mensagens de 1000 nunca devem ser obtidas novamente.
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 
-Veja o exemplo de específicas do idioma:
+Veja o exemplo de idioma específico:
 
 * [C#](#trigger---c-example)
 * [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
-### <a name="trigger---c-example"></a>Acionador - c# exemplo
+### <a name="trigger---c-example"></a>Acionador - exemplo do c#
 
-O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que regista o corpo da mensagem do acionador de hub de eventos.
+A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que regista o corpo da mensagem do acionador do hub de eventos.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -92,7 +92,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obter acesso a [metadados de evento](#trigger---event-metadata) no código de função, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer um utilizando instrução para `Microsoft.ServiceBus.Messaging`). Também pode aceder às propriedades do mesmas através de expressões de enlace da assinatura do método.  O exemplo seguinte mostra ambas as formas de obter os dados do mesmos:
+Para obter acesso ao [metadados de eventos](#trigger---event-metadata) no código de função, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer a uma utilização de instrução para `Microsoft.ServiceBus.Messaging`). Também pode acessar as mesmas propriedades utilizando expressões de associação na assinatura do método.  O exemplo seguinte mostra as duas formas de obter os mesmos dados:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -115,7 +115,7 @@ public static void Run(
 }
 ```
 
-Para receber eventos num batch, certifique- `string` ou `EventData` uma matriz:
+Para receber eventos num lote, tornar `string` ou `EventData` uma matriz:
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
@@ -130,9 +130,9 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador de hub de eventos.
+O exemplo seguinte mostra um acionador do hub de eventos de enlace num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador do hub de eventos.
 
-Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Os exemplos seguintes mostram a vinculação de dados de Hubs de eventos no *Function* ficheiro. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -153,7 +153,7 @@ Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json
 }
 ```
 
-Eis o código de script do c#:
+Aqui está o código de script do c#:
 
 ```cs
 using System;
@@ -164,7 +164,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para obter acesso a [metadados de evento](#trigger---event-metadata) no código de função, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer um utilizando instrução para `Microsoft.ServiceBus.Messaging`). Também pode aceder às propriedades do mesmas através de expressões de enlace da assinatura do método.  O exemplo seguinte mostra ambas as formas de obter os dados do mesmos:
+Para obter acesso ao [metadados de eventos](#trigger---event-metadata) no código de função, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer a uma utilização de instrução para `Microsoft.ServiceBus.Messaging`). Também pode acessar as mesmas propriedades utilizando expressões de associação na assinatura do método.  O exemplo seguinte mostra as duas formas de obter os mesmos dados:
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -190,7 +190,7 @@ public static void Run(EventData myEventHubMessage,
 }
 ```
 
-Para receber eventos num batch, certifique- `string` ou `EventData` uma matriz:
+Para receber eventos num lote, tornar `string` ou `EventData` uma matriz:
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -202,11 +202,11 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-### <a name="trigger---f-example"></a>Acionador - F # exemplo
+### <a name="trigger---f-example"></a>Acionador - exemplo do F #
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [F # função](functions-reference-fsharp.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador de hub de eventos.
+O exemplo seguinte mostra um acionador do hub de eventos de enlace num *Function* ficheiro e uma [função F #](functions-reference-fsharp.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador do hub de eventos.
 
-Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Os exemplos seguintes mostram a vinculação de dados de Hubs de eventos no *Function* ficheiro. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -236,9 +236,9 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função lê [eventos metadados](#trigger---event-metadata) e regista a mensagem.
+O exemplo seguinte mostra um acionador do hub de eventos de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função lê [metadados de eventos](#trigger---event-metadata) e regista a mensagem.
 
-Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Os exemplos seguintes mostram a vinculação de dados de Hubs de eventos no *Function* ficheiro. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -272,7 +272,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Para receber eventos num batch, defina `cardinality` para `many` no *function.json* ficheiro, conforme mostrado nos exemplos seguintes. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Para receber eventos num lote, defina `cardinality` para `many` no *Function* ficheiro, conforme mostrado nos exemplos a seguir. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -311,9 +311,9 @@ module.exports = function (context, eventHubMessages) {
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
-No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atributo.
+Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atributo.
 
-O construtor do atributo tem o nome do hub de eventos, o nome do grupo de consumidores e o nome de uma definição de aplicação que contenha a cadeia de ligação. Para obter mais informações sobre estas definições, consulte o [acionar a secção de configuração](#trigger---configuration). Eis um `EventHubTriggerAttribute` exemplo do atributo:
+Construtor o atributo usa o nome do hub de eventos, o nome do grupo de consumidores e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte a [acionar a seção de configuração](#trigger---configuration). Aqui está um `EventHubTriggerAttribute` exemplo de atributo:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -323,63 +323,63 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c-example).
+Para obter um exemplo completo, consulte [acionador - exemplo do c#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiros e o `EventHubTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `EventHubTrigger` atributo.
 
-|propriedade de Function.JSON | Propriedade de atributo |Descrição|
+|propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direção** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
-|**name** | n/d | O nome da variável que representa o item de eventos no código da função. | 
-|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos.  | 
-|**EventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos.  |
-|**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define o [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizado para subscrever o hub de eventos. Se for omitido, o `$Default` é utilizado o grupo de consumidores. | 
-|**Cardinalidade** | n/d | Para Javascript. Definido como `many` para activar a criação de batches.  Se for omitido ou definido como `one`, única mensagem transmitido à função. | 
-|**Ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o [espaço de nomes](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
+|**tipo** | n/d | Tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**name** | n/d | O nome da variável que representa o item de evento no código de função. | 
+|**path** |**EventHubName** | Funciona apenas 1.x. O nome do hub de eventos.  | 
+|**eventHubName** |**EventHubName** | Funciona apenas 2.x. O nome do hub de eventos.  |
+|**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define a [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizada para subscrever a eventos no hub. Se for omitido, o `$Default` for utilizado. | 
+|**Cardinalidade** | n/d | Para Javascript. Definido como `many` para ativar a criação de batches.  Se for omitido ou definido como `one`, única mensagem transmitido à função. | 
+|**ligação** |**ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nomes do hub de eventos. Copiar esta cadeia de ligação ao clicar no **informações da ligação** botão para o [espaço de nomes](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---event-metadata"></a>Acionador - metadados de eventos
 
-O acionador de Event Hubs fornece vários [propriedades de metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Estas são as propriedades do [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) classe.
+O acionador de Hubs de eventos fornece vários [propriedades de metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser utilizadas como parte das expressões de associação nas outras associações, ou como parâmetros no seu código. Estas são as propriedades do [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) classe.
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|O `PartitionContext` instância.|
-|`EnqueuedTimeUtc`|`DateTime`|O tempo, colocados em fila em UTC.|
-|`Offset`|`string`|O desvio de dados relativo para o fluxo de partição do Hub de eventos. O desvio é um marcador ou o identificador de um evento dentro do fluxo de Event Hubs. O identificador é exclusivo dentro de uma partição do fluxo de Event Hubs.|
-|`PartitionKey`|`string`|A partição para a qual o evento devem ser enviados dados.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo de colocados em fila em UTC.|
+|`Offset`|`string`|O deslocamento de dados em relação ao fluxo de partição do Hub de eventos. O desvio é um marcador ou um identificador para um evento dentro do fluxo de Hubs de eventos. O identificador é exclusivo dentro de uma partição da transmissão em fluxo dos Hubs de eventos.|
+|`PartitionKey`|`string`|A partição para o evento que dados devem ser enviados.|
 |`Properties`|`IDictionary<String,Object>`|As propriedades de utilizador dos dados do evento.|
 |`SequenceNumber`|`Int64`|O número de sequência lógica do evento.|
-|`SystemProperties`|`IDictionary<String,Object>`|As propriedades do sistema, incluindo os dados do evento.|
+|`SystemProperties`|`IDictionary<String,Object>`|As propriedades do sistema, incluindo os dados de eventos.|
 
-Consulte [exemplos de código](#trigger---example) que utilize estas propriedades anteriormente neste artigo.
+Ver [exemplos de código](#trigger---example) que utilizam estas propriedades no início deste artigo.
 
-## <a name="trigger---hostjson-properties"></a>Acionador - host.json propriedades
+## <a name="trigger---hostjson-properties"></a>Acionador - propriedades de Host. JSON
 
-O [host.json](functions-host-json.md#eventhub) ficheiro contém definições que controlam o comportamento de Acionador de Event Hubs.
+O [Host. JSON](functions-host-json.md#eventhub) ficheiro contém as definições que controlam o comportamento de Acionador de Hubs de eventos.
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="output"></a>Saída
 
-Utilize a saída de Event Hubs enlace escrever eventos no registo para uma transmissão de eventos. Tem de ter permissão de envio para um hub de eventos para escrever eventos no mesmo.
+Utilize a enlace para gravar eventos para um fluxo de eventos de saída de Hubs de eventos. Tem de ter permissão de envio para um hub de eventos para escrever eventos no mesmo.
 
-## <a name="output---example"></a>De saída - exemplo
+## <a name="output---example"></a>Saída - exemplo
 
-Veja o exemplo de específicas do idioma:
+Veja o exemplo de idioma específico:
 
 * [C#](#output---c-example)
 * [Script do c# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
-### <a name="output---c-example"></a>Saída - c# exemplo
+### <a name="output---c-example"></a>Saída - exemplo do c#
 
-O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que escreve uma mensagem para um hub de eventos, o valor de retorno do método a utilizar como o resultado:
+A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que escreve uma mensagem para um hub de eventos, com o valor de retorno do método como a saída:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -393,9 +393,9 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### <a name="output---c-script-example"></a>Saída - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
+O exemplo seguinte mostra um acionador do hub de eventos de enlace num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
 
-Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Os exemplos seguintes mostram a vinculação de dados de Hubs de eventos no *Function* ficheiro. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -416,7 +416,7 @@ Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json
 }
 ```
 
-Eis c# código de script que cria uma mensagem:
+Aqui está o script código c# que cria uma mensagem:
 
 ```cs
 using System;
@@ -429,7 +429,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-C# código de script Eis que cria várias mensagens:
+O script código c# aqui está que cria várias mensagens:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -441,11 +441,11 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-### <a name="output---f-example"></a>Saída - F # exemplo
+### <a name="output---f-example"></a>Saída - exemplo do F #
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [F # função](functions-reference-fsharp.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
+O exemplo seguinte mostra um acionador do hub de eventos de enlace num *Function* ficheiro e uma [função F #](functions-reference-fsharp.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
 
-Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Os exemplos seguintes mostram a vinculação de dados de Hubs de eventos no *Function* ficheiro. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -477,9 +477,9 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 ### <a name="output---javascript-example"></a>Saída - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
+O exemplo seguinte mostra um acionador do hub de eventos de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
 
-Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
+Os exemplos seguintes mostram a vinculação de dados de Hubs de eventos no *Function* ficheiro. O primeiro exemplo é para as funções 1.x e a segunda é para as funções 2.x. 
 
 ```json
 {
@@ -500,7 +500,7 @@ Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json
 }
 ```
 
-No código JavaScript Eis que envia uma mensagem único:
+Código de JavaScript a seguir que envia uma única mensagem:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -511,7 +511,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-No código JavaScript Eis que envia mensagens vários:
+Código de JavaScript a seguir que envia várias mensagens:
 
 ```javascript
 module.exports = function(context) {
@@ -530,7 +530,7 @@ module.exports = function(context) {
 
 Para [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atributo.
 
-O construtor do atributo tem o nome do hub de eventos e o nome de uma definição de aplicação que contenha a cadeia de ligação. Para obter mais informações sobre estas definições, consulte [de saída - configuração](#output---configuration). Eis um `EventHub` exemplo do atributo:
+Construtor do atributo utiliza o nome do hub de eventos e o nome de uma definição de aplicação que contém a cadeia de ligação. Para obter mais informações sobre estas definições, consulte [de saída - configuração](#output---configuration). Aqui está um `EventHub` exemplo de atributo:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -541,28 +541,28 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Para obter um exemplo completado, consulte [resultado - c# exemplo](#output---c-example).
+Para obter um exemplo completo, consulte [saída - exemplo do c#](#output---c-example).
 
-## <a name="output---configuration"></a>De saída - configuração
+## <a name="output---configuration"></a>Saída - configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiros e o `EventHub` atributo.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `EventHub` atributo.
 
-|propriedade de Function.JSON | Propriedade de atributo |Descrição|
+|propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definida para "eventHub". |
-|**direção** | n/d | Tem de ser definida para "out". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
-|**name** | n/d | O nome da variável utilizado no código de função que representa o evento. | 
-|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos.  | 
-|**EventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos.  |
-|**Ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
+|**tipo** | n/d | Tem de ser definido para "eventHub". |
+|**direção** | n/d | Tem de ser definido para "Sair". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
+|**name** | n/d | O nome da variável no código de função que representa o evento. | 
+|**path** |**EventHubName** | Funciona apenas 1.x. O nome do hub de eventos.  | 
+|**eventHubName** |**EventHubName** | Funciona apenas 2.x. O nome do hub de eventos.  |
+|**ligação** |**ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação ao espaço de nomes do hub de eventos. Copiar esta cadeia de ligação ao clicar no **informações da ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Em c# e c# script, enviar mensagens com um parâmetro de método como `out string paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. Para escrever várias mensagens, pode utilizar `ICollector<string>` ou `IAsyncCollector<string>` em vez de `out string`.
+No c# e de script c#, enviar mensagens com um parâmetro de método como `out string paramName`. No script c# `paramName` é o valor especificado no `name` propriedade da *Function*. Para escrever várias mensagens, pode usar `ICollector<string>` ou `IAsyncCollector<string>` em vez de `out string`.
 
-Em JavaScript, o evento de saída de acesso utilizando `context.bindings.<name>`. `<name>` o valor especificado no `name` propriedade *function.json*.
+No JavaScript, acessar o evento de saída usando `context.bindings.<name>`. `<name>` é o valor especificado no `name` propriedade do *Function*.
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

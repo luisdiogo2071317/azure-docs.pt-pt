@@ -1,6 +1,6 @@
 ---
-title: Introdução à gestão de dispositivos no Azure Active Directory | Microsoft Docs
-description: Saiba como gestão de dispositivos pode ajudá-lo a obter o controlo sobre os dispositivos que estão a aceder a recursos no seu ambiente.
+title: Introdução à gestão de dispositivos no Azure Active Directory | Documentos da Microsoft
+description: Saiba como gestão de dispositivos pode ajudá-lo a obter controle sobre os dispositivos que estão a aceder a recursos no seu ambiente.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,173 +16,173 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 96de05eb8ebae85b73eaa012efdfb38ac074abf8
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110925"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970905"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução à gestão de dispositivos no Azure Active Directory
 
-No mundo mobile-primeiro, primeiro de nuvem, o Azure Active Directory (Azure AD) permite início de sessão único para dispositivos, aplicações e serviços em qualquer lugar. Com a proliferação de dispositivos - incluindo Bring Your Own Device (BYOD), profissionais de TI são confrontados com dois objetivos adversária:
+Num mundo de dispositivos móveis e da cloud, Azure Active Directory (Azure AD) permite início de sessão único para dispositivos, aplicações e serviços de qualquer lugar. Com a proliferação de dispositivos – incluindo Bring Your Own Device (BYOD), os profissionais de TI enfrentam com dois objetivos opostos:
 
-- Capacitar os utilizadores finais para serem produtivos, onde quer que e sempre
-- Proteger os ativos da empresa em qualquer altura
+- Aumentar a produtividade dos usuários finais para serem produtivos, onde quer e sempre que
+- Proteger os ativos empresariais em qualquer altura
 
-Através de dispositivos, os utilizadores estão a obter acesso para os recursos da empresa. Para proteger os ativos empresariais, como um administrador de TI, pretende têm controlo sobre estes dispositivos. Isto permite-lhe para se certificar de que os utilizadores acedem aos seus recursos dos dispositivos que cumprem as normas de segurança e conformidade. 
+Através de dispositivos, os seus utilizadores estiver a obter acesso a seus recursos empresariais. Para proteger os ativos corporativos, como um administrador de TI, deseja ter controle sobre esses dispositivos. Isto permite-lhe certificar-se de que os utilizadores estão a aceder ao seus recursos de dispositivos que cumprem as normas de segurança e conformidade. 
 
-Gestão de dispositivos também é o alicerce da [acesso condicional baseado no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso aos recursos no seu ambiente só é possível com os dispositivos geridos.   
+Gestão de dispositivos também é a base para [acesso condicional com base no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional com base no dispositivo, pode certificar-se de que o acesso a recursos no seu ambiente apenas é possível com os dispositivos geridos.   
 
 Este artigo explica como funciona a gestão de dispositivos no Azure Active Directory.
 
-## <a name="getting-devices-under-the-control-of-azure-ad"></a>Inscrever os dispositivos sob o controlo do Azure AD
+## <a name="getting-devices-under-the-control-of-azure-ad"></a>Dispositivos sob o controlo do Azure AD
 
 Para obter um dispositivo sob o controlo do Azure AD, tem duas opções:
 
 - A registar 
 - Associar
 
-**Registar** um dispositivo para o Azure AD permite-lhe gerir a identidade de um dispositivo. Quando um dispositivo é registado, o registo de dispositivos do Azure AD fornece o dispositivo com uma identidade que é utilizado para autenticar o dispositivo quando um utilizador inicia sessão com o Azure AD. Pode utilizar a identidade para ativar ou desativar um dispositivo.
+**Registar** um dispositivo para o Azure AD permite-lhe gerir a identidade de um dispositivo. Quando um dispositivo é registado, o registo de dispositivos do Azure AD fornece ao dispositivo uma identidade que é utilizado para autenticar o dispositivo quando um utilizador inicia sessão com o Azure AD. Pode utilizar a identidade para ativar ou desativar um dispositivo.
 
 Quando combinada com uma solução de gestão de dispositivos móveis, como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o dispositivo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade. Para obter mais informações sobre a inscrição de dispositivos no Microsoft Intune, consulte inscrever dispositivos para gestão no Intune.
 
-**Associar** um dispositivo é uma extensão para registar um dispositivo. Isto significa que fornece-lhe com todas as vantagens de registar um dispositivo e além disto, também altera o estado do local de um dispositivo. Alteração do Estado da local permite aos utilizadores iniciar sessão num dispositivo utilizando um organizacional conta escolar ou profissional, em vez de uma conta pessoal.
+**Associar** um dispositivo é uma extensão para registar um dispositivo. Isto significa que ele fornece todas as vantagens de registo de um dispositivo e além disso, também altera o estado local de um dispositivo. Alterar o estado local permite que os utilizadores para início de sessão para um dispositivo com uma conta escolar ou profissional de organizacional em vez de uma conta pessoal.
 
 ## <a name="azure-ad-registered-devices"></a>Dispositivos do Azure AD registado   
 
-O objetivo de dispositivos do Azure AD registado é para lhe fornecer suporte para o **Bring Your Own Device (BYOD)** cenário. Neste cenário, um utilizador pode aceder a recursos da organização do Azure Active Directory controladas através de um dispositivo pessoal.  
+O objetivo de dispositivos do Azure AD registado é para lhe fornecer suporte para o **Bring Your Own Device (BYOD)** cenário. Neste cenário, um utilizador pode aceder a recursos do Azure Active Directory controlada da sua organização através de um dispositivo pessoal.  
 
 ![Dispositivos do Azure AD registado](./media/device-management-introduction/03.png)
 
 O acesso baseia-se numa conta escolar ou profissional que foi introduzida no dispositivo.  
-Por exemplo, o Windows 10 permite aos utilizadores adicionar uma conta escolar ou profissional para um computador pessoal, tablet ou telemóvel.  
-Quando um utilizador tiver adicionado um trabalho ou conta profissional, o dispositivo é registado com o Azure AD e opcionalmente inscrito no sistema de gestão (MDM) de dispositivos móveis que tenha configurado a sua organização. Os utilizadores da sua organização podem adicionar um trabalho conta escolar ou profissional para um dispositivo pessoal comodamente:
+Por exemplo, o Windows 10 permite aos utilizadores adicionar uma conta escolar ou profissional a um computador pessoal, tablet ou telefone.  
+Quando um usuário adicionar um ou conta profissional, o dispositivo é registado com o Azure AD e, opcionalmente, inscritos no sistema de gestão (MDM) de dispositivos móveis que tenha configurado a sua organização. Utilizadores da sua organização podem adicionar uma conta escolar ou profissional para um dispositivo pessoal convenientemente:
 
-- Ao aceder a uma aplicação de trabalho pela primeira vez
-- Manualmente através do **definições** menu no caso do Windows 10 
+- Quando acedem a uma aplicação de trabalho pela primeira vez
+- Manualmente através da **definições** menu no caso do Windows 10 
 
 Pode configurar dispositivos do Azure AD registado para o Windows 10, iOS, Android e macOS.
 
 ## <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
-O objetivo de dispositivos do Azure AD associado é simplificar:
+O objetivo de dispositivos associados ao Azure AD é simplificar:
 
-- Implementações de Windows de dispositivos pertencentes à empresa trabalho 
-- Acesso para aplicações organizacionais e de recursos a partir de qualquer dispositivo de Windows
-- Baseado na nuvem de gestão de dispositivos pertencentes à empresa trabalho
+- Implementações de Windows de dispositivos da empresa de trabalho 
+- Acesso a aplicações organizacionais e de recursos a partir de qualquer dispositivo de Windows
+- Com base na cloud de gestão de dispositivos da empresa de trabalho
 
 ![Dispositivos do Azure AD registado](./media/device-management-introduction/02.png)
 
-A associação do Azure AD pode ser implementada utilizando qualquer um dos seguintes métodos: 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Implementação em massa](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+Associação do Azure AD pode ser implementada por meio de um dos seguintes métodos: 
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Implantação em massa](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Experiência self-service](device-management-azuread-joined-devices-frx.md) 
 
-**A associação do Azure AD** destina-se para as organizações que pretendem ser nuvem-primeiro (ou seja, principalmente utilizar serviços em nuvem, com o objetivo de reduzir a utilização de uma infraestrutura no local) ou apenas na nuvem (nenhuma infraestrutura no local). Não existem sem restrições no tamanho ou tipo de organizações que pode implementar a associação do Azure AD. Azure funciona de associação AD bem mesmo num ambiente híbrido, ativar o acesso aos recursos e aplicações em nuvem e no local.
+**Associação do Azure AD** destina-se para as organizações que pretendem ser cloud-first (ou seja, principalmente utilizar serviços cloud, com o objetivo de reduzir a utilização de uma infraestrutura no local) ou apenas na cloud (nenhuma infraestrutura no local). Não há restrições sobre o tamanho ou tipo de organizações que pode implementar a associação do Azure AD. Funciona de associação com o AD do Azure bem, mesmo num ambiente híbrido, permitir o acesso a aplicações na cloud e no local e recursos.
 
-Implementar dispositivos do Azure AD associado disponibiliza as seguintes vantagens:
+Implementação de dispositivos associados ao Azure AD fornece as seguintes vantagens:
 
-- **Single-Sign-On (SSO)** para o Azure gerida por serviços e aplicações SaaS. Os seus utilizadores não verão a pedidos de autenticação adicional quando acedem a recursos de trabalho. A funcionalidade SSO é mesmo quando não estiverem ligados à rede de domínio disponíveis.
+- **Início de sessão único (SSO)** para sua do Azure geridas por serviços e aplicações SaaS. Os utilizadores não veem pedidos de autenticação adicional ao aceder a recursos de trabalho. A funcionalidade SSO é mesmo quando não estiverem ligados à rede de domínio disponível.
 
-- **Empresarial compatível roaming** de definições de utilizador em todos os dispositivos associados a um. Os utilizadores não precisam de ligar a uma conta Microsoft (por exemplo, Hotmail) para ver as definições em dispositivos.
+- **Roaming de conformidade empresarial** das definições de utilizador em todos os dispositivos associados a um. Os usuários não precisam de ligar a uma conta Microsoft (por exemplo, Hotmail) para ver as definições em dispositivos.
 
-- **Acesso à loja Windows para empresas** utilizando uma conta do Azure AD. Os utilizadores podem escolher entre um inventário das aplicações previamente selecionadas pela organização.
+- **Acesso a Windows Store para empresas** através de uma conta do Azure AD. Os utilizadores escolherem um inventário dos aplicativos pré-selecionada pela organização.
 
-- **Windows Hello** suporte para seguro e conveniente acesso aos recursos de trabalho.
+- **Windows Hello** suporte para acesso seguro e conveniente aos recursos de trabalho.
 
-- **Restrição de acesso** para a apenas os dispositivos que cumprem a política de conformidade de aplicações.
+- **Restrição de acesso** para as aplicações sejam apenas os dispositivos que cumprem a política de conformidade.
 
-- **Acesso totalmente integrado aos recursos no local** quando o dispositivo tem de linha de visão para o controlador de domínio no local. 
+- **Acesso totalmente integrado aos recursos no local** quando o dispositivo tem linha Visual para o controlador de domínio no local. 
 
 
-Enquanto a associação do Azure AD destina-se principalmente nas organizações que não tenham uma infraestrutura do Windows Server Active Directory no local, pode certamente utilizá-lo em cenários em que:
+Enquanto a associação do Azure AD destina-se principalmente para organizações que não tenham uma infraestrutura do Windows Server Active Directory no local, certamente ele pode ser usado em cenários em que:
 
-- Pretende efetuar a transição para a infraestrutura baseada na nuvem com o Azure AD e o MDM como o Intune.
+- Pretende efetuar a transição para a infraestrutura baseada na cloud com o Azure AD e o MDM, como o Intune.
 
-- Não é possível utilizar uma associação de domínio no local, por exemplo, se necessitar de dispositivos móveis, como telemóveis e tablets sob o controlo.
+- Não é possível utilizar uma associação de domínio no local, por exemplo, se precisar de os dispositivos móveis, como tablets e telemóveis sob controle.
 
-- Principalmente, os utilizadores tem de aceder ao Office 365 ou outras aplicações de SaaS integradas com o Azure AD.
+- Os utilizadores precisam de aceder principalmente do Office 365 ou outras aplicações SaaS integradas com o Azure AD.
 
-- Pretende gerir um grupo de utilizadores no Azure AD em vez de no Active Directory. Isto pode aplicar, por exemplo, para trabalhadores sazonais, contratantes ou os estudantes que estejam.
+- Pretender gerir um grupo de utilizadores no Azure AD em vez de no Active Directory. Isto pode aplicar, por exemplo, a funcionários temporários, contratantes ou estudantes.
 
-- Pretende fornecer capacidades de associação para os funcionários de sucursais remotas limitado infraestrutura no local.
+- Deseja fornecer capacidades de junção para funções de trabalho remoto das filiais com limitado infraestrutura no local.
 
-Pode configurar dispositivos do Azure AD associado para dispositivos Windows 10.
+Pode configurar dispositivos associados ao Azure AD para dispositivos Windows 10.
 
 
 ## <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD híbrido
 
-Para mais do que um decade, muitas organizações utilizou a associação a um domínio ao seu diretório Active Directory no local para ativar:
+Para mais de uma década, muitas organizações têm usado a associação ao domínio para o Active Directory no local para ativar:
 
-- Departamentos de TI para gerir dispositivos pertencentes à empresa trabalho a partir de uma localização central.
+- Departamentos de TI para gerir dispositivos pertencentes à empresa trabalho de um local central.
 
-- Aos utilizadores iniciar sessão para os seus dispositivos com o respetivo Active Directory escolar ou profissional contas. 
+- Os utilizadores iniciem sessão nos seus dispositivos com o Active Directory funcionam contas escolares ou profissionais. 
 
-Normalmente, as organizações com um requisitos de espaço no local dependem imaging métodos para aprovisionar dispositivos e geralmente utilizam **System Center Configuration Manager (SCCM)** ou **(GP) de política de grupo** para gerir -los.
+Normalmente, as organizações com uma pegada no local confiam na geração de imagens de métodos para aprovisionar dispositivos e muitas vezes utilizam **System Center Configuration Manager (SCCM)** ou **(GP) de política de grupo** para gerir -los.
 
-Se no local para o seu ambiente tem requisitos de espaço do AD e também queira benefício as capacidades fornecidas pelo Azure Active Directory, pode implementar híbrida do Azure AD associado dispositivos. Estes são os dispositivos que estejam ambos, associado ao seu no local do Active Directory e o Azure Active Directory.
+Se o ambiente tiver no local requisitos de espaço do AD e também deseja o benefício dos recursos fornecidos pelo Azure Active Directory, pode implementar dispositivos de associados ao Azure AD híbrido. Estes são os dispositivos que estão ambos, associado ao seu local do Active Directory e o Azure Active Directory.
 
 ![Dispositivos do Azure AD registado](./media/device-management-introduction/01.png)
 
 
-Deverá utilizar o Azure AD híbrido associado dispositivos se:
+Deve usar dispositivos híbridos associados do Azure AD se:
 
-- Tiver aplicações de Win32 implementadas nesses dispositivos que se baseiam na autenticação de computador do Active Directory.
+- Tem aplicações de Win32 implementadas para estes dispositivos que se baseiam na autenticação de computador do Active Directory.
 
 - Precisa de GP gerir dispositivos.
 
-- Pretende continuar a utilizar soluções de processamento de imagens para configurar dispositivos para os seus empregados.
+- Pretende continuar a utilizar soluções de geração de imagens para configurar dispositivos para os seus empregados.
 
-Pode configurar híbrida Azure AD dispositivos associados a um para Windows 10 e dispositivos de nível inferior, tais como o Windows 8 e Windows 7.
+Pode configurar Hybrid Azure AD associado a um dispositivos para Windows 10 e dispositivos de nível inferior, como o Windows 8 e Windows 7.
 
 ## <a name="summary"></a>Resumo
 
 Gestão de dispositivos no Azure AD, pode: 
 
-- Simplificar o processo de colocar dispositivos sob o controlo do Azure AD
+- Simplificar o processo de trazer dispositivos sob o controlo do Azure AD
 
-- Fornecer os seus utilizadores com acesso fácil de utilizar a recursos baseados na nuvem da sua organização
+- Fornecer aos usuários um acesso fácil de usar a recursos baseados na nuvem de sua organização
 
-Como uma regra de um botão, deve utilizar:
+Como regra de um princípio básico, deve usar:
 
-- Azure AD registados dispositivos:
+- Dispositivos registados do Azure AD:
 
-    - Para dispositivos pessoais 
+    - Para os dispositivos pessoais 
 
     - Para registar manualmente os dispositivos com o Azure AD
 
 - Dispositivos associados ao Azure AD: 
 
-    - Para dispositivos que pertencem a pela sua organização
+    - Para dispositivos que são propriedade da sua organização
 
-    - Para dispositivos que estão **não** associado a um local AD
+    - Para dispositivos que estejam **não** associado a uma local do AD
 
     - Para registar manualmente os dispositivos com o Azure AD
 
-    - Para alterar o estado do local de um dispositivo
+    - Para alterar o estado local de um dispositivo
 
-- Azure AD híbrido associado dispositivos para dispositivos que estão associados a um local AD     
+- Azure AD híbrido associou dispositivos para dispositivos que estão associados a uma local do AD     
 
-    - Para dispositivos que pertencem a pela sua organização
+    - Para dispositivos que são propriedade da sua organização
 
-    - Para dispositivos que estão associados a um local AD
+    - Para dispositivos que estão associados a uma local do AD
 
-    - Para registar automaticamente os dispositivos com o Azure AD
+    - Para registrar automaticamente os dispositivos com o Azure AD
 
-    - Para alterar o estado do local de um dispositivo
+    - Para alterar o estado local de um dispositivo
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral de como gerir dispositivos no portal do Azure, consulte [gerir dispositivos através do portal do Azure](device-management-azure-portal.md)
+- Para obter uma descrição geral de como gerir dispositivos no portal do Azure, consulte [gestão de dispositivos no portal do Azure](device-management-azure-portal.md)
 
-- Para saber mais sobre o acesso condicional baseado no dispositivo, consulte o artigo [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+- Para saber mais sobre o acesso condicional com base no dispositivo, veja [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 - A configuração:
-    - Azure Active Directory registado dispositivos Windows 10, consulte [como configurar o Azure Active Directory registado dispositivos Windows 10](device-management-azuread-registered-devices-windows10-setup.md)
+    - O Azure Active Directory de dispositivos Windows 10 registados, consulte [dispositivos Windows 10 registados de como configurar o Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md)
     - Dispositivos associados ao Azure Active Directory, consulte [dispositivos associados ao como configurar o Azure Active Directory](device-management-azuread-joined-devices-setup.md)
-    - Híbrida do Azure AD associado dispositivos, consulte [como para configurar híbrida do Azure Active Directory dispositivos associados a um](device-management-hybrid-azuread-joined-devices-setup.md).
+    - Dispositivos de associados ao Azure AD híbrido, consulte [como configurar híbrida do Azure Active Directory dispositivos associados ao](device-management-hybrid-azuread-joined-devices-setup.md).
 
 
