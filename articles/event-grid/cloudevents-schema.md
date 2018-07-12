@@ -1,35 +1,35 @@
 ---
-title: Utilize a grelha de eventos do Azure com eventos no esquema CloudEvents
-description: Descreve como definir o esquema de CloudEvents para eventos na grelha de eventos do Azure.
+title: Utilize o Azure Event Grid com eventos no esquema do CloudEvents
+description: Descreve como definir o esquema do CloudEvents para eventos no Azure Event Grid.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/14/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f3541fb3dbca6243f6c10611aa968603745f97a1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625598"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38314435"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema de CloudEvents com grelha de eventos
+# <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
-Para além respetivo [esquema de eventos de predefinição](event-schema.md), grelha de eventos do Azure suporta nativamente eventos o [esquema CloudEvents JSON](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) é um [abrir especificação padrão](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever os dados de eventos de uma forma comum.
+Além seu [esquema de eventos padrão](event-schema.md), Azure Event Grid os eventos no suporta nativamente o [esquema do CloudEvents JSON](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) é um [especificação padrão de abrir](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever os dados de eventos de uma maneira comum.
 
-CloudEvents simplifica a interoperabilidade, fornecendo um esquema de eventos comuns para publicar e consumir a nuvem com base em eventos. Este esquema permite uniform ferramentas, formas padrão de encaminhamento & processar eventos e universais formas de anulação da serialização do esquema de eventos externa. Com um esquema comum, pode integrar mais facilmente trabalho entre plataformas.
+CloudEvents simplifica a interoperabilidade, fornecendo um esquema de evento comum para publicação e utilizam a nuvem com base em eventos. Esse esquema permite ferramentas uniforme, formas de roteamento e processamento de eventos e universais formas de anular a serialização do esquema de eventos externo. Com um esquema comum, pode integrar mais facilmente o trabalho entre plataformas.
 
-CloudEvents está a ser compilação por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo Microsoft, através de [nuvem nativo computação Foundation](https://www.cncf.io/). Está atualmente disponível como versão 0.1.
+CloudEvents está a ser a compilação por várias [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo Microsoft, através do [Foundation computação nativa da Cloud](https://www.cncf.io/). Está atualmente disponível como versão 0,1.
 
-Este artigo descreve como utilizar o esquema de CloudEvents com eventos de grelha.
+Este artigo descreve como utilizar o esquema do CloudEvents com o Event Grid.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>Esquema de CloudEvent
 
-Eis um exemplo de um evento de Blob Storage do Azure no formato CloudEvents:
+Eis um exemplo de um evento de armazenamento de Blobs do Azure no formato do CloudEvents:
 
 ``` JSON
 {
@@ -56,44 +56,44 @@ Eis um exemplo de um evento de Blob Storage do Azure no formato CloudEvents:
 }
 ```
 
-CloudEvents v0.1 tem as seguintes propriedades disponíveis:
+Do CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
-| CloudEvents        | Tipo     | Valor de JSON de exemplo             | Descrição                                                        | Mapeamento de grelha de eventos
+| CloudEvents        | Tipo     | Valor de JSON de exemplo             | Descrição                                                        | Mapeamento do Event Grid
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | Cadeia   | "com.example.someevent"          | Tipo de ocorrência que tenham acontecido                                   | eventType
 | eventTypeVersion   | Cadeia   | "1.0"                            | A versão do eventType (opcional)                            | dataVersion
-| cloudEventsVersion | Cadeia   | "0.1"                            | A versão da especificação de CloudEvents que utiliza o evento        | *passem*
+| cloudEventsVersion | Cadeia   | "0.1"                            | A versão da especificação do CloudEvents que utiliza o evento        | *passar por*
 | source             | URI      | "/ mycontext"                     | Descreve o produtor de eventos                                       | tópico #subject
-| EventID            | Cadeia   | "1234-1234-1234"                 | ID do evento                                                    | ID
-| eventTime          | Carimbo de data/hora| "2018-04-05T17:31:00Z"           | Carimbo de quando evento ter acontecido (opcional)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | Uma ligação para o esquema que respeite o atributo de dados (opcional) | *não utilizado*
+| eventID            | Cadeia   | "1234-1234-1234"                 | ID do evento                                                    | ID
+| eventTime          | Carimbo de data/hora| "2018-04-05T17:31:00Z"           | Timestamp de quando o evento ocorreu (opcional)                    | eventTime
+| schemaURL          | URI      | "https://myschema.com"           | Uma ligação para o esquema que seguem o atributo de dados (opcional) | *não utilizado*
 | contentType        | Cadeia   | "application/json"               | Descrever o formato de codificação de dados (opcional)                       | *não utilizado*
-| extensões         | Mapa      | {"extA": "vA", "extB", "vB"}  | Quaisquer metadados adicional (opcional)                                 | *não utilizado*
+| Extensões         | Mapa      | {"extA": "vA", "extB", "vB"}  | Quaisquer metadados adicionais (opcional)                                 | *não utilizado*
 | dados               | Object   | {"objA": "vA", "objB", "vB"}  | O payload do evento (opcional)                                       | dados
 
-Para obter mais informações, consulte o [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
+Para obter mais informações, consulte a [especificação do CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## <a name="configure-event-grid-for-cloudevents"></a>Configurar a grelha de eventos para CloudEvents
+## <a name="configure-event-grid-for-cloudevents"></a>Configurar o Event Grid para do CloudEvents
 
-Atualmente, a grelha de eventos do Azure tem pré-visualização do suporte para CloudEvents JSON formato entrada e saída no **Central EUA oeste**, **EUA Central**, e **Europa do Norte**.
+Atualmente, o Azure Event Grid tem pré-visualização de saída no e suporte para entrada de formato JSON do CloudEvents **e.u.a. Centro-Oeste**, **centro dos E.U.A.**, e **Europa do Norte**.
 
-Pode utilizar a grelha de eventos de entrada e saída de eventos no esquema CloudEvents. Pode utilizar CloudEvents para eventos de sistema, como eventos do Blob Storage e eventos de IoT Hub e eventos personalizados. Também se pode transformar esses eventos na linha anterior e descritos.
+Pode utilizar o Event Grid para entrada e saída de eventos no esquema do CloudEvents. Pode usar do CloudEvents para eventos de sistema, como eventos de armazenamento de BLOBs e eventos do IoT Hub e eventos personalizados. Ele também pode transformar esses eventos na conexão e volta.
 
 
 | Esquema de entrada       | Esquema de saída
 |--------------------|---------------------
-| Formato de CloudEvents | Formato de CloudEvents
-| Formato de grelha de eventos  | Formato de CloudEvents
-| Formato de CloudEvents | Formato de grelha de eventos
-| Formato de grelha de eventos  | Formato de grelha de eventos
+| Formato do CloudEvents | Formato do CloudEvents
+| Formato de grade do evento  | Formato do CloudEvents
+| Formato do CloudEvents | Formato de grade do evento
+| Formato de grade do evento  | Formato de grade do evento
 
-Para todos os esquemas de evento, eventos grelha necessita de validação ao publicar um tópico da grelha de eventos e ao criar uma subscrição de evento. Para obter mais informações, consulte [grelha de eventos de segurança e autenticação](security-authentication.md).
+Para todos os esquemas de eventos, o Event Grid exige validação quando publicar um tópico do event grid e ao criar uma subscrição de evento. Para obter mais informações, consulte [Event Grid segurança e autenticação](security-authentication.md).
 
 ### <a name="input-schema"></a>Esquema de entrada
 
-Para definir o esquema da entrada num tópico personalizado para CloudEvents, utilize o seguinte parâmetro na CLI do Azure quando criar um tópico `--input-schema cloudeventv01schema`. O tópico personalizado espera agora receber eventos no formato de v0.1 CloudEvents.
+Para definir o esquema de entrada num tópico personalizado do CloudEvents, utilize o seguinte parâmetro na CLI do Azure quando criar um tópico `--input-schema cloudeventv01schema`. O tópico personalizado agora espera que eventos de entrada no formato de v0.1 do CloudEvents.
 
-Para criar um tópico da grelha de eventos, utilize:
+Para criar um tópico do event grid, utilize:
 
 ```azurecli
 # if you have not already installed the extension, do it now.
@@ -107,11 +107,11 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
-A versão atual do CloudEvents não suporta a criação de batches de eventos. Para publicar eventos com um esquema CloudEvent para um tópico, publica individualmente cada evento.
+A versão atual do CloudEvents não suporta a criação de batches de eventos. Para publicar eventos com o esquema de CloudEvent para um tópico, publicar individualmente a cada evento.
 
 ### <a name="output-schema"></a>Esquema de saída
 
-Para definir o esquema de saída de uma subscrição de evento para CloudEvents, utilize o seguinte parâmetro na CLI do Azure ao criar a sua subscrição de evento `--event-delivery-schema cloudeventv01schema`. Eventos para esta subscrição de evento são agora ser entregues CloudEvents v0.1 formato.
+Para definir o esquema de saída numa subscrição de evento do CloudEvents, utilize o seguinte parâmetro na CLI do Azure quando criar a sua subscrição de evento `--event-delivery-schema cloudeventv01schema`. Eventos para esta subscrição de evento são agora ser entregues no formato de v0.1 do CloudEvents.
 
 Para criar uma subscrição de evento, utilize:
 
@@ -124,10 +124,10 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-A versão atual do CloudEvents não suporta a criação de batches de eventos. Uma subscrição de evento que está configurada para o esquema de CloudEvent recebe individualmente cada evento. Atualmente, não é possível utilizar um acionador de grelha de eventos para uma aplicação de funções do Azure, quando o evento é entregue no esquema CloudEvents. Tem de utilizar um acionador HTTP.
+A versão atual do do CloudEvents não suporta a criação de batches de eventos. Uma subscrição de evento que está configurada para o esquema de CloudEvent recebe individualmente a cada evento. Atualmente, não é possível utilizar um acionador do Event Grid para uma aplicação de funções do Azure quando o evento é entregue no esquema do CloudEvents. Tem de utilizar um acionador HTTP. Para obter exemplos de implementação de um acionador HTTP que recebe eventos no esquema do CloudEvents, consulte [utilizar um acionador HTTP como um acionador do Event Grid](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter informações sobre a monitorização de entregas de eventos, consulte [entrega de mensagens de grelha de eventos do Monitor](monitor-event-delivery.md).
-* Aconselhamo-lo para testar, comentário e [contribuir](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) para CloudEvents.
-* Para obter mais informações sobre como criar uma subscrição de grelha de eventos do Azure, consulte [esquema de subscrição de evento grelha](subscription-creation-schema.md).
+* Para obter informações sobre a monitorização de entregas de eventos, consulte [entrega de mensagens do Monitor Event Grid](monitor-event-delivery.md).
+* Incentivamos a testar, comentário, e [contribuir](https://github.com/cloudevents/spec/blob/master/CONTRIBUTING.md) do CloudEvents.
+* Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).

@@ -1,6 +1,6 @@
 ---
-title: Restringir o acesso de rede para recursos de PaaS - CLI do Azure | Microsoft Docs
-description: Neste artigo, irá aprender a limitar e restringir o acesso de rede para recursos do Azure, tais como o Storage do Azure e SQL Database do Azure, com pontos finais do serviço de rede virtual, utilizando a CLI do Azure.
+title: Restringir o acesso à rede a recursos de PaaS - CLI do Azure | Documentos da Microsoft
+description: Neste artigo, irá aprender a limitar e restringir o acesso à rede para recursos do Azure, como o armazenamento do Azure e base de dados SQL do Azure, com pontos finais de serviço de rede virtual com a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,32 +18,32 @@ ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841984"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232746"
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso de rede para recursos de PaaS com pontos finais do serviço de rede virtual, utilizando a CLI do Azure
+# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede a recursos de PaaS com pontos finais de serviço de rede virtual com a CLI do Azure
 
-Pontos finais do serviço de rede virtual permitem-lhe limitar o acesso de rede a alguns recursos do serviço do Azure para uma sub-rede de rede virtual. Também pode remover o acesso à internet para os recursos. Pontos finais de serviço fornecem ligação direta a partir da sua rede virtual para os serviços do Azure suportadas, permitindo-lhe utilizar o espaço de endereços privados da sua rede virtual para aceder aos serviços do Azure. O tráfego destinado aos recursos do Azure através de pontos finais de serviço sempre permanece da rede principal do Microsoft Azure. Neste artigo, saiba como:
+Os pontos finais do serviço de rede virtual permitem-lhe limitar o acesso de rede a alguns recursos de serviços do Azure a uma sub-rede de rede virtual. Também pode remover o acesso à Internet aos recursos. Os pontos finais de serviço proporcionam uma ligação direta a partir da sua rede virtual a serviços do Azure suportados, o que lhe permite utilizar o espaço de endereços privados da sua rede virtual para aceder aos serviços do Azure. O tráfego destinado aos recursos do Azure através de pontos finais de serviço permanece sempre na rede backbone do Microsoft Azure. Neste artigo, vai aprender a:
 
 * Criar uma rede virtual com uma sub-rede
 * Adicionar uma sub-rede e ativar um ponto final de serviço
-* Criar um recurso do Azure e permitir o acesso de rede ao mesmo de apenas uma sub-rede
+* Criar um recurso do Azure e permitir o acesso de rede ao mesmo apenas a partir de uma sub-rede
 * Implementar uma máquina virtual (VM) em cada sub-rede
-* Confirmar o acesso a um recurso de sub-rede
-* Confirmar o acesso é negado a um recurso de uma sub-rede e a internet
+* Confirmar o acesso a um recurso a partir de uma sub-rede
+* Confirmar que o acesso é negado a um recurso a partir de uma sub-rede e da Internet
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de introdução requer que está a executar a CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Antes de criar uma rede virtual, tem de criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de criar uma rede virtual, terá de criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Criar uma rede virtual com uma sub-rede com [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create).
+Criar uma rede virtual com uma sub-rede com [vnet de rede de az criar](/cli/azure/network/vnet#az_network_vnet_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Ativar um ponto final de serviço 
 
-Pode ativar a pontos finais do serviço apenas para serviços que suportam pontos finais de serviço. Ver os serviços de ativado o ponto final de serviço disponíveis numa localização do Azure com [vnet ponto final de lista-Serviços de rede az](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). O exemplo seguinte devolve uma lista de serviços ativados de ponto final de serviço disponíveis no *eastus* região. A lista de serviços devolvidos irá aumentar ao longo do tempo, como serviços mais Azure tornam-se o ponto final de serviço ativado.
+Pode ativar pontos finais de serviço apenas para serviços que suportam os pontos finais de serviço. Ver serviços de ativado o ponto final de serviço disponíveis na localização do Azure com [az network vnet-endpoint-serviços de lista](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). O exemplo seguinte devolve uma lista de serviços de capacidade de ponto final de serviço disponíveis na *eastus* região. A lista de serviços devolvidos irá aumentar ao longo do tempo, à medida que mais serviços do Azure forem ponto final de serviço ativado.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Criar uma sub-rede adicional na rede virtual com [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Neste exemplo, um ponto final de serviço para *Microsoft* é criado para a sub-rede: 
+Criar uma sub-rede adicional na rede virtual com [criar a sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Neste exemplo, um ponto final de serviço para *Microsoft. Storage* é criado para a sub-rede: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -83,9 +83,9 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso de rede para uma sub-rede
+## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso de rede a uma sub-rede
 
-Criar um grupo de segurança de rede com [az rede nsg criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNsgPrivate*.
+Crie um grupo de segurança de rede com [nsg de rede de az criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Associar o grupo de segurança de rede para o *privada* sub-rede com [atualização de sub-rede da vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). O exemplo seguinte associa a *myNsgPrivate* grupo de segurança de rede para o *privada* sub-rede:
+Associar o grupo de segurança de rede para o *privada* sub-rede com [atualização de sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). O exemplo seguinte associa a *myNsgPrivate* grupo de segurança de rede para o *privada* sub-rede:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Criar regras de segurança com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). A regra que se segue permite acesso de saída para os endereços IP públicos atribuída para este serviço de armazenamento do Azure: 
+Criar regras de segurança com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). A regra que se segue permite acesso de saída para os endereços IP públicos atribuídos ao serviço do armazenamento do Azure: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -152,11 +152,11 @@ az network nsg rule create \
 
 ## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso de rede a um recurso
 
-Os passos necessários para restringir o acesso de rede para recursos criados através de serviços do Azure ativados para pontos finais de serviço varia em serviços. Consulte a documentação para serviços individuais para obter passos específicos para cada serviço. O resto deste artigo inclui os passos para restringir o acesso de rede para uma conta de armazenamento do Azure, como um exemplo.
+Os passos necessários para restringir o acesso de rede a recursos criados através de serviços do Azure ativados para pontos finais de serviço varia de serviço para serviço. Veja a documentação relativa aos serviços individuais para obter os passos específicos dos mesmos. O restante deste artigo inclui os passos para restringir o acesso de rede para uma conta de armazenamento do Azure, como exemplo.
 
-### <a name="create-a-storage-account"></a>Create a storage account
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma conta de armazenamento do Azure com [criar conta de armazenamento az](/cli/azure/storage/account#az_storage_account_create). Substitua `<replace-with-your-unique-storage-account-name>` com um nome que é exclusivo em todas as localizações do Azure, entre 3 e 24 carateres de comprimento, a utilizar apenas números e letras minúsculas.
+Crie uma conta de armazenamento do Azure com [criar conta de armazenamento az](/cli/azure/storage/account#az_storage_account_create). Substitua `<replace-with-your-unique-storage-account-name>` com um nome que seja exclusivo em todas as localizações do Azure, entre 3 e 24 carateres de comprimento, a utilizar apenas números e letras minúsculas.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Depois de criar a conta de armazenamento, obter a cadeia de ligação para a conta de armazenamento para uma variável com [cadeia de ligação de mostrar de conta de armazenamento az](/cli/azure/storage/account#az_storage_account_show_connection_string). A cadeia de ligação é utilizada para criar uma partilha de ficheiros num passo posterior.
+Depois de criar a conta de armazenamento, obter a cadeia de ligação para a conta de armazenamento numa variável com [armazenamento az account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). A cadeia de ligação é utilizada para criar uma partilha de ficheiros num passo posterior.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -178,13 +178,13 @@ saConnectionString=$(az storage account show-connection-string \
   --out tsv)
 ```
 
-<a name="account-key"></a>Ver o conteúdo da variável e anote o valor para **AccountKey** devolvido na saída, porque é utilizado num passo posterior.
+<a name="account-key"></a>Exibir o conteúdo da variável e anote o valor para **AccountKey** devolvido no resultado, porque é utilizado num passo posterior.
 
 ```azurecli-interactive
 echo $saConnectionString
 ```
 
-### <a name="create-a-file-share-in-the-storage-account"></a>Criar uma partilha de ficheiros na conta de armazenamento
+### <a name="create-a-file-share-in-the-storage-account"></a>Criar uma partilha de ficheiros na conta de Armazenamento
 
 Criar uma partilha de ficheiros na conta de armazenamento com [criar partilha de armazenamento az](/cli/azure/storage/share#az_storage_share_create). Num passo posterior, esta partilha de ficheiros está montada para confirmar o acesso de rede ao mesmo.
 
@@ -195,9 +195,9 @@ az storage share create \
   --connection-string $saConnectionString > /dev/null
 ```
 
-### <a name="deny-all-network-access-to-a-storage-account"></a>Negar o acesso de rede de todos os a uma conta de armazenamento
+### <a name="deny-all-network-access-to-a-storage-account"></a>Negar todos os acessos de rede para uma conta de armazenamento
 
-Por predefinição, as contas do storage aceitam ligações de rede de clientes em qualquer rede. Para limitar o acesso a redes selecionadas, altere a ação predefinida para *negar* com [atualização az da conta de armazenamento](/cli/azure/storage/account#az_storage_account_update). Quando é negado o acesso à rede, a conta de armazenamento não está acessível a partir de qualquer rede.
+Por predefinição, as contas de Armazenamento aceitam ligações de rede de clientes em qualquer rede. Para limitar o acesso a redes selecionadas, altere a ação predefinida para *negar* com [atualização da conta de armazenamento az](/cli/azure/storage/account#az_storage_account_update). Quando é negado o acesso à rede, a conta de armazenamento não está acessível a partir de qualquer rede.
 
 ```azurecli-interactive
 az storage account update \
@@ -206,9 +206,9 @@ az storage account update \
   --default-action Deny
 ```
 
-### <a name="enable-network-access-from-a-subnet"></a>Ativar o acesso de rede de sub-rede
+### <a name="enable-network-access-from-a-subnet"></a>Ativar o acesso de rede a partir de uma de sub-rede
 
-Permitir o acesso de rede para a conta de armazenamento do *privada* sub-rede com [adicionar conta de armazenamento az rede-regra](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Permitir o acesso à rede para a conta de armazenamento do *privada* sub-rede com [adicione a conta de armazenamento az rede-rule](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -219,11 +219,11 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Para testar o acesso de rede a uma conta de armazenamento, implemente uma VM para cada sub-rede.
+Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em cada sub-rede.
 
-### <a name="create-the-first-virtual-machine"></a>Criar primeira máquina virtual
+### <a name="create-the-first-virtual-machine"></a>Criar a primeira máquina virtual
 
-Criar uma VM com o *pública* sub-rede com [az vm criar](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existir numa localização chaves predefinido, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
+Criar uma VM no *pública* sub-rede com [az vm criar](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -235,7 +235,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A VM demora alguns minutos a criar. Depois de criada a VM, a CLI do Azure mostra as informações semelhante ao seguinte exemplo: 
+A criação da VM demora alguns minutos. Depois da VM é criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo: 
 
 ```azurecli 
 {
@@ -250,9 +250,9 @@ A VM demora alguns minutos a criar. Depois de criada a VM, a CLI do Azure mostra
 }
 ```
 
-Tome nota do **publicIpAddress** na saída devolvida. Este endereço é utilizado para aceder a VM a partir da internet num passo posterior.
+Anote o **publicIpAddress** no resultado retornado. Este endereço é utilizado para aceder à VM a partir da internet num passo posterior.
 
-### <a name="create-the-second-virtual-machine"></a>Criar a máquina virtual segundo
+### <a name="create-the-second-virtual-machine"></a>Criar a segunda máquina virtual
 
 ```azurecli-interactive
 az vm create \
@@ -264,11 +264,11 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A VM demora alguns minutos a criar. Após a criação, tome nota do **publicIpAddress** no resultado devolvido. Este endereço é utilizado para aceder a VM a partir da internet num passo posterior.
+A criação da VM demora alguns minutos. Após a criação, anote o **publicIpAddress** no resultado devolvido. Este endereço é utilizado para aceder à VM a partir da internet num passo posterior.
 
-## <a name="confirm-access-to-storage-account"></a>Confirmar o acesso à conta de armazenamento
+## <a name="confirm-access-to-storage-account"></a>Confirmar o acesso à conta de Armazenamento
 
-SSH para a *myVmPrivate* VM. Substitua *<publicIpAddress>* com o endereço IP público do seu *myVmPrivate* VM.
+SSH para o *myVmPrivate* VM. Substitua *<publicIpAddress>* com o endereço IP público do seu *myVmPrivate* VM.
 
 ```bash 
 ssh <publicIpAddress>
@@ -280,25 +280,25 @@ Crie uma pasta para um ponto de montagem:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Monte a partilha de ficheiros do Azure para o diretório que criou. Antes de executar o seguinte comando, substitua `<storage-account-name>` com o nome da conta e `<storage-account-key>` com a chave que obteve no [criar uma conta de armazenamento](#create-a-storage-account).
+Monte a partilha de ficheiros do Azure para o diretório que criou. Antes de executar o seguinte comando, substitua `<storage-account-name>` com o nome da conta e `<storage-account-key>` com a chave que obteve na [criar uma conta de armazenamento](#create-a-storage-account).
 
 ```bash
 sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Recebe o `user@myVmPrivate:~$` linha. A partilha de ficheiros do Azure com êxito montado para *mnt/MyAzureFileShare*.
+Recebe o `user@myVmPrivate:~$` prompt. A partilha de ficheiros do Azure montada com êxito para */mnt/MyAzureFileShare*.
 
-Confirme que a VM possui sem conectividade de saída para outros endereços IP públicos:
+Confirme que a VM tem sem conectividade de saída para outros endereços IP públicos:
 
 ```bash
 ping bing.com -c 4
 ```
 
-Receberá não existem respostas, porque o grupo de segurança de rede associados para o *privada* sub-rede não permite o acesso de saída para endereços IP públicos que não sejam endereços atribuídos para este serviço de armazenamento do Azure.
+Não vai receber respostas, porque o grupo de segurança de rede associado à sub-rede *Privada* não permite o acesso de saída a endereços IP públicos que não os atribuídos ao serviço Armazenamento do Azure.
 
-Sair da sessão SSH para a *myVmPrivate* VM.
+Saia da sessão SSH para o *myVmPrivate* VM.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Confirmar o acesso foi negado à conta de armazenamento
+## <a name="confirm-access-is-denied-to-storage-account"></a>Confirmar que o acesso à conta de Armazenamento é negado
 
 Utilize o seguinte comando para criar uma sessão SSH com o *myVmPublic* VM. Substitua `<publicIpAddress>` com o endereço IP público do seu *myVmPublic* VM: 
 
@@ -312,17 +312,17 @@ Crie um diretório para um ponto de montagem:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Tentativa de montar a partilha de ficheiros do Azure para o diretório que criou. Este artigo pressupõe que implementou a versão mais recente do Ubuntu. Se estiver a utilizar versões anteriores do Ubuntu, consulte o artigo [montar no Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter instruções adicionais sobre como montar partilhas de ficheiros. Antes de executar o seguinte comando, substitua `<storage-account-name>` com o nome da conta e `<storage-account-key>` com a chave que obteve no [criar uma conta de armazenamento](#create-a-storage-account):
+Tentativa para montar a partilha de ficheiros do Azure para o diretório que criou. Este artigo pressupõe que implantou a versão mais recente do Ubuntu. Se estiver a utilizar versões anteriores do Ubuntu, veja [montar no Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter instruções adicionais sobre como montar partilhas de ficheiros. Antes de executar o seguinte comando, substitua `<storage-account-name>` com o nome da conta e `<storage-account-key>` com a chave que obteve na [criar uma conta de armazenamento](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Acesso negado e recebe um `mount error(13): Permission denied` erro, porque o *myVmPublic* VM é implementada dentro do *pública* sub-rede. O *pública* sub-rede não tem um ponto final de serviço ativado para o Storage do Azure e a conta de armazenamento só permite o acesso de rede do *privada* sub-rede, não o *público*sub-rede.
+Acesso negado e recebe um `mount error(13): Permission denied` erro, porque o *myVmPublic* VM for implementada no *pública* sub-rede. A sub-rede *Pública* não tem um ponto final de serviço ativado para o Armazenamento do Azure e a conta de armazenamento só permite o acesso de rede a partir da sub-rede *Privada*, não da *Público*.
 
-Sair da sessão SSH para a *myVmPublic* VM.
+Saia da sessão SSH para o *myVmPublic* VM.
 
-Tentativa do seu computador ver as partilhas na sua conta de armazenamento com [lista de partilha do armazenamento az](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Substitua `<account-name>` e `<account-key>` com o nome da conta de armazenamento e a chave de [criar uma conta de armazenamento](#create-a-storage-account):
+Do seu computador, tentar visualizar as partilhas na sua conta de armazenamento com [lista de partilha de armazenamento az](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Substitua `<account-name>` e `<account-key>` com o nome de conta de armazenamento e a chave de [criar uma conta de armazenamento](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \
@@ -330,11 +330,11 @@ az storage share list \
   --account-key <account-key>
 ```
 
-Acesso negado e recebe um *este pedido não está autorizado a efetuar esta operação* erro, porque o computador não está a ser o *privada* sub-rede do *MyVirtualNetwork* rede virtual.
+Acesso negado e recebe um *este pedido não está autorizado a efetuar esta operação* erro, porque não se encontra em seu computador o *privada* sub-rede do *MyVirtualNetwork* rede virtual.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário utilizar [eliminação do grupo de az](/cli/azure#az_group_delete) para remover o grupo de recursos e todos os recursos nele contidos.
+Quando já não for necessário, utilize [eliminação do grupo de az](/cli/azure#az_group_delete) para remover o grupo de recursos e todos os recursos nele contidos.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -342,6 +342,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, ativar um ponto final de serviço para uma sub-rede de rede virtual. Aprendeu a que os pontos finais de serviço podem ser ativados para recursos implementados com vários serviços do Azure. Criou uma conta de armazenamento do Azure e o acesso limitado à rede para a conta de armazenamento para apenas os recursos dentro de uma sub-rede de rede virtual. Para obter mais informações sobre pontos finais de serviço, consulte o artigo [descrição geral de pontos finais de serviço](virtual-network-service-endpoints-overview.md) e [gerir sub-redes](virtual-network-manage-subnet.md).
+Neste artigo, ativou um ponto final de serviço para uma sub-rede de rede virtual. Aprendeu que os pontos finais de serviço podem ser ativados para recursos implementados com vários serviços do Azure. Criou uma conta de Armazenamento do Azure e limitou o acesso de rede à mesma apenas para os recursos dentro de uma sub-rede de uma rede virtual. Para saber mais sobre os pontos finais de serviço, veja [Descrição geral dos pontos finais de serviço](virtual-network-service-endpoints-overview.md) e [Manage subnets](virtual-network-manage-subnet.md) (Gerir sub-redes).
 
-Se tiver várias redes virtuais na sua conta, poderá pretender ligar duas redes virtuais em conjunto para que recursos dentro de cada rede virtual podem comunicar entre si. Para saber como, consulte [ligar redes virtuais](tutorial-connect-virtual-networks-cli.md).
+Se tiver várias redes virtuais na sua conta, poderá pretender ligar duas redes virtuais para que os recursos dentro de ambas possam comunicar entre si. Para saber como, veja [ligar redes virtuais](tutorial-connect-virtual-networks-cli.md).

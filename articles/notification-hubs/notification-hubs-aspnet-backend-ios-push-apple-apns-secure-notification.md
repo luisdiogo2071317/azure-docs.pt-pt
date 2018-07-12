@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs do Azure segurados Push
-description: Saiba como enviar notificações push segura para uma aplicação iOS a partir do Azure. Exemplos de código escrito em Objective-C e c#.
+title: Push seguros de Hubs de notificação do Azure
+description: Saiba como enviar notificações push seguro para aplicações iOS do Azure. Exemplos de código escritos em Objective-C e c#.
 documentationcenter: ios
 author: dimazaid
 manager: kpiteira
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
 ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776207"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308576"
 ---
-# <a name="azure-notification-hubs-secure-push"></a>Notification Hubs do Azure segurados Push
+# <a name="azure-notification-hubs-secure-push"></a>Push seguros de Hubs de notificação do Azure
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
@@ -30,36 +30,36 @@ ms.locfileid: "33776207"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Suporte de notificação push no Microsoft Azure permite-lhe aceder a uma infraestrutura de push de fácil utilização, multiplataformas, escalamento horizontal, o que simplifica bastante a implementação de notificações push para aplicações de consumidor e para empresas para plataformas móveis.
+Suporte de notificação push no Microsoft Azure permite-lhe aceder uma infraestrutura de push fáceis de usar, em várias plataformas, aumentadas horizontalmente, o que simplifica bastante a implementação de notificações push para aplicações de consumidor e empresariais para dispositivos móveis plataformas.
 
-Devido a regulamentação ou restrições de segurança, por vezes, uma aplicação pode pretender incluir algo na notificação que não pode ser transmitida através da infraestrutura de notificação push padrão. Este tutorial descreve como obter a mesma experiência, enviando informações confidenciais através de uma ligação segura, autenticada entre o dispositivo de cliente e o back-end da aplicação.
+Devido à regulamentação ou restrições de segurança, por vezes, um aplicativo pode querer incluir algo na notificação que não pode ser transmitida através da infraestrutura de notificação push padrão. Este tutorial descreve como atingir a mesma experiência ao enviar informações confidenciais por meio de uma ligação autenticada e segura entre o dispositivo de cliente e o back-end de aplicação.
 
-Um nível elevado, o fluxo é:
+Num alto nível, o fluxo é o seguinte:
 
 1. O back-end da aplicação:
-   * Payload de arquivos segura na base de dados de back-end.
-   * Envia o ID desta notificação para o dispositivo (sem informações seguras são enviadas).
-2. A aplicação no dispositivo, quando receber a notificação:
-   * O dispositivo contacta o back-end pedir o payload seguro.
+   * Payload de arquivos seguro na base de dados de back-end.
+   * Envia o ID de notificação para o dispositivo (não existem informações de seguras são enviadas).
+2. A aplicação no dispositivo, ao receber a notificação:
+   * O dispositivo entra em contacto com o back-end solicitando o payload de seguro.
    * A aplicação pode mostrar o payload como uma notificação no dispositivo.
 
-É importante ter em atenção que o fluxo anterior (e neste tutorial), partimos do princípio que o dispositivo armazena um token de autenticação no armazenamento local, depois do utilizador iniciar sessão. Esta ação garante uma experiência totalmente integrada, como o dispositivo pode obter payload segura a notificação utilizando este token. Se a aplicação não armazena os tokens de autenticação do dispositivo, ou se estes tokens podem ter expirados, a aplicação de dispositivo, ao receber a notificação deverá apresentar uma notificação genérica pedir ao utilizador para iniciar a aplicação. A aplicação, em seguida, autentica o utilizador e mostra o payload de notificação.
+É importante observar que no fluxo anterior (e neste tutorial), partimos do princípio de que o dispositivo armazena um token de autenticação no armazenamento local, depois do usuário fizer logon. Isso garante uma experiência totalmente integrada, como o dispositivo pode obter o payload de seguros a notificação com este token. Se seu aplicativo não armazena os tokens de autenticação do dispositivo, ou se estes tokens podem ter expirados, a aplicação de dispositivo, ao receber a notificação deverá apresentar uma notificação genérica pedir ao utilizador para iniciar a aplicação. A aplicação, em seguida, autentica o utilizador e mostra o payload de notificação.
 
-Este tutorial de Secure Push mostra como enviar uma notificação push de forma segura. O tutorial baseia-se a [notificam os utilizadores](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial, pelo que deverá concluir os passos que tutorial primeiro.
+Este tutorial de Push seguro mostra como enviar uma notificação push de forma segura. O tutorial baseia-se a [notificar utilizadores](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial, pelo que deverá concluir os passos esse tutorial primeiro.
 
 > [!NOTE]
-> Este tutorial parte do princípio de que criou e configurado o notification hub, conforme descrito em [introdução aos Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> Este tutorial pressupõe que já criou e configurou o notification hub conforme descrito em [introdução aos Hubs de notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>Modificar o projeto iOS
-Agora que alterou o seu back-end da aplicação para enviar apenas o *ID* de uma notificação, tem de alterar a sua aplicação iOS para processar essa notificação e chamar novamente o back-end para obter a mensagem segura que será apresentado.
+Agora que modificou o seu back-end da aplicação para enviar apenas o *ID* de uma notificação, tem de alterar a sua aplicação iOS para lidar com que a notificação e o back-end para obter a mensagem segura a apresentar do retorno de chamada.
 
-Para atingir este objetivo, temos de escrever a lógica para obter o conteúdo seguro do back-end da aplicação.
+Para atingir esse objetivo, temos de escrever a lógica para obter o conteúdo seguro de back-end de aplicação.
 
-1. No **Appdelegate**, certifique-se os registos de aplicação para notificações silenciosa, pelo que processa o ID de notificação enviado a partir do back-end. Adicionar o **UIRemoteNotificationTypeNewsstandContentAvailability** opção na didFinishLaunchingWithOptions:
+1. Na **Appdelegate**, certifique-se de que os registros de aplicação para notificações silenciosas, por isso processa o ID de notificação enviado a partir do back-end. Adicionar a **UIRemoteNotificationTypeNewsstandContentAvailability** opção na didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 2. No seu **Appdelegate** adicionar uma secção de implementação na parte superior com a seguinte declaração:
@@ -67,7 +67,7 @@ Para atingir este objetivo, temos de escrever a lógica para obter o conteúdo s
         @interface AppDelegate ()
         - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
         @end
-3. Adicionar, em seguida, na secção implementation o código seguinte, substituindo o marcador de posição `{back-end endpoint}` com o ponto final para o back-end que obteve anteriormente:
+3. Em seguida, adicione a secção de implementação o código a seguir, substituindo o marcador de posição `{back-end endpoint}` com o ponto final para o back-end que obteve anteriormente:
 
 ```
         NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -118,11 +118,11 @@ Para atingir este objetivo, temos de escrever a lógica para obter o conteúdo s
 
     This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
-1. Agora que poderemos ter de processar a notificação de entrada e utilizar o método acima para obter o conteúdo para apresentar. Em primeiro lugar, temos de ativar a sua aplicação iOS ser executada em segundo plano quando receber uma notificação push. No **XCode**, selecione o seu projeto de aplicação no painel esquerdo, em seguida, clique o destino da sua aplicação principal no **destinos** secção no painel central.
-2. Em seguida, clique em seu **capacidades** separador no topo do seu painel central e verifique o **notificações remotas** caixa de verificação.
+1. Agora temos de lidar com a notificação de entrada e usar o método acima para obter o conteúdo para apresentar. Em primeiro lugar, temos de ativar a sua aplicação iOS ser executado em segundo plano quando receber uma notificação push. Na **XCode**, selecione seu projeto de aplicação no painel esquerdo, em seguida, clique no destino da sua aplicação principal no **destinos** secção no painel central.
+2. Em seguida, clique em sua **capacidades** separador na parte superior do seu painel central e verificar o **notificações remotas** caixa de verificação.
    
     ![][IOS1]
-3. No **Appdelegate** adicione o seguinte método para processar as notificações push:
+3. Na **Appdelegate** adicione o seguinte método para processar as notificações push:
    
         -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
         {
@@ -145,13 +145,13 @@ Para atingir este objetivo, temos de escrever a lógica para obter o conteúdo s
    
         }
    
-    Tenha em atenção que é preferível para processar de acordo com os casos de propriedade de cabeçalho de autenticação em falta ou rejeição back-end. O processamento específico nestes casos depende principalmente da sua experiência de utilizador de destino. É uma opção apresentar uma notificação com uma linha de comandos genérica para o utilizador autenticar para obter a notificação real.
+    Tenha em atenção que é preferível para tratar de casos de propriedade de cabeçalho de autenticação em falta ou rejeição pelo back-end. O processamento específico nestes casos depende em grande parte de sua experiência de utilizador de destino. É uma opção apresentar uma notificação com uma linha de comandos genérica para o utilizador autenticar para recuperar a notificação real.
 
 ## <a name="run-the-application"></a>Executar a aplicação
-Para executar a aplicação, efetue o seguinte:
+Para executar a aplicação, faça o seguinte:
 
-1. No XCode, execute a aplicação num dispositivo iOS físico (emitir notificações não irão funcionar no simulador do).
-2. Na aplicação iOS IU, introduza um nome de utilizador e palavra-passe. Estes podem ser qualquer cadeia, mas têm de ser o mesmo valor.
-3. Na aplicação iOS IU, clique em **início de sessão**. Em seguida, clique em **enviar push**. Deverá ver a notificação segura que está a ser apresentada no seu centro de notificações.
+1. No XCode, execute a aplicação num dispositivo iOS físico (push notificações não funcionará no simulador).
+2. Na aplicação do iOS da interface do Usuário, introduza um nome de utilizador e palavra-passe. Estes podem ser qualquer cadeia de caracteres, mas têm de ser o mesmo valor.
+3. Na aplicação do iOS da interface do Usuário, clique em **iniciar sessão**. Em seguida, clique em **enviar push**. Deverá ver a notificação de segura que está a ser apresentada no seu centro de notificações.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

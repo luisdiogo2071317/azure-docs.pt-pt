@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows a partir de um modelo no Azure | Microsoft Docs
+title: Criar uma VM do Windows a partir de um modelo no Azure | Documentos da Microsoft
 description: Utilize um modelo do Resource Manager e o PowerShell para criar facilmente uma nova VM do Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,19 +17,19 @@ ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c911d7500b61218323dd736aa51f50980d702cc
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31601843"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720083"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
-Este artigo mostra como implementar um modelo Azure Resource Manager com o PowerShell. O modelo que criou implementa uma única máquina virtual com o Windows Server numa rede virtual novo com uma única sub-rede.
+Este artigo mostra-lhe como implementar um modelo do Azure Resource Manager com o PowerShell. O modelo criado por si implementa uma única máquina virtual com o Windows Server numa rede virtual nova com uma única sub-rede.
 
-Para obter uma descrição detalhada do recurso de máquina virtual, consulte [máquinas virtuais num modelo Azure Resource Manager](template-description.md). Para obter mais informações sobre todos os recursos num modelo, consulte [instruções do modelo Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Para obter uma descrição detalhada do recurso de máquina virtual, consulte [máquinas virtuais num modelo Azure Resource Manager](template-description.md). Para obter mais informações sobre todos os recursos num modelo, consulte [instruções do modelo do Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Deve demorar cerca de cinco minutos para efetuar os passos neste artigo.
+Deve demorar cerca de cinco minutos para realizar os passos neste artigo.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -37,7 +37,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Todos os recursos têm de ser implementados numa [grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
+Todos os recursos devem ser implantados num [grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
 
 1. Obtenha uma lista de localizações disponíveis onde os recursos podem ser criados.
    
@@ -45,7 +45,7 @@ Todos os recursos têm de ser implementados numa [grupo de recursos](../../azure
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. Crie o grupo de recursos na localização que selecionou. Este exemplo mostra a criação de um grupo de recursos denominado **myResourceGroup** no **EUA oeste** localização:
+2. Crie o grupo de recursos na localização que selecionou. Este exemplo mostra a criação de um grupo de recursos chamado **myResourceGroup** no **E.U.A. oeste** localização:
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
@@ -53,7 +53,7 @@ Todos os recursos têm de ser implementados numa [grupo de recursos](../../azure
 
 ## <a name="create-the-files"></a>Criar os ficheiros
 
-Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um ficheiro de parâmetros que forneça valores de parâmetro para o modelo. Também é criar um ficheiro de autorização que é utilizado para executar operações do Azure Resource Manager.
+Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um ficheiro de parâmetros que forneça os valores de parâmetro para o modelo. Também é criar um arquivo de autorização que é usado para executar operações do Azure Resource Manager.
 
 1. Crie um ficheiro denominado *CreateVMTemplate.json* e adicione este código JSON:
 
@@ -173,7 +173,7 @@ Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um fic
     }
     ```
 
-3. Crie uma nova conta do storage e um contentor:
+3. Crie uma nova conta de armazenamento e um contentor:
 
     ```powershell
     $storageName = "st" + (Get-Random)
@@ -183,7 +183,7 @@ Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um fic
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. Carregar os ficheiros para a conta de armazenamento:
+4. Carregue os ficheiros para a conta de armazenamento:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
@@ -194,7 +194,7 @@ Neste passo, vai criar um ficheiro de modelo que implementa os recursos e um fic
 
 ## <a name="create-the-resources"></a>Criar os recursos
 
-Implemente o modelo utilizando os parâmetros:
+Implemente o modelo com os parâmetros:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -203,10 +203,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> Também pode implementar modelos e os parâmetros de ficheiros locais. Para obter mais informações, consulte [utilizar o Azure PowerShell com o Storage do Azure](../../storage/common/storage-powershell-guide-full.md).
+> Também pode implementar modelos e os parâmetros de ficheiros locais. Para obter mais informações, consulte [utilizar o Azure PowerShell com armazenamento do Azure](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- Se ocorreram problemas com a implementação, pode demorar uma vista de olhos [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Se ocorreram problemas com a implementação, pode dar uma olhada [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Saiba como criar e gerir uma máquina virtual no [criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

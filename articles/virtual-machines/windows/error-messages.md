@@ -1,6 +1,6 @@
 ---
-title: Códigos de erro do Windows máquina virtual comuns no Azure | Microsoft Docs
-description: Compreender alguns dos códigos de erro comuns encontrados quando aprovisionar e gerir máquinas virtuais do Windows no Azure
+title: Códigos de erro do Windows virtual machine comuns no Azure | Documentos da Microsoft
+description: Compreender alguns dos códigos de erro comuns encontrados durante a aprovisionar e gerir máquinas virtuais do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing-ms
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: xujing;genli
-ms.openlocfilehash: 365fdcc8c7bf4ae8ec68b98734971d324032797f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4addf714ca18a7b5428025473111d96537ff4c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913220"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723792"
 ---
-# <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns quando gerir máquinas virtuais do Windows no Azure
+# <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns na gestão de máquinas de virtuais do Windows no Azure
 
-Este artigo descreve alguns dos códigos de erro mais comuns e as mensagens que pode surgir quando criar ou gerir o Windows as máquinas virtuais (VMs) no Azure.
+Este artigo descreve alguns dos códigos de erro mais comuns e as mensagens que poderá encontrar ao criar ou gerir as máquinas de virtuais do Windows (VMs) no Azure.
 
 [!INCLUDE [virtual-machines-common-error-messages](../../../includes/virtual-machines-common-error-messages.md)]

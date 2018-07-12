@@ -6,24 +6,24 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 07/11/2018
 ms.author: marsma
-ms.openlocfilehash: 36b66fdcd157e4c44fcd451c8cc07ba68242b583
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: ca05e5091d5c96a1a0c2373404e8a6dff5802ffb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888767"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968408"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure
 
-Ao utilizar o Azure Container Registry (ACR) com o Azure Kubernetes Service (AKS), um mecanismo de autenticação deve ser estabelecido. Este documento detalha as configurações recomendadas para a autenticação entre esses dois serviços do Azure.
+Ao utilizar o Azure Container Registry (ACR) com o Azure Kubernetes Service (AKS), um mecanismo de autenticação deve ser estabelecido. Este artigo detalha as configurações recomendadas para a autenticação entre esses dois serviços do Azure.
 
 ## <a name="grant-aks-access-to-acr"></a>Acesso de AKS de concessão para o ACR
 
-Quando é criado um cluster do AKS, também é criado um principal de serviço para gerir a capacidade de operação de cluster com recursos do Azure. Este principal de serviço também pode ser utilizado para a autenticação com um registo do ACR. Para fazer isso, uma atribuição de função tem de ser criado para conceder o acesso de leitura principal do serviço para o recurso do ACR.
+Quando cria um cluster do AKS, o Azure também cria um serviço principal para suportar a capacidade de operação de cluster com outros recursos do Azure. Pode utilizar este principal de serviço gerado automaticamente para a autenticação com um registo do ACR. Para tal, tem de criar um Azure AD [atribuição de função](../role-based-access-control/overview.md#role-assignment) que concede acesso de principal de serviço do cluster para o registo de contentor.
 
-O exemplo a seguir pode ser utilizado para concluir esta operação.
+Utilize o seguinte script para conceder ao principal de serviço gerado pelo AKS com acesso a um Azure container registry. Modificar a `AKS_*` e `ACR_*` variáveis para o seu ambiente antes de executar o script.
 
 ```bash
 #!/bin/bash
@@ -45,9 +45,9 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Acesso com o segredo do Kubernetes
 
-Em alguns casos, o que está a ser utilizado pelo AKS principal de serviço não pode ser confinada para o registo do ACR. Nesses casos, pode criar um principal de serviço exclusivo e definir o âmbito para apenas o registo do ACR.
+Em alguns casos, poderá não conseguir atribuir a função necessária para o principal de serviço AKS gerado automaticamente-conceder acesso para o ACR. Por exemplo, devido ao modelo de segurança da sua organização, poderá não ter permissão suficiente no diretório do Azure AD para atribuir uma função ao principal do serviço gerado pelo AKS. Nesse caso, pode criar um novo principal de serviço e depois conceder acesso para o registo de contentores com um segredo de solicitação de imagem do Kubernetes.
 
-O seguinte script pode ser utilizado para criar o serviço principal.
+Utilize o seguinte script para criar um novo principal de serviço (que irá utilizar as respetivas credenciais para o segredo de solicitação de imagem de Kubernetes). Modificar o `ACR_NAME` variável para o seu ambiente antes de executar o script.
 
 ```bash
 #!/bin/bash
@@ -70,15 +70,15 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-As credenciais do principal de serviço agora podem ser armazenadas no Kubernetes [segredo de solicitação de imagem] [ image-pull-secret] e referenciado quando contentores em execução num cluster do AKS.
+Agora pode armazenar credenciais do principal de serviço no Kubernetes [segredo de solicitação de imagem][image-pull-secret], que o cluster do AKS fará referência ao contentores em execução.
 
-O comando seguinte cria segredo do Kubernetes. Substitua o nome do servidor com o servidor de início de sessão do ACR, o nome de utilizador com o id de principal de serviço e a palavra-passe com a palavra-passe de principal de serviço.
+Utilize o seguinte procedimento **kubectl** comando para criar o Kubernetes secreta. Substitua `<acr-login-server>` com o nome completamente qualificado do seu registo de contentor do Azure (está no formato "acrname.azurecr.io"). Substitua `<service-principal-ID>` e `<service-principal-password>` com os valores que obteve ao executar o script anterior.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
-O segredo do Kubernetes pode ser usado numa implementação de pod com o `ImagePullSecrets` parâmetro.
+Agora, pode utilizar o segredo do Kubernetes em implementações de pod especificando seu nome (neste caso, "autenticação do acr") no `imagePullSecrets` parâmetro:
 
 ```yaml
 apiVersion: apps/v1beta1

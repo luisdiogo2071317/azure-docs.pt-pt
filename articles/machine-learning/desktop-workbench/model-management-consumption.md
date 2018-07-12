@@ -1,82 +1,83 @@
 ---
-title: O consumo do serviço web Machine Learning modelo gestão do Azure | Microsoft Docs
-description: Este documento descreve os conceitos e os passos envolvidos na consumir serviços web implementados utilizando a gestão de modelo no Azure Machine Learning.
+title: Consumo de serviço da web de gestão de modelos do Machine Learning do Azure | Documentos da Microsoft
+description: Este documento descreve os passos e conceitos envolvidos no uso de serviços da web implementados com gestão de modelos do Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831994"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972636"
 ---
-# <a name="consuming-web-services"></a>Consumir os serviços web
-Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou várias linha para obter um ou mais predições cada vez.
+# <a name="consuming-web-services"></a>Consumir serviços web
+Depois de implementar um modelo como um serviço da web em tempo real, pode enviar os dados e obter previsões de uma variedade de plataformas e aplicativos. O serviço da web em tempo real expõe uma API REST para obter previsões de indisponibilidade. Pode enviar dados para o serviço web no formato único ou de linha múltiplas para obter previsões de um ou mais a uma hora.
 
-Com o [serviço Web do Azure Machine Learning](model-management-service-deploy.md), uma aplicação externa comunica em sincronia com um modelo preditivo ao efetuar a chamada de HTTP POST para o URL do serviço. Para efetuar um chamada do serviço web, a aplicação de cliente tem de especificar a chave de API que foi criada quando implementar uma predição e colocar os dados de pedido no corpo do pedido POST.
+Com o [serviço Web do Azure Machine Learning](model-management-service-deploy.md), uma aplicação externa comunica forma síncrona com um modelo preditivo, fazendo a chamada de HTTP POST para o URL do serviço. Para fazer uma chamada do serviço web, a aplicação cliente tem de especificar a chave de API que foi criada quando implementar uma predição e colocar os dados de pedido no corpo do pedido POST.
 
-Tenha em atenção que as chaves de API só estão disponíveis no modo de implementação de cluster. Serviços local web não tem chaves.
+> [!NOTE]
+> Tenha em atenção que as chaves de API só estão disponíveis no modo de implementação de cluster. Serviços da local web não tem as chaves.
 
 ## <a name="service-deployment-options"></a>Opções de implementação de serviço
-Serviços Web do Machine Learning do Azure podem ser implementados para os clusters baseados na nuvem para cenários de produção e teste e estações de trabalho locais utilizando o motor de docker. A funcionalidade de modelo preditivo em ambos os casos permanece igual. Implementação baseada em cluster fornece dimensionável e performant solução com base nos serviços de contentor do Azure, durante a implementação local pode ser utilizada para depuração. 
+Serviços Web do Machine Learning do Azure podem ser implementados para os clusters baseados na nuvem para cenários de produção e teste e estações de trabalho locais com o motor do docker. A funcionalidade do modelo preditivo em ambos os casos permanece igual. Implantação com base em cluster fornece dimensionável e solução de alto desempenho com base nos serviços de contentor do Azure, enquanto a implementação local pode ser utilizada para depuração. 
 
-A CLI do Azure Machine Learning e API fornece comandos convenientes para criar e gerir ambientes para implementações de serviço através de computação a ```az ml env``` opção. 
+A API e da CLI do Azure Machine Learning fornece comandos convenientes para criar e gerir ambientes para implementações de serviços através de computação a ```az ml env``` opção. 
 
 ## <a name="list-deployed-services-and-images"></a>Serviços de lista implementado e imagens
-Pode listar os serviços implementados e imagens utilizando o comando da CLI do Docker ```az ml service list realtime -o table```. Tenha em atenção que este comando sempre funciona no contexto do ambiente de computação atual. Seria Mostrar serviços que são implementados num ambiente que não está configurado para ser atual. Para definir a utilização de ambiente ```az ml env set```. 
+Pode listar os serviços implementados atualmente e a imagens do Docker com o comando da CLI ```az ml service list realtime -o table```. Tenha em atenção que este comando sempre funciona no contexto do atual ambiente de computação. Não apresentaria serviços que são implementados num ambiente que não está configurado para ser atual. Para definir o uso de ambiente ```az ml env set```. 
 
-## <a name="get-service-information"></a>Obter informações de serviço
-Depois do serviço web tiver sido implementado com êxito, utilize o seguinte comando para obter o URL do serviço e outros detalhes para chamar o ponto final do serviço. 
+## <a name="get-service-information"></a>Obtenha informações de serviço
+Depois de ter sido implementado com êxito o serviço web, utilize o seguinte comando para obter o URL do serviço e outros detalhes para chamar o ponto final de serviço. 
 
 ```
 az ml service usage realtime -i <web service id>
 ```
 
-Este comando imprime enviados o URL do serviço, cabeçalhos de pedido necessários, swagger URL e dados de exemplo para chamar o serviço se o esquema de API do serviço foi fornecido o momento da implementação.
+Este comando imprime o URL do serviço, cabeçalhos de solicitação necessários, swagger URL e dados de exemplo para chamar o serviço se o esquema de API do serviço foi fornecido no momento da implementação.
 
-Pode testar o serviço diretamente a partir da CLI sem composição um pedido HTTP, introduzindo o comando da CLI de exemplo com os dados de entrada:
+Pode testar o serviço diretamente a partir da CLI sem compor uma solicitação HTTP, introduzindo o comando da CLI de exemplo com os dados de entrada:
 
 ```
 az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
-## <a name="get-the-service-api-key"></a>Obter a chave de API do serviço
-Para obter a chave do serviço web, utilize o seguinte comando:
+## <a name="get-the-service-api-key"></a>Obter a chave de API de serviço
+Para obter a chave de serviço da web, utilize o seguinte comando:
 
 ```
 az ml service keys realtime -i <web service id>
 ```
-Ao criar o pedido HTTP, utilize a chave no cabeçalho de autorização: "Autorização": "portador <key>"
+Ao criar pedido HTTP, utilize a chave no cabeçalho de autorização: "Autorização": "portador <key>"
 
-## <a name="get-the-service-swagger-description"></a>Obter a descrição de Swagger do serviço
-Se o esquema de API do serviço foi fornecido, o ponto final do serviço seria expor um documento Swagger em ```http://<ip>/api/v1/service/<service name>/swagger.json```. O documento Swagger pode ser utilizado para gerar o cliente do serviço e explorar os dados de entrada esperados e outros detalhes sobre o serviço automaticamente.
+## <a name="get-the-service-swagger-description"></a>Obter a descrição do Swagger de serviço
+Se o esquema de API do serviço foi fornecido, o ponto final de serviço exporia um documento Swagger em ```http://<ip>/api/v1/service/<service name>/swagger.json```. O documento Swagger pode ser utilizado para gerar o cliente do serviço e explorar os dados de entrada esperados e outros detalhes sobre o serviço automaticamente.
 
 ## <a name="get-service-logs"></a>Obter registos de serviço
 Para compreender o comportamento de serviço e diagnosticar problemas, existem várias formas de obter os registos do serviço:
-- Comando da CLI ```az ml service logs realtime -i <service id>```. Este comando funciona em cluster e modos locais.
-- Se o registo de serviço foi ativado na implementação, os registos do serviço também serão enviados para AppInsight. O comando da CLI ```az ml service usage realtime -i <service id>``` mostra o URL de AppInsight. Tenha em atenção que os registos de AppInsight podem sofrer um atraso por 2 a 5 minutos.
-- Registos de cluster podem ser visualizados através da consola Kubernetes que está ligada ao definir o ambiente de cluster atual com o ```az ml env set```
-- Registos de local docker estão disponíveis através de registos do motor de docker quando o serviço está em execução localmente.
+- Comando da CLI ```az ml service logs realtime -i <service id>```. Este comando funciona em cluster e modos de locais.
+- Se o registo do serviço foram ativado na implementação, os registos do serviço serão também enviados para AppInsight. O comando da CLI ```az ml service usage realtime -i <service id>``` mostra o URL do AppInsight. Tenha em atenção que os registos do AppInsight podem sofrer um atraso por 2 a 5 minutos.
+- Registos do cluster podem ser visualizados através da consola do Kubernetes que está ligada ao definir o atual ambiente de cluster com ```az ml env set```
+- Registos do local docker estão disponíveis através de registos do motor do docker, quando o serviço está em execução localmente.
 
 ## <a name="call-the-service-using-c"></a>Chamar o serviço com c#
-Utilize o URL do serviço para enviar um pedido a partir de uma aplicação de consola c#. 
+Utilize o URL de serviço para enviar um pedido a partir de uma aplicação de consola c#. 
 
 1. No Visual Studio, crie uma nova aplicação de consola: 
-    * No menu, clique em, ficheiro -> novo -> projeto
-    * Em Visual Studio c#, clique o ambiente de trabalho do Windows classe, em seguida, selecione a aplicação de consola.
-2. Introduza _MyFirstService_ como o nome do projeto, em seguida, clique em OK.
-3. Referências do projeto, definido referências como _System.Net_, e _System.Net.Http_.
-4. Clique em Ferramentas -> Gestor de pacotes NuGet -> consola do Gestor de pacotes, em seguida, instale o pacote de Microsoft.AspNet.WebApi.Client.
-5. Abra o ficheiro Program.cs e substitua o código com o seguinte código:
-6. Atualização do _SERVICE_URL_ e _API_KEY_ parâmetros com as informações do seu serviço web.
+    * No menu de clique, arquivo -> novo -> projeto
+    * No Visual Studio c#, clique em ambiente de trabalho do Windows classe, em seguida, selecione a aplicação de consola.
+2. Introduza `MyFirstService` como o nome do projeto, em seguida, clique em OK.
+3. Em referências de projeto, defina referências `System.Net`, e `System.Net.Http`.
+4. Clique em Ferramentas -> Gestor de pacotes NuGet -> Package Manager Console, em seguida, instalar o **Microsoft.AspNet.WebApi.Client** pacote.
+5. Open **Program.cs** de ficheiro e substitua o código com o código a seguir:
+6. Atualização do `SERVICE_URL` e `API_KEY` parâmetros com as informações do seu serviço web.
 7. Execute o projeto.
 
 ```csharp
@@ -146,11 +147,11 @@ namespace MyFirstService
 }
 ```
 
-## <a name="call-the-web-service-using-python"></a>Chamar o serviço web com o Python
-Utilize o Python para enviar um pedido para o serviço web em tempo real. 
+## <a name="call-the-web-service-using-python"></a>Chamar o serviço web com Python
+Utilize Python para enviar um pedido para seu serviço web em tempo real. 
 
 1. Copie o seguinte exemplo de código para um novo ficheiro de Python.
-2. Atualize os parâmetros de dados, o url e o api_key. Para os serviços local web, remova o cabeçalho "Authorization".
+2. Atualize os parâmetros de dados, url e api_key. Para os serviços da local web, remova o cabeçalho "Authorization".
 3. Execute o código. 
 
 ```python

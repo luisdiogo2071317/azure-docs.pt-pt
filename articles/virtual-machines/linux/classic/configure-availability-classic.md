@@ -1,6 +1,6 @@
 ---
-title: Conjuntos de disponibilidade para VMs clássicas do Linux | Microsoft Docs
-description: Configure um conjunto de disponibilidade para uma máquina de virtual com Linux nova ou existente no modelo de implementação clássica com o portal do Azure e o Azure PowerShell.
+title: Conjuntos de disponibilidade para VMs Linux clássicas | Documentos da Microsoft
+description: Configure o conjunto de disponibilidade para uma máquina de virtual de Linux de nova ou existente no modelo de implementação clássica com o portal do Azure e o Azure PowerShell.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
 ms.openlocfilehash: c5ca51f854e2358dc57286759d5b219e0d954a15
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842375"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308094"
 ---
-# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>Como configurar um conjunto de disponibilidade para computadores virtuais Linux no modelo de implementação clássica
+# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>Como configurar o conjunto de disponibilidade para máquinas virtuais do Linux no modelo de implementação clássica
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Também pode [configurar conjuntos de disponibilidade](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nas implementações do Resource Manager.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../../resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Também pode [configurar conjuntos de disponibilidade](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) em implementações do Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]

@@ -1,6 +1,6 @@
 ---
-title: Migrar um nome DNS do Active Directory para o App Service do Azure | Microsoft Docs
-description: Saiba como migrar um nome de domínio DNS personalizado já está atribuído a um site em direto para o App Service do Azure sem qualquer período de inatividade.
+title: Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure | Documentos da Microsoft
+description: Saiba como migrar um nome de domínio DNS personalizado já está atribuído a um site em direto para o serviço de aplicações do Azure sem qualquer período de inatividade.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -16,82 +16,82 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27566496"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307301"
 ---
-# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o App Service do Azure
+# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure
 
 Este artigo mostra como migrar um nome DNS do Active Directory para [App Service do Azure](../app-service/app-service-web-overview.md) sem qualquer período de inatividade.
 
-Quando migra um site em direto e o respetivo nome de domínio DNS para o serviço de aplicações, esse nome DNS já está a servir a tráfego em direto. Pode evitar períodos de indisponibilidade na resolução de DNS durante a migração por preventivamente de enlace nome DNS do Active Directory para a sua aplicação de serviço de aplicações.
+Quando migra um site em direto e o respetivo nome de domínio DNS para o serviço de aplicações, esse nome DNS já está a enviar a tráfego em direto. Pode evitar o tempo de inatividade na resolução DNS durante a migração ao vincular o nome DNS do Active Directory para a sua aplicação de serviço de aplicações preventivamente.
 
-Se não estiver preocupados sobre o período de indisponibilidade resolução de DNS, consulte [mapear um nome DNS personalizado existente para Web Apps do Azure](app-service-web-tutorial-custom-domain.md).
+Se não estiver preocupado com tempo de inatividade na resolução DNS, consulte [mapear um nome DNS existente personalizado para aplicações Web do Azure](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este procedimentos:
 
-- [Certifique-se de que a aplicação de serviço de aplicações não está no escalão gratuito](app-service-web-tutorial-custom-domain.md#checkpricing).
+- [Certifique-se de que o seu serviço de aplicações não está no escalão gratuito](app-service-web-tutorial-custom-domain.md#checkpricing).
 
 ## <a name="bind-the-domain-name-preemptively"></a>Vincular o nome de domínio preventivamente
 
-Quando vincular preventivamente um domínio personalizado, realizar ambos os procedimentos seguintes antes de efetuar quaisquer alterações para os registos DNS:
+Quando se associar um domínio personalizado preventivamente, realizar ambos os procedimentos seguintes antes de fazer alterações aos seus registos DNS:
 
 - Verificar a propriedade do domínio
 - Ativar o nome de domínio para a sua aplicação
 
-Quando migra, finalmente, o nome DNS personalizado do site antigo para a aplicação do app Service, não será sem períodos de indisponibilidade na resolução de DNS.
+Quando finalmente migrar seu nome DNS personalizado do site antigo para a aplicação de serviço de aplicações, isso significa que haverá sem períodos de indisponibilidade na resolução de DNS.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-domain-verification-record"></a>Criar registo de verificação de domínio
 
-Para verificar a propriedade de domínio, adicione um registo TXT. O registo TXT mapas de _awverify.&lt; subdomínio >_ para  _&lt;appname >. azurewebsites.net_. 
+Para verificar a propriedade do domínio, adicione um registo TXT. O registo TXT mapeia desde _awverify.&lt; subdomínio >_ para  _&lt;appname >. azurewebsites_. 
 
-O registo TXT que terá depende o registo DNS que pretende migrar. Para obter exemplos, consulte a tabela seguinte (`@` normalmente representa o domínio de raiz):
+O registo TXT que precisa depende o registo DNS que pretende migrar. Para obter exemplos, consulte a tabela seguinte (`@` normalmente representa o domínio de raiz):
 
 | Exemplo de registo DNS | Anfitrião TXT | Valor TXT |
 | - | - | - |
-| @ (root) | _awverify_ | _&lt;appname >. azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;appname >. azurewebsites.net_ |
-| \*(com carateres universais) | _awverify.\*_ | _&lt;appname >. azurewebsites.net_ |
+| @ (root) | _awverify_ | _&lt;appname >. azurewebsites_ |
+| www (sub) | _awverify.www_ | _&lt;appname >. azurewebsites_ |
+| \* (com carateres universais) | _awverify.\*_ | _&lt;appname >. azurewebsites_ |
 
-Na sua página de registos DNS, tenha em atenção o tipo de registo de DNS que pretende migrar. Serviço de aplicações suporta mapeamentos de CNAME e registos.
+Na sua página de registos DNS, tenha em atenção o tipo de registo do nome DNS que pretende migrar. Serviço de aplicações suporta mapeamentos de CNAME e registos.
 
 ### <a name="enable-the-domain-for-your-app"></a>Ativar o domínio para a sua aplicação
 
-No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo da página da aplicação, selecione **domínios personalizados**. 
+Na [portal do Azure](https://portal.azure.com), na navegação da esquerda da página da aplicação, selecione **domínios personalizados**. 
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-No **domínios personalizados** página, selecione o  **+**  ícone junto a **adicionar hostname**.
+Na **domínios personalizados** página, selecione a **+** ícone junto a **Adicionar nome de anfitrião**.
 
-![Adicione o nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Escreva o nome de domínio completamente qualificado que adicionou o registo TXT, tais como `www.contoso.com`. Para um domínio de caráter universal (como \*. contoso.com), pode utilizar qualquer nome DNS que corresponde ao domínio de caráter universal. 
 
-Selecione **validar**.
+Selecione **Validar**.
 
-O **adicionar hostname** botão está ativado. 
+O botão **Adicionar nome de anfitrião** é ativado. 
 
-Certifique-se de que **tipo de registo de nome de anfitrião** está definido para o tipo de registo DNS que pretende migrar.
+Certifique-se de que **tipo de registo de nome de anfitrião** está definido como o tipo de registo DNS que pretende migrar.
 
-Selecione **adicionar hostname**.
+Selecione **Adicionar nome de anfitrião**.
 
-![Adicione o nome DNS para a aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Poderá demorar algum tempo para o novo nome de anfitrião para serem refletidas na aplicação do **domínios personalizados** página. Tente atualizar o browser para atualizar os dados.
+Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na página **Domínios personalizados** da aplicação. Experimente atualizar o browser para atualizar os dados.
 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-O nome DNS personalizado está ativado na sua aplicação do Azure. 
+O nome DNS personalizado está agora ativado na sua aplicação do Azure. 
 
-## <a name="remap-the-active-dns-name"></a>Remapear nome DNS do Active Directory
+## <a name="remap-the-active-dns-name"></a>Remapear o nome DNS do Active Directory
 
-À esquerda coisa apenas para o fazer é remapeamento o registo de DNS Active Directory para apontar para o serviço de aplicações. Direito agora, ainda aponta para o seu site antigo.
+A única falta fazer é o remapeamento o Active Directory registo DNS para apontar para o serviço de aplicações. Direita agora, ele ainda aponta para o seu site antigo.
 
 <a name="info"></a>
 
@@ -99,33 +99,33 @@ O nome DNS personalizado está ativado na sua aplicação do Azure.
 
 Se o remapeamento de um registo CNAME, ignore esta secção. 
 
-Para remapear um registo, terá de endereço IP externo da aplicação do serviço de aplicações, que é apresentado no **domínios personalizados** página.
+Para remapear um registo, terá de endereço IP externo da aplicação de serviço de aplicações, que é mostrado na **domínios personalizados** página.
 
-Fechar o **adicionar hostname** página selecionando **X** no canto superior direito. 
+Fechar o **Adicionar nome de anfitrião** página ao selecionar **X** no canto superior direito. 
 
-No **domínios personalizados** página, copie o endereço IP da aplicação.
+Na página **Domínios personalizados**, copie o endereço IP da aplicação.
 
-![Navegação do portal para aplicações do Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 ### <a name="update-the-dns-record"></a>Atualize o registo DNS
 
-Na página de registos de DNS do seu fornecedor de domínio, selecione o registo DNS para remapear.
+Na página de registos de DNS do seu fornecedor de domínios, selecione o registo DNS para mapear novamente.
 
-Para o `contoso.com` exemplo de domínio de raiz, Remapeie o registo A ou CNAME, como os exemplos a tabela seguinte: 
+Para o `contoso.com` exemplo do domínio de raiz, Remapeie o registo A ou CNAME como nos exemplos na tabela a seguir: 
 
-| Exemplo FQDN | Tipo de registo | Anfitrião | Valor |
+| Exemplo de FQDN | Tipo de registo | Anfitrião | Valor |
 | - | - | - | - |
-| contoso.com (root) | A | `@` | Endereço IP de [copie o endereço IP da aplicação](#info) |
-| www.contoso.com (sub) | CNAME | `www` | _&lt;appname >. azurewebsites.net_ |
-| \*. contoso.com (carateres universais) | CNAME | _\*_ | _&lt;appname >. azurewebsites.net_ |
+| contoso.com (root) | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
+| www.contoso.com (sub) | CNAME | `www` | _&lt;appname >. azurewebsites_ |
+| \*. contoso.com (com carateres universais) | CNAME | _\*_ | _&lt;appname >. azurewebsites_ |
 
 Guarde as suas definições.
 
-Consultas DNS devem começar a resolver à sua aplicação de serviço de aplicações, imediatamente após a propagação de DNS acontece.
+Consultas DNS devem começar a resolver para o seu serviço de aplicações imediatamente após a propagação de DNS acontece.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como vincular um certificado SSL personalizado no App Service.
+Saiba como vincular um certificado SSL personalizado no serviço de aplicações.
 
 > [!div class="nextstepaction"]
-> [Vincular um certificado SSL personalizado existente para Web Apps do Azure](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md) (Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure)

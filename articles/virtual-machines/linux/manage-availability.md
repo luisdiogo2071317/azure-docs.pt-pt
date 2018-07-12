@@ -1,6 +1,6 @@
 ---
-title: Gerir a disponibilidade das VMs com Linux no Azure | Microsoft Docs
-description: Saiba como utilizar várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação do Linux no Azure
+title: Gerir a disponibilidade de VMs do Linux no Azure | Documentos da Microsoft
+description: Saiba como utilizar várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação no Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -17,20 +17,20 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecddbb54137c018c1acc202e4056672eb626f87d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30320990"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531468"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerir a disponibilidade das máquinas virtuais do Linux
 
-Saiba mais formas de configurar e gerir várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação do Linux no Azure. Também pode [gerir a disponibilidade das Windows virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Conheça formas de configurar e gerir várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação no Azure. Também pode [gerir a disponibilidade das máquinas de virtuais do Windows](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para obter instruções sobre como criar um conjunto com a CLI no modelo de implementação Resource Manager de disponibilidade, consulte [availset do azure: comandos para gerir os conjuntos de disponibilidade](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
+Para obter instruções sobre como criar um conjunto de disponibilidade com CLI no modelo de implementação do Resource Manager, consulte [availset do azure: comandos para gerir os seus conjuntos de disponibilidade](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre as máquinas virtuais de balanceamento de carga, consulte o artigo [balanceamento de carga de máquinas de virtuais](../virtual-machines-linux-load-balance.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre as máquinas virtuais de balanceamento de carga, veja [máquinas de virtuais de balanceamento de carga](../virtual-machines-linux-load-balance.md).
 

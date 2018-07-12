@@ -1,8 +1,8 @@
 ---
-title: Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection | Microsoft Docs
-description: Descrição geral de vulnerabilidades detetadas pelo Azure Active Directory Identity Protection.
+title: Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection | Documentos da Microsoft
+description: Descrição geral das vulnerabilidades detetadas pelo Azure Active Directory Identity Protection.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, a cloud discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+keywords: proteção de identidade do Azure Active Directory, da cloud discovery, gerenciamento de aplicativos, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,50 +16,50 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 534384f8e8fde17c2330831b346d87c50ea24183
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 804ee23a8e27eda89861ef820d266f93013d7ffe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084013"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307335"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection
-Vulnerabilidades são fragilidades no seu ambiente que podem ser forem exploradas por um atacante. Recomendamos que resolver estas vulnerabilidades para melhorar a postura de segurança da sua organização e impedir que os atacantes a explorá-los.
+Vulnerabilidades são pontos fracos do seu ambiente que pode ser explorada por um atacante. Recomendamos que resolver estas vulnerabilidades para melhorar a postura de segurança da sua organização e impede que os atacantes explorando-los.
 
 
 ![vulnerabilidades](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilidades")
 
 
 
-As secções seguintes fornecem-lhe uma descrição geral de vulnerabilidades comunicado pelo Identity Protection.
+As secções seguintes fornecem uma visão geral das vulnerabilidades comunicado pelo Identity Protection.
 
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Registo de autenticação multifator não configurado
-Este vulnerabilidade ajuda-o a controlar a implementação de multi-factor Authentication do Azure na sua organização. 
+Essa vulnerabilidade ajuda-o a controlar a implantação do multi-factor Authentication do Azure na sua organização. 
 
-Azure multi-factor authentication fornece uma segunda camada de segurança para autenticação de utilizador. -Ajuda a salvaguardar o acesso a dados e aplicações cumprindo o pedido do utilizador para um processo de início de sessão simple. Fornece autenticação forte através de uma gama de opções de verificação fácil — chamada telefónica, mensagem de texto ou aplicação móvel notificação ou da verificação de código e de terceiros tokens OATH.
+Multi-factor authentication fornece uma segunda camada de segurança para autenticação de utilizador. Ele ajuda a salvaguardar o acesso aos dados e aplicações, satisfazendo um processo de início de sessão simples. Proporciona uma autenticação segura através de um conjunto de opções de verificação simples — telefonema, mensagem de texto ou aplicação móvel de notificação ou verificação de código e de terceiros tokens OATH.
 
-Recomendamos que necessitam de Azure multi-factor Authentication para inícios de sessão do utilizador. Autenticação multifator desempenha uma função de chave nas políticas de acesso condicional baseado em risco disponíveis através da proteção de identidade.
+Recomendamos que exigem o multi-factor Authentication para inícios de sessão do utilizador. Autenticação multifator desempenha um papel fundamental nas políticas de acesso condicional baseado no risco disponíveis através da proteção de identidade.
 
-Para obter mais informações, consulte [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
+Para obter mais informações, consulte [o que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Aplicações cloud não geridas
-Este vulnerabilidade ajuda-o a identificar aplicações na nuvem não geridos na sua organização.
+Essa vulnerabilidade ajuda a identificar as aplicações de cloud não geridas na sua organização.
 
-As empresas modernas, departamentos de TI são frequentemente não tem conhecimento de todas as aplicações em nuvem que os utilizadores na sua organização estiver a utilizar para trabalhar. É fácil ver a razão pela qual os administradores teria preocupações acesso não autorizado a dados empresariais, fugas de dados e outros riscos de segurança. 
+Nas empresas modernas, os departamentos de TI, muitas vezes, estão cientes de todos os aplicativos de nuvem que os utilizadores na sua organização estiver a utilizar para trabalhar. É fácil ver por que os administradores teriam preocupações sobre acesso não autorizado a dados da empresa, a fuga de dados e outros riscos de segurança. 
 
-Recomendamos a implementação da Cloud Discovery para detetar aplicações na nuvem não geridos e para gerir estas aplicações com o Azure Active Directory.
+É recomendável para implementar a Cloud Discovery para detetar aplicações na cloud não geridas e para gerir estas aplicações com o Azure Active Directory.
 
 Para obter mais informações, consulte [da Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de Segurança do Privileged Identity Management
-Este vulnerabilidade ajuda a detetar e resolver alertas sobre as identidades privilegiadas na sua organização.  
+Essa vulnerabilidade ajuda-o a detetar e resolver alertas sobre identidades privilegiadas da sua organização.  
 
-Para permitir aos utilizadores realizar operações privilegiadas, as organizações precisam de conceder acesso privilegiado utilizadores permanentes ou temporárias no Azure AD, os recursos do Azure ou do Office 365 ou outras aplicações SaaS. Cada um destes utilizadores privilegiados aumenta a superfície de ataque da sua organização. Esta vulnerabilidade ajuda a identificar os utilizadores com acesso privilegiado desnecessário e tome as medidas necessárias para reduzir ou eliminar o risco que apresentam. 
+Para permitir que os utilizadores realizar operações privilegiadas, as organizações precisam conceder o acesso privilegiado utilizadores temporária ou permanente no Azure AD, os recursos do Azure ou do Office 365 ou outras aplicações SaaS. Cada um destes utilizadores com privilégios aumenta a superfície de ataque da sua organização. Essa vulnerabilidade ajuda-o a identificar os utilizadores com acesso privilegiado desnecessário e tomar as medidas adequadas para reduzir ou eliminar o risco de que eles representam. 
 
-Recomendamos que a organização utilizar o Azure AD Privileged Identity Management para gerir, controlar e monitorizar privilegiado identidades e o respetivo acesso a recursos no Azure AD, bem como outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Recomendamos que a sua organização utiliza o Azure AD Privileged Identity Management para gerir, controlar e monitorizar privilegiado identidades e o respetivo acesso a recursos no Azure AD, bem como outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
 
-Para obter mais informações, consulte [do Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+Para obter mais informações, consulte [do Azure AD Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 ## <a name="see-also"></a>Consulte também
-* [Proteção de identidade do Azure Active Directory](active-directory-identityprotection.md)
+* [O Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

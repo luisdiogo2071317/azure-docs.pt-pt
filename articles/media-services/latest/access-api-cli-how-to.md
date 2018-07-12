@@ -1,6 +1,6 @@
 ---
-title: Aceder a API de serviços de multimédia do Azure - CLI 2.0 | Microsoft Docs
-description: Siga os passos para este procedimentos para aceder à API de serviços de suporte de dados do Azure.
+title: Aceder à API de serviços de multimédia do Azure - CLI do Azure | Documentos da Microsoft
+description: Siga os passos nesta explicação de procedimento para acessar a API de serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,23 +12,23 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639780"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724030"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>Acesso Media Services do Azure API com a CLI 2.0
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Serviços de multimédia do Azure de acesso à API com a CLI do Azure
  
-Deve utilizar a autenticação principal de serviço do Azure AD para ligar à API de serviços de suporte de dados do Azure. A aplicação tem de pedir um token do Azure AD que tenha os seguintes parâmetros:
+Deve usar a autenticação do principal de serviço do Azure AD para ligar à API de serviços de multimédia do Azure. Seu aplicativo precisa para pedir um token do Azure AD que tenha os seguintes parâmetros:
 
 * Ponto final de inquilino do Azure AD
-* URI do recurso dos Media Services
-* URI para serviços de suporte de dados REST do recurso
-* Os valores de aplicação do Azure AD: o ID de cliente e o segredo do cliente
+* URI do recurso de serviços de multimédia
+* URI para serviços de multimédia REST do recurso
+* Valores de aplicações do Azure AD: o ID de cliente e o segredo de cliente
 
-Este artigo mostra como utilizar a CLI 2.0 para criar uma aplicação do Azure AD e o serviço principal e obter os valores que são necessárias para aceder a recursos de Media Services do Azure.
+Este artigo mostra-lhe como utilizar a CLI do Azure para criar uma aplicação do Azure AD e o serviço principal e obter os valores que são necessárias para aceder aos recursos de serviços de multimédia do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -40,7 +40,7 @@ Inicie sessão no [portal do Azure](http://portal.azure.com) e inicie o **CloudS
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="see-also"></a>Consulte também
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

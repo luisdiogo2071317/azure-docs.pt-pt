@@ -1,6 +1,6 @@
 ---
-title: Atualização de firmware do dispositivo com o Azure IoT Hub (.NET/.NET) | Microsoft Docs
-description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar uma aplicação de dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que aciona a atualização de firmware.
+title: Atualização de firmware do dispositivo com o Azure IoT Hub (.NET/.NET) | Documentos da Microsoft
+description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o Azure IoT device SDK para .NET para implementar uma aplicação de dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que aciona a atualização de firmware.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -9,51 +9,51 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1bf7a647ab2fdc175231133b0cfd8abdd51b6d43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736760"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723932"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Utilize a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (.NET/.NET)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Utilizar a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introdução
-No [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, vimos como utilizar o [dispositivo duplo] [ lnk-devtwin] e [direcionar métodos] [ lnk-c2dmethod] primitivos reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmos primitivos do IoT Hub e mostra como efetuar uma atualização de firmware simulada ponto-a-ponto.  Este padrão é utilizado na implementação de atualização de firmware para o [exemplo de implementação do dispositivo Raspberry Pi][lnk-rpi-implementation].
+Na [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, viu como usar o [dispositivo duplo] [ lnk-devtwin] e [métodos diretos ] [ lnk-c2dmethod] primitivos para reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmo primitivos de IoT Hub e mostra-lhe como fazer uma atualização de firmware simulada do ponto-a-ponto.  Esse padrão é usado na implementação de atualização de firmware para o [exemplo de implementação do dispositivo Raspberry Pi][lnk-rpi-implementation].
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Criar uma aplicação de consola .NET que chama o **firmwareUpdate** método direto na aplicação do dispositivo simulado através do seu IoT hub.
-* Criar uma aplicação de dispositivo simulado que implementa um **firmwareUpdate** método direto. Este método inicia um processo de fase multi que aguarda para transferir a imagem de firmware, transfere a imagem de firmware e, finalmente, aplica-se a imagem do firmware. Durante cada fase da atualização, o dispositivo utiliza as propriedades que relatados para elaborar relatórios sobre o progresso.
+* Criar uma aplicação de consola .NET que chama o **firmwareUpdate** método direto na aplicação do dispositivo simulado através do IoT hub.
+* Criar uma aplicação de dispositivo simulado que implementa uma **firmwareUpdate** método direto. Este método inicia um processo de vários estágio que aguarda a transferência da imagem de firmware, transfere a imagem de firmware e, finalmente, aplica-se a imagem de firmware. Durante cada fase da atualização, o dispositivo utiliza as propriedades comunicadas para comunicar o progresso.
 
-No final deste tutorial, terá de uma aplicação de consola .NET (c#) do dispositivo e uma aplicação de back-end do .NET (c#) consola:
+No final deste tutorial, terá de uma aplicação de dispositivo de consola .NET (c#) e uma aplicação de back-end de consola .NET (c#):
 
-* **SimulatedDeviceFwUpdate**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe o **firmwareUpdate** direcionar o método, é executada através de um processo com múltiplos estado para simular uma atualização de firmware incluindo: a aguardar que a transferência da imagem, transferir a nova imagem e, finalmente, aplicar a imagem.
+* **SimulatedDeviceFwUpdate**, que liga ao seu hub IoT com a identidade de dispositivo que criou anteriormente, recebe o **firmwareUpdate** método, é executada através de um processo com múltiplos estado para simular uma atualização de firmware direto incluindo: a aguardar que o download da imagem, transferir a nova imagem e, finalmente, a aplicação da imagem.
 
-* **TriggerFWUpdate**, que utiliza o SDK do serviço para invocar remotamente o **firmwareUpdate** direta método no dispositivo simulado, mostra a resposta e periodicamente (cada 500ms) apresenta a atualização comunicado Propriedades.
+* **TriggerFWUpdate**, que usa o SDK do serviço para invocar remotamente o **firmwareUpdate** direto método no dispositivo simulado, exibe a resposta, e periodicamente (cada 500 MS) apresenta a atualização comunicado Propriedades.
 
 Para concluir este tutorial, precisa do seguinte:
 
 * Visual Studio 2015 ou Visual Studio 2017.
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Siga o [introdução à gestão de dispositivos](iot-hub-csharp-csharp-device-management-get-started.md) artigo para criar o hub IoT e obter a cadeia de ligação do IoT Hub.
+Siga os [introdução à gestão de dispositivos](iot-hub-csharp-csharp-device-management-get-started.md) artigo para criar o hub IoT e obter a cadeia de ligação do IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Acionar uma atualização de firmware remota no dispositivo com um método direto
-Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia uma atualização de firmware remota num dispositivo. A aplicação utiliza um método direto para iniciar a atualização e utiliza consultas de duplo de dispositivo para obter periodicamente o estado da atualização de firmware do Active Directory.
+Nesta secção, vai criar uma aplicação de consola do .NET (usando a linguagem c#) inicia uma atualização de firmware remoto num dispositivo. A aplicação utiliza um método direto para iniciar a atualização e utiliza consultas de gémeos de dispositivo para obter periodicamente o estado da atualização de firmware do Active Directory.
 
 1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows à atual solução, utilizando o modelo de projeto **Aplicação de Consola**. Nomeie o projeto **TriggerFWUpdate**.
 
     ![Novo projeto do Visual C# no Ambiente de Trabalho Clássico do Windows][img-createserviceapp]
 
-2. No Explorador de soluções, clique com botão direito do **TriggerFWUpdate** projeto e, em seguida, clique em **gerir pacotes NuGet**.
+2. No Solution Explorer, clique com botão direito a **TriggerFWUpdate** projeto e, em seguida, clique em **gerir pacotes NuGet**.
 3. Na janela **Gestor de Pacote NuGet**, selecione **Procurar**, pesquise **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de utilização. Este procedimento transfere, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço do Azure IoT][lnk-nuget-service-sdk] e às respetivas dependências.
 
     ![Janela Gestor de Pacote NuGet][img-servicenuget]
@@ -73,7 +73,7 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. Adicione o seguinte método à classe **Programa**. Este método consulta o dispositivo duplo para o estado atualizado a cada 500 milissegundos. Escreve na consola apenas quando o estado, na verdade, foi alterada. Para este exemplo, para impedir a consumir mensagens de IoT Hub adicionais na sua subscrição, consulta interrompe quando o dispositivo comunica um Estado de **applyComplete** ou um erro.  
+6. Adicione o seguinte método à classe **Programa**. Este método de consulta o dispositivo duplo para o estado atualizado a cada 500 milissegundos. Escreve para a consola apenas quando o estado, na verdade, foi alterado. Para este exemplo, para evitar consumir mensagens do IoT Hub Extras na sua subscrição, a consulta paradas, quando o dispositivo comunica um Estado de **applyComplete** ou um erro.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)
@@ -120,7 +120,7 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
     }
     ```
 
-8. Por fim, adicione as seguintes linhas à **Main** método. Esta ação cria um registo gestor para ler o dispositivo duplo com inicia a tarefa consulta um thread de trabalho e, em seguida, aciona a atualização de firmware.
+8. Por fim, adicione as seguintes linhas para o **Main** método. Isto cria um registo manager para ler o dispositivo duplo com inicia a tarefa de consulta num thread de trabalho e, em seguida, aciona a atualização de firmware.
    
     ```csharp   
     registryManager = RegistryManager.CreateFromConnectionString(connString);
@@ -137,16 +137,16 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
 ## <a name="create-a-simulated-device-app"></a>Criar uma aplicação de dispositivo simulada
 Nesta secção, pode:
 
-* Criar uma aplicação de consola do .NET que responde a um método direto chamado pela nuvem
+* Criar uma aplicação de consola .NET que responde a um método direto chamado pela cloud
 * Simular uma atualização de firmware acionada por um serviço de back-end através de um método direto
 * Utilize as propriedades comunicadas para ativar as consultas de dispositivo duplo, de forma a identificar os dispositivos e quando concluírem uma atualização de firmware pela última vez
 
 1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows à atual solução, utilizando o modelo de projeto **Aplicação de Consola**. Nomeie o projeto **SimulateDeviceFWUpdate**.
    
-    ![Nova aplicação de dispositivo Visual c# clássico do Windows][img-createdeviceapp]
+    ![Nova aplicação de dispositivo Visual c# Windows clássico][img-createdeviceapp]
     
-2. No Explorador de soluções, clique com botão direito do **SimulateDeviceFWUpdate** projeto e, em seguida, clique em **gerir pacotes NuGet**.
-3. No **Gestor de pacotes NuGet** janela, selecione **procurar** e procure **microsoft.azure.devices.client**. Selecione **instalar** para instalar o **Microsoft.Azure.Devices.Client** do pacote e aceite os termos de utilização. Este procedimento transfere, instala e adiciona uma referência para o [dispositivos IoT do Azure SDK] [ lnk-nuget-client-sdk] NuGet pacote e as respetivas dependências.
+2. No Solution Explorer, clique com botão direito a **SimulateDeviceFWUpdate** projeto e, em seguida, clique em **gerir pacotes NuGet**.
+3. Na **Gestor de pacotes NuGet** janela, selecione **procurar** e procure **microsoft.azure.devices.client**. Selecione **instale** para instalar o **Microsoft.Azure.Devices.Client** empacotamento e a aceitar os termos de utilização. Este procedimento transfere, instala e adiciona uma referência para o [do Azure IoT device SDK] [ lnk-nuget-client-sdk] NuGet pacote e suas dependências.
    
     ![Aplicação de cliente de janela do Gestor de pacotes NuGet][img-clientnuget]
 4. Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
@@ -157,14 +157,14 @@ Nesta secção, pode:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-5. Adicione os seguintes campos à classe **Programa**. Substitua o valor do marcador de posição pela cadeia de ligação de dispositivo que anotou no **criar uma identidade de dispositivo** secção.
+5. Adicione os seguintes campos à classe **Programa**. Substitua o valor de marcador de posição pela cadeia de ligação de dispositivo que anotou no **criar uma identidade de dispositivo** secção.
    
     ```csharp   
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
     static DeviceClient Client = null;
     ```
 
-6. Adicione o seguinte método para comunicar o estado anterior para a nuvem através do dispositivo duplo: 
+6. Adicione o seguinte método para comunicar o estado volta para a cloud através do dispositivo duplo: 
 
     ```csharp   
     static async Task reportFwUpdateThroughTwin(Twin twin, TwinCollection fwUpdateValue)
@@ -204,7 +204,7 @@ Nesta secção, pode:
     }
     ```
 
-8. Adicione o seguinte método para simular a aplicar a imagem do firmware para o dispositivo:
+8. Adicione o seguinte método para simular a aplicar a imagem de firmware para o dispositivo:
         
     ```csharp   
     static async Task simulateApplyImage(byte[] imageData)
@@ -219,7 +219,7 @@ Nesta secção, pode:
     }
     ```
  
-9.  Adicione o seguinte método para simular a aguardar para transferir a imagem do firmware. Atualizar o estado para **a aguardar** e desmarque outras propriedades de atualização de firmware no duplo. Estas propriedades estão desmarcadas para remover quaisquer valores existentes de atualizações de firmware anterior. Isto é necessário porque comunicadas propriedades são enviadas como uma operação de PATCH (um delta) e não uma operação PUT (um conjunto completo de propriedades que substitui todos os valores anteriores). Normalmente, os dispositivos são informados sobre uma atualização disponível e um administrador define as causas de política para o dispositivo começar a transferir e aplicar a atualização. Esta função é onde deve ser executada a lógica para ativar essa política. 
+9.  Adicione o seguinte método para simular a aguardar para transferir a imagem de firmware. Atualizar estado para **aguardando** e desmarque as outras propriedades de atualização de firmware no duplo. Estas propriedades estão desmarcadas para remover quaisquer valores existentes de atualizações de firmware anterior. Isso é necessário porque as propriedades comunicadas são enviadas como uma operação de correção (delta) e não uma operação PUT (um conjunto completo de propriedades que substitui todos os valores anteriores). Normalmente, os dispositivos são informados sobre uma atualização disponível e um administrador define as causas de política para o dispositivo começar a transferir e aplicar a atualização. Esta função é onde deve ser executada a lógica para ativar essa política. 
         
     ```csharp   
     static async Task waitToDownload(Twin twin, string fwUpdateUri)
@@ -240,7 +240,7 @@ Nesta secção, pode:
     }
     ```
 
-10. Adicione o seguinte método para efetuar a transferência. Atualiza o estado **transferir** através do dispositivo duplo, chama o método de transferência simular e comunica um Estado de **downloadComplete** ou **downloadFailed** através de duplo consoante os resultados da operação de transferência. 
+10. Adicione o seguinte método para efetuar a transferência. Ele atualiza o estado **baixar** através do dispositivo duplo, chama o método de transferência de simular e comunica um Estado de **downloadComplete** ou **downloadFailed** por meio do duplo consoante os resultados da operação de transferência. 
         
     ```csharp   
     static async Task<byte[]> downloadImage(Twin twin, string fwUpdateUri)
@@ -272,7 +272,7 @@ Nesta secção, pode:
     }
     ```
 
-11. Adicione o seguinte método para aplicar a imagem. Atualiza o estado **aplicar** através do dispositivo duplo, chamadas de simular aplicar imagem de método e o estado das atualizações para **applyComplete** ou **applyFailed** através do duplo consoante os resultados da operação aplicar. 
+11. Adicione o seguinte método para aplicar a imagem. Ele atualiza o estado para **aplicar** por meio do dispositivo duplo, chamadas a simular aplicar imagem método e o estado das atualizações para **applyComplete** ou **applyFailed** através do duplo consoante os resultados da operação de aplicação. 
         
     ```csharp   
     static async Task applyImage(Twin twin, byte[] imageData)
@@ -304,7 +304,7 @@ Nesta secção, pode:
     }
     ```
 
-12. Adicione o seguinte método para sequenciar a operação de atualização de firmware de espera para transferir a imagem através de aplicar a imagem para o dispositivo:
+12. Adicione o seguinte método para sequenciar a operação de atualização de firmware de aguardar o processamento para transferir a imagem por meio de aplicar a imagem no dispositivo:
         
     ```csharp   
     static async Task doUpdate(string fwUpdateUrl)
@@ -324,7 +324,7 @@ Nesta secção, pode:
     }
     ```
 
-13. Adicione o seguinte método para processar o **updateFirmware** direcionar o método da nuvem. Extrai o URL para a atualização de firmware de payload da mensagem e passa-o para o **doUpdate** tarefa, que começa no outro thread threadpool. Em seguida, imediatamente devolve a resposta de método para a nuvem.
+13. Adicione o seguinte método para lidar com o **updateFirmware** direcionar o método a partir da cloud. Extrai o URL para a atualização de firmware do payload de mensagem e transmite-o para o **doUpdate** tarefa, que começa em outro thread do threadpool. Ele, em seguida, devolve imediatamente a resposta do método para a cloud.
         
     ```csharp   
     static Task<MethodResponse> onFirmwareUpdate(MethodRequest methodRequest, object userContext)
@@ -339,11 +339,11 @@ Nesta secção, pode:
     }
     ```
 > [!NOTE]
-> Este método aciona a atualização simulada para ser executado como um **tarefas** e responde imediatamente para a chamada de método informar o serviço que a atualização de firmware foi iniciada. Estado da atualização e de conclusão serão enviadas para o serviço através de comunicado propriedades do dispositivo duplo. Iremos responder para a chamada de método quando iniciar a atualização, em vez após a respetiva conclusão, porque:
+> Este método aciona a atualização simulada para ser executado como um **tarefa** e, em seguida, responde de imediato para a chamada de método, informando o serviço que foi iniciada a atualização de firmware. Estado da atualização e de conclusão serão enviados para o serviço através das propriedades comunicadas do dispositivo duplo. Vamos responder para a chamada de método ao iniciar a atualização, em vez de depois da conclusão, porque:
 > * Um processo de atualização real é muito provável que demorar mais do que o tempo limite de chamada de método.
-> * Um processo de atualização real é muito provável que requerem um reinício, o qual seria reinicialização a efetuar esta aplicação a **MethodRequest** objeto indisponível. (Atualizar propriedades comunicadas, no entanto, é possível, mesmo após um reinício.) 
+> * Um processo de atualização real é muito provável que requerem um reinício, o que teria de reiniciar esta criação de aplicações do **MethodRequest** objeto indisponível. (Atualizar propriedades comunicadas, no entanto, é possível, mesmo após uma reinicialização.) 
 
-14. Por fim, adicione o seguinte código para o **Main** método para abrir a ligação ao seu IoT hub e inicializar o serviço de escuta do método:
+14. Por fim, adicione o seguinte código para o **Main** método para abrir a ligação ao seu hub IoT e inicializar o serviço de escuta do método:
    
     ```csharp   
     try
@@ -377,17 +377,17 @@ Nesta secção, pode:
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 Já está pronto para executar as aplicações.
-1. Executar a aplicação de dispositivo .NET **SimulatedDeviceFWUpdate**.  Clique com botão direito do **SimulatedDeviceFWUpdate** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deve começar a escutar para chamadas de método do seu IoT Hub: 
+1. Executar a aplicação de dispositivo do .NET **SimulatedDeviceFWUpdate**.  Com o botão direito a **SimulatedDeviceFWUpdate** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deve começar a ouvir as chamadas de método do seu IoT Hub: 
 
-2. Depois do dispositivo está ligado e a aguardar para invocações de método, execute o .NET **TriggerFWUpdate** aplicação ao invocar o método de atualização de firmware na aplicação do dispositivo simulado. Clique com botão direito do **TriggerFWUpdate** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deverá ver atualizar sequência escrita no **SimulatedDeviceFWUpdate** consola e também a sequência comunicadas através as propriedades do dispositivo no comunicado o **TriggerFWUpdate** consola. Tenha em atenção que o processo demora vários segundos a concluir. 
+2. Depois do dispositivo está ligado e à espera de invocações de método, executar o .NET **TriggerFWUpdate** aplicação para invocar o método de atualização de firmware no aplicativo do dispositivo simulado. Com o botão direito a **TriggerFWUpdate** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deverá ver atualizar a sequência de escritas no **SimulatedDeviceFWUpdate** consola e também a sequência de comunicadas através das propriedades comunicadas do dispositivo na **TriggerFWUpdate** consola. Tenha em atenção que o processo demora vários segundos a concluir. 
    
-    ![Aplicação de serviço e dispositivo executar][img-combinedrun]
+    ![Executar a aplicação de serviço e dispositivo][img-combinedrun]
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, é utilizado um método direto para acionar uma atualização de firmware remota num dispositivo e utilizado as propriedades que relatados para seguir o progresso da atualização de firmware.
+Neste tutorial, utilizou um método direto para acionar uma atualização de firmware remoto num dispositivo e utilizadas as propriedades reportadas para seguir o progresso da atualização de firmware.
 
-Para saber como expandir o seu IoT chama o método de solução e agenda em vários dispositivos, consulte o [agenda e as tarefas de difusão] [ lnk-tutorial-jobs] tutorial.
+Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja a [agendar e transmitir tarefas] [ lnk-tutorial-jobs] tutorial.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-firmware-update/servicesdknuget.png
@@ -399,7 +399,7 @@ Para saber como expandir o seu IoT chama o método de solução e agenda em vár
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -1,12 +1,12 @@
 ---
-title: Ligar um dispositivo com o Node.js | Microsoft Docs
-description: "Descreve como ligar um dispositivo à solução de monitorização remota do Azure IoT Suite pré-configurada utilizando uma aplicação de escrita no Node.js."
-services: 
+title: Ligar um dispositivo com node. js | Documentos da Microsoft
+description: Descreve como ligar um dispositivo à solução de monitorização remota do Azure IoT Suite pré-configurada através de uma aplicação escrita em node. js.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,19 +16,20 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 87a2e97638508eef1d90a219cfb38d1fcac81d55
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723883"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Ligar o seu dispositivo à solução pré-configurada monitorização remota (Node.js)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Ligar o dispositivo à solução pré-configurada monitorização remota (node. js)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
 
-## <a name="create-a-nodejs-sample-solution"></a>Criar uma solução de exemplo de node.js
+## <a name="create-a-nodejs-sample-solution"></a>Criar uma solução de exemplo de node. js
 
-Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no computador de desenvolvimento. Pode executar `node --version` na linha de comandos para verificar a versão.
+Certifique-se de que a versão node. js 0.11.5 ou posterior está instalado no computador de desenvolvimento. Pode executar `node --version` na linha de comandos para verificar a versão.
 
-1. Crie uma pasta denominada **RemoteMonitoring** no computador de desenvolvimento. Navegue para esta pasta no seu ambiente de linha de comandos.
+1. Criar uma pasta denominada **RemoteMonitoring** no computador de desenvolvimento. Navegue para esta pasta no seu ambiente de linha de comandos.
 
 1. Execute os seguintes comandos para transferir e instalar os pacotes que precisa para concluir a aplicação de exemplo:
 
@@ -37,9 +38,9 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. No **RemoteMonitoring** pasta, crie um ficheiro chamado **remote_monitoring.js**. Abra este ficheiro num editor de texto.
+1. Na **RemoteMonitoring** pasta, crie um ficheiro chamado **remote_monitoring.js**. Abra este ficheiro num editor de texto.
 
-1. No **remote_monitoring.js** ficheiro, adicione o seguinte `require` instruções:
+1. Na **remote_monitoring.js** do ficheiro, adicione o seguinte `require` instruções:
 
     ```nodejs
     'use strict';
@@ -57,7 +58,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Adicione as seguintes variáveis para definir alguns dados de telemetria base:
+1. Adicione as seguintes variáveis para definir alguns dados de telemetria de base:
 
     ```nodejs
     var temperature = 50;
@@ -75,7 +76,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     }
     ```
 
-1. Adicione a seguinte função de programa auxiliar para utilizar a utilize uma ordem aleatória os valores de telemetria:
+1. Adicione a seguinte função de programa auxiliar para utilizar para tornar os valores de telemetria:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -83,7 +84,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     }
     ```
 
-1. Adicione a seguinte definição para o **DeviceInfo** o dispositivo envia durante o arranque de objeto:
+1. Adicione a seguinte definição para o **DeviceInfo** o dispositivo envia na inicialização de objeto:
 
     ```nodejs
     var deviceMetaData = {
@@ -97,7 +98,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     };
     ```
 
-1. Adicione a seguinte definição para o dispositivo duplo comunicadas valores. Esta definição inclui descrições dos métodos diretas que o dispositivo suporta:
+1. Adicione a seguinte definição para o dispositivo duplo reportados valores. Esta definição inclui descrições dos métodos diretos, que o dispositivo suporta:
 
     ```nodejs
     var reportedProperties = {
@@ -132,7 +133,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     }
     ```
 
-1. Adicione a seguinte função para processar o **reiniciar** direcionar a chamada de método:
+1. Adicione a seguinte função para processar a **reiniciar** direcionar a chamada de método:
 
     ```nodejs
     function onReboot(request, response) {
@@ -150,7 +151,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
     }
     ```
 
-1. Adicione a seguinte função para processar o **InitiateFirmwareUpdate** direcionar a chamada de método. Este método direto utiliza um parâmetro para especificar a localização da imagem do firmware para transferir e inicia o firmware da atualização do dispositivo no modo assíncrono:
+1. Adicione a seguinte função para processar a **InitiateFirmwareUpdate** direcionar a chamada de método. Este método utiliza um parâmetro para especificar a localização da imagem do firmware para transferir e inicia o atualização de firmware do dispositivo assincronamente:
 
     ```nodejs
     function onInitiateFirmwareUpdate(request, response) {
@@ -178,10 +179,10 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
 1. Adicione o seguinte código para:
 
     * Abra a ligação.
-    * Enviar o **DeviceInfo** objeto.
-    * Configure um processador para propriedades pretendidos.
-    * Envie comunicadas propriedades.
-    * Registe processadores para os métodos diretos.
+    * Enviar a **DeviceInfo** objeto.
+    * Configure um manipulador para as propriedades pretendidas.
+    * Envie propriedades comunicadas.
+    * Registe manipuladores para os métodos diretos.
     * Começar a enviar telemetria.
 
     ```nodejs
@@ -244,7 +245,7 @@ Certifique-se de que a versão Node.js 0.11.5 ou posterior está instalado no co
 
 1. Guardar as alterações para o **remote_monitoring.js** ficheiro.
 
-1. Execute o seguinte comando numa linha de comandos para iniciar a aplicação de exemplo:
+1. Execute o seguinte comando no prompt de comando para iniciar o aplicativo de exemplo:
    
     ```
     node remote_monitoring.js

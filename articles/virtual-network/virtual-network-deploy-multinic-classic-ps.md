@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM (clássica) com vários NICs - Azure PowerShell | Microsoft Docs
-description: Saiba como criar uma VM (clássica) com vários NICs com o PowerShell.
+title: Criar uma VM (clássico) com vários NICs - Azure PowerShell | Documentos da Microsoft
+description: Saiba como criar uma VM (clássico) com vários NICs com o PowerShell.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -17,42 +17,42 @@ ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34658779"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477663"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Criar uma VM (clássica) com vários NICs com o PowerShell
+# <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Criar uma VM (clássico) com vários NICs com o PowerShell
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-Pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma das suas VMs. Vários NICs ativar a separação de tipos de tráfego em NICs. Por exemplo, um NIC poderá comunicar com a Internet, enquanto outro comunica apenas com recursos internos, não ligados à Internet. A capacidade de separar o tráfego de rede em vários NICs é necessária para muitas virtual os dispositivos de rede, tais como a entrega de aplicações e soluções de otimização de WAN.
+Pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma das suas VMs. Várias NICs ative a separação de tipos de tráfego entre NICs. Por exemplo, uma NIC poderá comunicar com a Internet, enquanto outro comunica apenas com recursos internos não ligados à Internet. A capacidade de separar o tráfego de rede em vários NICs é necessária para muitas aplicações virtuais de rede, tais como entrega de aplicativos e soluções de otimização de WAN.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como efetuar estes passos, utilizando o [modelo de implementação do Resource Manager](../virtual-machines/windows/multiple-nics.md).
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Saiba como executar estes passos com o [modelo de implementação do Resource Manager](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Os seguintes passos utilizam um grupo de recursos denominado *IaaSStory* para os servidores WEB e um grupo de recursos denominado *IaaSStory-back-end* para os servidores de base de dados.
+Os passos seguintes utilizam um grupo de recursos chamado *IaaSStory* para os servidores WEB e um grupo de recursos com o nome *IaaSStory-back-end* para os servidores DB.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder criar os servidores de base de dados, terá de criar o *IaaSStory* grupo de recursos com todos os recursos necessários para este cenário. Para criar estes recursos, conclua os passos que se seguem. Criar uma rede virtual, seguindo os passos a [criar uma rede virtual](virtual-networks-create-vnet-classic-netcfg-ps.md) artigo.
+Antes de poder criar os servidores DB, tem de criar o *IaaSStory* grupo de recursos com todos os recursos necessários para este cenário. Para criar esses recursos, conclua os passos que se seguem. Criar uma rede virtual ao seguir os passos a [criar uma rede virtual](virtual-networks-create-vnet-classic-netcfg-ps.md) artigo.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-back-end-vms"></a>Criar as VMs do back-end
-As VMs do back-end dependem a criação dos recursos seguintes:
+## <a name="create-the-back-end-vms"></a>Criar as VMs de back-end
+As VMs de back-end dependem a criação dos seguintes recursos:
 
-* **Sub-rede de back-end**. Os servidores de base de dados irão fazer parte de uma sub-rede separada, para segregar o tráfego. O script abaixo espera esta sub-rede existir numa vnet com o nome *WTestVnet*.
-* **Conta de armazenamento para discos de dados**. Para um melhor desempenho, os discos de dados nos servidores de base de dados utilizará a tecnologia de unidade (SSD) de estado sólido, que requer uma conta de armazenamento premium. Certifique-se a localização do Azure, pode implementa para suportar o armazenamento premium.
-* **Conjunto de disponibilidade**. Todos os servidores de base de dados serão adicionados a uma único disponibilidade definido, para garantir a pelo menos uma das VMs está ativo e em execução durante a manutenção.
+* **A sub-rede de back-end**. Os servidores de base de dados irão fazer parte de uma sub-rede separada, segregar o tráfego. Esta sub-rede existir numa vnet com o nome de espera que o script abaixo *WTestVnet*.
+* **Conta de armazenamento para discos de dados**. Para um melhor desempenho, os discos de dados nos servidores de base de dados irão utilizar a tecnologia de unidade (SSD) de estado sólido, que requer uma conta de armazenamento premium. Certifique-se a localização do Azure que implementa para suportar o armazenamento premium.
+* **Conjunto de disponibilidade**. Todos os servidores de base de dados serão adicionados a uma única conjunto de disponibilidade, para garantir, pelo menos, uma das VMs está ativo e em execução durante a manutenção.
 
-### <a name="step-1---start-your-script"></a>Passo 1 – iniciar o script
-Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Siga os passos abaixo para alterar o script para funcionar no seu ambiente.
+### <a name="step-1---start-your-script"></a>Passo 1: iniciar o seu script
+Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Siga os passos abaixo para alterar o script funcione no seu ambiente.
 
-1. Alterar os valores das variáveis abaixo com base no seu grupo de recursos existente implementado acima no [pré-requisitos](#Prerequisites).
+1. Alterar os valores das variáveis abaixo com base no seu grupo de recursos existentes implementado acima na [pré-requisitos](#Prerequisites).
 
     ```powershell
     $location              = "West US"
@@ -60,7 +60,7 @@ Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.git
     $backendSubnetName     = "BackEnd"
     ```
 
-2. Altere os valores das variáveis abaixo com base nos valores que pretende utilizar para a implementação de back-end.
+2. Altere os valores das variáveis abaixo com base nos valores que pretende utilizar para a sua implementação de back-end.
 
     ```powershell
     $backendCSName         = "IaaSStory-Backend"
@@ -75,9 +75,9 @@ Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.git
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Passo 2 – criar recursos necessários para as suas VMs
-Terá de criar um novo serviço de nuvem e de uma conta de armazenamento para os discos de dados para todas as VMs. Também tem de especificar uma imagem e uma conta de administrador local para as VMs. Para criar estes recursos, execute os seguintes passos:
+Tem de criar um novo serviço cloud e uma conta de armazenamento para os discos de dados para todas as VMs. Também tem de especificar uma imagem e uma conta de administrador local para as VMs. Para criar esses recursos, conclua os seguintes passos:
 
-1. Crie um novo serviço de nuvem.
+1. Crie um novo serviço cloud.
 
     ```powershell
     New-AzureService -ServiceName $backendCSName -Location $location
@@ -89,7 +89,7 @@ Terá de criar um novo serviço de nuvem e de uma conta de armazenamento para os
     New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
     -Location $location -Type Premium_LRS
     ```
-3. Defina a conta de armazenamento criada acima, como a conta de armazenamento atual da sua subscrição.
+3. Defina a conta de armazenamento criada acima, como a conta de armazenamento atual para a sua subscrição.
 
     ```powershell
     $subscription = Get-AzureSubscription | where {$_.IsCurrent -eq $true}  
@@ -97,7 +97,7 @@ Terá de criar um novo serviço de nuvem e de uma conta de armazenamento para os
     -CurrentStorageAccountName $prmStorageAccountName
     ```
 
-4. Selecione uma imagem para a VM.
+4. Selecione uma imagem da VM.
 
     ```powershell
     $image = Get-AzureVMImage `
@@ -112,16 +112,16 @@ Terá de criar um novo serviço de nuvem e de uma conta de armazenamento para os
     $cred = Get-Credential -Message "Enter username and password for local admin account"
     ```
 
-### <a name="step-3---create-vms"></a>Passo 3 – criar VMs
-Tem de utilizar um ciclo para criar VMs tantos à medida que pretende e criar o NICs e VMs necessário dentro do ciclo. Para criar o NICs e VMs, execute os seguintes passos.
+### <a name="step-3---create-vms"></a>Passo 3 - criar VMs
+Precisa usar um loop para criar VMs quantos quiser, e criar as VMs e NICs necessários dentro do loop. Para criar as VMs e NICs, execute os seguintes passos.
 
-1. Iniciar um `for` cíclicas repetir os comandos para criar uma VM e dois NICs como tantas vezes quantas as necessárias, com base no valor da `$numberOfVMs` variável.
+1. Iniciar uma `for` loop repetir os comandos para criar uma VM e dois NICs, muitas vezes, se necessário, com base no valor da `$numberOfVMs` variável.
 
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
     ```
 
-2. Criar um `VMConfig` objeto Especifica a imagem, tamanho e conjunto de disponibilidade para a VM.
+2. Criar um `VMConfig` objeto Especifica a imagem, o tamanho e o conjunto de disponibilidade para a VM.
 
     ```powershell
     $vmName = $vmNamePrefix + $suffixNumber
@@ -131,7 +131,7 @@ Tem de utilizar um ciclo para criar VMs tantos à medida que pretende e criar o 
         -AvailabilitySetName $avSetName
     ```
 
-3. Aprovisione a VM como uma VM do Windows.
+3. Aprovisione a VM como um VM do Windows.
 
     ```powershell
     Add-AzureProvisioningConfig -VM $vmConfig -Windows `
@@ -139,7 +139,7 @@ Tem de utilizar um ciclo para criar VMs tantos à medida que pretende e criar o 
         -Password $cred.GetNetworkCredential().Password
     ```
 
-4. Predefinir a NIC e atribua-lhe um endereço IP estático.
+4. Defina a predefinida NIC e atribua-lhe um endereço IP estático.
 
     ```powershell
     Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
@@ -155,7 +155,7 @@ Tem de utilizar um ciclo para criar VMs tantos à medida que pretende e criar o 
     -VM $vmConfig
     ```
     
-6. Crie a discos de dados para cada VM.
+6. Crie para discos de dados para cada VM.
 
     ```powershell
     $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
@@ -171,7 +171,7 @@ Tem de utilizar um ciclo para criar VMs tantos à medida que pretende e criar o 
     -LUN 1
     ```
 
-7. Criar cada VM e de fim do ciclo.
+7. Criar cada VM e encerrar o loop.
 
     ```powershell
     New-AzureVM -VM $vmConfig `
@@ -181,10 +181,10 @@ Tem de utilizar um ciclo para criar VMs tantos à medida que pretende e criar o 
     }
     ```
 
-### <a name="step-4---run-the-script"></a>Passo 4 - execute o script
-Agora que transferiu e alterou o script baseia nas suas necessidades, runt o script para criar a base de dados de back-end VMs com vários NICs.
+### <a name="step-4---run-the-script"></a>Passo 4 - executar o script
+Agora que transferiu e alterou o script consoante as suas necessidades, runt o script para criar a base de dados de back-end VMs com várias NICs.
 
-1. Guarde o script e execute-à partir de **PowerShell** linha de comandos, ou **ISE do PowerShell**. Irá ver o resultado inicial, conforme mostrado abaixo.
+1. Guarde o seu script e executá-lo do **PowerShell** linha de comandos, ou **ISE do PowerShell**. Verá a saída inicial, conforme mostrado abaixo.
 
         OperationDescription    OperationId                          OperationStatus
 
@@ -192,17 +192,17 @@ Agora que transferiu e alterou o script baseia nas suas necessidades, runt o scr
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Preencha as informações necessárias no pedido de credenciais e clique **OK**. O seguinte resultado é devolvido.
+2. Preencha as informações necessárias no prompt de credenciais e clique **OK**. O seguinte resultado é devolvido.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passo 5 - configurar o encaminhamento dentro do sistema de operativo da VM
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passo 5 - configurar o encaminhamento no sistema de operativo da VM
 
-Azure DHCP atribui um gateway predefinido para a primeira interface de rede (principal) ligada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede. Para configurar o encaminhamento para interfaces de rede secundárias, consulte os artigos seguintes:
+DHCP do Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligado à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com os recursos fora da sua sub-rede. Configurar o encaminhamento para interfaces de rede secundárias, veja os artigos seguintes:
 
 - [Configurar uma VM do Windows para vários NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
 )
 
-- [Configurar uma VM com Linux para vários NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+- [Configurar uma VM do Linux para vários NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
 )

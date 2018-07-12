@@ -11,16 +11,16 @@ ms.date: 01/26/2017
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: 5c89f39b2f94309ea3d99230f5265d834c7093d9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444829"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477454"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Políticas incorporadas
 
 
-A estrutura de política extensível do Azure Active Directory (Azure AD) B2C é a força do principal do serviço. Políticas de descrevem completamente experiências de identidade do consumidor como inscrição, início de sessão ou edição de perfis. Por exemplo, uma política de inscrição permite-lhe controlar comportamentos configurando as seguintes definições:
+A estrutura de política extensível do Azure Active Directory (Azure AD) B2C é a força do principal do serviço. Políticas de descrevem completamente experiências de identidade do consumidor como inscrição, início de sessão ou edição de perfis. Por exemplo, uma política de inscrição permite-lhe controlar comportamentos através da configuração das seguintes definições:
 
 * Tipos de conta (contas de redes sociais, como o Facebook) ou contas locais, como endereços de e-mail que os consumidores podem utilizar para se inscrever para a aplicação
 * Atributos (por exemplo, nome próprio, código postal e tamanho do calçado) a recolher do consumidor durante a inscrição

@@ -1,6 +1,6 @@
 ---
-title: Solução de Cofre de chaves do Azure no Log Analytics | Microsoft Docs
-description: Pode utilizar a solução Cofre de chaves do Azure na análise de registos para rever os registos do Cofre de chaves do Azure.
+title: Solução de Cofre de chaves do Azure no Log Analytics | Documentos da Microsoft
+description: Pode utilizar a solução do Azure Key Vault no Log Analytics para rever os registos do Azure Key Vault.
 services: log-analytics
 documentationcenter: ''
 author: richrundmsft
@@ -16,48 +16,48 @@ ms.date: 02/09/2017
 ms.author: richrund
 ms.component: na
 ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127047"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309344"
 ---
-# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluções de análise do Cofre de chaves do Azure na análise de registos
+# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução de análise do Cofre de chaves do Azure no Log Analytics
 
-![Símbolo do Cofre de chaves](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Símbolo do Key Vault](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
 
 Pode utilizar a solução do Azure Key Vault no Log Analytics para rever os registos AuditEvent do Azure Key Vault.
 
-Para utilizar a solução, terá de ativar o registo de diagnóstico do Cofre de chaves do Azure e direcionar o diagnóstico para uma área de trabalho de análise de registos. Não é necessário escrever os registos no Blob storage do Azure.
+Para utilizar a solução, terá de ativar o registo de diagnósticos do Azure Key Vault e direcionar os diagnósticos para uma área de trabalho do Log Analytics. Não é necessário escrever os registos para o armazenamento de Blobs do Azure.
 
 > [!NOTE]
-> Em Janeiro de 2017, alterar a forma de envio de registos do Cofre de chaves ao Log Analytics suportada. Mostra se a solução Cofre de chaves estiver a utilizar *(preterido)* o título, referem-se a [migrar da solução Cofre de chaves antiga](#migrating-from-the-old-key-vault-solution) para obter os passos, tem de seguir.
+> Em Janeiro de 2017, alterar a forma como suportada de enviar registos do Key Vault para o Log Analytics. Se a solução de Cofre de chaves que está a utilizar mostra *(preterido)* no título, consulte [migrar da solução de Cofre de chaves do antiga](#migrating-from-the-old-key-vault-solution) para obter os passos que tem de seguir.
 >
 >
 
 ## <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
-Utilize as seguintes instruções para instalar e configurar a solução Cofre de chaves do Azure:
+Utilize as seguintes instruções para instalar e configurar a solução do Azure Key Vault:
 
-1. Ativar a solução Cofre de chaves do Azure de [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
-2. Ativar o registo de diagnóstico para os recursos do Cofre de chaves monitorizar, utilizando o [portal](#enable-key-vault-diagnostics-in-the-portal) ou [PowerShell](#enable-key-vault-diagnostics-using-powershell)
+1. Ativar a solução de Cofre de chaves do Azure partir [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) ou utilizando o processo descrito na [adicionar soluções Log Analytics da Galeria de soluções](log-analytics-add-solutions.md).
+2. Ativar registo de diagnósticos para os recursos do Cofre de chaves monitorizar, através da [portal](#enable-key-vault-diagnostics-in-the-portal) ou [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
-### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Ativar o diagnóstico do Cofre de chaves no portal
+### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Ativar diagnósticos de Cofre de chaves no portal
 
-1. No portal do Azure, navegue para o recurso do Cofre de chaves para monitorizar
+1. No portal do Azure, navegue para o recurso do Key Vault para monitorizar
 2. Selecione *registos de diagnóstico* para abrir a página seguinte
 
-   ![imagem de mosaico do Cofre de chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
-3. Clique em *ative os diagnósticos* para abrir a página seguinte
+   ![imagem de mosaico do Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+3. Clique em *ativar os diagnósticos* para abrir a página seguinte
 
-   ![imagem de mosaico do Cofre de chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Para ativar diagnósticos, clique em *no* em *Estado*
-5. Clique na caixa de verificação para *enviar ao Log Analytics*
-6. Selecione uma área de trabalho de análise de registos existente ou crie uma área de trabalho
-7. Para ativar *AuditEvent* registos, clique na caixa de verificação no registo
-8. Clique em *guardar* para ativar o registo de diagnóstico ao Log Analytics
+   ![imagem de mosaico do Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+4. Para ativar os diagnósticos, clique em *nos* sob *Estado*
+5. Clique a caixa de verificação *enviar para o Log Analytics*
+6. Selecione uma área de trabalho do Log Analytics existente ou crie uma área de trabalho
+7. Para habilitar *AuditEvent* registos, clique na caixa de verificação, em Log
+8. Clique em *guardar* para ativar o registo de diagnóstico para o Log Analytics
 
-### <a name="enable-key-vault-diagnostics-using-powershell"></a>Ativar o diagnóstico do Cofre de chaves utilizando o PowerShell
-O script do PowerShell seguinte fornece um exemplo de como utilizar `Set-AzureRmDiagnosticSetting` para ativar o registo de diagnóstico para o Cofre de chaves:
+### <a name="enable-key-vault-diagnostics-using-powershell"></a>Ativar diagnósticos de Key Vault com o PowerShell
+O seguinte script do PowerShell fornece um exemplo de como utilizar `Set-AzureRmDiagnosticSetting` para ativar o registo de diagnóstico para o Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -68,89 +68,89 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 
 
-## <a name="review-azure-key-vault-data-collection-details"></a>Reveja os detalhes de recolha de dados do Cofre de chaves do Azure
-Solução do Cofre de chaves do Azure recolhe registos de diagnóstico diretamente a partir do Cofre de chaves.
-Não é necessário escrever os registos no Blob storage do Azure e não existe nenhum agente é necessário para a recolha de dados.
+## <a name="review-azure-key-vault-data-collection-details"></a>Rever os detalhes de recolha de dados do Azure Key Vault
+Solução de Cofre de chaves do Azure recolhe registos de diagnóstico diretamente a partir do Key Vault.
+Não é necessário escrever os registos para o armazenamento de Blobs do Azure e sem agente é obrigatório para a recolha de dados.
 
-A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Cofre de chaves do Azure.
+A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Azure Key Vault.
 
-| Plataforma | Direcionar o agente | Agente do System Center Operations Manager de sistemas | Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência da recolha |
+| Plataforma | Agente direto | Agente do Systems Center Operations Manager | Azure | Gestor de operações necessárias? | Dados de agente do Operations Manager enviados por grupo de gestão | Frequência da recolha |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |  |  |&#8226; |  |  | sobre chegada |
+| Azure |  |  |&#8226; |  |  | na chegada |
 
 ## <a name="use-azure-key-vault"></a>Utilizar o Azure Key Vault
-Depois de [instalar a solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), ver os dados do Cofre de chaves clicando a **Cofre de chaves do Azure** mosaico do **descrição geral** página de análise de registos.
+Depois de [instalar a solução](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), ver os dados do Key Vault ao clicar o **Azure Key Vault** mosaico do **descrição geral** página do Log Analytics.
 
-![imagem de mosaico do Cofre de chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![imagem de mosaico do Azure Key Vault](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
-Depois de clicar no **descrição geral** mosaico, pode ver resumos dos seus registos e, em seguida, para obter os detalhes para as seguintes categorias:
+Depois de clicar no **descrição geral** mosaico, pode ver resumos dos seus registos e, em seguida, desagregar detalhes para as seguintes categorias:
 
 * Volume de todas as operações do Cofre de chaves ao longo do tempo
-* Falha de volumes de operação ao longo do tempo
-* Latência média de operacional operação
-* Qualidade de serviço para as operações com o número de operações que demorar mais de 1000 ms e uma lista de operações que demorar mais de 1000 ms
+* Falha de volumes de operações ao longo do tempo
+* Média da latência operacional por operação
+* Qualidade de serviço para operações com o número de operações que levam mais de 1000 ms e uma lista de operações que levam mais de 1000 ms
 
 ![imagem do dashboard do Cofre de chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
 
 ![imagem do dashboard do Cofre de chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
 
-### <a name="to-view-details-for-any-operation"></a>Para ver os detalhes em nenhuma operação
-1. No **descrição geral** página, clique em de **Cofre de chaves do Azure** mosaico.
-2. No **Cofre de chaves do Azure** dashboard, reveja as informações de resumo de uma das seguintes painéis de e, em seguida, clique num para ver informações detalhadas acerca do mesmo na página de pesquisa de registo.
+### <a name="to-view-details-for-any-operation"></a>Para ver os detalhes para qualquer operação
+1. Sobre o **descrição geral** página, clique no **Azure Key Vault** mosaico.
+2. Sobre o **do Azure Key Vault** dashboard, reveja as informações de resumo em um dos painéis de e, em seguida, clique num para ver informações detalhadas sobre ele na página de pesquisa de registo de.
 
-    Em qualquer uma das páginas de pesquisa de registo, pode ver os resultados por tempo, os resultados detalhados e o histórico de pesquisa de registo. Também pode filtrar por facetas para restringir os resultados.
+    Em qualquer uma das páginas de pesquisa de registo, pode ver os resultados por tempo, os resultados detalhados e seu histórico de pesquisa de registos. Também pode filtrar por facetas para refinar os resultados.
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
-A solução Cofre de chaves do Azure analisa os registos que tenham um tipo de **KeyVaults** que são recolhidos de [AuditEvent registos](../key-vault/key-vault-logging.md) no diagnóstico do Azure.  As propriedades para estes registos estão na tabela seguinte:  
+A solução de Cofre de chaves do Azure analisa os registos que tenham um tipo de **KeyVaults** que são recolhidos a partir de [os registos AuditEvent](../key-vault/key-vault-logging.md) no diagnóstico do Azure.  Propriedades para estes registos estão na tabela a seguir:  
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | Tipo |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
-| CallerIpAddress |Endereço IP do cliente que efetuou o pedido |
+| callerIpAddress |Endereço IP do cliente que efetuou o pedido |
 | Categoria | *AuditEvent* |
 | CorrelationId |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
-| DurationMs |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Neste momento não inclui a latência de rede, para que o tempo que medir do lado do cliente poderá não corresponder a este período de tempo. |
-| httpStatusCode_d |Código de estado HTTP devolvido por pedido (por exemplo, *200*) |
+| durationMs |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Desta vez não inclui a latência de rede, para que o tempo que medir do lado do cliente pode não corresponder neste momento. |
+| httpStatusCode_d |Código de estado HTTP devolvido pelo pedido (por exemplo, *200*) |
 | id_s |ID exclusivo do pedido |
 | identity_claim_appid_g | GUID para o id da aplicação |
-| operationName |Nome da operação, conforme documentado no [registo do Cofre de chaves do Azure](../key-vault/key-vault-logging.md) |
-| OperationVersion |Versão de REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
+| OperationName |Nome da operação, conforme documentado no [registo do Cofre de chaves do Azure](../key-vault/key-vault-logging.md) |
+| operationVersion |Versão de REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
 | requestUri_s |URI do pedido |
 | Recurso |Nome do Cofre de chaves |
 | ResourceGroup |Grupo de recursos do Cofre de chaves |
-| resourceId |ID do Recurso do Azure Resource Manager Para os registos do Cofre de chaves, este é o ID de recurso do Cofre de chaves. |
+| ResourceId |ID do Recurso do Azure Resource Manager Para registos do Cofre de chaves, este é o ID de recurso do Key Vault. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
-| ResultSignature |Estado de HTTP (por exemplo, *OK*) |
-| ResultType |Resultado do pedido de REST API (por exemplo, *êxito*) |
-| SubscriptionId |ID de subscrição do Azure da subscrição que contém o Cofre de chaves |
+| resultSignature |Estado de HTTP (por exemplo, *OK*) |
+| resultType |Resultado do pedido de REST API (por exemplo, *êxito*) |
+| SubscriptionId |ID de subscrição do Azure da subscrição que contém o Key Vault |
 
-## <a name="migrating-from-the-old-key-vault-solution"></a>Migrar a partir da solução antiga do Cofre de chaves
-Em Janeiro de 2017, alterar a forma de envio de registos do Cofre de chaves ao Log Analytics suportada. Estas alterações fornecem as seguintes vantagens:
-+ Os registos são escritos diretamente ao Log Analytics sem a necessidade de utilizar uma conta de armazenamento
-+ Menor latência de tempo quando são gerados registos aos mesmos estejam disponíveis no Log Analytics
+## <a name="migrating-from-the-old-key-vault-solution"></a>Migrar a partir da antiga solução de Cofre de chaves
+Em Janeiro de 2017, alterar a forma como suportada de enviar registos do Key Vault para o Log Analytics. Estas alterações fornecem as seguintes vantagens:
++ Os registos são escritos diretamente ao Log Analytics sem a necessidade de usar uma conta de armazenamento
++ Menos latência a partir da hora de quando os registos são gerados para eles estejam disponíveis no Log Analytics
 + Menos passos de configuração
 + Um formato comum para todos os tipos de diagnóstico do Azure
 
 Para utilizar a solução atualizada:
 
-1. [Configurar diagnósticos para ser enviado diretamente para análise de registos do Cofre de chaves](#enable-key-vault-diagnostics-in-the-portal)  
-2. Ativar a solução Cofre de chaves do Azure utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md)
-3. Atualizar qualquer consultas guardadas, dashboards ou alertas para utilizar o novo tipo de dados
-  + Tipo é alterar de: KeyVaults para AzureDiagnostics. Pode utilizar o ResourceType para filtrar nos registos do Cofre de chave.
+1. [Configurar diagnóstico sejam enviadas diretamente para o Log Analytics do Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
+2. Ativar a solução de Cofre de chaves do Azure utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](log-analytics-add-solutions.md)
+3. Atualizar quaisquer consultas guardadas, dashboards ou alertas para usar o novo tipo de dados
+  + É de tipo de alteração do: KeyVaults para AzureDiagnostics. Pode usar o ResourceType para filtrar para registos do Cofre de chave.
   - Em vez de: `KeyVaults`, utilize `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Campos: (nomes de campo são sensível a maiúsculas e minúsculas)
-  - Para qualquer campo que têm um sufixo de \_s, \_d, ou \_g no nome, altere o primeiro caráter caso inferior
-  - Para qualquer campo que têm um sufixo de \_o nome e os dados está dividido em campos individuais com base nos nomes de campo aninhada. Por exemplo, o UPN do chamador é armazenado num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+  + Campos: (nomes de campo diferenciam maiúsculas de minúsculas)
+  - Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas
+  - Para qualquer campo que tem um sufixo de \_o nome, os dados é dividido em campos individuais com base nos nomes de campos aninhados. Por exemplo, o UPN do chamador é armazenado num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Campo CallerIpAddress alterado para CallerIPAddress
    - Campo RemoteIPCountry já não está presente
-4. Remova o *análise do Cofre de chave (preterido)* solução. Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Remover os *análise do Key Vault (preterido)* solução. Se estiver a utilizar o PowerShell, utilize `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
-Recolher os dados antes da alteração não é visível na solução de novo. Pode continuar a consultar estes dados com o tipo de antigo e nomes de campo.
+Os dados recolhidos antes da alteração não é visível na solução de novo. Pode continuar a consultar estes dados com o tipo de antigo e nomes de campos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados detalhados do Cofre de chaves do Azure.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para ver os dados detalhados do Azure Key Vault.

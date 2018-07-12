@@ -1,6 +1,6 @@
 ---
-title: Cópia de segurança do Azure pilha | Microsoft Docs
-description: Efetue uma cópia de segurança a pedido na pilha do Azure com cópia de segurança no local.
+title: Cópia de segurança do Azure Stack | Documentos da Microsoft
+description: Efetue uma cópia de segurança a pedido no Azure Stack com cópia de segurança no local.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,43 +15,60 @@ ms.topic: article
 ms.date: 5/08/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2570423a3cae2a15f0cfd294f1d91e6730748f68
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075192"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972608"
 ---
-# <a name="back-up-azure-stack"></a>Cópia de segurança de pilha do Azure
+# <a name="back-up-azure-stack"></a>Criar cópias de segurança do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Efetue uma cópia de segurança a pedido na pilha do Azure com cópia de segurança no local. Se precisar de ativar o serviço de cópia de segurança da infraestrutura, consulte [ativar a cópia de segurança do Azure pilha do portal de administração do](azure-stack-backup-enable-backup-console.md).
+Efetue uma cópia de segurança a pedido no Azure Stack com cópia de segurança no local. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack ](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [configurar o ambiente de operador e inicie sessão no Azure Stack](azure-stack-powershell-configure-admin.md).
 
-> [!Note]  
->  Para obter instruções sobre como configurar o ambiente de PowerShell, consulte [instale o PowerShell para Azure pilha ](azure-stack-powershell-install.md).
+## <a name="start-azure-stack-backup"></a>Iniciar cópia de segurança do Azure Stack
 
-## <a name="start-azure-stack-backup"></a>Iniciar a cópia de segurança de pilha do Azure
-
-Abra o Windows PowerShell com uma linha de comandos elevada do ambiente de gestão do operador e execute os seguintes comandos:
+Utilize AzSBackup iniciar para iniciar uma nova cópia de segurança com a variável de - AsJob para controlar o progresso. 
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+    $backupjob = Start-AzsBackup -Force -AsJob
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 ```
 
-## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirme a cópia de segurança foi concluída no portal de administração do
+## <a name="confirm-backup-completed-via-powershell"></a>Confirmar cópia de segurança concluída através do PowerShell
 
-1. Abra o portal de administração do Azure pilha em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Selecione **mais serviços** > **cópia de segurança da infraestrutura**. Escolha **configuração** no **cópia de segurança da infraestrutura** painel.
-3. Localizar o **nome** e **data concluída** da cópia de segurança no **cópias de segurança disponíveis** lista.
-4. Certifique-se a **estado** é **com êxito**.
+```powershell
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
 
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
+- O resultado deverá ser semelhante a seguinte saída:
 
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
+  ```powershell
+      BackupDataVersion : 1.0.1
+      BackupId          : <backup ID>
+      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+      Status            : Succeeded
+      CreatedDateTime   : 7/6/2018 6:46:24 AM
+      TimeTakenToCreate : PT20M32.364138S
+      DeploymentID      : <deployment ID>
+      StampVersion      : 1.1807.0.41
+      OemVersion        : 
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
+      Type              : Microsoft.Backup.Admin/backupLocations/backups
+      Location          : local
+      Tags              : {}
+  ```
 
+## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirmar cópia de segurança concluída no portal de administração
+
+1. Abra o portal de administração do Azure Stack em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+2. Selecione **mais serviços** > **cópia de segurança da infraestrutura**. Escolher **Configuration** no **cópia de segurança da infraestrutura** painel.
+3. Encontrar o **Name** e **data concluída** da cópia de segurança no **cópias de segurança disponíveis** lista.
+4. Verifique se o **estado** é **Succeeded**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o fluxo de trabalho para recuperar a partir de um evento de perda de dados. Consulte [recuperar a partir de perda catastrófica de dados](azure-stack-backup-recover-data.md).
+- Saiba mais sobre o fluxo de trabalho para recuperar a partir de um evento de perda de dados. Ver [recuperar da perda catastrófica de dados](azure-stack-backup-recover-data.md).

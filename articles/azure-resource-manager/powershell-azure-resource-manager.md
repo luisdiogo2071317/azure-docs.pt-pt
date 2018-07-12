@@ -1,5 +1,5 @@
 ---
-title: Gerir soluções do Azure com o PowerShell | Microsoft Docs
+title: Gerir soluções do Azure com o PowerShell | Documentos da Microsoft
 description: Utilize o Azure PowerShell e do Resource Manager para gerir os recursos.
 services: azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603418"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723862"
 ---
-# <a name="manage-resources-with-azure-powershell"></a>Gerir os recursos com o Azure PowerShell
+# <a name="manage-resources-with-azure-powershell"></a>Gerir recursos com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
@@ -33,7 +33,7 @@ Se optar por instalar e utilizar o PowerShell localmente, veja [ Instalar o mód
 
 [!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-Neste artigo, aplicar todas as definições de gestão a um grupo de recursos para poder remover facilmente essas definições quando terminar.
+Neste artigo, aplica todas as definições de gestão para um grupo de recursos para que pode remover facilmente essas definições, quando tiver terminado.
 
 Vamos criar o grupo de recursos.
 
@@ -50,15 +50,15 @@ Atualmente, o grupo de recursos está vazio.
 
 ### <a name="assign-a-role"></a>Atribuir uma função
 
-Neste artigo, implementar uma máquina virtual e a rede virtual relacionadas. Para gerir soluções de máquina virtual, existem três funções de recursos específicos que fornecem o acesso normalmente necessário:
+Neste artigo, vai implementar uma máquina virtual e a respetiva rede virtual relacionado. Para gerir soluções de máquina virtual, existem três funções de recursos específicos que fornecem o acesso normalmente necessário:
 
 * [Contribuidor de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Contribuidor de Rede](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Contribuidor de Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
+Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
 
-O exemplo seguinte cria um grupo e atribui-o para a função de contribuinte de Máquina Virtual para o grupo de recursos. Para executar o `New-AzureAdGroup` comando, tem de utilizar o [Shell de nuvem do Azure](/azure/cloud-shell/overview) ou [transferir o módulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+O exemplo seguinte cria um grupo e o atribui à função de contribuinte de Máquina Virtual para o grupo de recursos. Para executar o `New-AzureAdGroup` comando, tem de utilizar o [Azure Cloud Shell](/azure/cloud-shell/overview) ou [transferir o módulo do Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -87,8 +87,8 @@ A subscrição já tem várias definições de política. Para ver as definiçõ
 Poderá ver as definições de política existentes. O tipo de política é **BuiltIn** ou **Personalizado**. Examine as definições para encontrar aquelas que descrevem uma condição que pretenda atribuir. Neste artigo, pode atribuir políticas para:
 
 * limitar as localizações para todos os recursos
-* limitar os SKUs de máquinas virtuais
-* máquinas virtuais que não utilize discos geridos de auditoria
+* limitar as SKUs para máquinas virtuais
+* máquinas virtuais que não utilizam discos geridos de auditoria
 
 ```azurepowershell-interactive
 $locations ="eastus", "eastus2"
@@ -172,7 +172,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por etiqueta
 
-Para localizar recursos com um nome de tag e um valor, utilize:
+Para localizar recursos com um nome de etiqueta e valor, utilize:
 
 ```azurepowershell-interactive
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
@@ -186,17 +186,17 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Ver custos por valores de etiqueta
 
-Depois de aplicar etiquetas a recursos, pode ver os custos para recursos com dessas etiquetas. Demora tempo para análise de custos ver a utilização mais recente, pelo que não poderá ver os custos ainda. Quando estiverem disponíveis os custos, pode ver os custos de recursos entre grupos de recursos na sua subscrição. Os utilizadores devem ter [acesso de nível de subscrição para as informações de faturação](../billing/billing-manage-access.md) para ver os custos.
+Depois de aplicar etiquetas a recursos, pode ver os custos para recursos com essas marcas. Demora algum tempo para análise de custo Mostrar a utilização de mais recente, pelo que poderá não ver os custos ainda. Quando os custos estão disponíveis, pode ver os custos de recursos entre grupos de recursos na sua subscrição. Os utilizadores devem ter [acesso de nível de subscrição para informações de faturação](../billing/billing-manage-access.md) para ver os custos.
 
-Para ver os custos por tag no portal, selecione a sua subscrição e selecione **análise de custos**.
+Para ver os custos por etiqueta no portal, selecione a sua subscrição e selecione **análise de custo**.
 
 ![Análise de custo](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
 Em seguida, o valor da etiqueta de filtro e selecione **aplicar**.
 
-![Custo de vista por etiqueta](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Custo de exibição por etiqueta](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-Também pode utilizar o [APIs de faturação do Azure](../billing/billing-usage-rate-card-overview.md) programaticamente ver os custos.
+Também pode utilizar o [APIs de faturação do Azure](../billing/billing-usage-rate-card-overview.md) para ver os custos por meio de programação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -220,7 +220,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre como monitorizar as máquinas virtuais, consulte [monitorizar e atualizar uma Máquina Virtual do Windows com o Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
-* Para saber mais sobre como utilizar o Centro de segurança do Azure para implementar as práticas de segurança recomendado, [monitorizar a segurança da máquina virtual utilizando o Centro de segurança do Azure](../virtual-machines/windows/tutorial-azure-security.md).
-* Pode mover recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para o novo grupo de recursos ou subscrição](resource-group-move-resources.md).
+* Para saber mais sobre a monitorização de suas máquinas virtuais, veja [monitorizar e atualizar uma Máquina Virtual do Windows com o Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
+* Para saber mais sobre como utilizar o Centro de segurança do Azure para implementar práticas de segurança recomendadas [monitorizar a segurança da máquina virtual utilizando o Centro de segurança do Azure](../virtual-machines/windows/tutorial-azure-security.md).
+* Pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

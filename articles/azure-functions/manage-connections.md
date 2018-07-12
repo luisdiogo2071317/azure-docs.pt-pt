@@ -1,6 +1,6 @@
 ---
 title: Como gerir ligações nas funções do Azure
-description: Saiba como evitar problemas de desempenho nas funções do Azure através da utilização de clientes de ligação estático.
+description: Saiba como evitar problemas de desempenho nas funções do Azure com os clientes de ligação estático.
 services: functions
 documentationcenter: ''
 author: tdykstra
@@ -12,36 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tdykstra
-ms.openlocfilehash: 4ea2b033d8d67dd3c921fb833462605ba0aeb687
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c0af8f6f7e1d4aea8880a7af311aaa21f474f7e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655378"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969009"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Como gerir ligações nas funções do Azure
 
-As funções de uma aplicação de função partilhar recursos e entre esses recursos partilhados são ligações &mdash; ligações HTTP, ligações de base de dados e as ligações aos serviços do Azure, como o armazenamento. Quando muitas funções em execução em simultâneo é possível executar fora ligações disponíveis. Este artigo explica como as suas funções para evitar a utilização mais ligações do que necessitam, na verdade, de código.
+As funções na aplicação de função partilhar recursos e entre esses recursos partilhados são ligações &mdash; ligações HTTP, ligações de base de dados e ligações para serviços do Azure, como o armazenamento. Quando muitas funções estão em execução em simultâneo é possível a ficar sem ligações disponíveis. Este artigo explica como codificar as suas funções para evitar a utilização de ligações de mais do que na verdade, o necessário.
 
 ## <a name="connections-limit"></a>Limite de ligações
 
-O número de ligações disponíveis é limitado parcialmente porque uma aplicação de função é executada no [sandbox do App Service do Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe a sandbox no seu código é uma [limite no número de ligações, atualmente 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Quando atingir este limite, o tempo de execução de funções cria um registo com a seguinte mensagem: `Host thresholds exceeded: Connections`.
+O número de ligações disponíveis é limitado em parte porque uma aplicação de função é executada no [sandbox do serviço de aplicações do Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe de área de segurança no seu código é um [limite no número de ligações, atualmente 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). Quando atingir este limite, o runtime das funções cria um registo com a seguinte mensagem: `Host thresholds exceeded: Connections`.
 
-Possibilidades de exceder o limite de aumentam quando o [controlador escala adiciona instâncias da aplicação de função](functions-scale.md#how-the-consumption-plan-works). Cada instância da aplicação de função pode ser invocar funções demasiadas vezes em simultâneo e todas estas funções estão a utilizar ligações contam para o limite de 300.
+As chances de que exceda o limite de aumentam quando o [controlador de escala adiciona instâncias de aplicações de função](functions-scale.md#how-the-consumption-plan-works). Cada instância de aplicação de função pode ser invocar funções muitas vezes ao mesmo tempo, e todas essas funções estão a utilizar ligações que contam para o limite de 300.
 
 ## <a name="use-static-clients"></a>Utilizar clientes estáticos
 
-Para evitar que contém mais ligações que o necessário, reutilize instâncias de cliente em vez de criar novas com cada invocação de função. Os clientes de .NET como o `HttpClient`, `DocumentClient`, e os clientes do Storage do Azure podem gerir ligações se utilizar um único cliente estático.
+Para evitar que contém mais ligações do que o necessário, reutilize instâncias de cliente, em vez de criar aplicações novas com cada invocação de função. Clientes .NET, como o `HttpClient`, `DocumentClient`, e os clientes de armazenamento do Azure podem gerir ligações se utilizar um único cliente estático.
 
-Eis algumas diretrizes a seguir ao utilizar um cliente de específicos do serviço numa aplicação das funções do Azure:
+Aqui estão algumas diretrizes a seguir ao utilizar um cliente de serviços específicos de uma aplicação de funções do Azure:
 
-- **NÃO** criar um novo cliente com cada invocação de função.
-- **EFETUE** criar um único estático de cliente que pode ser utilizado por cada invocação de função.
-- **CONSIDERE** criar um único cliente estático de uma classe de programa auxiliar partilhado se diferentes funções utilizarem o mesmo serviço.
+- **Isso não é possível** criar um novo cliente com cada invocação de função.
+- **FAZER** criar um único cliente estático que pode ser utilizado por cada invocação de função.
+- **CONSIDERE** criação de um único cliente estático numa classe auxiliar partilhado se funções diferentes usam o mesmo serviço.
 
-## <a name="httpclient-code-example"></a>Exemplo de código HttpClient
+## <a name="httpclient-code-example"></a>Exemplo de código do HttpClient
 
-Eis um exemplo de código de função que cria uma estática `HttpClient`:
+Eis um exemplo de código de função que cria um estático `HttpClient`:
 
 ```cs
 // Create a single, static HttpClient
@@ -54,11 +54,11 @@ public static async Task Run(string input)
 }
 ```
 
-Uma pergunta comum sobre .NET `HttpClient` é "Deve posso ser disposing os meus clientes?" Em geral, pode eliminar objetos que implementem `IDisposable` quando tiver terminado a utilizá-los. Mas não eliminar um cliente estático porque não estão a ser efetuada utilizá-lo quando a função termina. Pretende que o cliente estático TTL durante a duração da sua aplicação.
+Uma pergunta comum sobre o .NET `HttpClient` é "Deve, ser descartar meu cliente?" Em geral, descartar objetos que implementam `IDisposable` quando terminar a utilizá-los. Mas não descartar um cliente estático porque não estão a ser feito usá-lo quando a função termina. Pretender que o cliente estático vivem pela duração da sua aplicação.
 
-## <a name="documentclient-code-example"></a>Exemplo de código DocumentClient
+## <a name="documentclient-code-example"></a>Exemplo de código do DocumentClient
 
-`DocumentClient` estabelece ligação a uma instância de base de dados do Cosmos. A documentação do Cosmos DB recomenda que lhe [utilizar um cliente de base de dados do Azure Cosmos singleton para a duração da sua aplicação](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#sdk-usage). O exemplo seguinte mostra um padrão para fazer de uma função.
+`DocumentClient` se liga a uma instância de Cosmos DB. A documentação do Cosmos DB recomenda que [utilizar o cliente do Azure Cosmos DB singleton durante o ciclo de vida do seu aplicativo](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). O exemplo seguinte mostra um padrão para fazer isso de uma função.
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -88,6 +88,6 @@ public static async Task Run(string input)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o motivo clientes estáticos são recomendados, consulte [antipattern instanciação inadequada](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
+Para obter mais informações sobre por que clientes estáticos são recomendados, consulte [anti-padrão de instâncias impróprias](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
 
 Para mais sugestões de desempenho de funções do Azure, consulte [otimizar o desempenho e fiabilidade das funções do Azure](functions-best-practices.md).

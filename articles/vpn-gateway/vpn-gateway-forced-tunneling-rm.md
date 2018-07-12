@@ -1,6 +1,6 @@
 ---
-title: 'Configurar a imposição do túnel para ligações do Azure Site a Site: Resource Manager | Microsoft Docs'
-description: Como redirecionar ou "forçar" todo o tráfego vinculado à Internet voltar à sua localização no local.
+title: 'Configurar o túnel forçado para ligações do Azure Site a Site: Resource Manager | Documentos da Microsoft'
+description: Como redirecionar ou "forçar" todo o tráfego vinculado à Internet para sua localização no local.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984146"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308157"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado utilizando o modelo de implementação Azure Resource Manager
 
-Imposição do túnel permite-lhe redirecionamento ou "forçar" todo o tráfego vinculado à Internet de volta para a sua localização no local através de um túnel VPN Site a Site para inspeção e auditoria. Este é um requisito de segurança críticas para TI empresariais de maioria das políticas. Sem forçado tráfego de túnel, vinculado à Internet da sua VMs no Azure sempre traverses da infraestrutura de rede do Azure diretamente saída à Internet, sem a opção para permitir a inspecionar ou o tráfego de auditoria. Acesso à Internet não autorizado, potencialmente, pode levar a divulgação de informações ou outros tipos de falhas de segurança.
+O túnel forçado permite-lhe redirecionamento ou "forçar" todo o tráfego vinculado à Internet de volta para a sua localização no local através de um túnel VPN de Site a Site para inspeção e auditoria. Este é um requisito de críticas de segurança de TI de empresas a maioria das políticas. Sem forçar o tráfego de túnel, vinculado à Internet suas VMS no Azure sempre traverses da infraestrutura de rede do Azure diretamente saída à Internet, sem a opção para que possa inspecionar ou o tráfego de auditoria. Acesso não autorizado da Internet pode potencialmente conduzir a divulgação de informações ou outros tipos de falhas de segurança.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-Este artigo explica como configurar forçado túnel para redes virtuais criadas com o modelo de implementação Resource Manager. Imposição do túnel pode ser configurado utilizando o PowerShell, não através do portal. Se pretender configurar a imposição do túnel para o modelo de implementação clássica, seleccione o artigo clássico seguinte na lista pendente:
+Este artigo orienta-o por meio de configurar imposição de túnel para redes virtuais criadas com o modelo de implementação do Resource Manager. O túnel forçado pode ser configurado com o PowerShell, não através do portal. Se quiser configurar o túnel forçado para o modelo de implementação clássica, seleccione o artigo clássico na lista pendente seguinte:
 
 > [!div class="op_single_selector"]
 > * [PowerShell – Clássica](vpn-gateway-about-forced-tunneling.md)
@@ -36,41 +36,41 @@ Este artigo explica como configurar forçado túnel para redes virtuais criadas 
 > 
 > 
 
-## <a name="about-forced-tunneling"></a>Prestes imposição do túnel
+## <a name="about-forced-tunneling"></a>Aproximadamente túnel forçado
 
-O diagrama seguinte ilustra funciona como imposição de túnel. 
+O diagrama seguinte ilustra como forçada funciona encapsulamento. 
 
 ![Túnel Forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
-No exemplo acima, o front-end sub-rede não está a ser forçada em túnel. As cargas de trabalho da sub-rede do front-end podem continuar a aceitar e responder a pedidos de cliente da Internet diretamente. As sub-redes de camada média dimensão que e back-end são forçadas em túnel. Quaisquer ligações de saída destas duas sub-redes para a Internet serão forçadas ou redirecionadas novamente para um site no local através de um dos túneis S2S VPN.
+No exemplo acima, o front-end sub-rede não é forçado em túnel. As cargas de trabalho na sub-rede de front-end podem continuar a aceitar e responder aos pedidos dos clientes da Internet diretamente. As sub-redes de escalão médio e de back-end são forçadas encapsulada. Qualquer conexões de saída destas duas sub-redes para a Internet serão forçados ou redirecionados para um site no local através de um dos túneis S2S VPN.
 
-Isto permite-lhe restringir e inspecionar o acesso à Internet das suas máquinas virtuais ou serviços em nuvem na Azure, ao continuar ativar a arquitetura do serviço de várias camadas necessárias. Se não houver nenhuma cargas de trabalho para a Internet nas suas redes virtuais, também pode aplicar a imposição do túnel para as redes virtuais completos.
+Isto permite-lhe restringir e inspecionar o acesso à Internet das suas máquinas virtuais ou serviços no Azure, de cloud e continuar a ativar a sua arquitetura de várias camadas de serviço necessária. Se não houver nenhum cargas de trabalho de acesso à Internet em suas redes virtuais, também pode aplicar o túnel forçado para as redes virtuais inteiras.
 
 ## <a name="requirements-and-considerations"></a>Requisitos e considerações
 
-Imposição do túnel no Azure está configurado através de rotas definidas pelo utilizador de rede virtual. Redirecionar o tráfego para um site no local é expresso como uma rota predefinida para o gateway de VPN do Azure. Para obter mais informações sobre o encaminhamento definido pelo utilizador e redes virtuais, consulte [rotas definidas pelo utilizador e reencaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
+O túnel forçado no Azure está configurado por meio de rotas definidas pelo utilizador de rede virtual. Redirecionar o tráfego para um site no local é expressa como uma rota predefinida para o gateway de VPN do Azure. Para obter mais informações sobre o encaminhamento definido pelo utilizador e redes virtuais, consulte [rotas definidas pelo utilizador e reencaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 
-* Cada sub-rede da rede virtual tem uma tabela de encaminhamento incorporada, do sistema. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
+* Cada sub-rede da rede virtual tem uma tabela de roteamento interno, do sistema. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
   
-  * **Rotas de VNet locais:** diretamente para o destino VMs na mesma rede virtual.
-  * **No local rotas:** para o VPN gateway do Azure.
-  * **Rota predefinida:** diretamente à Internet. Pacotes destinados a entidades para os endereços IP privados não abrangidos pelas rotas de dois anteriores são ignorados.
-* Este procedimento utiliza as rotas definidas pelo utilizador (UDR) para criar uma tabela de encaminhamento para adicionar uma rota predefinida e, em seguida, associar a tabela de encaminhamento para sua subnet(s) VNet para ativar a imposição do túnel nessas sub-redes.
-* Imposição do túnel tem de ser associado a uma VNet com um gateway de VPN baseado na rota. Tem de definir um "site predefinido" entre os sites locais em vários locais ligado à rede virtual. Além disso, o dispositivo VPN no local tem de ser configurado utilizando 0.0.0.0/0 como seletores de tráfego. 
-* ExpressRoute imposição do túnel não está configurada através desta mecanismo, mas em vez disso, é ativado por uma rota predefinida através de sessões de peering de BGP de ExpressRoute de publicidade. Para obter mais informações, consulte o [documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+  * **As rotas locais de VNet:** diretamente para o destino de VMs na mesma rede virtual.
+  * **As rotas locais:** para o VPN gateway do Azure.
+  * **Rota predefinida:** diretamente à Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas anteriores duas rotas são ignorados.
+* Este procedimento utiliza as rotas definidas pelo utilizador (UDR) para criar uma tabela de encaminhamento para adicionar uma rota predefinida e, em seguida, associar a tabela de encaminhamento para as sub-redes de VNet para ativar o protocolo de túnel forçado nessas sub-redes.
+* O túnel forçado tem de ser associado a uma VNet que tenha um gateway VPN baseado na rota. Tem de definir um "site predefinido" entre os sites locais em vários locais ligado à rede virtual. Além disso, o dispositivo VPN no local deve ser configurado usando 0.0.0.0/0 como seletores de tráfego. 
+* Túnel forçado do ExpressRoute não está configurado por intermédio deste mecanismo, mas em vez disso, está ativado por uma rota predefinida por meio de sessões de peering de BGP de ExpressRoute de publicidade. Para obter mais informações, consulte a [documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## <a name="configuration-overview"></a>Descrição geral de configuração
+## <a name="configuration-overview"></a>Descrição geral da configuração
 
-O procedimento seguinte ajuda-o a criar um grupo de recursos e uma VNet. Em seguida, irá criar um gateway de VPN e configurar a imposição do túnel. Neste procedimento, a rede virtual 'MultiTier VNet' tem três sub-redes: 'Front-end', 'Midtier' e 'Back-end', com quatro em vários locais ligações: 'DefaultSiteHQ' e três ramos.
+O procedimento seguinte ajuda-o a criar um grupo de recursos e uma VNet. Em seguida, irá criar um gateway de VPN e configurar o túnel forçado. Neste procedimento, a rede virtual de várias camadas-VNet tem três sub-redes: "Front-end", "Midtier" e "Back-end", com quatro ligações entre locais: "DefaultSiteHQ" e três ramos.
 
-Os passos do procedimento definir o 'DefaultSiteHQ' como a ligação do site predefinido para a imposição do túnel e configurar 'Midtier' e 'Back-end' sub-redes para utilizar a imposição do túnel.
+Os passos do procedimento definir o 'DefaultSiteHQ"da ligação de site predefinido para o túnel forçado e configurar o Midtier e sub-redes"Back-end"para utilizar o túnel forçado.
 
 ## <a name="before"></a>Antes de começar
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets PowerShell.
 
 > [!IMPORTANT]
-> É necessário instalar a versão mais recente dos cmdlets do PowerShell. Caso contrário, poderá receber erros de validação quando a execução de alguns dos cmdlets.
+> É necessário instalar a versão mais recente dos cmdlets do PowerShell. Caso contrário, poderá receber erros de validação ao executar alguns dos cmdlets.
 >
 >
 
@@ -81,7 +81,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 ## <a name="configure-forced-tunneling"></a>Configurar túnel forçado
 
 > [!NOTE]
-> Poderá ver avisos indicar "o tipo de objeto de resultado deste cmdlet será modificado numa versão futura". Este comportamento está previsto e pode ignorar com segurança estes avisos.
+> Pode ver avisos dizendo "o tipo de objeto de saída deste cmdlet irá ser modificado numa futura versão". Este comportamento está previsto e pode ignorar com segurança estes avisos.
 >
 >
 
@@ -116,7 +116,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
   Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
   Set-AzureRmRouteTable -RouteTable $rt
   ```
-5. Associe a tabela de rotas para sub-redes Midtier e back-end.
+5. Associe a tabela de rotas às sub-redes Midtier e de back-end.
 
   ```powershell
   $vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
@@ -124,7 +124,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Crie o gateway de rede virtual. Este passo demora algum tempo a concluir, por vezes, 45 minutos ou mais, porque está a criar e configurar o gateway. Se observar erros de ValidateSet sobre o valor de GatewaySKU, certifique-se de que tem instalado o [versão mais recente dos cmdlets do PowerShell](#before). A versão mais recente dos cmdlets do PowerShell contém novos valores validados para os SKUs de Gateway mais recente.
+6. Crie o gateway de rede virtual. Este passo demora algum tempo a concluir, às vezes, 45 minutos ou mais, uma vez que estiver a criar e configurar o gateway. Se vir erros ValidateSet sobre o valor de GatewaySKU, confirme que tem instalado o [a versão mais recente dos cmdlets do PowerShell](#before). A versão mais recente dos cmdlets do PowerShell contém novos valores validados para os SKUs de Gateway mais recente.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -132,14 +132,14 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
   New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Atribua um site predefinido para o gateway de rede virtual. O **- GatewayDefaultSite** é o parâmetro de cmdlet permite que a configuração de encaminhamento forçada funcionem, por isso, asseguramos para configurar esta definição corretamente. 
+7. Atribua um site padrão para o gateway de rede virtual. O **- GatewayDefaultSite** é o parâmetro de cmdlet que permite que a configuração de roteamento forçada funcionem, por isso, tenha cuidado para configurar esta definição corretamente. 
 
   ```powershell
   $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
   $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
   Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
   ```
-8. Estabelece as ligações de VPN de Site para Site.
+8. Estabelece as ligações de VPN de Site a Site.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

@@ -1,6 +1,6 @@
 ---
-title: Volte a implementar máquinas virtuais do Windows no Azure | Microsoft Docs
-description: Como voltar a implementar máquinas virtuais do Windows no Azure para mitigar problemas de ligação de RDP.
+title: Voltar a implementar máquinas de virtuais do Windows no Azure | Documentos da Microsoft
+description: Como voltar a implementar máquinas de virtuais do Windows no Azure para atenuar problemas de ligação de RDP.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
@@ -15,23 +15,23 @@ ms.workload: infrastructure
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: f0bda14634e6c8bea5800b9798086fc38279030a
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160330"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531507"
 ---
-# <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Volte a implementar máquina virtual do Windows para o novo nó do Azure
-Se tiver sido enfrentam dificuldades resolução de problemas de ambiente de trabalho remoto (RDP) ligação ou aplicação acesso baseado no Windows Azure máquina virtual (VM), voltar a implementar a VM pode ajudar. Quando voltar a implementar uma VM, muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, for ligado-la novamente, manter todas as suas opções de configuração e os recursos associados. Este artigo mostra como voltar a implementar uma VM com o Azure PowerShell ou o portal do Azure.
+# <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Reimplementar a máquina de virtual do Windows para o novo nó do Azure
+Se o ter sido enfrentando dificuldades resolução de problemas de ambiente de trabalho remoto (RDP) ligação ou a aplicação de acesso baseado em Windows máquinas virtuais do Azure (VM), reimplementação da VM pode ajudar. Quando voltar a implementar uma VM, ele muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, liga-novamente, mantendo a todas as suas opções de configuração e os recursos associados. Este artigo mostra-lhe como voltar a implementar uma VM com o Azure PowerShell ou o portal do Azure.
 
 > [!NOTE]
-> Depois de voltar a implementar uma VM, o disco temporário é perdido e endereços IP dinâmicos associados à interface de rede virtual são atualizados. 
+> Depois de Reimplementar uma VM, o disco temporário é perdido e endereços IP dinâmicos associados à interface de rede virtual são atualizados. 
 
 
 ## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
-Certifique-se de que o Azure PowerShell mais recente 1. x instalado no seu computador. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+Certifique-se de que tem o Azure PowerShell mais recente 1.x instalado no seu computador. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
 
-O exemplo seguinte implementa VM com o nome `myVM` no grupo de recursos denominado `myResourceGroup`:
+O exemplo seguinte implementa a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
 
 ```powershell
 Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -41,5 +41,5 @@ Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se estiver a ter problemas em ligar à VM, pode encontrar ajuda específica no [resolução de problemas nas ligações RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [RDP passos de resolução de problemas de detalhado](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se não conseguir aceder uma aplicação em execução na sua VM, pode ainda ler [aplicação resolução de problemas](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se estiver a ter problemas de ligação à sua VM, pode encontrar ajuda específica sobre [resolução de problemas de ligações de RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [detalhadas passos de resolução de problemas de RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se não conseguir aceder uma aplicação em execução na sua VM, pode ainda ler [resolução de problemas de aplicação](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

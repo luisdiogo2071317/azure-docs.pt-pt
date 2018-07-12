@@ -1,1 +1,1 @@
-Quando estiver a desenvolver localmente, as definições de aplicação tecnológica o [local.settings.json ficheiro](../articles/azure-functions/functions-run-local.md#local-settings-file).
+Quando estiver a desenvolver localmente, as definições da aplicação Ir para o [Settings ficheiro](../articles/azure-functions/functions-run-local.md#local-settings-file).

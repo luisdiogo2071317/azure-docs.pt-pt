@@ -1,6 +1,6 @@
 ---
-title: Como gerir contas de utilizador na API Management do Azure | Microsoft Docs
-description: Saiba como criar ou convidar os utilizadores na API Management do Azure
+title: Como gerir contas de utilizador na gestão de API do Azure | Documentos da Microsoft
+description: Saiba como criar ou convidar utilizadores na gestão de API do Azure
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 3d9a4454a1b3f65b42a46a26e8d483fad83f65f6
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111274"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307403"
 ---
-# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na API Management do Azure
-Na API Management, os programadores são os utilizadores com as APIs que expõe a utilizar a API Management. Este guia mostra a como criar e convidar programadores para utilizar as APIs e os produtos que disponibiliza aos mesmos com a instância de API Management. Para informações sobre como gerir contas de utilizador através de programação, consulte o [entidade utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação o [API REST de gestão](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência.
+# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na gestão de API do Azure
+Na gestão de API, os desenvolvedores são os utilizadores das APIs que expõem a utilizar a API Management. Este guia mostra como criar e convidar desenvolvedores para utilizar as APIs e os produtos que disponibilizar-lhes com a instância de gestão de API. Para obter informações sobre como gerir contas de usuário por meio de programação, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação na [REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir tarefas neste artigo: [criar uma instância de API Management do Azure](get-started-create-service-instance.md).
+Concluir tarefas neste artigo: [criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -35,30 +35,30 @@ Para adicionar um novo utilizador, siga os passos nesta secção:
 
 1. Selecione o **utilizadores** separador à esquerda do ecrã.
 2. Prima **+ adicionar**.
-3. Introduza as informações adequadas para o utilizador.
+3. Introduza as informações apropriadas para o utilizador.
 4. Prima **Adicionar**.
 
     ![Adicionar um novo utilizador](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Por predefinição, são contas de programador recém-criado **Active Directory**e associados a **programadores** grupo. Contas de programador, que estão num **Active Directory** Estado pode ser utilizado para aceder a todas as APIs para o qual têm subscrições. Para associar o programador recentemente criado grupos adicionais, consulte [como associar grupos a programadores][How to associate groups with developers].
+Por predefinição, são contas de programador recém-criado **Active Directory**e associados a **os desenvolvedores** grupo. As contas de desenvolvedores que estão numa **Active Directory** Estado pode ser utilizado para aceder a todas as APIs para as quais têm subscrições. Para associar o desenvolvedor acabada de criar grupos adicionais, consulte [como associar grupos a programadores][How to associate groups with developers].
 
-## <a name="invite-developer"> </a>Convidar um programador
-Para convidar um programador, siga os passos nesta secção:
+## <a name="invite-developer"> </a>Convidar um desenvolvedor
+Para convidar um desenvolvedor, siga os passos nesta secção:
 
 1. Selecione o **utilizadores** separador à esquerda do ecrã.
 2. Prima **+ convidar**.
 
-É apresentada uma mensagem de confirmação, mas o programador recentemente convidado não aparecer na lista de até depois de serem aceitarem o convite. 
+É apresentada uma mensagem de confirmação, mas o desenvolvedor recentemente convidado não aparece na lista até assim que aceitarem o convite. 
 
-Quando um programador está convidado, é enviado um e-mail para o programador. Este e-mail é gerado utilizando um modelo e é personalizável. Para obter mais informações, consulte [configurar modelos de e-mail][Configure email templates].
+Quando um desenvolvedor é convidado, é enviado um e-mail para o desenvolvedor. Este e-mail é gerado com um modelo e é personalizável. Para obter mais informações, consulte [configurar modelos de e-mail][Configure email templates].
 
-Depois do convite é aceite, a conta fica ativa.
+Depois do convite for aceita, a conta fica ativa.
 
 ## <a name="block-developer"> </a> Desativar ou reativar uma conta de programador
 
-Por predefinição, são contas de programador recentemente criados ou convidados **Active Directory**. Para desativar uma conta de programador, clique em **bloco**. Para reativar uma conta de programador bloqueadas, clique em **ativar**. Uma conta de programador bloqueadas não é possível aceder ao portal de programador ou chamar as APIs. Para eliminar uma conta de utilizador, clique em **eliminar**.
+Por predefinição, são contas de programador recentemente criados ou convidados **Active Directory**. Para desativar uma conta de programador, clique em **bloco**. Para reativar uma conta de programador bloqueado, clique em **Activate**. Uma conta de programador bloqueado não é possível aceder ao portal de programador ou chamam nenhuma API. Para eliminar uma conta de utilizador, clique em **eliminar**.
 
-Para bloquear um utilizador, siga os passos seguintes.
+Para impedir um utilizador, siga os passos seguintes.
 
 1. Selecione o **utilizadores** separador à esquerda do ecrã.
 2. Clique no utilizador que pretende bloquear.
@@ -66,10 +66,10 @@ Para bloquear um utilizador, siga os passos seguintes.
 
 ## <a name="reset-a-user-password"></a>Repor uma palavra-passe do utilizador
 
-Para trabalhar programaticamente com contas de utilizador, consulte o [entidade utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação o [API REST de gestão](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
+Para trabalhar programaticamente com contas de utilizador, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) documentação na [REST de gestão de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
 
 ## <a name="next-steps"> </a>Passos seguintes
-Quando é criada uma conta de programador, pode associá-lo com as funções e subscrever os produtos e APIs. Para obter mais informações, consulte [como criar e utilizar grupos][How to create and use groups].
+Depois de criar uma conta de programador, pode associá-la com funções e subscrever produtos e APIs. Para obter mais informações, consulte [como criar e utilizar grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png

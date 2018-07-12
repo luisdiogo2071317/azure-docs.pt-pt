@@ -1,6 +1,6 @@
 ---
-title: Controlar o encaminhamento na um rede Virtual do Azure - PowerShell – clássico | Microsoft Docs
-description: Saber como controlar o encaminhamento na VNets com o PowerShell | Clássico
+title: Controlar o encaminhamento num modelo de rede Virtual do Azure - PowerShell - clássico | Documentos da Microsoft
+description: Saiba como controlar o encaminhamento em VNets com o PowerShell | Clássico
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 930676a396ae316ec761ba5d03ad1a1d0fd7a425
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792006"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232571"
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o encaminhamento e utilizar aplicações virtuais (clássicas) com o PowerShell
+# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o encaminhamento e utilizar aplicações virtuais (clássico) com o PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
@@ -38,21 +38,21 @@ ms.locfileid: "31792006"
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-O exemplo do Azure PowerShell comandos abaixo esperam num ambiente simple já criado com base no cenário acima. Se pretender executar os comandos, como são apresentados neste documento, criar o ambiente mostrado na [criar uma VNet (clássica) com o PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
+O exemplo do Azure PowerShell comandos abaixo esperam um ambiente simples já criado com base no cenário acima. Se quiser executar os comandos à medida que são apresentadas neste documento, criar o ambiente mostrado na [criar uma VNet (clássico) com o PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Criar UDR para a sub-rede do front-end
-Para criar a tabela de rota e a rota necessários para a sub-rede do front-end com base no cenário acima, siga os passos abaixo.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Criar o UDR para a sub-rede de front-end
+Para criar a tabela de rotas e a rota necessário para a sub-rede de front-end com base no cenário acima, siga os passos abaixo.
 
-1. Execute o seguinte comando para criar uma tabela de rota para a sub-rede do front-end:
+1. Execute o seguinte comando para criar uma tabela de rota para a sub-rede de front-end:
 
     ```powershell
     New-AzureRouteTable -Name UDR-FrontEnd -Location uswest `
     -Label "Route table for front end subnet"
     ```
 
-2. Execute o seguinte comando para criar uma rota na tabela de rota para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para o **FW1** VM (192.168.0.4):
+2. Execute o seguinte comando para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para o **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-FrontEnd `
@@ -69,8 +69,8 @@ Para criar a tabela de rota e a rota necessários para a sub-rede do front-end c
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar UDR para a sub-rede de back-end
-Para criar a tabela de rotas e necessários para a sub-rede de back-end com base no cenário de rota, conclua os seguintes passos:
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar o UDR para a sub-rede de back-end
+Para criar a tabela de rotas e a rota necessário para a sub-rede de back-end com base no cenário, conclua os seguintes passos:
 
 1. Execute o seguinte comando para criar uma tabela de rota para a sub-rede de back-end:
 
@@ -80,7 +80,7 @@ Para criar a tabela de rotas e necessários para a sub-rede de back-end com base
     -Label "Route table for back end subnet"
     ```
 
-2. Execute o seguinte comando para criar uma rota na tabela de rota para enviar todo o tráfego destinado à sub-rede front-end (192.168.1.0/24) para o **FW1** VM (192.168.0.4):
+2. Execute o seguinte comando para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) para o **FW1** VM (192.168.0.4):
 
     ```powershell
     Get-AzureRouteTable UDR-BackEnd
@@ -99,11 +99,11 @@ Para criar a tabela de rotas e necessários para a sub-rede de back-end com base
     -RouteTableName UDR-BackEnd
     ```
 
-## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Ativar o reencaminhamento IP na FW1 VM
+## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>Ativar o reencaminhamento de IP na FW1 VM
 
-Para ativar o reencaminhamento na FW1 VM IP, execute os seguintes passos:
+Para ativar na FW1 VM de reencaminhamento de IPs, conclua os seguintes passos:
 
-1. Execute o seguinte comando para verificar o estado de reencaminhamento IP:
+1. Execute o seguinte comando para verificar o estado de reencaminhamento de IP:
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `

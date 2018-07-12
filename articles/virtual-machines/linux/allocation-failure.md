@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de falhas de atribuição de VM do Linux do Azure | Microsoft Docs
-description: Resolver problemas de falhas de alocação quando criar, reiniciar ou redimensionar uma VM com Linux no Azure
+title: Resolução de problemas de falhas de alocação de VM Linux do Azure | Documentos da Microsoft
+description: Resolver problemas de falhas de alocação ao criar, reiniciar ou redimensionar uma VM do Linux no Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: 44732739e87db153a3ab6f79f8f0b147ccb31654
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525374"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308111"
 ---
-# <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>Resolver problemas de falhas de alocação quando criar, reiniciar ou redimensionar VMs com Linux no Azure
+# <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>Resolver problemas de falhas de alocação ao criar, reiniciar ou redimensionar VMs do Linux no Azure
 
 [!INCLUDE [virtual-machines-common-allocation-failure](../../../includes/virtual-machines-common-allocation-failure.md)]
 

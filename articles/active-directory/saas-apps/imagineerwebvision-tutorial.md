@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 2c2b6e25cd86cadf070fdb8bf73ec4fa4acb28a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 9c6d819234111c461bf4793376324dbe77e85ae2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872497"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: Integração do Azure Active Directory com Imagineer WebVision
 
@@ -107,9 +107,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Imagineer WebVision domínio e URLs únicas início de sessão em informações](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_url.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR SERVER URL>/SSO/?azure`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR SERVER URL>/default.aspx`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de WebVision Imagineer](mailto:support@itgny.com) obter esses valores.

@@ -1,6 +1,6 @@
 ---
-title: Configure um nome de domínio personalizado para uma aplicação web no App Service do Azure utiliza o Gestor de tráfego para balanceamento de carga.
-description: Utilize um nome de domínio personalizado para um uma aplicação web no App Service do Azure inclui o Gestor de tráfego para o balanceamento de carga.
+title: Configure um nome de domínio personalizado para uma aplicação web no serviço de aplicações do Azure que utiliza o Gestor de tráfego para balanceamento de carga.
+description: Utilizar um nome de domínio personalizado para um uma aplicação web no serviço de aplicações do Azure, que inclui o Gestor de tráfego para balanceamento de carga.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
-ms.locfileid: "27713856"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317395"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurar um nome de domínio personalizado para uma aplicação web no serviço de aplicações do Azure utilizando o Gestor de tráfego
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Este artigo fornece instruções genéricas para utilizar um nome de domínio personalizado com um [do serviço de aplicações](app-service-web-overview.md) aplicação que está integrada [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md) para balanceamento de carga.
+Este artigo fornece instruções genéricas para utilizar um nome de domínio personalizado com uma [serviço de aplicações](app-service-web-overview.md) aplicação integrada com [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md) para balanceamento de carga.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -44,24 +44,24 @@ Este artigo fornece instruções genéricas para utilizar um nome de domínio pe
 
 <a name="bkmk_configurecname"></a>
 
-## <a name="add-a-dns-record-for-your-custom-domain"></a>Adicionar um registo DNS para o domínio personalizado
+## <a name="add-a-dns-record-for-your-custom-domain"></a>Adicionar um registo DNS para o seu domínio personalizado
 > [!NOTE]
-> Se tiver adquirido domínio através da Web Apps do Azure App Service, em seguida, ignorar os passos seguintes e consulte o passo final [comprar o domínio para aplicações Web](custom-dns-web-site-buydomains-web-app.md) artigo.
+> Se tiver adquirido o domínio através de aplicações de Web do serviço de aplicações do Azure, em seguida, ignore os passos seguintes e consulte o passo final da [comprar o domínio para aplicações Web](custom-dns-web-site-buydomains-web-app.md) artigo.
 > 
 > 
 
-Para associar o domínio personalizado com uma aplicação web no App Service do Azure, tem de adicionar uma nova entrada na tabela de DNS para o seu domínio personalizado. Fazê-lo ao utilizar as ferramentas de gestão através do seu fornecedor de domínio.
+Para associar o seu domínio personalizado a uma aplicação web no App Service do Azure, tem de adicionar uma nova entrada na tabela de DNS para o seu domínio personalizado. Pode fazê-lo usando as ferramentas de gestão do fornecedor de domínio.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Enquanto as especificações de cada fornecedor de domínio podem variar, mapear *de* o nome de domínio personalizado (tais como **contoso.com**) *para* o nome de domínio do Gestor de tráfego ( **contoso.trafficmanager.NET**) que está integrado com a sua aplicação web.
+Enquanto as especificidades de cada fornecedor de domínio podem variar, mapear *partir* seu nome de domínio personalizado (tal como **contoso.com**) *para* o nome de domínio do Gestor de tráfego ( **contoso.trafficmanager.NET**) que está integrada com a sua aplicação web.
    
 > [!NOTE]
-> Se um registo já está em utilização e tem de vincular preventivamente as suas aplicações à mesma, pode criar um registo CNAME adicional. Por exemplo, para vincular preventivamente **www.contoso.com** à sua aplicação web, crie um registo CNAME de **awverify.www** para **contoso.trafficmanager.net**. Em seguida, pode adicionar "www.contoso.com" à sua aplicação Web sem alterar o registo CNAME "www". Para obter mais informações, consulte [registos DNS criar para uma aplicação web no domínio personalizado de][CREATEDNS].
+> Se um registo já está em utilização e precisa vincular preventivamente as suas aplicações, pode criar um registo CNAME adicional. Por exemplo, para vincular preventivamente **www.contoso.com** à sua aplicação web, criar um registo CNAME de **awverify.www** para **contoso.trafficmanager.net**. Em seguida, pode adicionar "www.contoso.com" à sua aplicação Web sem alterar o registo CNAME "www". Para obter mais informações, consulte [registos de DNS de criar para uma aplicação web num domínio personalizado][CREATEDNS].
 > 
 > 
 
-Quando terminar de adicionar ou modificar registos DNS no seu fornecedor de domínio, guarde as alterações.
+Quando terminar de adicionar ou modificar registos DNS no seu fornecedor de domínios, guarde as alterações.
 
 <a name="enabledomain"></a>
 

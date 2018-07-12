@@ -1,6 +1,6 @@
 ---
-title: Filtrar o tráfego de rede - CLI do Azure | Microsoft Docs
-description: Neste artigo, irá aprender a filtrar o tráfego de rede a uma sub-rede, com um grupo de segurança de rede, utilizando a CLI do Azure.
+title: Filtrar o tráfego de rede - CLI do Azure | Documentos da Microsoft
+description: Neste artigo, irá aprender a filtrar o tráfego de rede a uma sub-rede, com um grupo de segurança de rede, com a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,35 +18,35 @@ ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423182"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721072"
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar o tráfego de rede com um grupo de segurança de rede utilizando a CLI do Azure
+# <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar o tráfego de rede com um grupo de segurança de rede com a CLI do Azure
 
-Pode filtrar o tráfego de rede de entrada para e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Grupos de segurança de rede contêm regras de segurança que filtrar o tráfego de rede pelo endereço IP, porta e protocolo. Regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste artigo, vai aprender a:
+Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste artigo, vai aprender a:
 
-* Criar regras de grupo e de segurança de um segurança de rede
+* Crie um grupo de segurança de rede e regras de segurança.
 * Criar uma rede virtual e associar um grupo de segurança de rede a uma sub-rede
-* Implementar máquinas virtuais (VM) a uma sub-rede
-* Filtros de tráfego de teste
+* Implementar máquinas virtuais (VMs) numa sub-rede
+* Testar os filtros de tráfego
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer que está a executar a CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a que está a executar a CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Um grupo de segurança de rede contém regras de segurança. Especificam regras de segurança de uma origem e de destino. As origens e destinos podem ser grupos de segurança de aplicações.
+Os grupos de segurança de rede contêm regras de segurança. As regras de segurança especificam uma origem e um destino. As origens e destinos podem ser grupos de segurança de aplicações.
 
 ### <a name="create-application-security-groups"></a>Criar grupos de segurança de aplicações
 
-Em primeiro lugar, crie um grupo de recursos para todos os recursos criados neste artigo com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos a *eastus* localização: 
+Primeiro, crie um grupo de recursos para todos os recursos criados neste artigo com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos na localização *eastus*: 
 
 ```azurecli-interactive
 az group create \
@@ -54,7 +54,7 @@ az group create \
   --location eastus
 ```
 
-Criar um grupo de segurança de aplicações com [az rede asg criar](/cli/azure/network/asg#az_network_asg_create). Um grupo de segurança de aplicações permite-lhe para servidores de grupo com os requisitos de filtragem de portas semelhantes. O exemplo seguinte cria dois grupos de segurança da aplicação.
+Crie um grupo de segurança de aplicações com [az rede asg criar](/cli/azure/network/asg#az_network_asg_create). Os grupo de segurança de aplicações permitem-lhe agrupar servidores com requisitos de filtragem de portas semelhante. O exemplo seguinte cria dois grupos de segurança de aplicações.
 
 ```azurecli-interactive
 az network asg create \
@@ -70,7 +70,7 @@ az network asg create \
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Criar um grupo de segurança de rede com [az rede nsg criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNsg*: 
+Crie um grupo de segurança de rede com [nsg de rede de az criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNsg*: 
 
 ```azurecli-interactive 
 # Create a network security group
@@ -81,7 +81,7 @@ az network nsg create \
 
 ### <a name="create-security-rules"></a>Criar regras de segurança
 
-Criar uma regra de segurança com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). O exemplo seguinte cria uma regra que permite o tráfego de entrada a partir da internet para o *myWebServers* grupo de segurança de aplicações através das portas 80 e 443:
+Crie uma regra de segurança com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). O exemplo seguinte cria uma regra que permite o tráfego de entrada da Internet para o grupo de segurança de aplicações *myWebServers* através das portas 80 e 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -98,7 +98,7 @@ az network nsg rule create \
   --destination-port-range 80 443
 ```
 
-O exemplo seguinte cria uma regra que permite o tráfego de entrada a partir da Internet para o *myMgmtServers* grupo de segurança de aplicações através da porta 22:
+O exemplo seguinte cria uma regra que permita o tráfego de entrada da Internet para o *myMgmtServers* grupo de segurança de aplicações através da porta 22:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -115,11 +115,11 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-Neste artigo, SSH (porta 22) está exposto à internet para o *myAsgMgmtServers* VM. Para ambientes de produção, em vez de exposição a porta 22 à internet, recomenda-se que o se ligar aos recursos do Azure que pretende gerir com um [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [privada](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ligação de rede.
+Neste artigo, o SSH (porta 22) é exposto à Internet para o *myAsgMgmtServers* VM. Para ambientes de produção, em vez de expor a porta 22 para a internet, recomenda-se que se ligar aos recursos do Azure que pretende gerir com um [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [privada](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ligação de rede.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria um virtual com o nome *myVirtualNetwork*:
+Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual com o nome *myVirtualNetwork*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -128,7 +128,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Adicionar uma sub-rede para uma rede virtual com [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). O exemplo seguinte adiciona uma sub-rede designada *mySubnet* para a rede virtual e, em seguida, associa a *myNsg* grupo de segurança de rede ao mesmo:
+Adicionar uma sub-rede a uma rede virtual com [criar a sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). O exemplo seguinte adiciona uma sub-rede com o nome *mySubnet* à rede virtual e associa o grupo de segurança de rede *myNsg* à mesma:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -141,11 +141,11 @@ az network vnet subnet create \
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Crie duas VMs na rede virtual para que possa validar tráfego filtragem num passo posterior. 
+Crie duas VMs na rede virtual, para que possa confirmar a filtragem de tráfego num passo posterior. 
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM que irá servir como um servidor web. O `--asgs myAsgWebServers` opção faz com que o Azure tornar a interface de rede cria para a VM membro o *myAsgWebServers* grupo de segurança da aplicação.
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM que vai funcionar como servidor Web. O `--asgs myAsgWebServers` opção faz com que o Azure tornar a interface de rede, ele cria para a VM que um membro do *myAsgWebServers* grupo de segurança de aplicações.
 
-O `--nsg ""` opção é especificada para impedir a criação de um grupo de segurança de rede predefinido para a interface de rede Azure cria quando cria a VM do Azure. Para simplificar este artigo, é utilizada uma palavra-passe. As chaves são normalmente utilizadas nas implementações de produção. Se utilizar chaves, também tem de configurar o reencaminhamento para os restantes passos de agente SSH. Para obter mais informações, consulte a documentação para o cliente SSH. Substitua `<replace-with-your-password>` no seguinte comando com uma palavra-passe da sua escolha.
+O `--nsg ""` opção for especificada para impedir a criação de um grupo de segurança de rede predefinido para a interface de rede, o Azure cria quando este cria a VM do Azure. Para simplificar este artigo, é utilizada uma palavra-passe. As chaves são normalmente utilizadas em implementações de produção. Se usar chaves, também tem de configurar para os restantes passos de reencaminhamento de agentes SSH. Para obter mais informações, consulte a documentação do seu cliente SSH. Substitua `<replace-with-your-password>` no comando seguinte com uma palavra-passe à sua escolha.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -162,7 +162,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-A VM demora alguns minutos a criar. Depois de criada a VM, é devolvido o resultado semelhante ao seguinte exemplo: 
+A criação da VM demora alguns minutos. Depois da VM é criada, é devolvido o resultado semelhante ao seguinte exemplo: 
 
 ```azurecli 
 {
@@ -177,7 +177,7 @@ A VM demora alguns minutos a criar. Depois de criada a VM, é devolvido o result
 }
 ```
 
-Tome nota do **publicIpAddress**. Este endereço é utilizado para aceder a VM a partir da internet num passo posterior.  Crie uma VM para servir como um servidor de gestão:
+Anote o **publicIpAddress**. Este endereço é utilizado para aceder à VM a partir da internet num passo posterior.  Crie uma VM que vai funcionar como servidor de gestão:
 
 ```azurecli-interactive
 az vm create \
@@ -192,11 +192,11 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-A VM demora alguns minutos a criar. Depois de criada a VM, tenha em atenção o **publicIpAddress** na saída devolvida. Este endereço é utilizado para aceder a VM no próximo passo. Não continue com o passo seguinte até que o Azure acaba de criar a VM.
+A criação da VM demora alguns minutos. Depois da VM é criada, tenha em atenção a **publicIpAddress** no resultado retornado. Este endereço é utilizado para aceder à VM no próximo passo. Não continue para o passo seguinte enquanto o Azure não concluir a criação da VM.
 
-## <a name="test-traffic-filters"></a>Filtros de tráfego de teste
+## <a name="test-traffic-filters"></a>Testar os filtros de tráfego
 
-Utilize o comando que se segue para criar uma sessão SSH com o *myVmMgmt* VM. Substitua *<publicIpAddress>* com o endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Utilize o comando seguinte para criar uma sessão SSH com o *myVmMgmt* VM. Substitua *<publicIpAddress>* com o endereço IP público da sua VM. No exemplo acima, é o endereço IP *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -204,17 +204,17 @@ ssh azureuser@<publicIpAddress>
 
 Quando lhe for pedido para uma palavra-passe, introduza a palavra-passe que introduziu no [criar VMs](#create-virtual-machines).
 
-A ligação tiver êxito, porque a porta 22 é permitida a entrada da Internet para o *myAsgMgmtServers* grupo de segurança de aplicações que a interface de rede ligada à *myVmMgmt* a VM está na.
+A ligação for bem-sucedida, porque a porta 22 é permitida a entrada da Internet para o *myAsgMgmtServers* grupo de segurança de aplicações que a interface de rede ligada para o *myVmMgmt* a VM está na.
 
-Utilize o seguinte comando para SSH para a *myVmWeb* VM a partir de *myVmMgmt* VM:
+Utilize o seguinte comando para encaminhar o SSH para o *myVmWeb* VM a partir do *myVmMgmt* VM:
 
 ```bash 
 ssh azureuser@myVmWeb
 ```
 
-A ligação é bem-sucedida porque uma regra de segurança predefinida de cada grupo de segurança de rede permite que o tráfego através de todas as portas entre todos os endereços IP numa rede virtual. Não é possível SSH para a *myVmWeb* VM a partir da Internet porque a regra de segurança para o *myAsgWebServers* não permite a porta 22 de entrada da Internet.
+A ligação é bem-sucedida, porque uma regra de segurança predefinida em cada grupo de segurança de rede permite o tráfego em todas as portas entre todos os endereços IP dentro de uma rede virtual. Não é possível encaminhar o SSH para o *myVmWeb* VM a partir da Internet porque a regra de segurança para o *myAsgWebServers* não permite a porta 22 de entrada da Internet.
 
-Utilize os seguintes comandos para instalar o servidor de web nginx no *myVmWeb* VM:
+Utilize os seguintes comandos para instalar o servidor web nginx no *myVmWeb* VM:
 
 ```bash 
 # Update package source
@@ -224,17 +224,17 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-O *myVmWeb* VM tem permissão de saída à Internet para obter nginx porque uma regra de segurança predefinida permite que todo o tráfego de saída à Internet. Saída de *myVmWeb* sessão SSH, deixando-na `username@myVmMgmt:~$` linha de comandos do *myVmMgmt* VM. Para obter o ecrã de boas-vindas nginx do *myVmWeb* VM, introduza o seguinte comando:
+O *myVmWeb* VM saída à Internet para obter o nginx porque uma regra de segurança predefinida permite que todo o tráfego de saída à Internet é permitida. Saída a *myVmWeb* sessão SSH, que mantém a na `username@myVmMgmt:~$` linha de comandos da *myVmMgmt* VM. Para obter o ecrã de boas-vindas do nginx dos *myVmWeb* VM, introduza o seguinte comando:
 
 ```bash
 curl myVmWeb
 ```
 
-Termine a sessão do *myVmMgmt* VM. Para confirmar se consegue aceder a *myVmWeb* web server a partir de fora do Azure, introduza `curl <publicIpAddress>` do seu computador. A ligação tiver êxito, porque a porta 80 é permitida a entrada da Internet para o *myAsgWebServers* grupo de segurança de aplicações que a interface de rede ligada à *myVmWeb* a VM está na.
+Termine a sessão dos *myVmMgmt* VM. Para confirmar se consegue aceder a *myVmWeb* web server fora do Azure, introduza `curl <publicIpAddress>` do seu próprio computador. A ligação for bem-sucedida, porque a porta 80 é permitida a entrada da Internet para o *myAsgWebServers* grupo de segurança de aplicações que a interface de rede ligada para o *myVmWeb* a VM está na.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário utilizar [eliminação do grupo de az](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos nele contidos.
+Quando já não for necessário, utilize [eliminação do grupo de az](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos nele contidos.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -242,6 +242,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou um grupo de segurança de rede e associados-la a uma sub-rede de rede virtual. Para obter mais informações sobre grupos de segurança de rede, consulte [descrição geral de grupo de segurança de rede](security-overview.md) e [gerir um grupo de segurança de rede](manage-network-security-group.md).
+Neste artigo, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
 
-Tráfego de rotas do Azure entre sub-redes por predefinição. Em vez disso, pode optar por encaminhar o tráfego entre sub-redes através de uma VM, que serve como uma firewall, por exemplo. Para saber como, consulte [criar uma tabela de rota](tutorial-create-route-table-cli.md).
+O Azure encaminha o tráfego entre sub-redes por predefinição. Em alternativa, pode optar por encaminhar o tráfego entre sub-redes através de uma VM que funcione, por exemplo, como uma firewall. Para saber como, veja [criar uma tabela de rotas](tutorial-create-route-table-cli.md).

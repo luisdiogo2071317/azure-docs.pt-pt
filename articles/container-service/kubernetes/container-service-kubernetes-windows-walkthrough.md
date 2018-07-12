@@ -1,5 +1,5 @@
 ---
-title: Guia de introdução - cluster Kubernetes do Azure para Windows
+title: Início rápido – cluster do Kubernetes do Azure para Windows
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Windows no Azure Container Service com a CLI do Azure.
 services: container-service
 author: dlepow
@@ -10,11 +10,11 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165004"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38485449"
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Implementar o cluster do Kubernetes para contentores do Windows
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > O suporte para contentores do Windows com Kubernetes no Azure Container Service está em pré-visualização. 
@@ -162,7 +162,7 @@ Para expor o pod ao mundo com um endereço IP público, introduza o seguinte com
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Com este comando, Kubernetes cria um serviço e uma regra de Balanceador de carga do Azure com um endereço IP público para o serviço. 
+Com este comando, o Kubernetes cria um serviço e uma regra de Balanceador de carga do Azure com um endereço IP público para o serviço. 
 
 Execute o seguinte comando para ver o estado do serviço.
 

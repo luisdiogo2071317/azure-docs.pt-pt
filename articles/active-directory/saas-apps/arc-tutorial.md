@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 9decab5c35cda03e8532c48654203be7d95a5801
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c1bf5ba68d8242a0ef0831987ac6fd041c62ace9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858848"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutorial: Integração do Azure Active Directory com a publicação de arco - SSO
 
@@ -149,7 +149,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     1. Clique em **Ok**
 
     > [!NOTE]
-    > Aqui o **grupos** atributo está mapeado com **user.assignedroles**. Estes são criadas no Azure AD para mapear os nomes de grupo na aplicação de funções personalizadas. Pode obter mais orientações [aqui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) sobre como criar funções personalizadas no Azure AD. 
+    > Aqui o **grupos** atributo está mapeado com **user.assignedroles**. Estes são criadas no Azure AD para mapear os nomes de grupo na aplicação de funções personalizadas. Pode obter mais orientações [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) sobre como criar funções personalizadas no Azure AD. 
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

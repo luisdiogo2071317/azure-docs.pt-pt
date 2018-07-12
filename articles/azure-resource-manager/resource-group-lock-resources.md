@@ -1,6 +1,6 @@
 ---
-title: Recursos do Azure para impedir que as alterações de bloqueio | Microsoft Docs
-description: Impedir que utilizadores atualizar ou eliminar os recursos do Azure críticos aplicando um bloqueio para todos os utilizadores e funções.
+title: Bloquear recursos do Azure para impedir alterações | Documentos da Microsoft
+description: Impedi os utilizadores de atualização e a eliminação de recursos do Azure críticos ao aplicar um bloqueio para todos os utilizadores e funções.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -15,37 +15,37 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602691"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488606"
 ---
-# <a name="lock-resources-to-prevent-unexpected-changes"></a>Recursos de bloqueio para impedir que as alterações inesperadas 
+# <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos pode prevenir alterações inesperadas 
 
-Como administrador, poderá ter de bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são denominados **eliminar** e **só de leitura** respetivamente.
+Como administrador, terá de bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modifiquem recursos críticos. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **elimine** e **só de leitura** , respetivamente.
 
-* **CanNotDelete** significa que os utilizadores autorizados, podem ainda ler e modificar um recurso, mas não é possível eliminar o recurso. 
-* **Só de leitura** significa que os utilizadores autorizados podem ler um recurso, mas não é possível eliminar ou atualizar o recurso. Aplicar esta bloqueio é semelhante ao restringir todos os utilizadores autorizados para as permissões concedidas à **leitor** função. 
+* **CanNotDelete** significa que os utilizadores autorizados ainda podem ler e modificar um recurso, mas eles não é possível eliminar o recurso. 
+* **Só de leitura** significa que os utilizadores autorizados podem ler um recurso, mas não é possível eliminar ou atualizar o recurso. Aplicar esse bloqueio é semelhante ao restringir todos os utilizadores autorizados para as permissões concedidas pela **leitor** função. 
 
 ## <a name="how-locks-are-applied"></a>Como os bloqueios são aplicados
 
-Ao aplicar um bloqueio num âmbito principal, todos os recursos desse âmbito herdam o bloqueio do mesmo. Recursos mesmo que adicionar mais tarde herdam o bloqueio do principal. O bloqueio mais restritivo na herança tem precedência.
+Quando aplica um bloqueio num âmbito principal, todos os recursos dentro daquele escopo herdam o mesmo bloqueio. Recursos até mesmo que adicionar posteriormente herdam o bloqueio do pai. O bloqueio mais restritivo na herança tem precedência.
 
-Ao contrário do controlo de acesso baseado em funções, utilize as bloqueios de gestão para aplicar uma restrição em todos os utilizadores e funções. Para saber mais sobre a definição de permissões de utilizadores e funções, consulte [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md).
+Ao contrário do controlo de acesso baseado em funções, usar os bloqueios de gestão para aplicar uma restrição em todos os utilizadores e funções. Para saber mais sobre como definir permissões para utilizadores e funções, veja [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
-Bloqueios de Gestor de recursos são aplicadas apenas a operações acontecer na plane a gestão, que consiste em operações de envio para `https://management.azure.com`. Os bloqueios restringe como recursos executar as suas próprias funções. Alterações de recurso estão limitadas, mas as operações de recurso não estão restringidas. Por exemplo, um bloqueio de só de leitura de uma base de dados do SQL Server impede-o de eliminar ou modificar a base de dados, mas não o impede de criar, atualizar ou eliminar dados na base de dados. Transações de dados permitidas por essas operações não são enviadas para `https://management.azure.com`.
+Bloqueios de Gestor de recursos aplicam-se apenas às operações que ocorrem no plano de gestão, que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem como recursos executam suas próprias funções. As alterações de recursos são restritas, mas as operações de recursos não estão restritas. Por exemplo, um bloqueio só de leitura numa base de dados SQL impede-o de eliminem ou modifiquem o banco de dados, mas ele não o impede de criar, atualizar ou eliminar dados na base de dados. Transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
-Aplicar **ReadOnly** pode originar resultados inesperados porque algumas operações que parecem como leitura operações, na verdade, necessitam de ações adicionais. Por exemplo, colocar uma **ReadOnly** bloqueio numa conta de armazenamento impede que todos os utilizadores listar as chaves. A lista de operação de chaves é processada através de um pedido POST porque as chaves devolvidas estão disponíveis para operações de escrita. Para obter outro exemplo, colocar uma **ReadOnly** bloqueio de um recurso de serviço de aplicações impede o Explorador de servidores do Visual Studio a apresentação de ficheiros para o recurso porque esse interação requer acesso de escrita.
+Aplicando **só de leitura** pode levar a resultados inesperados, uma vez que algumas operações que parecem ler operações, na verdade, exigem ações adicionais. Por exemplo, colocar uma **só de leitura** bloqueio numa conta de armazenamento impede que todos os utilizadores de listar as chaves. A lista de operação de chaves é tratada por meio de um pedido POST porque as chaves retornadas estão disponíveis para operações de escrita. Por outro exemplo, colocar uma **só de leitura** bloqueio num recurso de serviço de aplicações impede que o Visual Studio Server Explorer de apresentar ficheiros para o recurso porque essa interação requer acesso de escrita.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Quem pode criar ou eliminar as bloqueios na sua organização
-Para criar ou eliminar as bloqueios de gestão, tem de ter acesso a `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
+## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Quem pode criar ou eliminar bloqueios na sua organização
+Para criar ou eliminar bloqueios de gestão, tem de ter acesso ao `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modelo
-O exemplo seguinte mostra um modelo que cria um plano do app service, um web site e um bloqueio no web site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/bloqueios**. O nome do bloqueio é criado pelo concatenar o nome de recurso com **/Microsoft.Authorization/** e o nome do bloqueio.
+O exemplo seguinte mostra um modelo que cria um plano do serviço de aplicações, um web site e um bloqueio no web site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/bloqueios**. O nome do bloqueio é criado pela concatenação com o nome do recurso **/Microsoft.Authorization/** e o nome do bloqueio.
 
 ```json
 {
@@ -117,9 +117,9 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 ```
 
 ## <a name="powershell"></a>PowerShell
-Bloqueio tiver implementado recursos com o Azure PowerShell utilizando o [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) comando.
+O bloqueio é implementada recursos com o Azure PowerShell com o [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) comando.
 
-Para bloquear um recurso, forneça o nome de recurso, o tipo de recurso e o nome do grupo de recursos.
+Para bloquear um recurso, forneça o nome do recurso, o respetivo tipo de recurso e o seu nome de grupo de recursos.
 
 ```powershell
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
@@ -137,7 +137,7 @@ Para obter informações sobre um bloqueio, utilize [Get-AzureRmResourceLock](/p
 Get-AzureRmResourceLock
 ```
 
-Para obter todos os bloqueios para um recurso, utilize:
+Para obter todos os bloqueios de um recurso, utilize:
 
 ```powershell
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
@@ -158,9 +158,9 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Bloqueio tiver implementado recursos com a CLI do Azure utilizando o [bloqueio az criar](/cli/azure/lock#az_lock_create) comando.
+O bloqueio é implementada recursos com a CLI do Azure com o [bloqueio az criar](/cli/azure/lock#az_lock_create) comando.
 
-Para bloquear um recurso, forneça o nome de recurso, o tipo de recurso e o nome do grupo de recursos.
+Para bloquear um recurso, forneça o nome do recurso, o respetivo tipo de recurso e o seu nome de grupo de recursos.
 
 ```azurecli
 az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
@@ -172,13 +172,13 @@ Para bloquear um grupo de recursos, forneça o nome do grupo de recursos.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Para obter informações sobre um bloqueio, utilize [lista de bloqueio az](/cli/azure/lock#az_lock_list). Para obter todos os bloqueios na sua subscrição, utilize:
+Para obter informações sobre um bloqueio, utilize [lista de bloqueio de az](/cli/azure/lock#az_lock_list). Para obter todos os bloqueios na sua subscrição, utilize:
 
 ```azurecli
 az lock list
 ```
 
-Para obter todos os bloqueios para um recurso, utilize:
+Para obter todos os bloqueios de um recurso, utilize:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
@@ -198,15 +198,15 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>API REST
-Pode bloquear recursos implementados com o [API REST para bloqueios gestão](https://docs.microsoft.com/rest/api/resources/managementlocks). A API REST permite-lhe criar e eliminar as bloqueios e obter informações sobre as bloqueios existentes.
+É possível bloquear recursos implementados com o [API REST para bloqueios de gestão](https://docs.microsoft.com/rest/api/resources/managementlocks). A API REST permite-lhe criar e eliminar bloqueios e obter informações sobre bloqueios existentes.
 
 Para criar um bloqueio, execute:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-O âmbito pode ser uma subscrição, o grupo de recursos ou o recurso. O nome de bloqueio é que pretende para chamar o bloqueio. Para uma versão de api, utilize **2015-01-01**.
+O âmbito pode ser uma subscrição, grupo de recursos ou recurso. O nome de bloqueio é tudo o que deseja chamar o bloqueio. Para a versão de api, utilize **2015-01-01**.
 
-O pedido de incluir um objeto JSON que especifica as propriedades para o bloqueio.
+Na solicitação, incluem um objeto JSON que especifica as propriedades para o bloqueio.
 
     {
       "properties": {
@@ -216,8 +216,8 @@ O pedido de incluir um objeto JSON que especifica as propriedades para o bloquei
     } 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre como organizar logicamente os recursos, consulte [utilizando etiquetas para organizar os recursos](resource-group-using-tags.md)
-* Para alterar o grupo de recursos, um recurso reside no, consulte [mover recursos para o novo grupo de recursos](resource-group-move-resources.md)
-* Pode aplicar restrições e convenções a sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) (O que é o Azure Policy?).
+* Para saber mais sobre como organizar logicamente os recursos, veja [utilizando etiquetas para organizar os recursos](resource-group-using-tags.md)
+* Para alterar um recurso reside no qual grupo de recursos, consulte [mover recursos para um novo grupo de recursos](resource-group-move-resources.md)
+* Pode aplicar restrições e convenções na sua subscrição com políticas personalizadas. Para obter mais informações, veja [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) (O que é o Azure Policy?).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

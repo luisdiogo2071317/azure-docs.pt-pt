@@ -1,6 +1,6 @@
 ---
-title: Criar uma máquina virtual personalizada do Windows | Microsoft Docs
-description: Saiba como criar uma máquina virtual do Windows personalizada do portal do Azure utilizando o modelo de implementação clássica.
+title: Criar uma máquina de virtual personalizada do Windows | Documentos da Microsoft
+description: Saiba como criar uma máquina virtual do Windows personalizada a partir do portal do Azure com o modelo de implementação clássica.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 11/03/17
 ms.author: cynthn
 ms.openlocfilehash: 0ed150b1cce967bc0be614a24cc1d363a0209373
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918524"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477716"
 ---
-# <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Criar uma máquina virtual personalizada com o Windows utilizando o modelo de implementação clássica
+# <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Criar uma máquina virtual personalizada em execução com o modelo de implementação clássica do Windows
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../../resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -35,4 +35,4 @@ ms.locfileid: "30918524"
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes 
-Também pode [criar uma máquina virtual personalizada com o Linux](../../linux/classic/createportal-classic.md).
+Também pode [criar uma máquina virtual personalizada em Linux](../../linux/classic/createportal-classic.md).

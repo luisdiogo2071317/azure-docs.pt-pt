@@ -1,1 +1,1 @@
-Iniciar 15 de Novembro de 2017, máquinas virtuais estará disponível apenas a [portal do Azure](https://portal.azure.com). 
+A partir de 15 de Novembro de 2017, as máquinas virtuais estará disponível apenas nos [portal do Azure](https://portal.azure.com). 

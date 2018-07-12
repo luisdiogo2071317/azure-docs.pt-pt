@@ -1,6 +1,6 @@
 ---
-title: 'O Azure AD Connect: Se já tiver do Azure AD | Microsoft Docs'
-description: Este tópico descreve como utilizar ligar quando tiver um inquilino do Azure AD existente.
+title: 'O Azure AD Connect: Se já tiver o AD do Azure | Documentos da Microsoft'
+description: Este tópico descreve como utilizar o Connect quando tiver um inquilino do Azure AD existente.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,50 +15,53 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725212"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969406"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>O Azure AD Connect: Se tiver um inquilino existente
-A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de que começa com um novo Azure inquilino do AD e de que não existe nenhum utilizador ou outros objetos não existe. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é que o utilizador.
+A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de começar com um Azure novo inquilino do AD e o que há nenhum usuário ou outros objetos. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é para si.
 
 ## <a name="the-basics"></a>Noções básicas
-Um objeto no Azure AD ou é controlado na nuvem (Azure AD) ou no local. Para um único objeto, não é possível gerir alguns atributos no local e alguns outros atributos no Azure AD. Cada objeto tem um sinalizador que indica onde o objecto é gerido.
+Um objeto no Azure AD ou é controlado na cloud (Azure AD) ou no local. Para um único objeto, não é possível gerir alguns atributos no local e alguns outros atributos no Azure AD. Cada objeto tem um sinalizador que indica em que o objeto é gerenciado.
 
-Pode gerir alguns utilizadores no local e outros na nuvem. Um cenário comum para esta configuração é uma organização com uma combinação dos técnicos de gestão de contas e técnicos de vendas. Tem dos trabalhadores de gestão de contas no local conta AD, mas os trabalhadores vendas não compatíveis, que têm uma conta no Azure AD. Iria gerir alguns utilizadores no local e algumas no Azure AD.
+Pode gerir alguns utilizadores no local e outros na cloud. Um cenário comum para esta configuração é uma organização com uma combinação de funções de trabalho de gestão de contas e funções de trabalho de vendas. Os operadores de contabilidade tem uma local conta AD, mas os operadores de vendas não o fizer, têm uma conta no Azure AD. Iria gerir alguns utilizadores no local e alguns no Azure AD.
 
-Se tiver iniciado para gerir os utilizadores no Azure AD que também estejam no AD no local e posteriormente, pretender utilizar Connect, em seguida, existem algumas questões adicionais, precisa de considerar.
+Se começou a gerir os utilizadores no Azure AD que também estejam no AD no local e posteriormente, pretender utilizar o Connect, haverá algumas preocupações adicionais que precisa considerar.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronizar com os utilizadores existentes no Azure AD
-Quando instalar o Azure AD Connect e iniciá-la, o serviço de sincronização do Azure AD (no Azure AD) faz uma verificação de cada objeto novo e tentar localizar um objeto existente para corresponder. Existem três atributos utilizados para executar este processo: **userPrincipalName**, **proxyAddresses**, e **sourceAnchor**/**immutableID**. Uma correspondência na **userPrincipalName** e **proxyAddresses** é conhecido como um **correspondência de forma recuperável**. Uma correspondência na **sourceAnchor** é conhecido como **correspondência de disco rígida**. Para o **proxyAddresses** atributo apenas o valor com **SMTP:**, que é o endereço de correio eletrónico principal, é utilizado para a avaliação.
+Quando instalar o Azure AD Connect e iniciá-la, o serviço de sincronização do Azure AD (no Azure AD) faz uma verificação em cada novo objeto e tentar localizar um objeto existente para corresponder. Existem três atributos utilizados para executar este processo: **userPrincipalName**, **proxyAddresses**, e **sourceAnchor**/**immutableID** . Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecido como um **correspondência de forma recuperável**. Uma correspondência no **sourceAnchor** é conhecido como **correspondência de disco rígida**. Para o **proxyAddresses** apenas o valor com o atributo **SMTP:**, que é o endereço de e-mail principal, é utilizado para a avaliação.
 
-A correspondência é avaliada apenas novos objetos feitos Connect. Se alterar um objeto existente para esta correspondência qualquer um destes atributos, em seguida, verá um erro em vez disso.
+A correspondência é avaliada apenas para novos objetos provenientes do Connect. Se alterar um objeto existente para que ele é correspondência de qualquer um destes atributos, em seguida, verá um erro em vez disso.
 
-Se o Azure AD encontrar um objeto onde os valores de atributo são os mesmos para um objeto proveniente de ligar e que já se encontra presente no Azure AD, em seguida, o objeto no Azure AD é tomado over by Connect. O objeto gerido anteriormente nuvem está assinalado como gerido no local. Todos os atributos no Azure AD com um valor no local no AD são substituídos com o valor no local. A exceção é quando um atributo tem um **nulo** valor no local. Neste caso, o valor no Azure AD permanece, mas ainda só pode alterá-la no local para outra coisa.
+Se o Azure AD encontrar um objeto em que os valores de atributos são os mesmos para um objeto provenientes do Connect e que já está presente no Azure AD, em seguida, o objeto no Azure AD for retirado por Connect. O objeto anteriormente gerida na cloud é sinalizado como no local geridas. Todos os atributos no Azure AD com um valor em locais AD são substituídos com o valor no local. A exceção é quando um atributo tem um **nulo** valor no local. Neste caso, o valor do Azure AD permanece, mas ainda só pode alterá-lo no local para outro local.
 
 > [!WARNING]
-> Uma vez que todos os atributos no Azure AD que vão ser substituída pelo valor no local, certifique-se de que tem os dados no local. Por exemplo, se apenas a ter geridas endereço de correio eletrónico no Office 365 e não são mantidas atualizadas no local do AD DS, e perder quaisquer valores no Azure AD/Office 365 não está presente no AD DS.
+> Uma vez que todos os atributos no Azure AD vai ser substituída pelo valor no local, certificar-se de que tem boa dados no local. Por exemplo, se só tiver gerido endereço de e-mail do Office 365 e não são mantidas atualizadas no locais AD DS, em seguida, perde os valores existentes no Azure AD/Office 365 não está presente no AD DS.
 
 > [!IMPORTANT]
-> Se utilizar a sincronização de palavra-passe, o que é sempre utilizada pelas definições rápidas, em seguida, a palavra-passe no Azure AD é substituída com a palavra-passe no local no AD. Se os utilizadores são utilizados para gerir palavras-passe diferentes, terá de informe-os de que devem utilizar a palavra-passe no local quando instalou o ligar.
+> Se usar a sincronização de palavra-passe, que é sempre utilizada pelas definições rápidas, em seguida, a palavra-passe no Azure AD será substituída com a palavra-passe no local AD. Se os utilizadores são usados para gerenciar senhas diferentes, em seguida, terá da informá-los de que devem utilizar a palavra-passe no local quando tiver instalado o Connect.
 
-A secção anterior e o aviso devem ser consideradas no seu planeamento. Se tiver efetuado alterações muitos no Azure AD não serão refletido no local do AD DS, em seguida, terá de planear a forma preencher o AD DS com valores atualizados antes de poder sincronizar os objetos com o Azure AD Connect.
+A secção anterior e o aviso devem ser considerados em seus planos. Se fez muitas alterações no Azure AD não serão refletido na locais AD DS, tem de planear a forma preencher o AD DS com valores atualizados antes de poder sincronizar seus objetos com o Azure AD Connect.
 
-Se corresponder os objetos com uma configuração soft-match, o **sourceAnchor** é adicionada para o objeto no Azure AD para uma correspondência de disco rígida possam ser utilizada mais tarde.
+Se correspondido seus objetos com uma correspondência de forma recuperável, em seguida, o **sourceAnchor** é adicionada ao objeto no Azure AD para que uma correspondência de disco rígida pode ser utilizada mais tarde.
+
+>[!IMPORTANT]
+> A Microsoft recomenda vivamente em relação a sincronização de contas no local com as contas administrativas já existentes no Azure Active Directory.
 
 ### <a name="hard-match-vs-soft-match"></a>Disco rígido-match vs correspondência de forma recuperável
-Para uma nova instalação do Connect, não há qualquer diferença prática entre uma configuração soft - e uma disco rígido correspondência. A diferença é uma situação de recuperação após desastre. Se tiver perdido o seu servidor com o Azure AD Connect, pode reinstalar uma nova instância sem perder quaisquer dados. Um objeto com um sourceAnchor é enviado para ligar durante a instalação inicial. A correspondência de, em seguida, pode ser avaliada pelo cliente (Azure AD Connect), que é muito mais rápido do que a fazer o mesmo no Azure AD. Uma correspondência de disco rígida é avaliada por ligar e pelo Azure AD. Uma correspondência de forma recuperável é avaliada apenas pelo Azure AD.
+Para uma nova instalação do Connect, não existe nenhum prática a diferença entre uma configuração soft - e um disco rígido-match. A diferença está numa situação de recuperação após desastre. Se tiver perdido o seu servidor com o Azure AD Connect, pode reinstalar uma nova instância sem perder nenhum dado. Um objeto com um sourceAnchor é enviado para o Connect durante a instalação inicial. A correspondência, em seguida, pode ser avaliada pelo cliente (Azure AD Connect), que é muito mais rápido do que os mesmos no Azure AD. Uma correspondência de disco rígida é avaliada pelo Connect e pelo Azure AD. Uma correspondência de forma recuperável é avaliada apenas pelo Azure AD.
 
 ### <a name="other-objects-than-users"></a>Outros objetos que os utilizadores
-Para grupos com capacidade de correio e contactos, pode soft-correspondência com base em proxyAddresses. Disco rígido-match não é aplicável, uma vez que só pode atualizar o sourceAnchor/immutableID (utilizando o PowerShell) nos utilizadores apenas. Para os grupos que não são com capacidade de correio, não são atualmente suportadas para a configuração soft-match ou disco rígido-match.
+Para grupos com capacidade de correio e contatos, pode soft-correspondência com base em proxyAddresses. Disco rígido-match não é aplicável, uma vez que só pode atualizar o sourceAnchor/immutableID (com o PowerShell) os utilizadores apenas. Para os grupos que não são habilitados para email, atualmente não há suporte para a correspondência de forma recuperável ou de disco rígido.
 
-## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Criar um novo diretório Active Directory no local a partir dos dados no Azure AD
-Alguns clientes começam com uma solução apenas na nuvem com o Azure AD e não têm um local AD. Mais tarde pretendem consumir recursos no local e pretender criar um local AD com base nos dados do Azure AD. O Azure AD Connect não pode ajudá-lo para este cenário. Não cria os utilizadores no local e não tem qualquer capacidade de definir a palavra-passe no local para os mesmos que no Azure AD.
+## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Criar um novo do Active Directory no local a partir de dados no Azure AD
+Alguns clientes começam com uma solução apenas na cloud com o Azure AD e não têm uma local do AD. Mais tarde pretende consumir recursos no local e quer criar uma local do AD com base nos dados do Azure AD. O Azure AD Connect não pode ajudá-lo para este cenário. Não cria os utilizadores no local e não tem qualquer capacidade de definir a palavra-passe no local para os mesmos que no Azure AD.
 
-Se o motivo apenas motivo pelo qual planeia adicionar AD no local é para suportar LOBs (aplicações de linha de negócio), em seguida, talvez deve considerar a utilizar [serviços de domínio do Azure AD](../../active-directory-domain-services/index.yml) em vez disso.
+Se o único motivo por que planeia adicionar AD no local é oferecer suporte a LOBs (aplicações de linha de negócio), em seguida, talvez deve considerar usar [serviços de domínio do Azure AD](../../active-directory-domain-services/index.yml) em vez disso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

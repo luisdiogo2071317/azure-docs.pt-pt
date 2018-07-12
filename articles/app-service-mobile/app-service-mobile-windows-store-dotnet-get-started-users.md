@@ -1,6 +1,6 @@
 ---
-title: Adicionar autenticação à sua aplicação plataforma Universal do Windows (UWP) | Microsoft Docs
-description: 'Saiba como utilizar Mobile Apps do Azure App Service para autenticar os utilizadores da sua aplicação plataforma Universal do Windows (UWP) utilizando uma variedade de fornecedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft.'
+title: Adicionar autenticação à sua aplicação plataforma Universal do Windows (UWP) | Documentos da Microsoft
+description: 'Saiba como utilizar aplicações de Mobile do serviço de aplicações do Azure para autenticar os utilizadores da sua aplicação plataforma Universal do Windows (UWP) utilizando uma variedade de fornecedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
 ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592149"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306579"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação à sua aplicação do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Este tópico mostra como adicionar autenticação baseada na nuvem a sua aplicação móvel. Neste tutorial, adicionar autenticação para o projeto de início rápido da plataforma Universal do Windows (UWP) para Mobile Apps utilizando um fornecedor de identidade que é suportado pelo App Service do Azure. Após com êxito a ser autenticado e autorizado pelo seu back-end de aplicação móvel, é apresentado o valor de ID de utilizador.
+Este tópico mostra-lhe como adicionar a autenticação baseada na cloud à sua aplicação móvel. Neste tutorial, vai adicionar autenticação ao projeto de início rápido da plataforma Universal do Windows (UWP) para aplicações móveis através de um fornecedor de identidade que é suportado pelo App Service do Azure. Após com êxito a ser autenticadas e autorizadas pela sua back-end de aplicação móvel, é apresentado o valor de ID de utilizador.
 
-Este tutorial baseia o guia de introdução de aplicações móveis. Primeiro tem de concluir o tutorial [introdução às Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
+Este tutorial baseia-se no manual de início rápido das aplicações móveis. Primeiro tem de concluir o tutorial [introdução às Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
 
-## <a name="register"></a>Registar a aplicação para autenticação e configurar o serviço de aplicações
+## <a name="register"></a>Registar a sua aplicação para autenticação e configurar o serviço de aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar a sua aplicação para os URLs de redirecionamento externo permitido
+## <a name="redirecturl"></a>Adicionar a sua aplicação para os URLs de redirecionamento externo permitidos
 
-Autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isto permite que o sistema de autenticação redirecionar para a sua aplicação, depois do processo de autenticação está concluído. Neste tutorial, utilizamos o esquema de URL _appname_ ao longo. No entanto, pode utilizar qualquer esquema de URL que escolher. Deve ser exclusivo para a sua aplicação móvel. Para ativar o redirecionamento do lado do servidor:
+Autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isso permite que o sistema de autenticação redirecionar para a sua aplicação, uma vez concluído o processo de autenticação. Neste tutorial, utilizamos o esquema de URL _appname_ em todo. No entanto, pode utilizar qualquer esquema de URL que escolher. Deve ser exclusivo para a sua aplicação móvel. Para ativar o redirecionamento no lado do servidor:
 
 1. No [portal do Azure], selecione o serviço de aplicações.
 
-2. Clique em de **autenticação / autorização** opção do menu.
+2. Clique nas **autenticação / autorização** opção de menu.
 
-3. No **permitidos URLs de redirecionamento externos**, introduza `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** esta cadeia é o esquema de URL para a sua aplicação móvel.  Deve seguir a especificação de URL normal para um protocolo (utilize letras e números apenas e começar com uma letra).  Deve tome nota da cadeia que escolher, terá de ajustar o código de aplicações móveis com o esquema de URL em vários locais.
+3. Na **permitido URLs de redirecionamento externo**, introduza `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** nessa cadeia é o esquema de URL para a sua aplicação móvel.  Deve seguir normal especificação de URL para um protocolo (utilize letras e números apenas e começar com uma letra).  Deve tome nota da cadeia de caracteres que escolha, como precisará ajustar o código da aplicação móvel com o esquema de URL em vários locais.
 
 4. Clique em **OK**.
 
@@ -48,12 +48,12 @@ Autenticação segura requer que defina um novo esquema de URL para a sua aplica
 ## <a name="permissions"></a>Restringir as permissões para utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Agora, pode verificar o acesso anónimo ao back-end foi desativado. Com o projeto de aplicação UWP definido como o projeto de arranque, implementar e executar a aplicação; Certifique-se de que uma exceção não processada com um código de estado de 401 (não autorizado) é desencadeada depois da aplicação for iniciada. Isto acontece porque a aplicação tenta aceder ao seu código de aplicação móvel como um utilizador não autorizado, mas o *TodoItem* tabela agora requer autenticação.
+Agora, pode verificar que o acesso anônimo ao seu back-end foi desabilitado. Com o projeto de aplicação UWP definir como projeto de arranque, implementar e executar a aplicação; Certifique-se de que uma exceção não processada com um código de estado de 401 (não autorizado) é gerada depois da aplicação for iniciada. Isto acontece porque a aplicação tenta aceder ao seu código da aplicação móvel como um utilizador não autenticado, mas a *TodoItem* tabela agora requer autenticação.
 
 Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes de solicitar recursos a partir do seu serviço de aplicações.
 
 ## <a name="add-authentication"></a>Adicionar autenticação à aplicação
-1. O UWP aplicação projeto ficheiro MainPage.xaml.cs, adicione o seguinte fragmento de código:
+1. O UWP aplicação arquivo MainPage.xaml.cs do projeto e adicione o seguinte fragmento de código:
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -86,8 +86,8 @@ Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes d
             return success;
         }
    
-    Este código autentica o utilizador com um início de sessão do Facebook. Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, altere o valor de **MobileServiceAuthenticationProvider** acima para o valor para o fornecedor.
-2. Substitua o **OnNavigatedTo()** método no MainPage.xaml.cs. Em seguida, irá adicionar um **sessão** botão para a aplicação que aciona a autenticação.
+    Esse código autentica o utilizador com um início de sessão do Facebook. Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, altere o valor de **MobileServiceAuthenticationProvider** acima para o valor para o seu fornecedor.
+2. Substitua a **OnNavigatedTo()** método em MainPage.xaml.cs. Em seguida, adicionará uma **iniciar sessão** botão para a aplicação que aciona a autenticação.
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -97,7 +97,7 @@ Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes d
             }
         }
 
-3. Adicione o seguinte fragmento de código para MainPage.xaml.cs:
+3. Adicione o seguinte fragmento de código para o MainPage.xaml.cs:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -111,7 +111,7 @@ Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes d
                 await RefreshTodoItems();
             }
         }
-4. Abra o ficheiro de projeto MainPage.xaml, localize o elemento que define o **guardar** botão e substitua-o com o seguinte código:
+4. Abra o ficheiro de projeto de mainpage. XAML, localize o elemento que define a **guardar** botão e substituí-lo com o código a seguir:
    
         <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 
                 Click="ButtonSave_Click">
@@ -143,21 +143,21 @@ Em seguida, irá atualizar a aplicação para autenticar os utilizadores antes d
             Window.Current.Activate();
             base.OnActivated(args);
         }
-6. Abra o ficheiro Package. appxmanifest, navegue para **declarações**, na **declarações disponíveis** na lista pendente, selecione **protocolo** e clique em **adicionar** botão. Configurar agora o **propriedades** do **protocolo** declaração. No **nome a apresentar**, adicione o nome que pretende apresentar aos utilizadores da sua aplicação. No **nome**, adicione o {url_scheme_of_your_app}.
-7. Prima a tecla F5 para executar a aplicação, clique em de **sessão** botão e inicie sessão na aplicação com o fornecedor de identidade que escolheu. Após o início de sessão, a aplicação é executado sem erros e é capazes de consultar o seu back-end e disponibilizar atualizações aos dados.
+6. Abra o arquivo Package appxmanifest, navegue para **declarações**, na **declarações disponíveis** lista pendente, selecione **protocolo** e clique em **adicionar** botão. Agora configurar o **propriedades** da **protocolo** declaração. Na **nome a apresentar**, adicione o nome que pretende apresentar aos utilizadores da sua aplicação. Na **nome**, adicione {url_scheme_of_your_app}.
+7. Prima a tecla F5 para executar a aplicação, clique nas **iniciar sessão** botão e inicie sessão na aplicação com o fornecedor de identidade escolhido. Depois do início de sessão for bem-sucedida, a aplicação é executada sem erros e pode consultar o back-end e fazer atualizações aos dados.
 
-## <a name="tokens"></a>Armazenar o token de autenticação no cliente
-O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente contactar o fornecedor de identidade e o serviço de aplicação sempre que a aplicação for iniciada. Não só é ineficaz, pode executar este método para utilização-relacionado com problemas de muitos clientes tente iniciar a aplicação ao mesmo tempo. É uma melhor abordagem para colocar em cache o token de autorização devolvido pelo seu serviço de aplicações e tente utilizar este primeiro antes de utilizar um fornecedor com base no início de sessão.
+## <a name="tokens"></a>Store o token de autenticação do cliente
+O exemplo anterior mostrava um padrão de início de sessão, que exige que o cliente contactar o fornecedor de identidade e o serviço de aplicações sempre que a aplicação for iniciada. Não só é ineficiente, pode executar este método para utilização-relacionada com problemas de muitos clientes devem tentar iniciar o aplicativo ao mesmo tempo. Uma abordagem melhor é armazenar em cache o token de autorização devolvido pelo seu serviço de aplicações e tente utilizar nesta primeira antes de utilizar um fornecedor com base no início de sessão.
 
 > [!NOTE]
-> Pode colocar em cache o token emitido por serviços aplicacionais independentemente se estão a utilizar autenticação geridos pelo cliente ou serviço gerido. Este tutorial utiliza a autenticação de serviço gerido.
+> Pode colocar em cache o token emitido por serviços de aplicações, independentemente de se está a utilizar a autenticação gerida pelo cliente ou pelo serviço. Este tutorial utiliza a autenticação gerida pelo serviço.
 > 
 > 
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que concluiu este tutorial de autenticação básica, considere continuar para um dos seguintes tutoriais:
+Agora que concluiu este tutorial de autenticação básica, considere continuar em uma das seguintes tutoriais:
 
 * [Adicionar notificações push à aplicação](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Saiba como adicionar suporte de notificações push à aplicação e configurar o back-end da Aplicação Móvel para utilizar Notification Hubs do Azure para enviar notificações push.

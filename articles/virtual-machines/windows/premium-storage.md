@@ -1,6 +1,6 @@
 ---
-title: Armazenamento Premium elevado desempenho e o Azure discos geridos para VMs do Windows | Microsoft Docs
-description: Saiba mais sobre armazenamento de Premium de elevado desempenho e os discos geridos para VMs do Azure. Azure série DS, série DSv2-série, série GS e VMs de série Fs suporta o Premium Storage.
+title: O armazenamento Premium de elevado desempenho e Azure managed disks para VMs do Windows | Documentos da Microsoft
+description: Saiba mais sobre o armazenamento Premium de elevado desempenho e os discos geridos para VMs do Azure. O Azure de séries de DS, série DSv2, série GS e as VMs da série Fs suportam o Premium Storage.
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
 ms.openlocfilehash: af55ff4b0ea9e161fdf2422f4b35a3155c23d82b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30319060"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721042"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
-### <a name="design-and-implement-with-premium-storage"></a>Conceber e implementar com o Premium Storage
-* [Estruturar para desempenho com o Premium Storage](premium-storage-performance.md)
-* [Operações de armazenamento de Blobs com o Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
+### <a name="design-and-implement-with-premium-storage"></a>Conceber e implementar com o armazenamento Premium
+* [Estruturar para desempenho com o armazenamento Premium](premium-storage-performance.md)
+* [Operações de armazenamento de Blobs com o armazenamento Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### <a name="operational-guidance"></a>Orientação operacional
-* [Migrar para o armazenamento do Azure Premium](../../storage/common/storage-migration-to-premium-storage.md)
+* [Migrar para o armazenamento Premium do Azure](../../storage/common/storage-migration-to-premium-storage.md)
 
 ### <a name="blog-posts"></a>Publicações no blogue
-* [Armazenamento Premium do Azure geralmente disponível](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Anunciar a série GS: suporte de adicionar o Premium Storage para as VMs maiores na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+* [Armazenamento Premium do Azure em disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+* [Anunciamos a série GS: suporte de adicionar o armazenamento Premium para as maiores VMs na cloud pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

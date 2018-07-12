@@ -1,6 +1,6 @@
 ---
-title: Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET) | Microsoft Docs
-description: Como começar a utilizar o armazenamento de filas do Azure num projeto ASP.NET no Visual Studio depois de se ligar a uma conta de armazenamento utilizando o Visual Studio ligado Services
+title: Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET) | Documentos da Microsoft
+description: Como começar a utilizar o armazenamento de filas do Azure num projeto do ASP.NET no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligado Services
 services: storage
 author: ghogen
 manager: douge
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798326"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719447"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-Armazenamento de filas do Azure fornece processamento de mensagens entre componentes da aplicação de nuvem. Ao conceber aplicações para o dimensionamento, os componentes da aplicação, muitas vezes, são desacoplados para um dimensionamento independente. O Armazenamento de filas fornece um serviço de mensagens assíncrono para uma comunicação entre os componentes da aplicação, quer estejam a ser executados na nuvem, no ambiente de trabalho, num servidor no local ou num dispositivo móvel. O Armazenamento de filas também suporta a gestão das tarefas assíncronas e a criação de fluxos de trabalho do processo.
+Armazenamento de filas do Azure fornece mensagens entre componentes da aplicação na cloud. Ao conceber aplicações para o dimensionamento, os componentes da aplicação, muitas vezes, são desacoplados para um dimensionamento independente. O Armazenamento de filas fornece um serviço de mensagens assíncrono para uma comunicação entre os componentes da aplicação, quer estejam a ser executados na nuvem, no ambiente de trabalho, num servidor no local ou num dispositivo móvel. O Armazenamento de filas também suporta a gestão das tarefas assíncronas e a criação de fluxos de trabalho do processo.
 
-Este tutorial mostra como escrever código ASP.NET para alguns cenários comuns utilizando entidades de armazenamento de filas do Azure. Estes cenários incluem tarefas comuns, tais como criar uma fila do Azure, adicionar, modificar, ler e remoção de fila de mensagens.
+Este tutorial mostra como escrever código do ASP.NET para alguns cenários comuns com entidades de armazenamento de filas do Azure. Estes cenários incluem tarefas comuns, como criar uma fila do Azure e adicionar, modificar, ler e remover mensagens na fila.
 
 ##<a name="prerequisites"></a>Pré-requisitos
 
@@ -40,19 +40,19 @@ Este tutorial mostra como escrever código ASP.NET para alguns cenários comuns 
 
 ### <a name="create-an-mvc-controller"></a>Criar um controlador MVC 
 
-1. No **Explorador de soluções**, faça duplo clique **controladores**e, no menu de contexto, selecione **adicionar -> controlador**.
+1. Na **Explorador de soluções**, clique com botão direito **controladores**e, no menu de contexto, selecione **adicionar -> controlador**.
 
     ![Adicionar um controlador a uma aplicação ASP.NET MVC](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
-1. No **adicionar andaime** caixa de diálogo, selecione **controlador MVC 5 – vazio**e selecione **adicionar**.
+1. Sobre o **Adicionar estrutura** caixa de diálogo, selecione **controlador MVC 5 – vazio**e selecione **Add**.
 
     ![Especifique o tipo de controlador MVC](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
-1. No **Adicionar controlador** caixa de diálogo, o nome do controlador *QueuesController*e selecione **adicionar**.
+1. Sobre o **Add Controller** caixa de diálogo, o nome do controlador *QueuesController*e selecione **adicionar**.
 
     ![Nome do controlador MVC](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Adicione o seguinte *utilizando* diretivas para a `QueuesController.cs` ficheiro:
+1. Adicione as seguintes *usando* diretivas para o `QueuesController.cs` ficheiro:
 
     ```csharp
     using Microsoft.Azure;
@@ -66,11 +66,11 @@ Os passos seguintes mostram como criar uma fila:
 
 > [!NOTE]
 > 
-> Esta secção assume que concluiu as fases [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
+> Esta secção assume que concluiu os passos [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
 
 1. Abra o ficheiro `QueuesController.cs`. 
 
-1. Adicione um método denominado **CreateQueue** que devolve um **ActionResult**.
+1. Adicionar um método chamado **CreateQueue** que retorna um **ActionResult**.
 
     ```csharp
     public ActionResult CreateQueue()
@@ -81,25 +81,25 @@ Os passos seguintes mostram como criar uma fila:
     }
     ```
 
-1. Dentro do **CreateQueue** método, obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
+1. Dentro de **CreateQueue** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Obter um **CloudQueueClient** objeto representa um cliente do serviço fila.
+1. Obter um **CloudQueueClient** objeto representa um cliente do serviço de fila.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. Obter um **CloudQueue** objeto que representa uma referência para o nome da fila pretendida. O **CloudQueueClient.GetQueueReference** método não faz um pedido de armazenamento de filas. A referência é devolvida se ou não a fila existe. 
+1. Obter um **CloudQueue** objeto que representa uma referência para o nome da fila desejada. O **CloudQueueClient.GetQueueReference** método não faz um pedido com o armazenamento de filas. A referência é devolvida se a fila existe ou não. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Chamar o **CloudQueue.CreateIfNotExists** método para criar a fila se ainda não existir. O **CloudQueue.CreateIfNotExists** método devolve **verdadeiro** se a fila existe e é criada com êxito. Caso contrário, **falso** é devolvido.    
+1. Chamar o **CloudQueue.CreateIfNotExists** método para criar a fila se ainda não existir. O **CloudQueue.CreateIfNotExists** retorno do método **verdadeiro** se a fila não existe e é criada com êxito. Caso contrário, **false** é devolvido.    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
@@ -111,11 +111,11 @@ Os passos seguintes mostram como criar uma fila:
     ViewBag.QueueName = queue.Name;
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas** pasta, faça duplo clique **filas**e no menu de contexto, selecione **adicionar -> vista**.
+1. Na **Explorador de soluções**, expanda o **vistas** pasta, com o botão direito **filas**e no menu de contexto, selecione **adicionar -> vista**.
 
-1. No **Adicionar vista** caixa de diálogo, introduza **CreateQueue** para o nome da vista e selecione **adicionar**.
+1. Sobre o **Adicionar vista** caixa de diálogo, introduza **CreateQueue** para o nome da vista, selecione **Add**.
 
-1. Abra `CreateQueue.cshtml`e modificá-lo de modo a que se parece com o seguinte fragmento de código:
+1. Abra `CreateQueue.cshtml`e modificá-lo para que ele se parece com o seguinte trecho de código:
 
     ```csharp
     @{
@@ -127,9 +127,9 @@ Os passos seguintes mostram como criar uma fila:
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas -> partilhados** pasta e abra `_Layout.cshtml`.
+1. Na **Explorador de soluções**, expanda o **vistas -> partilhado** e, abra `_Layout.cshtml`.
 
-1. Após a última **Html.ActionLink**, adicione o seguinte **Html.ActionLink**:
+1. Após a última **ActionLink**, adicione as seguintes **ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
@@ -139,19 +139,19 @@ Os passos seguintes mostram como criar uma fila:
   
     ![Criar fila](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Tal como mencionado anteriormente, o **CloudQueue.CreateIfNotExists** método devolve **verdadeiro** apenas quando a fila não existe e é criada. Por conseguinte, se executar a aplicação quando a fila existe, o método devolve **falso**. Para executar a aplicação várias vezes, tem de eliminar a fila antes de executar novamente a aplicação. Eliminar a fila pode ser efetuado através de **CloudQueue.Delete** método. Também pode eliminar a fila utilizando o [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Como mencionado anteriormente, o **CloudQueue.CreateIfNotExists** retorno do método **verdadeiro** apenas quando a fila não existe e é criada. Por conseguinte, se executar a aplicação quando a fila existe, o método retorna **false**. Para executar a aplicação com várias vezes, tem de eliminar a fila antes de executar a aplicação novamente. A eliminar a fila pode ser feita através da **CloudQueue.Delete** método. Também pode eliminar a fila utilizando o [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou o [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem para uma fila
+## <a name="add-a-message-to-a-queue"></a>Adicione uma mensagem numa fila
 
-Assim que tiver [criou uma fila](#create-a-queue), pode adicionar mensagens para essa fila. Esta secção explica como adicionar uma mensagem para uma fila *teste fila*. 
+Assim que tiver [criar uma fila](#create-a-queue), pode adicionar mensagens para essa fila. Esta secção explica como adicionar uma mensagem numa fila *teste fila*. 
 
 > [!NOTE]
 > 
-> Esta secção assume que concluiu as fases [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
+> Esta secção assume que concluiu os passos [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
 
 1. Abra o ficheiro `QueuesController.cs`.
 
-1. Adicione um método denominado **AddMessage** que devolve um **ActionResult**.
+1. Adicionar um método chamado **AddMessage** que retorna um **ActionResult**.
 
     ```csharp
     public ActionResult AddMessage()
@@ -162,14 +162,14 @@ Assim que tiver [criou uma fila](#create-a-queue), pode adicionar mensagens para
     }
     ```
  
-1. Dentro do **AddMessage** método, obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
+1. Dentro de **AddMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Obter um **CloudQueueClient** objeto representa um cliente do serviço fila.
+1. Obter um **CloudQueueClient** objeto representa um cliente do serviço de fila.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -181,7 +181,7 @@ Assim que tiver [criou uma fila](#create-a-queue), pode adicionar mensagens para
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Criar o **CloudQueueMessage** objeto que representa a mensagem que pretende adicionar à fila. A **CloudQueueMessage** objeto pode ser criado a partir de uma cadeia (no formato UTF-8) ou uma matriz de bytes.
+1. Criar a **CloudQueueMessage** objeto que representa a mensagem que pretende adicionar à fila. R **CloudQueueMessage** objeto pode ser criado a partir de uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes.
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
@@ -193,18 +193,18 @@ Assim que tiver [criou uma fila](#create-a-queue), pode adicionar mensagens para
     queue.AddMessage(message);
     ```
 
-1. Crie e defina alguns **ViewBag** propriedades para apresentação na vista.
+1. Crie e defina alguns **ViewBag** propriedades para apresentar na vista.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas** pasta, faça duplo clique **filas**e no menu de contexto, selecione **adicionar -> vista**.
+1. Na **Explorador de soluções**, expanda o **vistas** pasta, com o botão direito **filas**e no menu de contexto, selecione **adicionar -> vista**.
 
-1. No **Adicionar vista** caixa de diálogo, introduza **AddMessage** para o nome da vista e selecione **adicionar**.
+1. Sobre o **Adicionar vista** caixa de diálogo, introduza **AddMessage** para o nome da vista, selecione **Add**.
 
-1. Abra `AddMessage.cshtml`e modificá-lo de modo a que se parece com o seguinte fragmento de código:
+1. Abra `AddMessage.cshtml`e modificá-lo para que ele se parece com o seguinte trecho de código:
 
     ```csharp
     @{
@@ -216,9 +216,9 @@ Assim que tiver [criou uma fila](#create-a-queue), pode adicionar mensagens para
     The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas -> partilhados** pasta e abra `_Layout.cshtml`.
+1. Na **Explorador de soluções**, expanda o **vistas -> partilhado** e, abra `_Layout.cshtml`.
 
-1. Após a última **Html.ActionLink**, adicione o seguinte **Html.ActionLink**:
+1. Após a última **ActionLink**, adicione as seguintes **ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
@@ -228,19 +228,19 @@ Assim que tiver [criou uma fila](#create-a-queue), pode adicionar mensagens para
   
     ![Adicionar mensagem](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-As duas secções - [ler uma mensagem numa fila sem a remover](#read-a-message-from-a-queue-without-removing-it) e [leitura e remover uma mensagem numa fila](#read-and-remove-a-message-from-a-queue) -ilustrar como ler mensagens numa fila.    
+As duas secções - [ler uma mensagem de uma fila sem a remover](#read-a-message-from-a-queue-without-removing-it) e [leitura e remover uma mensagem de uma fila](#read-and-remove-a-message-from-a-queue) -mostram como ler mensagens de uma fila.    
 
-## <a name="read-a-message-from-a-queue-without-removing-it"></a>Ler uma mensagem numa fila sem a remover
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>Ler uma mensagem de uma fila sem a remover
 
-Esta secção ilustra como observar uma mensagem em fila (lida a primeira mensagem sem a remover).  
+Esta secção ilustra como uma olhada numa mensagem em fila (ler a primeira mensagem sem a remover).  
 
 > [!NOTE]
 > 
-> Esta secção assume que concluiu as fases [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
+> Esta secção assume que concluiu os passos [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
 
 1. Abra o ficheiro `QueuesController.cs`.
 
-1. Adicione um método denominado **PeekMessage** que devolve um **ActionResult**.
+1. Adicionar um método chamado **PeekMessage** que retorna um **ActionResult**.
 
     ```csharp
     public ActionResult PeekMessage()
@@ -251,14 +251,14 @@ Esta secção ilustra como observar uma mensagem em fila (lida a primeira mensag
     }
     ```
  
-1. Dentro do **PeekMessage** método, obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
+1. Dentro de **PeekMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Obter um **CloudQueueClient** objeto representa um cliente do serviço fila.
+1. Obter um **CloudQueueClient** objeto representa um cliente do serviço de fila.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -270,24 +270,24 @@ Esta secção ilustra como observar uma mensagem em fila (lida a primeira mensag
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Chamar o **CloudQueue.PeekMessage** método ler a primeira mensagem da fila sem a remover da fila. 
+1. Chamar o **CloudQueue.PeekMessage** método para ler a primeira mensagem na fila sem a remover da fila. 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Atualização do **ViewBag** com dois valores: o nome da fila e a mensagem foi lida. O **CloudQueueMessage** objeto expõe duas propriedades para obter o valor do objeto: **CloudQueueMessage.AsBytes** e **CloudQueueMessage.AsString**. **AsString** (utilizada neste exemplo) devolve uma cadeia, enquanto **AsBytes** devolve uma matriz de bytes.
+1. Atualização do **ViewBag** com dois valores: o nome da fila e a mensagem que foram lidos. O **CloudQueueMessage** objeto expõe duas propriedades para obter o valor do objeto: **CloudQueueMessage.AsBytes** e **CloudQueueMessage.AsString**. **AsString** (utilizada neste exemplo) retorna uma cadeia de caracteres, enquanto **AsBytes** retorna uma matriz de bytes.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas** pasta, faça duplo clique **filas**e no menu de contexto, selecione **adicionar -> vista**.
+1. Na **Explorador de soluções**, expanda o **vistas** pasta, com o botão direito **filas**e no menu de contexto, selecione **adicionar -> vista**.
 
-1. No **Adicionar vista** caixa de diálogo, introduza **PeekMessage** para o nome da vista e selecione **adicionar**.
+1. Sobre o **Adicionar vista** caixa de diálogo, introduza **PeekMessage** para o nome da vista, selecione **Add**.
 
-1. Abra `PeekMessage.cshtml`e modificá-lo de modo a que se parece com o seguinte fragmento de código:
+1. Abra `PeekMessage.cshtml`e modificá-lo para que ele se parece com o seguinte trecho de código:
 
     ```csharp
     @{
@@ -302,29 +302,29 @@ Esta secção ilustra como observar uma mensagem em fila (lida a primeira mensag
     </table>    
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas -> partilhados** pasta e abra `_Layout.cshtml`.
+1. Na **Explorador de soluções**, expanda o **vistas -> partilhado** e, abra `_Layout.cshtml`.
 
-1. Após a última **Html.ActionLink**, adicione o seguinte **Html.ActionLink**:
+1. Após a última **ActionLink**, adicione as seguintes **ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **observar mensagem** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **Peek message** para ver os resultados semelhantes à captura de ecrã seguinte:
   
     ![Observar mensagem](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
-## <a name="read-and-remove-a-message-from-a-queue"></a>Ler e remover uma mensagem a partir de uma fila
+## <a name="read-and-remove-a-message-from-a-queue"></a>Ler e remover uma mensagem de uma fila
 
-Nesta secção, irá aprender a ler e remover uma mensagem numa fila.   
+Nesta secção, saiba como ler e remover uma mensagem de uma fila.   
 
 > [!NOTE]
 > 
-> Esta secção assume que concluiu as fases [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
+> Esta secção assume que concluiu os passos [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
 
 1. Abra o ficheiro `QueuesController.cs`.
 
-1. Adicione um método denominado **ReadMessage** que devolve um **ActionResult**.
+1. Adicionar um método chamado **ReadMessage** que retorna um **ActionResult**.
 
     ```csharp
     public ActionResult ReadMessage()
@@ -335,14 +335,14 @@ Nesta secção, irá aprender a ler e remover uma mensagem numa fila.
     }
     ```
  
-1. Dentro do **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
+1. Dentro de **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Obter um **CloudQueueClient** objeto representa um cliente do serviço fila.
+1. Obter um **CloudQueueClient** objeto representa um cliente do serviço de fila.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -354,14 +354,14 @@ Nesta secção, irá aprender a ler e remover uma mensagem numa fila.
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Chamar o **CloudQueue.GetMessage** método ler a primeira mensagem da fila. O **CloudQueue.GetMessage** método faz com que a mensagem invisível durante 30 segundos (por predefinição) para quaisquer outras código ler mensagens de modo a que nenhum outro código pode modificar ou eliminar a mensagem durante o processamento. Para alterar o período de tempo a mensagem é invisível, modifique o **visibilityTimeout** parâmetro a ser transmitido para o **CloudQueue.GetMessage** método.
+1. Chamar o **CloudQueue.GetMessage** método para ler a primeira mensagem na fila. O **CloudQueue.GetMessage** método torna a mensagem invisível durante 30 segundos (por predefinição) para qualquer outro código de leitura de mensagens, para que nenhum outro código pode modificar ou eliminar a mensagem ao seu processá-lo. Para alterar a quantidade de tempo em que a mensagem permanece invisível, modifique o **visibilityTimeout** parâmetro a ser passado para o **CloudQueue.GetMessage** método.
 
     ```csharp
     // This message will be invisible to other code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. Chamar o **CloudQueueMessage.Delete** método ao eliminar a mensagem da fila.
+1. Chamar o **CloudQueueMessage.Delete** método para eliminar a mensagem da fila.
 
     ```csharp
     queue.DeleteMessage(message);
@@ -374,11 +374,11 @@ Nesta secção, irá aprender a ler e remover uma mensagem numa fila.
     ViewBag.Message = message.AsString;
     ```
  
-1. No **Explorador de soluções**, expanda o **vistas** pasta, faça duplo clique **filas**e no menu de contexto, selecione **adicionar -> vista**.
+1. Na **Explorador de soluções**, expanda o **vistas** pasta, com o botão direito **filas**e no menu de contexto, selecione **adicionar -> vista**.
 
-1. No **Adicionar vista** caixa de diálogo, introduza **ReadMessage** para o nome da vista e selecione **adicionar**.
+1. Sobre o **Adicionar vista** caixa de diálogo, introduza **ReadMessage** para o nome da vista, selecione **Add**.
 
-1. Abra `ReadMessage.cshtml`e modificá-lo de modo a que se parece com o seguinte fragmento de código:
+1. Abra `ReadMessage.cshtml`e modificá-lo para que ele se parece com o seguinte trecho de código:
 
     ```csharp
     @{
@@ -393,29 +393,29 @@ Nesta secção, irá aprender a ler e remover uma mensagem numa fila.
     </table>
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas -> partilhados** pasta e abra `_Layout.cshtml`.
+1. Na **Explorador de soluções**, expanda o **vistas -> partilhado** e, abra `_Layout.cshtml`.
 
-1. Após a última **Html.ActionLink**, adicione o seguinte **Html.ActionLink**:
+1. Após a última **ActionLink**, adicione as seguintes **ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **mensagens de leitura/eliminar** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **ler/Eliminar mensagem** para ver os resultados semelhantes à captura de ecrã seguinte:
   
-    ![Ler e eliminar a mensagem](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
+    ![Ler e eliminar mensagem](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
 ## <a name="get-the-queue-length"></a>Obter o comprimento da fila
 
-Esta secção ilustra como obter o comprimento da fila (número de mensagens em fila). 
+Esta secção ilustra como obter o comprimento da fila (número de mensagens). 
 
 > [!NOTE]
 > 
-> Esta secção assume que concluiu as fases [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
+> Esta secção assume que concluiu os passos [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
 
 1. Abra o ficheiro `QueuesController.cs`.
 
-1. Adicione um método denominado **GetQueueLength** que devolve um **ActionResult**.
+1. Adicionar um método chamado **GetQueueLength** que retorna um **ActionResult**.
 
     ```csharp
     public ActionResult GetQueueLength()
@@ -426,14 +426,14 @@ Esta secção ilustra como obter o comprimento da fila (número de mensagens em 
     }
     ```
  
-1. Dentro do **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
+1. Dentro de **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Obter um **CloudQueueClient** objeto representa um cliente do serviço fila.
+1. Obter um **CloudQueueClient** objeto representa um cliente do serviço de fila.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -445,7 +445,7 @@ Esta secção ilustra como obter o comprimento da fila (número de mensagens em 
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Chamar o **CloudQueue.FetchAttributes** método para obter os atributos da fila (incluindo o respetivo comprimento). 
+1. Chamar o **CloudQueue.FetchAttributes** método para recuperar os atributos da fila (incluindo seu comprimento). 
 
     ```csharp
     queue.FetchAttributes();
@@ -457,18 +457,18 @@ Esta secção ilustra como obter o comprimento da fila (número de mensagens em 
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. Atualização do **ViewBag** com o nome da fila e o comprimento.
+1. Atualização do **ViewBag** com o nome da fila e seu comprimento.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. No **Explorador de soluções**, expanda o **vistas** pasta, faça duplo clique **filas**e no menu de contexto, selecione **adicionar -> vista**.
+1. Na **Explorador de soluções**, expanda o **vistas** pasta, com o botão direito **filas**e no menu de contexto, selecione **adicionar -> vista**.
 
-1. No **Adicionar vista** caixa de diálogo, introduza **GetQueueLength** para o nome da vista e selecione **adicionar**.
+1. Sobre o **Adicionar vista** caixa de diálogo, introduza **GetQueueLength** para o nome da vista, selecione **Add**.
 
-1. Abra `GetQueueLengthMessage.cshtml`e modificá-lo de modo a que se parece com o seguinte fragmento de código:
+1. Abra `GetQueueLengthMessage.cshtml`e modificá-lo para que ele se parece com o seguinte trecho de código:
 
     ```csharp
     @{
@@ -480,9 +480,9 @@ Esta secção ilustra como obter o comprimento da fila (número de mensagens em 
     The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas -> partilhados** pasta e abra `_Layout.cshtml`.
+1. Na **Explorador de soluções**, expanda o **vistas -> partilhado** e, abra `_Layout.cshtml`.
 
-1. Após a última **Html.ActionLink**, adicione o seguinte **Html.ActionLink**:
+1. Após a última **ActionLink**, adicione as seguintes **ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
@@ -498,11 +498,11 @@ Esta secção ilustra como eliminar uma fila.
 
 > [!NOTE]
 > 
-> Esta secção assume que concluiu as fases [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
+> Esta secção assume que concluiu os passos [configurar o ambiente de desenvolvimento](#set-up-the-development-environment). 
 
 1. Abra o ficheiro `QueuesController.cs`.
 
-1. Adicione um método denominado **DeleteQueue** que devolve um **ActionResult**.
+1. Adicionar um método chamado **DeleteQueue** que retorna um **ActionResult**.
 
     ```csharp
     public ActionResult DeleteQueue()
@@ -513,14 +513,14 @@ Esta secção ilustra como eliminar uma fila.
     }
     ```
  
-1. Dentro do **DeleteQueue** método, obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
+1. Dentro de **DeleteQueue** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Obter um **CloudQueueClient** objeto representa um cliente do serviço fila.
+1. Obter um **CloudQueueClient** objeto representa um cliente do serviço de fila.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -532,23 +532,23 @@ Esta secção ilustra como eliminar uma fila.
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Chamar o **CloudQueue.Delete** método para eliminar a fila representada pelo **CloudQueue** objeto.
+1. Chamar o **CloudQueue.Delete** método para eliminar a fila representada pela **CloudQueue** objeto.
 
     ```csharp
     queue.Delete();
     ```
 
-1. Atualização do **ViewBag** com o nome da fila e o comprimento.
+1. Atualização do **ViewBag** com o nome da fila e seu comprimento.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. No **Explorador de soluções**, expanda o **vistas** pasta, faça duplo clique **filas**e no menu de contexto, selecione **adicionar -> vista**.
+1. Na **Explorador de soluções**, expanda o **vistas** pasta, com o botão direito **filas**e no menu de contexto, selecione **adicionar -> vista**.
 
-1. No **Adicionar vista** caixa de diálogo, introduza **DeleteQueue** para o nome da vista e selecione **adicionar**.
+1. Sobre o **Adicionar vista** caixa de diálogo, introduza **DeleteQueue** para o nome da vista, selecione **Add**.
 
-1. Abra `DeleteQueue.cshtml`e modificá-lo de modo a que se parece com o seguinte fragmento de código:
+1. Abra `DeleteQueue.cshtml`e modificá-lo para que ele se parece com o seguinte trecho de código:
 
     ```csharp
     @{
@@ -560,9 +560,9 @@ Esta secção ilustra como eliminar uma fila.
     @ViewBag.QueueName deleted.
     ```
 
-1. No **Explorador de soluções**, expanda o **vistas -> partilhados** pasta e abra `_Layout.cshtml`.
+1. Na **Explorador de soluções**, expanda o **vistas -> partilhado** e, abra `_Layout.cshtml`.
 
-1. Após a última **Html.ActionLink**, adicione o seguinte **Html.ActionLink**:
+1. Após a última **ActionLink**, adicione as seguintes **ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
@@ -575,5 +575,5 @@ Esta secção ilustra como eliminar uma fila.
 ## <a name="next-steps"></a>Passos Seguintes
 Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
 
-  * [Introdução ao blob storage do Azure e o Visual Studio ligado serviços (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Introdução ao table storage do Azure e o Visual Studio ligado serviços (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Introdução ao armazenamento de Blobs do Azure e o Visual Studio ligado serviços (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [Introdução ao armazenamento de tabelas do Azure e o Visual Studio ligado serviços (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)

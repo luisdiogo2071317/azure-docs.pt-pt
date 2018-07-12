@@ -1,9 +1,9 @@
 ---
-title: Simulated Raspberry Pi nuvem (Node.js) - simulador de web Raspberry Pi estabelecer ligação ao IoT Hub do Azure | Microsoft Docs
-description: Ligar o simulador de web Raspberry Pi ao IoT Hub do Azure para Raspberry Pi enviar dados para a nuvem do Azure.
+title: Simulated Raspberry Pi para cloud (node. js) - simulador de web de ligar o Raspberry Pi hub IoT do Azure | Documentos da Microsoft
+description: Ligar o simulador de web Raspberry Pi ao IoT Hub do Azure para o Raspberry Pi enviar dados para a cloud do Azure.
 author: rangv
 manager: ''
-keywords: simulador raspberry pi, do azure iot raspberry pi, iothub raspberry pi, dados de envio de raspberry pi na nuvem, raspberry pi na nuvem
+keywords: simulador de raspberry pi, o azure iot raspberry pi, hub de iot raspberry pi, enviar dados para a cloud de raspberry pi, raspberry pi com a nuvem
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
 ms.openlocfilehash: dc8216f6b0a610b556b94637970bfd3e721f38d2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636227"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38482120"
 ---
-# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ligar o simulador online Raspberry Pi ao IoT Hub do Azure (Node.js)
+# <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ligar o simulador online de Raspberry Pi ao IoT Hub do Azure (node. js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Neste tutorial, comece por aprender as noções básicas do trabalho com o simulador online Raspberry Pi. Em seguida, aprenderá a forma totalmente integrada ligar o simulador de instalador de plataforma para a nuvem, utilizando o [IoT Hub do Azure](iot-hub-what-is-iot-hub.md). 
+Neste tutorial, começará aprender as noções básicas de trabalhar com o simulador online de Raspberry Pi. Em seguida, saiba como se conecte o simulador de instalador de plataforma para a cloud, utilizando [IoT Hub do Azure](iot-hub-what-is-iot-hub.md). 
 
-Se tiver dispositivos físicos, visite [ligar Raspberry Pi ao IoT Hub do Azure](iot-hub-raspberry-pi-kit-node-get-started.md) para começar a utilizar. 
+Se tiver dispositivos físicos, visite [ligar o Raspberry Pi hub IoT do Azure](iot-hub-raspberry-pi-kit-node-get-started.md) para começar a utilizar. 
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
@@ -38,55 +38,55 @@ Se tiver dispositivos físicos, visite [ligar Raspberry Pi ao IoT Hub do Azure](
 
 ## <a name="what-you-do"></a>O que fazer
 
-* Aprender as noções básicas do simulador online Raspberry Pi.
+* Aprenda as noções básicas de simulador online de Raspberry Pi.
 * Crie um hub IoT.
-* Registe um dispositivo para Pi no seu IoT hub.
-* Execute um exemplo de aplicação no instalador de plataforma para enviar dados de sensores simulados ao seu IoT hub.
+* Registe um dispositivo para o instalador de plataforma do seu hub IoT.
+* Execute uma aplicação de exemplo no instalador de plataforma para enviar dados de sensor simulado ao seu hub IoT.
 
-Ligar simulada Raspberry Pi a um IoT hub que criou. Em seguida, execute um exemplo de aplicação com o simulador para gerar dados de sensores. Por fim, enviar os dados de sensor ao seu IoT hub.
+Ligue-se simulado Raspberry Pi para um hub IoT que criou. Em seguida, executar um aplicativo de exemplo com o simulador para gerar dados de sensor. Por fim, que envia os dados de sensor ao seu hub IoT.
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
-* Como criar um hub IoT do Azure e obter a cadeia de ligação do novo dispositivo. Se não tiver uma conta do Azure, [criar uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
-* Como trabalhar com simulador online Raspberry Pi.
-* Como enviar dados de sensores ao seu IoT hub.
+* Como criar um hub IoT do Azure e obter a cadeia de ligação do novo dispositivo. Se não tiver uma conta do Azure, [criar uma conta gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
+* Como trabalhar com o simulador online de Raspberry Pi.
+* Como enviar dados de sensor ao seu hub IoT.
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Descrição geral do simulador de web Raspberry Pi
 
-Clique no botão para iniciar o simulador online Raspberry Pi.
+Clique no botão para iniciar o simulador online de Raspberry Pi.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar o simulador Raspberry Pi</a>
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar o simulador de Raspberry Pi</a>
 
-Existem três áreas no simulador do web.
-1. Área de assemblagem - o circuito predefinido é que um Pi estabelece ligação com um sensor BME280 e um LED. A área está bloqueada na versão de pré-visualização, por isso, atualmente não é possível efetuar a personalização.
-2. Codificação área - um editor de código online por si para código com Raspberry Pi. A aplicação de exemplo predefinida ajuda-o para recolher dados de sensores do BME280 sensor e envia ao seu IoT Hub do Azure. A aplicação é totalmente compatível com dispositivos de Pi reais. 
+Existem três áreas no simulador web.
+1. Área de Assembly - o circuito de padrão é que um Pi estabelece uma ligação com um sensor BME280 e um LED. A área está bloqueada na versão de pré-visualização por isso, atualmente não é possível fazer a personalização.
+2. Codificação área - um editor de código online para ao código Raspberry PI. O aplicativo de exemplo do padrão ajuda a recolher dados de sensores de BME280 sensor e envia ao seu IoT Hub do Azure. O aplicativo é totalmente compatível com dispositivos reais do instalador de plataforma. 
 3. Janela de consola integrada - mostra a saída do seu código. Na parte superior desta janela, existem três botões.
    * **Executar** -executar a aplicação na área de codificação.
-   * **Repor** -repor a área de codificação à aplicação de exemplo de predefinição.
-   * **Expandir/subconjuntos de validação** -no lado direito, há um botão de subconjuntos de validação/expandir a janela de consola.
+   * **Repor** -repor a área de codificação para o aplicativo de exemplo do padrão.
+   * **Subconjuntos de validação/Expand** -no lado direito, há um botão para expandir/subconjuntos de validação a janela da consola.
 
 > [!NOTE] 
-O simulador de web Raspberry Pi está agora disponível numa versão de pré-visualização. Gostaríamos de ouvir os seus voz no [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). O código de origem é público no [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+Simulador web Raspberry Pi está agora disponível em versão de pré-visualização. Gostaríamos de ouvir a sua voz no [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). O código-fonte é público na [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
-![Descrição geral do simulador online Pi](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
+![Descrição geral do simulador online do instalador de plataforma](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 
-## <a name="run-a-sample-application-on-pi-web-simulator"></a>Execute um exemplo de aplicação no simulador do instalador de plataforma web
+## <a name="run-a-sample-application-on-pi-web-simulator"></a>Executar um exemplo de aplicação no simulador do instalador de plataforma web
 
-1. Na área de codificação, certifique-se de que está a trabalhar na aplicação de amostra de predefinição. Substitua o marcador de posição na linha 15 a cadeia de ligação do dispositivo do Azure IoT hub.
+1. Na área de codificação, certifique-se de que está a trabalhar a aplicação de exemplo do padrão. Substitua o marcador de posição na linha 15 a cadeia de ligação do dispositivo de hub IoT do Azure.
    ![Substitua a cadeia de ligação do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
-2. Clique em **executar** ou tipo `npm start` para executar a aplicação.
+2. Clique em **execute** ou escreva `npm start` para executar a aplicação.
 
 
-Deverá ver o seguinte resultado que mostra os dados de sensor e as mensagens que são enviadas para o seu IoT hub ![saída - dados de sensor enviados do Raspberry Pi ao seu IoT hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+Deverá ver o resultado seguinte que mostra os dados de sensor e as mensagens que são enviadas ao seu hub IoT ![saída - dados de sensor enviados do Raspberry Pi ao seu hub IoT](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Tiver de executar um exemplo de aplicação para recolher dados de sensores e enviá-lo ao seu IoT hub.
+Executar uma aplicação de exemplo para recolher dados de sensor e enviá-lo ao seu hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,6 +1,6 @@
 ---
-title: Aumentar verticalmente a uma aplicação no Azure | Microsoft Docs
-description: Saiba como aumentar verticalmente a uma aplicação no serviço de aplicações do Azure para adicionar capacidade e funcionalidades.
+title: Aumentar verticalmente uma aplicação no Azure | Documentos da Microsoft
+description: Saiba como aumentar verticalmente uma aplicação no serviço de aplicações do Azure para adicionar capacidade e funcionalidades.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 01c20e7f43c11a077d3870ee32c1d8be98a95696
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031003"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306438"
 ---
-# <a name="scale-up-an-app-in-azure"></a>Aumentar verticalmente a uma aplicação no Azure
+# <a name="scale-up-an-app-in-azure"></a>Aumentar verticalmente uma aplicação no Azure
 
 > [!NOTE]
-> A nova **PremiumV2** camada dá-lhe CPUs mais rápidas, o armazenamento SSD e duplica o rácio de memória para núcleos dos escalões de preços existentes. Com a vantagem de desempenho, pode poupar dinheiro executando as suas aplicações em menos instâncias. Dimensionar até **PremiumV2** camada, consulte [configurar PremiumV2 camada de serviço de aplicações](app-service-configure-premium-tier.md).
+> A nova **PremiumV2** escalão dá-lhe CPUs mais rápidas, armazenamento SSD e duplica o rácio de memória/núcleo dos escalões de preços existentes. Com a vantagem de desempenho, que pode poupar dinheiro ao executar as suas aplicações em menos instâncias. Dimensionar até **PremiumV2** escalão, consulte [escalão PremiumV2 configurar serviço de aplicações](app-service-configure-premium-tier.md).
 >
 
-Este artigo mostra como dimensionar a sua aplicação no App Service do Azure. Existem dois fluxos de trabalho de dimensionamento de dimensionamento, segurança e Escalamento horizontal e este artigo explica o fluxo de trabalho de trabalho de dimensionamento.
+Este artigo mostra-lhe como dimensionar a sua aplicação no serviço de aplicações do Azure. Existem dois fluxos de trabalho para uma escala de dimensionamento, segurança e aumentar horizontalmente e este artigo explica o fluxo de trabalho de expansão.
 
-* [Aumentar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e funcionalidades adicionais, como dedicadas máquinas virtuais (VMs), domínios e certificados personalizados, ranhuras, dimensionamento automático e muito mais de teste. Aumentar verticalmente ao alterar o escalão de preço do plano do App Service, que pertence a aplicação.
-* [Aumentar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentar o número de instâncias VM que executam a aplicação.
-  Pode aumentar horizontalmente a 20 máximo de instâncias, consoante o escalão de preço. [Ambientes do App Service](environment/intro.md) no **Isolated** camada adicional aumenta a contagem de escalamento horizontal para 100 instâncias. Para obter mais informações sobre como aumentar horizontalmente, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Aqui, pode descobrir como utilizar o dimensionamento automático, que está a dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
+* [Aumentar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e funcionalidades adicionais, como máquinas de virtuais (VMs) dedicadas, domínios e certificados personalizados, ranhuras de teste, dimensionamento automático e muito mais. Aumentar verticalmente ao alterar o escalão de preço do plano do serviço de aplicações que qual pertence a sua aplicação.
+* [Aumentar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentar o número de instâncias de VMS que executam a aplicação.
+  Pode aumentar horizontalmente até 20 instâncias, consoante o escalão de preço. [Ambientes do App Service](environment/intro.md) no **Isolated** camada de ainda mais aumenta sua contagem de escalamento horizontal a 100 instâncias. Para obter mais informações sobre como ampliar, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Aí, encontrará informações sobre como utilizar o dimensionamento automático, que é Dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
 
-As definições de dimensionamento demorar apenas segundos para aplicar e afetar todas as aplicações na sua [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-Não necessitam de alterar o seu código ou voltar a implementar a aplicação.
+As definições de dimensionamento levam apenas alguns segundos para aplicar e afetam todas as aplicações no seu [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Eles não exigem que altere o código ou voltar a implementar a sua aplicação.
 
-Para obter informações sobre as funcionalidades dos planos do serviço de aplicações individuais e preços, consulte [detalhes de preços do App Service](https://azure.microsoft.com/pricing/details/web-sites/).  
+Para obter informações sobre preços e funcionalidades dos planos do serviço de aplicações individuais, consulte [detalhes de preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Antes de mudar um plano de serviço de aplicações do **livres** camada, tem primeiro de remover o [limites de gastos](https://azure.microsoft.com/pricing/spending-limits/) no local para a sua subscrição do Azure. Para ver ou alterar as opções para a sua subscrição do serviço de aplicações do Microsoft Azure, consulte [subscrições do Microsoft Azure][azuresubscriptions].
+> Antes de alternar um plano do serviço de aplicações do **gratuito** escalão, tem primeiro de remover o [limites de gastos](https://azure.microsoft.com/pricing/spending-limits/) no local para a sua subscrição do Azure. Para ver ou alterar as opções para a sua subscrição do serviço de aplicações do Microsoft Azure, veja [as assinaturas do Microsoft Azure][azuresubscriptions].
 > 
 > 
 
 <a name="scalingsharedorbasic"></a>
 <a name="scalingstandard"></a>
 
-## <a name="scale-up-your-pricing-tier"></a>Dimensionar o escalão de preço
-1. No seu browser, abra o [portal do Azure][portal].
-2. Na página da aplicação do serviço de aplicações, clique em **todas as definições**e, em seguida, clique em **aumentar verticalmente**.
+## <a name="scale-up-your-pricing-tier"></a>Aumentar verticalmente o escalão de preço
+1. No browser, abra a [portal do Azure][portal].
+2. Na página da aplicação de serviço de aplicações, clique em **todas as definições**e, em seguida, clique em **aumentar verticalmente**.
    
     ![Navegue para aumentar verticalmente a sua aplicação do Azure.][ChooseWHP]
 3. Escolha o escalão e, em seguida, clique em **aplicar**.
@@ -58,57 +58,57 @@ Para obter informações sobre as funcionalidades dos planos do serviço de apli
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>Dimensionar os recursos relacionados
-Se a aplicação depende de outros serviços, como SQL Database do Azure ou o Storage do Azure, pode dimensionar a estes recursos em separado. Estes recursos não são geridos pelo plano do App Service.
+Se a sua aplicação depende de outros serviços, como a base de dados do Azure SQL ou o armazenamento do Azure, pode dimensionar a estes recursos em separado. Estes recursos não são geridos pelo plano de serviço de aplicações.
 
-1. No **Essentials**, clique em de **grupo de recursos** ligação.
+1. Na **Essentials**, clique nas **grupo de recursos** ligação.
    
     ![Aumentar verticalmente recursos relacionados da sua aplicação do Azure](./media/web-sites-scale/RGEssentialsLink.png)
-2. No **resumo** fazem parte do **grupo de recursos** página, clique num recurso que pretende dimensionar. A seguinte captura de ecrã mostra um recurso de base de dados do SQL Server e um recurso de armazenamento do Azure.
+2. Na **resumo** faz parte da **grupo de recursos** página, clique num recurso que pretende dimensionar. Captura de ecrã seguinte mostra um recurso de base de dados SQL e um recurso de armazenamento do Azure.
    
-    ![Navegue para a página de grupo de recursos para aumentar verticalmente a sua aplicação do Azure](./media/web-sites-scale/ResourceGroup.png)
-3. Para um recurso de base de dados do SQL Server, clique em **definições** > **escalão de preço** dimensionar o escalão de preço.
+    ![Navegue até à página de grupo de recursos para aumentar verticalmente a sua aplicação do Azure](./media/web-sites-scale/ResourceGroup.png)
+3. Para um recurso de base de dados SQL, clique em **configurações** > **escalão de preço** para dimensionar o escalão de preço.
    
-    ![Dimensionar o back-end de base de dados SQL para a sua aplicação do Azure](./media/web-sites-scale/ScaleDatabase.png)
+    ![Aumentar verticalmente o back-end de base de dados SQL para a sua aplicação do Azure](./media/web-sites-scale/ScaleDatabase.png)
    
-    Pode também ativar o [georreplicação](../sql-database/sql-database-geo-replication-overview.md) para a instância de base de dados SQL.
+    Também pode ativar [georreplicação](../sql-database/sql-database-geo-replication-overview.md) para a sua instância de base de dados SQL.
    
-    Para um recurso de armazenamento do Azure, clique em **definições** > **configuração** para aumentar verticalmente as opções de armazenamento.
+    Para um recurso de armazenamento do Azure, clique em **configurações** > **configuração** para aumentar verticalmente as opções de armazenamento.
    
     ![Aumentar verticalmente a conta de armazenamento do Azure utilizada pela sua aplicação do Azure](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
-## <a name="compare-pricing-tiers"></a>Comparar escalões de preços
-Para obter informações detalhadas, por exemplo, tamanhos de VM para cada escalão de preço, consulte [detalhes de preços do App Service](https://azure.microsoft.com/pricing/details/web-sites/).
-Para uma tabela de limites de serviço, quotas e restrições e funcionalidades suportadas em cada camada, consulte [limites do App Service](../azure-subscription-service-limits.md#app-service-limits).
+## <a name="compare-pricing-tiers"></a>Compare os escalões de preços
+Para obter informações detalhadas, como tamanhos de VM para cada escalão de preço, consulte [detalhes de preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/web-sites/).
+Para uma tabela de limites do serviço, quotas e restrições e as funcionalidades suportadas em cada escalão, consulte [limites do serviço de aplicações](../azure-subscription-service-limits.md#app-service-limits).
 
 <a name="Next Steps"></a>
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para informações sobre preços, de suporte e SLA, visite as seguintes ligações:
+* Para obter informações sobre preços, suporte e SLA, visite as seguintes ligações:
   
-    [Detalhes dos preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)
+    [Detalhes dos preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)
   
     [Planos de suporte do Azure da Microsoft](https://azure.microsoft.com/support/plans/)
   
     [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/)
   
-    [Detalhes de preços de base de dados do SQL Server](https://azure.microsoft.com/pricing/details/sql-database/)
+    [Detalhes dos preços da base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
   
-    [Máquina virtual e tamanhos do serviço em nuvem do Microsoft Azure][vmsizes]
+    [Máquina virtual e tamanhos do serviço Cloud do Microsoft Azure][vmsizes]
   
-* Para obter informações sobre o App Service do Azure melhores práticas, incluindo a criação de uma arquitetura resiliente e dimensionável, consulte [melhores práticas: Web Apps do Azure App Service](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
-* Para vídeos sobre o dimensionamento de aplicações do App Service, consulte os seguintes recursos:
+* Para obter informações sobre o App Service do Azure melhores práticas, incluindo a criação de uma arquitetura resiliente e dimensionável, consulte [melhores práticas: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
+* Para os vídeos sobre o dimensionamento de aplicações do serviço de aplicações, consulte os seguintes recursos:
   
-  * [Quando dimensionar Web sites do Azure – com Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Auto dimensionamento para Web sites do Azure, a CPU ou agendadas - com Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
-  * [Escala de Web sites como do Azure - com Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
+  * [Quando dimensionar Web sites do Azure - com Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
+  * [Web sites do Azure, da CPU de dimensionamento automático ou agendadas - com Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
+  * [Escala de Web sites como o Azure - com Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->

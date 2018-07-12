@@ -1,6 +1,6 @@
 ---
-title: Expandir GeoJSON geometries Azure Maps | Microsoft Docs
-description: Saber como expandir GeoJSON geometries Maps do Azure
+title: Estendendo GeoJSON geometrias do Azure Maps | Documentos da Microsoft
+description: Saiba como estender GeoJSON geometrias do Azure Maps
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -8,51 +8,51 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 2cc0e29615ad4fc19040055d847435a9dffa9c95
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 319f9cba23d088553f361b6a0d648bbde94e0743
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655384"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968566"
 ---
-# <a name="extending-geojson-geometries"></a>Expandir GeoJSON geometries
+# <a name="extending-geojson-geometries"></a>Estendendo GeoJSON geometrias
 
-Mapas do Azure fornece uma lista das APIs poderosas para procurar interior/ao longo funcionalidades geográficas.
-Estas APIs padronizar no [GeoJSON spec] [ 1] para que representa as funcionalidades geográficas (por exemplo: limites de estado, rotas).  
+O Azure Maps fornece uma lista de APIs poderosas para pesquisar interior/juntamente com funcionalidades geográficas.
+Essas APIs padronizar [especificação GeoJSON] [ 1] para representar os recursos geográficos (por exemplo: limites de estado, as rotas).  
 
-O [GeoJSON spec] [ 1] só suporta os geometries seguintes:
+O [especificação GeoJSON] [ 1] só suporta as geometrias seguintes:
 
 * GeometryCollection
 * LineString
 * MultiLineString
 * MultiPoint
 * MultiPolygon
-* ponto de
-* polígono
+* Ponto de
+* Polígono
 
-Algumas APIs de mapas do Azure (por exemplo: [pesquisa dentro de geometria](https://docs.microsoft.com/en-us/rest/api/maps/search/postsearchinsidegeometry)) aceitar geometries como "Círculo", que não fazem parte do [GeoJSON spec][1].
+Algumas APIs de mapas do Azure (por exemplo: [pesquisa dentro de geometria](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) aceitar geometrias como "Círculo", que não são parte dos [especificação GeoJSON][1].
 
-Este artigo fornece uma explicação detalhada sobre como o Azure Maps expande o [GeoJSON spec] [ 1] para representar determinadas geometries.
+Este artigo fornece uma explicação detalhada sobre como o Azure Maps estende a [especificação GeoJSON] [ 1] para representar a determinados geometrias.
 
 ### <a name="circle"></a>Círculo
 
-O `Circle` geometria não é suportada pelo [GeoJSON spec][1]. Utilizamos o `GeoJSON Feature` objeto para representar um círculo.
+O `Circle` geometria não é suportada pela [especificação GeoJSON][1]. Usamos o `GeoJSON Feature` objeto para representar um círculo.
 
-A `Circle` geometria representado utilizando o `GeoJSON Feature` objeto __tem__ conter o seguinte:
+Uma `Circle` geometry representada usando o `GeoJSON Feature` objeto __tem__ conter os seguintes:
 
 1. Centro
-   >Centro do círculo é representado utilizando um `GeoJSON Point` tipo.
+   >Centro do círculo é representado através de um `GeoJSON Point` tipo.
 
 2. Raio
-   >No círculo `radius` é representada utilizando `GeoJSON Feature`do propriedades. O valor de radius tem _medidores_ e tem de ser do tipo `double`.
+   >O círculo `radius` é representado através de `GeoJSON Feature`de propriedades. O valor de radius está num _medidores_ e tem de ser do tipo `double`.
 
 3. Subtipo
-   >A geometria círculo também tem de conter o `subType` propriedade. Esta propriedade tem de ser uma parte de `GeoJSON Feature`do propriedades e respetivo valor deve ser _círculo_
+   >A geometria de círculo também tem de conter o `subType` propriedade. Esta propriedade tem de ser uma parte da `GeoJSON Feature`do propriedades e respetivo valor deve ser _círculo_
 
 
 #### <a name="example"></a>Exemplo
 
-Eis a forma como irá representar um círculo centrado em (latitude: 47.639754, longitude:-122.126986) com um radius igual a 100 medidores, utilizando um `GeoJSON Feature` objeto:
+Eis como irá representar um círculo centralizado em (latitude: 47.639754, longitude:-122.126986) com um raio igual a 100 metros, usando um `GeoJSON Feature` objeto:
 
 ```json            
 {

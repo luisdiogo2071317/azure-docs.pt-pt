@@ -1,6 +1,6 @@
 ---
-title: Anexar ou desanexar um disco de dados para uma máquina virtual no Azure DevTest Labs | Microsoft Docs
-description: Saiba como ligar ou desligar um disco de dados para uma máquina virtual no Azure DevTest Labs
+title: Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs | Documentos da Microsoft
+description: Saiba como anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,62 +15,62 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 193b66cf8bdaaefed5f073bec3ecb9050d076f19
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787592"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299079"
 ---
-# <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados para uma máquina virtual no Azure DevTest Labs
-[Discos do Azure gerida](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas aos discos de dados de máquina virtual. Um utilizador liga um novos dados em disco para uma VM, especifica o tipo e o tamanho de disco necessários e o Azure cria e gere automaticamente o disco. O disco de dados, em seguida, pode ser desligado da VM e um novamente ligado mais tarde para a mesma VM ou anexado a uma VM diferente, que pertence ao mesmo utilizador.
+# <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
+[Os Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gerencia as contas de armazenamento associadas aos discos de dados de máquina virtual. Um anexa de utilizador do disco de um novos dados a uma VM, especifica o tipo e o tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados, em seguida, pode ser desanexado da VM e a voltar a ligar mais tarde para a mesma VM ou ligada a uma VM diferente que pertença ao mesmo utilizador.
 
-Esta funcionalidade é útil para a gestão de armazenamento ou de software fora de cada máquina virtual individual. Se o armazenamento ou o software já existe no interior de um disco de dados, este pode ser facilmente ligado, anular a exposição e novamente ligado a qualquer VM que é propriedade de utilizador que é proprietária desse disco de dados.
+Esta funcionalidade é útil para gerir o armazenamento ou de software fora de cada máquina virtual individual. Se o armazenamento ou o software já existir dentro de um disco de dados, ele pode ser facilmente anexado, desanexado e voltar a ligar a qualquer VM que é propriedade do utilizador que é o proprietário desse disco de dados.
 
 ## <a name="attach-a-data-disk"></a>Anexar um disco de dados
-Antes de ligar um disco de dados para uma VM, reveja estas sugestões:
+Antes de anexar um disco de dados a uma VM, reveja estas dicas:
 
-- O tamanho da VM controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos das virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
-- Apenas pode anexar um disco de dados para uma VM que está em execução. Certifique-se que a VM está em execução antes de tentar anexar um disco de dados.
+- O tamanho da VM controla quantos discos de dados, pode anexar. Para obter detalhes, consulte [tamanhos de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+- Apenas pode anexar um disco de dados a uma VM que está em execução. Certificar-se de que a VM está em execução antes de tentar anexar um disco de dados.
 
-### <a name="attach-a-new-disk"></a>Anexe um novo disco
-Siga estes passos para criar e anexar um disco de dados geridos novo a uma VM no Azure DevTest Labs.
+### <a name="attach-a-new-disk"></a>Anexar um disco novo
+Siga estes passos para criar e anexar um novo disco de dados geridos para uma VM no Azure DevTest Labs.
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório pretendido. 
-1. Na lista de **meu máquinas de virtuais**, selecione uma VM em execução.
+1. Na lista de **minhas máquinas virtuais**, selecione uma VM em execução.
 1. No menu à esquerda, selecione **discos**.
 
     ![Selecione os discos de dados para uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png)
-1. Escolha **anexar novo** para criar um novo disco de dados e ligá-lo para a VM.
+1. Escolher **anexar novo** para criar um novo disco de dados e anexá-lo para a VM.
 
-    ![Anexar o disco de dados de novo a uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new.png)
+    ![Anexar novo disco de dados a uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new.png)
 1. Concluir o **anexar novo disco** painel ao introduzir um nome de disco de dados, tipo e tamanho.
 
-    ![Preencha o formulário "anexar o disco novo"](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
+    ![Preencha o formulário de "anexar o disco novo"](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
 1. Selecione **OK**.
 
-Após alguns instantes, o novo disco de dados é criado e ligado à VM e é apresentado na lista de **discos de dados** para essa VM.
+Após alguns instantes, o novo disco de dados é criado e ligado à VM e é apresentada na lista de **discos de dados** para essa VM.
 
 ### <a name="attach-an-existing-disk"></a>Anexar um disco existente
-Siga estes passos para reattach um disco de dados disponíveis existente para uma VM em execução. 
+Siga estes passos para religar um disco de dados disponíveis existente para uma VM em execução. 
 
-1. Selecione uma VM em execução para o qual pretende reattach um disco de dados.
+1. Selecione uma VM em execução para o qual pretende voltar a ligá um disco de dados.
 1. No menu à esquerda, selecione **discos**.
 1. Selecione **anexar existente** para anexar um disco de dados disponíveis para a VM.
 
-    ![Anexar o disco de dados existente para uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing2.png)
+    ![Anexar disco de dados existente a uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing2.png)
 
-1. Do **anexar o disco existente** painel, selecione OK.
+1. Partir do **anexar disco existente** painel, selecione OK.
 
-    ![Anexar o disco de dados existente para uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
+    ![Anexar disco de dados existente a uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
 
-Após alguns instantes, o disco de dados está ligado à VM e é apresentada na lista de **discos de dados** para essa VM.
+Após alguns instantes, o disco de dados é anexado à VM e é apresentada na lista de **discos de dados** para essa VM.
 
 ## <a name="detach-a-data-disk"></a>Desanexar um disco de dados
-Quando já não necessita de um disco de dados que está ligado a uma VM, pode facilmente desanexá-lo. A anular a exposição remove o disco da VM, mas mantém-no armazenamento para uma utilização posterior.
+Quando já não precisar de um disco de dados que está ligado a uma VM, pode desligá-lo facilmente. A desanexar remove o disco da VM, mas mantém-lo no armazenamento para utilização posterior.
 
-Se pretender utilizar novamente os dados existentes no disco, pode reattach-lo para a mesma máquina virtual ou para outro.
+Se pretender utilizar os dados existentes no disco, novamente, pode voltar a ligá-lo para a mesma máquina virtual ou para outro.
 
 ### <a name="detach-from-the-vms-management-pane"></a>Anular a exposição a partir do painel de gestão da VM
 1. Na sua lista de máquinas virtuais, selecione uma VM que possui um disco de dados ligado.
@@ -83,28 +83,28 @@ Se pretender utilizar novamente os dados existentes no disco, pode reattach-lo p
     ![Desanexar um disco de dados](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
 1. Selecione **Sim** para confirmar que pretende desanexar o disco de dados.
 
-O disco é desligado e está disponível ao ligar a outra VM. 
-### <a name="detach-from-the-labs-main-pane"></a>Anular a exposição a partir do painel principal do laboratório
-1. No painel principal do seu laboratório, selecione **meu discos de dados**.
+O disco é desligado e está disponível para anexar a outra VM. 
+### <a name="detach-from-the-labs-main-pane"></a>Desanexação do painel principal do laboratório
+1. No painel principal do seu laboratório, selecione **Moje datové disky**.
 
     ![Aceder a discos de dados do laboratório](./media/devtest-lab-attach-detach-data-disk/devtest-lab-my-data-disks.png)
-1. Clique no disco de dados que pretende desanexar – ou selecione o botão de reticências (…) – e escolha **anulação de exposições**.
+1. Com o botão direito no disco de dados que pretende desanexar – ou selecione o botão de reticências (.....) – e escolha **anulação de exposições**.
 
     ![Desanexar um disco de dados](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
-1. Selecione **Sim** para confirmar que pretende desanexá-lo.
+1. Selecione **Sim** para confirmar que pretende desligá-lo.
 
    > [!NOTE]
-   > Se um disco de dados já está desligado, pode optar por removê-lo na sua lista de discos de dados disponíveis, selecionando **eliminar**.
+   > Se um disco de dados já está desligado, é possível removê-lo da sua lista de discos de dados disponíveis, selecionando **eliminar**.
    >
    >
 
-## <a name="upgrade-an-unmanaged-data-disk"></a>Atualizar um disco de dados não geridos
-Se tiver uma VM existente que utiliza discos de dados não geridos, pode converter facilmente a VM para utilizar discos geridos. Este processo converte o disco do SO e discos de dados anexados.
+## <a name="upgrade-an-unmanaged-data-disk"></a>Atualizar um disco de dados não gerido
+Se tiver uma VM existente que utiliza discos de dados não gerido, pode converter facilmente a VM para utilizar discos geridos. Este processo converte o disco do SO e qualquer discos de dados anexados.
 
-Para atualizar um disco de dados não geridos, siga os passos descritos neste artigo para [desanexar o disco de dados](#detach-a-data-disk) de uma VM não gerida. Em seguida, [reattach o disco](#attach-an-existing-disk) numa VM gerida para atualizar automaticamente os dados de disco de não gerido para gerido.
+Para atualizar um disco de dados não geridos, siga os passos descritos neste artigo para [desanexar o disco de dados](#detach-a-data-disk) de uma VM não gerida. Em seguida, [o disco voltar a ligá](#attach-an-existing-disk) VM gerida para atualizar automaticamente os dados de disco de não gerido para gerido.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba como gerir discos de dados para [claimable máquinas de virtuais](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
+Saiba como gerir discos de dados para [reclamáveis máquinas de virtuais](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

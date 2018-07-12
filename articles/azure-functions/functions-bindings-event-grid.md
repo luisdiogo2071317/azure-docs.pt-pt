@@ -1,6 +1,6 @@
 ---
-title: Acionador de grelha de eventos para as funções do Azure
-description: Compreenda como processar eventos de grelha de evento nas funções do Azure.
+title: Acionador do Event Grid para as funções do Azure
+description: Compreenda como manipular eventos do Event Grid nas funções do Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -13,52 +13,52 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 06/08/2018
 ms.author: tdykstra
-ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6678109414eaa71ced369e87e1cd15544fee5ee5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724735"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723806"
 ---
-# <a name="event-grid-trigger-for-azure-functions"></a>Acionador de grelha de eventos para as funções do Azure
+# <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
-Este artigo explica como lidar com [eventos grelha](../event-grid/overview.md) eventos das funções do Azure.
+Este artigo explica como lidar com [Event Grid](../event-grid/overview.md) eventos nas funções do Azure.
 
-Grelha de eventos é um serviço Azure que envia pedidos HTTP para o notificar sobre eventos que ocorrem no *publicadores*. O serviço ou o recurso que origina o evento, é um publicador. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e [um carregamento de blob ou eliminação é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [serviços do Azure têm suporte incorporado para publicar eventos à grelha de evento](../event-grid/overview.md#event-sources). 
+Event Grid é um serviço do Azure que envia pedidos HTTP para ser notificado sobre eventos que ocorrem no *os publicadores*. Um publicador é o serviço ou recurso que tem origem do evento. Por exemplo, uma conta de armazenamento de Blobs do Azure é um publicador, e [um carregamento de BLOBs ou eliminação é um evento](../storage/blobs/storage-blob-event-overview.md). Algumas [serviços do Azure inclui suporte interno para publicar eventos para o Event Grid](../event-grid/overview.md#event-sources). 
 
-Evento *processadores* receber e a processar eventos. As funções do Azure é um dos vários [serviços do Azure que têm suporte incorporado para processar eventos de evento grelha](../event-grid/overview.md#event-handlers). Neste artigo, irá aprender a utilizar um acionador de grelha de eventos para invocar uma função quando é recebido um evento de grelha de eventos.
+Evento *manipuladores* receber e processar eventos. As funções do Azure é um dos vários [serviços do Azure que têm suporte incorporado para manipulação de eventos do Event Grid](../event-grid/overview.md#event-handlers). Neste artigo, irá aprender a utilizar um acionador do Event Grid para invocar uma função, quando um evento é recebido do Event Grid.
 
-Se preferir, pode utilizar um acionador HTTP para processar eventos de grelha de eventos; consulte [utilizar um acionador HTTP como um acionador de grelha de evento](#use-an-http-trigger-as-an-event-grid-trigger) posteriormente neste artigo.
+Se preferir, pode utilizar um acionador HTTP para processar eventos do Event Grid ver [utilizar um acionador HTTP como um acionador do Event Grid](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo. Atualmente, não é possível utilizar um acionador do Event Grid para uma aplicação de funções do Azure quando o evento é entregue na [esquema do CloudEvents](../event-grid/cloudevents-schema.md). Em alternativa, utilize um acionador HTTP.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
+## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-O acionador de grelha de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1. x. Código de origem para o pacote está a ser o [eventgrid-extensão de azure-funções](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) repositório do GitHub.
+O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
-O acionador de grelha de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 2. x. Código de origem para o pacote está a ser o [eventgrid-extensão de azure-funções](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) repositório do GitHub.
+O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) repositório do GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>Exemplo
 
-Consulte o exemplo de específicas de idiomas para um acionador de grelha de evento:
+Veja o exemplo de idioma específico para um acionador do Event Grid:
 
 * [C#](#c-example)
 * [Script do c# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
-Para obter um exemplo de Acionador HTTP, consulte [como utilizar o acionador HTTP](#use-an-http-trigger-as-an-event-grid-trigger) posteriormente neste artigo.
+Para obter um exemplo de Acionador HTTP, consulte [como utilizar o acionador HTTP](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo.
 
 ### <a name="c-example"></a>Exemplo do c#
 
-O exemplo seguinte mostra um funções 1. x [c# função](functions-dotnet-class-library.md) que está vinculado a `JObject`:
+O exemplo seguinte mostra um funções 1.x [função c#](functions-dotnet-class-library.md) que se vincula ao `JObject`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -80,7 +80,7 @@ namespace Company.Function
 }
 ```
 
-O exemplo seguinte mostra um funções 2 [c# função](functions-dotnet-class-library.md) que está vinculado a `EventGridEvent`:
+O exemplo seguinte mostra um funções 2.x [função c#](functions-dotnet-class-library.md) que se vincula ao `EventGridEvent`:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -101,13 +101,13 @@ namespace Company.Function
 }
 ```
 
-Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
+Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [Configuration](#configuration), e [utilização](#usage).
 
 ### <a name="c-script-example"></a>Exemplo de script do c#
 
-O exemplo seguinte mostra um enlace de Acionador num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace.
+O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -122,7 +122,7 @@ Segue-se os dados do enlace *function.json* ficheiro:
 }
 ```
 
-Eis o código de script de 1. x c# funções que está vinculado a `JObject`:
+Eis o código de script de 1.x c# das funções que liga `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -136,7 +136,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-Eis o código de script de 2 c# funções que está vinculado a `EventGridEvent`:
+Eis o código de script de 2.x c# das funções que liga `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -148,13 +148,13 @@ public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 }
 ```
 
-Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
+Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [Configuration](#configuration), e [utilização](#usage).
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
-O exemplo seguinte mostra um enlace de Acionador num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace.
+O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -183,9 +183,9 @@ module.exports = function (context, eventGridEvent) {
      
 ## <a name="attributes"></a>Atributos
 
-No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) atributo.
+Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) atributo.
 
-Eis um `EventGridTrigger` atributo na assinatura do método:
+Aqui está um `EventGridTrigger` atributo numa assinatura do método:
 
 ```csharp
 [FunctionName("EventGridTest")]
@@ -195,37 +195,37 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, Trac
 }
  ```
 
-Para obter um exemplo completado, consulte [c# exemplo](#c-example).
+Para obter um exemplo completo, consulte [exemplo c#](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro. Não são os parâmetros do construtor ou propriedades a definir `EventGridTrigger` atributo.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Não há parâmetros do construtor ou propriedades para definir o `EventGridTrigger` atributo.
 
-|propriedade de Function.JSON |Descrição|
+|propriedade de Function |Descrição|
 |---------|---------|----------------------|
 | **tipo** | Necessário - tem de ser definido como `eventGridTrigger`. |
 | **direção** | Necessário - tem de ser definido como `in`. |
-| **name** | Necessário - o nome da variável utilizado no código de função para o parâmetro que recebe os dados do evento. |
+| **name** | Necessário - o nome da variável no código de função para o parâmetro que recebe os dados do evento. |
 
 ## <a name="usage"></a>Utilização
 
-Para c# e F # funções no Azure funciona 1. x, pode utilizar os seguintes tipos de parâmetro para o acionador de grelha de evento:
+Para funções c# e F # no Azure funções 1.x, pode utilizar os seguintes tipos de parâmetro para o acionador do Event Grid:
 
 * `JObject`
 * `string`
 
-Para as funções de c# e F # nas funções do Azure 2, também tem a opção para utilizar o seguinte tipo de parâmetro para o acionador de grelha de evento:
+Para funções c# e F # nas funções do Azure 2.x, tem também a opção para utilizar o seguinte tipo de parâmetro para o acionador do Event Grid:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades para os campos comuns a todos os tipos de eventos.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades para os campos comuns a todos os tipos de evento.
 
 > [!NOTE]
-> Em funções v1 se tentar criar o enlace `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, o compilador irá apresentar uma mensagem "preterido" e aconselhe-lhe utilizar o processo `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, referenciar a [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet do pacote e para qualificar completamente a `EventGridEvent` nome de tipo por-com lhe o prefixo `Microsoft.Azure.EventGrid.Models`. Para obter informações sobre como fazer referência a pacotes de NuGet de uma função de script do c#, consulte [pacotes NuGet utilizando](functions-reference-csharp.md#using-nuget-packages)
+> No v1 de funções, se tentar fazer a ligação `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, o compilador irá apresentar uma mensagem "preterido" e deve utilizar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, fazer referência a [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet empacotar e qualificar completamente a `EventGridEvent` atribuindo-o com o nome do tipo `Microsoft.Azure.EventGrid.Models`. Para obter informações sobre como fazer referência a pacotes de NuGet numa função de script do c#, consulte [pacotes utilizando NuGet](functions-reference-csharp.md#using-nuget-packages)
 
-Para funções de JavaScript, o parâmetro com o nome de *function.json* `name` propriedade tem uma referência ao objeto de eventos.
+Para as funções de JavaScript, o parâmetro com o nome da *Function* `name` propriedade tem uma referência ao objeto de evento.
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-Como um objeto JSON no corpo do pedido de HTTP recebidos dados de um evento de grelha de eventos. O JSON semelhante ao seguinte exemplo:
+Dados de um evento do Event Grid são recebidos como um objeto JSON no corpo de uma solicitação HTTP. O JSON é semelhante ao seguinte exemplo:
 
 ```json
 [{
@@ -253,43 +253,43 @@ Como um objeto JSON no corpo do pedido de HTTP recebidos dados de um evento de g
 }]
 ```
 
-O exemplo apresentado é uma matriz de um elemento. Grelha de evento sempre envia uma matriz e pode enviar mais do que um evento na matriz. O tempo de execução invoca a função, uma vez para cada elemento de matriz.
+O exemplo mostrado é uma matriz de um elemento. Event Grid sempre envia uma matriz e pode enviar a mais do que um evento na matriz. O tempo de execução chama sua função, uma vez para cada elemento de matriz.
 
-As propriedades de nível superior no evento dados JSON são os mesmos entre todos os tipos de eventos, enquanto o conteúdo a `data` propriedade são específicas para cada tipo de evento. O exemplo apresentado é um evento de armazenamento de Blobs.
+As propriedades de nível superior no evento dados JSON são os mesmos entre todos os tipos de eventos, enquanto o conteúdo do `data` propriedade são específicas para cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de Blobs.
 
-Para uma explicação das propriedades do evento específico e comuns, consulte [as propriedades de evento](../event-grid/event-schema.md#event-properties) na documentação do evento grelha.
+Para obter explicações das propriedades específicas ao evento e comuns, consulte [propriedades de evento](../event-grid/event-schema.md#event-properties) na documentação do Event Grid.
 
-O `EventGridEvent` tipo define apenas as propriedades de nível superior; o `Data` propriedade é um `JObject`. 
+O `EventGridEvent` tipo define apenas as propriedades de nível superior; a `Data` propriedade é um `JObject`. 
 
 ## <a name="create-a-subscription"></a>Criar uma subscrição
 
-Para começar a receber pedidos de HTTP da grelha de evento, crie uma subscrição de evento grelha que especifica o URL de ponto final que invoca a função.
+Para começar a receber pedidos de HTTP de grelha de eventos, crie uma subscrição do Event Grid que especifica o URL de ponto final que invoca a função.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para as funções que desenvolver no portal do Azure com o acionador de grelha de evento, selecione **subscrição de adicionar o evento grelha**.
+Para as funções que desenvolver no portal do Azure com o acionador do Event Grid, selecione **subscrição do Event Grid adicionar**.
 
 ![Criar subscrição no portal](media/functions-bindings-event-grid/portal-sub-create.png)
 
-Quando seleciona esta ligação, o portal abre o **criar subscrição de evento** prefilled de página com o URL de ponto final.
+Quando selecionar esta ligação, o portal abre o **criar subscrição de evento** prefilled de página com o URL de ponto final.
 
 ![URL de ponto final prefilled](media/functions-bindings-event-grid/endpoint-url.png)
 
-Para obter mais informações sobre como criar subscrições através do portal do Azure, consulte [evento personalizado do criar - portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação do evento grelha.
+Para obter mais informações sobre como criar subscrições com o portal do Azure, consulte [criar evento personalizado - portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação do Event Grid.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma subscrição utilizando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilize o [criar subscrição de evento do eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) comando.
+Para criar uma subscrição, utilizando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilize o [criar subscrição de evento do eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) comando.
 
-O comando exige o URL de ponto final que invoca a função. O exemplo seguinte mostra o padrão de URL:
+O comando requer o URL de ponto final que invoca a função. O exemplo seguinte mostra o padrão de URL:
 
 ```
 https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 ```
 
-A chave de sistema é uma chave de autorização que tem de ser incluído no URL do ponto final de um acionador de grelha de eventos. A secção seguinte explica como obter a chave de sistema.
+A chave do sistema é uma chave de autorização que deve ser incluído no URL do ponto final para um acionador do Event Grid. A secção seguinte explica como obter a chave de sistema.
 
-Eis um exemplo que subscreve para uma conta de armazenamento de BLOBs (com um marcador de posição para a chave do sistema):
+Eis um exemplo que se inscreve para uma conta de armazenamento de BLOBs (com um marcador de posição para a chave do sistema):
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -300,19 +300,19 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
 ```
 
-Para obter mais informações sobre como criar uma subscrição, consulte [o guia de introdução do armazenamento de BLOBs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou os outros eventos grelha inícios rápidos de.
+Para obter mais informações sobre como criar uma subscrição, veja [o início rápido de armazenamento de BLOBs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou os outros guias de introdução Event Grid.
 
 ### <a name="get-the-system-key"></a>Obter a chave de sistema
 
-Pode obter a chave de sistema utilizando a seguinte API (HTTP GET):
+Pode obter a chave do sistema utilizando a seguinte API (HTTP GET):
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
 ```
 
-Este é um administrador de API, pelo que requer o [chave admin](functions-bindings-http-webhook.md#authorization-keys). Não confunda a chave de sistema (para invocar uma função de Acionador de grelha de evento) com a chave de administrador (para efetuar tarefas administrativas na aplicação de função). Ao subscrever um tópico da grelha de evento, lembre-se de que utiliza a chave de sistema.
+Este é um administrador de API, portanto, ele requer sua [chave de administrador](functions-bindings-http-webhook.md#authorization-keys). Não confunda a chave de sistema (para invocar uma função de Acionador do Event Grid) com a chave de administrador (para efetuar tarefas administrativas na aplicação de função). Ao subscrever um tópico do Event Grid, certifique-se de que utiliza a chave de sistema.
 
-Eis um exemplo da resposta que fornece a chave de sistema:
+Eis um exemplo de resposta que fornece a chave de sistema:
 
 ```
 {
@@ -327,60 +327,59 @@ Eis um exemplo da resposta que fornece a chave de sistema:
 }
 ```
 
-Para obter mais informações, consulte [chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência de Acionador HTTP. 
+Para obter mais informações, consulte [chaves de autorização](functions-bindings-http-webhook.md#authorization-keys) no artigo de referência do acionador HTTP. 
 
-Em alternativa, pode enviar um HTTP PUT para especificar o valor da chave por si.
+Em alternativa, pode enviar um HTTP PUT para especificar o valor da chave por conta própria.
 
-## <a name="local-testing-with-requestbin"></a>Testar com RequestBin local
+## <a name="local-testing-with-viewer-web-app"></a>Realização de testes locais com a aplicação de web do Visualizador
 
-> [!NOTE]
-> O site RequestBin não está atualmente disponível, mas pode utilizar esta abordagem com https://hookbin.com em vez disso. Se esse site estiver desativado, pode utilizar [ngrok](#local-testing-with-ngrok).
+Para testar um acionador do Event Grid localmente, terá de obter pedidos de HTTP de grelha de eventos, entregues a partir da sua origem na cloud no seu computador local. Uma forma de fazê-lo é ao capturar pedidos online e manualmente reenviá-los no seu computador local:
 
-Para testar um acionador de grelha de evento localmente, terá de obter os pedidos de HTTP da grelha de evento entregues da respetiva origem na nuvem no seu computador local. Uma forma de fazê-lo é ao capturar pedidos online e manualmente reenviá-los no seu computador local:
+2. [Criar uma aplicação web do Visualizador](#create-a-viewer-web-app) que captura a mensagens de eventos.
+3. [Criar uma subscrição do Event Grid](#create-an-event-grid-subscription) que envia eventos para a aplicação de Visualizador.
+4. [Gerar um pedido](#generate-a-request) e copie o corpo do pedido a partir da aplicação de Visualizador.
+5. [Publique manualmente o pedido](#manually-post-the-request) para o URL de localhost do seu Event Grid acionar a função.
 
-2. [Criar um ponto final RequestBin](#create-a-RequestBin-endpoint).
-3. [Criar uma subscrição de evento grelha](#create-an-event-grid-subscription) que envia eventos para o ponto final RequestBin.
-4. [Gerar um pedido](#generate-a-request) e copie o corpo do pedido a partir do RequestBin site.
-5. [Publique manualmente o pedido](#manually-post-the-request) para o URL de localhost da grelha evento acionar a função.
+Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) comando da CLI do Azure.
 
-Quando tiver terminado de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento az eventgrid](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) comando da CLI do Azure.
+### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web do Visualizador
 
-### <a name="create-a-requestbin-endpoint"></a>Criar um ponto final RequestBin
+Para simplificar a captura de mensagens de eventos, pode implementar um [aplicação web pré-criados](https://github.com/dbarkol/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
-RequestBin é uma ferramenta open-source que aceita os pedidos HTTP e mostra-lhe o corpo do pedido. O http://requestb.in URL obtém um tratamento especial através da grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos para o URL de RequestBin sem necessidade de uma resposta a pedidos de validação de subscrição correta. Uma ferramenta de teste é dado o mesmo tratamento: http://hookbin.com.
+Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
-RequestBin não se destina a utilização de débito elevado. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-Crie um ponto final.
+A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 
-![Criar o ponto final de RequestBin](media/functions-bindings-event-grid/create-requestbin.png)
+Vê o site, mas ainda não foram publicados eventos no mesmo.
 
-Copie o URL de ponto final.
+![Ver novo site](media/functions-bindings-event-grid/view-site.png)
 
-![Ponto final de RequestBin de cópia](media/functions-bindings-event-grid/save-requestbin-url.png)
+### <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
 
-### <a name="create-an-event-grid-subscription"></a>Criar uma subscrição de evento grelha
+Criar uma subscrição do Event Grid do tipo que pretende testar e dê a ele o URL da sua aplicação web como o ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Por isso, é o URL completo `https://<your-site-name>.azurewebsites.net/api/updates`
 
-Criar uma subscrição de grelha de eventos do tipo que pretende testar e atribua o ponto final RequestBin. Para obter informações sobre como criar uma subscrição, consulte [criar uma subscrição](#create-a-subscription) anteriormente neste artigo.
+Para obter informações sobre como criar subscrições com o portal do Azure, consulte [criar evento personalizado - portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação do Event Grid.
 
 ### <a name="generate-a-request"></a>Gerar um pedido
 
-Acione um evento que irá gerar tráfego HTTP para o ponto final RequestBin.  Por exemplo, se tiver criado uma subscrição de armazenamento de BLOBs, carregar ou eliminar um blob. Quando um pedido aparece na sua página de RequestBin, copie o corpo do pedido.
+Acione um evento que irá gerar tráfego HTTP para o ponto de final de aplicação web.  Por exemplo, se tiver criado uma subscrição de armazenamento de BLOBs, carregar ou eliminar um blob. Quando um pedido aparece na sua aplicação web, copie o corpo do pedido.
 
-O pedido de validação da subscrição será recebido pela primeira vez; ignorar quaisquer pedidos de validação e copie o pedido de eventos.
+O pedido de validação de subscrição será recebido pela primeira vez; ignorar quaisquer pedidos de validação e copie o pedido de evento.
 
-![Copiar o corpo do pedido de RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
+![Copiar o corpo do pedido de aplicação web](media/functions-bindings-event-grid/view-results.png)
 
 ### <a name="manually-post-the-request"></a>Publique manualmente o pedido
 
-Execute localmente a sua função de grelha de eventos.
+Execute localmente a função do Event Grid.
 
-Utilizar uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](https://curl.haxx.se/docs/httpscripting.html) para criar um pedido de HTTP POST:
+Utilize uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](https://curl.haxx.se/docs/httpscripting.html) para criar um pedido HTTP POST:
 
 * Definir um `Content-Type: application/json` cabeçalho.
 * Definir um `aeg-event-type: Notification` cabeçalho.
 * Cole os dados de RequestBin no corpo do pedido. 
-* Publicar o URL da sua função de Acionador de grelha de eventos, utilizando o padrão do seguinte:
+* Publicar o URL da sua função de Acionador do Event Grid, usando o seguinte padrão:
 
 ```
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
@@ -390,36 +389,36 @@ O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atr
 
 As capturas de ecrã seguintes mostram os cabeçalhos e corpo no Postman do pedido:
 
-![Cabeçalhos de Postman](media/functions-bindings-event-grid/postman2.png)
+![Cabeçalhos no Postman](media/functions-bindings-event-grid/postman2.png)
 
-![Corpo do pedido em Postman](media/functions-bindings-event-grid/postman.png)
+![Corpo do pedido no Postman](media/functions-bindings-event-grid/postman.png)
 
-A função de Acionador de grelha de evento executa e mostra os registos semelhante ao seguinte exemplo:
+A função de Acionador do Event Grid é executado e mostra os registos semelhantes ao seguinte exemplo:
 
-![Registos de funções de Acionador de grelha de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
+![Registos de função de Acionador de grelha de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="local-testing-with-ngrok"></a>Testar com ngrok local
+## <a name="local-testing-with-ngrok"></a>Realização de testes com ngrok locais
 
-Outra forma de testar localmente um acionador de grelha de eventos é para automatizar a ligação de HTTP entre a Internet e o computador de desenvolvimento. Pode fazê-lo com uma ferramenta open-source denominada [ngrok](https://ngrok.com/):
+É outra forma de testar localmente um acionador do Event Grid automatizar a ligação de HTTP entre a Internet e o seu computador de desenvolvimento. Pode fazê-lo com uma ferramenta open-source denominada [ngrok](https://ngrok.com/):
 
-3. [Criar um ponto final ngrok](#create-an-ngrok-endpoint).
-4. [Executar a função de Acionador de grelha de evento](#run-the-event-grid-trigger-function).
-5. [Criar uma subscrição de evento grelha](#create-a-subscription) que envia eventos para o ponto final ngrok.
+3. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
+4. [Para executar a função de Acionador do Event Grid](#run-the-event-grid-trigger-function).
+5. [Criar uma subscrição do Event Grid](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
 6. [Acionar um evento](#trigger-an-event).
 
-Quando tiver terminado de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento az eventgrid](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) comando da CLI do Azure.
+Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) comando da CLI do Azure.
 
-### <a name="create-an-ngrok-endpoint"></a>Criar um ponto final ngrok
+### <a name="create-an-ngrok-endpoint"></a>Criar um ponto de extremidade ngrok
 
-Transferir *ngrok.exe* de [ngrok](https://ngrok.com/)e execute o seguinte comando:
+Baixe *ngrok.exe* partir [ngrok](https://ngrok.com/)e executar com o seguinte comando:
 
 ```
 ngrok http -host-header=localhost 7071
 ```
 
--Anfitrião-parâmetro de cabeçalho é necessário porque o tempo de execução de funções espera pedidos de localhost quando é executada no localhost. 7071 é o número de porta predefinido quando o tempo de execução é executada localmente.
+O - host-parâmetro de cabeçalho é necessária porque o runtime das funções espera que as solicitações do localhost quando é executada no localhost. 7071 é o número de porta predefinido quando o tempo de execução é executada localmente.
 
-O comando cria o resultado como o seguinte:
+O comando cria uma saída semelhante ao seguinte:
 
 ```
 Session Status                online
@@ -433,15 +432,15 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Irá utilizar o URL de https://{subdomain}.ngrok.io para a sua subscrição de evento grelha.
+Usará o URL de https://{subdomain}.ngrok.io para a sua subscrição do Event Grid.
 
-### <a name="run-the-event-grid-trigger-function"></a>Executar a função de Acionador de grelha de eventos
+### <a name="run-the-event-grid-trigger-function"></a>Executar a função de Acionador do Event Grid
 
-O URL de ngrok não obter tratamento especial através da grelha de eventos, pelo que a sua função tem de ser executado localmente quando é criada a subscrição. Se não for, a resposta de validação não obter enviada e a criação de subscrição falhar.
+O URL de ngrok não obtém um tratamento especial pelo Event Grid, para que a sua função tem de ser executado localmente quando é criada a subscrição. Caso contrário, a resposta de validação não é enviada e a criação de subscrição falhar.
 
 ### <a name="create-a-subscription"></a>Criar uma subscrição
 
-Criar uma subscrição de grelha de eventos do tipo que pretende testar e atribua o ponto final de ngrok, utilizando o padrão do seguinte:
+Criar uma subscrição do Event Grid do tipo que pretende testar e atribua o ponto final de ngrok, usando o seguinte padrão:
 
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
@@ -449,32 +448,36 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 
 O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
 
-Eis um exemplo utilizando a CLI do Azure:
+Eis um exemplo com a CLI do Azure:
 
 ```
 az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName=EventGridTrigger
 ```
 
-Para obter informações sobre como criar uma subscrição, consulte [criar uma subscrição](#create-a-subscription) anteriormente neste artigo.
+Para obter informações sobre como criar uma subscrição, veja [criar uma subscrição](#create-a-subscription) no início deste artigo.
 
 ### <a name="trigger-an-event"></a>Acionar um evento
 
-Acione um evento que irá gerar tráfego HTTP para o ponto final ngrok.  Por exemplo, se tiver criado uma subscrição de armazenamento de BLOBs, carregar ou eliminar um blob.
+Acione um evento que irá gerar tráfego HTTP para o ponto final de ngrok.  Por exemplo, se tiver criado uma subscrição de armazenamento de BLOBs, carregar ou eliminar um blob.
 
-A função de Acionador de grelha de evento executa e mostra os registos semelhante ao seguinte exemplo:
+A função de Acionador do Event Grid é executado e mostra os registos semelhantes ao seguinte exemplo:
 
-![Registos de funções de Acionador de grelha de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
+![Registos de função de Acionador de grelha de eventos de exemplo](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Utilizar um acionador HTTP como um acionador de grelha de eventos
+## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Utilizar um acionador HTTP como um acionador do Event Grid
 
-Eventos de grelha de eventos que são recebidos como pedidos HTTP, pelo que pode processar eventos utilizando um acionador HTTP em vez de um acionador de grelha de eventos. Uma razão possível para o fazer é obter mais controlo sobre o URL de ponto final que invoca a função. 
+Eventos do Event Grid são recebidos como pedidos HTTP, pelo que pode processar eventos com um acionador HTTP em vez de um acionador do Event Grid. Uma razão possível para se fazer isso é obter mais controle sobre o URL de ponto final que invoca a função. Outro motivo é quando precisa receber eventos no [esquema do CloudEvents](../event-grid/cloudevents-schema.md). Atualmente, o acionador do Event Grid não suporta o esquema do CloudEvents. Os exemplos nesta secção mostram soluções para o esquema do Event Grid e o esquema do CloudEvents.
 
-Se utilizar um acionador HTTP, terá de escrever código para que o acionador de grelha de evento faz automaticamente:
+Se utilizar um acionador HTTP, precisa escrever código para o que o acionador do Event Grid faz automaticamente:
 
-* Envia uma resposta de validação para um [pedido de validação de subscrição](../event-grid/security-authentication.md#webhook-event-delivery).
-* Invoca a função, uma vez por elemento da matriz de evento contida no corpo do pedido.
+* Envia uma resposta de validação para uma [pedido de validação de subscrição](../event-grid/security-authentication.md#webhook-event-delivery).
+* Invoca a função, uma vez por elemento da matriz de eventos contido no corpo do pedido.
 
-O seguinte exemplo código c# para um acionador HTTP simula o comportamento de Acionador de grelha de evento:
+Para obter informações sobre o URL a utilizar para invocar a função localmente ou quando é executada no Azure, consulte o [documentação de referência de ligação de Acionador HTTP](functions-bindings-http-webhook.md)
+
+### <a name="event-grid-schema"></a>Esquema de grelha de eventos
+
+O seguinte exemplo código c# para um acionador HTTP simula o comportamento de Acionador do Event Grid. Utilize este exemplo para eventos de evento fornecidos esquema de grelha.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -512,7 +515,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-O seguinte código de exemplo JavaScript para um acionador HTTP simula o comportamento de Acionador de grelha de evento:
+O seguinte código de JavaScript de exemplo para um acionador HTTP simula o comportamento de Acionador do Event Grid. Utilize este exemplo para eventos de evento fornecidos esquema de grelha.
 
 ```javascript
 module.exports = function (context, req) {
@@ -522,10 +525,12 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
+        var code = messages[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.
+        // Event Grid schema delivers events in an array.
         for (var i = 0; i < messages.length; i++) {
             // Handle one event.
             var message = messages[i];
@@ -538,9 +543,72 @@ module.exports = function (context, req) {
 };
 ```
 
-O código de processamento de eventos fica no interior do ciclo através de `messages` matriz.
+O código de manipulação de eventos vai dentro do loop por meio do `messages` matriz.
 
-Para obter informações sobre o URL a utilizar para invocar a função localmente ou quando for executada no Azure, consulte o [documentação de referência de enlace de Acionador HTTP](functions-bindings-http-webhook.md) 
+### <a name="cloudevents-schema"></a>Esquema do CloudEvents
+
+O seguinte exemplo código c# para um acionador HTTP simula o comportamento de Acionador do Event Grid.  Utilize este exemplo para eventos fornecidos no esquema do CloudEvents.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+O seguinte código de JavaScript de exemplo para um acionador HTTP simula o comportamento de Acionador do Event Grid. Utilize este exemplo para eventos fornecidos no esquema do CloudEvents.
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -548,4 +616,4 @@ Para obter informações sobre o URL a utilizar para invocar a função localmen
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a grelha de eventos](../event-grid/overview.md)
+> [Saiba mais sobre o Event Grid](../event-grid/overview.md)

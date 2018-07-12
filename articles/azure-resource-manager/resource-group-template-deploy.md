@@ -1,5 +1,5 @@
 ---
-title: Implementar recursos com o PowerShell e o modelo | Microsoft Docs
+title: Implementar recursos com o PowerShell e o modelo | Documentos da Microsoft
 description: Utilize o Azure Resource Manager e o Azure PowerShell para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
 ms.openlocfilehash: 714f5f2d4aa1635da8aa62139be5c80e7761ae27
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602895"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38486745"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
-Este artigo explica como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os recursos no Azure. Se não estiver familiarizado com conceitos de implementar e gerir as suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).
+Este artigo explica como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os seus recursos no Azure. Se não estiver familiarizado com os conceitos de implementar e gerir as suas soluções do Azure, veja [descrição geral do Azure Resource Manager](resource-group-overview.md).
 
-O modelo do Resource Manager que implementar possível ser um ficheiro local no seu computador, ou um ficheiro externo que está localizado num repositório como GitHub. O modelo que implementa neste artigo está disponível no [modelo de exemplo](#sample-template) secção, ou como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+O modelo do Resource Manager, implementar podem ser um ficheiro local no seu computador ou um arquivo externo que está localizado num repositório, como o GitHub. O modelo implementa neste artigo está disponível na [modelo de exemplo](#sample-template) secção, ou como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 Caso seja necessário, instale o módulo Azure PowerShell com as instruções no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma ligação ao Azure.
 
@@ -33,13 +33,13 @@ Caso seja necessário, instale o módulo Azure PowerShell com as instruções no
 
 ## <a name="deploy-a-template-from-your-local-machine"></a>Implementar um modelo a partir do seu computador local
 
-Quando implementar recursos para o Azure, pode:
+Quando implementar recursos no Azure,:
 
 1. Iniciar sessão na sua conta do Azure
-2. Crie um grupo de recursos que funciona como o contentor para os recursos implementados. O nome do grupo de recursos só pode incluir carateres alfanuméricos, pontos, carateres de sublinhado, hífenes e parênteses. Pode ser até 90 carateres. Não pode terminar num período.
+2. Crie um grupo de recursos que funciona como contêiner para os recursos implementados. O nome do grupo de recursos só pode incluir carateres alfanuméricos, pontos finais, carateres de sublinhado, hífenes e parênteses. Pode ser até 90 carateres. Não pode terminar com um período.
 3. Implementar o modelo que define os recursos para criar o grupo de recursos
 
-Um modelo pode incluir parâmetros que permitem-lhe personalizar a implementação. Por exemplo, pode fornecer valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). O modelo de exemplo define um parâmetro para a conta de armazenamento SKU.
+Um modelo pode incluir parâmetros que lhe permitem personalizar a implementação. Por exemplo, pode fornecer valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). O modelo de exemplo define um parâmetro para o SKU da conta de armazenamento.
 
 O exemplo seguinte cria um grupo de recursos e implementa um modelo a partir do seu computador local:
 
@@ -61,9 +61,9 @@ ProvisioningState       : Succeeded
 
 ## <a name="deploy-a-template-from-an-external-source"></a>Implementar um modelo a partir de uma origem externa
 
-Em vez de armazenar modelos do Resource Manager no seu computador local, pode preferir armazená-las numa localização externa. Pode armazenar modelos num repositório de controlo de origem (por exemplo, o GitHub). Em alternativa, pode armazená-las numa conta de armazenamento do Azure para acesso partilhado na sua organização.
+Em vez de armazenar modelos do Resource Manager no seu computador local, pode armazená-las num local externo. Pode armazenar modelos num repositório de controle de origem (por exemplo, o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
 
-Para implementar um modelo externo, utilize o **TemplateUri** parâmetro. Utilize o URI de exemplo para implementar o modelo de exemplo a partir do GitHub.
+Para implementar um modelo externo, utilize o **TemplateUri** parâmetro. Utilize o URI no exemplo para implementar o modelo de exemplo do GitHub.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -71,11 +71,11 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -storageAccountType Standard_GRS
 ```
 
-O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários, porque o modelo não deve incluir dados confidenciais. Se tiver de especificar os dados confidenciais (por exemplo, uma palavra-passe de administrador), passe esse valor como um parâmetro seguro. No entanto, se não pretender que o modelo para estar acessível publicamente, pode protegê-lo armazenando-o num contentor de armazenamento privada. Para obter informações sobre a implementação de um modelo que necessita de um token de assinatura (SAS) de acesso partilhado, consulte [implementar a modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
+O exemplo anterior exige um URI publicamente acessível para o modelo, que funciona na maioria dos cenários, porque o modelo não deve incluir dados confidenciais. Se tiver de especificar os dados confidenciais (como uma palavra-passe de administrador), passe esse valor como um parâmetro seguro. No entanto, se não pretender que o modelo para estar acessível publicamente, pode protegê-los armazenando-os num contentor do armazenamento privado. Para obter informações sobre como implementar um modelo que precisa de um token de assinatura (SAS) de acesso partilhado, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Na Shell de nuvem, utilize os seguintes comandos:
+No Cloud Shell, utilize os seguintes comandos:
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
@@ -86,13 +86,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Implementar a mais do que um grupo de recursos ou subscrição
 
-Normalmente, implementa todos os recursos no seu modelo para um grupo de recursos única. No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em grupos de recursos diferente ou subscrições. Pode implementar em grupos de recursos apenas cinco numa única implementação. Para obter mais informações, consulte [recursos do Azure de implementar a mais do que uma subscrição ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
+Normalmente, implementa todos os recursos no seu modelo para um grupo de recursos. No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em diferentes grupos de recursos ou subscrições. Pode implementar em apenas cinco grupos de recursos numa única implementação. Para obter mais informações, consulte [recursos do Azure implementar a mais de uma subscrição ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
 <a id="parameter-file" />
 
-## <a name="parameter-files"></a>Ficheiros de parâmetro
+## <a name="parameter-files"></a>Ficheiros de parâmetros
 
-Em vez de a transmitir parâmetros como valores de inline no script, poderá considerar mais fáceis de utilizar um ficheiro JSON que contém os valores de parâmetros. O ficheiro de parâmetros tem de estar no seguinte formato:
+Em vez de passar parâmetros como valores de inline no seu script, talvez ache mais fácil de utilizar um ficheiro JSON que contém os valores de parâmetro. O ficheiro de parâmetros tem de estar no seguinte formato:
 
 ```json
 {
@@ -106,11 +106,11 @@ Em vez de a transmitir parâmetros como valores de inline no script, poderá con
 }
 ```
 
-Tenha em atenção que a secção de parâmetros inclui um nome de parâmetro que corresponda ao parâmetro definido no seu modelo (storageAccountType). O ficheiro de parâmetros contém um valor para o parâmetro. Este valor é automaticamente transferido para o modelo durante a implementação. Pode criar vários ficheiros de parâmetro para diferentes cenários de implementação e, em seguida, passar o ficheiro de parâmetros adequados. 
+Observe que a secção de parâmetros inclui um nome de parâmetro que corresponda ao parâmetro definido no seu modelo (storageAccountType). O ficheiro de parâmetros contém um valor para o parâmetro. Este valor é automaticamente passado para o modelo durante a implementação. Pode criar vários ficheiros de parâmetros para diferentes cenários de implementação e, em seguida, passar o ficheiro de parâmetros adequada. 
 
-Copie o exemplo anterior e guarde-o como um ficheiro denominado `storage.parameters.json`.
+Copie o exemplo anterior e guarde-o como um arquivo chamado `storage.parameters.json`.
 
-Para transferir um ficheiro de parâmetros local, utilizar o **TemplateParameterFile** parâmetro:
+Para passar um ficheiro de parâmetros local, utilize o **TemplateParameterFile** parâmetro:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -118,7 +118,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-Para transferir um ficheiro de parâmetros externos, utilize o **TemplateParameterUri** parâmetro:
+Para passar um ficheiro de parâmetros externo, utilize o **TemplateParameterUri** parâmetro:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -126,22 +126,22 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-Pode utilizar parâmetros inline e um ficheiro de parâmetros local na mesma operação de implementação. Por exemplo, pode especificar alguns valores no ficheiro de parâmetros local e adicionar outro inline valores durante a implementação. Se fornecer valores para um parâmetro no ficheiro de parâmetros local e inline, o valor de inline tem precedência.
+Pode usar parâmetros inline e um ficheiro de parâmetros local na mesma operação de implementação. Por exemplo, pode especificar alguns valores no ficheiro de parâmetros local e adicionar outros embutidos valores durante a implementação. Se fornecer valores para um parâmetro no ficheiro de parâmetros local e inline, o valor de inline tem precedência.
 
-No entanto, quando utiliza um ficheiro de parâmetros externos, não poder passar outros valores ou inline ou a partir de um ficheiro local. Quando especificar um ficheiro de parâmetros nos **TemplateParameterUri** parâmetro, inline todos os parâmetros são ignorados. Fornece todos os valores de parâmetros no ficheiro externo. Se o seu modelo incluir um valor confidencial que não pode incluir no ficheiro de parâmetros, adicione esse valor para um cofre de chaves ou fornecer dinamicamente a todas as inline de valores de parâmetro.
+No entanto, quando utiliza um ficheiro de parâmetros externo, não poder passar os outros valores de qualquer inline ou a partir de um ficheiro local. Se especificar um ficheiro de parâmetros nos **TemplateParameterUri** parâmetro, inline todos os parâmetros são ignorados. Fornece todos os valores de parâmetros no ficheiro externo. Se o seu modelo inclui um valor confidencial que não pode incluir no ficheiro de parâmetros, adicione esse valor para um cofre de chaves ou fornecer dinamicamente tudo embutido de valores de parâmetro.
 
-Se o modelo inclui um parâmetro com o mesmo nome que um dos parâmetros de comando do PowerShell, o PowerShell apresenta o parâmetro do seu modelo com o sufixo **FromTemplate**. Por exemplo, um parâmetro com o nome **ResourceGroupName** no seu conflitos de modelo com o **ResourceGroupName** parâmetro o [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. É-lhe pedido que forneça um valor para **ResourceGroupNameFromTemplate**. Em geral, deve evitar este confusão ao nomear não parâmetros com o mesmo nome de parâmetros utilizada para operações de implementação.
+Se o seu modelo inclui um parâmetro com o mesmo nome que um dos parâmetros no comando do PowerShell, PowerShell apresenta o parâmetro a partir do seu modelo com o sufixo **FromTemplate**. Por exemplo, um parâmetro denominado **ResourceGroupName** em seu conflitos de modelo com o **ResourceGroupName** parâmetro no [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, deve evitar essa confusão ao não nomear os parâmetros com o mesmo nome como parâmetros utilizados para operações de implementação.
 
-## <a name="test-a-template-deployment"></a>Testar um modelo de implementação
+## <a name="test-a-template-deployment"></a>Testar uma implementação de modelo
 
-Para testar os valores de parâmetros de modelo e sem a implementar, na verdade, quaisquer recursos, utilize [teste-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+Para testar seus valores de modelo e o parâmetro sem ter de implementar, na verdade, todos os recursos, utilize [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
-Se forem detetados sem erros, o comando terminar sem uma resposta. Se for detetado um erro, o comando devolve uma mensagem de erro. Por exemplo, a tentar transmitir um valor incorreto para a conta de armazenamento SKU e devolve o erro seguinte:
+Se não são detetados erros, o comando terminar sem uma resposta. Se for detetado um erro, o comando devolve uma mensagem de erro. Por exemplo, se tentar passar um valor incorreto para a conta de armazenamento SKU, devolve o erro seguinte:
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
@@ -154,7 +154,7 @@ Message : Deployment template validation failed: 'The provided value 'badSku' fo
 Details :
 ```
 
-Se o seu modelo tem um erro de sintaxe, o comando devolve um erro que indica que não foi possível analisar o modelo. A mensagem indica o número de linha e a posição do erro de análise.
+Se o seu modelo tem um erro de sintaxe, o comando devolve um erro que indica que não foi possível analisar o modelo. A mensagem indica o número de linha e a posição de erro de análise.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
@@ -163,7 +163,7 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-Para utilizar o modo concluído, utilize o `Mode` parâmetro:
+Para utilizar o modo de conclusão, utilize o `Mode` parâmetro:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
@@ -172,7 +172,7 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 ## <a name="sample-template"></a>Modelo de exemplo
 
-O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o como um ficheiro denominado storage.json. Para compreender como criar este modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).  
+O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o como um arquivo chamado storage.json. Para compreender como criar este modelo, veja [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).  
 
 ```json
 {
@@ -220,10 +220,10 @@ O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o c
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Os exemplos neste artigo implementar recursos num grupo de recursos na sua subscrição predefinida. Para utilizar uma subscrição diferente, consulte [gerir várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
-* Para um script de exemplo completo que implementa um modelo, consulte [script de implementação de modelos do Resource Manager](resource-manager-samples-powershell-deploy.md).
-* Para compreender como definir parâmetros no modelo, consulte [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
-* Para sugestões sobre como resolver erros comuns de implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Para obter informações sobre a implementação de um modelo que necessita de um token SAS, consulte [implementar a modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
+* Os exemplos neste artigo implementar recursos no grupo de recursos na sua subscrição predefinida. Para utilizar uma subscrição diferente, consulte [gerir várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
+* Para obter um script de exemplo completo que implementa um modelo, consulte [script de implementação de modelo do Resource Manager](resource-manager-samples-powershell-deploy.md).
+* Para compreender como definir parâmetros no seu modelo, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
+* Para obter dicas sobre como resolver erros comuns de implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Para obter informações sobre como implementar um modelo que necessita de um token SAS, consulte [implementar modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

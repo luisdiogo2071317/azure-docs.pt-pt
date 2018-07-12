@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 7cf628495a79fe775528080ae6ec31df8e9a0f37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447590"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528625"
 ---
 # <a name="pim-for-azure-resources"></a>PIM para recursos do Azure
 
@@ -59,7 +59,7 @@ As minhas funções contêm uma lista de suas atribuições de funções elegív
 
 ## <a name="activate-roles"></a>Ativar as funções
 
-Ativação de funções para recursos do Azure introduz uma nova experiência que permite que os membros da função elegível agendar a ativação para uma data/hora no futuro e selecione uma duração de ativação específico dentro do máximo (configurado por administradores). Saiba mais sobre [ativar aqui a funções do Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Ativação de funções para recursos do Azure introduz uma nova experiência que permite que os membros da função elegível agendar a ativação para uma data/hora no futuro e selecione uma duração de ativação específico dentro do máximo (configurado por administradores). Saiba mais sobre [ativar aqui a funções do Azure AD](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -156,7 +156,7 @@ Selecione a revisão da barra de ação para ver as revisões de acesso existent
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Saiba mais sobre as revisões de acesso](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Saiba mais sobre as revisões de acesso](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Revisões só são suportadas para tipos de recursos de subscrição neste momento.
@@ -196,5 +196,5 @@ Selecione as minhas funções no menu de navegação à esquerda e escolha a fun
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md)
-- Saiba mais sobre [ativar aqui a funções do Azure AD](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Saiba mais sobre [ativar aqui a funções do Azure AD](pim-how-to-activate-role.md)
 - [Fluxos de trabalho de aprovação de PIM](azure-ad-pim-approval-workflow.md)
