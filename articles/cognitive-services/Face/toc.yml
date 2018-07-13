@@ -29,12 +29,12 @@
   items:
     - name: 'C#'
       href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Android
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Guias de procedimentos
   items:
     - name: Primeiras aplicações API Face
       items:
-        - name: Java para Android
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python
           href: Tutorials/FaceAPIinPythonTutorial.md
     - name: Detetar rostos na imagem

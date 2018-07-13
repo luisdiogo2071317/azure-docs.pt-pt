@@ -283,12 +283,15 @@
     - name: Event Grid
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: Event Hubs
+    - name: Hubs de Eventos
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Firewall
+      tocHref: /azure/firewall/
+      topicHref: /azure/firewall/
     - name: Orientação
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/

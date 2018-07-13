@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8cd4f87e690d64e1f69ef39f3422ebc73d79974a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73b6397ecc97b9e289749aabddfdc4c6161375d4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053097"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667350"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge do C# e implementar no seu dispositivo simulado
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * O dispositivo Azure IoT Edge que criou no início rápido para dispositivos [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 * A cadeia de ligação da chave primária do dispositivo IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para Visual Studio Code.
+* [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Extensão Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) instalado no seu computador de desenvolvimento. 
@@ -60,7 +60,7 @@ Os passos seguintes mostram-lhe como criar um projeto do módulo do IoT Edge bas
 1. No Visual Studio Code, selecione **Vista** > **Terminal Integrado** para abrir o terminal integrado do VS Code.
 2. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 3. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
-4. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: New IoT Edge solution**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+4. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
    1. Selecione a pasta onde quer criar a solução. 
    2. Indique um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
    3. Selecione **Módulo C#** como modelo de módulo. 

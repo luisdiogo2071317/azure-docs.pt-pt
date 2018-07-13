@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aeb94a430e633299637d4e9b96ef6b2c0309b163
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190773"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722920"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Tutorial: Saber mais acerca da governação de máquinas virtuais do Linux com a CLI 2.0 do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "32190773"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
@@ -55,7 +55,7 @@ Para gerir soluções de máquina virtual, existem três funções de recursos e
 * [Contribuidor de Rede](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Contribuidor de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
+Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
 
 O exemplo seguinte cria um grupo do Azure Active Directory com o nome *VMDemoContributors* com a alcunha de correio *vmDemoGroup*. A alcunha de correio serve como um alias para o grupo.
 
@@ -69,7 +69,7 @@ Depois de a linha de comandos ser devolvida, vai levar alguns instantes até que
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Normalmente, pode repetir o processo para o *Contribuinte de Rede* e o *Contribuinte de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
+Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
 ## <a name="azure-policies"></a>Políticas do Azure
 
@@ -243,7 +243,7 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 > * Proteger recursos críticos com bloqueios
 > * Etiquetar recursos para faturação e gestão
 
-Avance para o próximo tutorial para saber mais sobre máquinas virtuais de elevada disponibilidade.
+Avance para o próximo tutorial, para saber mais sobre máquinas virtuais de elevada disponibilidade.
 
 > [!div class="nextstepaction"]
 > [Monitorizar máquinas virtuais](tutorial-monitoring.md)

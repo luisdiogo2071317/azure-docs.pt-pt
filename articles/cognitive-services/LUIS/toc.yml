@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Utilizar domínios
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Utilizar a Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Gerir aplicação
       items:
         - name: Utilizar o dashboard
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: Referência de domínio pré-concebida
       href: luis-reference-prebuilt-domains.md
-    - name: Referência de aplicação pré-concebida do Cortana
-      href: luis-reference-cortana-prebuilt.md
     - name: Criação de APIs V2
       href: 'https://aka.ms/luis-authoring-apis'
     - name: API V2 do ponto final
