@@ -1,9 +1,9 @@
 | Recurso | Limite Predefinido | Limite Máximo |
 | --- | --- | --- |
-| [Máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) por serviço em nuvem<sup>1</sup> |50 |50 |
-| Pontos finais por serviço em nuvem de entrada<sup>2</sup> |150 |150 |
+| [Máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) por serviço cloud<sup>1</sup> |50 |50 |
+| Pontos finais por serviço cloud de entrada<sup>2</sup> |150 |150 |
 
-<sup>1</sup>máquinas virtuais criadas no serviço de gestão (em vez de Gestor de recursos) automaticamente são armazenadas num serviço em nuvem. Pode adicionar mais máquinas virtuais para que o serviço de nuvem para balanceamento de carga e disponibilidade. 
+<sup>1</sup>máquinas virtuais criadas no serviço de gestão (em vez do Resource Manager) são armazenadas automaticamente num serviço em nuvem. Pode adicionar mais máquinas virtuais para esse serviço em nuvem para balanceamento de carga e disponibilidade. 
 
-<sup>2</sup>pontos finais de entrada permitirem comunicações para uma máquina virtual a partir de fora do serviço de nuvem da máquina virtual. Máquinas virtuais no mesmo serviço em nuvem ou de rede virtual automaticamente pode comunicar entre si. Consulte [como configurar pontos finais para uma Máquina Virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+<sup>2</sup>pontos finais de entrada permitir comunicações para uma máquina virtual a partir de fora do serviço de nuvem da máquina virtual. Serviço em nuvem de máquinas virtuais no mesmo ou rede virtual pode automaticamente comunicar entre si. Ver [como configurar pontos finais para uma Máquina Virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 

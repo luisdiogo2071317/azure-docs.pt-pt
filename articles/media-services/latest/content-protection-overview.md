@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5ed98bb4c4f40b23988a4f73778e715bfbea2505
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341669"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004946"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -90,7 +90,7 @@ Pode utilizar os serviços de multimédia para distribuir os seus conteúdos enc
 
 No Serviços de multimédia v3, uma chave de conteúdo é associada a StreamingLocator (consulte [neste exemplo](protect-with-aes128.md)). Se utilizar o serviço de entrega de chave de serviços de multimédia, deve automático gerar a chave de conteúdo. Deve gerar a chave de conteúdo por conta própria se estiver usando o serviço de entrega de chave próprio, ou se tiver de lidar com um cenário de elevada disponibilidade em que tem de ter a mesma chave de conteúdo em dois datacenters.
 
-Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo através da utilização de chave não encriptada AES ou encriptação de DRM. Para descriptografar o fluxo, o jogador solicita a chave do serviço de entrega de chave de serviços de multimédia ou o serviço de entrega de chave que especificou. Para decidir se é ou não o utilizador está autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
+Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo através da utilização de chave não encriptada AES ou encriptação de DRM. Para descriptografar o fluxo, o jogador solicita a chave do serviço de entrega de chave de serviços de multimédia ou o serviço de entrega de chave que especificou. Para decidir se é ou não o utilizador está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que especificou para a chave.
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Vs de chaves não encriptada AES-128. DRM
 

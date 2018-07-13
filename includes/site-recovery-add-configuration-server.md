@@ -1,5 +1,5 @@
 1. Execute o ficheiro de instalação Configuração Unificada.
-2. No **antes de começar**, selecione **instalar o servidor de configuração e o servidor de processos**.
+2. Na **antes de começar**, selecione **instalar o servidor de configuração e o servidor de processos**.
 
     ![Antes de começar](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
@@ -9,11 +9,11 @@
 4. Em **Registo**, selecione a chave de registo que transferiu a partir do cofre.
 
     ![Registo](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. Em **Definições da Internet**, especifique a forma como o Fornecedor em execução no servidor estabelece ligação ao Azure Site Recovery através da Internet. Certifique-se que tiver permitido os URLs necessários.
+5. Em **Definições da Internet**, especifique a forma como o Fornecedor em execução no servidor estabelece ligação ao Azure Site Recovery através da Internet. Certifique-se de que ter permitido os URLs necessários.
 
-    - Se pretende estabelecer ligação com o proxy que está atualmente configurado no computador, selecione **ligar ao Azure Site Recovery com um servidor proxy**.
+    - Se pretender estabelecer ligação com o proxy que está atualmente configurado no computador, selecione **ligar ao Azure Site Recovery com um servidor proxy**.
     - Se pretender que o fornecedor se ligue diretamente, selecione **ligar diretamente ao Azure Site Recovery sem um servidor proxy**.
-    - Se o proxy existente requer autenticação ou se pretender utilizar um proxy personalizado para a ligação de fornecedor, selecione **ligar com definições de proxy personalizado**e especifique o endereço, porta e credenciais.
+    - Se o seu proxy existente requer autenticação ou se pretender utilizar um proxy personalizado para a ligação de fornecedor, selecione **ligar com definições de proxy personalizado**e especifique o endereço, porta e credenciais.
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a Configuração executa uma verificação para se certificar de que a instalação pode ser executada. Se for apresentado um aviso sobre a **Verificação de sincronização de hora global**, certifique-se de que a hora no relógio do sistema (definições de **Data e Hora**) é a mesma que o fuso horário.
 
@@ -21,7 +21,7 @@
 7. Em **Configuração do MySQL**, crie as credenciais para iniciar sessão na instância de servidor do MySQL que está instalada.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. Em **Detalhes do ambiente**, selecione se pretende replicar VMs do VMware. Se, em seguida, a configuração verifica se PowerCLI 6.0 está instalada.
+8. Em **Detalhes do ambiente**, selecione se pretende replicar VMs do VMware. Se estiver, a configuração verifica se o PowerCLI 6.0 está instalado.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 

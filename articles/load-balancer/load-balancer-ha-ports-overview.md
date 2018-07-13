@@ -1,5 +1,5 @@
 ---
-title: Descrição geral de portas de elevada disponibilidade no Azure | Microsoft Docs
+title: Descrição geral das portas de elevada disponibilidade no Azure | Documentos da Microsoft
 description: Saiba mais sobre num Balanceador de carga interno de balanceamento de carga de portas de elevada disponibilidade.
 services: load-balancer
 documentationcenter: na
@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/07/2018
 ms.author: kumud
-ms.openlocfilehash: 53e09498324f802ce1839d262999657d37ee973b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 716a3dafe08e896924bd28e44d69141e4c229687
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169123"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005508"
 ---
-# <a name="high-availability-ports-overview"></a>Descrição geral de portas de elevada disponibilidade
+# <a name="high-availability-ports-overview"></a>Descrição geral das portas de elevada disponibilidade
 
-Balanceador de carga de padrão do Azure ajuda-o a fluxos TCP e UDP de balanceamento de carga em todas as portas em simultâneo quando estiver a utilizar um balanceador de carga interno. 
+Balanceador de carga de Standard do Azure ajuda-o a fluxos TCP e UDP de balanceamento de carga em todas as portas em simultâneo quando estiver a utilizar um balanceador de carga interno. 
 
-Uma regra de portas de elevada disponibilidade (HA) é uma variante de uma regra de balanceamento de carga configurada num interno Balanceador de carga padrão. Pode simplificar a utilização de um balanceador de carga, fornecendo uma regra única para balancear a carga de todos os fluxos TCP e UDP que chegam em todas as portas de um balanceador de carga de padrão interno. A decisão de balanceamento de carga é efetuada por fluxo. Esta ação é com base na seguinte ligação de cinco cadeias de identificação: endereço IP, porta de origem, endereço IP de destino, porta de destino e protocolo de origem.
+Uma regra de portas de elevada disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada num interno Balanceador de carga Standard. Pode simplificar o uso de um balanceador de carga ao fornecer uma única regra balancear a carga todos os fluxos TCP e UDP que chegam em todas as portas de um balanceador de carga de padrão interno. A decisão de balanceamento de carga é feita por fluxo. Esta ação baseia-se a seguinte ligação de cinco cadeias de identificação: endereço IP, porta de origem, endereço IP de destino, porta de destino e protocolo de origem.
 
-A funcionalidade de portas do HA ajuda-o com cenários importantes, tais como de elevada disponibilidade e dimensionamento de aplicações virtuais de rede (NVAs) dentro de redes virtuais. Também pode ajudar a funcionalidade quando um grande número de portas tem de ser com balanceamento de carga. 
+A funcionalidade de portas HA ajuda-o com cenários críticos, como elevada disponibilidade e dimensionamento para aplicações virtuais de rede (NVAs) dentro das redes virtuais. Também pode ajudar a funcionalidade quando tem de ser um grande número de portas com balanceamento de carga. 
 
-A funcionalidade de portas do HA está configurada quando definir as portas front-end e back-end **0** e o protocolo para **todos os**. O recurso de Balanceador de carga interno, em seguida, equilibra a todos os fluxos de TCP e UDP, independentemente do número de porta.
+A funcionalidade de portas HA é configurada ao definir as portas de front-end e back-end como **0** e o protocolo para **todos os**. O recurso do Balanceador de carga interno distribui, em seguida, todos os fluxos do TCP e UDP, independentemente do número de porta.
 
-## <a name="why-use-ha-ports"></a>Porquê utilizar portas HA?
+## <a name="why-use-ha-ports"></a>Por que usar portas HA?
 
-### <a name="nva"></a>Dispositivos de rede virtuais
+### <a name="nva"></a>Aplicações virtuais de rede
 
-Pode utilizar NVAs para ajudar a proteger a carga de trabalho do Azure a partir de vários tipos de ameaças de segurança. Quando utilizar NVAs nestes cenários, têm de ser fiável e altamente disponível e tem ampliar para a pedido.
+Pode utilizar NVAs para ajudar a proteger sua carga de trabalho do Azure de múltiplos tipos de ameaças de segurança. Quando utilizar NVAs nestes cenários, têm de ser fiável e altamente disponíveis e devem aumentar horizontalmente para a pedido.
 
-Pode alcançar estes objetivos, simplesmente ao adicionar instâncias NVA para o conjunto de back-end de Balanceador de carga interno e configurar um HA portas a regra de Balanceador de carga.
+Pode alcançar essas metas simplesmente adicionando instâncias da NVA para o conjunto de back-end do seu Balanceador de carga interno e configurar um HA portas a regra de Balanceador de carga.
 
-Para NVA HA cenários, as portas HA oferecem as seguintes vantagens:
-- Fornecer ativação pós-falha rápida para bom estado de funcionamento instâncias, com por instância de sondas de estado de funcionamento
-- Certifique-se de um desempenho superior com escalável para *n*-instâncias ativas
-- Fornecer *n*-Active Directory e ativa-passiva cenários
-- Eliminar a necessidade de soluções complexas, tais como nós de Apache ZooKeeper para monitorização de aplicações
+Para a NVA HA cenários, as portas HA oferecem as seguintes vantagens:
+- Fornecer a ativação pós-falha rápida para instâncias de bom estado de funcionamento, por instância sondas de estado de funcionamento
+- Certifique-se com o aumento na horizontal para um desempenho mais elevado *n*-instâncias ativas
+- Fornecer *n*-cenários de Active Directory e ativa-passiva
+- Eliminar a necessidade de soluções complexas, como nós do ZooKeeper do Apache para monitorização de aplicações
 
-O diagrama seguinte apresenta uma implementação de concentrador hub-and-spoke de rede virtual. A spokes realizar imposição de túnel tráfego para a rede virtual do hub e através de NVA, antes de abandonar o fileparser o espaço fidedigno. Os NVAs estejam atrás de um balanceador de carga interno padrão com uma configuração de portas do HA. Todo o tráfego pode ser processado e reencaminhado em conformidade.
+O diagrama seguinte apresenta uma implementação de rede virtual do hub-and-spoke. A imposição de túnel spokes seu tráfego de rede virtual do concentrador e através da NVA, antes de deixarem o espaço fidedigno. As NVAs estão por trás de um balanceador de carga interno padrão com uma configuração de portas HA. Todo o tráfego pode ser processado e encaminhado em conformidade.
 
-![Diagrama de rede virtual de concentrador hub-and-spoke, com NVAs implementada no modo de HA](./media/load-balancer-ha-ports-overview/nvaha.png)
+![Diagrama de rede virtual hub-and-spoke, com NVAs implementada no modo de HA](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
-> Se estiver a utilizar NVAs, certifique-se com os seus fornecedores de como utilizar melhor HA portas e para saber quais os cenários que são suportados.
+> Se estiver a utilizar NVAs, certifique-se com os respetivos fornecedores de como usar da melhor maneira portas HA e para saber quais cenários são suportados.
 
-### <a name="load-balancing-large-numbers-of-ports"></a>Balanceamento de carga um grande número de portas
+### <a name="load-balancing-large-numbers-of-ports"></a>Balanceamento de carga grandes números de portas
 
-Também pode utilizar as portas HA para aplicações que requerem balanceamento de carga de grandes quantidades de portas. Pode simplificar a estes cenários, utilizando um interno [padrão Balanceador de carga](load-balancer-standard-overview.md) com portas HA. Uma única regra de balanceamento de carga substitui vários balanceamento de carga regras individuais, um para cada porta.
+Também pode utilizar portas HA para aplicações que requerem balanceamento de carga de um grande número de portas. Pode simplificar a esses cenários, utilizando um interno [Balanceador de carga Standard](load-balancer-standard-overview.md) com portas HA. Uma única regra de balanceamento de carga substitui várias balanceamento de carga regras individuais, uma para cada porta.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
@@ -63,48 +63,48 @@ A funcionalidade de portas HA está disponível em todas as regiões do Azure gl
 
 ## <a name="supported-configurations"></a>Configurações suportadas
 
-### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Uma configuração de IP (não - devolução direta do servidor). o HA-portas único, de vírgula flutuante num Balanceador de carga interno padrão
+### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Uma configuração de portas HA de IP (não - devolução direta do servidor) única, não flutuante num Standard Balanceador de carga interno
 
-Esta configuração é uma configuração de portas do HA básica. Pode configurar um HA regra de portas de balanceamento de carga num único endereço IP Front-end efetuando o seguinte procedimento:
-1. Durante a configuração de Balanceador de carga padrão, selecione o **HA portas** caixa de verificação na configuração de regra de Balanceador de carga.
+Esta configuração é uma configuração de portas HA básica. Pode configurar um HA regra de balanceamento de carga de portas num único endereço IP de front-end ao fazer o seguinte:
+1. Ao configurar o Balanceador de carga Standard, selecione o **portas HA** caixa de verificação na configuração de regra de Balanceador de carga.
 2. Para **IP flutuante**, selecione **desativado**.
 
-Esta configuração não permite quaisquer outra balanceamento de carga na configuração da regra no recurso de Balanceador de carga atual. Também permite que não existem outra interno configuração Balanceador de carga recursos para o conjunto especificado de instâncias de back-end.
+Esta configuração não permite quaisquer outra balanceamento de carga na configuração da regra no recurso de Balanceador de carga atual. Também permite que não existem outra interno configuração Balanceador de carga recursos para determinado conjunto de instâncias de back-end.
 
-No entanto, pode configurar um balanceador de carga padrão público para as instâncias de back-end para além desta regra de portas do HA.
+No entanto, pode configurar um balanceador de carga Standard público para as instâncias de back-end além desta regra de portas HA.
 
-### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Uma configuração de IP (devolução direta do servidor). o HA-portas único, vírgula flutuante num Balanceador de carga interno padrão
+### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>Uma configuração de portas HA de IP (devolução direta do servidor) única, vírgula flutuante num Standard Balanceador de carga interno
 
-Da mesma forma pode configurar o Balanceador de carga a utilizar uma regra de balanceamento de carga com **HA porta** com um único front-end através da definição de **IP flutuante** para **ativado**. 
+Da mesma forma pode configurar o Balanceador de carga a utilizar uma regra de balanceamento de carga com **portas HA** com um único front-end ao definir o **IP flutuante** para **ativado**. 
 
-Ao utilizar esta configuração, pode adicionar mais flutuante IP balanceamento de carga regras e/ou de um balanceador de carga público. No entanto, não é possível utilizar um IP de-de vírgula flutuante, portas de HA balanceamento de carga na configuração sobre esta configuração.
+Ao utilizar esta configuração, pode adicionar mais flutuantes balanceamento de carga regras de IP e/ou um balanceador de carga público. No entanto, não é possível utilizar um IP de vírgula flutuante, portas HA configuração de balanceamento de carga sobre esta configuração.
 
-### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Múltiplas configurações de HA portas num Balanceador de carga interno padrão
+### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>Várias configurações de portas HA num Standard Balanceador de carga interno
 
-Se o seu cenário requer que configure a mais do que um HA porta front-end para o mesmo conjunto de back-end, pode efetuar o seguinte: 
-- Configure mais do que um front-end endereço IP privado para um único recurso de padrão Balanceador de carga interno.
+Se o seu cenário requer que configure mais do que um HA porta front-end para o mesmo conjunto de back-end, pode fazer o seguinte: 
+- Configure mais do que um front-end endereço IP privado para um único recurso de Balanceador de carga interno.
 - Configure várias regras de balanceamento de carga, onde cada regra tem um endereço IP de front-end exclusivo único selecionado.
-- Selecione o **HA portas** opção e, em seguida, defina **IP flutuante** para **ativado** para todas as regras de balanceamento de carga.
+- Selecione o **portas HA** opção e, em seguida, defina **IP flutuante** para **ativado** para todas as regras de balanceamento de carga.
 
-### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Um balanceador de carga interno com um balanceador de carga público na mesma instância de back-end e de portas HA
+### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Um balanceador de carga interno com portas HA e um balanceador de carga público na mesma instância de back-end
 
-Pode configurar *um* recurso de Balanceador de carga padrão público para os recursos de back-end, juntamente com um único padrão Balanceador de carga interno com portas HA.
+Pode configurar *um* recurso de Balanceador de carga Standard público para os recursos de back-end, juntamente com uma única Standard Balanceador de carga interno com portas HA.
 
 >[!NOTE]
 >Esta capacidade está atualmente disponível através de modelos Azure Resource Manager, mas não está disponível através do portal do Azure.
 
 ## <a name="limitations"></a>Limitações
 
-- HA configuração de portas está disponível apenas para balanceadores de carga internos. Não está disponível para balanceadores de carga públicos.
+- HA configuração de portas está disponível apenas para balanceadores de carga internos. Não está disponível para balanceadores de carga público.
 
-- Combinar de um HA portas um portas de não HA não é suportada a regra de balanceamento de carga e regra de balanceamento de carga.
+- A combinação de um HA portas a regra de balanceamento de carga e um portas não HA não é suportada a regra de balanceamento de carga.
 
-- A funcionalidade de portas do HA não está disponível para IPv6.
+- A funcionalidade de portas HA não está disponível para IPv6.
 
-- Fluxo symmetry para cenários NVA é suportado com apenas um único NIC. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). No entanto, se um destino NAT pode funcionar para o seu cenário, pode utilizá-lo para se certificar de que o Balanceador de carga interno envia o tráfego de retorno para a NVA mesma.
+- Simetria de fluxo para cenários NVA é suportada com apenas um único NIC. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). No entanto, se um destino NAT pode funcionar para o seu cenário, poderia usá-lo para se certificar de que o Balanceador de carga interno envia o tráfego de retorno para a mesma NVA.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Configurar HA portas num Balanceador de carga interno padrão](load-balancer-configure-ha-ports.md)
-- [Saiba mais sobre o Balanceador de carga padrão](load-balancer-standard-overview.md)
+- [Configurar portas HA num Standard Balanceador de carga interno](load-balancer-configure-ha-ports.md)
+- [Saiba mais sobre o Balanceador de carga Standard](load-balancer-standard-overview.md)

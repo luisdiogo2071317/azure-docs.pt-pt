@@ -1,5 +1,5 @@
 ---
-title: Definição de esquema (ficheiro. cscfg) para serviços em nuvem do Azure | Microsoft Docs
+title: Esquema de definição (ficheiro. cscfg) dos serviços Cloud do Azure | Documentos da Microsoft
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -10,27 +10,27 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
 caps.latest.revision: 35
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6347314e7f279356f4f3944f3238deda84f10fc0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 96df87a0d49296280140e392509c0d735f904957
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358222"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007027"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuração (ficheiro. cscfg) para serviços em nuvem do Azure
-O ficheiro de configuração do serviço Especifica o número de instâncias de função para implementar para cada função no serviço, os valores de quaisquer definições de configuração e os thumbprints para todos os certificados associados a uma função. Se o serviço for parte de uma rede Virtual, informações de configuração para a rede tem de ser fornecidas no ficheiro de configuração do serviço, bem como no ficheiro de configuração de rede virtual. A extensão de predefinido para o ficheiro de configuração de serviço é. cscfg.
+# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Serviços em nuvem do Azure no esquema de configuração (ficheiro. cscfg)
+O ficheiro de configuração do serviço Especifica o número de instâncias de função para implementar para cada função no serviço, os valores de quaisquer definições de configuração e os thumbprints de todos os certificados associados uma função. Se o serviço faz parte de uma rede Virtual, as informações de configuração para a rede devem ser fornecidas no ficheiro de configuração do serviço, bem como no arquivo de configuração de rede virtual. A extensão de padrão para o ficheiro de configuração do serviço é o. cscfg.
 
-O modelo de serviço é descrito pelo [esquema de definição de serviço em nuvem (clássica)](schema-csdef-file.md).
+O modelo de serviço é descrito pela [esquema de definição de serviço em nuvem (clássico)](schema-csdef-file.md).
 
-Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para a `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [Azure SDK](https://azure.microsoft.com/downloads/).
+Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para o `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [SDK do Azure](https://azure.microsoft.com/downloads/).
 
-Para obter mais informações sobre como configurar funções num serviço, consulte [o que é o modelo de serviço em nuvem](cloud-services-model-and-package.md).
+Para obter mais informações sobre como configurar funções num serviço, consulte [qual é o modelo de serviço em nuvem](cloud-services-model-and-package.md).
 
 ## <a name="basic-service-configuration-schema"></a>Esquema de configuração de serviço básico
-Segue-se o formato básico do ficheiro de configuração do serviço.
+Segue-se o formato básico do ficheiro de configuração de serviço.
 
 ```xml
 <ServiceConfiguration serviceName="<service-name>" osFamily="<osfamily-number>" osVersion="<os-version>" schemaVersion="<schema-version>">
@@ -53,18 +53,18 @@ Os tópicos seguintes descrevem o esquema para o `ServiceConfiguration` elemento
 - [Esquema de NetworkConfiguration](schema-cscfg-networkconfiguration.md)
 
 ## <a name="service-configuration-namespace"></a>Espaço de nomes de configuração de serviço
-O espaço de nomes XML para o ficheiro de configuração de serviço é: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
+O espaço de nomes XML para o ficheiro de configuração do serviço é: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
 ##  <a name="ServiceConfiguration"></a> ServiceConfiguration elemento
 O `ServiceConfiguration` elemento é o elemento de nível superior do ficheiro de configuração de serviço.
 
-A tabela seguinte descreve os atributos do `ServiceConfiguration` elemento. Todos os valores de atributos são tipos de cadeia.
+A tabela seguinte descreve os atributos do `ServiceConfiguration` elemento. Todos os valores de atributos são tipos de cadeia de caracteres.
 
 | Atributo | Descrição |
 | --------- | ----------- |
-|serviceName|Necessário. O nome do serviço de nuvem. O nome especificado aqui tem de corresponder ao nome especificado no ficheiro de definição de serviço.|
-|osFamily|Opcional. Especifica o SO convidado que vão ser executadas em instâncias de função no serviço em nuvem. Para obter informações sobre versões de SO convidado suportadas, consulte [versões de SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se não incluir um `osFamily` valor e não tiver definido a `osVersion` é utilizado o atributo para uma versão de SO convidado específico, um valor predefinido de 1.|
-|OsVersion|Opcional. Especifica a versão do SO convidado que vão ser executadas em instâncias de função no serviço em nuvem. Para obter mais informações sobre as versões de SO convidado, consulte [versões de SO de convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Pode especificar que o SO convidado devem ser atualizados automaticamente para a versão mais recente. Para tal, defina o valor da `osVersion` atributo para `*`. Quando definido como `*`, as instâncias de função são implementadas utilizando a versão mais recente do SO convidado para a família de SO especificada e serão automaticamente atualizadas quando são lançadas novas versões do SO convidado.<br /><br /> Para especificar manualmente uma versão específica, utilize o `Configuration String` da tabela no **futuro, atual e versões de SO convidado transição** secção [versões de SO de convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md) .<br /><br /> O valor predefinido para o `osVersion` atributo `*`.|
-|schemaVersion|Opcional. Especifica a versão do esquema de configuração do serviço. A versão do esquema permite lado a lado de Visual Studio selecionar as ferramentas SDK corretas a utilizar para a validação de esquema se mais do que uma versão do SDK está instalada. Para obter mais informações sobre a compatibilidade de esquema e a versão, consulte [versões de SO de convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md)|
+|serviceName|Necessário. O nome do serviço cloud. O nome fornecido aqui tem de corresponder ao nome especificado no ficheiro de definição do serviço.|
+|osFamily|Opcional. Especifica o sistema operacional convidado que será executado em instâncias de função no serviço cloud. Para obter informações sobre as versões de SO convidado suportados, consulte [versões de SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se não incluir um `osFamily` valor e não tiver definido a `osVersion` é utilizado o atributo para uma versão específica do SO convidado, um valor predefinido de 1.|
+|osVersion|Opcional. Especifica a versão do SO convidado que será executado em instâncias de função no serviço cloud. Para obter mais informações sobre as versões de SO convidado, consulte [versões do SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Pode especificar que o SO convidado devem ser atualizado automaticamente para a versão mais recente. Para tal, defina o valor do `osVersion` atributo para `*`. Quando definido como `*`, as instâncias de função são implementadas com a versão mais recente do SO convidado para a família de SO especificada e serão automaticamente atualizadas quando são lançadas novas versões do SO convidado.<br /><br /> Para especificar manualmente uma versão específica, utilize o `Configuration String` da tabela no **futuro, atual e versões de SO convidado Transitional** seção [versões de SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md) .<br /><br /> O valor predefinido para o `osVersion` atributo é `*`.|
+|schemaVersion|Opcional. Especifica a versão do esquema de configuração do serviço. A versão do esquema permite o Visual Studio selecionar as ferramentas SDK corretas para utilizar para a validação de esquema mais de uma versão do SDK é instalada lado a lado. Para obter mais informações sobre a compatibilidade de esquema e a versão, consulte [versões de SO convidado do Azure e matriz de compatibilidade de SDK](cloud-services-guestos-update-matrix.md)|
 
-O ficheiro de configuração do serviço tem de conter um `ServiceConfiguration` elemento. O `ServiceConfiguration` elemento pode incluir qualquer número de `Role` elementos e zero ou 1 `NetworkConfiguration` elementos.
+O ficheiro de configuração de serviço tem de conter um `ServiceConfiguration` elemento. O `ServiceConfiguration` elemento pode incluir qualquer número de `Role` elementos e zero ou 1 `NetworkConfiguration` elementos.

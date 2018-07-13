@@ -1,9 +1,9 @@
 ---
-title: Como configurar um serviço em nuvem (portal) | Microsoft Docs
-description: Saiba como configurar os serviços em nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar o acesso remoto para instâncias de função. Estes exemplos utilizam o portal do Azure.
+title: Como configurar um serviço cloud (portal) | Documentos da Microsoft
+description: Saiba como configurar os serviços cloud no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar o acesso remoto para instâncias de função. Estes exemplos utilizam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
@@ -13,87 +13,87 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: adegeo
-ms.openlocfilehash: 255e496881f6269d37d3b2d982ba31861458631c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: jeconnoc
+ms.openlocfilehash: 904056363c685ef0a16b229ce72383eb80701a39
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874326"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006418"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar os serviços Cloud
 
-Pode configurar as definições utilizadas com mais frequência para um serviço em nuvem no portal do Azure. Ou, se pretender atualizar diretamente os seus ficheiros de configuração, transfira um ficheiro de configuração de serviços para atualizar e, em seguida, carregue o ficheiro atualizado e atualize o serviço cloud com as alterações de configuração. De uma forma ou de outra, as atualizações de configuração são integradas em todas as instâncias de funções.
+Pode configurar as definições mais utilizadas para um serviço cloud no portal do Azure. Ou, se pretender atualizar diretamente os seus ficheiros de configuração, transfira um ficheiro de configuração de serviços para atualizar e, em seguida, carregue o ficheiro atualizado e atualize o serviço cloud com as alterações de configuração. De uma forma ou de outra, as atualizações de configuração são integradas em todas as instâncias de funções.
 
-Também pode gerir as instâncias das suas funções de serviço na nuvem ou ambiente de trabalho remoto em-los.
+Também pode gerir as instâncias das suas funções de serviço cloud ou o ambiente de trabalho remoto neles.
 
-Azure apenas pode garantir uma disponibilidade do serviço de percentagem de 99,95 durante as atualizações de configuração se tiver, pelo menos, duas instâncias de função para cada função. Permite que uma máquina virtual processar pedidos de cliente, enquanto o outro está a ser atualizado. Para obter mais informações, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
+Azure apenas pode garantir a disponibilidade do serviço de 99,95 por cento durante as atualizações de configuração se tiver, pelo menos, duas instâncias de função para cada função. Permite que uma máquina virtual para processar pedidos de cliente, enquanto o outro está a ser atualizado. Para obter mais informações, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
 
 ## <a name="change-a-cloud-service"></a>Alterar um serviço em nuvem
 
-Depois de abrir o [portal do Azure](https://portal.azure.com/), navegue até ao seu serviço em nuvem. Aqui, gerir vários aspetos do mesmo.
+Depois de abrir o [portal do Azure](https://portal.azure.com/), navegue para o serviço de nuvem. A partir daqui, gerenciar muitos aspectos do mesmo.
 
 ![Página de definições](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-O **definições** ou **todas as definições** irão abrir ligações **definições** onde pode alterar o **propriedades**, alterar o  **Configuração**, gerir o **certificados**, configure **regras de alerta**e gerir o **utilizadores** quem tem acesso a este serviço em nuvem.
+O **definições** ou **todas as definições** links abrirá **definições** onde pode alterar o **propriedades**, alterar o  **Configuração**, gerir o **certificados**, configure a **regras de alerta**e gerir o **utilizadores** quem tem acesso a este serviço em nuvem.
 
-![Definições do serviço em nuvem do Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
+![Definições do serviço cloud do Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
 ### <a name="manage-guest-os-version"></a>Gerir a versão de SO convidado
 
-Por predefinição, o Azure atualiza periodicamente o SO convidado para a imagem suportado mais recentes dentro da família de SO especificadas na sua configuração de serviço (. cscfg), como o Windows Server 2016.
+Por predefinição, o Azure atualiza periodicamente o SO convidado para a imagem mais recente suportada dentro da família de SO que especificou na sua configuração de serviço (. cscfg), como o Windows Server 2016.
 
-Se precisar de uma versão de SO específica de destino, pode defini-lo no **configuração**.
+Se precisar de uma versão específica do sistema operacional de destino, pode configurá-lo **configuração**.
 
-![Definir a versão de SO](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
+![Versão de SO do conjunto](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
 >[!IMPORTANT]
-> Escolher que uma versão de SO específica desativa SO automático de atualizações e faz a responsabilidade de aplicação de patches. Tem de garantir que as instâncias da função estão a receber atualizações ou pode expor a aplicação vulnerabilidades de segurança.
+> Escolher que uma versão específica do sistema operacional desativa automáticas de SO atualiza e faz a aplicação de patches de sua responsabilidade. Tem de garantir que as instâncias de função estão a receber atualizações ou pode expor seu aplicativo para vulnerabilidades de segurança.
 
 ## <a name="monitoring"></a>Monitorização
 
-Pode adicionar alertas ao seu serviço em nuvem. Clique em **definições** > **regras de alerta** > **Adicionar alerta**.
+Pode adicionar alertas ao seu serviço cloud. Clique em **configurações** > **as regras de alerta** > **Adicionar alerta**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-Aqui, pode configurar um alerta. Com o **métrica** caixa pendente, pode configurar um alerta para os seguintes tipos de dados.
+A partir daqui, pode configurar um alerta. Com o **métrica** caixa suspensa, pode configurar um alerta para os seguintes tipos de dados.
 
-* Lidos de disco
+* Leitura do disco
 * Escrita de disco
-* Rede no
-* Limite de rede
+* Entrada de rede
+* Saída de rede
 * Percentagem de CPU
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### <a name="configure-monitoring-from-a-metric-tile"></a>Configurar a monitorização a partir de um mosaico métrico
+### <a name="configure-monitoring-from-a-metric-tile"></a>Configurar a monitorização de um mosaico de métrica
 
-Em vez de utilizar **definições** > **regras de alerta**, pode clicar dos mosaicos métricos no **monitorização** secção do serviço de nuvem.
+Em vez de usar **configurações** > **regras de alerta**, pode clicar em um dos mosaicos de métricos na **monitorização** secção do serviço cloud.
 
-![Monitorização do serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+![Monitorização do serviço cloud](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
 Aqui pode personalizar o gráfico utilizado com o mosaico ou adicionar uma regra de alerta.
 
-## <a name="reboot-reimage-or-remote-desktop"></a>Reiniciar o computador, a recriação de imagem ou o ambiente de trabalho remoto
+## <a name="reboot-reimage-or-remote-desktop"></a>O reinício, a recriação de imagem ou o ambiente de trabalho remoto
 
-Pode configurar o ambiente de trabalho remoto através de [portal do Azure (configurar o ambiente de trabalho remoto)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), ou através de [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
+Pode configurar o ambiente de trabalho remoto através da [do Azure portal (configurar o ambiente de trabalho remoto)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), ou através de [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 
-Para reiniciar o computador, recriação de imagem ou remoto para um serviço em nuvem, selecione a instância do serviço em nuvem.
+Para reiniciar o computador, recriação de imagem ou remoto num serviço em nuvem, selecione a instância do serviço cloud.
 
-![Instância de serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-instance.png)
+![Instância de serviço cloud](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-Pode, em seguida, iniciar uma ligação de ambiente de trabalho remota, remotamente, reiniciar a instância ou remotamente recriar (começar com uma nova imagem) a instância.
+Pode, em seguida, iniciar uma ligação de ambiente de trabalho remota, remotamente, reiniciar a instância ou remotamente a recriar imagem (começar com uma nova imagem) a instância.
 
-![Botões de instância de serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
+![Botões de instância de serviço cloud](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-## <a name="reconfigure-your-cscfg"></a>Reconfigure o. cscfg
+## <a name="reconfigure-your-cscfg"></a>Reconfigurar o. cscfg
 
-Poderá ter de reconfigurar o serviço em nuvem através de [a configuração do serviço (. cscfg)](cloud-services-model-and-package.md#cscfg) ficheiro. Primeiro tem de transferir o ficheiro. cscfg, modificá-lo, em seguida, carregá-la.
+Poderá ter de reconfigurar o seu serviço cloud através do [a configuração de serviço (. cscfg)](cloud-services-model-and-package.md#cscfg) ficheiro. Primeiro precisa transferir o ficheiro. cscfg, modificá-lo, em seguida, carregá-lo.
 
-1. Clique no **definições** ícone ou **todas as definições** ligação para abrir **definições**.
+1. Clique nas **definições** ícone ou o **todas as definições** link para abrir **definições**.
 
     ![Página de definições](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-2. Clique em de **configuração** item.
+2. Clique nas **configuração** item.
 
     ![Painel de configuração](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Clique no botão **Transferir**.
@@ -106,7 +106,7 @@ Poderá ter de reconfigurar o serviço em nuvem através de [a configuração do
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [implementar um serviço em nuvem](cloud-services-how-to-create-deploy-portal.md).
-* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
-* [Gerir o serviço de nuvem](cloud-services-how-to-manage-portal.md).
+* Saiba como [implementar um serviço cloud](cloud-services-how-to-create-deploy-portal.md).
+* Configurar uma [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* [Gerir o seu serviço cloud](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).

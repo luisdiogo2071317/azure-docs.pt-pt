@@ -12,7 +12,7 @@
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | Tamanho do disco           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPs por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Débito por disco | 25 MB/sec | 50 MB/sec  | 100 MB/sec | 150 MB/sec | 200 MB/sec | 250 MB/sec | 250 MB/sec |
+| Débito por disco | 25 MB/seg | A 50 MB/seg  | 100 MB/seg | 150 MB/seg | 200 MB/seg | 250 MB/seg | 250 MB/seg |
 
 **Discos da máquina virtual geridos premium: por limites de VM**
 

@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 591da67e6411d0e859076f0a3c3c38afc1ebe1f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197895"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38765946"
 ---
 Pode verificar se a ligação teve êxito com o cmdlet 'Get-AzureVNetConnection'.
 
@@ -22,7 +22,7 @@ Pode verificar se a ligação teve êxito com o cmdlet 'Get-AzureVNetConnection'
   ```powershell
   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
   ```
-2. Quando o cmdlet terminar, veja os valores. No exemplo abaixo, mostra o estado de conectividade como 'Ligado' e pode ver bytes de entrada e de saída.
+2. Quando o cmdlet terminar, veja os valores. No exemplo abaixo, o estado de conectividade é apresentado como "Ligado" e pode ver bytes de entrada e saída.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

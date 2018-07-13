@@ -2,7 +2,7 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever numa conta SendGrid
 1. Inicie sessão no [Portal do Azure][Azure portal].
-2. No menu à esquerda, clique em **crie um recurso**.
+2. No menu à esquerda, clique em **criar um recurso**.
 
     ![command-bar-new][command-bar-new]
 3. Clique em **Suplementos** e, em seguida, em **SendGrid Email Delivery**.
@@ -45,7 +45,7 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 
     ![api-keys][api-keys]
 
-3. Clique em de **criar chave de API**.
+3. Clique nas **criar chave de API**.
 
     ![general-api-key][general-api-key]
 4. No mínimo, forneça o **Nome desta chave** e disponibilize acesso total a **Envio de Correio** e selecione **Guardar**.
@@ -59,11 +59,11 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
     ![key][key]
 2. A palavra-passe é aquela que escolheu na configuração. Pode selecionar **Alterar palavra-passe** ou **Repor palavra-passe** para fazer alterações.
 
-Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Isto irá redirecionar para o dashboard do SendGrid.
+Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Ele será redirecionado para o dashboard do SendGrid.
 
 ![manage][manage]
 
-Para obter mais informações sobre o envio de e-mail através do SendGrid, visite o [descrição geral da API de correio eletrónico][Email API Overview].
+Para obter mais informações sobre como enviar e-mail através do SendGrid, visite o [descrição geral da API de E-Mail][Email API Overview].
 
 <!--images-->
 

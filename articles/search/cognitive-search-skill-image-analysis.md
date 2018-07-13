@@ -1,48 +1,45 @@
 ---
-title: Imagem skill de pesquisa cognitivos Analysis (Azure Search) | Microsoft Docs
-description: Extraia o texto semântico através da análise de imagem com o skill cognitivos ImageAnalysis no pipeline de sem causa pesquisa do Azure.
+title: Imagem a habilidade de pesquisa cognitiva Analysis (Azure Search) | Documentos da Microsoft
+description: Extrair texto semântico por meio da análise de imagem usando a habilidade de cognitiva ImageAnalysis num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dd26dbe34cd04d1ad3184e2cd62afae5166ac914
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad1946436b2b5bab55ff53dcce09446ef1220829
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640511"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008875"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Imagem skill cognitivos Analysis Services
+#   <a name="image-analysis-cognitive-skill"></a>Habilidade de cognitiva de análise de imagem
 
-O **imagem Analysis** skill extrai um conjunto avançado de funcionalidades visual com base no conteúdo de imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar etiquetas ou identificar celebridades para e landmarks.
+O **análise de imagem** habilidade extrai um conjunto avançado de recursos visuais com base no conteúdo de imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar etiquetas ou identificar celebridades e marcos.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
-## <a name="skill-parameters"></a>Parâmetros de skill
+## <a name="skill-parameters"></a>Parâmetros de habilidades
 
-Os parâmetros são maiúsculas e minúsculas.
+Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| defaultLanguageCode   |  Uma cadeia que indica o idioma para devolver. O serviço devolve resultados de reconhecimento num idioma especificado. Se este parâmetro não for especificado, o valor predefinido é "pt". <br/><br/>Idiomas suportados são: <br/>*EN* -inglês (predefinição) <br/> *zh* -chinês simplificado|
-|visualFeatures |   Uma matriz de cadeias que indica os tipos de funcionalidade visual para devolver. Os tipos de funcionalidade visual válidos incluem:  <ul><li> *categorias* -categoriza conteúdo da imagem de acordo com uma taxonomia definido nos serviços cognitivos [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiquetas* -etiquetas a imagem com uma lista detalhada das palavras relacionados com o conteúdo da imagem.</li><li>*Descrição* -descreve a imagem de conteúdo com uma frase inglês concluída.</li><li>*Faces* -Deteta se faces estão presentes. Se estiver presente, gera as coordenadas, sexo e idade.</li><li> *ImageType* -Deteta se imagem clipart ou um linha de desenho.</li><li>   *Cor* -determina a cor a acentos, dominante cor, e se uma imagem é preta & branco.</li><li>*Para adultos* -Deteta se a imagem pornographic natureza (ilustra nudity ou um ATO sex). Conteúdo sexually suggestive também é detetado.</li></ul> Os nomes de funcionalidades do visual são maiúsculas e minúsculas.|
-| detalhes   | Uma matriz de cadeias que indica que específicas do domínio detalhes para devolver. Os tipos de funcionalidade visual válidos incluem: <ul><li>*Celebridades para* -identifica celebridades para detetada na imagem.</li><li>*Landmarks* -identifica landmarks detetada na imagem.</li></ul>
+| defaultLanguageCode   |  Uma cadeia que indica o idioma para retornar. O serviço retorna resultados de reconhecimento num idioma especificado. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>Idiomas suportados são: <br/>*EN* -inglês (predefinição) <br/> *zh* -chinês simplificado|
+|visualFeatures |   Uma matriz de cadeias que indica os tipos de recurso visual para retornar. Os tipos de recurso visual válidos incluem:  <ul><li> *categorias* -categoriza o conteúdo da imagem de acordo com uma taxonomia definido nos serviços cognitivos [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiquetas* -marca a imagem com uma lista detalhada das palavras relacionadas com o conteúdo de imagem.</li><li>*Descrição* -descreve a imagem de conteúdo com uma sentença em inglês completa.</li><li>*Rostos* -Deteta se os rostos estão presentes. Se estiver presente, gera as coordenadas, sexo e idade.</li><li> *ImageType* -Deteta se a imagem é clipart ou um desenho de linha.</li><li>   *Cor* -determina a cor de destaque, a cor dominante, e se uma imagem é preta e branco.</li><li>*Para adultos* -Deteta se a imagem é pornográfico por natureza (ilustra nudez ou um ato de sexo). Conteúdo sexualmente suggestive também é detetado.</li></ul> Nomes dos recursos do visual diferenciam maiúsculas de minúsculas.|
+| detalhes   | Uma matriz de cadeias que indica quais específicas do domínio fornece detalhes sobre a devolver. Os tipos de recurso visual válidos incluem: <ul><li>*Celebridades* -identifica celebridades detetada na imagem.</li><li>*Pontos de referência* -identifica pontos de referência detetada na imagem.</li></ul>
  |
 
-## <a name="skill-inputs"></a>Entradas de skill
+## <a name="skill-inputs"></a>Entradas de habilidades
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| Imagem         | Tipo complexo. Atualmente, apenas funciona com o campo de "documento/normalized_images", produzido pelo indexador de Blob do Azure quando ```imageAction``` está definido como ```generateNormalizedImages```. Consulte o [exemplo](#sample-output) para obter mais informações.|
+| image         | Tipo complexo. Atualmente, só funciona com o campo de "/ documento/normalized_images", produzido pelo indexador Blob do Azure quando ```imageAction``` está definido como ```generateNormalizedImages```. Consulte a [exemplo](#sample-output) para obter mais informações.|
 
 
 
@@ -51,6 +48,7 @@ Os parâmetros são maiúsculas e minúsculas.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+    "context": "/document/normalized_images/*",
     "visualFeatures": [
         "Tags",
         "Faces",
@@ -232,21 +230,21 @@ Os parâmetros são maiúsculas e minúsculas.
 ```
 
 
-## <a name="error-cases"></a>Nos casos de erro
+## <a name="error-cases"></a>Casos de erro
 Nos seguintes casos de erro, não existem elementos são extraídos.
 
 | Código de Erro | Descrição |
 |------------|-------------|
 | NotSupportedLanguage | O idioma fornecido não é suportado. |
-| InvalidImageUrl | O URL da imagem é incorretamente formatado ou não está acessível.|
+| InvalidImageUrl | URL da imagem é formatado incorretamente ou não está acessível.|
 | InvalidImageFormat | Dados de entrada não são uma imagem válida. |
 | InvalidImageSize | Imagem de entrada é demasiado grande. |
-| NotSupportedVisualFeature  | Tipo de função especificada não é válido. |
+| NotSupportedVisualFeature  | Tipo de recurso especificado não é válido. |
 | NotSupportedImage | Imagem não suportada, por exemplo, pornografia infantil. |
 | InvalidDetails | Modelo de domínio específico não suportado. |
 
 ## <a name="see-also"></a>Consulte também
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

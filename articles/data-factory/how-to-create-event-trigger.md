@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969583"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005837"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
@@ -51,6 +51,14 @@ Assim que o ficheiro é recebido no seu local de armazenamento e o blob correspo
 
 ![Tipo de Acionador Selecione como evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapear as propriedades de Acionador para parâmetros do pipeline
+
+Quando um evento é acionado para um blob específico, o evento captura o nome de ficheiro e caminho de pasta do blob para as propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para utilizar os valores dessas propriedades num pipeline, tem de mapear as propriedades para parâmetros do pipeline. Depois de mapear as propriedades para parâmetros, pode aceder os valores capturados pelo acionador através do `@pipeline.parameters.parameterName` expressão em todo o pipeline.
+
+![O mapeamento de propriedades para parâmetros do pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Por exemplo, na captura de ecrã anterior. o acionador está configurado para acionar quando um caminho de blob que termine em `.csv` é criado na conta de armazenamento. Como resultado, quando um blob com o `.csv` extensão é criada em qualquer lugar na conta de armazenamento, o `folderPath` e `fileName` propriedades capturar a localização do blob novo. Por exemplo, `@triggerBody().folderPath` tem um valor como `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` tem um valor como `filename.csv`. Estes valores são mapeados no exemplo para os parâmetros do pipeline `sourceFolder` e `sourceFile`. Pode usá-los em todo o pipeline como `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile` , respetivamente.
+
 ## <a name="json-schema"></a>JSON schema
 
 A tabela seguinte fornece uma descrição geral dos elementos do esquema relacionados com acionadores baseados em eventos:
@@ -75,14 +83,6 @@ Esta secção fornece exemplos de definições do acionador baseado em evento.
 
 > [!NOTE]
 > Tem de incluir o `/blobs/` segmento do caminho sempre que especifique o contentor e pasta, contentor e a pasta de ficheiro ou contêiner e de ficheiros.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapear as propriedades de Acionador para parâmetros do pipeline
-
-Quando um evento é acionado para um blob específico, o evento captura o nome de ficheiro e caminho de pasta do blob para as propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para utilizar os valores dessas propriedades num pipeline, tem de mapear as propriedades para parâmetros do pipeline. Depois de mapear as propriedades para parâmetros, pode aceder os valores capturados pelo acionador através do `@pipeline.parameters.parameterName` expressão em todo o pipeline.
-
-![O mapeamento de propriedades para parâmetros do pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Por exemplo, na captura de ecrã anterior. o acionador está configurado para acionar quando um caminho de blob que termine em `.csv` é criado na conta de armazenamento. Como resultado, quando um blob com o `.csv` extensão é criada em qualquer lugar na conta de armazenamento, o `folderPath` e `fileName` propriedades capturar a localização do blob novo. Por exemplo, `@triggerBody().folderPath` tem um valor como `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` tem um valor como `filename.csv`. Estes valores são mapeados no exemplo para os parâmetros do pipeline `sourceFolder` e `sourceFile`. Pode usá-los em todo o pipeline como `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile` , respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações detalhadas sobre os acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).

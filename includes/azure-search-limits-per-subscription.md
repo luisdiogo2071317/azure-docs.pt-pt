@@ -9,21 +9,21 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 8a4f794c8ef24a90498954629c131904621c5b43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30844097"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756234"
 ---
-Pode criar vários serviços numa subscrição, cada um deles aprovisionados a nenhum escalão específico, limitado apenas pelo número de serviços permitidos em cada camada. Por exemplo, pode criar até 12 serviços na camada básica e outro serviços 12 na camada S1 dentro da mesma subscrição. Para obter mais informações sobre as camadas, consulte [escolha um SKU ou a camada para a Azure Search](../articles/search/search-sku-tier.md).
+Pode criar vários serviços numa subscrição, cada um deles aprovisionado num escalão específico, limitado apenas pelo número de serviços permitidas em cada escalão. Por exemplo, pode criar até 12 serviços no escalão básico e outro serviços 12 no escalão S1 dentro da mesma subscrição. Para obter mais informações sobre as camadas, consulte [escolher um SKU ou camada para o Azure Search](../articles/search/search-sku-tier.md).
 
-Limites de serviço máximo podem desencadeados após pedido. Se precisar de mais serviços dentro da mesma subscrição, contacte o suporte do Azure.
+Limites do serviço máximo podem ser tratados mediante pedido. Se precisar de mais serviços na mesma subscrição, contacte o suporte do Azure.
 
 | Recurso            | Livre&nbsp;<sup>1</sup> | Básica | S1  | S2 | S3 | S3&nbsp;HD |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- |
 | Serviços máximos    |1     | 12    | 12  | 6  | 6  | 6     |
 | Dimensionamento máximo no SU&nbsp;<sup>2</sup> |N/A |3 SU |36 SU |36 SU |36 SU |36 SU |
 
-<sup>1</sup> livres baseia-se nos recursos partilhados, não dedicados,. Dimensionamento não é suportado em recursos partilhados.
+<sup>1</sup> gratuito baseia-se nos recursos não dedicados, e partilhados. Aumentar verticalmente não é suportada em recursos partilhados.
 
-<sup>2</sup> unidades de pesquisa (SU) são faturação unidades, atribuídas como um *réplica* ou um *partição*. Terá de ambos os recursos de armazenamento, a indexação e as operações de consulta. Para saber mais sobre os cálculos de SU, consulte o artigo [Dimensionar níveis de recursos de cargas de trabalho de consulta e índice](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> unidades de pesquisa (SU) são faturação unidades, alocadas como um *réplica* ou uma *partição*. Precisa de ambos os recursos de armazenamento, indexação e operações de consulta. Para saber mais sobre os cálculos de SU, veja [Dimensionar níveis de recursos para cargas de trabalho de consulta e índice](../articles/search/search-capacity-planning.md). 

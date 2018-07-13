@@ -1,6 +1,6 @@
 ---
-title: Configurar as pesquisas liveness em instâncias de contentor do Azure
-description: Saiba como configurar as pesquisas de liveness reiniciar contentores mau estado de funcionamento em instâncias de contentor do Azure
+title: Configurar sondas de liveness no Azure Container Instances
+description: Saiba como configurar sondas de liveness para reiniciar o mau estado de funcionamento contentores no Azure Container Instances
 services: container-instances
 author: jluk
 manager: jeconnoc
@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249383"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009092"
 ---
 # <a name="configure-liveness-probes"></a>Configurar as pesquisas liveness
 
-Aplicações de poderão ser executadas por períodos prolongados de tempo, resultando em Estados quebrados que poderão ter de ser reparados reiniciando o contentor. Instâncias de contentor do Azure suporta liveness sondas para incluir as configurações para que o contentor pode reiniciar se funcionalidade crítico não está a funcionar. 
+Aplicações em contentores podem ser executada durante longos períodos de tempo, resultando em Estados quebrados, que poderão ter de ser reparada reiniciando o contentor. O Azure Container Instances suporta sondas de liveness para incluir configurações para que o seu contentor pode reiniciar se funcionalidades críticas não está a funcionar.
 
-Este artigo explica como implementar um grupo de contentor que inclui uma sonda liveness, que demonstra o reinício automático de um contentor de mau estado de funcionamento simulado.
+Este artigo explica como implementar um grupo de contentores que inclui uma a sonda de atividade, demonstrando o reinício automático de um contentor de mau estado de funcionamento simulado.
 
 ## <a name="yaml-deployment"></a>Implementação de YAML
 
-Criar um `liveness-probe.yaml` ficheiro pelo seguinte fragmento. Este ficheiro define um grupo de contentor que é composta por um contentor NGNIX acaba por fica danificado. 
+Criar um `liveness-probe.yaml` ficheiro pelo seguinte fragmento. Esse arquivo define um grupo de contentores que consiste num contêiner NGNIX que, eventualmente, fica danificado.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -63,45 +63,45 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Comando de início
 
-A implementação define um comando inicial a ser executada quando o contentor é iniciado pela primeira vez em execução, definido pelo `command` propriedade que aceita uma matriz de cadeias. Neste exemplo, irá iniciar uma sessão de bash e crie um ficheiro chamado `healthy` dentro de `/tmp` diretório transferindo este comando:
+A implementação define um comando de partida para ser executada quando o contentor é iniciado pela primeira vez em execução, definido pelo `command` propriedade que aceita uma matriz de cadeias de caracteres. Neste exemplo, irá iniciar uma sessão do bash e crie um ficheiro chamado `healthy` dentro do `/tmp` diretório ao transmitir este comando:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Será, em seguida, no modo de suspensão durante 30 segundos antes de eliminar o ficheiro, em seguida, suspenso 10 minutos.
+ Irá, em seguida, em modo de suspensão durante 30 segundos antes de eliminar o ficheiro, em seguida, entra num modo de suspensão de 10 minutos.
 
-### <a name="liveness-command"></a>Comando liveness
+### <a name="liveness-command"></a>Comando de liveness
 
-Esta implementação define um `livenessProbe` que suporte um `exec` comando liveness que age como a verificação de liveness. Se este comando sai com um valor diferente de zero, o contentor será cancelado e reiniciado, sinalização o `healthy` não foi possível encontrar o ficheiro. Se este comando sai com sucesso com o código de saída 0, será efetuada nenhuma ação.
+Esta implementação define um `livenessProbe` que suporta um `exec` comando liveness que age como a verificação de liveness. Se este comando é encerrado com um valor diferente de zero, o contentor será terminado e reiniciado, sinalizando o `healthy` não foi possível encontrar o ficheiro. Se este comando é encerrado com êxito com o código de saída 0, não será conduzida nenhuma ação.
 
-O `periodSeconds` propriedade designa o liveness comando deve executar a cada cinco segundos.
+O `periodSeconds` propriedade designa o liveness comando deve ser executada a cada cinco segundos.
 
-## <a name="verify-liveness-output"></a>Certifique-se a saída de liveness
+## <a name="verify-liveness-output"></a>Verificar a saída de liveness
 
-Dentro os primeiros 30 segundos, o `healthy` existe ficheiro criado pelo comando de início. Quando o comando liveness verifica a existência de `healthy` existência do ficheiro, o código de estado devolve um zero, sinalização com êxito, pelo que não reiniciar ocorre.
+Dentro os primeiros 30 segundos, o `healthy` existe ficheiro criado pelo comando de início. Quando o comando de liveness verifica a existência de `healthy` existência do arquivo, o código de estado retorna um zero, sinalizando com êxito, pelo que não reiniciar ocorre.
 
-Depois de 30 segundos, o `cat /tmp/healthy` começarão a falhar, fazendo com que os eventos mau estado de funcionamento e o cancelamento para ocorrer. 
+Após 30 segundos, o `cat /tmp/healthy` começarão a falhar, fazendo com que eventos de mau estado de funcionamento e matando para ocorrer.
 
-Estes eventos podem ser visualizados a partir do portal do Azure ou do Azure CLI 2.0.
+Esses eventos podem ser visualizados a partir do portal do Azure ou da CLI do Azure.
 
 ![Portal evento mau estado de funcionamento][portal-unhealthy]
 
-Ao visualizar os eventos no portal do Azure, eventos do tipo `Unhealthy` será acionada após a falha do comando liveness. O evento subsequente irão ser do tipo `Killing`, que significa a eliminação de um contentor, pelo que pode iniciar um reinício. A contagem de reinício para o contentor irá incrementar sempre que isto ocorre.
+Ao visualizar os eventos no portal do Azure, eventos do tipo `Unhealthy` será acionado após a falha do comando de liveness. O evento subsequente será do tipo `Killing`, fazendo referência a eliminação de contentor, para que pode começar a um reinício. A contagem de reinício do contentor sofrerá um incremento sempre que isso ocorre.
 
-Reinicia é concluída no local para recursos, como os endereços IP públicos e conteúdo de nó específicas será mantido.
+Reinícios são concluídos no local, de modo a recursos, como endereços IP públicos e conteúdo de nó específico será mantido.
 
 ![Contador de reinício do portal][portal-restart]
 
-Se a pesquisa de liveness continuamente falha e aciona demasiados reinícios, contentor de introduzir um back exponencial desativar o atraso.
+Se o a sonda de atividade continuamente falha e aciona demasiados reinícios, o contentor irá introduzir um término exponencial atraso.
 
-## <a name="liveness-probes-and-restart-policies"></a>As pesquisas liveness e políticas de reinício
+## <a name="liveness-probes-and-restart-policies"></a>Sondas de liveness e políticas de reinício
 
-Políticas de reinício substituem o comportamento de reinício acionado por liveness sondas. Por exemplo, se definir um `restartPolicy = Never` *e* uma sonda liveness, o grupo do contentor não reiniciará em caso de uma verificação de liveness falhada. O grupo de contentor em vez disso, irá cumprir a política de reinício do grupo contentor de `Never`.
+Políticas de reinício substituem o comportamento de reinício acionado por liveness sondas. Por exemplo, se definir um `restartPolicy = Never` *e* uma a sonda de atividade, o grupo de contentores não irá reiniciar em caso de uma verificação de liveness com falha. O grupo de contentores em vez disso, irão corresponder a política de reinício do grupo de contentores de `Never`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Baseado em tarefas cenários podem exigir uma personalizada de sonda de liveness ativar reinícios automáticos se uma função de pré-requisito não está a funcionar corretamente. Para obter mais informações sobre como executar contentores baseado em tarefas, consulte [executar tarefas de em instâncias de contentor do Azure](container-instances-restart-policy.md).
+Cenários de baseado em tarefas podem exigir uma a sonda de atividade para ativar reinícios automáticos, se uma função de pré-requisitos não está a funcionar corretamente. Para obter mais informações sobre a execução de contentores com base em tarefas, consulte [executar tarefas em contentores no Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

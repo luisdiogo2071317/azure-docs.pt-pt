@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: e54b89d31042d43a14379dea6daffd3e7763a64a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796966"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008279"
 ---
 # <a name="indexing-in-azure-search"></a>A indexação no Azure Search
 > [!div class="op_single_selector"]
@@ -59,12 +59,12 @@ A funcionalidade de indexador está exposta no [portal do Azure](search-import-d
 
 Uma vantagem de utilizar o portal é que, geralmente, o Azure Search consegue gerar um esquema de índice predefinido por si, ao ler os metadados do conjunto de dados de origem. Pode modificar o índice gerado até o índice ser processado, após o qual as únicas edições ao esquema permitidas são as que não requerem nova indexação. Se as alterações que quiser fazer influenciarem o esquema diretamente, terá de recriar o índice. 
 
-## <a name="verify-data-import-with-search-explorer"></a>Verificar a importação de dados com o Explorador de Pesquisas
+## <a name="verify-data-import-with-search-explorer"></a>Verifique se a importação de dados com o Explorador de pesquisa
 
-Uma forma rápida de fazer uma verificação preliminar no carregamento do documento é utilizar o **Explorador de Pesquisas** no portal. O explorador permite-lhe consultar índices sem ter de escrever qualquer código. A experiência de pesquisa baseia-se em predefinições, como a [sintaxe simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e o [parâmetro de consulta searchMode](/rest/api/searchservice/search-documents) predefinido. Os resultados são devolvidos em JSON, de modo a que possa inspecionar todo o documento.
+Uma forma rápida de fazer uma verificação preliminar no carregamento do documento é usar **Explorador de pesquisa** no portal. O explorador permite-lhe consultar índices sem ter de escrever qualquer código. A experiência de pesquisa baseia-se em predefinições, como a [sintaxe simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e o [parâmetro de consulta searchMode](/rest/api/searchservice/search-documents) predefinido. Os resultados são devolvidos em JSON, de modo a que possa inspecionar todo o documento.
 
 > [!TIP]
-> Vários [exemplos de código do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou disponíveis a pronto, o que lhe dá uma forma fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executar o indexador pré-configurado na origem de dados de exemplo, é criado um índice e carregado com documentos que podem, depois, ser consultados no Explorador de Pesquisas ou através de códigos que escrever.
+> Vários [exemplos de código do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou disponíveis a pronto, o que lhe dá uma forma fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Ao executar o indexador pré-configurado na origem de dados de exemplo, um índice é criado e carregado com documentos que, em seguida, podem ser consultados no Explorador de pesquisa ou ao código que escreve.
 
 ## <a name="see-also"></a>Consulte também
 

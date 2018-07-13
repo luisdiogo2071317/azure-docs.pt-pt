@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989242"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003618"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudar a decidir como integrar melhor o Azure Stack em seu ambiente de rede existente. 
@@ -29,7 +29,7 @@ Este artigo fornece informações de infraestrutura de rede do Azure Stack para 
 > Para resolver nomes DNS externos do Azure Stack (por exemplo, www.bing.com), terá de fornecer servidores DNS para reencaminhar pedidos DNS. Para obter mais informações sobre os requisitos de DNS do Azure Stack, veja [integração no datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Design de rede física
-A solução de Azure Stack requer uma infraestrutura física resiliente e de elevada disponibilidade para suportar o funcionamento e serviços. Uplinks de ToR para comutadores de limite estão limitados a SFP + suporte de dados e velocidades de 1 GB ou 10 GB. Verifique junto do fornecedor de hardware do fabricante de equipamento original (OEM) de disponibilidade. O diagrama abaixo representa a nossa estrutura recomendada:
+A solução de Azure Stack requer uma infraestrutura física resiliente e de elevada disponibilidade para suportar o funcionamento e serviços. Uplinks de ToR para comutadores de limite estão limitados a SFP + ou SFP28 suporte e 1 GB, 10 GB ou velocidades de 25 GB. Verifique junto do fornecedor de hardware do fabricante de equipamento original (OEM) de disponibilidade. O diagrama seguinte apresenta a nossa estrutura recomendada:
 
 ![Estrutura de rede recomendada do Azure Stack](media/azure-stack-network/recommended-design.png)
 

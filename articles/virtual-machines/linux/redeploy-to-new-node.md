@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 1bd13c35ed49aeaab1a4f4aa94c984dc28f6c111
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931553"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308010"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Voltar a implementar a máquina virtual do Linux para o novo nó do Azure
 Se tiver dificuldades, resolução de problemas de SSH ou acesso de aplicação a uma máquina virtual (VM) do Linux no Azure, a reimplementação da VM pode ajudar. Quando voltar a implementar uma VM, ele muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, liga-o novamente. Todas as suas opções de configuração e os recursos associados são mantidos. Este artigo mostra-lhe como voltar a implementar uma VM com a CLI do Azure ou o portal do Azure.

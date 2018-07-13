@@ -1,27 +1,27 @@
 ---
-title: A codificação geográfica cobertura Maps do Azure | Microsoft Docs
-description: Saiba mais sobre a codificação geográfica cobertura Maps do Azure
-author: kgremban
-ms.author: kgremban
+title: Cobertura de geocodificação do Azure Maps | Documentos da Microsoft
+description: Saiba mais sobre a cobertura de Geocodificação do Azure Maps
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6602453abd02bf91b135980b4d2c7f99ba60c236
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600294"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989882"
 ---
-# <a name="azure-maps-geocoding-coverage"></a>Cobertura de codificação geográfica dos mapas do Azure
+# <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificação do Azure Maps
 
-Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceita os termos de pesquisa e devolve as coordenadas de latitude e longitude, um processo denominado a codificação geográfica. No entanto, o Maps não tem o mesmo nível de informações e a precisão para todas as regiões e países. Utilize este artigo para determinar o tipo de localizações pode fiável Procurar em cada região. 
+Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demora seus termos de pesquisa e devolve as coordenadas de latitude e longitude, um processo chamado geocodificação. No entanto, o Maps não tem o mesmo nível de informações e a precisão para todas as regiões e países. Utilize este artigo para determinar que tipo de localizações pode fiável Procurar em cada região. 
 
 ## <a name="americas"></a>Américas
 
-| Região             | Pontos de endereço | Números de próxima | Nível completo | Nível de cidade | Pontos de interesse |
+| Região             | Pontos de endereço | Números de casa | Nível de rua | Nível de cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguila                                            |                 |                |              |      ✓     |          ✓         |
 | Antártida                                          |                 |                |              |      ✓     |          ✓         |
@@ -38,7 +38,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Canadá                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Caimão                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chile                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Clipperton ilha                                   |                 |                |              |      ✓     |                    |
+| Ilha de Clipperton                                   |                 |                |              |      ✓     |                    |
 | Colômbia                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -77,12 +77,12 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Estados Unidos da América                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguai                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Ilhas Virgin - território                            |                 |                |              |      ✓     |          ✓         |
-| Ilhas Virgin - Estados Unidos                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ilhas Virgens - Britânicas                            |                 |                |              |      ✓     |          ✓         |
+| Ilhas Virgens - Estados Unidos                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
 
-| Região             | Pontos de endereço |Números de próxima | Nível completo | Nível de cidade | Pontos de interesse |
+| Região             | Pontos de endereço |Números de casa | Nível de rua | Nível de cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Samoa Americana                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Austrália                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -127,7 +127,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Singapura                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Salomão                                     |                 |                |              |      ✓     |          ✓         |
 | Coreia do Sul                                         |                 |                |              |      ✓     |          ✓         |
-| Kurils Austrais                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Territórios Austrais Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Ilhas spratly                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -142,7 +142,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 
 ## <a name="europe"></a>Europa
 
-| Região             | Pontos de endereço |Números de próxima | Nível completo | Nível de cidade | Pontos de interesse |
+| Região             | Pontos de endereço |Números de casa | Nível de rua | Nível de cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albânia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -169,7 +169,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Hungria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islândia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Irlanda (República das)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Irlanda (República da)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilha de Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Itália                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
@@ -211,7 +211,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 
 ## <a name="middle-east-and-africa"></a>Médio Oriente e África
 
-| Região             | Pontos de endereço |Números de próxima | Nível completo | Nível de cidade | Pontos de interesse |
+| Região             | Pontos de endereço |Números de casa | Nível de rua | Nível de cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afeganistão                                         |                 |                |              |      ✓     |          ✓         |
 | Argélia                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -231,7 +231,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | República Democrática do Congo                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Jibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egito                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Equatorial Guinea, República de                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Guiné Equatorial, República da                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritreia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiópia                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Territórios Austrais Franceses|                 |                |              |      ✓     |          ✓         |
@@ -279,13 +279,13 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Sudão                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Suazilândia                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Síria                                               |                 |                |              |      ✓     |          ✓         |
-| Dobra de São Tomé e Príncipe, República Democrática do       |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé e Príncipe, República Democrática do       |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzânia                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunísia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Emirados Árabes Unidos                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Oeste Bank                                           |                 |                |              |      ✓     |          ✓         |
+| Oeste bancária                                           |                 |                |              |      ✓     |          ✓         |
 | Iémen                                               |                 |                |              |      ✓     |          ✓         |
 | Zâmbia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabué                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -294,7 +294,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a codificação geográfica mapas do Azure, consulte o [pesquisa](https://docs.microsoft.com/rest/api/maps/search) páginas de referência.
+Para obter mais informações sobre a geocodificação de mapas do Azure, consulte a [pesquisa](https://docs.microsoft.com/rest/api/maps/search) páginas de referência.
 
-Saiba mais sobre o [cobertura as áreas para os Maps tráfego serviço](traffic-coverage.md). 
+Saiba mais sobre o [áreas de cobertura para os mapas de serviço de tráfego](traffic-coverage.md). 
 

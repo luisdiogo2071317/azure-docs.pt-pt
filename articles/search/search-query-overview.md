@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/13/2017
-ms.openlocfilehash: 50e27cbc485259ea5ce744ba71feee5e90293bcb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7b32bad8a9f1d039b17fe0f1be167cffbc86547
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792914"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006210"
 ---
 # <a name="queries-in-azure-search"></a>Consultas no Azure Search
 > [!div class="op_single_selector"]
@@ -60,6 +60,6 @@ Na Azure Search, o realce da parte exata dos resultados da pesquisa que correspo
 
 É a melhor maneira de entender as diferenças de sintaxe pelo envio de consultas e revisão dos resultados.
 
-+ Utilize o [Search Explorer](search-explorer.md) no portal do Azure. Implementando [o índice de exemplo](search-get-started-portal.md), pode consultar o índice em minutos, usando as ferramentas no portal.
++ Uso [Explorador de pesquisa](search-explorer.md) no portal do Azure. Implementando [o índice de exemplo](search-get-started-portal.md), pode consultar o índice em minutos, usando as ferramentas no portal.
 
 + Utilize Telerik Fiddler ou Chrome Postman para submeter consultas para um índice que carregou para o serviço de pesquisa. Ambas as ferramentas oferecem suporte a chamadas REST para um ponto final HTTP. 

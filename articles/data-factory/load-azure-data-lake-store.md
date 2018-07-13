@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857206"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003802"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados para geração 1 de armazenamento do Azure Data Lake ao utilizar o Azure Data Factory
 
@@ -35,6 +35,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
 > [!NOTE]
 > Para obter mais informações, consulte [copiar dados de ou para o Azure Data Lake Store com o Azure Data Factory](connector-azure-data-lake-store.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -109,7 +110,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
    3. Selecione **Seguinte**.
    
    > [!IMPORTANT]
-   > Este passo a passo, vai utilizar um _identidade do serviço gerido_ para autenticar seu Store de Lake de dados. Certifique-se de que conceder o principal de serviço as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Este passo a passo, vai utilizar um _identidade do serviço gerido_ para autenticar seu Store de Lake de dados. Certifique-se de que conceder o MSI as permissões adequadas no Azure Data Lake Store, seguindo [estas instruções](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Especifique a conta do Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 

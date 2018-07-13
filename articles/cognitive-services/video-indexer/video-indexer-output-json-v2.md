@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9e66bffe1a547e72143201f4afb8e5ae99065df9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341703"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989483"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -126,6 +126,7 @@ Esta secção mostra o resumo das informações.
 |indexingPreset|A configuração predefinida utilizada para o vídeo de índice.|
 |streamingPreset|A configuração predefinida utilizada para publicar o vídeo.|
 |linguisticModelId|O modelo CRIS utilizado de transcrever o vídeo.|
+|Estatísticas | Para obter mais informações, consulte [estatísticas](#statistics).|
 
 ```json
 {

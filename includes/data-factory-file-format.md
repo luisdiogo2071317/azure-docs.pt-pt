@@ -56,7 +56,7 @@ Para utilizar um `escapeChar` em vez de `quoteChar`, substitua a linha por `quot
 * Está a copiar de um ficheiro de texto e quer ignorar algumas linhas no início que não contêm dados nem informações de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a ignorar. Se o resto do ficheiro contiver uma linha de cabeçalho, também pode especificar `firstRowAsHeader`. Se as propriedades `skipLineCount` e `firstRowAsHeader` forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada
 
 ### <a name="specifying-jsonformat"></a>Especificar JsonFormat
-Para **importar/exportar ficheiros JSON como-é na/da base de dados do Azure Cosmos**, consulte [documentos JSON de importação/exportação](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) secção no conector Azure Cosmos DB com detalhes.
+Para **importar/exportar ficheiros JSON como-é em/do Azure Cosmos DB**, consulte [documentos JSON de importação/exportação](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) secção no conector do Azure Cosmos DB com detalhes.
 
 Se quiser analisar os ficheiros JSON ou escrever os dados em formato JSON, defina a propriedade `format` `type` como **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
@@ -201,7 +201,7 @@ e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Veja [Especificar a definição da estrutura para conjuntos de dados retangulares](#specifying-structure-definition-for-rectangular-datasets) para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar **array[x].property** para extrair o valor da propriedade específica a partir do objeto xth ou pode utilizar **array[*].property** para encontrar o valor em qualquer objeto que contenha essa propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, pode usar **matriz [x].-property** para extrair o valor da propriedade específica do objeto xth ou pode usar **matriz [*].-property** para encontrar o valor a partir de qualquer objeto que contém como, por exemplo propriedade.
 
 ```json
 "properties": {

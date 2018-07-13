@@ -1,7 +1,7 @@
 ---
-title: Descrição geral da API de pesquisa Visual do Bing | Microsoft Docs
+title: Descrição geral da API de pesquisa Visual do Bing | Documentos da Microsoft
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Mostra como obter os detalhes ou informações sobre uma imagem, como imagens semelhantes ou origens de compras.
+description: Mostra como obter os detalhes ou informações sobre uma imagem, como imagens semelhantes ou fontes de compras.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,46 +10,46 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 95f10d8ea7ebe1d40d45231a8ea40df81543fe8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354758"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006534"
 ---
-# <a name="what-is-bing-visual-search-api"></a>O que é a API de pesquisa do Bing Visual?
+# <a name="what-is-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 
-API de pesquisa do Bing Visual fornece uma experiência semelhante para os detalhes da imagem apresentados na Bing.com/images. Com a pesquisa Visual pode carregar uma imagem e voltar a informações sobre a imagem, como imagens visualmente semelhantes, compras origens, páginas Web que incluem a imagem e muito mais. Em vez de carregamento de uma imagem, também pode fornecer um token de informações que obtém a partir de uma imagem nos resultados da pesquisa de imagens (consulte [API do Bing imagens](../bing-image-search/overview.md)).
+API de pesquisa Visual do Bing fornece uma experiência semelhante à apresentada na Bing.com/images os detalhes da imagem. Com a pesquisa Visual, pode carregar uma imagem e obter informações sobre a imagem, como imagens visualmente similares, fontes de compras, páginas da Web que incluem a imagem e muito mais. Em vez de carregar uma imagem, também pode fornecer um token de informações que obtém a partir de uma imagem nos resultados da pesquisa de imagens (veja [a API de imagens do Bing](../bing-image-search/overview.md)).
 
-Pesquisa Visual pode identificar celebridades para, monuments e landmarks, elementos artísticos, furnishings inicial, forma, produtos, reconhecimento de caráter (OCR) e mais informações.
+Pesquisa Visual pode identificar celebridades, monumentos e pontos de referência, obras de arte, furnishings domésticas, moda, produtos, reconhecimento de carateres (OCR) e muito mais.
 
-Seguem-se as informações que procura Visual permite-lhe detetar.
+Seguem-se as informações que pesquisa Visual permite que descubra.
 
-- Imagens visualmente semelhantes&mdash;uma lista de imagens que são visualmente semelhantes à imagem de entrada
-- Produtos semelhantes visualmente&mdash;uma lista de imagens que contêm os produtos que estejam visualmente semelhantes mostrado na imagem de entrada do produto
-- Compras origens&mdash;uma lista dos locais onde pode comprar o item mostrado na imagem de entrada
-- Relacionadas com pesquisas&mdash;uma lista de relacionados pesquisas efetuadas por outras pessoas ou que se baseiam o conteúdo da imagem
-- Páginas Web que inclui a imagem&mdash;uma lista de páginas Web que incluem a imagem de entrada
-- Receitas&mdash;uma lista de páginas Web que incluem receitas para efetuar o dish mostrado na imagem de entrada
+- Imagens visualmente similares&mdash;uma lista de imagens visualmente semelhantes à imagem de entrada
+- Produtos visualmente semelhantes&mdash;uma lista de imagens que contenham produtos visualmente semelhantes para o produto mostrado na imagem de entrada
+- Origens de compras&mdash;uma lista de locais onde pode adquirir o item mostrado na imagem de entrada
+- Relacionados com pesquisas&mdash;uma lista de pesquisas relacionadas feitas por outras pessoas ou que são baseadas no conteúdo da imagem
+- Páginas da Web que incluem a imagem&mdash;uma lista de páginas da Web que incluem a imagem de entrada
+- Receitas&mdash;uma lista de páginas da Web que incluem receitas para tornar o dish mostrado na imagem de entrada
 
-Para além destes insights, pesquisa Visual também devolve um conjunto diverso de termos (etiquetas) derivado da imagem de entrada. Estas etiquetas permitem aos utilizadores explorar conceitos encontrados na imagem. Por exemplo, se a imagem de entrada de um athlete famosa, uma das etiquetas pode ser o nome do athlete, outra tag foi desporto. Em alternativa, se a imagem de entrada de um gráfico circular apple, as etiquetas pode ser circular Apple, Pies, Desserts, pelo que os utilizadores podem explorar conceitos relacionados.
+Além dessas informações, pesquisa Visual também devolve um conjunto variado de termos (etiquetas) derivado a partir da imagem de entrada. Essas marcas permitem aos utilizadores explorar os conceitos da imagem. Por exemplo, se a imagem de entrada for de um famoso famoso, uma das etiquetas pode ser o nome do famoso, outra etiqueta pode ser desporto. Em alternativa, se a imagem de entrada for de uma pizza da apple, as etiquetas podem ser as sobremesas de pizza da Apple, tortas, para que os utilizadores podem explorar os conceitos relacionados.
 
-Os resultados da pesquisa Visual também incluem delimitadora as caixas de regiões de interesse na imagem. Por exemplo, se a imagem contém várias celebridades para, os resultados podem incluir delimitadora caixas para cada um das celebridades para reconhecido na imagem. Em alternativa, se Bing reconhece um produto ou clothing na imagem, o resultado pode incluir uma caixa delimitadora para o produto reconhecido ou item de clothing.
+Os resultados da pesquisa Visual também incluem delimitação de caixas de regiões de interesse na imagem. Por exemplo, se a imagem contém vários celebridades, os resultados podem incluir delimitação de caixas para cada um das celebridades reconhecidas na imagem. Em alternativa, se Bing reconhece um produto ou vestuário na imagem, o resultado pode incluir uma caixa delimitadora para o produto reconhecido ou item de vestuário.
 
 > [!IMPORTANT]
-> Se utilizar o imagens/detalhes ponto final para [obter conhecimentos aprofundados de imagem](../bing-image-search/image-insights.md), deve atualizar o seu código para utilizar a procura Visual em vez disso, uma vez que fornece informações mais abrangentes.
+> Se usar o/imagens/detalhes ponto final para [Obtenha informações de imagem](../bing-image-search/image-insights.md), deve atualizar o código para usar pesquisa Visual em vez disso, uma vez que ele fornece informações mais abrangentes.
 
 
 ## <a name="the-request"></a>O pedido
 
-Seguem-se as opções para obter informações sobre uma imagem. 
+Seguem-se as opções para obter informações aprofundadas sobre uma imagem. 
 
-- Enviar um token de informações que obtém a partir de uma imagem numa chamada anterior para uma do [API do Bing imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) pontos finais
+- Enviar um token de informações que obtém a partir de uma imagem numa chamada anterior para um da [a API de imagens do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) pontos finais
 - Enviar o URL de uma imagem
 - Carregar uma imagem (binário)
 
 
-Se enviar Visual pesquisa um token de imagem ou o URL, o seguinte mostra o objeto JSON que tem de incluir no corpo do POST. 
+Se enviar pesquisa Visual, um token de imagem ou o URL, o seguinte mostra o objeto JSON que devem ser incluídos no corpo da POSTAGEM. 
 
 ```json
 {
@@ -71,67 +71,67 @@ Se enviar Visual pesquisa um token de imagem ou o URL, o seguinte mostra o objet
 }
 ```
 
-O `imageInfo` tem de incluir o objeto a `url` e `imageInsightsToken` campo mas não ambos. Definir o `url` campo para o URL de uma imagem de acessível à Internet. O tamanho de imagem suportados máximo é 1 MB.
+O `imageInfo` objeto tem de incluir qualquer um de `url` ou `imageInsightsToken` campo, mas não ambos. Definir o `url` campo para o URL de uma imagem acessível da Internet. O tamanho de imagem suportados máximo é 1 MB.
 
-O `imageInsightsToken` tem de ser definido para um token de informações. Para obter um token de insights, chame a API de imagem do Bing. A resposta contém uma lista de `Image` objetos. Cada `Image` objeto contém uma `imageInsightsToken` campo, o que contém o token.
+O `imageInsightsToken` tem de ser definido como um token de informações. Para obter um token de insights, chame a API de imagens do Bing. A resposta contém uma lista de `Image` objetos. Cada `Image` objeto contém um `imageInsightsToken` campo, que contém o token.
 
-O `cropArea` campo é opcional. A área de cortar Especifica a parte superior esquerdo canto e na parte inferior, canto direito de uma região de interesse. Especifique os valores no intervalo entre 0,0 e através de 1.0. Os valores são uma percentagem da largura ou altura geral. Por exemplo, o exemplo acima marca o direito metade da imagem como a região de interesse. Incluem-se de que pretende limitar o pedido de informações para a região de interesse.
+O `cropArea` campo é opcional. A área de recorte Especifica a parte superior, esquerdo canto e na parte inferior, canto direito de uma região de interesse. Especifique os valores no intervalo 0,0 através de 1.0. Os valores são uma percentagem da largura ou altura geral. Por exemplo, o exemplo acima marca o direito metade da imagem como a região de interesse. Incluí-lo se pretender limitar o pedido de informações para a região de interesse.
 
-O `filters` objeto contém um filtro de site (consulte o `site` campo) que pode utilizar para restringir as imagens semelhantes e resultados de produtos semelhantes a um domínio específico. Por exemplo, se a imagem de um Surface Book, pode definir `site` para www.microsoft.com. 
+O `filters` objeto contém um filtro de site (consulte a `site` campo) que pode utilizar para restringir as imagens semelhantes e os resultados de produtos semelhantes a um domínio específico. Por exemplo, se a imagem é de um Surface Book, pode definir `site` para www.microsoft.com. 
 
-Se pretender obter informações sobre uma cópia local de uma imagem, carregue a imagem como dados binários.
+Se quiser obter informações sobre uma cópia local de uma imagem, carregue a imagem como dados binários.
 
-Para obter detalhes sobre estas opções, incluindo a no corpo do POST, consulte [tipos de formulário de conteúdo](#content-form-types).
+Para obter detalhes sobre estas opções, incluindo no corpo da POSTAGEM, consulte [formulário de tipos de conteúdo](#content-form-types).
 
 
 ### <a name="endpoint"></a>Ponto Final
 
-O ponto final da pesquisa de Visual: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
+O ponto final de pesquisa Visual é: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
 
-É necessário enviar pedidos como apenas pedidos de HTTP POST. 
+Pedidos têm de ser enviados como apenas pedidos de HTTP POST. 
 
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-Seguem-se os parâmetros de consulta, que deve especificar o seu pedido. No mínimo deve incluir o `mkt` parâmetro de consulta.
+Seguem-se os parâmetros de consulta que deve especificar o seu pedido. No mínimo, deve incluir o `mkt` parâmetro de consulta.
 
 |Nome|Valor|Tipo|Necessário|  
 |----------|-----------|----------|--------------|  
-|<a name="cc" />Cc|Um código de país de 2-caráter do país/região onde os resultados provenientes.<br /><br /> Se definir este parâmetro, também tem de especificar o [aceitar idioma](#acceptlanguage) cabeçalho. Bing utiliza o idioma suportado primeiro localiza da lista de idiomas e combina o idioma com o código de país que especificou para determinar o mercado para devolver resultados a partir do. Se a lista de idiomas não inclui um idioma suportado, o Bing localiza o idioma e o mercado que suporta o pedido mais próximo. Ou pode utilizar um agregado ou predefinida mercado para os resultados em vez dos especificado.<br /><br /> Deve utilizar este parâmetro de consulta e o `Accept-Language` parâmetro de consulta apenas se especificar vários idiomas; caso contrário, deve utilizar o `mkt` e `setLang` parâmetros de consulta.<br /><br /> Este parâmetro e o [mkt](#mkt) parâmetro da consulta são mutuamente exclusivos&mdash;não especificar ambos.|Cadeia|Não|  
-|<a name="mkt" />mkt|Mercado onde os resultados provenientes. <br /><br /> **Nota:** é vivamente recomendada sempre especificar o mercado, se conhecido. Especificar o mercado ajuda-o Bing, o pedido de rotas e devolver uma resposta adequada e ideal.<br /><br /> Este parâmetro e o [cc](#cc) parâmetro da consulta são mutuamente exclusivos&mdash;não especificar ambos.|Cadeia|Sim|  
-|<a name="safesearch" />safeSearch|Um filtro utilizado para filtrar o conteúdo para adultos. Seguem-se os valores de filtro sensível possíveis.<br /><ul><li>Desativar&mdash;páginas Web com o texto para adultos ou imagens de retorno.<br /><br/></li><li>Moderada&mdash;devolver páginas Web com o texto para adultos, mas não para adultos imagens.<br /><br/></li><li>Strict&mdash;não devolveu a páginas Web com o texto para adultos ou nas imagens.</li></ul><br /> A predefinição é moderada.<br /><br /> **Nota:** se o pedido for proveniente de um mercado política para adultos esse Bing requer que `safeSearch` ser definido como Strict, Bing ignora a `safeSearch` valor e utiliza Strict.<br/><br/>**Nota:** se utilizar o `site:` operador de consulta, há a possibilidade de que a resposta pode conter conteúdo para adultos independentemente do que o `safeSearch` parâmetro de consulta está definido como. Utilize `site:` apenas se estiver em consideração o conteúdo do site e a possibilidade de conteúdo para adultos suporta o seu cenário. |Cadeia|Não|  
-|<a name="setlang" />setLang|O idioma a utilizar para cadeias de interface de utilizador. Especifique o idioma utilizando o código de idioma de 2 letra 639-1 ISO. Por exemplo, o código de idioma do inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve sempre especificar o idioma. Normalmente, definidas `setLang` para a mesma linguagem especificada pelo `mkt` , a menos que o utilizador pretende que as cadeias de interface de utilizador apresentadas num idioma diferente.<br /><br /> Este parâmetro e o [aceitar idioma](#acceptlanguage) cabeçalho são mutuamente exclusivos&mdash;não especificar ambos.<br /><br /> Uma cadeia de interface de utilizador é uma cadeia que é utilizada como uma etiqueta numa interface de utilizador. Existem algumas cadeias de interface de utilizador nos objetos de resposta de JSON. Além disso, todas as ligações para as propriedades de Bing.com nos objetos de resposta aplicam-se o idioma especificado.|Cadeia|Não| 
+|<a name="cc" />Cc|Um código de país de 2 carateres do país onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o [Accept-Language](#acceptlanguage) cabeçalho. O Bing utiliza o primeiro idioma com suporte que se encontra na lista de idiomas e combina a linguagem com o código de país que especificou para determinar o mercado para devolver resultados da. Se a lista de idiomas não inclui um idioma suportado, o Bing localiza o idioma e o mercado que oferece suporte a solicitação mais próximo. Ou pode utilizar um agregado ou padrão de mercado para os resultados em vez do especificado.<br /><br /> Deve utilizar este parâmetro de consulta e o `Accept-Language` parâmetro de consulta apenas se especificar vários idiomas; caso contrário, deve usar o `mkt` e `setLang` parâmetros de consulta.<br /><br /> Este parâmetro e o [mkt](#mkt) parâmetro de consulta são mutuamente exclusivas&mdash;não especificar ambos.|Cadeia|Não|  
+|<a name="mkt" />mkt|O mercado de onde vêm os resultados. <br /><br /> **Nota:** é encorajado a sempre especificar o mercado, se conhecidos. Especificar o mercado de ajuda do Bing encaminhar a solicitação e devolver uma resposta adequada e ideal.<br /><br /> Este parâmetro e o [cc](#cc) parâmetro de consulta são mutuamente exclusivas&mdash;não especificar ambos.|Cadeia|Sim|  
+|<a name="safesearch" />pesquisa segura|Um filtro utilizado para filtrar o conteúdo para adultos. Seguem-se os valores de filtro de maiúsculas e minúsculas possíveis.<br /><ul><li>Desativar&mdash;devolver páginas da Web com imagens ou de texto para adultos.<br /><br/></li><li>Moderado&mdash;devolver páginas da Web com o texto para adultos, mas não para adultos imagens.<br /><br/></li><li>Strict&mdash;não retornam páginas da Web com imagens ou de texto para adultos.</li></ul><br /> A predefinição é moderado.<br /><br /> **Nota:** se a solicitação é proveniente de um mercado de política de adultos do Bing que requer que `safeSearch` estar definida para Strict, Bing ignora o `safeSearch` valor e utiliza Strict.<br/><br/>**Nota:** se utilizar o `site:` operador de consulta, é provável que a resposta pode conter o conteúdo para adultos, independentemente do que o `safeSearch` parâmetro de consulta está definido como. Utilize `site:` apenas se está atento o conteúdo do site e o seu cenário suporta a possibilidade de conteúdo para adultos. |Cadeia|Não|  
+|<a name="setlang" />setLang|O idioma a utilizar para cadeias de caracteres de interface de usuário. Especifica o idioma usando o código de idioma de 2 letras 639-1 ISO. Por exemplo, o código de idioma para inglês é EN. A predefinição é EN (em inglês).<br /><br /> Embora seja opcional, deve sempre especificar o idioma. Normalmente, definido `setLang` para o mesmo idioma especificado pelo `mkt` , a menos que o usuário deseja as cadeias de caracteres de interface do usuário exibidas num idioma diferente.<br /><br /> Este parâmetro e o [Accept-Language](#acceptlanguage) cabeçalho são mutuamente exclusivas&mdash;não especificar ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia que é utilizada como etiqueta numa interface de utilizador. Existem algumas cadeias de caracteres de interface de utilizador nos objetos de resposta de JSON. Além disso, todas as ligações às propriedades de Bing.com nos objetos de resposta aplicam-se o idioma especificado.|Cadeia|Não| 
 
 ### <a name="headers"></a>Cabeçalhos
 
-Seguem-se os cabeçalhos que deve especificar o seu pedido. Os cabeçalhos de tipo de conteúdo e Ocp-Apim-Subscription-Key são os cabeçalhos necessários apenas, mas também devem incluir o agente de utilizador, X-MSEdge-ClientID, X-MSEdge-ClientIP e localização de pesquisa de X.
+Seguem-se os cabeçalhos que deve especificar o seu pedido. Os cabeçalhos de tipo de conteúdo e Ocp-Apim-Subscription-Key são os cabeçalhos necessários únicos, mas também deve incluir o agente do usuário, X-MSEdge-ClientID, X-MSEdge-ClientIP e localização de pesquisa de X.
 
 
 |Cabeçalho|Descrição|  
 |------------|-----------------|  
-|<a name="acceptlanguage" />Idioma aceitar|Cabeçalho de pedido opcional.<br /><br /> Uma lista delimitada por vírgulas de idiomas para utilizar cadeias de interface de utilizador. A lista está a ser diminuir a ordem de preferência. Para obter mais informações, incluindo o formato esperado, consulte [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este cabeçalho e o [setLang](#setlang) parâmetro da consulta são mutuamente exclusivos&mdash;não especificar ambos.<br /><br /> Se definir este cabeçalho, também tem de especificar o [cc](#cc) parâmetro de consulta. Para determinar o mercado para devolver resultados, Bing utiliza o idioma suportado primeiro localiza a partir da lista e combina-o com o `cc` valor do parâmetro. Se a lista inclui um idioma suportado, o Bing localiza o idioma e o mercado que suporta o pedido mais próximo ou utiliza um agregado ou default mercado para os resultados. Para determinar o mercado que o Bing utilizado, consulte o cabeçalho de BingAPIs mercado.<br /><br /> Utilize este cabeçalho e o `cc` parâmetro de consulta apenas se especificar vários idiomas. Caso contrário, utilize o [mkt](#mkt) e [setLang](#setlang) parâmetros de consulta.<br /><br /> Uma cadeia de interface de utilizador é uma cadeia que é utilizada como uma etiqueta numa interface de utilizador. Existem algumas cadeias de interface de utilizador nos objetos de resposta de JSON. Todas as ligações para as propriedades de Bing.com nos objetos de resposta aplicam-se o idioma especificado.|  
-|<a name="contenttype" />Tipo de conteúdo|Cabeçalho de pedido necessários.<br /><br />Tem de ser definido como multipart /-dados do formulário e incluir um parâmetro de limite (por exemplo, multipart /-dados do formulário; boundary =\<cadeia limites\>). Para obter mais detalhes, consulte [tipos de formulário de conteúdo](#content-form-types).
-|<a name="market" />Mercado BingAPIs|Cabeçalho de resposta.<br /><br /> Mercado utilizado por pedido. O formulário é \<languageCode\>-\<indicativo do país\>. Por exemplo, en-US.|  
-|<a name="traceid" />BingAPIs TraceId|Cabeçalho de resposta.<br /><br /> O ID da entrada de registo que contém os detalhes do pedido. Quando ocorre um erro, capturar este ID. Se não conseguir determinar e resolver o problema, inclua este ID, juntamente com outras informações que fornecer a equipa de suporte.|  
-|<a name="subscriptionkey" />OCP Apim-subscrição-chave|Cabeçalho de pedido necessários.<br /><br /> A chave de subscrição que recebeu quando se inscreveu para este serviço em [serviços cognitivos](https://www.microsoft.com/cognitive-services/).|  
-|<a name="pragma" />Pragma|Cabeçalho de pedido opcional<br /><br /> Por predefinição, o Bing devolve os conteúdos em cache, se disponível. Para impedir que o Bing devolver o conteúdo em cache, defina o cabeçalho de Pragma para no-cache (por exemplo, Pragma: não cache).
-|<a name="useragent" />Agente de utilizador|Cabeçalho de pedido opcional.<br /><br /> O agente de utilizador com a origem do pedido. Bing utiliza o agente de utilizador para fornecer os utilizadores móveis com uma experiência otimizada. Embora seja opcional, são encorajados a sempre especifique este cabeçalho.<br /><br /> O agente de utilizador deve ser a mesma cadeia de qualquer browser frequentemente utilizada envia. Para obter informações sobre agentes de utilizador, consulte [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Seguem-se exemplos de cadeias de agente do utilizador.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatível; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 compilação/GINGERBREAD) AppleWebKit/533.1 (KHTML; como Gecko) versão/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone SO 6_1 como Mac OS X) AppleWebKit/536.26 (KHTML; como Gecko) Mobile/10B142 iPhone4; 1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (do Windows NT 6.3; WOW64; Trident/7.0; Touch; Rv:11.0) como Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; SO de CPU 7_0 como Mac OS X) AppleWebKit/537.51.1 (KHTML, como Gecko) versão/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|Cabeçalho de pedido e resposta opcional.<br /><br /> Bing utiliza este cabeçalho para fornecer aos utilizadores com o comportamento consistente em toda as chamadas de API do Bing. Bing frequentemente flights funcionalidades novas e melhoradas e utiliza o ID de cliente como uma chave para atribuição de tráfego na flights diferentes. Se não utilizar o mesmo ID de cliente para um utilizador em vários pedidos, em seguida, Bing pode atribuir o utilizador a vários flights em conflito. A ser atribuídos a vários flights em conflito podem levar a uma experiência de utilizador inconsistente. Por exemplo, se o segundo pedido possui uma atribuição de voo diferente que o primeiro, a experiência poderá inesperada. Além disso, o Bing pode utilizar o ID de cliente para personalizar os resultados da web para que o cliente IDs de histórico de pesquisa, proporcionando uma experiência mais rica para o utilizador.<br /><br /> Bing também utiliza este cabeçalho para ajudar a melhorar as classificações de resultado ao analisar a atividade gerada por um ID de cliente. As melhorias de relevância ajudá-lo com melhor qualidade dos resultados entregue ao Bing APIs e por sua vez permite superiores através de clique taxas para o consumidor da API.<br /><br /> **Importante:** embora opcional, deve considerar este cabeçalho obrigado. A persistência do ID de cliente em vários pedidos para o mesmo utilizador final e a combinação de dispositivos permite 1) o consumidor da API receber uma experiência de utilizador consistente e taxas 2) superiores clique-through através de melhor qualidade dos resultados das APIs do Bing.<br /><br /> Seguem-se as regras de utilização básica que se aplicam a este cabeçalho.<br /><ul><li>Cada utilizador que utiliza a sua aplicação no dispositivo tem de ter um único, Bing gerado ID de cliente.<br /><br/>Se não incluir este cabeçalho do pedido, o Bing gera um ID e devolve a mesma no cabeçalho de resposta de X-MSEdge-ClientID. O único momento em que não deve incluir este cabeçalho num pedido for a primeira vez que o utilizador utiliza a sua aplicação nesse dispositivo.<br /><br/></li><li>**Atenção:** tem de garantir que este ID de cliente não é linkable para quaisquer informações de conta de utilizador autenticado.</li><li>Utilize o ID de cliente para cada pedido de API do Bing que torna a sua aplicação para este utilizador no dispositivo.<br /><br/></li><li>Manter o ID de cliente. Para manter o ID de uma aplicação de browser, utilize um cookie HTTP persistente para garantir que o ID é utilizado em todas as sessões. Não utilize um cookie de sessão. Para outras aplicações, tais como as aplicações móveis, utilize o armazenamento persistente do dispositivo para manter o ID.<br /><br/>Da próxima vez que o utilizador utiliza a sua aplicação nesse dispositivo, obter o ID de cliente que manteve.</li></ul><br /> **Nota:** respostas Bing pode ou não pode incluir este cabeçalho. Se a resposta inclui este cabeçalho, o ID de cliente de captura e utilizá-la para todos os pedidos subsequentes do Bing para o utilizador em que o dispositivo.<br /><br /> **Nota:** se incluir o X-MSEdge-ClientID, não pode incluir os cookies no pedido.|  
-|<a name="clientip" />X-MSEdge-ClientIP|Cabeçalho de pedido opcional.<br /><br /> O endereço IPv4 ou IPv6 do dispositivo cliente. O endereço IP é utilizado para detetar a localização do utilizador. Bing utiliza as informações de localização para determinar o comportamento de procura seguro.<br /><br /> **Nota:** embora opcional, é encorajados a sempre especifique este cabeçalho e o cabeçalho X-pesquisa de localização.<br /><br /> Não é obfuscate o endereço (por exemplo, alterando o último octeto para 0). Obfuscating os resultados de endereço na localização que não estão a ser em qualquer lugar, quase localização concreta do dispositivo, que poderá resultar no Bing que serve resultados errados.|  
-|<a name="location" />Localização de pesquisa X|Cabeçalho de pedido opcional.<br /><br /> Uma lista delimitada por ponto e vírgula dos pares chave/valor que descrevem a localização geográfica do cliente. Bing utiliza as informações de localização para determinar o comportamento de procura seguro e para devolver o conteúdo local relevante. Especifique o par chave/valor como \<chave\>:\<valor\>. Seguem-se as chaves que utiliza para especificar a localização do utilizador.<br /><br /><ul><li>LAT&mdash;necessário. A latitude da localização do cliente, em graus. A latitude tem de ser maior que ou igual a-90.0 e inferior ou igual a +90.0. Os valores negativos indicam latitudes Austrais e valores positivos indicam latitudes Norte.<br /><br /></li><li>muito&mdash;necessário. A longitude da localização do cliente, em graus. A longitude tem de ser maior que ou igual a-180.0 e inferior ou igual a +180.0. Os valores negativos indicam longitudes tsunami e valores positivos indicam longitudes Leste.<br /><br /></li><li>Re&mdash;necessário. O radius, no medidores, que especifica a precisão horizontal das coordenadas. Passe o valor devolvido pelo serviço de localização do dispositivo. Valores típicos podem estar 22m para GPS/Wi-Fi, 380m para triangulation Torre de célula e 18,000m para pesquisa inversa de IP.<br /><br /></li><li>TS&mdash;opcional. O carimbo de UTC UNIX da quando o cliente na localização. (O timestamp UNIX é o número de segundos desde 1 de Janeiro de 1970.)<br /><br /></li><li>HEAD&mdash;opcional. Cabeçalho relativo ou direção do levar do cliente. Especifique a direção da levar como graus de 0 a 360, contando no sentido horário em relação ao norte verdadeiro. Especifique esta chave apenas se o `sp` chave é diferente de zero.<br /><br /></li><li>SP&mdash;opcional. A velocidade horizontal (velocidade), em medidores por segundo, que viaja de dispositivo cliente.<br /><br /></li><li>ALT&mdash;opcional. Altitude do dispositivo cliente, no medidores.<br /><br /></li><li>são&mdash;opcional. O radius, no medidores, que especifica a precisão vertical das coordenadas. Especifique esta chave apenas se especificou o `alt` chave.<br /><br /></li></ul> **Nota:** apesar de muitas das chaves são opcionais, as informações que fornecer, o mais exata os resultados de localização são.<br /><br /> **Nota:** embora opcional, é encorajados a sempre especificar localização geográfica do utilizador. Fornecendo a localização é especialmente importante se o endereço IP do cliente não reflete com precisão a localização do utilizador físico (por exemplo, se o cliente utiliza VPN). Para obter melhores resultados, devem incluir este cabeçalho e o cabeçalho X-MSEdge-ClientIP mas, no mínimo, deve incluir este cabeçalho.|
+|<a name="acceptlanguage" />Aceite-Language|Cabeçalho do pedido opcional.<br /><br /> Uma lista delimitada por vírgulas de idiomas a utilizar para cadeias de caracteres de interface de usuário. A lista está por ordem de preferência decrescente. Para obter mais informações, incluindo o formato esperado, consulte [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este cabeçalho e o [setLang](#setlang) parâmetro de consulta são mutuamente exclusivas&mdash;não especificar ambos.<br /><br /> Se definir este cabeçalho, também tem de especificar o [cc](#cc) parâmetro de consulta. Para determinar o mercado para devolver resultados, o Bing utiliza o primeiro idioma suportado que encontra na lista e combina-o com o `cc` valor do parâmetro. Se a lista não inclui um idioma suportado, o Bing localiza o idioma e o mercado que oferece suporte a solicitação mais próximo ou ele utiliza um agregado ou padrão de mercado para os resultados. Para determinar o mercado que Bing utilizado, consulte o cabeçalho de BingAPIs de colocação no mercado.<br /><br /> Utilize este cabeçalho e o `cc` parâmetro de consulta apenas se especificar vários idiomas. Caso contrário, utilize o [mkt](#mkt) e [setLang](#setlang) parâmetros de consulta.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia que é utilizada como etiqueta numa interface de utilizador. Existem algumas cadeias de caracteres de interface de utilizador nos objetos de resposta de JSON. Todas as ligações às propriedades de Bing.com nos objetos de resposta aplicam-se o idioma especificado.|  
+|<a name="contenttype" />Tipo de conteúdo|Cabeçalho do pedido necessário.<br /><br />Tem de ser definido como multipart/form-data e incluir um parâmetro de limite (por exemplo, multipart/form-data; limite =\<cadeia de caracteres de limite\>). Para obter mais informações, consulte [formulário de tipos de conteúdo](#content-form-types).
+|<a name="market" />Mercado de BingAPIs|Cabeçalho de resposta.<br /><br /> O mercado utilizado pelo pedido. O formulário é \<languageCode\>-\<indicativo do país\>. Por exemplo, en-US.|  
+|<a name="traceid" />BingAPIs TraceId|Cabeçalho de resposta.<br /><br /> O ID da entrada de log que contém os detalhes do pedido. Quando ocorre um erro, capturar este ID. Se não for capaz de determinar e resolver o problema, inclua essa identificação, juntamente com as outras informações que fornecer a equipa de suporte.|  
+|<a name="subscriptionkey" />OCP-Apim-Subscription-Key|Cabeçalho do pedido necessário.<br /><br /> A chave de subscrição que recebeu quando se inscreveu para este serviço no [dos serviços cognitivos](https://www.microsoft.com/cognitive-services/).|  
+|<a name="pragma" />Pragma|Cabeçalho do pedido opcional<br /><br /> Por predefinição, o Bing devolve os conteúdos em cache, se disponível. Para impedir que o Bing retornando conteúdo em cache, defina o cabeçalho de Pragma para no cache (por exemplo, Pragma: não-cache).
+|<a name="useragent" />Agente de utilizador|Cabeçalho do pedido opcional.<br /><br /> O agente de utilizador com a origem do pedido. Bing utiliza o agente de utilizador para fornecer aos usuários móveis com uma experiência otimizada. Embora seja opcional, é encorajado a sempre especificar este cabeçalho.<br /><br /> O agente de utilizador deve ser a mesma cadeia de qualquer navegador usada envia. Para obter informações sobre agentes de utilizador, consulte [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Seguem-se exemplos de cadeias de caracteres do agente do usuário.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatível; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Toque; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 compilação/GINGERBREAD) AppleWebKit/533.1 (KHTML; como Gecko) versão/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU 6_1 de iPhone OS como Mac OS X) AppleWebKit/536.26 (KHTML; como Gecko) Mobile/10B142 iPhone4; 1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Toque; Rv:11.0) como Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; 7_0 de SO de CPU, como o Mac OS X) AppleWebKit/537.51.1 (KHTML, como Gecko) versão/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
+|<a name="clientid" />X-MSEdge-ID de cliente|Cabeçalho de solicitação e resposta opcionais.<br /><br /> O Bing utiliza este cabeçalho para fornecer aos utilizadores um comportamento consistente em chamadas de API do Bing. Bing, muitas vezes, por vários voos novos recursos e aprimoramentos, e utiliza o ID de cliente como uma chave para atribuir o tráfego de voos diferentes. Se não utilizar o mesmo ID de cliente para um utilizador em vários pedidos, Bing pode atribuir o utilizador a vários voos em conflito. A ser atribuído a vários voos em conflito pode levar a uma experiência de usuário inconsistente. Por exemplo, se a segunda solicitação tiver uma atribuição de voo diferentes que o primeiro, a experiência poderão ser inesperada. Além disso, o Bing pode utilizar o ID de cliente para personalizar os resultados da web para que o cliente IDs de histórico de pesquisas, fornecendo uma experiência mais rica para o utilizador.<br /><br /> O Bing utiliza também este cabeçalho para ajudar a melhorar as classificações de resultado ao analisar a atividade gerada por um ID de cliente. Ajudam os aprimoramentos de relevância de melhor qualidade dos resultados fornecidos pelas APIs do Bing e, em seguida permite maior taxas de cliques para o consumidor de API.<br /><br /> **Importante:** embora seja opcional, deve considerar este cabeçalho obrigado. Manter o ID de cliente em vários pedidos para o mesmo utilizador final e a combinação de dispositivo permite que 1) o consumidor de API receber uma experiência de usuário consistente e 2) mais elevadas taxas de cliques por meio de melhor qualidade dos resultados das APIs do Bing.<br /><br /> Seguem-se as regras de utilização básica que se aplicam a este cabeçalho.<br /><ul><li>Cada utilizador que utiliza a sua aplicação no dispositivo tem de ter um exclusivo, Bing gerados pelo ID de cliente.<br /><br/>Se não incluir este cabeçalho no pedido, o Bing gera um ID e devolve a mesma no cabeçalho de resposta de X-MSEdge-ID de cliente. O único momento em que não deve incluir esse cabeçalho num pedido é a primeira vez que o utilizador utiliza a sua aplicação nesse dispositivo.<br /><br/></li><li>**Atenção:** tem de garantir que este ID de cliente não é vinculação para quaisquer informações de conta de utilizador autenticado.</li><li>Utilize o ID de cliente para cada pedido de API do Bing que torna a sua aplicação para este utilizador no dispositivo.<br /><br/></li><li>Manter o ID de cliente. Para manter o ID de uma aplicação de browser, utilize um cookie HTTP persistente para garantir que o ID é utilizado em todas as sessões. Não utilize um cookie de sessão. Para outras aplicações, como as aplicações móveis, utilize o armazenamento persistente do dispositivo para manter o ID.<br /><br/>Da próxima vez que o utilizador utiliza a sua aplicação nesse dispositivo, obtenha o ID de cliente que manteve.</li></ul><br /> **Nota:** respostas Bing pode ou não pode incluir esse cabeçalho. Se a resposta inclui esse cabeçalho, capture o ID de cliente e usá-la para todos os pedidos subsequentes do Bing para o utilizador nesse dispositivo.<br /><br /> **Nota:** se incluir o ClientID de MSEdge X, não pode incluir os cookies no pedido.|  
+|<a name="clientip" />X-MSEdge-ClientIP|Cabeçalho do pedido opcional.<br /><br /> O endereço IPv4 ou IPv6 do dispositivo cliente. O endereço IP é utilizado para detetar a localização do utilizador. O Bing utiliza as informações de localização para determinar o comportamento de pesquisa segura.<br /><br /> **Nota:** embora seja opcional, é encorajado a sempre especificar esse cabeçalho e o cabeçalho X-pesquisa-Location.<br /><br /> Não é ofuscar o endereço (por exemplo, alterando o último octeto para 0). Ofuscar os resultados de endereço no local não estão sendo em qualquer lugar junto à localização do dispositivo real, que poderá resultar no Bing que serve os resultados de errado.|  
+|<a name="location" />Localização de pesquisa de X|Cabeçalho do pedido opcional.<br /><br /> Uma lista delimitada por ponto e vírgula de pares de chave/valor que descrevem a localização geográfica do cliente. O Bing utiliza as informações de localização para determinar o comportamento de pesquisa segura e retornar o conteúdo local relevante. Especificar o par chave/valor como \<chave\>:\<valor\>. Seguem-se as chaves que utilizar para especificar a localização do utilizador.<br /><br /><ul><li>LAT&mdash;necessário. A latitude da localização do cliente, em graus. A latitude tem de ser maior ou igual a -90,0 e menor ou igual a + 90,0. Valores negativos indicam as latitudes Austrais e valores positivos indicam as latitudes Norte.<br /><br /></li><li>longa&mdash;necessário. A longitude da localização do cliente, em graus. A longitude tem de ser maior ou igual a -180,0 e menor ou igual a + 180.0. Valores negativos indicam as longitudes ocidentais e leste longitudes de indicar valores positivos.<br /><br /></li><li>Re&mdash;necessário. O radius, em metros, que especifica a precisão horizontal das coordenadas. Passe o valor devolvido pelo serviço de localização do dispositivo. Valores típicos podem estar 22m para GPS/Wi-Fi, os 380m para triangulação de Torre de célula e 18,000m para pesquisa IP inversa.<br /><br /></li><li>TS&mdash;opcional. O carimbo de hora UNIX de UTC de quando o cliente estava no local. (O carimbo de hora UNIX é o número de segundos desde 1 de Janeiro de 1970.)<br /><br /></li><li>HEAD&mdash;opcional. O cliente rumo relativo ou direção de viagem. Especifica a direção de transporte como graus de 0 a 360, contagem para a direita em relação ao norte verdadeiro. Especifique esta chave apenas se o `sp` chave é diferente de zero.<br /><br /></li><li>SP&mdash;opcional. A velocidade horizontal (velocidade), em metros por segundo, o que o dispositivo cliente está em uma viagem.<br /><br /></li><li>ALT&mdash;opcional. A altitude do dispositivo cliente, em metros.<br /><br /></li><li>são&mdash;opcional. O radius, em metros, que especifica a precisão vertical das coordenadas. Especifique esta chave apenas se especificou o `alt` chave.<br /><br /></li></ul> **Nota:** embora muitas das chaves são opcionais, a obter mais informações fornecidas por si, são mais precisas dos resultados de localização.<br /><br /> **Nota:** embora seja opcional, é encorajado a sempre especificar a localização geográfica do utilizador. Fornecendo a localização é especialmente importante se o endereço IP do cliente não reflete com precisão local físico do usuário (por exemplo, se o cliente utiliza VPN). Para obter melhores resultados, deve incluir esse cabeçalho e o cabeçalho X-MSEdge-ClientIP mas, no mínimo, deve incluir esse cabeçalho.|
 
 > [!NOTE] 
-> Lembre-se de que os termos de utilização exigir a conformidade com todas as leis aplicáveis, incluindo à utilização destes cabeçalhos. Por exemplo, determinados jurisdictions, tais como Europa, existem requisitos para obter consentimento do utilizador antes de colocar a determinados dispositivos de controlo nos dispositivos de utilizador.
+> Lembre-se de que os termos de utilização exigir a conformidade com todas as leis aplicáveis, incluindo relativamente à utilização desses cabeçalhos. Por exemplo, em determinadas jurisdições, como a Europa, existem requisitos para obter o consentimento do utilizador antes de colocar a determinados dispositivos de controle em dispositivos de utilizador.
 
 
 <a name="content-form-types" />
 
-### <a name="content-form-types"></a>Tipos de conteúdo de formulário
+### <a name="content-form-types"></a>Tipos de conteúdo do formulário
 
-Cada pedido tem de incluir o cabeçalho Content-Type. O cabeçalho deve ser definido como: multipart /-dados do formulário; limites =\<cadeia limites\>, onde \<cadeia limites\> é uma cadeia exclusiva, opaco que identifica o limite de dados do formulário. Por exemplo, os limites = boundary_1234 abcd.
+Cada pedido tem de incluir o cabeçalho Content-Type. O cabeçalho deve ser definido como: multipart/form-data; limite =\<cadeia de caracteres de limites\>, onde \<cadeia de caracteres de limite\> é uma cadeia de identificador exclusiva e opaca que identifica o limite dos dados do formulário. Por exemplo, os limites = boundary_1234 abcd.
 
 
-Se enviar Visual pesquisa um token de imagem ou o URL, o seguinte mostra os dados do formulário que tem de incluir no corpo do POST. Os dados do formulário têm de incluir o cabeçalho de disposição de conteúdo e a respetiva `name` parâmetro tem de ser definido como "knowledgeRequest". Para obter detalhes sobre o `imageInfo` objeto, consulte [pedido](#the-request).
+Se enviar pesquisa Visual, um token de imagem ou o URL, o código a seguir mostra os dados do formulário que tem de incluir no corpo da POSTAGEM. Os dados do formulário tem de incluir o cabeçalho Content-Disposition e a respetiva `name` parâmetro tem de ser definido como "knowledgeRequest." Para obter detalhes sobre o `imageInfo` objeto, consulte [o pedido](#the-request).
 
 
 ```
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Se carregar uma imagem local, o seguinte mostra os dados do formulário que tem de incluir no corpo do POST. Os dados do formulário têm de incluir o cabeçalho de disposição de conteúdo. O `name` parâmetro tem de ser definido como "de imagem" e o `filename` parâmetro pode ser definido como qualquer cadeia. O cabeçalho de tipo de conteúdo pode ser definido para qualquer tipo de mime da imagem comummente utilizadas. O conteúdo do formulário é o binário da imagem. O tamanho da imagem máximo, pode carregar é de 1 MB. 
+Se carregar uma imagem do local, o código a seguir mostra os dados do formulário que tem de incluir no corpo da POSTAGEM. Os dados do formulário tem de incluir o cabeçalho Content-Disposition. Seus `name` parâmetro tem de ser definido como "imagem" e o `filename` parâmetro pode ser definido como qualquer cadeia de caracteres. É possível definir o cabeçalho Content-Type para qualquer tipo de mime da imagem comumente utilizados. O conteúdo do formulário é o binário da imagem. O tamanho da imagem máximo que pode carregar é de 1 MB. O maior da largura ou altura deve ser 1.500 pixéis ou menos.
 
 
 ```
@@ -160,7 +160,7 @@ Content-Type: image/jpeg
 --boundary_1234-abcd--
 ```
 
-O seguinte mostra como especificar a região de interesse de uma imagem carregada.
+O código a seguir mostra como especificar a região de interesse de uma imagem carregada.
 
 ```
 --boundary_1234-abcd
@@ -189,9 +189,9 @@ Content-Type: image/jpeg
 
 
 
-### <a name="example-request"></a>Exemplo de pedido
+### <a name="example-request"></a>Pedido de exemplo
 
-O seguinte mostra um pedido de informações de imagem completa que transmite um token de imagem e a região de interesse. Obter o token de informações de uma chamada anterior para /images/search.
+O código a seguir mostra um pedido de informações de imagem completa que passa um token de imagem e a região de interesse. Obtenha o token de informações a partir de uma chamada anterior para /images/search.
 
 
 ```  
@@ -224,7 +224,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ## <a name="the-response"></a>A resposta
 
-Se existem informações disponíveis para a imagem, a resposta contém um ou mais `tags` que contêm as informações. O `image` campo contém o token do insights para a imagem de entrada.
+Se existem informações disponíveis para a imagem, a resposta contém um ou mais `tags` que contêm as informações. O `image` campo contém o token de informações para a imagem de entrada.
 
 ```json
 {
@@ -242,7 +242,7 @@ Se existem informações disponíveis para a imagem, a resposta contém um ou ma
 }
 ```
 
-O `tags` campo contém um nome a apresentar e uma lista de ações (insights). Uma das etiquetas contém um `displayName` campo que está definido como uma cadeia vazia. Esta etiqueta contém as informações de predefinidos, tais como páginas Web que incluem a imagem, imagens visualmente semelhantes e compras origens para itens, encontrados na imagem. Porque é toda a imagem de interesse, a tag de insights predefinido não inclui o delimitadora caixas para as regiões de interesse.
+O `tags` campo contém um nome a apresentar e uma lista de ações (informações). Uma das etiquetas contém um `displayName` campo que está definido como uma cadeia vazia. Esta etiqueta contém as informações padrão, como páginas da Web que incluem a imagem, imagens visualmente similares e fontes de compras para itens encontrados na imagem. Como a imagem inteira é de interesse, a marca de informações padrão não inclui de delimitação de caixas para as regiões de interesse.
 
 
 ```json
@@ -269,19 +269,19 @@ O `tags` campo contém um nome a apresentar e uma lista de ações (insights). U
 }
 ```
 
-Para obter uma lista de informações do predefinido, consulte [predefinido insights](./default-insights-tag.md).
+Para obter uma lista das informações padrão, consulte [predefinido de insights](./default-insights-tag.md).
 
 
 
-As etiquetas restantes contêm outras informações que podem interessar ao utilizador. Por exemplo, se a imagem contém texto, uma das etiquetas pode incluir um insight TextResults, que contém o texto reconhecido. Em alternativa, se Bing reconhece uma entidade (pessoa, local ou coisa) na imagem, uma das etiquetas pode identificar a entidade. Pesquisa Visual também devolve um conjunto diverso de termos (etiquetas) derivado da imagem de entrada. Estas etiquetas permitem aos utilizadores explorar conceitos encontrados na imagem. Por exemplo, se a imagem de entrada de um athlete famosa, uma das etiquetas pode ser desporto, que contém ligações para as imagens de desporto.
+A restante contêm outras informações que podem ser interessantes para o usuário. Por exemplo, se a imagem contém texto, uma das etiquetas pode incluir uma resposta de TextResults, que contém o texto reconhecido. Em alternativa, se Bing reconhece uma entidade (pessoa, local ou coisa) na imagem, uma das etiquetas pode identificar a entidade. Pesquisa Visual também devolve um conjunto variado de termos (etiquetas) derivado a partir da imagem de entrada. Essas marcas permitem aos utilizadores explorar os conceitos da imagem. Por exemplo, se a imagem de entrada for de um famoso famoso, uma das etiquetas pode ser desporto, que contém ligações para imagens do desporto.
 
-Cada etiqueta inclui um nome de apresentação que pode utilizar para categorizar os conhecimentos delimitadora caixa que identifica a região de interesse aos quais se aplica os conhecimentos, insights próprios e uma miniatura da imagem. Por exemplo, se a imagem de uma pessoa wearing um jersey desporto, uma das etiquetas pode incluir uma caixa delimitadora que bounds o jersey e inclui VisualSearch e ProductVisualSearch insights. E outra tag pode incluir informações sobre ImageResults que contém um URL para um pedido de API /images/search obter imagens topically relacionadas com ou um URL de pesquisa de Bing.com orienta o utilizador para os resultados da pesquisa Bing.com imagem.
+Cada etiqueta inclui um nome de apresentação que pode utilizar para categorizar o insight, delimitação que identifica a região de interesse que se aplica a informação, as informações propriamente ditas e uma miniatura da imagem. Por exemplo, se a imagem de uma pessoa rei ou uma de manga comprida com desporto, uma das etiquetas pode incluir uma caixa delimitadora que ressalta a manga comprida e inclui informações VisualSearch e ProductVisualSearch. E outra etiqueta pode incluir uma informação de ImageResults que contém um URL para um pedido de API de /images/search para obter imagens topically relacionadas ou um URL de pesquisa de Bing.com que direciona o utilizador para os resultados de pesquisa de imagem Bing.com.
 
-Todas as etiquetas que não seja a etiqueta de insights predefinida incluem delimitadora caixas que identificam as regiões de interesse na imagem. Por exemplo, se a imagem inclui várias pessoas reconhecidas, as etiquetas podem incluir delimitadora caixas para cada uma das pessoas ou se a imagem contém itens clothing reconhecido, as etiquetas podem incluir delimitadora caixas para cada item clothing reconhecido. Pode utilizar as caixas de delimitador para criar frequente oportunidades sobre a imagem que quando clicado, fornecem detalhes sobre o conteúdo nessa região da imagem. Não deve incluir oportunidades de frequente numa imagem para caixas de delimitador que identificam toda a imagem.
+Todas as etiquetas que não seja a marca de informações padrão incluem delimitação de caixas que identificam as regiões de interesse na imagem. Por exemplo, se a imagem inclui várias pessoas reconhecidas, as etiquetas podem incluir delimitação de caixas para cada uma das pessoas, ou se a imagem contém itens de vestuário reconhecido, as etiquetas podem incluir delimitação de caixas para cada item de vestuário reconhecido. Pode usar as caixas de delimitadora para criar pontos de acesso em toda a imagem que quando clicado, fornecem detalhes sobre o conteúdo nessa região da imagem. Não deve incluir pontos de acesso numa imagem para caixas de delimitadora que identificam a imagem inteira.
 
 ### <a name="text-recognition"></a>Reconhecimento de texto
 
-Se a imagem contém o texto que o serviço reconhece, uma das etiquetas irá conter um insight TextResults (ação). Os conhecimentos `displayName` contém o texto reconhecido. 
+Se a imagem contém o texto que o serviço reconhece, uma das etiquetas conterá um insight TextResults (ação). A informação `displayName` contém o texto reconhecido. 
 
 ```json
     {
@@ -311,10 +311,10 @@ Se a imagem contém o texto que o serviço reconhece, uma das etiquetas irá con
     }
 ```
 
-Porque a tag `displayName` campo contém ##TextRecognition não utilize-o como uma categoria title no UX. Se ficar para qualquer nome que começa com # #. Em vez disso, utilize o nome a apresentar para a ação.
+Uma vez que a marca `displayName` campo contém ##TextRecognition, não usá-lo como um cargo de categoria a experiência do usuário. Que vai para qualquer nome que começa com # #. Em vez disso, utilize o nome a apresentar da ação.
 
 
-Reconhecimento de texto também pode reconhece as informações de contactos no cartões de visita, tal como números de telefone e endereços de correio eletrónico. A caixa delimitadora identifica a localização das informações de contactos no cartão. 
+Reconhecimento de texto também pode reconhecer as informações de contacto nos cartões de visita, como números de telefone e endereços de e-mail. A caixa delimitadora identifica a localização das informações de contato no cartão. 
 
 ```json
     {
@@ -400,7 +400,7 @@ Reconhecimento de texto também pode reconhece as informações de contactos no 
     }
 ```
 
-Se a imagem contém uma entidade reconhecida como uma pessoa, local ou coisa, uma das etiquetas pode incluir uma informação de entidade. Entidades de mensagens em fila também podem incluir trivia conforme mostrado no exemplo seguinte:
+Se a imagem contém uma entidade reconhecida como uma pessoa, local ou coisa, uma das etiquetas pode incluir uma informação de entidade. 
 
 ```json
     {
@@ -428,29 +428,6 @@ Se a imagem contém uma entidade reconhecida como uma pessoa, local ou coisa, um
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }
@@ -460,13 +437,13 @@ Se a imagem contém uma entidade reconhecida como uma pessoa, local ou coisa, um
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para começar a trabalhar rapidamente com o seu primeiro pedido, consulte os inícios rápidos: [c#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+Para começar rapidamente com o primeiro pedido, veja os inícios rápidos: [c#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
 
 Experimente a API. Aceda a [consola de teste de API de pesquisa Visual](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
 
 
-Familiarize-se com o [Visual referência da API de pesquisa](https://aka.ms/bingvisualsearchreferencedoc). A referência contém a lista de pontos finais, cabeçalhos e os parâmetros de consulta que pretende utilizar para pedir os resultados da pesquisa. Também inclui as definições dos objetos de resposta. 
+Familiarize-se com o [referência de API de pesquisa Visual](https://aka.ms/bingvisualsearchreferencedoc). A referência contém a lista de pontos finais, cabeçalhos e parâmetros de consulta que teria de utilizar para solicitar os resultados da pesquisa. Também inclui as definições dos objetos de resposta. 
 
-Não se esqueça de ler [utilizar do Bing e requisitos de apresentação](./use-and-display-requirements.md) , de modo não quebrar qualquer uma das regras sobre como utilizar os resultados da pesquisa.
+Não se esqueça de ler o artigo [Requisitos de Utilização e Apresentação do Bing](./use-and-display-requirements.md) para que não infrinja nenhuma das regras relativas à utilização dos resultados da pesquisa.
 
 

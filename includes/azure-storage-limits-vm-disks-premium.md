@@ -12,7 +12,7 @@
 
 | Tipo de Disco de Armazenamento Premium | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
+| Tamanho do disco |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 giB (4 TB)|
 | IOPs Máx por disco |500 |2300 |5000 |7500 |7500 |
 | Débito máx por disco |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
 | Número máx. de discos por conta de armazenamento |280 |70 |35 | 17 | 8 |

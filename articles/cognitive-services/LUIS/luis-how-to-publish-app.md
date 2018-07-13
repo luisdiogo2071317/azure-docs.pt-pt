@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 0f6ba76ede48502e4f3308b11d41bf141f0188fb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927779"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988841"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 Quando concluir a criação e teste a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicação mostra todas as associadas HTTP [pontos de extremidade](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e, por [chave](luis-how-to-manage-keys.md), em seguida, são integradas em qualquer aplicação cliente, chatbot ou back-end. 
@@ -91,9 +91,9 @@ As intenções e suas pontuações também estão incluídos os registos de pont
 ```
 
 ### <a name="enable-bing-spell-checker"></a>Ativar o Verificador de ortografia do Bing 
-Na **definições de url de ponto final**, o **corretor ortográfico Bing ativar** caixa de seleção permite que o LUIS corrigir as palavras incorretas antes de predição. Isso exige que crie uma  **[chave de verificação ortográfica do Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Assim que a chave é criada, dois parâmetros de cadeia de consulta são adicionados para o URL de ponto final na página de publicação. 
+Na **definições de url de ponto final**, o **corretor ortográfico Bing ativar** caixa de seleção permite que o LUIS corrigir as palavras incorretas antes de predição. Criar uma  **[chave de verificação ortográfica do Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Assim que a chave é criada, dois parâmetros de cadeia de consulta são adicionados para o URL de ponto final na página de publicação. 
 
-Se constrói suas próprias URLs para a sua aplicação de chamada de LUIS, certifique-se de que o **verificação ortográfica = true** parâmetro de cadeia de consulta e o **bing-ortográfica-check-subscription-key = {YOUR_BING_KEY_HERE}**. Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
+Adicionar a **verificação ortográfica = true** parâmetro de cadeia de consulta e o **bing-ortográfica-check-subscription-key = {YOUR_BING_KEY_HERE}** . Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
 
 ```JSON
 {

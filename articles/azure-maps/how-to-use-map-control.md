@@ -1,37 +1,37 @@
 ---
-title: Como utilizar o controlo de mapa de mapas do Azure | Microsoft Docs
-description: Saiba como utilizar a biblioteca de Javascript do lado do cliente de controlo de mapa de mapas do Azure.
-author: kgremban
-ms.author: kgremban
+title: Como usar o controle de mapa do Azure Maps | Documentos da Microsoft
+description: Saiba como utilizar a biblioteca de Javascript do lado do cliente de controlo de mapas do Azure Maps.
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 0b0549e7a7ea6389597e483f239a75743a96fef1
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317969"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988896"
 ---
-# <a name="how-to-use-the-azure-maps-map-control"></a>Como utilizar o controlo de mapa de mapas do Azure
-A biblioteca de Javascript do lado do cliente de controlo de mapa permite-lhe compor maps e funcionalidade embedded Azure mapeia para o seu web ou aplicação móvel. 
+# <a name="how-to-use-the-azure-maps-map-control"></a>Como usar o controle de mapa do Azure Maps
+A biblioteca de Javascript do lado do cliente de controlo de mapas permite-lhe compor mapas e funcionalidade do Azure Maps embedded nas suas aplicações móveis ou web. 
 
-## <a name="create-a-new-map-in-a-web-page"></a>Criar um mapa de novo numa página web
+## <a name="create-a-new-map-in-a-web-page"></a>Criar um novo mapa numa página da web
 
-Pode incorporar um mapa de uma página web através da biblioteca de Javascript do lado do cliente de controlo de mapa.
+Para incorporar um mapa numa página da web, usando a biblioteca de Javascript do lado do cliente de controlo do mapa.
 
-1. Criar um novo ficheiro e nome MapSearch.html.
+1. Crie um novo ficheiro e dê-lhe o nome Mapsearch.
 
-2. Adicione as referências de origem de mapas de Azure folha de estilos e script, para o `<head>` elemento do ficheiro:
+2. Adicionar as referências de origem de Azure Maps folha de estilo e script, para o `<head>` elemento do arquivo:
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
     ```
     
-3. Para compor um mapa de novo no seu browser, adicione um **#map** referência no `<style>` elemento.
+3. Para processar um novo mapa no seu browser, adicione uma **#map** referência no `<style>` elemento.
 
     ```html
     #map {
@@ -40,7 +40,7 @@ Pode incorporar um mapa de uma página web através da biblioteca de Javascript 
             }
     ``` 
     
-4. Para inicializar o controlo de mapa, definir uma nova secção no corpo html e criar um script. Utilize a sua própria chave de conta do Azure Maps no script. Se precisar de criar uma conta ou a encontrar a chave, consulte [como gerir a sua conta de mapas do Azure e as chaves](how-to-manage-account-keys.md)
+4. Para inicializar o controlo do mapa, definir uma nova seção no corpo do html e criar um script. Utilize a sua própria chave de conta do Azure Maps no script. Se precisar de criar uma conta ou encontrar a sua chave, consulte [como gerir a sua conta do Azure Maps e as chaves](how-to-manage-account-keys.md)
 
     ```html
     <div id="map">
@@ -55,11 +55,11 @@ Pode incorporar um mapa de uma página web através da biblioteca de Javascript 
     </div>
     ```
     
-5. Abra o ficheiro no seu browser e visualizar o mapa composto.
+5. Abra o ficheiro no seu navegador da web e ver o mapa processado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo mostrou como criar um mapa básico com a sua chave de mapas de Azure. Para obter mais exemplos de código adicionar ao seu maps, consulte os artigos seguintes: 
+Este artigo mostrou como criar um mapa básico com a sua chave de mapas do Azure. Para obter mais exemplos de código adicionar a seus mapas, veja os artigos seguintes: 
 
 * [Criar um mapa](map-create.md)
 * [Adicionar um pin](map-add-pin.md)

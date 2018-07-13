@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a7960ab4aee80c7d15ea0f031790dd089424565d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 089835d9c60780fb90f5c19c75c185ee0a908a25
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610262"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007282"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utilizar um Windows VM Managed Service Identity (MSI) para aceder a Resource Manager
 
@@ -52,7 +52,7 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o M
 5.  Para selecionar um novo **grupo de recursos** no qual criar a sua máquina virtual, escolha **criar nova**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Na página Definições, mantenha as predefinições e clique em **OK**.
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar o MSI na sua VM 
 
@@ -62,11 +62,11 @@ Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem a necessidade
 2.  Na barra de navegação esquerdo, clique em **configuração**. 
 3.  Verá **identidade do serviço gerido**. Para registar e ativar o MSI, selecione **Sim**, se desejar para desabilitá-lo, selecione não. 
 4.  Certifique-se de que clica **guardar** para guardar a configuração.  
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Se desejar verificar e certifique-se de que extensões estão nesta VM, clique em **extensões**. Se estiver ativado MSI, em seguida, **ManagedIdentityExtensionforWindows** aparecerá na lista.
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Conceder o acesso à sua VM a um grupo de recursos no Resource Manager
 Com o MSI seu código pode obter tokens de acesso para se autenticarem nos recursos que suportam a autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Em primeiro lugar, precisamos de conceder acesso de identidade desta VM a um recurso no Resource Manager, neste caso, o grupo de recursos no qual a VM está contida.  
@@ -79,7 +79,7 @@ Com o MSI seu código pode obter tokens de acesso para se autenticarem nos recur
 6.  Em seguida, certifique-se a subscrição correta está listada na **subscrição** lista pendente. E para **grupo de recursos**, selecione **todos os grupos de recursos**. 
 7.  Por fim, no **selecionar** escolha a sua VM do Windows no menu pendente e clique **guardar**.
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso com a identidade da VM e utilizá-la para chamar o Azure Resource Manager 
 

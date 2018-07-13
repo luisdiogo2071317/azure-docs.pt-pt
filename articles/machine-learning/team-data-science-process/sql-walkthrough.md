@@ -1,6 +1,6 @@
 ---
-title: Criar e implementar um modelo de machine learning utilizar o SQL Server numa VM do Azure | Microsoft Docs
-description: Processo de análise avançada e tecnologia em ação
+title: Criar e implementar um modelo de aprendizagem automática com o SQL Server numa VM do Azure | Documentos da Microsoft
+description: Processo de análise avançada e a tecnologia em ação
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 56e338c7bf28bff3fd40ac35c849b2fdf9b19ed6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 89fb805ac64be358ed4f52865d2e89ab16fe2b17
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839015"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005803"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
-Neste tutorial, a guiá-lo durante o processo de criar e implementar um modelo de machine learning com o SQL Server e um conjunto de dados publicamente disponível – o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciências de dados padrão: ingestão e explorar os dados, engenheiro de funcionalidades para o facilitar a aprendizagem, em seguida, criar e implementar um modelo.
+Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
 
-## <a name="dataset"></a>NYC Taxi viagens descrição do conjunto de dados
-Os dados de NYC Taxi viagem cerca de 20GB de ficheiros CSV comprimidos (GB de ~ 48 descomprimido), que inclui mais de 173 milhões de viagens individuais e os fares paga para cada viagem. Cada registo viagem inclui a localização de recolha e drop-off e a hora, acesso anónimos (controlador) número de licença e número de medallion (id exclusivo do taxi). Os dados abrange todos os viagens no ano 2013 e são fornecidos nos seguintes dois conjuntos de dados de cada mês:
+## <a name="dataset"></a>Descrição do conjunto de dados automático passar NYC táxis
+Os dados da viagem de táxis de NYC são cerca de 20GB de arquivos compactados de CSV (GB de ~ 48 descomprimido), que consiste em mais de 173 milhões de viagens individuais e os fares pago para cada viagem. Cada registo de viagem inclui a localização de recolha e de entrega e tempo, hack anónimo (driver) número de licença e o número de medallion (id exclusivo de táxis). Os dados abrange todas as viagens no ano de 2013 e são fornecidos no seguintes dois conjuntos de dados para todos os meses:
 
-1. O 'trip_data CSV contém detalhes viagem, tais como o número de passageiros, recolha e dropoff pontos, duração de viagem e comprimento viagem. Seguem-se alguns registos de exemplo:
+1. O 'trip_data CSV contém detalhes de viagem, como o número de passageiros, recolha e pontos de redução, duração de viagem e comprimento de viagem. Aqui estão alguns exemplos de registros:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -36,7 +36,7 @@ Os dados de NYC Taxi viagem cerca de 20GB de ficheiros CSV comprimidos (GB de ~ 
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. O trip_fare CSV contém detalhes de fare paga para cada viagem, tais como o tipo de pagamento, a quantidade de fare, surcharge e, sugestões e impostos tolls e a quantidade total paga. Seguem-se alguns registos de exemplo:
+2. O trip_fare CSV contém detalhes de Europeia pago para cada viagem, como o tipo de pagamento, a quantidade de Europeia, sobretaxa e impostos, dicas e pedágio e o valor total pago. Aqui estão alguns exemplos de registros:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -45,121 +45,121 @@ Os dados de NYC Taxi viagem cerca de 20GB de ficheiros CSV comprimidos (GB de ~ 
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-A chave exclusiva para associar a viagem\_dados e viagem\_fare é composto por campos: medallion, acesso\_licenciamento e a recolha\_datetime.
+A chave exclusiva para aderir a viagem\_dados e viagem\_Europeia é composta pelos campos: medallion, aceder de modo ilícito\_licença e recolha\_datetime.
 
-## <a name="mltasks"></a>Exemplos de predição de tarefas
-Iremos irá formular três problemas de predição com base no *sugestão\_quantidade*, nomeadamente:
+## <a name="mltasks"></a>Exemplos de tarefas de predição
+Podemos irá formular três problemas de previsão com base na *sugestão\_quantidade*, ou seja:
 
-1. Classificação do binária: prever ou não uma sugestão foi paga para uma viagem, ou seja, um *sugestão\_quantidade* que é superior ao $0 é um exemplo positivo, enquanto um *sugestão\_quantidade* $ 0 é um exemplo negativo.
-2. Classificação de várias classes: prever o intervalo de sugestão paga para a viagem. Iremos dividir os *sugestão\_quantidade* em cinco intervalos binários ou classes:
+1. Classificação binária: prever se ou não uma dica foi paga por uma viagem, ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é uma exemplo negativo.
+2. Classificação multiclasses: prever o intervalo de sugestão pago para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco contentores ou classes:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tarefa de regressão: para prever a quantidade de sugestão paga para uma viagem.  
+3. Tarefa de regressão: para prever a quantidade de sugestão pago por uma viagem.  
 
-## <a name="setup"></a>Ambiente de ciência de dados de definição cópias de segurança do Azure para análise avançada
-Como pode o [planear o ambiente](plan-your-environment.md) guia, existem várias opções para trabalhar com o conjunto de dados NYC Taxi viagens no Azure:
+## <a name="setup"></a>Ambiente de ciência de dados de configuração cópia de segurança do Azure para análise avançada
+Como pode ver a partir do [planear o ambiente](plan-your-environment.md) guia, há várias opções para trabalhar com o conjunto de dados de viagens de táxis de NYC no Azure:
 
-* Trabalhar com os dados de blobs do Azure e o modelo no Azure Machine Learning
-* Carregar os dados para uma base de dados do SQL Server e o modelo no Azure Machine Learning
+* Trabalhar com os dados em blobs do Azure, em seguida, o modelo no Azure Machine Learning
+* Carregar os dados para uma base de dados do SQL Server, em seguida, o modelo no Azure Machine Learning
 
-Neste tutorial, iremos demonstrar importação paralelo em massa de dados para um SQL Server, exploração de dados, a funcionalidade de engenharia e para baixo amostragem utilizando o SQL Server Management Studio, bem como utilizar IPython bloco de notas. [Scripts de exemplo](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) e [IPython blocos de notas](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) são partilhados no GitHub. Um bloco de notas do exemplo IPython para trabalhar com os dados de blobs do Azure também está disponível na mesma localização.
+Neste tutorial, iremos demonstrar importação em massa paralela dos dados para um SQL Server, exploração de dados, a funcionalidade de engenharia e para baixo de amostragem com o SQL Server Management Studio, bem como utilizar o IPython Notebook. [Scripts de exemplo](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) e [IPython notebooks](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) compartilhados no GitHub. Um bloco de notas de IPython de exemplo para trabalhar com os dados em blobs do Azure também está disponível na mesma localização.
 
 Para configurar o ambiente de ciência de dados do Azure:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md)
 2. [Criar uma área de trabalho do Azure Machine Learning](../studio/create-workspace.md)
-3. [Aprovisionar uma máquina de Virtual de ciência de dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e um servidor de IPython bloco de notas.
+3. [Aprovisionar uma máquina de Virtual de ciência de dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e servidor IPython Notebook.
    
    > [!NOTE]
-   > Os scripts de exemplo e blocos de notas IPython serão transferidos para a máquina virtual de ciência de dados durante o processo de configuração. Quando o script de pós-instalação VM estiver concluída, os exemplos estarão disponíveis na biblioteca de documentos da VM:  
+   > Os scripts de exemplo e IPython notebooks serão transferidos para a sua máquina de virtual de ciência de dados durante o processo de configuração. Quando tiver concluído o script de pós-instalação de VM, os exemplos será na biblioteca de documentos da sua VM:  
    > 
    > * Scripts de exemplo: `C:\Users\<user_name>\Documents\Data Science Scripts`  
    > * Blocos de notas do exemplo IPython: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-   >   onde `<user_name>` é o nome de início de sessão do Windows da VM. Iremos dar as pastas de exemplo como **Scripts de exemplo** e **blocos de notas do exemplo IPython**.
+   >   onde `<user_name>` é o nome de início de sessão do Windows da sua VM. Nós nos referiremos às pastas de exemplo como **Scripts de exemplo** e **blocos de notas do exemplo IPython**.
    > 
    > 
 
-Com base no tamanho do conjunto de dados, localização da origem de dados e o ambiente de destino do Azure selecionado, este cenário é semelhante à [cenário \#5: SQL Server numa VM do Azure de destino do conjunto de dados grande nos ficheiros de locais,](plan-sample-scenarios.md#largelocaltodb).
+Com base no tamanho do conjunto de dados, localização de origem de dados e o ambiente de destino do Azure selecionado, este cenário é semelhante à [cenário \#5: SQL Server na VM do Azure de destino do conjunto de dados grandes num local de arquivos,](plan-sample-scenarios.md#largelocaltodb).
 
-## <a name="getdata"></a>Obter os dados a partir da origem pública
-Para obter o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados da sua localização pública, poderá utilizar qualquer um dos métodos descritos em [mover dados para e do armazenamento de Blobs do Azure](move-azure-blob.md) para copiar os dados para a nova máquina virtual.
+## <a name="getdata"></a>Obter os dados de origem pública
+Para obter o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados da localização pública, pode utilizar qualquer um dos métodos descritos [mover dados de e para armazenamento de Blobs do Azure](move-azure-blob.md) para copiar os dados para a sua nova máquina virtual.
 
-Para copiar os dados utilizando o AzCopy:
+Para copiar os dados com AzCopy:
 
 1. Inicie sessão na sua máquina virtual (VM)
-2. Criar um novo diretório num disco de dados da VM (Nota: não utilize o disco temporário que é fornecido com a VM como um disco de dados).
-3. Na janela de linha de comandos, execute a seguinte linha de comandos do Azcopy substituindo < path_to_data_folder > com a sua pasta de dados que criou no (2):
+2. Criar um novo diretório no disco de dados da VM (Nota: não utilize o disco temporário que vem com a VM como um disco de dados).
+3. Numa janela de linha de comandos, execute a seguinte linha de comando do Azcopy substituir < path_to_data_folder > a sua pasta de dados criada no (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
    
-    Quando tiver concluído o AzCopy, um total de 24 zipado ficheiros CSV (12 para viagem\_dados e 12 para viagem\_fare) deve estar na pasta de dados.
-4. Descomprimir os ficheiros transferidos. Tenha em atenção a pasta onde residem os ficheiros descomprimidos. Esta pasta irá ser referida como o < caminho\_para\_dados\_ficheiros\>.
+    Quando tiver concluído o AzCopy, um total de 24 comprimido ficheiros CSV (12 da viagem\_dados e 12 para viagem\_Europeia) deve estar na pasta de dados.
+4. Descompacte os ficheiros transferidos. Tenha em atenção a pasta onde residem os ficheiros descomprimidos. Esta pasta irá ser referida como o < caminho\_para\_dados\_ficheiros\>.
 
 ## <a name="dbload"></a>Dados de importação em massa na base de dados do SQL Server
-O desempenho de carregamento/transferência de grandes quantidades de dados para uma base de dados do SQL Server e consultas subsequentes pode ser melhorado utilizando *particionada tabelas e vistas*. Nesta secção, iremos segui as instruções descritas em [paralelo em massa importar utilizando o SQL Server partição tabelas de dados](parallel-load-sql-partitioned-tables.md) para criar uma nova base de dados e carregar os dados para as tabelas particionadas em paralelo.
+O desempenho de carregamento/transferência de grandes quantidades de dados para uma base de dados SQL e consultas subsequentes pode ser melhorado usando *vistas e tabelas Particionadas*. Nesta secção, vamos seguir as instruções descritas [paralelas em massa dados importação usando SQL tabelas de partição](parallel-load-sql-partitioned-tables.md) para criar uma nova base de dados e carregar os dados para tabelas particionadas em paralelo.
 
-1. Enquanto tem sessão iniciada sua VM, iniciar **SQL Server Management Studio**.
-2. Estabelecer ligação utilizando a autenticação do Windows.
+1. Com sessão iniciada sua VM, iniciar **SQL Server Management Studio**.
+2. Ligue-se de utilizar a autenticação do Windows.
    
     ![Ligação SSMS][12]
-3. Se ainda não tiver alterado o modo de autenticação do SQL Server e criado um novo utilizador de início de sessão do SQL Server, abra o ficheiro de script com o nome **alterar\_auth.sql** no **Scripts de exemplo** pasta. Altere o nome de utilizador predefinido e a palavra-passe. Clique em **! Executar** na barra de ferramentas para executar o script.
+3. Se ainda não tiver alterado o modo de autenticação do SQL Server e criado um novo utilizador de início de sessão SQL, abra o ficheiro de script denominado **alterar\_auth.sql** no **Scripts de exemplo** pasta. Altere o nome de utilizador predefinido e a palavra-passe. Clique em **! Executar** na barra de ferramentas para executar o script.
    
-    ![Executar o Script][13]
-4. Certifique-se de e/ou alterar os SQL Server da base de dados e registo de pastas predefinidas para se certificar de que serão armazenadas no disco de dados recentemente criado bases de dados. A imagem de VM do SQL Server que está otimizada para cargas de datawarehousing está pré-configurada com discos de dados e de registo. Se a VM não inclui um disco de dados e adicionar novos discos rígidos virtuais durante o processo de configuração VM, altere as pastas predefinidas da seguinte forma:
+    ![Executar Script][13]
+4. Certifique-se de e/ou alterar os SQL Server da base de dados e de registo pastas predefinidas para se certificar de que serão armazenadas num disco de dados recém-criadas bases de dados. A imagem de VM do SQL Server que está otimizada para cargas de datawarehousing é previamente configurada com discos de dados e de registo. Se a VM não incluía um disco de dados e adicionados novos discos rígidos virtuais durante o processo de configuração VM, altere as pastas padrão da seguinte forma:
    
    * Faça duplo clique o nome do servidor de SQL no painel esquerdo e clique em **propriedades**.
      
        ![Propriedades do SQL Server][14]
-   * Selecione **definições de base de dados** do **selecionar uma página** lista à esquerda.
-   * Certifique-se de e/ou alterar o **localizações predefinidas de base de dados** para o **disco de dados** localizações à sua escolha. Este é onde novas bases de dados residem se criado com as predefinições de localização.
+   * Selecione **definições de base de dados** partir a **selecionar uma página** lista à esquerda.
+   * Certifique-se de e/ou alterar o **localizações predefinidas de base de dados** para o **disco de dados** localizações da sua preferência. Isso é onde residem os novos bancos de dados se criado com as predefinições de localização.
      
-       ![Predefinições de base de dados do SQL Server][15]  
-5. Para criar uma nova base de dados e um conjunto de grupos de ficheiros para armazenar as tabelas particionadas, abra o script de exemplo **criar\_db\_default.sql**. O script irá criar uma nova base de dados com o nome **TaxiNYC** e 12 grupos de ficheiros na localização de dados predefinida. Cada grupo de ficheiros irá conter um mês de viagem\_dados e viagem\_fare dados. Modificar o nome de base de dados, se assim o desejar. Clique em **! Executar** para executar o script.
-6. Em seguida, crie duas tabelas de partição, um para a viagem\_dados e outra para a viagem\_fare. Abra o script de exemplo **criar\_particionada\_table.sql**, que irá:
+       ![Predefinições de base de dados SQL][15]  
+5. Para criar uma nova base de dados e um conjunto de grupos de arquivos para armazenar as tabelas particionadas, abra o script de exemplo **crie\_db\_default.sql**. O script irá criar uma nova base de dados com o nome **TaxiNYC** e 12 grupos de ficheiros na localização de dados predefinida. Cada grupo de ficheiros irá conter um mês de viagem\_dados e viagem\_se comportarão de dados. Modifique o nome de base de dados, se assim o desejar. Clique em **! Executar** para executar o script.
+6. Em seguida, crie duas tabelas de partição, uma para a viagem\_dados e outro para a viagem\_Europeia. Abra o script de exemplo **crie\_particionada\_table.sql**, que será:
    
    * Crie uma função de partição para dividir os dados por mês.
    * Crie um esquema de partição para mapear dados de cada mês para um grupo de ficheiros diferente.
-   * Criar duas tabelas particionadas mapeadas para o esquema de partição: **nyctaxi\_viagem** vai conter a viagem\_dados e **nyctaxi\_fare** vai conter a viagem\_fare dados.
+   * Criar duas tabelas particionadas mapeadas para o esquema de partição: **nyctaxi\_viagem** manterá a viagem\_dados e **nyctaxi\_Europeia** manterá a viagem\_se comportarão de dados.
      
      Clique em **! Executar** para executar o script e criar as tabelas particionadas.
-7. No **Scripts de exemplo** pasta, existem dois scripts do PowerShell de exemplo fornecidos para demonstrar importa paralela em massa de dados de tabelas do SQL Server.
+7. Na **Scripts de exemplo** pasta, há dois scripts do PowerShell de exemplo fornecidos para demonstrar em massa paralela importa de dados para tabelas do SQL Server.
    
-   * **BCP\_paralelas\_generic.ps1** é um script genérico para importar dados para uma tabela de paralelo em massa. Modificar este script para definir as variáveis de entrada e de destino, conforme indicado nas linhas de comentário no script.
-   * **BCP\_paralelas\_nyctaxi.ps1** é uma versão de pré-configurada do script genérico e pode ser utilizado para carregar ambas as tabelas para os dados de NYC Taxi viagens.  
-8. Clique com botão direito do **bcp\_paralelas\_nyctaxi.ps1** nome do script e clique em **editar** para abri-lo no PowerShell. Reveja as variáveis predefinidas e modificar, de acordo com o nome de base de dados selecionada, a pasta de dados de entrada, pasta de registo de destino e caminhos para os ficheiros de formato de exemplo **nyctaxi_trip.xml** e **nyctaxi\_fare.xml** (fornecidas a **Scripts de exemplo** pasta).
+   * **BCP\_paralela\_generic.ps1** é um script genérico para dados de importação em massa paralela numa tabela. Modificar esse script para definir as variáveis de entrada e de destino, conforme indicado nas linhas de comentário no script.
+   * **BCP\_paralela\_nyctaxi.ps1** é uma versão pré-configurada do script genérico e pode ser usado para carregar as duas tabelas para os dados de viagens de táxis de NYC.  
+8. Com o botão direito a **bcp\_paralela\_nyctaxi.ps1** nome do script e clique em **editar** para abri-lo no PowerShell. Reveja as variáveis predefinidas e modificar de acordo com seu nome de base de dados selecionada, a pasta de dados de entrada, a pasta de registo de destino e a caminhos para os ficheiros de formato de exemplo **nyctaxi_trip.xml** e **nyctaxi\_fare.xml** (fornecidas a **Scripts de exemplo** pasta).
    
-    ![Dados de importação em volume][16]
+    ![Dados de importação em massa][16]
    
-    Também pode selecionar o modo de autenticação, a predefinição é a autenticação do Windows. Clique na seta verde na barra de ferramentas para executar. O script irá iniciar 24 operações de importação de em massa em paralelo, 12 para cada tabela particionada. Pode monitorizar o progresso da importação de dados, abrindo a pasta de dados do SQL Server predefinida como conjunto acima.
-9. O script do PowerShell relatórios o inicial e final vezes. Quando todos os em massa importações concluída, a hora de fim é comunicada. Verifique a pasta de registo de destino para verificar se as importações em massa foram bem-sucedidas, ou seja, não existem erros reportados na pasta de registo de destino.
-10. A base de dados está agora pronto para exploração, engenharia da funcionalidade e outras operações conforme pretendido. Uma vez que as tabelas são divididos em partições em conformidade com a **recolha\_datetime** campo, consultas, que incluem **recolha\_datetime** condições no **onde** cláusula será vantajoso contar com o esquema de partição.
-11. No **SQL Server Management Studio**, explore o script de exemplo fornecidos **exemplo\_queries.sql**. Para executar qualquer uma das consultas de exemplo, realce as linhas de consulta, em seguida, clique em **! Executar** na barra de ferramentas.
-12. Os dados de NYC Taxi viagens são carregados em duas tabelas separadas. Para melhorar a operações de associação, recomenda vivamente para as tabelas de índice. O script de exemplo **criar\_particionada\_index.sql** cria índices particionados na chave composta associação **medallion, acesso\_licença e recolha\_ DateTime**.
+    Também pode selecionar o modo de autenticação, a predefinição é a autenticação do Windows. Clique na seta verde na barra de ferramentas para executar. O script iniciará 24 operações de importação de em massa em paralelo, 12 para cada tabela particionada. Pode monitorar o progresso da importação de dados, abrindo a pasta de dados do SQL Server predefinida conforme definido acima.
+9. O script do PowerShell os relatórios de horas de início e fim. Quando tudo em massa imports concluída, é comunicado o tempo final. Verifique a pasta de registo de destino para verificar que as importações em massa foram bem-sucedidas, ou seja, não existem erros relatados na pasta de registo de destino.
+10. A base de dados está agora pronto para exploração, engenharia de funcionalidades e outras operações conforme pretendido. Uma vez que as tabelas são particionadas de acordo com o **recolha\_datetime** campo, consultas que incluem **recolha\_datetime** condições no **onde** cláusula irá beneficiar o esquema de partição.
+11. Na **SQL Server Management Studio**, explore o script de exemplo fornecido **exemplo\_queries.sql**. Para executar qualquer um dos exemplos de consultas, destacar as linhas de consulta, em seguida, clique em **! Executar** na barra de ferramentas.
+12. Os dados de viagens de táxis de NYC são carregados em duas tabelas separadas. Para melhorar as operações de associação, é altamente recomendado para as tabelas de índice. O script de exemplo **crie\_particionada\_index.sql** cria índices particionados na chave de junção compostos **medallion, aceder de modo ilícito\_licença e recolha\_ DateTime**.
 
-## <a name="dbexplore"></a>Exploração de dados e de engenharia da funcionalidade no SQL Server
-Nesta secção, iremos efetuar geração de exploração e funcionalidade de dados através da execução de consultas SQL diretamente no **SQL Server Management Studio** utilizando a base de dados do SQL Server criado anteriormente. Um script de exemplo com o nome **exemplo\_queries.sql** é fornecido no **Scripts de exemplo** pasta. Modificar o script para alterar o nome de base de dados, se for diferente da predefinição: **TaxiNYC**.
+## <a name="dbexplore"></a>Exploração de dados e de engenharia de funcionalidades no SQL Server
+Nesta secção, iremos efetuar geração de exploração e a funcionalidade de dados ao executar consultas SQL diretamente na **SQL Server Management Studio** utilizando a base de dados do SQL Server criado anteriormente. Um script de exemplo chamado **amostra\_queries.sql** é fornecido no **Scripts de exemplo** pasta. Modificar o script para alterar o nome de base de dados, se for diferente da predefinição: **TaxiNYC**.
 
 Neste exercício, iremos:
 
-* Ligar ao **SQL Server Management Studio** utilizando a autenticação do Windows ou utilizando a autenticação do SQL Server e o nome de início de sessão do SQL Server e a palavra-passe.
-* Explore as distribuições de dados de alguns campos no variando intervalos de tempo.
-* Investigue a qualidade dos dados dos campos de latitude e longitude.
-* Gerar etiquetas de classificação de várias classes e binária com base no **sugestão\_quantidade**.
-* Gerar funcionalidades e computação/comparar as distâncias de viagem.
-* Associar as duas tabelas e extrair amostra aleatória que será utilizada para criar modelos.
+* Ligar à **SQL Server Management Studio** com a autenticação do Windows ou utilizando a autenticação do SQL e o nome de início de sessão SQL e a palavra-passe.
+* Explore as distribuições de dados de alguns campos em várias janelas de tempo.
+* Investigue a qualidade dos dados dos campos de longitude e latitude.
+* Gerar etiquetas de classificação binária e várias classes com base na **sugestão\_quantidade**.
+* Gerar recursos e a computação/compare distâncias de viagem.
+* Junte-se as duas tabelas e extraia uma amostra aleatória que será utilizada para criar modelos.
 
-Quando estiver pronto para continuar para o Azure Machine Learning, o utilizador pode optar por:  
+Quando estiver pronto para avançar para o Azure Machine Learning, pode:  
 
-1. Guardar a consulta SQL final para extrair os dados de exemplo e copiar-colar a consulta diretamente para um [importar dados] [ import-data] módulo no Azure Machine Learning, ou
-2. Manter a amostragem e foi desenvolvidos dados que pretende utilizar para criar uma nova base de dados do modelo de tabela e utilizam a tabela de novo no [importar dados] [ import-data] módulo no Azure Machine Learning.
+1. Guardar a consulta SQL final para extrair e os dados de exemplo e copiar-colar a consulta diretamente para um [importar dados] [ import-data] módulo no Azure Machine Learning, ou
+2. Manter a amostragem e tabela de dados de engenharia que planeia utilizar para o modelo de criação de uma nova base de dados e utilizam a nova tabela no [importar dados] [ import-data] módulo no Azure Machine Learning.
 
-Nesta secção, irá guardar a consulta final para extrair e os dados de exemplo. O segundo método é demonstrado a [exploração de dados e funcionalidade de engenharia no bloco de notas do IPython](#ipnb) secção.
+Nesta secção, salvaremos a consulta final para extrair e os dados de exemplo. O segundo método é demonstrado a [exploração de dados e a funcionalidade de engenharia no IPython Notebook](#ipnb) secção.
 
-Para uma verificação rápida do número de linhas e colunas nas tabelas preenchido anteriormente utilizando a importação de paralelo em massa,
+Para uma verificação rápida do número de linhas e colunas nas tabelas anteriormente utilizando a importação em massa paralela,
 
     -- Report number of rows in table nyctaxi_trip without table scan
     SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -168,7 +168,7 @@ Para uma verificação rápida do número de linhas e colunas nas tabelas preenc
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: Distribuição de viagem por medallion
-Neste exemplo identifica o medallion (taxi números) com mais do que 100 viagens dentro de um determinado período de tempo. A consulta seria beneficiar o acesso de tabela particionada necessitar, uma vez que este é ter pelo esquema de partição de **recolha\_datetime**. Consultar o conjunto de dados completo também faz com que utilize a tabela particionada e/ou a análise de índice.
+Neste exemplo identifica o medallion (números de táxis) com mais de 100 viagens dentro de um determinado período de tempo. A consulta poderia tirar proveito do acesso a tabela particionada, uma vez que ele está condicionada ao esquema de partição da **recolha\_datetime**. Consultar o conjunto de dados completo também fará com que utilize da tabela particionada e/ou análise de índice.
 
     SELECT medallion, COUNT(*)
     FROM nyctaxi_fare
@@ -176,15 +176,15 @@ Neste exemplo identifica o medallion (taxi números) com mais do que 100 viagens
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: Distribuição de viagem medallion e hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: Distribuição de viagem por medallion e hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Avaliação de qualidade de dados: Verificar os registos com incorreto longitude e/ou latitude
-Neste exemplo investiga se qualquer um dos campos de longitude e/ou latitude ou contém um valor inválido (radian graus devem ser entre -90 e 90), ou ter (0, 0) coordenadas.
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Avaliação de qualidade de dados: Certifique-se de registos com longitude incorreto e/ou latitude
+Neste exemplo investiga se qualquer um dos campos de longitude e/ou latitude optar por conter um valor inválido (radian graus devem estar entre -90 e 90), ou tem (0, 0) coordenadas.
 
     SELECT COUNT(*) FROM nyctaxi_trip
     WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -195,8 +195,8 @@ Neste exemplo investiga se qualquer um dos campos de longitude e/ou latitude ou 
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: Vs Tipped. Distribuição de Tipped viagens não
-Neste exemplo localiza o número de viagens foram tipped vs tipped não num determinado momento período (ou no conjunto de dados completo se que abrangem o ano completo). Esta distribuição reflete a distribuição de etiqueta de binário para posteriormente, ser utilizada para a modelação de classificação binária.
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: Colocado para vs. Distribuição de viagens colocado para não
+Neste exemplo localiza o número de viagens que foram tipados versus não tipados num tempo determinado período (ou no conjunto de dados completo se abrangendo o ano completo). Essa distribuição reflete a distribuição de etiqueta de binário para ser utilizado mais tarde para a Modelagem de classificação binária.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
       SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -205,7 +205,7 @@ Neste exemplo localiza o número de viagens foram tipped vs tipped não num dete
     GROUP BY tipped
 
 #### <a name="exploration-tip-classrange-distribution"></a>Exploração: Distribuição de classe/intervalo de sugestão
-Neste exemplo calcula a distribuição de intervalos de sugestão de um determinado período de tempo (ou no conjunto de dados completo se que abrangem o ano completo). Esta é a distribuição das classes de etiqueta que será posteriormente utilizada para a modelação de classificação de várias classes.
+Neste exemplo calcula a distribuição de intervalos de sugestão num determinado período de tempo (ou no conjunto de dados completo se abrangendo o ano completo). Esta é a distribuição das classes de etiqueta que será utilizado mais tarde para a Modelagem de classificação multiclasses.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -219,8 +219,8 @@ Neste exemplo calcula a distribuição de intervalos de sugestão de um determin
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: Computação e comparar distância viagem
-Neste exemplo converte a longitude de recolha e drop-off e pontos de latitude para geografia SQL, calcula a distância viagem utilizando a diferença de pontos de geografia SQL e devolve uma amostra aleatória de resultados para comparação. O exemplo limita os resultados para coordenadas válidos utilizando apenas a consulta de avaliação de qualidade de dados abrangida anteriormente.
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: Comparar a distância de viagem e de computação
+Neste exemplo converte a recolha e de entrega de longitude e latitude para geografia SQL aponta, computa a distância de viagem com a diferença de pontos de geografia SQL e devolve uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados para as coordenadas válidos apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
@@ -233,11 +233,11 @@ Neste exemplo converte a longitude de recolha e drop-off e pontos de latitude pa
     AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-#### <a name="feature-engineering-in-sql-queries"></a>Engenharia da funcionalidade em consultas SQL
-As etiqueta geração geografia conversão exploração consultas e também podem ser utilizadas para gerar etiquetas/funcionalidades removendo a parte de contagem. Exemplos SQL de engenharia funcionalidades adicionais são fornecidos no [exploração de dados e funcionalidade de engenharia no bloco de notas do IPython](#ipnb) secção. É mais eficiente para executar consultas de geração da funcionalidade no conjunto de dados completo ou um subconjunto de grandes dimensões do mesmo através de consultas SQL que executam diretamente na instância de base de dados do SQL Server. As consultas que podem ser executadas na **SQL Server Management Studio**, IPython bloco de notas ou qualquer ferramenta/ambiente de desenvolvimento que pode aceder na base de dados localmente ou remotamente.
+#### <a name="feature-engineering-in-sql-queries"></a>Engenharia de funcionalidades nas consultas SQL
+A etiqueta de geração e geografia conversão exploração consultas pode também ser usada para gerar etiquetas/funcionalidades removendo a parte de contagem. São fornecidos exemplos SQL engenharia de funcionalidades adicionais da [exploração de dados e a funcionalidade de engenharia no IPython Notebook](#ipnb) secção. É mais eficiente para executar a funcionalidade de consultas de geração no conjunto de dados completo ou de um grande subconjunto do mesmo através de consultas SQL que são executadas diretamente na instância de base de dados do SQL Server. As consultas podem ser executadas em **SQL Server Management Studio**, IPython Notebook ou qualquer ferramenta/ambiente de desenvolvimento que podem aceder a base de dados, localmente ou remotamente.
 
-#### <a name="preparing-data-for-model-building"></a>A preparar os dados para a criação de modelo
-A seguinte consulta associa a **nyctaxi\_viagem** e **nyctaxi\_fare** tabelas, gera uma etiqueta de classificação binária **tipped**, um etiqueta de classificação de classe Multi **sugestão\_classe**e extrai uma amostra aleatória de 1% do conjunto de dados associado ao total. Esta consulta pode ser copiada e colada diretamente no [Azure Machine Learning Studio](https://studio.azureml.net) [importar dados] [ import-data] módulo para a ingestão de dados direta da base de dados do SQL Server instância no Azure. A consulta exclui registos com incorreto (0, 0) coordenadas.
+#### <a name="preparing-data-for-model-building"></a>Preparando dados para a criação de modelo
+A seguinte consulta associa a **nyctaxi\_viagem** e **nyctaxi\_Europeia** tabelas, gera uma etiqueta de classificação binária **colocado para**, um etiqueta de classificação de Roc **sugestão\_classe**e extrai uma amostra aleatória de 1% do conjunto de dados associado ao completo. Esta consulta pode ser copiada e colada diretamente no [Azure Machine Learning Studio](https://studio.azureml.net) [importar dados] [ import-data] módulo direto para ingestão de dados da base de dados do SQL Server instância no Azure. A consulta exclui registos com incorreto (0, 0) coordenadas.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -255,26 +255,26 @@ A seguinte consulta associa a **nyctaxi\_viagem** e **nyctaxi\_fare** tabelas, g
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
-## <a name="ipnb"></a>Exploração de dados e de engenharia da funcionalidade no bloco de notas do IPython
-Nesta secção, iremos efetuar exploração de dados e a geração de funcionalidade através de consultas de Python e SQL na base de dados do SQL Server criado anteriormente. Um exemplo IPython bloco de notas com o nome **machine-Learning-data-science-process-sql-story.ipynb** é fornecido no **blocos de notas do exemplo IPython** pasta. Este bloco de notas também está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
+## <a name="ipnb"></a>Exploração de dados e de engenharia de funcionalidades no IPython Notebook
+Nesta secção, iremos efetuar exploração de dados e a geração de recursos através de consultas de Python e o SQL na base de dados do SQL Server criado anteriormente. Um bloco de notas de IPython do exemplo com o nome **machine-Learning-data-science-process-sql-story.ipynb** é fornecido na **blocos de notas do exemplo IPython** pasta. Este bloco de notas também está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
-A sequência recomendada quando trabalhar com macrodados é o seguinte:
+A sequência de recomendada ao trabalhar com grandes volumes de dados é o seguinte:
 
-* Ler um exemplo dos dados pequeno para um intervalo de dados em memória.
-* Efetue algumas visualizações e explorations utilizando amostras de dados.
-* Experimentar a engenharia da funcionalidade utilizando os amostras de dados.
-* Para maior exploração de dados, a manipulação de dados e de engenharia da funcionalidade, utilize o Python para emitir consultas de SQL diretamente na base de dados do SQL Server na VM do Azure.
-* Decida o tamanho da amostra a utilizar para a criação de modelo do Azure Machine Learning.
+* Leia-se numa pequena amostra dos dados num quadro de dados na memória.
+* Efetue algumas visualizações e explorations usando os dados de amostras.
+* Experimentar a engenharia de funcionalidades com os dados de amostras.
+* Para exploração de dados maior, a manipulação de dados e a engenharia de funcionalidades, utilize o Python para emitir consultas SQL diretamente contra a base de dados do SQL Server na VM do Azure.
+* Decida o tamanho de exemplo para utilizar para a criação de modelo do Azure Machine Learning.
 
-Quando estiver pronto para continuar para o Azure Machine Learning, o utilizador pode optar por:  
+Quando estiver pronto para avançar para o Azure Machine Learning, pode:  
 
-1. Guardar a consulta SQL final para extrair os dados de exemplo e copiar-colar a consulta diretamente para um [importar dados] [ import-data] módulo no Azure Machine Learning. Este método é demonstrado a [edifício modelos no Azure Machine Learning](#mlmodel) secção.    
-2. Manter os dados da amostras e foi desenvolvidos planear utilizar o modelo de criação de uma nova tabela de base de dados, em seguida, utilize a tabela de novo no [importar dados] [ import-data] módulo.
+1. Guardar a consulta SQL final para extrair e os dados de exemplo e copiar-colar a consulta diretamente para um [importar dados] [ import-data] módulo no Azure Machine Learning. Este método é demonstrado a [modelos de construção no Azure Machine Learning](#mlmodel) secção.    
+2. Manter os dados de amostras e engenharia que planeia utilizar para o modelo de criação de uma nova tabela de base de dados, em seguida, utilize a nova tabela no [importar dados] [ import-data] módulo.
 
-Seguem-se alguns exploração de dados, visualização de dados e funcionalidade exemplos de engenharia. Para obter mais exemplos, consulte o bloco de notas de SQL IPython de exemplo no **blocos de notas do exemplo IPython** pasta.
+Seguem-se alguns exploração de dados, visualização de dados e funcionalidade de exemplos de engenharia. Para obter mais exemplos, consulte o exemplo SQL IPython notebook no **blocos de notas do exemplo IPython** pasta.
 
 #### <a name="initialize-database-credentials"></a>Inicializar as credenciais da base de dados
-Inicializar as definições de ligação de base de dados nas seguintes variáveis:
+Inicialize as definições de ligação de base de dados nas seguintes variáveis:
 
     SERVER_NAME=<server name>
     DATABASE_NAME=<database name>
@@ -282,11 +282,11 @@ Inicializar as definições de ligação de base de dados nas seguintes variáve
     PASSWORD=<password>
     DB_DRIVER = <database server>
 
-#### <a name="create-database-connection"></a>Criar a ligação de base de dados
+#### <a name="create-database-connection"></a>Criar ligação de base de dados
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Número de relatório de linhas e colunas na tabela nyctaxi_trip
+#### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Relatar o número de linhas e colunas na tabela nyctaxi_trip
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('nyctaxi_trip')
@@ -304,7 +304,7 @@ Inicializar as definições de ligação de base de dados nas seguintes variáve
 * Número total de linhas = 173179759  
 * Número total de colunas = 14
 
-#### <a name="read-in-a-small-data-sample-from-the-sql-server-database"></a>Leia-in de uma amostra de dados de pequena da base de dados SQL Server
+#### <a name="read-in-a-small-data-sample-from-the-sql-server-database"></a>Leia-num exemplo de dados pequenas da base de dados do SQL Server
     t0 = time.time()
 
     query = '''
@@ -324,22 +324,22 @@ Inicializar as definições de ligação de base de dados nas seguintes variáve
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Tempo até ao ler que a tabela de exemplo é 6.492000 segundos  
+Tempo de leitura que a tabela de exemplo é 6.492000 segundos  
 Número de linhas e colunas obter = (84952, 21)
 
 #### <a name="descriptive-statistics"></a>Estatísticas descritivas
-Agora está pronto para explorar as amostras de dados. Vamos começar a utilizar ao procurar estatísticas descritivas para o **viagem\_distância** (ou qualquer outro) campo (s):
+Agora está pronto para explorar os dados de amostras. Vamos começar com observar estatísticas descritivas para o **viagem\_distância** (ou qualquer outro) campos:
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualização: Exemplo de desenho de caixa
-Em seguida, observar o desenho da caixa para a distância viagem visualizar o quantiles
+#### <a name="visualization-box-plot-example"></a>Visualização: Exemplo de plotagem de caixa
+Em seguida, observe o desenho de caixa para a distância de viagem visualizar o quantiles
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Desenhar #1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualização: Exemplo de desenho de distribuição
+#### <a name="visualization-distribution-plot-example"></a>Visualização: Exemplo de plotagem de distribuição
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -348,44 +348,44 @@ Em seguida, observar o desenho da caixa para a distância viagem visualizar o qu
 
 ![Desenhar #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualização: Barra e Plots de linha
-Neste exemplo, vamos bin a distância viagem em cinco intervalos binários e visualizar os resultados binning.
+#### <a name="visualization-bar-and-line-plots"></a>Visualização: Barras e gráficos de linha
+Neste exemplo, a distância de viagem para cinco contentores de discretização e visualizar os resultados de discretização.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
     df1['trip_distance']
     trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
     trip_dist_bin_id
 
-Iremos pode representar a distribuição de reciclagem acima na barra de uma ou linha desenho tal como indicado abaixo
+Podemos pode representar a distribuição de bin acima numa barra ou linha de plotagem, conforme mostrado a seguir
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Desenhar #3][3]
+![#3 de desenho][3]
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
 ![Desenhar #4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualização: Exemplo de Scatterplot
-Vamos mostrar o desenho de gráfico de dispersão entre **viagem\_tempo\_no\_seg** e **viagem\_distância** para ver se existe qualquer correlação
+#### <a name="visualization-scatterplot-example"></a>Visualização: Exemplo de gráfico de dispersão
+Vamos mostrar gráfico de dispersão entre **viagem\_tempo\_no\_segundos** e **viagem\_distância** para ver se há qualquer correlação
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Desenhar #6][6]
 
-Da mesma forma, pode verificar a relação entre **taxa\_código** e **viagem\_distância**.
+Da mesma forma podemos verificar a relação entre **taxa\_código** e **viagem\_distância**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![Desenhar #8][8]
 
-### <a name="sub-sampling-the-data-in-sql"></a>Amostragem subplano os dados no SQL Server
-Quando preparar dados para o modelo de criação num [Azure Machine Learning Studio](https://studio.azureml.net), que pode optar por opte por utilizar o **consulta SQL a utilizar diretamente no módulo importar dados** ou manter os dados da amostras e foi desenvolvidos numa nova tabela, o que pode utilizar no [importar dados] [ import-data] módulo com um simples **SELECIONAR * FROM < sua\_novo\_tabela\_name >** .
+### <a name="sub-sampling-the-data-in-sql"></a>Os dados em SQL de amostragem inferiores
+Quando preparar dados para o modelo a criar no [Azure Machine Learning Studio](https://studio.azureml.net), que pode optar por opte por utilizar o **consulta SQL a utilizar diretamente no módulo importar dados** ou persistir os dados de engenharia e amostras numa nova tabela, que pode ser usado na [importar dados] [ import-data] módulo com um simples **SELECIONAR * FROM < sua\_novo\_tabela\_nome >** .
 
-Nesta secção, irá criar uma nova tabela para armazenar os dados da amostras e foi desenvolvidos. Um exemplo de uma consulta SQL direta para a criação de modelo é fornecido no [exploração de dados e funcionalidade de engenharia no SQL Server](#dbexplore) secção.
+Nesta secção, irá criar uma nova tabela para armazenar os dados de amostras e engenharia. Um exemplo de uma consulta SQL direto para a criação de modelo é fornecido na [exploração de dados e a funcionalidade de engenharia no SQL Server](#dbexplore) secção.
 
-#### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Criar um exemplo de tabela e preencher com % 1 das tabelas associadas. Remova a primeira tabela se existir.
-Nesta secção, vamos associar as tabelas **nyctaxi\_viagem** e **nyctaxi\_fare**, a extrair uma amostra aleatória de 1% e manter as amostras de dados com um novo nome de tabela  **nyctaxi\_um\_por cento**:
+#### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Criar um exemplo de tabela e preencher com 1% das tabelas associadas. Remova tabela primeiro se existir.
+Nesta secção, vamos associar as tabelas **nyctaxi\_viagem** e **nyctaxi\_Europeia**extrair uma amostra aleatória de 1% e persistir os dados de amostras num novo nome de tabela  **nyctaxi\_um\_por cento**:
 
     cursor = conn.cursor()
 
@@ -408,10 +408,10 @@ Nesta secção, vamos associar as tabelas **nyctaxi\_viagem** e **nyctaxi\_fare*
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
 
-### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploração de dados através de consultas de SQL no bloco de notas do IPython
-Nesta secção, vamos explorar as distribuições de dados utilizando os dados de 1% amostragem que são mantidos na nova tabela que criámos acima. Tenha em atenção que podem ser executadas explorations semelhantes utilizando as tabelas originais, utilizando opcionalmente **TABLESAMPLE** para limitar a exploração de exemplo ou ao limitar os resultados para um através do período de tempo indicado o **recolha\_datetime** partições, conforme ilustrado no [exploração de dados e funcionalidade de engenharia no SQL Server](#dbexplore) secção.
+### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploração de dados através de consultas de SQL no IPython Notebook
+Nesta secção, vamos explorar as distribuições de dados usando os dados de 1% amostragem que são persistidos na nova tabela que criámos acima. Tenha em atenção que podem ser executadas explorations semelhante usando as tabelas originais, utilizando opcionalmente **TABLESAMPLE** para limitar a exploração de exemplo ou ao limitar os resultados para um determinado momento período usando o **recolha\_datetime** particiona, conforme ilustrado na [exploração de dados e a funcionalidade de engenharia no SQL Server](#dbexplore) secção.
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploração: Distribuição diária viagens
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploração: Distribuição diária de viagens
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -420,7 +420,7 @@ Nesta secção, vamos explorar as distribuições de dados utilizando os dados d
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploração: Viagem distribuição por medallion
+#### <a name="exploration-trip-distribution-per-medallion"></a>Exploração: Distribuição de viagem por medallion
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -429,14 +429,14 @@ Nesta secção, vamos explorar as distribuições de dados utilizando os dados d
 
     pd.read_sql(query,conn)
 
-### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Geração de funcionalidade através de consultas SQL no bloco de notas do IPython
-Nesta secção, irá gerar novas etiquetas e funcionalidades, utilizando diretamente as consultas SQL, utilizar a tabela de exemplo de 1% criámos na secção anterior.
+### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>Geração de recursos através de consultas SQL no IPython Notebook
+Nesta secção, irá gerar novas etiquetas e recursos diretamente através de consultas SQL, operar na tabela 1% exemplo que criámos na secção anterior.
 
 #### <a name="label-generation-generate-class-labels"></a>Geração de etiqueta: Gerar etiquetas de classe
-No exemplo seguinte, iremos gerar dois conjuntos de etiquetas a utilizar para a modelação de:
+No exemplo a seguir, vamos gerar dois conjuntos de etiquetas a utilizar para a Modelagem de:
 
-1. Binário de classe de etiquetas **tipped** (prever se uma sugestão terá)
-2. Etiquetas de várias classes **sugestão\_classe** (prever a Reciclagem de sugestão ou intervalo)
+1. Etiquetas de classe binário **colocado para** (prever se uma dica terá a chance)
+2. Etiquetas de várias classes **sugestão\_classe** (prever o bin sugestão ou intervalo)
    
         nyctaxi_one_percent_add_col = '''
             ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -460,8 +460,8 @@ No exemplo seguinte, iremos gerar dois conjuntos de etiquetas a utilizar para a 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia da funcionalidade: Funcionalidades de contagem para colunas Categórico
-Neste exemplo transforma um campo categórico num campo numérico ao substituir cada categoria com a contagem de respetivas ocorrências nos dados.
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de funcionalidades: Contagem de recursos para colunas Categóricas
+Neste exemplo transforma um campo categórico num campo numérico, substituindo cada categoria com a contagem de seu ocorrências nos dados.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
@@ -490,8 +490,8 @@ Neste exemplo transforma um campo categórico num campo numérico ao substituir 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia da funcionalidade: Funcionalidades de reciclagem para colunas numérico
-Neste exemplo transforma um campo numérico contínuo em intervalos de categoria predefinidas, ou seja, transformação campo numérico para um campo categórico.
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de funcionalidades: Funcionalidades de reciclagem para colunas numéricas
+Neste exemplo transforma um campo numérico contínuo em intervalos de categoria predefinidas, ou seja, transformação campo numérico num campo categórico.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -518,8 +518,8 @@ Neste exemplo transforma um campo numérico contínuo em intervalos de categoria
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia da funcionalidade: Extrair as funcionalidades de localização de Decimal Latitude/Longitude
-Neste exemplo divide a representação de um campo de latitude e/ou longitude decimal em vários campos de região de granularidade diferente, tais como país, cidade, town, blocos, etc. Tenha em atenção que os campos de georreplicação novo não estão mapeados para localizações reais. Para obter informações sobre localizações de geocode de mapeamento, consulte [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de funcionalidades: Extrair recursos de localização de Decimal Latitude/Longitude
+Neste exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como, país, cidade, cidade, bloquear, etc. Tenha em atenção que os novos campos de geo não são mapeados para localizações reais. Para obter informações sobre localizações de geocode de mapeamento, consulte [serviços de REST do Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -544,91 +544,91 @@ Neste exemplo divide a representação de um campo de latitude e/ou longitude de
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="verify-the-final-form-of-the-featurized-table"></a>Verifique o formato final da tabela featurized
+#### <a name="verify-the-final-form-of-the-featurized-table"></a>Verifique se o formulário final da tabela caracterizadas
     query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
     pd.read_sql(query,conn)
 
-Iremos agora está prontos continuar a criação de modelo e implementação de modelo no [Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para qualquer um dos problemas de predição identificados anteriormente, nomeadamente:
+Vamos agora está prontos para avançar para a criação de modelo e implementação de modelo na [do Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para os problemas de predição identificadas anteriormente, ou seja:
 
-1. Classificação do binária: prever ou não uma sugestão foi paga para uma viagem.
-2. Classificação de várias classes: prever o intervalo de sugestão paga, de acordo com as classes definidas anteriormente.
-3. Tarefa de regressão: para prever a quantidade de sugestão paga para uma viagem.  
+1. Classificação binária: prever se é ou não uma dica foi paga por uma viagem.
+2. Classificação multiclasses: prever o intervalo de sugestão paga, de acordo com as classes definidas anteriormente.
+3. Tarefa de regressão: para prever a quantidade de sugestão pago por uma viagem.  
 
-## <a name="mlmodel"></a>Criar modelos no Azure Machine Learning
-Para iniciar o exercício modelação, inicie sessão sua área de trabalho do Azure Machine Learning. Se ainda não tiver criado uma área de trabalho de aprendizagem, consulte o artigo [criar uma área de trabalho do Azure Machine Learning](../studio/create-workspace.md).
+## <a name="mlmodel"></a>Modelos de construção no Azure Machine Learning
+Para iniciar o exercício de modelagem, inicie sessão na sua área de trabalho do Azure Machine Learning. Se ainda não tiver criado um área de trabalho de aprendizagem automática, consulte [criar uma área de trabalho do Azure Machine Learning](../studio/create-workspace.md).
 
-1. Para começar a utilizar com o Azure Machine Learning, consulte o artigo [que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. Para começar a utilizar com o Azure Machine Learning, consulte o artigo [o que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Inicie sessão no [do Azure Machine Learning Studio](https://studio.azureml.net).
-3. A página inicial do Studio fornece uma variedade de informações, vídeos, tutoriais, hiperligações para a referência de módulos e outros recursos. Fore mais informações sobre o Azure Machine Learning, consulte o [Centro de documentação do Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. A página inicial do Studio fornece uma grande quantidade de informações, vídeos, tutoriais, links para a referência de módulos e outros recursos. Obter mais informações sobre o Azure Machine Learning, consulte a [Centro de documentação do Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Uma experimentação de preparação típico consiste no seguinte:
 
-1. Criar um **+ novo** experimentação.
-2. Obter os dados do Azure Machine Learning.
+1. Criar uma **+ novo** experimentar.
+2. Obter os dados para o Azure Machine Learning.
 3. Pré-processar, transformar e manipular os dados conforme necessário.
-4. Gere funcionalidades conforme necessário.
-5. Dividir os dados em conjuntos de dados de formação / / testes validação (ou tem conjuntos de dados separados para cada).
-6. Selecione um ou mais algoritmos do machine learning, consoante o problema de aprendizagem para resolver. Por exemplo, classificação binária, classificação de várias classes, regressão.
-7. Preparar um ou mais modelos utilizando o conjunto de dados de formação.
-8. Pontuar o conjunto de dados de validação utilizando o model(s) preparado.
-9. Avalie o model(s) para calcular as métricas relevantes para o problema de aprendizagem.
-10. Ajustar a otimizar o model(s) e selecione o modelo melhor a implementar.
+4. Gere recursos conforme necessário.
+5. Dividir os dados em conjuntos de dados de treinamento/validação/teste (ou tem conjuntos de dados separados para cada um).
+6. Selecione um ou mais algoritmos de machine learning consoante o problema de aprendizagem para resolver. Por exemplo, classificação binária, classificação de várias classes, regressão.
+7. Prepare um ou mais modelos com o conjunto de dados de treinamento.
+8. Classificar o conjunto de dados de validação utilizando o modelo treinado (s).
+9. Avalie o modelo (s) para calcular as métricas relevantes para o problema de aprendizagem.
+10. Bem, Otimize o modelo (s) e selecionar o melhor modelo para implementar.
 
-Neste exercício, vamos já explorou e foi desenvolvido os dados no SQL Server e decidir o tamanho da amostra para inserção no Azure Machine Learning. Para criar um ou mais dos modelos de previsão decidimos:
+Neste exercício, temos já explorou e desenvolvido os dados no SQL Server e decidir o tamanho da amostra para ingerir no Azure Machine Learning. Para criar um ou mais dos modelos de previsão, decidimos:
 
-1. Obter os dados para utilizar o Azure Machine Learning a [importar dados] [ import-data] módulo, disponível no **dados de entrada e saída** secção. Para obter mais informações, consulte o [importar dados] [ import-data] página de referência do módulo.
+1. Obter os dados para o Azure Machine Learning utilizando o [importar dados] [ import-data] módulo, disponível na **dados de entrada e saída** secção. Para obter mais informações, consulte a [importar dados] [ import-data] página de referência do módulo.
    
-    ![Importar dados de aprendizagem do Azure][17]
-2. Selecione **SQL Database do Azure** como o **origem de dados** no **propriedades** painel.
-3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
-4. Introduza o **nome de base de dados** no campo correspondente.
-5. Introduza o **nome de utilizador do SQL Server** no * * aqccount nome do servidor de utilizador e a palavra-passe a **palavra-passe de conta de utilizador do**.
-7. No **consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessárias (incluindo quaisquer campos calculados, tais como as etiquetas) e baixo amostras de dados para o tamanho da amostra pretendido.
+    ![Importar dados do Azure Machine Learning][17]
+2. Selecione **Azure SQL Database** como o **origem de dados** no **propriedades** painel.
+3. Introduza o nome DNS de base de dados na **nome do servidor de base de dados** campo. Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
+4. Introduza o **nome da base de dados** o campo correspondente.
+5. Introduza o **nome de utilizador do SQL** no * * nome de aqccount de utilizador do servidor e a palavra-passe no **palavra-passe de conta de utilizador servidor**.
+7. Na **consulta de base de dados** editar área de texto, cole a consulta que extrai os campos de banco de dados necessários (incluindo quaisquer campos calculados, como os rótulos) e baixo exemplos os dados para o tamanho da amostra pretendido.
 
-É um exemplo de uma experimentação de classificação binária ler os dados diretamente a partir da base de dados do SQL Server na imagem abaixo. Podem ser construídas experimentações semelhantes para classificação de várias classes e problemas de regressão.
+Um exemplo de uma experimentação de classificação binária ler os dados diretamente a partir da base de dados do SQL Server é na imagem abaixo. Experiências semelhantes podem ser construídas para a classificação de várias classes e problemas de regressão.
 
-![Azure Machine Learning formação][10]
+![O Azure Machine Learning Train][10]
 
 > [!IMPORTANT]
-> Nos dados de modelação de extração e fazendo a amostragem de exemplos de consultas fornecidos nas secções anteriores, **todas as etiquetas para os exercícios modelação três estão incluídas na consulta**. É um passo importante (obrigatório) em cada um dos exercícios modelação **excluir** etiquetas desnecessárias para outros dois problemas e quaisquer outros **fugas de destino**. Para por exemplo, quando utilizar a classificação binária, utilize a etiqueta **tipped** e excluir os campos **sugestão\_classe**, **sugestão\_quantidade**e **total\_quantidade**. A última opção é fugas de destino, desde que o implica a sugestão paga.
+> Os dados de modelagem de extração e fazendo a amostragem de exemplos de consulta fornecidos nas secções anteriores, **todas as etiquetas para os três exercícios de modelagem são incluídas na consulta**. É um passo importante (obrigatório) em cada um dos exercícios de modelagem **excluir** as etiquetas desnecessárias para os outros dois problemas e qualquer outro **vazamentos de destino**. Para por exemplo, ao utilizar a classificação binária, utilize a etiqueta **tipados** e excluir os campos **sugestão\_classe**, **tip\_quantidade**e **total\_quantidade**. Essas últimas são vazamentos de destino, uma vez que eles implicam a dica pago.
 > 
-> Para excluir colunas desnecessárias e/ou fugas de destino, pode utilizar o [selecionar colunas no conjunto de dados] [ select-columns] módulo ou a [Editar metadados][edit-metadata]. Para obter mais informações, consulte [selecionar colunas no conjunto de dados] [ select-columns] e [Editar metadados] [ edit-metadata] páginas de referência.
+> Para excluir colunas desnecessárias e/ou vazamentos de destino, pode utilizar o [Select Columns in Dataset] [ select-columns] módulo ou o [Editar metadados][edit-metadata]. Para obter mais informações, consulte [Select Columns in Dataset] [ select-columns] e [Editar metadados] [ edit-metadata] páginas de referência.
 > 
 > 
 
-## <a name="mldeploy"></a>Modelos de implementação no Azure Machine Learning
-Quando o modelo estiver pronto, pode facilmente implementá-lo como um serviço web diretamente a partir de experimentação. Para obter mais informações sobre a implementação de serviços web do Azure Machine Learning, consulte [implementar um serviço web do Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+## <a name="mldeploy"></a>Implementação de modelos no Azure Machine Learning
+Quando o modelo estiver pronto, pode implementá-la facilmente como um serviço web diretamente a partir da experimentação. Para obter mais informações sobre a implementação de serviços web Azure Machine Learning, consulte [implementar um serviço web do Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
 
-Para implementar um novo serviço web, tem de:
+Para implementar um novo serviço web, terá de:
 
 1. Crie uma experimentação de classificação.
 2. Implemente o serviço web.
 
-Para criar uma experimentação de classificação de um **concluído** experimentação de preparação, clique em **criar classificação experimentação** na barra de ação inferior.
+Criar uma experiência de classificação de um **concluído** experimentação de preparação, clique em **criar classificação EXPERIMENTAR** na barra de ação mais baixa.
 
-![A classificação do Azure][18]
+![Classificação do Azure][18]
 
-O Azure Machine Learning irá tentar criar uma experimentação de classificação com base nos componentes da experimentação de preparação. Em particular, irá:
+O Azure Machine Learning irá tentar criar uma experiência de classificação com base nos componentes da experimentação de preparação. Em particular, irá:
 
-1. Guardar o modelo treinado e remova os módulos de formação do modelo.
+1. Guardar o modelo preparado e remova os módulos de treinamento de modelo.
 2. Identificar uma lógica **porta de entrada** para representar o esquema de dados de entrada esperado.
 3. Identificar uma lógica **porta de saída** para representar o esquema de saída do serviço web esperado.
 
-Quando é criada a experimentação de classificação, reveja-lo e ajustar conforme necessário. É um ajuste típico para substituir o conjunto de dados de entrada e/ou a consulta com um que exclui os campos de etiqueta, como estes não estarão disponíveis quando o serviço é chamado. Também é uma boa prática para reduzir o tamanho do conjunto de dados de entrada e/ou a consulta para alguns registos, apenas suficiente para indicar o esquema da entrada. A porta de saída, é comum para excluir a entrada de todos os campos e incluir apenas o **etiquetas classificadas** e **probabilidades classificadas** em resultado, utilizando o [selecionar colunas no conjunto de dados] [ select-columns] módulo.
+Quando a experimentação de classificação é criada, reveja-la e ajustar conforme necessário. Um ajuste de típico é substituir o conjunto de dados de entrada e/ou a consulta com um que exclui os campos de etiqueta, à medida que estes não estarão disponíveis quando o serviço é chamado. Também é uma boa prática para reduzir o tamanho do conjunto de dados de entrada e/ou a consulta para alguns registos, apenas o suficiente para indicar o esquema de entrada. Para a porta de saída, é comum para excluir campos de entrada tudo e incluir apenas os **etiquetas classificadas** e **probabilidades classificadas** no saída com o [selecionar colunas no conjunto de dados] [ select-columns] módulo.
 
-É um classificação experimentação de exemplo na figura abaixo. Quando estiver pronto para implementar, clique em de **publicar o serviço de WEB** botão na barra de ação inferior.
+É um exemplo de experimentação de classificação na imagem abaixo. Quando estiver pronto para implementar, clique nas **publicar WEB SERVICE** botão na barra de ação mais baixo.
 
-![Publicar de aprendizagem do Azure][11]
+![Publicar do Azure Machine Learning][11]
 
-Para recap, neste tutorial explicação passo a passo, criou um ambiente de ciência de dados do Azure, trabalhado com um grande conjunto de dados público até a partir de aquisição de dados para o modelo de preparação e implementação de um serviço web Azure Machine Learning.
+Para recapitular, neste tutorial passo a passo, criou um ambiente de ciência de dados do Azure, trabalhado com um grande conjunto de dados público desde a aquisição de dados para modelar a formação e a implantação de um serviço web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informações de licença
-Estas instruções de exemplo e o respetivo que acompanha scripts e IPython notebook(s) são partilhados por Microsoft com a licença MIT. Verifique o ficheiro LICENSE.txt no diretório do código de exemplo no GitHub para obter mais detalhes.
+Estas instruções de exemplo e que o acompanha scripts e o IPython notebook(s) são partilhadas pela Microsoft sob a licença do MIT. Verifique o ficheiro de LICENSE.txt no diretório do código de exemplo no GitHub para obter mais detalhes.
 
 ### <a name="references"></a>Referências
-• [Andrés Monroy NYC Taxi viagens página de transferência](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxi viagem dados por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi e Limousine Commission investigação e estatísticas](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC táxis viagens a página de transferência](http://www.andresmh.com/nyctaxitrips/)  
+• [Táxis de fOILing NYC dados de viagens por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Comissão de táxis de NYC e Limousine pesquisa e as estatísticas](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

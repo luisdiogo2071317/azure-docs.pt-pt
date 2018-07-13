@@ -1,30 +1,23 @@
 ---
-title: Consultar um índice (portal - Azure Search) | Microsoft Docs
-description: Emita uma consulta de pesquisa no Explorador de Pesquisa do Portal do Azure.
+title: Explorador de pesquisa para consultar índices no Azure Search | Documentos da Microsoft
+description: Saiba como utilizar o Explorador de pesquisa para consultar índices no Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790513"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004138"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Consultar um índice do Azure Search com o Explorador de Procura no Portal do Azure
-> [!div class="op_single_selector"]
-> * [Descrição geral](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Como utilizar o Explorador de pesquisa para índices de consulta no Azure Search 
 
-Este artigo mostra-lhe como consultar um índice do Azure Search com o **Explorador de Procura** no portal do Azure. Pode utilizar o Explorador de Procura para submeter cadeias de consulta simples ou de Lucene completas a um índice existente no seu serviço.
+Este artigo mostra-lhe como consultar um através de índice de pesquisa do Azure existentes **Explorador de pesquisa** no portal do Azure. Pode utilizar o Explorador de procura para submeter simples ou completas cadeias de consulta de Lucene a um índice existente no seu serviço.
 
 ## <a name="open-the-service-dashboard"></a>Abrir o dashboard de serviço
 1. Clique em **Todos os recursos** na barra de atalhos no lado esquerdo do [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
@@ -36,15 +29,15 @@ Selecione o índice que pretende pesquisar a partir do mosaico **Índices**.
 
    ![](./media/search-explorer/pick-index.png)
 
-## <a name="open-search-explorer"></a>Abrir o Explorador de Procura
+## <a name="open-search-explorer"></a>Abra o Explorador de pesquisa
 
-Clique no mosaico Explorador de Procura para abrir gradualmente a barra de pesquisa e o painel de resultados.
+Clique no mosaico do Explorador de pesquisa para abrir gradualmente a barra de pesquisa e o painel de resultados.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>Inicie a pesquisa
 
-Ao utilizar o Explorador de Procura, pode especificar [parâmetros de consulta](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para formular a consulta.
+Ao utilizar o Explorador de pesquisa, pode especificar [parâmetros de consulta](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para formular a consulta.
 
 1. Em **Cadeia de consulta**, escreva uma consulta e, em seguida, prima **Pesquisar**. 
 
@@ -56,7 +49,7 @@ Ao utilizar o Explorador de Procura, pode especificar [parâmetros de consulta](
 
    ![](./media/search-explorer/search-bar.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os seguintes recursos fornecem informações de sintaxe de consulta adicionais e exemplos.
 

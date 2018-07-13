@@ -1,6 +1,6 @@
 ---
-title: Compreender as quotas do IoT Hub do Azure e limitação | Microsoft Docs
-description: Guia para programadores - descrição das quotas que se aplicam ao IoT Hub e o comportamento de limitação esperado.
+title: Limitação e compreender as quotas do IoT Hub do Azure | Documentos da Microsoft
+description: Guia do programador - descrição das quotas que se aplicam ao IoT Hub e o comportamento esperado de limitação.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,55 +8,55 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 9521bd47db9676c70993c535f1207b3519123353
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633320"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004776"
 ---
-# <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - quotas do IoT Hub e a limitação
+# <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
 ## <a name="quotas-and-throttling"></a>Quotas e limitação
-Cada subscrição do Azure pode ter no máximo 10 os hubs IoT e, no máximo, 1 hub gratuito.
+Cada subscrição do Azure pode ter no máximo, 50 hubs IoT e no máximo, 1 hub gratuito.
 
-Cada IoT hub é aprovisionado com um determinado número de unidades de um escalão específico. Para obter mais informações, consulte [preços do Azure IoT Hub][lnk-pricing]. A camada e o número de unidades de determinam a quota máxima de diária de mensagens em fila que possa ser enviado.
+Cada hub IoT é aprovisionada com um determinado número de unidades de um escalão específico. Para obter mais informações, consulte [preços do Azure IoT Hub][lnk-pricing]. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar.
 
-A camada também determina os limites de limitação do IoT Hub impõe em todas as operações.
+A camada também determina os limites de limitação que o IoT Hub impõe em todas as operações.
 
 ## <a name="operation-throttles"></a>Limitações de operação
-Limitações de operação tem limitações de velocidade a que são aplicadas em intervalos de minutos e destinam-se para evitar abuso. IoT Hub tenta evitar a devolver erros sempre que possível, mas inicia exceções a devolver se a limitação é violada há demasiado tempo.
+Limitações de operação são as limitações de taxa que são aplicadas em intervalos de minutos e foram concebidas para evitar abusos. IoT Hub tentem evitar a devolver erros sempre que possível, mas começa retornando exceções se a limitação é violada durante muito tempo.
 
-Em qualquer momento, pode aumentar quotas ou limites de limitação de aumento do número de unidades aprovisionados num IoT hub.
+Em qualquer momento, pode aumentar as quotas ou limites de limitação do aumento do número de unidades aprovisionados num IoT hub.
 
-A tabela seguinte mostra as limitações impostas. Consulte os valores para um hub individuais.
+A tabela seguinte mostra os imposto limitadores. Valores referem-se para um hub individual.
 
-| Limitação | Libertar, B1 e S1 | B2 e S2 | B3 e S3 | 
+| Limitação | Gratuito, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
-| Operações de registo de identidade (criar, obter, listar, atualizar, eliminar) | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
-| Novas ligações de dispositivo (este limite aplica-se a taxa a que _novas ligações_ são estabelecidas, não é o número total de ligações) | Mais de 100 por segundo ou seg/12/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24 nova ligações/seg, mas têm, pelo menos, 100 novas ligações/seg na suas unidades. Com unidades de S1 nove, tiver 108 novas ligações/seg (9\*12) entre as unidades. | 120 ligações/seg/unidade nova | 6000 novas ligações/seg/unidade |
-| Envios do dispositivo para a cloud | Mais de 100 por segundo ou seg/12/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24/seg, mas tem de ter, pelo menos, 100/seg nas suas unidades. Com unidades de S1 nove, tiver 108/seg (9\*12) entre as unidades. | 120/seg/unidade | 6000/seg/unidade |
-| Nuvem para o dispositivo envia<sup>1</sup> | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
-| Nuvem para o dispositivo recebe<sup>1</sup> <br/> (apenas ao dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/mínimo/unidade) | 16.67/SEC/Unit (1000/mínimo/unidade) | 833.33/SEC/Unit (50000/mínimo/unidade) |
-| Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (min/100/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (min/100/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/mínimo/unidade) |
-| Direcionar métodos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
-| Duplo (dispositivo e módulo) leituras<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
-| Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
-| As tarefas operações<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
-| Débito de operação de por dispositivo tarefas<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
-| Configurações e implementações de limite<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 0.33/SEC/Unit (min/20/unidade) | 0.33/SEC/Unit (min/20/unidade) | 0.33/SEC/Unit (min/20/unidade) |
+| Operações de registo de identidade (criar, obter, listar, atualizar e eliminar) | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
+| Novas ligações de dispositivo (este limite aplica-se para a taxa à qual _novas ligações_ são estabelecidas, não o número total de ligações) | Mais de 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24 novas conexões por segundo, mas tem, pelo menos, 100 novas ligações/seg em suas unidades. Com nove unidades de S1, tem ligações novas 108/seg (9\*12) em suas unidades. | nova ligações/seg/unidade de 120 | 6000 novas ligações/seg/unidade |
+| Envios do dispositivo para a cloud | Mais de 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24/seg, mas ter, pelo menos, 100/seg em suas unidades. Com nove unidades de S1, tem 108/seg (9\*12) em suas unidades. | 120/seg/unidade | 6000/seg/unidade |
+| Na cloud para o dispositivo envia<sup>1</sup> | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
+| Na cloud para o dispositivo recebe<sup>1</sup> <br/> (apenas quando dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/min/unidade) | 16.67/SEC/Unit (1000/min/unidade) | 833.33/SEC/Unit (50000/min/unidade) |
+| Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/min/unidade) |
+| Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
+| Duplo (dispositivo e módulo) leituras<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
+| Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
+| Tarefas de operações<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
+| Débito de operação tarefas por dispositivo<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
+| Configurações e implementações de borda<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) |
 
 
-<sup>1</sup>esta funcionalidade não está disponível na camada básica do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub direita](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB.
+<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB.
 
-O *ligações de dispositivos* limitação regulam a velocidade a que seja possível estabelecer novas ligações de dispositivo com um IoT hub. O *ligações de dispositivos* limitação não governar o número máximo de dispositivos ligados em simultâneo. A limitação depende o número de unidades que sejam aprovisionados para o IoT hub.
+O *ligações de dispositivos* limitação rege a taxa a que seja possível estabelecer novas ligações de dispositivo com um hub IoT. O *ligações de dispositivos* limitação não controlam o número máximo de dispositivos ligados em simultâneo. A limitação depende o número de unidades que sejam aprovisionados para o hub IoT.
 
-Por exemplo, se comprar uma única unidade S1, receberá uma limitação de ligações de 100 por segundo. Por conseguinte, para estabelecer a ligação de 100 000 dispositivos, demora menos de 1000 segundos (cerca de 16 minutos). No entanto, pode ter como vários dispositivos ligados em simultâneo que tenham dispositivos registados no registo de identidade.
+Por exemplo, se comprar uma única unidade de S1, obterá uma limitação de 100 conexões por segundo. Por conseguinte, para ligar a 100 000 dispositivos, demora, pelo menos, 1 000 segundos (aproximadamente 16 minutos). No entanto, pode ter quantos dispositivos ligados em simultâneo que tenha dispositivos registados no registo de identidade.
 
-Para um debate aprofundado do IoT Hub limitação comportamento, consulte a mensagem de blogue [limitação do IoT Hub e][lnk-throttle-blog].
+Para uma visão detalhada do IoT Hub na limitação do comportamento, consulte a mensagem de blogue [IoT Hub, limitação e][lnk-throttle-blog].
 
 > [!IMPORTANT]
-> Operações de registo de identidade destinam-se a utilização de tempo de execução em cenários de aprovisionamento e gestão de dispositivos. Ler ou atualizar um grande número de identidades de dispositivo é suportada através de [importar e exportar tarefas][lnk-importexport].
+> Operações de registo de identidade destinam-se a utilização de tempo de execução em cenários de aprovisionamento e gestão de dispositivos. Ler ou atualizar um grande número de identidades de dispositivos é suportada através dos [importar e exportar tarefas][lnk-importexport].
 > 
 > 
 
@@ -66,38 +66,38 @@ IoT Hub impõe outros limites operacionais:
 
 | Operação | Limite |
 | --------- | ----- |
-| Os URIs de carregamento de ficheiros | 10000 SAS URIs podem ser enviados para uma conta do storage em simultâneo. <br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
-| As tarefas<sup>1</sup> | Histórico da tarefa é retido cópias de segurança para 30 dias <br/> Tarefas simultâneas máximas é 1 (para gratuito) e S1, 5 (para S2), 10 (para S3). |
-| Pontos finais adicionais | Paga SKU hubs podem ter pontos finais adicionais 10. Hubs SKU livres podem ter um ponto final adicional. |
-| As regras de encaminhamento de mensagens | Paga SKU hubs podem ter 100 regras de encaminhamento. Hubs SKU livres podem ter regras de encaminhamento cinco. |
-| Mensagens do dispositivo-nuvem | 256 KB de tamanho da mensagem máxima |
-| Mensagens da nuvem para dispositivo<sup>1</sup> | 64 KB de tamanho da mensagem máxima. Máximo de mensagens para a entrega pendentes é 50. |
-| Método direto<sup>1</sup> | Tamanho do payload de método direto máximo é 128 KB. |
-| Configurações | 20 configurações por hub. |
-| Implementações de limite | 20 implementações por hub. 20 módulos por implementação. |
-| Duplos | Tamanho máximo por secção duplo (etiquetas, propriedades pretendidas, propriedades comunicadas) é de 8 KB |
+| URIs de carregamento de ficheiros | 10000 SAS URIs podem ficar fora de uma conta de armazenamento de uma só vez. <br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
+| Tarefas<sup>1</sup> | Histórico de tarefas é mantido, cópia de segurança para 30 dias <br/> Máximo de tarefas simultâneas é 1 (para gratuito) e S1, 5 (para S2), 10 (para S3). |
+| Pontos finais adicionais | Pago SKU hubs podem ter 10 pontos de extremidade adicionais. Os hubs de SKU gratuitos podem ter um ponto de extremidade adicional. |
+| Regras de roteamento de mensagem | Pago SKU hubs podem ter regras de encaminhamento de 100. Os hubs de SKU gratuitos podem ter cinco regras de encaminhamento. |
+| Mensagens do dispositivo para a cloud | 256 KB de tamanho máximo de mensagens |
+| Mensagens cloud-para-dispositivo<sup>1</sup> | 64 KB de tamanho da mensagem máxima. Máximo de mensagens para entrega pendentes é 50. |
+| Método direto<sup>1</sup> | Tamanho de payload do método direto máximo é 128 KB. |
+| Configurações | configurações de 20 por hub. |
+| Implementações do Edge | 20 implementações por hub. 20 módulos por implementação. |
+| Duplos | Tamanho máximo por secção duplo (etiquetas, as propriedades pretendidas, as propriedades comunicadas) é de 8 KB |
 
-<sup>1</sup>esta funcionalidade não está disponível na camada básica do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub direita](iot-hub-scaling.md).
+<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md).
 
 > [!NOTE]
-> Atualmente, o número máximo de dispositivos que pode ligar a um IoT hub único é 500 000. Se pretende aumentar este limite, contacte [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Atualmente, o número máximo de dispositivos, que pode ligar a um hub IoT individual é 500 000. Se deseja aumentar este limite, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Latência
-IoT Hub strives fornecer a latência baixa para todas as operações. No entanto, devido a condições de rede e outros fatores imprevisíveis, não pode garantir uma latência máxima. Ao conceber a sua solução, deve:
+IoT Hub se esforça para fornecer a baixa latência para todas as operações. No entanto, devido a condições de rede e outros fatores imprevisíveis não pode garantir uma latência máxima. Ao conceber a sua solução, deve:
 
-* Evite efetuar qualquer pressupostos sobre a latência máxima de todas as operações de IoT Hub.
-* Aprovisione o seu IoT hub na região do Azure mais próxima para os seus dispositivos.
-* Considere a utilização do Azure IoT Edge para efetuar operações de sensíveis à latência no dispositivo ou num gateway perto do dispositivo.
+* Evite fazer suposições sobre a latência máxima de qualquer operação do IoT Hub.
+* Aprovisione o seu hub IoT na região do Azure mais próxima dos seus dispositivos.
+* Considere utilizar o Azure IoT Edge para executar operações de sensíveis à latência no dispositivo ou num gateway perto do dispositivo.
 
-Várias unidades de IoT Hub afetam a limitação, tal como descrito anteriormente, mas não fornece quaisquer benefícios de latência adicionais ou garantias.
-Se vir inesperados aumentos de latência da operação, contacte [Microsoft Support](https://azure.microsoft.com/support/options/).
+Várias unidades do IoT Hub afetam a limitação conforme descrito anteriormente, mas não fornece quaisquer garantias ou um benefícios de latência adicional.
+Se vir inesperados aumentos de latência da operação, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Outros tópicos de referência neste guia para programadores do IoT Hub incluem:
+Outros tópicos de referência neste guia de programador do IoT Hub incluem:
 
-* [Pontos finais de IoT Hub][lnk-devguide-endpoints]
-* [Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens][lnk-devguide-query]
-* [Suporte de MQTT do IoT Hub][lnk-devguide-mqtt]
+* [Pontos finais do IoT Hub][lnk-devguide-endpoints]
+* [Linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens][lnk-devguide-query]
+* [Suporte para MQTT de Hub IoT][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/

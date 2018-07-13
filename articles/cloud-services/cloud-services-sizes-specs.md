@@ -3,7 +3,7 @@ title: Os tamanhos de máquina virtual para serviços Cloud do Azure | Documento
 description: Lista os tamanhos de máquinas virtuais (e IDs) para funções de web e de trabalho do serviço de cloud do Azure.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jeconnoc
+ms.openlocfilehash: 60ee7c2be29791db91db78472cc002e15390d36b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34608819"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004793"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos de serviços Cloud
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função do serviço Cloud (funções da web e funções de trabalho). Ele também fornece considerações de implementação para ter em consideração ao planejar usar esses recursos. Cada tamanho tem um ID que implementa em sua [o ficheiro de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na [preços de serviços Cloud](https://azure.microsoft.com/pricing/details/cloud-services/) página.

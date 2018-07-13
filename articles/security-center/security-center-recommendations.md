@@ -3,7 +3,7 @@ title: Gerir recomendações de segurança no Centro de segurança do Azure | Do
 description: Este documento explica-lhe como recomendações no Centro de segurança do Azure ajudar a proteger os seus recursos do Azure e mantenha-se em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7bb7f36338fe117a3e31834570b3ee5c3ae1b83b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/12/2018
+ms.author: terrylan
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856438"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006619"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -76,7 +76,7 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 | [Ativar a recolha de dados para subscrições](security-center-enable-data-collection.md) |Recomenda-se que ative a recolha de dados na política de segurança para cada uma das suas subscrições e todas as máquinas virtuais do Azure (VMs) e computadores não Azure. |
 | [Remediar configurações de segurança](security-center-remediate-os-vulnerabilities.md) |Recomenda que Alinhe as configurações do SO com as regras de configuração de segurança recomendadas, por exemplo, não permita que as palavras-passe sejam guardadas. |
 | [Aplicar atualizações do sistema](security-center-apply-system-updates.md) |Recomenda-se de que implante atualizações críticas e de segurança do sistema em falta para o Windows e VMs do Linux e computadores. |
-| [Aplicar um Just-In-Time controlo de acesso de rede](security-center-just-in-time.md) | Recomenda-se de que aplicar just-in-acesso à VM do tempo. A apenas no tempo funcionalidade está em pré-visualização e está disponível no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. |
+| [Aplicar um Just-In-Time controlo de acesso de rede](security-center-just-in-time.md) | Recomenda-se de que aplicar just-in-acesso à VM do tempo. A apenas no tempo a funcionalidade está disponível no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. |
 | [Reiniciar após atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Recomenda-se que reinicie uma VM para concluir o processo de aplicar atualizações do sistema. |
 | [Adicionar uma firewall de aplicação Web](security-center-add-web-application-firewall.md) |Recomenda-se de que implante uma firewall de aplicações web (WAF) para pontos finais de web. Uma recomendação de WAF é apresentada para qualquer IP destinado ao público (IP de nível de instância ou IP com balanceamento de carga) que tenha um grupo de segurança de rede associado com portas de web de entrada aberta (80,443). </br>Centro de segurança recomenda que Aprovisiona uma WAF para ajudar na defesa contra ataques que visam as suas aplicações web em máquinas virtuais e no ambiente de serviço de aplicações. Um ambiente de serviço de aplicações (ASE) é uma [Premium](https://azure.microsoft.com/pricing/details/app-service/) service opção do plano do serviço de aplicações do Azure que fornece um ambiente totalmente isolado e dedicado para uma execução segura de aplicações do App Service do Azure. Para saber mais sobre o ASE, veja a [documentação do ambiente de serviço de aplicações](../app-service/environment/intro.md).</br>Pode proteger várias aplicações web no Centro de segurança com a adição desses aplicativos para as implementações existentes do WAF. |
 | [Finalizar a proteção das aplicações](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de uma WAF, tráfego deve ser reencaminhado para a aplicação do WAF. Seguir essa recomendação conclui as alterações de configuração necessários. |
@@ -95,6 +95,7 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 | [Avaliação de vulnerabilidades não instalada](security-center-vulnerability-assessment-recommendations.md) |Recomenda-se de que instala uma solução de avaliação de vulnerabilidades na sua VM. |
 | [Remediar vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite-lhe ver as vulnerabilidades de sistema e de aplicações detetadas pela solução de avaliação de vulnerabilidade instalada na sua VM. |
 | [Ativar a encriptação da conta de armazenamento do Azure](security-center-enable-encryption-for-storage-account.md) | Recomenda-se de que ativa a encriptação do serviço de armazenamento do Azure para dados inativos. Encriptação de serviço de armazenamento (SSE) funciona ao encriptar os dados quando ele é escrito para o armazenamento do Azure e desencripta antes da obtenção. O SSE está atualmente disponível apenas para o serviço de Blobs do Azure e pode ser utilizado para blobs de blocos, blobs de páginas e blobs de acréscimo. Para obter mais informações, consulte [encriptação do serviço de armazenamento para dados Inativos](../storage/common/storage-service-encryption.md).</br>O SSE só é suportado em contas de armazenamento do Resource Manager. |
+| [Ativar os controlos de aplicações adaptáveis](security-center-adaptive-application.md) | Recomenda-se de que aplicar controlos de aplicação adaptável nas suas VMs do Windows. Esta funcionalidade está em pré-visualização e disponível no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. |
 | Serviço de aplicações só devem estar acessível através de HTTPS | Recomenda-se de que limite o acesso do serviço de aplicações através de HTTPS apenas. |
 | Web Sockets devem ser desativados para a aplicação Web| Recomenda-se de que examinar cuidadosamente a utilização de Web Sockets nas aplicações web.  O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança. |
 | Utilizar domínios personalizados para a sua aplicação Web | Recomenda o uso de domínios personalizados para proteger uma aplicação web de ataques comuns, como o phishing e outros ataques relacionados com DNS. |

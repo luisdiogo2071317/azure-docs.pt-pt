@@ -3,5 +3,5 @@ O Azure Data Lake Store é um repositório de hiper escala a nível da empresa p
 | **Recurso** | **Limite Predefinido** | **Comentários** |
 | --- | --- | --- |
 | Número máx. de contas do Data Lake Store, por subscrição, por região |10 | Contacte o Suporte para pedir um aumento para este limite |
-| Número máx. de acesso ACLs, por ficheiro ou pasta |32 | Este é um limite de disco rígido. Utilizar grupos para gerir o acesso com menos entradas |
-| Número máx. de ACLs predefinido, por ficheiro ou pasta |32 | Este é um limite de disco rígido. Utilizar grupos para gerir o acesso com menos entradas |
+| Número máx. de acesso ACLs, por ficheiro ou pasta |32 | Este é um limite rígido. Utilizar grupos para gerir o acesso com menos de entradas |
+| Número máx. de ACLs padrão, por ficheiro ou pasta |32 | Este é um limite rígido. Utilizar grupos para gerir o acesso com menos de entradas |

@@ -1,5 +1,5 @@
 ---
-title: Esquema de função de serviços em nuvem do Azure | Microsoft Docs
+title: Esquema de função dos serviços Cloud do Azure | Documentos da Microsoft
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,24 +10,24 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359004"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005786"
 ---
-# <a name="azure-cloud-services-config-role-schema"></a>Esquema de configuração de função de serviços em nuvem do Azure
+# <a name="azure-cloud-services-config-role-schema"></a>Esquema de configuração de função dos serviços Cloud do Azure
 
-O `Role` elemento do ficheiro de configuração especifica o número de instâncias de função para implementar para cada função no serviço, os valores das definições de configuração, e os thumbprints para todos os certificados associados a uma função.
+O `Role` elemento do ficheiro de configuração especifica o número de instâncias de função para implementar para cada função no serviço, os valores de quaisquer definições de configuração, e os thumbprints de todos os certificados a uma função.
 
-Para obter mais informações sobre o esquema de configuração de serviço do Azure, consulte [esquema de configuração do serviço em nuvem (clássica)](schema-cscfg-file.md). Para obter mais informações sobre o esquema de definição de serviço do Azure, consulte [esquema de definição de serviço em nuvem (clássica)](schema-csdef-file.md).
+Para obter mais informações sobre o esquema de configuração de serviço do Azure, consulte [esquema de configuração do serviço em nuvem (clássico)](schema-cscfg-file.md). Para obter mais informações sobre o esquema de definição de serviço do Azure, consulte [esquema de definição de serviço em nuvem (clássico)](schema-csdef-file.md).
 
 ##  <a name="Role"></a> Elemento de função
-O seguinte exemplo mostra o `Role` elemento e os respetivos elementos subordinados.
+A exemplo a seguir mostra o `Role` elemento e os respetivos elementos subordinados.
 
 ```xml 
 <ServiceConfiguration>
@@ -47,16 +47,16 @@ A tabela seguinte descreve os atributos para o `Role` elemento.
 
 | Atributo | Descrição |
 | --------- | ----------- |
-| nome   | Necessário. Especifica o nome da função. O nome tem de corresponder ao nome fornecido para a função no ficheiro de definição de serviço.|
-| vmName | Opcional. Especifica o nome DNS para uma Máquina Virtual. O nome tem de ser 10 carateres ou menos.|
+| nome   | Necessário. Especifica o nome da função. O nome tem de corresponder ao nome fornecido para a função no arquivo de definição do serviço.|
+| vmName | Opcional. Especifica o nome DNS para uma Máquina Virtual. O nome deve ter 10 carateres ou menos.|
 
-A tabela seguinte descreve os elementos subordinados do `Role` elemento.
+A tabela seguinte descreve os elementos filho do `Role` elemento.
 
 | Elemento | Descrição |
 | ------- | ----------- |
 | Instâncias | Necessário. Especifica o número de instâncias a implementar para a função. O número de instâncias é definido por um número inteiro para o `count` atributo.|
-| Definição   | Opcional. Especifica um nome de definição e valor de uma coleção de definições para uma função. O nome da definição é definido por uma cadeia para o `name` atributo e o valor da definição é definido por uma cadeia para o `value` atributo.|
-| Certificado | Opcional. Especifica o nome, a thumbprint e o algoritmo de um certificado de serviço que está a ser associados à função. O nome do certificado é definido por uma cadeia para o `name` atributo. O thumbprint do certificado é definido por uma cadeia de números hexadecimal sem espaços para o `thumbprint` atributo. Os números hexadecimal devem ser representados com dígitos e carateres alfanuméricos em maiúsculas. O algoritmo de certificado é definido por uma cadeia para o `thumbprintAlgorithm` atributo.|
+| Definição   | Opcional. Especifica um nome de definição e valor numa coleção de definições para uma função. O nome da definição é definido por uma cadeia de caracteres para o `name` atributo e o valor da definição é definido por uma cadeia de caracteres para o `value` atributo.|
+| Certificado | Opcional. Especifica o nome, o thumbprint e o algoritmo de um certificado de serviço que está a ser associado com a função. O nome do certificado é definido por uma cadeia de caracteres para o `name` atributo. O thumbprint do certificado é definido por uma cadeia de números hexadecimais contendo sem espaços para o `thumbprint` atributo. Os números hexadecimais devem ser representados com dígitos e carateres alfabéticos em maiúsculas. O algoritmo de certificado é definido por uma cadeia de caracteres para o `thumbprintAlgorithm` atributo.|
 
 ## <a name="see-also"></a>Consultar Também
-[Esquema de configuração (clássica) serviço em nuvem](schema-cscfg-file.md)
+[Esquema de configuração do cloud Service (clássico)](schema-cscfg-file.md)

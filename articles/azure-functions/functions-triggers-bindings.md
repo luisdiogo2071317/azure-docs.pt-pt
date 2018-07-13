@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887475"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004902"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
@@ -32,7 +32,7 @@ R *acionador* define como uma função é invocada. Uma função tem de ter exat
 
 Entrada e saída *enlaces* proporcionam uma forma declarativa para ligar a dados a partir de seu código. Enlaces são opcionais e uma função pode ter várias entradas de ligações de saída. 
 
-Acionadores e enlaces permitem-lhe evitar os detalhes dos serviços que está trabalhando com a codificar. A função recebe dados (por exemplo, o conteúdo de uma mensagem de fila) nos parâmetros de função. Enviar dados (por exemplo, para criar uma mensagem de fila), utilizando o valor de retorno da função, um `out` parâmetro, ou uma [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values).
+Acionadores e enlaces permitem-lhe evitar os detalhes dos serviços que está trabalhando com a codificar. A função recebe dados (por exemplo, o conteúdo de uma mensagem de fila) nos parâmetros de função. Enviar dados (por exemplo, para criar uma mensagem de fila), utilizando o valor de retorno da função. No c# e de script c#, maneiras alternativas de enviar os dados são `out` parâmetros e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
 Ao desenvolver funções com o portal do Azure, os acionadores e enlaces estão configurados num *Function* ficheiro. O portal fornece uma interface do Usuário para esta configuração, mas pode editar o ficheiro diretamente ao alterar para o **editor avançado**.
 
@@ -224,9 +224,11 @@ Em idiomas que têm um valor de retorno, é possível vincular um enlace de saí
 * No c# biblioteca de classes, aplica o atributo de enlace de saída para o valor de retorno do método.
 * Em outros idiomas, defina o `name` propriedade na *Function* para `$return`.
 
-Se precisar de mais de um item de escrita, usar um [objeto recoletor](functions-reference-csharp.md#writing-multiple-output-values) em vez do valor de retorno. Se existirem vários enlaces de saída, utilize o valor de retorno para apenas um deles.
+Se existirem vários enlaces de saída, utilize o valor de retorno para apenas um deles.
 
-Veja o exemplo de idioma específico:
+No c# e de script c#, maneiras alternativas de enviar dados para um enlace de saída são `out` parâmetros e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
+
+Veja o exemplo de idioma específico, que mostra a utilização de valor de retorno:
 
 * [C#](#c-example)
 * [Script do c# (.csx)](#c-script-example)

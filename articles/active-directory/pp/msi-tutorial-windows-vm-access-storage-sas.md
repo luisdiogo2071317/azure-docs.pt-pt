@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9102ea255e533e4233b2cba77a6f7f38b992e2a5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a96e0948f652e49afb955eaf32f14cf14a10df34
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610407"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007405"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Utilizar uma identidade de serviço gerida do Windows VM para aceder ao armazenamento do Azure através de uma credencial SAS
 
@@ -56,7 +56,7 @@ Para este tutorial, vamos criar uma nova VM do Windows. Também pode ativar o MS
 5.  Para selecionar um novo **grupo de recursos** gostaria de máquina virtual para ser criado no, escolha **criar nova**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e clique em **OK**.
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar o MSI na sua VM
 
@@ -67,11 +67,11 @@ Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem
 3. Para registar e ativar o MSI, selecione **Sim**, se desejar para desabilitá-lo, selecione não.
 4. Certifique-se de que clica **guardar** para guardar a configuração.
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Se pretender verificar quais as extensões são na VM, clique em **extensões**. Se o MSI é ativado, o **ManagedIdentityExtensionforWindows** aparece na lista.
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970677"
+ms.locfileid: "38989593"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -367,6 +367,8 @@ O [Host. JSON](functions-host-json.md#eventhub) ficheiro contém as definições
 ## <a name="output"></a>Saída
 
 Utilize a enlace para gravar eventos para um fluxo de eventos de saída de Hubs de eventos. Tem de ter permissão de envio para um hub de eventos para escrever eventos no mesmo.
+
+Certifique-se de que as referências do pacote necessários estão em vigor: [funções 1.x](#packages---functions-1.x) ou [funções 2.x](#packages---functions-2.x) 
 
 ## <a name="output---example"></a>Saída - exemplo
 

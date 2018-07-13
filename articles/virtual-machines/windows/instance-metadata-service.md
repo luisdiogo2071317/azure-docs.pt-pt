@@ -1,6 +1,6 @@
 ---
-title: Serviço de metadados de instância do Azure | Microsoft Docs
-description: Interface rESTful para obter informações sobre computação, rede e eventos de manutenções da VM do Windows.
+title: Serviço de metadados de instância do Azure | Documentos da Microsoft
+description: Interface rESTful para obter informações sobre computação, rede e eventos de manutenção futura da VM do Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijayms
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: de597424c1be01e651068b7900acbece822610b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057983"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008380"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
 
-O serviço de metadados de instância do Azure fornece informações sobre as instâncias de máquina virtual que podem ser utilizadas para gerir e configurar as máquinas virtuais em execução.
-Isto inclui informações como SKU, a configuração de rede e os eventos de manutenção futura. Para obter mais informações sobre o tipo de informações é disponível, consulte [categorias de metadados](#instance-metadata-data-categories).
+O serviço de metadados de instância do Azure fornece informações sobre as instâncias de máquina virtual que podem ser utilizadas para gerir e configurar as suas máquinas virtuais em execução.
+Isto inclui informações como SKU, configuração de rede e eventos de manutenção futura. Para obter mais informações sobre o tipo de informações está disponível, consulte [categorias de metadados](#instance-metadata-data-categories).
 
-Serviço de metadados de instância do Azure é um ponto final de REST acessível para todas as VMs de IaaS criados através de [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). O ponto final está disponível um endereço de IP bem conhecidos não encaminháveis internos (`169.254.169.254`) que podem ser acedidos apenas a partir de dentro da VM.
+Serviço de metadados de instância do Azure é um ponto final REST acessíveis a todas as VMs de IaaS criados através da [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). O ponto final está disponível num endereço IP bem conhecido não encaminháveis internos (`169.254.169.254`) que podem ser acedidos apenas a partir de dentro da VM.
 
 > [!IMPORTANT]
-> Este serviço é **geralmente disponível** em todas as regiões do Azure.  Regularmente recebe atualizações para expor as novas informações sobre instâncias de máquina virtual. Esta página reflete o atualizados [categorias de dados](#instance-metadata-data-categories) disponíveis.
+> Este serviço é **em disponibilidade geral** em todas as regiões do Azure.  Regularmente, ele recebe atualizações para expor as novas informações sobre as instâncias de máquina virtual. Esta página reflete a atualizados [categorias de dados](#instance-metadata-data-categories) disponíveis.
 
 ## <a name="service-availability"></a>Disponibilidade do serviço
-O serviço está disponível no geralmente disponíveis regiões do Azure. Nem todos os versão de API poderão estar disponíveis em todas as regiões do Azure.
+O serviço está disponível em regiões do Azure em disponibilidade geral. Versão de API nem todos os poderão estar disponíveis em todas as regiões do Azure.
 
 Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02,2017-08-01
-[Azure China](https://www.azure.cn/)                                                           | Geralmente disponível | 2017-04-02,2017-08-01
-[Datacenters do Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Geralmente disponível | 2017-04-02,2017-08-01
+[Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | Disponível em geral   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em geral | 2017-04-02,2017-08-01
+[O Azure na China](https://www.azure.cn/)                                                           | Disponível em geral | 2017-04-02,2017-08-01
+[O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em geral | 2017-04-02,2017-08-01
 
-Esta tabela é atualizada quando existirem atualizações de serviço e ou existem novas versões suportadas
+Esta tabela é atualizada quando existem atualizações de serviço e ou existem novas versões suportadas
 
-Para experimentar o serviço de metadados de instância, crie uma VM a partir [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou [portal do Azure](http://portal.azure.com) nas regiões acima e siga os exemplos abaixo.
+Para experimentar o serviço de metadados de instância, criar uma VM a partir [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou o [portal do Azure](http://portal.azure.com) nas regiões acima e siga os exemplos abaixo.
 
 ## <a name="usage"></a>Utilização
 
 ### <a name="versioning"></a>Controlo de versões
-O serviço de metadados de instância é com a versão. As versões são obrigatórias e a versão atual do Global Azure é `2017-12-01`. Versões suportadas atuais são (2017-04-02, 2017-08-01,2017-12-01)
+O serviço de metadados de instância tem a mesma versão. Versões são obrigatórias e a versão atual no Global Azure é `2017-12-01`. Versões suportadas atuais são (2017-04-02, 2017-08-01,2017-12-01)
 
 > [!NOTE] 
-> Pré-visualização as versões anteriores dos eventos agendadas suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
+> Versões anteriores de pré-visualização de eventos agendados suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
 
-Como são adicionadas novas versões, as versões mais antigas podem ainda ser acedidas para compatibilidade, se os scripts terem dependências de formatos de dados específicos. No entanto, a versão de pré-visualização anterior (2017-03-01) poderá não estar disponível assim que o serviço estiver geralmente disponível.
+Como são adicionadas novas versões, as versões mais antigas podem ainda ser acedidas para compatibilidade, se seus scripts têm dependências em formatos de dados específicos. No entanto, a versão de pré-visualização anteriores (2017-03-01) pode não estar disponível assim que o serviço está disponível em geral.
 
-### <a name="using-headers"></a>Utilizar cabeçalhos
-Ao consultar o serviço de metadados de instância, tem de fornecer o cabeçalho `Metadata: true` para garantir que o pedido não foi redirecionado inadvertidamente.
+### <a name="using-headers"></a>O uso de cabeçalhos
+Quando consulta o serviço de metadados de instância, tem de fornecer o cabeçalho `Metadata: true` para garantir que o pedido não foi redirecionado inadvertidamente.
 
-### <a name="retrieving-metadata"></a>Obtenção de metadados
+### <a name="retrieving-metadata"></a>Obter metadados
 
-Metadados da instância estão disponível para executar as VMs criado/geridos através de [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Todas as categorias de dados para uma instância de máquina virtual utilizando o seguinte pedido de acesso:
+Metadados de instância estão disponível para executar VMs criados/geridos usando [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Aceda a todas as categorias de dados para uma instância de máquina virtual com o pedido seguinte:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
@@ -71,10 +71,10 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Todas as consultas de metadados de instância diferenciam maiúsculas de minúsculas.
 
 ### <a name="data-output"></a>Saída de dados
-Por predefinição, o serviço de metadados de instância devolve a data no formato JSON (`Content-Type: application/json`). No entanto, APIs diferentes devolvem dados em diferentes formatos se solicitada.
-A tabela seguinte é uma referência de APIs podem suportar outros formatos de dados.
+Por predefinição, o serviço de metadados de instância devolve dados no formato JSON (`Content-Type: application/json`). No entanto, diferentes APIs devolvem dados em diferentes formatos se solicitado.
+A tabela seguinte é uma referência de outros formatos de dados que deve dar suporte a APIs.
 
-API | Formato de dados predefinido | Outros formatos
+API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
 /instance | json | texto
 /scheduledevents | json | nenhum
@@ -86,27 +86,27 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 
 ### <a name="security"></a>Segurança
-Ponto final do serviço de metadados de instância é acessível apenas a partir de dentro de instância de máquina virtual em execução num endereço IP não encaminháveis internos. Além disso, qualquer pedido com um `X-Forwarded-For` cabeçalho é rejeitado pelo serviço.
-Pedidos também tem de conter um `Metadata: true` cabeçalho para se certificar de que o pedido real foi diretamente pretendida e não uma parte de redirecionamento não intencional. 
+O ponto de extremidade do serviço de metadados de instância é acessível apenas a partir de dentro da instância de máquina virtual em execução num endereço IP não encaminháveis internos. Além disso, qualquer pedido com um `X-Forwarded-For` cabeçalho é rejeitado pelo serviço.
+Pedidos também tem de conter um `Metadata: true` cabeçalho para se certificar de que o pedido real foi diretamente previstas e não uma parte de redirecionamento não intencional. 
 
 ### <a name="error"></a>Erro
-Se existir um elemento de dados não encontrado ou um pedido com formato incorreto, o serviço de metadados de instância devolve erros de HTTP padrão. Por exemplo:
+Se houver um elemento de dados não foi encontrado ou um pedido com formato incorreto, o serviço de metadados de instância devolve erros de HTTP padrão. Por exemplo:
 
 Código de estado de HTTP | Razão
 ----------------|-------
 200 OK |
-Pedido de 400 incorreta | Falta `Metadata: true` cabeçalho
-404 Não Encontrado | O elemento pedido não existe 
+400 pedido inválido | Em falta `Metadata: true` cabeçalho
+404 Não Encontrado | O elemento solicitado não existe 
 405 Método não permitido | Apenas `GET` e `POST` os pedidos são suportados
-429 demasiados pedidos | A API atualmente suporta um máximo de 5 consultas por segundo
-Erro no serviço 500     | Tente novamente após algum tempo
+429 demasiados pedidos | Atualmente, a API suporta um máximo de 5 consultas por segundo
+Erro de serviço 500     | Tente novamente após algum tempo
 
 ### <a name="examples"></a>Exemplos
 
 > [!NOTE] 
-> Todas as respostas de API são cadeias JSON. Todas as respostas de exemplo seguintes são impressas pretty para legibilidade.
+> Todas as respostas de API são cadeias de caracteres do JSON. Todas as respostas de exemplo seguintes são bastante impresso para facilitar a leitura.
 
-#### <a name="retrieving-network-information"></a>A obtenção de informações de rede
+#### <a name="retrieving-network-information"></a>A obter informações de rede
 
 **Pedido**
 
@@ -117,7 +117,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
+> A resposta é uma cadeia de caracteres do JSON. A resposta de exemplo seguinte é impresso bastante para facilitar a leitura.
 
 ```json
 {
@@ -147,7 +147,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 ```
 
-#### <a name="retrieving-public-ip-address"></a>Obter o endereço IP público
+#### <a name="retrieving-public-ip-address"></a>A obter o endereço IP público
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
@@ -164,7 +164,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
+> A resposta é uma cadeia de caracteres do JSON. A resposta de exemplo seguinte é impresso bastante para facilitar a leitura.
 
 ```json
 {
@@ -224,7 +224,7 @@ Metadados de instância podem ser obtido no Windows através do `curl` programa:
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Ou através de `Invoke-RestMethod` cmdlet do PowerShell:
+Ou através do `Invoke-RestMethod` cmdlet do PowerShell:
     
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
@@ -233,7 +233,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
+> A resposta é uma cadeia de caracteres do JSON. A resposta de exemplo seguinte é impresso bastante para facilitar a leitura.
 
 ```json
 {
@@ -280,41 +280,41 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```
 
 ## <a name="instance-metadata-data-categories"></a>Categorias de dados de metadados de instância
-As seguintes categorias de dados estão disponíveis através do serviço de metadados da instância:
+As seguintes categorias de dados estão disponíveis através do serviço de metadados de instância:
 
 Dados | Descrição | Versão introduzida 
 -----|-------------|-----------------------
-localização | Região do Azure a VM está em execução no | 2017-04-02 
+localização | Região do Azure a VM está em execução | 2017-04-02 
 nome | Nome da VM | 2017-04-02
-oferta | Disponibilizam informações para a imagem VM. Este valor só está presente para imagens implementadas a partir da Galeria de imagem do Azure. | 2017-04-02
-Fabricante | Publicador de imagem de VM | 2017-04-02
-SKU | SKU específico para a imagem VM | 2017-04-02
+oferta | Oferecem informações para a imagem VM. Este valor só é aplicável imagens implementadas a partir da Galeria de imagens do Azure. | 2017-04-02
+publicador | Publicador da imagem VM | 2017-04-02
+SKU | SKU específica para a imagem VM | 2017-04-02
 versão | Versão da imagem VM | 2017-04-02
-osType | Linux ou do Windows | 2017-04-02
-platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução no | 2017-04-02
-platformFaultDomain | [Domínio de falhas](manage-availability.md) a VM está em execução no | 2017-04-02
+osType | Linux ou Windows | 2017-04-02
+platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução | 2017-04-02
+platformFaultDomain | [Domínio de falha](manage-availability.md) a VM está em execução | 2017-04-02
 vmId | [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a VM | 2017-04-02
 vmSize | [Tamanho da VM](sizes.md) | 2017-04-02
 subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
-placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu dimensionamento da máquina virtual definido | 2017-08-01
-vmScaleSetName | [Nome da Máquina Virtual ScaleSet] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) do seu dimensionamento da máquina virtual definido | 2017-12-01
+placementGroupId | [Grupo de colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de dimensionamento de máquinas virtuais definido | 2017-08-01
+vmScaleSetName | [Nome do conjunto de dimensionamento de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de dimensionamento de máquinas virtuais definido | 2017-12-01
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
 endereço de sub-rede / | Endereço de sub-rede da VM | 2017-04-02 
 prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
 ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
-MacAddress | Endereço mac VM | 2017-04-02 
-scheduledevents | Consulte [agendada eventos](scheduled-events.md) | 2017-08-01
-identidade | (Pré-visualização) Identidade de serviço geridas. Consulte [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
+macAddress | Endereço mac VM | 2017-04-02 
+scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
+identidade | (Pré-visualização) Identidade do serviço gerido. Consulte [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 
 ### <a name="tracking-vm-running-on-azure"></a>Controlo de VM em execução no Azure
 
-Como um fornecedor de serviços, poderá ser necessário para controlar o número de VMs com o seu software ou agentes que precisam de controlar exclusividade da VM. Para conseguir obter um ID exclusivo para uma VM, utilize o `vmId` campo do serviço de metadados de instância.
+Como um fornecedor de serviços, poderá precisar de controlar o número de VMs que executam o seu software ou agentes que precisa controlar exclusividade da VM. Para conseguir obter um ID exclusivo para uma VM, utilize o `vmId` campo do serviço de metadados de instância.
 
 **Pedido**
 
@@ -330,8 +330,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Colocação de contentores, partições de dados com base em domínio de falhas/atualização 
 
-Alguns cenários, colocação das réplicas de dados diferentes é prime importância. Por exemplo, [colocação de réplica do HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou colocação contentor através de um [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) pode necessitar de conhecer a `platformFaultDomain` e `platformUpdateDomain` a VM está em execução no.
-Também pode tirar partido [disponibilidade zonas](../../availability-zones/az-overview.md) para as instâncias para estas decisões.
+Para determinados cenários, a colocação das réplicas de dados diferentes é de importância fortes. Por exemplo, [colocação de réplica do HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou o posicionamento de contentor através de um [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) podem exigir a saber o `platformFaultDomain` e `platformUpdateDomain` a VM está em execução no.
+Também pode aproveitar [zonas de disponibilidade](../../availability-zones/az-overview.md) para as instâncias tomar essas decisões.
 Pode consultar estes dados diretamente através do serviço de metadados de instância.
 
 **Pedido**
@@ -346,9 +346,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Obter mais informações sobre a VM durante caso de suporte 
+### <a name="getting-more-information-about-the-vm-during-support-case"></a>Obter mais informações sobre a VM durante o processo de suporte 
 
-Como um fornecedor de serviços, poderá receber uma chamada de suporte em que gostaria de saber mais informações sobre a VM. Pedir ao cliente para partilhar os metadados de computação pode fornecer informações básicas para o suporte profissional conhecer o tipo de VM no Azure. 
+Como um fornecedor de serviços, poderá receber uma chamada de suporte local em que deseja saber mais informações sobre a VM. Pedir o cliente para partilhar os metadados de computação pode fornecer informações básicas para o suporte profissional para saber sobre o tipo de VM no Azure. 
 
 **Pedido**
 
@@ -359,7 +359,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **Resposta**
 
 > [!NOTE] 
-> A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
+> A resposta é uma cadeia de caracteres do JSON. A resposta de exemplo seguinte é impresso bastante para facilitar a leitura.
 
 ```json
 {
@@ -379,7 +379,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de chamar o serviço de metadados utilizando idiomas diferentes dentro da VM 
+### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de chamar o serviço de metadados que utilizam idiomas diferentes dentro da VM 
 
 Idioma | Exemplo 
 ---------|----------------
@@ -398,25 +398,25 @@ Puppet | https://github.com/keirans/azuremetadata
     
 
 ## <a name="faq"></a>FAQ
-1. Estou a obter o erro `400 Bad Request, Required metadata header not specified`. O que significa?
-   * O serviço de metadados de instância requer o cabeçalho `Metadata: true` transmitido no pedido. Transmitir este cabeçalho na chamada REST permite o acesso ao serviço de metadados de instância. 
-2. Por que razão estou posso obter não informações de computação para a minha VM?
-   * O serviço de metadados de instância só suporta atualmente instâncias criadas com o Azure Resource Manager. No futuro, suporte para VMs de serviço na nuvem podem ser adicionadas.
-3. Criar um algum volta a minha máquina Virtual através do Azure Resource Manager. Por que razão estou posso não ver as informações de metadados de computação?
-   * Para quaisquer VMs criadas após Sep 2016, adicione um [Tag](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Sep 2016), adicionar/remover discos de dados ou extensões para a VM para atualizar os metadados.
-4. Não estou a ver todos os dados preenchidos nova versão de 2017-08-01
-   * Para quaisquer VMs criadas após Sep 2016, adicione um [Tag](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Sep 2016), adicionar/remover discos de dados ou extensões para a VM para atualizar os metadados.
-5. Por que razão estou obter o erro `500 Internal Server Error`?
-   * Repetir o pedido com base no back exponencial fora do sistema. Se o problema persistir, contacte o suporte do Azure.
-6. Onde posso partilham perguntas/comentários adicionais?
-   * Envie os seus comentários sobre http://feedback.azure.com.
-7. Isto seria funcionar para a instância de conjunto de dimensionamento de Máquina Virtual?
-   * Sim metadados serviço está disponível para instâncias de conjunto de dimensionamento. 
+1. Estou recebendo o erro `400 Bad Request, Required metadata header not specified`. O que significa isto?
+   * O serviço de metadados de instância requer o cabeçalho `Metadata: true` a serem passados no pedido. Passando esse cabeçalho a chamada REST permite o acesso ao serviço de metadados de instância. 
+2. Por que eu não estou obtendo informações de computação para a minha VM?
+   * Atualmente, o serviço de metadados de instância só suporta instâncias criadas com o Azure Resource Manager. No futuro, o suporte para as VMs do serviço em nuvem podem ser adicionadas.
+3. Tempo que criei minha máquina Virtual através do Gestor de recursos do Azure. Por que ainda não estou ver informações de metadados de computação?
+   * Para todas as VMs criadas depois de Setembro de 2016, adicione uma [marca](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Setembro de 2016), adicionar ou remover discos de dados ou extensões para a VM para atualizar os metadados.
+4. Não estou a ver todos os dados preenchidos para a nova versão do 2017-08-01
+   * Para todas as VMs criadas depois de Setembro de 2016, adicione uma [marca](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Setembro de 2016), adicionar ou remover discos de dados ou extensões para a VM para atualizar os metadados.
+5. Por que estou recebendo o erro `500 Internal Server Error`?
+   * Repetir o pedido com base no sistema de término exponencial. Se o problema persistir, contacte o suporte do Azure.
+6. Onde posso partilhar comentários/perguntas adicionais?
+   * Envie seus comentários acerca http://feedback.azure.com.
+7. Funciona para a instância de conjunto de dimensionamento de Máquina Virtual?
+   * Sim do serviço de metadados está disponível para instâncias de conjunto de dimensionamento. 
 8. Como posso obter suporte para o serviço?
-   * Para obter suporte para o serviço, crie um problema de suporte no portal do Azure para a VM em que não é possível obter a resposta de metadados após várias tentativas de longas 
+   * Para obter suporte para o serviço, criar um problema de suporte no portal do Azure para a VM em que não é possível obter a resposta de metadados após repetições longas 
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [eventos agendada](scheduled-events.md)
+- Saiba mais sobre [eventos agendados](scheduled-events.md)

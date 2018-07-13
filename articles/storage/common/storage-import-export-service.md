@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232682"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008421"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
 O serviço importar/exportar do Azure é utilizado para importar com segurança as grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure envie unidades de disco num Datacenter do Azure. Este serviço também pode ser utilizado para transferir dados do armazenamento de Blobs do Azure para unidades de disco e disponibilize aos seus sites no local. Dados a partir de um ou mais discos podem ser importados ou ficheiros do Azure ou de armazenamento de Blobs do Azure. 
+
+O serviço importar/exportar do Azure requer que fornecer seus próprios discos. Se pretender transferir os dados a utilizar discos fornecidos pela Microsoft, pode utilizar o disco do Azure Data Box para importar dados para o Azure. Microsoft vem até 5 discos encriptados de estado sólidos (SSDs) com uma capacidade de 40 TB por ordem, no seu datacenter através de uma operadora regional. Rapidamente, pode configurar discos, copiar dados para discos através de uma ligação USB 3.0 e envie os discos novamente para o Azure. Para obter mais informações, aceda a [descrição geral do disco do Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="azure-importexport-usecases"></a>Usecases de importação/exportação do Azure
 
