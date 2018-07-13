@@ -337,7 +337,7 @@ Depois, na secção VotingWebPkg **ServiceManifestImport**, configure uma polít
 
 ## <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-No Explorador de Soluções, selecione a aplicação **Voting** e defina a propriedade **URL da Aplicação** como “https://localhost:443”.
+No Explorador de Soluções, selecione a aplicação **Voting** e defina a propriedade **URL da Aplicação** como “https://localhost:443 ”.
 
 Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Após a implementação da aplicação, é aberto um browser em [https://localhost:443](https://localhost:443). Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
