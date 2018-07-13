@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
 ms.openlocfilehash: efad7353a477577e5b5ac862b418ce78b1c4c304
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778482"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697257"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Enviar notificações push para dispositivos Android através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -35,7 +35,7 @@ Vai criar uma aplicação Android em branco para receber notificações push atr
 
 O código de conclusão para este tutorial pode ser transferido [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted) a partir do GitHub.
 
-Neste tutorial, vai realizar as seguintes ações: 
+Neste tutorial, irá realizar as seguintes ações: 
 
 > [!div class="checklist"]
 > * Criar um projeto que suporte o Google Cloud Messaging.
@@ -148,7 +148,7 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
     Atualize os três marcadores de posição no seguinte código da classe `NotificationSettings`:
    
    * **SenderId**: O número do projeto que obteve anteriormente no [Google Cloud Console](http://cloud.google.com/console).
-   * **HubListenConnectionString**: A cadeia de ligação **DefaultListenAccessSignature** do seu hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [portal do Azure].
+   * **HubListenConnectionString**: A cadeia de ligação **DefaultListenAccessSignature** do seu hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [Portal do Azure].
    * **HubName**: utilize o nome do hub de notificação que aparece na página do hub no [portal do Azure].
      
      Código `NotificationSettings`:
@@ -731,4 +731,4 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos And
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

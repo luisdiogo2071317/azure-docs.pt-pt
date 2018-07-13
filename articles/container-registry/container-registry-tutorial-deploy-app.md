@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582306"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implementar aplicação Web do Azure Container Registry
 
-Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, implementa o contentor em dias instâncias de Aplicações Web em duas regiões do Azure diferente para tirar partido do aspeto sem rede do registo georreplicado.
+Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância obtém a imagem de contentor do registo mais próximo.
 
 Neste tutorial, a segunda parte da série:
 
@@ -27,11 +28,11 @@ Neste tutorial, a segunda parte da série:
 
 Se ainda não criou um registo georreplicado nem enviou a imagem da aplicação de exemplo em contentor para o registo, regresse ao tutorial anterior da série, [Preparar um registo de contentor georreplicado do Azure](container-registry-tutorial-prepare-registry.md).
 
-Na próxima parte da série, irá atualizar a aplicação e enviar uma nova imagem de contentor para o registo. Por fim, navegue para cada instância de Aplicação Web em execução para ver a alteração automaticamente refletida em ambos os casos, mostrando os webhooks e a georreplicação do Azure Container Registry em ação.
+No artigo seguinte, irá atualizar a aplicação e, em seguida, enviar a imagem de contentor atualizada para o registo. Por fim, navegue para cada instância de Aplicação Web em execução para ver a alteração automaticamente refletida em ambos os casos, mostrando os webhooks e a georreplicação do Azure Container Registry em ação.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implementação automática para Aplicações Web para Contentores
 
-O Azure Container Registry fornece suporte para implementar aplicações em contentores diretamente nas [Aplicações Web para Contentores](../app-service/containers/index.yml). Neste tutorial, utilizará o portal do Azure para implementar a imagem de contentor criada no tutorial anterior em dois planos de aplicações Web situados em regiões do Azure diferentes.
+O Azure Container Registry fornece suporte para implementar aplicações em contentores diretamente nas [Aplicações Web para Contentores](../app-service/containers/index.yml). Neste tutorial, irá utilizar o portal do Azure para implementar a imagem de contentor criada no tutorial anterior em dois planos de aplicações Web situados em regiões do Azure diferentes.
 
 Quando implementar uma aplicação Web a partir de uma imagem de contentor no seu registo e tiver um registo georreplicado na mesma região, o Azure Container Registry cria um [webhook](container-registry-webhook.md) de implementação de imagem por si. Quando enviar uma nova imagem para o seu repositório de contentor, o webhook deteta a alteração e implementa automaticamente a nova imagem de contentor na sua aplicação Web.
 
@@ -103,11 +104,7 @@ Após a imagem do Docker ser implementada a partir do seu registo de contentor g
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, implementou duas instâncias de Aplicação Web para Contentores a partir de um registo de contentor georreplicado do Azure. Ao seguir os passos neste tutorial, conseguiu:
-
-> [!div class="checklist"]
-> * Implementou uma imagem de contentor em duas instâncias de *Aplicações Web para Contentores*
-> * Verificou a aplicação implementada
+Neste tutorial, implementou duas instâncias de Aplicação Web para Contentores a partir de um registo de contentor georreplicado do Azure.
 
 Avance para o próximo tutorial para atualizar e, em seguida, implementar uma nova imagem de contentor no registo de contentor e, em seguida, verifique que as aplicações Web executadas em ambas as regiões foram automaticamente atualizadas.
 

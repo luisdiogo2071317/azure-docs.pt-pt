@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660610"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696964"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>Início Rápido: Utilizar a Cache de Redis do Azure com a aplicação .NET Core
 
@@ -39,7 +39,7 @@ Pode utilizar qualquer editor de código para concluir os passos deste início r
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [.NET SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) ou posterior.
-* O cliente StackExchange.Redis requer o [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+* O cliente StackExchange.Redis exige o [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime).
 
 ## <a name="create-a-cache"></a>Criar uma cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -162,7 +162,7 @@ Em *Program.cs*, adicione os seguintes membros à classe `Program` da aplicaçã
         }
 ```
 
-Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código fornece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` está definido como falso, o que significa que a chamada terá êxito mesmo se não for estabelecida uma ligação à Cache de Redis do Azure. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
+Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` está definido como falso, o que significa que a chamada terá êxito mesmo se não for ligada à Cache de Redis do Azure. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
 
 O valor do segredo *CacheConnection* é acedido com o fornecedor de configuração do Gestor de Segredo e utilizado como o parâmetro de palavra-passe.
 
@@ -213,7 +213,7 @@ Guarde *Program.cs*.
 
 Os caches de Redis do Azure têm um número configurável de bases de dados (predefinição de 16) que pode ser utilizado para separar logicamente os dados dentro de uma cache de Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
-Os itens de cache podem ser armazenados com os métodos `StringSet` e `StringGet`.
+Os itens de cache podem ser obtidos com os métodos `StringSet` e `StringGet`.
 
 O Redis armazena grande parte dos dados como cadeias de Redis. No entanto, estas cadeias podem conter vários tipos de dados, incluindo dados binários serializados, que podem ser utilizados ao armazenar objetos .NET na cache.
 
@@ -330,7 +330,7 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 Neste início rápido, aprendeu a utilizar a Cache de Redis do Azure a partir de uma aplicação de .NET Core. Avance para o início rápido seguinte para utilizar a Cache de Redis com uma aplicação Web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web ASP.NET que utiliza uma Cache de Redis do Azure.](./cache-web-app-howto.md)
+> [Criar uma aplicação Web ASP.NET que utiliza uma Cache de Redis do Azure](./cache-web-app-howto.md)
 
 
 

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 0445817f9ff403156025e38a1e14a3892a9a292b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031197"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667027"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules---preview"></a>Tutorial: Implementar as Funções do Azure como módulos do IoT Edge – pré-visualização
 
@@ -70,7 +70,7 @@ Os passos seguintes mostram-lhe como criar uma função do IoT Edge com o Visual
 3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    1. Selecione a pasta onde quer criar a solução. 
-   2. Forneça um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
+   2. Indique um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
    3. Selecione **Funções do Azure - C#** como modelo de módulo. 
    4. Atribua o nome **CSharpFunction** ao módulo. 
    5. Especifique o Azure Container Registry que criou na secção anterior como repositório de imagens para o primeiro módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão que copiou. A cadeia final é semelhante a **\<nome do registo\>.azurecr.io/csharpfunction**.
@@ -239,7 +239,7 @@ Elimine os contentores criados no seu dispositivo.
 sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
 ```
 
-Remova o runtime de contentor.
+Remova o runtime do contentor.
 
 ```bash
 sudo apt-get remove --purge moby

@@ -16,11 +16,11 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 31d93fc8b2034152e61d24a789bba62bfd3b7892
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639814"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635443"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-application"></a>Início Rápido: Utilizar a Cache de Redis do Azure com a aplicação .NET
 
@@ -129,7 +129,7 @@ Em *Program.cs*, adicione os seguintes membros à classe `Program` da sua aplica
 ```
 
 
-Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na sua aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` está definido como falso, o que significa que a chamada terá êxito mesmo se não for ligada à Cache de Redis do Azure. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
+Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` está definido como falso, o que significa que a chamada terá êxito mesmo se não for ligada à Cache de Redis do Azure. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
 
 O valor da appSetting de *CacheConnection* serve para referenciar a cadeia de ligação da cache a partir do portal do Azure como o parâmetro de palavra-passe.
 
@@ -174,7 +174,7 @@ Adicione o seguinte código ao procedimento `Main` da classe `Program` para a su
         }
 ```
 
-Os caches de Redis do Azure têm um número configurável de bases de dados (predefinição de 16) que pode ser utilizado para separar logicamente os dados dentro de uma cache de Redis. O código é ligado à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
+Os caches de Redis do Azure têm um número configurável de bases de dados (predefinição de 16) que pode ser utilizado para separar logicamente os dados dentro de uma cache de Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser obtidos com os métodos `StringSet` e `StringGet`.
 
@@ -273,6 +273,6 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 Neste início rápido, aprendeu a utilizar a Cache de Redis do Azure a partir de uma aplicação .NET. Continue para o início rápido seguinte para utilizar a Cache de Redis com uma aplicação Web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web ASP.NET com a Cache de Redis do Azure.](./cache-web-app-howto.md)
+> [Criar uma aplicação Web ASP.NET que utiliza uma Cache de Redis do Azure](./cache-web-app-howto.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Notas de versão de Media Services | Microsoft Docs
-description: Notas de versão de Media Services
+title: Notas de versão dos serviços de multimédia | Documentos da Microsoft
+description: Notas de versão dos serviços de multimédia
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,95 +14,95 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 1a874e31c05d287522810782f743d389c86dbe27
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098928"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671430"
 ---
-# <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
-Estas notas de versão para Media Services do Azure resumem as alterações de versões anteriores e problemas conhecidos.
+# <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
+Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
 
 > [!NOTE]
-> Queremos ouvi dos nossos clientes, de modo a que iremos poder concentrar na corrigir problemas que afetam. Para comunicar um problema ou colocar questões, submeter um pedido post no [Fórum MSDN do serviços de multimédia do Azure].
+> Queremos ouvir os nossos clientes, para que possa concentrar no corrigir problemas que afetam. Para reportar um problema ou fazer perguntas, submeter uma postagem no [Fórum MSDN dos serviços de multimédia do Azure].
 > 
 > 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemas conhecidos atualmente
-### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais de Media Services
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais de serviços de multimédia
 
 | Problema | Descrição |
 | --- | --- |
-| Vários cabeçalhos HTTP comuns não são fornecidos na REST API. |Se desenvolver aplicações de Media Services utilizando a API REST, encontrará que alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, o ID de pedido e retorno-CLIENT-REQUEST-ID) não são suportadas. Os cabeçalhos serão adicionados numa atualização futura. |
-| Não é permitida a codificação de percentagem. |Os Media Services utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para os conteúdos de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por este motivo, a percentagem de codificação não é permitida. O valor da propriedade de nome não pode ter qualquer um dos seguintes [por cento codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Além disso, podem existir apenas um "." para a extensão de nome de ficheiro. |
-| O método de ListBlobs que faz parte da falha de 3 de versão do SDK de armazenamento do Azure. |Os Media Services gera os URLs de SAS com base no [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) versão. Se pretender utilizar o SDK de armazenamento para blobs de lista num contentor de BLOBs, utilize o [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) método que faz parte da versão do SDK de armazenamento de 2. x. |
-| Os serviços de suporte de dados de limitação mecanismo restringe a utilização de recursos para aplicações que efetuam pedidos excessivos no serviço. O serviço poderá devolveu o código de estado HTTP "Serviço indisponível" 503. |Para obter mais informações, consulte a descrição do código de estado HTTP 503 no [códigos de erro de Media Services](media-services-encoding-error-codes.md). |
-| Quando consultar entidades, um limite de 1000 entidades é devolvido em simultâneo porque o resto público versão 2 limita os resultados da consulta 1.000 resultados. |Utilize ignorar e tomar (.NET) / principais (REST), conforme descrito em [neste exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
-| Alguns clientes podem ter através de um problema de repetições etiqueta no manifesto de transmissão em fluxo uniforme. |Para obter mais informações, consulte [nesta secção](media-services-deliver-content-overview.md#known-issues). |
-| Objetos de SDK .NET dos Media Services não podem ser serializados e não funcionam com a Cache de Redis do Azure. |Se tentar serializar o objeto de SDK AssetCollection adicioná-lo para a Cache de Redis do Azure, é emitida uma exceção. |
+| Vários cabeçalhos HTTP comuns não são fornecidos na REST API. |Se desenvolver aplicativos de serviços de multimédia com a API REST, achar que alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, ID de pedido e retorno-CLIENT-REQUEST-ID) não são suportados. Os cabeçalhos serão adicionados numa atualização futura. |
+| Percentagem de codificação não é permitida. |Serviços de multimédia utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, a percentagem de codificação não é permitida. O valor da propriedade do nome não pode ter qualquer um dos seguintes [por cento de codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, pode haver apenas um "." para a extensão de nome de ficheiro. |
+| O método ListBlobs que faz parte da falha de 3.x de versão do SDK de armazenamento do Azure. |Serviços de multimédia gera URLs SAS com base na [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) versão. Se pretender utilizar o SDK de armazenamento para listar os blobs num contentor de BLOBs, utilize o [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) método que faz parte da versão do SDK de armazenamento 2.x. |
+| O mecanismo de limitação os serviços de multimédia restringe a utilização de recursos para aplicativos que efetuam pedidos excessivos para o serviço. O serviço pode devolver o código de estado HTTP "Serviço indisponível" 503. |Para obter mais informações, consulte a descrição do código de estado HTTP 503 na [códigos de erro de serviços de multimédia](media-services-encoding-error-codes.md). |
+| Quando consultar entidades, um limite de 1000 entidades é devolvido ao mesmo tempo porque a versão 2 REST pública limita os resultados da consulta para 1000 resultados. |Utilizar Skip e tirar (.NET) / principais (REST), conforme descrito em [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
+| Alguns clientes podem se deparou com um problema de repetições de etiqueta no manifesto de transmissão em fluxo uniforme. |Para obter mais informações, consulte [esta secção](media-services-deliver-content-overview.md#known-issues). |
+| Objetos de SDK .NET dos Media Services não não possível serializar e, consequentemente, não funcionam com a Cache de Redis do Azure. |Se tentar serializar o objeto de SDK AssetCollection para adicioná-lo para a Cache de Redis do Azure, é emitida uma exceção. |
 
 
-## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico da versão de REST API
-Para obter informações sobre o histórico da versão de API de REST dos serviços de suporte de dados, consulte o [Referência da API de REST dos serviços de suporte de dados do Azure].
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico de versões de REST API
+Para obter informações sobre o histórico de versões de API de REST dos serviços de suporte de dados, consulte a [Referência da API de REST dos serviços de multimédia do Azure].
 
 ## <a name="may-2018"></a>Maio de 2018 
 
-A partir de canais em direto 12 de pode de 2018, será já não suporte a sequência de transporte MPEG/RTP-2 protocolo de inserção. Efetue a migração de RTP/MPEG-2 para RTMP ou MP4 fragmentados (transmissão em fluxo uniforme) protocolos de inserção.
+A partir de 12 de Maio de 2018, os canais em direto será já não suporte o fluxo de transporte RTP/MPEG-2 protocolo de ingestão. Migre de RTP/MPEG-2 para RTMP ou MP4 fragmentado (Smooth Streaming) protocolos de ingestão.
 
 ## <a name="october-2017-release"></a>Versão de Outubro de 2017
 > [!IMPORTANT] 
-> Serviços de suporte de dados está a descontinuar o suporte para chaves de autenticação do serviço de controlo de acesso do Azure. No 22 de Junho de 2018, já não pode autenticar com o serviços de suporte de dados de back-end através de código através da utilização de chaves do serviço de controlo de acesso. Tem de atualizar o código para utilizar o Azure Active Directory (Azure AD) por [authentication do Azure baseada no AD](media-services-use-aad-auth-to-access-ams-api.md). Procurar avisos sobre esta alteração no portal do Azure.
+> Serviços de suporte de dados está a descontinuar o suporte para as chaves de autenticação do serviço de controle de acesso do Azure. 22 de Junho de 2018, já não pode autenticar com os serviços de suporte de dados back-end por meio do código com chaves de serviço de controlo de acesso. Tem de atualizar seu código para utilizar o Azure Active Directory (Azure AD) por [autenticação baseada no AD do Azure](media-services-use-aad-auth-to-access-ams-api.md). Procure avisos sobre esta alteração no portal do Azure.
 
 ### <a name="updates-for-october-2017"></a>Atualizações de Outubro de 2017
 #### <a name="sdks"></a>SDKs
-* O SDK .NET foi atualizado para suportar a autenticação do Azure AD. Suporte para a autenticação do serviço de controlo de acesso foi removido do SDK mais recente do .NET no Nuget.org a encorajar migração mais rápida para o Azure AD. 
-* O SDK de JAVA foi atualizado para suportar a autenticação do Azure AD. Foi adicionado suporte para a autenticação do Azure AD para o SDK de Java. Para obter informações sobre como utilizar o SDK de Java com os Media Services, consulte [começar com o cliente de Java SDK de Media Services do Azure](media-services-java-how-to-use.md)
+* O SDK de .NET foi atualizado para suportar a autenticação do Azure AD. Suporte para a autenticação do serviço de controlo de acesso foi removido do SDK mais recente do .NET em Nuget.org para incentivar a migração mais rápida para o Azure AD. 
+* O SDK de JAVA foi atualizado para suportar a autenticação do Azure AD. Foi adicionado suporte para autenticação do Azure AD para o SDK de Java. Para obter informações sobre como utilizar o SDK de Java com os Media Services, consulte [introdução ao SDK de cliente Java para serviços de multimédia do Azure](media-services-java-how-to-use.md)
 
-#### <a name="file-based-encoding"></a>Codificação baseados em ficheiros
-* Agora, pode utilizar o codificador Premium para codificar o conteúdo para o vídeo de alta-eficiência H.265 codificação codec de vídeo (HEVC). Não há nenhum impacto preço se escolher H.265 através de outros codecs, tais como 264. Para obter informações sobre licenças patente HEVC, consulte [termos de serviço Online](https://azure.microsoft.com/support/legal/).
-* Para as vídeo de origem que está codificada com o codec de vídeo H.265 (HEVC), tais como as vídeo capturado utilizando iOS11 ou GoPro heroína 6, agora, pode utilizar o codificador Premium ou o codificador padrão para codificar os vídeos. Para obter informações sobre licenças patente, consulte [termos de serviço Online](https://azure.microsoft.com/support/legal/).
-* Para conteúdo que contém vários controla de áudio de idioma, os valores de idioma tem de ser corretamente com a etiqueta, de acordo com a especificação de formato de ficheiro (por exemplo, MP4 ISO) correspondente. Em seguida, pode utilizar o codificador padrão para codificar o conteúdo de transmissão em fluxo. O localizador de transmissão em fluxo resultante lista os idiomas de áudio disponíveis.
-* Codificador padrão suporta agora dois novos só de áudio predefinições do sistema, "AAC áudio" e "AAC boa qualidade áudio". Ambos produzem stereo avançadas áudio codificação saída (AAC), às taxas de bits de 128 Kbps e 192 Kbps, respetivamente.
-* Codificador Premium suporta agora formatos de ficheiro QuickTime/MOV como entrada. O codec vídeo tem de ser o [Apple ProRes tipos apresentadas neste artigo do GitHub](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats). Áudio tem de ser ambos AAC ou impulsos modulação de código (PCM). Codificador Premium não suporta, por exemplo, as vídeo DVC/DVCPro encapsulada nos ficheiros de QuickTime/MOV como entrada. Codificador padrão suporta estas codecs vídeos.
-* Foram efetuadas as seguintes correções de erros codificadores:
+#### <a name="file-based-encoding"></a>A codificação baseada em ficheiros
+* Agora, pode utilizar o codificador Premium para codificar o conteúdo para o vídeo de alta eficiência H.265 codificação codec de vídeo (HEVC). Não há nenhum impacto no preço, se escolher H.265 ao invés de outros codecs, como o H.264. Para obter informações sobre as licenças de patentes HEVC, consulte [termos dos Online Services](https://azure.microsoft.com/support/legal/).
+* Vídeo de origem que está codificado com o codec de vídeo H.265 (HEVC), como vídeo capturado, usando o iOS11 ou GoPro Hero 6, agora, pode utilizar o codificador Premium ou o codificador Standard para codificar esses vídeos. Para obter informações sobre as licenças de patentes, consulte [termos dos Online Services](https://azure.microsoft.com/support/legal/).
+* Para conteúdo que contém várias faixas de áudio de linguagem, os valores de idioma devem ser corretamente rotulado como, de acordo com a especificação de formato de ficheiro (por exemplo, o ISO MP4) correspondente. Em seguida, pode usar o codificador Standard para codificar o conteúdo de transmissão em fluxo. O localizador de transmissão em fluxo resultante lista os idiomas de áudio disponíveis.
+* O codificador Standard suporta agora duas novas só de áudio predefinições do sistema, "Áudio AAC" e "AAC boa qualidade áudio". Ambos produzem estéreo advanced áudio codificação de saída (AAC), às taxas de bits de 128 Kbps e 192 Kbps, respectivamente.
+* O codificador Premium suporta agora formatos de arquivo do QuickTime/MOV como entrada. O codec de vídeo tem de ser o [tipos de Apple ProRes apresentadas neste artigo do GitHub](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats). O áudio tem de ser de qualquer AAC ou pulse modulação de código (PCM). O codificador Premium não suporta, por exemplo, vídeo DVC/DVCPro encapsulado em arquivos do QuickTime/MOV como entrada. O codificador Standard suporta este codecs de vídeo.
+* As seguintes correções de bugs foram feitas no codificadores:
 
-    * Agora pode submeter tarefas ao utilizar um recurso de entrada. Depois de concluir estas tarefas, pode modificar o elemento (por exemplo, adicionar, eliminar ou mudar o nome de ficheiros dentro do elemento) e submeter as tarefas adicionais.
-    * A qualidade de miniaturas JPEG produzido pelo codificador padrão é melhorada.
-    * Codificador padrão processa metadados de entrada e de geração em miniatura melhor no vídeos tão curta duração.
-    * Melhoramentos para o descodificador 264 utilizado no codificador padrão eliminar determinados raros artefactos. 
+    * Agora pode submeter tarefas ao utilizar um elemento de entrada. Depois de concluir estas tarefas, pode modificar o recurso (por exemplo, adicionar, eliminar ou mudar o nome dos arquivos dentro do elemento) e submeter as tarefas adicionais.
+    * A qualidade das miniaturas JPEG produzidos pelo codificador Standard foi aprimorada.
+    * O codificador Standard processa dos metadados de entrada e de geração de miniaturas melhor nos vídeos de duração muito curto.
+    * Melhorias ao Decodificador H.264 utilizado do codificador Standard eliminam determinados artefatos raros. 
 
 #### <a name="media-analytics"></a>Análise de Multimédia
-Disponibilidade geral do Redactor de suporte de dados do Azure: este processador de multimédia efetua anonymization por diária esbater pessoal faces de indivíduos selecionados e é ideal para utilização em situações de segurança e de suporte de dados de notícias públicas. 
+Disponibilidade geral das Azure Media Redactor: este processador de multimédia realiza anonimização ao desfocar os rostos de indivíduos selecionados e é ideal para utilização em cenários de segurança e multimédia para notícias públicos. 
 
-Para uma descrição geral sobre esta nova processador, consulte [esta mensagem de blogue](https://azure.microsoft.com/blog/azure-media-redactor/). Para obter informações sobre a documentação e as definições, consulte [Redact faces análise de multimédia do Azure](media-services-face-redaction.md).
+Para uma descrição geral sobre este novo processador, consulte [nesta mensagem de blogue](https://azure.microsoft.com/blog/azure-media-redactor/). Para obter informações sobre a documentação e as definições, consulte [edite rostos com análise de multimédia do Azure](media-services-face-redaction.md).
 
 
 
 ## <a name="june-2017-release"></a>Versão de Junho de 2017
 
-Os Media Services agora suporta [authentication do Azure baseada no AD](media-services-use-aad-auth-to-access-ams-api.md).
+Serviços de multimédia agora suporta [autenticação baseada no AD do Azure](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> Atualmente, os Media Services suportam o modelo de autenticação do serviço de controlo de acesso. Autorização de serviço de controlo de acesso será preterida no dia 1 de Junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
+> Atualmente, os Media Services suportam o modelo de autenticação do serviço de controlo de acesso. Autorização de serviço de controlo de acesso vai ser preterida no dia 1 de Junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
 
 ## <a name="march-2017-release"></a>Versão de Março de 2017
 
-Agora, pode utilizar o codificador padrão para [gerar automaticamente um ladder de velocidade de transmissão](media-services-autogen-bitrate-ladder-with-mes.md) especificando o "transmissão em fluxo adaptável" cadeia de configuração predefinida quando cria uma tarefa de codificação. Codificar um vídeo para transmissão em fluxo com os Media Services, utilize a predefinição "Transmissão em fluxo adaptável". Para personalizar uma codificação da configuração predefinida para o seu cenário específico, pode começar com [estas predefinições](media-services-mes-presets-overview.md).
+Agora, pode utilizar o codificador Standard a [gerar automaticamente uma escala de bits](media-services-autogen-bitrate-ladder-with-mes.md) , especificando o "transmissão em fluxo adaptável" Predefinir a cadeia de caracteres quando cria uma tarefa de codificação. Para codificar um vídeo para transmissão em fluxo com os serviços de multimédia, utilize a configuração predefinida de "Transmissão em fluxo adaptável". Para personalizar uma codificação na configuração predefinida para o seu cenário específico, pode começar a usar [estas predefinições](media-services-mes-presets-overview.md).
 
-Agora pode utilizar o codificador de multimédia Standard ou o fluxo de trabalho do suporte de dados codificador Premium para [criar uma tarefa de codificação que gera fMP4 segmentos](media-services-generate-fmp4-chunks.md). 
+Agora pode utilizar o Media Encoder Standard ou o Media Encoder Premium Workflow para [criar uma tarefa de codificação que gera segmentos fMP4](media-services-generate-fmp4-chunks.md). 
 
 ## <a name="february-2017-release"></a>Versão de Fevereiro de 2017
 
-A partir de 1 de Abril de 2017, qualquer registo de tarefas na sua conta mais antiga do que 90 dias é eliminado automaticamente, juntamente com os respetivos registos de tarefas associada. Eliminação ocorre mesmo que o número total de registos é inferior a quota máxima. Para arquivar as informações de tarefa de tarefas, pode utilizar o código descrito [gerir recursos e entidades relacionadas com o SDK de Media Services .NET](media-services-dotnet-manage-entities.md).
+A partir de 1 de Abril de 2017, qualquer registo de tarefa na sua conta mais de 90 dias é eliminado automaticamente, juntamente com os seus registos de tarefa associada. A eliminação ocorre mesmo se o número total de registos for inferior à quota máxima. Para arquivar as informações de tarefas, pode utilizar o código descrito em [gerir ativos e entidades relacionadas com o SDK .NET dos Media Services](media-services-dotnet-manage-entities.md).
 
 ## <a name="january-2017-release"></a>Versão de Janeiro de 2017
 
-Nos Media Services, um ponto final de transmissão em fluxo representa um serviço de transmissão em fluxo que pode proporcionar o conteúdo diretamente a uma aplicação de leitor de cliente ou a uma rede de entrega de conteúdos (CDN) para uma maior distribuição. Os Media Services também fornecem uma integração perfeita rede de entrega de conteúdos do Azure. O fluxo de saída de um serviço de StreamingEndpoint pode ser uma transmissão em fluxo em direto, um vídeo a pedido ou uma transferência progressiva do seu elemento na sua conta de Media Services. Cada conta de Media Services inclui uma predefinição de ponto final de transmissão em fluxo. Os pontos finais de transmissão em fluxo adicionais podem ser criados com a conta. 
+Nos Media Services, um ponto de final de transmissão em fluxo representa um serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou a uma rede de entrega de conteúdos (CDN) para uma maior distribuição. Serviços de multimédia também fornecem integração perfeita de rede de entrega de conteúdos do Azure. O fluxo de saída de um serviço de StreamingEndpoint pode ser uma transmissão em direto, um vídeo a pedido ou uma transferência progressiva de seus recursos na sua conta de Media Services. Cada conta de Media Services inclui um ponto final de transmissão em fluxo de predefinido. Pontos finais de transmissão em fluxo adicionais podem ser criados sob a conta. 
 
-Existem duas versões de transmissão em fluxo pontos finais, 1.0 e 2.0. A partir de 10 de Janeiro de 2017, as contas de serviços de suporte de dados recentemente criadas incluem a predefinição de versão 2.0 ponto final de transmissão em fluxo. Os pontos finais transmissão em fluxo adicionais que adicionar a esta conta também são versão 2.0. Esta alteração não afeta as contas existentes. Os pontos finais de transmissão em fluxo existentes têm a versão 1.0 e podem ser atualizados para a versão 2.0. Existem comportamento, faturação e alterações de funcionalidade com esta alteração. Para obter mais informações, veja [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Descrição geral dos pontos finais de transmissão em fluxo).
+Existem duas versões de transmissão em fluxo de pontos de extremidade, 1.0 e 2.0. A partir de 10 de Janeiro de 2017, as contas de serviços de multimédia recém-criado incluem o padrão da versão 2.0 ponto final de transmissão em fluxo. Transmissão em fluxo pontos finais adicionais que adicionar a esta conta também têm a versão 2.0. Esta alteração não afeta as contas existentes. Pontos finais de transmissão em fluxo existentes são a versão 1.0 e podem ser atualizados para a versão 2.0. Existem alterações de funcionalidade com esta alteração, faturação e comportamento. Para obter mais informações, veja [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Descrição geral dos pontos finais de transmissão em fluxo).
 
-Começando com a versão 2.15, os Media Services adicionadas as seguintes propriedades para a entidade de ponto final de transmissão em fluxo:
+A partir da versão 2,15, serviços de multimédia adicionadas as seguintes propriedades para a entidade de ponto final de transmissão em fluxo:
 
 * CdnProvider 
 * CdnProfile
@@ -113,39 +113,39 @@ Para obter mais informações sobre estas propriedades, consulte [StreamingEndpo
 
 ## <a name="december-2016-release"></a>Versão de Dezembro de 2016
 
- Agora, pode utilizar os Media Services para aceder a dados de telemetria/métricas para os respetivos serviços. Pode utilizar a versão atual dos serviços de suporte de dados para recolher dados de telemetria para canais em direto, ponto final de transmissão em fluxo e arquivar entidades. Para obter mais informações, consulte [telemetria de Media Services](media-services-telemetry-overview.md).
+ Agora, pode utilizar os serviços de multimédia para aceder a dados de telemetria/métricas para seus serviços. Pode utilizar a versão atual dos serviços de multimédia para recolher dados de telemetria para o canal em direto, o ponto final de transmissão em fluxo e arquivar entidades. Para obter mais informações, consulte [telemetria de serviços de multimédia](media-services-telemetry-overview.md).
 
 ## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versão de Julho de 2016
-### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Atualizações para o ficheiro de manifesto (*. ISM) gerado por tarefas de codificação
-Quando uma tarefa de codificação foi submetida para o codificador de multimédia Standard ou Premium do codificador de suporte de dados, a tarefa de codificação gera um [ficheiro de manifesto de transmissão em fluxo](media-services-deliver-content-overview.md) (* ISM) no elemento de saída. Com a versão mais recente do serviço, a sintaxe deste ficheiro de manifesto de transmissão em fluxo foi atualizada.
+### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Atualizações para o arquivo de manifesto (*. O ISM) gerados por tarefas de codificação
+Quando uma tarefa de codificação foi submetida para o Media Encoder Standard ou Premium do codificador de multimédia, a tarefa de codificação gera uma [arquivo de manifesto de transmissão em fluxo](media-services-deliver-content-overview.md) (*. ISM) no recurso de saída. Com a versão mais recente do serviço, a sintaxe deste ficheiro de manifesto de transmissão em fluxo foi atualizada.
 
 > [!NOTE]
-> A sintaxe do ficheiro de manifesto (ISM) transmissão em fluxo está reservada para utilização interna. Trata-se sujeita a alterações em futuros lançamentos. Não modifique ou manipular os conteúdos deste ficheiro.
+> A sintaxe do arquivo de manifesto (. ISM) transmissão em fluxo é reservada para utilização interna. Ele está sujeita a alterações em versões futuras. Não modifique ou manipular o conteúdo deste ficheiro.
 > 
 > 
 
-### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Um manifesto de cliente novo (*. Ficheiro ISMC) é gerado no elemento de saída quando uma tarefa de codificação produz um ou mais ficheiros MP4
-Começando com a versão mais recente do serviço, após a conclusão de uma tarefa de codificação que gera um ou mais ficheiros MP4, o elemento de saída contém também um ficheiro de manifesto (*.ismc) transmissão em fluxo do cliente. O ficheiro .ismc ajuda a melhorar o desempenho de transmissão em fluxo dinâmico. 
+### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Um novo manifesto de cliente (*. Ficheiro ISMC) é gerado no recurso de saída quando uma tarefa de codificação produz um ou mais ficheiros MP4
+A partir da versão mais recente do serviço, após a conclusão de uma tarefa de codificação que gera um ou mais ficheiros MP4, o elemento de saída contém também um arquivo de manifesto (*.ismc) de cliente transmissão em fluxo. O ficheiro de .ismc ajuda a melhorar o desempenho de dinâmica de transmissão em fluxo. 
 
 > [!NOTE]
-> A sintaxe do ficheiro de manifesto (.ismc) do cliente está reservada para utilização interna. Trata-se sujeita a alterações em futuros lançamentos. Não modifique ou manipular os conteúdos deste ficheiro.
+> A sintaxe do arquivo de manifesto (.ismc) do cliente está reservada para utilização interna. Ele está sujeita a alterações em versões futuras. Não modifique ou manipular o conteúdo deste ficheiro.
 > 
 > 
 
-Para obter mais informações, consulte [este blogue](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+Para obter mais informações, consulte [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### <a name="known-issues"></a>Problemas conhecidos
-Alguns clientes podem ter através de um problema de repetições etiqueta no manifesto de transmissão em fluxo uniforme. Para obter mais informações, consulte [nesta secção](media-services-deliver-content-overview.md#known-issues).
+Alguns clientes podem se deparou com um problema de repetições de etiqueta no manifesto de transmissão em fluxo uniforme. Para obter mais informações, consulte [esta secção](media-services-deliver-content-overview.md#known-issues).
 
 ## <a id="apr_changes16"></a>Versão de Abril de 2016
 ### <a name="media-analytics"></a>Análise de Multimédia
- Os Media Services introduzida análise de multimédia para intelligence vídeo poderoso. Para obter mais informações, consulte [descrição geral da análise de serviços de suporte de dados](media-services-analytics-overview.md).
+ Serviços de multimédia introduziu a análise de multimédia para inteligência poderosa de vídeo. Para obter mais informações, consulte [descrição geral de análise de serviços de multimédia](media-services-analytics-overview.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (pré-visualização)
-Agora, pode utilizar os Media Services encriptar de forma dinâmica a sua HTTP Live Streaming (HLS) conteúdo do FairPlay da Apple. Também pode utilizar o serviço de entrega de licença de Media Services para fornecer licenças do FairPlay aos clientes. Para obter mais informações, consulte "Utilizar serviços de multimédia do Azure para transmitir o seu conteúdo HLS protegido com do FairPlay da Apple."
+Agora pode utilizar os serviços de multimédia para encriptar dinamicamente o HTTP Live Streaming (HLS) conteúdo com o Apple FairPlay. Também pode utilizar o serviço de entrega de licença de serviços de multimédia para entregar licenças do FairPlay para clientes. Para obter mais informações, consulte "Utilização dos serviços de multimédia do Azure para transmitir o conteúdo HLS protegido com o Apple FairPlay."
 
 ## <a id="feb_changes16"></a>Versão de Fevereiro de 2016
-A versão mais recente do que o SDK de Media Services para .NET (3.5.3) contém uma correção de erros relacionados com Widevine da Google. Foi impossível reutilizar AssetDeliveryPolicy para vários recursos encriptados com Widevine. Como parte desta correção de erro, a seguinte propriedade foi adicionada ao SDK: WidevineBaseLicenseAcquisitionUrl.
+A versão mais recente do SDK de serviços de multimédia para .NET (3.5.3) contém uma correção de erros relacionados com a Google Widevine. Foi impossível reutilizar AssetDeliveryPolicy para vários recursos de encriptado com Widevine. Como parte desta correção de erro, a seguinte propriedade foi adicionada para o SDK: WidevineBaseLicenseAcquisitionUrl.
 
     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -155,275 +155,275 @@ A versão mais recente do que o SDK de Media Services para .NET (3.5.3) contém 
     };
 
 ## <a id="jan_changes_16"></a>Versão de Janeiro de 2016
-Unidades reservadas de codificação foram mudadas para reduzir confusões com nomes de codificador.
+Unidades de Encoding reservadas foram renomeadas para reduzir a confusão com nomes de codificador.
 
-As unidades de reservado codificação básicas, Standard e Premium foram mudadas para S1, S2, e unidades reservadas de S3, respetivamente. Os clientes que utilizam unidades reservadas de codificação básicas hoje veem S1 como a etiqueta no portal do Azure (e na factura). Os clientes que utilizam Standard e Premium ver as etiquetas S2 e S3, respetivamente. 
+Os básico, Standard e Premium unidades de encoding reservadas foram renomeadas para S1, S2, e S3 unidades reservadas de, respectivamente. Os clientes que utilizam atualmente básicas unidades de encoding reservadas S1, consulte como a etiqueta no portal do Azure (e na fatura). Os clientes que utilizam o Standard e Premium verem as etiquetas de S2 e S3, respectivamente. 
 
 ## <a id="dec_changes_15"></a>Versão de Dezembro de 2015
 
-### <a name="media-encoder-deprecation-announcement"></a>Anúncio de descontinuação do codificador de multimédia
+### <a name="media-encoder-deprecation-announcement"></a>Anúncio de preterição do codificador de multimédia
 
- Codificador de multimédia vão ser preterida a partir de aproximadamente 12 meses a partir da versão de codificador de multimédia Standard.
+ Codificador de multimédia vão ser preterido a partir de aproximadamente 12 meses a partir da versão do Media Encoder Standard.
 
 ### <a name="azure-sdk-for-php"></a>SDK do Azure para PHP
-A equipa do Azure SDK publicado uma nova versão do [Azure SDK para PHP](http://github.com/Azure/azure-sdk-for-php) pacote que contém as atualizações e novas funcionalidades para os Media Services. Em particular, o SDK de Media Services para PHP agora suporta a versão mais recente [conteúdo proteção](media-services-content-protection-overview.md) funcionalidades. Estas funcionalidades são encriptação dinâmica com AES e DRM (PlayReady e Widevine) com e sem restrições de token. Também suporta dimensionamento [unidades codificação](media-services-dotnet-encoding-units.md).
+A equipe do SDK do Azure publicada uma nova versão dos [Azure SDK para PHP](http://github.com/Azure/azure-sdk-for-php) pacote que contém as atualizações e novas funcionalidades para serviços de multimédia. Em particular, o SDK de serviços de multimédia para PHP suporta agora a versão mais recente [proteção de conteúdo](media-services-content-protection-overview.md) funcionalidades. Estas funcionalidades são a encriptação dinâmica com o AES e o DRM (PlayReady e Widevine) com e sem restrições de token. Também suporta dimensionamento [unidades de codificação](media-services-dotnet-encoding-units.md).
 
 Para obter mais informações, consulte:
 
-* O seguinte [exemplos de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) ajudá-lo a começar rapidamente a:
-  * **vodworkflow_aes.php**: ficheiro este PHP mostra como utilizar a encriptação dinâmica AES-128 e o serviço de entrega de chave. Se baseia no exemplo .NET explicado [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes.php**: ficheiro este PHP mostra como utilizar a encriptação dinâmica PlayReady e o serviço de entrega de licença. Se baseia no exemplo .NET explicado [utilize PlayReady e/ou Widevine a encriptação comum dinâmica](media-services-protect-with-playready-widevine.md).
-  * **scale_encoding_units.php**: ficheiro este PHP mostra como escalar unidades reservadas de codificação.
+* O seguinte procedimento [exemplos de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) ajudá-lo a começar rapidamente:
+  * **vodworkflow_aes.php**: ficheiro de PHP este mostra como utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave. Baseia-se no exemplo de .NET explicado [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: ficheiro de PHP este mostra como utilizar a encriptação dinâmica do PlayReady e o serviço de entrega de licença. Baseia-se no exemplo de .NET explicado [utilização PlayReady e/ou Widevine encriptação comum dinâmica](media-services-protect-with-playready-widevine.md).
+  * **scale_encoding_units.php**: ficheiro de PHP este mostra como dimensionar as unidades de encoding reservadas.
 
 ## <a id="nov_changes_15"></a>Versão de Novembro de 2015
- Os Media Services oferece agora o serviço de entrega de licença Widevine na nuvem. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Além disso, consulte [neste tutorial](media-services-protect-with-playready-widevine.md) e [repositório do GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+ Serviços de multimédia oferecem agora o serviço de entrega de licença do Widevine na cloud. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Além disso, veja [deste tutorial](media-services-protect-with-playready-widevine.md) e o [repositório do GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Serviços de entrega de licença Widevine fornecidos pelos serviços de suporte de dados estão em pré-visualização. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Serviços de entrega de licença do Widevine fornecidos pelos serviços de multimédia estão em pré-visualização. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versão de Outubro de 2015
-Serviços de suporte de dados está agora em direto nos seguintes centros de dados: sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora, pode utilizar o portal do Azure para [criar contas de serviço de multimédia](media-services-portal-create-account.md) e realizar várias tarefas descritas no [página Web de documentação de Media Services](https://azure.microsoft.com/documentation/services/media-services/). Codificação em direto não está ativada nestes centros de dados. Além disso, nem todos os tipos de unidades codificação reservada estão disponíveis nestes centros de dados.
+Serviços de multimédia está agora em direto nos seguintes datacenters: sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora, pode utilizar o portal do Azure para [criar contas de serviço de multimédia](media-services-portal-create-account.md) e realizar várias tarefas descritas no [página Web de documentação dos serviços de multimédia](https://azure.microsoft.com/documentation/services/media-services/). O Live Encoding não está ativado nestes centros de dados. Além disso, nem todos os tipos de unidades de codificação reservadas estão disponíveis nestes centros de dados.
 
-* Sul do Brasil: Só estão disponível, Standard e Basic unidades codificação reservada.
-* Índia Ocidental, Sul da Índia e Índia Central: apenas básico unidades codificação reservada estão disponível.
+* Sul do Brasil: Só Standard e Basic unidades de codificação reservadas estão disponíveis.
+* Índia Ocidental, Sul da Índia e Índia Central: básica de apenas a unidades de codificação reservadas estão disponível.
 
 ## <a id="september_changes_15"></a>Versão de Setembro de 2015
-Agora, os Media Services oferece a capacidade de proteger ambas as vídeo a pedido e fluxos em direto com a tecnologia de DRM modular Widevine. Pode utilizar os seguintes parceiros de serviços de entrega para o ajudar a fornecer licenças Widevine:
+Serviços de multimédia oferece agora a capacidade de proteger o vídeo a pedido e transmissões em direto com tecnologia do Widevine modular DRM. Pode utilizar os seguintes parceiros de serviços de entrega para o ajudar a fornecer licenças do Widevine:
 * [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) 
 * [EZDRM](http://ezdrm.com/) 
 * [castLabs](http://castlabs.com/company/partners/azure/) 
 
-Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
 Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar o AssetDeliveryConfiguration para utilizar o Widevine. 
-* Serviços de suporte de dados foi adicionado suporte para Apple ProRes vídeos. Pode agora carregar os ficheiros de vídeos de origem QuickTime utilizam Apple ProRes ou outros codecs. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
-* Agora, pode utilizar codificador de multimédia Standard para extração de arquivo subclipping e em direto. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+* Serviços de multimédia foi adicionado suporte para vídeos ProRes da Apple. Agora, pode carregar os ficheiros de vídeos de origem QuickTime que utilizam o Apple ProRes ou outros codecs. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+* Pode agora utilizar Media Encoder Standard para fazer a extração de arquivo subclipping e em direto. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Foram efetuadas as seguintes atualizações de filtragem: 
   
-  * Agora pode utilizar o formato de Apple HLS com um filtro de só de áudio. Pode utilizar esta atualização para remover um controlar só de áudio, especificando (só de áudio = false) no URL.
-  * Quando definir os filtros para os elementos, agora pode combinar vários filtros (até três) num URL único.
+  * Agora, pode utilizar o formato de Apple HLS com um filtro de só de áudio. Pode utilizar esta atualização para remover um Roteiro de só de áudio, especificando (só de áudio = false) no URL.
+  * Ao definir filtros para os seus ativos, agora pode combinar vários filtros (até três) numa única URL.
     
-    Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
-* Os Media Services suportam agora posso-frames Jumbo no HLS versão 4. Suporte de I-frame otimiza fast-forward e rewind operações. Por predefinição, todas as saídas da versão 4 de HLS incluem a lista de reprodução de I-frame (EXT-X-I-FRAME-STREAM-INF).
-Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+    Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+* Serviços de multimédia suportam agora eu-quadros no HLS versão 4. Suporte de eu fotograma otimiza as operações de avanço rápido e retroceder. Por predefinição, todos os resultados da versão 4 de HLS incluem a lista de reprodução do eu-quadro (EXT-X-I-FRAME-STREAM-INF).
+Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versão de Agosto de 2015
-* O SDK de Media Services para a versão do Java versão 0.8.0 e amostras novo estão agora disponíveis. Para obter mais informações, consulte:
+* O SDK dos serviços de suporte de dados para o lançamento de versão 0.8.0 de Java e novos exemplos estão agora disponíveis. Para obter mais informações, consulte:
     
-* O leitor de multimédia do Azure foi atualizado com suporte de sequência de áudio múltiplos. Para obter mais informações, consulte [esta mensagem de blogue](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
+* O leitor de multimédia do Azure foi atualizado com o suporte de transmissão de áudio com múltiplos. Para obter mais informações, consulte [nesta mensagem de blogue](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Versão de Julho de 2015
-* Foi anunciou a disponibilidade geral do codificador de multimédia Standard. Para obter mais informações, consulte [esta mensagem de blogue](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+* A disponibilidade geral do Media Encoder Standard foi anunciada. Para obter mais informações, consulte [nesta mensagem de blogue](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Codificador de multimédia Standard utiliza predefinições, conforme descrito em [nesta secção](http://go.microsoft.com/fwlink/?LinkId=618336). Quando utiliza uma predefinição de 4K codifica, obter o tipo de unidade Premium reservado. Para obter mais informações, consulte [escala codificação](media-services-scale-media-processing-overview.md).
-* Foram utilizadas legendas em tempo real em direto com Media Services e o leitor de multimédia. Para obter mais informações, consulte [esta mensagem de blogue](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+    Codificador de multimédia Standard utiliza configurações predefinidas, conforme descrito em [esta secção](http://go.microsoft.com/fwlink/?LinkId=618336). Quando utiliza uma configuração predefinida para 4K codifica, obter o tipo de unidade Premium reservado. Para obter mais informações, consulte [codificação de escala](media-services-scale-media-processing-overview.md).
+* Legendas de áudio em tempo real em direto foram utilizadas com os serviços de multimédia e o Media Player. Para obter mais informações, consulte [nesta mensagem de blogue](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK .NET dos Media Services
-O SDK do .NET dos serviços de suporte de dados está agora versão 3.4.0.0. Foram efetuadas as seguintes atualizações: 
+O SDK .NET dos Media Services agora é a versão 3.4.0.0. Foram efetuadas as seguintes atualizações: 
 
-* Suporte foi implementado para arquivo em direto. Não é possível transferir um elemento que contenha um arquivo em direto.
-* Suporte foi implementado para filtros dinâmicos.
-* Funcionalidade foi implementada para que os utilizadores podem manter um contentor de armazenamento, enquanto que eliminar um recurso.
-* Correções de erros foram efetuadas relacionadas para repetir as políticas de canais.
-* O fluxo de trabalho do suporte de dados codificador Premium foi ativado.
+* O suporte foi implementado para o arquivo em direto. Não é possível transferir um elemento que contenha um arquivo em direto.
+* O suporte foi implementado para filtros dinâmicos.
+* Funcionalidade foi implementada para que os usuários podem ter um contentor de armazenamento, enquanto que eliminar um recurso.
+* Correções de bugs foram feitas relacionadas para repetir as políticas em canais.
+* Media Encoder Premium Workflow foi ativada.
 
 ## <a id="june_changes_15"></a>Versão de Junho de 2015
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK .NET dos Media Services
-O SDK do .NET dos serviços de suporte de dados está agora versão 3.3.0.0. Foram efetuadas as seguintes atualizações: 
+O SDK .NET dos Media Services agora é a versão 3.3.0.0. Foram efetuadas as seguintes atualizações: 
 
-* Foi adicionado suporte para a especificação de deteção OpenId Connect.
-* Foi adicionado suporte para processamento de rollover de chaves do lado do fornecedor de identidade.
+* Foi adicionado suporte para a especificação de deteção do OpenId Connect.
+* Foi adicionado suporte para a manipulação de rollover de chaves no lado do fornecedor de identidade.
 
-Se utilizar um fornecedor de identidade que expõe um documento de identificação OpenID Connect (como o Azure AD, Google e da Salesforce fazer), pode instruir os Media Services para obter as chaves de assinatura de validação de JSON Web Tokens (JWTs) da especificação de deteção OpenID Connect. 
+Se usar um fornecedor de identidade que expõe um documento de deteção do OpenID Connect (como o Azure AD, Google e o Salesforce fazem), pode instruir o serviços de multimédia para obter as chaves de assinatura para a validação de JSON Web Tokens (JWTs) da especificação de deteção do OpenID Connect. 
 
-Para obter mais informações, consulte [chaves de web JSON de utilização da especificação de deteção OpenID Connect para trabalhar com a autenticação nos serviços de suporte de dados JWT](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/).
+Para obter mais informações, consulte [chaves de web de JSON de utilização da especificação de deteção do OpenID Connect para funcionar com a autenticação do JWT nos serviços de multimédia](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/).
 
 ## <a id="may_changes_15"></a>Versão de Maio de 2015
-As seguintes novas funcionalidades foram anunciadas:
+Os seguintes novos recursos foram anunciados:
 
-* [Uma versão de pré-visualização de live encoding com Media Services](media-services-manage-live-encoder-enabled-channels.md)
+* [Uma pré-visualização da codificação em tempo real com os serviços de multimédia](media-services-manage-live-encoder-enabled-channels.md)
 * [Manifesto dinâmico](media-services-dynamic-manifest-overview.md)
-* [Uma versão de pré-visualização do processador de multimédia Hyperlapse de multimédia do Azure](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
+* [Uma pré-visualização do processador de multimédia Hyperlapse de multimédia do Azure](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>Versão de Abril de 2015
-### <a name="general-media-services-updates"></a>Serviços de suporte de dados gerais de atualizações
-* [Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/) foi comunicada.
-* Canais que estão configurados para a ingestão de um protocolo de mensagens de em tempo real (RTMP) a partir de 2.10 de REST de serviços de suporte de dados, são criados com o principal e secundário os URLs de inserção. Para obter mais informações, consulte [configurações de inserção do canal](media-services-live-streaming-with-onprem-encoders.md#channel_input).
-* Indexador de suporte de dados do Azure foi atualizado.
-* Foi adicionado suporte para o idioma espanhol.
+### <a name="general-media-services-updates"></a>As atualizações dos serviços de suporte de dados gerais
+* [O leitor de multimédia](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/) foi anunciado.
+* Começando com o 2.10 de REST de serviços de multimédia, canais que estão configurados para a ingestão de um protocolo de mensagens de em tempo real (RTMP) são criados com o primário e secundário URLs de inserção. Para obter mais informações, consulte [configurações de ingestão do canal](media-services-live-streaming-with-onprem-encoders.md#channel_input).
+* O indexador de multimédia do Azure foi atualizado.
+* Foi adicionado suporte para idioma espanhol.
 * Foi adicionada uma nova configuração para o formato XML.
 
-Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK .NET dos Media Services
-O SDK do .NET dos serviços de suporte de dados está agora a versão 3.2.0.0. Foram efetuadas as seguintes atualizações:
+O SDK .NET dos Media Services agora é a versão 3.2.0.0. Foram efetuadas as seguintes atualizações:
 
-* Alteração de última hora: TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience foram alterados para ter um tipo de cadeia.
-* Foram efectuadas relacionadas com a criação de políticas de repetição personalizado.
-* Correções de erros foram efetuadas relacionadas para carregar e transferir ficheiros.
-* A classe de MediaServicesCredentials agora aceita pontos finais de controlo de acesso primária e secundária para se autenticarem nas.
+* Alteração significativa: TokenRestrictionTemplate.Issuer e TokenRestrictionTemplate.Audience foram alterados para ter um tipo de cadeia de caracteres.
+* As atualizações foram feitas relacionadas à criação de políticas de repetição personalizada.
+* Correções de bugs foram feitas relacionadas para carregar e descarregar arquivos.
+* A classe MediaServicesCredentials aceita agora pontos finais de controlo de acesso primária e secundária para autenticar.
 
 ## <a id="march_changes_15"></a>Versão de Março de 2015
-### <a name="general-media-services-updates"></a>Serviços de suporte de dados gerais de atualizações
-* Os Media Services fornecem agora integração de rede de entrega de conteúdos. Para suportar a integração, a propriedade CdnEnabled foi adicionada ao StreamingEndpoint. CdnEnabled pode ser utilizado com as APIs REST a partir da versão 2.9. Para obter mais informações, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). CdnEnabled pode ser utilizado com o SDK .NET a partir da versão 3.1.0.2. Para obter mais informações, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx).
-* O fluxo de trabalho do suporte de dados codificador Premium foi comunicado. Para obter mais informações, consulte [Introducing Premium codificação na Media Services do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
+### <a name="general-media-services-updates"></a>As atualizações dos serviços de suporte de dados gerais
+* Os Media Services agora fornecem integração de rede de entrega de conteúdos. Para suportar a integração, a propriedade CdnEnabled foi adicionada ao StreamingEndpoint. CdnEnabled pode ser utilizado com as APIs REST a partir da versão 2.9. Para obter mais informações, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). CdnEnabled pode ser utilizado com o SDK do .NET a partir da versão 3.1.0.2. Para obter mais informações, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx).
+* O Media Encoder Premium Workflow foi anunciado. Para obter mais informações, consulte [encoding Premium apresentando nos serviços de multimédia do Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
 
 ## <a id="february_changes_15"></a>Versão de Fevereiro de 2015
-### <a name="general-media-services-updates"></a>Serviços de suporte de dados gerais de atualizações
-A API de REST de serviços de suporte de dados está agora versão 2.9. Começando com esta versão, pode ativar a integração de rede de entrega de conteúdos com pontos finais de transmissão em fluxo. Para obter mais informações, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
+### <a name="general-media-services-updates"></a>As atualizações dos serviços de suporte de dados gerais
+A API de REST de serviços de suporte de dados está agora a versão 2.9. Começando com esta versão, pode ativar a integração de rede de entrega de conteúdos com pontos finais de transmissão em fluxo. Para obter mais informações, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
 ## <a id="january_changes_15"></a>Versão de Janeiro de 2015
-### <a name="general-media-services-updates"></a>Serviços de suporte de dados gerais de atualizações
-Foi anunciou a disponibilidade geral da proteção de conteúdos com a encriptação dinâmica. Para obter mais informações, consulte [dos Media Services melhora a segurança de transmissão em fluxo com disponibilidade geral da tecnologia DRM](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
+### <a name="general-media-services-updates"></a>As atualizações dos serviços de suporte de dados gerais
+A disponibilidade geral da proteção de conteúdo com encriptação dinâmica foi anunciada. Para obter mais informações, consulte [dos serviços de multimédia melhora a segurança de transmissão em fluxo com a disponibilidade geral da tecnologia DRM](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK .NET dos Media Services
-O SDK do .NET dos serviços de suporte de dados está agora versão 3.1.0.1.
+O SDK .NET dos Media Services agora é a versão 3.1.0.1.
 
-Esta versão marcado o construtor de Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate predefinido como obsoleto. Este novo construtor aceita TokenType como um argumento.
+Esta versão marcadas como o construtor de Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate padrão como obsoleto. O novo construtor aceita TokenType como argumento.
 
     TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
 
 
 ## <a id="december_changes_14"></a>Versão de Dezembro de 2014
-### <a name="general-media-services-updates"></a>Serviços de suporte de dados gerais de atualizações
-* Algumas atualizações e novas funcionalidades adicionadas para o indexador de suporte de dados. Para obter mais informações, consulte [notas de versão do indexador de suporte de dados do Azure versão 1.1.6.7](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
-* Foi adicionada uma nova API de REST a que pode utilizar ao atualizar a codificação de unidades reservadas. Para obter mais informações, consulte [EncodingReservedUnitType com REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype).
+### <a name="general-media-services-updates"></a>As atualizações dos serviços de suporte de dados gerais
+* Algumas atualizações e novas funcionalidades foram adicionadas para o indexador de multimédia. Para obter mais informações, consulte [notas de versão do indexador de multimédia do Azure versão 1.1.6.7](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
+* Uma nova API de REST foi adicionada a que pode utilizar para atualizar as unidades de encoding reservadas. Para obter mais informações, consulte [EncodingReservedUnitType com REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype).
 * Foi adicionado suporte CORS para o serviço de entrega de chave.
-* Melhorias de desempenho foram efetuadas para consultar as opções de política de autorização.
-* No Centro de dados China, o [URL de entrega de chave](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) é agora por cliente (tal como outros centros de dados).
-* Duração de destino HLS automática foi adicionada. Ao efetuar a transmissão em fluxo em direto, HLS é sempre empacotada dinamicamente. Por predefinição, os Media Services calcula automaticamente o HLS segmento empacotamento rácio (FragmentsPerSegment) com base num intervalo de keyframe (KeyFrameInterval). Este método é também referido como um grupo de imagens (GOP) que é recebido do codificador em direto. Para obter mais informações, consulte [transmissão em fluxo em direto de trabalho com os Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Foram efetuadas melhorias de desempenho para consultar as opções de política de autorização.
+* No Centro de dados na China, o [URL de entrega da chave](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) é agora por cliente (tal como nos outros centros de dados).
+* Duração de destino do HLS automática foi adicionada. Ao realizar a transmissão em fluxo em direto, HLS é sempre empacotado dinamicamente. Por predefinição, os serviços de multimédia calcula automaticamente a HLS segmento empacotamento proporção (FragmentsPerSegment) com base no intervalo de quadro-chave (KeyFrameInterval). Este método é também referido como um grupo de imagens (GOP) que é recebido do codificador em direto. Para obter mais informações, consulte [transmissão em direto de trabalho com serviços de multimédia](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK .NET dos Media Services
-O [SDK .NET dos Media Services](http://www.nuget.org/packages/windowsazure.mediaservices/) está agora versão 3.1.0.0. Foram efetuadas as seguintes atualizações:
+O [SDK .NET dos Media Services](http://www.nuget.org/packages/windowsazure.mediaservices/) está agora a versão 3.1.0.0. Foram efetuadas as seguintes atualizações:
 
 * A dependência do SDK do .NET foi atualizada para o .NET 4.5 Framework.
-* Foi adicionada uma nova API que pode utilizar ao atualizar a codificação de unidades reservadas. Para obter mais informações, consulte [atualização reservados de um tipo de unidade e o aumento unidades codificação reservada utilizando o .NET](media-services-dotnet-encoding-units.md).
-* Foi adicionado o suporte para autenticação de token JWT. Para obter mais informações, consulte [autenticação de token JWT nos serviços de suporte de dados e a encriptação dinâmica](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+* Foi adicionada uma nova API que pode utilizar para atualizar as unidades de encoding reservadas. Para obter mais informações, consulte [atualização reservados de tipo de unidade e aumento de unidades de codificação reservadas com o .NET](media-services-dotnet-encoding-units.md).
+* Foi adicionado suporte JWT para autenticação de token. Para obter mais informações, consulte [autenticação de token JWT nos serviços de suporte de dados e a encriptação dinâmica](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 * Foram adicionados desvios relativos para BeginDate e ExpirationDate no modelo de licença PlayReady.
 
 ## <a id="november_changes_14"></a>Versão de Novembro de 2014
-* Agora, pode utilizar os Media Services para inserir conteúdos de transmissão em fluxo uniforme (fMP4) em direto através de uma ligação SSL. Para a ingestão através de SSL, certifique-se atualizar o URL de inserção para HTTPS. Atualmente, os Media Services não suporta SSL com domínios personalizados. Para obter mais informações sobre a transmissão em fluxo em direto, consulte [trabalhar com o Azure Media Services em direto de transmissão em fluxo](http://msdn.microsoft.com/library/azure/dn783466.aspx).
-* Atualmente, não é possível inserir um fluxo em direto RTMP através de uma ligação SSL.
-* Pode transmitir através de SSL apenas se o ponto de final transmissão em fluxo a partir da qual a fornecer o conteúdo foi criado após 10 de Setembro de 2014. Se os URLs de transmissão em fluxo baseiam-se nos pontos finais de transmissão em fluxo criados após 10 de Setembro de 2014, o URL contém "streaming.mediaservices.windows.net" (o novo formato). URL de transmissão em fluxo que contenham "origin.mediaservices.windows.net" (o formato antigo) não suporta SSL. Se o seu URL tem um formato antigo e pretende que seja transmitido em fluxo através de SSL, [criar um novo ponto de final de transmissão em fluxo](media-services-portal-manage-streaming-endpoints.md). Para transmitir o seu conteúdo através de SSL, utilize os URLs com base no novo ponto de final de transmissão em fluxo.
+* Agora pode utilizar os serviços de multimédia para ingestão de conteúdos de transmissão em fluxo uniforme (fMP4) em direto através de uma ligação SSL. Ingerir através de SSL, certifique-se atualizar o URL de inserção para HTTPS. Atualmente, os serviços de multimédia não suporta SSL com domínios personalizados. Para obter mais informações sobre a transmissão em fluxo em direto, consulte [trabalhar com o Azure Media Services transmissão em direto](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Atualmente, não pode ingerir um fluxo em direto de RTMP através de uma ligação SSL.
+* Pode transmitir em fluxo através de SSL apenas se o ponto final de transmissão em fluxo do que forneça o conteúdo tiver sido criado depois de 10 de Setembro de 2014. Se os URLs de transmissão em fluxo baseiam-se os pontos finais de transmissão em fluxo criados após 10 de Setembro de 2014, o URL contém "streaming.mediaservices.windows.net" (o novo formato). URLs de transmissão em fluxo que contêm "origin.mediaservices.windows.net" (o formato antigo) não suportam SSL. Se o URL está no formato antigo e quer transmitir através de SSL, [criar um novo ponto de final de transmissão em fluxo](media-services-portal-manage-streaming-endpoints.md). Para transmitir o seu conteúdo através de SSL, use URLs com base no novo ponto de final de transmissão em fluxo.
 
 ## <a id="october_changes_14"></a>Versão de Outubro de 2014
-### <a id="new_encoder_release"></a>Versão de codificador de serviços de multimédia
- Foi anunciou a nova versão do codificador de multimédia do suporte de dados de serviços do Azure. Com o codificador de multimédia mais recente, a de lhe cobrados apenas GBs de saída. Caso contrário, o codificador nova é compatível com o codificador anterior de funcionalidade. Para obter mais informações, consulte [Detalhes de preços dos Serviços de Multimédia (Media Services pricing details)].
+### <a id="new_encoder_release"></a>Versão do codificador de serviços de multimédia
+ A nova versão do codificador de multimédia do Media Services do Azure foi anunciada. Com o codificador de multimédia mais recentes, é-lhe cobrado apenas para GBs de saída. Caso contrário, o novo codificador é compatível com o codificador anterior de funcionalidade. Para obter mais informações, consulte [Detalhes de preços dos Serviços de Multimédia (Media Services pricing details)].
 
-### <a id="oct_sdk"></a>.NET SDK dos Media Services
-O SDK de Media Services para extensões de .NET é agora versão 2.0.0.3.
+### <a id="oct_sdk"></a>.NET SDK dos serviços de multimédia
+O SDK de Media Services para .NET extensions está agora a versão 2.0.0.3.
 
-O SDK de Media Services para .NET é agora versão 3.0.0.8. Foram efetuadas as seguintes atualizações:
+O SDK de serviços de multimédia para .NET está agora a versão 3.0.0.8. Foram efetuadas as seguintes atualizações:
 
-* Refactoring foi implementado em classes de política de repetição.
-* Uma cadeia de agente do utilizador foi adicionada a cabeçalhos de pedido HTTP.
-* Foi adicionado um passo de compilação de restauro do NuGet.
-* Testes de cenário foram corrigidos para utilizar x509 cert do repositório.
-* Foram adicionadas definições de validação para quando atualizar o canal e o fim de transmissão em fluxo.
+* Refatoração foi implementada nas classes de política de repetição.
+* Uma cadeia de caracteres do agente de utilizador foi adicionada para os cabeçalhos de pedido HTTP.
+* Foi adicionada uma etapa de compilação de restauro do NuGet.
+* Testes de cenário foram corrigidas para utilizar x509 cert do repositório.
+* Foram adicionadas definições de validação para quando atualizar o canal e o final de transmissão em fluxo.
 
-### <a name="new-github-repository-to-host-media-services-samples"></a>Novo repositório do GitHub para exemplos de Media Services do anfitrião
-São exemplos no [repositório do GitHub de amostras de Media Services](https://github.com/Azure/Azure-Media-Services-Samples).
+### <a name="new-github-repository-to-host-media-services-samples"></a>Novo repositório do GitHub para exemplos de serviços de multimédia do anfitrião
+Os exemplos são no [repositório do GitHub de exemplos de serviços de multimédia](https://github.com/Azure/Azure-Media-Services-Samples).
 
 ## <a id="september_changes_14"></a>Versão de Setembro de 2014
-Os metadados de REST de serviços de suporte de dados estão agora versão 2.7. Para mais informações sobre as atualizações mais recentes do REST, consulte o [referência da API de REST de serviços de suporte de dados](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+Os metadados de REST de serviços de suporte de dados estão agora a versão 2.7. Para obter mais informações sobre as atualizações mais recentes do REST, consulte a [referência da API de REST de serviços de multimédia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
-O SDK de Media Services para .NET é agora versão 3.0.0.7
+O SDK de serviços de multimédia para .NET está agora a versão 3.0.0.7
 
-### <a id="sept_14_breaking_changes"></a>As alterações de última hora
-* Origem foi mudada para [StreamingEndpoint].
+### <a id="sept_14_breaking_changes"></a>Alterações recentes
+* Origem nome foi mudada para [StreamingEndpoint].
 * Foi efetuada uma alteração no comportamento predefinido ao utilizar o portal do Azure para codificar e, em seguida, publicar ficheiros MP4.
 
-### <a id="sept_14_GA_changes"></a>Novos funcionalidades/cenários que fazem parte da versão de disponibilidade geral
-* O processador de multimédia do indexador de suporte de dados foi introduzido. Para obter mais informações, consulte [ficheiros de suporte de dados com o indexador de suporte de dados do índice](http://msdn.microsoft.com/library/azure/dn783455.aspx).
+### <a id="sept_14_GA_changes"></a>Novos recursos/cenários que fazem parte da versão de disponibilidade geral
+* Foi introduzido o processador de multimédia do indexador de multimédia. Para obter mais informações, consulte [indexar os arquivos de suporte de dados com o indexador de multimédia](http://msdn.microsoft.com/library/azure/dn783455.aspx).
 * Pode utilizar o [StreamingEndpoint] entidade para adicionar nomes de domínio personalizado (anfitrião).
   
-    Para utilizar um nome de domínio personalizado, como o nome de ponto final de transmissão em fluxo de Media Services, adicione nomes de anfitrião personalizado para o ponto final de transmissão em fluxo. Utilize as APIs de REST de serviços de suporte de dados ou o SDK .NET para adicionar nomes de anfitrião personalizado.
+    Para utilizar um nome de domínio personalizado como o nome do ponto final de transmissão em fluxo dos serviços de multimédia, adicione os nomes de anfitrião personalizado para o ponto final de transmissão em fluxo. Utilize as APIs de REST de serviços de suporte de dados ou o SDK de .NET para adicionar nomes de anfitrião personalizado.
   
-    Aplicam as seguintes considerações:
+    As seguintes considerações aplicam-se:
   
   * Tem de ter a propriedade de nome de domínio personalizado.
-  * A propriedade do nome de domínio tem de ser validada pelos Media Services. Para validar o domínio, crie um CName que mapeia o domínio principal MediaServicesAccountId para verificar DNS mediaservices--zona dns.
-  * Tem de criar outro CName que mapeia o nome de anfitrião personalizado (por exemplo, sports.contoso.com) para o nome de anfitrião StreamingEndpoint de serviços de suporte de dados (por exemplo, amstest.streaming.mediaservices.windows.net).
+  * A propriedade de nome de domínio têm de ser validada pelos serviços de multimédia. Para validar o domínio, crie um CName que mapeia o domínio principal MediaServicesAccountId para verificar mediaservices-dns-zona DNS.
+  * Tem de criar outro CName que mapeia o nome de anfitrião personalizado (por exemplo, sports.contoso.com) para o seu nome de anfitrião StreamingEndpoint de serviços de multimédia (por exemplo, amstest.streaming.mediaservices.windows.net).
 
-    Para obter mais informações, consulte a propriedade CustomHostNames no [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx) artigo.
+    Para obter mais informações, consulte a propriedade CustomHostNames na [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx) artigo.
 
-### <a id="sept_14_preview_changes"></a>Novos funcionalidades/cenários que fazem parte da versão de pré-visualização pública
-* Em direto pré-visualização de transmissão em fluxo. Para obter mais informações, consulte [transmissão em fluxo em direto de trabalho com os Media Services](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+### <a id="sept_14_preview_changes"></a>Novos recursos/cenários que fazem parte da versão de pré-visualização pública
+* Em direto a pré-visualização de transmissão em fluxo. Para obter mais informações, consulte [transmissão em direto de trabalho com serviços de multimédia](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Serviço de entrega de chave. Para obter mais informações, consulte [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Encriptação dinâmica AES. Para obter mais informações, consulte [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Serviço de entrega de licença PlayReady. 
-* Encriptação dinâmica PlayReady. 
-* Modelo de licença PlayReady de serviços de suporte de dados. Para obter mais informações, consulte o [Descrição geral do modelo de licença do PlayReady dos Serviços de Multimédia].
-* Recursos de fluxo encriptada de armazenamento. Para obter mais informações, consulte [transmitir conteúdo encriptado armazenamento](http://msdn.microsoft.com/library/azure/dn783451.aspx).
+* PlayReady a encriptação dinâmica. 
+* Modelo de licença de PlayReady de serviços de multimédia. Para obter mais informações, consulte a [Descrição geral do modelo de licença do PlayReady dos Serviços de Multimédia].
+* Ativos de encriptação de armazenamento de Stream. Para obter mais informações, consulte [Stream conteúdo encriptado com o armazenamento](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Versão de Agosto de 2014
-Quando codificar um elemento, um elemento de saída é produzido quando a tarefa de codificação for concluída. Até que esta versão, o codificador de serviços de suporte de dados produzidos metadados sobre recursos de saída. A partir desta versão, o codificador produz também metadados sobre recursos de entrada. Para obter mais informações, consulte [metadados de entrada] e [metadados de saída].
+Ao codificar um elemento, um elemento de saída é produzido quando a tarefa de codificação é concluída. Até esta versão, o codificador de serviços de suporte de dados produzidos metadados sobre recursos de saída. Começando com esta versão, o codificador produz também metadados sobre os recursos de entrada. Para obter mais informações, consulte [metadados de entrada] e [metadados de saída].
 
 ## <a id="july_changes_14"></a>Versão de Julho de 2014
-Foram efetuadas as seguintes correções de erros para a Packager de serviços de suporte de dados do Azure e o encriptador:
+As seguintes correções de bugs foram feitas para o empacotador de serviços de multimédia do Azure e o encriptador:
 
-* Quando um recurso de arquivo em direto é transmitido para HLS, áudio apenas reproduz: este problema foi corrigido e, agora podem reproduzir áudio e vídeo.
-* Quando um recurso é empacotado para encriptação de envelope HLS e AES de 128 bits, os fluxos de em pacote não reproduzir em dispositivos Android: foi corrigido este erro e a sequência em pacote reproduz em dispositivos Android que suportam HLS.
+* Quando um recurso de arquivo live é transmitido para HLS, áudio apenas reproduz: este problema foi corrigido, e agora podem reproduzir áudio e vídeo.
+* Quando um recurso é empacotado para encriptação de envelope HLS e AES de 128 bits, os fluxos em pacote não reproduzir em dispositivos Android: esse bug foi corrigido, e o fluxo em pacote reproduz em dispositivos Android que suportam HLS.
 
 ## <a id="may_changes_14"></a>Versão de Maio de 2014
-### <a id="may_14_changes"></a>Serviços de suporte de dados gerais de atualizações
-Agora, pode utilizar [empacotamento dinâmico] fluxo HLS versão 3. Para HLS versão de fluxo de 3, adicione o seguinte formato para o caminho de localização de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, consulte [neste fórum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
+### <a id="may_14_changes"></a>As atualizações dos serviços de suporte de dados gerais
+Agora, pode utilizar [empacotamento dinâmico] fluxo HLS versão 3. Para HLS versão de fluxo de 3, adicione o seguinte formato para o caminho de localização de origem: * .ism/manifest(format=m3u8-aapl-v3). Para obter mais informações, consulte [Este fórum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
-Empacotamento dinâmico agora também suporta HLS (versão 3 e versão 4) encriptado com PlayReady com base na transmissão em fluxo uniforme estaticamente encriptado com PlayReady de entrega. Para obter informações sobre como encriptar a transmissão em fluxo uniforme com PlayReady, consulte [proteger transmissão em fluxo uniforme com PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
+Também empacotamento dinâmico agora suporta o fornecimento HLS (versão 3 e 4 de versão) encriptado com PlayReady com base na transmissão em fluxo uniforme estaticamente criptografado com PlayReady. Para obter informações sobre como encriptar a transmissão em fluxo uniforme com PlayReady, consulte [proteger Smooth Streaming com PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 
 ### <a name="may_14_donnet_changes"></a>Atualizações do SDK .NET dos Media Services
-O SDK do .NET dos serviços de suporte de dados está agora versão 3.0.0.5. Foram efetuadas as seguintes atualizações:
+O SDK .NET dos Media Services agora é a versão 3.0.0.5. Foram efetuadas as seguintes atualizações:
 
-* Velocidade e resiliência são melhor quando carregar e transferir os recursos de suporte de dados.
-* Foram efetuados melhoramentos no processamento de exceções de lógica e os transitório de repetição: 
+* Velocidade e a resiliência são melhores quando carregar e transferir os ativos de mídia.
+* Foram efetuadas melhorias na manipulação de exceção de repetição lógica e transitórias: 
   
-  * Lógica de deteção e volte a tentar erro transitório foram melhoradas para exceções são causadas quando consultar, guardar as alterações e carregar ou transferir os ficheiros. 
-  * Quando obtiver exceções web (por exemplo, durante um pedido de token de serviço de controlo de acesso), erros fatais falharem mais rapidamente agora.
+  * Lógica de deteção e volte a tentar erro transitório foram melhorados para exceções causados quando consultar, guarde as alterações e carregar ou transferir os ficheiros. 
+  * Quando receber exceções da web (por exemplo, durante um pedido de token de serviço de controlo de acesso), erros fatais falharem mais rapidamente agora.
 
-Para obter mais informações, consulte [repetir lógica em que o SDK de Media Services para .NET].
+Para obter mais informações, consulte [lógica de repetição no SDK de serviços de multimédia para .NET].
 
-## <a id="april_changes_14"></a>Versão de codificador de Abril de 2014
-### <a name="april_14_enocer_changes"></a>Atualizações de codificador de serviços de multimédia
-* Foi adicionado suporte para a ingestão de ficheiros AVI que são criados utilizando o editor de nonlinear Grass Valley EDIUS. Este processo, o vídeo ligeiramente é comprimido utilizando o codec Grass Valley HQ/HQX. Para obter mais informações, consulte [Grass Valley announces 7 EDIUS de transmissão em fluxo através da nuvem].
-*  Foi adicionado suporte para especificar a Convenção de nomenclatura para os ficheiros produzido pelo codificador de serviços de suporte de dados. Para obter mais informações, consulte [codificador de serviços de suporte de dados de controlo de nomes de ficheiro de saída](http://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Foi adicionado suporte para a sobreposição de vídeo e/ou áudio. Para obter mais informações, consulte [criar as Sobreposições](http://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Foi adicionado suporte para stitch em conjunto vários segmentos de vídeos. Para obter mais informações, consulte [Stitch as vídeos segmentos](http://msdn.microsoft.com/library/azure/dn640504.aspx).
-* Foi corrigido um erro que foi relacionados com a transcodificação MP4s onde áudio codificado com MPEG-1 áudio camada 3 (também conhecido como MP3).
+## <a id="april_changes_14"></a>Versão do codificador de Abril de 2014
+### <a name="april_14_enocer_changes"></a>Atualizações do codificador de serviços de multimédia
+* Foi adicionado suporte para ingerir ficheiros AVI, que são criados com o editor de não-linear de grama Valley EDIUS. Nesse processo, o vídeo é apenas superficialmente comprimido com o codec de grama Valley HQ/HQX. Para obter mais informações, consulte [grama Valley anuncia 7 EDIUS transmissão em fluxo através da cloud].
+*  Foi adicionado suporte para especificar a Convenção de nomenclatura para os arquivos gerados pelo codificador de serviços de multimédia. Para obter mais informações, consulte [nomes de ficheiro de saída do codificador de serviços de suporte de dados de controle](http://msdn.microsoft.com/library/azure/dn303341.aspx).
+*  Foi adicionado suporte para sobreposições de vídeo e/ou áudio. Para obter mais informações, consulte [criar sobreposições](http://msdn.microsoft.com/library/azure/dn640496.aspx).
+*  Foi adicionado suporte para reunir vários segmentos de vídeo. Para obter mais informações, consulte [reunir os segmentos de vídeo](http://msdn.microsoft.com/library/azure/dn640504.aspx).
+* Foi corrigido um erro que estava relacionado a transcodificação MP4s onde o áudio codificado com MPEG-1 3 da camada de áudio (também conhecido como MP3).
 
 ## <a id="jan_feb_changes_14"></a>Versões de Janeiro/Fevereiro de 2014
-### <a name="jan_fab_14_donnet_changes"></a>SDK .NET 3.0.0.1, 3.0.0.2 e 3.0.0.3 dos Media Services
-As alterações 3.0.0.1 e 3.0.0.2 incluem:
+### <a name="jan_fab_14_donnet_changes"></a>SDK de .NET 3.0.0.1, 3.0.0.2 e 3.0.0.3 dos serviços de multimédia
+As alterações no 3.0.0.1 e 3.0.0.2 incluem:
 
-* Problemas relacionados com a utilização de consultas LINQ com instruções OrderBy foram corrigidos.
-* Testar soluções no [GitHub] foram dividida em com base na unidade de testes e testes de com base no cenário.
+* Problemas relacionados com a utilização de consultas do LINQ com as instruções de OrderBy foram corrigidos.
+* Testar soluções na [GitHub] foram divididos em testes de unidade e testes com base no cenário.
 
-Para obter mais informações sobre as alterações, consulte o [versões do SDK de Media Services .NET 3.0.0.1 e 3.0.0.2](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/).
+Para obter mais informações sobre as alterações, consulte a [versões do SDK de .NET para serviços de multimédia 3.0.0.1 e 3.0.0.2](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
-As seguintes alterações foram efetuadas na versão 3.0.0.3:
+As seguintes alterações foram feitas na versão 3.0.0.3:
 
 * Dependências de armazenamento do Azure foram atualizadas para utilizar a versão 3.0.3.0.
-* Foi corrigido um problema de compatibilidade com versões anteriores para 3.0. *.* versões.
+* Um problema de compatibilidade com versões anteriores, foi corrigido para 3.0. *.* versões.
 
 ## <a id="december_changes_13"></a>Versão de Dezembro de 2013
-### <a name="dec_13_donnet_changes"></a>.NET SDK 3.0.0.0 dos Media Services
+### <a name="dec_13_donnet_changes"></a>Serviços de multimédia .NET SDK 3.0.0.0
 > [!NOTE]
 > As versões de 3.0.x.x não são compatíveis com versões anteriores com as versões de 2.4.x.x.
 > 
 > 
 
-A versão mais recente do SDK de serviços de suporte de dados está agora 3.0.0.0. Pode transferir o pacote mais recente a partir do NuGet ou obter os bits de [GitHub].
+A versão mais recente do SDK de serviços de suporte de dados está agora 3.0.0.0. Pode transferir o pacote mais recente do NuGet ou obtenha os bits da [GitHub].
 
-Começando com o SDK de Media Services versão 3.0.0.0, pode reutilizar o [serviço de controlo de acesso do Azure AD](http://msdn.microsoft.com/library/hh147631.aspx) tokens. Para obter mais informações, consulte a secção "Tokens de serviço de controlo de acesso de reutilização" em [ligar aos Media Services com o SDK de Media Services para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Começando com o SDK de Media Services versão 3.0.0.0, é possível reutilizar os [serviço de controlo de acesso do Azure AD](http://msdn.microsoft.com/library/hh147631.aspx) tokens. Para obter mais informações, consulte a secção "Tokens do serviço de controle de acesso de reutilização" em [ligar aos Media Services com o SDK de Media Services para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 ### <a name="dec_13_donnet_ext_changes"></a>Extensões do SDK .NET dos Media Services 2.0.0.0
- As extensões do SDK .NET dos Media Services são um conjunto de métodos de extensão e funções de programa auxiliar que simplificam o seu código e facilitam a desenvolver com os Media Services. Pode obter os bits mais recentes do [extensões do SDK .NET dos Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev).
+ As extensões do SDK de .NET de serviços de multimédia são um conjunto de métodos de extensão e funções auxiliares que simplificam o seu código e torná-lo mais fácil desenvolver com os Media Services. Pode obter os bits mais recentes do [extensões do SDK .NET dos Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev).
 
 ## <a id="november_changes_13"></a>Versão de Novembro de 2013
 ### <a name="nov_13_donnet_changes"></a>Alterações do SDK .NET dos Media Services
-A partir desta versão, o SDK de Media Services para .NET identificadores erro transitório erros que podem ocorrer quando são efetuadas chamadas para a camada de API de REST dos serviços de suporte de dados.
+Começando com esta versão, o SDK de Media Services para .NET identificadores de falhas transitórias erros que possam ocorrer quando chamadas são feitas para a camada de API de REST dos serviços de multimédia.
 
 ## <a id="august_changes_13"></a>Versão de Agosto de 2013
-### <a name="aug_13_powershell_changes"></a>Cmdlets do PowerShell de serviços de suporte de dados incluídos nas ferramentas do Azure SDK
-Os seguintes cmdlets PowerShell de serviços de suporte de dados estão agora incluídos nas [ferramentas do Azure SDK](https://github.com/Azure/azure-sdk-tools):
+### <a name="aug_13_powershell_changes"></a>Cmdlets do PowerShell de serviços de suporte de dados incluídos nas ferramentas do SDK do Azure
+Os seguintes cmdlets PowerShell de serviços de suporte de dados agora estão incluídos no [ferramentas SDK do Azure](https://github.com/Azure/azure-sdk-tools):
 
 * Get-AzureMediaServices 
 
@@ -439,13 +439,13 @@ Os seguintes cmdlets PowerShell de serviços de suporte de dados estão agora in
     Por exemplo: `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`
 
 ## <a id="june_changes_13"></a>Versão de Junho de 2013
-### <a name="june_13_general_changes"></a>Alterações dos serviços de suporte de dados
-As seguintes alterações mencionadas nesta secção são atualizações incluídas em versões de Junho de 2013 Media Services:
+### <a name="june_13_general_changes"></a>Alterações de serviços de multimédia
+As seguintes alterações mencionadas nesta seção são as atualizações incluídas nas versões dos serviços de multimédia de Junho de 2013:
 
-* Capacidade para ligar a várias contas de armazenamento para uma conta de serviço de suporte de dados. 
+* Capacidade de ligar várias contas de armazenamento a uma conta de serviço de multimédia. 
     * StorageAccount
     * Asset.StorageAccountName e Asset.StorageAccount
-* Capacidade para atualizar Job.Priority. 
+* Capacidade de atualizar Job.Priority. 
 * Entidades relacionadas com a notificação e propriedades: 
     * JobNotificationSubscription
     * NotificationEndPoint
@@ -454,79 +454,79 @@ As seguintes alterações mencionadas nesta secção são atualizações incluí
 * Locator.Name 
 
 ### <a name="june_13_dotnet_changes"></a>Alterações do SDK .NET dos Media Services
-As seguintes alterações estão incluídas em Junho de 2013 liberta o SDK de Media Services. O SDK de Media Services mais recente está disponível no GitHub.
+As seguintes alterações são incluídas em Junho de 2013 da versões do SDK de Media Services. O SDK de serviços de multimédia mais recente está disponível no GitHub.
 
-* A partir da versão 2.3.0.0, suporta o SDK de Media Services ligar o armazenamento várias contas para uma conta de Media Services. As APIs seguintes suportam esta funcionalidade:
+* O SDK de Media Services oferece suporte à, vários de armazenamento de ligação a partir da versão 2.3.0.0, contas para uma conta de Media Services. As seguintes APIs de suportar esta funcionalidade:
   
     * Tipo de IStorageAccount
     * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
-    * Propriedade de StorageAccount
+    * StorageAccount propriedade
     * Propriedade de StorageAccountName
   
-    Para obter mais informações, consulte [ativos gerir serviços de suporte de dados em várias contas do storage](http://msdn.microsoft.com/library/azure/dn271889.aspx).
-* APIs de relacionadas com a notificação. A partir da versão 2.2.0.0, pode escutar notificações de armazenamento de filas do Azure. Para obter mais informações, consulte [notificações da tarefa processar Media Services](http://msdn.microsoft.com/library/azure/dn261241.aspx).
+    Para obter mais informações, consulte [ativos de gerir os serviços de multimédia em várias contas de armazenamento](http://msdn.microsoft.com/library/azure/dn271889.aspx).
+* APIs relacionadas a notificação. A partir da versão 2.2.0.0, pode ouvir para notificações de armazenamento de filas do Azure. Para obter mais informações, consulte [notificações da tarefa de lidar com os serviços de multimédia](http://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
     * Tipo de Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint
     * Tipo de Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription
     * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection
     * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType
-* Dependência no cliente do armazenamento SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
-* Dependência de OData 5.5 (Microsoft.Data.OData.dll)
+* Dependência de cliente de armazenamento SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
+* Dependência do OData 5.5 (Microsoft.Data.OData.dll)
 
 ## <a id="december_changes_12"></a>Versão de Dezembro de 2012
 ### <a name="dec_12_dotnet_changes"></a>Alterações do SDK .NET dos Media Services
-* O IntelliSense: Falta o IntelliSense documentação foi adicionado para muitos tipos.
-* Microsoft.Practices.TransientFaultHandling.Core: Um problema foi corrigido onde o SDK ainda tinha uma dependência de uma versão antiga desta assemblagem. O SDK agora referencia a versão 5.1.1209.1 desta assemblagem.
+* IntelliSense: Falta de documentação do IntelliSense foi adicionado para muitos tipos.
+* Microsoft.Practices.TransientFaultHandling.Core: Um problema foi corrigido em que o SDK ainda tinha uma dependência de uma versão antiga desse assembly. O SDK agora faz referência a versão 5.1.1209.1 tohoto sestavení.
 
-Correções para problemas encontrados na Novembro de 2012 SDK:
+Correções para problemas encontrados em Novembro de 2012 SDK:
 
-* IAsset.Locators.Count: Esta contagem é agora corretamente comunicada no novo IAsset interfaces depois de todos os localizadores são eliminados.
-* IAssetFile.ContentFileSize: Este valor é agora corretamente definido após um carregamento por IAssetFile.Upload(filepath).
-* IAssetFile.ContentFileSize: Esta propriedade agora pode ser definida quando cria um ficheiro de recurso. -Foi anteriormente só de leitura.
-* IAssetFile.Upload(filepath): Um problema foi corrigido onde este método de carregamento síncronos foi argumentoutofrangeexception o seguinte erro quando vários ficheiros foram carregados para o elemento. O erro foi "Falha ao autenticar o pedido de servidor. Certifique-se de que o valor de cabeçalho de autorização está formado corretamente, incluindo a assinatura."
-* IAssetFile.UploadAsync: Um problema foi corrigido que limitada o carregamento de ficheiros a cinco ficheiros em simultâneo.
+* IAsset.Locators.Count: Esta contagem é agora corretamente comunicada em novas interfaces de IAsset depois de todos os localizadores são eliminados.
+* IAssetFile.ContentFileSize: Este valor está agora corretamente definido após um carregamento por IAssetFile.Upload(filepath).
+* IAssetFile.ContentFileSize: Esta propriedade agora pode ser definida quando cria um ficheiro de elemento. Ele foi anteriormente só de leitura.
+* IAssetFile.Upload(filepath): Um problema foi corrigido em que este método de carregamento síncronos estava gerando o erro seguinte quando vários ficheiros foram carregados para o elemento. O erro foi "Falha ao autenticar o pedido de servidor. Certifique-se de que o valor de cabeçalho de autorização está formado corretamente, incluindo a assinatura."
+* IAssetFile.UploadAsync: Um problema foi corrigido que limitou o simultâneo carregamento de ficheiros a cinco ficheiros.
 * IAssetFile.UploadProgressChanged: Este evento é agora fornecido pelo SDK.
-* IAssetFile.DownloadAsync (cadeia, BlobTransferClient, ILocator, CancellationToken): Esta sobrecarga de método é agora fornecida.
-* IAssetFile.DownloadAsync: Um problema foi corrigido que limitada a transferência de ficheiros a cinco ficheiros em simultâneo.
-* IAssetFile.Delete(): Um problema foi corrigido onde chamar delete poderão acionar uma excepção se nenhum ficheiro foi carregado para o IAssetFile.
-* Tarefas: Um problema foi corrigido onde encadeamento um "MP4 a tarefa de fluxos uniforme" com um "PlayReady a tarefa de proteção" utilizando um modelo de tarefa não tiver criado quaisquer tarefas de todo.
-* EncryptionUtils.GetCertificateFromStore(): Este método já não emite uma exceção de referência nula devido a uma falha no localizar o certificado com base em problemas de configuração do certificado.
+* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): Esta sobrecarga do método agora é fornecida.
+* IAssetFile.DownloadAsync: Um problema foi corrigido que limitou o download simultâneo de ficheiros a cinco ficheiros.
+* IAssetFile.Delete(): Um problema foi corrigido onde chamada delete pode gerar uma exceção se nenhum arquivo foi carregado para o IAssetFile.
+* Trabalhos: Um problema foi corrigido onde encadeamento um "MP4 a tarefa de fluxos suave" com uma "tarefa de proteção de PlayReady" ao utilizar um modelo de tarefa não tiver criado quaisquer tarefas de todo.
+* EncryptionUtils.GetCertificateFromStore(): Este método já não lança uma exceção de referência nula devido a uma falha em encontrar o certificado com base em problemas de configuração de certificado.
 
 ## <a id="november_changes_12"></a>Versão de Novembro de 2012
-As alterações mencionadas nesta secção foram atualizações incluídas em Novembro de 2012 (versão 2.0.0.0) SDK. Estas alterações podem requerer qualquer código escrito para a pré-visualização de Junho de 2012 versão do SDK a modificação ou foi reescrita.
+As alterações mencionadas nesta seção foram atualizações incluídas em Novembro de 2012 (versão 2.0.0.0) SDK. Estas alterações podem exigir qualquer código escrito para a pré-visualização de Junho de 2012 de versão do SDK para ser modificado ou reescrito.
 
 * Elementos
   
-    * IAsset.Create(assetName) é o *apenas* a função de criação do recurso. IAsset.Create carrega já não ficheiros como parte da chamada de método. Utilize IAssetFile para carregar.
-    * O método de IAsset.Publish e o valor de enumeração AssetState.Publish foram removidas do SDK dos serviços. Qualquer código que se baseie neste valor tem de ser foi reescrito.
+    * IAsset.Create(assetName) é o *apenas* função de criação do recurso. IAsset.Create já não carrega ficheiros como parte da chamada do método. Utilize IAssetFile para carregar.
+    * O método IAsset.Publish e o valor de enumeração de AssetState.Publish foram removidas do SDK de serviços. Qualquer código que conta com este valor tem de ser reescrito.
 * FileInfo
   
-    * Esta classe foi removida e substituída pelo IAssetFile.
+    * Esta classe foi removida e substituída por IAssetFile.
   
 * IAssetFiles
   
-    * IAssetFile substitui FileInfo e tem um comportamento diferente. Utilizá-la, instanciar o objeto IAssetFiles, seguido de um carregamento de ficheiros através da utilização do SDK de Media Services ou o SDK de armazenamento. Podem ser utilizadas as sobrecargas de IAssetFile.Upload seguintes:
+    * IAssetFile substitui FileInfo e tem um comportamento diferente. Para usá-lo, instancie o objeto de IAssetFiles, seguido de um carregamento de ficheiros através da utilização do SDK de Media Services ou o SDK de armazenamento. Podem ser utilizadas as sobrecargas de IAssetFile.Upload seguintes:
   
         * IAssetFile.Upload(filePath): Este método síncrono bloqueia o thread e recomendamos apenas quando carregar um único ficheiro.
-        * IAssetFile.UploadAsync (filePath blobTransferClient, localizador, cancellationToken): Este método assíncrono é o mecanismo de carregamento preferencial. 
+        * IAssetFile.UploadAsync (filePath, blobTransferClient, localizador, cancellationToken): Este método assíncrono é o mecanismo de carregamento preferido. 
     
-            Erro conhecido: Se utilizar o token de cancelamento, o carregamento foi cancelado. As tarefas podem ter vários Estados de cancelamento. Corretamente tem de detetar e processar as exceções.
+            Erro conhecido: Se utilizar o token de cancelamento, o carregamento foi cancelado. As tarefas podem ter vários Estados de cancelamento. Corretamente tem de detetar e lidar com exceções.
 * Localizadores
   
-    * As versões de origem específicos foram removidas. O contexto de SAS específicos. Locators.CreateSasLocator (asset, accessPolicy) serão marcadas como preterida ou removida por disponibilidade geral. Consulte a secção "Localizadores" em "Nova funcionalidade de" para o comportamento atualizado.
+    * As versões específicas de origem foram removidas. O contexto específico do SAS. Locators.CreateSasLocator (asset, accessPolicy) serão marcados preteridas ou removidas pela disponibilidade geral. Consulte a secção "Localizadores" em "Nova funcionalidade" para o comportamento de atualizado.
 
 ## <a id="june_changes_12"></a>Versão de pré-visualização de Junho de 2012
-A seguinte funcionalidade foi novidade da versão de Novembro do SDK:
+A seguinte funcionalidade foi nova na versão de Novembro do SDK:
 
-* Eliminar entidades
+* A eliminar entidades
   
-    * Objetos IAsset, IAssetFile, ILocator, IAccessPolicy e IContentKey agora são eliminados ao nível do objeto, ou seja, IObject.Delete(), em vez de exigir um eliminar na coleção, ou seja, cloudMediaContext.ObjCollection.Delete(objInstance).
+    * Objetos IAsset, IAssetFile, ILocator, IAccessPolicy e IContentKey agora são eliminados ao nível do objeto, ou seja, IObject.Delete(), em vez de exigir uma exclusão da coleção, ou seja, cloudMediaContext.ObjCollection.Delete(objInstance).
 * Localizadores
   
-    * Os localizadores agora tem de ser criados utilizando o método CreateLocator. Terão de utilizar os valores de enumeração LocatorType.SAS ou LocatorType.OnDemandOrigin como um argumento para o tipo específico de localizador que pretende criar.
-    * Novas propriedades foram adicionadas às localizadores para tornar mais fácil obter os URIs utilizável para o seu conteúdo. Este recriar de localizadores fornece mais flexibilidade para futura extensibilidade de terceiros e aumenta a facilidade de utilização para as aplicações de cliente de suporte de dados.
-* Suporte de método assíncronas
+    * Agora os localizadores devem ser criados usando o método CreateLocator. Terão de utilizar os valores de enum LocatorType.SAS ou LocatorType.OnDemandOrigin como um argumento para o tipo específico de localizador de que pretende criar.
+    * Novas propriedades foram adicionadas para os localizadores para que seja mais fácil de obter os URIs utilizável para o seu conteúdo. Essa reformulação de localizadores fornece mais flexibilidade para futura extensibilidade de terceiros e aumenta a facilidade de utilização para aplicativos de clientes do suporte de dados.
+* Suporte de método assíncrono
   
     * Foi adicionado suporte assíncrono para todos os métodos.
 
@@ -541,8 +541,8 @@ A seguinte funcionalidade foi novidade da versão de Novembro do SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Fórum MSDN do serviços de multimédia do Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Referência da API de REST dos serviços de suporte de dados do Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+[Fórum MSDN dos serviços de multimédia do Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Referência da API de REST dos serviços de multimédia do Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Detalhes de preços dos Serviços de Multimédia (Media Services pricing details)]: http://azure.microsoft.com/pricing/details/media-services/
 [Metadados de entrada]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadados de saída]: http://msdn.microsoft.com/library/azure/dn783217.aspx
@@ -559,8 +559,8 @@ A seguinte funcionalidade foi novidade da versão de Novembro do SDK:
 [Empacotamento dinâmico]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
-[Repetir lógica em que o SDK de Media Services para .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[Grass Valley announces 7 EDIUS de transmissão em fluxo através da nuvem]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Lógica de repetição no SDK de serviços de multimédia para .NET]: http://msdn.microsoft.com/library/azure/dn745650.aspx
+[Grama Valley anuncia 7 EDIUS transmissão em fluxo através da cloud]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx

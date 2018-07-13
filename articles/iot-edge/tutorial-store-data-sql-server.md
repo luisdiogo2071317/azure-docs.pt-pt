@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: d0837787dcac44d2cc43701ac181ec7eac2dfa2c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034073"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687220"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -67,7 +67,7 @@ Os passos seguintes mostram-lhe como criar uma função do IoT Edge com o Visual
 2. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal Integrado**.
 3. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
 4. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
-3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: New IoT Edge solution**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
    1. Selecione a pasta onde quer criar a solução. 
    2. Indique um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
    3. Selecione **Funções do Azure - C#** como modelo de módulo. 

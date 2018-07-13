@@ -17,11 +17,11 @@ ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b09a85686e19ae92c3e437bedff54bff8371784f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182362"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719044"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli-20"></a>Guia de Início Rápido: Criar uma máquina virtual do Windows com a CLI 2.0 do Azure
 
@@ -95,7 +95,7 @@ Para ver a VM em ação, instale o servidor Web do IIS. Abra uma janela do Power
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Quando terminar, feche a ligação RDP para a VM.
+Quando terminar, feche a ligação RDP à VM.
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 

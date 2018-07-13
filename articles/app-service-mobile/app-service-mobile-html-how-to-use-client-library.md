@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o SDK de JavaScript para Mobile Apps do Azure
-description: Como utilizar v para Mobile Apps do Azure
+title: Como utilizar o SDK de JavaScript para aplicações móveis do Azure
+description: Como uso v para aplicações móveis do Azure
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151081"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488897"
 ---
-# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de clientes JavaScript para Mobile Apps do Azure
+# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de cliente JavaScript para aplicações móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Este guia informa efetuar cenários comuns utilizando a versão mais recente [JavaScript SDK de Mobile Apps do Azure]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Azure Mobile Apps início rápido] para criar um back-end e criar uma tabela. Neste guia, iremos focar-se sobre como utilizar o back-end móvel em aplicações Web HTML/JavaScript.
+Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK de JavaScript para aplicações móveis do Azure]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Início rápido de aplicações móveis do Azure] para criar um back-end e criar uma tabela. Neste guia, vamos nos concentrar sobre como utilizar o back-end móvel em aplicativos Web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Plataformas suportadas
-Limitamos browser com o suporte para as versões atuais e o apelido dos principais browsers: Google Chrome, o Microsoft Edge, o Microsoft Internet Explorer e o Mozilla Firefox.  Esperamos que o SDK para a função com qualquer browser relativamente moderna.
+Limitamos o suporte do browser para as versões atuais e o apelido dos principais navegadores: Google Chrome, o Microsoft Edge, o Microsoft Internet Explorer e o Mozilla Firefox.  Esperamos que o SDK para funcionar com qualquer navegador moderno relativamente.
 
-O pacote é distribuído como um módulo de JavaScript Universal, para que suporta globais, AMD, e CommonJS formatos.
+O pacote é distribuído como um módulo de JavaScript Universal, para que ele oferece suporte a globals, AMD, e CommonJS formatos.
 
-## <a name="Setup"></a>A configuração e pré-requisitos
-Este guia pressupõe que criou um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema como as tabelas nestes tutoriais.
+## <a name="Setup"></a>Configuração e pré-requisitos
+Este guia assume que criou um back-end com uma tabela. Este guia assume que a tabela tem o mesmo esquema que as tabelas nesses tutoriais.
 
-Instalar o Azure Mobile Apps JavaScript SDK pode ser efetuado através de `npm` comando:
+Instalar o Azure Mobile Apps JavaScript SDK pode ser feito por meio do `npm` comando:
 
 ```
 npm install azure-mobile-apps-client --save
 ```
 
-A biblioteca também pode ser utilizada como um módulo de ES2015, dentro de ambientes de CommonJS como Browserify e Webpack e como uma biblioteca AMD.  Por exemplo:
+A biblioteca também pode ser usada como um módulo de ES2015, em ambientes de CommonJS como Browserify e Webpack e como uma biblioteca AMD.  Por exemplo:
 
 ```
 # For ECMAScript 5.1 CommonJS
@@ -49,7 +49,7 @@ var WindowsAzure = require('azure-mobile-apps-client');
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
-Também pode utilizar uma versão do SDK pré-criadas transferindo-a diretamente a partir do nosso CDN:
+Também pode utilizar uma versão pré-criados do SDK ao transferir diretamente a partir de nossa CDN:
 
 ```html
 <script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
@@ -57,53 +57,53 @@ Também pode utilizar uma versão do SDK pré-criadas transferindo-a diretamente
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Como: autenticar os utilizadores
-App Service do Azure suporta autenticar e autorizar utilizadores de aplicações através de vários fornecedores de identidade externas: Facebook, Google, Account Microsoft e Twitter. Pode definir as permissões em tabelas para restringir o acesso de operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de utilizadores autenticados para implementar as regras de autorização em scripts de servidor. Para obter mais informações, consulte o [introdução à autenticação] tutorial.
+## <a name="auth"></a>Como: autenticar utilizadores
+Serviço de aplicações do Azure suporta autenticar e autorizar utilizadores da aplicação com vários fornecedores de identidade externo: Facebook, Google, Microsoft Account e Twitter. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização em scripts de servidor. Para obter mais informações, consulte a [introdução à autenticação] tutorial.
 
-São suportados dois fluxos de autenticação: um fluxo de servidor e um fluxo de cliente.  O fluxo de servidor fornece a experiência de autenticação mais simples, como baseia-se na interface de autenticação de web do fornecedor. O fluxo de cliente permite para uma integração mais profunda com as capacidades específicas do dispositivo, tal como single-sign-on como depende SDKs específica do fornecedor.
+Dois fluxos de autenticação são suportados: um fluxo de servidor e um fluxo de cliente.  O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende de interface de autenticação de web do fornecedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos do dispositivo, tais como início de sessão único, pois depende SDKs específicos de fornecedor.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ### <a name="configure-external-redirect-urls"></a>Como: configurar o serviço de aplicações móveis para os URLs de redirecionamento externo.
-Vários tipos de aplicações de JavaScript utilizam uma capacidade de loopback para processar fluxos de IU de OAuth.  Estas funcionalidades incluem:
+Vários tipos de aplicativos JavaScript utilizam um recurso de loopback para processar fluxos de interface do Usuário do OAuth.  Estas funcionalidades incluem:
 
-* Executar o serviço localmente
-* Utilizar recarregar em direto com o Framework Ionic
-* Redirecionar para o App Service para autenticação.
+* Executar o seu serviço localmente
+* Usando o recarregamento em direto com o Framework Ionic
+* A redirecionar para o serviço de aplicações para autenticação.
 
-Executar localmente pode causar problemas, porque, por predefinição, a autenticação do serviço de aplicações só está configurada para permitir o acesso de back-end da aplicação móvel. Utilize os seguintes passos para alterar as definições de serviço de aplicações para ativar a autenticação ao executar o servidor localmente:
+A executar localmente pode causar problemas, porque, por predefinição, a autenticação do serviço de aplicações só está configurada para permitir o acesso de back-end da aplicação móvel. Utilize os seguintes passos para alterar as definições de serviço de aplicações para ativar a autenticação ao executar o servidor localmente:
 
-1. Inicie sessão no [portal do Azure]
-2. Navegue para o back-end da aplicação móvel.
+1. Inicie sessão no [Portal do Azure]
+2. Navegue para o back-end de aplicação móvel.
 3. Selecione **Explorador de recursos** no **ferramentas de desenvolvimento** menu.
-4. Clique em **aceda** para abrir o Explorador de recursos de back-end da aplicação móvel num novo separador ou janela.
-5. Expanda o **configuração** > **authsettings** nós para a sua aplicação.
-6. Clique em de **editar** botão para activar a edição do recurso.
-7. Localizar o **allowedExternalRedirectUrls** elemento, que deve ser nulo. Adicione os URLs de uma matriz:
+4. Clique em **ir** para abrir o Explorador de recursos para o back-end de aplicação móvel num novo separador ou janela.
+5. Expanda a **config** > **authsettings** nó para a sua aplicação.
+6. Clique nas **editar** botão para ativar a edição do recurso.
+7. Encontrar o **allowedExternalRedirectUrls** elemento, que deve ser nulo. Adicione suas URLs numa matriz:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Substitua os URLs na matriz com os URLs do seu serviço, que, neste exemplo, é `http://localhost:3000` para o serviço de exemplo de Node.js local. Pode também utilizar `http://localhost:4400` para o serviço de Ripple ou outro URL, dependendo de como a aplicação está configurada.
+    Substitua os URLs na matriz com os URLs do seu serviço, que, neste exemplo, é `http://localhost:3000` para o serviço de exemplo de node. js local. Também pode usar `http://localhost:4400` para o serviço de cascata ou outra URL, dependendo de como a sua aplicação está configurada.
 8. Na parte superior da página, clique em **leitura/escrita**, em seguida, clique em **colocar** para guardar as atualizações.
 
-Também terá de adicionar os mesmos URLs de loopback para as definições CORS da lista branca:
+Também terá de adicionar os mesmos URLs de loopback para as definições de lista de permissões CORS:
 
 1. Navegue de volta para o [portal do Azure].
-2. Navegue para o back-end da aplicação móvel.
+2. Navegue para o back-end de aplicação móvel.
 3. Clique em **CORS** no **API** menu.
-4. Introduza cada URL vazia **origens permitidas** caixa de texto.  É criada uma nova caixa de texto.
+4. Introduza cada URL na vazio **origens permitidas** caixa de texto.  É criada uma nova caixa de texto.
 5. Clique em **guardar**
 
-Após o back-end de atualizações, poderá utilizar os novos URLs de loopback na sua aplicação.
+Após o back-end de atualizações, será capaz de usar os novos URLs de loopback na sua aplicação.
 
 <!-- URLs. -->
-[Azure Mobile Apps início rápido]: app-service-mobile-cordova-get-started.md
-[introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
+[Início rápido de aplicações móveis do Azure]: app-service-mobile-cordova-get-started.md
+[Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[portal do Azure]: https://portal.azure.com/
-[JavaScript SDK de Mobile Apps do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
+[Portal do Azure]: https://portal.azure.com/
+[SDK de JavaScript para aplicações móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

@@ -16,11 +16,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776999"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652750"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para dispositivos Windows Phone específicos com os Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel
 > * Registar-se para receber notificações com etiquetas
-> * Enviar notificações marcadas
+> * Enviar notificações com etiquetas
 > * Testar a aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -207,7 +207,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
     ```
 
    > [!NOTE]
-   > Uma vez que, de um modo geral, as credenciais que são distribuídas com uma aplicação cliente não são seguras, só deve distribuir a chave para acesso de escuta com a sua aplicação cliente. O acesso de escuta permite que a sua aplicação se registe para receber notificações, mas não é possível modificar registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço de back-end protegido para o envio de notificações e a alteração de registos existentes.
+   > Uma vez que, de um modo geral, as credenciais que são distribuídas com uma aplicação cliente não são seguras, só deve distribuir a chave para acesso de escuta com a sua aplicação cliente. O acesso de escuta permite que a sua aplicação seja registada para receber notificações, mas não é possível modificar os registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço de back-end protegido para o envio de notificações e a alteração de registos existentes.
    > 
    > 
 2. No ficheiro MainPage.xaml.cs, adicione a seguinte linha:
@@ -237,7 +237,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua página princip
    
     Este método cria uma lista de categorias e utiliza a classe **Notifications** para armazenar a lista no armazenamento local e registar as etiquetas correspondentes através do seu hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
 
-A sua aplicação é agora capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo e de registar-se através do hub de notificação sempre que o utilizador alterar a seleção de categorias.
+A sua aplicação pode agora armazenar um conjunto de categorias no armazenamento local do dispositivo e ficar registada no Hub de Notificação sempre que o utilizador alterar a seleção das categorias.
 
 ## <a name="register-for-notifications"></a>Registar-se para receber notificações
 Estes passos efetuam o registo através do hub de notificação no arranque mediante a utilização das categorias que foram armazenadas no armazenamento local.
@@ -281,7 +281,7 @@ Estes passos efetuam o registo através do hub de notificação no arranque medi
 
 A aplicação está agora completa, sendo capaz de armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para o efetuar o registo através do hub de notificação sempre que o utilizador alterar a seleção de categorias. Em seguida, defina um back-end apto a enviar notificações de categoria para esta aplicação.
 
-## <a name="send-tagged-notifications"></a>Enviar notificações marcadas
+## <a name="send-tagged-notifications"></a>Enviar notificações com etiquetas
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="test-the-app"></a>Testar a aplicação
