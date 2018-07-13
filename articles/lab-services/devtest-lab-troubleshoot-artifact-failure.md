@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar falhas de artefacto numa máquina virtual do Azure DevTest Labs | Microsoft Docs
-description: Saiba como resolver problemas de falhas de artefacto no Azure DevTest Labs.
+title: Diagnosticar falhas de artefactos numa máquina virtual do Azure DevTest Labs | Documentos da Microsoft
+description: Saiba como resolver problemas de falhas de artefactos no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ebc64215683989ce07f4dd88dc352ecaefe184cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788726"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697277"
 ---
-# <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefacto no laboratório 
-Depois de criar um artefacto, pode verificar para ver se foi concluída com êxito ou falha. Os registos de artefacto no Azure DevTest Labs fornecem informações que pode utilizar para diagnosticar uma falha de artefactos. Tem duas opções para visualizar as informações de registo de artefactos para uma VM do Windows:
+# <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefactos no laboratório 
+Depois de ter criado um artefato, pode verificar se foi concluída com êxito ou falha. Registos de artefactos no Azure DevTest Labs fornecem informações que pode usar para diagnosticar uma falha de artefacto. Tem duas opções para visualizar as informações de registo de artefactos para uma VM do Windows:
 
 * No portal do Azure
 * Na VM
 
 > [!NOTE]
-> Para garantir que as falhas são corretamente identificadas e explicadas, é importante que o artefacto tem a estrutura adequada. Para obter informações sobre como construir corretamente um artefacto, consulte [criar artefactos personalizados](devtest-lab-artifact-author.md). Para ver um exemplo de um artefacto estruturado corretamente, consulte o [tipos de parâmetro de teste](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artefactos.
+> Para garantir que as falhas são corretamente identificadas e explicadas, é importante que o artefacto tem a estrutura apropriada. Para obter informações sobre como construir corretamente um artefato, consulte [criar artefactos personalizados](devtest-lab-artifact-author.md). Para ver um exemplo de um artefacto adequadamente estruturado, consulte a [tipos de parâmetro de teste](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes) artefacto.
 
-## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Resolver problemas de falhas de artefacto utilizando o portal do Azure
+## <a name="troubleshoot-artifact-failures-by-using-the-azure-portal"></a>Resolver problemas de falhas de artefactos com o portal do Azure
 
-1. No portal do Azure, na lista de recursos, selecione o laboratório.
-2. Escolha a VM do Windows que inclui o artefacto que pretende investigar.
-3. No painel esquerdo, em **geral**, selecione **artefactos**. É apresentada uma lista dos artefactos associados a essa VM. O nome do artefacto e o estado de artefactos são indicados.
+1. No portal do Azure, na sua lista de recursos, selecione o seu laboratório.
+2. Selecione a VM do Windows que inclui o artefacto que pretende investigar.
+3. No painel esquerdo, sob **gerais**, selecione **artefactos**. É apresentada uma lista dos artefactos associados a essa VM. O nome do artefacto e o estado de artefactos são indicadas.
 
-   ![Estado de artefactos](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
+   ![Estado de artefacto](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-4. Selecione um artefacto que mostra um **falha** estado. É aberto o artefacto. É apresentada uma mensagem de extensão que inclui detalhes sobre a falha do artefacto.
+4. Selecione um artefato que mostra uma **falhada** estado. É aberto o artefacto. É apresentada uma mensagem de extensão que inclui detalhes sobre a falha do artefacto.
 
-   ![Mensagem de erro de artefactos](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
+   ![Mensagem de erro do artefacto](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
 
-## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Resolver problemas de falhas de artefacto da máquina virtual
+## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>Resolver problemas de falhas de artefactos de dentro da máquina virtual
 
-1. Inicie sessão VM que contém o artefacto que pretende diagnosticar.
-2. Aceda a C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, onde *1.9* é o número de versão da extensão de Script personalizado do Azure.
+1. Inicie sessão na VM que contém o artefacto que queira diagnosticar.
+2. Aceda a C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, onde *1.9* é o número de versão de extensão de Script personalizado do Azure.
 
    ![O ficheiro de estado](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
@@ -54,9 +54,9 @@ Depois de criar um artefacto, pode verificar para ver se foi concluída com êxi
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Mensagens de blogue relacionados
+## <a name="related-blog-posts"></a>Postagens de blogs relacionados
 * [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [adicione um repositório de Git para um laboratório](devtest-lab-add-artifact-repo.md).
+* Saiba como [adicionar um repositório de Git a um laboratório](devtest-lab-add-artifact-repo.md).
 

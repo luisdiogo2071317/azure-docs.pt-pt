@@ -1,6 +1,6 @@
 ---
-title: Como utilizar as filas do Service Bus do Azure com Java | Microsoft Docs
-description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de código escrito em Java.
+title: Como utilizar as filas do Service bus do Azure com Java | Documentos da Microsoft
+description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de códigos escritos em Java.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23868432"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696150"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como utilizar filas do Service Bus com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como utilizar as filas do Service Bus. Os exemplos são escritos em Java e utilize o [Azure SDK para Java][Azure SDK for Java]. Os cenários abrangidos incluem **criar filas**, **enviar e receber mensagens**, e **eliminar filas**.
+Este artigo descreve como utilizar as filas do Service Bus. Os exemplos são escritos em Java e utilize o [Azure SDK para Java][Azure SDK for Java]. Os cenários abrangidos incluem **criando filas**, **enviar e receber mensagens**, e **eliminar filas**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
-Certifique-se de que instalou o [Azure SDK para Java] [ Azure SDK for Java] antes de criar este exemplo. Se estiver a utilizar Eclipse, pode instalar o [Toolkit do Azure para o Eclipse] [ Azure Toolkit for Eclipse] que inclua o Azure SDK para Java. Em seguida, pode adicionar o **bibliotecas do Microsoft Azure para Java** ao seu projeto:
+Certifique-se de que instalou o [Azure SDK para Java] [ Azure SDK for Java] antes de criar este exemplo. Se estiver a utilizar Eclipse, pode instalar o [Azure Toolkit para Eclipse] [ Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar os **bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Adicione o seguinte `import` declarações na parte superior do ficheiro de Java:
+Adicione o seguinte `import` declarações na parte superior do ficheiro Java:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -45,9 +45,9 @@ import javax.xml.datatype.*;
 ```
 
 ## <a name="create-a-queue"></a>Criar uma fila
-Operações de gestão para filas do Service Bus podem ser efetuadas através de **ServiceBusContract** classe. A **ServiceBusContract** objecto é construído com uma configuração apropriada que encapsula o token SAS com permissões para geri-lo, e o **ServiceBusContract** classe é o único ponto de comunicação com o Azure.
+Operações de gestão para filas do Service Bus podem ser efetuadas pela **ServiceBusContract** classe. R **ServiceBusContract** objeto é construído com uma configuração apropriada que encapsula o token SAS com permissões para geri-lo, e o **ServiceBusContract** classe é o único ponto de comunicação com o Azure.
 
-O **ServiceBusService** classe fornece métodos para criar, enumerar e eliminar filas. O exemplo abaixo mostra como um **ServiceBusService** objeto pode ser utilizado para criar uma fila com o nome `TestQueue`, com um espaço de nomes com o nome `HowToSample`:
+O **ServiceBusService** classe fornece métodos para criar, enumerar e eliminar filas. O exemplo abaixo mostra como um **ServiceBusService** objeto pode ser usado para criar uma fila com o nome `TestQueue`, com um espaço de nomes com o nome `HowToSample`:
 
 ```java
 Configuration config =
@@ -72,7 +72,7 @@ catch (ServiceException e)
 }
 ```
 
-Existem métodos em `QueueInfo` que permitem que as propriedades da fila para ser otimizados (por exemplo: definir o valor (TTL) predefinido time-to-live a ser aplicado às mensagens enviadas para a fila). O exemplo seguinte mostra como criar uma fila com o nome `TestQueue` com um tamanho máximo de 5 GB:
+Existem métodos no `QueueInfo` que permitem que as propriedades da fila para ser ajustado (por exemplo: definir o padrão time-to-live (TTL) valor a ser aplicado às mensagens enviadas para a fila). O exemplo seguinte mostra como criar uma fila com o nome `TestQueue` com um tamanho máximo de 5 GB:
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -84,7 +84,7 @@ CreateQueueResult result = service.createQueue(queueInfo);
 Tenha em atenção que pode utilizar o `listQueues` método no **ServiceBusContract** objetos para verificar se uma fila com um nome especificado já existe num espaço de nomes do serviço.
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem para uma fila do Service Bus, a aplicação obtém um **ServiceBusContract** objeto. O código seguinte mostra como enviar uma mensagem o `TestQueue` fila criada anteriormente no `HowToSample` espaço de nomes:
+Para enviar uma mensagem numa fila do Service Bus, a aplicação obtém um **ServiceBusContract** objeto. O código seguinte mostra como enviar uma mensagem o `TestQueue` fila criada anteriormente no `HowToSample` espaço de nomes:
 
 ```java
 try
@@ -100,9 +100,9 @@ catch (ServiceException e)
 }
 ```
 
-As mensagens enviadas para e recebido do Service Bus filas são instâncias do [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de propriedades padrão (tais como [etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário utilizado para conter personalizado propriedades específicas da aplicação e um corpo de dados arbitrários da aplicação. Uma aplicação pode definir o corpo da mensagem através da transmissão de qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage], e o serializador adequado, em seguida, será utilizado para serializar o objeto. Em alternativa, pode fornecer um **java. E/S. InputStream** objeto.
+As mensagens enviadas para e recebidos do Service Bus filas são instâncias do [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de propriedades padrão (como [etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário que é utilizado para armazenar personalizado propriedades específicas da aplicação e um corpo de dados arbitrários da aplicação. Uma aplicação pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage], e o serializador apropriado, em seguida, será utilizado para serializar o objeto. Em alternativa, pode fornecer um **java. E/S. InputStream** objeto.
 
-O exemplo seguinte mostra como enviar cinco mensagens de teste para o `TestQueue` **MessageSender** obteve no fragmento de código anterior:
+O exemplo seguinte demonstra como enviar cinco mensagens de teste para o `TestQueue` **MessageSender** obteve no trecho de código anterior:
 
 ```java
 for (int i=0; i<5; i++)
@@ -118,15 +118,15 @@ for (int i=0; i<5; i++)
 
 As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB.
 
-## <a name="receive-messages-from-a-queue"></a>Receber mensagens a partir de uma fila
-A forma primária para receber mensagens de uma fila é utilizar um **ServiceBusContract** objeto. Mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
+## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
+A principal maneira de receber mensagens de uma fila é utilizar um **ServiceBusContract** objeto. As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
 
-Ao utilizar o **ReceiveAndDelete** modo, receber é uma operação única - ou seja, quando o Service Bus recebe um pedido de leitura de uma mensagem numa fila, marca a mensagem como consumida e devolve a mesma à aplicação. **ReceiveAndDelete** modo (que é o modo predefinido) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem no caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento.
-Porque o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha.
+Ao utilizar o **ReceiveAndDelete** modo, receber é uma operação única - ou seja, quando o Service Bus recebe um pedido de leitura para uma mensagem numa fila, marca a mensagem como consumida e devolve a mesma à aplicação. **ReceiveAndDelete** modo (que é o modo predefinido) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento.
+Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
 
-No **PeekLock** modo, receção torna-se uma operação de duas fases, o que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Após a aplicação concluir o processamento da mensagem (ou armazena a mesma forma fiável para processamento futuro), conclui a segunda etapa do processo de receção ao chamar **eliminar** à mensagem recebida. Quando o Service Bus vê a **eliminar** chamada, irá marcar a mensagem como consumida e removê-lo a partir da fila.
+Na **PeekLock** modo, receber torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar **eliminar** à mensagem recebida. Quando o Service Bus vê a **eliminar** chamada, ele irá marcar a mensagem como consumida e removê-lo da fila.
 
-O exemplo seguinte demonstra como podem ser recebidas mensagens e processados utilizando **PeekLock** modo (não o predefinido). O exemplo abaixo não um ciclo infinito e processa mensagens à medida que chegam no nosso `TestQueue`:
+O exemplo seguinte demonstra como as mensagens podem ser recebidas e processados usando **PeekLock** modo (não o modo predefinido). O exemplo a seguir faz um loop infinito e processa mensagens à medida que chegam à nossa `TestQueue`:
 
 ```java
 try
@@ -182,14 +182,14 @@ catch (Exception e) {
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, em seguida, pode chamar o **unlockMessage** método à mensagem recebida (em vez do **deleteMessage** método). Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o **unlockMessage** método à mensagem recebida (em vez do **deleteMessage** método). Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
 
-Existe também um tempo limite associado à mensagem bloqueada na fila, e se a aplicação não conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus desbloqueia automaticamente a mensagem e torna está disponível para ser recebida novamente.
+Há também um tempo limite associado à mensagem bloqueada na fila e, se a aplicação conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus desbloqueia automaticamente a mensagem e torna disponível para ser recebida novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes o **deleteMessage** pedido é emitido, em seguida, a mensagem é reenviada para a aplicação quando esta reiniciar. Isto é frequentemente designado *, pelo menos, uma vez processamento*; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é, frequentemente, conseguido utilizando o **getMessageId** método da mensagem, que permanece constante nas tentativas de entrega.
+No caso de falha da aplicação após o processamento da mensagem, mas antes a **deleteMessage** solicitação é emitida, em seguida, a mensagem é reenviada para a aplicação quando esta reiniciar. Isto é frequentemente chamado *, pelo menos, uma vez processamento*; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é, frequentemente, conseguido através da **getMessageId** método da mensagem, que permanece constante nas tentativas de entrega.
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas de filas do Service Bus, consulte [filas, tópicos e subscrições] [ Queues, topics, and subscriptions] para obter mais informações.
+## <a name="next-steps"></a>Próximos Passos
+Agora que aprendeu as noções básicas de filas do Service Bus, veja [filas, tópicos e subscrições] [ Queues, topics, and subscriptions] para obter mais informações.
 
 Para obter mais informações, veja [Centro para Programadores do Java](https://azure.microsoft.com/develop/java/).
 

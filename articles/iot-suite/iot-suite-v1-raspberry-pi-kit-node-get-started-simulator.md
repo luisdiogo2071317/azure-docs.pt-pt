@@ -1,6 +1,6 @@
 ---
-title: Ligar um Raspberry Pi para com o Node.js com a telemetria simulada do Azure IoT Suite | Microsoft Docs
-description: Utilize o Microsoft Azure IoT Starter Kit para Raspberry Pi 3 e o Azure IoT Suite. Utilize Node.js para ligar o seu Raspberry Pi a solução de monitorização remota, enviar telemetria simulada para a nuvem e responder a métodos invocados a partir do dashboard de solução.
+title: Ligar um Raspberry Pi com node. js com telemetria simulada do Azure IoT Suite | Documentos da Microsoft
+description: Utilize o Microsoft Azure IoT Starter Kit para o Raspberry Pi 3 e Suite IoT do Azure. Utilizar o node. js para ligar o seu Raspberry Pi a solução de monitorização remota, enviar telemetria simulada para a cloud e responder a métodos invocados a partir do dashboard da solução.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 53297049fd36eae3839c6a8146afc336b8f5cd02
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24011960"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38676492"
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Ligar a 3 de Pi Raspberry a solução de monitorização remota e enviar a telemetria simulada com o Node.js
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Ligar o seu Raspberry Pi 3 a solução de monitorização remota e enviar telemetria simulada com node. js
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-selector](../../includes/iot-suite-v1-raspberry-pi-kit-selector.md)]
 
-Este tutorial mostra como utilizar o 3 do Raspberry Pi para simular dados relativos à temperatura e humidade para enviar para a nuvem. O tutorial utiliza:
+Este tutorial mostra-lhe como utilizar o Raspberry Pi 3 para simular dados de temperatura e humidade para enviar para a cloud. O tutorial utiliza:
 
-- SO de Raspbian, a linguagem de programação do Node.js e o Microsoft Azure IoT SDK para Node.js para implementar um dispositivo de exemplo.
+- Raspbian OS, a linguagem de programação do node. js e o SDK do Microsoft Azure IoT para node. js para implementar um dispositivo de exemplo.
 - O IoT Suite remoto solução pré-configurada de monitorização como o back-end baseado na nuvem.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-overview-simulator](../../includes/iot-suite-v1-raspberry-pi-kit-overview-simulator.md)]
@@ -35,7 +35,7 @@ Este tutorial mostra como utilizar o 3 do Raspberry Pi para simular dados relati
 [!INCLUDE [iot-suite-v1-provision-remote-monitoring](../../includes/iot-suite-v1-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> A solução de monitorização remota aprovisiona um conjunto de serviços do Azure na sua subscrição do Azure. A implementação reflete uma arquitetura de empresas reais. Para evitar custos de consumo do Azure desnecessários, elimine a instância da solução pré-configurada em azureiotsuite.com quando tiver terminado com o mesmo. Se precisar de novamente a solução pré-configurada, pode recriá-lo facilmente. Para obter mais informações sobre como reduzir o consumo de enquanto executa a solução de monitorização remota, consulte [soluções para fins de demonstração de pré-configuradas de configurar o Azure IoT Suite][lnk-demo-config].
+> Solução de monitorização remota aprovisiona um conjunto de serviços do Azure na sua subscrição do Azure. A implementação reflete uma arquitetura empresarial de real. Para evitar encargos de consumo do Azure desnecessários, elimine a instância da solução pré-configurada em azureiotsuite.com quando tiver terminado com ele. Se precisar de novamente a solução pré-configurada, pode recriá-lo facilmente. Para obter mais informações sobre a redução do consumo enquanto é executada a solução de monitorização remota, consulte [soluções para fins de demonstração de pré-configuradas de configurar o Azure IoT Suite][lnk-demo-config].
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-solution](../../includes/iot-suite-v1-raspberry-pi-kit-view-solution.md)]
 
@@ -43,11 +43,11 @@ Este tutorial mostra como utilizar o 3 do Raspberry Pi para simular dados relati
 
 ## <a name="download-and-configure-the-sample"></a>Transferir e configurar o exemplo
 
-Agora pode transferir e configurar a aplicação de cliente de monitorização remoto no seu Raspberry Pi.
+Agora pode transferir e configurar a aplicação de cliente de monitorização remota no seu Raspberry Pi.
 
 ### <a name="install-nodejs"></a>Instalar o Node.js
 
-Se não tiver o feito, instale o Node.js no seu Raspberry Pi. O SDK de IoT para Node.js requer a versão 0.11.5 do Node.js ou posterior. Os passos seguintes mostram como instalar o Node.js v6.10.2 no seu Raspberry Pi:
+Se ainda não fez isso, instale o node. js no seu Raspberry Pi. O SDK de IoT para node. js requer a versão 0.11.5 do node. js ou posterior. Os passos seguintes mostram-lhe como instalar o node. js v6.10.2 em seu Raspberry Pi:
 
 1. Utilize o seguinte comando para atualizar o seu Raspberry Pi:
 
@@ -55,27 +55,27 @@ Se não tiver o feito, instale o Node.js no seu Raspberry Pi. O SDK de IoT para 
     sudo apt-get update
     ```
 
-1. Utilize o seguinte comando para transferir os binários de Node.js para a sua Raspberry Pi:
+1. Utilize o seguinte comando para transferir os binários de node. js para o seu Raspberry Pi:
 
     ```sh
     wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
     ```
 
-1. Utilize o seguinte comando para instalar os binários de:
+1. Utilize o seguinte comando para instalar os binários:
 
     ```sh
     sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
     ```
 
-1. Utilize o seguinte comando para verificar que instalou o Node.js v6.10.2 com êxito:
+1. Utilize o seguinte comando para verificar se o que ter instalado o node. js v6.10.2 com êxito:
 
     ```sh
     node --version
     ```
 
-### <a name="clone-the-repositories"></a>Clonar repositórios do
+### <a name="clone-the-repositories"></a>Clonar os repositórios
 
-Se ainda não o fez, clone repositórios do necessários executando os seguintes comandos num terminal no seu Pi:
+Se ainda não o fez, clone os repositórios necessários ao executar os seguintes comandos num terminal no seu instalador de plataforma:
 
 ```sh
 cd ~
@@ -84,7 +84,7 @@ git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-nod
 
 ### <a name="update-the-device-connection-string"></a>Atualizar a cadeia de ligação do dispositivo
 
-Abra o ficheiro de origem de exemplo no **nano** editor utilizando o seguinte comando:
+Abra o ficheiro de origem de exemplo na **nano** editor usando o seguinte comando:
 
 ```sh
 nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js
@@ -96,7 +96,7 @@ Localize a linha:
 var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=[Your device id];SharedAccessKey=[Your device key]';
 ```
 
-Substitua os valores de marcador de posição pelo dispositivo e informações de IoT Hub é criado e guardado no início deste tutorial. Guardar as alterações (**Ctrl-O**, **Enter**) e saia do editor (**Ctrl-X**).
+Substitua os valores de marcador de posição com os dispositivos e as informações do IoT Hub que criou e guardou no início deste tutorial. Guardar as alterações (**Ctrl-S**, **Enter**) e sair do editor (**Ctrl-X**).
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -107,23 +107,23 @@ cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator
 npm install
 ```
 
-Pode agora executar o programa de exemplo no Raspberry Pi. Introduza o comando:
+Agora, pode executar o programa de exemplo no Raspberry Pi. Introduza o comando:
 
 ```sh
 sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js
 ```
 
-A saída de exemplo seguinte é um exemplo de saída, consulte a linha de comandos no Raspberry Pi:
+A saída de exemplo seguinte é um exemplo da saída que vir no prompt de comando no Raspberry Pi:
 
-![Resultado da aplicação Raspberry Pi][img-raspberry-output]
+![Saída da aplicação de Raspberry Pi][img-raspberry-output]
 
 Prima **Ctrl-C** para sair do programa em qualquer altura.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-telemetry-simulator](../../includes/iot-suite-v1-raspberry-pi-kit-view-telemetry-simulator.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Visite o [Dev Center do Azure IoT](https://azure.microsoft.com/develop/iot/) para obter mais exemplos e documentação no Azure IoT.
+Visite o [Centro de desenvolvimento do Azure IoT](https://azure.microsoft.com/develop/iot/) para obter mais exemplos e documentação sobre IoT do Azure.
 
 [img-raspberry-output]: ./media/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator/app-output.png
 

@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM com um endereço IP público estático - Azure PowerShell | Microsoft Docs
+title: Criar uma VM com um endereço IP público estático - Azure PowerShell | Documentos da Microsoft
 description: Saiba como criar uma VM com um endereço IP público estático através do PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -17,11 +17,11 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525137"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696588"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Criar uma VM com um endereço IP público estático através do PowerShell
 
@@ -34,16 +34,16 @@ ms.locfileid: "31525137"
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação Resource Manager, que a Microsoft recomenda-se para a maioria das implementações novas em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que é recomendado pela Microsoft para as implementações mais novas em vez do modelo de implementação clássica.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="start-your-script"></a>Iniciar o script
-Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Siga os passos abaixo para alterar o script para funcionar no seu ambiente.
+## <a name="start-your-script"></a>Iniciar o seu script
+Pode transferir o script do PowerShell completo utilizado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Siga os passos abaixo para alterar o script funcione no seu ambiente.
 
-Altere os valores das variáveis abaixo com base nos valores que pretende utilizar para a sua implementação. Mapeiam os seguintes valores para o cenário utilizado neste artigo:
+Altere os valores das variáveis abaixo com base nos valores que pretende utilizar para a sua implementação. Os seguintes valores mapeiam para o cenário usado neste artigo:
 
 ```powershell
 # Set variables resource group
@@ -74,8 +74,8 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="create-the-necessary-resources-for-your-vm"></a>Criar os recursos necessários para a VM
-Antes de criar uma VM, precisará de um grupo de recursos, VNet, IP público e NIC a ser utilizada pela VM.
+## <a name="create-the-necessary-resources-for-your-vm"></a>Criar os recursos necessários para a sua VM
+Antes de criar uma VM, terá de um grupo de recursos, VNet, IP público e NIC a ser utilizado pela VM.
 
 1. Crie um novo grupo de recursos.
 
@@ -95,14 +95,14 @@ Antes de criar uma VM, precisará de um grupo de recursos, VNet, IP público e N
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-3. Crie o recurso de IP público. 
+3. Crie o recurso IP público. 
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
         -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
     ```
 
-4. Crie a interface de rede (NIC) para a VM na sub-rede criada acima, com o IP público. Repare que o cmdlet primeiro ao obter a VNet do Azure, isto é necessário desde um `Set-AzureRmVirtualNetwork` foi executada para alterar a VNet existente.
+4. Crie a interface de rede (NIC) para a VM na sub-rede criada acima, com o IP público. Tenha em atenção o primeiro cmdlet ao obter a VNet do Azure, isto é necessário desde um `Set-AzureRmVirtualNetwork` foi executado para alterar a VNet existente.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
@@ -112,7 +112,7 @@ Antes de criar uma VM, precisará de um grupo de recursos, VNet, IP público e N
         -PublicIpAddress $pip
     ```
 
-5. Crie uma conta de armazenamento para alojar o disco de SO de VM.
+5. Crie uma conta de armazenamento para alojar a unidade do SO da VM.
 
     ```powershell
     $stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
@@ -128,7 +128,7 @@ Agora que todos os recursos necessários estão em vigor, pode criar uma nova VM
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
     ```
 
-2. Obter credenciais para a conta de administrador local de VM.
+2. Obter as credenciais para a conta de administrador local de VM.
 
     ```powershell
     $cred = Get-Credential -Message "Type the name and password for the local administrator account."
@@ -155,7 +155,7 @@ Agora que todos os recursos necessários estão em vigor, pode criar uma nova VM
     $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
     ```
 
-6. Adicione o NIC para a VM.
+6. Adicione a NIC à VM.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
@@ -171,12 +171,12 @@ Agora que todos os recursos necessários estão em vigor, pode criar uma nova VM
 
 ## <a name="run-the-script"></a>Execute o script
 
-Depois de efetuar as alterações necessárias, execute o script anterior. A máquina virtual é criada após alguns minutos.
+Depois de fazer as alterações necessárias, execute o script anterior. A máquina virtual é criada após alguns minutos.
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Conjunto de endereços IP no sistema operativo
 
-Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure dentro do sistema operativo da máquina virtual. É recomendado que não estaticamente atribui IP privado atribuído à máquina virtual do Azure no sistema operativo de uma VM, exceto se necessário, tais como [atribuir IP múltiplos endereços para uma VM do Windows](virtual-network-multiple-ip-addresses-powershell.md). Se definir manualmente o endereço IP privado no sistema operativo, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído para o Azure [interface de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings), ou pode perder a conectividade à máquina virtual. Saiba mais sobre [endereço IP privado](virtual-network-network-interface-addresses.md#private) definições.
+Nunca manualmente deve atribuir o endereço IP público atribuído a uma máquina virtual do Azure no sistema de operativo da máquina virtual. É recomendável que não atribuir estaticamente IP privado atribuído à máquina virtual do Azure no sistema operativo de uma VM, a menos que necessário, como quando [atribuição de IP de vários endereços para uma VM do Windows](virtual-network-multiple-ip-addresses-powershell.md). Se definir manualmente o endereço IP privado no sistema operativo, certifique-se de que é o mesmo endereço como o endereço IP privado atribuído para o Azure [interface de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings), ou pode perder a conectividade para a máquina virtual. Saiba mais sobre [endereço IP privado](virtual-network-network-interface-addresses.md#private) definições.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Qualquer tráfego de rede possam circular para e da VM criada neste artigo. Pode definir regras de segurança de entrada e saída dentro de um grupo de segurança de rede que limitam o tráfego que possam circular para e da interface de rede, a sub-rede ou ambos. Para obter mais informações sobre grupos de segurança de rede, consulte [descrição geral de grupo de segurança de rede](security-overview.md).
+Qualquer tráfego de rede pode fluir de e para a VM que criou neste artigo. Pode definir regras de segurança de entrada e saída dentro de um grupo de segurança de rede que limitam o tráfego que pode fluir de e para a interface de rede, a sub-rede ou ambos. Para saber mais sobre os grupos de segurança de rede, veja [descrição geral de grupo de segurança de rede](security-overview.md).

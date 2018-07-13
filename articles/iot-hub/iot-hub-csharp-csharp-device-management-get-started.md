@@ -1,6 +1,6 @@
 ---
-title: Introdução à gestão de dispositivos do IoT Hub do Azure (.NET/.NET) | Microsoft Docs
-description: Como utilizar a gestão de dispositivos do IoT Hub do Azure para iniciar um reinício do dispositivo remoto. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que invoca o método direto.
+title: Introdução à gestão de dispositivos do IoT Hub do Azure (.NET/.NET) | Documentos da Microsoft
+description: Como utilizar a gestão de dispositivos do IoT Hub do Azure para iniciar um reinício do dispositivo remoto. Utilizar o Azure IoT device SDK para .NET para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço de IoT do Azure SDK para .NET implementar um serviço de aplicações que invoca o método direto.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
 ms.openlocfilehash: c1cee32e3ee60ce229308055cca7f0e9832ddc49
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633830"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38578905"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introdução à gestão de dispositivos (.NET/.NET)
 
@@ -22,14 +22,14 @@ ms.locfileid: "34633830"
 
 Este tutorial mostrar-lhe como:
 
-* Utilize o portal do Azure para criar um IoT Hub e criar uma identidade de dispositivo no seu IoT hub.
-* Crie uma aplicação de dispositivo simulado que contém um método direto que reinicia nesse dispositivo. Métodos diretos são invocados a partir da nuvem.
-* Crie uma aplicação de consola .NET que chama o método direto reinício na aplicação do dispositivo simulado através do seu IoT hub.
+* Utilize o portal do Azure para criar um IoT Hub e criar uma identidade de dispositivo no IoT hub.
+* Crie uma aplicação de dispositivo simulado que contém um método direto que reinicia o que o dispositivo. Os métodos diretos são invocados a partir da cloud.
+* Crie uma aplicação de consola .NET que chama o método direto de reinício no aplicativo do dispositivo simulado através do IoT hub.
 
 No final deste tutorial, terá duas aplicações de consola .NET:
 
-* **SimulateManagedDevice**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe um método direta de reinício, simula reiniciar o computador físico, relatórios e a hora para o último reinício.
-* **TriggerReboot**, que chama um método direto na aplicação do dispositivo simulado, mostra a resposta e apresenta a atualização comunicado propriedades.
+* **SimulateManagedDevice**, que liga ao seu hub IoT com a identidade de dispositivo que criou anteriormente, recebe um método direto de reinicialização, simula uma reinicialização física e reporta o tempo para a última reinicialização.
+* **TriggerReboot**, que chama um método direto na aplicação do dispositivo simulado, apresenta a resposta e apresenta a atualização de propriedades comunicadas.
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -41,14 +41,14 @@ Para concluir este tutorial, precisa do seguinte:
 <a id="DeviceIdentity_csharp"></a>
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Acionar um reinício remoto no dispositivo com um método direto
-Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia um reinício remoto num dispositivo utilizando um método direto. A aplicação utiliza consultas de duplo de dispositivo para detetar a última vez de reiniciar o computador para que o dispositivo.
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Acionar a reinicialização remota no dispositivo com um método direto
+Nesta secção, vai criar uma aplicação de consola do .NET (usando a linguagem c#) inicia um reinício remoto num dispositivo através de um método direto. A aplicação utiliza consultas de dispositivo duplo para detetar a última hora de reinício desse dispositivo.
 
 1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows a uma solução nova, utilizando o modelo de projeto **Aplicação de Consola (.NET Framework)**. Certifique-se de ter a versão 4.5.1 ou superior do .NET Framework. Nomeie o projeto **TriggerReboot**.
 
     ![Novo projeto do Visual C# no Ambiente de Trabalho Clássico do Windows][img-createserviceapp]
 
-2. No Explorador de soluções, clique com botão direito do **TriggerReboot** projeto e, em seguida, clique em **gerir pacotes NuGet**.
+2. No Solution Explorer, clique com botão direito a **TriggerReboot** projeto e, em seguida, clique em **gerir pacotes NuGet**.
 3. Na janela **Gestor de Pacote NuGet**, selecione **Procurar**, pesquise **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de utilização. Este procedimento transfere, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço do Azure IoT][lnk-nuget-service-sdk] e às respetivas dependências.
 
     ![Janela Gestor de Pacote NuGet][img-servicenuget]
@@ -57,14 +57,14 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Adicione os seguintes campos à classe **Programa**. Substitua o valor do marcador de posição pela cadeia de ligação do IoT Hub para o hub que criou na secção "Criar um IoT hub". 
+5. Adicione os seguintes campos à classe **Programa**. Substitua o valor de marcador de posição pela cadeia de ligação do IoT Hub para o hub que criou na secção "Criar um hub IoT". 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static string targetDevice = "myDeviceId";
         
-6. Adicione o seguinte método à classe **Programa**.  Este código obtém o dispositivo duplo para o dispositivo rebooting e produz as propriedades que relatados.
+6. Adicione o seguinte método à classe **Programa**.  Este código obtém o dispositivo duplo para o dispositivo ser reiniciado e devolve as propriedades comunicadas.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -72,7 +72,7 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Adicione o seguinte método à classe **Programa**.  Este código inicia o reinício do dispositivo utilizando um método direto.
+7. Adicione o seguinte método à classe **Programa**.  Esse código inicia a reinicialização no dispositivo com um método direto.
 
         public static async Task StartReboot()
         {
@@ -96,21 +96,21 @@ Nesta secção, criar uma aplicação de consola do .NET (utilizando c#) inicia 
 8. Compilar a solução.
 
 > [!NOTE]
-> Neste tutorial efetua uma única consulta para propriedades comunicado do dispositivo. No código de produção, recomendamos a consulta para detetar alterações nas propriedades de comunicados.
+> Este tutorial executa apenas uma única consulta para as propriedades comunicadas do dispositivo. No código de produção, recomendamos que a consulta para detectar alterações nas propriedades comunicadas.
 
 ## <a name="create-a-simulated-device-app"></a>Criar uma aplicação de dispositivo simulada
 Nesta secção, irá
 
-* Criar uma aplicação de consola do .NET que responde a um método direto chamado pela nuvem
+* Criar uma aplicação de consola .NET que responde a um método direto chamado pela cloud
 * Acionar um reinício do dispositivo simulado
-* Utilize as propriedades que relatados para ativar as consultas de duplo de dispositivo identificar dispositivos e quando duram reiniciado
+* Utilize as propriedades comunicadas para ativar consultas de gémeos de dispositivo identificar os dispositivos e quando duram reiniciada
 
 1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows à atual solução, utilizando o modelo de projeto **Aplicação de Consola**. Nomeie o projeto **SimulateManagedDevice**.
    
-    ![Nova aplicação de dispositivo Visual c# clássico do Windows][img-createdeviceapp]
+    ![Nova aplicação de dispositivo Visual c# Windows clássico][img-createdeviceapp]
     
-2. No Explorador de soluções, clique com botão direito do **SimulateManagedDevice** projeto e, em seguida, clique em **gerir pacotes NuGet...** .
-3. No **Gestor de pacotes NuGet** janela, selecione **procurar** e procure **microsoft.azure.devices.client**. Selecione **instalar** para instalar o **Microsoft.Azure.Devices.Client** do pacote e aceite os termos de utilização. Este procedimento transfere, instala e adiciona uma referência para o [dispositivos IoT do Azure SDK] [ lnk-nuget-client-sdk] NuGet pacote e as respetivas dependências.
+2. No Solution Explorer, clique com botão direito a **SimulateManagedDevice** projeto e, em seguida, clique em **gerir pacotes NuGet...** .
+3. Na **Gestor de pacotes NuGet** janela, selecione **procurar** e procure **microsoft.azure.devices.client**. Selecione **instale** para instalar o **Microsoft.Azure.Devices.Client** empacotamento e a aceitar os termos de utilização. Este procedimento transfere, instala e adiciona uma referência para o [do Azure IoT device SDK] [ lnk-nuget-client-sdk] NuGet pacote e suas dependências.
    
     ![Aplicação de cliente de janela do Gestor de pacotes NuGet][img-clientnuget]
 4. Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
@@ -153,7 +153,7 @@ Nesta secção, irá
             return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
 
-7. Por fim, adicione o seguinte código para o **Main** método para abrir a ligação ao seu IoT hub e inicializar o serviço de escuta do método:
+7. Por fim, adicione o seguinte código para o **Main** método para abrir a ligação ao seu hub IoT e inicializar o serviço de escuta do método:
    
         try
         {
@@ -177,7 +177,7 @@ Nesta secção, irá
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. No Explorador de Soluções do Visual Studio, clique com o botão direito do rato na sua solução e, em seguida, clique em **Definir Projetos de Arranque...**. Selecione **projeto de arranque único**e, em seguida, selecione o **SimulateManagedDevice** projeto no menu pendente. Compilar a solução.       
+8. No Explorador de Soluções do Visual Studio, clique com o botão direito do rato na sua solução e, em seguida, clique em **Definir Projetos de Arranque...**. Selecione **projeto de arranque único**e, em seguida, selecione a **SimulateManagedDevice** projeto no menu pendente. Compilar a solução.       
 
 > [!NOTE]
 > Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como um término exponencial), como sugerido no artigo [Transient Fault Handling (Processamento de Erros Transitórios)][lnk-transient-faults] da MSDN.
@@ -185,11 +185,11 @@ Nesta secção, irá
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 Já está pronto para executar as aplicações.
-1. Executar a aplicação de dispositivo .NET **SimulateManagedDevice**.  Clique com botão direito do **SimulateManagedDevice** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deve começar a escutar para chamadas de método do seu IoT Hub: 
+1. Executar a aplicação de dispositivo do .NET **SimulateManagedDevice**.  Com o botão direito a **SimulateManagedDevice** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deve começar a ouvir as chamadas de método do seu IoT Hub: 
 
-2. Agora que o dispositivo está ligado e a aguardar para invocações de método, execute o .NET **TriggerReboot** aplicação ao invocar o método de reinício na aplicação do dispositivo simulado. Clique com botão direito do **TriggerReboot** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deverá ver "Rebooting!" escritas no **SimulatedManagedDevice** consola e as propriedades comunicadas do dispositivo, que incluem o último reinício tempo, escrito no **TriggerReboot** consola.
+2. Agora que o dispositivo está ligado e à espera de invocações de método, executar o .NET **TriggerReboot** aplicação para invocar o método de reinício no aplicativo do dispositivo simulado. Com o botão direito a **TriggerReboot** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**. Deverá ver "Reinício!" escritas no **SimulatedManagedDevice** consola e as propriedades reportadas do dispositivo, que incluem o último reinício tempo, escrito no **TriggerReboot** consola.
    
-    ![Aplicação de serviço e dispositivo executar][img-combinedrun]
+    ![Executar a aplicação de serviço e dispositivo][img-combinedrun]
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Introdução ao duplos de dispositivos do IoT Hub do Azure (Python) | Microsoft Docs
-description: Como utilizar dispositivos duplos do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilize os SDKs IoT do Azure para Python para implementar a aplicação de dispositivo simulada e uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub.
+title: Introdução aos duplos de dispositivo do IoT Hub do Azure (Python) | Documentos da Microsoft
+description: Como utilizar o gémeos de dispositivo do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilize os SDKs IoT do Azure para Python para implementar a aplicação de dispositivo simulado e uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
 ms.openlocfilehash: 08e457febaa7522cac86e63c0c187d1e8e49daff
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634986"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619370"
 ---
-# <a name="get-started-with-device-twins-python"></a>Começar a utilizar dispositivos duplos (Python)
+# <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos duplos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-No final deste tutorial, terá de duas aplicações de consola do Python:
+No final deste tutorial, terá duas aplicações de consola Python:
 
-* **AddTagsAndQuery.py**, uma aplicação de back-end do Python, que adiciona as etiquetas e a consulta dispositivos duplos.
-* **ReportConnectivity.py**, uma aplicação de Python, que simula um dispositivo que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente e reporta a condição de conectividade.
+* **AddTagsAndQuery.py**, uma aplicação de back-end do Python, que adiciona as etiquetas e consultas de gémeos de dispositivo.
+* **ReportConnectivity.py**, uma aplicação de Python, que simula um dispositivo que liga ao seu hub IoT com a identidade de dispositivo que criou anteriormente e reporta sua condição de conectividade.
 
 > [!NOTE]
-> O artigo [SDKs IoT do Azure] [ lnk-hub-sdks] fornece informações sobre os SDKs IoT do Azure que pode utilizar para criar aplicações de dispositivo e o back-end.
+> O artigo [SDKs do Azure IoT] [ lnk-hub-sdks] fornece informações sobre os SDKs IoT do Azure que pode utilizar para criar aplicações de dispositivos e back-end.
 > 
 > 
 
-Para concluir este tutorial precisa do seguinte:
+Para concluir este tutorial, precisa do seguinte:
 
 * [Python 2.x ou 3.x][lnk-python-download]. Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python][lnk-install-pip].
 * Se estiver a utilizar o SO Windows, o [pacote redistribuível Visual C++][lnk-visual-c-redist], para permitir a utilização de DLLs nativas de Python.
@@ -44,7 +44,7 @@ Para concluir este tutorial precisa do seguinte:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
-Nesta secção, vai criar uma aplicação de consola de Python que adiciona os metadados de localização para o dispositivo duplo associada à sua **{Id de dispositivo}**. Esta consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados em Redmond e, em seguida, aqueles que estão a denunciar uma ligação de rede móvel.
+Nesta secção, vai criar uma aplicação de consola Python que adiciona os metadados de localização para o dispositivo duplo associado com seu **{Id de dispositivo}**. Ele consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados em Redmond e, em seguida, aqueles que estiverem a comunicar uma conexão por celular.
 
 1. Abra uma linha de comandos e instale o **SDK do Serviço Hub IoT do Azure para Python**. Depois de instalar o SDK, feche a linha de comandos.
 
@@ -62,7 +62,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que adiciona os m
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceTwin, IoTHubError
     ```
-2. Adicione o seguinte código, substituindo o marcador de posição para `[IoTHub Connection String]` e `[Device Id]` com a cadeia de ligação para o IoT hub e o id de dispositivo que criou nas secções anteriores.
+2. Adicione o código seguinte, substituindo o marcador de posição para `[IoTHub Connection String]` e `[Device Id]` com a cadeia de ligação para o hub IoT e o id de dispositivo que criou nas secções anteriores.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -120,9 +120,9 @@ Nesta secção, vai criar uma aplicação de consola de Python que adiciona os m
             print ( "IoTHub sample stopped" )
     ```
    
-    O **registo** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do serviço. O código do primeiro inicializa a **registo** objeto, em seguida, as atualizações do dispositivo duplo para **deviceId**, e, finalmente, executa duas consultas. A primeira seleciona apenas os dispositivos duplos de dispositivos localizados no **Redmond43** Jacinto e o segundo refines a consulta para selecionar apenas os dispositivos que também estão ligados através da rede celular.
+    O **Registro** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do serviço. O código inicializa primeiro o **Registro** objeto, em seguida, as atualizações do dispositivo duplo para **deviceId**, e, finalmente, executa duas consultas. A primeira seleciona apenas os dispositivos duplos de dispositivos localizados no **Redmond43** plant e o segundo Refina a consulta para selecionar apenas os dispositivos que também estão ligados através de rede celular.
    
-1. Adicione o seguinte código no final do **AddTagsAndQuery.py** para implementar o **iothub_service_sample_run** função:
+1. Adicione o seguinte código no final da **AddTagsAndQuery.py** para implementar a **iothub_service_sample_run** função:
    
     ```python
     if __name__ == '__main__':
@@ -137,14 +137,14 @@ Nesta secção, vai criar uma aplicação de consola de Python que adiciona os m
     python AddTagsAndQuery.py
     ```
    
-    Deverá ver um dispositivo nos resultados para pedir a consulta para todos os dispositivos localizados no **Redmond43** e nenhum para a consulta que restringe os resultados para dispositivos que utilizam uma rede celular.
+    Deverá ver um dispositivo nos resultados para fazer a consulta para todos os dispositivos localizados num **Redmond43** e nenhuma durante a consulta que restringe os resultados para os dispositivos que utilizam uma rede celular.
    
     ![primeira consulta][1]
 
-Na secção seguinte, criar uma aplicação de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na secção anterior.
+A secção seguinte, vai criar uma aplicação de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na secção anterior.
 
 ## <a name="create-the-device-app"></a>Criar a aplicação de dispositivo
-Nesta secção, vai criar uma aplicação de consola de Python que liga ao seu hub como seu **{Id de dispositivo}** e, em seguida, as atualizações do dispositivo duplo do comunicadas propriedades para conter as informações que esteja ligada através de uma rede celular.
+Nesta secção, vai criar uma aplicação de consola Python que liga ao seu hub como sua **{Id de dispositivo}** e, em seguida, atualizações de seu dispositivo duplo do comunicado propriedades para conter as informações que está ligado através de uma rede celular.
 
 1. Abra uma linha de comandos e instale o **SDK do Serviço Hub IoT do Azure para Python**. Depois de instalar o SDK, feche a linha de comandos.
 
@@ -162,7 +162,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que liga ao seu h
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-2. Adicione o seguinte código, substituindo o marcador de posição para `[IoTHub Device Connection String]` com a cadeia de ligação para o dispositivo de hub IoT que criou nas secções anteriores.
+2. Adicione o código seguinte, substituindo o marcador de posição para `[IoTHub Device Connection String]` com a cadeia de ligação para o dispositivo do hub IoT que criou nas secções anteriores.
    
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -175,7 +175,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que liga ao seu h
     SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
-1. Adicione o seguinte código para o **ReportConnectivity.py** ficheiros para implementar o dispositivo duplos funcionalidades:
+1. Adicione o seguinte código para o **ReportConnectivity.py** ficheiro para implementar o dispositivo twins funcionalidade:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -224,9 +224,9 @@ Nesta secção, vai criar uma aplicação de consola de Python que liga ao seu h
             print ( "IoTHubClient sample stopped" )
     ```   
 
-    O **cliente** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do dispositivo. O código anterior, depois, inicializa a **cliente** objeto, obtém o dispositivo duplo para o seu dispositivo e atualiza a respetiva propriedade comunicada com as informações de conectividade.
+    O **cliente** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do dispositivo. O código anterior, depois, ele inicializa o **cliente** de objeto, obtém o dispositivo duplo para o seu dispositivo e atualiza a sua propriedade comunicada com as informações de conectividade.
 
-1. Adicione o seguinte código no final do **ReportConnectivity.py** para implementar o **iothub_client_sample_run** função:
+1. Adicione o seguinte código no final da **ReportConnectivity.py** para implementar a **iothub_client_sample_run** função:
    
     ```python
     if __name__ == '__main__':
@@ -241,28 +241,28 @@ Nesta secção, vai criar uma aplicação de consola de Python que liga ao seu h
     python ReportConnectivity.py
     ```
    
-    Deverá ver a confirmação que foram atualizados os dispositivos duplos.
+    Deverá ver os dispositivos duplos foram atualizados de confirmação.
 
-    ![Atualizar duplos][2]
+    ![gémeos de atualização][2]
 
-6. Agora que o dispositivo comunicou as respetivas informações de conectividade, deverão ser apresentados em ambas as consultas. Voltar atrás e execute novamente as consultas:
+6. Agora que o dispositivo comunicado suas informações de conectividade, deverá aparecer em ambas as consultas. Voltar atrás e execute novamente as consultas:
    
     ```cmd/sh
     python AddTagsAndQuery.py
     ```
    
-    Neste momento o **{Id de dispositivo}** deve aparecer em ambos os resultados da consulta.
+    Desta vez sua **{Id de dispositivo}** deve aparecer em ambos os resultados da consulta.
    
-    ![segundo consulta][3]
+    ![segunda consulta][3]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionar metadados do dispositivo como etiquetas a partir de uma aplicação de back-end e escreveu uma aplicação de dispositivo simulado para informações de conectividade do dispositivo de relatório no dispositivo duplo. Também aprendeu como consultar estas informações com o registo.
+Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionados metadados do dispositivo como etiquetas a partir de uma aplicação de back-end e escreveu uma aplicação de dispositivo simulado para informações de conectividade do dispositivo de relatório no dispositivo duplo. Também aprendeu como consultar essas informações usando o Registro.
 
 Utilize os seguintes recursos para saber como:
 
 * Enviar telemetria a partir de dispositivos com o [introdução ao IoT Hub] [ lnk-iothub-getstarted] tutorial,
-* Configurar dispositivos utilizando propriedades pretendida do dispositivo duplo com a [utilização pretendida propriedades para configurar dispositivos] [ lnk-twin-how-to-configure] tutorial,
-* Controlar dispositivos interativamente (como ativar uma ventoinha a partir de uma aplicação controlados pelo utilizador), com o [utilizar métodos diretos] [ lnk-methods-tutorial] tutorial.
+* configurar dispositivos com as propriedades pretendidas do duplo do dispositivo com o [propriedades para configurar os dispositivos de pretendidas de utilização] [ lnk-twin-how-to-configure] tutorial,
+* Controlar dispositivos interativamente (como ativar um fã de uma aplicação controlada pelo utilizador), com o [utilizar métodos diretos] [ lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png

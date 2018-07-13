@@ -1,7 +1,7 @@
 ---
-title: Análise de Bing para APIs de pesquisa do Bing Web | Microsoft Docs
+title: Análise do Bing para APIs de pesquisa Web Bing | Documentos da Microsoft
 titleSuffix: Cognitive Services
-description: Descreve como obter a análise de API para Bing imagens.
+description: Descreve como obter a análise para a API de imagens do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: d75d0156ab44dcbc626a222b5539f61bf5b7b81f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352844"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582655"
 ---
-# <a name="how-to-get-analytics-for-bing-images-api"></a>A obtenção de análise de API para Bing imagens
+# <a name="how-to-get-analytics-for-bing-images-api"></a>Como obter a análise para a API de imagens do Bing
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

@@ -1,6 +1,6 @@
 ---
-title: Gerir os contentores de volume do StorSimple no dispositivo de série 8000 do StorSimple | Microsoft Docs
-description: Explica como pode utilizar a página de contentores de volume de serviço do Gestor de dispositivos do StorSimple para adicionar, modificar ou eliminar um contentor de volume.
+title: Gerir os seus contentores de volume do StorSimple no dispositivo StorSimple 8000 series | Documentos da Microsoft
+description: Explica como pode utilizar a página de contentores de volume de serviço do StorSimple Device Manager para adicionar, modificar ou eliminar um contentor de volumes.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,33 +15,33 @@ ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 0f8e00d6d07224f56625482f339e612e68914be2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874844"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606594"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para gerir contentores de volume do StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Utilizar o serviço StorSimple Device Manager para gerir contentores de volumes do StorSimple
 
 ## <a name="overview"></a>Descrição geral
-Este tutorial explica como utilizar o serviço do Gestor de dispositivos do StorSimple para criar e gerir contentores de volume do StorSimple.
+Este tutorial explica como utilizar o serviço StorSimple Device Manager para criar e gerir contentores de volumes do StorSimple.
 
-Um contentor de volume no dispositivo Microsoft Azure StorSimple contém um ou mais volumes que partilham a conta de armazenamento, a encriptação e definições de consumo de largura de banda. Um dispositivo pode ter vários contentores de volume para todos os seus volumes. 
+Um contentor de volume num dispositivo do Microsoft Azure StorSimple contém um ou mais volumes que partilham a conta de armazenamento, encriptação e as definições de consumo de largura de banda. Um dispositivo pode ter vários contentores de volume para todos os seus volumes. 
 
-Um contentor de volume tem os seguintes atributos:
+Um contentor de volumes tem os seguintes atributos:
 
-* **Volumes** – o camadas ou afixado localmente volumes do StorSimple que estão incluídos no contentor de volume. 
-* **Encriptação** – uma chave de encriptação pode ser definida para cada contentor de volume. Esta chave é utilizada para encriptar os dados que são enviados a partir do dispositivo StorSimple para a nuvem. Uma chave do nível military AES 256 bits é utilizada com a chave de utilizador introduzido. Para proteger os dados, recomendamos que ativar sempre a encriptação de armazenamento de nuvem.
-* **Conta de armazenamento** – conta do storage do Azure que é utilizada para armazenar os dados. Todos os volumes que residem num contentor de volume partilham esta conta de armazenamento. Pode escolher uma conta de armazenamento a partir de uma lista existente ou crie uma nova conta ao criar o contentor de volume e, em seguida, especifique as credenciais de acesso para essa conta.
-* **Largura de banda da nuvem** – a largura de banda consumida pelo dispositivo quando estão a ser enviados os dados do dispositivo para a nuvem. Pode impor um controlo de largura de banda, especificando um valor entre 1 e 1000 Mbps quando cria este contentor. Se pretender que o dispositivo consumir largura de banda disponível, defina este campo para **ilimitada**. Também pode criar e aplicar um modelo de largura de banda de alocar largura de banda com base numa agenda.
+* **Volumes** – o camadas ou volumes do StorSimple que estão contidos dentro do contentor de volumes afixados localmente. 
+* **Encriptação** – uma chave de encriptação que pode ser definida para cada contentor de volume. Esta chave é utilizada para encriptar os dados que são enviados do dispositivo StorSimple para a cloud. Uma chave do nível militar AES-256 bits é utilizada com a chave inseridos pelo usuário. Para proteger os dados, recomendamos que sempre ativar a encriptação de armazenamento da cloud.
+* **Conta de armazenamento** – conta de armazenamento do Azure, que é utilizada para armazenar os dados. Todos os volumes que residem num contentor de volume partilham esta conta de armazenamento. Pode escolher uma conta de armazenamento a partir de uma lista existente ou criar uma nova conta ao criar o contentor de volumes e, em seguida, especifique as credenciais de acesso para essa conta.
+* **Largura de banda da cloud** – a largura de banda consumida pelo dispositivo quando os dados do dispositivo estão a ser enviados para a cloud. Pode impor um controle de largura de banda ao especificar um valor entre 1 e 1000 Mbps, quando cria este contentor. Se pretender que o dispositivo consuma a largura de banda disponível, defina este campo para **ilimitado**. Também pode criar e aplicar um modelo de largura de banda para alocar a largura de banda com base numa agenda.
 
-Os procedimentos seguintes explicam como utilizar o StorSimple **contentores de Volume** painel para concluir as seguintes operações comuns:
+Os procedimentos seguintes explicam como utilizar o StorSimple **contentores de volumes** painel para concluir as seguintes operações comuns:
 
-* Adicionar um contentor de volume
+* Adicionar um contentor de volumes
 * Modificar um contentor de volume
-* Eliminar um contentor de volume
+* Eliminar um contentor de volumes
 
-## <a name="add-a-volume-container"></a>Adicionar um contentor de volume
+## <a name="add-a-volume-container"></a>Adicionar um contentor de volumes
 Execute os seguintes passos para adicionar um contentor de volume.
 
 [!INCLUDE [storsimple-8000-add-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
@@ -51,12 +51,12 @@ Execute os seguintes passos para modificar um contentor de volume.
 
 [!INCLUDE [storsimple-8000-modify-volume-container](../../includes/storsimple-8000-modify-volume-container.md)]
 
-## <a name="delete-a-volume-container"></a>Eliminar um contentor de volume
-Um contentor de volume possui volumes dentro do mesmo. Pode ser eliminado apenas se todos os volumes nele contidos são eliminados primeiro. Execute os seguintes passos para eliminar um contentor de volume.
+## <a name="delete-a-volume-container"></a>Eliminar um contentor de volumes
+Um contentor de volumes tem volumes dentro do mesmo. Ele pode ser eliminado apenas se todos os volumes nele contidos são eliminados primeiro. Execute os passos seguintes para eliminar um contentor de volumes.
 
 [!INCLUDE [storsimple-8000-delete-volume-container](../../includes/storsimple-8000-delete-volume-container.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [gerir volumes do StorSimple](storsimple-8000-manage-volumes-u2.md). 
-* Saiba mais sobre [utilizando o serviço do Gestor de dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba mais sobre [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

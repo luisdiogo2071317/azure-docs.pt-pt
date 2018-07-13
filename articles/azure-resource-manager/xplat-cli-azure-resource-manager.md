@@ -1,6 +1,6 @@
 ---
-title: Gerir os recursos com a CLI do Azure | Microsoft Docs
-description: Utilize a Interface de linha de comandos (CLI do Azure) para gerir recursos do Azure e grupos
+title: Gerir os recursos com a CLI do Azure | Documentos da Microsoft
+description: Utilizar a Interface de linha de comandos (CLI do Azure) para gerir recursos do Azure e grupos
 editor: ''
 manager: timlt
 documentationcenter: ''
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4111d1d990f3e9efb78fae0476b027d5bae013af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd111c33cbd348a05ed0f0c04f7325347612e54d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603251"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38590325"
 ---
-# <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utilizar a CLI do Azure para gerir recursos do Azure e os grupos de recursos
+# <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utilizar a CLI do Azure para gerir recursos do Azure e grupos de recursos
 
-Neste artigo, irá aprender a gerir as suas soluções com a CLI do Azure e o Azure Resource Manager. Se não estiver familiarizado com o Resource Manager, consulte [descrição geral do Gestor de recursos](resource-group-overview.md). Este artigo incida no tarefas de gestão. Irá:
+Neste artigo, irá aprender a gerir as suas soluções com a CLI do Azure e Azure Resource Manager. Se não estiver familiarizado com o Resource Manager, veja [descrição geral do Gestor de recursos](resource-group-overview.md). Este artigo se concentra em tarefas de gestão. Irá:
 
 1. Criar um grupo de recursos
-2. Adicione um recurso para o grupo de recursos
+2. Adicionar um recurso para o grupo de recursos
 3. Adicionar uma etiqueta para o recurso
-4. Recursos com base nos valores de etiqueta ou nomes de consulta
-5. Aplicar e remover um bloqueio num recurso
+4. Recursos de consulta com base em nomes ou valores de etiqueta
+5. Aplicar e remover um bloqueio do recurso
 6. Eliminar um grupo de recursos
 
-Este artigo mostra como implementar um modelo do Resource Manager para a sua subscrição. Para essas informações, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md).
+Este artigo não mostra como implementar um modelo do Resource Manager para a sua subscrição. Para obter essas informações, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar e utilizar a CLI localmente, consulte [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
+Para instalar e utilizar a CLI localmente, consulte [instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="set-subscription"></a>Conjunto de subscrição
 
-Se tiver mais do que uma subscrição, pode mudar para uma subscrição diferente. Em primeiro lugar, vamos ver todas as subscrições para a sua conta.
+Se tiver mais de uma subscrição, pode mudar para uma subscrição diferente. Em primeiro lugar, vamos ver todas as subscrições para a sua conta.
 
 ```azurecli-interactive
 az account list
@@ -66,13 +66,13 @@ Devolve uma lista das suas subscrições ativadas e desativadas.
 ]
 ```
 
-Tenha em atenção que uma subscrição está marcada como predefinição. Esta subscrição é o contexto atual para as operações. Para mudar para uma subscrição diferente, forneça o nome de subscrição com o **az conta conjunto** comando.
+Tenha em atenção que uma subscrição está marcada como predefinição. Esta subscrição tem seu contexto atual para operações. Para mudar para uma subscrição diferente, forneça o nome de subscrição com o **conjunto de conta de az** comando.
 
 ```azurecli-interactive
 az account set -s "Example Subscription Two"
 ```
 
-Para mostrar o contexto de subscrição atual, utilize **mostrar de conta az** sem um parâmetro:
+Para mostrar o contexto da subscrição atual, utilize **show de conta de az** sem um parâmetro:
 
 ```azurecli-interactive
 az account show
@@ -80,9 +80,9 @@ az account show
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de implementar quaisquer recursos na sua subscrição, tem de criar um grupo de recursos que irá conter os recursos.
+Antes de implementar quaisquer recursos à sua subscrição, tem de criar um grupo de recursos que irá conter os recursos.
 
-Para criar um grupo de recursos, utilize o comando **az group create**. O comando utiliza o **nome** parâmetro para especificar um nome para o grupo de recursos e o **localização** parâmetro para especificar a localização.
+Para criar um grupo de recursos, utilize o comando **az group create**. O comando utiliza o **name** parâmetro para especificar um nome para o grupo de recursos e o **localização** parâmetro para especificar a localização do mesmo.
 
 ```azurecli-interactive
 az group create --name TestRG1 --location "South Central US"
@@ -117,11 +117,11 @@ az group list
 
 ## <a name="add-resources-to-a-resource-group"></a>Adicionar recursos a um grupo de recursos
 
-Para adicionar um recurso para o grupo de recursos, pode utilizar o **criar recursos az** comando ou um comando que é específico para o tipo de recurso que está a criar (como **criar conta de armazenamento az**). Pode encontrar mais fáceis de utilizar um comando que é específico para um tipo de recurso, pois inclui os parâmetros para as propriedades que são necessários para o novo recurso. Para utilizar **criar recursos az**, tem de saber todas as propriedades para definir sem pedidos para os mesmos.
+Para adicionar um recurso para o grupo de recursos, pode utilizar o **de criação do recurso de az** comando ou um comando específico para o tipo de recurso que está a criar (como **criar conta de armazenamento az**). Poderá considerar mais fácil de usar um comando que é específico para um tipo de recurso, pois inclui parâmetros para as propriedades que são necessários para o novo recurso. Para utilizar **de criação do recurso de az**, deve conhecer todas as propriedades para definir sem inseri-los.
 
-No entanto, a adição de um recurso através do script poderá causar confusão futura porque o novo recurso não existe um modelo do Resource Manager. Modelos permitem-lhe implementar repetidamente e fiável a sua solução.
+No entanto, adicionar um recurso por meio de script pode causar confusão futura porque o novo recurso não existe num modelo do Resource Manager. Modelos permitem-lhe implementar de forma fiável e repetidamente a sua solução.
 
-O comando seguinte cria uma conta de armazenamento. Em vez de utilizar o nome apresentado no exemplo, forneça um nome exclusivo para a conta de armazenamento. O nome tem de ter entre 3 e 24 carateres de comprimento e utilizar apenas números e letras minúsculas. Se utilizar o nome apresentado no exemplo, receberá um erro porque este nome já se encontra em utilização.
+O comando seguinte cria uma conta de armazenamento. Em vez de utilizar o nome apresentado no exemplo, forneça um nome exclusivo para a conta de armazenamento. O nome tem de ter entre 3 e 24 carateres de comprimento e utilizar apenas números e letras minúsculas. Se utilizar o nome apresentado no exemplo, recebe um erro porque esse nome já está em utilização.
 
 ```azurecli-interactive
 az storage account create -n myuniquestorage -g TestRG1 -l westus --sku Standard_LRS
@@ -135,15 +135,15 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>Adicionar uma etiqueta
 
-As etiquetas permitem-lhe organizar os recursos, de acordo com as propriedades diferentes. Por exemplo, pode ter vários recursos em grupos de recursos diferente que pertencem ao mesmo departamento. Pode aplicar uma etiqueta de departamento e o valor a esses recursos marcá-los como pertencentes à mesma categoria. Em alternativa, pode marcá-se um recurso é utilizado num ambiente de teste ou de produção. Neste artigo, aplicar etiquetas a apenas um recurso, mas no seu ambiente provavelmente faz sentido aplicar etiquetas a todos os seus recursos.
+As etiquetas permitem-lhe organizar os recursos, de acordo com as propriedades diferentes. Por exemplo, pode ter vários recursos em diferentes grupos de recursos que pertencem ao mesmo departamento. Pode aplicar uma etiqueta de departamento e o valor a esses recursos para marcá-los como pertencentes da mesma categoria. Em alternativa, pode marcar se um recurso é utilizado num ambiente de produção ou teste. Neste artigo, aplicar marcas em apenas um recurso, mas no seu ambiente mais provável faz sentido para aplicar as etiquetas para todos os seus recursos.
 
-O comando seguinte aplica-se duas etiquetas à sua conta de armazenamento:
+O comando seguinte aplica-se duas etiquetas para a sua conta de armazenamento:
 
 ```azurecli-interactive
 az resource tag --tags Dept=IT Environment=Test -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
 ```
 
-As etiquetas são atualizadas como um único objeto. Para adicionar uma etiqueta a um recurso que já inclua etiquetas, obtenha primeiro as etiquetas existentes. Adicionar a nova tag de objeto que contém as etiquetas existentes e volte a aplicar todas as etiquetas ao recurso.
+As etiquetas são atualizadas como um único objeto. Para adicionar uma etiqueta a um recurso que já inclui etiquetas, primeiro recuperar as etiquetas existentes. Adicione a etiqueta nova para o objeto que contém as etiquetas existentes e volte a aplicar todas as etiquetas para o recurso.
 
 ```azurecli-interactive
 jsonrtag=$(az resource show -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts" --query tags)
@@ -153,9 +153,9 @@ az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --reso
 
 ## <a name="search-for-resources"></a>Procurar recursos
 
-Utilize o **lista de recursos de az** comando para obter recursos para condições de pesquisa diferentes.
+Utilize o **lista de recursos de az** comando para obter recursos para condições de pesquisa diferente.
 
-* Para obter um recurso de por nome, forneça o **nome** parâmetro:
+* Para obter um recurso por nome, forneça o **nome** parâmetro:
 
   ```azurecli-interactive
   az resource list -n myuniquestorage
@@ -167,21 +167,21 @@ Utilize o **lista de recursos de az** comando para obter recursos para condiçõ
   az resource list --resource-group TestRG1
   ```
 
-* Para obter todos os recursos com um nome de tag e um valor, forneça o **tag** parâmetro:
+* Para obter todos os recursos com um nome de etiqueta e valor, forneça o **marca** parâmetro:
 
   ```azurecli-interactive
   az resource list --tag Dept=IT
   ```
 
-* Para todos os recursos com um tipo de recurso específico, forneça o **tipo de recurso** parâmetro:
+* Para todos os recursos com um tipo de recurso em particular, forneça o **tipo de recurso** parâmetro:
 
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
 
-## <a name="get-resource-id"></a>Obter ID de recurso
+## <a name="get-resource-id"></a>Obter o ID de recurso
 
-Vários comandos demorar um ID de recurso como um parâmetro. Para obter o ID de para um recurso e arquivo numa variável, utilize:
+Muitos comandos demorar um ID de recurso como um parâmetro. Para obter o ID de um recurso e o arquivo numa variável, utilize:
 
 ```azurecli-interactive
 webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -189,9 +189,9 @@ webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Micr
 
 ## <a name="lock-a-resource"></a>Um recurso de bloqueio
 
-Quando precisar de certificar-se de um recurso crítico não acidentalmente eliminado ou modificado, aplicar um bloqueio para o recurso. Pode especificar um um **CanNotDelete** ou **ReadOnly**.
+Quando precisa certificar-se de que um recurso crítico é não acidentalmente eliminado ou modificado, aplica um bloqueio ao recurso. Pode especificar um uma **CanNotDelete** ou **só de leitura**.
 
-Para criar ou eliminar as bloqueios de gestão, tem de ter acesso a `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas o proprietário e o administrador de acesso de utilizador são concedidas essas ações.
+Para criar ou eliminar bloqueios de gestão, tem de ter acesso ao `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas o proprietário e o administrador de acesso de utilizador são concedidos dessas ações.
 
 Para aplicar um bloqueio, utilize o seguinte comando:
 
@@ -199,18 +199,18 @@ Para aplicar um bloqueio, utilize o seguinte comando:
 az lock create --lock-type CanNotDelete --resource-name myuniquestorage --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --name storagelock
 ```
 
-Não é possível eliminar o recurso bloqueado no exemplo anterior até que o bloqueio é removido. Para remover um bloqueio, utilize:
+Não é possível eliminar o recurso bloqueado no exemplo anterior, até que o bloqueio seja removido. Para remover um bloqueio, utilize:
 
 ```azurecli-interactive
 az lock delete --name storagelock --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --resource-name myuniquestorage
 ```
 
-Para obter mais informações sobre as bloqueios de definição, consulte [bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
+Para obter mais informações sobre bloqueios de definição, consulte [bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
 
-## <a name="remove-resources-or-resource-group"></a>Remover recursos ou um grupo de recursos
-Pode remover um recurso ou grupo de recursos. Quando remove um grupo de recursos, tem também de remover todos os recursos nesse grupo de recursos.
+## <a name="remove-resources-or-resource-group"></a>Remover recursos ou grupo de recursos
+Pode remover um recurso ou grupo de recursos. Quando remove um grupo de recursos, também remover todos os recursos dentro do grupo de recursos.
 
-* Para eliminar um recurso do grupo de recursos, utilize o comando de eliminação para o tipo de recurso que serão eliminados. O comando elimina os recursos, mas não eliminar o grupo de recursos.
+* Para eliminar um recurso do grupo de recursos, utilize o comando delete para o tipo de recurso que está a eliminar. O comando elimina o recurso, mas não elimina o grupo de recursos.
 
   ```azurecli-interactive
   az storage account delete -n myuniquestorage -g TestRG1
@@ -222,10 +222,10 @@ Pode remover um recurso ou grupo de recursos. Quando remove um grupo de recursos
   az group delete -n TestRG1
   ```
 
-Para ambos os comandos, é-lhe pedido para confirmar que pretende remover o recurso ou grupo de recursos.
+Para os dois comandos, é-lhe perguntado para confirmar que pretende remover o recurso ou grupo de recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre como criar modelos do Resource Manager, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para saber mais sobre a implementação de modelos, consulte [implementar uma aplicação com o modelo do Azure Resource Manager](resource-group-template-deploy-cli.md).
-* Pode mover recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para o novo grupo de recursos ou subscrição](resource-group-move-resources.md).
+* Para saber mais sobre a criação de modelos do Resource Manager, veja [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+* Para saber mais sobre a implementação de modelos, veja [implementar uma aplicação com o modelo do Azure Resource Manager](resource-group-template-deploy-cli.md).
+* Pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

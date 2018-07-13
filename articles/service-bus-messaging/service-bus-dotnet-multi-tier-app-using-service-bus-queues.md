@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
 ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809459"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611237"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -57,7 +57,7 @@ As secções seguintes abordam o código que implementa esta arquitetura.
 
 ## <a name="create-a-namespace"></a>Criar um espaço de nomes
 
-O primeiro passo é criar um *espaço de nomes*e obter um [assinatura de acesso partilhado (SAS)](service-bus-sas.md) chave para esse espaço de nomes. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
+A primeira etapa é criar um *espaço de nomes*e obter um [assinatura de acesso partilhado (SAS)](service-bus-sas.md) chave desse Namespace. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

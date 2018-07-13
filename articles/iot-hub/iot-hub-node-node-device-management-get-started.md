@@ -1,6 +1,6 @@
 ---
-title: Introdução à gestão de dispositivos do IoT Hub do Azure (nó) | Microsoft Docs
-description: Como utilizar a gestão de dispositivos do IoT Hub para iniciar um reinício do dispositivo remoto. Utilize o SDK do IoT do Azure para Node.js para implementar uma aplicação de dispositivo simulado que inclui um método direto e uma aplicação de serviço que invoca o método direto.
+title: Introdução à gestão de dispositivos do IoT Hub do Azure (Node) | Documentos da Microsoft
+description: Como utilizar a gestão de dispositivos do IoT Hub para iniciar um reinício do dispositivo remoto. Utilize o SDK do Azure IoT para node. js para implementar uma aplicação de dispositivo simulado que inclui um método direto e um serviço de aplicações que invoca o método direto.
 author: juanjperez
 manager: cberlin
 ms.service: iot-hub
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
 ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635955"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573439"
 ---
-# <a name="get-started-with-device-management-node"></a>Introdução à gestão de dispositivos (nó)
+# <a name="get-started-with-device-management-node"></a>Introdução à gestão de dispositivo (Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Utilize o portal do Azure para criar um IoT Hub e criar uma identidade de dispositivo no seu IoT hub.
-* Crie uma aplicação de dispositivo simulado que contém um método direto que reinicia nesse dispositivo. Métodos diretos são invocados a partir da nuvem.
-* Crie uma aplicação de consola do Node.js que chama o método direto reinício na aplicação do dispositivo simulado através do seu IoT hub.
+* Utilize o portal do Azure para criar um IoT Hub e criar uma identidade de dispositivo no IoT hub.
+* Crie uma aplicação de dispositivo simulado que contém um método direto que reinicia o que o dispositivo. Os métodos diretos são invocados a partir da cloud.
+* Crie uma aplicação de consola node. js que chama o método direto de reinício no aplicativo do dispositivo simulado através do IoT hub.
 
-No final deste tutorial, tem duas aplicações de consola do Node.js:
+No final deste tutorial, tem duas aplicações de consola node. js:
 
-**dmpatterns_getstarted_device.js**, que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente, recebe um método direta de reinício, simula reiniciar o computador físico, relatórios e a hora para o último reinício.
+**dmpatterns_getstarted_device.js**, que liga ao seu hub IoT com a identidade de dispositivo que criou anteriormente, recebe um método direto de reinicialização, simula uma reinicialização física e reporta o tempo para a última reinicialização.
 
-**dmpatterns_getstarted_service.js**, que chama um método direto na aplicação do dispositivo simulado, mostra a resposta e apresenta a atualização comunicado propriedades.
+**dmpatterns_getstarted_service.js**, que chama um método direto na aplicação do dispositivo simulado, apresenta a resposta e apresenta a atualização de propriedades comunicadas.
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Versão do node.js 4.0.x ou posterior <br/>  [Preparar o ambiente de desenvolvimento] [ lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou Linux.
+* Versão node. js 4.0.x ou posterior, <br/>  [Preparar o ambiente de desenvolvimento] [ lnk-dev-setup] descreve como instalar o node. js para este tutorial no Windows ou Linux.
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -45,20 +45,20 @@ Nesta secção, irá
 
 * Criar uma aplicação de consola Node.js que responde a um método direto chamado pela cloud
 * Acionar um reinício do dispositivo simulado
-* Utilize as propriedades que relatados para ativar as consultas de duplo de dispositivo identificar dispositivos e quando duram reiniciado
+* Utilize as propriedades comunicadas para ativar consultas de gémeos de dispositivo identificar os dispositivos e quando duram reiniciada
 
 1. Crie uma pasta vazia designada **manageddevice**.  Na pasta **manageddevice**, crie um ficheiro package.json com o seguinte comando na sua linha de comandos.  Aceite todas as predefinições:
    
     ```
     npm init
     ```
-2. Na sua linha de comandos a **manageddevice** pasta, execute o seguinte comando para instalar o **azure-iot-device** pacote do SDK do dispositivo e **azure-iot-dispositivo-mqtt** pacote:
+2. Sua linha de comandos do **manageddevice** pasta, execute o seguinte comando para instalar o **do azure-iot-device** pacote do SDK de dispositivo e **azure-iot-device-mqtt** pacote:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Com um editor de texto, crie um **dmpatterns_getstarted_device.js** ficheiros o **manageddevice** pasta.
-4. Adicione o seguinte 'exigir' instruções no início do **dmpatterns_getstarted_device.js** ficheiro:
+3. Com um editor de texto, crie uma **dmpatterns_getstarted_device.js** de ficheiros a **manageddevice** pasta.
+4. Adicione as seguintes declarações no início de "necessitam" a **dmpatterns_getstarted_device.js** ficheiro:
    
     ```
     'use strict';
@@ -66,7 +66,7 @@ Nesta secção, irá
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**.  Substitua a cadeia de ligação pela cadeia de ligação do dispositivo.  
+5. Adicione uma variável **connectionString** e utilize-a para criar uma instância do **Cliente**.  Substitua a cadeia de ligação com a cadeia de ligação do dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -130,21 +130,21 @@ Nesta secção, irá
 > [!NOTE]
 > Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como um término exponencial), como sugerido no artigo [Transient Fault Handling (Processamento de Erros Transitórios)][lnk-transient-faults] da MSDN.
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Acionar um reinício remoto no dispositivo com um método direto
-Nesta secção, crie uma aplicação de consola do Node.js que inicia um reinício remoto num dispositivo utilizando um método direto. A aplicação utiliza consultas de duplo de dispositivo para detetar a última vez de reiniciar o computador para que o dispositivo.
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Acionar a reinicialização remota no dispositivo com um método direto
+Nesta secção, vai criar uma aplicação de consola node. js que inicia uma reinicialização remota num dispositivo através de um método direto. A aplicação utiliza consultas de dispositivo duplo para detetar a última hora de reinício desse dispositivo.
 
-1. Crie uma pasta vazia designada **triggerrebootondevice**.  No **triggerrebootondevice** pasta, crie um ficheiro de Package. JSON utilizando o seguinte comando na sua linha de comandos.  Aceite todas as predefinições:
+1. Criar uma pasta vazia designada **triggerrebootondevice**.  Na **triggerrebootondevice** pasta, crie um ficheiro Package. JSON com o seguinte comando na sua linha de comandos.  Aceite todas as predefinições:
    
     ```
     npm init
     ```
-2. Na sua linha de comandos a **triggerrebootondevice** pasta, execute o seguinte comando para instalar o **azure iothub** pacote do SDK do dispositivo e **azure-iot-dispositivo-mqtt** pacote de:
+2. Sua linha de comandos do **triggerrebootondevice** pasta, execute o seguinte comando para instalar o **do azure-iothub** pacote do SDK de dispositivo e **azure-iot-device-mqtt** pacote:
    
     ```
     npm install azure-iothub --save
     ```
-3. Com um editor de texto, crie um **dmpatterns_getstarted_service.js** ficheiros o **triggerrebootondevice** pasta.
-4. Adicione o seguinte 'exigir' instruções no início do **dmpatterns_getstarted_service.js** ficheiro:
+3. Com um editor de texto, crie uma **dmpatterns_getstarted_service.js** de ficheiros a **triggerrebootondevice** pasta.
+4. Adicione as seguintes declarações no início de "necessitam" a **dmpatterns_getstarted_service.js** ficheiro:
    
     ```
     'use strict';
@@ -202,7 +202,7 @@ Nesta secção, crie uma aplicação de consola do Node.js que inicia um reiníc
         });
     };
     ```
-8. Adicione o seguinte código para chamar as funções que acionam o método direto reinício e a consulta para a última de reinício:
+8. Adicione o seguinte código para chamar as funções que acionam o método direto de reinício e a consulta para a última hora de reinício:
    
     ```
     startRebootDevice();
@@ -213,17 +213,17 @@ Nesta secção, crie uma aplicação de consola do Node.js que inicia um reiníc
 ## <a name="run-the-apps"></a>Executar as aplicações
 Já está pronto para executar as aplicações.
 
-1. Na linha de comandos no **manageddevice** pasta, execute o seguinte comando para começar a escutar o método direta de reinício.
+1. A linha de comandos do **manageddevice** pasta, execute o seguinte comando para começar a escutar o método direto de reinício.
    
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. Na linha de comandos no **triggerrebootondevice** pasta, execute o seguinte comando para acionar a reiniciar o computador remoto e a consulta para o dispositivo duplo localizar a última hora de reinício.
+2. A linha de comandos do **triggerrebootondevice** pasta, execute o seguinte comando para acionar a reinicialização remota e a consulta para o dispositivo duplo localizar a última hora de reinício.
    
     ```
     node dmpatterns_getstarted_service.js
     ```
-3. Pode ver a resposta de dispositivo para o método direto na consola do.
+3. Ver a resposta de dispositivo para o método direto na consola do.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

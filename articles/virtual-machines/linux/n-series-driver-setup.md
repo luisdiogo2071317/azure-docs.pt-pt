@@ -17,11 +17,11 @@ ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f043fdcaa7554d73be6ac3928a37630baab845
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450099"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630426"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores NVIDIA GPU em VMs de série N que executem o Linux
 
@@ -176,7 +176,7 @@ Para instalar controladores de GRID da NVIDIA em VMs de série NV, efetue uma li
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-1. Execute o `lspci` comando. Certifique-se de que a placa M60 da NVIDIA ou cartões ficam visíveis como dispositivos PCI.
+1. Execute o comando `lspci`. Certifique-se de que a placa M60 da NVIDIA ou cartões ficam visíveis como dispositivos PCI.
 
 2. Instale atualizações.
 

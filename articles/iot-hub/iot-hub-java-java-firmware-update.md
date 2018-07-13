@@ -1,6 +1,6 @@
 ---
-title: Atualização de firmware do dispositivo IoT hub do Azure (Java/Java) | Microsoft Docs
-description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o dispositivo IoT do Azure SDK para Java para implementar uma aplicação de dispositivo simulado e implementar uma aplicação de serviço que aciona a atualização de firmware.
+title: Atualização de firmware do dispositivo com o IoT Hub do Azure (Java/Java) | Documentos da Microsoft
+description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o Azure IoT device SDK para Java para implementar uma aplicação de dispositivo simulado e implemente uma aplicação de serviço que aciona a atualização de firmware.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,29 +10,29 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: dobett
 ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634612"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611332"
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Utilize a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (Java/Java)
+# <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Utilizar a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (Java/Java)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-No [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, vimos como utilizar o [dispositivo duplo] [ lnk-devtwin] e [direcionar métodos] [ lnk-c2dmethod] primitivos reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmos primitivos do IoT Hub e mostra como efetuar uma atualização de firmware simulada ponto-a-ponto.  Este padrão é utilizado na implementação de atualização de firmware para o [exemplo de implementação do dispositivo Raspberry Pi][lnk-rpi-implementation].
+Na [introdução à gestão de dispositivos] [ lnk-dm-getstarted] tutorial, viu como usar o [dispositivo duplo] [ lnk-devtwin] e [métodos diretos ] [ lnk-c2dmethod] primitivos para reiniciar remotamente um dispositivo. Este tutorial utiliza os mesmo primitivos de IoT Hub e mostra-lhe como fazer uma atualização de firmware simulada do ponto-a-ponto.  Esse padrão é usado na implementação de atualização de firmware para o [exemplo de implementação do dispositivo Raspberry Pi][lnk-rpi-implementation].
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Criar uma aplicação de consola do Java que chama o **firmwareUpdate** método direto da aplicação de dispositivo simulado através do seu IoT hub.
-* Criar uma aplicação de consola do Java que simula o dispositivo e implementa o **firmwareUpdate** método direto. Este método inicia um processo de fase multi que aguarda para transferir a imagem de firmware, transfere a imagem de firmware e, finalmente, aplica-se a imagem do firmware. Durante cada fase da atualização, o dispositivo utiliza as propriedades que relatados para elaborar relatórios sobre o progresso.
+* Criar uma aplicação de consola Java que chama o **firmwareUpdate** método direto na aplicação do dispositivo simulado através do IoT hub.
+* Criar uma aplicação de consola Java que simula o dispositivo e implementa a **firmwareUpdate** método direto. Este método inicia um processo de vários estágio que aguarda a transferência da imagem de firmware, transfere a imagem de firmware e, finalmente, aplica-se a imagem de firmware. Durante cada fase da atualização, o dispositivo utiliza as propriedades comunicadas para comunicar o progresso.
 
 No final deste tutorial, tem duas aplicações de consola Java:
 
-**atualização de firmware**, chama um método direto no dispositivo simulado, mostra a resposta e periodicamente atualizações da propriedade comunicado
+**atualização de firmware**, chama um método direto num dispositivo simulado, mostra a resposta e periodicamente propriedades comunicadas atualizações
 
-**simulated-device**, liga ao seu IoT hub com a identidade de dispositivo criado anteriormente, recebe a chamada de método direto firmwareUpdate e é executada através de uma simulação de atualização de firmware
+**simulated-device**, liga ao seu hub IoT com a identidade de dispositivo criado anteriormente, recebe a chamada de método direto firmwareUpdate e é executada por meio de uma simulação de atualização de firmware
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -45,17 +45,17 @@ Para concluir este tutorial, precisa do seguinte:
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Acionar uma atualização de firmware remota no dispositivo com um método direto
-Nesta secção, crie uma aplicação de consola do Java que inicia uma atualização de firmware remota num dispositivo. A aplicação utiliza um método direto para iniciar a atualização e utiliza consultas de duplo de dispositivo para obter periodicamente o estado da atualização de firmware do Active Directory.
+Nesta secção, vai criar uma aplicação de consola do Java que inicia uma atualização de firmware remoto num dispositivo. A aplicação utiliza um método direto para iniciar a atualização e utiliza consultas de gémeos de dispositivo para obter periodicamente o estado da atualização de firmware do Active Directory.
 
 1. Crie uma pasta vazia designada fw-get-started.
 
-1. Na pasta fw-get-started, crie um projeto Maven designado **atualização de firmware** utilizando o seguinte comando na sua linha de comandos. Tenha em atenção que se trata de um comando único, por extenso:
+1. Na pasta fw-get-started, crie um projeto Maven designado **atualização de firmware** com o seguinte comando na sua linha de comandos. Tenha em atenção que se trata de um comando único, por extenso:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=firmware-update -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 1. Na sua linha de comandos, navegue para a pasta de atualização de firmware.
 
-1. Com um editor de texto, abra o ficheiro pom.xml na pasta de atualização de firmware e adicione a seguinte dependência à **dependências** nós. Esta dependência permite-lhe utilizar o pacote de cliente do serviço iot na sua aplicação para comunicar com o seu IoT hub:
+1. Com um editor de texto, abra o ficheiro pom. xml na pasta atualização de firmware e adicione a seguinte dependência para o **dependências** nó. Esta dependência permite-lhe utilizar o pacote iot-service-client na sua aplicação para comunicar com IoT hub:
 
     ```xml
     <dependency>
@@ -67,9 +67,9 @@ Nesta secção, crie uma aplicação de consola do Java que inicia uma atualiza�
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **cliente do serviço iot** utilizando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **cliente do serviço iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Adicione o seguinte **criar** nó após a **dependências** nós. Esta configuração dá instruções ao Maven utilizar 1.8 do Java para criar a aplicação:
+1. Adicione as seguintes **crie** nó após a **dependências** nó. Esta configuração instrui o Maven para utilizar o Java 1.8 para criar a aplicação:
 
     ```xml
     <build>
@@ -104,7 +104,7 @@ Nesta secção, crie uma aplicação de consola do Java que inicia uma atualiza�
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua **{youriothubconnectionstring}** com a cadeia de ligação do IoT hub que anotou no *criar um IoT Hub* secção:
+1. Adicione as seguintes variáveis de nível de classe à classe **Aplicação**. Substitua **{youriothubconnectionstring}** com a cadeia de ligação do hub de IoT que anotou no *criar um IoT Hub* secção:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -115,7 +115,7 @@ Nesta secção, crie uma aplicação de consola do Java que inicia uma atualiza�
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. Para implementar um método que lê as propriedades que relatados do dispositivo duplo, adicione o seguinte para o **aplicação** classe:
+1. Para implementar um método que lê as propriedades reportadas do dispositivo duplo, adicione o seguinte para o **aplicação** classe:
 
     ```java
     public static void ShowReportedProperties() 
@@ -168,13 +168,13 @@ Nesta secção, crie uma aplicação de consola do Java que inicia uma atualiza�
     }
     ```
 
-1. Modificar a assinatura do **principal** método para emitir as seguintes exceções:
+1. Modifique a assinatura dos **principal** método lançar as seguintes exceções:
 
     ```java
     public static void main( String[] args ) throws IOException
     ```
 
-1. Para invocar o método direto firmwareUpdate no dispositivo simulado, adicione o seguinte código para o **principal** método:
+1. Para invocar o método direto num dispositivo simulado firmwareUpdate, adicione o seguinte código para o **principal** método:
 
     ```java
     DeviceMethod methodClient = DeviceMethod.createFromConnectionString(iotHubConnectionString);
@@ -202,7 +202,7 @@ Nesta secção, crie uma aplicação de consola do Java que inicia uma atualiza�
     }
     ```
 
-1. Para consultar as propriedades do dispositivo simulado comunicadas, adicione o seguinte código para o **principal** método:
+1. Para consultar as propriedades reportadas do dispositivo simulado, adicione o seguinte código para o **principal** método:
 
     ```java
     ShowReportedProperties();
@@ -216,22 +216,22 @@ Nesta secção, crie uma aplicação de consola do Java que inicia uma atualiza�
     System.out.println("Shutting down sample...");
     ```
 
-1. Guarde e feche o ficheiro firmware-update\src\main\java\com\mycompany\app\App.java.
+1. Guarde e feche o ficheiro de firmware-update\src\main\java\com\mycompany\app\App.java.
 
-1. Criar o **atualização de firmware** aplicações back-end e corrigir os eventuais erros. Na sua linha de comandos, navegue para a pasta de atualização de firmware e execute o seguinte comando:
+1. Criar a **atualização de firmware** aplicação de back-end e corrigir eventuais erros. Na sua linha de comandos, navegue para a pasta de atualização de firmware e execute o seguinte comando:
 
     `mvn clean package -DskipTests`
 
-## <a name="simulate-a-device-to-handle-direct-method-calls"></a>Simular um dispositivo para processar as chamadas de método direto
-Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que pode receber o método direto firmwareUpdate. A aplicação é executada através de um processo com múltiplos estado para simular a atualização de firmware reportedProperties a utilizar para comunicar estado.
+## <a name="simulate-a-device-to-handle-direct-method-calls"></a>Simular um dispositivo para processar chamadas de método direto
+Nesta secção, vai criar uma aplicação de dispositivo simulado de consola Java que pode receber o método direto firmwareUpdate. Em seguida, executa a aplicação através de um processo com múltiplos estado para simular a utilização reportedProperties para comunicar o estado de atualização de firmware.
 
-1. Na pasta fw-get-started, crie um projeto Maven designado **simulated-device** utilizando o seguinte comando na sua linha de comandos. Tenha em atenção que se trata de um comando único, por extenso:
+1. Na pasta fw-get-started, crie um projeto Maven designado **simulated-device** com o seguinte comando na sua linha de comandos. Tenha em atenção que se trata de um comando único, por extenso:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
 1. Na linha de comandos, navegue para a pasta simulated-device.
 
-1. Com um editor de texto, abra o ficheiro pom.xml na pasta de atualização de firmware e adicione a seguinte dependência à **dependências** nós. Esta dependência permite-lhe utilizar o pacote de cliente do serviço iot na sua aplicação para comunicar com o seu IoT hub:
+1. Com um editor de texto, abra o ficheiro pom. xml na pasta atualização de firmware e adicione a seguinte dependência para o **dependências** nó. Esta dependência permite-lhe utilizar o pacote iot-service-client na sua aplicação para comunicar com IoT hub:
 
     ```xml
     <dependency>
@@ -243,9 +243,9 @@ Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **cliente do dispositivo iot** utilizando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **cliente do dispositivo iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Adicione o seguinte **criar** nó após a **dependências** nós. Esta configuração dá instruções ao Maven utilizar 1.8 do Java para criar a aplicação:
+1. Adicione as seguintes **crie** nó após a **dependências** nó. Esta configuração instrui o Maven para utilizar o Java 1.8 para criar a aplicação:
 
     ```xml
     <build>
@@ -295,7 +295,7 @@ Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que
     private static String downloadURL = "unknown";
     ```
 
-1. Para implementar a funcionalidade de método direto, forneça as chamadas de retorno adicionando as seguintes classes aninhadas para o **aplicação** classe:
+1. Para implementar a funcionalidade do método direto, fornecer retornos de chamada ao adicionar as seguintes classes aninhadas para o **aplicação** classe:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -338,7 +338,7 @@ Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que
     }
     ```
 
-1. Para implementar funcionalidades do dispositivo duplo, forneça as chamadas de retorno adicionando as seguintes classes aninhadas para o **aplicação** classe:
+1. Para implementar a funcionalidade do dispositivo duplo, fornecer retornos de chamada ao adicionar as seguintes classes aninhadas para o **aplicação** classe:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -415,13 +415,13 @@ Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que
     }
     ```
 
-1. Modificar a assinatura do **principal** método para emitir as seguintes exceções:
+1. Modifique a assinatura dos **principal** método lançar as seguintes exceções:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Para iniciar o métodos diretos e rotina do dispositivos duplos, adicione o seguinte código para o **principal** método:
+1. Para iniciar a rotina de gémeos de dispositivo e métodos diretos, adicione o seguinte código para o **principal** método:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -441,7 +441,7 @@ Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que
     }
     ```
 
-1. Para ativar a parar a aplicação, adicione o seguinte código ao fim do **principal** método:
+1. Para ativar a parar a aplicação, adicione o seguinte código ao final dos **principal** método:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -454,29 +454,29 @@ Nesta secção, crie uma aplicação de dispositivo simulado de consola Java que
 
 1. Guarde e feche o ficheiro simulated-device\src\main\java\com\mycompany\app\app.Java.
 
-1. Criar o **simulated-device** aplicação e corrigir os eventuais erros. Na sua linha de comandos, navegue para a pasta simulated-device e execute o seguinte comando:
+1. Criar a **simulated-device** aplicação e corrigir eventuais erros. Na sua linha de comandos, navegue para a pasta simulated-device e execute o seguinte comando:
 
     `mvn clean package -DskipTests`
 
 ## <a name="run-the-apps"></a>Executar as aplicações
 Já está pronto para executar as aplicações.
 
-1. Numa linha de comandos do **simulated-device** pasta, execute o seguinte comando para começar a escutar o método de direta de atualização de firmware.
+1. Uma linha de comandos do **simulated-device** pasta, execute o seguinte comando para começar a escutar o método direto de atualização de firmware.
    
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-1. Numa linha de comandos do **atualização de firmware** pasta, execute o seguinte comando para invocar a atualização de firmware e consultar os dispositivos duplos no seu dispositivo simulado do seu IoT hub:
+1. Uma linha de comandos do **atualização de firmware** pasta, execute o seguinte comando para invocar a atualização de firmware e consultar os dispositivos duplos no seu dispositivo simulado no IoT hub:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-3. Pode ver o dispositivo simulado responder ao método direto na consola do.
+3. Pode ver o dispositivo simulado a responder ao método direto na consola do.
 
-    ![Firmware atualizada com êxito][img-fwupdate]
+    ![Firmware atualizado com êxito][img-fwupdate]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, é utilizado um método direto para acionar uma atualização de firmware remota num dispositivo e utilizado as propriedades que relatados para seguir o progresso da atualização de firmware.
+Neste tutorial, utilizou um método direto para acionar uma atualização de firmware remoto num dispositivo e utilizadas as propriedades reportadas para seguir o progresso da atualização de firmware.
 
-Para saber como expandir o seu IoT chama o método de solução e agenda em vários dispositivos, consulte o [agenda e as tarefas de difusão] [ lnk-tutorial-jobs] tutorial.
+Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja a [agendar e transmitir tarefas] [ lnk-tutorial-jobs] tutorial.
 
 <!-- images -->
 [img-fwupdate]: media/iot-hub-java-java-firmware-update/firmwareUpdated.png

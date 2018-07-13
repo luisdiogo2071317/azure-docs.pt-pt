@@ -1,6 +1,6 @@
 ---
-title: Unidade de computação de descrição geral do Azure | Microsoft Docs
-description: Descrição geral de conceito do Azure de processamento de unidades de Linux. O ACU fornece uma forma de comparar o desempenho da CPU de entre os SKUs de Azure.
+title: Unidade de computação de descrição geral do Azure | Documentos da Microsoft
+description: Unidades para Linux de computação de descrição geral do conceito do Azure. A ACU fornece uma forma de comparar o desempenho da CPU nos SKUs do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: jonbeck
 ms.openlocfilehash: 387133bf0087d6e3fc3dc725749661235d438d27
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30833528"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606432"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação do Azure (ACU)
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-Seguem-se ligações para mais informações sobre os tamanhos diferentes:
+Seguem-se ligações para obter mais informações sobre os tamanhos diferentes:
 - [Para fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de computação](sizes-compute.md)

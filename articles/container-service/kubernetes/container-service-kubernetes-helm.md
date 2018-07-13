@@ -1,6 +1,6 @@
 ---
-title: Implementar contentores com Helm no Azure Kubernetes
-description: Utilize a ferramenta de empacotamento de Helm para implementar contentores num cluster Kubernetes no serviço de contentor do Azure
+title: Implementar contentores com Helm no Kubernetes do Azure
+description: Utilize a ferramenta de empacotamento do Helm para implementar contentores num cluster do Kubernetes no Azure Container Service
 services: container-service
 author: sauryadas
 manager: jeconnoc
@@ -10,59 +10,59 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163100"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634158"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Utilizar Helm para implementar contentores num Kubernetes cluster
+# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Utilizar o Helm para implementar contentores num cluster do Kubernetes
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-[Helm](https://github.com/kubernetes/helm/) é uma ferramenta de empacotamento de open source que o ajuda a instalar e gerir o ciclo de vida das aplicações Kubernetes. Semelhante para os gestores de pacote do Linux, tais como Apt get e Yum, Helm é utilizado para gerir Kubernetes gráficos, que são pacotes de recursos de Kubernetes pré-configurada. Este artigo mostra como trabalhar com Helm num cluster Kubernetes implementado no serviço de contentor do Azure.
+[Helm](https://github.com/kubernetes/helm/) é uma ferramenta de empacotamento de código-fonte aberto que ajuda a instalar e gerenciar o ciclo de vida de aplicações do Kubernetes. Assim como gestores de pacotes do Linux, como Apt-get e Yum, Helm é utilizado para gerir gráficos de Kubernetes, que são pacotes de recursos do Kubernetes pré-configurada. Este artigo mostra como trabalhar com Helm num cluster de Kubernetes implementado no Azure Container Service.
 
 Helm tem dois componentes: 
-* O **Helm CLI** for um cliente que é executado no seu computador local ou na nuvem  
+* O **Helm CLI** é um cliente que é executado no seu computador local ou na cloud  
 
-* **Tiller** é um servidor que executa no Kubernetes cluster e gere o ciclo de vida das aplicações Kubernetes 
+* **Tiller** é um servidor que é executado no cluster de Kubernetes e gere o ciclo de vida das suas aplicações do Kubernetes 
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Criar um cluster de Kubernetes](container-service-kubernetes-walkthrough.md) no serviço de contentor do Azure
+* [Criar um cluster de Kubernetes](container-service-kubernetes-walkthrough.md) no Azure Container Service
 
 * [Instalar e configurar `kubectl` ](../container-service-connect.md) num computador local
 
-* [Instalar Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) num computador local
+* [Instale o Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) num computador local
 
-## <a name="helm-basics"></a>Noções básicas de Helm 
+## <a name="helm-basics"></a>Noções básicas do Helm 
 
-Para ver informações sobre o cluster Kubernetes que está a instalar Tiller e implementar as aplicações, escreva o seguinte comando:
+Para ver informações sobre o que está a instalar Tiller e implementar as suas aplicações para o cluster de Kubernetes, escreva o seguinte comando:
 
 ```bash
 kubectl cluster-info 
 ```
-![informações do cluster kubectl](./media/container-service-kubernetes-helm/clusterinfo.png)
+![informações de cluster de kubectl](./media/container-service-kubernetes-helm/clusterinfo.png)
  
-Depois de ter instalado Helm, instale Tiller no seu cluster Kubernetes, escrevendo o seguinte comando:
+Depois de ter instalado o Helm, instale Tiller no seu cluster do Kubernetes, escrevendo o seguinte comando:
 
 ```bash
 helm init --upgrade
 ```
-Quando for concluída com êxito, poderá ver um resultado como o seguinte:
+Quando for concluída com êxito, ver um resultado semelhante ao seguinte:
 
-![Instalação de tiller](./media/container-service-kubernetes-helm/tiller-install.png)
+![Instalação do tiller](./media/container-service-kubernetes-helm/tiller-install.png)
  
  
  
  
-Para ver os gráficos de Helm disponíveis no repositório, escreva o seguinte comando:
+Para ver todos os gráficos de Helm disponíveis no repositório, escreva o seguinte comando:
 
 ```bash 
 helm search 
 ```
 
-Consulte o resultado como o seguinte:
+Pode ver o resultado semelhante ao seguinte:
 
 ![Pesquisa de Helm](./media/container-service-kubernetes-helm/helm-search.png)
  
@@ -71,34 +71,34 @@ Para atualizar os gráficos para obter as versões mais recentes, escreva:
 ```bash 
 helm repo update 
 ```
-## <a name="deploy-an-nginx-ingress-controller-chart"></a>Implementar um gráfico de controlador de entrada Nginx 
+## <a name="deploy-an-nginx-ingress-controller-chart"></a>Implementar um gráfico de controlador de entrada do Nginx 
  
-Para implementar um gráfico de controlador de entrada Nginx, escreva um comando único:
+Para implementar um gráfico de controlador de entrada do Nginx, escreva um único comando:
 
 ```bash
 helm install stable/nginx-ingress 
 ```
-![Implementar controlador de entrada](./media/container-service-kubernetes-helm/nginx-ingress.png)
+![Implementar o controlador de entrada](./media/container-service-kubernetes-helm/nginx-ingress.png)
 
-Se escrever `kubectl get svc` para ver todos os serviços que estão em execução no cluster, pode ver que está atribuído um endereço IP para o controlador de entrada. (Durante a atribuição, consulte `<pending>`. Demora alguns minutos a concluir.) 
+Se digitar `kubectl get svc` para ver todos os serviços que estão em execução no cluster, verá que é atribuído um endereço IP para o controlador de entrada. (Enquanto a tarefa está em curso, verá `<pending>`. Demora alguns minutos a concluir.) 
 
-Depois do IP está atribuído um endereço, navegue para o valor do endereço IP externo para ver o back-end de Nginx em execução. 
+Depois do IP é atribuído um endereço, navegue para o valor do endereço IP externo para ver o back-end de Nginx em execução. 
  
 ![Endereço IP de entrada](./media/container-service-kubernetes-helm/ingress-ip-address.png)
 
 
-Para ver uma lista dos gráficos instalado no seu cluster, escreva:
+Para ver uma lista de gráficos instalado no seu cluster, escreva:
 
 ```bash
 helm list 
 ```
 
-Pode abbreviate o comando para `helm ls`.
+Pode abreviar o comando para `helm ls`.
  
  
  
  
-## <a name="deploy-a-mariadb-chart-and-client"></a>Implementar um gráfico de MariaDB e cliente
+## <a name="deploy-a-mariadb-chart-and-client"></a>Implementar um gráfico da MariaDB e cliente
 
 Agora pode implemente um gráfico de MariaDB e um cliente MariaDB para ligar à base de dados.
 
@@ -115,7 +115,7 @@ onde `--name` é uma etiqueta utilizada para versões.
 >
  
  
-Para ver todos os gráficos implementados no seu cluster, escreva:
+Para ver todos os gráficos implementados num cluster, escreva:
 
 ```bash 
 helm list
@@ -128,7 +128,7 @@ kubectl get deployments
 ``` 
  
  
-Por fim, para executar um pod para acesso de cliente, escreva:
+Por fim, para executar um pod para acessar o cliente, escreva:
 
 ```bash
 kubectl run v1-mariadb-client --rm --tty -i --image bitnami/mariadb --command -- bash  
@@ -142,11 +142,11 @@ sudo mysql –h v1-mariadb
 ```
  
  
-Agora, pode utilizar comandos do SQL Server standard para criar bases de dados, tabelas, etc. Por exemplo, `Create DATABASE testdb1;` cria uma base de dados vazio. 
+Agora, pode utilizar os comandos SQL padrão para criar bases de dados, tabelas, etc. Por exemplo, `Create DATABASE testdb1;` cria uma base de dados vazia. 
  
  
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre a gestão Kubernetes gráficos, consulte o [Helm documentação](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* Para obter mais informações sobre a gestão de gráficos do Kubernetes, consulte a [executar Helm documentação](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
 

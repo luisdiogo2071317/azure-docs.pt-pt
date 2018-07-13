@@ -1,6 +1,6 @@
 ---
-title: Encaminhar o tráfego de rede do Azure PowerShell | Microsoft Docs
-description: Neste artigo, saiba como encaminhar o tráfego de rede com uma tabela de rota com o PowerShell.
+title: Encaminhar o tráfego de rede do Azure PowerShell | Documentos da Microsoft
+description: Neste artigo, saiba como encaminhar o tráfego de rede com uma tabela de rotas com o PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -18,13 +18,13 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31603713"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630331"
 ---
-# <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Encaminhar o tráfego de rede com uma tabela de rota com o PowerShell
+# <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Encaminhar o tráfego de rede com uma tabela de rotas com o PowerShell
 
 O Azure encaminha automaticamente o tráfego entre todas as sub-redes numa rede virtual, por predefinição. Pode criar as sua próprias rotas para substituir o encaminhamento predefinido do Azure. A capacidade de criar rotas personalizadas é útil se, por exemplo, pretender encaminhar o tráfego entre sub-redes através de uma aplicação virtual de rede (NVA). Neste artigo, vai aprender a:
 
@@ -44,13 +44,13 @@ Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a v
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-Antes de poder criar uma tabela de rota, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* para todos os recursos criados neste artigo. 
+Antes de poder criar uma tabela de rotas, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* para todos os recursos criados neste artigo. 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Criar uma tabela de rotas com [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable). O exemplo seguinte cria uma tabela de rota chamada *myRouteTablePublic*.
+Criar uma tabela de rotas com [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable). O exemplo seguinte cria uma tabela de rotas com o nome *myRouteTablePublic*.
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzureRmRouteTable `
@@ -61,7 +61,7 @@ $routeTablePublic = New-AzureRmRouteTable `
 
 ## <a name="create-a-route"></a>Criar uma rota
 
-Criar uma rota obtendo o objeto de tabela de rotas com [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable), criar uma rota com [adicionar AzureRmRouteConfig](/powershell/module/azurerm.network/add-azurermrouteconfig), em seguida, escrever a configuração de rota para a tabela de rotas com [Conjunto AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable). 
+Criar uma rota ao obter o objeto de tabela de rota com [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable), criar uma rota com [AzureRmRouteConfig adicionar](/powershell/module/azurerm.network/add-azurermrouteconfig), em seguida, escreva a configuração de rota à tabela de rotas com [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable). 
 
 ```azurepowershell-interactive
 Get-AzureRmRouteTable `
@@ -77,7 +77,7 @@ Get-AzureRmRouteTable `
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
-Antes de poder associar uma tabela de rota para uma sub-rede, terá de criar uma rede virtual e a sub-rede. Crie uma rede virtual com [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). O exemplo seguinte cria uma rede virtual denominada *myVirtualNetwork* com o prefixo de endereço *10.0.0.0/16*.
+Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma rede virtual e uma sub-rede. Crie uma rede virtual com [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). O exemplo seguinte cria uma rede virtual denominada *myVirtualNetwork* com o prefixo de endereço *10.0.0.0/16*.
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzureRmVirtualNetwork `
@@ -87,7 +87,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Criar três sub-redes através da criação de três configurações de sub-rede com [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). O exemplo seguinte cria três configurações de sub-rede para *pública*, *privada*, e *DMZ* sub-redes:
+Pode criar três sub-redes ao criar três configurações de sub-rede com [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). O exemplo seguinte cria três configurações de sub-rede da *pública*, *privada*, e *DMZ* sub-redes:
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -106,13 +106,13 @@ $subnetConfigDmz = Add-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Escrever as configurações de sub-rede da rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), que cria as sub-redes na rede virtual:
+Escrever as configurações de sub-rede para a rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), que cria as sub-redes na rede virtual:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-Associar o *myRouteTablePublic* tabela de rotas para o *pública* sub-rede com [conjunto AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) e, em seguida, escrever a configuração de sub-rede para o rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork).
+Associar o *myRouteTablePublic* tabela de rotas para o *público* sub-rede com [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) e, em seguida, escreva a configuração de sub-rede para o rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork).
 
 ```azurepowershell-interactive
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -131,7 +131,7 @@ Antes de criar uma VM, crie uma interface de rede.
 
 ### <a name="create-a-network-interface"></a>Criar uma interface de rede
 
-Antes de criar uma interface de rede, tem de obter virtual Id com rede [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork), em seguida, o Id de sub-rede com [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig). Criar uma interface de rede com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) no *DMZ* sub-rede com o reencaminhamento IP está ativado:
+Antes de criar uma interface de rede, tem de obter a virtual network Id com o [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork), em seguida, o Id de sub-rede com [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig). Criar uma interface de rede com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) no *DMZ* sub-rede com o reencaminhamento de IP ativado:
 
 ```azurepowershell-interactive
 # Retrieve the virtual network object into a variable.
@@ -155,7 +155,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ### <a name="create-a-vm"></a>Criar uma VM
 
-Para criar uma VM e anexar uma interface de rede existente, primeiro tem de criar uma configuração de VM com [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). A configuração inclui a interface de rede que criou no passo anterior. Quando lhe for pedido um nome de utilizador e palavra-passe, selecione o nome de utilizador e palavra-passe que pretende iniciar sessão na VM com o. 
+Para criar uma VM e expor uma interface de rede existente para o mesmo, tem primeiro de criar uma configuração de VM com [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). A configuração inclui a interface de rede que criou no passo anterior. Quando lhe for pedido um nome de utilizador e palavra-passe, selecione o nome de utilizador e palavra-passe que pretende iniciar sessão na VM com o. 
 
 ```azurepowershell-interactive
 # Create a credential object.
@@ -176,7 +176,7 @@ $vmConfig = New-AzureRmVMConfig `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
 
-Criar a VM com a configuração de VM com o [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM chamada *myVmNva*. 
+Criar a VM com a configuração de VM com o [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM com o nome *myVmNva*. 
 
 ```azurepowershell-interactive
 $vmNva = New-AzureRmVM `
@@ -190,9 +190,9 @@ O `-AsJob` opção cria a VM em segundo plano, para poder continuar para o passo
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Criar duas VMs na rede virtual para que possa validar que o tráfego de entrada a *pública* sub-rede é encaminhada para o *privada* sub-rede através da aplicação virtual de rede num passo posterior. 
+Crie duas VMs na rede virtual para que possa validar que o tráfego dos *pública* sub-rede é encaminhada para o *privada* sub-rede através do dispositivo de rede virtual num passo posterior. 
 
-Criar uma VM com o *pública* sub-rede com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM chamada *myVmPublic* no *pública* sub-rede do *myVirtualNetwork* rede virtual. 
+Criar uma VM no *pública* sub-rede com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM com o nome *myVmPublic* no *público* sub-rede do *myVirtualNetwork* rede virtual. 
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -205,7 +205,7 @@ New-AzureRmVm `
   -AsJob
 ```
 
-Criar uma VM com o *privada* sub-rede.
+Criar uma VM no *privada* sub-rede.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -217,11 +217,11 @@ New-AzureRmVm `
   -Name "myVmPrivate"
 ```
 
-A criação da VM demora alguns minutos. Não continue com o passo seguinte até que a VM é criada e Azure devolve resultado para o PowerShell.
+A criação da VM demora alguns minutos. Não continue para o passo seguinte até que a VM é criada e Azure devolve saído para o PowerShell.
 
 ## <a name="route-traffic-through-an-nva"></a>Encaminhar o tráfego através de uma NVA
 
-Utilize [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para devolver o endereço IP público do *myVmPrivate* VM. O exemplo seguinte devolve o endereço IP público do *myVmPrivate* VM:
+Uso [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para devolver o endereço IP público do *myVmPrivate* VM. O exemplo seguinte devolve o endereço IP público dos *myVmPrivate* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -230,7 +230,7 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remota com o *myVmPrivate* VM a partir do seu computador local. Substitua `<publicIpAddress>` pelo endereço IP devolvido no comando anterior.
+Utilize o seguinte comando para criar uma sessão de área de trabalho remota com o *myVmPrivate* VM a partir do seu computador local. Substitua `<publicIpAddress>` pelo endereço IP devolvido no comando anterior.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -240,17 +240,17 @@ Abra o ficheiro RDP transferido. Se lhe for pedido, selecione **Ligar**.
 
 Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM (poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM) e, em seguida, selecione **OK**. Poderá receber um aviso de certificado durante o processo de início de sessão. Selecione **Sim** para continuar a ligação. 
 
-Num passo posterior, o comando tracert.exe é utilizado para testar o encaminhamento. Tracert utiliza o controlo de mensagem de ICMP (Internet Protocol), que é negado através da Firewall do Windows. Introduza o seguinte comando do PowerShell na VM *myVmPrivate* para ativar o ICMP através da Firewall do Windows:
+Num passo posterior, o comando de tracert.exe é utilizado para testar o encaminhamento. Tracert usa o controle de mensagem ICMP (Internet Protocol), que é negado através da Firewall do Windows. Introduza o seguinte comando do PowerShell na VM *myVmPrivate* para ativar o ICMP através da Firewall do Windows:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Apesar de rota de rastreio é utilizada para testar o encaminhamento neste artigo, permitir ICMP através da Firewall do Windows para implementações de produção não é recomendada.
+Apesar de encaminhamento de rastreio é utilizado para testar o encaminhamento neste artigo, não é recomendado permitir o ICMP através da Firewall do Windows para implementações de produção.
 
-Ativou o reencaminhamento de IP dentro do Azure na interface de rede da VM em [Ativar o encaminhamento de IP](#enable-ip-forwarding). Dentro da VM, é necessário que o sistema operativo, ou uma aplicação em execução na mesma, consiga também reencaminhar o tráfego de rede. Ativar o reencaminhamento IP no sistema operativo do *myVmNva*.
+Ativou o reencaminhamento de IP dentro do Azure na interface de rede da VM em [Ativar o encaminhamento de IP](#enable-ip-forwarding). Dentro da VM, é necessário que o sistema operativo, ou uma aplicação em execução na mesma, consiga também reencaminhar o tráfego de rede. Ativar o reencaminhamento de IP dentro do sistema operativo dos *myVmNva*.
 
-Numa linha de comandos no *myVmPrivate* VM, ambiente de trabalho remoto para o *myVmNva*:
+Na linha de comandos no *myVmPrivate* VM, o ambiente de trabalho remoto para o *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
@@ -321,7 +321,7 @@ Feche a sessão de ambiente de trabalho remoto para a VM *myVmPrivate*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário utilizar [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos nele contidos.
+Quando já não for necessário, utilize [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos nele contidos.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -329,6 +329,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou uma tabela de rota e associados-la a uma sub-rede. Criar uma aplicação virtual de rede simples que encaminhados tráfego de sub-rede público para uma sub-rede privada. Implementar uma variedade de aplicações virtuais de rede previamente configuradas que efetuam funções de rede, tais como a firewall e a otimização de WAN do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
+Neste artigo, criou uma tabela de rotas e associou-o a uma sub-rede. Criou uma aplicação virtual de rede simples que encaminhar o tráfego de sub-rede público a uma sub-rede privada. Implementar uma variedade de aplicações virtuais de rede previamente configuradas que executam funções de rede, tais como firewall e otimização de WAN do [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Para saber mais sobre o encaminhamento, veja [Descrição geral do encaminhamento](virtual-networks-udr-overview.md) e [Manage a route table](manage-route-table.md) (Gerir uma tabela de rotas).
 
-Embora possa implementar muitos recursos do Azure dentro de uma rede virtual, não é possível implementar recursos de alguns serviços PaaS do Azure nas redes virtuais. Contudo, pode restringir o acesso aos recursos de alguns serviços PaaS do Azure ao tráfego apenas a partir de uma sub-rede de rede virtual. Para saber como, consulte [restringir o acesso de rede para recursos de PaaS](tutorial-restrict-network-access-to-resources-powershell.md).
+Embora possa implementar muitos recursos do Azure dentro de uma rede virtual, não é possível implementar recursos de alguns serviços PaaS do Azure nas redes virtuais. Contudo, pode restringir o acesso aos recursos de alguns serviços PaaS do Azure ao tráfego apenas a partir de uma sub-rede de rede virtual. Para saber como, veja [restringir o acesso à rede a recursos de PaaS](tutorial-restrict-network-access-to-resources-powershell.md).

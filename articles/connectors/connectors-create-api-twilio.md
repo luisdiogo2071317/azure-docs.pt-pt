@@ -1,5 +1,5 @@
 ---
-title: Adicione o conector do Twilio nas suas Azure Logic apps | Microsoft Docs
+title: Adicionar o conector Twilio nas suas aplicações lógicas do Azure | Documentos da Microsoft
 description: Descrição geral do conector do Twilio com parâmetros de REST API
 services: logic-apps
 documentationcenter: ''
@@ -16,22 +16,22 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296140"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652010"
 ---
-# <a name="get-started-with-the-twilio-connector"></a>Começar a utilizar o conector do Twilio
-Ligar ao Twilio para enviar e receber mensagens IP, SMS e MMS global. Com Twilio, pode:
+# <a name="get-started-with-the-twilio-connector"></a>Começar com o conector do Twilio
+Ligue ao Twilio para enviar e receber mensagens SMS, MMS e IP globais. Com o Twilio, pode:
 
-* Crie o fluxo de negócio com base nos dados que aproveitar Twilio. 
-* Utilize ações obter uma mensagem, mensagens de lista e muito mais. Estas ações obter uma resposta e, em seguida, torne a saída disponível para outras ações. Por exemplo, quando receber uma nova mensagem do Twilio, pode efetuar esta mensagem e utilizá-lo um fluxo de trabalho do Service Bus. 
+* Crie o seu fluxo de negócios com base nos dados que obtém do Twilio. 
+* Utilize as ações que obtém uma mensagem, listar mensagens e muito mais. Estas ações obtém uma resposta e, em seguida, disponibilizá-a saída para outras ações. Por exemplo, quando receber uma nova mensagem do Twilio, pode efetuar esta mensagem e utilizá-lo um fluxo de trabalho do Service Bus. 
 
-Começar através da criação de uma aplicação lógica; consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Comece por criar uma aplicação de lógica; ver [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-twilio"></a>Criar uma ligação ao Twilio
-Ao adicionar este conector para as logic apps, introduza os seguintes valores do Twilio:
+Ao adicionar este conector às suas aplicações lógicas, introduza os seguintes valores de Twilio:
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
@@ -42,11 +42,11 @@ Ao adicionar este conector para as logic apps, introduza os seguintes valores do
 > 
 > 
 
-Se não tiver um token de acesso do Twilio, consulte [identidade de utilizador e Tokens de acesso](https://www.twilio.com/docs/api/chat/guides/identity).
+Se não tiver um token de acesso do Twilio, consulte [identidade de utilizador e os Tokens de acesso](https://www.twilio.com/docs/api/chat/guides/identity).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/twilio/).
+Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/twilio/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+Volte para o [lista APIs](apis-list.md).

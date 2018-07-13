@@ -1,6 +1,6 @@
 ---
-title: Ligar um Raspberry Pi para o Azure IoT Suite com C sensores reais | Microsoft Docs
-description: Utilize o Microsoft Azure IoT Starter Kit para Raspberry Pi 3 e o Azure IoT Suite. Utilizar C para ligar o seu Raspberry Pi a solução de monitorização remota, enviar telemetria a partir de sensores para a nuvem e responder a métodos invocados a partir do dashboard de solução.
+title: Ligar um Raspberry Pi com C com sensores reais do Azure IoT Suite | Documentos da Microsoft
+description: Utilize o Microsoft Azure IoT Starter Kit para o Raspberry Pi 3 e Suite IoT do Azure. Uso C para ligar o seu Raspberry Pi a solução de monitorização remota, enviar a telemetria de sensores para a cloud e responder a métodos invocados a partir do dashboard da solução.
 services: ''
 suite: iot-suite
 documentationcenter: ''
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 635eb9d4e85eaf43dc83f2bd5a0d0f7c32620d98
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24012009"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611312"
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-c"></a>Ligar a sua 3 de Pi Raspberry a solução de monitorização remota e enviar telemetria a partir de um sensor real utilizando C
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-c"></a>Ligar o seu Raspberry Pi 3 a solução de monitorização remota e enviar telemetria a partir de um sensor real com C
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-selector](../../includes/iot-suite-v1-raspberry-pi-kit-selector.md)]
 
-Este tutorial mostra como utilizar o Microsoft Azure IoT Starter Kit para Raspberry Pi 3 para desenvolver um leitor de temperatura e humidade que possa comunicar com a nuvem. O tutorial utiliza:
+Este tutorial mostra-lhe como utilizar o Microsoft Azure IoT Starter Kit para Raspberry Pi 3 para desenvolver um leitor de temperatura e humidade que possa comunicar com a cloud. O tutorial utiliza:
 
-- SO de Raspbian, a linguagem de programação C e o SDK do Microsoft Azure IoT para C para implementar um dispositivo de exemplo.
+- Raspbian OS, a linguagem de programação C e o SDK do Microsoft Azure IoT para C para implementar um dispositivo de exemplo.
 - O IoT Suite remoto solução pré-configurada de monitorização como o back-end baseado na nuvem.
 
 ## <a name="overview"></a>Descrição geral
 
-Neste tutorial, conclua os seguintes passos:
+Neste tutorial, vai concluir os seguintes passos:
 
-- Implemente uma instância da solução pré-configurada de monitorização remota à sua subscrição do Azure. Este passo automaticamente implementa e configura vários serviços do Azure.
-- Configure os dispositivos e os sensores para comunicar com o seu computador e a solução de monitorização remota.
-- Atualize o código de dispositivo de exemplo para ligar a solução de monitorização remota e enviar telemetria que pode ver no dashboard da solução.
+- Implemente uma instância da solução pré-configurada de monitorização remota para a sua subscrição do Azure. Este passo automaticamente implementa e configura vários serviços do Azure.
+- Configure os dispositivos e sensores para comunicar com o seu computador e solução de monitorização remota.
+- Atualizar o código de dispositivo de exemplo para ligar a solução de monitorização remota e enviar telemetria, que pode ver no dashboard da solução.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-prerequisites](../../includes/iot-suite-v1-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-v1-provision-remote-monitoring](../../includes/iot-suite-v1-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> A solução de monitorização remota aprovisiona um conjunto de serviços do Azure na sua subscrição do Azure. A implementação reflete uma arquitetura de empresas reais. Para evitar custos de consumo do Azure desnecessários, elimine a instância da solução pré-configurada em azureiotsuite.com quando tiver terminado com o mesmo. Se precisar de novamente a solução pré-configurada, pode recriá-lo facilmente. Para obter mais informações sobre como reduzir o consumo de enquanto executa a solução de monitorização remota, consulte [soluções para fins de demonstração de pré-configuradas de configurar o Azure IoT Suite][lnk-demo-config].
+> Solução de monitorização remota aprovisiona um conjunto de serviços do Azure na sua subscrição do Azure. A implementação reflete uma arquitetura empresarial de real. Para evitar encargos de consumo do Azure desnecessários, elimine a instância da solução pré-configurada em azureiotsuite.com quando tiver terminado com ele. Se precisar de novamente a solução pré-configurada, pode recriá-lo facilmente. Para obter mais informações sobre a redução do consumo enquanto é executada a solução de monitorização remota, consulte [soluções para fins de demonstração de pré-configuradas de configurar o Azure IoT Suite][lnk-demo-config].
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-solution](../../includes/iot-suite-v1-raspberry-pi-kit-view-solution.md)]
 
@@ -51,11 +51,11 @@ Neste tutorial, conclua os seguintes passos:
 
 ## <a name="download-and-configure-the-sample"></a>Transferir e configurar o exemplo
 
-Agora pode transferir e configurar a aplicação de cliente de monitorização remoto no seu Raspberry Pi.
+Agora pode transferir e configurar a aplicação de cliente de monitorização remota no seu Raspberry Pi.
 
-### <a name="clone-the-repositories"></a>Clonar repositórios do
+### <a name="clone-the-repositories"></a>Clonar os repositórios
 
-Se ainda não o fez, clone repositórios do necessários executando os seguintes comandos num terminal no seu Pi:
+Se ainda não o fez, clone os repositórios necessários ao executar os seguintes comandos num terminal no seu instalador de plataforma:
 
 ```sh
 cd ~
@@ -65,7 +65,7 @@ git clone --recursive https://github.com/WiringPi/WiringPi.git
 
 ### <a name="update-the-device-connection-string"></a>Atualizar a cadeia de ligação do dispositivo
 
-Abra o ficheiro de origem de exemplo no **nano** editor utilizando o seguinte comando:
+Abra o ficheiro de origem de exemplo na **nano** editor usando o seguinte comando:
 
 ```sh
 nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/remote_monitoring/remote_monitoring.c
@@ -78,11 +78,11 @@ static const char* deviceId = "[Device Id]";
 static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
 ```
 
-Substitua os valores de marcador de posição pelo dispositivo e informações de IoT Hub é criado e guardado no início deste tutorial. Guardar as alterações (**Ctrl-O**, **Enter**) e saia do editor (**Ctrl-X**).
+Substitua os valores de marcador de posição com os dispositivos e as informações do IoT Hub que criou e guardou no início deste tutorial. Guardar as alterações (**Ctrl-S**, **Enter**) e sair do editor (**Ctrl-X**).
 
-## <a name="build-the-sample"></a>Criar a amostra
+## <a name="build-the-sample"></a>Criar o exemplo
 
-Instale os pacotes de pré-requisitos para o SDK de dispositivos do IoT do Microsoft Azure para C, executando os comandos seguintes num terminal no Raspberry Pi:
+Instale os pacotes de pré-requisitos para o SDK de dispositivo do Microsoft Azure IoT para C, executando os seguintes comandos num terminal sobre o Raspberry Pi:
 
 ```sh
 sudo apt-get update
@@ -96,23 +96,23 @@ chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh
 ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/basic/build.sh
 ```
 
-Pode agora executar o programa de exemplo no Raspberry Pi. Introduza o comando:
+Agora, pode executar o programa de exemplo no Raspberry Pi. Introduza o comando:
 
 ```sh
 sudo ~/cmake/remote_monitoring/remote_monitoring
 ```
 
-A saída de exemplo seguinte é um exemplo de saída, consulte a linha de comandos no Raspberry Pi:
+A saída de exemplo seguinte é um exemplo da saída que vir no prompt de comando no Raspberry Pi:
 
-![Resultado da aplicação Raspberry Pi][img-raspberry-output]
+![Saída da aplicação de Raspberry Pi][img-raspberry-output]
 
 Prima **Ctrl-C** para sair do programa em qualquer altura.
 
 [!INCLUDE [iot-suite-v1-raspberry-pi-kit-view-telemetry](../../includes/iot-suite-v1-raspberry-pi-kit-view-telemetry.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Visite o [Dev Center do Azure IoT](https://azure.microsoft.com/develop/iot/) para obter mais exemplos e documentação no Azure IoT.
+Visite o [Centro de desenvolvimento do Azure IoT](https://azure.microsoft.com/develop/iot/) para obter mais exemplos e documentação sobre IoT do Azure.
 
 [img-raspberry-output]: ./media/iot-suite-v1-raspberry-pi-kit-c-get-started-basic/appoutput.png
 

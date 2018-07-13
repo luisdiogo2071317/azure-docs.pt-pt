@@ -11,11 +11,11 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29936582"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635463"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor do Jenkins numa VM do Linux do Azure a partir do portal do Azure
 
@@ -23,19 +23,19 @@ Este guia de introdução mostra como instalar o [Jenkins](https://jenkins.io) n
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure.
+* Uma subscrição do Azure
 * Acesso ao SSH na linha de comandos do seu computador (por exemplo, o Bash da shell ou [PuTTY](http://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Criar a VM do Jenkins a partir do modelo de solução
-Jenkins suporta um modelo de onde Jenkins delegados servidor funcionam para um ou mais agentes para permitir uma instalação de Jenkins único para alojar um grande número de projetos de ou para fornecer diferentes ambientes necessários para baseia-se ou os testes. Os passos nesta secção ajudá-lo a instalar e configurar um servidor de Jenkins no Azure.
+Jenkins suporta um modelo em que o Jenkins delegados de servidor funcionam para um ou mais agentes para permitir que uma única instalação do Jenkins para alojar um grande número de projetos ou para fornecer ambientes diferentes, necessários para baseia-se ou os testes. Os passos nesta secção ajudá-lo por meio de instalar e configurar um servidor do Jenkins no Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Ligar-se ao Jenkins
 
-Navegue para a máquina virtual (por exemplo, http://jenkins2517454.eastus.cloudapp.azure.com/) no seu browser. A consola do Jenkins não está acessível através de HTTP não seguro, pelo que são fornecidas instruções na página para aceder à consola do Jenkins em segurança a partir do seu computador com um túnel SSH.
+Navegue até à sua máquina virtual (por exemplo, http://jenkins2517454.eastus.cloudapp.azure.com/) no seu browser. A consola do Jenkins não está acessível através de HTTP não seguro, pelo que são fornecidas instruções na página para aceder à consola do Jenkins em segurança a partir do seu computador com um túnel SSH.
 
 ![Desbloquear o Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -45,7 +45,7 @@ Configure o túnel com o comando `ssh` na página da linha de comandos, substitu
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Depois de iniciar o túnel, aceda a http://localhost:8080/ no seu computador local. 
+Depois de iniciar o túnel, navegue para http://localhost:8080/ no seu computador local. 
 
 Obtenha a palavra-passe inicial ao executar o seguinte comando na linha de comandos, enquanto está ligado através de SSH à VM do Jenkins.
 

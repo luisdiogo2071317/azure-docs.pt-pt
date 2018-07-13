@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com um conjunto de dimensionamento de máquina virtual - Azure PowerShell | Microsoft Docs
-description: Saiba como criar um gateway de aplicação com um conjunto com o Azure PowerShell de dimensionamento de máquina virtual.
+title: Criar um gateway de aplicação com um conjunto de dimensionamento de máquinas virtuais - Azure PowerShell | Documentos da Microsoft
+description: Saiba como criar um gateway de aplicação com um conjunto de dimensionamento com o Azure PowerShell.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -11,32 +11,32 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
 ms.openlocfilehash: 1d3ae6c93463d06009ad8b1256b6ae3a29e277d2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356193"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602851"
 ---
-# <a name="create-an-application-gateway-and-virtual-machine-scale-set-using-azure-powershell"></a>Criar uma aplicação gateway e máquina virtual de conjunto de dimensionamento com o Azure PowerShell
+# <a name="create-an-application-gateway-and-virtual-machine-scale-set-using-azure-powershell"></a>Criar uma aplicação gateway e máquina virtual conjunto de dimensionamento com o Azure PowerShell
 
-Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](application-gateway-introduction.md) que utiliza um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao conjunto predefinido de back-end do gateway de aplicação.
+Pode utilizar o Azure PowerShell para criar uma [gateway de aplicação](application-gateway-introduction.md) que utiliza um [conjunto de dimensionamento de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Configure a rede
+> * Configurar a rede
 > * Criar um gateway de aplicação
-> * Criar um conjunto com o conjunto de back-end predefinido de dimensionamento de máquina virtual
+> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 3,6 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 3.6 ou posterior do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Criar um grupo de recursos do Azure utilizando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -44,7 +44,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Configure as sub-redes denominadas *myBackendSubnet* e *myAGSubnet* utilizando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Criar a rede virtual *myVNet* utilizando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) com as configurações de sub-rede. E por fim, crie o endereço IP público com o nome *myAGPublicIPAddress* utilizando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede para o gateway de aplicação e os respetivos recursos associados.
+Configure as sub-redes com os nomes *myBackendSubnet* e *myAGSubnet* com [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Crie a rede virtual *myVNet* com [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) com as configurações da sub-rede. Por fim, crie o endereço IP público denominado *myAGPublicIPAddress* com [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -68,9 +68,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e porta de front-end
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
-Associar *myAGSubnet* que criou anteriormente para o gateway de aplicação com [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Atribuir *myAGPublicIPAddress* para o gateway de aplicação com [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
+Utilize [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) para associar *myAGSubnet* que criou anteriormente ao gateway de aplicação. Utilize [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) para atribuir *myAGPublicIPAddress* ao gateway de aplicação.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -88,9 +88,9 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
   -Port 80
 ```
 
-### <a name="create-the-backend-pool-and-settings"></a>Criar o conjunto back-end e as definições
+### <a name="create-the-backend-pool-and-settings"></a>Criar o conjunto e as definições de back-end
 
-Criar o conjunto de back-end com o nome *appGatewayBackendPool* para o gateway de aplicação com [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configurar as definições para os conjuntos de endereços de back-end utilizando [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Crie o conjunto de back-end denominado *appGatewayBackendPool* para o gateway de aplicação, com [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Utilize [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) para configurar as definições dos conjuntos de endereços de back-end.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -103,11 +103,11 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-the-default-listener-and-rule"></a>Criar o serviço de escuta de predefinição e a regra
+### <a name="create-the-default-listener-and-rule"></a>Criar o serviço de escuta e a regra predefinidos
 
-Um serviço de escuta é obrigatório para ativar o gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste exemplo, pode criar um serviço de escuta básico que escuta o tráfego do URL de raiz. 
+É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste exemplo, vai criar um serviço de escuta básico que escuta o tráfego no URL de raiz. 
 
-Criar um serviço de escuta com o nome *mydefaultListener* utilizando [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) com a configuração de front-end e porta de front-end que criou anteriormente. Uma regra é necessária para o serviço de escuta saber que conjunto de back-end a utilizar para tráfego de entrada. Criar uma regra básica com o nome *rule1* utilizando [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+Crie um serviço de escuta denominado *mydefaultListener* com [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener), com a configuração e a porta de front-end que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica denominada *rule1* com [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzureRmApplicationGatewayHttpListener `
@@ -125,7 +125,7 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Agora que criou os recursos de suporte necessários, especifique os parâmetros para o gateway de aplicação com [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)e, em seguida, crie-o utilizando [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+Agora que criou os recursos de apoio necessários, especifique os parâmetros do gateway de aplicação com [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) e, em seguida, crie-o com [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -148,7 +148,7 @@ $appgw = New-AzureRmApplicationGateway `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, pode criar um conjunto para fornecer os servidores para o conjunto de back-end no gateway de aplicação de dimensionamento de máquina virtual. Atribuir a escala definida para o conjunto de back-end, quando configurar as definições de IP.
+Neste exemplo, vai criar um conjunto de dimensionamento de máquinas virtuais para fornecer servidores para o conjunto de back-end no gateway de aplicação. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -207,7 +207,7 @@ Update-AzureRmVmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
+## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
 Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
@@ -215,15 +215,15 @@ Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/ge
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![URL de base de teste no gateway de aplicação](./media/tutorial-create-vmss-powershell/tutorial-iistest.png)
+![Testar o URL base no gateway de aplicação](./media/tutorial-create-vmss-powershell/tutorial-iistest.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Configure a rede
+> * Configurar a rede
 > * Criar um gateway de aplicação
-> * Criar um conjunto com o conjunto de back-end predefinido de dimensionamento de máquina virtual
+> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Para saber mais sobre os gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

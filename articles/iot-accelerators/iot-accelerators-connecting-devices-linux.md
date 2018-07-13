@@ -1,6 +1,6 @@
 ---
-title: Aprovisionar dispositivos Linux para monitorização remota no C - do Azure | Microsoft Docs
-description: Descreve como ligar um dispositivo para o acelerador solução de monitorização remota, utilizando uma aplicação de escrita no C em execução no Linux.
+title: Aprovisionar dispositivos de Linux para monitorização remota em C - Azure | Documentos da Microsoft
+description: Descreve como ligar um dispositivo para o solution accelerator monitorização remota usando um aplicativo escrito em C em execução no Linux.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 5d7d6522dc663f13ce40cc638ba90ac4043d435c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626382"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611417"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ligar o seu dispositivo para o acelerador de solução de monitorização remota (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como ligar um dispositivo físico para o acelerador de solução de monitorização remota.
+Este tutorial mostra-lhe como ligar um dispositivo físico para o acelerador de solução de monitorização remota.
 
 ## <a name="create-a-c-client-project-on-linux"></a>Criar um projeto de cliente do C no Linux
 
-Tal como acontece com as aplicações mais incorporadas que são executadas em dispositivos restrita, o código de cliente para a aplicação de dispositivo é escrito nos C. Neste tutorial, tem de compilar a aplicação numa máquina com Ubuntu (Linux).
+Tal como acontece com aplicativos mais incorporados que são executadas em dispositivos restritos, o código de cliente para a aplicação de dispositivo é escrito em C. Neste tutorial, vai criar a aplicação num computador a executar o Ubuntu (Linux).
 
-Para concluir estes passos, precisa de um dispositivo com Ubuntu versão 15.04 ou posterior. Antes de continuar, instale os pacotes de pré-requisitos no seu dispositivo Ubuntu utilizando o seguinte comando:
+Para concluir estes passos, terá de um dispositivo com o Ubuntu versão 15.04 ou posterior. Antes de continuar, instale os pacotes de pré-requisitos no seu dispositivo de Ubuntu com o seguinte comando:
 
 ```sh
 sudo apt-get install cmake gcc g++
@@ -33,7 +33,7 @@ sudo apt-get install cmake gcc g++
 
 ### <a name="install-the-client-libraries-on-your-device"></a>Instalar as bibliotecas de cliente no seu dispositivo
 
-As bibliotecas de cliente do IoT Hub do Azure estão disponíveis como um pacote, pode instalar no seu dispositivo de Ubuntu utilizando o **apt get** comando. Conclua os seguintes passos para instalar o pacote que contém os ficheiros de biblioteca e cabeçalho de cliente de IoT Hub no seu computador Ubuntu:
+As bibliotecas de cliente do IoT Hub do Azure estão disponíveis como um pacote pode instalar no seu dispositivo de Ubuntu com o **apt-get** comando. Conclua os seguintes passos para instalar o pacote que contém os ficheiros de biblioteca e cabeçalho de cliente de IoT Hub no seu computador de Ubuntu:
 
 1. Numa shell, adicione o repositório de AzureIoT para o seu computador:
 
@@ -42,7 +42,7 @@ As bibliotecas de cliente do IoT Hub do Azure estão disponíveis como um pacote
     sudo apt-get update
     ```
 
-1. Instalar o pacote do azure-iot-sdk-c-dev
+1. Instalar o pacote de desenvolvimento do azure-iot-sdk-c
 
     ```sh
     sudo apt-get install -y azure-iot-sdk-c-dev
@@ -50,20 +50,20 @@ As bibliotecas de cliente do IoT Hub do Azure estão disponíveis como um pacote
 
 ### <a name="install-the-parson-json-parser"></a>Instalar o analisador de Parson JSON
 
-As bibliotecas de cliente do IoT Hub utilizam o analisador de Parson JSON para analisar payloads de mensagem. Numa pasta adequada no seu computador, clone o repositório do Parson GitHub utilizando o seguinte comando:
+As bibliotecas de cliente do IoT Hub utilizam o analisador de Parson JSON para analisar as transferências de mensagem. Numa pasta adequada no seu computador, clone o repositório de Parson GitHub utilizando o seguinte comando:
 
 ```sh
 git clone https://github.com/kgabis/parson.git
 ```
 
-### <a name="prepare-your-project"></a>Preparar o seu projeto
+### <a name="prepare-your-project"></a>Preparar o projeto
 
-No seu computador Ubuntu, crie uma pasta denominada `remote_monitoring`. No `remote_monitoring` pasta:
+No seu computador de Ubuntu, crie uma pasta chamada `remote_monitoring`. Na `remote_monitoring` pasta:
 
 - Criar os ficheiros de quatro `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, e `CMakeLists.txt`.
-- Criar uma pasta denominada `parson`.
+- Criar pasta chamada `parson`.
 
-Copie os ficheiros `parson.c` e `parson.h` da sua cópia local do repositório Parson para o `remote_monitoring/parson` pasta.
+Copie os ficheiros `parson.c` e `parson.h` da sua cópia local do repositório Parson no `remote_monitoring/parson` pasta.
 
 No editor de texto, abra o `remote_monitoring.c` ficheiro. Adicione as seguintes instruções `#include`:
 
@@ -103,11 +103,11 @@ int main(void)
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
-Os passos seguintes descrevem como utilizar *CMake* para criar a sua aplicação de cliente.
+Os passos seguintes descrevem como utilizar *CMake* para criar seu aplicativo de cliente.
 
-1. No editor de texto, abra o **CMakeLists.txt** ficheiros o `remote_monitoring` pasta.
+1. No editor de texto, abra a **CMakeLists.txt** de ficheiros a `remote_monitoring` pasta.
 
-1. Adicione as seguintes instruções para definir como criar a aplicação de cliente:
+1. Adicione as seguintes instruções para definir como criar a sua aplicação de cliente:
 
     ```cmake
     macro(compileAsC99)
@@ -156,7 +156,7 @@ Os passos seguintes descrevem como utilizar *CMake* para criar a sua aplicação
     )
     ```
 
-1. No `remote_monitoring` pasta, crie uma pasta para armazenar o *tornar* ficheiros CMake gera. Em seguida, execute o **cmake** e **tornar** comandos da seguinte forma:
+1. Na `remote_monitoring` pasta, crie uma pasta para armazenar o *certifique* ficheiros que gera de CMake. Em seguida, execute o **cmake** e **tornar** comandos da seguinte forma:
 
     ```sh
     mkdir cmake
@@ -165,7 +165,7 @@ Os passos seguintes descrevem como utilizar *CMake* para criar a sua aplicação
     make
     ```
 
-1. Executar a aplicação de cliente e enviar telemetria ao IoT Hub:
+1. Execute a aplicação de cliente e enviar telemetria ao IoT Hub:
 
     ```sh
     ./sample_app

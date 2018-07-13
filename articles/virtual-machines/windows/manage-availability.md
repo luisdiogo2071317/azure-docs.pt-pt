@@ -1,5 +1,5 @@
 ---
-title: Gerir a disponibilidade das VMs do Windows no Azure | Microsoft Docs
+title: Gerir a disponibilidade de VMs do Windows no Azure | Documentos da Microsoft
 description: Saiba como utilizar várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,20 +17,20 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7631205943efc827edd80d3a89ea68804d94153d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323190"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688135"
 ---
-# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerir a disponibilidade das virtual machines Windows no Azure 
+# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerir a disponibilidade das máquinas de virtuais do Windows no Azure 
 
-Saiba mais formas de configurar e gerir várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação do Windows no Azure. Também pode [gerir a disponibilidade das máquinas virtuais do Linux](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Conheça formas de configurar e gerir várias máquinas virtuais para garantir a elevada disponibilidade para a sua aplicação do Windows no Azure. Também pode [gerir a disponibilidade das máquinas virtuais do Linux](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para obter instruções sobre como criar e utilizar conjuntos de disponibilidade ao utilizar o modelo de implementação clássica, consulte [como configurar um conjunto de disponibilidade](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para obter instruções sobre como criar e utilizar conjuntos de disponibilidade, ao utilizar o modelo de implementação clássica, veja [como configurar um conjunto de disponibilidade](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre as máquinas virtuais de balanceamento de carga, consulte o artigo [balanceamento de carga de máquinas de virtuais](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para saber mais sobre as máquinas virtuais de balanceamento de carga, veja [máquinas de virtuais de balanceamento de carga](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

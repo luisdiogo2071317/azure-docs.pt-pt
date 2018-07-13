@@ -1,6 +1,6 @@
 ---
-title: Agendar tarefas IoT hub do Azure (Python) | Microsoft Docs
-description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilize os SDKs IoT do Azure para Python para implementar as aplicações de dispositivo simulada e uma aplicação de serviço para executar a tarefa.
+title: Agendar tarefas com o IoT Hub do Azure (Python) | Documentos da Microsoft
+description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilize os SDKs IoT do Azure para Python para implementar as aplicações de dispositivo simulado e uma aplicação de serviço para executar a tarefa.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -10,41 +10,41 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
 ms.openlocfilehash: 7cbfe289f662987d85f0f2678e4971492ed8cd80
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635173"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666959"
 ---
-# <a name="schedule-and-broadcast-jobs-python"></a>Tarefas de agendamento e de difusão (Python)
+# <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir tarefas (Python)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-IoT Hub do Azure é um serviço completamente gerido que permite uma aplicação de back-end criar e controlar as tarefas agendadas e atualizar milhões de dispositivos.  As tarefas podem ser utilizadas para as seguintes ações:
+O IoT Hub do Azure é um serviço totalmente gerido que permite uma aplicação de back-end criar e controlar tarefas que agendem e atualizar milhões de dispositivos.  Tarefas podem ser utilizadas para as seguintes ações:
 
 * Atualizar as propriedades pretendidas
 * Etiquetas de atualização
 * Invocar métodos diretos
 
-Concecionais, uma tarefa encapsula num wrapper uma destas ações e controla o progresso de execução face a um conjunto de dispositivos, que é definido por uma consulta do dispositivo duplo.  Por exemplo, uma aplicação de back-end pode utilizar uma tarefa para invocar um método de reinício 10 000 dispositivos, especificado por uma consulta do dispositivo duplo e agendadas num momento futuro.  Essa aplicação, em seguida, pode acompanhar o progresso como cada um desses dispositivos receber e executar o método de reinício.
+Conceitualmente, uma tarefa encapsula uma destas ações e controla o progresso de execução com um conjunto de dispositivos, que é definido por uma consulta do dispositivo duplo.  Por exemplo, uma aplicação de back-end pode utilizar uma tarefa para invocar um método de reinício em 10 000 dispositivos, especificado por uma consulta do dispositivo duplo e agendado num momento futuro.  Esse aplicativo, em seguida, pode controlar o progresso à medida que cada um desses dispositivos receber e executar o método de reinício.
 
 Saiba mais sobre cada uma destas capacidades nestes artigos:
 
-* Dispositivo duplo e propriedades: [começar a utilizar dispositivos duplos] [ lnk-get-started-twin] e [Tutorial: como utilizar as propriedades do dispositivo duplo][lnk-twin-props]
-* Direcionar métodos: [guia para programadores do IoT Hub - métodos diretas] [ lnk-dev-methods] e [Tutorial: direcionar métodos][lnk-c2d-methods]
+* Dispositivo duplo e propriedades: [introdução aos dispositivos duplos] [ lnk-get-started-twin] e [Tutorial: como utilizar propriedades dos dispositivos duplos][lnk-twin-props]
+* Métodos diretos: [Guia do programador do IoT Hub - métodos diretos] [ lnk-dev-methods] e [Tutorial: métodos diretos][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este tutorial mostrar-lhe como:
 
-* Criar uma aplicação de dispositivo simulado de Python que tem um método direto, o que lhe permite **lockDoor**, que pode ser chamada pelo solução de back-end.
-* Criar uma aplicação de consola de Python que chama o **lockDoor** método direto na aplicação do dispositivo simulado utilizando uma tarefa e atualizações as propriedades de pretendido utilizando uma tarefa de dispositivo.
+* Criar uma aplicação de dispositivo simulado de Python que possui um método direto, que permite **lockDoor**, que pode ser chamado pela solução de back-end.
+* Criar uma aplicação de consola Python que chama o **lockDoor** método direto na aplicação do dispositivo simulado utilizando uma tarefa e atualizações as propriedades pretendidas, usar um trabalho do dispositivo.
 
-No final deste tutorial, tem duas aplicações de Python:
+No final deste tutorial, tem duas aplicações Python:
 
-**simDevice.py**, que liga ao seu IoT hub com a identidade de dispositivo e recebe um **lockDoor** método direto.
+**simDevice.py**, que liga ao seu hub IoT com a identidade de dispositivo e recebe um **lockDoor** método direto.
 
-**scheduleJobService.py**, que chama um método direto na aplicação do dispositivo simulado e atualiza o dispositivo duplo pretendido propriedades utilizando uma tarefa.
+**scheduleJobService.py**, que chama um método direto na aplicação do dispositivo simulado e atualiza o dispositivo duplo pretendido propriedades usando uma tarefa.
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -53,7 +53,7 @@ Para concluir este tutorial, precisa do seguinte:
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 > [!NOTE]
-> O **Azure IoT SDK para Python** não suporta diretamente **tarefas** funcionalidade. Em vez disso, este tutorial oferece uma solução alternativa utilizar threads assíncronos e temporizadores. Para obter atualizações, consulte o **SDK de cliente do serviço** lista de funcionalidades no [Azure IoT SDK para Python](https://github.com/Azure/azure-iot-sdk-python) página. 
+> O **do Azure IoT SDK para Python** não suporta diretamente **tarefas** funcionalidade. Em vez disso, este tutorial oferece uma solução alternativa que threads assíncronas e temporizadores. Para obter mais atualizações, consulte a **SDK de cliente do serviço** lista de funcionalidades no [SDK do IoT do Azure para Python](https://github.com/Azure/azure-iot-sdk-python) página. 
 > 
 > 
 
@@ -63,17 +63,17 @@ Para concluir este tutorial, precisa do seguinte:
 
 
 ## <a name="create-a-simulated-device-app"></a>Criar uma aplicação de dispositivo simulada
-Nesta secção, vai criar uma aplicação de consola de Python que responde a um método direto chamado pela nuvem, o que aciona um simulada **lockDoor** método.
+Nesta secção, vai criar uma aplicação de consola Python que responde a um método direto chamado pela cloud, que dispara um simulado **lockDoor** método.
 
-1. Na sua linha de comandos, execute o seguinte comando para instalar o **azure-iot-dispositivo-cliente** pacote:
+1. Na sua linha de comandos, execute o seguinte comando para instalar o **azure-iot-device-client** pacote:
    
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. Com um editor de texto, crie um novo **simDevice.py** ficheiro no seu diretório de trabalho.
+1. Com um editor de texto, crie um novo **simDevice.py** ficheiro no diretório de trabalho.
 
-1. Adicione o seguinte `import` instruções e variáveis no início do **simDevice.py** ficheiro. Substitua `deviceConnectionString` com a cadeia de ligação do dispositivo que criou acima:
+1. Adicione as seguintes `import` afirmações e variáveis no início do **simDevice.py** ficheiro. Substitua `deviceConnectionString` com a cadeia de ligação do dispositivo que criou acima:
    
     ```python
     import time
@@ -91,7 +91,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que responde a um
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. Adicione a seguinte chamada de retorno de função para processar o **lockDoor** método:
+1. Adicionar o retorno de chamada de função seguinte para lidar com o **lockDoor** método:
    
     ```python
     def device_method_callback(method_name, payload, user_context):
@@ -104,7 +104,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que responde a um
             return device_method_return_value
     ```
 
-1. Adicione outra chamada de retorno de função para lidar com dispositivos duplos atualizações:
+1. Adicione outro retorno de chamada de função para lidar com atualizações de gémeos de dispositivo:
 
     ```python
     def device_twin_callback(update_state, payload, user_context):
@@ -113,7 +113,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que responde a um
         print ( "payload: %s" % payload )
     ```
 
-1. Adicione o seguinte código para registar o processador para o **lockDoor** método. Também incluir o `main` rotina:
+1. Adicione o seguinte código para registrar o manipulador para o **lockDoor** método. Também incluem o `main` rotina:
    
     ```python
     def iothub_jobs_sample_run():
@@ -154,18 +154,18 @@ Nesta secção, vai criar uma aplicação de consola de Python que responde a um
 > 
 
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar tarefas para chamar um método direto e atualizar as propriedades de um dispositivo duplo
-Nesta secção, vai criar uma aplicação de consola de Python que inicia um remoto **lockDoor** num dispositivo utilizando um método direto e atualizar as propriedades do dispositivo duplo.
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar tarefas para chamar um método direto e a atualizar as propriedades de um dispositivo duplo
+Nesta secção, vai criar uma aplicação de consola Python que inicia um remoto **lockDoor** num dispositivo através de um método direto e atualizar as propriedades do dispositivo duplo.
 
-1. Na sua linha de comandos, execute o seguinte comando para instalar o **azure-iot--o cliente do serviço** pacote:
+1. Na sua linha de comandos, execute o seguinte comando para instalar o **azure-iot-service-client** pacote:
    
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-1. Com um editor de texto, crie um novo **scheduleJobService.py** ficheiro no seu diretório de trabalho.
+1. Com um editor de texto, crie um novo **scheduleJobService.py** ficheiro no diretório de trabalho.
 
-1. Adicione o seguinte `import` instruções e variáveis no início do **scheduleJobService.py** ficheiro:
+1. Adicione as seguintes `import` afirmações e variáveis no início do **scheduleJobService.py** ficheiro:
    
     ```python
     import sys
@@ -187,7 +187,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que inicia um rem
     WAIT_COUNT = 5
     ```
 
-1. Adicione a seguinte função que é utilizada para consultar dispositivos:
+1. Adicione a seguinte função que é utilizada para consultar os dispositivos:
    
     ```python
     def query_condition(device_id):
@@ -204,7 +204,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que inicia um rem
         return 0
     ```
 
-1. Adicione os seguintes métodos para executar as tarefas que se chame o duplo direto de método e o dispositivo:
+1. Adicione os seguintes métodos para executar as tarefas que chamam o twin do dispositivo e o método direto:
    
     ```python
     def device_method_job(job_id, device_id, wait_time, execution_time):
@@ -234,7 +234,7 @@ Nesta secção, vai criar uma aplicação de consola de Python que inicia um rem
             print ( "Device twin updated." )
     ```
 
-1. Adicione o seguinte código para agendar tarefas e atualizar o estado da tarefa. Também incluir o `main` rotina:
+1. Adicione o seguinte código para agendar as tarefas e atualizar o estado da tarefa. Também incluem o `main` rotina:
    
     ```python
     def iothub_jobs_sample_run():
@@ -295,19 +295,19 @@ Nesta secção, vai criar uma aplicação de consola de Python que inicia um rem
 ## <a name="run-the-applications"></a>Executar as aplicações
 Pode agora executar as aplicações.
 
-1. Na linha de comandos no seu diretório de trabalho, execute o seguinte comando para começar a escutar o método direta de reinício:
+1. No prompt de comando no diretório de trabalho, execute o seguinte comando para começar a escutar o método direto de reinício:
    
     ```cmd/sh
     python simDevice.py
     ```
 
-1. Na linha de comandos outra no seu diretório de trabalho, execute o seguinte comando para acionar as tarefas para bloquear a porta e atualizar o duplo:
+1. Outra linha de comandos no diretório de trabalho, execute o seguinte comando para acionar as tarefas para a porta de bloqueio e atualizar o duplo:
    
     ```cmd/sh
     python scheduleJobService.py
     ```
 
-1. Consulte as respostas de dispositivo para o método direto e dispositivos duplos atualização na consola do.
+1. Verá as respostas de dispositivo para o método direto e dispositivos duplos de atualização na consola do.
 
     ![saída de dispositivo][1]
 
@@ -315,13 +315,13 @@ Pode agora executar as aplicações.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, uma tarefa que utilizou para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo duplo.
+Neste tutorial, utilizou uma tarefa para agendar um método direto a um dispositivo e a atualização das propriedades do dispositivo duplo.
 
-Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota através da atualização de firmware ondas eletromagnéticas, consulte:
+Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, consulte:
 
-[Tutorial: Como efetuar uma atualização de firmware][lnk-fwupdate]
+[Tutorial: Como fazer uma atualização de firmware][lnk-fwupdate]
 
-Para continuar a introdução ao IoT Hub, consulte [introdução ao Azure IoT Edge][lnk-iot-edge].
+Para continuar a introdução ao IoT Hub, veja [introdução ao Azure IoT Edge][lnk-iot-edge].
 
 [lnk-get-started-twin]: iot-hub-python-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

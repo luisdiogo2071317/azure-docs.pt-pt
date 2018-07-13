@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de acesso de aplicação de VM com Linux no Azure | Microsoft Docs
+title: Resolver problemas de acesso de aplicação de VM do Linux no Azure | Documentos da Microsoft
 description: Utilize estes passos de resolução de problemas detalhados para isolar problemas de estabelecer ligação a aplicações em execução em máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,11 +17,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 633259b64d3305d9764bba770f1ea9db1bcff6c3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719061"
 ---
-# <a name="troubleshoot-application-connectivity-issues-on-a-linux-virtual-machine-in-azure"></a>Resolver problemas de conectividade de aplicação numa máquina virtual com Linux no Azure
+# <a name="troubleshoot-application-connectivity-issues-on-a-linux-virtual-machine-in-azure"></a>Resolver problemas de conectividade de aplicações numa máquina virtual Linux no Azure
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 

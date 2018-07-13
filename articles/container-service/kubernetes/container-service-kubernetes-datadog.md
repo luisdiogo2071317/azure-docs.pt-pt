@@ -1,6 +1,6 @@
 ---
-title: Monitor do Azure Kubernetes cluster com Datadog
-description: Monitorização de Kubernetes cluster no serviço de contentor Azure utilizando Datadog
+title: Monitorizar o cluster de Kubernetes do Azure com o Datadog
+description: Monitorização de cluster do Kubernetes no Azure Container Service com o Datadog
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -10,21 +10,22 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629074"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Monitor de um cluster do serviço de contentor do Azure com DataDog
+# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Monitorizar um cluster do Azure Container Service com o DataDog
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Esta instrução parte do princípio de que tem [criado um cluster de Kubernetes utilizando o serviço de contentor do Azure](container-service-kubernetes-walkthrough.md).
+Este passo a passo pressupõe que tenha [criado um cluster de Kubernetes com o Azure Container Service](container-service-kubernetes-walkthrough.md).
 
-Também parte do princípio que tem o `az` cli do Azure e `kubectl` as ferramentas instaladas.
+Também parte do princípio que tem o `az` cli do Azure e `kubectl` ferramentas instaladas.
 
-Pode testar se tiver o `az` ferramenta instalada através da execução:
+Pode testar se tiver o `az` ferramenta instalada executando:
 
 ```console
 $ az --version
@@ -32,7 +33,7 @@ $ az --version
 
 Se não tiver o `az` ferramenta instalada, existem instruções [aqui](https://github.com/azure/azure-cli#installation).
 
-Pode testar se tiver o `kubectl` ferramenta instalada através da execução:
+Pode testar se tiver o `kubectl` ferramenta instalada executando:
 
 ```console
 $ kubectl version
@@ -45,15 +46,15 @@ $ az acs kubernetes install-cli
 ```
 
 ## <a name="datadog"></a>DataDog
-Datadog é um serviço de monitorização que recolhe dados de monitorização dos contentores num cluster do serviço de contentor do Azure. Datadog tem um Dashboard de integração do Docker onde pode ver métricas específicas dentro os contentores. Métricas recolhidas a partir dos contentores estão organizadas por da CPU, memória, rede e e/s. Datadog divide as métricas numa contentores e imagens.
+O Datadog é um serviço de monitoramento que recolhe dados de monitorização de seus contentores no seu cluster do Azure Container Service. O Datadog tem um Dashboard de integração de Docker onde pode ver métricas específicas dentro de seus contentores. As métricas reunidas a partir de seus contentores são organizadas por CPU, memória, rede e e/s. O Datadog divide as métricas em contentores e imagens.
 
-Terá primeiro de [criar uma conta](https://www.datadoghq.com/lpg/)
+Precisa primeiro [criar uma conta](https://www.datadoghq.com/lpg/)
 
 ## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Instalar o agente de Datadog com um DaemonSet
 DaemonSets são utilizados pelo Kubernetes para executar uma única instância de um contentor em cada anfitrião no cluster.
-Se estiver a perfeita para a execução de agentes de monitorização.
+Eles são perfeitos para a execução de agentes de monitorização.
 
-Depois de ter sessão Datadog, pode seguir o [Datadog instruções](https://app.datadoghq.com/account/settings#agent/kubernetes) para instalar agentes de Datadog no seu cluster utilizando um DaemonSet.
+Assim que tiver sessão iniciada para o Datadog, pode seguir a [Datadog instruções](https://app.datadoghq.com/account/settings#agent/kubernetes) para instalar agentes de Datadog em seu cluster com um DaemonSet.
 
 ## <a name="conclusion"></a>Conclusão
-Já está! Assim que os agentes estão em execução, deverá ver dados na consola dentro de alguns minutos. Pode visitar o integrada [kubernetes dashboard](https://app.datadoghq.com/screen/integration/kubernetes) para ver um resumo do cluster.
+Já está! Assim que os agentes estão em execução, verá dados na consola dentro de alguns minutos. Pode visitar o integrada [dashboard do kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) para ver um resumo do cluster.

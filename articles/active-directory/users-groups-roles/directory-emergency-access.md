@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 185f6730babe077332be9f054ba338ff48295eca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450022"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38595659"
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Gerir o acesso de emergência de contas administrativas no Azure AD 
 
@@ -82,6 +82,6 @@ Para treinar os membros da Equipe para utilizar as contas de acesso de emergênc
 - [Inscrever-se no Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), se ainda não tiver já.
 - [Exigir multi-factor Authentication para utilizadores individuais atribuídos como administradores](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 - [Configurar proteções adicionais para os administradores globais do Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), se estiver a utilizar o Office 365.
-- [Realizar uma revisão de acesso de administradores globais](../active-directory-privileged-identity-management-how-to-start-security-review.md) e [transição os administradores globais existentes para funções de administrador mais específicas](directory-assign-admin-roles.md).
+- [Realizar uma revisão de acesso de administradores globais](../privileged-identity-management/pim-how-to-start-security-review.md) e [transição os administradores globais existentes para funções de administrador mais específicas](directory-assign-admin-roles.md).
 
 

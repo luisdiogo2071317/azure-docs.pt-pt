@@ -1,6 +1,6 @@
 ---
-title: Instalar o MySQL numa VM OpenSUSE no Azure | Microsoft Docs
-description: Saiba como instalar o MySQL numa máquina OpenSUSE Linux VMirtual no Azure.
+title: Instalar o MySQL numa VM OpenSUSE no Azure | Documentos da Microsoft
+description: Aprenda a instalar o MySQL numa máquina VMirtual do OpenSUSE Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,30 +16,30 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: cynthn
 ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "28001179"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670935"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar o MySQL numa máquina virtual com o OpenSUSE Linux no Azure
 
-[MySQL](http://www.mysql.com) é uma base de dados do SQL Server popular, open source. Este tutorial mostra como criar uma máquina virtual com OpenSUSE Linux, em seguida, instalar o MySQL.
+[MySQL](http://www.mysql.com) é uma base de dados do SQL popular, código-fonte aberto. Este tutorial mostra-lhe como criar uma máquina virtual OpenSUSE Linux, em seguida, instalar o MySQL.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, terá da CLI do Azure versão 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Criar uma máquina virtual com OpenSUSE Linux
+## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Criar uma máquina virtual OpenSUSE Linux
 
-Em primeiro lugar, crie um grupo de recursos. Neste exemplo, vamos atribuir nomes o grupo de recursos *mySQSUSEResourceGroup* e -lo na criação do *EUA Leste* região.
+Primeiro, crie um grupo de recursos. Neste exemplo, podemos atribuir nomes ao grupo de recursos *mySQSUSEResourceGroup* e criá-la no *E.U.A. Leste* região.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Crie a VM. Neste exemplo, vamos atribuir nomes a VM *myVM*. Também iremos utilizar um tamanho VM *Standard_D2s_v3*, mas deve escolher a [tamanho da VM](sizes.md) pensa que mais adequada para a carga de trabalho.
+Crie a VM. Neste exemplo, podemos atribuir nomes a VM *myVM*. Também vamos utilizar um tamanho VM *Standard_D2s_v3*, mas deve escolher o [tamanho da VM](sizes.md) acha que é mais adequada para a sua carga de trabalho.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -49,7 +49,7 @@ az vm create --resource-group mySQLSUSEResourceGroup \
    --generate-ssh-keys
 ```
 
-Também terá de adicionar uma regra para o grupo de segurança de rede para permitir o tráfego através da porta 3306 MySQL.
+Também terá de adicionar uma regra para o grupo de segurança de rede para permitir o tráfego através da porta 3306 para MySQL.
 
 ```azurecli-interactive
 az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
@@ -57,7 +57,7 @@ az vm open-port --port 3306 --resource-group mySQLSUSEResourceGroup --name myVM
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
-Irá utilizar o SSH para ligar à VM. Neste exemplo, o endereço IP público da VM é *10.111.112.113*. Pode ver o endereço IP no resultado quando criou a VM.
+Irá utilizar o SSH para ligar à VM. Neste exemplo, é o endereço IP público da VM *10.111.112.113*. Pode ver o endereço IP na saída quando criou a VM.
 
 ```azurecli-interactive  
 ssh 10.111.112.113
@@ -66,13 +66,13 @@ ssh 10.111.112.113
  
 ## <a name="update-the-vm"></a>Atualize a VM
  
-Depois de se estiver ligado à VM, instale o sistema atualizações e correções de erros. 
+Quando estiver ligado à VM, instale as atualizações do sistema e patches. 
    
 ```bash
 sudo zypper update
 ```
 
-Siga as instruções para atualizar a VM.
+Siga as instruções para atualizar a sua VM.
 
 ## <a name="install-mysql"></a>Instalar MySQL 
 
@@ -83,7 +83,7 @@ Instale o MySQL na VM através de SSH. Responda a pedidos conforme apropriado.
 sudo zypper install mysql
 ```
  
-Definir o MySQL para iniciar quando efetua o arranque do sistema. 
+Definir o MySQL para iniciar quando o sistema for inicializado. 
 
 ```bash
 sudo systemctl enable mysql
@@ -97,9 +97,9 @@ systemctl is-enabled mysql
 Isto deverá devolver: ativado.
 
 
-## <a name="mysql-password"></a>Palavra-passe de MySQL
+## <a name="mysql-password"></a>Palavra-passe do MySQL
 
-Após a instalação, a palavra-passe de raiz do MySQL está vazia por predefinição. Execute o **mysql\_segura\_instalação** script para proteger o MySQL. O script pede-lhe para alterar a palavra-passe de raiz do MySQL, remova as contas de utilizador anónimo, desativar inícios de sessão remoto raiz, remover bases de dados de teste e recarregar a tabela de privilégios. 
+Após a instalação, a palavra-passe de raiz do MySQL é vazia por padrão. Executar o **mysql\_segura\_instalação** script para proteger o MySQL. O script pede-lhe para alterar a palavra-passe de raiz do MySQL, remova as contas de utilizador anónimo, desativar inícios de sessão remoto raiz, remover bases de dados de teste e recarregar a tabela de privilégios. 
 
 
 ```bash
@@ -108,20 +108,20 @@ mysql_secure_installation
 
 ## <a name="log-in-to-mysql"></a>Inicie sessão no MySQL
 
-Agora que pode iniciar sessão e introduza a linha de comandos da MySQL.
+Pode agora iniciar sessão e introduza a linha de comandos do MySQL.
 
 ```bash  
 mysql -u root -p
 ```
-Isto muda a linha de comandos da MySQL onde pode emitir instruções SQL para interagir com a base de dados.
+Esse procedimento alterna para a linha de comandos do MySQL em que pode emitir instruções SQL para interagir com a base de dados.
 
-Agora, crie um novo utilizador MySQL.
+Agora, crie um novo utilizador do MySQL.
 
 ```   
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
-A ponto e vírgula (;) no final da linha é fundamental para terminar o comando.
+A ponto e vírgula (;) no final da linha é crucial para terminar o comando.
 
 
 ## <a name="create-a-database"></a>Criar uma base de dados
@@ -134,15 +134,15 @@ CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
-Os nomes de utilizador de base de dados e as palavras-passe só são utilizadas pelos scripts ligar à base de dados.  Os nomes das contas de utilizador de base de dados não representa necessariamente contas de utilizador real no sistema.
+Os nomes de utilizador de base de dados e de palavras-passe só são utilizadas pelos scripts ligar à base de dados.  Os nomes de conta de utilizador de base de dados não representa necessariamente contas de utilizador reais no sistema.
 
-Ative início de sessão de outro computador. Neste exemplo, é o endereço IP do computador que queremos para iniciar sessão a partir *10.112.113.114*.
+Ative o início de sessão de outro computador. Neste exemplo, é o endereço IP do computador que queremos para iniciar sessão a partir *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    
-Para sair do utilitário de administração de base de dados MySQL, escreva:
+Para sair do utilitário de administração de banco de dados MySQL, escreva:
 
 ```    
 quit
@@ -150,7 +150,7 @@ quit
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter detalhes sobre o MySQL, consulte o [MySQL documentação](http://dev.mysql.com/doc/index-topic.html).
+Para obter detalhes sobre o MySQL, consulte a [MySQL documentação](http://dev.mysql.com/doc/index-topic.html).
 
 
 

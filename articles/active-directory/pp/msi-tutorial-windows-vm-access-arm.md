@@ -1,6 +1,6 @@
 ---
-title: Utilize um MSI de VM do Windows para aceder ao Gestor de recursos do Azure
-description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos do Azure.
+title: Utilizar um MSI de VM do Windows para aceder ao Azure Resource Manager
+description: Um tutorial que explica o processo de uso de um Windows VM Managed Service Identity (MSI) para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2816a19833f45a7e3a344e31f4131d23d9a8417a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a7960ab4aee80c7d15ea0f031790dd089424565d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29382564"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610262"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utilizar um Windows VM Managed Service Identity (MSI) para aceder a Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Este tutorial mostra como ativar a identidade de serviço geridas (MSI) para uma máquina virtual (VM) do Windows. Em seguida, pode utilizar essa identidade para aceder à API do Gestor de recursos do Azure. Identidades de serviço geridas são automaticamente geridas pelo Azure e permitem-lhe autenticar para serviços que suportam a autenticação do Azure AD sem necessidade de introduzir as credenciais para o seu código. Saiba como:
+Este tutorial mostra como ativar a identidade de serviço gerida (MSI) para uma máquina virtual de Windows (VM). Em seguida, pode utilizar essa identidade para aceder à API do Azure Resource Manager. Identidades de serviço geridas são geridas automaticamente pelo Azure e ativar a autenticação no serviços que suportam a autenticação do Azure AD sem a necessidade de inserir as credenciais no seu código. Saiba como:
 
 > [!div class="checklist"]
-> * Ativar MSI na VM do Windows 
-> * Conceder o acesso VM a um grupo de recursos no Gestor de recursos do Azure 
-> * Obter um token de acesso utilizando a identidade da VM e utilizá-la para chamar o Azure Resource Manager
+> * Ativar o MSI num VM do Windows 
+> * Conceder o acesso à sua VM a um grupo de recursos no Azure Resource Manager 
+> * Obter um token de acesso com a identidade da VM e utilizá-la para chamar o Azure Resource Manager
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,65 +39,65 @@ Este tutorial mostra como ativar a identidade de serviço geridas (MSI) para uma
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
-Para este tutorial, iremos criar uma nova VM do Windows.  Também pode ativar MSI numa VM existente.
+Para este tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o MSI numa VM existente.
 
-1.  Clique em **crie um recurso** no canto superior esquerdo do portal do Azure.
+1.  Clique em **criar um recurso** no canto superior esquerdo do portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3.  Introduza as informações da máquina virtual. O **Username** e **palavra-passe** criada aqui é as credenciais que utiliza para início de sessão para a máquina virtual.
-4.  Escolha o adequado **subscrição** para a máquina virtual na lista pendente.
-5.  Para selecionar um novo **grupo de recursos** na qual pretende criar a máquina virtual, escolha **criar novo**. Quando terminar, clique em **OK**.
+3.  Introduza as informações da máquina virtual. O **nome de utilizador** e **palavra-passe** criado, Eis aqui as credenciais que utiliza para início de sessão para a máquina virtual.
+4.  Selecione o elemento adequado **subscrição** para a máquina virtual na lista pendente.
+5.  Para selecionar um novo **grupo de recursos** no qual criar a sua máquina virtual, escolha **criar nova**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Na página Definições, mantenha as predefinições e clique em **OK**.
 
     ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM 
+## <a name="enable-msi-on-your-vm"></a>Ativar o MSI na sua VM 
 
-Um MSI da VM permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Ativar MSI diz ao Azure para criar uma identidade de gerido para a VM. Nos bastidores, permitir MSI duas coisas: instala a extensão da VM do MSI da VM e permite MSI no Gestor de recursos do Azure.
+Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Ativar o MSI informa o Azure para criar uma identidade gerida para a sua VM. Nos bastidores, ativar o MSI faz duas coisas: instala a extensão de VM de MSI na sua VM e permite a MSI no Azure Resource Manager.
 
 1.  Selecione o **Máquina Virtual** que pretende ativar o MSI em.  
-2.  Na barra de navegação esquerdo em **configuração**. 
-3.  Verá **identidade de serviço geridas**. Para registar e ativar o MSI, selecione **Sim**, se pretender desativá-la, escolha não. 
+2.  Na barra de navegação esquerdo, clique em **configuração**. 
+3.  Verá **identidade do serviço gerido**. Para registar e ativar o MSI, selecione **Sim**, se desejar para desabilitá-lo, selecione não. 
 4.  Certifique-se de que clica **guardar** para guardar a configuração.  
     ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Se pretende verificar e certifique-se as extensões na VM, clique em **extensões**. Se estiver ativado MSI, em seguida, **ManagedIdentityExtensionforWindows** irão aparecer na lista.
+5. Se desejar verificar e certifique-se de que extensões estão nesta VM, clique em **extensões**. Se estiver ativado MSI, em seguida, **ManagedIdentityExtensionforWindows** aparecerá na lista.
 
     ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Conceder o acesso VM a um grupo de recursos no Gestor de recursos
-Utilizar MSI código pode obter tokens de acesso para autenticar em recursos que suportam a autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Em primeiro lugar, é necessário conceder acesso de identidade desta VM a um recurso no Gestor de recursos, neste caso, o grupo de recursos no qual a VM está contida.  
+## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Conceder o acesso à sua VM a um grupo de recursos no Resource Manager
+Com o MSI seu código pode obter tokens de acesso para se autenticarem nos recursos que suportam a autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Em primeiro lugar, precisamos de conceder acesso de identidade desta VM a um recurso no Resource Manager, neste caso, o grupo de recursos no qual a VM está contida.  
 
 1.  Navegue até ao separador para **grupos de recursos**. 
-2.  Selecione o específicos **grupo de recursos** que criou para o seu **VM do Windows**. 
-3.  Aceda a **(IAM) do controlo de acesso** no painel esquerdo. 
-4.  Em seguida, **adicionar** uma nova atribuição de função para a sua **VM do Windows**.  Escolha **função** como **leitor**. 
-5.  Na seguinte lista pendente, **atribuir acesso** o recurso **Máquina Virtual**. 
-6.  Em seguida, certifique-se a subscrição correta está listada no **subscrição** pendente. E para **grupo de recursos**, selecione **todos os grupos de recursos**. 
-7.  Por fim, em **selecione** escolha sua VM do Windows na lista pendente e clique em **guardar**.
+2.  Selecione as específicas **grupo de recursos** que criou para o seu **Windows VM**. 
+3.  Aceda a **controlo de acesso (IAM)** no painel esquerdo. 
+4.  Em seguida, **Add** uma nova atribuição de função para sua **Windows VM**.  Escolher **função** como **leitor**. 
+5.  Na seguinte lista pendente, **atribuir acesso aos** o recursos **Máquina Virtual**. 
+6.  Em seguida, certifique-se a subscrição correta está listada na **subscrição** lista pendente. E para **grupo de recursos**, selecione **todos os grupos de recursos**. 
+7.  Por fim, no **selecionar** escolha a sua VM do Windows no menu pendente e clique **guardar**.
 
     ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso utilizando a identidade da VM e utilizá-la para chamar o Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso com a identidade da VM e utilizá-la para chamar o Azure Resource Manager 
 
-Terá de utilizar **PowerShell** nesta parte.  Se não tiver instalado, transfira- [aqui](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
+Precisará usar **PowerShell** nessa parte.  Se não tiver instalado, transfira- [aqui](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). 
 
-1.  No portal, navegue para **máquinas virtuais** e vá para a máquina virtual do Windows e no **descrição geral**, clique em **Connect**. 
-2.  Introduza o **Username** e **palavra-passe** para que adicionou ao criar a VM do Windows. 
-3.  Agora que já criou um **ligação ao ambiente de trabalho remoto** com a máquina virtual, abra **PowerShell** na sessão remota. 
-4.  Através Invoke-WebRequest do Powershell, efetue um pedido para o ponto final local de MSI para obter acesso token para o Azure Resource Manager.
+1.  No portal, navegue para **máquinas virtuais** e aceda à sua máquina virtual do Windows e na **descrição geral**, clique em **Connect**. 
+2.  Introduza no seu **nome de utilizador** e **palavra-passe** para que adicionou ao criar a VM do Windows. 
+3.  Agora que já criou um **conexão de área de trabalho remoto** com a máquina virtual, abra **PowerShell** na sessão remota. 
+4.  Através Invoke-WebRequest do Powershell, fazer um pedido para o ponto de final de MSI local para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > O valor do parâmetro "recursos" tem de ser uma correspondência exata para que é esperado pelo Azure AD. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra no final no URI.
+    > O valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure AD. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra no URI.
     
-    Em seguida, a extrair a resposta completa, que é armazenada como uma cadeia de JavaScript Object Notation (JSON) formatado no objeto $response. 
+    Em seguida, extrair a resposta completa, que é armazenada como uma cadeia de caracteres de JavaScript Object Notation (JSON) formatado no objeto $response. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
@@ -108,13 +108,13 @@ Terá de utilizar **PowerShell** nesta parte.  Se não tiver instalado, transfir
     $ArmToken = $content.access_token
     ```
     
-    Por fim, a chamada do Azure Resource Manager utilizando o token de acesso. Neste exemplo, estamos a utilizar também Invoke-WebRequest do PowerShell para efetuar a chamada para o Azure Resource Manager e incluir o token de acesso no cabeçalho de autorização.
+    Por fim, chame o Azure Resource Manager com o token de acesso. Neste exemplo, estamos também a utilizar Invoke-WebRequest do PowerShell para fazer a chamada para o Azure Resource Manager e incluem o token de acesso no cabeçalho de autorização.
     
     ```powershell
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
     ```
     > [!NOTE] 
-    > O URL é maiúsculas e minúsculas, por isso, certifique-se se estiver a utilizar as maiúsculas exata que utilizou anteriormente quando denominado o grupo de recursos e, em maiúsculas "G" em "resourceGroups."
+    > O URL diferencia maiúsculas de minúsculas, por isso, certifique-se se estiver a utilizar as maiúsculas ou minúsculas mesmo que tenha utilizado anteriormente quando com o nome do grupo de recursos e em maiúsculas "G" em "resourceGroups."
         
     O comando seguinte devolve os detalhes do grupo de recursos:
 
@@ -124,7 +124,7 @@ Terá de utilizar **PowerShell** nesta parte.  Se não tiver instalado, transfir
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-- Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](msi-overview.md).
+- Para uma descrição geral do MSI, consulte [descrição geral de identidade do serviço gerido](msi-overview.md).
 
-Utilize a seguinte secção de comentários para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.
+Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.
 

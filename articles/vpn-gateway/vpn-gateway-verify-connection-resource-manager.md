@@ -1,6 +1,6 @@
 ---
-title: Certifique-se de uma ligação do VPN Gateway | Microsoft Docs
-description: Este artigo mostra como verificar uma ligação do VPN Gateway de rede virtual.
+title: Certifique-se de uma ligação de Gateway de VPN | Documentos da Microsoft
+description: Este artigo mostra-lhe como verificar uma ligação de Gateway de VPN de rede virtual.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750202"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38706002"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Certifique-se de uma ligação de Gateway de VPN
 
-Este artigo mostra como verificar uma ligação de gateway VPN para clássica e modelos de implementação do Resource Manager.
+Este artigo mostra-lhe como verificar uma ligação de gateway VPN para modelos de implementação do Resource Manager e clássica.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -38,18 +38,18 @@ Para verificar uma ligação de gateway VPN para o modelo de implementação do 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para verificar uma ligação de gateway VPN para o modelo de implementação do Resource Manager utilizando a CLI do Azure, instale a versão mais recente do [comandos da CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 ou posterior).
+Para verificar uma ligação de gateway VPN para o modelo de implementação do Resource Manager com CLI do Azure, instale a versão mais recente do [comandos da CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 ou posterior).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 
-## <a name="azure-portal-classic"></a>Portal do Azure (clássica)
+## <a name="azure-portal-classic"></a>Portal do Azure (clássico)
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## <a name="powershell-classic"></a>PowerShell (clássico)
 
-Para verificar a ligação de gateway VPN para o modelo de implementação clássica com o PowerShell, instale as versões mais recentes dos cmdlets do PowerShell do Azure. Não se esqueça de transferir e instalar o [gestão de serviço](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) módulo. Utilize o Add-AzureAccount para iniciar sessão no modelo de implementação clássica.
+Para verificar a ligação de gateway VPN para o modelo de implementação clássica com o PowerShell, instale as versões mais recentes dos cmdlets do PowerShell do Azure. Certifique-se transferir e instalar o [gestão de serviço](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) módulo. Utilize o Add-AzureAccount para iniciar sessão no modelo de implementação clássica.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o serviço de correio eletrónico do SendGrid (Java) | Microsoft Docs
-description: Saiba como enviar correio eletrónico com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de código escrito em Java.
+title: Como utilizar o serviço de correio eletrónico do SendGrid (Java) | Documentos da Microsoft
+description: Saiba como enviar um e-mail com o serviço de correio eletrónico do SendGrid no Azure. Exemplos de códigos escritos em Java.
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -15,34 +15,34 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "34364904"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698675"
 ---
-# <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar E-mails utilizando a SendGrid de Java
-Este guia demonstra como efetuar tarefas de programação comuns com o serviço de correio eletrónico do SendGrid no Azure. Os exemplos são escritos em Java. Os cenários abrangidos incluem **construir e-mail**, **enviar correio eletrónico**, **adicionar anexos**, **utilizando filtros**e **atualizar propriedades**. Para obter mais informações sobre SendGrid e enviar correio eletrónico, consulte o [passos](#next-steps) secção.
+# <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar E-mails com o SendGrid de Java
+Este guia demonstra como realizar tarefas comuns de programação com o serviço de correio eletrónico do SendGrid no Azure. Os exemplos são escritos em Java. Os cenários abrangidos incluem **construir e-mail**, **enviar mensagem de e-mail**, **adicionar anexos**, **usando filtros de**e o **a atualizar as propriedades**. Para obter mais informações sobre o SendGrid e o envio de e-mail, consulte a [próximos passos](#next-steps) secção.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o serviço de correio eletrónico do SendGrid?
-SendGrid é um [serviço baseado na nuvem e-mail] que fornece fiável [entrega de correio eletrónico transacional], escalabilidade e a análise em tempo real, juntamente com APIs flexíveis que o facilitar a integração personalizados. Cenários comuns de utilização do SendGrid incluem:
+O SendGrid é um [serviço de e-mail com base na cloud] que fornece fiável [entrega de e-mail transacional], escalabilidade e análise em tempo real, juntamente com APIs flexíveis que facilitam a integração personalizada. Os cenários de utilização do SendGrid comuns incluem:
 
 * Enviar automaticamente os recibos aos clientes
-* Administrar distribuição lista para enviar aos clientes i-fliers mensais e ofertas especiais
-* Recolher métricas em tempo real para coisas como bloqueado por correio eletrónico e a capacidade de resposta do cliente
-* Gerar relatórios para ajudar a identificar tendências
-* Pedidos de cliente de reencaminhamento
-* Notificações de correio eletrónico da sua aplicação
+* Administrando a distribuição de lista para o envio de clientes e-Panfleto mensal e ofertas especiais
+* Recolher métricas em tempo real para coisas como email bloqueada e a capacidade de resposta do cliente
+* Geração de relatórios para ajudar a identificar tendências
+* Consultas de cliente de reencaminhamento
+* Notificações de e-mail da sua aplicação
 
 Para obter mais informações, consulte <http://sendgrid.com>.
 
-## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
+## <a name="create-a-sendgrid-account"></a>Criar uma conta de SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Como: utilizar as bibliotecas de javax.mail
-Obtenha as bibliotecas de javax.mail, por exemplo do <http://www.oracle.com/technetwork/java/javamail> e importe-as para o seu código. A um nível elevado, o processo para utilizar a biblioteca de javax.mail para enviar correio eletrónico através de SMTP é fazer o seguinte:
+Obter as bibliotecas de javax.mail, por exemplo a partir de <http://www.oracle.com/technetwork/java/javamail> e importá-los para o seu código. Num alto nível, o processo para utilizar a biblioteca de javax.mail para enviar e-mail através de SMTP é fazer o seguinte:
 
-1. Especifique os valores de SMTP, incluindo o servidor SMTP, que para SendGrid smtp.sendgrid.net.
+1. Especifique os valores de SMTP, incluindo o servidor de SMTP, que, para o SendGrid, é smtp.sendgrid.net.
 
 ```
         import java.util.Properties;
@@ -69,7 +69,7 @@ Obtenha as bibliotecas de javax.mail, por exemplo do <http://www.oracle.com/tech
                  // …
 ```
 
-1. Expandir o *javax.mail.Authenticator* classe e na sua implementação do *getPasswordAuthentication* método, devolver o nome de utilizador do SendGrid e a palavra-passe.  
+1. Expandir a *javax.mail.Authenticator* classe e em sua implementação da *getPasswordAuthentication* método, retornar o nome de utilizador do SendGrid e a palavra-passe.  
 
        private class SMTPAuthenticator extends javax.mail.Authenticator {
        public PasswordAuthentication getPasswordAuthentication() {
@@ -77,15 +77,15 @@ Obtenha as bibliotecas de javax.mail, por exemplo do <http://www.oracle.com/tech
           String password = SMTP_AUTH_PWD;
           return new PasswordAuthentication(username, password);
        }
-2. Criar uma sessão de e-mail autenticado através de um *javax.mail.Session* objeto.  
+2. Criar uma sessão de e-mail autenticado por meio de um *javax.mail.Session* objeto.  
 
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. Crie a sua mensagem e atribuir **para**, **de**, **requerente** e valores de conteúdo. Isto é apresentado no [como: criar uma mensagem de E-Mail](#how-to-create-an-email) secção.
-4. Enviar a mensagem através de um *javax.mail.Transport* objeto. Isto é apresentado na [como: enviar um E-Mail] [#how-to-enviar-um-secção correio eletrónico].
+3. Crie a sua mensagem e atribua **para**, **partir**, **assunto** e valores de conteúdo. Isso é mostrado na [como: criar uma mensagem de E-Mail](#how-to-create-an-email) secção.
+4. Enviar a mensagem por meio de um *javax.mail.Transport* objeto. Isso é mostrado no [como: enviar um E-Mail] [# procedimentos-to-send-um-secção correio eletrónico].
 
 ## <a name="how-to-create-an-email"></a>Como: criar uma mensagem de e-mail
-O seguinte mostra como especificar valores para uma mensagem de e-mail.
+O código a seguir mostra como especificar valores para uma mensagem de e-mail.
 
     MimeMessage message = new MimeMessage(mailSession);
     Multipart multipart = new MimeMultipart("alternative");
@@ -105,8 +105,8 @@ O seguinte mostra como especificar valores para uma mensagem de e-mail.
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="how-to-send-an-email"></a>Como: enviar uma mensagem de e-mail
-O seguinte mostra como enviar uma mensagem de e-mail.
+## <a name="how-to-send-an-email"></a>Como: enviar um e-mail
+O código a seguir mostra como enviar uma mensagem de e-mail.
 
     Transport transport = mailSession.getTransport();
     // Connect the transport object.
@@ -131,10 +131,10 @@ O código seguinte mostra como adicionar um anexo.
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: utilizar filtros para ativar rodapés de página, controlo e análise
-SendGrid fornece funcionalidades de e-mail adicionais através da utilização de *filtros*. Estas são as definições que podem ser adicionadas a uma mensagem de e-mail para ativar a funcionalidade específica, como ativar o controlo de clique, do Google analytics, subscrição de controlo e assim sucessivamente. Para obter uma lista completa de filtros, consulte [definições de filtro][Filter Settings].
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: utilizar filtros para ativar rodapés, rastreamento e análise
+O SendGrid disponibiliza a funcionalidade de e-mail adicionais através da utilização de *filtros*. Estas são as definições que podem ser adicionadas a uma mensagem de e-mail para ativar a funcionalidade específica, como ativar o controlo de cliques em, do Google analytics, subscrição de controlo e assim por diante. Para obter uma lista completa de filtros de mensagens em fila, consulte [definições de filtro][Filter Settings].
 
-* O seguinte mostra como inserir um filtro de rodapé resulta na apresentação na parte inferior da mensagem de e-mail a enviar de texto HTML.
+* O código a seguir mostra como inserir um filtro de rodapé que resulta em texto HTML que aparece na parte inferior da mensagem de e-mail a ser enviado.
 
       message.addHeader("X-SMTPAPI",
           "{\"filters\":
@@ -142,7 +142,7 @@ SendGrid fornece funcionalidades de e-mail adicionais através da utilização d
           {\"settings\":
           {\"enable\":1,\"text/html\":
           \"<html><b>Thank you</b> for your business.</html>\"}}}}");
-* Outro exemplo de um filtro é clique controlo. Digamos que o texto de e-mail contém uma hiperligação, tais como o seguinte, e pretende controlar a taxa de clique:
+* Outro exemplo de um filtro é clique controlo. Vamos supor que o texto do e-mail contém uma hiperligação, como a seguir, e pretende acompanhar a taxa de clique:
 
       messagePart.setContent(
           "Hello,
@@ -150,7 +150,7 @@ SendGrid fornece funcionalidades de e-mail adicionais através da utilização d
           <a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
           Thank you.",
           "text/html");
-* Para ativar o controlo, clique em, utilize o seguinte código:
+* Para ativar o controlo de cliques em, utilize o seguinte código:
 
       message.addHeader("X-SMTPAPI",
           "{\"filters\":
@@ -158,8 +158,8 @@ SendGrid fornece funcionalidades de e-mail adicionais através da utilização d
           {\"settings\":
           {\"enable\":1}}}}");
 
-## <a name="how-to-update-email-properties"></a>Como: propriedades de correio eletrónico de atualização
-Algumas propriedades de correio eletrónico podem ser substituídas utilizando **definir a propriedade** ou estar anexados utilizando **Adicionar propriedade**.
+## <a name="how-to-update-email-properties"></a>Como: propriedades de e-mail de atualização
+Algumas propriedades de e-mail podem ser substituídas pelos **definir a propriedade** ou acrescentados com **Adicionar propriedade**.
 
 Por exemplo, para especificar **ReplyTo** endereços, utilize o seguinte:
 
@@ -174,16 +174,16 @@ Para adicionar um **Cc** destinatário, utilize o seguinte:
     message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Como: utilizar os serviços do SendGrid adicionais
-SendGrid oferece APIs baseadas na web que pode utilizar para tirar partido das funcionalidades adicionais do SendGrid da sua aplicação do Azure. Para mais informações, consulte o [documentação da API do SendGrid][SendGrid API documentation].
+## <a name="how-to-use-additional-sendgrid-services"></a>Como: utilizar os serviços adicionais do SendGrid
+O SendGrid oferece as APIs baseadas na web que pode utilizar para tirar partido das funcionalidades adicionais do SendGrid desde a sua aplicação do Azure. Para mais informações, consulte a [documentação da API de SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas do serviço de E-Mail do SendGrid, siga estas ligações para saber mais.
+Agora que aprendeu as noções básicas do serviço de correio eletrónico SendGrid, siga estas ligações para saber mais.
 
-* Amostra que demonstra utilizando SendGrid numa implementação do Azure: [como enviar e-mails utilizando SendGrid de Java numa implementação do Azure](store-sendgrid-java-how-to-send-email-example.md)
-* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
-* Documentação da API do SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
-* Oferta especial de SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
+* Exemplo que demonstra como utilizar o SendGrid numa implementação do Azure: [como enviar e-mails com o SendGrid de Java numa implementação do Azure](store-sendgrid-java-how-to-send-email-example.md)
+* SDK de Java do SendGrid: <https://sendgrid.com/docs/Code_Examples/java.html>
+* Documentação da API de SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
+* O SendGrid oferta especial para os clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
 [http://sendgrid.com]: https://sendgrid.com
 [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
@@ -193,5 +193,5 @@ Agora que aprendeu as noções básicas do serviço de E-Mail do SendGrid, siga 
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-[serviço baseado na nuvem e-mail]: https://sendgrid.com/email-solutions
-[entrega de correio eletrónico transacional]: https://sendgrid.com/transactional-email
+[serviço de e-mail com base na cloud]: https://sendgrid.com/email-solutions
+[entrega de e-mail transacional]: https://sendgrid.com/transactional-email

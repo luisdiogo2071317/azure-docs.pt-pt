@@ -1,6 +1,6 @@
 ---
-title: Gerir contas de programador, utilizar grupos na API Management do Azure | Microsoft Docs
-description: Saiba como gerir contas de programador, utilizar grupos na API Management do Azure
+title: Gerir contas de programador utilizar grupos na gestão de API do Azure | Documentos da Microsoft
+description: Saiba como gerir contas de programador através de grupos na gestão de API do Azure
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151064"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603069"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Como criar e utilizar grupos para gerir contas de programador na API Management do Azure
-Na API Management, os grupos são utilizados para gerir a visibilidade dos produtos para os programadores. Produtos primeiro ficam visíveis para os grupos, e, em seguida, os programadores esses grupos podem ver e subscrever os produtos que estão associados os grupos. 
+Na API Management, os grupos são utilizados para gerir a visibilidade dos produtos para os programadores. Produtos primeiro ficam visíveis para os grupos e, em seguida, os desenvolvedores desses grupos podem ver e subscrever os produtos que estão associados aos grupos. 
 
 A Gestão de API tem os seguintes grupos de sistema imutáveis:
 
@@ -29,15 +29,15 @@ A Gestão de API tem os seguintes grupos de sistema imutáveis:
 * **Programadores** – os utilizadores autenticados do portal do programador enquadram-se neste grupo. Os programadores são os clientes que criam aplicações utilizando as suas APIs. Os programadores têm acesso ao portal do programador e criam aplicações que chamam as operações de uma API
 * **Convidados** – os utilizadores não autenticados do portal do programador, tais como potenciais clientes que visitam o portal do programador de uma instância de API Management, enquadram-se neste grupo. Estes podem ter determinados acessos só de leitura, como a capacidade de ver APIs mas não de as chamar.
 
-Para além destes grupos de sistema, os administradores podem criar grupos personalizados ou [tirar partido de grupos externos em inquilinos do Azure Active Directory associados][leverage external groups in associated Azure Active Directory tenants]. É possível utilizar grupos personalizados e externos em conjunto com grupos de sistema para dar aos programadores acesso e visibilidade a produtos de API. Por exemplo, pode criar um grupo personalizado para os programadores associados a uma organização parceira específica e permitir-lhes o acesso às APIs a partir de um produto que contém apenas APIs relevantes. Um utilizador pode ser membro de mais do que um grupo.
+Para além destes grupos de sistema, os administradores podem criar grupos personalizados ou [tiram partido dos grupos externos em inquilinos do Azure Active Directory associados][leverage external groups in associated Azure Active Directory tenants]. É possível utilizar grupos personalizados e externos em conjunto com grupos de sistema para dar aos programadores acesso e visibilidade a produtos de API. Por exemplo, pode criar um grupo personalizado para os programadores associados a uma organização parceira específica e permitir-lhes o acesso às APIs a partir de um produto que contém apenas APIs relevantes. Um utilizador pode ser membro de mais do que um grupo.
 
-Este guia mostra como os administradores de uma instância de API Management podem adicionar novos grupos e associá-las com produtos e os programadores.
+Este guia mostra como os administradores de uma instância de gestão de API podem adicionar novos grupos e associá-las com os produtos e desenvolvedores.
 
-Além de criar e gerir grupos no portal do publicador, pode criar e gerir os grupos utilizando a API de REST de gestão de API [grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entidade.
+Além de criar e gerir grupos no portal do publicador, pode criar e gerir os seus grupos com a API de REST de gestão de API [grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir tarefas neste artigo: [criar uma instância de API Management do Azure](get-started-create-service-instance.md).
+Concluir tarefas neste artigo: [criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -52,34 +52,34 @@ Esta secção mostra como adicionar um novo grupo à sua conta de gestão de API
 
     ![Adicionar um novo grupo](./media/api-management-howto-create-groups/groups001.png)
 
-Quando o grupo for criado, é adicionado ao **grupos** lista. <br/>Para editar o **nome** ou **Descrição** do grupo, clique no nome do grupo e **definições**.<br/>Para eliminar o grupo, clique no nome do grupo e prima **eliminar**.
+Assim que o grupo for criado, é adicionado para o **grupos** lista. <br/>Para editar a **Name** ou **Descrição** do grupo, clique no nome do grupo e **definições**.<br/>Para eliminar o grupo, clique no nome do grupo e prima **eliminar**.
 
-Agora que o grupo for criado, pode ser associado com produtos e os programadores.
+Agora que o grupo é criado, ele pode ser associado com produtos e desenvolvedores.
 
-## <a name="associate-group-product"> </a>Associar um grupo com um produto
+## <a name="associate-group-product"> </a>Associar um grupo de um produto
 
 1. Selecione o **produtos** separador à esquerda.
-2. Clique no nome do produto pretendido.
+2. Clique no nome do produto desejado.
 3. Prima **controlo de acesso**.
 4. Clique em **+ adicionar grupo**.
 
-    ![Associar um grupo com um produto](./media/api-management-howto-create-groups/groups002.png)
+    ![Associar um grupo de um produto](./media/api-management-howto-create-groups/groups002.png)
 5. Selecione o grupo que pretende adicionar.
 
-    ![Associar um grupo com um produto](./media/api-management-howto-create-groups/groups003.png)
+    ![Associar um grupo de um produto](./media/api-management-howto-create-groups/groups003.png)
 
-    Para remover um grupo do produto, clique em **eliminar**.
+    Para remover um grupo de produto, clique em **eliminar**.
 
     ![Eliminar um grupo](./media/api-management-howto-create-groups/groups004.png)
 
-Depois de um produto é associado um grupo, os programadores nesse grupo podem ver e subscrever o produto.
+Assim que um produto estiver associado um grupo, os desenvolvedores nesse grupo podem ver e subscrever o produto.
 
 > [!NOTE]
-> Para adicionar grupos do Active Directory do Azure, consulte [como autorizar contas de programador na API Management do Azure utilizando o Azure Active Directory](api-management-howto-aad.md).
+> Para adicionar grupos do Active Directory do Azure, veja [como autorizar contas de programador através do Azure Active Directory na gestão de API do Azure](api-management-howto-aad.md).
 
 ## <a name="associate-group-developer"> </a>Associar grupos a programadores
 
-Esta secção mostra como associar grupos membros.
+Esta secção mostra como associar grupos a membros.
 
 1. Selecione o **grupos** separador à esquerda do ecrã.
 2. Selecione **membros**.
@@ -90,12 +90,12 @@ Esta secção mostra como associar grupos membros.
     ![Adicionar um membro](./media/api-management-howto-create-groups/groups006.png)
 4. Prima **selecione**.
 
-Assim que é adicionada a associação entre o programador e o grupo, pode vê-la no **utilizadores** separador.
+Assim que a associação é adicionada entre o desenvolvedor e o grupo, pode vê-la na **utilizadores** separador.
 
 ## <a name="next-steps"> </a>Passos seguintes
 
-* Assim que um programador é adicionado a um grupo, pode ver e subscrever os produtos associados a esse grupo. Para obter mais informações, consulte [como criar e publicar um produto na API Management do Azure][How create and publish a product in Azure API Management],
-* Além de criar e gerir grupos no portal do publicador, pode criar e gerir os grupos utilizando a API de REST de gestão de API [grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entidade.
+* Assim que um desenvolvedor é adicionado a um grupo, pode ver e subscrever os produtos associados a esse grupo. Para obter mais informações, consulte [como criar e publicar um produto na gestão de API do Azure][How create and publish a product in Azure API Management],
+* Além de criar e gerir grupos no portal do publicador, pode criar e gerir os seus grupos com a API de REST de gestão de API [grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entidade.
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product

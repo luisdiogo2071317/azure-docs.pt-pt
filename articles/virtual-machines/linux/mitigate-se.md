@@ -1,6 +1,6 @@
 ---
-title: Orientações para mitigar speculative execução no Azure | Microsoft Docs
-description: Orientações para mitigar vulnerabilidades de canal de lado de execução speculative no Azure.
+title: Documentação de orientação para mitigar a execução especulativa no Azure | Documentos da Microsoft
+description: Documentação de orientação para atenuar vulnerabilidades side-channel de execução especulativa no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: cynthn
 ms.openlocfilehash: 3f5c9bb5bc8e2e766943155ee2657f7b9564e583
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653013"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704509"
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Orientações para mitigar vulnerabilidades de canal de lado de execução speculative no Azure
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Documentação de orientação para mitigar vulnerabilidades side-channel de execução especulativa no Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]

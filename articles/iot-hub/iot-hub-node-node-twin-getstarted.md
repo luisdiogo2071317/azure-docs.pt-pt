@@ -1,6 +1,6 @@
 ---
-title: Introdução ao duplos de dispositivos do IoT Hub do Azure (nó) | Microsoft Docs
-description: Como utilizar dispositivos duplos do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilize os SDKs IoT do Azure para Node.js para implementar a aplicação de dispositivo simulada e uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub.
+title: Introdução aos duplos de dispositivo do IoT Hub do Azure (Node) | Documentos da Microsoft
+description: Como utilizar o gémeos de dispositivo do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilize os SDKs IoT do Azure para node. js para implementar a aplicação de dispositivo simulado e uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
 ms.openlocfilehash: dbb28d7df104887a4056489e9f693ce28ec406df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635105"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619391"
 ---
-# <a name="get-started-with-device-twins-node"></a>Começar a utilizar dispositivos duplos (nó)
+# <a name="get-started-with-device-twins-node"></a>Começar a utilizar dispositivos duplos (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-No final deste tutorial, terá de duas aplicações de consola do Node.js:
+No final deste tutorial, terá duas aplicações de consola node. js:
 
-* **AddTagsAndQuery.js**, uma aplicação de back-end Node.js, que adiciona as etiquetas e a consulta dispositivos duplos.
-* **TwinSimulatedDevice.js**, uma aplicação de Node.js que simula um dispositivo que liga ao seu IoT hub com a identidade de dispositivo que criou anteriormente e reporta a condição de conectividade.
+* **AddTagsAndQuery.js**, uma aplicação de back-end de node. js, que adiciona as etiquetas e consultas de gémeos de dispositivo.
+* **TwinSimulatedDevice.js**, uma aplicação de node. js, que simula um dispositivo que liga ao seu hub IoT com a identidade de dispositivo que criou anteriormente e reporta sua condição de conectividade.
 
 > [!NOTE]
-> O artigo [SDKs IoT do Azure] [ lnk-hub-sdks] fornece informações sobre os SDKs IoT do Azure que pode utilizar para criar aplicações de dispositivo e o back-end.
+> O artigo [SDKs do Azure IoT] [ lnk-hub-sdks] fornece informações sobre os SDKs IoT do Azure que pode utilizar para criar aplicações de dispositivos e back-end.
 > 
 > 
 
-Para concluir este tutorial precisa do seguinte:
+Para concluir este tutorial, precisa do seguinte:
 
 * Versão 4.0.x ou posterior do Node.js.
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
@@ -39,20 +39,20 @@ Para concluir este tutorial precisa do seguinte:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
-Nesta secção, criar uma aplicação de consola do Node.js que adiciona os metadados de localização para o dispositivo duplo associado **myDeviceId**. Esta consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados nos EUA e, em seguida, aqueles que estão a denunciar uma ligação de rede móvel.
+Nesta secção, vai criar uma aplicação de consola node. js que adiciona os metadados de localização para o dispositivo duplo associado **myDeviceId**. Ele consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados nos Estados Unidos e, em seguida, aqueles que estiverem a comunicar uma conexão por celular.
 
-1. Criar uma nova pasta vazia designada **addtagsandqueryapp**. No **addtagsandqueryapp** pasta, crie um novo ficheiro Package. JSON utilizando o seguinte comando na sua linha de comandos. Aceite todas as predefinições:
+1. Criar uma nova pasta vazia designada **addtagsandqueryapp**. Na **addtagsandqueryapp** pasta, crie um novo ficheiro Package. JSON com o seguinte comando na sua linha de comandos. Aceite todas as predefinições:
    
     ```
     npm init
     ```
-2. Na sua linha de comandos a **addtagsandqueryapp** pasta, execute o seguinte comando para instalar o **azure iothub** pacote:
+2. Sua linha de comandos do **addtagsandqueryapp** pasta, execute o seguinte comando para instalar o **do azure-iothub** pacote:
    
     ```
     npm install azure-iothub --save
     ```
-3. Com um editor de texto, crie um novo **AddTagsAndQuery.js** ficheiros o **addtagsandqueryapp** pasta.
-4. Adicione o seguinte código para o **AddTagsAndQuery.js** de ficheiros e substitua o **{cadeia de ligação do hub iot}** marcador de posição pela cadeia de ligação do IoT Hub que copiou quando criou o seu hub:
+3. Com um editor de texto, crie um novo **AddTagsAndQuery.js** de ficheiros a **addtagsandqueryapp** pasta.
+4. Adicione o seguinte código para o **AddTagsAndQuery.js** do ficheiro e substitua o **{cadeia de ligação do hub iot}** marcador de posição pela cadeia de ligação do IoT Hub que copiou quando criou o seu hub:
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -83,10 +83,10 @@ Nesta secção, criar uma aplicação de consola do Node.js que adiciona os meta
             }
         });
    
-    O **registo** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do serviço. O código anterior primeiro inicializa a **registo** objeto, em seguida, obtém o dispositivo duplo para **myDeviceId**e, finalmente, atualiza as etiquetas com as informações de localização pretendida.
+    O **Registro** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do serviço. O código anterior primeiro inicializa a **Registro** de objeto, em seguida, obtém o dispositivo duplo para **myDeviceId**e finalmente atualiza as marcas com as informações de localização pretendida.
    
-    Depois de atualizar os sinalizadores chama o **queryTwins** função.
-5. Adicione o seguinte código no final do **AddTagsAndQuery.js** para implementar o **queryTwins** função:
+    Depois de atualizar as etiquetas chama o **queryTwins** função.
+5. Adicione o seguinte código no final da **AddTagsAndQuery.js** para implementar a **queryTwins** função:
    
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
@@ -108,35 +108,35 @@ Nesta secção, criar uma aplicação de consola do Node.js que adiciona os meta
             });
         };
    
-    O código anterior executa duas consultas: o primeiro seleciona apenas os dispositivos duplos de dispositivos localizados no **Redmond43** Jacinto e o segundo refines a consulta para selecionar apenas os dispositivos que também estão ligados através da rede celular.
+    O código anterior executa duas consultas: o primeiro seleciona apenas os dispositivos duplos de dispositivos localizados no **Redmond43** plant e o segundo Refina a consulta para selecionar apenas os dispositivos que também estão ligados através de rede celular.
    
-    O código anterior, quando cria o **consulta** objeto, especifica um número máximo de documentos devolvidos. O **consulta** objeto contém uma **hasMoreResults** booleana propriedade que pode utilizar para invocar a **nextAsTwin** métodos múltiplas vezes para obter todos os resultados. Um método chamado **seguinte** está disponível para os resultados que são não dispositivos duplos, por exemplo, os resultados de consultas de agregação.
+    O código anterior, quando cria o **consulta** de objeto, especifica um número máximo de documentos devolvidos. O **consulta** objeto contém um **hasMoreResults** propriedade booleana que pode usar para invocar o **nextAsTwin** métodos múltiplas vezes para obter todos os resultados. Um método chamado **seguinte** está disponível para os resultados que são não dispositivos duplos, por exemplo, os resultados de consultas de agregação.
 6. Execute a aplicação com:
    
         node AddTagsAndQuery.js
    
-    Deverá ver um dispositivo nos resultados para pedir a consulta para todos os dispositivos localizados no **Redmond43** e nenhum para a consulta que restringe os resultados para dispositivos que utilizam uma rede celular.
+    Deverá ver um dispositivo nos resultados para fazer a consulta para todos os dispositivos localizados num **Redmond43** e nenhuma durante a consulta que restringe os resultados para os dispositivos que utilizam uma rede celular.
    
     ![][1]
 
-Na secção seguinte, criar uma aplicação de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na secção anterior.
+A secção seguinte, vai criar uma aplicação de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na secção anterior.
 
 ## <a name="create-the-device-app"></a>Criar a aplicação de dispositivo
-Nesta secção, pode cria uma aplicação de consola do Node.js que liga ao seu hub como **myDeviceId**e, em seguida, as atualizações do dispositivo duplo do comunicadas propriedades para conter as informações que esteja ligada através de uma rede celular.
+Nesta secção, vai criar uma aplicação de consola node. js que liga ao seu hub como **myDeviceId**e, em seguida, atualizações de seu dispositivo duplo do comunicado propriedades para conter as informações que está ligado através de uma rede celular.
 
 
-1. Criar uma nova pasta vazia designada **reportconnectivity**. No **reportconnectivity** pasta, crie um novo ficheiro Package. JSON utilizando o seguinte comando na sua linha de comandos. Aceite todas as predefinições:
+1. Criar uma nova pasta vazia designada **reportconnectivity**. Na **reportconnectivity** pasta, crie um novo ficheiro Package. JSON com o seguinte comando na sua linha de comandos. Aceite todas as predefinições:
    
     ```
     npm init
     ```
-2. Na sua linha de comandos a **reportconnectivity** pasta, execute o seguinte comando para instalar o **azure-iot-device**, e **azure-iot-dispositivo-mqtt** pacote:
+2. Sua linha de comandos do **reportconnectivity** pasta, execute o seguinte comando para instalar o **do azure-iot-device**, e **azure-iot-device-mqtt** pacote:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Com um editor de texto, crie um novo **ReportConnectivity.js** ficheiros o **reportconnectivity** pasta.
-4. Adicione o seguinte código para o **ReportConnectivity.js** de ficheiros e substitua o **{cadeia de ligação do dispositivo}** marcador de posição pela cadeia de ligação de dispositivo que copiou quando criou o **myDeviceId** identidade de dispositivo:
+3. Com um editor de texto, crie um novo **ReportConnectivity.js** de ficheiros a **reportconnectivity** pasta.
+4. Adicione o seguinte código para o **ReportConnectivity.js** do ficheiro e substitua o **{cadeia de ligação do dispositivo}** marcador de posição pela cadeia de ligação de dispositivo que copiou quando criou o **myDeviceId** identidade de dispositivo:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -174,13 +174,13 @@ Nesta secção, pode cria uma aplicação de consola do Node.js que liga ao seu 
         }
         });
    
-    O **cliente** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do dispositivo. O código anterior, depois, inicializa a **cliente** objeto, obtém o dispositivo duplo para **myDeviceId** e atualiza a respetiva propriedade comunicada com as informações de conectividade.
+    O **cliente** objeto expõe todos os métodos necessários para interagir com dispositivos duplos do dispositivo. O código anterior, depois, ele inicializa o **cliente** objeto, obtém o dispositivo duplo **myDeviceId** e atualiza a respetiva propriedade comunicada com as informações de conectividade.
 5. Executar a aplicação de dispositivo
    
         node ReportConnectivity.js
    
     Deverá ver a mensagem `twin state reported`.
-6. Agora que o dispositivo comunicou as respetivas informações de conectividade, deverão ser apresentados em ambas as consultas. Aceda novamente o **addtagsandqueryapp** pasta e volte a executar as consultas:
+6. Agora que o dispositivo comunicado suas informações de conectividade, deverá aparecer em ambas as consultas. Aceda de volta a **addtagsandqueryapp** pasta e execute novamente as consultas:
    
         node AddTagsAndQuery.js
    
@@ -189,13 +189,13 @@ Nesta secção, pode cria uma aplicação de consola do Node.js que liga ao seu 
     ![][3]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionar metadados do dispositivo como etiquetas a partir de uma aplicação de back-end e escreveu uma aplicação de dispositivo simulado para informações de conectividade do dispositivo de relatório no dispositivo duplo. Também aprendeu como consultar estas informações utilizando a linguagem de consulta do SQL Server como o IoT Hub.
+Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionados metadados do dispositivo como etiquetas a partir de uma aplicação de back-end e escreveu uma aplicação de dispositivo simulado para informações de conectividade do dispositivo de relatório no dispositivo duplo. Também aprendeu como consultar essas informações usando a linguagem de consulta do Hub de IoT de tipo SQL.
 
 Utilize os seguintes recursos para saber como:
 
 * Enviar telemetria a partir de dispositivos com o [introdução ao IoT Hub] [ lnk-iothub-getstarted] tutorial,
-* configurar dispositivos utilizando propriedades pretendida do dispositivo duplo com a [utilização pretendida propriedades para configurar dispositivos] [ lnk-twin-how-to-configure] tutorial,
-* controlar dispositivos interativamente (como ativar uma ventoinha a partir de uma aplicação controlados pelo utilizador), com o [utilizar métodos diretos] [ lnk-methods-tutorial] tutorial.
+* configurar dispositivos com as propriedades pretendidas do duplo do dispositivo com o [propriedades para configurar os dispositivos de pretendidas de utilização] [ lnk-twin-how-to-configure] tutorial,
+* Controlar dispositivos interativamente (como ativar um fã de uma aplicação controlada pelo utilizador), com o [utilizar métodos diretos] [ lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png
