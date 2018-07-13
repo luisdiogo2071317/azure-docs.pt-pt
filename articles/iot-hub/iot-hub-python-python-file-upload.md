@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
 ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34635020"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299149"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 

@@ -1,6 +1,6 @@
 ---
-title: Anexar um disco de dados para uma VM do Windows no Azure utilizando o PowerShell | Microsoft Docs
-description: Como ligar o disco de dados de novo ou existente para uma VM do Windows com o PowerShell com o modelo de implementação Resource Manager.
+title: Anexar um disco de dados a uma VM do Windows no Azure com o PowerShell | Documentos da Microsoft
+description: Como anexar o disco de dados nova ou existente a uma VM do Windows com o PowerShell com o modelo de implementação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,22 +16,23 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: cynthn
 ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680920"
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Anexar um disco de dados para uma VM do Windows com o PowerShell
+# <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Anexar um disco de dados a uma VM do Windows com o PowerShell
 
-Este artigo mostra como anexar discos novos e existentes para uma máquina virtual do Windows com o PowerShell. 
+Este artigo mostra-lhe como anexar discos de novos e existentes para uma máquina de virtual do Windows com o PowerShell. 
 
-Antes de fazer isto, consulte estas sugestões:
-* O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos das virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para utilizar o armazenamento Premium, terá de armazenamento Premium ativado o tamanho da VM como máquina virtual-série DS ou série GS. Para obter mais informações, consulte [Premium Storage: armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de fazer isso, consulte estas dicas:
+* O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter detalhes, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para utilizar o armazenamento Premium, terá um armazenamento Premium ativado o tamanho da VM, como a máquina virtual de série DS ou série GS. Para obter detalhes, consulte [o armazenamento Premium: armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial precisará da versão 6.0.0 ou posterior do módulo do Azure PowerShell. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Adicionar um disco de dados vazia para uma máquina virtual
@@ -57,7 +58,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Utilizar discos geridos numa zona de disponibilidade
-Para criar um disco uma zona de disponibilidade, utilize [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) com o `-Zone` parâmetro. O exemplo seguinte cria um disco na zona *1*.
+Para criar um disco numa zona de disponibilidade, utilize [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) com o `-Zone` parâmetro. O exemplo seguinte cria um disco na zona *1*.
 
 
 ```powershell
@@ -79,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Inicialize o disco
 
-Depois de adicionar um disco vazio, tem de inicializá-lo. Para inicializar o disco, pode iniciar sessão a uma VM e utilizar a gestão de discos. Se ativar o WinRM e um certificado na VM quando o criou, pode utilizar o PowerShell remoto para inicializar o disco. Também pode utilizar uma extensão de script personalizado: 
+Depois de adicionar um disco vazio, terá de inicializá-la. Para inicializar o disco, pode iniciar sessão a uma VM e utilizar a gestão de discos. Se ativou o WinRM e um certificado na VM quando o criou, pode utilizar o PowerShell remoto para inicializar o disco. Também pode utilizar uma extensão de script personalizado: 
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -108,9 +109,9 @@ O ficheiro de script pode conter algo semelhante a este código para inicializar
 ```
 
 
-## <a name="attach-an-existing-data-disk-to-a-vm"></a>Anexar um disco de dados existente para uma VM
+## <a name="attach-an-existing-data-disk-to-a-vm"></a>Anexar um disco de dados existente a uma VM
 
-Pode anexar um disco gerido existente para uma VM como um disco de dados. 
+Pode anexar um disco gerido existente a uma VM como um disco de dados. 
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -128,4 +129,4 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criar um [instantâneo](snapshot-copy-managed-disk.md).
+Criar uma [instantâneo](snapshot-copy-managed-disk.md).

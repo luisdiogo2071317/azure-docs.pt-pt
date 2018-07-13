@@ -51,4 +51,4 @@ O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar 
 
 As ACUs marcadas com um * utilizam a tecnologia Intel® Turbo para aumentar a frequência de CPU e proporcionar um aumento do desempenho.  A quantidade do aumento pode variar consoante o tamanho da VM, a carga de trabalho e outras cargas de trabalho em execução no mesmo anfitrião.
 
-**Hyper-threaded. 
+\*\*Hyper-threaded. 

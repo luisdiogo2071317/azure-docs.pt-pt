@@ -10,6 +10,8 @@
   items:
     - name: Implementar uma solução de monitorização remota
       href: quickstart-remote-monitoring-deploy.md
+    - name: Implementar uma solução de manutenção preditiva
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Implementar uma solução de simulação de dispositivos
       href: quickstart-device-simulation-deploy.md
 - name: Tutoriais
@@ -197,7 +199,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
     - name: Stream Analytics
       href: /azure/stream-analytics/
-    - name: Event Hubs
+    - name: Hubs de Eventos
       href: /azure/event-hubs/
     - name: Machine Learning
       href: /azure/machine-learning/

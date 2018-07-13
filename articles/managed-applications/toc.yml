@@ -31,6 +31,8 @@
       href: update-managed-resources.md
     - name: Utilizar o portal para publicar
       href: publish-portal.md
+    - name: Utilizar segredo do Key Vault
+      href: key-vault-access.md
 - name: Referência
   items:
     - name: CLI do Azure

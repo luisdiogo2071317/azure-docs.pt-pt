@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/3/2018
 ms.author: raiye
-ms.openlocfilehash: 8f9bb69a334858d5d039c76d6c0d0aec3f0cf6f0
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858093"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970167"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -90,9 +90,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-5.20_201806-01 |3 de Julho de 2018 |Post 5.22 |TBD |
+| WA-CONVIDADO-SO-5.20_201806-01 |3 de julho de 2018 |Post 5.22 |TBD |
 | WA-CONVIDADO-SO-5.19_201805-01 |1 de Junho de 2018 |Post 5.21 |TBD |
-|~~WA-CONVIDADO-SO-5.18_201804-01~~ |4 de Maio de 2018 |3 de Julho de 2018 |TBD |
+|~~WA-CONVIDADO-SO-5.18_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-5.17_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018|TBD |
 |~~WA-CONVIDADO-SO-5.16_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
@@ -114,9 +114,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-4.55_201806-01 |3 de Julho de 2018 |Post 4.57 |TBD |
+| WA-CONVIDADO-SO-4.55_201806-01 |3 de julho de 2018 |Post 4.57 |TBD |
 | WA-CONVIDADO-SO-4.54_201805-01 |1 de Junho de 2018 |Post 4,56 |TBD |
-|~~WA-CONVIDADO-SO-4.53_201804-01~~ |4 de Maio de 2018 |3 de Julho de 2018 |TBD |
+|~~WA-CONVIDADO-SO-4.53_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.52_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.51_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
@@ -139,9 +139,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-3.62_201806-01 |3 de Julho de 2018 |Post 3.64 |TBD |
+| WA-CONVIDADO-SO-3.62_201806-01 |3 de julho de 2018 |Post 3.64 |TBD |
 | WA-CONVIDADO-SO-3.61_201805-01 |1 de Junho de 2018 |Post 3.63 |TBD |
-|~~WA-CONVIDADO-SO-3.60_201804-01~~ |4 de Maio de 2018 |3 de Julho de 2018 |TBD |
+|~~WA-CONVIDADO-SO-3.60_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.59_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.58_201802-01~~ |19 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
@@ -164,9 +164,9 @@ SO de convidado de Outubro já lançada.
 
 | Cadeia de configuração | Data da versão | Desativar data | Data de vencimento |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-2.75_201806-01 |3 de Julho de 2018 |Post 2.77 |TBD |
+| WA-CONVIDADO-SO-2.75_201806-01 |3 de julho de 2018 |Post 2.77 |TBD |
 | WA-CONVIDADO-SO-2.74_201805-01 |1 de Junho de 2018 |Post 2.76 |TBD |
-|~~WA-CONVIDADO-SO-2.73_201804-01~~ |4 de Maio de 2018 |3 de Julho de 2018 |TBD |
+|~~WA-CONVIDADO-SO-2.73_201804-01~~ |4 de Maio de 2018 |3 de julho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-2.72_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-2.71_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
@@ -232,7 +232,7 @@ Caso atualize manualmente o SO convidado, consulte a [política de extinção de
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Suporte de SO convidado e a política de extinção
 A política de suporte e extinção de SO convidado é explicada [aqui][retirepolicy].
 
-[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [Feed RSS de atualização de SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
@@ -245,7 +245,7 @@ A política de suporte e extinção de SO convidado é explicada [aqui][retirepo
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
+[msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

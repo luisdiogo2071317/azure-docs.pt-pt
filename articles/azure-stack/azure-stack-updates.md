@@ -1,6 +1,6 @@
 ---
-title: Gerir as atualizações na descrição geral de pilha do Azure | Microsoft Docs
-description: Saiba mais sobre a gestão de atualizações para os sistemas de pilha do Azure integrado.
+title: Gerir atualizações na descrição geral do Azure Stack | Documentos da Microsoft
+description: Saiba mais sobre a gestão de atualizações para os sistemas integrados do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,60 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27620928"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988913"
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Gerir as atualizações na descrição geral de pilha do Azure
+# <a name="manage-updates-in-azure-stack-overview"></a>Gerir atualizações na descrição geral do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas*
+*Aplica-se a: sistemas integrados do Azure Stack*
 
-Microsoft vai lançar pacotes de atualização para sistemas de pilha do Azure integrado uma cadência regulares que, normalmente, irá enquadram-se na quarta terça-feira de cada mês, começando disponibilidade geral. Colocar o OEM sobre o seu processo de notificação específicos para garantir a sua organização alcance de notificações de atualização ou verifique aqui em sistemas de Notes\Integrated Overview\Release notas de versão para obter mais informações sobre versões específicas.
+Novos pacotes de atualização para o Azure Stack, normalmente, os sistemas integrados versão em todo a quarta terça-feira de cada mês. Pedir ao OEM sobre seu processo de notificação específicos para garantir que as notificações de atualização atingir a sua organização. Também pode verificar nesta biblioteca de documentação em sob **descrição geral** > **notas de versão** para obter informações sobre as versões que estão em suporte Active Directory. 
 
-Cada versão de atualizações de software da Microsoft é incluído como um pacote de atualização única. Como um operador de pilha do Azure, pode importar facilmente, instalação e monitorize o progresso de instalação destas de atualização de pacotes a partir do portal do administrador. 
+Cada versão das atualizações de software da Microsoft é fornecido como um pacote de atualização única. Como um operador do Azure Stack, pode importar, instalação e monitorizar o progresso da instalação destas atualizações de pacotes a partir do portal do administrador. 
 
-O fornecedor de hardware de fabricante de equipamento original (OEM) também vai lançar atualizações, tais como atualizações de controladores e firmware. Estas atualizações são fornecidas como pacotes separados pelo seu fornecedor de hardware do OEM e são geridas separadamente das atualizações da Microsoft.
+O fornecedor do hardware de fabricante de equipamento original (OEM) também irá lançar atualizações, como atualizações de controladores e firmware. Estas atualizações são entregues como pacotes separados pelo seu fornecedor de hardware de OEM e são gerenciadas separadamente das atualizações da Microsoft.
 
-Para manter o seu sistema de suporte, tem de manter atualizado para um nível de versão específica de pilha de Azure. Certifique-se de que revê o [pilha Azure manutenção política](azure-stack-servicing-policy.md).
+Para manter seu sistema em suporte, deve manter atualizado para um nível de versão específica do Azure Stack. Certifique-se de que revê os [política de manutenção do Azure Stack](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> Não é possível aplicar os pacotes de atualização de pilha do Azure para o Kit de desenvolvimento de pilha do Azure. Os pacotes de atualização são concebidos para sistemas integrados.
+> Não pode aplicar os pacotes de atualização do Azure Stack Development Kit do Azure Stack. Os pacotes de atualização foram concebidos para os sistemas integrados. Para obter informações, consulte [Reimplementar o ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
 
 ## <a name="the-update-resource-provider"></a>O fornecedor de recursos de atualização
 
-Pilha do Azure inclui um fornecedor de recursos de atualização que orquestra a aplicação de atualizações de software da Microsoft. Este fornecedor de recursos assegura que as atualizações são aplicadas em todos os anfitriões físicos, aplicações de Service Fabric e tempos de execução e todas as máquinas virtuais de infraestrutura e os respetivos serviços associados.
+O Azure Stack inclui um provedor de recursos de atualização que orquestra a aplicação das atualizações de software da Microsoft. Este fornecedor de recursos assegura que as atualizações são aplicadas em todos os anfitriões físicos, aplicações do Service Fabric e tempos de execução e todas as máquinas de virtuais de infraestrutura e seus serviços associados.
 
-Como instalar atualizações, pode visualizar facilmente o estado de alto nível como destinos de processo de atualização dos subsistemas de vários na pilha do Azure (por exemplo, anfitriões físicos e máquinas virtuais de infraestrutura).
+Como instalar atualizações, pode ver o estado de alto nível como destinos de processo de atualização vários subsistemas no Azure Stack (por exemplo, anfitriões físicos e máquinas de virtuais de infraestrutura).
 
 ## <a name="plan-for-updates"></a>Plano para atualizações
 
-Recomendamos vivamente que notifique os utilizadores de quaisquer operações de manutenção e agendar a janelas de manutenção normal durante horas quanto possíveis. Operações de manutenção podem afetar cargas de trabalho inquilinas e operações portais.
+Recomendamos vivamente que notifique os utilizadores de quaisquer operações de manutenção e que agende as janelas de manutenção normal durante o horário não comercial se possível. Operações de manutenção podem afetar a cargas de trabalho inquilinas e operações do portal.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Utilizar o mosaico de atualização para gerir atualizações
-Gerir as atualizações a partir do portal do administrador é um processo simple. Um operador de pilha do Azure pode navegar para o mosaico de atualização no dashboard para:
+## <a name="using-the-update-tile-to-manage-updates"></a>Mosaico utilização, o atualização para gerir atualizações
+Gerir as atualizações a partir do portal do administrador. Como um operador do Azure Stack, pode utilizar o atualizar mosaico no dashboard para:
 
-- ver informações importantes, tais como a versão atual.
-- instalar atualizações e monitorize o progresso.
-- Reveja o histórico de atualização para que as atualizações instaladas anteriormente.
+- ver informações importantes como a versão atual.
+- instalar atualizações e monitorizar o progresso.
+- rever o histórico de atualização para as atualizações instaladas anteriormente.
  
 ## <a name="determine-the-current-version"></a>Determinar a versão atual
 
-O mosaico de atualização mostra a versão atual da pilha do Azure. Pode obter o mosaico de atualização utilizando um dos seguintes métodos no portal do administrador:
+O atualizar mosaico mostra a versão atual do Azure Stack. Pode obter o mosaico de atualização, utilizando qualquer um dos seguintes métodos no portal do administrador:
 
 - No dashboard, ver a versão atual no **atualização** mosaico.
  
-   ![As atualizações de mosaico no dashboard predefinido](./media/azure-stack-updates/image1.png)
+   ![Atualizações de mosaico no dashboard predefinido](./media/azure-stack-updates/image1.png)
  
-- No **gestão região** mosaico, clique no nome de região. Ver a versão atual no **atualização** mosaico.
+- Sobre o **gestão da região** mosaico, clique no nome da região. Ver a versão atual no **atualização** mosaico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pilha do Azure de política de manutenção](azure-stack-servicing-policy.md) 
-- [Gestão de região na pilha do Azure](azure-stack-region-management.md)     
+- [O Azure Stack a política de manutenção](azure-stack-servicing-policy.md) 
+- [Gestão da região no Azure Stack](azure-stack-region-management.md)     
 
 
