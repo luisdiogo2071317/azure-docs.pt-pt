@@ -17,11 +17,11 @@ ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: e868f07a8c24948655d81c7db1859d819b01c062
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847867"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306369"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Criar uma aplicação de funções para execução de código sem servidor
 
@@ -33,7 +33,7 @@ Este script de exemplo das Funções do Azure cria uma aplicação de funções,
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 

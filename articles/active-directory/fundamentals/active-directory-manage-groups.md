@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: ae97a41835c61155fe3fc7174fd93be00eb22873
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce3b4f15acbcc6ce78ea0623c6b9f3c23941cb0
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767455"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859630"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Gerir o acesso a recursos com grupos do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução de gestão de identidades e acessos abrangente que fornece um sólido conjunto de funções para gerir o acesso a recursos e aplicações no local e na cloud, incluindo serviços online da Microsoft como o Office 365 e uma panóplia de aplicações SaaS que não são da Microsoft. Este artigo fornece uma descrição geral, mas se quiser começar a utilizar grupos do Azure AD neste momento, siga as instruções em [Gerir grupos de segurança no Azure AD](active-directory-groups-create-azure-portal.md). Se quiser ver como pode utilizar o PowerShell para gerir grupos no Azure Active Directory, pode ler mais em [Cmdlets do Azure Active Directory para gestão de grupos](../users-groups-roles/groups-settings-v2-cmdlets.md).
@@ -74,7 +74,7 @@ Pronto para começar? Deve testar algumas das tarefas básicas que pode fazer co
 ## <a name="next-steps"></a>Passos seguintes
 Agora que compreendeu as noções básicas da gestão de acesso, seguem-se algumas capacidades avançadas adicionais disponíveis no Azure Active Directory para gerir o acesso às suas aplicações e recursos.
 
-* [Utilizar atributos para criar regras avançadas](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Utilizar atributos para criar regras avançadas](../users-groups-roles/groups-dynamic-membership.md)
 * [Gerir grupos de segurança no Azure AD](active-directory-groups-create-azure-portal.md)
 * [Referência da Graph API para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md)

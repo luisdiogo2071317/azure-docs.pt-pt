@@ -3,7 +3,7 @@ title: Tutorial – Criar e gerir VMs do Windows com o Azure PowerShell | Micros
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para criar e gerir VMs do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a1d89b1e1b7c398ae05fef5577bb1631409631b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d47981042fc13a96bdf5cb9690e4dc83a6aa0162
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211111"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932556"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerir VMs do Windows com o Azure PowerShell
 
@@ -147,7 +147,7 @@ Estas informações podem ser utilizadas para implementar uma VM com uma imagem 
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
-    -Location "East US" `
+    -Location "EastUS" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `

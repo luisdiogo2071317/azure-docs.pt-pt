@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d35052087899925e0e8119ce104345f718cc12bd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638080"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858518"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Instruções sobre a solução pré-configurada de monitorização remota
 
@@ -237,7 +237,7 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Hubs de Eventos
 
 As tarefas do ASA **device info** e **rules** enviam os seus dados para os Hubs de Eventos para que estes os encaminhem de forma fiável para o **Processador de Eventos** em execução no Trabalho Web.
 
@@ -275,8 +275,8 @@ A partir desta página no portal da solução, poderá:
 
 As seguintes mensagens de blogue do TechNet fornecem mais detalhes sobre a solução pré-configurada de monitorização remota:
 
-* [IoT Suite - Sob definições avançadas - Monitorização Remota](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-v1-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Monitorização Remota - Adicionar Dispositivos em Direto e Dispositivos Simulados](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-v1-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [IoT Suite - Sob definições avançadas - Monitorização Remota](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT Suite - Monitorização Remota - Adicionar Dispositivos em Direto e Dispositivos Simulados](https://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 Pode continuar a introdução ao IoT Suite ao ler os artigos seguintes:
 

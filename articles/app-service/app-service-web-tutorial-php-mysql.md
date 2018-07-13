@@ -16,11 +16,11 @@ ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 4bb6f12781666792aad31789a59d752dd5a822de
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205718"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307192"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web PHP e MySQL no Azure
 
@@ -48,7 +48,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/).
+* [Instale o Git](https://git-scm.com/)
 * [Instalar o PHP 5.6.4 ou superior](http://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
 * Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML

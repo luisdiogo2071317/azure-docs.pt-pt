@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716028"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969498"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introdução ao Microsoft Power BI Embedded
 
@@ -49,7 +49,7 @@ Temos exemplos para ajudá-lo a começar. Para obter as instruções do exemplo,
 Crie a capacidade do Power BI Embedded no Microsoft Azure para mover a sua aplicação para produção. Para obter informações sobre como criar capacidade, veja [Criar capacidade do Power BI Embedded no portal do Azure](create-capacity.md).
 
 > [!IMPORTANT]
-> Dado que os tokens incorporados se destinam apenas a testes pelos programadores, o número de tokens incorporados que uma conta principal do Power BI pode gerar é limitado. A [capacidade tem de ser comprada](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) para cenários de incorporação de produção. Não há nenhum limite para incorporar a geração de tokens quando uma capacidade dedicada é comprada. Aceda a [Obter Funcionalidades Disponíveis](https://msdn.microsoft.com/en-us/library/mt846473.aspx) para procurar pela utilização incorporada atual em percentagem.
+> Dado que os tokens incorporados se destinam apenas a testes pelos programadores, o número de tokens incorporados que uma conta principal do Power BI pode gerar é limitado. A [capacidade tem de ser comprada](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) para cenários de incorporação de produção. Não há nenhum limite para incorporar a geração de tokens quando uma capacidade dedicada é comprada. Aceda a [Obter Funcionalidades Disponíveis](https://msdn.microsoft.com/library/mt846473.aspx) para procurar pela utilização incorporada atual em percentagem.
 
 Faça a gestão da capacidade no portal de administração do Power BI. Atribua um administrador de área de trabalho para o ajudar nas áreas de trabalho da aplicação. Para obter mais informações, veja [Gerir capacidades no Power BI Premium e no Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

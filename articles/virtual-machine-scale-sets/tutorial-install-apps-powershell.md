@@ -3,7 +3,7 @@ title: Tutorial - Instalar aplicações num conjunto de dimensionamento com o Az
 description: Saiba como utilizar o Azure PowerShell para instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce35db90e49e0d2861dd71e80ac61f05db607338
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f162dcf58316e6d9f39b71be37abf5626e93c75
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365071"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295829"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -88,7 +88,7 @@ $vmss = Add-AzureRmVmssExtension `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
+  -TypeHandlerVersion 1.9 `
   -Setting $customConfig
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
@@ -136,7 +136,7 @@ $vmss = Add-AzureRmVmssExtension `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
+  -TypeHandlerVersion 1.9 `
   -Setting $customConfigv2
 
 # Update the scale set and reapply the Custom Script Extension to the VM instances

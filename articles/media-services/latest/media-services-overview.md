@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264099"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971912"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -45,7 +45,7 @@ Os Serviços de Multimédia permitem-lhe criar uma variedade de fluxos de trabal
 * Crie um serviço de subscrição de vídeo e transmita conteúdo DRM protegido quando um cliente (por exemplo, um estúdio cinematográfico) necessita de restringir o acesso e a utilização de obras proprietárias protegidas por direitos de autor.
 * Disponibilize conteúdo offline para reprodução em aviões, comboios e automóveis. Um cliente poderá ter de transferir o conteúdo para o telemóvel ou tablet para reprodução posterior quando se prevê que esteja desligado da rede.
 * Adicione legendas aos vídeos para atender a um público mais amplo (por exemplo, pessoas com incapacidades auditivas ou pessoas que pretendem ler num idioma diferente). 
-* Implemente uma plataforma de vídeo de e-learning educativo com os Serviços de Multimédia do Azure e as [APIs Serviços Cognitivos do Azure](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) para legendagem de conversão de voz em texto, tradução para vários idiomas, etc.
+* Implemente uma plataforma de vídeo de e-learning educativo com os Serviços de Multimédia do Azure e as [APIs Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para legendagem de conversão de voz em texto, tradução para vários idiomas, etc.
 * Ative a CDN do Azure para obter um grande dimensionamento para melhor processar cargas elevadas instantâneas (por exemplo, no início de um evento de iniciação de um produto). 
 
 ## <a name="v3-capabilities"></a>Capacidades da v3

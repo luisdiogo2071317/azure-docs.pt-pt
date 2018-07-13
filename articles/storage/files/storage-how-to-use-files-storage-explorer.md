@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029330"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308502"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure 
 Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Este artigo orienta-o pelas noções básicas da utilização de partilhas de ficheiros do Azure com o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). O Explorador de Armazenamento é uma ferramenta de cliente popular que está disponível para Windows, macOS e Linux. Pode utilizar o Explorador de Armazenamento para gerir partilhas de ficheiros do Azure e outros recursos de armazenamento.

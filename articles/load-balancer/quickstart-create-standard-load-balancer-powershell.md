@@ -17,11 +17,11 @@ ms.date: 05/21/2018
 ms.author: kumud
 ms:custom: mvc
 ms.openlocfilehash: f6252b09078bcce936fc3102725519e5e433f8c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651626"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481803"
 ---
 # <a name="get-started"></a>Início Rápido: Criar um Balanceador de Carga Standard com o Azure PowerShell
 Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o Windows Server e faça o balanceamento de carga de uma aplicação Web entre as VMs. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).

@@ -10,11 +10,11 @@ ms.topic: sample
 ms.service: functions
 ms.custom: mvc
 ms.openlocfilehash: f013303cb99cc549cb0a8d72e2e9c60209008c67
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842665"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317918"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Criar uma aplicação de funções e implementar código de função a partir do GitHub
 
@@ -26,7 +26,7 @@ Este script de exemplo cria uma aplicação de funções através do [plano de c
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 

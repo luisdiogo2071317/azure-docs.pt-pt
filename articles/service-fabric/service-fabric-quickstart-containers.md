@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 95877f8b81641dd70434fc167003cfcce07d9e84
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 081b2be82b15c36566e8eb9fe4af0037804d0e7e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110815"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951200"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
@@ -60,38 +60,7 @@ Configure o mapeamento de portas, da porta para o anfitrião do contentor, de mo
 
 Dê ao serviço o nome "MyContainerService" e clique em **OK**.
 
-<<<<<<< Origem atualizada ![Nova caixa de diálogo de serviço][new-service]
-=======
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Configurar a comunicação e o mapeamento de portas de porta para anfitrião do contentor
-
-O serviço de precisa de um ponto final para comunicação.  Neste início rápido, o serviço em contentores escuta na porta 80.  No Explorador de Soluções, abra *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Atualize o `Endpoint` existente no ficheiro ServiceManifest.xml e adicione o protocolo, a porta e o esquema uri:
-
-```xml
-<Resources>
-    <Endpoints>
-        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-   </Endpoints>
-</Resources>
-```
-
-Fornecer o `UriScheme` regista automaticamente o ponto final do contentor no serviço de Nomes do Service Fabric para deteção. Um ficheiro de exemplo completo do ServiceManifest.xml está disponível no final deste artigo.
-
-Configure o mapeamento de portas, da porta para o anfitrião do contentor, de modo que os pedidos recebidos para o serviço na porta 80 sejam mapeados para a porta 80 no contentor.  No Explorador de Soluções, abra *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* e especifique uma política `PortBinding` em `ContainerHostPolicies`.  Neste início rápido, `ContainerPort` é 80 e `EndpointRef` é "MyContainerServiceTypeEndpoint" (o ponto final definido no manifesto do serviço).
-
-```xml
-<ServiceManifestImport>
-...
-  <ConfigOverrides />
-  <Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
-      <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
-    </ContainerHostPolicies>
-  </Policies>
-</ServiceManifestImport>
-```
-
-Um ficheiro de exemplo completo do ApplicationManifest.xml está disponível no final deste artigo.
->>>>>>> Alterações armazenadas
+![Caixa de diálogo do novo serviço][new-service]
 
 ## <a name="specify-the-os-build-for-your-container-image"></a>Especificar a compilação do SO para a imagem do contentor
 Os contentores criados com uma versão específica do Windows Server poderão não funcionar num anfitrião com uma versão diferente do Windows Server. Por exemplo, os contentores criados com o Windows Server versão 1709 não funcionam nos sistemas anfitriões que executam a versão 2016 do Windows Server. Para obter mais informações, veja [Compatibilidade do sistema operativo do contentor do Windows Server e do sistema operativo do sistema anfitrião ](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
@@ -136,127 +105,26 @@ PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-
 Thumbprint                                Subject
 ----------                                -------
 3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-<<<<<<< Updated upstream
-``` 
-=======
 ```
 
-Remember the thumbprint for the following step.
->>>>>>> Stashed changes
+Não se esqueça do thumbprint no passo seguinte.
 
-## Deploy the application to Azure using Visual Studio
+## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Implementar a aplicação no Azure com o Visual Studio
 
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
+Agora que a aplicação está pronta, pode implementá-la num cluster diretamente a partir do Visual Studio.
 
-Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
+Clique com o botão direito do rato em **MyFirstContainer**, no Explorador de Soluções, e escolha **Publicar**. É apresentada a caixa de diálogo Publicar.
 
-<<<<<<< Updated upstream
-Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. 
-=======
-Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and verify the connection parameter information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step.
+Copie o **Ponto Final da Ligação** na página Cluster de terceiros para o campo **Ponto Final da Ligação**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros de Ligação Avançada** e verifique as informações dos parâmetros da ligação.  Os valores *FindValue* e *ServerCertThumbprint* têm de coincidir com o thumbprint do certificado instalado no passo anterior.
 
-![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
->>>>>>> Stashed changes
+![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Click **Publish**.
+Clique em **Publicar**.
 
-Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
+Cada aplicação no cluster tem de ter um nome exclusivo.  Contudo, os clusters de party são ambientes públicos e partilhados, pelo que poderá haver um conflito com aplicações já existentes.  Se houver um conflito de nomes, mude o nome do projeto do Visual Studio e reimplemente-o.
 
-Open a browser and navigate to the **Connection endpoint** specified in the Party cluster page. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://zwin7fh14scd.westus.cloudapp.azure.com:80. You should see the IIS default web page:
-![IIS default web page][iis-default]
+Abra um browser e navegue para o **Ponto final de ligação** especificado na página do cluster de Terceiros. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http://zwin7fh14scd.westus.cloudapp.azure.com:80. Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
 
-<<<<<<< Updated upstream
-=======
-## Complete example Service Fabric application and service manifests
-
-Here are the complete service and application manifests used in this quickstart.
-
-### ServiceManifest.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg"
-                 Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ServiceTypes>
-    <!-- This is the name of your ServiceType.
-         The UseImplicitHost attribute indicates this is a guest service. -->
-    <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true" />
-  </ServiceTypes>
-
-  <!-- Code package is your service executable. -->
-  <CodePackage Name="Code" Version="1.0.0">
-    <EntryPoint>
-      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
-      <ContainerHost>
-        <ImageName>microsoft/iis:nanoserver</ImageName>
-      </ContainerHost>
-    </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
-    <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
-    </EnvironmentVariables>
-    -->
-  </CodePackage>
-
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
-       independently-updateable and versioned set of custom configuration settings for your service. -->
-  <ConfigPackage Name="Config" Version="1.0.0" />
-
-  <Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
-</ServiceManifest>
-```
-
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest ApplicationTypeName="MyFirstContainerType"
-                     ApplicationTypeVersion="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Parameters>
-    <Parameter Name="MyContainerService_InstanceCount" DefaultValue="-1" />
-  </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
-       ServiceManifest.xml file. -->
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-  </ServiceManifestImport>
-  <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
-         ServiceFabric PowerShell module.
-         
-         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
-    <Service Name="MyContainerService" ServicePackageActivationMode="ExclusiveProcess">
-      <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="[MyContainerService_InstanceCount]">
-        <SingletonPartition />
-      </StatelessService>
-    </Service>
-  </DefaultServices>
-</ApplicationManifest>
-```
-
->>>>>>> Alterações armazenadas
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a:

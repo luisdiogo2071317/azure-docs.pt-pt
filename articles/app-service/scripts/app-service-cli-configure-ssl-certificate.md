@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: f806b523543657e4241ec5bfbb4b84b85ebd9355
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30281390"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317665"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Vincular um certificado SSL personalizado a uma aplicação Web
 
@@ -34,7 +34,7 @@ Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 

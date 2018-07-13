@@ -4,7 +4,7 @@ description: 'Neste documento, vai aprender a implementar o AD FS no Azure para 
 keywords: implementar o AD FS no azure, implementar o azure adfs, azure adfs, azure ad fs, implementar adfs, implementar ad fs, adfs no azure, implementar adfs no azure, implementar AD FS no azure, adfs azure, introdução ao AD FS, Azure, AD FS no Azure, iaas, ADFS, mover adfs para o azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
-ms.author: anandy; billmath
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212677"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917140"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementação do Serviço de Federação do Active Directory no Azure
 O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na nuvem. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na nuvem. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.

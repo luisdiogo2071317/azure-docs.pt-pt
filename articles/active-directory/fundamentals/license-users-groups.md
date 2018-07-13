@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767464"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856094"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Início Rápido: Licenciar utilizadores no Azure Active Directory
 Os serviços do Azure AD baseados em licenças funcionam através da ativação de uma subscrição do Azure Active Directory (Azure AD) no seu inquilino do Azure. Depois de a subscrição estar ativa, as capacidades do serviço são geridas pelos administradores do Azure AD e utilizadas pelos utilizadores licenciados. Quando comprar o Enterprise Mobility + Security, o Azure AD Premium ou o Azure AD Básico, o seu inquilino é atualizado com a subscrição, incluindo o respetivo período de validade e licenças pré-pagas. Estão disponíveis informações sobre a sua subscrição, incluindo o número de licenças atribuídas ou disponíveis, no portal do Azure em **Azure Active Directory** ao abrir o mosaico **Licenças**. O painel **Licenças** é também o melhor local para gerir as suas atribuições de licenças.
@@ -35,7 +35,7 @@ Pode utilizar a [atribuição de licenças baseada em grupos](active-directory-l
 * Pode delegar a decisão a outros gestores na organização (através de [grupos personalizados](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> Para uma discussão detalhada sobre a atribuição de licenças a grupos, incluindo cenários avançados e cenários de licenciamento do Office 365, veja [Atribuir licenças a utilizadores por associação a grupos no Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md).
+> Para uma discussão detalhada sobre a atribuição de licenças a grupos, incluindo cenários avançados e cenários de licenciamento do Office 365, veja [Atribuir licenças a utilizadores por associação a grupos no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
 ## <a name="assign-licenses-to-users-and-groups"></a>Atribuir licenças a utilizadores e grupos
 Ao utilizar uma subscrição ativa, deve primeiro atribuir uma licença a si próprio e atualizar o browser para assegurar que vê todas as funcionalidades esperadas incluídas na sua subscrição. O próximo passo é atribuir licenças aos utilizadores que precisam de acesso às funcionalidades pagas do Azure AD. Uma forma fácil de atribuir licenças é fazê-lo a grupos de utilizadores em vez de individualmente. Quando atribui licenças a um grupo, todos os membros do grupo recebem uma licença. Se forem adicionados ou removidos utilizadores do grupo, a licença adequada é automaticamente atribuída ou removida. 

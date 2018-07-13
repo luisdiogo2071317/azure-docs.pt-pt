@@ -3,7 +3,7 @@ title: Tutorial - Criar um conjunto de dimensionamento de máquinas virtuais par
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para criar e implementar uma aplicação de elevada disponibilidade em VMs do Windows com um conjunto de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 ms.date: 03/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 49754fd4409b1fbc6b15577d37e216290582ef2b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d9a4a091e1dbeb1c15cd9ec0e90d7006000bea9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190814"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928255"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Windows com o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste tutorial, vai implementar um conjunto de dimensionamento de máquinas virtuais no Azure. Saiba como:

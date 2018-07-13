@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114229"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972003"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: analisar vídeos com os Serviços de Multimédia do Azure 
 
@@ -112,7 +112,7 @@ Ao criar uma **Transformação**, primeiro deve verificar se já existe uma com 
 
 #### <a name="job"></a>Tarefa
 
-Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/en-us/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia. 
+Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia. 
 
 Neste exemplo, a entrada da tarefa é um vídeo local.  
 
@@ -120,7 +120,7 @@ Neste exemplo, a entrada da tarefa é um vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguarde até que a tarefa termine
 
-A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](https://docs.microsoft.com/en-us/rest/api/media/jobs). A opção mais simples (que é apresentada aqui) é utilizar uma consulta. 
+A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). A opção mais simples (que é apresentada aqui) é utilizar uma consulta. 
 
 Utilizar uma consulta não é uma prática recomendada para produzir aplicações devido à potencial latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342298"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860025"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -178,7 +178,7 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
 
     Se o serviço em nuvem e a conta do Storage estiverem em datacenters diferentes (regiões diferentes), a latência aumentará e será ser-lhe-á debitada a largura de banda fora do datacenter. A largura de banda dentro de um datacenter é gratuita.
 
-    Os grupos de afinidades do Azure fornecem um mecanismo para minimizar a distância entre os recursos num data center, o que poderá reduzir a latência. Este tutorial não utiliza grupos de afinidades. Para obter mais informações, consulte [Como Criar um Grupo de Afinidades no Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Os grupos de afinidades do Azure fornecem um mecanismo para minimizar a distância entre os recursos num data center, o que poderá reduzir a latência. Este tutorial não utiliza grupos de afinidades. Para obter mais informações, consulte [Como Criar um Grupo de Afinidades no Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
 7. Clique em **Criar**.
 
     ![Nova conta do Storage](./media/cloud-services-dotnet-get-started/newstorage.png)

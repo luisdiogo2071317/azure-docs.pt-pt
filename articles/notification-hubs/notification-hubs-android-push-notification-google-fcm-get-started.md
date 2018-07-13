@@ -1,6 +1,6 @@
 ---
 title: Enviar notificações push para aplicações Android com Hubs de Notificação do Azure e Firebase Cloud Messaging | Microsoft Docs
-description: Neste tutorial, irá aprender a utilizar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
+description: Neste tutorial, vai aprender a utilizar os Hubs de Notificação do Microsoft Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
 services: notification-hubs
 documentationcenter: android
 keywords: notificações push, notificação push, notificação push para o android, fcm, firebase cloud messaging
@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777778"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232801"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Enviar notificações push para dispositivos Android através dos Hubs de Notificação do Azure e do Google Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -503,7 +503,7 @@ Pode enviar notificações push a partir do [portal do Azure] ao efetuar as segu
 ### <a name="run-the-mobile-app"></a>Executar a aplicação móvel
 Se pretender testar as notificações push no interior de um emulador, certifique-se de que a imagem do emulador suporta o nível da API da Google que escolheu para a sua aplicação. Se a imagem não suportar as APIs nativas da Google, termina com a exceção **SERVIÇO\_NÃO\_DISPONÍVEL**.
 
-Além disso, certifique-se de que adicionou a sua conta Google ao emulador em execução em **Definições** > **Contas**. Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
+Além disso, confirme que adicionou a sua conta Google ao emulador em execução em **Definições** > **Contas**. Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
 
 1. Execute a aplicação e repare que a ID de registo é comunicada para um registo de sucesso.
    
@@ -532,4 +532,4 @@ Neste tutorial, utilizou o Firebase Cloud Messaging para enviar notificações p
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

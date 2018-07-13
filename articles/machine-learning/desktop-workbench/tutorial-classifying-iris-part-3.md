@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723226"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: classificar Íris: implementar um modelo
 O Azure Machine Learning (pré-visualização) é uma solução de análise avançada e ciência de dados completa e integrada para os cientistas de dados profissionais. Os cientistas de dados podem utilizá-los para preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
@@ -274,7 +276,7 @@ Em primeiro lugar, registe o modelo. Em seguida, gere o manifesto, crie a imagem
    Para criar um manifesto, utilize o comando seguinte e indique a saída do ID de modelo do passo anterior:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
    ```
    Este comando gera um ID de manifesto.
 
@@ -283,7 +285,7 @@ Em primeiro lugar, registe o modelo. Em seguida, gere o manifesto, crie a imagem
    Para criar uma imagem do Docker, utilize o comando seguinte e indique a saída do valor de ID de manifesto do passo anterior. Opcionalmente, também pode incluir as dependências conda utilizando o comutador `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> 
    ```
    Este comando gera um ID de imagem do Docker.
    

@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936556"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307284"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -57,7 +57,7 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
     |**Descrição**|Forneça uma descrição opcional da API.|Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.|
     |**Sufixo do URL da API**|*conferência*|O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.|
     |**Esquema do URL**|*HTTPS*|Determina que protocolos podem ser utilizados para aceder à API. |
-    |**Produtos**|*Ilimitado*| Publique a API ao associá-la a um produto. Para adicionar opcionalmente esta nova API a um produto, escreva o nome do produto. Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
+    |**Produtos**|*Ilimitado*| Associe a API a um produto e publique-a. Para adicionar opcionalmente esta nova API a um produto, escreva o nome do produto. Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
 
 4. Selecione **Criar**.
 
@@ -71,7 +71,7 @@ As operações podem ser chamadas diretamente a partir do Portal do Azure, que f
     ![Testar a API](./media/api-management-get-started/test-api.png)
 1. Clique em **GetSpeakers**.
 
-    A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
+    A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
 4. Prima **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
@@ -90,7 +90,7 @@ Também é possível chamar operações a partir do **portal do Programador** pa
 4. Selecione **API da Conferência de Demonstração**.
 5. Clique em **GetSpeakers**.
 
-    A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
+    A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
 6. Prima **Experimente**.
 7. Prima **Enviar**.
 

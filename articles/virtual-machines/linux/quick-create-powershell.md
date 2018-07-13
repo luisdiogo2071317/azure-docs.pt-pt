@@ -3,7 +3,7 @@ title: Início Rápido – Criar uma VM do Linux com o Azure PowerShell | Micros
 description: Neste início rápido, vai aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,15 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e910ced35738fcba27a8a1d7f2f010b2cd42e55d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 45b1597d3b61a9386fc015b5a7272d948fa5772b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930951"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Início Rápido: criar uma máquina virtual do Linux no Azure com o PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guia de Início Rápido: Criar uma máquina virtual do Linux no Azure com o PowerShell
 
 O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) do Linux no Azure a executar o Ubuntu. Para ver a VM em ação, estabeleça o SSH para a VM e instale o servidor Web NGINX.
 
@@ -30,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial precisará da versão 5.7.0 ou posterior do módulo do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 Finalmente, uma chave SSH pública com o nome *id_rsa.pub* tem de ser armazenada no diretório *.ssh* do seu perfil de utilizador do Windows. Para obter informações detalhadas sobre a criação e utilização de chaves SSH, veja [Create SSH keys for Azure](ssh-from-windows.md) (Criar chaves SSH para o Azure).
 
@@ -145,7 +146,7 @@ Quando terminar, utilize `exit` para fechar a sessão SSH
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 
-Com o NGINX instalado e a porta 80 agora aberta na VM da Internet, utilize um browser à sua escolha para ver a página de boas-vindas do NGINX predefinida. Utilize o endereço IP público da VM que obteve no passo anterior. O exemplo seguinte mostra o site do NGINX predefinido:
+Com o NGINX instalado e a porta 80 agora aberta na VM da Internet, utilize um browser à sua escolha para ver a página de boas-vindas do NGINX predefinida. Utilize o endereço IP público da VM que obteve no passo anterior. O exemplo seguinte mostra o site predefinido do NGINX:
 
 ![Site predefinido do NGINX](./media/quick-create-cli/nginx.png)
 

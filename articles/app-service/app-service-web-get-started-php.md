@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d1144a94a74e56cae6ff0a4b026a64540086c11
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597761"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968583"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar uma aplicação Web PHP no Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "34597761"
 
 [As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implementar uma aplicação PHP em aplicações Web do Azure. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e utilize o Git para implementar o código PHP de exemplo para a aplicação Web.
 
-![Aplicação de exemplo em execução no Azure]] (media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Aplicação de exemplo em execução no Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Depois de instalados os pré-requisitos, demora cerca de cinco minutos a concluir todos os passos.
 
@@ -92,6 +92,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -104,6 +105,11 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
   < JSON data removed for brevity. >
 }
 ```
+Criou uma nova aplicação Web vazia, com a implementação de git ativada.
+
+> [!NOTE]
+> O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde este URL, uma vez que vai precisar dele mais tarde.
+>
 
 Navegue para a sua aplicação Web recentemente criada. Substitua o _&lt;nome da aplicação >_ pelo nome exclusivo da aplicação criada no passo anterior.
 

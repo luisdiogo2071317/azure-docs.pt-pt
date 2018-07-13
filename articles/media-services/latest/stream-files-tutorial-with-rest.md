@@ -13,17 +13,17 @@ ms.custom: mvc
 ms.date: 05/30/2018
 ms.author: juliako
 ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651658"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308618"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutorial: carregar, codificar e transmitir vídeos com REST
 
 Este tutorial mostra como carregar, codificar e transmitir ficheiros de vídeo com os Serviços de Multimédia do Azure.
 
-Os Serviços de Multimédia permitem-lhe codificar os seus ficheiros de suporte de dados em formatos que podem ser reproduzidos numa ampla variedade de dispositivos e browsers. Por exemplo, pode querer transmitir o seu conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o seu ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
+Os Serviços de Multimédia permitem-lhe codificar os seus ficheiros de suporte de dados em formatos que podem ser reproduzidos numa ampla variedade de dispositivos e browsers. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
 
 ![Reproduzir o vídeo](./media/stream-files-tutorial-with-api/final-video.png)
 

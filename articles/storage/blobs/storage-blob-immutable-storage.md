@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237492"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970249"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Funcionalidade de Armazenamento Imutável do armazenamento de Blobs do Azure (Pré-visualização)
 
@@ -42,7 +42,7 @@ A funcionalidade de armazenamento imutável permite:
 
 - **Configuração ao nível do contentor:** a funcionalidade de Armazenamento Imutável permite aos utilizadores configurar políticas de retenção baseadas no tempo e etiquetas de retenção legal ao nível do contentor.  Os utilizadores podem criar e bloquear as políticas de retenção baseadas no tempo, expandir intervalos de retenção, definir e desmarcar retenções legais, etc., através de definições simples ao nível do contentor.  Estas políticas serão aplicadas a todos os blobs no contentor, tanto os novos como os existentes.
 
-- **Suporte ao Registo de Auditoria:** cada contentor contém um registo de auditoria que mostra até cinco comandos de retenção baseada no tempo para políticas de retenção baseadas no tempo bloqueadas, com o máximo de três registos para extensões de intervalo de retenção.  Para a retenção baseada no tempo, o registo contém o ID de utilizador, o tipo de comando, carimbos de data/hora e o intervalo de retenção. Para retenções legais, o registo contém o ID de utilizador, o tipo de comando, carimbos de data/hora e as etiquetas de retenção legal. Este registo é mantido durante o tempo de vida do contentor, em conformidade com as diretrizes de regulamentação SEC 17a-4(f). Um registo mais abrangente de todas as atividades de plano de controlo está disponível no [Registo de Atividades do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). É da responsabilidade do utilizador armazenar esses registos de forma persistente, consoante requerido por motivos de regulamentação ou outros fins.
+- **Suporte ao Registo de Auditoria:** cada contentor contém um registo de auditoria que mostra até cinco comandos de retenção baseada no tempo para políticas de retenção baseadas no tempo bloqueadas, com o máximo de três registos para extensões de intervalo de retenção.  Para a retenção baseada no tempo, o registo contém o ID de utilizador, o tipo de comando, carimbos de data/hora e o intervalo de retenção. Para retenções legais, o registo contém o ID de utilizador, o tipo de comando, carimbos de data/hora e as etiquetas de retenção legal. Este registo é mantido durante o tempo de vida do contentor, em conformidade com as diretrizes de regulamentação SEC 17a-4(f). Um registo mais abrangente de todas as atividades de plano de controlo está disponível no [Registo de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). É da responsabilidade do utilizador armazenar esses registos de forma persistente, consoante requerido por motivos de regulamentação ou outros fins.
 
  A funcionalidade está ativada em todas as regiões públicas do Azure.
 
@@ -68,7 +68,7 @@ Para obter mais informações sobre como definir e desmarcar retenções legais,
 
 Um contentor pode ter uma retenção legal e uma política de retenção baseada no tempo, ao mesmo tempo. Todos os blobs no contentor permanecerão no estado imutável até que todas as retenções legais sejam desmarcadas, mesmo se o respetivo período de retenção efetivo tiver expirado. Por outro lado, um blob irá permanecer num estado imutável até que o período de retenção efetivo expire, apesar de todas as retenções legais terem sido desmarcadas.
 A tabela seguinte mostra os tipos de operações de blob que serão desativadas para os diferentes cenários imutáveis.
-Consulte a documentação [API do Serviço Blob do Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) para obter os detalhes da API REST do Blob.
+Consulte a documentação [API do Serviço Blob do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) para obter os detalhes da API REST do Blob.
 
 |Cenário  |Estado de Blob  |Operações de Blob não permitidas  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Consulte a documentação [API do Serviço Blob do Azure](https://docs.microsoft
 
 > [!NOTE]
 > O primeiro Colocar Blob e as operações Colocar Lista de Blocos e Colocar Blocos necessárias para criar um blob são permitidas nos dois primeiros cenários da tabela acima, todas as operações subsequentes não são permitidas.
-> A funcionalidade de Armazenamento Imutável só está disponível em contas GPv2 e de armazenamento de blobs, e tem de ser criada através do [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+> A funcionalidade de Armazenamento Imutável só está disponível em contas GPv2 e de armazenamento de blobs, e tem de ser criada através do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Preços
 
@@ -94,7 +94,7 @@ As seguintes restrições aplicam-se durante a pré-visualização pública:
 
 ## <a name="getting-started"></a>Introdução
 
-O Armazenamento Imutável do Azure para Blobs do Azure é suportado nas versões mais recentes do [Portal do Azure](http://portal.azure.com), [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) do Azure e o Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+O Armazenamento Imutável do Azure para Blobs do Azure é suportado nas versões mais recentes do [Portal do Azure](http://portal.azure.com), [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) do Azure e o Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -130,7 +130,7 @@ O Armazenamento Imutável do Azure para Blobs do Azure é suportado nas versões
 
 ### <a name="cli-20"></a>CLI 2.0
 
-Instalar a [extensão CLI](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) com `az extension add -n storage-preview`
+Instalar a [extensão CLI](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) com `az extension add -n storage-preview`
 
 Se já tiver a extensão instalada, utilize o seguinte comando para ativar a funcionalidade de Armazenamento Imutável: `az extension update -n storage-preview`
 

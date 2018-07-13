@@ -3,7 +3,7 @@ title: Tutorial - Criar e gerir um conjunto de dimensionamento de máquinas virt
 description: Saiba como utilizar a CLI do Azure 2.0 para criar um conjunto de dimensionamento de máquinas virtuais e fazer algumas tarefas de gestão comuns, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc8c58efcaeb5491eb23257e470f42a8d7cfd5c1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246768"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452554"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure 2.0
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Neste tutorial, ficará a saber como:
@@ -29,7 +29,7 @@ Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir
 > [!div class="checklist"]
 > * Criar e ligar a um conjunto de dimensionamento de máquinas virtuais
 > * Selecionar e utilizar imagens de VM
-> * Ver e utilizar tamanhos de instância específicos de VM
+> * Ver e utilizar tamanhos de instância de VM específicos
 > * Dimensionar manualmente um conjunto de dimensionamento
 > * Executar tarefas de gestão comuns de conjuntos de dimensionamento
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -264,7 +264,7 @@ az vmss show \
 
 
 ## <a name="common-management-tasks"></a>Tarefas comuns de gestão
-Agora, pode criar um conjunto de dimensionamento, listar as informações de ligação e ligar-se a instâncias de VMs. Aprendeu como utilizar uma imagem de SO diferente para as suas instâncias de VM, selecionar um tamanho de VM diferente ou dimensionar manualmente o número de instâncias.  Como parte da sua gestão quotidiana, poderá precisar de parar, iniciar ou reiniciar as instâncias de VMs no seu conjunto de dimensionamento.
+Agora, pode criar um conjunto de dimensionamento, listar as informações de ligação e ligar-se a instâncias de VMs. Aprendeu como utilizar uma imagem de SO diferente para as suas instâncias de VM, selecionar um tamanho de VM diferente ou dimensionar manualmente o número de instâncias. Como parte da sua gestão quotidiana, poderá precisar de parar, iniciar ou reiniciar as instâncias de VMs no seu conjunto de dimensionamento.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>Parar e desalocar instâncias de VMs num conjunto de dimensionamento
 Para parar uma ou mais instâncias de VMs num conjunto de dimensionamento, utilize [az vmss stop](/cli/azure/vmss#az_vmss_stop). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais instâncias de VMs para parar. Se não especificar um ID de instância, todas as instâncias de VMs no conjunto de dimensionamento são paradas. O seguinte exemplo para a instância *1*:

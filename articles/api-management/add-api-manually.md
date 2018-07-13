@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934988"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307453"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente 
 
@@ -51,7 +51,7 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
     |**URL do Serviço Web** (opcional)| "*http://httpbin.org*"| Se pretender simular uma API, poderá não introduzir nada. <br/>Neste caso, vamos introduzir [http://httpbin.org](http://httpbin.org). Este é um serviço de teste público. <br/>Se pretender importar uma API que está mapeada para um back-end automaticamente, veja um dos tópicos na secção [Tópicos relacionados](#related-topics).|
     |**Esquema do URL**|"*HTTPS*"|Neste caso, embora o back-end tenha acesso HTTP não seguro, especificamos um acesso APIM de HTTPS seguro para o back-end. <br/>Este tipo de cenário (HTTPS para HTTP) é chamado terminação HTTPS. Poderá fazê-lo se a sua API existir dentro de uma rede virtual (onde saiba que o acesso é seguro, mesmo que não seja utilizado HTTPS). <br/>Poderá utilizar a "terminação HTTPS" para poupar alguns ciclos da CPU.|
     |**Sufixo do URL**|"*hbin*"| O sufixo é um nome que identifica esta API específica nesta instância de APIM. Tem de ser exclusivo nesta instância de APIM.|
-    |**Produtos**|"*Unlimited*" |Publique a API ao associá-la a um produto. Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/><br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
+    |**Produtos**|"*Unlimited*" |Associe a API a um produto e publique-a. Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/><br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
 5. Selecione **Criar**.
 
 Neste momento, não tem operações na APIM que mapeiem para as operações na sua API de back-end. Se chamar uma operação que está exposta através do back-end, mas não através da APIM, obtém um **404**. 

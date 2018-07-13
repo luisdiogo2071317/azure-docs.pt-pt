@@ -3,7 +3,7 @@ title: Tutorial – Criar e gerir redes virtuais do Azure para VMs do Linux | Mi
 description: Neste tutorial, vai aprender a utilizar a CLI 2.0 do Azure para criar e gerir redes virtuais do Azure para máquinas virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 306d33dd5b5910e990caf80dae4c37fee020f7a1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e214e60cf61f809d8bc4a541c2f4ecf544feccd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193143"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928663"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI 2.0 do Azure
 
@@ -36,7 +36,7 @@ As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="vm-networking-overview"></a>Descrição geral do funcionamento em rede de VMs
 

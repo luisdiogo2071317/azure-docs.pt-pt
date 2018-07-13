@@ -3,7 +3,7 @@ title: Tutorial – Fazer o balanceamento de carga de máquinas virtuais do Linu
 description: Neste tutorial, vai aprender a utilizar a CLI 2.0 do Azure para criar um balanceador de carga para uma aplicação segura de elevada disponibilidade em três máquinas virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: baae0ee72056d2f7437a865b11f738ef0a2e6934
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c6ca58fb901be416a2640091862724dbc1611390
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193126"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931954"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli-20"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI 2.0 do Azure
 
@@ -38,7 +38,7 @@ O balanceamento de carga oferece um nível mais elevado de disponibilidade ao pr
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Descrição geral do balanceador de carga do Azure
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP) que fornece elevada disponibilidade ao distribuir o tráfego de entrada entre VMs em bom estado de funcionamento. Uma sonda de estado de funcionamento do balanceador de carga monitoriza uma porta especificada em cada VM e apenas distribui o tráfego para uma VM operacional.

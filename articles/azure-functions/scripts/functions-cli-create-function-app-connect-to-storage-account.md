@@ -17,11 +17,11 @@ ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: cbe7bf95574ca7a77d666981691da05357ce9a0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843583"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38467831"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Criar uma aplicação de funções que se liga a uma conta de Armazenamento do Azure
 
@@ -33,7 +33,7 @@ Este script de exemplo das Funções do Azure cria uma aplicação de funções 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se utilizar a CLI localmente, certifique-se de que a versão em execução é a 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Se utilizar a CLI localmente, certifique-se de que a versão em execução é a 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Iniciar sessão no Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Criar um grupo de recursos com localização |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta do Storage |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Criar uma conta de armazenamento |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Criar uma nova aplicação de funções |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpeza |
 

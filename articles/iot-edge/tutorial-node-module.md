@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061269"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299211"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implementar um módulo do IoT Edge do Node.js no seu dispositivo simulado
 
@@ -70,7 +70,7 @@ Utilize o **npm** para criar um modelo de solução de Node.js que possa servir 
 
 3. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 
-4. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: New IoT Edge solution**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+4. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    1. Selecione a pasta onde quer criar a solução. 
    2. Indique um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
@@ -185,9 +185,9 @@ Pode utilizar o portal do Azure para implementar o seu módulo Node.ms para um d
 
 1. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
 
-2. Procure e execute o comando **Azure: Sign in**. Siga as instruções para iniciar sessão na conta do Azure. 
+2. Procure e execute o comando **Azure: Iniciar sessão**. Siga as instruções para iniciar sessão na conta do Azure. 
 
-3. Na paleta de comandos, procure e execute o comando **Azure IoT Hub: Select IoT Hub**. 
+3. Na paleta de comandos, procure e execute o comando **Hub IoT do Azure: Selecionar Hub IoT**. 
 
 4. Selecione a subscrição que contém o seu hub IoT e, em seguida, selecione o hub IoT ao qual quer aceder.
 

@@ -11,11 +11,11 @@ ms.date: 3/20/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 9aa0eec9036e32d6f3462886dfc7a796ed1844b8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356295"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306387"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Encaminhar o tráfego Web com base no URL com o Azure PowerShell
 
@@ -80,7 +80,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Nesta secção, pode criar recursos que suportam o gateway de aplicação e que, por fim, o criam. Os recursos que criar incluem:
+Nesta secção, vai criar recursos que suportam o gateway de aplicação e que, por fim, o criam. Os recursos que criar incluem:
 
 - *Configurações de IP e porta de front-end* - associa a sub-rede que criou anteriormente ao gateway de aplicação e atribui uma porta a utilizar para aceder ao mesmo.
 - *Conjunto predefinido*  - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
@@ -426,7 +426,7 @@ Altere o URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo o 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados com [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados, com [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG

@@ -3,7 +3,7 @@ title: Tutorial – Criar um pipeline de desenvolvimento no Azure com o Jenkins 
 description: Tutorial – Neste tutorial, vai aprender a criar uma máquina virtual do Jenkins no Azure que solicita dados do GitHub em cada consolidação de código e cria um novo contentor do Docker para executar a aplicação.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211196"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931733"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 
@@ -148,8 +148,8 @@ Para que o Jenkins responda a um evento no GitHub, como consolidar código, crie
 No seu site do Jenkins, selecione **Criar novas tarefas** na home page:
 
 - Introduza *HelloWorld* no nome da tarefa. Escolha **Projeto de estilo livre** e selecione **OK**.
-- Na secção **Geral**, selecione o projeto **GitHub** e introduza o URL do repositório bifurcado, como *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- Na secção  **Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- Na secção **Geral**, selecione o projeto **GitHub** e introduza o URL do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world*
+- Na secção  **Gestão de código fonte**, selecione o projeto **Git** e introduza o URL *.git* do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Na secção **Criar Acionadores**, selecione **Acionador de hook do GitHub para consulta GITScm**.
 - Na secção **Compilar**, escolha **Adicionar passo de compilação**. Selecione **Executar shell** e introduza `echo "Testing"` na janela de comandos.
 - Selecione **Guardar** na parte inferior da janela de tarefas.
