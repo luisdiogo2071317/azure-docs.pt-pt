@@ -8,14 +8,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031758"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006103"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ligar dispositivos Modbus TCP através de um gateway de dispositivo IoT
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ligar dispositivos Modbus TCP através de um gateway de dispositivo do IoT Edge
 
 Se quiser ligar dispositivos IoT que utilizam os protocolos Modbus TCP ou RTU a um hub IoT do Azure, utilize um dispositivo IoT Edge como gateway. O dispositivo de gateway lê os dados dos seus dispositivos Modbus e comunica-os para a cloud com um protocolo suportado. 
 
@@ -43,10 +43,10 @@ Se quiser criar o seu próprio módulo e personalizá-lo para o seu ambiente, ex
 
 ## <a name="run-the-solution"></a>Executar a solução
 1. No [portal do Azure](https://portal.azure.com/), aceda ao seu hub IoT.
-2. Aceda a **IoT Edge** e clique no seu dispositivo de limite de IoT.
+2. Aceda a **IoT Edge** e clique no seu dispositivo IoT Edge.
 3. Selecione **Definir módulos**.
 4. Adicione o módulo do Modbus:
-   1. Clique em **adicionar** e selecione **módulo IoT Edge**.
+   1. Clique em **Add** e selecione **módulo do IoT Edge**.
    2. No campo **Nome**, introduza "modbus".
    3. No campo **Imagem**, introduza o URI da imagem do contentor de exemplo: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Selecione a caixa **Ativar** para atualizar as propriedades pretendidas do duplo do módulo.
@@ -87,8 +87,8 @@ Se quiser criar o seu próprio módulo e personalizá-lo para o seu ambiente, ex
    ```
 
 8. Selecione **Seguinte**. 
-9. No **revisão implementação** passo, selecione **submeter**. 
-10. Regresse à página de detalhes do dispositivo e selecione **Atualizar**. Deverá ver o novo **modbus** módulo em execução, juntamente com o tempo de execução do limite de IoT.
+9. No passo **Rever Implementação**, selecione **Submeter**. 
+10. Regresse à página de detalhes do dispositivo e selecione **Atualizar**. Deverá ver a nova **modbus** módulo em execução, juntamente com o runtime do IoT Edge.
 
 ## <a name="view-data"></a>Ver dados
 Ver os dados que vêm do módulo modbus:
@@ -96,11 +96,11 @@ Ver os dados que vêm do módulo modbus:
 docker logs -f modbus
 ```
 
-Também pode ver a telemetria que o dispositivo está a enviar com a [ferramenta do explorador do Hub IoT](https://github.com/azure/iothub-explorer). 
+Também pode ver a telemetria que o dispositivo está a enviar ao utilizar o [ferramenta do Explorador do IoT Hub](https://github.com/azure/iothub-explorer) ou o [extensão IoT Toolkit do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre como os dispositivos de IoT limite podem atuar como gateways, consulte o artigo [criar um dispositivo de limite de IoT que atua como um gateway transparente][lnk-transparent-gateway-linux]
+- Para saber mais sobre como os dispositivos do IoT Edge podem atuar como gateways, veja [criar um dispositivo IoT Edge que atue como gateway transparente][lnk-transparent-gateway-linux]
 - Para obter mais informações sobre como funcionam os módulos do IoT Edge, veja [Understand Azure IoT Edge modules](iot-edge-modules.md) (Compreender os módulos do Azure IoT Edge)
 
 <!-- Links -->

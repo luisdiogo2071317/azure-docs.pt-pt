@@ -26,7 +26,7 @@ O dashboard na solução de monitorização remota permite-lhe invocar os métod
 
     ![Ver o histórico do método][img-method-history]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O artigo [Personalizar soluções pré-configuradas][lnk-customize] descreve algumas formas através das quais pode expandir este exemplo. As extensões possíveis incluem a utilização de sensores reais e a implementação de comandos adicionais.
 
 Pode saber mais sobre as [permissões no site azureiotsuite.com][lnk-permissions].

@@ -1,25 +1,25 @@
 ---
-title: Cobertura do Azure Maps de tráfego | Microsoft Docs
+title: Tráfego cobertura no Azure Maps | Documentos da Microsoft
 description: Saiba mais sobre a cobertura de tráfego do Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 11/28/2017
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a6fc1a8f050c3b1f546b4d0150f14b2cbebc31d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37f63b719ed6137716789e3093074f50a74e4ae0
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599711"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990096"
 ---
-# <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego de mapas do Azure
+# <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
 
-Mapas do Azure fornece informações de tráfego avançado sob a forma de tráfego **fluxo** e **incidentes**. Estes dados podem ser visualizados no maps ou utilizados para gerar rotas mais inteligentes que fator no real ocasionar condições. 
+O Azure Maps fornece informações de tráfego avançado na forma de tráfego **fluxo** e **incidentes**. Estes dados podem ser visualizados em mapas ou utilizados para gerar rotas mais inteligentes que fatorar no real dirigir condições. 
 
-No entanto, o Maps não tem o mesmo nível de informações e a precisão para todas as regiões. A tabela seguinte fornece informações sobre que tipo de informações de tráfego pode pedir a cada região: 
+No entanto, o Maps não tem o mesmo nível de informações e a precisão em todas as regiões. A tabela seguinte fornece informações sobre o tipo de informações de tráfego pode pedir em cada região: 
 
 |Região  |Incidentes  |Fluxo  |
 |---------|:---------:|:---------:|
@@ -39,19 +39,19 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 |Egito     |         |✓         |
 |Estónia     |         | ✓        |
 |Finlândia     |✓         |✓         |
-|+ Ilhas Åland      |✓         |✓         |
+|+ Ilhas Alanda      |✓         |✓         |
 |França     |✓         |✓         |
-|+ Monaco     |✓         |✓         |
+|+ Mónaco     |✓         |✓         |
 |Alemanha     |✓         |✓         |
 |Grécia     |✓         |✓         |
 |R.A.E. Hong Kong     |✓         |✓         |
 |Hungria     |✓         |✓         |
 |Islândia     |         |✓         |
 |Indonésia     |✓         |✓         |
-|Irlanda (República das)     |✓         |✓         |
+|Irlanda (República da)     |✓         |✓         |
 |Israel     |         |✓         |
 |Itália     |✓         |✓        |
-|+ San Marino     |✓         |✓         |
+|+ São marinho     |✓         |✓         |
 |Kuwait     |✓         |✓         |
 |Letónia     |         |✓         |
 |Lesoto     |✓         |✓         |
@@ -68,7 +68,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 |Omã     |         |✓         |
 |Polónia     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+ Azores e Madeira     |         |✓         |
+|+ Açores e Madeira     |         |✓         |
 |Catar     |         |✓         |
 |Roménia     |         |✓         |
 |Federação Russa     |✓         |✓         |
@@ -79,21 +79,21 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 |África do Sul     |✓         |✓         |
 |Espanha     |✓         |✓         |
 |+ Andorra     |✓         |✓         |
-|+ Balearic Ilhas     |✓         |✓         |
-|+ Canary Ilhas     |✓         |✓         |
+|+ Ilhas de Balearic     |✓         |✓         |
+|+: Ilhas Canárias     |✓         |✓         |
 |+ Gibraltar     |✓         |✓         |
 |Suécia     |✓         |✓         |
 |Suíça     |✓         |✓        |
-|+ Liechtenstein      |✓         |✓         |
+|+ Listenstaine      |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Tailândia     |✓         |✓        |
 |Turquia     |✓         |✓         |
 |Ucrânia     |✓         |✓         |
 |Emirados Árabes Unidos     |✓         |✓         |
 |Reino Unido     |✓         |✓         |
-|(Guernsey & Jersey)     |✓         |✓         |
+|(Guernsey & Jérsia)     |✓         |✓         |
 |Ilha de Man     |✓         |✓         |
 |Estados Unidos     |✓         |✓        |
 |+ Porto Rico     |✓         |✓         |
 
-Para obter mais informações sobre os dados de tráfego de mapas do Azure, consulte o [tráfego](https://docs.microsoft.com/rest/api/maps/traffic) páginas de referência.
+Para obter mais informações sobre os dados de tráfego do Azure Maps, consulte a [tráfego](https://docs.microsoft.com/rest/api/maps/traffic) páginas de referência.

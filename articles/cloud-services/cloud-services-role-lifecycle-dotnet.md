@@ -1,9 +1,9 @@
 ---
-title: Processar eventos de ciclo de vida do serviço em nuvem | Microsoft Docs
-description: Saiba como os métodos de ciclo de vida de uma função de serviço em nuvem podem ser utilizados no .NET
+title: Processar eventos de ciclo de vida do serviço em nuvem | Documentos da Microsoft
+description: Saiba como os métodos de ciclo de vida de uma função de serviço em nuvem podem ser usados no .NET
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: eb78c05df3b3cdf3887334c11bdabd5cebb74747
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeconnoc
+ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23843449"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001563"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o Ciclo de Vida de uma função Web ou de Trabalho em .NET
-Quando cria uma função de trabalho, pode alargar a [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) classe, que fornece métodos para a substituição que permitem-lhe responder a eventos de ciclo de vida. Para funções da web esta classe é opcional, pelo que deve utilizá-lo a responder a eventos de ciclo de vida.
+Quando cria uma função de trabalho, estender o [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) classe que fornece métodos para substituição que lhe permitem responder a eventos de ciclo de vida. Para funções da web essa classe é opcional, para que deve usá-lo para responder a eventos de ciclo de vida.
 
-## <a name="extend-the-roleentrypoint-class"></a>Expandir a classe de RoleEntryPoint
-O [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) classe inclui métodos que são chamados pelo Azure quando- **inicia**, **executa**, ou **interrompe** uma função web ou de trabalho. Opcionalmente, pode substituir estes métodos para gerir a inicialização de função, as sequências de encerramento de função ou o thread de execução da função. 
+## <a name="extend-the-roleentrypoint-class"></a>Estender a classe RoleEntryPoint
+O [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) classe inclui métodos chamados pelo Azure quando ele **começa**, **executa**, ou **interrompe** uma função web ou de trabalho. Opcionalmente, pode substituir estes métodos para gerir a inicialização de função, sequências de encerramento de função ou o thread de execução da função. 
 
-Quando a expandir **RoleEntryPoint**, deve ter conhecimento dos seguintes comportamentos dos métodos:
+Ao estender **RoleEntryPoint**, deve estar ciente dos seguintes comportamentos dos métodos:
 
-* O [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) e [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) métodos devolvem um valor booleano, pelo que é possível devolver **falso** destes métodos.
+* O [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) e [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) métodos retornam um valor booleano, portanto, é possível retornar **false** entre esses métodos.
   
-   Se o seu código devolve **falso**, o processo de função é terminado abruptamente, sem executar qualquer sequência encerramento pode ter no local. Em geral, deve evitar devolver **falso** do **OnStart** método.
-* Qualquer não identificadas exceção dentro de uma sobrecarga de uma **RoleEntryPoint** método é tratado como uma exceção não processada.
+   Se seu código retornar **false**, o processo de função está a ser encerrado abruptamente, sem executar qualquer sequência de encerramento pode ter no local. Em geral, deve evitar retornando **false** partir a **OnStart** método.
+* Qualquer não detetada exceção dentro de uma sobrecarga de um **RoleEntryPoint** método é tratado como uma exceção não processada.
   
-   Se ocorrer uma excepção dentro de um dos métodos de ciclo de vida, o Azure irá elevar o [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) eventos e, em seguida, o processo é terminado. Depois da função tiver sido colocada offline, este será reiniciado pelo Azure. Quando ocorre uma exceção não processada, o [parar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) o evento não é gerado e o **OnStop** método não é chamado.
+   Se ocorrer uma exceção dentro de um dos métodos de ciclo de vida, o Azure irá elevar o [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) eventos e, em seguida, o processo é encerrado. Depois de sua função foi colocada offline, será reiniciada pelo Azure. Quando ocorre uma exceção não processada, o [parar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) o evento não é gerado e o **OnStop** método não é chamado.
 
-Se a função não inicia ou é Reciclagem entre a inicializar, ocupado e Estados de parar, o código pode ser a gerar uma exceção não processada dentro de um dos eventos de ciclo de vida reinicia a função de cada vez. Neste caso, utilize o [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) eventos para determinar a causa da exceção e processá-la corretamente. Também pode ser regressar a sua função do [executar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) método, o que faz com que a função de reinício. Para obter mais informações sobre os Estados de implementação, consulte [problemas que causa funções comuns para reciclagem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Se a sua função não for iniciado, ou está a reciclar entre a inicializar, ocupado e os Estados de parar, seu código pode ser a gerar uma exceção sem tratamento dentro de um dos eventos de ciclo de vida reinicia a função de cada vez. Neste caso, utilize o [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) evento para determinar a causa da exceção e processá-la adequadamente. Sua função pode também ser retornar a partir do [executar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) método, o que faz com que a função reiniciar. Para obter mais informações sobre Estados de implementação, consulte [problemas que causa funções comuns para reciclagem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
-> Se estiver a utilizar o **ferramentas do Azure para o Microsoft Visual Studio** para desenvolver a sua aplicação, os modelos de projeto de função automaticamente expandem o **RoleEntryPoint** classe para si, no *WebRole.cs* e *WorkerRole.cs* ficheiros.
+> Se estiver a utilizar o **ferramentas do Azure para Microsoft Visual Studio** para desenvolver seu aplicativo, os modelos de projeto de função estendem automaticamente o **RoleEntryPoint** classe para, no  *WebRole.cs* e *WorkerRole.cs* ficheiros.
 > 
 > 
 
 ## <a name="onstart-method"></a>Método OnStart
-O **OnStart** método é chamado quando a instância de função é colocada online pelo Azure. Enquanto está a executar o código de OnStart, a instância de função está marcada como **ocupado** e nenhum tráfego externo será direcionado para a mesma pelo balanceador de carga. Pode substituir este método para efetuar o trabalho de inicialização, tais como processadores de eventos de implementar e iniciar [diagnósticos do Azure](cloud-services-how-to-monitor.md).
+O **OnStart** método é chamado quando a sua instância de função é colocada online pelo Azure. Embora o código de OnStart está em execução, a instância de função está marcada como **ocupado** e nenhum tráfego externo será direcionado para o mesmo pelo balanceador de carga. Pode substituir esse método para realizar o trabalho de inicialização, como a implementação de manipuladores de eventos e a partir de [diagnóstico do Azure](cloud-services-how-to-monitor.md).
 
-Se **OnStart** devolve **verdadeiro**, a instância está a ser inicializada com êxito e Azure chama o **RoleEntryPoint.Run** método. Se **OnStart** devolve **falso**, a função termina imediatamente, sem executar quaisquer sequências de encerramento planeado.
+Se **OnStart** devolve **true**, a instância é inicializada com êxito e o Azure chama o **RoleEntryPoint.Run** método. Se **OnStart** devolve **falso**, a função é encerrada imediatamente, sem executar quaisquer sequências de encerramento planeada.
 
-O exemplo de código seguinte mostra como substituir o **OnStart** método. Este método, configura e inicia um monitor de diagnóstico quando a instância de função é iniciado e configura uma transferência de dados de registo para uma conta de armazenamento:
+O exemplo de código seguinte mostra como substituir a **OnStart** método. Esse método configura e inicia um monitor de diagnóstico quando a instância de função é iniciado e configura uma transferência de dados de registo para uma conta de armazenamento:
 
 ```csharp
 public override bool OnStart()
@@ -64,22 +64,22 @@ public override bool OnStart()
 }
 ```
 
-## <a name="onstop-method"></a>Método de OnStop
-O **OnStop** método for chamado depois de uma instância de função tiver sido colocada offline pelo Azure e antes do processo é terminado. Pode substituir este método para chamar o código necessário para a instância de função para encerrada corretamente.
+## <a name="onstop-method"></a>Método OnStop
+O **OnStop** método é chamado após uma instância de função foi colocada offline pelo Azure e antes do processo é encerrado. Pode substituir esse método para chamar o código necessário para a sua instância de função para encerrada corretamente.
 
 > [!IMPORTANT]
-> Código em execução no **OnStop** método tem um período limitado de tempo a concluir quando é denominado por motivos que não seja um encerramento iniciada pelo utilizador. Depois de decorrido este tempo, o processo é terminado, pelo que deve certificar-se de que esse código no **OnStop** método pode executar rapidamente ou tolerates não está em execução para conclusão. O **OnStop** método for chamado depois do **parar** o evento é gerado.
+> Código em execução no **OnStop** método tem um período limitado para concluir a quando ele for chamado por motivos que não seja um encerramento iniciado pelo utilizador. Depois de decorrido este tempo, o processo é encerrado, pelo que deve certificar-se de que esse código no **OnStop** método pode executar rapidamente ou tolera não funcionar até à conclusão. O **OnStop** método é chamado após o **parar** o evento é gerado.
 > 
 > 
 
 ## <a name="run-method"></a>Executar o método
-Pode substituir o **executar** método para implementar um thread de execução longa para a instância de função.
+Pode substituir a **executar** método para implementar um thread de execução longa para a sua instância de função.
 
-A substituir o **executar** método não é necessário; a implementação predefinida é iniciado um thread que permaneça suspenso indefinidamente. Se substituir o **executar** método, o código deverá bloquear indefinidamente. Se o **executar** método devolve, a função é automaticamente transições reciclada; por outras palavras, o Azure gera o **parar** eventos e as chamadas a **OnStop** método para que as sequências de encerramento podem ser executadas antes da função é colocada offline.
+Substituir a **executar** não é necessário um método; a implementação padrão é iniciado um thread que entra em suspensão para sempre. Se substituir o **executar** método, seu código deve estar bloqueada indefinidamente. Se o **executar** método retorna, a função é automaticamente normalmente reciclada; em outras palavras, o Azure gera a **parar** eventos e as chamadas a **OnStop** método para que sua sequências de encerramento podem ser executadas antes da função seja colocada offline.
 
-### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementar os métodos de ciclo de vida do ASP.NET para uma função da web
-Pode utilizar os métodos de ciclo de vida do ASP.NET, para além dos fornecidos pelo **RoleEntryPoint** classe, para gerir sequências de inicialização e encerramento de uma função da web. Isto poderá ser útil para fins de compatibilidade se são transferências uma aplicação ASP.NET existente para o Azure. Os métodos de ciclo de vida do ASP.NET são chamados a partir do **RoleEntryPoint** métodos. O **aplicação\_iniciar** método for chamado depois do **RoleEntryPoint.OnStart** método concluída. O **aplicação\_final** método é chamado antes do **RoleEntryPoint.OnStop** método é chamado.
+### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementando os métodos de ciclo de vida do ASP.NET para uma função da web
+Pode usar os métodos de ciclo de vida ASP.NET, para além dos fornecidos pelos **RoleEntryPoint** classe, para gerir sequências de inicialização e desligamento para uma função da web. Isso poderá ser útil para fins de compatibilidade se estiver portando um aplicativo ASP.NET existente para o Azure. Os métodos de ciclo de vida do ASP.NET são chamados de dentro do **RoleEntryPoint** métodos. O **aplicativo\_começar** método é chamado após o **Roleentrypoint** conclusão do método. O **aplicativo\_End** método é chamado antes do **RoleEntryPoint.OnStop** método é chamado.
 
-## <a name="next-steps"></a>Passos seguintes
-Saiba como [criar um pacote de serviço em nuvem](cloud-services-model-and-package.md).
+## <a name="next-steps"></a>Passos Seguintes
+Saiba como [criar um pacote de serviço cloud](cloud-services-model-and-package.md).
 

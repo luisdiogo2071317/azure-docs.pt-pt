@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991451"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorize um site do SharePoint com o Application Insights
 O Azure Application Insights monitoriza a disponibilidade, o desempenho e a utilização das suas aplicações. Aqui, irá aprender a configurá-lo para um site do SharePoint.
@@ -33,7 +34,7 @@ A janela que se abre é o local onde verá os dados de utilização e de desempe
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ Os primeiros eventos irão aparecer na Pesquisa.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Clique em Atualizar após alguns segundos, se estiver à espera de mais dados.
-
-No painel da descrição geral, clique em **Análise de utilização** para ver os gráficos de utilizadores, as sessões e as vistas da página:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Clique em qualquer gráfico para ver mais detalhes - por exemplo as Vistas de Página:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Ou Utilizadores:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Capturar Id do Utilizador
 O fragmento de código da página Web standard não captura o ID do utilizador do SharePoint, mas pode fazê-lo com uma pequena modificação.
@@ -155,7 +144,7 @@ function onRequestFail(sender, args) {
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Testes Web](app-insights-monitor-web-app-availability.md) para monitorizar a disponibilidade do seu site.
 * [Application Insights](app-insights-overview.md) para outros tipos de aplicação.
 

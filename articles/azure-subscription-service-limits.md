@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: aecb687ea2352b482a97226219e9a075070c50a6
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610777"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990680"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -69,6 +69,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Serviço de migração de base de dados](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Hubs de Eventos](#event-hubs-limits)
+* [Firewall do Azure](#azure-firewall-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Serviço de Aprovisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Cofre de Chaves](#key-vault-limits)
@@ -152,6 +153,9 @@ A tabela seguinte fornece detalhes sobre os recursos e limites do básico, Stand
 
 #### <a name="dns-limits"></a>Limites DNS
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
+
+#### <a name="azure-firewall-limits"></a>Limites da Firewall do Azure
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
 ### <a name="storage-limits"></a>Limites de armazenamento
 Para obter mais detalhes sobre os limites de conta de armazenamento, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](storage/common/storage-scalability-targets.md).

@@ -1,6 +1,6 @@
 ---
-title: Recolher dados do seu ambiente com o Log Analytics do Azure | Microsoft Docs
-description: Este tópico ajuda-o a compreender como recolher dados e monitorizar computadores alojados no local ou outro ambiente de nuvem com a análise de registos.
+title: Recolher dados do seu ambiente com o Azure Log Analytics | Documentos da Microsoft
+description: Este tópico ajuda-o a compreender como recolher dados e monitorizar computadores alojados no outro ambiente de cloud com o Log Analytics ou no local.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -12,60 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133048"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003323"
 ---
-# <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
+# <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com o Log Analytics
 
-Análise de registos do Azure pode recolher e atuar sobre dados de computadores Windows ou Linux que reside no:
+O Azure Log Analytics pode recolher e agir sobre dados de computadores Windows ou Linux que residem em:
 
-* [Máquinas virtuais do Azure](log-analytics-quick-collect-azurevm.md) através da extensão de VM de análise do registo 
-* O Centro de dados como servidores físicos ou máquinas virtuais
-* Máquinas virtuais num serviço alojado na nuvem como Amazon Web Services (AWS)
+* [Máquinas virtuais do Azure](log-analytics-quick-collect-azurevm.md) usando a extensão de VM do Log Analytics 
+* Seu datacenter como servidores físicos ou máquinas virtuais
+* Máquinas virtuais num serviço alojado na cloud, como Amazon Web Services (AWS)
 
-Computadores alojados no seu ambiente que podem ser ligados diretamente ao Log Analytics, ou se está já a monitorizar estes computadores com o System Center Operations Manager 2012 R2, 2016 ou versão 1801, pode integrar o seu grupo de gestão Operations gerir com Análise de registo e continuar a manter os seus processos de operações de serviço de TI.  
+Computadores alojados no seu ambiente podem ser ligadas diretamente ao Log Analytics, ou se já está a monitorizar estes computadores com o System Center Operations Manager 2012 R2, 2016 ou versão 1801, pode integrar o seu grupo de gestão do Operations Manager com o Log Analytics e continuar a manter seus processos de operações do serviço de TI.  
 
 ## <a name="overview"></a>Descrição geral
 
 ![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
-Antes de analisar e a funcionar nos dados recolhidos, terá primeiro de instalar e ligar agentes para todos os computadores que pretende enviar dados para o serviço de análise de registos. Pode instalar agentes nos computadores no local utilizando a configuração, a linha de comandos, ou com pretendido Estado Configuration (DSC) na automatização do Azure. 
+Antes de analisar e atuar sobre os dados recolhidos, tem primeiro de instalar e ligar os agentes para todos os computadores que pretende enviar dados para o serviço Log Analytics. Pode instalar agentes nos computadores no local utilizando a configuração, a linha de comandos, ou com o Desired State Configuration (DSC) na automatização do Azure. 
 
-O agente para Linux e Windows comunica saído com o serviço de análise de registos através da porta TCP 443 e se o computador liga ao servidor de firewall ou proxy para comunicar através da Internet, reveja [a secção de pré-requisitos](#prerequisites) para compreenda a configuração de rede necessária.  Se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet, pode configurar um [OMS Gateway](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para estabelecer ligação através do gateway para análise de registos. O agente, em seguida, pode receber informações de configuração e enviar dados recolhidos, dependendo de que as regras de recolha de dados e soluções tiver ativado. 
+O agente para Linux e Windows comunica saído com o serviço Log Analytics, através da porta TCP 443 e, se o computador liga-se a um servidor de firewall ou proxy para comunicar através da Internet, consulte [a secção de pré-requisitos](#prerequisites) para compreenda a configuração de rede necessária.  Se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet, pode configurar uma [Gateway de OMS](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para ligar através do gateway para o Log Analytics. O agente pode, em seguida, receber informações de configuração e enviar os dados recolhidos consoante as regras de recolha de dados e soluções ativados. 
 
-Se estiver a monitorizar o computador com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço de análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo [do Operations Manager ](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com a análise de registos não receber a configuração para origens de dados e os dados recolhidos reencaminhar através do grupo de gestão. O agente do Windows pode reportar até quatro áreas de trabalho, enquanto o agente Linux só suporta relatórios para uma única área de trabalho.  
+Se estiver a monitorizar o computador com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço do Log Analytics para recolher dados e reencaminhar para o serviço e ainda ser monitorizadas pelo [do Operations Manager ](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com o Log Analytics não recebeu a configuração para origens de dados e os dados recolhidos para a frente através do grupo de gestão. O agente do Windows pode relatar até quatro áreas de trabalho, enquanto o agente Linux só suporta a geração de relatórios para um único espaço de trabalho.  
 
-O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-hybrid-runbook-worker.md).  
+O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para o host a função de trabalho de Runbook híbrida e soluções de gestão, como o controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função de trabalho de Runbook híbrida, veja [Runbook Worker híbrido do Azure Automation](../automation/automation-hybrid-runbook-worker.md).  
 
-## <a name="supported-windows-operating-systems"></a>Sistemas de operativos Windows suportados
-As seguintes versões do sistema operativo Windows oficialmente são suportadas para o agente do Windows:
+## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
+As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
 * Windows Server 2008 Service Pack 1 (SP1) ou posterior
 * Windows 7 SP1 e posterior.
 
-> [!NOTE]
-> O agente para o Windows só suporta Transport Layer Security (TLS) 1.0 e 1.1.  
-
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
-As distribuições de Linux seguintes são suportadas oficialmente.  No entanto, o agente Linux pode também executar nos outras distribuições não listadas.  Exceto indicação em contrário, todas as versões de secundárias são suportadas para cada versão principais listado.  
+As seguintes distribuições de Linux são suportadas oficialmente.  No entanto, o agente Linux também pode executar em outras distribuições não listadas.  Salvo indicação em contrário, todas as versões secundárias são suportadas para cada versão principal listado.  
 
-* Linux Amazon 2012.09 para 2015.09 (x86/x64)
-* CentOS Linux 5, 6 e 7 (x86/x64)  
+* Amazon Linux 2012.09 para 2015.09 (x86/x64)
+* Linux centOS 5, 6 e 7 (x86/x64)  
 * Oracle Linux 5, 6 e 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
 * Debian GNU/Linux 6, 7 e 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
+## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
+Para garantir a segurança dos dados em trânsito para o Log Analytics, recomendamos que configure o agente para utilizar, pelo menos, Transport Layer Security (TLS) 1.2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**.  Para obter mais informações, consulte [enviar dados de forma segura através de TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de rede
-As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente Linux e Windows comunicar com a análise de registos.  
+As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente Linux e Windows para comunicar com o Log Analytics.  
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
@@ -75,43 +75,43 @@ As informações abaixo lista as informações de configuração de proxy e de f
 |*.azure-automation.net |Porta 443 |Entrada e saída|Sim |  
 
 
-Se planeia utilizar o Runbook Worker híbrido de automatização do Azure para ligar a e registar com o serviço de automatização utilizar runbooks no seu ambiente, tem de ter acesso para o número de porta e os URLs descritos em [configurar a sua rede para o Runbook Worker híbrido](../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Se planeja usar a função de trabalho de Runbook de híbrida de automatização do Azure para ligar e registar com o serviço de automatização para utilizar runbooks no seu ambiente, tem de ter acesso para o número de porta e os URLs descritos em [configurar sua rede para o Runbook Worker híbrido](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-O agente do Windows e Linux suporta comunicar através de um servidor proxy ou Gateway do OMS para o serviço de análise de registos utilizando o protocolo HTTPS.  Autenticação básica e anónima (nome de utilizador/palavra-passe) são suportados.  Para o agente de Windows ligado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implementação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controlo ou com o PowerShell.  
+O agente do Windows e Linux suporta a comunicação por meio de um servidor proxy ou Gateway do OMS para o serviço do Log Analytics utilizando o protocolo HTTPS.  Autenticação anónima e básica (nome de utilizador/palavra-passe) são suportados.  Para o agente de Windows ligado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implementação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controlo ou com o PowerShell.  
 
-Para o agente do Linux, o servidor proxy é especificado durante a instalação ou [após a instalação](/log-analytics-agent-manage.md#update-proxy-settings) ao modificar o ficheiro de configuração proxy.conf.  O valor de configuração de proxy de agente do Linux tem a seguinte sintaxe:
+Para o agente do Linux, o servidor proxy é especificado durante a instalação ou [após a instalação](/log-analytics-agent-manage.md#update-proxy-settings) ao modificar o ficheiro de configuração de proxy. Conf.  O valor de configuração de proxy de agente do Linux tem a seguinte sintaxe:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
-> Se o servidor proxy necessitar que se autentique, o agente Linux ainda necessita que fornece uma utilizador de pseudo/palavra-passe. Isto pode ser qualquer nome de utilizador ou palavra-passe.
+> Se o servidor proxy não requer que se autentique, o agente Linux ainda exige que fornecer um utilizador de pseudo-autenticação/palavra-passe. Isso pode ser qualquer nome de utilizador ou palavra-passe.
 
 |Propriedade| Descrição |
 |--------|-------------|
 |Protocolo | https |
 |Utilizador | Nome de utilizador opcional para a autenticação de proxy |
 |palavra-passe | Palavra-passe opcional para a autenticação de proxy |
-|proxyhost | Endereço ou o FQDN do proxy servidor/OMS Gateway |
-|porta | Número de porta opcional para o proxy servidor/OMS Gateway |
+|proxyhost | Endereço ou FQDN do proxy servidor/OMS Gateway |
+|porta | Número de porta opcional para o proxy server/OMS Gateway |
 
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Se utilizar carateres especiais, tais como "\@" na sua palavra-passe, receberá um erro de ligação de proxy porque o valor é analisado incorretamente.  Para contornar este problema, codificar a palavra-passe no URL utilizando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
+> Se utilizar carateres especiais, tais como "\@" a palavra-passe, receberá um erro de ligação de proxy porque o valor é analisado incorretamente.  Para contornar este problema, codificar a palavra-passe no URL usando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Instalar e configurar o agente 
-Ligar os computadores no local diretamente com a análise de registos pode ser conseguido através de métodos diferentes consoante as suas necessidades. A tabela seguinte realça cada método para determinar que funciona melhor na sua organização.
+Ligar os computadores no local diretamente com o Log Analytics pode ser feito através de métodos diferentes, dependendo das suas necessidades. A tabela seguinte realça a cada método para determinar o que funciona melhor na sua organização.
 
 |Origem | Método | Descrição|
 |-------|-------------|-------------|
-| Computador Windows|- [Instalação manual](log-analytics-agent-windows.md)<br>- [DSC de automatização do Azure](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modelo do Resource Manager com a pilha do Azure](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instale o Microsoft Monitoring agent a partir da linha de comandos ou utilizando um método automatizado, tais como o DSC de automatização do Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou com um modelo Azure Resource Manager, se tiver implementado Microsoft Pilha do Azure no seu centro de dados.| 
-|Computador com Linux| [Instalação manual](log-analytics-quick-collect-linux-computer.md)|Instale o agente para Linux ao chamar um script de wrapper alojado no GitHub. | 
-| System Center Operations Manager|[Integrar o Operations Manager com a análise de registos](log-analytics-om-agents.md) | Configurar a integração entre o Operations Manager e análise de registos para reencaminhar recolhidos dados de computadores Linux e Windows relatam a um grupo de gestão.|  
+| Computador Windows|- [Instalação manual](log-analytics-agent-windows.md)<br>- [DSC de automatização do Azure](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Modelo do Resource Manager com o Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instalar o Microsoft Monitoring agent a partir da linha de comando ou usando um método automatizado, como o DSC de automatização do Azure, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), ou com um modelo Azure Resource Manager, se tiver implementado Microsoft O Azure Stack no seu datacenter.| 
+|Computador com Linux| [Instalação manual](log-analytics-quick-collect-linux-computer.md)|Instale o agente para Linux chamar um script de wrapper alojado no GitHub. | 
+| System Center Operations Manager|[Integrar o Operations Manager com o Log Analytics](log-analytics-om-agents.md) | Configurar a integração entre o Operations Manager e o Log Analytics para reencaminhar dados recolhidos de computadores Linux e Windows que relatam a um grupo de gestão.|  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Reveja [origens de dados](log-analytics-data-sources.md) para compreender as origens de dados disponíveis para recolher dados do sistema Windows ou Linux. 
+* Revisão [origens de dados](log-analytics-data-sources.md) para compreender as origens de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 
-* Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 
-* Saiba mais sobre [soluções](log-analytics-add-solutions.md) que adicionar funcionalidades à análise de registos e também recolher dados para o repositório do OMS.
+* Saiba mais sobre [soluções](log-analytics-add-solutions.md) que acrescentam funcionalidades ao Log Analytics e também, recolher dados para o repositório do OMS.

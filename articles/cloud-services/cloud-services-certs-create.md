@@ -1,9 +1,9 @@
 ---
-title: Serviços em nuvem e certificados de gestão | Microsoft Docs
+title: Serviços cloud e certificados de gestão | Documentos da Microsoft
 description: Saiba como criar e utilizar certificados com o Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
@@ -13,60 +13,60 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: jeconnoc
+ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969207"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001444"
 ---
-# <a name="certificates-overview-for-azure-cloud-services"></a>Descrição geral de certificados para serviços de nuvem do Azure
-Certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma descrição geral de ambos os tipos de certificado, como a [criar](#create) e [implementar](#deploy) -las para o Azure.
+# <a name="certificates-overview-for-azure-cloud-services"></a>Descrição geral de certificados para serviços Cloud do Azure
+Os certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma visão geral de ambos os tipos de certificado, como ao [crie](#create) e [implementar](#deploy) -los para o Azure.
 
-Certificados utilizados no Azure são x. 509 v3 certificados e podem ser assinados por outro certificado fidedigno ou podem ser auto-assinados. Um certificado autoassinado está assinado pela sua própria criador, por conseguinte, não é considerado fidedigno por predefinição. A maioria dos browsers podem ignorar este problema. Só deve utilizar certificados autoassinados quando desenvolver e testar os seus serviços em nuvem. 
+Certificados utilizados no Azure são x.509 v3 certificados e podem ser assinados por outro certificado fidedigno ou podem ser autoassinados. Um certificado autoassinado esteja assinado por seu próprio criador, por isso ele não é considerado fidedigno por predefinição. A maioria dos navegadores podem ignorar este problema. Só deve utilizar certificados autoassinados quando desenvolver e testar seus serviços cloud. 
 
-Certificados utilizados pelo Azure podem conter um private ou uma chave pública. Certificados têm um thumbprint que fornece um meio para identificá-las de uma forma inequívoca. Esta impressão digital é utilizada do Azure [ficheiro de configuração](cloud-services-configure-ssl-certificate-portal.md) para identificar o certificado que um serviço em nuvem deverá utilizar. 
+Certificados utilizados pelo Azure podem conter um privado ou uma chave pública. Certificados têm um thumbprint que fornece um meio para identificá-los de maneira inequívoca. Este thumbprint é utilizado no Azure [ficheiro de configuração](cloud-services-configure-ssl-certificate-portal.md) para identificar o certificado que um serviço em nuvem deve utilizar. 
 
-## <a name="what-are-service-certificates"></a>Quais são os certificados de serviço?
-Certificados de serviço estão ligados ao serviços em nuvem e ativar a comunicação segura de e para o serviço. Por exemplo, se tiver implementado uma função da web, seria aconselhável fornecer um certificado que pode autenticar-se de um ponto final de HTTPS exposto. Certificados de serviço, definidos na definição do serviço, são implementados automaticamente para a máquina virtual que está a executar uma instância da sua função. 
+## <a name="what-are-service-certificates"></a>O que são certificados de serviço?
+Certificados de serviço são anexados a serviços em nuvem e permitir a comunicação segura de e para o serviço. Por exemplo, se tiver implementado uma função da web, gostaria de fornecer um certificado que pode autenticar-se um ponto de final HTTPS exposto. Certificados de serviço, definidos na definição do serviço, são implementados automaticamente para a máquina virtual que está a executar uma instância da sua função. 
 
-Pode carregar certificados de serviço para o Azure utilizando o portal do Azure ou utilizando o modelo de implementação clássica. Certificados de serviço estão associados um serviço em nuvem específica. São atribuídas a uma implementação no ficheiro de definição de serviço.
+Pode carregar certificados de serviço para o Azure utilizando o portal do Azure ou utilizando o modelo de implementação clássica. Certificados de serviço estão associados um serviço em nuvem específico. São atribuídas a uma implementação no ficheiro de definição do serviço.
 
-Certificados de serviço podem ser geridos separadamente em relação os serviços e podem ser geridos pelo diferentes pessoas. Por exemplo, um programador pode carregar um pacote de serviço que se refere a um certificado que um Gestor de TI foi carregada anteriormente para o Azure. Um Gestor de TI pode gerir e renovar o certificado (alteração da configuração do serviço) sem ser necessário carregar um pacote de serviço novo. É possível atualizar sem um novo pacote de serviço porque o nome lógico, o nome do arquivo e a localização do certificado está no ficheiro de definição de serviço e enquanto o thumbprint do certificado é especificado no ficheiro de configuração do serviço. Para atualizar o certificado, só é necessário carregar um certificado novo e altere o valor de thumbprint no ficheiro de configuração do serviço.
+Certificados de serviço podem ser geridos separadamente dos seus serviços e podem ser geridos por diferentes pessoas. Por exemplo, um desenvolvedor pode carregar um pacote de serviço que se refere a um certificado que um gerente de TI anteriormente carregada para o Azure. Um gerente de TI pode gerir e renovar o certificado (alteração da configuração do serviço) sem a necessidade de carregar um novo pacote de serviço. Atualização sem um novo pacote de serviço é possível porque o nome lógico, o nome de arquivo e a localização do certificado está no arquivo de definição do serviço e enquanto o thumbprint do certificado é especificado no ficheiro de configuração do serviço. Para atualizar o certificado, apenas é necessário carregar um novo certificado e alterar o valor do thumbprint no ficheiro de configuração do serviço.
 
 >[!Note]
->O [FAQ de serviços em nuvem](cloud-services-faq.md) artigo tem algumas informações úteis sobre certificados.
+>O [FAQ de serviços Cloud](cloud-services-faq.md) artigo tem algumas informações úteis sobre certificados.
 
-## <a name="what-are-management-certificates"></a>Quais são os certificados de gestão?
-Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássica. Muitos programas e ferramentas (tais como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação de vários serviços do Azure. Estes não estão realmente relacionados com serviços em nuvem. 
+## <a name="what-are-management-certificates"></a>O que são certificados de gestão?
+Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássica. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação dos vários serviços do Azure. Estes não estão realmente relacionadas a serviços em nuvem. 
 
 > [!WARNING]
-> Cuidado! Estes tipos de certificados permite que qualquer pessoa que efetua a autenticação com os mesmos para gerir a subscrição que se encontram associados. 
+> Tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que efetua a autenticação com os mesmos para gerir a subscrição na que qual estão associados. 
 > 
 > 
 
 ### <a name="limitations"></a>Limitações
-Não há um limite de 100 certificados de gestão por subscrição. Há também um limite de 100 certificados de gestão para todas as subscrições no ID de utilizador de. um administrador de serviço específicos Se o ID de utilizador para o administrador de conta já foi utilizado para adicionar 100 certificados de gestão e for necessário mais certificados, pode adicionar um coadministrador para adicionar os certificados adicionais. 
+Existe um limite de 100 certificados de gestão por subscrição. Também existe um limite de 100 certificados de gestão para todas as subscrições com ID de utilizador. do administrador de serviço específico Se o ID de utilizador para o administrador de conta já foi utilizado para adicionar 100 certificados de gestão e há uma necessidade de mais certificados, pode adicionar um coadministrador para adicionar os certificados adicionais. 
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Criar um novo certificado autoassinado
 Pode utilizar qualquer ferramenta disponível para criar um certificado autoassinado, desde adira a estas definições:
 
-* Um certificado x. 509.
+* Um certificado X.509.
 * Contém uma chave privada.
-* Criar para a troca de chaves (ficheiro. pfx).
-* Nome do requerente tem de corresponder ao domínio utilizado para aceder ao serviço de nuvem.
+* Criado para troca de chaves (ficheiro. pfx).
+* Nome do requerente tem de corresponder o domínio utilizado para aceder ao serviço cloud.
 
-    > Não é possível adquirir um certificado SSL para o cloudapp.net (ou para qualquer relacionadas com o Azure) domínio; nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, **contoso.net**, não **contoso.cloudapp.net**.
+    > Não é possível adquirir um certificado SSL para o cloudapp.net (ou para qualquer relacionados com o Azure) domínio; nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, **contoso.net**, e não **contoso.cloudapp.net**.
 
 * Mínimo de encriptação de 2048 bits.
-* **Certificado de serviço só**: certificado do lado do cliente tem de residir no *pessoais* arquivo de certificados.
+* **Certificado de serviço só**: tem de residir no certificado do lado do cliente a *pessoais* arquivo de certificados.
 
-Existem duas formas de fácil de criar um certificado no Windows, com o `makecert.exe` utilitário nem o IIS.
+Existem duas formas fáceis de criar um certificado no Windows, com o `makecert.exe` utilitário ou IIS.
 
 ### <a name="makecertexe"></a>Makecert.exe
-Este utilitário foi preterido e já não é documentado aqui. Para obter mais informações, consulte [neste artigo do MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+Esse utilitário foi preterido e já não está documentado aqui. Para obter mais informações, consulte [este artigo MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
@@ -76,23 +76,23 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 ```
 
 > [!NOTE]
-> Se pretender utilizar o certificado com um endereço IP, em vez de um domínio, utilize o endereço IP no parâmetro - DnsName.
+> Se pretender utilizar o certificado com um endereço IP em vez de um domínio, utilize o endereço IP no parâmetro - DnsName.
 
 
-Se pretender utilizar esta opção [certificado com o portal de gestão](../azure-api-management-certs.md), exportá-lo para um **. cer** ficheiro:
+Se pretender utilizá-lo [certificado com o portal de gestão](../azure-api-management-certs.md), exportá-lo para um **. cer** ficheiro:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### <a name="internet-information-services-iis"></a>Serviços de informação Internet (IIS)
-Existem várias páginas na internet que abrangem como fazê-lo com o IIS. [Aqui](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) é uma excelente encontrei julgo explica-la corretamente. 
+Existem muitas páginas na internet que abrangem como fazê-lo com o IIS. [Aqui](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) é um excelente, descobri que acho que explica bem. 
 
 ### <a name="linux"></a>Linux
-[Isto](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artigo descreve como criar certificados com SSH.
+[Isso](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artigo descreve como criar certificados com SSH.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Carregue o certificado de serviço para o portal do Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Carregar um [certificado da API de gestão](../azure-api-management-certs.md) ao portal do Azure.
+Carregar uma [certificado de gestão de API](../azure-api-management-certs.md) ao portal do Azure.
 

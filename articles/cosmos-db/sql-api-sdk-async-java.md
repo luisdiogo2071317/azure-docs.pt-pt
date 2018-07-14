@@ -1,6 +1,6 @@
 ---
-title: 'Do Azure Cosmos DB: API do SQL Server Async Java, SDK & recursos | Microsoft Docs'
-description: Saiba tudo sobre a API do SQL Server Async Java e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do assíncrona de BD SQL do Azure Cosmos.
+title: 'Azure Cosmos DB: SQL Async Java API, SDK e recursos | Documentos da Microsoft'
+description: Saiba tudo sobre o SQL Async Java API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Java do Azure Cosmos DB SQL Async.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,17 +10,17 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300684"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990281"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async SDK Java para API do SQL Server: notas de versão e recursos
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alteração de .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -32,72 +32,72 @@ ms.locfileid: "36300684"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do SQL Server, fornecendo as operações assíncronas com suporte do [biblioteca Netty](http://netty.io/). O pré-existente [SQL API Java SDK](sql-api-sdk-java.md) não suporta operações assíncronas. 
+O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao fornecer operações assíncronas com suporte do [biblioteca Netty](http://netty.io/). O pré-existente [SDK de Java API de SQL](sql-api-sdk-java.md) não suporta operações assíncronas. 
 
 <table>
 
-<tr><td>**Transferência do SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
+<tr><td>**Transferência de SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência da API de Java](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência da API de Java](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
-<tr><td>**Introdução**</td><td>[Introdução ao SDK de Java assíncrona](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
+<tr><td>**Introdução**</td><td>[Introdução ao SDK de Java assíncrono](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
-<tr><td>**exemplo de código**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
+<tr><td>**Exemplo de código**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
-<tr><td>**Sugestões de desempenho**</td><td>[Leia-me do Github](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
+<tr><td>**Sugestões de desempenho**</td><td>[Leiame do Github](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**Tempo de execução mínimo suportado**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**Mínimo de runtime suportada**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Substituído org.json dependência por jackson devido a motivos de desempenho e licenciamento ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
-* Remover a classe de OfferV2 preterido.
-* Método do acessor foi adicionada a classe de oferta para o conteúdo de débito.
-* Qualquer método no documento/recurso devolver tipos org.json alterados para devolver um jackson tipo de objeto.
-* tipo de método getObject(.) de classes JsonSerializable expandir alterado para devolver um ObjectNode jackson.
-* método de getCollection(.) foi alterado para devolver a coleção de ObjectNode.
-* Construtores as JsonSerializable subclasses removida com org.json.JSONObject arg.
-* Agora, JsonSerializable.toJson (SerializationFormattingPolicy.Indented) utiliza dois espaços de avanço.
+* Substituído org.json dependência por jackson devido a motivos de desempenho e de licenciamento ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Classe OfferV2 preterido foi removido.
+* Método do acessador foi adicionado à classe de oferta para o conteúdo de débito.
+* Qualquer método no documento/recurso retornando tipos org.json alterados para devolver uma jackson tipo de objeto.
+* tipo de método de getObject(.) das classes JsonSerializable expansão alterado para devolver uma ObjectNode jackson.
+* método getCollection(.) alterado para devolver a coleção de ObjectNode.
+* Construtores das JsonSerializable subclasses removidos com org.json.JSONObject arg.
+* Agora, o JsonSerializable.toJson (SerializationFormattingPolicy.Indented) utiliza os dois espaços para avanço.
   
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
-* Adicionado suporte para a política de índice exclusivo.
-* Suporte adicionado para limitar o tamanho de token de continuação de resposta nas opções do feed.
-* Adicionado suporte para a divisão de partição na consulta de partição cruzada.
-* Corrigido um erro na serialização do Json timestamp ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
-* Corrigido um erro na serialização de enumeração de Json.
-* Corrigido um erro na gestão de documentos do tamanho de 2MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Dependência com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5 resultam de erros ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Dependência de rxjava-extras atualizado para 0.8.0.17 resultam de erros ([rxjava extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
-* A descrição de metadados no ficheiro pom atualizado para ser inline com o resto da documentação.
-* Melhoramento de sintaxe ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Foi adicionado suporte para índice exclusivo da política.
+* Foi adicionado suporte para limitar o tamanho de token de continuação de resposta nas opções de feeds.
+* Foi adicionado suporte para a divisão de partição na consulta de partição cruzada.
+* Foi corrigido um erro na serialização do Json timestamp ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Foi corrigido um erro na serialização de enumeração de Json.
+* Foi corrigido um erro no gerenciamento de documentos do tamanho de 2MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Dependência com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5 devido a um erro ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Dependência de rxjava-extras atualizado para 0.8.0.17 devido a um erro ([rxjava extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* A descrição de metadados no ficheiro pom atualizada para serem inline com o restante da documentação.
+* Melhoria da sintaxe ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
-* Adicionado suporte de back-pressão na consulta.
-* Suporte adicionado para o id de intervalo de chaves de partição na consulta.
-* Correção para permitir que o token de continuação maior no cabeçalho de pedido (bugfix github #24).
-* dependência netty atualizada para 4.1.22.Final para garantir JVM encerrado após a conclusão da thread principal.
-* Corrigir evitar a transmitir o token da sessão quando ao ler os recursos principais.
+* Foi adicionado suporte de back-pressão na consulta.
+* Foi adicionado suporte para o id de intervalo da chave de partição na consulta.
+* Correção para permitir que o token de continuação maior no cabeçalho do pedido (bugfix github #24).
+* Dependência netty atualizada para 4.1.22.Final para garantir que o JVM encerra o tempo limite após a conclusão do thread principal.
+* Corrigi para evitar a transmitir o token de sessão durante a leitura de recursos globais.
 * Adicionar mais exemplos.
-* Adicionar mais benchmarking cenários.
-* Ficheiros de cabeçalho de Java fixos para a geração de documentação do java adequado.
+* Adicionar mais cenários de benchmark.
+* Arquivos de cabeçalho de Java fixos para a geração de documentos de java adequado.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* SDK GA com suporte de ponto a ponto para a utilização de e/s não bloquear o [biblioteca Netty](http://netty.io/) no modo de gateway. 
+* SDK de disponibilidade geral com suporte ponto a ponto para a utilização de e/s sem bloqueio a [biblioteca Netty](http://netty.io/) no modo de gateway. 
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
-A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
+A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
-Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual. Por isso, recomenda-se que sempre atualizar para a versão mais recente do SDK antecipadamente quanto possível.
+Novos recursos e funcionalidade e otimizações apenas são adicionadas ao SDK do atual. Por isso, recomenda-se que sempre atualiza para a versão mais recente do SDK mais cedo possível.
 
-Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo serviço.
+Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 <br/>
 
-| Versão | Data da versão | Data de retirada |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [2.0.0](#2.0.0) |20 de Junho de 2018|--- |
 | [1.0.2](#1.0.2) |18 de Maio de 2018|--- |
@@ -108,5 +108,5 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
 

@@ -1,6 +1,6 @@
 ---
-title: Estrutura de modelo do Azure Resource Manager e sintaxe | Microsoft Docs
-description: Descreve a estrutura e propriedades de modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON.
+title: Estrutura de modelo do Azure Resource Manager e a sintaxe | Documentos da Microsoft
+description: Descreve a estrutura e propriedades de modelos Azure Resource Manager usando sintaxe declarativa do JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 826dcf13a6e29fd4631e1078dd2ac0fa65b14e14
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334803"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001689"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager
-Este artigo descreve a estrutura de um modelo Azure Resource Manager. Apresente as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).
+Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para obter um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de modelo
 Na sua estrutura mais simples, um modelo tem os seguintes elementos:
@@ -41,15 +41,15 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo. Utilize o URL apresentado no exemplo anterior. |
-| contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar as alterações significativas no modelo. Quando implementar recursos com o modelo, este valor pode ser utilizado para se certificar de que está a ser utilizado o modelo à direita. |
-| parâmetros |Não |Valores que são fornecidos durante a implementação é executada para personalizar a implementação de recursos. |
-| variáveis |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de idioma do modelo. |
-| functions |Não |Funções definidas pelo utilizador que estão disponíveis no modelo. |
+| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo. Utilize o URL mostrado no exemplo anterior. |
+| contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
+| parâmetros |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
+| Variáveis |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
+| functions |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
 | recursos |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos. |
 | saídas |Não |Valores que são devolvidos após a implementação. |
 
-Cada elemento tem propriedades, que pode definir. O exemplo seguinte mostra a sintaxe completa para um modelo:
+Cada elemento tem propriedades que pode definir. O exemplo seguinte mostra a sintaxe completa para um modelo:
 
 ```json
 {
@@ -159,14 +159,14 @@ Cada elemento tem propriedades, que pode definir. O exemplo seguinte mostra a si
 }
 ```
 
-Este artigo descreve as secções do modelo em maior detalhe.
+Este artigo descreve as seções do modelo em mais detalhes.
 
 ## <a name="syntax"></a>Sintaxe
-A sintaxe básica do modelo é JSON. No entanto, expressões e as funções expandem os valores JSON disponíveis no modelo.  As expressões são escritas no literais de cadeia JSON cujo primeiro e último carateres são Retos: `[` e `]`, respetivamente. O valor da expressão é avaliado quando o modelo é implementado. Enquanto escritos como uma cadeia literal, o resultado da avaliação da expressão pode ser um tipo JSON diferente, tal como uma matriz nem um número inteiro, consoante a expressão real.  Para ter um literal de cadeia começa com um parêntese `[`, mas não o tiver interpretado como uma expressão, adicione um parêntesis adicional para iniciar a cadeia com `[[`.
+A sintaxe básica do modelo é um JSON. No entanto, expressões e funções estendem os valores JSON disponíveis dentro do modelo.  Expressões são escritas dentro de literais de cadeia de caracteres do JSON cujo primeiro e último carateres são os colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implementado. Embora escrito como um literal de cadeia, o resultado da avaliação da expressão pode ser de um tipo diferente do JSON, como uma matriz ou um número inteiro, consoante a expressão real.  Ter uma cadeia literal, comece com um colchete `[`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`.
 
-Normalmente, utilizar expressões com as funções para executar operações para configurar a implementação. Apenas como em JavaScript, chamadas de função estejam formatadas como `functionName(arg1,arg2,arg3)`. Referenciar propriedades utilizando os operadores de ponto e [Índice].
+Normalmente, usar expressões com as funções para executar operações para configurar a implantação. Da mesma forma que no JavaScript, chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. Referenciar propriedades utilizando os operadores de pontos e [Índice].
 
-O exemplo seguinte mostra como utilizar várias funções quando construir um valor:
+O exemplo seguinte mostra como utilizar várias funções ao construir um valor:
 
 ```json
 "variables": {
@@ -177,9 +177,9 @@ O exemplo seguinte mostra como utilizar várias funções quando construir um va
 Para obter a lista completa de funções de modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parâmetros
-Na secção de parâmetros do modelo, especifique os valores que pode introduzir quando implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). Não tem de fornecer os parâmetros no modelo, mas sem parâmetros do modelo implementaria sempre os mesmos recursos com os mesmos nomes, localizações e as propriedades.
+Na secção de parâmetros do modelo, especifique os valores que pode inserir ao implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no seu modelo, mas sem parâmetros seu modelo implementaria sempre os mesmos recursos com os mesmos nomes, locais e propriedades.
 
-O exemplo seguinte mostra uma definição do parâmetro simples:
+O exemplo seguinte mostra uma definição de parâmetro simples:
 
 ```json
 "parameters": {
@@ -195,9 +195,9 @@ O exemplo seguinte mostra uma definição do parâmetro simples:
 Para obter informações sobre como definir parâmetros, consulte [secção de parâmetros de modelos Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variáveis
-Na secção de variáveis, construir valores que podem ser utilizados em todo o seu modelo. Não precisa de definir as variáveis, mas são, muitas vezes, simplificam o modelo ao reduzir as expressões complexas.
+Na secção de variáveis, é possível construir valores que podem ser utilizados em todo o seu modelo. Não precisa de definir variáveis, mas elas, muitas vezes, simplificam seu modelo, reduzindo as expressões complexas.
 
-O exemplo seguinte mostra uma definição de variável simple:
+O exemplo seguinte mostra uma simple definição de variável:
 
 ```json
 "variables": {
@@ -205,20 +205,21 @@ O exemplo seguinte mostra uma definição de variável simple:
 },
 ```
 
-Para obter informações sobre como definir variáveis, consulte [secção de variáveis de modelos Azure Resource Manager](resource-manager-templates-variables.md).
+Para obter informações sobre como definir as variáveis, consulte [secção de variáveis de modelos Azure Resource Manager](resource-manager-templates-variables.md).
 
 ## <a name="functions"></a>Funções
 
-No seu modelo, pode criar as suas próprias funções. Estas funções estão disponíveis para utilização no seu modelo. Normalmente, é possível definir a expressão complicada que não pretende repetir em todo o seu modelo. Criar funções definidas pelo utilizador de expressões e [funções](resource-group-template-functions.md) que são suportados em modelos.
+No seu modelo, pode criar suas próprias funções. Estas funções estão disponíveis para utilização no seu modelo. Normalmente, é possível definir a expressão complicada que não pretende repetir em todo o seu modelo. Criar as funções definidas pelo utilizador a partir de expressões e [funções](resource-group-template-functions.md) que são suportadas nos modelos.
 
 Ao definir uma função de utilizador, existem algumas restrições:
 
 * A função não é possível aceder a variáveis.
+* A função não é possível aceder aos parâmetros do modelo. Ou seja, o [função de parâmetros](resource-group-template-functions-deployment.md#parameters) restringe-se aos parâmetros da função.
 * A função não é possível chamar outras funções definidas pelo utilizador.
-* A função não é possível utilizar o [referenciar a função](resource-group-template-functions-resource.md#reference).
+* A função não é possível utilizar o [fazem referência função](resource-group-template-functions-resource.md#reference).
 * Parâmetros para a função não podem ter valores predefinidos.
 
-As suas funções requerem um valor de espaço de nomes para evitar conflitos com funções de modelo de nomenclatura. O exemplo seguinte mostra uma função que devolve um nome de conta de armazenamento:
+As suas funções exigem um valor de espaço de nomes para evitar conflitos com as funções do modelo de nomenclatura. O exemplo seguinte mostra uma função que retorna um nome de conta de armazenamento:
 
 ```json
 "functions": [
@@ -242,7 +243,7 @@ As suas funções requerem um valor de espaço de nomes para evitar conflitos co
 ],
 ```
 
-Tem de chamar a função com:
+Chamar a função com:
 
 ```json
 "resources": [
@@ -262,7 +263,7 @@ Tem de chamar a função com:
 ```
 
 ## <a name="resources"></a>Recursos
-Na secção de recursos, é possível definir os recursos que são implementados ou atualizados. Nesta secção pode obter complicada porque tem de compreender os tipos que estiver a implementar para fornecer os valores corretos.
+A seção de recursos, vai definir os recursos que são implementados ou atualizados. Esta secção pode são complicada, uma vez que deve compreender os tipos que estiver a implementar para fornecer os valores de certos.
 
 ```json
 "resources": [
@@ -278,10 +279,10 @@ Na secção de recursos, é possível definir os recursos que são implementados
 ],
 ```
 
-Para obter mais informações, consulte [secção de recursos de modelos Azure Resource Manager](resource-manager-templates-resources.md).
+Para obter mais informações, consulte [seção de recursos de modelos Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Saídas
-Na secção saídas, especifique os valores que são devolvidos por implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
+Na secção de saídas, especifique os valores que são devolvidos da implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
 
 ```json
 "outputs": {
@@ -292,11 +293,11 @@ Na secção saídas, especifique os valores que são devolvidos por implementaç
 }
 ```
 
-Para obter mais informações, consulte [produz a secção de modelos Azure Resource Manager](resource-manager-templates-outputs.md).
+Para obter mais informações, consulte [produz a seção de modelos Azure Resource Manager](resource-manager-templates-outputs.md).
 
-## <a name="template-limits"></a>Limites de modelo
+## <a name="template-limits"></a>Limites do modelo
 
-Limite o tamanho do seu modelo para 1 MB e cada ficheiro de parâmetros para 64 KB. O limite de 1 MB aplica-se para o estado final do modelo de depois foi expandido com as definições do recurso interativo e os valores de parâmetros e variáveis. 
+Limite o tamanho do seu modelo para 1 MB e cada ficheiro de parâmetros a 64 KB. O limite de 1 MB aplica-se para o estado final do modelo depois foi expandido com definições de recursos iterativo e valores de variáveis e parâmetros. 
 
 Também está limitado a:
 
@@ -304,12 +305,12 @@ Também está limitado a:
 * 256 variáveis
 * 800 recursos (incluindo o número de cópias)
 * 64 valores de saída
-* 24,576 carateres de uma expressão de modelo
+* 24,576 caracteres numa expressão de modelo
 
-Pode exceder alguns limites de modelo ao utilizar um modelo aninhado. Para obter mais informações, consulte [utilizar modelos ligados ao implementar os recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar vários valores para um objeto. Para obter mais informações, consulte [objetos como parâmetros](resource-manager-objects-as-parameters.md).
+Pode exceder alguns limites de modelo ao utilizar um modelo aninhado. Para obter mais informações, consulte [utilizar modelos ligados durante a implantação de recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar diversos valores num objeto. Para obter mais informações, consulte [objetos como parâmetros](resource-manager-objects-as-parameters.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-* Para obter detalhes sobre as funções que pode utilizar a partir de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Terá de utilizar os recursos que existe dentro de um grupo de recursos diferente. Este cenário é comum quando trabalhar com as contas de armazenamento e as redes virtuais que são partilhadas em vários grupos de recursos. Para obter mais informações, consulte o [resourceId função](resource-group-template-functions-resource.md#resourceid).
+* Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
+* Para combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Poderá ter de utilizar recursos que existem dentro de um grupo de recursos diferente. Este cenário é comum ao trabalhar com redes virtuais que são partilhadas entre vários grupos de recursos ou contas de armazenamento. Para obter mais informações, consulte a [resourceId função](resource-group-template-functions-resource.md#resourceid).

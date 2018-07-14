@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 02a790907908daf2db282a320f50d3a27efbd177
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917191"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003242"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Migração de Contoso: Refatorizar uma implantação do Team Foundation Server para Visual Studio Team Services (VSTS)
 
@@ -33,6 +33,8 @@ Este documento é a décima primeira de uma série de artigos que mostram como a
 [Artigo 9: Refatorizar uma aplicação para uma aplicação Web do Azure e a base de dados SQL do Azure](contoso-migration-refactor-web-app-sql.md) | Demonstra como Contoso migra a aplicação de SmartHotel para uma aplicação web do Azure baseadas em contentores e migra a base de dados de aplicação para o servidor SQL do Azure. | Disponível
 [Artigo 10: Refatorizar uma aplicação do Linux para o serviço de aplicações do Azure e o servidor MySQL do Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Mostra como a Contoso migra a aplicação de Linux osTicket para o serviço de aplicações do Azure com o contentor de Docker do PHP 7.0. A base de código para a implementação é migrada para o GitHub. A base de dados de aplicação é migrada para MySQL do Azure. | Disponível
 Artigo 11: Refatorizar uma implementação do TFS no VSTS | Migrar a aplicação de desenvolvimento TFS para o VSTS no Azure | Este artigo
+[Artigo 12: Rearquitetar uma aplicação em contentores do Azure e base de dados do Azure SQL](contoso-migration-rearchitect-container-sql.md) | Mostra como Contoso migra e rearchitects a respetiva aplicação SmartHotel para o Azure. Eles rearquitetar a camada de web de aplicação como um contentor do Windows e a base de dados de aplicação numa base de dados SQL do Azure. | Disponível
+[Artigo 13: Recriar uma aplicação no Azure](contoso-migration-rebuild.md) | Mostra como Contoso reconstruir a sua aplicação de SmartHotel com uma gama de capacidades do Azure e serviços, incluindo serviços de aplicações, Kubernetes do Azure, as funções do Azure, serviços cognitivos e Cosmos DB. | Disponível
 
 
 ## <a name="business-drivers"></a>Fatores comerciais

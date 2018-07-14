@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: e9bd1f91f7e7fac1b882c89ffb2195491ca2c07b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: bbbfc495f1ec262ccc067f3cd00b75e1a3e0c178
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929938"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990198"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integração de aplicações SaaS com o Azure Active Directory
 
@@ -109,7 +109,7 @@ Para obter a lista abrangente de aplicações SaaS que tenham sido previamente i
 | ![logótipo](./media/tutorial-list/active-directory-saas-blackboard-learn-shibboleth-tutorial.png)| [Saiba mais blackboard - Shibboleth](blackboard-learn-shibboleth-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-bluejeans-tutorial.png)| [BlueJeans](bluejeans-tutorial.md)|[BlueJeans - aprovisionamento de utilizadores](bluejeans-provisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-bomgarremotesupport-tutorial.png)| [Suporte remoto Bomgar](bomgarremotesupport-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-bonus-tutorial.png)| [Bonusly](bonus-tutorial.md)|[Bonusly - aprovisionamento de utilizadores](bonusly-provisioning-tutorial.md)
 | ![logótipo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Caixa](box-tutorial.md)| [Box - aprovisionamento de utilizadores](box-userprovisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
@@ -139,7 +139,7 @@ Para obter a lista abrangente de aplicações SaaS que tenham sido previamente i
 | ![logótipo](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco Cloud](ciscocloud-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - aprovisionamento de utilizadores](cisco-spark-provisioning-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - aprovisionamento de utilizadores](cisco-webex-provisioning-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|)|[Cisco Webex - aprovisionamento de utilizadores](cisco-webex-provisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [O Citrix ShareFile](sharefile-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - aprovisionamento de utilizadores](clarizen-provisioning-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Limpar revisão](clearreview-tutorial.md)|
@@ -178,7 +178,7 @@ Para obter a lista abrangente de aplicações SaaS que tenham sido previamente i
 | ![logótipo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Arco de Dome9](dome9arc-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Utenção Jones Factiva](dowjones-factiva-tutorial.md)|
-| ![logótipo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [O Dropbox for Business - aprovisionamento de utilizadores](dropboxforbusiness-provisioning-tutorial.md)|
+| ![logótipo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox for Business](dropboxforbusiness-tutorial.md)| [O Dropbox for Business - aprovisionamento de utilizadores](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![logótipo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-dynamicsignal-tutorial.png)| [Sinal dinâmico](dynamicsignal-tutorial.md)|
 | ![logótipo](./media/tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](easyterritory-tutorial.md)|

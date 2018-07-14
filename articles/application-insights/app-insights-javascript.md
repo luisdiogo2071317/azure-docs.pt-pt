@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c3c5a3029916b91b65a5bd0f6efa5c83f5dfcb66
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991475"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -56,7 +57,7 @@ Em Início Rápido, obtenha o script para páginas Web:
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -126,7 +127,7 @@ Abra o painel Browser para mostrar dados de desempenho agregados dos browsers do
 
 ![Em portal.azure.com, abra o recurso da sua aplicação e clique em Definições, Browser](./media/app-insights-javascript/03.png)
 
-*Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de problemas](app-insights-troubleshoot-faq.md).*
+Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
 
 O painel Browser é um [painel do Explorador de Métricas](app-insights-metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
 
@@ -235,7 +236,7 @@ O nome da página pode conter os mesmos carateres que um URL, mas qualquer cará
 ## <a name="usage-tracking"></a>Controlo de utilização
 Quer descobrir o que os utilizadores fazem com a sua aplicação?
 
-* [Saiba mais sobre o controlo de utilização](app-insights-web-track-usage.md)
+* [Saiba mais sobre as ferramentas de análise de comportamento do utilizador](app-insights-web-track-usage.md)
 * [Saiba mais sobre a API de métricas e eventos personalizados](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Vídeo

@@ -1,5 +1,5 @@
 ---
-title: Definição de esquema (ficheiro. csdef) para serviços em nuvem do Azure | Microsoft Docs
+title: Esquema de definição (ficheiro. csdef) dos serviços Cloud do Azure | Documentos da Microsoft
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -10,25 +10,25 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: d5e086a952e18e477177634e5c197c27d4a5cc5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df2f7c1bf99c13779e5720e15d8d669aa4f945c0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359021"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002754"
 ---
-# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição de serviços em nuvem do Azure (ficheiro. csdef)
-O ficheiro de definição de serviço define o modelo de serviço para uma aplicação. O ficheiro contém as definições para as funções que estão disponíveis para um serviço em nuvem, especifica os pontos finais de serviço e estabelece definições de configuração para o serviço. Os valores de definição de configuração estão definidos no ficheiro de configuração do serviço, conforme descrito pelo [esquema de configuração do serviço em nuvem (clássica)](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
+# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição de serviços Cloud do Azure (ficheiro. csdef)
+O ficheiro de definição de serviço define o modelo de serviço para uma aplicação. O ficheiro contém as definições para as funções que estão disponíveis para um serviço em nuvem, especifica os pontos de extremidade de serviço e estabelece as definições de configuração para o serviço. Valores de definição de configuração são definidos no ficheiro de configuração do serviço, conforme descrito pelos [esquema de configuração do serviço em nuvem (clássico)](http://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
 
-Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para a `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [Azure SDK](http://www.windowsazure.com/develop/downloads/).
+Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para o `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [SDK do Azure](http://www.windowsazure.com/develop/downloads/).
 
-A extensão de predefinido para o ficheiro de definição de serviço é. csdef.
+A extensão de padrão para o ficheiro de definição de serviço é. csdef.
 
 ## <a name="basic-service-definition-schema"></a>Esquema de definição de serviço básico
-O ficheiro de definição de serviço tem de conter um `ServiceDefinition` elemento. A definição de serviço tem de conter pelo menos uma função (`WebRole` ou `WorkerRole`) elemento. Pode conter até 25 funções definidos numa definição única e pode misturar tipos da função. A definição de serviço também contém a opcional `NetworkTrafficRules` elemento que restringe o que funções pode comunicar com pontos finais internos especificados. A definição de serviço também contém a opcional `LoadBalancerProbes` elemento que contém o cliente definido sondas de estado de funcionamento dos pontos finais.
+O ficheiro de definição de serviço tem de conter um `ServiceDefinition` elemento. A definição de serviço tem de conter pelo menos uma função (`WebRole` ou `WorkerRole`) elemento. Pode conter até 25 funções definidas numa única definição e pode misturar tipos de função. A definição de serviço também contém o opcional `NetworkTrafficRules` elemento que restringe o que funções pode comunicar com pontos finais internos especificados. A definição de serviço também contém o opcional `LoadBalancerProbes` elemento que contém o cliente definido sondas de estado de funcionamento dos pontos de extremidade.
 
 Segue-se o formato básico do ficheiro de definição de serviço.
 
@@ -70,6 +70,6 @@ A tabela seguinte descreve os atributos do `ServiceDefinition` elemento.
 | Atributo               | Descrição |
 | ----------------------- | ----------- |
 | nome                    |Necessário. O nome do serviço. O nome tem de ser exclusivo dentro da conta de serviço.|
-| topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` -Envia a atualização logo que possível para todas as instâncias de função. Se escolher a opção, a função deve ser capaz de lidar com a atualização de topologia sem ser reiniciado.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de forma sequencial depois da instância anterior foi aceite com êxito a atualização.|
-| schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permite lado a lado de Visual Studio selecionar as ferramentas SDK corretas a utilizar para a validação de esquema se mais do que uma versão do SDK está instalada.|
-| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização em que são atribuídas a funções neste serviço. Instâncias de função são atribuídas a um domínio de atualização, quando o serviço é implementado. Para obter mais informações, consulte [atualizar de uma função de serviço de nuvem ou implementação](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> Pode especificar até 20 domínios de atualização. Se não for especificado, o número predefinido de domínios de atualização é 5.|
+| topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` -Envia a atualização logo que possível para todas as instâncias de função. Se escolher a opção, a função deve ser capaz de lidar com a atualização de topologia sem ser reiniciado.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de forma seqüencial depois da instância anterior com êxito aceitou a atualização.|
+| schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permite o Visual Studio selecionar as ferramentas SDK corretas para utilizar para a validação de esquema mais de uma versão do SDK é instalada lado a lado.|
+| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização em que são atribuídas a funções neste serviço. Instâncias de função são alocadas a um domínio de atualização quando o serviço é implementado. Para obter mais informações, consulte [atualizar uma função de serviço na nuvem ou implementação](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment).<br /><br /> Pode especificar até 20 domínios de atualização. Se não for especificado, o número predefinido de domínios de atualização é 5.|

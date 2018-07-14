@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 3672b26c07974d0fb2897953a05f7233c4d43c3b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5b5212d5e1663fee01ff87642432818071d4f4dd
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903120"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988539"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalar o runtime do Azure IoT Edge no Linux (ARM32v7/armhf)
 
@@ -27,11 +27,9 @@ Este artigo lista os passos para instalar o runtime do Azure IoT Edge num dispos
 
 ## <a name="install-the-container-runtime"></a>Instalar o runtime de contentor
 
-O Azure IoT Edge se baseia numa [compatível com o OCI] [ lnk-oci] tempo de execução do contentor (por exemplo, o Docker). Se já tiver o Docker CE/EE instalada no seu dispositivo do Edge, pode continuar a utilizá-lo para desenvolvimento e teste com o Azure IoT Edge. 
+O Azure IoT Edge se baseia numa [compatível com o OCI] [ lnk-oci] tempo de execução do contentor. Para cenários de produção, é altamente recomendado que utilize o [com base em Moby] [ lnk-moby] motor fornecido abaixo. É o mecanismo de contentor único oficialmente suportado com o Azure IoT Edge. Imagens de contentor do docker CE/EE são compatíveis com o tempo de execução com base em Moby.
 
-Para cenários de produção, é altamente recomendado que utilize o [com base em Moby] [ lnk-moby] motor fornecido abaixo. É o mecanismo de contentor único oficialmente suportado com o Azure IoT Edge. Imagens de contentor do docker CE/EE são totalmente compatíveis com o tempo de execução Moby.
-
-Comandos abaixo instalar moby motor e a interface de linha de comandos (CLI). A CLI é útil para desenvolvimento mas opcional para implementações de produção.
+Comandos abaixo instala o mecanismo baseado em Moby e interface de linha de comandos (CLI). A CLI é útil para desenvolvimento mas opcional para implementações de produção.
 
 ```cmd/sh
 

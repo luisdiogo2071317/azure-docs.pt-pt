@@ -1,7 +1,7 @@
 ---
-title: Suportado países/regiões e idiomas API para Bing Visual pesquisa | Microsoft Docs
+title: Países/regiões e idiomas suportadas para API de pesquisa Visual do Bing | Documentos da Microsoft
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Descobrir que países/regiões e idiomas são suportados pela API Visual de pesquisa do Bing.
+description: Descubra quais os países/regiões e idiomas são suportados pela API de pesquisa Visual do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,20 +10,20 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 4723d028cc22caf8be3eb294b52506ec112cbab5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 068459f4959bf3f8daea8fe949ec324879ee260c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354140"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001233"
 ---
-# <a name="bing-visual-search-countries-and-languages"></a>Países de pesquisa de Visual Bing e idiomas
+# <a name="bing-visual-search-countriesregions-and-languages"></a>Pesquisa Visual do Bing países/regiões e idiomas
 
-API de pesquisa do Bing Visual suporta mais do que três dúzia países, muitas com mais de um idioma. Cada pedido deve incluir país e idioma à escolha do utilizador. Saber mercado do utilizador ajuda-o Bing devolver resultados adequados. Se não especificar uma linguagem e país, o Bing faz um melhor esforço para determinar o país e de idioma do utilizador. Porque os resultados podem conter ligações para o Bing, saber o país e o idioma pode fornecer um Bing localizada preferencial experiência de utilizador se o utilizador clica as ligações do Bing.
+API de pesquisa Visual do Bing suporta mais de três doze países/regiões, muitos com mais de um idioma. Cada pedido deve incluir país/região e idioma à escolha do utilizador. Saber o mercado do usuário ajuda o Bing devolver resultados apropriados. Se não especificar um país/região e idioma, o Bing faz um melhor esforço para determinar o país/região e idioma do utilizador. Uma vez que os resultados podem conter hiperligações para o Bing, saber o país/região e idioma pode fornecer um Bing localizada preferencial experiência do usuário se o usuário clicar em links do Bing.
 
-Para especificar o país e de idioma, defina o `mkt` parâmetro de consulta (marcados) para um código a partir de **mercados** tabela abaixo. Mercado Especifica um país e o idioma. Se o utilizador prefers ver apresentar texto num idioma diferente, defina `setLang` consultar parâmetro para o código de idioma apropriado.
+Para especificar o país/região e idioma, defina o `mkt` parâmetro de consulta (mercado) para um código a partir de **mercados** tabela abaixo. O mercado Especifica um país/região e idioma. Se o utilizador prefere ver exibir texto num idioma diferente, defina `setLang` parâmetro para o código de idioma apropriado de consulta.
 
-Em alternativa, pode especificar o país utilizando o `cc` parâmetro de consulta. Se especificar um país, também tem de especificar um ou mais códigos de idioma a utilizar o `Accept-Language` cabeçalho de HTTP. Idiomas suportados variam consoante o país; são fornecidos para cada país na tabela de mercados.
+Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de consulta. Se especificar um país/região, também tem de especificar um ou mais códigos de idioma a utilizar o `Accept-Language` cabeçalho de HTTP. Os idiomas com suporte variam consoante o país/região. são fornecidos para cada país na tabela de mercados.
 
 
 
@@ -31,12 +31,12 @@ Em alternativa, pode especificar o país utilizando o `cc` parâmetro de consult
 > As seguintes restrições de mercado aplicam-se:
 > 
 > - Anotações de reconhecimento de imagem só estão disponíveis em inglês. 
-> - Receitas, compras e páginas incluindo insights estão disponíveis no mercado en-US apenas. 
+> - Receita, compras e páginas, incluindo informações estão disponíveis no mercado en-US apenas. 
 
 
 ## <a name="countries"></a>Países
 
-|País|Código|
+|País/região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -50,26 +50,26 @@ Em alternativa, pode especificar o país utilizando o `cc` parâmetro de consult
 |França|FR|
 |Alemanha|ALEMANHA|
 |RAE de Hong Kong|HK|
-|Índia|EM|
+|Índia|ÍNDIA|
 |Indonésia|ID|
 |Itália|TI|
 |Japão|JP|
-|Coreia|KR|
-|Malásia|A MINHA|
+|Coreia|COREIA|
+|Malásia|MEU|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
 |Noruega|NÃO|
 |China|CN|
-|Polónia|LP|
-|Portugal|PT|
+|Polónia|PL|
+|Portugal|HORA DO PACÍFICO|
 |Filipinas|PH|
 |Rússia|RU|
 |Arábia Saudita|SA|
 |África do Sul|ZA|
 |Espanha|ES|
 |Suécia|SE|
-|Suíça|CATEGORIA|
+|Suíça|CH|
 |Taiwan|TW|
 |Turquia|TR|
 |Reino Unido|GB|
@@ -78,44 +78,44 @@ Em alternativa, pode especificar o país utilizando o `cc` parâmetro de consult
 
 ## <a name="markets"></a>Mercados
 
-|País|Idioma|Código de colocação no mercado|
+|País/região|Idioma|Código do mercado|
 |-------|--------|-----------|
-|Argentina|Espanhol|es AR|
-|Austrália|Português|EN AU|
-|Áustria|Alemão|AT da Alemanha|
+|Argentina|Espanhol|es-AR|
+|Austrália|Português|EN-AU|
+|Áustria|Alemão|Alemanha-AT|
 |Bélgica|Neerlandês|NL-ser|
 |Bélgica|Francês|FR-ser|
 |Brasil|Português|pt-BR|
 |Canadá|Português|en-CA|
 |Canadá|Francês|fr-CA|
-|Chile|Espanhol|es CL|
+|Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|FR-FR|
-|Alemanha|Alemão|Alemanha da Alemanha|
+|Alemanha|Alemão|de-DE|
 |RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Português|EN-IN|
-|Indonésia|Português|EN-ID|
+|Indonésia|Português|ID de en|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|Os meus en|
+|Malásia|Português|EN MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Neerlandês|NL-NL|
-|Nova Zelândia|Português|EN NZ|
+|Nova Zelândia|Português|EN-NZ|
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|EN PH|
+|Filipinas|Português|EN-PH|
 |Rússia|Russo|ru-RU|
 |Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|EN-ZA|
+|África do Sul|Português|EN ZA|
 |Espanha|Espanhol|es-ES|
 |Suécia|Sueco|SV-SE|
-|Suíça|Francês|FR categoria|
-|Suíça|Alemão|Categoria da Alemanha|
+|Suíça|Francês|FR-CH|
+|Suíça|Alemão|Alemanha-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Português|en GB|
+|Reino Unido|Português|en-GB|
 |Estados Unidos|Português|pt-PT|
 |Estados Unidos|Espanhol|es-US|

@@ -1,6 +1,6 @@
 ---
-title: Gerir a Azure Search com scripts do Powershell | Microsoft Docs
-description: Gerir o serviço da Azure Search com scripts do PowerShell. Criar ou atualizar um serviço da Azure Search e gerir chaves de administração de pesquisa do Azure
+title: Gerir o Azure Search com scripts do Powershell | Documentos da Microsoft
+description: Gerir o seu serviço de Azure Search com scripts do PowerShell. Criar ou atualizar um serviço Azure Search e gerir chaves de administração do Azure Search
 author: HeidiSteen
 manager: cgronlun
 tags: azure-resource-manager
@@ -10,22 +10,22 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181992"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000995"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Gerir o serviço de pesquisa do Azure com o PowerShell
+# <a name="manage-your-azure-search-service-with-powershell"></a>Gerir o seu serviço de Azure Search com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > 
 > 
 
-Este tópico descreve os comandos do PowerShell para efetuar muitas das tarefas de gestão para os serviços de pesquisa do Azure. Iremos irá guiá-se a criação de um serviço de pesquisa, dimensionamento-lo e gerir as respetivas chaves de API.
-Estes comandos paralela as opções de gestão disponíveis no [API de REST de gestão do Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
+Este tópico descreve os comandos do PowerShell para efetuar muitas das tarefas de gestão de serviços de pesquisa do Azure. Percorreremos a criação de um serviço de pesquisa, o dimensionamento-lo e gerir as chaves de API.
+Estes comandos as opções de gestão disponíveis em paralelo os [API do REST de gestão do Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Tem de ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
@@ -35,19 +35,19 @@ Em primeiro lugar, tem de iniciar sessão no Azure com este comando:
 
     Connect-AzureRmAccount
 
-Especifique o endereço de e-mail da sua conta do Azure e a palavra-passe na caixa de diálogo de início de sessão da Microsoft Azure.
+Especifica o endereço de e-mail da sua conta do Azure e a respetiva palavra-passe na caixa de diálogo de início de sessão da Microsoft Azure.
 
 Em alternativa, pode [início de sessão forma não interativa com um principal de serviço](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-Se tiver várias subscrições do Azure, tem de definir a sua subscrição do Azure. Para ver uma lista das suas subscrições atuais, execute este comando.
+Se tiver várias subscrições do Azure, terá de definir a sua subscrição do Azure. Para ver uma lista das suas subscrições atuais, execute este comando.
 
     Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
-Para especificar a subscrição, execute o seguinte comando. No exemplo seguinte, o nome da subscrição é `ContosoSubscription`.
+Para especificar a subscrição, execute o seguinte comando. No exemplo a seguir, é o nome da subscrição `ContosoSubscription`.
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## <a name="commands-to-help-you-get-started"></a>Os comandos para o ajudar a começar a utilizar
+## <a name="commands-to-help-you-get-started"></a>Comandos para ajudá-lo a começar a utilizar
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -126,11 +126,11 @@ Para especificar a subscrição, execute o seguinte comando. No exemplo seguinte
     $resource | Remove-AzureRmResource
 
 ## <a name="next-steps"></a>Próximos Passos
-Agora que criou o seu serviço, pode efetuar os passos seguintes: criar um [índice](search-what-is-an-index.md), [consultar um índice](search-query-overview.md)e, finalmente, criar e gerir a sua própria aplicação de pesquisa que utiliza a Azure Search.
+Agora que o serviço é criado, pode efetuar os passos seguintes: criar uma [índice](search-what-is-an-index.md), [consultar um índice](search-query-overview.md)e, finalmente, criar e gerir o seu próprio aplicativo de pesquisa que utiliza a Azure Search.
 
 * [Criar um índice da Azure Search no portal do Azure](search-create-index-portal.md)
 * [Consultar um índice da Azure Search utilizando o Explorador de pesquisa no portal do Azure](search-explorer.md)
 * [Configurar um indexador para carregar dados de outros serviços](search-indexer-overview.md)
 * [Como utilizar o Azure Search no .NET](search-howto-dotnet-sdk.md)
-* [Analisar o tráfego de pesquisa do Azure](search-traffic-analytics.md)
+* [Analisar o tráfego do Azure Search](search-traffic-analytics.md)
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969950"
+ms.locfileid: "38990834"
 ---
 # <a name="trusted-internet-connection-guidance"></a>Documentação de orientação de ligação de Internet fidedigna
 
@@ -30,7 +30,7 @@ Em outras palavras, o objetivo da classificação TIC é para agências saber:
 
 Hoje em dia que todas as ligações externas de agência devem ser encaminhadas através de uma classificação TIC OMB aprovado. Agências federais são necessários para participar no programa de classificação TIC como um provedor de acesso de classificação TIC (TICAP) ou por contratar os serviços com um dos principais fornecedores de serviços de Internet escalão da 1 referido como fornecedores de geridos fidedigno Internet Protocol Service (MTIPS).  Classificação TIC inclui capacidades fundamentais obrigatórias, que são executadas atualmente pela agências e fornecedor MTIPS. Na versão atual do TIC, a detecção de intrusão EINSTEIN versão 2 e a versão de EINSTEIN 3 acelerada (3A), dispositivos de prevenção de intrusões são implementados em cada TICAP e MTIPS e a Agência estabelece uma Memorandum de compreensão com o departamento de Homeland Security (DHS) para implementar recursos EINSTEIN em sistemas federais.
 
-Como parte das suas responsabilidades na proteção da rede. gov, DHS requer feeds de dados não processados de dados de Netflow Agência para correlacionar incidentes em toda a empresa federal e realizar análise utilizando ferramentas especializadas. Routers DHS fornecem a capacidade de recolher o tráfego de rede IP como ele entra ou sai uma interface. Ao analisar os dados de fluxo de rede, um administrador de rede pode determinar coisas como a origem e destino do tráfego, a classe de serviço, etc. Os dados de fluxo de rede são considerados "dados não-content" (por exemplo, cabeçalho, da origem de IP, IP de destino, etc.) e permite DHS conhecer informações em todo o conteúdo; ou seja, que estava fazendo o que e como há muito tempo.
+Como parte das suas responsabilidades na proteção da rede. gov, DHS requer feeds de dados não processados de dados de Netflow Agência para correlacionar incidentes em toda a empresa federal e realizar análise utilizando ferramentas especializadas. Routers DHS fornecem a capacidade de recolher o tráfego de rede IP como ele entra ou sai uma interface. Ao analisar os dados de fluxo de rede numa rede administrador pode determinar coisas como a origem e destino do tráfego, a classe de serviço, etc. Os dados de fluxo de rede são considerados "dados não-content" (por exemplo, cabeçalho, da origem de IP, IP de destino, etc.) e permite DHS conhecer informações em todo o conteúdo; ou seja, que estava fazendo o que e como há muito tempo.
 
 A iniciativa também inclui as políticas de segurança, diretrizes e estruturas que partem do princípio de infraestrutura no local. Como mover organismos públicos para a cloud para alcançar poupanças de custos, a eficiência operacional e a inovação, os requisitos de implementação de classificação TIC são em alguns casos, diminuindo o tráfego de rede e a limitação da velocidade e agilidade com o qual government os utilizadores podem aceder aos respetivos dados com base na cloud.
 
@@ -250,4 +250,3 @@ Acesso do Microsoft Azure, Office 365 e Dynamics 365 pode ser configurado facilm
 
 *: Pré-visualização pública do Azure Government, a partir de Maio de 2018  
 * *: Pré-visualização privada no Azure Government, a partir de Maio de 2018
-

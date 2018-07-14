@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de análise de utilização no Azure Application Insights
-description: Guia de resolução de problemas - análise da utilização de sites e aplicações com o Application Insights.
+title: Resolver problemas de ferramentas de análise de comportamento do utilizador no Azure Application Insights
+description: Guia de resolução de problemas – análise da utilização de site e aplicação com o Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,49 +9,51 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 01/16/2018
-ms.author: mbullwin;daviste
-ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991448"
 ---
-# <a name="troubleshoot-usage-analytics-in-application-insights"></a>Resolver problemas de análise de utilização no Application Insights
-Tem perguntas sobre o [as ferramentas de análise de utilização no Application Insights](app-insights-usage-overview.md): [eventos de utilizadores, sessões,](app-insights-usage-segmentation.md), [Funnels](usage-funnels.md), [utilizador flui](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Cohorts? Seguem-se algumas respostas.
+# <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Resolver problemas de ferramentas de análise de comportamento do utilizador no Application Insights
+Tem dúvidas sobre o [ferramentas de análise de comportamento do utilizador no Application Insights](app-insights-usage-overview.md): [utilizadores, sessões, eventos](app-insights-usage-segmentation.md), [funis](usage-funnels.md), [fluxos de utilizador](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou coortes? Seguem-se algumas respostas.
 
 ## <a name="counting-users"></a>Contagem de utilizadores
-**A análise de utilização ferramentas mostram que a minha aplicação tem um utilizador/sessão, mas sei a minha aplicação tem vários utilizadores/sessões. Como pode corrigir estas contagens incorretas?**
+**As ferramentas de análise de comportamento do utilizador mostram que meu aplicativo tem um usuário/sessão, mas sei que meu aplicativo tem muitos utilizadores/sessões. Como posso corrigir essas contagens incorretas?**
 
-Todos os eventos de telemetria no Application Insights tem um [ID de utilizador anónimo](application-insights-data-model-context.md) e um [ID de sessão](application-insights-data-model-context.md) como dois as respetivas propriedades padrão. Por predefinição, todas as ferramentas de análise de utilização contagem de utilizadores e sessões com base nestes IDs. Se estas propriedades padrão não estão a ser preenchidas com os IDs exclusivos para cada utilizador e a sessão da sua aplicação, verá uma contagem incorreta de utilizadores e sessões nas ferramentas de análise de utilização.
+Todos os eventos de telemetria no Application Insights tem um [ID de utilizador anónimo](application-insights-data-model-context.md) e uma [ID de sessão](application-insights-data-model-context.md) como duas das suas propriedades padrão. Por predefinição, todas as ferramentas de análise de utilização de contagem de utilizadores e sessões com base nestes IDs de. Se essas propriedades padrão não estiverem a ser preenchidas com IDs exclusivos para cada utilizador e a sessão da sua aplicação, verá uma contagem incorreta de utilizadores e sessões nas ferramentas de análise de utilização.
 
-Se estiver a monitorizar uma aplicação web, a solução mais fácil consiste em Adicionar a [Application Insights SDK de JavaScript](app-insights-javascript.md) a sua aplicação e certifique-se o fragmento de script é carregado em cada página que pretende monitorizar. O SDK de JavaScript automaticamente gera o utilizador anónimo e IDs de sessão, em seguida, preenche os eventos de telemetria com estes IDs, que está a ser enviados da sua aplicação.
+Se estiver a monitorizar uma aplicação web, a solução mais simples é adicionar o [Application Insights JavaScript SDK](app-insights-javascript.md) à sua aplicação e certifique-se de que o fragmento de script é carregado em cada página que pretende monitorizar. O JavaScript SDK automaticamente gera um utilizador anónimo e IDs de sessão, em seguida, preenche a eventos de telemetria com estes IDs de à medida que são enviados da sua aplicação.
 
-Se estiver a monitorizar um serviço web (sem interface de utilizador), [criar um inicializador de telemetria que povoa as propriedades de ID de ID e a sessão de utilizador anónimo](app-insights-usage-send-user-context.md) , de acordo com notions do seu serviço de utilizadores únicos e sessões.
+Se estiver a monitorizar um serviço da web (sem interface do usuário), [criar um inicializador de telemetria que povoa as propriedades de ID de ID e uma sessão de utilizador anónimo](app-insights-usage-send-user-context.md) , de acordo com noções de seu serviço de utilizadores únicos e sessões.
 
-Se a aplicação está a enviar [autenticado IDs de utilizador](app-insights-api-custom-events-metrics.md#authenticated-users), pode contar com base no utilizador autenticado IDs na ferramenta de utilizadores. Na lista pendente "Mostrar", selecione "Utilizadores autenticados."
+Se estiver a enviar seu aplicativo [autenticado IDs de utilizador](app-insights-api-custom-events-metrics.md#authenticated-users), pode contar com base no usuário autenticado IDs na ferramenta de utilizadores. Na lista pendente "Mostrar", escolha "Utilizadores autenticados".
 
-As ferramentas de análise de utilização não suportam atualmente contagem de utilizadores ou sessões com base nas propriedades que não seja o ID de utilizador anónimo, o ID de utilizador autenticado ou o ID de sessão.
+As ferramentas de análise de comportamento do utilizador não são atualmente suportam contagem de utilizadores ou sessões com base nas propriedades que não seja o ID de utilizador anónimo, o ID de utilizador autenticado ou o ID de sessão.
 
 ## <a name="naming-events"></a>Eventos de nomenclatura
-**A minha aplicação tem milhares de vista de página diferente e os nomes do evento personalizado. É difícil de distingui-los e as ferramentas de análise de utilização, muitas vezes, deixar de responder. Como posso corrigir estes problemas de nomenclatura?**
+**Meu aplicativo tem milhares de vista de página diferentes e nomes de eventos personalizados. É difícil distinguir entre eles, e as ferramentas de análise de comportamento do utilizador, muitas vezes, deixar de responder. Como posso corrigir esses problemas de nomenclatura?**
 
-Vista de página e os nomes de evento personalizado são utilizados em toda as ferramentas de análise de utilização. Eventos de nomenclatura bem é fundamental para obter o valor destas ferramentas. O objetivo é um equilíbrio entre ter nomes de poucos, demasiado genéricos ("botão clicado") e ter nomes demasiados, excessivamente específicos ("clica no botão Editar no http://www.contoso.com/index").
+Vista de página e nomes de eventos personalizados são utilizados em toda as ferramentas de análise de comportamento do utilizador. Eventos de nomenclatura bem é fundamental para retirar valor dessas ferramentas. O objetivo é um equilíbrio entre ter nomes muito poucos, bem genéricos ("botão clicado") e ter nomes de demasiados, excessivamente específicos ("botão Editar clicou http://www.contoso.com/index").
 
-Para efetuar quaisquer alterações para a vista de página e a aplicação está a enviar de nomes de evento personalizado, terá de alterar o código de origem e volte a implementar a aplicação. **Telemetria de todos os dados no Application Insights são armazenados nos últimos 90 dias e não podem ser eliminados**, por isso, as alterações efetuadas aos nomes do evento irão demorar 90 dias ao manifesto completamente. 90 dias depois de efetuar as alterações do nome, ambos os nomes de antigos e novos eventos serão apresentada na sua telemetria, por isso, ajuste consultas e comunicou dentro do seu equipas, em conformidade.
+Para fazer alterações para a vista de página e a sua aplicação está a enviar de nomes de evento personalizado, terá de alterar o código-fonte e Reimplementar a sua aplicação. **Telemetria de todos os dados no Application Insights são armazenados durante 90 dias e não não possível eliminar**, por isso, as alterações que fizer para nomes de eventos irão demorar 90 dias para totalmente do manifesto. Durante 90 dias depois de efetuar alterações de nome, ambos os nomes antigos e novos eventos irão aparecer na sua telemetria, então, ajustar consultas e comunicar dentro de suas equipes, em conformidade.
 
-Se a aplicação está a enviar demasiados nomes de vista de página, verifique se estes nomes de vista de página são especificadas manualmente no código ou se estiver a ser enviados automaticamente pelo Application Insights JavaScript SDK:
+Se a sua aplicação estiver a enviar demasiados nomes de vistas de página, verifique se estes nomes de vistas de página são especificadas manualmente no código ou se estiver a ser enviados automaticamente pelo Application Insights JavaScript SDK:
 
-* Se os nomes de vista de página manualmente especificados no código utilizando a [ `trackPageView` API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), altere o nome para ser menos específico. Evite prende comuns, como colocar o URL do nome de vista de página. Em alternativa, utilize o parâmetro de URL do `trackPageView` API. Mova outros detalhes do nome de vista da página para as propriedades personalizadas.
+* Se os nomes de exibição de página são especificados manualmente no código utilizando o [ `trackPageView` API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), altere o nome para ser menos específicas. Evite erros comuns, como colocar o URL em nome da vista de página. Em alternativa, utilize o parâmetro de URL do `trackPageView` API. Mova outros detalhes do nome de exibição da página para propriedades personalizadas.
 
-* Se o SDK de JavaScript do Application Insights está a enviar automaticamente os nomes de vista de página, pode alterar os títulos dos seus páginas ou mudar para enviar manualmente os nomes de vista de página. O SDK envia o [título](https://developer.mozilla.org/docs/Web/HTML/Element/title) de cada página que o nome de vista de página, por predefinição. Pode alterar os títulos de para ser mais gerais, mas ter mindful de SEO e outros impactos que ter esta alteração. Especificar manualmente a visualização de página nomes com o `trackPageView` API substitui os nomes de automaticamente recolhidos, pelo que poderia enviar nomes mais gerais na telemetria sem alterar os títulos de página.   
+* Se o Application Insights JavaScript SDK está a enviar automaticamente os nomes de vista de página, pode alterar os títulos dos suas páginas ou mudar para enviar manualmente os nomes de vista de página. O SDK envia os [title](https://developer.mozilla.org/docs/Web/HTML/Element/title) de cada página como o nome da vista de página, por predefinição. Pode alterar os títulos de ser mais gerais, mas o cuidado de SEO e outros impactos que poderia ter esta alteração. Especificar manualmente a vista de página nomes com o `trackPageView` API substitui os nomes de recolhidas automaticamente, para que conseguiu enviar nomes mais gerais na telemetria, sem alterar os títulos de página.   
 
-Se a aplicação está a enviar demasiados nomes de evento personalizado, altere o nome no código para ser menos específico. Novamente, evite colocar o URLs e outras por página ou informações dinâmicas os nomes do evento personalizado diretamente. Em vez disso, mover estes detalhes para as propriedades personalizadas do evento personalizado com o `trackEvent` API. Por exemplo, em vez de `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, sugerimos que algo semelhante ao seguinte `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
+Se a aplicação está a enviar demasiados nomes de evento personalizado, altere o nome no código para ser menos específicas. Novamente, evite colocar URLs e outras por página ou informações dinâmicas nos nomes de evento personalizado diretamente. Em vez disso, mover esses detalhes para as propriedades personalizadas do evento personalizado com o `trackEvent` API. Por exemplo, em vez de `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")`, sugerimos que algo como `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Descrição geral da análise de utilização](app-insights-usage-overview.md)
+* [Descrição geral do ferramentas de análise de comportamento do utilizador](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)

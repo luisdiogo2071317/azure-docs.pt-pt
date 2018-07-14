@@ -2,7 +2,7 @@
 
 A biblioteca de clientes do serializador do Hub IoT utiliza um modelo para especificar o formato das mensagens que o dispositivo troca com o Hub IoT.
 
-1. Adicione as seguintes declarações de variáveis a seguir às instruções `#include`. Substitua os valores de marcador de posição [ID de dispositivo] e [chave do dispositivo] com valores que apontou para o seu dispositivo no dashboard de solução de monitorização remota. Utilize o Nome de anfitrião do Hub IoT no dashboard da solução para substituir [IoTHub Name]. Por exemplo, se o Nome de anfitrião do seu Hub IoT for **contoso.azure devices.net**, substitua [IoTHub Name] por **contoso**:
+1. Adicione as seguintes declarações de variáveis a seguir às instruções `#include`. Substitua os valores de marcador de posição [Device ID] e [Device Key] pelos valores que anotou para o seu dispositivo no dashboard da solução de monitorização remota. Utilize o Nome de anfitrião do Hub IoT no dashboard da solução para substituir [IoTHub Name]. Por exemplo, se o Nome de anfitrião do seu Hub IoT for **contoso.azure devices.net**, substitua [IoTHub Name] por **contoso**:
    
     ```c
     static const char* deviceId = "[Device Id]";

@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756431"
+---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C em Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -24,13 +41,13 @@ Antes de escrever qualquer código para o seu dispositivo, terá de aprovisionar
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Aprovisionar a solução pré-configurada de monitorização remota
 O dispositivo que vai criar neste tutorial envia dados para uma instância da solução pré-configurada [de monitorização remota][lnk-remote-monitoring]. Se ainda não aprovisionou a solução pré-configurada de monitorização remota na sua conta do Azure, utilize os seguintes passos:
 
-1. Na página <https://www.azureiotsuite.com/>, clique em **+** para criar uma solução.
+1. Sobre o <https://www.azureiotsolutions.com/> página, clique em **+** para criar uma solução.
 2. Clique em **Selecionar** no painel **Monitorização remota** para criar a solução.
 3. Na página **Criar solução de monitorização remota**, introduza um **Nome da solução** à sua escolha, selecione a **Região** onde pretende implementar e selecione a subscrição do Azure que pretende utilizar. Em seguida, clique em **Criar solução**.
 4. Aguarde até à conclusão do processo de aprovisionamento.
 
 > [!WARNING]
-> As soluções pré-configuradas utilizam serviços do Azure faturáveis. Certifique-se de que remove a solução pré-configurada da sua subscrição quando terminar para evitar eventuais encargos desnecessários. Pode remover completamente uma solução pré-configurada da sua subscrição, visitando a página <https://www.azureiotsuite.com/>.
+> As soluções pré-configuradas utilizam serviços do Azure faturáveis. Certifique-se de que remove a solução pré-configurada da sua subscrição quando terminar para evitar eventuais encargos desnecessários. Pode remover por completo uma solução pré-configurada da sua subscrição, visitando o <https://www.azureiotsolutions.com/> página.
 > 
 > 
 

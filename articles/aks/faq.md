@@ -1,57 +1,47 @@
 ---
-title: Perguntas mais frequentes sobre serviço Kubernetes do Azure
-description: Fornece respostas a algumas das perguntas comuns sobre o serviço de Kubernetes do Azure.
+title: Perguntas mais frequentes sobre o Azure Kubernetes Service
+description: Fornece respostas para algumas das perguntas comuns sobre o Azure Kubernetes Service.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
+ms.date: 07/11/2018
 ms.author: iainfou
-ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096456"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001250"
 ---
-# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o serviço do Azure Kubernetes (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o Azure Kubernetes Service (AKS)
 
-Endereços este artigo induzirem frequentes perguntas sobre o serviço do Azure Kubernetes (AKS).
+Este artigo aborda o frequentes perguntas sobre o Azure Kubernetes Service (AKS).
 
-## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Em que regiões do Azure fornecem o serviço de Kubernetes do Azure (AKS) de hoje em dia?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Que regiões do Azure fornecem o Azure Kubernetes Service (AKS) hoje em dia?
 
-- Leste da Austrália
-- Canadá Central
-- Leste do Canadá
-- EUA Central
-- EUA Leste
-- US2 leste
-- Europa do Norte
-- Reino Unido Sul
-- Europa Ocidental
-- EUA Oeste
-- EUA Oeste 2
+Veja o Azure Kubernetes Service [regiões e disponibilidade] [ aks-regions] documentação para obter uma lista completa.
 
-## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Atualizações de segurança são aplicadas a nós de agente AKS?
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Atualizações de segurança são aplicadas a nós de agente do AKS?
 
-Azure aplica automaticamente patches de segurança para os nós do cluster com base numa agenda noturna. No entanto, é responsável por assegurar que nós são reiniciados conforme necessário. Tem várias opções para efetuar a reinícios de nó:
+Azure aplica automaticamente patches de segurança para os nós do cluster com base numa agenda noturna. No entanto, é responsável por assegurar que nós são reiniciados conforme necessário. Tem várias opções para a execução de reinicializações de nó:
 
-- Manualmente, através do portal do Azure ou a CLI do Azure.
-- Atualizando o seu cluster AKS. Atualizações do cluster automaticamente [cordon e drenar nós](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), em seguida, colocá-los a cópia de segurança com a imagem de Ubuntu mais recente. Atualizar a imagem de SO nos nós sem alterar Kubernetes versões especificando a versão atual do cluster na `az aks upgrade`.
-- Utilizar [Kured](https://github.com/weaveworks/kured), um daemon de reinício de open source para Kubernetes. Kured é executada como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza a cada nó quanto à presença de um ficheiro com a indicação de que é necessário um reinício. Em seguida, orquestra reinícios no cluster, seguindo o mesmo cordon e o processo de drenagem descrito anteriormente.
+- Manualmente, por meio do portal do Azure ou a CLI do Azure.
+- Ao atualizar o seu cluster do AKS. Atualizações do cluster automaticamente [cordão e drenagem de nós](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), em seguida, colocá-los a cópia de segurança com a imagem mais recente do Ubuntu. Atualizar a imagem de sistema operacional em seus nós sem alteração da versão do Kubernetes ao especificar a versão atual do cluster em `az aks upgrade`.
+- Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Em seguida, orquestra reinicializações no cluster, seguindo a mesma cordon e o processo de drenagem descrito anteriormente.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS suporta o dimensionamento automático de nó?
 
-Sim, o dimensionamento automático está disponível através de [Kubernetes autoscaler] [ auto-scaler] partir Kubernetes 1.10.
+Sim, o dimensionamento automático está disponível através da [dimensionamento automático do Kubernetes] [ auto-scaler] no momento da elaboração 1.10 de Kubernetes.
 
-## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS suporta Kubernetes controlo de acesso baseado em funções (RBAC)?
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>O AKS suporta Kubernetes controlo de acesso baseado em funções (RBAC)?
 
-Sim, o RBAC pode ser ativada quando implementar um cluster AKS do modelo do Azure CLI ou do Azure Resource Manager. Esta funcionalidade ficará em breve no portal do Azure.
+Sim, o RBAC pode ser ativado ao implementar um cluster do AKS do modelo da CLI do Azure ou Azure Resource Manager. Esta funcionalidade chegará em breve no portal do Azure.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Os controladores de admissão Kubernetes suporta AKS? Isto é possível configurar?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Os controladores de admissão do Kubernetes AKS oferece suporte? Isso é possível configurar?
 
-AKS suporta as seguintes [controladores admissão][admission-controllers]:
+AKS suporta as seguintes [controladores de admissão][admission-controllers]:
 
 * NamespaceLifecycle
 * LimitRanger
@@ -64,29 +54,34 @@ AKS suporta as seguintes [controladores admissão][admission-controllers]:
 * DenyEscalatingExec
 * AlwaysPullImages
 
-Não é atualmente possível modificar a lista de controladores de admissão AKS.
+Não é atualmente possível modificar a lista de controladores de admissão no AKS.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS na minha rede virtual existente?
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS em minha rede virtual existente?
 
-Sim, pode implementar um cluster AKS para uma rede virtual existente utilizando o [funcionalidade de rede avançada](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+Sim, pode implementar um cluster do AKS numa rede virtual existente com o [funcionalidade de rede avançada](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
-## <a name="is-azure-key-vault-integrated-with-aks"></a>O Cofre de chaves do Azure está integrado com AKS?
+## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault está integrado com o AKS?
 
-AKS não nativamente integrado com o Cofre de chaves do Azure neste momento. No entanto, existem soluções de Comunidade, como [acs-keyvault-agente de Hexadite][hexadite].
+AKS não é integrado de forma nativa com o Azure Key Vault neste momento. No entanto, existem soluções de Comunidade, como [o acs-Cofre de chaves-agente de Hexadite][hexadite].
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Pode executar contentores do Windows Server no AKS?
 
-Para executar os contentores do Windows Server, tem de executar nós baseado no Windows Server. Nós com base no servidor do Windows não estão disponível no AKS neste momento. Se precisar de executar os contentores do Windows Server em Kubernetes no Azure, consulte o [documentação para o motor de acs](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Para executar contentores do Windows Server, terá de executar nós com base no Windows Server. Neste momento, o Windows baseado em servidor nós não estão disponíveis no AKS. No entanto, pode usar o Virtual Kubelet agendar contentores do Windows no Azure Container Instances e geri-los como parte do cluster do AKS. Para obter mais informações, consulte [utilização Virtual Kubelet com o AKS][virtual-kubelet].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que razão são criados dois grupos de recursos com AKS?
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que dois grupos de recursos são criados com o AKS?
 
-Cada implementação AKS abrange dois grupos de recursos. O primeiro é criado por si e contém apenas o recurso de serviço Kubernetes. O fornecedor de recursos AKS cria automaticamente um segundo durante a implementação com o nome como *MC_myResourceGroup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. É criado para simplificar a limpeza de recursos.
+Cada implementação do AKS abrange dois grupos de recursos. A primeira é criada por si e contém apenas o recurso de serviço do Kubernetes. O fornecedor de recursos do AKS cria automaticamente o um segundo durante a implementação com um nome como *MC_myResourceGroup_myAKSCluster_eastus*. O segundo grupo de recursos contém todos os recursos de infraestrutura associados ao cluster, como VMs, redes e armazenamento. Ele é criado para simplificar a limpeza de recursos.
 
-Se estiver a criar recursos que serão utilizados com o cluster AKS, tais como contas de armazenamento ou endereço IP público reservado, deve colocá-los no grupo de recursos geradas automaticamente.
+Se estiver a criar recursos que serão utilizados com o seu cluster do AKS, como contas de armazenamento ou endereço IP público reservado, deve colocá-los no grupo de recursos gerada automaticamente.
 
-## <a name="does-aks-offer-a-service-level-agreement"></a>AKS oferecem um contrato de nível de serviço?
+## <a name="does-aks-offer-a-service-level-agreement"></a>O AKS oferece um contrato de nível de serviço?
 
-Um serviço contrato de nível (SLA), o fornecedor o concordar para reimburse o cliente para o custo do serviço deve o nível de serviço publicadas não ser cumprido. Uma vez que AKS próprio livre, há sem qualquer custo disponível reimburse e assim nenhuma formal SLA. No entanto, iremos procurar o ressarcimento de manter a disponibilidade de, pelo menos, a 99,5% para o servidor de Kubernetes API.
+Num contrato ao nível de serviço, (SLA), o fornecedor concorda em reembolsar o cliente para o custo do serviço deve o nível de serviço publicadas não ser cumprido. Como AKS em si é gratuito, não há nenhum custo disponível para reembolsar e, portanto, não existe SLA formal. No entanto, podemos tentar manter a disponibilidade de, pelo menos, a 99,5% para o servidor de API do Kubernetes.
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

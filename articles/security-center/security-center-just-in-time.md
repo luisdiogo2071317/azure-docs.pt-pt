@@ -1,6 +1,6 @@
 ---
-title: Apenas na máquina virtual de tempo de acesso no Centro de segurança do Azure | Microsoft Docs
-description: Este documento demonstra como apenas no tempo de acesso VM no Centro de segurança do Azure ajuda-o a controlar o acesso às máquinas virtuais do Azure.
+title: Apenas na máquina de virtual de tempo de acesso no Centro de segurança do Azure | Documentos da Microsoft
+description: Este documento demonstra como just-in-tempo de acesso à VM no Centro de segurança do Azure ajuda-o a controlar o acesso a máquinas virtuais do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,99 +12,99 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640562"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990583"
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
-Apenas na máquina virtual de tempo (VM), acesso pode ser utilizado para bloquear o tráfego de entrada para as VMs do Azure, reduzir a exposição a ataques, fornecendo acesso fácil para ligar a VMs, quando necessário.
+Máquina virtual (VM) just-in acesso pode ser utilizado para bloquear o tráfego de entrada para as VMs do Azure, reduzindo a exposição a ataques, fornecendo acesso fácil para ligar a VMs quando necessário.
 
 > [!NOTE]
-> O apenas tempo funcionalidade está disponível na camada padrão do Centro de segurança.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+> A apenas no tempo a funcionalidade está disponível no escalão Standard do Centro de segurança.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
 >
 >
 
 ## <a name="attack-scenario"></a>Cenário de ataque
 
-Força bruta de ataques geralmente as portas de gestão de destino como um meio para obter acesso a uma VM. Se tiver êxito, um atacante pode assumir o controlo sobre a VM e estabelecer a sua posição no ambiente.
+Força bruta normalmente ataques portas de gestão de destino como um meio para obter acesso a uma VM. Se tiver êxito, um invasor pode assumir o controlo de ativação pós-falha da VM e estabelecer sua posição no seu ambiente.
 
-Uma forma para reduzir a exposição a um ataque de força bruta é para limitar a quantidade de tempo que uma porta está aberta. As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando apenas na hora estiver ativada, o Centro de segurança utiliza [grupo de segurança de rede](../virtual-network/security-overview.md#security-rules) regras (NSG), que restringem o acesso às portas de gestão, pelo que não pode ser visados pelos atacantes.
+É uma forma de reduzir a exposição a um ataque de força bruta limitar a quantidade de tempo que uma porta está aberta. As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando o just-in-time estiver ativado, o Centro de segurança utiliza [grupo de segurança de rede](../virtual-network/security-overview.md#security-rules) regras (NSG), que restringem o acesso às portas de gestão para que não pode ser visadas pelos atacantes.
 
 ![Apenas no cenário de tempo][1]
 
-## <a name="how-does-just-in-time-access-work"></a>Como tal acesso time trabalhar?
+## <a name="how-does-just-in-time-access-work"></a>Como o acesso de tempo just-in funciona?
 
-Quando o just in time estiver ativado, o Centro de Segurança bloqueia o tráfego de entrada para as suas VMs do Azure através da criação de uma regra NSG. Selecione as portas na VM para o qual vai ser bloqueado a tráfego de entrada. Estas portas são controladas mediante a apenas na solução de tempo.
+Quando o just in time estiver ativado, o Centro de Segurança bloqueia o tráfego de entrada para as suas VMs do Azure através da criação de uma regra NSG. Selecione as portas na VM para o qual será bloqueado o tráfego de entrada. Estas portas são controladas mediante a apenas na solução de tempo.
 
-Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se têm permissões de escrita, o pedido é aprovado e o Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir tráfego de entrada para as portas selecionados para a quantidade de tempo especificado. Depois do tempo expirou, o Centro de segurança restaura os NSGs para os respetivos Estados de anteriores. As ligações que são estabelecidas já não sejam a ser interrompidas, no entanto.
+Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador possui [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se eles têm permissões de escrita, o pedido for aprovado e Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir tráfego de entrada para portas selecionadas para a quantidade de tempo especificado. Após a expiração do tempo, o Centro de segurança restaurar os NSGs para o respetivo estado anterior. Essas ligações estabelecidas já não sejam a ser interrompidas, no entanto.
 
 > [!NOTE]
-> Centro de segurança apenas do acesso VM de tempo atualmente suporta apenas as VMs implementadas através do Azure Resource Manager. Para obter mais informações sobre clássica e modelos de implementação do Resource Manager, consulte [vs. de implementação clássica do Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+> Centro de segurança no acesso VM de tempo atualmente suporta apenas VMs implementadas através do Gestor de recursos do Azure. Para saber mais sobre o clássico e modelos de implementação do Resource Manager, veja [vs. de implementação clássica do Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 >
 >
 
-## <a name="using-just-in-time-access"></a>Utilizar apenas o acesso de tempo
+## <a name="using-just-in-time-access"></a>Utilizar apenas no momento exato o acesso
 
 1. Abra o dashboard **Centro de Segurança**.
 
-2. No painel esquerdo, selecione **apenas acesso de VM de tempo**.
+2. No painel esquerdo, selecione **Just-in de acesso à VM de tempo**.
 
-![Apenas no tempo de acesso VM mosaico][2]
+![Tempo de acesso à VM just-in mosaico][2]
 
-O **apenas acesso de VM de tempo** é aberta a janela.
+O **Just-in de acesso à VM de tempo** é aberta a janela.
 
-![Apenas no tempo de acesso VM mosaico][10]
+![Tempo de acesso à VM just-in mosaico][10]
 
 O **Acesso à VM just-in-time** fornece informações sobre o estado das suas VMs:
 
-- **Configurado** - VMs que foram configuradas para suportar o acesso à VM just-in-time. Os dados apresentados é da última semana e incluem para cada VM, o número de pedidos aprovados, a data do último acesso e a hora e como último utilizador.
-- **Recomendado** - VMs que conseguem suportar o acesso à VM just-in-time, mas não foram configuradas para tal. Recomendamos que ative apenas no controlo de acesso VM de tempo para estas VMs. Consulte [configurar uma política de acesso de tempo](#configuring-a-just-in-time-access-policy).
+- **Configurado** - VMs que foram configuradas para suportar o acesso à VM just-in-time. Os dados apresentados destina-se a última semana e incluem, para cada VM, o número de pedidos aprovados, o data do último acesso e o tempo e o último utilizador.
+- **Recomendado** - VMs que conseguem suportar o acesso à VM just-in-time, mas não foram configuradas para tal. Recomendamos que ative apenas no controlo de acesso VM de tempo para essas VMs. Ver [configurar uma política de acesso de tempo](#configuring-a-just-in-time-access-policy).
 - **Nenhuma recomendação** - As razões que podem fazer com que uma VM não seja recomendada são:
   - NSG em falta - A solução just-in-time requer a existência de um NSG implementado.
-  - VM clássica - Atualmente, o acesso à VM just-in-time do Centro de Segurança suporta apenas VMs implementadas através do Azure Resource Manager. Uma implementação clássica não é suportada pelo apenas na solução de tempo.
+  - VM clássica - Atualmente, o acesso à VM just-in-time do Centro de Segurança suporta apenas VMs implementadas através do Azure Resource Manager. Implementação clássica não é suportada pela apenas na solução de tempo.
   - Outro - Uma VM está nesta categoria se a solução just-in-time estiver desativada na política de segurança da subscrição ou do grupo de recursos, ou se existir um IP público em falta na VM e não tiver um NSG implementado.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Configurar uma política de acesso de tempo
 
 Para selecionar as VMs que pretende ativar:
 
-1. Em **apenas acesso de VM de tempo**, selecione o **recomendado** separador.
+1. Sob **Just-in de acesso à VM de tempo**, selecione a **recomendado** separador.
 
-  ![Ativar apenas no acesso do tempo][3]
+  ![Ativar o acesso de tempo just-in][3]
 
-2. Em **máquina VIRTUAL**, selecione as VMs que pretende ativar. Isto coloca uma marca de verificação junto a uma VM.
+2. Sob **máquina VIRTUAL**, selecione as VMs que pretende ativar. Isso coloca uma marca de verificação junto a uma VM.
 3. Selecione **ativar JIT em VMs**.
 4. Selecione **Guardar**.
 
 ### <a name="default-ports"></a>Portas predefinidas
 
-Pode ver as portas predefinidas, que o Centro de segurança recomenda a ativação apenas no tempo.
+Pode ver as portas predefinidas que o Centro de segurança recomenda a ativação just-in-time.
 
-1. Em **apenas acesso de VM de tempo**, selecione o **recomendado** separador.
+1. Sob **Just-in de acesso à VM de tempo**, selecione a **recomendado** separador.
 
   ![Apresentar as portas predefinidas][6]
 
-2. Em **VMs**, selecione uma VM. Isto coloca uma marca de verificação junto a VM e abre **configuração de acesso de VM de JIT**. Este painel mostra as portas predefinidas.
+2. Sob **VMs**, selecione uma VM. Isso coloca uma marca de verificação junto a VM e abre **configuração do acesso JIT da VM**. Este painel apresenta as portas predefinidas.
 
 ### <a name="add-ports"></a>Adicionar portas
 
-Em **configuração de acesso de VM de JIT**, também pode adicionar e configurar uma porta de novo no qual pretende ativar a apenas na solução de tempo.
+Sob **configuração do acesso JIT da VM**, também pode adicionar e configurar uma nova porta na qual pretende ativar o apenas na solução de tempo.
 
-1. Em **configuração de acesso de VM de JIT**, selecione **adicionar**. Esta ação abre **configuração da porta adicionar**.
+1. Sob **configuração do acesso JIT da VM**, selecione **Add**. Esta ação abre **Adicionar configuração da porta**.
 
   ![Configuração da porta][7]
 
-2. Em **configuração da porta adicionar**, que identifica a porta, tipo de protocolo, origem permitida IPs e tempo máximo de pedido.
+2. Sob **Adicionar configuração da porta**, identificar a porta, o tipo de protocolo, a IPs de origem permitidos e o tempo máximo do pedido.
 
-  Origem permitida IPs são os intervalos IP permitidos aceder após um pedido aprovado.
+  IPs de origem permitidos são os intervalos IP podem obter acesso após um pedido aprovado.
 
-  Tempo máximo de pedido é o intervalo de tempo máximo que pode ser aberta uma porta específica.
+  Tempo máximo do pedido é a janela de tempo máximo que pode ser aberta uma porta específica.
 
 3. Selecione **OK**.
 
@@ -112,87 +112,87 @@ Em **configuração de acesso de VM de JIT**, também pode adicionar e configura
 
 Para pedir acesso a uma VM:
 
-1. Em **apenas acesso de VM de tempo**, selecione o **configurado** separador.
-2. Em **VMs**, selecione as VMs que pretende ativar o acesso. Isto coloca uma marca de verificação junto a uma VM.
+1. Sob **Just-in de acesso à VM de tempo**, selecione a **configurado** separador.
+2. Sob **VMs**, selecione as VMs que pretende ativar o acesso. Isso coloca uma marca de verificação junto a uma VM.
 3. Selecione **pedir acesso**. Esta ação abre **pedir acesso**.
 
   ![Pedir acesso a uma VM][4]
 
-4. Em **pedir acesso**, configurar para cada VM as portas para abrir juntamente com o IP de origem que a porta está aberta e a janela de tempo para que a porta está aberta. Pode pedir acesso apenas para as portas que são configuradas no apenas na política de tempo. Cada porta tem um máximo de tempo que deriva de apenas permitido na política de tempo.
+4. Sob **pedir acesso**, configurar para cada VM as portas para abrir, juntamente com o IP de origem que a porta está aberta para e a janela de tempo para que a porta está aberta. Pode pedir o acesso apenas para as portas que são configuradas no apenas na política de tempo. Cada porta tem um tempo máximo permitido derivado a apenas na política de tempo.
 5. Selecione **abrir portas**.
 
 > [!NOTE]
-> Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se tiver permissões de escrita, o pedido é aprovado.
+> Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador possui [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se tiver permissões de escrita, o pedido for aprovado.
 >
 >
 
 > [!NOTE]
-> Se um utilizador que está a pedir acesso estiver atrás de um proxy, a opção "Os meus IP" pode não funcionar. Poderá ser necessário definir o intervalo completo da organização.
+> Se um utilizador que está a pedir acesso estiver atrás de um proxy, a opção "O meu IP" poderá não funcionar. Pode haver a necessidade de definir o intervalo completo da organização.
 >
 >
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Editar uma política de acesso de tempo
 
-Pode alterar uma VM existente apenas na política de tempo ao adicionar e configurar uma nova porta abrir para essa VM ou ao alterar quaisquer outros parâmetros relacionados com uma porta já protegida.
+Pode alterar uma VM existente just-in Política de tempo ao adicionar e configurar uma nova porta para abrir para essa VM ou ao alterar qualquer outro parâmetro relacionado a uma porta já protegida.
 
-Para editar uma existente apenas na política de tempo de uma VM, o **configurado** separador é utilizado:
+Para editar uma existente just-in Política de tempo de uma VM, o **configurado** da guia:
 
-1. Em **VMs**, selecione uma VM para adicionar uma porta para clicando nos três pontos na linha para essa VM. Esta ação abre um menu.
-2. Selecione **editar** no menu. Esta ação abre **configuração de acesso de VM de JIT**.
+1. Sob **VMs**, selecione uma VM para adicionar uma porta ao clicar nos três pontos na linha a essa VM. Esta ação abre um menu.
+2. Selecione **editar** no menu. Esta ação abre **configuração do acesso JIT da VM**.
 
   ![Editar política][8]
 
-3. Em **configuração de acesso de VM de JIT**, pode editar as definições existentes de uma porta já protegida ou clicando na respetiva porta ou pode selecionar **adicionar**. Esta ação abre **configuração da porta adicionar**.
+3. Sob **configuração do acesso JIT da VM**, pode optar por editar as definições existentes de uma porta já protegida ao clicar em sua porta, ou pode selecionar **Add**. Esta ação abre **Adicionar configuração da porta**.
 
   ![Adicionar uma porta][7]
 
-4. Em **configuração da porta adicionar**, identificar a porta, tipo, tempo de pedido de IPs de origem e o máximo permitido de protocolo.
+4. Sob **Adicionar configuração da porta**, identificar a porta, protocolo de tipo, tempo de pedido de IPs de origem e o máximo permitido.
 5. Selecione **OK**.
 6. Selecione **Guardar**.
 
-## <a name="auditing-just-in-time-access-activity"></a>Auditoria apenas na atividade de acesso de hora
+## <a name="auditing-just-in-time-access-activity"></a>Auditoria just-in a atividade de acesso do tempo
 
-Pode obter informações sobre as atividades VM com pesquisa de registo. Para ver registos:
+Pode obter informações sobre atividades VM utilizando a pesquisa de registos. Para ver os registos:
 
-1. Em **apenas acesso de VM de tempo**, selecione o **configurado** separador.
-2. Em **VMs**, selecione uma VM para ver informações sobre clicando nos três pontos na linha para essa VM. Esta ação abre um menu.
-3. Selecione **registo de atividade** no menu. Esta ação abre **registo de atividade**.
+1. Sob **Just-in de acesso à VM de tempo**, selecione a **configurado** separador.
+2. Sob **VMs**, selecione uma VM para ver informações sobre ao clicar nos três pontos na linha a essa VM. Esta ação abre um menu.
+3. Selecione **registo de atividades** no menu. Esta ação abre **registo de atividades**.
 
-  ![Selecione o registo de atividade][9]
+  ![Selecione o registo de atividades][9]
 
-  **Registo de atividade** fornece uma vista filtrada de operações anteriores para essa VM juntamente com a hora, a data e a subscrição.
+  **Registo de atividades** fornece uma vista filtrada de operações anteriores para essa VM, juntamente com o tempo, a data e a subscrição.
 
   ![Ver o registo de atividade][5]
 
-Pode transferir as informações de registo selecionando **clique aqui para transferir todos os itens como CSV**.
+Pode baixar as informações de registo, selecionando **clique aqui para transferir todos os itens como CSV**.
 
-Modificar os filtros e selecione **aplicar** para criar uma pesquisa e o registo.
+Modificar os filtros e selecione **aplicar** para criar um registo e de pesquisa.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Utilizar apenas no tempo de acesso VM através do PowerShell
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Através do just in time acesso à VM através do PowerShell
 
-Para poder utilizar o apenas na solução de tempo através do PowerShell, certifique-se de que tem o [mais recente](/powershell/azure/install-azurerm-ps) Azure PowerShell versão.
-Quando o fizer, terá de instalar o [mais recente](https://aka.ms/asc-psgallery) Centro de segurança do Azure da galeria do PowerShell.
+Para poder utilizar o apenas na solução de tempo através do PowerShell, certifique-se de que tem o [mais recente](/powershell/azure/install-azurerm-ps) versão do PowerShell do Azure.
+Depois de o fazer, tem de instalar o [mais recente](https://aka.ms/asc-psgallery) Centro de segurança do Azure da galeria do PowerShell.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurar uma política de tempo para uma VM
 
-Para configurar uma política de tempo numa VM específica, terá de executar este comando na sua sessão do PowerShell: ASCJITAccessPolicy de conjunto.
-Siga a documentação do cmdlet para saber mais.
+Para configurar uma política de tempo numa VM específica, tem de executar este comando na sua sessão do PowerShell: ASCJITAccessPolicy do conjunto.
+Siga a documentação do cmdlet para obter mais informações.
 
 ### <a name="requesting-access-to-a-vm"></a>Pedir acesso a uma VM
 
-Para aceder a uma VM específica que está protegida com a solução de hora, terá de executar este comando na sua sessão do PowerShell: ASCJITAccess invocar.
-Siga a documentação do cmdlet para saber mais.
+Para aceder a uma VM específica que está protegida com a solução de tempo, tem de executar este comando na sua sessão do PowerShell: ASCJITAccess invocar.
+Siga a documentação do cmdlet para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu como apenas no tempo de acesso VM no Centro de segurança ajuda a controla o acesso às máquinas virtuais do Azure.
+Neste artigo, aprendeu como just-in-time acesso VM no Centro de segurança ajuda a que controlar o acesso às suas máquinas virtuais do Azure.
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-- [Definir políticas de segurança](security-center-policies.md) — Saiba como configurar políticas de segurança para as subscrições do Azure e os grupos de recursos.
-- [Gerir recomendações de segurança](security-center-recommendations.md) — Saiba como recomendações ajudam a proteger os seus recursos do Azure.
-- [Monitorização de estado de funcionamento de segurança](security-center-monitoring.md) — Saiba como monitorizar o estado de funcionamento dos seus recursos Azure.
-- [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md) — Saiba como gerir e responder a alertas de segurança.
-- [Monitorizar soluções de parceiros](security-center-partner-solutions.md) — Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
+- [Definir políticas de segurança](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+- [Gerir recomendações de segurança](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
+- [Monitorização de estado de funcionamento de segurança](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
+- [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
+- [Monitorizar soluções de parceiros](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 - [FAQ do Centro de segurança](security-center-faq.md) – encontre as perguntas mais frequentes sobre como utilizar o serviço.
 - [Blogue de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
 

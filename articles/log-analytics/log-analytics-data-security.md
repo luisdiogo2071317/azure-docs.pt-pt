@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: df4c60be8a29ab397424e9e5f9de7050f64d87c2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859786"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990120"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados de análise de registo
 Este documento destina-se para fornecer informações específicas do Log Analytics do Azure para complementar as informações sobre [Centro de fidedignidade do Azure](../security/security-microsoft-trust-center.md).  
@@ -29,16 +29,34 @@ Este artigo explica como os dados são recolhidos, processados e protegidos pelo
 
 O serviço Log Analytics gere os seus dados com base na cloud em segurança, utilize os seguintes métodos:
 
-* Segregação de dados
+* segregação de dados
 * Retenção de dados
 * Segurança física
-* Gestão de incidentes
+* gestão de incidentes
 * Conformidade
-* Certificações de normas de segurança
+* certificações de normas de segurança
 
 Contacte-nos com quaisquer dúvidas, sugestões ou problemas sobre qualquer uma das seguintes informações, incluindo as nossas políticas de segurança em [opções de suporte do Azure](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>Segregação de dados
+## <a name="sending-data-securely-using-tls-12"></a>Enviar dados de forma segura através de TLS 1.2 
+
+Para garantir a segurança dos dados em trânsito para o Log Analytics, recomendamos que configure o agente para utilizar, pelo menos, Transport Layer Security (TLS) 1.2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**, e o setor que está a mudar rapidamente para abandonar o suporte para esses protocolos mais antigos. 
+
+O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) definiu um [dentro do prazo de 30 de Junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desativar as versões mais antigas do TLS/SSL e a atualização para proteger mais os protocolos. Assim que o Azure ignora o suporte legacy, se os agentes não é possível comunicar através de, pelo menos, TLS 1.2 não seria capaz de enviar dados para o Log Analytics. 
+
+Não é recomendável definir explicitamente o seu agente para utilizar apenas o TLS 1.2, a menos que absolutamente necessário como isso pode danificar o recursos de segurança de nível de plataforma que permitem-lhe detetar e tirar partido de mais recente automaticamente mais seguro protocolos conforme sejam disponibilizados como, por exemplo como TLS 1.3. 
+
+### <a name="platform-specific-guidance"></a>Orientações específicas de plataforma
+
+|Plataforma/linguagem | Suporte | Mais Informações |
+| --- | --- | --- |
+|Linux | Distribuições do Linux tendem a depender [OpenSSL](https://www.openssl.org) para suporte de TLS 1.2.  | Verifique os [registo de alterações de OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL que é suportado.|
+| Windows 8.0 10 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar o [predefinições](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2016 de 2012 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar o [predefinições](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por predefinição. | Consulte a [definições de registo de Transport Layer Security (TLS)](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) página para obter detalhes sobre como ativar.  |
+| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
+
+## <a name="data-segregation"></a>segregação de dados
 Depois dos dados são ingeridos pelo serviço Log Analytics, os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por área de trabalho. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço. Os dados são armazenados numa base de dados dedicado do cluster de armazenamento na região que selecionou.
 
 ## <a name="data-retention"></a>Retenção de dados
@@ -70,7 +88,7 @@ A tabela seguinte mostra exemplos dos tipos de dados:
 ## <a name="physical-security"></a>Segurança física
 O serviço Log Analytics é gerido pela equipa da Microsoft e todas as atividades são registadas e podem ser auditadas. O log Analytics é operado como serviço do Azure e cumpre todos os requisitos de segurança e de conformidade do Azure. Pode ver os detalhes sobre a segurança física dos recursos do Azure na página 18 do [descrição geral de segurança do Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Direitos de acesso físico a áreas de proteger são alterados num dia útil para qualquer pessoa que já não tem a responsabilidade para o serviço do Log Analytics, incluindo a transferência e cessação. Pode ler sobre a infraestrutura física global que usamos em [Datacenters da Microsoft](https://azure.microsoft.com/en-us/global-infrastructure/).
 
-## <a name="incident-management"></a>Gestão de incidentes
+## <a name="incident-management"></a>gestão de incidentes
 Log Analytics tem um processo de gestão de incidentes que cumprem todos os serviços Microsoft. Para resumir, podemos:
 
 * Utilizar um modelo de responsabilidade partilhada em que uma parte da responsabilidade de segurança pertence à Microsoft e uma parte pertence ao cliente
