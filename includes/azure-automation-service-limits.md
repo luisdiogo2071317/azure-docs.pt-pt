@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756281"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037964"
 ---
 | Recurso | Limite Máximo |Notas|
 | --- | --- |---|
@@ -23,8 +23,9 @@ ms.locfileid: "38756281"
 | Tamanho máx. de um módulo |100 MB ||
 | Tempo de execução de tarefa - escalão gratuito |500 minutos por subscrição por mês de calendário ||
 | Quantidade máxima de espaço em disco permitida por sandbox**<sup>1</sup>** |1 GB |Aplica-se a apenas uma áreas de segurança do Azure|
-| Quantidade máxima de memória para uma área de segurança**<sup>1</sup>** |400 MB |Aplica-se a apenas uma áreas de segurança do Azure|
-| Número máx. de soquetes de rede, permitidos por sandbox**<sup>1</sup>** |1000 |Aplica-se a apenas uma áreas de segurança do Azure|
+| Quantidade máxima de memória para uma área de segurança  **<sup>1</sup>** |400 MB |Aplica-se a apenas uma áreas de segurança do Azure|
+| Número máx. de soquetes de rede, permitidos por sandbox  **<sup>1</sup>** |1000 |Aplica-se a apenas uma áreas de segurança do Azure|
+| Tempo de execução máximo permitido por runbook  **<sup>1</sup>** |3 horas |Aplica-se a apenas uma áreas de segurança do Azure|
 | Número máx. de contas de automatização numa subscrição |Sem Limite ||
 |Número máx. de simultâneas tarefas que ser executados num único Runbook Worker híbrido|50 ||
 

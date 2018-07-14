@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ca25aaefee6c9746ff79bdca7668b510df9ac6c3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 11d96ce0c92916e1975e0cb403aabf057ab8b825
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002046"
+ms.locfileid: "39036834"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Como exemplos de registos de voz para uma voz personalizada
 
@@ -93,7 +93,7 @@ Um formato de script básico inclui três colunas:
 ![Script de exemplo](media/custom-voice/script.png)
 
 > [!NOTE]
-> A maioria dos estúdios resumindo registam segmentos, referidos como "usa", cada normalmente ttake contendo expressões de dez a 24. Apenas observar o número de take será suficiente para encontrar uma expressão de determinado mais tarde. Alguns estúdios podem preferir gravações mais tempo. Neste caso desejará observar a compensação de tempo para o ficheiro (o código de tempo). O studio terá uma visualização da hora de destaque.
+> A maioria dos estúdios resumindo registam segmentos, conhecidos como "obtém", cada take contendo expressões de dez a 24. Apenas observar o número de take será suficiente para encontrar uma expressão de determinado mais tarde. Alguns estúdios podem preferir fazer gravações mais tempo. Neste caso desejará observar a compensação de tempo para o ficheiro (o código de tempo). O studio terá uma visualização da hora de destaque.
 
 Deixe espaço suficiente após cada linha escrever notas. Certifique-se de que nenhuma expressão é dividida entre páginas. Número de páginas e imprimir o seu script no lado do documento.
 
@@ -105,7 +105,7 @@ Nos termos da legislação dos direitos autorais, leitura de um ator de texto pr
 
 Felizmente, é possível evitar totalmente esses problemas. Existem várias fontes de texto que pode utilizar sem licença ou permissão.
 
-|||
+|Origem de texto|Descrição|
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 frases selecionadas a partir de fora de copyright funciona especificamente para uso em projetos de síntese de fala. Um ponto de partida excelente.|
 |Já não funciona<br>autorais|Normalmente funciona publicado antes 1923. Para inglês, o Project Gutenberg oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, como o idioma será mais de perto como inglês modernos.|
@@ -129,7 +129,7 @@ Use um microfone de condenser ("mic") de alta qualidade studio destinado a grava
 
 Também pode usar um microfone analógico. Muitos alugueres casas oferecem microfones "capacidade" renomados para respetiva caractere de voz. Tenha em atenção que profissionais engrenagem analógica utiliza equilibradas XLR conectores, em vez de 1/4" conectar utilizadas em equipamentos de consumidor. Se for analógica, também terá uma preamp e uma interface de áudio do computador com estes conectores.
 
-Instalar o microfone num site ou boom e utilize um filtro de pop-frot do microfone para eliminar a interferência dos sons "plosive" como "p" e "b". Alguns microfones são fornecidos com uma montagem de suspensão os isola da vibrations em espera, o que é útil.
+Instalar o microfone num site ou boom e utilizar um filtro de POP-à frente do microfone para eliminar a interferência dos sons "plosive" como "p" e "b". Alguns microfones são fornecidos com uma montagem de suspensão os isola da vibrations em espera, o que é útil.
 
 Os talentos de voz devem manter-se a uma distância consistente do microfone. Utilize a banda no chão para marcar onde deve funcionar. Se prefere o talento sentar-se, tomar cuidado especial para monitorizar a distância de mic e evitar o ruído de cadeira.
 
@@ -144,7 +144,7 @@ Ouça diretamente a uma gravação de silêncio no seu "portagens," descobrir on
 > [!TIP]
 > Em alguns casos, poderá usar um equalizer ou um software de redução de ruído Plug-in para o ajudar a remover barulho do seu gravações, embora é sempre melhor interrompê-lo na origem sempre que possível.
 
-Níveis devem ser definidos, para que a maior parte do intervalo dinâmico disponível de gravação de digital é utilizado sem overdriving em distorção. Isso significa que voz alta, mas não tão voz alta que distorçam o áudio. Segue-se um exemplo de uma forma de onda de uma gravação de bons.
+Níveis devem ser definidos, para que a maior parte do intervalo dinâmico disponível de gravação de digital é utilizado sem overdriving. Isso significa que voz alta, mas não tão voz alta que distorçam o áudio. Segue-se um exemplo de uma forma de onda de uma gravação de bons.
 
 ![gravação de boa forma de onda](media/custom-voice/good-recording.png)
 
@@ -172,13 +172,13 @@ Preserva o seu script e notas, demasiado. Está pronto para carregar as gravaç�
 |nunca irão lhe para dar cópia de segurança|nunca irão lhe para dar cópia de segurança|
 |Existem quatro luzes|lá está quatro luzes|
 |como é a meteorologia hoje em dia|como é th "sobreviver aos hoje mesmo|
-|meu pequeno pony|meu lil' pony|
+|Diga Olá para meu amigo pouco|Diga Olá a minha lil "amigo|
 
 Deve talento *não* adicionar interrupções distintas entre as palavras. A frase ainda deve fluir naturalmente, mesmo durante o soar formal um pouco. Essa distinção bem pode demorar alguns prática de solucionar.
 
 ### <a name="the-recording-session"></a>A sessão de gravação
 
-Criar uma referência de gravação, ou *correspondência de arquivo,* de uma expressão comum no início da sessão. Faça o talento repetir esta linha de cada página ou a página e meio e a gravação de novo para a referência de comparação. Isso ajudará o talento permanecer consistente no volume, tempo, pitch central e o pico de argumento de venda e valley. Enquanto isso, o engenheiro pode utilizar o ficheiro de correspondência como referência para níveis e a consistência geral de som. 
+Criar uma referência de gravação, ou *correspondência de arquivo,* de uma expressão comum no início da sessão. Faça o talento repetir esta linha de cada página ou a página e meio. Cada vez, compara a gravação de novo para a referência. Esta técnica ajuda o talento permanecer consistente no volume, o tempo, o argumento de venda e intonation. Enquanto isso, o engenheiro pode utilizar o ficheiro de correspondência como referência para níveis e a consistência geral de som.
 
 O ficheiro de correspondência é especialmente importante quando a retoma gravação, após uma interrupção ou em outro dia. Desejará reproduzi-lo a algumas vezes para o talento e tê-las a repeti-lo cada vez até que eles correspondem a bem.
 

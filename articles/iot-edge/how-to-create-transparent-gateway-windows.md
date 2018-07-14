@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344305"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036089"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo de Windows IoT Edge que atua como um gateway transparente
 
@@ -22,8 +22,8 @@ Este artigo fornece instruções detalhadas para a utilização de um dispositiv
 >[!NOTE]
 >Atualmente:
 > * Se o gateway estiver desconectado do IoT Hub, os dispositivos jusante não é possível autenticar com o gateway.
-> * Dispositivos IoT Edge não é possível ligar aos gateways de IoT Edge.
-> * Dispositivos jusante não podem utilizar o carregamento de ficheiros.
+> * Dispositivos com capacidade de borda não é possível ligar aos gateways de IoT Edge. 
+> * Dispositivos jusante não é possível utilizar o carregamento de ficheiros.
 
 A parte difícil sobre a criação de um gateway transparente é ligar com segurança o gateway a jusante dispositivos. O Azure IoT Edge permite-lhe utilizar a infraestrutura PKI para configurar ligações seguras de TLS entre estes dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente.  Para manter a segurança razoável, o dispositivo de downstream deve confirmar a identidade do dispositivo de limite, uma vez que apenas pretende que os dispositivos se liguem ao seus gateways e não um gateway potencialmente malicioso.
 
@@ -141,7 +141,7 @@ Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar m�
 2. Aceda a **IoT Edge** e selecione o seu dispositivo IoT Edge que pretende utilizar como um gateway.
 3. Selecione **Definir Módulos**.
 4. Selecione **Seguinte**.
-5. Na **especificar rotas** passo, deve ter uma rota envia todas as mensagens de todos os módulos para o IoT Hub. Se não estiver, adicione o seguinte código, em seguida, selecione **seguinte**.
+5. No passo **Especificar rotas**, deve ter uma rota predefinida que envia todas as mensagens de todos os módulos para o Hub IoT. Caso contrário, adicione o seguinte código e, em seguida, selecione **Seguinte**.
    ```JSON
    {
        "routes": {

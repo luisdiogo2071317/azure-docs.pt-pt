@@ -1,44 +1,61 @@
 ---
-title: Aumentar a quota do Azure Resource Manager vCPU pedidos | Microsoft Docs
-description: Pedidos de aumento de quota vCPU do Gestor de recursos do Azure
+title: Pedidos de aumentar a quota de vCPU de Gestor de recursos do Azure | Documentos da Microsoft
+description: Pedidos de aumento de quota de vCPU de Gestor de recursos do Azure
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037271"
 ---
-# <a name="resource-manager-vcpu-quota-increase-requests"></a>Pedidos de aumento de quota vCPU do Gestor de recursos
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Pedidos de aumento de quota de vCPU de Gestor de recursos
 
-Quotas do Gestor de recursos vCPU são impostas o nível de região e o nível de família do SKU.
-Obter mais informações sobre como as quotas são aplicadas no [subscrição do Azure e limites de serviço](http://aka.ms/quotalimits) página.
-Para obter mais informações sobre famílias de SKU, pode comparar custo e desempenho no [preços das Virtual Machines](http://aka.ms/pricingcompute) página.
+Quotas de vCPU de Gestor de recursos são aplicadas ao nível de região e o nível de família de SKU.
+Obter mais informações sobre como as quotas são aplicadas no [subscrição do Azure e limites do serviço](http://aka.ms/quotalimits) página.
+Para obter mais informações sobre famílias de SKU, pode comparar o custo e desempenho no [preços de máquinas virtuais](http://aka.ms/pricingcompute) página.
 
-Para pedir um aumento, crie um incidente de suporte de Quota para vCPUs no portal do Azure, [ https://portal.azure.com ](https://portal.azure.com).
+Para pedir um aumento, siga as instruções abaixo para criar um pedido de suporte através do Azure "utilização + quotas" painel disponível no Portal do Azure. 
 
-> [!NOTE]
-> Saiba como [criar um pedido de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) no portal do Azure
+## <a name="request-quota-increase-at-subscription-level"></a>Pedir aumento da quota ao nível da subscrição
 
-1. Na página de pedido de novo suporte, selecione o tipo de problema como "Quota" e o tipo de Quota como "Núcleos".
+1. Partir https://portal.azure.com, selecione **subscrições**.
 
-    ![Painel de noções básicas de quota](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Subscrições](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Selecione o modelo de implementação como "Gestor de recursos" e selecione uma localização.
+2. Selecione a subscrição que tem uma quota maior.
+
+   ![Selecionar subscrição](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+3. Selecione **utilização + quotas**
+
+   ![Selecione a utilização e quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+4. No canto superior direito, selecione **pedir aumento**.
+
+   ![Pedir aumento](./media/resource-manager-core-quotas-request/request-increase.png)
+
+5. Passo: 1 – Selecione **núcleos** como o tipo de cotação. 
+
+   ![Preencha o formulário](./media/resource-manager-core-quotas-request/forms.png)
+   
+6. Passo: 2 – implementação selecione modelar como "Resource Manager" e selecione uma localização.
 
     ![Painel de problema de quota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Selecione as famílias de SKU que requerem um aumento.
+3. Selecione as famílias de SKU que exigem um aumento.
 
-    ![Série SKU selecionado](./media/resource-manager-core-quotas-request/SKU-selected.png)
+    ![Séries SKU selecionadas](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Introduza os novos limites que gostaria na subscrição.
+4. Introduza nos novos limites de que pretende na subscrição.
 
-    ![Novo pedido de quota SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
+    ![Pedido de quota de novo SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-- Para remover uma linha, desmarque o SKU na lista pendente família SKU ou clique no ícone de rejeição "x".
+- Para remover uma linha, desmarque o SKU no menu pendente família SKU ou clique no ícone de rejeição "x".
 Depois de introduzir a quota pretendida para cada família SKU, clique em "Seguinte", na página de passo de problema para continuar com a criação do pedido de suporte.
+

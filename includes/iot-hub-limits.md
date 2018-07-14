@@ -14,7 +14,7 @@ A tabela seguinte lista os limites que se aplicam aos recursos do Hub IoT:
 
 | Recurso | Limite |
 | --- | --- |
-| Máximo de hubs IoT pagos por subscrição do Azure |10 |
+| Máximo de hubs IoT pagos por subscrição do Azure |50 |
 | Máximo de hubs IoT gratuitos por subscrição do Azure |1 |
 | Número máximo de carateres de um Id de dispositivo | 128 |
 | Número máximo de identidades de dispositivos<br/> devolvidas numa única chamada |1000 |
@@ -38,24 +38,24 @@ A tabela seguinte lista os limites que se aplicam aos recursos do Hub IoT:
 
 
 > [!NOTE]
-> Se precisar de mais de 10 hubs IoT pagos numa subscrição do Azure, contacte o suporte da Microsoft.
+> Se precisar de mais de 50 hubs IoT pagos numa subscrição do Azure, contacte o suporte da Microsoft.
 
 
 > [!NOTE]
-> Atualmente, o número máximo de dispositivos que pode ligar a um IoT hub único é 500 000. Se pretende aumentar este limite, contacte [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Atualmente, o número máximo de dispositivos, que pode ligar a um hub IoT individual é 500 000. Se deseja aumentar este limite, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 
 O serviço de IoT Hub limita os pedidos quando as quotas seguintes são ultrapassadas:
 
 | Limitação | Valor por hub |
 | --- | --- |
-| Operações de registo de identidade <br/> (criar, obter, listar, atualizar, eliminar), <br/> importar/exportar de forma individual ou em massa |83.33/SEC/Unit (5000/mínimo/unidade) (para S3) <br/> 1.67/SEC/Unit (min/100/unidade) (para S1 e S2). |
+| Operações de registo de identidade <br/> (criar, obter, listar, atualizar, eliminar), <br/> importar/exportar de forma individual ou em massa |83.33/SEC/Unit (5000/min/unidade) (para S3) <br/> 1.67/SEC/Unit (100/min/unidade) (para S1 e S2). |
 | Ligações do dispositivo |6000/seg/unidade (para S3), 120/seg/unidade (para S2), 12/seg/unidade (para S1). <br/>Mínimo de 100/seg. |
 | Envios do dispositivo para a cloud |6000/seg/unidade (para S3), 120/seg/unidade (para S2), 12/seg/unidade (para S1). <br/>Mínimo de 100/seg. |
-| Envios da cloud para o dispositivo | 83.33/SEC/Unit (5000/mínimo/unidade) (para S3), 1.67/sec/unit (min/100/unidade) (para S1 e S2). |
-| Receções da cloud para o dispositivo |833.33/SEC/Unit (50000/mínimo/unidade) (para S3), 16.67/sec/unit (1000/mínimo/unidade) (para S1 e S2). |
-| Operações de carregamento de ficheiros |ficheiro 83.33 carregar notificações/seg/unidade (5000/mínimo/unidade) (para S3), ficheiros 1.67 carregamento notificações/seg/unidade (min/100/unidade) (para S1 e S2). <br/> 10000 SAS URIs podem ficar fora de uma conta de Armazenamento do Azure ao mesmo tempo.<br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
+| Envios da cloud para o dispositivo | 83.33/SEC/Unit (5000/min/unidade) (para S3), 1.67/sec/unit (100/min/unidade) (para S1 e S2). |
+| Receções da cloud para o dispositivo |833.33/SEC/Unit (50000/min/unidade) (para S3), 16.67/sec/unit (1000/min/unidade) (para S1 e S2). |
+| Operações de carregamento de ficheiros |carregamento de ficheiros 83.33 notificações/seg/unidade (5000/min/unidade) (para S3), ficheiros 1.67 carregamento notificações/seg/unidade (100/min/unidade) (para S1 e S2). <br/> 10000 SAS URIs podem ficar fora de uma conta de Armazenamento do Azure ao mesmo tempo.<br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
 | Métodos diretos | 24MB/seg/unidade (para S3), 480KB/seg/unidade (para S2), 160KB/seg/unidade (para S1)<br/> Com base no tamanho do medidor de limitação de 8KB. |
 | Leituras de dispositivo duplo | 50/seg/unidade (para S3), Máximo de 10/seg ou 1/seg/unidade (para S2), 10/seg (para S1) |
 | Atualizações de dispositivo duplo | 50/seg/unidade (para S3), Máximo de 10/seg ou 1/seg/unidade (para S2), 10/seg (para S1) |
-| Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | 83.33/SEC/Unit (5000/mínimo/unidade) (para S3), 1.67/sec/unit (min/100/unidade) (para S2), 1.67/sec/unit (min/100/unidade) (para S1) |
+| Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | 83.33/SEC/Unit (5000/min/unidade) (para S3), 1.67/sec/unit (100/min/unidade) (para S2), 1.67/sec/unit (100/min/unidade) (para S1) |
 | Débito de operação tarefas por dispositivo | 50/seg/unidade (para S3), Máximo de 10/seg ou 1/seg/unidade (para S2), 10/seg (para S1) |

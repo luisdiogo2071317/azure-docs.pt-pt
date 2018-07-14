@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 83a56793d08632918a75f6580360a9dd148d7316
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2af83762fdcd3302f2af9b08585febab42387d79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611073"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035987"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade do serviço gerido a um recurso com o portal do Azure
 
@@ -41,11 +41,11 @@ Depois de ativar a MSI num recurso do Azure, [como uma VM do Azure](msi-qs-confi
 
 3. Selecione o **controlo de acesso (IAM)** página do recurso e selecione **+ adicionar**. Em seguida, especifique a **função**, **atribuir acesso a Máquina Virtual**e especifique o correspondente **subscrição** e **grupo de recursos** onde reside o recurso. Na área de critérios de pesquisa, deverá ver o recurso. Selecione o recurso e selecione **guardar**. 
 
-   ![Captura de ecrã de controlo (IAM) de acesso](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Captura de ecrã de controlo (IAM) de acesso](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
 4. É reencaminhado para o principal **controlo de acesso (IAM)** página, onde verá uma nova entrada para MSI o recurso. Neste exemplo, "SimpleWinVM" VM a partir do grupo de recursos de demonstração tem **contribuinte** acesso à conta de armazenamento.
 
-   ![Captura de ecrã de controlo (IAM) de acesso](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Captura de ecrã de controlo (IAM) de acesso](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901362"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035946"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma VM Managed Service Identity (MSI) com o portal do Azure
 
@@ -59,7 +59,7 @@ Para ativar o sistema de identidade numa VM que foi originalmente aprovisionada 
     > [!NOTE]
     > Adicionar uma identidade de utilizador atribuída a uma VM não é atualmente suportado no portal do Azure.
 
-   ![Captura de ecrã de página de configuração](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Remover a identidade de serviço gerida de uma VM do Azure
 
@@ -74,7 +74,7 @@ Se tiver uma Máquina Virtual que já não precisa da identidade do sistema atri
     > [!NOTE]
     > Adicionar uma identidade de utilizador atribuída a uma VM não é atualmente suportado no portal do Azure.
 
-   ![Captura de ecrã de página de configuração](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 37710015904c8112e5d2de504ed5b42895ffb809
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54bb2466a99569c124128ad3e08f276a0bc0262d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610319"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035270"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma VM Managed Service Identity (MSI) com o portal do Azure
 
@@ -52,7 +52,7 @@ Se tiver uma VM que foi originalmente aprovisionada sem um MSI:
 
 2. Clique na página "Configuração", ative o MSI na VM ao selecionar "Sim" em "Identidade de serviço gerida", em seguida, clique em **guardar**. Esta operação pode demorar 60 segundos ou mais para concluir:
 
-   ![Captura de ecrã de página de configuração](~/articles/active-directory/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Remover MSI a partir de uma VM do Azure
 
@@ -64,7 +64,7 @@ Se tiver uma Máquina Virtual que já não precisa de um MSI:
 
 3. Clique na página "Configuração", remova o MSI da VM ao selecionar "Não" em "Identidade de serviço gerida", em seguida, clique em **guardar**. Esta operação pode demorar 60 segundos ou mais para concluir:
 
-   ![Captura de ecrã de página de configuração](~/articles/active-directory/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Captura de ecrã de página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

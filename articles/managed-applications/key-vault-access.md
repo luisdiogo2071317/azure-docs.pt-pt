@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/09/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 232bea437b38335bdaa189e504d4e5fd9b080a05
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724058"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035294"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segredo do Key Vault acesso ao implementar aplicações geridas do Azure
 
@@ -52,6 +52,37 @@ Quando precisar passar um valor seguro (como uma palavra-passe) como um parâmet
    ![Pesquisar por fornecedor](./media/key-vault-access/search-provider.png)
 
 1. Selecione **Guardar**.
+
+## <a name="reference-key-vault-secret"></a>Segredo do Key Vault de referência
+
+Para passar um segredo a partir de um cofre de chave para um modelo na sua aplicação gerida, tem de utilizar um [modelo ligado](../azure-resource-manager/resource-group-linked-templates.md) e referenciar o Cofre de chaves nos parâmetros para o modelo ligado. Forneça o ID de recurso do Key Vault e o nome do segredo do.
+
+```json
+"resources": [{
+  "apiVersion": "2015-01-01",
+  "name": "linkedTemplate",
+  "type": "Microsoft.Resources/deployments",
+  "properties": {
+    "mode": "incremental",
+    "templateLink": {
+      "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "parameters": {
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"
+          },
+          "secretName": "<secret-name>"
+        }
+      },
+      "adminLogin": { "value": "[parameters('adminLogin')]" },
+      "sqlServerName": {"value": "[parameters('sqlServerName')]"}
+    }
+  }
+}],
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951027"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036671"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para a criação de consultas na Azure Search
 Ao construir consultas para o Azure Search, pode utilizar qualquer um da predefinição [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou a alternativa [analisador de consultas do Lucene no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). O analisador de consultas de Lucene suporta as construções de consulta mais complexas, como consultas com âmbito de campo, a pesquisa difusa, pesquisa de proximidade, aumentos de termos e pesquisa de expressão regular.
@@ -69,7 +69,7 @@ O campo especificado no **fieldname:searchterm** tem de ser um campo pesquisáve
 ## <a name="fuzzy-search-example"></a>Exemplo de pesquisa difusa
 A pesquisa difusa localiza correspondências em termos que têm uma construção semelhante. Por [documentação de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), pesquisas difusas baseiam-se nos [Damerau Levenshtein distância](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-Para fazer uma pesquisa difusa, acrescente o til "~" símbolo no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, "azul ~" ou "azul ~ 1" retornaria azul, blues e cola.
+Para fazer uma pesquisa difusa, acrescente o til `~` símbolo no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` retornaria azul, blues e cola.
 
 **Exemplo 3** – com o botão direito o seguinte fragmento de consulta. Esta consulta pesquisa para as tarefas com o representante de prazo (em que ele está incorreto):
 

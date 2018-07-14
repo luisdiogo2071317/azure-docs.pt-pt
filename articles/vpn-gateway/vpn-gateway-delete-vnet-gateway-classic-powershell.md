@@ -1,5 +1,5 @@
 ---
-title: 'Eliminar um gateway de rede virtual: PowerShell: clássico do Azure | Microsoft Docs'
+title: 'Eliminar um gateway de rede virtual: PowerShell: clássico Azure | Documentos da Microsoft'
 description: Elimine um gateway de rede virtual com o PowerShell no modelo de implementação clássica.
 services: vpn-gateway
 documentationcenter: na
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24994661"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036293"
 ---
-# <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminar um gateway de rede virtual através do PowerShell (clássica)
+# <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminar um gateway de rede virtual com o PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Resource Manager - portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [Clássico - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [Clássica – PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 >
 
-Este artigo ajuda-o a eliminar um gateway de VPN no modelo de implementação clássica com o PowerShell. Depois do gateway de rede virtual foi eliminado, modificar o ficheiro de configuração de rede para remover os elementos que já não está a utilizar.
+Este artigo ajuda-o a eliminar um gateway VPN no modelo de implementação clássica com o PowerShell. Depois do gateway de rede virtual tiver sido eliminado, modificar o ficheiro de configuração de rede para remover os elementos que já não está a utilizar.
 
 ##<a name="connect"></a>Passo 1: Ligar ao Azure
 
-### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale os cmdlets do PowerShell mais recentes.
+### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Instale os cmdlets do PowerShell mais recente.
 
-Transfira e instale a versão mais recente dos cmdlets do PowerShell de gestão de serviço do Azure (SM). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+Baixe e instale a versão mais recente dos cmdlets do PowerShell de gestão de serviço do Azure (SM). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Ligar à sua conta do Azure. 
 
@@ -46,9 +46,9 @@ Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Util
 Add-AzureAccount
 ```
 
-## <a name="export"></a>Passo 2: Exportar e veja o ficheiro de configuração de rede
+## <a name="export"></a>Passo 2: Exportar e ver o ficheiro de configuração de rede
 
-Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Utilize este ficheiro para a vista de ambas as informações de configuração atual bem como para modificar a configuração de rede.
+Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Utilize este ficheiro para ambos os ver as informações de configuração atual e também para modificar a configuração de rede.
 
 Neste exemplo, o ficheiro de configuração de rede é exportado para C:\AzureNet.
 
@@ -56,19 +56,19 @@ Neste exemplo, o ficheiro de configuração de rede é exportado para C:\AzureNe
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Abra o ficheiro com um editor de texto e ver o nome para a sua VNet clássica. Quando cria uma VNet no portal do Azure, o nome completo que utiliza o Azure não é visível no portal. Por exemplo, uma VNet que parecem ser com 'ClassicVNet1' o nome no portal do Azure, pode ter um nome de tempo muito no ficheiro de configuração de rede. O nome poderá ter um aspeto semelhante: 'Grupo ClassicRG1 ClassicVNet1'. Os nomes de rede virtual são listados como **' VirtualNetworkSite name ='**. Utilize os nomes no ficheiro de configuração de rede ao executar os cmdlets do PowerShell.
+Abra o ficheiro com um editor de texto e ver o nome para a sua VNet clássica. Quando cria uma VNet no portal do Azure, o nome completo, que utiliza o Azure não é visível no portal. Por exemplo, uma VNet que aparece para ter o nome "ClassicVNet1" no portal do Azure, pode ter um nome muito mais tempo no ficheiro de configuração de rede. O nome pode ter um aspeto semelhante: 'Grupo ClassicRG1 ClassicVNet1'. Nomes de rede virtual são apresentados como **' VirtualNetworkSite name ='**. Utilize os nomes no ficheiro de configuração de rede ao executar os cmdlets do PowerShell.
 
-## <a name="delete"></a>Passo 3: Elimine o gateway de rede virtual
+## <a name="delete"></a>Passo 3: Eliminar o gateway de rede virtual
 
-Quando eliminar um gateway de rede virtual, todas as ligações para a VNet através do gateway estão desligadas. Se tiver clientes P2S ligados para a VNet, serão desligados sem aviso.
+Quando eliminar um gateway de rede virtual, todas as ligações à VNet através do gateway estão ligado à Internet. Se tiver clientes de P2S ligados à VNet, irá ser desconectados sem aviso.
 
-Neste exemplo, elimina o gateway de rede virtual. Certifique-se de que utiliza o nome completo da rede virtual a partir do ficheiro de configuração de rede.
+Este exemplo elimina o gateway de rede virtual. Certifique-se utilizar o nome completo da rede virtual a partir do ficheiro de configuração de rede.
 
 ```powershell
 Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
 ```
 
-Se tiver êxito, mostra o retorno:
+Se tiver êxito, o retorno mostra:
 
 ```
 Status : Successful
@@ -76,11 +76,11 @@ Status : Successful
 
 ## <a name="modify"></a>Passo 4: Modificar o ficheiro de configuração de rede
 
-Quando eliminar um gateway de rede virtual, o cmdlet não modifica o ficheiro de configuração de rede. Terá de modificar o ficheiro para remover os elementos que estão a ser utilizados. As secções seguintes ajudam a modificar o ficheiro de configuração de rede que transferiu.
+Quando eliminar um gateway de rede virtual, o cmdlet não modifica o ficheiro de configuração de rede. Terá de modificar o ficheiro para remover os elementos que já não estão a ser utilizados. As seções a seguir ajudarão a modificar o ficheiro de configuração de rede que transferiu.
 
 ### <a name="lnsref"></a>Referências de Site de rede local
 
-Para remover as informações de referência do site, efetuar alterações de configuração para **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Remover um acionadores de referência de local site do Azure para eliminar um túnel. Dependendo da configuração que criou, pode não ter um **LocalNetworkSiteRef** listados.
+Para remover informações de referência do site, faça as alterações de configuração **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Remover um acionadores de referência do local site do Azure para eliminar um túnel. Dependendo da configuração que criou, pode não ter uma **LocalNetworkSiteRef** listados.
 
 ```
 <Gateway>
@@ -103,7 +103,7 @@ Exemplo:
 
 ###<a name="lns"></a>Sites de rede local
 
-Remova todos os sites locais que já não está a utilizar. Dependendo da configuração que criou, é possível que não tem um **LocalNetworkSite** listados.
+Remova todos os sites locais que já não estiver a utilizar. Dependendo da configuração que criou, é possível que não tem um **LocalNetworkSite** listados.
 
 ```
 <LocalNetworkSites>
@@ -137,7 +137,7 @@ Neste exemplo, removemos Site3 apenas.
 
 ### <a name="clientaddresss"></a>O conjunto de endereços do cliente
 
-Se tiver uma ligação de P2S a vnet, terá um **VPNClientAddressPool**. Remova os conjuntos de endereços de cliente que corresponde ao gateway de rede virtual que tenha eliminado.
+Se tivesse uma ligação P2S a VNet, será necessário um **VPNClientAddressPool**. Remova os conjuntos de endereços de cliente que correspondem ao gateway de rede virtual que eliminou.
 
 ```
 <Gateway>
@@ -158,7 +158,7 @@ Exemplo:
 
 ### <a name="gwsub"></a>GatewaySubnet
 
-Eliminar o **GatewaySubnet** que corresponde a VNet.
+Eliminar a **GatewaySubnet** que corresponde à VNet.
 
 ```
 <Subnets>
@@ -181,9 +181,9 @@ Exemplo:
  </Subnets>
 ```
 
-## <a name="upload"></a>Passo 5: Carregue o ficheiro de configuração de rede
+## <a name="upload"></a>Passo 5: Carregar o ficheiro de configuração de rede
 
-Guardar as alterações e carregar o ficheiro de configuração de rede para o Azure. Certifique-se de que altera o caminho do ficheiro conforme necessário para o seu ambiente.
+Guardar as alterações e carregar o ficheiro de configuração de rede para o Azure. Certifique-se de que alterar o caminho de ficheiro para o seu ambiente, conforme necessário.
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
@@ -195,3 +195,4 @@ Se tiver êxito, o retorno mostra algo semelhante a este exemplo:
 OperationDescription        OperationId                      OperationStatus                                                
 --------------------        -----------                      ---------------                                           
 Set-AzureVNetConfig         e0ee6e66-9167-cfa7-a746-7casb9   Succeeded
+```

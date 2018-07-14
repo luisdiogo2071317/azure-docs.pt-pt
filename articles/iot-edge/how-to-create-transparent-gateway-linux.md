@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 789958874784f19169e79a177beb0d811d9f60d4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005711"
+ms.locfileid: "39035579"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Criar um dispositivo do IoT Edge do Linux que atua como um gateway transparente
 
@@ -22,8 +22,8 @@ Este artigo fornece instruções detalhadas para a utilização de um dispositiv
 >[!NOTE]
 >Atualmente:
 > * Se o gateway estiver desconectado do IoT Hub, os dispositivos jusante não é possível autenticar com o gateway.
-> * Dispositivos IoT Edge não é possível ligar aos gateways de IoT Edge.
-> * Dispositivos jusante não podem utilizar o carregamento de ficheiros.
+> * Dispositivos com capacidade de borda não é possível ligar aos gateways de IoT Edge. 
+> * Dispositivos jusante não é possível utilizar o carregamento de ficheiros.
 
 A parte difícil sobre a criação de um gateway transparente é ligar com segurança o gateway a jusante dispositivos. O Azure IoT Edge permite-lhe utilizar a infraestrutura PKI para configurar ligações seguras de TLS entre estes dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente.  Para manter a segurança razoável, o dispositivo de downstream deve confirmar a identidade do dispositivo de limite, uma vez que apenas pretende que os dispositivos se liguem ao seus gateways e não um gateway potencialmente malicioso.
 

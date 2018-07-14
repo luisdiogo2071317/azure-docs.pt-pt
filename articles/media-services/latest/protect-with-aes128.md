@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: da2df60e3111055729bbae2c6684ccbb9671272e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b62c528716d9386b9da6ddee260fd1ec382fb4a5
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007868"
+ms.locfileid: "39036790"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
 
 Pode utilizar os serviços de multimédia para entregar HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming encriptado com o AES com chaves de encriptação de 128 bits. Serviços de multimédia também fornecem o serviço de entrega de chave que fornece as chaves de encriptação para os utilizadores autorizados. Se desejar para serviços de multimédia para encriptar um elemento, associar a chave de encriptação StreamingLocator e também configurar a política de chave de conteúdo. Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo através de encriptação AES. Para descriptografar o fluxo, o jogador solicita a chave do serviço de entrega de chave. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que especificou para a chave.
 
-O artigo se baseia a [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) exemplo. O exemplo demonstra como criar uma transformação de codificação que usa um incorporado na configuração predefinido para a codificação de velocidade de transmissão adaptável e ingere um ficheiro diretamente a partir de um [URL de origem HTTPs](job-input-from-http-how-to.md). O elemento de saída, em seguida, é publicado utilizando a encriptação de AES (ClearKey). A saída do exemplo é um URL para o leitor de multimédia do Azure, incluindo o manifesto de TRAÇO e o token AES necessário para reproduzir o conteúdo. O exemplo define a expiração do JWT token para 1 hora. Pode abrir um browser e cole o URL resultante para iniciar a página de demonstração do leitor de multimédia do Azure com o URL e o token preenchida para si já (no seguinte formato: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.)
+O artigo se baseia a [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) exemplo. O exemplo demonstra como criar uma transformação de codificação que usa um incorporado na configuração predefinido para a codificação de velocidade de transmissão adaptável e ingere um ficheiro diretamente a partir de um [URL de origem HTTPs](job-input-from-http-how-to.md). O elemento de saída, em seguida, é publicado utilizando a encriptação de AES (ClearKey). A saída do exemplo é um URL para o leitor de multimédia do Azure, incluindo o manifesto de TRAÇO e o token AES necessário para reproduzir o conteúdo. O exemplo define a expiração do JWT token para 1 hora. Pode abrir um browser e cole o URL resultante para iniciar a página de demonstração do leitor de multimédia do Azure com o URL e o token preenchida para si já no seguinte formato: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 > [!NOTE]
 > Pode criptografar cada ativo com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Ver [transmissão em fluxo protocolos e tipos de encriptação](content-protection-overview.md#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.

@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: a5ec7142fccb900a7095a0c67623d560d3bc00d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009535"
+ms.locfileid: "39036545"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: A divisão de carregamento de pesquisa Visual do Bing
 
@@ -24,7 +24,7 @@ Este tutorial divide o processo de carregar uma imagem para o Bing e voltar a ob
 Este tutorial é fornecido para o desenvolvedor que deseja explorar o conteúdo da resposta do Bing. Não se aplicam a toda a utilização e apresentam os requisitos (por exemplo, ele não fornece uma ligação para a política de privacidade da Microsoft). Para todos os requisitos de utilização, consulte [requisitos de apresentação e utilização do Bing](./use-and-display-requirements.md).
 
 
-### <a name="where-to-start"></a>Onde começar?
+## <a name="where-to-start"></a>Onde começar?
 
 Vamos começar com uma página HTML que envia uma imagem de Bing e recebe de volta insights e apresenta-os. No seu editor favorito, crie um ficheiro com o nome, uploaddemo.html. Adicione a seguinte estrutura HTML básica para o ficheiro.
 
@@ -50,7 +50,7 @@ Para começar, vamos dividir a página numa seção de pedido, em que o utilizad
         <div id="responseSection"></div>
 ```
 
-### <a name="get-the-file-to-upload"></a>Obter o ficheiro a carregar
+## <a name="get-the-file-to-upload"></a>Obter o ficheiro a carregar
 
 Para permitir que o usuário selecione a imagem para carregar, a demonstração utiliza a \<entrada\> etiqueta com o atributo de tipo definido no ficheiro. A interface do Usuário precisa para torná-lo claro que a demonstração usa o Bing para obter os resultados da pesquisa. 
 
@@ -126,7 +126,7 @@ O código a seguir mostra o manipulador que captura a imagem selecionada. O mani
 ```
 
 
-### <a name="what-else-is-needed-before-making-the-call-to-bing"></a>O que mais é necessário antes de efetuar a chamada para o Bing?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>O que mais é necessário antes de efetuar a chamada para o Bing?
 
 A demonstração continua a precisar de uma chave de subscrição. Na prática, provavelmente obteria a chave de subscrição de armazenamento seguro, mas por razões de simplicidade desta demonstração, terá de fornecê-lo na interface do Usuário. Adicione as seguintes \<entrada\> Etiquetar (com o atributo de tipo definido como texto) para o \<corpo\> logo abaixo do ficheiro \<saída\> marca.
 
@@ -226,7 +226,7 @@ A demonstração oculta as listas num div recolhível que é controlado através
 ```
 
 
-### <a name="making-the-call"></a>Efetuar a chamada de
+## <a name="making-the-call"></a>Efetuar a chamada de
 
 Adicione o botão de informações de Get seguinte abaixo a div de opções no corpo. O botão permite que o utilizador iniciar a chamada. Quando o usuário clica no botão, o cursor é alterado para o cursor de espera de rotação e o manipulador onclick é chamado.
 
@@ -291,7 +291,7 @@ A função de sendRequest formatos de URL do ponto final, define o cabeçalho de
         }
 ```
 
-### <a name="handling-the-response"></a>Manipulando a resposta
+## <a name="handling-the-response"></a>Manipulando a resposta
 
 A função de handleResponse processa a resposta da chamada para pesquisa Visual do Bing. Se a chamada for bem-sucedida, analisa a resposta JSON para as etiquetas individuais, que contêm as informações. Em seguida, ele adiciona a cadeia de caracteres, os resultados da pesquisa do Bing internet, para a página para permitir que o utilizador saber que os dados de origem do Bing.
 
@@ -676,7 +676,7 @@ Lembre-se que existe uma quantidade mínima de dados deve apresentar, o resto ca
 
 
 
-### <a name="adding-styles-to-make-the-page-display-correctly"></a>Adicionar estilos para tornar a página ser mostrados corretamente
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Adicionar estilos para tornar a página ser mostrados corretamente
 
 Adicione as seguintes \<estilo\> secção para o \<head\> marca.
 
@@ -1328,3 +1328,7 @@ Eis o exemplo completo de HTML e JavaScript.
     </body>
 </html>      
 ```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para ver como obter informações funciona visto de token, utilizar e insights [ImageInsightsToken SDK da pesquisa Visual do Bing tutorial](.\tutorial-visual-search-insights-token.md).

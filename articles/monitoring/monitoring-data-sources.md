@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 19a38473f1ce23b5a21ef5a29b3f3dc817b92dfd
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991517"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036528"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Origens de dados no Azure de monitorização
 Este artigo descreve os dados disponíveis para monitorizar o estado de funcionamento e desempenho dos seus recursos do Azure e as aplicações em execução nos mesmos.  Recolher e analisar estes dados com as ferramentas descritas no [coleta de dados no Azure de monitorização](monitoring-data-collection.md)
@@ -28,7 +28,7 @@ A monitorização dos dados no Azure provém de uma variedade de origens que pod
 
 
 ## <a name="azure-platform"></a>Plataforma Azure
-Telemetria relacionados com o estado de funcionamento e a operação do Azure em si inclui dados sobre a operação e a gestão da sua subscrição do Azure ou o inquilino. Ele inclui o arquivo de dados de estado de funcionamento do serviço no registo de atividades do Azure e os registos de auditoria do Azure Active Directory.
+Telemetria relacionados com o estado de funcionamento e a operação do Azure em si inclui dados sobre a operação e a gestão da sua subscrição do Azure ou o inquilino. Ele inclui dados de estado de funcionamento do serviço armazenados no registo de atividades do Azure e os registos de auditoria do Azure Active Directory.
 
 ![Coleção do Azure](media/monitoring-data-sources/azure-collection.png)
 
@@ -41,8 +41,8 @@ O [registo de atividades do Azure](../monitoring-and-diagnostics/monitoring-over
 Pode ver o registo de atividades para um recurso específico na sua página nos registos do Azure de portal ou a vista de vários recursos na [atividade Log Explorer](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). É particularmente útil copiar as entradas de registo para o Log Analytics para combiná-los com outros dados de monitorização. Também pode enviar-lhes para outras localizações usando [os Hubs de eventos](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
 
-### <a name="azure-active-directory-audit-logs"></a>Registos de auditoria de diretório Active Directory do Azure
-[Relatórios do Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md) contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico. Atualmente não é possível combinar dados de auditoria do Azure Active Directory com o com outros dados de monitorização porque está acessível através do Azure Active Directory e [do Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+### <a name="azure-active-directory-audit-logs"></a>Registos de auditoria do Azure Active Directory
+[Relatórios do Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md) contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico. Atualmente não é possível combinar dados de auditoria do Azure Active Directory com outros dados de monitorização como só é acessível através do Azure Active Directory e o [do Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
 
 
 ## <a name="azure-services"></a>Serviços do Azure
@@ -58,22 +58,22 @@ Serviços do Azure mais irão gerar métricas que refletem o desempenho e opera�
 ### <a name="resource-diagnostic-logs"></a>Registos de diagnóstico de recursos
 Embora o registo de atividades fornece informações sobre as operações executadas num recursos do Azure, ao nível de recursos [registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) fornecem informações sobre o funcionamento do recurso em si.   Os requisitos de configuração e conteúdo estes registos [varia consoante o tipo de recurso](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
-Não pode ver os registos de diagnóstico diretamente no portal do Azure, mas pode [enviá-los para o armazenamento do Azure para arquivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-las para [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) de redirecionamento para outros serviços ou [para registo Análise](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Podem escrever alguns recursos diretamente ao Log Analytics, enquanto outras pessoas a escrever para uma conta de armazenamento antes de ser [importados para o Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Não pode ver os registos de diagnóstico diretamente no portal do Azure, mas pode [enviá-los para o armazenamento do Azure para arquivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-las para [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) para o redirecionamento para outros serviços, ou [para registo Análise](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Podem escrever alguns recursos diretamente ao Log Analytics, enquanto outras pessoas a escrever para uma conta de armazenamento antes de ser [importados para o Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
-### <a name="management-solutions"></a>Soluções de gestão
+### <a name="management-solutions"></a>Soluções de Gestão
  [Soluções de gestão](../monitoring/monitoring-solutions.md) recolher dados para fornecer informações adicionais sobre o funcionamento de um serviço específico. Eles recolhem dados no Log Analytics, onde pode ser analisado com o [linguagem de consulta](../log-analytics/log-analytics-log-search.md) ou vistas a que normalmente estão incluídas na solução.
 
-## <a name="guest-operating-system"></a>Sistema operativo convidado
+## <a name="guest-operating-system"></a>Sistema Operativo convidado
 Além de telemetria gerada por todos os serviços do Azure, recursos de computação têm um sistema de operativo convidado para monitorizar. Com a instalação de um ou mais agentes, pode recolher telemetria do convidado para as mesmas ferramentas de monitorização, como os serviços do Azure.
 
 ![Coleção de recursos de computação do Azure](media/monitoring-data-sources/compute-resource-collection.png)
 
 ### <a name="diagnostic-extension"></a>Extensão de diagnóstico
-Com o [extensão de diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics.md), pode recolher registos e recursos de computação de dados de desempenho do sistema operativo de cliente do Azure. Métricas e registos recolhidos a partir de clientes são armazenados numa conta de armazenamento do Azure que pode [configurar o Log Analytics para importar](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).  O Explorador de métricas compreende como ler a partir da conta de armazenamento e inclui métricas de cliente com outras métricas recolhidas.
+Com o [extensão de diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics.md), pode recolher registos e recursos de computação de dados de desempenho do sistema operativo de cliente do Azure. Métricas e registos recolhidos a partir de clientes são armazenados numa conta de armazenamento do Azure que pode [configurar o Log Analytics para importar a partir](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).  O Explorador de métricas compreende como ler a partir da conta de armazenamento e inclui métricas de cliente com outras métricas recolhidas.
 
 
 ### <a name="log-analytics-agent"></a>Agente do log Analytics
-Pode instalar o agente Log Analytics em qualquer máquina virtual do Windows ou Linux ou o computador físico. A máquina virtual pode estar em execução no Azure, noutra cloud ou no local.  O agente se liga ao Log Analytics ou diretamente ou através uma [grupo de gestão do System Center Operations Manager ligado](../log-analytics/log-analytics-om-agents.md) e permite-lhe recolher dados a partir de [origens de dados](../log-analytics/log-analytics-data-sources.md) que configurou ou a partir de [soluções de gestão](../monitoring/monitoring-solutions.md) que fornecem informações adicionais sobre as aplicações em execução no agente.
+Pode instalar o agente Log Analytics em qualquer máquina virtual do Windows ou Linux ou o computador físico. A máquina virtual pode estar em execução no Azure, noutra cloud ou no local.  O agente se liga ao Log Analytics ou diretamente ou através uma [grupo de gestão do System Center Operations Manager ligado](../log-analytics/log-analytics-om-agents.md) e permite-lhe recolher dados a partir de [origens de dados](../log-analytics/log-analytics-data-sources.md) que configurou ou a partir de [soluções de gestão](../monitoring/monitoring-solutions.md) que fornecem informações adicionais sobre as aplicações em execução na máquina virtual.
 
 ### <a name="service-map"></a>Mapa de Serviços
 [Mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) requer um agente de dependência em máquinas virtuais Windows e Linux. Isso funciona com o agente recolhe dados sobre os processos em execução a máquina virtual e as dependências de processos externos do Log Analytics. Ele armazena estes dados no Log Analytics e inclui uma consola que apresenta visualmente os dados que coleta, além de outros dados armazenados no Log Analytics.
@@ -93,7 +93,7 @@ Também pode utilizar o Application Insights para [criar uma métrica personaliz
 Para monitorizar operações lógicas diferentes de uma aplicação, tem [recolher telemetria em vários componentes](../application-insights/app-insights-transaction-diagnostics.md). O Application Insights suporta [distribuído a correlação de telemetria](../application-insights/application-insights-correlation.md) que identifica as dependências entre os componentes que permite analisá-los em conjunto.
 
 #### <a name="availability-tests"></a>Testes de disponibilidade
-[Teste de disponibilidade](../application-insights/app-insights-monitor-web-app-availability.md) no Application Insights lhe permitem testar a disponibilidade e capacidade de resposta da sua aplicação a partir de diferentes locais na Internet pública. Pode fazer um teste de ping simples para verificar se o aplicativo está ativo ou utilizar o Visual Studio para criar um teste da web que simula um cenário de utilizador.  Testes de disponibilidade não requerem qualquer instrumentação no aplicativo.
+[Testes de disponibilidade](../application-insights/app-insights-monitor-web-app-availability.md) no Application Insights lhe permitem testar a disponibilidade e capacidade de resposta da sua aplicação a partir de diferentes locais na Internet pública. Pode fazer um teste de ping simples para verificar se o aplicativo está ativo ou utilizar o Visual Studio para criar um teste da web que simula um cenário de utilizador.  Testes de disponibilidade não requerem qualquer instrumentação no aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

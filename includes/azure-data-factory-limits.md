@@ -8,36 +8,36 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 43408ebc65d4acf581b612e8ecfb9d00679cc078
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066106"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029959"
 ---
-Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
+Data factory é um serviço de multi-inquilino, que tem os seguintes limites predefinidos no local para se certificar de subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitos dos limites podem ser facilmente aumentados para a sua subscrição até ao limite máximo ao contactar o suporte.
 
 ### <a name="version-2"></a>Versão 2
 
 | Recurso | Limite Predefinido | Limite Máximo |
 | -------- | ------------- | ------------- |
 | Fábricas de dados numa subscrição do Azure | 50 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Número total de entidades (Pipeline, conjuntos de dados, Acionadores, serviços ligados, integração tempos de execução) dentro de uma fábrica de dados | 5000 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Núcleos de CPU totais para o Azure SSIS integração Runtime(s) sob uma subscrição | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Pipeline em simultâneo é executada por pipeline | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Pipeline em simultâneo é executada por fábrica de dados | 10,000  | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Atividades de máx. por pipeline (inclui atividades internas de contentores) | 40 | 40 |
+| Número total de entidades (Pipeline, conjuntos de dados, disparadores, serviços ligados, runtimes de integração) dentro de uma fábrica de dados | 5000 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Núcleos de CPU total para Runtime(s) de integração de SSIS do Azure sob uma subscrição | 128 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Execuções de pipeline em simultâneo por pipeline | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Execuções de pipeline em simultâneo por fábrica de dados | 10,000  | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Atividades de máx. por pipeline (inclui atividades internas para contentores) | 40 | 40 |
 | Parâmetros de máx. por pipeline | 50 | 50 |
-| ForEach itens | 100,000 | 100,000 |
-| ForEach paralelismo | 20 | 50 |
+| Itens ForEach | 100,000 | 100,000 |
+| Paralelismo ForEach | 20 | 50 |
 | Carateres por expressão | 8,192 | 8,192 |
-| Intervalo mínimo do acionador de janela em cascata | 15 min. | 15 min. |
-| Limite de tempo máx. para execuções de atividade do pipeline | 7 dias | 7 dias |
-| Bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |
+| Intervalo mínimo de Acionador de janela em cascata | 15 min | 15 min |
+| Tempo limite de máximo de execuções de atividades do pipeline | 7 dias | 7 dias |
+| Bytes por objeto para objetos do pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> | 100 KB | 2000 KB |
-| Unidades de integração de dados por atividade de cópia executar <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Escrever chamadas de API | 2500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Chamadas da API de leitura | 12,500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de integração de dados por execução de atividade de cópia <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Escrever chamadas de API | 2500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Chamadas de API de leitura | 12,500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>Versão 1
@@ -45,28 +45,28 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | **Recurso** | **Limite Predefinido** | **Limite Máximo** |
 | --- | --- | --- |
 | Fábricas de dados numa subscrição do Azure |50 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Pipelines dentro de uma fábrica de dados |2500 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Pipelines numa fábrica de dados |2500 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Conjuntos de dados dentro de uma fábrica de dados |5000 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Setores em simultâneo por conjunto de dados |10 |10 |
-| Bytes por objeto para objetos de pipeline <sup>1</sup> |200 KB |200 KB |
+| Setores simultâneos por conjunto de dados |10 |10 |
+| Bytes por objeto para objetos do pipeline <sup>1</sup> |200 KB |200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> |100 KB |2000 KB |
-| Núcleos a pedido no cluster de HDInsight numa subscrição <sup>2</sup> |60 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unidades de movimento de dados por executar de atividade de cópia da nuvem <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Repetir contagem pipeline para execuções de atividade |1000 |MaxInt (32 bits) |
+| Núcleos de cluster a pedido do HDInsight numa subscrição <sup>2</sup> |60 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de movimento de dados por execução de atividade de cópia da cloud <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Número de execuções de atividades do pipeline de tentativas |1000 |MaxInt (32 bits) |
 
-<sup>1</sup> pipeline, conjunto de dados e objetos do serviço ligado de representar um agrupamento lógico da carga de trabalho. Os limites para estes objetos não estão relacionadas com a quantidade de dados, pode mover e processar com o serviço do Azure Data Factory. Fábrica de dados foi concebida para dimensionar para processar petabytes de dados.
+<sup>1</sup> pipeline, conjunto de dados e objetos do serviço ligado representam um agrupamento lógico de sua carga de trabalho. Limites para estes objetos não estão relacionadas com a quantidade de dados, pode mover e processar com o serviço do Azure Data Factory. Fábrica de dados foi concebida para escalar para processar petabytes de dados.
 
-<sup>2</sup> HDInsight a pedido núcleos alocados fora da subscrição que contém a fábrica de dados. Como resultado, o limite superior é a fábrica de dados imposta limite núcleos núcleos de HDInsight a pedido e é diferente do que o limite de núcleos associado à subscrição do Azure.
+<sup>2</sup> núcleos de HDInsight a pedido são alocados fora a subscrição que contém a fábrica de dados. Como resultado, o limite acima é a fábrica de dados aplicado o limite de núcleos para núcleos de HDInsight a pedido e é diferente do que o limite de núcleos associado à subscrição do Azure.
 
-<sup>3</sup> unidade de integração de dados (DIU) para v2 ou nuvem dados movimento unidade (DMU) para v1 está a ser utilizado numa operação de cópia da nuvem para a nuvem. É uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade na fábrica de dados. Pode obter um maior débito de cópia utilizando mais DMUs para alguns cenários. Consulte [unidades de integração de dados (V2)](../articles/data-factory/copy-activity-performance.md#data-integration-units) e [nuvem unidades de movimento de dados (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) secção em obter mais detalhes, e [página de preços do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) para tem implicações em termos de faturação.
+<sup>3</sup> unidade de integração de dados (DIU) para v2 ou na Cloud dados de movimento de unidade (DMU) para a v1 está a ser utilizado numa operação de cópia na cloud para a cloud. É uma medida que representa o poder (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade no Data Factory. Pode obter um maior débito de cópia utilizando DMUs mais em alguns cenários. Consulte a [unidades de integração de dados (V2)](../articles/data-factory/copy-activity-performance.md#data-integration-units) e [unidades de movimento de dados (V1) da Cloud](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) secção em detalhes, e [página de preços do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) para implicação de faturação.
 
-<sup>4</sup> a integração do tempo de execução (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as seguintes capacidades de integração de dados entre diferentes ambientes de rede: movimento de dados, distribuição de atividades para serviços de computação execução de pacotes SSIS. Para obter mais informações, consulte [descrição geral de tempo de execução de integração](../articles/data-factory/concepts-integration-runtime.md).
+<sup>4</sup> o Integration Runtime (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as seguintes capacidades de integração de dados em diferentes ambientes de rede: movimento de dados, distribuição de atividades para serviços, de computação execução dos pacotes do SSIS. Para obter mais informações, consulte [descrição geral do Runtime de integração](../articles/data-factory/concepts-integration-runtime.md).
 
-| **Recurso** | **Predefinição de limite inferior** | **Limite mínimo** |
+| **Recurso** | **Limite inferior predefinido** | **Limite mínimo** |
 | --- | --- | --- |
 | Intervalo de agendamento |15 minutos |15 minutos |
 | Intervalo entre tentativas de repetição |1 segundo |1 segundo |
 | Repita o valor de tempo limite |1 segundo |1 segundo |
 
 #### <a name="web-service-call-limits"></a>Limites de chamada de serviço Web
-O Azure Resource Manager tem os limites de chamadas à API. Pode efetuar chamadas à API uma taxa dentro de [limita a API do Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).
+O Gestor de recursos do Azure tem limites para chamadas de API. Pode fazer chamadas à API a uma taxa dentro de [limita a API do Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).

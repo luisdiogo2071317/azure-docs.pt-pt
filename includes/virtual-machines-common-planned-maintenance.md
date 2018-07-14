@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/05/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: abf10177f8ce86309043da92d1f2b690775b6d89
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: f203e056df00fb1a9b1e7e43930955040dfce4aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37910036"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39030005"
 ---
 O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o desempenho e a segurança da infraestrutura de anfitrião para máquinas virtuais. Estas atualizações variam entre a aplicação de patches a componentes de software no ambiente de alojamento (como o sistema operativo, o hipervisor e vários agentes implementados no anfitrião) à atualização de componentes de rede e desativação de hardware. A maioria destas atualizações são efetuadas sem nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto:
 
@@ -21,9 +21,9 @@ O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o des
 
 - Se a manutenção requer uma reinicialização, receberá um aviso de quando a manutenção está prevista. Nestes casos, também receberá uma janela de tempo em que pode iniciar a manutenção por conta própria, ao mesmo tempo que funcione para si.
 
-Esta página descreve a forma como o Microsoft Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (falhas), veja gerir a disponibilidade de máquinas virtuais do [Windows] (.. /articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Esta página descreve a forma como o Microsoft Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (falhas), consulte Gerir a disponibilidade das máquinas virtuais para [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Aplicações em execução numa máquina virtual podem obter informações sobre atualizações futuras com o serviço de metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (.. /articles/virtual-machines/linux/instance-metadata-service.md).
+Aplicações em execução numa máquina virtual podem obter informações sobre atualizações futuras com o serviço de metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux](../articles/virtual-machines/linux/instance-metadata-service.md).
 
 Para obter informações "procedimentos" sobre o gerenciamento de manutenção planeada, consulte "Manipulação planeado notificações de manutenção" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ed87b3c935fe4032460f8e524f963355fb3157d9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e7c6c8d017e4371919088ec414d3108939ca4a19
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970306"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036259"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Manutenção Preditiva
 
@@ -35,11 +35,11 @@ Os itens a cinzento representam componentes que implementam capacidades de *gest
 
 No Portal do Azure, navegue para o grupo de recursos com o nome da solução que escolheu para ver os recursos aprovisionados.
 
-![][img-resource-group]
+![Recursos de acelerador][img-resource-group]
 
-Quando aprovisiona o acelerador de soluções, recebe um e-mail com uma ligação para a área de trabalho do Machine Learning. Também pode navegar para a área de trabalho do Machine Learning do [azureiotsolutions.com] [ lnk-azureiotsuite] página da sua solução aprovisionada. Quando a solução estiver no estado **Pronto**, estará disponível um mosaico nesta página.
+Quando aprovisiona o acelerador de soluções, recebe um e-mail com uma ligação para a área de trabalho do Machine Learning. Também pode navegar para a área de trabalho do Machine Learning do [Aceleradores de soluções do Microsoft Azure IoT] [ lnk-azureiotsuite] página da sua solução aprovisionada. Quando a solução estiver no estado **Pronto**, estará disponível um mosaico nesta página.
 
-![][img-machine-learning]
+![Modelo de aprendizagem automática][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 

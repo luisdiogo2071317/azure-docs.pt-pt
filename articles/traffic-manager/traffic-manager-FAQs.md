@@ -1,6 +1,6 @@
 ---
-title: Traffic Manager do Azure - perguntas mais frequentes | Microsoft Docs
-description: Este artigo fornece respostas às perguntas mais frequentes sobre o Gestor de tráfego
+title: Gestor de tráfego do Azure - FAQ | Documentos da Microsoft
+description: Este artigo fornece respostas para perguntas freqüentes sobre o Gestor de tráfego
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
@@ -14,380 +14,380 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301070"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036926"
 ---
-# <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego perguntas mais frequentes (FAQ)
+# <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
 ## <a name="traffic-manager-basics"></a>Noções básicas do Gestor de tráfego
 
-### <a name="what-ip-address-does-traffic-manager-use"></a>O endereço IP utilizar o Gestor de tráfego?
+### <a name="what-ip-address-does-traffic-manager-use"></a>Que endereço IP utilizar o Gestor de tráfego?
 
-Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Envia as respostas DNS para direcionar clientes para o ponto final de serviço apropriado. Os clientes, em seguida, ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Envia as respostas DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes, em seguida, ligar para o ponto final de serviço diretamente, não através do Gestor de tráfego.
 
-Por conseguinte, o Gestor de tráfego não fornece um ponto final ou o endereço IP para os clientes se liguem a. Se pretender que o endereço IP estático para o seu serviço, o que deve ser configurado no serviço, não no Traffic Manager.
+Por conseguinte, o Gestor de tráfego não fornece um ponto final ou o endereço IP para a ligação para clientes. Se quiser o endereço IP estático para o seu serviço, que tem de ser configurado no serviço, não no Gestor de tráfego.
 
-### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Que tipos de tráfego podem ser encaminhada através do Gestor de tráfego?
-Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), um ponto final do Gestor de tráfego pode ser qualquer internet com o serviço alojado dentro ou fora do Azure. Por conseguinte, o Gestor de tráfego pode encaminhar tráfego que tem origem na internet pública para um conjunto de pontos finais que está também com acesso à internet. Se tiver pontos finais que estão dentro de uma rede privada (por exemplo, uma versão interna do [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm utilizadores DNS efetuar pedidos dessas redes internas, não é possível utilizar o Gestor de tráfego para esses tráfego.
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>O que tipos de tráfego podem ser encaminhado através do Gestor de tráfego?
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), um ponto de final do Gestor de tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Por conseguinte, o Gestor de tráfego pode encaminhar o tráfego que provém da internet pública para um conjunto de pontos de extremidade que é também com acesso à internet. Se tiver pontos finais que estão dentro de uma rede privada (por exemplo, uma versão interna do [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm utilizadores garantindo DNS pedidos de tais redes internas, Gestor de tráfego não pode ser utilizado para esses tráfego.
 
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestor de tráfego suporta sessões 'temporária'?
+### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gestor de tráfego oferece suporte a sessões "adesivos"?
 
-Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas DNS para direcionar clientes para o ponto final de serviço apropriado. Os clientes ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego. Por conseguinte, Gestor de tráfego não consegue ver o tráfego HTTP entre o cliente e o servidor.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas de DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego. Por conseguinte, o Gestor de tráfego não vê o tráfego HTTP entre o cliente e o servidor.
 
-Além disso, pertence o endereço IP de origem da consulta DNS recebida pelo Gestor de tráfego para o serviço DNS recursiva, não o cliente. Por conseguinte, o Gestor de tráfego não tem nenhuma forma de controlar clientes individuais e não é possível implementar 'temporária' sessões. Esta limitação é comum para todos os sistemas de gestão de tráfego com base no DNS e não é específica para o Gestor de tráfego.
+Além disso, o endereço IP de origem da consulta DNS recebida pelo Gestor de tráfego pertence ao serviço DNS recursivo, não no cliente. Por conseguinte, o Gestor de tráfego não tem nenhuma forma para controlar os clientes individuais e não é possível implementar "adesivos" sessões. Esta limitação é comum a todos os sistemas de gestão de tráfego com base no DNS e não é específica para o Gestor de tráfego.
 
-### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Porque estou a ver um erro HTTP ao utilizar o Gestor de tráfego?
+### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Por que estou a ver um erro HTTP ao utilizar o Gestor de tráfego?
 
-Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas DNS para direcionar clientes para o ponto final de serviço apropriado. Os clientes, em seguida, ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego. Gestor de tráfego não Consulte tráfego HTTP entre cliente e servidor. Por conseguinte, qualquer erro HTTP que vir tem ser provenientes da aplicação. Para o cliente ligar à aplicação, todos os passos de resolução DNS estão concluídos. Que inclui qualquer interação do Gestor de tráfego com no fluxo de tráfego de aplicações.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas de DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes, em seguida, ligar para o ponto final de serviço diretamente, não através do Gestor de tráfego. Gestor de tráfego não não ver o tráfego HTTP entre cliente e servidor. Por conseguinte, qualquer erro HTTP que vê deve ser proveniente de seu aplicativo. Para o cliente ligar à aplicação, todos os passos de resolução DNS estão completos. Isso inclui qualquer interação com o Gestor de tráfego no fluxo de tráfego de aplicativo.
 
-Investigação adicional, por conseguinte, deve focar-se na aplicação.
+Investigação adicional, por conseguinte, deve se concentrar no aplicativo.
 
-O cabeçalho de anfitrião HTTP enviado do browser do cliente é a origem dos problemas mais comuns. Certifique-se de que a aplicação está configurada para aceitar o cabeçalho de anfitrião correto para o nome de domínio que está a utilizar. Para pontos finais utilizando o App Service do Azure, consulte [configurar um nome de domínio personalizado para uma aplicação web no serviço de aplicações do Azure utilizando o Gestor de tráfego](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+O cabeçalho de anfitrião HTTP enviado a partir do navegador do cliente é a fonte mais comuns dos problemas. Certifique-se de que a aplicação está configurada para aceitar o cabeçalho de anfitrião correto para o nome de domínio que está a utilizar. Para pontos de extremidade com o serviço de aplicações do Azure, consulte [configurar um nome de domínio personalizado para uma aplicação web no serviço de aplicações do Azure utilizando o Gestor de tráfego](../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
-### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>O que é o impacto do desempenho da utilização do Gestor de tráfego?
+### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>O que é o impacto no desempenho da utilização do Gestor de tráfego?
 
-Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Uma vez que os clientes ligam diretamente ao seu pontos finais de serviço, não há nenhum impacto no desempenho tarifas ao utilizar o Gestor de tráfego assim que a ligação for estabelecida.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Uma vez que os clientes ligam diretamente para os pontos finais de serviço, não há nenhum impacto no desempenho incorrido quando utilizar o Gestor de tráfego assim que a ligação ser estabelecida.
 
-Uma vez que o Gestor de tráfego integra-se com aplicações ao nível do DNS, requer uma pesquisa DNS adicional inseridos na cadeia de resolução de DNS. O impacto do Gestor de tráfego no tempo de resolução DNS é mínimo. Gestor de tráfego utiliza uma rede global de servidores de nomes e utiliza [anycast](https://en.wikipedia.org/wiki/Anycast) de rede para garantir que o DNS consultas são sempre encaminhadas para o servidor de nome disponível mais próximo. Além disso, a colocação em cache de respostas DNS significa que a latência DNS adicional gasta utilizando o Gestor de tráfego só se aplica a fração de sessões.
+Uma vez que o Gestor de tráfego integrado nas aplicações ao nível do DNS, ele exige uma pesquisa de DNS adicional para ser inserido na cadeia de resolução de DNS. O impacto do Gestor de tráfego em tempo de resolução DNS é mínimo. O Gestor de tráfego utiliza uma rede global de servidores de nomes e usa [anycast](https://en.wikipedia.org/wiki/Anycast) de rede para garantir que o DNS consultas são sempre encaminhadas para o servidor de nome disponível mais próximo. Além disso, a colocação em cache de respostas DNS significa que a latência DNS adicional gasta com o Gestor de tráfego aplica-se apenas a uma fração de sessões.
 
-O método de desempenho encaminha o tráfego para o ponto de final disponível mais próximo. O resultado net é que o impacto de desempenho global associado este método deverá ser mínimo. Algum aumento na latência DNS deve ser deslocamento pelo menor latência de rede para o ponto final.
+O método de desempenho encaminha o tráfego para o ponto de extremidade disponível mais próximo. O resultado líquido é que o impacto no desempenho geral associado com este método deve ser um mínimo. Qualquer aumento na latência DNS deverá ser compensado pela latência de rede mais baixa para o ponto final.
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Os protocolos de aplicação posso utilizar com o Gestor de tráfego?
 
-Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Depois de concluída a pesquisa de DNS, os clientes ligam ao ponto final da aplicação diretamente, não através do Gestor de tráfego. Por conseguinte, a ligação pode utilizar qualquer protocolo de aplicação. Se selecionar TCP como o monitorização, Gestor de tráfego do protocolo monitorização de estado de funcionamento do ponto final pode ser realizada sem utilizar quaisquer protocolos de aplicação. Se optar por ter o estado de funcionamento verificado através de um protocolo de aplicação, o ponto final tem de ser capazes de responder a pedidos de HTTP ou HTTPS obter.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Depois de concluída a pesquisa DNS, os clientes ligam ao ponto final da aplicação diretamente, não através do Gestor de tráfego. Por conseguinte, a ligação pode utilizar qualquer protocolo de aplicação. Se selecionar TCP como o monitorização, o Gestor de tráfego do protocolo monitorização de estado de funcionamento do ponto final pode ser feito sem utilizar quaisquer protocolos de aplicação. Se optar por ter o estado de funcionamento verificado com um protocolo de aplicação, o ponto final tem de ser capaz de responder a pedidos HTTP ou HTTPS obter.
 
-### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Pode utilizar o Gestor de tráfego com um nome de domínio 'naked'?
+### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Pode utilizar o Gestor de tráfego com um nome de domínio 'sem "www"'?
 
-Não. As normas DNS não permitem a CNAMEs coexista com outros registos DNS com o mesmo nome. O vértice (ou raiz) de uma zona DNS sempre contém dois registos DNS pré-existente; o SOA e os registos NS autoritativos. Isto significa que não pode ser criado um registo CNAME no vértice da zona sem violar as normas DNS.
+Não. As normas DNS não permitem CNAMEs de modo a coexistir com outros registos DNS, o mesmo nome. O vértice (ou raiz) de uma zona DNS sempre contém dois registos DNS já existentes; a SOA e os registos NS autoritativos. Isso significa que não pode ser criado um registo CNAME no vértice da zona sem violar as normas DNS.
 
-Gestor de tráfego necessita de um registo CNAME no DNS para mapear o nome DNS intuitivos. Por exemplo, mapear www.contoso.com para o contoso.trafficmanager.net de nome DNS de perfil do Traffic Manager. Além disso, o perfil do Traffic Manager devolve um CNAME DNS segundo para indicar que o cliente deve ligar ao ponto final do.
+O Gestor de tráfego necessita de um registo CNAME no DNS para mapear o nome DNS personalizado. Por exemplo, mapear `www.contoso.com` para o nome DNS de perfil do Gestor de tráfego `contoso.trafficmanager.net`. Além disso, o perfil do Gestor de tráfego retorna um segundo CNAME de DNS para indicar qual o cliente deve se conectar ao ponto de extremidade.
 
-Para contornar este problema, recomendamos que utilize um redirecionamento HTTP para o tráfego direto do nome do domínio naked para um URL diferente, o que, em seguida, pode utilizar o Gestor de tráfego. Por exemplo, o domínio naked 'contoso.com' pode redirecionar utilizadores para o CNAME "www.contoso.com" que aponte para o nome DNS do Gestor de tráfego.
+Para contornar este problema, recomendamos que utilize um redirecionamento HTTP para direcionar o tráfego do nome de domínio sem "www" para um URL diferente, que, em seguida, pode utilizar o Gestor de tráfego. Por exemplo, o domínio sem "www", "contoso.com" pode redirecionar os utilizadores para o CNAME "www.contoso.com" que aponta para o nome DNS do Gestor de tráfego.
 
-Suporte integral para domínios naked no Gestor de tráfego é controlado no nosso registo de segurança de funcionalidade. Pode registar o suporte para este pedido de funcionalidade por [votar para o mesmo no site de comentários nossa comunidade](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Suporte completo para domínios sem "www" no Gestor de tráfego é rastreado no nosso registo de segurança do recurso. Pode registrar o suporte para este pedido de funcionalidade por [voto para o mesmo no nosso site de comentários da Comunidade](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
-### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Gestor de tráfego considerar o endereço de sub-rede de cliente ao processamento de consultas DNS? 
-Sim, para além do endereço IP de origem da consulta DNS recebe (que é normalmente o endereço IP de resolução de DNS), quando efetuar pesquisas de métodos de encaminhamento de desempenho e Geographic, o Gestor de tráfego considera também o endereço de sub-rede do cliente se for incluído na consulta, a resolução de efetuar o pedido em nome do utilizador final.  
-Especificamente, [RFC 7871 – sub-rede de cliente em consultas de DNS](https://tools.ietf.org/html/rfc7871) que fornece um [mecanismo de extensão para o DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que podem transmitir o endereço de sub-rede de cliente da resoluções de que o suportam.
+### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gestor de tráfego considerar o endereço de sub-rede do cliente quando o processamento de consultas DNS? 
+Sim, além do endereço IP de origem da consulta DNS que recebe (que é normalmente o endereço IP do resolvedor de DNS), ao realizar pesquisas para métodos de encaminhamento geográfico e o desempenho, o Gestor de tráfego também considera o endereço de sub-rede do cliente se for incluído na consulta, o resolvedor que efetua o pedido em nome do utilizador final.  
+Especificamente, [RFC 7871 – sub-rede de cliente em consultas de DNS](https://tools.ietf.org/html/rfc7871) que fornece um [mecanismo de extensão para o DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) que pode transmitir o endereço de sub-rede de cliente da resoluções de que o suportam.
 
-### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>O que é o TTL do DNS e a forma como afeta os meus utilizadores?
+### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>O que é o TTL de DNS e como afeta os meus utilizadores?
 
-Quando uma consulta DNS no Gestor de tráfego que chegam, até define um valor na resposta chamada time-to-live (TTL). Este valor, cuja unidade está em segundos, indica ao resoluções DNS downstream no quanto para esta resposta em cache. Enquanto não são garantidas que as resoluções DNS este resultado da cache, a colocação em cache permite-lhes responder a todas as consultas subsequentes desativar a cache em vez de aceder aos servidores DNS de Gestor de tráfego. Isto afeta as respostas da seguinte forma:
-- um valor de TTL superior reduz o número de consultas que apresentado nos servidores DNS de Gestor de tráfego, que podem reduzir o custo de um cliente, uma vez que o número de consultas servidos é a utilização de um sujeito a faturação.
-- um valor de TTL superior pode, possivelmente, reduzir o tempo que demora para fazer uma pesquisa de DNS.
-- um valor de TTL superior também significa que os dados não refletem as últimas informações de estado de funcionamento do Traffic Manager tem obtido através do respetivos agentes de pesquisa.
+Quando uma consulta DNS que chegam no Gestor de tráfego, define um valor na resposta chamada time-to-live (TTL). Este valor, cuja unidade está em segundos, indica ao resoluções DNS downstream no quanto para essa resposta em cache. Enquanto resoluções DNS não são garantidas para colocar em cache neste resultado, a colocação em cache permite que sejam responder a consultas subseqüentes desativar o cache em vez de passar para servidores DNS do Gestor de tráfego. Isso afeta as respostas da seguinte forma:
+- um valor de TTL superior reduz o número de consultas que direcionado para os servidores de DNS do Gestor de tráfego, que podem reduzir o custo de um cliente, uma vez que o número de consultas servidos é um uso faturável.
+- um valor de TTL superior pode reduzir o tempo que demora para fazer uma pesquisa de DNS.
+- um valor de TTL superior também significa que os dados não refletem as últimas informações de estado de funcionamento que o Gestor de tráfego tenha obtida por meio de seus agentes de pesquisa.
 
-### <a name="how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses"></a>Alto ou insuficiente posso pode definir o valor de TTL de respostas de Gestor de tráfego?
+### <a name="how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses"></a>Alto ou baixo, pode definir o valor de TTL para respostas de Gestor de tráfego?
 
-Pode definir, cada um por nível de perfil, o valor de TTL do DNS para ser tão elevado como 2,147,483,647 segundos e como tão baixo como 0 segundos (o intervalo máximo em conformidade com [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). Um valor de TTL de 0 significa que a jusante resoluções DNS não colocar em cache as respostas de consulta e todas as consultas são esperadas para alcançar o DNS do Gestor de tráfego de servidores para a resolução.
+Pode definir, num por nível de perfil, o valor de TTL de DNS como tão baixo como 0 segundos e tão elevada como 2,147,483,647 segundos (em conformidade com o intervalo de máximo [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). Um valor de TTL de 0 significa que a jusante resoluções DNS não colocar em cache as respostas de consulta e todas as consultas devem contactar o DNS do Gestor de tráfego com os servidores para a resolução.
 
-### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Como posso compreender o volume de consultas futuras no meu perfil? 
-Uma das métricas fornecidas pelo Gestor de tráfego é o número de consulta respondeu por um perfil. Pode obter estas informações numa agregação de nível do perfil ou pode dividir-cópia de segurança further to consulte o volume de consultas em que foram devolvidos os pontos finais. Além disso, pode configurar alertas para notificá-lo se o volume de resposta de consulta atravesse as condições que definiu. Para obter mais detalhes, [métricas de Gestor de tráfego e alertas](traffic-manager-metrics-alerts.md).
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Como posso compreender o volume de consultas a chegar ao meu perfil? 
+Uma das métricas fornecidas pelo Gestor de tráfego é o número de consulta responderam por um perfil. Pode obter estas informações numa agregação de nível de perfil ou pode dividi-lo para ver o volume de consultas em que foram devolvidos os pontos de extremidade específicos. Além disso, pode configurar alertas para notificá-lo se o volume de resposta da consulta cruza as condições que definiu. Para obter mais detalhes, [Gestor de tráfego métricas e alertas](traffic-manager-metrics-alerts.md).
 
-## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de encaminhamento de tráfego do Gestor de tráfego Geographic
+## <a name="traffic-manager-geographic-traffic-routing-method"></a>Método de encaminhamento de tráfego do Gestor de tráfego geográfico
 
-### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quais são alguns casos de utilização em que o encaminhamento geográfica é útil? 
-Tipo de encaminhamento geográfico pode ser utilizado em qualquer cenário em que um cliente do Azure tem de distinguir os seus utilizadores com base nas regiões geográficas. Por exemplo, utilizando o método de encaminhamento de tráfego geográfica, que pode dar aos utilizadores de regiões específicas uma experiência de utilizador diferente dos existentes a partir de outras regiões. Outro exemplo é complying com indica a soberania dos dados locais que requerem que os utilizadores de uma região específica ser servido apenas por pontos finais nessa região.
+### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quais são alguns casos de utilização em que o encaminhamento geográfico é útil? 
+Tipo de encaminhamento geográfico pode ser utilizado em qualquer cenário em que um cliente do Azure precisa distinguir os utilizadores com base em regiões geográficas. Por exemplo, usando o método de encaminhamento de tráfego geográfico, pode dar aos utilizadores de regiões específicas uma experiência de utilizador diferente daqueles partir de outras regiões. Outro exemplo é o cumprimento mandatos de soberania de dados locais que exigem que os utilizadores de uma região específica ser servidos apenas pelos pontos de extremidade nessa região.
 
-### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Como decidir se deve a utilizar método de encaminhamento de desempenho ou o método de encaminhamento geográfico? 
-A principal diferença entre estes dois métodos de encaminhamento populares é que, no seu principal objetivo é para enviar o tráfego para o ponto final que pode fornecer a latência mais baixa para a função chamadora, ao passo que, no Geographic encaminhamento o principal objetivo é para impor uma georreplicação de método de encaminhamento de desempenho fence para os seus chamadores para que pode encaminhar deliberadamente para um ponto final específico. A sobreposição acontece porque não existe uma correlação entre closeness geográfica e menor latência, embora isto não é sempre verdadeiro. Pode ter um ponto final uma geografia diferentes que pode fornecer uma melhor experiência de latência para o autor da chamada e nesse caso desempenho encaminhamento enviará o utilizador para esse ponto final mas encaminhamento geográfica será sempre enviá-los para o ponto final tem de ser mapeados para as respetivas região geográfica. Para obter mais torná-lo limpar, considere o exemplo seguinte - com Geographic encaminhamento, pode certificar-mapeamentos invulgar como enviar todo o tráfego de Ásia para pontos finais nos EUA e todo o tráfego de E.U.A. para pontos finais na Ásia. Nesse caso, o encaminhamento geográfica deliberadamente executará exatamente o que tiver configurado não e otimização de desempenho não é uma consideração. 
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Como posso decidir se deve a usar o método de encaminhamento desempenho ou método de encaminhamento geográfico? 
+A principal diferença entre esses dois métodos de encaminhamento populares é que, no seu principal objetivo é enviar tráfego para o ponto final que pode fornecer a latência mais baixa para o chamador, ao passo que, em Geographic routing o objetivo principal é para impor uma geo do método de encaminhamento de desempenho cerca de seus chamadores para que possa roteá-los deliberadamente para um ponto de extremidade específico. A sobreposição ocorre uma vez que existe uma correlação entre o limite de proximidade geográfica e latências mais baixas, embora isso não é sempre verdadeiro. Poderá haver um ponto final de uma localização geográfica diferente que pode proporcionar uma melhor experiência de latência para o chamador e nesse caso o encaminhamento de desempenho irá enviar o utilizador para esse ponto final, mas encaminhamento geográfico será sempre enviá-los para o ponto final que mapeou para seus região geográfica. Para ainda mais a torná-lo a limpar, considere o exemplo a seguir - com Geographic encaminhamento pode fazer mapeamentos incomuns, tal como enviar todo o tráfego de Ásia para pontos de extremidade nos Estados Unidos e todo o tráfego dos EUA para pontos de extremidade na Ásia. Nesse caso, o encaminhamento geográfico deliberadamente fará exatamente o que tiver configurado para fazer e otimização de desempenho não é uma consideração. 
 >[!NOTE]
->Poderão existir cenários em que poderá ter o desempenho e capacidades de encaminhamento geográficas, para estes perfis aninhados cenários podem ser a escolha ideal. Por exemplo, pode configurar um perfil de principal com o serviço de encaminhamento geográfica para onde enviar todo o tráfego da América do Norte um perfil aninhado tem pontos finais nos E.U.A. e utilizar o encaminhamento para enviar esses tráfego para o ponto final melhor dentro desse conjunto de desempenho. 
+>Poderão existir cenários em que poderá ter ambos os desempenho e capacidades de encaminhamento geográficas, para estes perfis aninhados de cenários podem ser a escolha ideal. Por exemplo, pode configurar um perfil de principal com o serviço de encaminhamento geográfico para onde enviar todo o tráfego da América do Norte para um perfil aninhado que tem pontos finais nos EUA e utilizar o encaminhamento para enviar essas tráfego para o melhor ponto final dentro desse conjunto do desempenho. 
 
-### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quais são as regiões suportadas pelo Gestor de tráfego para o encaminhamento geográfica? 
-É possível encontrar a hierarquia de país/região que é utilizada pelo Gestor de tráfego [aqui](traffic-manager-geographic-regions.md). Enquanto esta página onde permanece atualizada com todas as alterações, através de programação também pode obter as mesmas informações utilizando a [REST API da Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quais são as regiões suportadas pelo Gestor de tráfego para encaminhamento geográfico? 
+A hierarquia de país/região utilizada pelo Gestor de tráfego pode ser encontrada [aqui](traffic-manager-geographic-regions.md). Embora esta página é mantida atualizada com todas as alterações, através de programação também pode obter as mesmas informações utilizando o [API de REST do Gestor de tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
-### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Como determinar o Gestor de tráfego a onde um utilizador está a consultar de? 
-Gestor de tráfego analisa o IP de origem da consulta (provavelmente é uma resolução DNS local, fazer a consulta em nome do utilizador) e utiliza um IP interno para o mapa de região para determinar a localização. Este mapa é atualizado numa base contínua para a conta para que as alterações na internet. 
+### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Como é que o Gestor de tráfego determina a onde um usuário é a consulta de? 
+O Gestor de tráfego analisa o IP de origem da consulta (isso provavelmente é um resolvedor DNS local, fazer a consulta em nome do utilizador) e utiliza um IP interno com o mapa de região para determinar a localização. Este mapa é atualizado de forma contínua para levar em conta as alterações na internet. 
 
-### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>É garantida o que o Gestor de tráfego corretamente pode determinar a localização geográfica exata do utilizador em cada caso?
-Não, o Gestor de tráfego não pode garantir que a região geográfica que inferir do endereço IP de origem de uma consulta DNS será sempre corresponder para a localização do utilizador devido a pelas seguintes razões: 
+### <a name="is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case"></a>Garantia de que o Gestor de tráfego pode determinar a localização geográfica exata do utilizador em todos os casos corretamente?
+Não, o Gestor de tráfego não pode garantir que a região geográfica que inferência a partir do endereço IP de origem de uma consulta DNS sempre corresponderá à localização do utilizador devido ao seguinte: 
 
-- Em primeiro lugar, conforme descrito em FAQ do anterior, o endereço IP de origem, vemos é o facto de uma resolução DNS a fazer a pesquisa em nome do utilizador. Enquanto a localização geográfica de resolução de DNS é um boa proxy para a localização geográfica do utilizador, também pode ser diferente, consoante os requisitos de espaço do serviço de resolução DNS e o serviço de resolução DNS específico optado por utilizar um cliente. Por exemplo, um cliente localizado em Malaysia poderia especificar na utilização de definições do respetivo dispositivo, um serviço de resolução DNS cujo servidor DNS no Singapura poderá obter selecionado para processar as resoluções de consulta para que o dispositivo/utilizador. Nesse caso, o Gestor de tráfego só pode ver endereço IP a resolução que corresponde à localização Singapura. Além disso, consulte as FAQ sobre o suporte de endereço de sub-rede do cliente anterior nesta página.
+- Em primeiro lugar, conforme descrito nas FAQ anteriores, o endereço IP de origem, vemos é que um resolvedor DNS, fazendo a pesquisa em nome do utilizador. Embora a localização geográfica de resolução de DNS seja um bom proxy para a localização geográfica do utilizador, também pode ser diferente, consoante os requisitos de espaço do serviço de resolução DNS e o serviço específico do resolvedor DNS optado por utilizar um cliente. Por exemplo, um cliente localizado na Malásia poderia especificar em utilização de definições do respetivo dispositivo, um serviço de resolução DNS cujo servidor DNS em Singapura poderá obter escolhido para lidar com as resoluções de consulta para esse utilizador/dispositivo. Nesse caso, o Gestor de tráfego só pode ver endereço IP do resolvedor que corresponde à localização Singapura. Além disso, veja as FAQ anteriores sobre suporte de endereço de sub-rede de cliente nesta página.
 
-- Segundo, o Gestor de tráfego utiliza um mapa interno para o endereço IP a tradução de região geográfica. Apesar deste mapa está validado e atualizado numa base contínua para aumentar a precisão e em conta a natureza evolução da internet, há a possibilidade de que o nosso informações não são uma representação exata da localização geográfica de todos os endereços IP.
-
-
-###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Um ponto final tem de estar fisicamente localizados na mesma região que está configurado com para o encaminhamento geográfica? 
-Não, a localização do ponto final impõe sem restrições em que regiões podem ser mapeadas para o mesmo. Por exemplo, um ponto final na região do Azure e.u. a Central pode ter todos os utilizadores de Índia direcionado ao mesmo.
-
-### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Pode atribuir regiões geográficas para pontos finais num perfil que não está configurada para encaminhamento geográfica? 
-
-Sim, se o método de encaminhamento de um perfil não é geográfico, pode utilizar o [REST API da Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) atribuir regiões geográficas pontos finais nesse perfil. No caso de perfis de tipo de encaminhamento não geográfica, esta configuração é ignorada. Se alterar destes perfis para o tipo de encaminhamento geográfico num momento posterior, o Gestor de tráfego pode utilizar os mapeamentos.
+- Em segundo lugar, o Gestor de tráfego utiliza um mapa interno para fazer o endereço IP a tradução de região geográfica. Embora este mapa é validado e atualizado de forma contínua para aumentar a precisão e em conta a natureza em evolução da internet, ainda há a possibilidade de que as informações não são uma representação exata da localização geográfica de todas as a IP endereços.
 
 
-### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Por que razão estou posso obter um erro ao tentar alterar o método de encaminhamento de um perfil existente para Geographic?
+###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Um ponto final tem de estar fisicamente localizados na mesma região que aquela que está configurado com para encaminhamento geográfico? 
+Não, a localização do ponto de extremidade impõe sem restrições em que regiões podem ser mapeadas para o mesmo. Por exemplo, um ponto de extremidade na região do Azure – centro dos EUA pode ter todos os utilizadores direcionados para ele na Índia.
 
-Todos os pontos finais sob um perfil com o encaminhamento geográfica tem de ter, pelo menos, uma região mapeada para este. Para converter um perfil existente para o tipo de encaminhamento geográfico, terá primeiro de associar regiões geográficas para todos os respetivos pontos finais utilizando o [REST API da Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) antes de alterar o tipo de encaminhamento para geográfica. Se utilizar o portal, elimine primeiro os pontos finais, alterar o método de encaminhamento do perfil para geográfica e, em seguida, adicione os pontos finais, juntamente com os respetivos mapeamento de região geográfica. 
+### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Pode atribuir regiões geográficas para pontos finais num perfil que não está configurado para fazer o encaminhamento geográfico? 
+
+Sim, se o método de encaminhamento de um perfil não é geográfico, pode utilizar o [API de REST do Gestor de tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/) atribuir regiões geográficas para pontos de extremidade daquele perfil. No caso de perfis de tipo de encaminhamento não geográfica, esta configuração é ignorada. Se alterar um perfil de tal para o tipo de encaminhamento geográfico num momento posterior, o Gestor de tráfego pode utilizar esses mapeamentos.
 
 
-###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Por que motivo é é vivamente recomendado que os clientes crie perfis aninhados em vez de pontos finais de um perfil com o serviço de encaminhamento geográfica ativado? 
+### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Por que eu ganho um erro ao tentar alterar o método de encaminhamento de um perfil existente para Geographic?
 
-Uma região pode ser atribuída a apenas um ponto final dentro de um perfil, se o utilizando o tipo de encaminhamento geográfico. Se esse ponto final não é um tipo aninhado com um perfil de subordinados anexado, se esse ponto final em mau estado de funcionamento, o tráfego Manager continua a enviar o tráfego para a mesma desde a alternativa não enviar qualquer tráfego não está nenhum melhor. Gestor de tráfego efetua uma ativação pós-falha não para outro ponto final, mesmo quando a região atribuída é um "elemento principal" da região atribuído para o ponto final que ficou em mau estado de funcionamento (por exemplo, se um ponto final que tem região Espanha ficar danificado, que fazermos não ativação pós-falha para outro ponto final Tem a região que Europa atribuída ao mesmo). Isto é feito para se certificar de que o Gestor de tráfego respeita limites geográficos que um cliente tem a configuração no respetivo perfil. Para obter o benefício de falha de ativação pós-falha para outro ponto final de quando um ponto final fica em mau estado de funcionamento, recomenda-se que regiões geográficas ser atribuídos a perfis aninhados com vários pontos finais dentro do mesmo em vez de pontos finais individuais. Desta forma, se um ponto final no perfil subordinado aninhado falhar, o tráfego pode ativação pós-falha para outro ponto final dentro do mesmo perfil subordinado aninhado.
+Todos os pontos finais num perfil com encaminhamento geográfico tem de ter pelo menos uma região mapeada para este. Para converter um perfil existente para o tipo de encaminhamento geográfico, primeiro tem de associar regiões geográficas para todos os seus pontos de extremidade com o [API de REST do Gestor de tráfego do Azure](https://docs.microsoft.com/rest/api/trafficmanager/) antes de alterar o tipo de encaminhamento para geográfica. Se utilizar o portal, elimine primeiro os pontos finais, alterar o método de encaminhamento do perfil para geográfica e, em seguida, adicione os pontos de extremidade, juntamente com o seu mapeamento de região geográfica. 
 
-### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existem restrições na versão da API que suporte este tipo de encaminhamento?
 
-Sim, apenas a versão da API de 2017-03-01 e a mais recente suporta o encaminhamento geográfica tipo. Todas as antigas versões API não podem ser utilizado para criar perfis do tipo de encaminhamento geográfico ou atribuir regiões geográficas para pontos finais. Se uma versão de API antiga é utilizada para obter perfis a partir de uma subscrição do Azure, qualquer perfil do tipo de encaminhamento geográfico não é devolvido. Além disso, quando utilizar versões anteriores de API, qualquer perfil devolveu que tem pontos finais com uma atribuição de região geográfica, não tem a sua atribuição de região geográfica mostrada.
+###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Por que motivo, recomendamos vivamente que os clientes criar perfis aninhados em vez de pontos finais sob um perfil com o serviço de encaminhamento geográfico ativada? 
+
+Uma região pode ser atribuída a apenas um ponto final de um perfil se sua com o tipo de encaminhamento geográfico. Se esse ponto final não é um tipo aninhado com um perfil de subordinados anexado, se o ponto de extremidade vai mau estado de funcionamento, de tráfego Manager continua a enviar tráfego para o mesmo desde a alternativa de não enviar qualquer tráfego não é muito melhor. O Gestor de tráfego efetua uma ativação pós-falha não para outro ponto final, mesmo quando a região atribuída é um "elemento principal" da região atribuído para o ponto final que ficou em mau estado de funcionamento (por exemplo, se um ponto de extremidade que tenha Espanha região ficar danificado, que podemos fazê-lo não ativação pós-falha para outro ponto final Tem a região que Europa atribuída ao mesmo). Isso é feito para garantir que o Gestor de tráfego respeita os limites geográficos que um cliente tem a configuração no seu perfil. Para obter o benefício de ativação pós-falha para outro ponto final num ponto de extremidade fica em mau estado de funcionamento, recomenda-se que regiões geográficas ser atribuída a perfis aninhados com vários pontos de extremidade dentro da mesma, em vez de pontos de extremidade individuais. Dessa forma, se falhar um ponto de extremidade no perfil de subordinados aninhados, o tráfego pode ativação pós-falha para outro ponto final dentro o mesmo perfil de subordinados aninhados.
+
+### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existem restrições sobre a versão de API que suporta este tipo de encaminhamento?
+
+Sim, apenas a versão de API 2017-03-01 e a mais recente suporta o encaminhamento geográfico escreva. Quaisquer versões mais antigas de API não podem ser utilizado para criar perfis de tipo de encaminhamento geográfico ou atribuir regiões geográficas para pontos de extremidade. Se uma versão de API mais antiga é utilizada para obter os perfis de uma subscrição do Azure, não for devolvida a qualquer perfil de tipo de encaminhamento geográfico. Além disso, ao usar as versões mais antigas de API, a qualquer perfil devolveu que tem pontos finais com uma atribuição de região geográfica, não tem a sua atribuição de região geográfica mostrada.
 
 ## <a name="real-user-measurements"></a>Medidas Reais de Utilizadores
 
-### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são as vantagens da utilização Real medidas de utilizador?
-Quando utiliza o método de encaminhamento de desempenho, Traffic Manager seleciona a melhor região do Azure para o utilizador final ligar a inspecionar o IP de origem e a sub-rede de cliente EDNS (se transmitido) e a verificá-lo contra o intelligence de latência de rede do serviço mantém. Medidas de utilizador reais melhora isto para os seus utilizadores finais base, fazendo com que a sua experiência contribuir para esta tabela de latência, além de garantir que esta tabela tem abrange as redes de utilizador final a partir de onde os utilizadores finais ligar ao Azure. Isto leva a uma precisão maior no encaminhamento dos utilizadores finais.
+### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são as vantagens da utilização de medidas de utilizadores reais?
+Quando utiliza o método de encaminhamento de desempenho, o Gestor de tráfego escolhe a melhor região do Azure para o utilizador final ligar ao inspecionar o IP de origem e a sub-rede de cliente de EDNS (se passado) e verificá-la em relação a análise da latência de rede o serviço mantém. Medidas de utilizadores reais melhora a isso para a sua base de utilizadores finais fazendo com que sua experiência de contribuir para esta tabela de latência, além de garantir que esta tabela abrange adequadamente as redes de utilizador final na qual os utilizadores finais liga para o Azure. Isso nos leva a uma maior precisão no encaminhamento dos seus utilizadores finais.
 
-### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>Pode utilizar medidas de utilizador reais com regiões não do Azure?
-Medidas de medidas de utilizador reais e relatórios sobre apenas a latência para alcançar regiões do Azure. Se estiver a utilizar o encaminhamento baseado em desempenho com pontos finais alojados em regiões do Azure não, ainda pode beneficiar desta funcionalidade por ter maior latência obter informações sobre a região do Azure representativa tenha selecionado a ser associado este ponto final.
+### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>Pode utilizar medidas de utilizadores reais com regiões de não pertencente ao Azure?
+Medidas de medições de utilizador real e relatórios sobre apenas a latência para chegar a regiões do Azure. Se estiver a utilizar o encaminhamento com o botão com base no desempenho com pontos finais alojados em regiões de não pertencente ao Azure, ainda poderá se beneficiar desta funcionalidade por ter maior latência obter informações sobre a região do Azure representativa tenha selecionado a ser associado este ponto final.
 
-### <a name="which-routing-method-benefits-from-real-user-measurements"></a>O método de encaminhamento beneficia de medidas de utilizador reais?
-As informações adicionais adquiridas através de medidas de utilizador reais são aplicáveis apenas para perfis que utilizam o método de encaminhamento de desempenho. Tenha em atenção que a ligação de medidas de utilizador reais disponível em todos os perfis de quando vê-lo através do portal do Azure.
+### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Que método de encaminhamento beneficia de medições de utilizador Real?
+As informações adicionais, obtidas por meio de medidas de utilizadores reais são aplicáveis apenas para perfis que utilizam o método de encaminhamento de desempenho. Tenha em atenção que a ligação de medidas de utilizadores reais está disponível em todos os perfis quando vê-lo através do portal do Azure.
 
-### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>É necessário ativar as medidas de utilizador reais cada perfil separadamente
-Não, só tem de ativá-la de uma vez por subscrição e todas as informações de latência medido e comunicadas estão disponíveis para todos os perfis.
+### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>É necessário permitir medidas de utilizadores reais cada perfil separadamente?
+Não, só tem de ativá-lo uma vez por subscrição e todas as informações de latência medido e comunicadas estão disponíveis para todos os perfis.
 
-### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Como desligo Real medidas de utilizador para a minha subscrição?
-Pode parar a acumular encargos relacionados com a medidas de utilizador reais quando parar a recolha e envio de latência back medidas da sua aplicação de cliente. Por exemplo, quando medida JavaScript incorporada em páginas web, pode deixar de utilizar esta funcionalidade ao remover o JavaScript ou ao desativar a sua invocação quando a página ser composta.
+### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Como desativar as medições de utilizador reais para a minha subscrição?
+Pode parar a acumulação de encargos relacionados com medidas de utilizadores reais quando parar a recolha e o envio medidas de latência de back-a partir da sua aplicação de cliente. Por exemplo, quando a medida JavaScript incorporadas em páginas da web, pode deixar de utilizar esta funcionalidade ao remover o JavaScript ou desativando sua invocação quando a página é processada.
 
-Também pode desativar a medidas de utilizador reais, eliminando a sua chave. Depois de eliminar a chave, são eliminadas quaisquer medidas enviadas para o Gestor de tráfego com essa chave.
+Também pode desativar a medidas de utilizadores reais, eliminando a sua chave. Depois de eliminar a chave, qualquer enviadas para o Gestor de tráfego com essa chave de medições são eliminadas.
 
-### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Pode utilizar medidas de utilizador reais com aplicações de cliente que não sejam páginas web?
-Sim, medidas de utilizador reais foi concebida para a ingestão de dados recolhidos através de diferentes tipos de clientes do utilizador final. Estas FAQ será atualizada como obterem suportados novos tipos de aplicações de cliente.
+### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Pode utilizar medidas de utilizadores reais com aplicações de cliente que não seja a páginas da web?
+Sim, as medidas de utilizadores reais foi concebida para absorver dados recolhidos através de um tipo diferente de clientes do utilizador final. Estas FAQ será atualizado como obterem suporte a novos tipos de aplicativos de cliente.
 
-### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Quantos valores são feitas a cada vez que o meu medidas de utilizador reais ativado página web é composta?
-Quando Real medidas de utilizador é utilizada com a medição JavaScript fornecido, cada composição da página resulta em seis medidas que está a ser executadas. Em seguida, são reportados novamente para o serviço do Gestor de tráfego. Tenha em atenção que lhe é cobrados para esta funcionalidade com base no número de valores que relatados ao serviço do Gestor de tráfego. Por exemplo, se o utilizador navega para fora da sua página Web enquanto os valores estão a ser executados, mas antes de foi comunicado, esses valores não são considerados para fins de faturação.
+### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Quantas medições efetuadas sempre que meu medidas de utilizadores reais ativada a página da web é processada?
+Quando as medições de utilizador Real é utilizada com a medição JavaScript fornecido, processamento de cada página resulta em seis medidas que está a ser executadas. Estes são, em seguida, relatados ao serviço Gestor de tráfego. Tenha em atenção que lhe são cobrados esse recurso com base no número de medidas comunicou o serviço de Gestor de tráfego. Por exemplo, se o utilizador navega para fora de sua página da Web, enquanto estão a ser tomadas as medidas, mas antes de ele foi relatado, essas medidas não são consideradas para efeitos de faturação.
 
-### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Existe um atraso antes da execução do script de medidas de utilizador reais na minha página Web?
-Não, não há nenhum atraso programados e antes do script é invocado.
+### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Existe um atraso antes de executar script de medidas de utilizadores reais em minha página da Web?
+Não, não existe nenhum atraso programado antes do script for chamado.
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Pode utilizar configurar Real de utilizador de medidas com apenas as regiões do Azure pretender medir?
-Não, cada hora que é invocado, o script de medidas de utilizador reais mede um conjunto de seis regiões do Azure, conforme determinado pelo serviço. Este conjunto de alterações entre diferentes invocações e quando um grande número de invocações de tais acontecer, a cobertura de medida abrange em diferentes regiões do Azure.
+### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Pode utilizar configurar medidas de utilizadores reais com apenas as regiões do Azure, desejo medir?
+Não, cada vez que é invocado, o script de medidas de utilizadores reais mede a um conjunto de seis regiões do Azure, conforme determinado pelo serviço. Esta definição definida alterações entre diferentes invocações e quando um grande número de invocações de tais acontece, a cobertura de medida se expande entre diferentes regiões do Azure.
 
-### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Pode limitar o número de valores efetuadas num número específico?
-A medição JavaScript é incorporado dentro da sua página Web e de está no controlo total ao longo do quando a iniciar e parar a utilizá-la. Desde que o serviço do Gestor de tráfego recebe um pedido para obter uma lista de regiões do Azure para ser medido, são devolvidos um conjunto de regiões.
+### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Pode limitar o número de medidas feita para um número específico?
+A medida de JavaScript está embutido na sua página da Web e está controlo total sobre quando a início e fim de usá-lo. Desde que o serviço de Gestor de tráfego recebe um pedido para obter uma lista de regiões do Azure para ser medido, um conjunto de regiões são devolvidos.
 
-### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Pode ver as medições efetuadas pela minha aplicação de cliente como parte das medidas de utilizador reais desde?
-Uma vez que a lógica da medida é executada a partir da aplicação de cliente, está em total controlo que acontece, incluindo ver os valores de latência. Gestor de tráfego comunica uma vista de agregação de medidas recebido sob a chave ligada à sua subscrição.
+### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Pode ver as medidas tomadas pelo meu aplicativo de cliente como parte de medidas de utilizadores reais?
+Uma vez que a lógica de medida é executada a partir da sua aplicação de cliente, está no controle total sobre o que acontece, incluindo ver as medidas de latência. O Gestor de tráfego não comunica uma visualização agregada das medidas recebido sob a chave associada à sua subscrição.
 
-### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Pode modificar o script de medida fornecido pelo Gestor de tráfego?
-Enquanto estiver no controlo sobre o que está incorporado na sua página web, é vivamente desencorajar-tem de efetuar quaisquer alterações para o script de medida para garantir que mede e reporta as latências corretamente.
+### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Pode modificar o script de medição fornecido pelo Gestor de tráfego?
+Enquanto estiver no controle do que é incorporado na sua página web, podemos vivamente desestimulá-lo de efetuar quaisquer alterações no script de medição para garantir que ele mede e relata as latências corretamente.
 
-### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Será possível que outras pessoas ver a chave a que utilizar com valores reais do utilizador?
-Ao incorporar o script de medida para uma página web será possível que outras pessoas ver o script e a chave de medidas de utilizador reais (RUM). Mas é importante saber que esta chave é diferente do seu id de subscrição e é gerada pelo Gestor de tráfego a ser utilizado apenas para esta finalidade. Saber a sua chave RUM não será comprometer a segurança da conta do Azure.
+### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Vai ser possível que outros possam ver a chave de que uso com medidas de utilizadores reais?
+Ao incorporar o script de medição para uma página da web é possível que outros possam ver o script e a chave de medições de utilizador Real (RUM). Mas é importante saber que esta chave é diferente do seu id de subscrição e é gerada pelo Gestor de tráfego a ser utilizado apenas para essa finalidade. Saber a sua chave de executar não comprometerá a segurança da conta do Azure.
 
-### <a name="can-others-abuse-my-rum-key"></a>Outras pessoas injuriar a minha chave RUM?
-Embora seja possível para que outros a utilizar a sua chave para enviar informações erradas ao Azure tenha em atenção que alguns valores errados não irão alterar o encaminhamento, uma vez que este é contemplada juntamente com todos os outros valores recebido. Se precisar de alterar as suas chaves, pode gerar novamente a chave, altura em que a chave antiga passa a ser rejeitada.
+### <a name="can-others-abuse-my-rum-key"></a>Outras pessoas abusar minha chave executar?
+Embora seja possível que outras pessoas para utilizar a sua chave para enviar informações erradas para o Azure tenha em atenção de que algumas medidas erradas não irão alterar o encaminhamento, uma vez que ele é levado em conta, juntamente com todas as outras medidas que recebemos. Se precisar de alterar as suas chaves, novamente é possível gerar a chave de ponto em que a chave antiga torna-se descartado.
 
-###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>É necessário colocar a medição JavaScript em todas as minhas páginas web
-Medidas de utilizador reais fornece mais valor como o número de aumento de medidas. Ter consiga aceder tal que, é a decisão sobre se precisa de colocá-la em todas as páginas web ou um selecione poucos. É a nossa recomendação para iniciar colocando-o na sua página mais visitada em que um utilizador deve permanecer nessa página cinco segundos ou mais.
+###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>É necessário colocar a medição do JavaScript em todas as minhas páginas web?
+Medidas de utilizadores reais oferece mais valor como o número de aumento de medidas. Tendo dito isso, é a decidir se precisa de colocá-lo em todas as suas páginas da web ou um, selecione poucos. A nossa recomendação é iniciar, colocando-o na sua página mais visitada em que um utilizador é esperado para se manter na página de cinco segundos ou mais.
 
-### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>Podem obter informações sobre os meus utilizadores finais ser identificadas pelo Gestor de tráfego se utilizar medidas de utilizador reais?
-Quando é utilizada a medição fornecida JavaScript, o Gestor de tráfego terão visibilidade para o endereço IP do cliente do utilizador final e o endereço IP de origem da resolução DNS local que estiverem a utilizar. Gestor de tráfego utiliza o endereço IP do cliente apenas depois de ter que truncado para conseguir identificar o utilizador final específico que enviou as medidas. 
+### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>Podem obter informações sobre os meus utilizadores finais ser identificadas pelo Gestor de tráfego se eu utilizar medidas de utilizadores reais?
+Quando é utilizada a medição fornecida JavaScript, o Gestor de tráfego irá tem visibilidade para o endereço IP de cliente do utilizador final e o endereço IP de origem do resolvedor de DNS local que utilizam. Gestor de tráfego utiliza o endereço IP do cliente apenas depois de ter o texto para não ser capaz de identificar o utilizador final específico que enviou as medidas. 
 
-### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>É a página Web medição medidas Real do utilizador tem de estar a utilizar o Gestor de tráfego para o encaminhamento?
-Não, não precisa de utilizar o Gestor de tráfego. O lado de encaminhamento do Gestor de tráfego funciona em separado da peça a medida de utilizador reais e embora seja uma excelente ideia possuam ambas na mesma propriedade web, não precisa de ser.
+### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>É a página Web medição medidas de utilizadores reais precisa de estar a utilizar o Gestor de tráfego para o encaminhamento?
+Não, ele não precisa de utilizar o Gestor de tráfego. O lado de encaminhamento do Gestor de tráfego opera em separado da parte de medição de utilizador Real e embora seja uma boa idéia ter ambos na mesma propriedade web, não precisam de ser.
 
-### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>É necessário alojar qualquer serviço em regiões do Azure para utilizar com os valores reais do utilizador?
-Não, não precisa de alojar qualquer componente do lado do servidor no Azure para medidas de utilizador reais trabalhar. A imagem de pixel único transferiu a medição JavaScript e o serviço executá-lo em diferentes regiões do Azure é alojado e gerido pelo Azure. 
+### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>É necessário hospedar qualquer serviço em regiões do Azure para utilizar com medidas de utilizadores reais?
+Não, não precisa alojar qualquer componente do lado do servidor no Azure para medidas de utilizadores reais trabalhar. A imagem de pixel único transferida pela medição de JavaScript e o serviço de executá-lo em diferentes regiões do Azure é alojado e gerido pelo Azure. 
 
-### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>A minha utilização de largura de banda do Azure irá aumentar quando utilizar medidas de utilizador reais?
-Tal como mencionado na resposta anterior, os componentes do lado do servidor de medidas de utilizador reais são propriedade e geridos pelo Azure. Isto significa que a utilização da largura de banda do Azure não irá aumentar porque utilizar medidas de utilizador reais. Tenha em atenção que, não inclui qualquer utilização de largura de banda fora os custos do Azure. Iremos minimiza a largura de banda utilizada ao transferir uma imagem de pixel único para a medida a latência para uma região do Azure. 
+### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Meu uso de largura de banda do Azure irá aumentar quando posso utilizar medidas de utilizadores reais?
+Conforme mencionado na resposta anterior, os componentes do lado do servidor de medidas de utilizadores reais são propriedade e são geridos pelo Azure. Isso significa que não irá aumentar a utilização de largura de banda do Azure porque utiliza medidas de utilizadores reais. Tenha em atenção que, isso não inclui qualquer utilização de largura de banda fora em que custos do Azure. Vamos minimizar a largura de banda utilizada ao transferir apenas uma imagem de pixel único para a medida a latência para uma região do Azure. 
 
 ## <a name="traffic-view"></a>Vista de Tráfego
 
 ### <a name="what-does-traffic-view-do"></a>O que faz a vista de tráfego?
-A vista de tráfego é uma funcionalidade do Gestor de tráfego que o ajuda a compreender mais sobre os seus utilizadores e como é a sua experiência. Utiliza as consultas recebidas pelo Gestor de tráfego e as tabelas de intelligence de latência de rede que o serviço mantém para lhe fornecer o seguinte:
-- As regiões a partir de onde os utilizadores se ligam a pontos finais da sua no Azure.
-- O volume de utilizadores a ligar a partir destes regiões.
-- Regiões do Azure para que estes são obter encaminhados para.
+Vista de tráfego é uma funcionalidade do Gestor de tráfego que o ajuda a compreender melhor os seus utilizadores e como é a experiência deles. Ele usa as consultas recebidas pelo Gestor de tráfego e as tabelas de inteligência de latência de rede que o serviço mantém para lhe fornecer o seguinte:
+- As regiões a partir de onde estão a ligar os seus utilizadores para os pontos finais no Azure.
+- O volume de utilizadores a ligar a partir dessas regiões.
+- Regiões do Azure para o qual obter roteados aos.
 - Sua experiência de latência para estas regiões do Azure.
 
-Esta informação está disponível para que possa consumir através de sobreposição de mapa geográfico e vistas de tabela no portal para além de ser disponível como dados não processados para que possa transferir.
+Essas informações estão disponíveis para poder consumir por meio de sobreposição de mapa geográfico e modos de exibição em tabela no portal do além de estarem disponíveis como dados não processados para transferência.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Como pode beneficiar da utilização de vista de tráfego?
 
-Vista de tráfego dá-lhe a vista geral do tráfego de que recebem os perfis do Traffic Manager. Em particular, pode ser utilizado para compreender onde a sua base de utilizadores liga-se do e igualmente acima de tudo, o que é sua experiência de latência média. Em seguida, pode utilizar estas informações para determinar áreas em que terá de focar-se, por exemplo, expandindo os requisitos de espaço do Azure para uma região que possa servir os utilizadores com uma latência inferior. Outra informações que pode derivar ou utilizar a vista de tráfego é para ver os padrões de tráfego a regiões diferentes, que por sua vez podem ajudar a tomar decisões sobre aumente ou diminua invent essas regiões.
+Vista de tráfego dá-lhe a visão geral do tráfego a receber de seus perfis do Gestor de tráfego. Em particular, ele pode ser usado para compreender onde a sua base de usuários liga-se do e igualmente importante é que o que é a experiência deles latência média. Em seguida, pode utilizar estas informações para localizar as áreas em que precisa se concentrar, por exemplo, ao expandir os seus requisitos de espaço do Azure para uma região que possa servir os utilizadores com uma latência mais baixa. Outra informação que pode derivar de utilizar a vista de tráfego é ver os padrões de tráfego para regiões diferentes, que por sua vez pode ajudá-lo a tomar decisões sobre aumenta ou reduz inventar nessas regiões.
 
-### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>Como ver o tráfego é diferente das métricas de Gestor de tráfego disponíveis através do monitor do Azure?
+### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>Como a vista de tráfego é diferente das métricas de Gestor de tráfego disponíveis através do Azure monitor?
 
-Monitor do Azure pode ser utilizado para compreender num nível agregar o tráfego recebido pelo seu perfil e os respetivos pontos finais. Também permite-lhe controlar o estado de funcionamento dos pontos finais por expor os resultados da verificação de estado de funcionamento. Quando precisar de ponha estes e que compreende a experiência dos seus utilizadores finais a ligar ao Azure a um nível regional, a vista de tráfego pode ser utilizada para alcançar que.
+O Azure Monitor pode ser utilizado para compreender ao nível da agregação o tráfego recebido pelo seu perfil e seus pontos de extremidade. Ele também permite-lhe controlar o estado de funcionamento dos pontos finais, expondo os resultados da verificação de estado de funcionamento. Quando tiver de ir para além destas e compreender a experiência do utilizador final a ligar ao Azure a um nível regional, a vista de tráfego pode ser utilizada para esse efeito.
 
-### <a name="does-traffic-view-use-edns-client-subnet-information"></a>A vista de tráfego utiliza as informações de sub-rede de cliente EDNS?
+### <a name="does-traffic-view-use-edns-client-subnet-information"></a>O Vista de tráfego usa as informações de sub-rede de cliente EDNS?
 
-As consultas DNS servidas pelo Gestor de tráfego do Azure considere informações ECS para aumentar a precisão do encaminhamento. Mas, ao criar o conjunto de dados que mostra onde os utilizadores estão a ligar de, ver o tráfego está a utilizar apenas o endereço IP de resolução de DNS.
+As consultas DNS servidas pelo Gestor de tráfego do Azure, considere informações ECS para aumentar a precisão do encaminhamento. Mas, ao criar o conjunto de dados que mostra onde os usuários estão se conectando, a vista de tráfego está a utilizar apenas o endereço IP de resolução de DNS.
 
-### <a name="how-many-days-of-data-does-traffic-view-use"></a>Quantos dias de dados utilizar a vista de tráfego?
+### <a name="how-many-days-of-data-does-traffic-view-use"></a>O número de dias de dados utilizar a vista de tráfego?
 
-Vista de tráfego cria o respetivo resultado ao processar os dados de sete dias anteriores o dia anterior, quando for visualizado por si. Esta é uma janela de mover e os dados mais recentes serão utilizados sempre que visitar.
+Vista de tráfego cria sua saída ao processar os dados dos sete dias antes do dia anterior quando for visualizado por si. Esta é uma janela móvel e os dados mais recentes serão utilizados sempre que visitá.
 
-### <a name="how-does-traffic-view-handle-external-endpoints"></a>Como é que o tráfego de vista processar pontos finais externos?
+### <a name="how-does-traffic-view-handle-external-endpoints"></a>Como a vista de tráfego com pontos finais externos?
 
-Quando utiliza pontos finais externos alojados fora regiões do Azure num perfil do Traffic Manager pode escolher que mapeado para uma região do Azure que é um proxy para as características de latência (isto é na realidade necessário se utilizar o método de encaminhamento de desempenho). Se tiver desta mapeamento de região do Azure, as métricas de latência nessa região do Azure serão utilizadas ao criar a vista de tráfego de saída. Não se for especificada nenhuma região do Azure, as informações de latência estará vazios dos dados para esses pontos finais externos.
+Quando utilizar pontos finais externos hospedados fora do regiões do Azure num perfil do Gestor de tráfego pode optar por ela está mapeada para uma região do Azure que é um proxy para suas características de latência (isso é na verdade necessária se utilizar o método de encaminhamento de desempenho). Se tiver este mapeamento de região do Azure, as métricas de latência nessa região do Azure serão utilizadas ao criar a vista de tráfego de saída. Não se for especificada nenhuma região do Azure, as informações de latência estará vazias nos dados para os pontos finais externos.
 
-### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>É necessário ativar vista de tráfego para cada perfil na minha subscrição?
+### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>É necessário ativar a vista de tráfego para cada perfil em minha assinatura?
 
-Durante o período de pré-visualização, a vista de tráfego foi ativada um nível de subscrição. Como parte das melhorias que Tornamos antes da disponibilidade geral, podem agora ativar vista de tráfego a um nível de perfil, permitindo-lhe ter mais granular sobre a ativação desta funcionalidade. Por predefinição, a vista de tráfego será desativada para um perfil.
+Durante o período de pré-visualização, a vista de tráfego foi ativada ao nível da subscrição. Como parte das melhorias feitas antes da disponibilidade geral, pode agora ativar a vista de tráfego num nível de perfil, permitindo que tenha mais granular, permitindo desta funcionalidade. Por predefinição, a vista de tráfego será desativada por um perfil.
 
 >[!NOTE]
->Se tiver ativado a vista de tráfego de um nível de subscrição durante o período de pré-visualização, tem agora a reativá-la para cada perfil dessa subscrição.
+>Se ativou a vista de tráfego ao nível da subscrição durante o período de pré-visualização, terá agora a reativá-la para cada perfil nessa subscrição.
  
 ### <a name="how-can-i-turn-off-traffic-view"></a>Como posso desativar a vista de tráfego? 
-Pode desativar a vista de tráfego para qualquer perfil de utilizar o Portal ou a REST API. 
+Pode desativar a vista de tráfego para qualquer perfil com o Portal ou a REST API. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Como funciona a faturação da vista de tráfego?
 
-Tráfego Ver preços baseia-se no número de pontos de dados utilizado para criar a saída. Atualmente, o tipo de dados apenas suportado é consultas que recebe o seu perfil. Além disso, apenas são cobradas para o processamento foi feito quando tiver de vista de tráfego ativado. Isto significa que, se ativar vista de tráfego para um determinado período de tempo num mês e desativá-la durante noutros casos, apenas os pontos de dados processados enquanto tinha a funcionalidade ativada contagem para a fatura.
+Preços de vista de tráfego é baseado no número de pontos de dados utilizado para criar a saída. Atualmente, o tipo de dados apenas suportado é as consultas que recebe o seu perfil. Além disso, apenas são faturadas para o processamento que foi feito quando tiver ativado a vista de tráfego. Isso significa que, se ativar vista de tráfego para um determinado período de tempo num mês e desativá-lo durante a outras vezes, apenas os pontos de dados processados enquanto tiver a funcionalidade de número de ativações em direção à sua fatura.
 
 ## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 
-### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Pode utilizar o Gestor de tráfego com pontos finais de várias subscrições?
+### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Pode utilizar o Gestor de tráfego com pontos de extremidade de várias subscrições?
 
-A utilização de pontos finais de várias subscrições não é possível com as Web Apps do Azure. As aplicações Web do Azure requer que qualquer nome de domínio personalizado utilizada com as Web Apps só é utilizada dentro de uma única subscrição. Não é possível utilizar as aplicações Web a partir de várias subscrições com o mesmo nome de domínio.
+Utilizar pontos de extremidade de várias subscrições não é possível com aplicações Web do Azure. Aplicações Web do Azure requer que qualquer nome de domínio personalizado utilizado com as aplicações Web só é utilizada numa única subscrição. Não é possível utilizar as aplicações Web de várias subscrições com o mesmo nome de domínio.
 
-Para outros tipos de ponto final, é possível utilizar o Gestor de tráfego com pontos finais de mais do que uma subscrição. No Gestor de recursos, pontos finais de qualquer subscrição podem de ser adicionados ao Gestor de tráfego, desde que a pessoa que está a configurar o perfil de Gestor de tráfego tenha acesso de leitura para o ponto final. Estas permissões podem ser concedidas utilizando [do Azure Resource Manager controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md).
+Para outros tipos de ponto final, é possível utilizar o Gestor de tráfego com pontos de extremidade de mais de uma assinatura. No Gestor de recursos, pontos finais de qualquer subscrição podem de ser adicionados ao Gestor de tráfego, desde que a pessoa que configurar o perfil do Gestor de tráfego tenha acesso de leitura para o ponto final. Estas permissões podem ser concedidas usando [do Azure Resource Manager controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 
-### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Pode utilizar o Gestor de tráfego com ranhuras de 'Teste' do serviço em nuvem?
+### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Pode utilizar o Gestor de tráfego com blocos de "Transição" do serviço em nuvem?
 
-Sim. O serviço em nuvem "testes" ranhuras pode ser configurado no Traffic Manager como pontos finais externos. Verificações de estado de funcionamento ainda são cobrados à taxa de pontos finais do Azure. Porque o tipo de ponto final externo está a ser utilizado, alterações ao serviço subjacente não são captadas automaticamente. Com pontos finais externos, o Gestor de tráfego não consegue detetar quando o serviço em nuvem foi parado ou eliminado. Por conseguinte, o Gestor de tráfego continua a faturação de verificações de estado de funcionamento até que o ponto final está desativado ou eliminado.
+Sim. Serviço em nuvem blocos de "teste" pode ser configurado no Traffic Manager como pontos finais externos. Verificações de estado de funcionamento são continua a ser cobrado à tarifa de pontos finais do Azure. Porque o tipo de ponto final externo está em utilização, as alterações ao serviço subjacente não são aplicadas automaticamente. Com pontos finais externos, o Gestor de tráfego não consegue detetar quando o serviço em nuvem é parado ou eliminado. Por conseguinte, o Gestor de tráfego continua a faturação de verificações de estado de funcionamento até que o ponto final está desativado ou eliminado.
 
-### <a name="does-traffic-manager-support-ipv6-endpoints"></a>Gestor de tráfego suporta pontos finais de IPv6?
+### <a name="does-traffic-manager-support-ipv6-endpoints"></a>O Gestor de tráfego suporta pontos finais IPv6?
 
-Atualmente, o Gestor de tráfego não fornecem IPv6 addressible servidores de nomes. No entanto, o Gestor de tráfego ainda podem ser utilizado por clientes de IPv6 que se ligam a pontos finais de IPv6. Um cliente não faz pedidos DNS diretamente para Gestor de tráfego. Em vez disso, o cliente utiliza um serviço DNS recursiva. Um cliente apenas de IPv6 envia pedidos ao serviço DNS recursiva através de IPv6. Em seguida, o serviço de recursiva deve ser capaz de contactar os servidores de nomes do Gestor de tráfego através de IPv4.
+Atualmente, o Gestor de tráfego não fornece IPv6 addressible servidores de nomes. No entanto, o Gestor de tráfego ainda podem ser utilizado pelos clientes de IPv6 ligar pontos finais IPv6. Um cliente não faz a pedidos DNS diretamente para o Gestor de tráfego. Em vez disso, o cliente utiliza um serviço DNS recursivo. Um cliente apenas de IPv6 envia pedidos ao serviço DNS recursivo através de IPv6. Em seguida, o serviço de recursiva deve ser capaz de contactar os servidores de nomes do Gestor de tráfego utilizando IPv4.
 
-Gestor de tráfego responde com o nome DNS do ponto final. Para suportar um ponto final de IPv6, tem de existir um registo de DNS AAAA apontar o nome DNS do ponto final para o endereço IPv6. Verificações de estado de funcionamento do Traffic Manager suportam apenas endereços IPv4. O serviço tem de expor um ponto final de IPv4 no mesmo nome DNS.
+O Gestor de tráfego responde com o nome DNS do ponto de extremidade. Para oferecer suporte a um ponto de extremidade do IPv6, tem de existir um registo de DNS AAAA apontar o nome DNS do ponto final para o endereço IPv6. Verificações de estado de funcionamento do Gestor de tráfego suportam apenas endereços IPv4. O serviço precisa expor um ponto de extremidade de IPv4 no mesmo nome DNS.
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Pode utilizar o Gestor de tráfego com mais do que uma aplicação Web na mesma região?
 
-Normalmente, o Gestor de tráfego é utilizado para direcionar o tráfego para as aplicações implementadas em regiões diferentes. No entanto, também pode ser utilizado em que uma aplicação tem mais de uma implementação na mesma região. Os pontos finais do Azure do Gestor de tráfego permite mais do que um ponto final de aplicação Web da mesma região do Azure para ser adicionado para o mesmo perfil de Gestor de tráfego.
+Normalmente, o Gestor de tráfego é utilizado para direcionar o tráfego para aplicações implementadas em regiões diferentes. No entanto, também pode ser utilizado em que um aplicativo tem mais de uma implementação na mesma região. Pontos finais do Azure do Gestor de tráfego que não permitem mais do que um ponto final de aplicação Web da mesma região do Azure para ser adicionado para o mesmo perfil de Gestor de tráfego.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Como posso mover pontos finais do meu perfil do Traffic Manager do Azure para um grupo de recursos diferente?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Como posso mover pontos finais do meu perfil Gestor de tráfego do Azure a um grupo de recursos diferente?
 
-Pontos finais do Azure que estão associados um perfil de Gestor de tráfego são registados utilizando os respetivos IDs de recurso. Quando um recurso do Azure que está a ser utilizado como um ponto final (por exemplo, IP público, o serviço em nuvem clássico, WebApp ou outro perfil de Gestor de tráfego utilizado de forma aninhada) é movido para um grupo de recursos diferente, as alterações do mesmo ID de recurso. Neste cenário, atualmente, tem de atualizar o perfil do Gestor de tráfego de primeiro eliminar e adicionando novamente os pontos finais para o perfil. 
+Pontos finais do Azure que estão associados um perfil do Gestor de tráfego são controlados usando seus IDs de recurso. Quando um recurso do Azure que está a ser utilizado como um ponto final (por exemplo, IP público, clássico de Cloud de serviço, aplicação Web ou outro perfil do Traffic Manager utilizado de forma aninhada) é movido para um grupo de recursos diferente, as alterações do mesmo ID de recurso. Neste cenário, atualmente, tem de atualizar o perfil do Gestor de tráfego por eliminar primeiro e, em seguida, adição de volta os pontos finais para o perfil. 
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
-### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>É Gestor de tráfego sejam resilientes a falhas de região do Azure?
+### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>O Gestor de tráfego é resiliente a falhas de região do Azure?
 
 Gestor de tráfego é um componente fundamental de entrega de aplicações altamente disponíveis no Azure.
-Para fornecer elevada disponibilidade, o Gestor de tráfego tem de ter um exceptionally elevado nível de disponibilidade e sejam resilientes a falhas regionais.
+Para assegurar elevada disponibilidade, o Gestor de tráfego tem de ter um excepcionalmente alto nível de disponibilidade e ser resiliente a falhas regionais.
 
-Por predefinição, os componentes de Gestor de tráfego são resilientes a uma falha completa do qualquer região do Azure. Este resiliência aplica-se a todos os componentes do Gestor de tráfego: os nomes do DNS servidores, a API, a camada de armazenamento e o ponto final do serviço de monitorização.
+Por predefinição, os componentes do Gestor de tráfego são resilientes a uma falha total de qualquer região do Azure. Este resiliência se aplica a todos os componentes do Gestor de tráfego: os nomes do DNS servidores, a API, a camada de armazenamento e o ponto final de serviço de monitorização.
 
-Na improvável eventualidade de uma falha de uma região do Azure completa, o Gestor de tráfego é esperado para continuar a funcionar normalmente. As aplicações implementadas em várias regiões do Azure podem basear-se no Gestor de tráfego para direcionar o tráfego para uma instância disponível da respetiva aplicação.
+Na improvável eventualidade de uma indisponibilidade de toda uma região do Azure, o Gestor de tráfego é esperado que continua a funcionar normalmente. Aplicações implementadas em várias regiões do Azure podem se basear no Gestor de tráfego para direcionar o tráfego para uma instância disponível de seu aplicativo.
 
 ### <a name="how-does-the-choice-of-resource-group-location-affect-traffic-manager"></a>Como a opção de localização do grupo de recursos afeta o Gestor de tráfego?
 
-Gestor de tráfego é um serviço único e global. Não é regional. A opção de localização do grupo de recursos faz diferença para perfis do Traffic Manager implementadas nesse grupo de recursos.
+Gestor de tráfego é um único serviço global. Não é regional. A escolha da localização do grupo de recursos é indiferente para perfis de Gestor de tráfego implementados nesse grupo de recursos.
 
-O Azure Resource Manager requer que todos os grupos de recurso especificar uma localização, que determina a localização predefinida para recursos implementados nesse grupo de recursos. Quando cria um perfil do Traffic Manager, é criado num grupo de recursos. Todos os perfis do Traffic Manager utilizar **global** como a respetiva localização, substituir a predefinição do grupo de recursos.
+O Azure Resource Manager requer que todos os grupos de recursos especificar uma localização, que determina a localização predefinida para recursos implementados nesse grupo de recursos. Quando cria um perfil do Gestor de tráfego, é criado num grupo de recursos. Utilizam todos os perfis do Gestor de tráfego **global** como a localização, substituir a predefinição do grupo de recursos.
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Como posso determinar o estado de funcionamento atual de cada ponto final?
 
-O estado atual de monitorização de cada ponto final, para além do perfil de geral, é apresentado no portal do Azure. Estas informações também estão disponíveis através do Monitor de tráfego [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [cmdlets do PowerShell](https://msdn.microsoft.com/library/mt125941.aspx), e [CLI do Azure de várias plataformas](../cli-install-nodejs.md).
+O estado de monitorização atual de cada ponto de extremidade, além do perfil de geral, é apresentado no portal do Azure. Essas informações também estão disponíveis através do Monitor de tráfego [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [cmdlets do PowerShell](https://msdn.microsoft.com/library/mt125941.aspx), e [CLI do Azure de várias plataformas](../cli-install-nodejs.md).
 
-Também pode utilizar o Monitor do Azure para controlar o estado de funcionamento dos seus pontos finais e ver uma representação visual de-los. Para obter mais informações sobre como utilizar o Monitor do Azure, consulte o [documentação de monitorização do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Também pode utilizar o Azure Monitor para controlar o estado de funcionamento dos seus pontos finais e ver uma representação visual dos mesmos. Para obter mais informações sobre como utilizar o Azure Monitor, consulte a [documentação de monitorização do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
-### <a name="can-i-monitor-https-endpoints"></a>Pode monitorizar os pontos finais HTTPS?
+### <a name="can-i-monitor-https-endpoints"></a>Pode monitorizar pontos finais HTTPS?
 
-Sim. O Traffic Manager suporta a pesquisa através de HTTPS. Configurar **HTTPS** como o protocolo na configuração de monitorização.
+Sim. Gestor de tráfego suporta pesquisa através de HTTPS. Configurar **HTTPS** como o protocolo na configuração da monitorização.
 
-Gestor de tráfego não é possível fornecer a validação de certificado, incluindo:
+O Gestor de tráfego não pode fornecer qualquer validação de certificado, incluindo:
 
-* Não são validados certificados do lado do servidor
-* Não são suportados certificados do lado do servidor SNI
-* Não são suportados certificados de cliente
+* Certificados de servidor não são validados.
+* Certificados de servidor SNI não são suportados
+* Certificados de cliente não são suportados
 
-### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Posso parar um serviço em nuvem do Azure / web ponto final da aplicação no meu perfil do Traffic Manager, mas não posso estou receber qualquer tráfego, mesmo depois de reiniciado posso-lo. Como posso corrigir esta situação?
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parado a um serviço cloud do Azure / ponto final da aplicação no meu perfil do Gestor de tráfego da web, mas não estou a receber qualquer tráfego, mesmo depois de eu reiniciado-lo. Como posso corrigir esta situação?
 
-Quando um Azure serviço em nuvem / web ponto final da aplicação é parada paragem do Gestor de tráfego a verificar o seu estado de funcionamento e reinicia as verificações de estado de funcionamento apenas depois de detetar que o ponto final foi reiniciado. Para evitar este atraso, desativar e, em seguida, reativar esse ponto final do perfil do Traffic Manager depois de reiniciar o ponto final.   
+Quando um Azure serviço em nuvem / ponto final da aplicação da web está parada paradas de Gestor de tráfego a verificar o respetivo estado de funcionamento e reinicia as verificações de estado de funcionamento apenas depois de detetar que o ponto final tem de ser reiniciados. Para evitar este atraso, desativar e reativar, em seguida, o ponto de extremidade no perfil do Gestor de tráfego depois de reiniciar o ponto final.   
 
-### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Posso utilizar o Gestor de tráfego, mesmo se a minha aplicação não tiver suporte para HTTP ou HTTPS?
+### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Posso utilizar o Gestor de tráfego, mesmo que meu aplicativo não tem suporte para HTTP ou HTTPS?
 
-Sim. Pode especificar o TCP como protocolo de monitorização e o Gestor de tráfego pode iniciar uma ligação de TCP e aguardar pela resposta do ponto final. Se o ponto final responde ao pedido de ligação com uma resposta para estabelecer a ligação, dentro do período de tempo limite, em seguida, esse ponto final está marcado como bom estado de funcionamento.
+Sim. Pode especificar TCP como protocolo de monitorização e o Gestor de tráfego pode iniciar uma ligação de TCP e aguardar por uma resposta do ponto final. Se o ponto final de responder ao pedido de ligação com uma resposta para estabelecer a ligação, dentro do período de tempo limite, esse ponto final está marcado como em bom estado.
 
-### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>As respostas específicas são necessárias do ponto final ao utilizar a monitorização de TCP?
+### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>As respostas que específicos são necessárias a partir do ponto final ao utilizar a monitorização de TCP?
 
-Quando a monitorização de TCP é utilizado, o Gestor de tráfego é iniciado um handshake TCP de três vias ao enviar um pedido de SIN ao ponto final na porta especificada. Em seguida, aguarda um período de tempo (conforme especificado nas definições de tempo limite) para uma resposta do ponto final. Se o ponto final responde ao pedido SIN com uma resposta de confirmação SIN dentro do período de tempo limite especificado nas definições de monitorização, em seguida, esse ponto final é considerado em bom estado. Se não for recebida a resposta de confirmação SIN, o Gestor de tráfego repõe a ligação ao responder novamente com um RST.
+Quando é utilizado o monitoramento de TCP, o Gestor de tráfego é iniciado um handshake TCP de três vias ao enviar um pedido SYN ao ponto final na porta especificada. Em seguida, aguarda um período de tempo (conforme especificado nas definições de tempo limite) por uma resposta do ponto final. Se o ponto final de responder ao pedido de SYN com uma resposta de SYN-ACK dentro do período de tempo limite especificado nas definições de monitorização, em seguida, esse ponto final é considerado em bom estado. Se a resposta de SYN-ACK é recebida, o Gestor de tráfego repõe a ligação ao responder com um RST.
 
-### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>A rapidez é que o Gestor de tráfego de mover os meus utilizadores sair de um ponto de final mau estado de funcionamento?
+### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>A rapidez é que o Gestor de tráfego mover os meus utilizadores para fora de um ponto de extremidade de mau estado de funcionamento?
 
-Gestor de tráfego fornece várias definições que podem ajudar a controlar o comportamento de ativação pós-falha do perfil do Gestor de tráfego da seguinte forma:
-- Pode especificar que o Gestor de tráfego as sondas os pontos finais com mais frequência ao definir o intervalo de pesquisa em 10 segundos. Isto garante que qualquer ponto final em mau estado de funcionamento pode ser detetado logo que possível. 
-- Pode especificar o período de tempo de espera antes de um Estado de funcionamento Consulte tempos de pedido (o valor de tempo limite mínimo é seg 5).
-- Pode especificar o número de falhas podem ocorrer antes do ponto final está marcado como danificado. Este valor pode ser baixa como 0, na qual caso o ponto final está marcado como danificado assim não for a primeira verificação de estado de funcionamento. No entanto, utilizar o valor mínimo de 0 para o número de falhas tolerated pode levar a que está a ser retirados do rotação devido a problemas transitórios que possam ocorrer no momento da pesquisa de pontos finais.
-- Pode especificar o time-to-live (TTL) para a resposta DNS ser tão baixo como 0. Se o fizer, significa que as resoluções DNS não é possível colocar em cache da resposta e cada nova consulta obtém uma resposta que incorpora as informações de estado de funcionamento mais atualizadas com o Gestor de tráfego.
+Gestor de tráfego oferece várias definições que podem ajudar a controlar o comportamento de ativação pós-falha do seu perfil do Gestor de tráfego da seguinte forma:
+- Pode especificar que o Gestor de tráfego sondas os pontos finais com mais frequência ao definir o intervalo de pesquisa em 10 segundos. Isto garante que qualquer ponto final vai mau estado de funcionamento pode ser detetada logo que possível. 
+- Pode especificar o período de tempo de espera antes de um Estado de funcionamento conferir tempos de pedido (o valor mínimo de tempo de limite é 5 s).
+- Pode especificar o número de falhas pode ocorrer antes do ponto final está marcado como mau estado de funcionamento. Este valor pode ser um valor baixo como 0, nesse caso o ponto final está marcado mau estado de funcionamento quando ocorre uma falha para a primeira verificação de estado de funcionamento. No entanto, usando o valor mínimo de 0 para o número de falhas tolerado pode levar a que está a ser retirados da rotação devido a problemas transitórios que podem ocorrer no momento da pesquisa de pontos de extremidade.
+- Pode especificar o time-to-live (TTL) para a resposta DNS ser tão baixo como 0. Isso significa que resoluções DNS não é possível colocar em cache a resposta e a cada nova consulta obtém uma resposta que incorpora as informações mais atualizadas do Estado de funcionamento com o Gestor de tráfego.
 
-Ao utilizar estas definições, Gestor de tráfego pode fornecer as ativações pós-falha em 10 segundos depois de um ponto final fica em mau estado de funcionamento e é feita uma consulta DNS contra o perfil de correspondente.
+Ao utilizar estas definições, o Gestor de tráfego pode fornecer as ativações pós-falha de menos de 10 segundos depois de um ponto de extremidade fica em mau estado de funcionamento e é feita uma consulta DNS contra o perfil correspondente.
 
-### <a name="how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile"></a>Como pode especificar diferentes definições de monitorização para diferentes pontos finais num perfil?
+### <a name="how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile"></a>Como posso especificar diferentes definições de monitorização para diferentes pontos de extremidade num perfil?
 
-Gestor de tráfego, as definições de monitorização estão num nível de perfil por. Se precisar de utilizar uma definição de monitorização diferente para apenas um ponto final, pode ser feito, fazendo com que esse ponto final como um [aninhada perfil](traffic-manager-nested-profiles.md) cujas definições de monitorização são diferentes do perfil principal.
+Gestor de tráfego, as definições de monitorização estão num por nível de perfil. Se precisar de utilizar uma configuração de monitorização diferente para apenas um ponto final, pode ser feito ao ter o ponto de extremidade como uma [aninhados perfil](traffic-manager-nested-profiles.md) cujas definições de monitorização são diferentes do perfil de principal.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>O estado de funcionamento de ponto final de escolha de cabeçalho do anfitrião verifica utilização?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>O estado de funcionamento de ponto final de fazer de cabeçalho do anfitrião verifica utilização?
 
-Gestor de tráfego utiliza cabeçalhos de anfitrião nas verificações de estado de funcionamento HTTP e HTTPS. O cabeçalho de anfitrião utilizado pelo Gestor de tráfego é o nome do destino de ponto final configurado no perfil. O valor utilizado no cabeçalho de anfitrião não pode ser especificado em separado da propriedade de destino.
+O Gestor de tráfego utiliza cabeçalhos de host HTTP e HTTPS verificações de estado de funcionamento. O cabeçalho de anfitrião utilizado pelo Gestor de tráfego é o nome do destino do ponto final configurado no perfil. O valor utilizado no cabeçalho de anfitrião não pode ser especificado em separado da propriedade de destino.
 
-### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quais são os endereços IP a partir do qual o estado de funcionamento verifica têm origem?
+### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quais são os endereços IP a partir do qual o estado de funcionamento verifica se originam?
 
-Clique em [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) para ver o ficheiro JSON que apresenta uma lista de endereços IP que Traffic Manager verificações de estado de funcionamento podem têm origem. Reveja os IPs listado no ficheiro de JSON para garantir que as ligações recebidas destes endereços IP são permitidas em pontos finais para verificar o estado de funcionamento.
+Clique em [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) para ver o ficheiro JSON que lista os endereços IP a partir do qual o Gestor de tráfego verificações de estado de funcionamento podem ser originados. Reveja os IPs listados no ficheiro JSON para se certificar de que são permitidas ligações de entrada estes endereços IP, os pontos de extremidade para verificar o estado de funcionamento.
 
-### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Quantos verificações de estado de funcionamento ao ponto final do meu posso esperar do Gestor de tráfego?
+### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Quantas verificações de estado de funcionamento ao meu ponto final posso esperar do Gestor de tráfego?
 
-O número de estado de funcionamento do Gestor de tráfego verifica atingir o ponto final depende o seguinte:
-- o valor que definiu para o intervalo de monitorização (intervalo mais pequeno significa mais pedidos de destino no seu ponto final em qualquer período de tempo indicado).
-- o número de localizações de onde verifica o estado de funcionamento provir (os endereços IP a partir de onde pode contar com estas verificações está listado nas FAQ do anterior).
+O número de estado de funcionamento do Gestor de tráfego verifica a atingir o ponto final depende o seguinte:
+- o valor que definiu para o intervalo de monitorização (intervalo menor significa mais pedidos de destino no seu ponto final em qualquer determinado período de tempo).
+- o número de localizações a partir de onde as verificações de estado de funcionamento se originam (os endereços IP de onde pode esperar estas verificações está listado nas perguntas frequentes anteriores).
 
-### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso obter notificado da se um dos meus pontos finais de ficar inativo? 
-Uma das métricas fornecidas pelo Gestor de tráfego é o estado de funcionamento dos pontos finais num perfil. Pode ver esta forma um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais estão em bom estado), ou, um nível de ponto final por. Métricas de Gestor de tráfego são expostas por meio do Monitor do Azure e que pode utilizar o respetivo [alertas capacidades](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) a receber notificações quando existe uma alteração do Estado de funcionamento do seu ponto final. Para obter mais detalhes, consulte [métricas de Gestor de tráfego e alertas](traffic-manager-metrics-alerts.md).  
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso ser notificado da se um dos meus pontos finais de ficar inativo? 
+Uma das métricas fornecidas pelo Gestor de tráfego é o estado de funcionamento dos pontos finais num perfil. Pode ver isso como um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais estão em bom estado), ou, num por nível de ponto final. Métricas de Gestor de tráfego são expostas através do Azure Monitor e pode utilizar o seu [capacidades de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para receber notificações quando houver uma alteração no estado do ponto final do Estado de funcionamento. Para obter mais detalhes, consulte [Gestor de tráfego métricas e alertas](traffic-manager-metrics-alerts.md).  
 
-## <a name="traffic-manager-nested-profiles"></a>Gestor de tráfego aninhada perfis
+## <a name="traffic-manager-nested-profiles"></a>O Gestor de tráfego aninhados perfis
 
-### <a name="how-do-i-configure-nested-profiles"></a>Como configurar a perfis aninhados?
+### <a name="how-do-i-configure-nested-profiles"></a>Como posso configurar perfis aninhados?
 
-Aninhada perfis do Traffic Manager podem ser configuradas com o Azure Resource Manager e clássico do Azure REST APIs, cmdlets do Azure PowerShell e comandos da CLI do Azure de várias plataformas. Também são suportados através do portal do Azure.
+Perfis aninhados do Gestor de tráfego podem ser configurados com o Azure Resource Manager e o clássico APIs de REST de Azure, cmdlets do PowerShell do Azure e os comandos da CLI do Azure de várias plataformas. Também são suportadas através do novo portal do Azure.
 
-### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Quantas camadas do aninhamento faz o tráfego do Configuration Manager suportam?
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Como muitas camadas de faz o ninho tráfego Manager suportam?
 
-Podem aninhar perfis até 10 níveis de profundidade. 'Repete' não é permitida.
+Pode aninhar perfis até 10 níveis de profundidade. "Faz um loop" não é permitido.
 
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Pode misturar outros tipos de ponto final com perfis de subordinado aninhado, o mesmo perfil de Gestor de tráfego?
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Pode combinar outros tipos de ponto final com perfis de subordinados aninhados, no mesmo perfil de Gestor de tráfego?
 
-Sim. Não existem sem restrições sobre como combinar pontos finais de diferentes tipos de dentro de um perfil.
+Sim. Não há restrições sobre como combinar pontos finais de tipos diferentes de um perfil.
 
-### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Como o modelo de faturação é aplicável para perfis aninhados?
+### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Como o modelo de faturação se aplica para aninhados perfis?
 
-Não há preços impacto de utilização de perfis aninhados não negativo.
+Não é o impacto da utilização de perfis aninhados de preço não negativo.
 
-Gestor de tráfego faturação tem dois componentes: verificações de estado de funcionamento do ponto final e milhões de consultas DNS
+A faturação do Gestor de tráfego tem dois componentes: as verificações de estado de funcionamento do ponto final e milhões de consultas DNS
 
-* As verificações de estado de funcionamento do ponto final: há sem encargos durante um perfil subordinado quando configurado como um ponto final num perfil principal. Monitorização dos pontos finais no perfil subordinado é faturada como habitualmente.
-* Consultas DNS: cada consulta apenas é contabilizada uma vez. Uma consulta em relação a um perfil de principal que devolve um ponto final de um perfil subordinado é contabilizada contra o perfil de principal apenas.
+* As verificações de estado de funcionamento do ponto final: não implica custos para um perfil de subordinado quando configurado como um ponto final num perfil principal. Monitorização de pontos de extremidade no perfil subordinado é faturada como habitualmente.
+* Consultas DNS: cada consulta só é contabilizada uma vez. Uma consulta em relação a um principal que retorna um ponto final de um perfil de subordinado é contabilizada face apenas para perfis do pai.
 
-Para mais informações, consulte o [Gestor de tráfego a página de preços](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Para mais informações, consulte a [Gestor de tráfego, página de preços](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Existe um impacto no desempenho de perfis aninhados?
+### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Existe um impacto de desempenho para aninhados perfis?
 
-Não. Não há nenhum impacto no desempenho tarifas quando através de perfis aninhados.
+Não. Não há nenhum impacto no desempenho sujeito ao utilizar perfis aninhados.
 
-Os servidores de nomes do Gestor de tráfego atravessam internamente a hierarquia de perfil durante o processamento cada consulta DNS. Uma consulta DNS para um perfil de principal pode receber uma resposta DNS com um ponto final de um perfil subordinado. Um único registo CNAME é utilizado se estiver a utilizar um perfil único ou aninhadas perfis. Não é necessário para criar um registo CNAME para cada perfil na hierarquia.
+Os servidores de nomes do Gestor de tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS para um perfil de principal pode receber uma resposta DNS com um ponto final de um perfil de subordinados. Um único registo CNAME é utilizado se estiver a utilizar um único perfil ou perfis aninhados. Não é necessário para criar um registo CNAME para cada perfil na hierarquia.
 
 ### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>Como é que o Gestor de tráfego computação o estado de funcionamento de um ponto final aninhado num perfil principal?
 
-O perfil de principal não executar verificações do Estado de funcionamento no subordinado diretamente. Em vez disso, o estado de funcionamento dos pontos finais do perfil de subordinados são utilizados para calcular o estado de funcionamento geral do perfil subordinado. Esta informação é propagada ascendentemente na hierarquia de perfis aninhados para determinar o estado de funcionamento do ponto final aninhado. O perfil de principal utiliza este estado de funcionamento agregado para determinar se o tráfego pode ser direcionado para o elemento subordinado.
+O perfil de principal não executa verificações de estado de funcionamento no filho diretamente. Em vez disso, o estado de funcionamento dos pontos finais do perfil de subordinados são utilizados para calcular o estado de funcionamento geral do perfil subordinado. Esta informação será propagada a hierarquia de perfil aninhada para determinar o estado de funcionamento do ponto final aninhado. O perfil de principal utiliza este estado de funcionamento agregado para determinar se o tráfego pode ser direcionado para o filho.
 
-A tabela seguinte descreve o comportamento do Gestor de tráfego de estado de funcionamento verifica a existência de um ponto de final aninhado.
+A tabela seguinte descreve o comportamento do Gestor de tráfego verificações de estado de funcionamento para um ponto final aninhado.
 
-| Estado do Monitor de perfil de subordinados | Estado do Monitor de ponto final principal | Notas |
+| Estado do Monitor de perfil do secundário | Estado do Monitor do ponto final principal | Notas |
 | --- | --- | --- |
-| Desativado. O perfil subordinado foi desativado. |Parada |O estado de ponto final principal estiver parado, não desativado. O estado desativado está reservado para indicar que o ponto final no perfil de principal tiver desativado. |
-| Degradado. Ponto final do perfil, pelo menos, um subordinado está num Estado Degraded. |Online: o número de pontos finais Online no perfil de subordinados, pelo menos, é o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos finais Online plus CheckingEndpoint no perfil de subordinados, pelo menos, é o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é encaminhado para um ponto final do Estado CheckingEndpoint. Se MinChildEndpoints estiver definido demasiado elevado, o ponto final é sempre degradado. |
+| Desativado. O perfil de subordinado foi desativado. |Parada |O estado de ponto final principal está parado, não desativado. O estado desativado está reservado para indicar que tiver desativado o ponto final no perfil de principal. |
+| Degradado. Ponto final do perfil, pelo menos, um subordinado está num Estado Degraded. |Online: o número de pontos finais Online no perfil subordinado, pelo menos, é o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos finais Online plus CheckingEndpoint no perfil subordinado, pelo menos, é o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é encaminhado para um ponto final do Estado CheckingEndpoint. Se MinChildEndpoints for definida muito alta, o ponto final sempre está degradado. |
 | Online. Ponto final do perfil, pelo menos, um subordinado é o Estado Online. Nenhum ponto final está no Estado Degraded. |Consulte acima. | |
-| CheckingEndpoints. Ponto final do perfil, pelo menos, um subordinado é 'CheckingEndpoint'. Não existem pontos finais são 'Online' ou 'Degradado' |Igual acima. | |
-| Inativos. Todos os pontos finais perfil de subordinados são desativado ou parado ou este perfil não tem pontos finais. |Parada | |
+| CheckingEndpoints. Ponto final do perfil, pelo menos, um subordinado é 'CheckingEndpoint'. Não existem pontos finais são "Online" ou "Degradado" |Mesmo que acima. | |
+| Inativos. Todos os pontos de extremidade de perfil de subordinados são desativado ou parado ou este perfil não tem pontos finais. |Parada | |
 
 ## <a name="next-steps"></a>Passos seguintes:
-- Saiba mais sobre o Gestor de tráfego [ativação pós-falha automática e monitorização do ponto final](../traffic-manager/traffic-manager-monitoring.md).
+- Saiba mais sobre o Gestor de tráfego [ativação pós-falha automática e monitorização do ponto de extremidade](../traffic-manager/traffic-manager-monitoring.md).
 - Saiba mais sobre o Gestor de tráfego [métodos de encaminhamento de tráfego](../traffic-manager/traffic-manager-routing-methods.md).

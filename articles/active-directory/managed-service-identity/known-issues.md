@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908078"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035817"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ e problemas conhecidos com o Managed Service Identity (MSI) do Azure Active Directory
 
@@ -85,7 +85,7 @@ Em que:
 
 Quando a identidade do serviço gerido estiver ativada numa VM, o seguinte erro é apresentado durante a tentativa de utilizar a funcionalidade de "Script de automatização" para a VM ou o respetivo grupo de recursos:
 
-![Erro de exportação de script de automação de MSI](../media/msi-known-issues/automation-script-export-error.png)
+![Erro de exportação de script de automação de MSI](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 A extensão de VM de identidade de serviço gerida não suporta atualmente a capacidade de exportar o seu esquema para um modelo de grupo de recursos. Como resultado, o modelo gerado não mostra os parâmetros de configuração para ativar a identidade do serviço gerido no recurso. Estas secções podem ser adicionadas manualmente ao seguir os exemplos [configurar uma identidade de serviço gerido da VM com um modelo](qs-configure-template-windows-vm.md).
 

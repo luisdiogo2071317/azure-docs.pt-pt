@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dd436fb431351b41c61af5ef99f11fce470386a8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003601"
+ms.locfileid: "39036756"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Afirmações opcionais no Azure AD (pré-visualização)
 
@@ -66,7 +66,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `enfpolids`                | IDs de política imposta. Uma lista da política de IDs que foram consideradas para o utilizador atual.  | JWT |  |  |
 | `vnet`                     | Informações de especificador VNET.    | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET) |
-| `ctry`                     | País do usuário | JWT |           | |
+| `ctry`                     | País do usuário | JWT |           | O Azure AD devolve o `ctry` afirmação opcional se estiver presente e o valor da afirmação é um código de país de duas letras padrão, como FR, JP, SZ e assim por diante. |
 | `tenant_ctry`              | País do inquilino de recursos | JWT | | |
 | `xms_pdl`          | Localização de dados preferencial   | JWT | | Geo de múltiplos inquilinos, este é o código de 3 letras que mostra que o utilizador está de região geográfica.  Para obter mais detalhes, consulte a [do Azure AD Connect documentação sobre a localização de dados preferida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Por exemplo: `APC` para a Ásia-Pacífico. |
 | `xms_pl`                   | Idioma preferido do utilizador  | JWT ||O usuário do idioma preferencial, se definir.  Origem do seu inquilino principal, em cenários de acesso de convidado.  Formatado LL CC ("en-us"). |

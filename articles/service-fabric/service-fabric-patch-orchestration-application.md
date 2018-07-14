@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970725"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036943"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -148,7 +148,7 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 |**Parâmetro**        |**Tipo**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |Longo                              | Número máximo de resultados de atualização do Windows, que devem ser colocados em cache. <br>Valor predefinido é 3000 assumindo a: <br> -Número de nós é 20. <br> -Número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ser 10. <br> -Devem ser armazenados resultados para os últimos três meses. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Atualização do Windows é instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. Atualização do Windows está instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para o Windows Update.)
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Atualização do Windows é instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. Atualização do Windows está instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para o Windows Update.)<br> Consulte a [FAQ](#frequently-asked-questions) secção sobre como decidir o que é melhor se adequam política para o seu cluster.
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinição: 1024)               |Tamanho máximo da aplicação de orquestração do patch os logs em MB, que pode ser mantido localmente em nós.
 | WUQuery               | cadeia<br>(Predefinição: "IsInstalled = 0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: VERDADEIRO)                 | Este sinalizador permite que as atualizações do sistema operativo Windows a instalar.            |
@@ -304,19 +304,36 @@ P. **O que devo fazer se o meu cluster está em mau estado de funcionamento e o 
 
 A. A aplicação de orquestração do patch não instala atualizações enquanto o cluster está em mau estado de funcionamento. Tente colocar o seu cluster para um bom estado de funcionamento para desbloquear o fluxo de trabalho de aplicação do patch orchestration.
 
-P. **Por que a aplicação de patches em clusters demora tanto tempo para ser executado?**
+P. **Deve i definida TaskApprovalPolicy como 'NodeWise' ou 'UpgradeDomainWise' para o meu cluster?**
 
-A. O tempo necessário para a aplicação de orquestração do patch principalmente está dependente dos seguintes fatores:
+A. "UpgradeDomainWise" faz com que o cluster geral, aplicação de patches mais rapidamente ao corrigir todos os nós que pertencem a um domínio de atualização em paralelo. Isso significa que nós que pertencem a um domínio de atualização completo seria indisponíveis (no [desativado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) Estado) durante o processo de aplicação de patches.
 
-- A política do serviço de coordenador. 
-  - A política predefinida, `NodeWise`, resulta na aplicação de patches apenas um nó por vez. Especialmente se houver um cluster maior, recomendamos que utilize o `UpgradeDomainWise` política para obter a aplicação mais rápida de patches em clusters.
-- O número de atualizações disponíveis para download e instalação. 
-- O tempo médio necessário para transferir e instalar uma atualização, que não deve exceder os algumas horas.
-- O desempenho da VM e rede de largura de banda.
+Por outro lado "NodeWise" política patches apenas um nó por vez, isso implica a aplicação de patches de cluster geral exigiria mais tempo. No entanto, no máximo, apenas um nó estaria indisponível (no [desativado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) Estado) durante o processo de aplicação de patches.
+
+Se o seu cluster pode tolerar em execução num número de n-1 de domínios de atualização durante o ciclo (em que N é o número total de domínios de atualização no seu cluster), a aplicação de patches, em seguida, pode definir a política como "UpgradeDomainWise", caso contrário, defini-lo como 'NodeWise'.
+
+P. **Quanto tempo isso take para corrigir um nó?**
+
+A. Aplicação de patches de um nó pode demorar minutos (por exemplo: [atualizações de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions)) para horas (por exemplo: [atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tempo necessário para corrigir um nó depende principalmente no 
+ - O tamanho de atualizações
+ - Número de atualizações, que têm de ser aplicados a uma janela da aplicação de patches
+ - Tempo necessário para instalar as atualizações, reiniciar o nó (se necessário) e concluir os passos de instalação de pós-reinício.
+ - Desempenho das condições VM/máquina e de rede.
+
+P. **Quanto tempo demora a aplicar o patch num cluster completo?**
+
+A. O tempo necessário para aplicar o patch num cluster completo depende dos seguintes fatores:
+
+- Tempo necessário para corrigir um nó.
+- A política do serviço de coordenador. -A política predefinida, `NodeWise`, resulta na aplicação de patches apenas um nó de cada vez, que seria mais lento do que `UpgradeDomainWise`. Por exemplo: se um nó demora ~ 1 hora para ser corrigido, inorder para corrigir um nó de 20 (mesmo tipo de nós) do cluster com 5 domínios de atualização, cada um contendo de 4 nós.
+    - Deve demorar cerca de 20 horas para corrigir o todo o cluster, se estiver política `NodeWise`
+    - Deve demorar cerca de 5 horas se estiver política `UpgradeDomainWise`
+- Carga de cluster - cada operação de aplicação de patches requer a alteração da localização a carga de trabalho do cliente para outros nós disponíveis no cluster. Nó passando por patch estaria [desabilitar](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) estado durante este período. Se o cluster está em execução perto de pico de carga, o processo de desabilitação seria necessário mais tempo. Por conseguinte, o processo geral de aplicação de patches pode aparecer lento em tais condições stressed.
+- Falhas de estado de funcionamento do cluster durante a aplicação de patches - qualquer [degradação](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) na [estado de funcionamento do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) seria interromper o processo de aplicação de patches. Isto seria adicionar o tempo geral necessário para corrigir o todo o cluster.
 
 P. **Por que vejo algumas atualizações nos resultados da atualização do Windows obtidos através da REST API, mas não está sob o histórico de atualização do Windows na máquina?**
 
-A. Algumas atualizações de produto apenas apareceria no respetivo histórico de atualização/correção respectivos. Por exemplo, atualizações do Windows Defender não aparecem no histórico de atualização do Windows no Windows Server 2016.
+A. Algumas atualizações de produto apenas apareceria no respetivo histórico de atualização/correção respectivos. Por exemplo, atualizações do Windows Defender podem ou não podem aparecer no histórico de atualização do Windows no Windows Server 2016.
 
 P. **Aplicação de Patch Orchestration pode ser utilizada para corrigir o meu cluster de desenvolvimento (um nó de cluster)?**
 
