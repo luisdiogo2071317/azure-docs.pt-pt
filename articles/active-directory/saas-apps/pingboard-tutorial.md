@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Pingboard | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Pingboard.
+title: 'Tutorial: Integração do Azure Active Directory com Pingboard | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Pingboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: e07e85e60c8a4b93e4b0fd7bf43f470c4e3acc61
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3dd1c0043a4516bfba0801d403f4b475fa2817a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221194"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Azure Active Directory com Pingboard
 
-Neste tutorial, irá aprender a integrar Pingboard com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Pingboard com o Azure Active Directory (Azure AD).
 
-Integrar Pingboard com o Azure AD fornece as seguintes vantagens:
+Integrar Pingboard no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Pingboard
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Pingboard (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Pingboard (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Pingboard, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Pingboard-início de sessão único ativada subscrição
+- Um Pingboard logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,183 +50,183 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Pingboard a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Pingboard da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-pingboard-from-the-gallery"></a>Adicionar Pingboard a partir da Galeria
-Para configurar a integração de Pingboard com o Azure AD, terá de adicionar Pingboard a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-pingboard-from-the-gallery"></a>Adicionando Pingboard da Galeria
+Para configurar a integração do Pingboard com o Azure AD, terá de adicionar Pingboard a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Pingboard a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![As aplicações da empresa][2]
+    ![Aplicações empresariais][2]
 
 3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Pingboard**, selecione **Pingboard** do painel de resultados e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Pingboard**, selecione **Pingboard** do painel de resultados e clique em **Add** botão para adicionar a aplicação.
 
     ![Pingboard na lista de resultados](./media/pingboard-tutorial/tutorial_pingboard_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com Pingboard com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configure e teste do Azure AD início de sessão único com Pingboard com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Pingboard é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Pingboard tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Pingboard a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Pingboard deve ser estabelecido.
 
-Esta relação de ligação é estabelecida ao atribuir o valor da **nome de utilizador** no Azure AD como o valor a **Username** no Pingboard.
+Esta relação de ligação é estabelecida atribuindo o valor do **nome de utilizador** no Azure AD como o valor da **Username** no Pingboard.
 
-Para configurar e testar o Azure AD-início de sessão único com Pingboard, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Pingboard, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Pingboard](#create-a-pingboard-test-user)**  - para ter um homólogo de Britta Simon Pingboard que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste Pingboard](#create-a-pingboard-test-user)**  - para ter um equivalente da Eduarda Almeida na Pingboard que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Pingboard.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Pingboard.
 
-**Para configurar o Azure AD-início de sessão único com Pingboard, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Pingboard, execute os seguintes passos:**
 
-1. No portal do Azure, no **Pingboard** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Pingboard** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2.  No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2.  Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Caixa de diálogo de início de sessão único](./media/pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
-3. No **Pingboard domínio e os URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
+3. Sobre o **Pingboard domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
-    ![Domínio Pingboard e URLs único início de sessão informações IDP](./media/pingboard-tutorial/tutorial_pingboard_url.png)
+    ![Pingboard domínio e URLs únicas início de sessão informações IDP](./media/pingboard-tutorial/tutorial_pingboard_url.png)
 
-    a. No **identificador** caixa de texto, digite o valor como: `http://app.pingboard.com/sp`
+    a. Na **identificador** caixa de texto, digite o valor como: `http://app.pingboard.com/sp`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
-4. Verifique **Mostrar avançadas definições de URL**, se pretender configurar a aplicação no **SP** iniciada modo:
+4. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Domínio Pingboard e URLs único início de sessão informações SP](./media/pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
+    ![Pingboard domínio e URLs únicas início de sessão informações SP](./media/pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
-     No **URL de início de sessão** caixa de texto, escreva o URL a utilizar o padrão do seguinte: `https://<sub-domain>.pingboard.com/sign_in`
+     Na **URL de início de sessão** caixa de texto, digite a URL usando o seguinte padrão: `https://<sub-domain>.pingboard.com/sign_in`
 
     > [!NOTE]
-    > Tenha em atenção que estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente Pingboard](https://support.pingboard.com/) para obter estes valores.
+    > Tenha em atenção que estes valores não são reais. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente Pingboard](https://support.pingboard.com/) obter esses valores.
 
-5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
+5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
 
     ![Xml de metadados de Pingboard](./media/pingboard-tutorial/tutorial_pingboard_certificate.png)
 
 6. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/pingboard-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/pingboard-tutorial/tutorial_general_400.png)
 
-7. Para configurar o SSO no lado de Pingboard, abra uma nova janela do browser e inicie sessão na sua conta Pingboard. Tem de ser um administrador de Pingboard para configurar o início de sessão único.
+7. Para configurar o SSO no lado de Pingboard, abra uma nova janela do browser e inicie sessão na sua conta de Pingboard. Tem de ser um administrador de Pingboard para configurar o início de sessão único.
 
 8. No menu superior, selecione **aplicações > integrações**
 
     ![Configurar o início de sessão único](./media/pingboard-tutorial/Pingboard_integration.png)
 
-9. No **integrações** página, localizar o **"Do Azure Active Directory"** mosaico e clique no mesmo.
+9. Sobre o **integrações** página, encontre o **"Azure Active Directory"** mosaico e clique no mesmo.
 
-    ![Integração de início de sessão único Pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
+    ![Integração de início de sessão único de Pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
 
 10. No modal que se segue clique **"Configurar"**
 
-    ![Botão de configuração Pingboard](./media/pingboard-tutorial/Pingboard_configure.png)
+    ![Botão de configuração de Pingboard](./media/pingboard-tutorial/Pingboard_configure.png)
 
-11. Na página seguinte, tenha em atenção que "integração de SSO do Azure está ativada". Abra o ficheiro XML de metadados transferido de um bloco de notas e cole o conteúdo **IDP metadados**.
+11. Na página seguinte, repare que "integração de SSO do Azure está ativada". Abra o arquivo XML de metadados baixado num bloco de notas e cole o conteúdo **metadados de IDP**.
 
-    ![Ecrã de configuração Pingboard SSO](./media/pingboard-tutorial/Pingboard_sso_configure.png)
+    ![Ecrã de configuração de Pingboard SSO](./media/pingboard-tutorial/Pingboard_sso_configure.png)
 
-12. O ficheiro é validado, e se tudo está correto, o início de sessão único irá agora ser ativado.
+12. O ficheiro é validado, e se tudo estiver correto, início de sessão único irá agora ser ativada.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](./media/pingboard-tutorial/create_aaduser_01.png) 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/pingboard-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/pingboard-tutorial/create_aaduser_02.png)
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **utilizador** caixa de diálogo.
+3. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
 
     ![Botão Adicionar](./media/pingboard-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/pingboard-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
 
 ### <a name="create-a-pingboard-test-user"></a>Criar um utilizador de teste Pingboard
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Pingboard. Pingboard suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](pingboard-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Pingboard. Pingboard suporta o aprovisionamento automático de utilizadores, que está por predefinição, ativada. Pode encontrar mais detalhes [aqui](pingboard-provisioning-tutorial.md) sobre como configurar o aprovisionamento automático de utilizadores.
 
 **Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 1. Inicie sessão no site da sua empresa Pingboard como administrador.
 
-2. Clique em **"Adicionar empregado"** botão no **diretório** página.
+2. Clique em **"Adicionar Employee"** botão **Directory** página.
 
-    ![Adicionar empregado](./media/pingboard-tutorial/create_testuser_add.png)
+    ![Adicionar o funcionário](./media/pingboard-tutorial/create_testuser_add.png)
 
-3. No **"Adicionar empregado"** diálogo página, execute os seguintes passos:
+3. Sobre o **"Adicionar Employee"** caixa de diálogo página, execute os seguintes passos:
 
     ![Convidar pessoas](./media/pingboard-tutorial/create_testuser_name.png)
 
-    a. No **nome completo** caixa de texto, o nome completo de tipo de utilizador como **Britta Simon**.
+    a. Na **FullName** caixa de texto, como o tipo o nome completo do utilizador **Eduarda Almeida**.
 
-    b. No **E-Mail** caixa de texto, como o tipo de endereço de correio eletrónico do utilizador **brittasimon@contoso.com**.
+    b. Na **E-Mail** caixa de texto, como o tipo de endereço de e-mail do utilizador **brittasimon@contoso.com**.
 
-    c. No **cargo** caixa de texto, escreva o título de trabalho de Britta Simon.
+    c. Na **cargo** caixa de texto, escreva o cargo da Eduarda Almeida.
 
-    d. No **localização** lista pendente, selecionar a localização do Britta Simon.
+    d. Na **localização** lista pendente, selecione a localização da Eduarda Almeida.
 
     e. Clique em **Adicionar**.
 
-4. Um ecrã de confirmação é fornecido para confirmar a adição de utilizador.
+4. Um ecrã de confirmação é exibido para confirmar a adição do utilizador.
 
     ![Confirmar](./media/pingboard-tutorial/create_testuser_confirm.png)
 
     > [!NOTE]
-    > Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
+    > O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Pingboard.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Pingboard.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a Pingboard, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Pingboard, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **Pingboard**.
 
@@ -234,30 +234,30 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202] 
+    ![A ligação "Utilizadores e grupos"][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
-Quando clica no mosaico Pingboard no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Pingboard.
+Quando clica no mosaico Pingboard no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Pingboard.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar o aprovisionamento de utilizadores](pingboard-provisioning-tutorial.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento do utilizador](pingboard-provisioning-tutorial.md)
 
 <!--Image references-->
 

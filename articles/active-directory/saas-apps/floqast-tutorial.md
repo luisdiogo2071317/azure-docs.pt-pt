@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com FloQast | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e FloQast.
+title: 'Tutorial: Integração do Azure Active Directory com FloQast | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e FloQast.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 3898a9ffffede5d5b286f187d1ca8b663f322974
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b37c62bbdf0eb6c232c47ef257bb7c0da75e1948
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222530"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Azure Active Directory com FloQast
 
-Neste tutorial, irá aprender a integrar FloQast com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar FloQast com o Azure Active Directory (Azure AD).
 
-Integrar FloQast com o Azure AD fornece as seguintes vantagens:
+Integrar FloQast no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao FloQast.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para FloQast (Single Sign-On) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central - portal do Azure.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para FloQast (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com FloQast, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um FloQast-início de sessão único ativada subscrição
+- Um FloQast logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,82 +50,82 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar FloQast a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando FloQast da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-floqast-from-the-gallery"></a>Adicionar FloQast a partir da Galeria
-Para configurar a integração de FloQast com o Azure AD, terá de adicionar FloQast a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-floqast-from-the-gallery"></a>Adicionando FloQast da Galeria
+Para configurar a integração do FloQast com o Azure AD, terá de adicionar FloQast a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar FloQast a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **FloQast**, selecione **FloQast** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **FloQast**, selecione **FloQast** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![FloQast na lista de resultados](./media/floqast-tutorial/tutorial_floqast_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com FloQast com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configure e teste do Azure AD início de sessão único com FloQast com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no FloQast é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no FloQast tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no FloQast a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no FloQast deve ser estabelecido.
 
-Para configurar e testar o Azure AD-início de sessão único com FloQast, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com FloQast, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste FloQast](#create-a-floqast-test-user)**  - para ter um homólogo de Britta Simon FloQast que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste FloQast](#create-a-floqast-test-user)**  - para ter um equivalente da Eduarda Almeida na FloQast que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação FloQast.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo FloQast.
 
-**Para configurar o Azure AD-início de sessão único com FloQast, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com FloQast, execute os seguintes passos:**
 
-1. No portal do Azure, no **FloQast** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **FloQast** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/floqast-tutorial/tutorial_floqast_samlbase.png)
 
-3. No **FloQast domínio e os URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
+3. Sobre o **FloQast domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
-    ![Domínio FloQast e os URLs únicos de informações de início de sessão](./media/floqast-tutorial/tutorial_floqast_url.png)
+    ![FloQast domínio e URLs únicas início de sessão em informações](./media/floqast-tutorial/tutorial_floqast_url.png)
 
-     No **identificador** caixa de texto, escreva um URL: `https://go.floqast.com/`
+     Na **identificador** caixa de texto, escreva um URL: `https://go.floqast.com/`
 
-4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
+4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Domínio FloQast e os URLs únicos de informações de início de sessão](./media/floqast-tutorial/tutorial_floqast_url1.png)
+    ![FloQast domínio e URLs únicas início de sessão em informações](./media/floqast-tutorial/tutorial_floqast_url1.png)
 
-     No **URL de início de sessão** caixa de texto, escreva um URL: `https://go.floqast.com/login/sso`
+     Na **URL de início de sessão** caixa de texto, escreva um URL: `https://go.floqast.com/login/sso`
      
-5. Aplicação de FloQast espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
+5. Aplicação de FloQast espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.
     
     ![Configurar o início de sessão único atributo](./media/floqast-tutorial/tutorial_floqast_attribute.png)
     
-6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
+6. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | FirstName           | User.givenName |
-    | Apelido        | User.Surname |
+    | LastName        | User.Surname |
     | Email       | User.Mail    |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -134,80 +134,80 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar Addattb de início de sessão único](./media/floqast-tutorial/tutorial_attribute_05.png)
 
-    b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha.
 
     d. Deixe o **espaço de nomes** em branco.
     
     e. Clique em **OK**.
 
-7. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador e execute os seguintes passos:
+7. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador e execute os seguintes passos:
 
-    ![A hiperligação de transferência do certificado](./media/floqast-tutorial/tutorial_floqast_certificate.png)
+    ![O link de download de certificado](./media/floqast-tutorial/tutorial_floqast_certificate.png)
 
-    a. Verifique **Mostrar avançadas definições de assinatura de certificado**.
+    a. Verifique **Mostrar definições de assinatura de certificado avançadas**.
 
     ![A asserção de certificado](./media/floqast-tutorial/tutorial_floqast_certificateassertion.png)
 
-    b. Selecione **assinatura opção** como **resposta de início de sessão SAML e asserção**.
+    b. Selecione **opção assinatura** como **asserção e resposta SAML de início de sessão**.
 
 8. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/floqast-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/floqast-tutorial/tutorial_general_400.png)
     
-9. Para configurar o início de sessão único em **FloQast** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de FloQast](mailto:support@floqast.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+9. Para configurar o início de sessão único num **FloQast** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de FloQast](mailto:support@floqast.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/floqast-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/floqast-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/floqast-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/floqast-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/floqast-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/floqast-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-floqast-test-user"></a>Criar um utilizador de teste FloQast
 
-Nesta secção, vai criar um utilizador chamado Britta Simon FloQast. Trabalhar com [equipa de suporte de FloQast](mailto:support@floqast.com) para adicionar os utilizadores na plataforma FloQast. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no FloQast. Trabalhar com [equipa de suporte de FloQast](mailto:support@floqast.com) para adicionar os utilizadores na plataforma FloQast. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para FloQast.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para FloQast.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a FloQast, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a FloQast, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **FloQast**.
 
@@ -215,29 +215,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico FloQast no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de FloQast.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico FloQast no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo FloQast.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

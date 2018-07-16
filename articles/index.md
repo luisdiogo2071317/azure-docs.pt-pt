@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 557717b6fbb93bf3e0ca007fcc8b793441a13283
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 60105912b075e1fa595a31f8274e02025335ec00
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920911"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990919"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -686,6 +686,12 @@ Aprender DevOps com o Azure </a>
                                                 <p>Observador de Rede</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Azure Firewall</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>IA + Machine Learning</h3>
                                     <ul>
@@ -923,8 +929,6 @@ Aprender DevOps com o Azure </a>
                                                 <p>API de Pesquisa Visual do Bing</p>
                                             </a>
                                         </li>
-
-
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
@@ -1091,7 +1095,7 @@ Aprender DevOps com o Azure </a>
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Event Hubs</p>
+                                                <p>Hubs de Eventos</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2124,6 +2128,25 @@ s" alt="" />
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall</h3>
+                                                    <p>Serviço de segurança de rede com base na cloud dimensionável e de elevada disponibilidade</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3077,7 +3100,7 @@ s" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs</h3>
+                                                    <h3>Hubs de Eventos</h3>
                                                     <p>Receba dados telemétricos de milhões de dispositivos</p>
                                                 </div>
                                             </div>
@@ -3533,7 +3556,6 @@ s" alt="" />
                                                                     <span>Answer Search</span>
                                                                 </a>
                                                             </li>
-
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
@@ -3546,8 +3568,6 @@ s" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
-
-
                                                         </ul>
                                                     </div>
                                                 </div>

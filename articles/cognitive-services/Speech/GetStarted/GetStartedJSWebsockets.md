@@ -1,6 +1,6 @@
 ---
-title: Introdução à API de reconhecimento de voz Microsoft em JavaScript | Microsoft Docs
-description: Utilize a API de reconhecimento de voz do Microsoft serviços cognitivos para desenvolver aplicações que continuamente converter áudio ditas em texto.
+title: Comece com a API de reconhecimento de voz de Microsoft em JavaScript | Documentos da Microsoft
+description: Utilize a API de reconhecimento de voz de Microsoft nos serviços cognitivos para desenvolver aplicações que continuamente converter áudio falado em texto.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -9,46 +9,46 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
-ms.openlocfilehash: 56c41fd7f6a00d80bc6bccd61894654e057e926e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352189"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040543"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introdução à API de reconhecimento de voz em JavaScript
+# <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Comece com a API de reconhecimento de voz em JavaScript
 
-Pode desenvolver aplicações que converter áudio ditas texto, utilizando a API de reconhecimento de voz. A biblioteca de clientes JavaScript utiliza o [protocolo WebSocket do serviço de reconhecimento de voz](../API-Reference-REST/websocketprotocol.md), que lhe permite comunicar com e receber transcribed texto em simultâneo. Este artigo ajuda-o a começar com a API de reconhecimento de voz em JavaScript.
+Pode desenvolver aplicações que converta áudio falado em texto ao utilizar a API de reconhecimento de voz. A biblioteca de cliente JavaScript utiliza a [protocolo WebSocket do serviço de voz](../API-Reference-REST/websocketprotocol.md), que permite-lhe falar e receber transcrito texto em simultâneo. Este artigo ajuda-o a começar com a API de reconhecimento de voz em JavaScript.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Subscrever a API de reconhecimento de voz e obter uma chave de subscrição de avaliação gratuita
 
-A API de reconhecimento de voz faz parte de serviços cognitivos. Pode obter as chaves de subscrição de avaliação gratuita do [subscrição de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de reconhecimento de voz, selecione **obter chave de API** para obter a chave. Devolve uma chave primária e secundária. Ambas as chaves estão associadas a quota mesmo, pelo que pode utilizar a chave.
+A API de voz faz parte dos serviços cognitivos. Pode obter chaves de subscrição de avaliação gratuita do [subscrição dos serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) página. Depois de selecionar a API de voz, selecione **obter a chave de API** para obter a chave. Ele retorna uma chave primária e secundária. Ambas as chaves estão associadas para a mesma cota, pelo que pode utilizar qualquer uma das chaves.
 
 > [!IMPORTANT]
-> Obter uma chave de subscrição. Antes de poder utilizar bibliotecas de cliente de reconhecimento de voz, tem de ter um [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
+> Obter uma chave de subscrição. Antes de poder utilizar bibliotecas de cliente de voz, tem de ter uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="get-started"></a>Introdução
 
-Nesta secção, irá guiá-lo os passos necessários para carregar uma página HTML de exemplo. O exemplo está localizado no nosso [repositório do github](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Pode **abra o exemplo diretamente** do repositório, ou **abra o exemplo a partir de uma cópia local** do repositório. 
+Nesta secção, irá guiá-lo pelos passos necessários para carregar uma página HTML de exemplo. O exemplo está localizado no nosso [repositório do github](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Pode **abra o exemplo diretamente** do repositório, ou **abra o exemplo a partir de uma cópia local** do repositório. 
 
 > [!NOTE]
-> Alguns browsers bloqueiam o acesso microfone desproteger origem. Por isso, recomenda-se para alojar o exemplo / 'a aplicação' em https para pôr a funcionar em todos os browsers suportados. 
+> Alguns browsers bloquear o acesso ao microfone na origem não segura. Por isso, recomenda-se para alojar o "exemplo" / "a aplicação" em https para que isso funcione em todos os browsers suportados. 
 
 ### <a name="open-the-sample-directly"></a>Abra o exemplo diretamente
 
-Adquirir uma chave de subscrição, conforme descrito acima. Em seguida, abra o [ligação para o exemplo](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Isto irá carregar a página no browser predefinido (composto utilizando [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Adquira uma chave de subscrição, conforme descrito acima. Em seguida, abra a [ligação para o exemplo](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Isso irá carregar a página no seu browser predefinido (processado usando [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Abra o exemplo a partir de uma cópia local
 
-Para experimentar o exemplo localmente, clone este repositório:
+Para experimentar o exemplo localmente, este repositório do clone:
 
 ```
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-Compilar as origens de TypeScript e pacote/browserfy-las num único ficheiro JavaScript ([npm](https://www.npmjs.com/) tem de ser instalado no seu computador). Mude para a raiz do repositório clonado e execute os comandos:
+Compilar as origens do TypeScript e agrupá-los num único arquivo JavaScript ([npm](https://www.npmjs.com/) tem de ser instalado no seu computador). Alterar para a raiz do repositório clonado e execute os comandos:
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle
@@ -58,14 +58,14 @@ Abra `samples\browser\Sample.html` no seu browser favorito.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Estão disponíveis mais informações sobre como incluir o SDK no seu próprio página Web [aqui](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript).
+Estão disponíveis mais informações sobre como incluir o SDK na sua própria página da Web [aqui](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript).
 
 ## <a name="remarks"></a>Observações
 
-- A API de reconhecimento de voz suporta três [modos de reconhecimento](../concepts.md#recognition-modes). Pode alternar o modo atualizando o **Setup()** função encontrado no ficheiro de Sample.html. O exemplo define o modo como `Interactive` por predefinição. Para alterar o modo, atualize o parâmetro `SR.RecognitionMode.Interactive` para outro modo. Por exemplo, altere o parâmetro para `SR.RecognitionMode.Conversation`.
-- Para obter uma lista completa de idiomas suportados, consulte [idiomas suportados](../API-Reference-REST/supportedlanguages.md).
+- A API de reconhecimento de voz oferece suporte a três [modos de reconhecimento](../concepts.md#recognition-modes). Pode alternar o modo ao atualizar o **Setup()** função encontrada no arquivo Sample.html. O exemplo define o modo como `Interactive` por predefinição. Para alterar o modo, atualize o parâmetro `SR.RecognitionMode.Interactive` para o outro modo. Por exemplo, altere o parâmetro para `SR.RecognitionMode.Conversation`.
+- Para obter uma lista completa dos idiomas suportados, consulte [idiomas suportados](../API-Reference-REST/supportedlanguages.md).
 
 ## <a name="related-topics"></a>Tópicos relacionados
 
-- [Repositório de amostra da API de reconhecimento de voz de JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)
-- [Introdução à REST API](GetStartedREST.md)
+- [Repositório de exemplo da API de reconhecimento de voz de JavaScript](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)
+- [Comece com a API REST](GetStartedREST.md)

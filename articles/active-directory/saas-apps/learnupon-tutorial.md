@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com LearnUpon | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e LearnUpon.
+title: 'Tutorial: Integração do Azure Active Directory com LearnUpon | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e LearnUpon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a50d1f17293bb86c69ece10e05af0017b1fabf9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3409545169208adc87eb63358082afc6c6d8d575
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219460"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Azure Active Directory com LearnUpon
 
-Neste tutorial, irá aprender a integrar LearnUpon com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar LearnUpon com o Azure Active Directory (Azure AD).
 
-Integrar LearnUpon com o Azure AD fornece as seguintes vantagens:
+Integrar LearnUpon no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao LearnUpon
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para LearnUpon (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para LearnUpon (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com LearnUpon, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um LearnUpon-início de sessão único ativada subscrição
+- Um LearnUpon logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar LearnUpon a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando LearnUpon da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-learnupon-from-the-gallery"></a>Adicionar LearnUpon a partir da Galeria
-Para configurar a integração de LearnUpon com o Azure AD, terá de adicionar LearnUpon a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-learnupon-from-the-gallery"></a>Adicionando LearnUpon da Galeria
+Para configurar a integração do LearnUpon com o Azure AD, terá de adicionar LearnUpon a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar LearnUpon a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,51 +75,51 @@ Para configurar a integração de LearnUpon com o Azure AD, terá de adicionar L
 
     ![Criar um utilizador de teste do Azure AD](./media/learnupon-tutorial/tutorial_learnupon_search.png)
 
-5. No painel de resultados, selecione **LearnUpon**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **LearnUpon**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/learnupon-tutorial/tutorial_learnupon_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com LearnUpon com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com LearnUpon com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no LearnUpon é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no LearnUpon tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no LearnUpon a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no LearnUpon deve ser estabelecido.
 
-No LearnUpon, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+LearnUpon, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com LearnUpon, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com LearnUpon, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste LearnUpon](#creating-a-learnupon-test-user)**  - para ter um homólogo de Britta Simon LearnUpon que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste LearnUpon](#creating-a-learnupon-test-user)**  - para ter um equivalente da Eduarda Almeida na LearnUpon que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação LearnUpon.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo LearnUpon.
 
-**Para configurar o Azure AD-início de sessão único com LearnUpon, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com LearnUpon, execute os seguintes passos:**
 
-1. No portal do Azure, no **LearnUpon** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **LearnUpon** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_samlbase.png)
 
-3. No **LearnUpon domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **LearnUpon domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_url.png)
 
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.learnupon.com/saml/consumer`
+    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE] 
-    > Tenha em atenção que isto não é o valor real. tem de atualizar este valor com o URL de resposta real. Para obter este valor contacte [equipa de suporte de LearnUpon](https://www.learnupon.com/features/support/).
+    > Tenha em atenção que isto não é o valor real. terá de atualizar este valor com o URL de resposta real. Para obter este valor de contacto [equipa de suporte de LearnUpon](https://www.learnupon.com/features/support/).
 
 
 
-4. No **certificado de assinatura de SAML** secção, localize o **Thumbprint** -este será adicionado às definições de SAML LearnUpon.
+4. Sobre o **certificado de assinatura SAML** secção, localize o **Thumbprint** -Isto será adicionado às suas definições de SAML LearnUpon.
 
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
@@ -127,21 +127,21 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_general_400.png)
 
-6. No **LearnUpon configuração** secção, clique em **configurar LearnUpon** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Sobre o **LearnUpon configuração** secção, clique em **configurar LearnUpon** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_configure.png) 
 
-7. Abra outra instância do browser e inicie sessão em LearnUpon com uma conta de administrador. 
+7. Abra outra instância do navegador e início de sessão em LearnUpon com uma conta de administrador. 
 
-8. Clique em de **definições** separador.
+8. Clique nas **definições** separador.
    
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
-9. Clique em **início de sessão único - SAML**e, em seguida, clique em **definições gerais** para configurar as definições de SAML.
+9. Clique em **Single Sign On - SAML**e, em seguida, clique em **definições gerais** para configurar as definições de SAML.
    
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
-10. No **definições gerais** secção, execute os seguintes passos:
+10. Na **definições gerais** secção, execute os seguintes passos:
    
     ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
@@ -151,36 +151,36 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. Selecione **ignorar condições** como **não**.
 
-    d. No **SAML Token Post nome de param** caixa de texto, tipo indicado o nome do parâmetro de mensagem de pedido para o URL de consumidor SAML acima, que contém a asserção SAML para ser verificado e autenticados – por exemplo **SAMLResponse** .
+    d. Na **nome do parâmetro de mensagem de Token SAML** caixa de texto, tipo o nome do parâmetro de mensagem de pedido para o URL de consumidor SAML indicado acima, que contém a asserção de SAML a ser verificado e autenticados – por exemplo **SAMLResponse** .
 
-    e. No **formato de nome de identificador** caixa de texto, tipo de valor que indica onde no seu asserção SAML o identificador de utilizadores (endereço de correio eletrónico) reside - por exemplo **urn: oasis: os nomes: tc: SAML:1.1:nameid-formato: endereço de correio eletrónico**.
+    e. Na **formato do nome do identificador** caixa de texto, tipo, o valor que indica onde, em sua asserção de SAML o identificador de utilizadores (endereço de E-Mail) reside - por exemplo **urn: oasis: nomes: tc: SAML:1.1:nameid-formato: endereço de correio eletrónico**.
   
-    f. No **identificar a localização do fornecedor** caixa de texto, digite o valor que indica onde os utilizadores são enviados para se clicar no seu ícone carregado a partir do seu ecrã de início de sessão portal do Azure.
+    f. Na **identificar a localização do fornecedor** caixa de texto, digite o valor que indica em que os utilizadores são enviados para se clicarem no seu ícone carregado a partir do seu ecrã de início de sessão de portal do Azure.
   
-    g. No **termine URL** caixa de texto, cole o **Sign-Out URL** que copiou do portal do Azure.
+    g. Na **termine URL** caixa de texto, colar a **URL de fim de sessão** que copiou do portal do Azure.
     
-    h. Clique em **gerir as impressões mas**e, em seguida, carregue o imprimir mas do seu certificado transferido.
+    h. Clique em **gerir impressões de dedo**em seguida, carregue a impressão digital do seu certificado transferido.
 
-11. Clique em **as definições de utilizador**e, em seguida, execute os seguintes passos:
+11. Clique em **definições de utilizador**e, em seguida, execute os seguintes passos:
    
      ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
  
-    a. No **formato do nome próprio identificador** caixa de texto, tipo de valor que indica-nos onde no seu firstname a utilizadores de asserção SAML reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    a. Na **formato de identificador de nome próprio** caixa de texto, tipo, o valor que indica onde no seu asserção de SAML a firstname utilizadores reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
-    b. No **último formato de nome de identificador** caixa de texto, tipo de valor que indica-nos onde no seu lastname a utilizadores de asserção SAML reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    b. Na **formato de identificador de nome passado** caixa de texto, tipo, o valor que indica onde no seu asserção de SAML lastname utilizadores reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/learnupon-tutorial/create_aaduser_01.png) 
 
@@ -188,42 +188,42 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/learnupon-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/learnupon-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/learnupon-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-learnupon-test-user"></a>Criar um utilizador de teste LearnUpon
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon LearnUpon. LearnUpon suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no LearnUpon. LearnUpon suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
 
-Não há nenhum item de ação para si nesta secção. Durante uma tentativa de aceder LearnUpon se não existir ainda será criado um novo utilizador. [Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-single-sign-on).
+Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder LearnUpon se não existir ainda será criado um novo utilizador. [A configuração do início de sessão único do Azure AD em](#configuring-azure-ad-single-single-sign-on).
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de LearnUpon](https://www.learnupon.com/features/support/). 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para LearnUpon.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para LearnUpon.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a LearnUpon, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a LearnUpon, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **LearnUpon**.
 
@@ -231,29 +231,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico LearnUpon no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de LearnUpon.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico LearnUpon no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo LearnUpon.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

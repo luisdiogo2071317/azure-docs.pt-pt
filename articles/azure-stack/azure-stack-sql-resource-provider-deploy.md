@@ -11,37 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b06f53b0169e3afd140be81d9d633844a5876c09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f53b1e08da1cb2d0dc02381bf47c27e8f84cb1d0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487652"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044837"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implementar o fornecedor de recursos do SQL Server no Azure Stack
-
 Utilize o fornecedor de recursos do SQL Server do Azure Stack para expor bases de dados SQL como um serviço do Azure Stack. O fornecedor de recursos do SQL é executado como um serviço numa máquina virtual (VM) do Windows Server 2016 Server Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Existem vários pré-requisitos que têm de ser cumpridos antes de poder implementar o fornecedor de recursos do SQL do Azure Stack. Para cumprir estes requisitos, conclua os passos seguintes num computador que pode aceder a VM de ponto de final com privilégios:
 
-- Se ainda não fez isso, [registar o Azure Stack](.\azure-stack-registration.md) com o Azure para que possa transferir itens do Azure marketplace.
-- Tem de instalar os módulos do Azure e o Azure Stack do PowerShell no wher sistema irá executar esta instalação. Esse sistema tem de ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do runtime do .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
+- Se ainda não fez isso, [registar o Azure Stack](azure-stack-registration.md) com o Azure para que possa transferir itens do Azure marketplace.
+- Tem de instalar os módulos do Azure e o Azure Stack do PowerShell no sistema onde irá executar esta instalação. Esse sistema tem de ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do runtime do .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
 - Adicionar o principal de Windows Server VM necessário para o mercado do Azure Stack baixando o **Windows Server 2016 Datacenter - Server Core** imagem. 
-
-  >[!NOTE]
-  >Se precisar de instalar uma atualização, pode colocar um único pacote MSU no caminho do local de dependência. Se for encontrado mais de um ficheiro MSU, a instalação do fornecedor de recursos SQL irá falhar.
-
-- Transferir o fornecedor de recursos do SQL, binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O fornecedor de recursos tem um mínimo correspondente do Azure Stack criar. Certifique-se de que baixar o binário correto para a versão do Azure Stack que está a executar.
+- Transferir o fornecedor de recursos do SQL, binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O fornecedor de recursos tem um mínimo correspondente do Azure Stack criar. Certifique-se de que baixar o binário correto para a versão do Azure Stack que está a executar:
 
     |Versão do Azure Stack|Versão de RP de SQL|
     |-----|-----|
     |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
     |Versão 1802 (1.0.180302.1)|[SQL RP versão 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |     |     |
+
+- Certifique-se de que os pré-requisitos de integração do Centro de dados são cumpridos:
+
+    |Pré-requisito|Referência|
+    |-----|-----|
+    |Reencaminhamento condicional de DNS está definido corretamente.|[Integração de datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Portas de entrada para fornecedores de recursos estão abertas.|[Azure Stack integração no datacenter - publicar pontos de extremidade](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |Requerente do certificado PKI e SAN está definida corretamente.|[O Azure Stack implementação PKI pré-requisitos obrigatórios](azure-stack-pki-certs.md#mandatory-certificates)<br>[Pré-requisitos do certificado de PaaS de implementação do Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificados
 
@@ -51,7 +56,7 @@ _Para instalações de sistemas integrados apenas_. Tem de fornecer o certificad
 
 Após tem todos os pré-requisitos instalados, execute o **DeploySqlProvider.ps1** script para implementar o fornecedor de recursos do SQL. O script de DeploySqlProvider.ps1 é extraído como parte do binário do fornecedor de recursos SQL que transferiu para a sua versão do Azure Stack.
 
-Para implementar o fornecedor de recursos do SQL, abra um **novo** PowerShell elevado janela de consola e altere o diretório onde extraiu arquivos binários de fornecedor de recursos do SQL. Recomendamos que utilize uma nova janela do PowerShell para evitar possíveis problemas causados por módulos do PowerShell que já são carregados.
+Para implementar o fornecedor de recursos do SQL, abra um **novo** elevados janela do PowerShell (ISE do PowerShell não) e para o diretório onde extraiu arquivos binários de fornecedor de recursos do SQL. Recomendamos que utilize uma nova janela do PowerShell para evitar possíveis problemas causados por módulos do PowerShell que já são carregados.
 
 Execute o script de DeploySqlProvider.ps1, que conclui as seguintes tarefas:
 
@@ -60,8 +65,7 @@ Execute o script de DeploySqlProvider.ps1, que conclui as seguintes tarefas:
 - Publica um pacote de galeria para implantação de servidores de alojamento.
 - Implementa uma VM com a imagem de núcleo do Windows Server 2016 que transferiu e, em seguida, instala o fornecedor de recursos do SQL.
 - Registra um registo DNS local que mapeia para o seu fornecedor de recursos de VM.
-- Regista o fornecedor de recursos com o local do Azure Resource Manager para as contas de utilizador e o operador.
-- Opcionalmente, instala uma única atualização do Windows Server durante a instalação do fornecedor de recursos.
+- Regista o fornecedor de recursos com o local do Azure Resource Manager para a conta de operador.
 
 > [!NOTE]
 > Quando a implementação de fornecedor de recursos do SQL é iniciado, o **system.local.sqladapter** é criado o grupo de recursos. Pode demorar até 75 minutos a concluir as implementações necessárias para este grupo de recursos.

@@ -31,6 +31,9 @@
       href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
     - name: Ligar a origens de dados
       href: databricks-connect-to-data-sources.md
+    - name: Utilizar com o Azure Data Factory
+      href: ../data-factory/transform-data-using-databricks-notebook.md
+      maintainContext: true
     - name: 'Ligar ao Excel, R e Python'
       href: connect-databricks-excel-python-r.md
     - name: Utilizar a CLI do Databricks a partir do Azure Cloud Shell

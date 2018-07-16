@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Datahug | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Datahug.
+title: 'Tutorial: Integração do Azure Active Directory com Datahug | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Datahug.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: bb2d6194b5a515d89e3204679860ab19a052ba03
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 24b2ed28d0ad0f3bf5a66494d1f1266254fb552e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285169"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integração do Azure Active Directory com Datahug
 
-Neste tutorial, irá aprender a integrar Datahug com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Datahug com o Azure Active Directory (Azure AD).
 
-Integrar Datahug com o Azure AD fornece as seguintes vantagens:
+Integrar Datahug no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Datahug
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Datahug (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Datahug (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo. [O que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo. [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Datahug, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Datahug início de sessão único subscrição ativado
+- Um Datahug início de sessão único na subscrição ativado
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Datahug a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Datahug da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-datahug-from-the-gallery"></a>Adicionar Datahug a partir da Galeria
-Para configurar a integração de Datahug com o Azure AD, terá de adicionar Datahug a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-datahug-from-the-gallery"></a>Adicionando Datahug da Galeria
+Para configurar a integração do Datahug com o Azure AD, terá de adicionar Datahug a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Datahug a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,90 +75,90 @@ Para configurar a integração de Datahug com o Azure AD, terá de adicionar Dat
 
     ![Criar um utilizador de teste do Azure AD](./media/datahug-tutorial/tutorial_datahug_search.png)
 
-5. No painel de resultados, selecione **Datahug**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **Datahug**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/datahug-tutorial/tutorial_datahug_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com Datahug com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com Datahug com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Datahug é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Datahug tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Datahug a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Datahug deve ser estabelecido.
 
-Esta relação de ligação é estabelecida ao atribuir o valor da **nome de utilizador** no Azure AD como o valor a **Username** no Datahug.
+Esta relação de ligação é estabelecida atribuindo o valor do **nome de utilizador** no Azure AD como o valor da **Username** no Datahug.
 
-Para configurar e testar o Azure AD-início de sessão único com Datahug, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Datahug, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Datahug](#creating-a-datahug-test-user)**  - para ter um homólogo de Britta Simon Datahug que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste Datahug](#creating-a-datahug-test-user)**  - para ter um equivalente da Eduarda Almeida na Datahug que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Datahug.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Datahug.
 
-**Para configurar o Azure AD-início de sessão único com Datahug, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Datahug, execute os seguintes passos:**
 
-1. No portal do Azure, no **Datahug** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Datahug** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_datahug_samlbase.png)
 
-3. No **Datahug domínio e os URLs** secção, se pretender configurar a aplicação no **IDP** iniciada modo:
+3. Sobre o **Datahug domínio e URLs** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://apps.datahug.com/identity/<uniqueID>`
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://apps.datahug.com/identity/<uniqueID>/acs`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
-4. Verifique **Mostrar avançadas definições de URL**. Se pretender configurar a aplicação no **SP** iniciada modo:
+4. Verifique **Mostrar definições de URL avançadas**. Se desejar configurar a aplicação no **SP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_datahug_url2.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL como: `https://apps.datahug.com/`
+    Na **URL de início de sessão** caixa de texto, escreva um URL como: `https://apps.datahug.com/`
      
     > [!NOTE] 
-    > Estes valores não estiverem a real. Atualize estes valores com o identificador e o URL de resposta real. Aqui sugerimos que utilize o valor de cadeia com o identificador e o URL de resposta exclusivo. Contacte [equipa de suporte de cliente Datahug](http://datahug.com/about/contact-us/) para obter estes valores. 
+    > Estes valores não são o real. Atualize estes valores com o identificador real e o URL de resposta. Aqui iremos sugerir-lhe utilizar o valor exclusivo da cadeia no identificador e o URL de resposta. Contacte [equipa de suporte de cliente Datahug](http://datahug.com/about/contact-us/) obter esses valores. 
 
-5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_datahug_certificate.png) 
 
-6.  Verifique **"Mostrar avançadas definições de assinatura de certificado"** e execute os seguintes passos:
+6.  Verifique **"Mostrar definições de assinatura de certificado avançadas"** e execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_datahug_cert.png)
 
-    a. No **assinatura opção**, selecione **asserção SAML de início de sessão**.
+    a. Na **opção assinatura**, selecione **asserção de SAML de início de sessão**.
     
-    b. No **algoritmo de assinatura**, selecione **SHA1**.
+    b. Na **algoritmo de assinatura**, selecione **SHA1**.
  
 7. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_general_400.png)
     
-8. No **Datahug configuração** secção, clique em **configurar Datahug** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML** e **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+8. Sobre o **Datahug configuração** secção, clique em **configurar Datahug** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** e **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/datahug-tutorial/tutorial_datahug_configure.png) 
 
-9. Para configurar o início de sessão único em **Datahug** lado, terá de enviar o transferido **XML de metadados**, **ID de entidade de SAML** e **único início de sessão no URL do serviço SAML** para [Datahug suporte](http://datahug.com/about/contact-us/). Se configuraram esta aplicação para que a ligação de SAML SSO corretamente em ambos os lados.
+9. Para configurar o início de sessão único num **Datahug** lado, terá de enviar o transferido **XML de metadados**, **ID de entidade de SAML** e **SAML único início de sessão no URL do serviço**  para [Datahug suporte](http://datahug.com/about/contact-us/). Eles configurar esta aplicação para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/datahug-tutorial/create_aaduser_01.png) 
 
@@ -166,58 +166,58 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/datahug-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/datahug-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/datahug-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-datahug-test-user"></a>Criar um utilizador de teste Datahug
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos Datahug, têm de ser aprovisionados para Datahug.  
-Quando Datahug, o aprovisionamento é uma tarefa manual.
+Para ativar a utilizadores do Azure AD iniciar sessão no Datahug, tem de ser aprovisionados em Datahug.  
+Quando Datahug, aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
 1. Inicie sessão no site da sua empresa Datahug como administrador.
 
-2. Coloque o cursor sobre o **roda dentada** no canto superior direito e clique **definições**
+2. Paire o rato sobre o **ícone de roda dentada** no canto superior direito e clique **definições**
    
-   ![Adicionar empregado](./media/datahug-tutorial/1.png)
+   ![Adicionar o funcionário](./media/datahug-tutorial/1.png)
 
-3. Escolha **pessoas** e clique em de **adicionar utilizadores** separador
+3. Escolher **pessoas** e clique nas **adicionar usuários** separador
 
-    ![Adicionar empregado](./media/datahug-tutorial/2.png)
+    ![Adicionar o funcionário](./media/datahug-tutorial/2.png)
 
-4. Escreva a mensagem de e-mail da pessoa que gostaria de criar uma conta para e clique em **adicionar**.
+4. Escreva a mensagem de e-mail da pessoa que pretende criar uma conta para e clique em **adicionar**.
 
-    ![Adicionar empregado](./media/datahug-tutorial/3.png)
+    ![Adicionar o funcionário](./media/datahug-tutorial/3.png)
 
     > [!NOTE] 
-    > Pode enviar correio de registo para o utilizador selecionando **enviar correio eletrónico de boas-vindas** caixa de verificação.  
-    > Se estiver a criar uma conta do Salesforce não enviar o e-mail de boas-vindas.
+    > Pode enviar email de Registro para o utilizador selecionando **enviar e-mail de boas-vindas** caixa de verificação.  
+    > Se estiver a criar uma conta do Salesforce não enviar o e-mail de boas-vindos.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Datahug.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Datahug.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a Datahug, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Datahug, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **Datahug**.
 
@@ -225,27 +225,27 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
-Quando clica no mosaico Datahug no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Datahug. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Quando clica no mosaico Datahug no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Datahug. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

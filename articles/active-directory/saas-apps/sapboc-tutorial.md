@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory nuvem de objeto do SAP Business | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e na nuvem de objeto do SAP Business.
+title: 'Tutorial: Integração do Azure Active Directory com nuvem de objeto do SAP Business | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e na Cloud de objeto do SAP Business.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308304"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041743"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem de objeto do SAP Business
+# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Azure Active Directory com SAP Business objeto Cloud
 
-Neste tutorial, irá aprender a integração em nuvem de objeto do SAP Business com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar a Cloud do SAP Business objeto com o Azure Active Directory (Azure AD).
 
-Obter as seguintes vantagens quando integrar o SAP Business objeto de nuvem com o Azure AD:
+Obtém as seguintes vantagens quando integrar a Cloud de objeto de negócios SAP no Azure AD:
 
 - No Azure AD, pode controlar quem tem acesso à nuvem de objeto do SAP Business.
-- Pode assinar automaticamente na nuvem de objeto do SAP Business que os utilizadores ao utilizar o início de sessão único e a conta do Azure AD de um utilizador.
-- Pode gerir as contas numa, localização central, o portal do Azure.
+- Pode assinar automaticamente a que os seus utilizadores para a Cloud do SAP Business objeto com o início de sessão único e a conta do Azure AD de um utilizador.
+- Pode gerir as suas contas num, local central, o portal do Azure.
 
-Para saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com a nuvem de objeto do SAP Business, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o SAP Cloud de objeto de negócios, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Uma nuvem de objecto de negócio SAP, com início de sessão ligado
+- Uma Cloud de objeto de negócios SAP, com início de sessão único ativada
 
 > [!NOTE]
 > Se testar os passos neste tutorial, recomendamos que não testá-los num ambiente de produção.
@@ -50,88 +50,88 @@ Recomendações para testar os passos neste tutorial:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. 
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. 
 
-O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicione SAP Business objeto nuvem da galeria do.
-2. Configure e teste do Azure AD-início de sessão único.
+1. Adicione SAP Cloud de objeto comercial a partir da galeria.
+2. Configure e teste do Azure AD início de sessão único.
 
-## <a name="add-sap-business-object-cloud-from-the-gallery"></a>Adicionar SAP Business objeto nuvem da galeria do
-Para configurar a integração do SAP Business objeto de nuvem com o Azure AD, na galeria, adicione na nuvem de objeto do SAP Business à sua lista de aplicações SaaS geridas.
+## <a name="add-sap-business-object-cloud-from-the-gallery"></a>Adicionar SAP Cloud de objeto comercial a partir da Galeria
+Para configurar a integração da Cloud de objeto de negócios SAP no Azure AD, na galeria, adicione na Cloud de objeto do SAP Business à sua lista de aplicações de SaaS geridas.
 
-Para adicionar a nuvem de objeto do SAP Business na galeria do:
+Para adicionar SAP Cloud de objeto comercial a partir da galeria:
 
-1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **do Azure Active Directory**. 
+1. Na [portal do Azure](https://portal.azure.com), no menu da esquerda, selecione **Azure Active Directory**. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Selecione **aplicações empresariais**e, em seguida, selecione **todas as aplicações**.
+2. Selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![A página de aplicações da empresa][2]
+    ![A página de aplicações do Enterprise][2]
     
 3. Para adicionar uma nova aplicação, selecione **nova aplicação**.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, introduza **na nuvem de objeto do SAP Business**.
+4. Na caixa de pesquisa, introduza **SAP Business objeto Cloud**.
 
     ![Caixa de pesquisa](./media/sapboc-tutorial/tutorial_sapboc_search.png)
 
-5. No painel de resultados, selecione **na nuvem de objeto do SAP Business**e, em seguida, selecione **adicionar**.
+5. No painel de resultados, selecione **na Cloud de objeto do SAP Business**e, em seguida, selecione **Add**.
 
-    ![Nuvem de objeto do SAP Business na lista de resultados](./media/sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
+    ![SAP Business objeto na Cloud, na lista de resultados](./media/sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
 
-##  <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configure e teste do Azure AD-início de sessão único
+##  <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurar e teste do Azure AD início de sessão único
 
-Nesta secção, iremos configurar e teste do Azure AD-início de sessão único com a nuvem de objeto do SAP Business com base num utilizador de teste com o nome *Britta Simon*.
+Nesta secção, vai configurar e teste do Azure AD início de sessão único com o SAP Cloud de objeto de negócios com base num utilizador de teste com o nome *Eduarda Almeida*.
 
-Para início de sessão trabalhar, do Azure AD tem de saber o utilizador do Azure AD homólogo na nuvem de objeto do SAP Business. Tem de ser estabelecida uma relação de ligação entre um utilizador do Azure AD e o utilizador na nuvem do SAP Business objeto relacionado.
+Para início de sessão único funcione, o Azure AD precisa saber o utilizador de equivalente do Azure AD na Cloud de objeto do SAP Business. É necessário estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Cloud de objeto do SAP Business.
 
-Para estabelecer a relação de ligação, na nuvem de objeto do SAP Business, para **Username**, atribua o valor do **nome de utilizador** no Azure AD.
+Para estabelecer a relação de hiperligação, na Cloud de objeto de negócios SAP, para **nome de utilizador**, atribua o valor da **nome de utilizador** no Azure AD.
 
-Para configurar e testar o Azure AD-início de sessão único com a nuvem de objeto do SAP Business, conclua as seguintes tarefas:
+Para configurar e testar o Azure AD início de sessão único com o SAP Cloud de objeto de negócios, conclua as seguintes tarefas:
 
-1. [Configurar o Azure AD-início de sessão único](#set-up-azure-ad-single-sign-on). Configura um utilizador para utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user). Os testes do Azure AD-início de sessão único com o utilizador Britta Simon.
-3. [Criar um utilizador de teste de nuvem de objeto do SAP Business](#create-an-sap-business-object-cloud-test-user). Cria um homólogo de Britta Simon na nuvem de objecto de negócio SAP que está ligada a representação do Azure AD do utilizador.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user). Conjuntos de cópias de segurança Britta Simon para utilizar o Azure AD único início de sessão.
-5. [Teste o início de sessão único](#test-single-sign-on). Verifica se a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#set-up-azure-ad-single-sign-on). Configura um utilizador para utilizar esta funcionalidade.
+2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user). Testes do Azure AD início de sessão único com o utilizador Eduarda Almeida.
+3. [Criar um utilizador de teste na Cloud de objeto do SAP Business](#create-an-sap-business-object-cloud-test-user). Cria um equivalente da Eduarda Almeida na Cloud de objeto de negócios SAP que está ligado a representação do Azure AD do utilizador.
+4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user). Configura a Eduarda Almeida para utilizar o Azure AD início de sessão único.
+5. [Testar início de sessão único](#test-single-sign-on). Verifica-se de que a configuração funciona.
 
-### <a name="set-up-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="set-up-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, que ative do Azure AD único início de sessão no portal do Azure. Em seguida, iremos configurar o início de sessão único na sua aplicação de nuvem de objeto do SAP Business.
+Nesta seção, ativar do Azure AD único início de sessão no portal do Azure. Em seguida, configurar o início de sessão único na sua aplicação na Cloud de objeto do SAP Business.
 
-Para configurar o Azure AD-início de sessão único com a nuvem de objeto do SAP Business:
+Para configurar o Azure AD início de sessão único com o SAP Business objeto Cloud:
 
-1. No portal do Azure, no **na nuvem de objeto do SAP Business** página de integração de aplicações, selecione **de sessão único-**.
+1. No portal do Azure, sobre o **na Cloud de objeto do SAP Business** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Selecione o início de sessão único][4]
+    ![Selecione início de sessão único][4]
 
-2. No **de sessão único-** página, para **modo**, selecione **baseados em SAML início de sessão**.
+2. Sobre o **início de sessão único** página, para **modo**, selecione **baseado em SAML logon**.
  
-    ![Selecione baseados em SAML início de sessão](./media/sapboc-tutorial/tutorial_sapboc_samlbase.png)
+    ![Selecione baseado em SAML início de sessão](./media/sapboc-tutorial/tutorial_sapboc_samlbase.png)
 
-3. Em **URLs e de domínio de nuvem do SAP Business objeto**, conclua os seguintes passos:
+3. Sob **SAP Business objeto Cloud domínio e URLs**, conclua os seguintes passos:
 
-    1. No **URL de início de sessão** box, introduza um URL com o padrão do seguinte: 
+    1. Na **URL de início de sessão** , introduza um URL com o seguinte padrão: 
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    2. No **identificador** box, introduza um URL com o padrão do seguinte:
+    2. Na **identificador** , introduza um URL com o seguinte padrão:
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
     | `<sub-domain>.sapanalytics.cloud` |
 
-    ![URLs de página do domínio de nuvem do SAP Business objeto e os URLs](./media/sapboc-tutorial/tutorial_sapboc_url.png)
+    ![URLs de domínio na Cloud do SAP Business objeto e URLs de página](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Os valores existentes nestes URLs são para a demonstração apenas. Atualize os valores com o URL de início de sessão real e o URL de identificador. Para obter o URL de início de sessão, contacte o [equipa de suporte de cliente de Cloud de objeto do SAP Business](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Pode obter o URL de identificador ao transferir os metadados de nuvem de objeto do SAP Business a partir da consola de administração. Isto é explicado mais tarde no tutorial. 
+    > Os valores estes URLs são para apenas demonstração. Atualize os valores com o URL de início de sessão real e o URL de identificador. Para obter o URL de início de sessão, entre em contato com o [equipa de suporte de cliente de Cloud do SAP Business objeto](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Pode obter o URL de identificador ao transferir os metadados de nuvem de objeto de negócios SAP a partir da consola de administrador. Isso é explicado mais tarde no tutorial. 
 
-4. Em **certificado de assinatura de SAML**, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
+4. Sob **certificado de assinatura SAML**, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Selecione o XML de metadados](./media/sapboc-tutorial/tutorial_sapboc_certificate.png) 
 
@@ -139,45 +139,45 @@ Para configurar o Azure AD-início de sessão único com a nuvem de objeto do SA
 
     ![Selecionar guardar](./media/sapboc-tutorial/tutorial_general_400.png)
 
-6. Numa janela do browser web diferente, inicie sessão no site da sua empresa em nuvem de objeto do SAP Business como administrador.
+6. Numa janela do browser web diferente, inicie sessão no site da sua empresa na Cloud do SAP Business objeto como um administrador.
 
 7. Selecione **Menu** > **sistema** > **administração**.
     
     ![Selecione o Menu, em seguida, sistema e, em seguida, administração](./media/sapboc-tutorial/config1.png)
 
-8. No **segurança** separador, selecione o **editar** ícone (caneta).
+8. Sobre o **Security** separador, selecione a **editar** ícone (caneta).
     
-    ![No separador segurança, selecione o ícone de edição](./media/sapboc-tutorial/config2.png)  
+    ![Na guia segurança, selecione o ícone de edição](./media/sapboc-tutorial/config2.png)  
 
-9. Para **método de autenticação**, selecione **SAML único Sign-On (SSO)**.
+9. Para **método de autenticação**, selecione **SAML único início de sessão (SSO)**.
 
-    ![Seleciona SAML Single Sign-On para o método de autenticação](./media/sapboc-tutorial/config3.png)  
+    ![Selecione SAML início de sessão único para o método de autenticação](./media/sapboc-tutorial/config3.png)  
 
-10. Para transferir os metadados do fornecedor de serviço (passo 1), selecione **transferir**. No ficheiro de metadados, localizar e copiar a **entityID** valor. No portal do Azure, em **URLs e de domínio de nuvem do SAP Business objeto**, colar o valor no **identificador** caixa.
+10. Para transferir os metadados do fornecedor de serviço (passo 1), selecione **transferir**. No ficheiro de metadados, localizar e copiar o **entityID** valor. No portal do Azure, em **SAP Business objeto Cloud domínio e URLs**, cole o valor no **identificador** caixa.
 
     ![Copie e cole o valor de entityID](./media/sapboc-tutorial/config4.png)  
 
-11. Para carregar os metadados do fornecedor de serviço (passo 2) no ficheiro que transferiu a partir do portal do Azure, em **metadados de carregar o fornecedor de identidade**, selecione **carregar**.  
+11. Para carregar os metadados do fornecedor de serviço (etapa 2) no ficheiro que transferiu a partir do portal do Azure, em **metadados de carregar o fornecedor de identidade**, selecione **carregar**.  
 
-    ![Nos metadados de carregar o fornecedor de identidade, selecione o carregamento](./media/sapboc-tutorial/config5.png)
+    ![Em metadados de carregar o fornecedor de identidade, selecionar o carregamento](./media/sapboc-tutorial/config5.png)
 
-12. No **atributo de utilizador** lista, selecione o atributo de utilizador (passo 3) que pretende utilizar para a implementação. Este atributo de utilizador mapeia para o fornecedor de identidade. Para introduzir um atributo personalizado na página do utilizador, utilize o **mapeamento de SAML personalizado** opção. Em alternativa, pode escolher que o **E-Mail** ou **ID de utilizador** como o atributo de utilizador. No nosso exemplo, selecionamos **E-Mail** porque foi mapeado a afirmação de identificador de utilizador com o **userprincipalname** atributo no **atributos de utilizador** secção do Azure Portal. Esta opção fornece um e-mail de utilizador exclusivo, que é enviado para a aplicação de nuvem de objeto do SAP Business em cada resposta SAML com êxito.
+12. Na **atributo de utilizador** , selecione o atributo de utilizador (etapa 3) que pretende utilizar para a sua implementação. Este atributo de utilizador é mapeado para o fornecedor de identidade. Para introduzir um atributo personalizado na página do utilizador, utilize o **mapeamento de SAML personalizada** opção. Em alternativa, pode selecionar **E-Mail** ou **ID de utilizador** como o atributo de utilizador. No nosso exemplo, selecionamos **E-Mail** porque estamos mapeado a afirmação de identificador de utilizador com o **userprincipalname** atributo o **atributos de utilizador** secção no Azure Portal. Esta opção fornece um e-mail de utilizador exclusivo, que é enviado para a aplicação na Cloud de objeto do SAP Business em cada resposta SAML com êxito.
 
     ![Selecione o atributo de utilizador](./media/sapboc-tutorial/config6.png)
 
-13. Para verificar a conta com o fornecedor de identidade (passo 4), no **credenciais de início de sessão (E-Mail)** box, introduza o endereço de correio eletrónico do utilizador. Em seguida, selecione **verificar conta**. O sistema adiciona as credenciais de início de sessão para a conta de utilizador.
+13. Para verificar a conta com o fornecedor de identidade (etapa 4), na **credenciais de início de sessão (E-Mail)** , introduza o endereço de e-mail do utilizador. Em seguida, selecione **Verifique se conta**. O sistema adiciona as credenciais de início de sessão para a conta de utilizador.
 
-    ![Introduza o e-mail e selecione verificar conta](./media/sapboc-tutorial/config7.png)
+    ![Introduza o e-mail e selecionar verificar conta](./media/sapboc-tutorial/config7.png)
 
 14. Selecione o **guardar** ícone.
 
     ![Ícone de guardar](./media/sapboc-tutorial/save.png)
 
 > [!TIP]
-> Pode ler uma versão concisa destas instruções no [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação! Depois de adicionar a aplicação, selecionando **do Active Directory** > **aplicações empresariais**, selecione o **Single Sign-On** separador. Pode aceder a documentação incorporada o **configuração** secção, na parte inferior da página. Para obter mais informações, consulte [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Pode ler uma versão concisa destas instruções no [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação! Depois de adicionar a aplicação, selecionando **do Active Directory** > **aplicações empresariais**, selecione o **Single Sign-On** separador. Pode acessar a documentação do embedded na **configuração** secção, na parte inferior da página. Para obter mais informações, consulte [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-Nesta secção, vai criar um utilizador de teste com o nome Britta Simon no portal do Azure.
+Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
 
 Para criar um utilizador de teste no Azure AD:
 
@@ -189,17 +189,17 @@ Para criar um utilizador de teste no Azure AD:
     
     ![Criar um utilizador de teste do Azure AD](./media/sapboc-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, selecione **adicionar**.
+3. Para abrir o **usuário** caixa de diálogo, selecione **Add**.
  
     ![Criar um utilizador de teste do Azure AD](./media/sapboc-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo caixa, conclua os seguintes passos:
+4. Na **utilizador** diálogo caixa, conclua os seguintes passos:
  
-    1. No **nome** box, introduza **BrittaSimon**.
+    1. Na **Name** , introduza **BrittaSimon**.
 
-    2. No **nome de utilizador** box, introduza o endereço de e-mail do utilizador Britta Simon.
+    2. Na **nome de utilizador** , introduza o endereço de e-mail do utilizador Eduarda Almeida.
 
-    3. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    3. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     4. Selecione **Criar**.
 
@@ -207,35 +207,35 @@ Para criar um utilizador de teste no Azure AD:
 
     ![Criar utilizador do Azure AD][100]
 
-### <a name="create-an-sap-business-object-cloud-test-user"></a>Criar um utilizador de teste de nuvem de objeto do SAP Business
+### <a name="create-an-sap-business-object-cloud-test-user"></a>Criar um utilizador de teste na Cloud de objeto do SAP Business
 
-Os utilizadores do AD do Azure têm de ser aprovisionados na nuvem de objeto do SAP Business antes de poderem iniciar sessão na nuvem de objeto do SAP Business. Na nuvem de objeto do SAP Business, o aprovisionamento é uma tarefa manual.
+Utilizadores do Azure AD tem de ser aprovisionados na Cloud do SAP Business objeto antes de poderem iniciar sessão na cloud de objeto do SAP Business. Na Cloud de objeto de negócios SAP, o aprovisionamento é uma tarefa manual.
 
 Para Aprovisionar uma conta de utilizador:
 
-1. Inicie sessão no site da sua empresa em nuvem de objeto do SAP Business como administrador.
+1. Inicie sessão no site da sua empresa na Cloud do SAP Business objeto como um administrador.
 
 2. Selecione **Menu** > **segurança** > **utilizadores**.
 
-    ![Adicionar empregado](./media/sapboc-tutorial/user1.png)
+    ![Adicionar o funcionário](./media/sapboc-tutorial/user1.png)
 
-3. No **utilizadores** página, para adicionar novos detalhes de utilizador, selecione **+**. 
+3. Sobre o **usuários** página, para adicionar novos detalhes de utilizador, selecione **+**. 
 
-    ![Adicionar página de utilizadores](./media/sapboc-tutorial/user4.png)
+    ![Adicionar página usuários](./media/sapboc-tutorial/user4.png)
 
     Em seguida, conclua os seguintes passos:
 
-    1. No **ID de utilizador** box, introduza o ID de utilizador do utilizador, como **Britta**.
+    1. Na **ID de utilizador** , introduza o ID de utilizador do utilizador, como **Eduarda**.
 
-    2. No **nome próprio** box, introduza o nome próprio do utilizador, como **Britta**.
+    2. Na **nome próprio** , introduza o nome do utilizador, como **Eduarda**.
 
-    3. No **Apelido** box, introduza o apelido do utilizador, como **Simon**.
+    3. Na **SOBRENOME** , introduza o apelido do utilizador, como **Simon**.
 
-    4. No **nome a apresentar** box, introduza o nome completo do utilizador, como **Britta Simon**.
+    4. Na **nome a apresentar** , introduza o nome completo do utilizador, como **Eduarda Almeida**.
 
-    5. No **correio electrónico** box, introduza o endereço de e-mail do utilizador, como **brittasimon@contoso.com**.
+    5. Na **email** , introduza o endereço de e-mail do utilizador, como **brittasimon@contoso.com**.
 
-    6. No **selecionar funções de** página, selecione a função adequada para o utilizador e, em seguida, selecione **OK**.
+    6. Sobre o **selecionar funções** página, selecione a função adequada para o utilizador e, em seguida, selecione **OK**.
 
       ![Selecionar função](./media/sapboc-tutorial/user3.png)
 
@@ -244,19 +244,19 @@ Para Aprovisionar uma conta de utilizador:
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, que permite que o utilizador Britta Simon para utilizar o Azure AD-início de sessão único ao conceder o acesso da conta de utilizador para a nuvem de objeto do SAP Business.
+Nesta seção, permite que o usuário Eduarda Almeida para utilizar o Azure AD início de sessão único ao conceder o acesso de conta de utilizador para a Cloud de objeto do SAP Business.
 
-Para atribuir Britta Simon a nuvem de objeto do SAP Business:
+Para atribuir a Eduarda Almeida a Cloud de objeto do SAP Business:
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, avance para a vista de diretório. Selecione **aplicações empresariais**e, em seguida, selecione **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, vá para o modo de exibição do diretório. Selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **na nuvem de objeto do SAP Business**.
+2. Na lista de aplicações, selecione **SAP Business objeto Cloud**.
 
     ![Configurar o início de sessão único](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu da esquerda, selecione **utilizadores e grupos**.
 
     ![Selecionar utilizadores e grupos][202] 
 
@@ -264,26 +264,26 @@ Para atribuir Britta Simon a nuvem de objeto do SAP Business:
 
     ![A página Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** página, na lista de utilizadores, selecionadas **Britta Simon**.
+5. Sobre o **utilizadores e grupos** página, na lista de utilizadores, selecione **Eduarda Almeida**.
 
-6. No **utilizadores e grupos** página, selecione **selecione**.
+6. Sobre o **utilizadores e grupos** página, selecione **selecione**.
 
-7. No **adicionar atribuição** página, selecione **atribuir**.
+7. Sobre o **adicionar atribuição** página, selecione **atribuir**.
 
 ![Atribuir a função de utilizador][200] 
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 
-Quando seleciona o mosaico de nuvem de objeto do SAP Business no painel de acesso, esta deve ser iniciada automaticamente à sua aplicação de nuvem de objeto do SAP Business.
+Ao selecionar o mosaico de Cloud do SAP Business objeto no painel de acesso, deve ser automaticamente a sessão iniciada sua aplicação na Cloud de objeto do SAP Business.
 
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

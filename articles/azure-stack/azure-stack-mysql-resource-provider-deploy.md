@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305901"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044888"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implementar o fornecedor de recursos do MySQL no Azure Stack
 
@@ -30,23 +30,30 @@ Utilize o fornecedor de recursos do servidor MySQL para expor bases de dados MyS
 Existem vários pré-requisitos que têm de ser cumpridos antes de poder implementar o fornecedor de recursos do MySQL do Azure Stack. Para cumprir estes requisitos, conclua os passos neste artigo num computador que pode aceder a VM de ponto de final com privilégios.
 
 * Se ainda não fez isso, [registar o Azure Stack](.\azure-stack-registration.md) com o Azure para que possa transferir itens do Azure marketplace.
-* Tem de instalar os módulos do Azure e o Azure Stack do PowerShell no wher sistema irá executar esta instalação. Esse sistema tem de ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do runtime do .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
+* Tem de instalar os módulos do Azure e o Azure Stack do PowerShell no sistema onde irá executar esta instalação. Esse sistema tem de ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do runtime do .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
 * Adicionar o principal de Windows Server VM necessário para o mercado do Azure Stack baixando o **Windows Server 2016 Datacenter - Server Core** imagem.
-
-  >[!NOTE]
-  >Se precisar de instalar uma atualização do Windows, pode colocar um único. Pacote MSU no caminho do local de dependência. Se mais do que um. MSU arquivo for encontrado, a instalação de fornecedor de recursos do MySQL falhará.
 
 * Transferir o fornecedor de recursos do MySQL, binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário.
 
   >[!NOTE]
   >Para implementar o fornecedor do MySQL num sistema que não tem acesso à Internet, copie os [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ficheiro para um caminho local. Forneça o nome de caminho com o **DependencyFilesLocalPath** parâmetro.
 
-* O fornecedor de recursos tem um mínimo correspondente do Azure Stack criar. Certifique-se de que baixar o binário correto para a versão do Azure Stack que está a executar.
+* O fornecedor de recursos tem um mínimo correspondente do Azure Stack criar. Certifique-se de que baixar o binário correto para a versão do Azure Stack que está a executar:
 
     | Versão do Azure Stack | Versão de MySQL RP|
     | --- | --- |
     | Versão 1804 (1.0.180513.1)|[MySQL RP versão 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Versão 1802 (1.0.180302.1) | [MySQL RP versão 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Versão 1802 (1.0.180302.1) | [MySQL RP versão 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Certifique-se de que os pré-requisitos de integração do Centro de dados são cumpridos:
+
+    |Pré-requisito|Referência|
+    |-----|-----|
+    |Reencaminhamento condicional de DNS está definido corretamente.|[Integração de datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md)|
+    |Portas de entrada para fornecedores de recursos estão abertas.|[Azure Stack integração no datacenter - publicar pontos de extremidade](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |Requerente do certificado PKI e SAN está definida corretamente.|[O Azure Stack implementação PKI pré-requisitos obrigatórios](azure-stack-pki-certs.md#mandatory-certificates)<br>[Pré-requisitos do certificado de PaaS de implementação do Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>Certificados
 
@@ -56,7 +63,7 @@ _Para instalações de sistemas integrados apenas_. Tem de fornecer o certificad
 
 Após tem todos os pré-requisitos instalados, execute o **DeployMySqlProvider.ps1** script para implementar o fornecedor de recursos do MYSQL. O script de DeployMySqlProvider.ps1 é extraído como parte do binário de fornecedor de recursos MySQL que transferiu para a sua versão do Azure Stack.
 
-Para implementar o fornecedor de recursos do MySQL, abra uma janela de consola novo elevada do PowerShell e altere o diretório onde extraiu arquivos binários de fornecedor de recursos do MySQL. Recomendamos que utilize uma nova janela do PowerShell para evitar possíveis problemas causados por módulos do PowerShell que já são carregados.
+Para implementar o fornecedor de recursos do MySQL, abra uma janela nova elevada do PowerShell (não ISE do PowerShell) e altere o diretório onde extraiu arquivos binários de fornecedor de recursos do MySQL. Recomendamos que utilize uma nova janela do PowerShell para evitar possíveis problemas causados por módulos do PowerShell que já são carregados.
 
 Executar o **DeployMySqlProvider.ps1** script, que conclui as seguintes tarefas:
 
@@ -65,8 +72,7 @@ Executar o **DeployMySqlProvider.ps1** script, que conclui as seguintes tarefas:
 * Publica um pacote de galeria para implantação de servidores de alojamento.
 * Implementa uma VM com a imagem de núcleo do Windows Server 2016 que transferiu e, em seguida, instala o fornecedor de recursos do MySQL.
 * Registra um registo DNS local que mapeia para o seu fornecedor de recursos de VM.
-* Regista o fornecedor de recursos com o local do Azure Resource Manager para as contas de utilizador e o operador.
-* Opcionalmente, instala uma única atualização do Windows Server durante a instalação do fornecedor de recursos.
+* Regista o fornecedor de recursos com o local do Azure Resource Manager para a conta de operador.
 
 > [!NOTE]
 > Quando a implementação de fornecedor de recursos do MySQL é iniciado, o **system.local.mysqladapter** é criado o grupo de recursos. Pode demorar até 75 minutos a concluir as implementações necessárias para este grupo de recursos.

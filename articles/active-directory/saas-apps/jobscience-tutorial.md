@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Jobscience | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Jobscience.
+title: 'Tutorial: Integração do Azure Active Directory com Jobscience | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Jobscience.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 12dbf4483e3f049948df6b825b0e0937a79ad826
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0d717c9a70d078300b59a4e3fd6df08e971e8075
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211901"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Azure Active Directory com Jobscience
 
-Neste tutorial, irá aprender a integrar Jobscience com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Jobscience com o Azure Active Directory (Azure AD).
 
-Integrar Jobscience com o Azure AD fornece as seguintes vantagens:
+Integrar Jobscience no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Jobscience
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Jobscience (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Jobscience (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Jobscience, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Jobscience-início de sessão único ativada subscrição
+- Um Jobscience logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -49,25 +49,25 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Jobscience a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Jobscience da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-jobscience-from-the-gallery"></a>Adicionar Jobscience a partir da Galeria
-Para configurar a integração de Jobscience com o Azure AD, terá de adicionar Jobscience a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-jobscience-from-the-gallery"></a>Adicionando Jobscience da Galeria
+Para configurar a integração do Jobscience com o Azure AD, terá de adicionar Jobscience a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Jobscience a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,49 +75,49 @@ Para configurar a integração de Jobscience com o Azure AD, terá de adicionar 
 
     ![Criar um utilizador de teste do Azure AD](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. No painel de resultados, selecione **Jobscience**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **Jobscience**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com Jobscience com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com Jobscience com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Jobscience é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Jobscience tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Jobscience a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Jobscience deve ser estabelecido.
 
-No Jobscience, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Jobscience, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com Jobscience, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Jobscience, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Jobscience](#creating-a-jobscience-test-user)**  - para ter um homólogo de Britta Simon Jobscience que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste Jobscience](#creating-a-jobscience-test-user)**  - para ter um equivalente da Eduarda Almeida na Jobscience que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Jobscience.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Jobscience.
 
-**Para configurar o Azure AD-início de sessão único com Jobscience, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Jobscience, execute os seguintes passos:**
 
-1. No portal do Azure, no **Jobscience** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Jobscience** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
-3. No **Jobscience domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **Jobscience domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:  `http://<company name>.my.salesforce.com`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Para obter este valor [equipa de suporte de cliente Jobscience](https://www.jobscience.com/support) ou do perfil de SSO, irá criar que é explicada mais tarde no tutorial. 
+    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Obter este valor [equipa de suporte de cliente Jobscience](https://www.jobscience.com/support) ou do perfil de SSO, irá criar o qual será explicado mais tarde no tutorial. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
@@ -125,7 +125,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/jobscience-tutorial/tutorial_general_400.png)
 
-6. No **Jobscience configuração** secção, clique em **configurar Jobscience** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Sobre o **Jobscience configuração** secção, clique em **configurar Jobscience** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
@@ -133,80 +133,80 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 8. Aceda a **configuração**.
    
-   ![A configuração](./media/jobscience-tutorial/IC784358.png "programa de configuração")
+   ![Programa de configuração](./media/jobscience-tutorial/IC784358.png "configuração")
 
-9. No painel de navegação esquerdo, no **administrar** secção, clique em **gestão de domínios** para expandir a secção relacionada e, em seguida, clique em **meu domínio** para abrir o **Meu domínio** página. 
+9. No painel de navegação esquerdo, no **Administer** secção, clique em **gestão de domínios** para expandir a secção relacionada e, em seguida, clique em **meu domínio** para abrir o **Meu domínio** página. 
    
-   ![O meu domínio](./media/jobscience-tutorial/ic767825.png "meu domínio")
+   ![Meu domínio](./media/jobscience-tutorial/ic767825.png "meu domínio")
 
-10. Para verificar que o domínio tiver sido configurado corretamente, certifique-se de que está a ser "**passo 4 implementada para os utilizadores**" e rever o "**My definições de domínio**".
+10. Para verificar que seu domínio foi configurado corretamente, certifique-se de que está a ser "**passo 4 implementadas para os utilizadores**" e rever seu "**minhas configurações de domínio**".
 
-    ![Domínio implementado no utilizador](./media/jobscience-tutorial/ic784377.png "implementado no utilizador de domínio")
+    ![Domínio implementado para o usuário](./media/jobscience-tutorial/ic784377.png "implementado utilizador de domínio")
 
-11. No site de empresa Jobscience, clique em **controlos de segurança**e, em seguida, clique em **as definições de início de sessão único**.
+11. No site de empresa Jobscience, clique em **controlos de segurança**e, em seguida, clique em **configurações de logon único**.
     
     ![Controlos de segurança](./media/jobscience-tutorial/ic784364.png "controlos de segurança")
 
-12. No **as definições de início de sessão único** secção, execute os seguintes passos:
+12. Na **definições de início de sessão único** secção, execute os seguintes passos:
     
-    ![Single Sign-On definições](./media/jobscience-tutorial/ic781026.png "único as definições de início de sessão")
+    ![Único configurações de logon](./media/jobscience-tutorial/ic781026.png "único configurações de logon")
     
     a. Selecione **SAML ativada**.
 
     b. Clique em **Novo**.
 
-13. No **SAML único início de sessão no definição editar** caixa de diálogo, execute os seguintes passos:
+13. Sobre o **SAML único início de sessão definição editar** caixa de diálogo, execute os seguintes passos:
     
-    ![SAML único início de sessão definição](./media/jobscience-tutorial/ic784365.png "SAML único início de sessão na definição")
+    ![SAML única início de sessão definição](./media/jobscience-tutorial/ic784365.png "SAML única início de sessão na definição")
     
-    a. No **nome** caixa de texto, escreva um nome para a sua configuração.
+    a. Na **nome** caixa de texto, escreva um nome para a sua configuração.
 
-    b. No **emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
+    b. Na **emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    c. No **Id de entidade** caixa de texto, tipo `https://salesforce-jobscience.com`
+    c. Na **Id de entidade** caixa de texto, tipo `https://salesforce-jobscience.com`
 
     d. Clique em **procurar** para carregar o certificado do Azure AD.
 
-    e. Como **tipo de identidade de SAML**, selecione **asserção contém o ID de Federação do objeto User**.
+    e. Como **tipo de identidade de SAML**, selecione **asserção contém o ID de Federação do objeto de utilizador**.
 
-    f. Como **SAML identidade localização**, selecione **é de identidade no elemento NameIdentfier da declaração de assunto**.
+    f. Como **localização de identidade de SAML**, selecione **identidade é no elemento NameIdentfier da declaração de assunto**.
 
-    g. No **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
+    g. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
 
-    h. No **URL de fim de sessão do fornecedor de identidade** caixa de texto, cole o valor de **Sign-Out URL**, que copiou do portal do Azure.
+    h. Na **URL de fim de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
 
     i. Clique em **Guardar**.
 
-14. No painel de navegação esquerdo, no **administrar** secção, clique em **gestão de domínios** para expandir a secção relacionada e, em seguida, clique em **meu domínio** para abrir o **Meu domínio** página. 
+14. No painel de navegação esquerdo, no **Administer** secção, clique em **gestão de domínios** para expandir a secção relacionada e, em seguida, clique em **meu domínio** para abrir o **Meu domínio** página. 
     
-    ![O meu domínio](./media/jobscience-tutorial/ic767825.png "meu domínio")
+    ![Meu domínio](./media/jobscience-tutorial/ic767825.png "meu domínio")
 
-15. No **meu domínio** na página de **imagem corporativa página de início de sessão** secção, clique em **editar**.
+15. No **meu domínio** página, além da **marca de página de início de sessão** secção, clique em **editar**.
     
-    ![Página de início de sessão de imagem corporativa](./media/jobscience-tutorial/ic767826.png "página de início de sessão de imagem corporativa")
+    ![Página de início de sessão de imagem corporativa](./media/jobscience-tutorial/ic767826.png "imagem corporativa da página início de sessão")
 
-16. No **imagem corporativa página de início de sessão** na página a **serviço de autenticação** secção, o nome do seu **SAML SSO definições** é apresentado. Selecionar e, em seguida, clique em **guardar**.
+16. No **uma imagem corporativa de página de início de sessão** na página a **serviço de autenticação** secção, o nome do seu **as definições de SSO SAML** é apresentado. Selecione-o e, em seguida, clique em **guardar**.
     
-    ![Página de início de sessão de imagem corporativa](./media/jobscience-tutorial/ic784366.png "página de início de sessão de imagem corporativa")
+    ![Página de início de sessão de imagem corporativa](./media/jobscience-tutorial/ic784366.png "imagem corporativa da página início de sessão")
 
-17. Para obter o SP iniciada pelo início de sessão único no clique do URL de início de sessão no **as definições de início de sessão único** no **controlos de segurança** secção de menu.
+17. Para obter o SP iniciada pelo início de sessão único no, clique em URL de início de sessão no **definições de início de sessão único** no **controlos de segurança** secção de menu.
 
     ![Controlos de segurança](./media/jobscience-tutorial/ic784368.png "controlos de segurança")
     
-    Clique no perfil SSO que criou no passo acima. Esta página mostra o início de sessão único num URL para a sua empresa (por exemplo, [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
+    Clique no perfil SSO que criou no passo acima. Esta página mostra o início de sessão único na URL para a sua empresa (por exemplo, [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/jobscience-tutorial/create_aaduser_01.png) 
 
@@ -214,25 +214,25 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/jobscience-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/jobscience-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/jobscience-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Criar um utilizador de teste Jobscience
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos Jobscience, têm de ser aprovisionados para Jobscience. No caso de Jobscience, o aprovisionamento é uma tarefa manual.
+Para habilitar os utilizadores do Azure AD iniciar sessão no Jobscience, tem de ser aprovisionados em Jobscience. No caso de Jobscience, o aprovisionamento é uma tarefa manual.
 
 >[!NOTE]
 >Pode utilizar quaisquer outras Jobscience utilizador conta criação ferramentas ou APIs fornecidas pelo Jobscience para aprovisionar o Azure Active Directory contas de utilizador.
@@ -242,48 +242,48 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Jobscience, t�
 
 1. Inicie sessão no seu **Jobscience** site da empresa como administrador.
 
-2. Vá para a configuração.
+2. Vá para configuração.
    
-   ![A configuração](./media/jobscience-tutorial/ic784358.png "programa de configuração")
+   ![Programa de configuração](./media/jobscience-tutorial/ic784358.png "configuração")
 3. Aceda a **gerir utilizadores \> utilizadores**.
    
    ![Os utilizadores](./media/jobscience-tutorial/ic784369.png "utilizadores")
 4. Clique em **novo utilizador**.
    
    ![Todos os utilizadores](./media/jobscience-tutorial/ic784370.png "todos os utilizadores")
-5. No **Editar utilizador** caixa de diálogo, execute os seguintes passos:
+5. Sobre o **Editar utilizador** caixa de diálogo, execute os seguintes passos:
    
    ![Edição do utilizador](./media/jobscience-tutorial/ic784371.png "edição do utilizador")
    
-   a. No **nome próprio** caixa de texto, escreva um nome próprio do utilizador como Britta.
+   a. Na **nome próprio** caixa de texto, escreva um nome próprio do utilizador, como a Eduarda.
    
-   b. No **Apelido** caixa de texto, digite o apelido do utilizador como Simon.
+   b. Na **Apelido** caixa de texto, digite o apelido do utilizador, como Simon.
    
-   c. No **Alias** caixa de texto, escreva um nome de alias do utilizador como brittas.
+   c. Na **Alias** caixa de texto, escreva um nome de alias do utilizador, como brittas.
 
-   d. No **E-Mail** caixa de texto, como o tipo de endereço de correio eletrónico do utilizador Brittasimon@contoso.com.
+   d. Na **E-Mail** caixa de texto, como o tipo de endereço de e-mail do utilizador Brittasimon@contoso.com.
 
-   e. No **nome de utilizador** caixa de texto, escreva um nome de utilizador utilizador gostar Brittasimon@contoso.com.
+   e. Na **nome de utilizador** caixa de texto, escreva um nome de utilizador do utilizador, como Brittasimon@contoso.com.
 
-   f. No **Nick nome** caixa de texto, escreva um nome de nick do utilizador como Simon.
+   f. Na **Nick nome** caixa de texto, escreva um nome de nick do utilizador, como Simon.
 
    g. Clique em **Guardar**.
 
     
 > [!NOTE]
-> Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
+> O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Jobscience.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Jobscience.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a Jobscience, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Jobscience, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **Jobscience**.
 
@@ -291,29 +291,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Jobscience no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Jobscience.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico Jobscience no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Jobscience.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -7,18 +7,10 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Experimentar a pesquisa cognitiva
-      href: cognitive-search-quickstart-blob.md
     - name: Criar um serviço
       href: search-create-service-portal.md
-    - name: Portal
-      items:
-        - name: Criar um índice
-          href: search-create-index-portal.md
-        - name: Importar dados
-          href: search-import-data-portal.md
-        - name: Explorador de Procura
-          href: search-explorer.md
+    - name: Experimentar a pesquisa cognitiva
+      href: cognitive-search-quickstart-blob.md
     - name: .NET
       items:
         - name: Criar um índice
@@ -39,18 +31,18 @@
           href: search-fiddler.md
 - name: Tutoriais
   items:
+    - name: Utilizar ferramentas incorporadas
+      href: search-get-started-portal.md
     - name: Desenvolvimento de pesquisa cognitiva
       href: cognitive-search-tutorial-blob.md
-    - name: Indexar a Base de Dados SQL do Azure
-      href: search-indexer-tutorial.md
     - name: Indexar blobs do Azure
       href: search-semi-structured-data.md
+    - name: Indexar a Base de Dados SQL do Azure
+      href: search-indexer-tutorial.md
     - name: Adicionar sinónimos em .NET
       href: search-synonyms-tutorial-sdk.md
     - name: Adicionar a conclusão automática em .NET
       href: search-autocomplete-tutorial.md
-    - name: Instruções do portal
-      href: search-get-started-portal.md
 - name: Amostras
   items:
     - name: Exemplos de código do Azure
@@ -129,6 +121,8 @@
       items:
         - name: Definição do índice
           href: search-what-is-an-index.md
+        - name: Criar um índice (portal)
+          href: search-create-index-portal.md
         - name: Analisadores
           items:
             - name: Analisadores de Texto
@@ -151,6 +145,8 @@
       items:
         - name: Emitir vs. Solicitar indexação
           href: search-what-is-data-import.md
+        - name: Assistente de importação (portal)
+          href: search-import-data-portal.md
         - name: Reconstruir um índice
           href: search-howto-reindex.md
         - name: Indexar grandes conjuntos de dados
@@ -181,6 +177,8 @@
       items:
         - name: Construção de consulta básica
           href: search-query-overview.md
+        - name: Explorador de Procura (portal)
+          href: search-explorer.md
         - name: Sintaxe de consulta simples
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
         - name: Sintaxe de consulta Lucene

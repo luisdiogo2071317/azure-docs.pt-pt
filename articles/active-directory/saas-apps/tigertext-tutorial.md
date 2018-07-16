@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com TigerText Secure Messenger | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre TigerText Secure Messenger e o Azure Active Directory.
+title: 'Tutorial: Integração do Azure Active Directory com o Messenger de proteger TigerText | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e TigerText Messenger de proteger.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: aef5338b5bc47879dfbe97f14d35d55ca58ddf7f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 09f04ab4d289eb7fb6664d192404f719f8604e1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219511"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041352"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Tutorial: Integração do Azure Active Directory com TigerText Secure Messenger
+# <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Tutorial: Integração do Azure Active Directory com o Messenger de proteger TigerText
 
-Neste tutorial, irá aprender a integrar TigerText Secure Messenger com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar TigerText Messenger de proteger com o Azure Active Directory (Azure AD).
 
-Integrar TigerText Secure Messenger com o Azure AD fornece as seguintes vantagens:
+Integrar TigerText Messenger de seguro no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao TigerText Secure Messenger
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para TigerText Secure Messenger (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao Messenger de proteger TigerText
+- Pode permitir que os utilizadores automaticamente obter sessão iniciada em TigerText Secure Messenger (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com TigerText Secure Messenger, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o Messenger de proteger TigerText, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um TigerText Secure Messenger-início de sessão único ativada subscrição
+- Um TigerText Messenger de proteger o início de sessão único de subscrição ativada
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -49,94 +49,94 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar TigerText Secure Messenger na galeria do
-2. Configurar e testar o Azure AD-início de sessão único
+1. Adicionar TigerText Messenger de proteger a partir da Galeria
+2. Configurar e testar o Azure AD início de sessão único
 
-## <a name="add-tigertext-secure-messenger-from-the-gallery"></a>Adicionar TigerText Secure Messenger na galeria do
-Para configurar a integração de TigerText Secure Messenger com o Azure AD, tem de adicionar TigerText Secure Messenger na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="add-tigertext-secure-messenger-from-the-gallery"></a>Adicionar TigerText Messenger de proteger a partir da Galeria
+Para configurar a integração do Messenger de proteger TigerText com o Azure AD, terá de adicionar TigerText Messenger de proteger a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar TigerText Secure Messenger na galeria do, execute os seguintes passos:**
+**Para adicionar TigerText Messenger de proteger a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **TigerText Secure Messenger**, selecione **TigerText Secure Messenger** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Messenger de proteger TigerText**, selecione **Messenger de proteger TigerText** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Adicionar a partir da Galeria](./media/tigertext-tutorial/tutorial_tigertext_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
-Nesta secção, configure e teste do Azure AD-início de sessão único com TigerText Secure Messenger com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com TigerText Secure Messenger com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no TigerText Secure Messenger é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no TigerText Secure Messenger tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador equivalente no TigerText Messenger de proteger a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Messenger de proteger TigerText deve ser estabelecido.
 
-No TigerText Secure Messenger, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+No TigerText Secure Messenger, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **nome de utilizador** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com TigerText Secure Messenger, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o Messenger de proteger TigerText, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste TigerText Secure Messenger](#create-a-tigertext-secure-messenger-test-user)**  - para ter um homólogo de Britta Simon TigerText Messenger seguro que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste do Messenger de proteger TigerText](#create-a-tigertext-secure-messenger-test-user)**  - para ter um equivalente da Eduarda Almeida no TigerText Messenger segura que esteja ligado a representação do Azure AD do utilizador.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação TigerText Secure Messenger.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo TigerText Messenger de proteger.
 
-**Para configurar o Azure AD-início de sessão único com TigerText Secure Messenger, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o Messenger de proteger TigerText, execute os seguintes passos:**
 
-1. No portal do Azure, no **TigerText Secure Messenger** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, no **Messenger de proteger TigerText** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Inicio de sessão baseado em SAML](./media/tigertext-tutorial/tutorial_tigertext_samlbase.png)
 
-3. No **TigerText Secure Messenger domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **TigerText Secure Messenger domínio e URLs** secção, execute os seguintes passos:
 
-    ![Secção TigerText Secure Messenger domínio e os URLs](./media/tigertext-tutorial/tutorial_tigertext_url.png)
+    ![Secção TigerText Secure Messenger domínio e URLs](./media/tigertext-tutorial/tutorial_tigertext_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, tipo URL como: `https://home.tigertext.com`
+    a. Na **URL de início de sessão** caixa de texto, URL de tipo como: `https://home.tigertext.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
 
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o identificador real. Contacte [equipa de suporte de cliente de Messenger Secure TigerText](mailTo:prosupport@tigertext.com) para obter este valor. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![Secção de certificado de assinatura de SAML](./media/tigertext-tutorial/tutorial_tigertext_certificate.png) 
+    ![Secção do certificado de assinatura SAML](./media/tigertext-tutorial/tutorial_tigertext_certificate.png) 
 
 5. Clique em **guardar** botão.
 
     ![Botão Guardar](./media/tigertext-tutorial/tutorial_general_400.png)
 
-6. Para obter o início de sessão configurado para a sua aplicação, contacte [equipa de suporte de TigerText Secure Messenger](mailTo:prosupport@tigertext.com) e forneça o **Downloaded metadados**.
+6. Para obter o início de sessão único configurado para a sua aplicação, contacte [equipa de suporte do Messenger de proteger TigerText](mailTo:prosupport@tigertext.com) e forneça-lhes a **Downloaded metadados**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/tigertext-tutorial/create_aaduser_01.png) 
 
@@ -144,66 +144,66 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Utilizadores e grupos -> todos os utilizadores](./media/tigertext-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Botão Adicionar](./media/tigertext-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
-    ![Caixa de diálogo utilizador](./media/tigertext-tutorial/create_aaduser_04.png) 
+    ![Caixa de diálogo de utilizador](./media/tigertext-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="create-a-tigertext-secure-messenger-test-user"></a>Criar um utilizador de teste TigerText Secure Messenger
+### <a name="create-a-tigertext-secure-messenger-test-user"></a>Criar um utilizador de teste do Messenger de proteger TigerText
 
-Nesta secção, vai criar um utilizador chamado Britta Simon TigerText. Contacte [equipa de suporte de cliente de Messenger Secure TigerText](mailTo:prosupport@tigertext.com) para adicionar os utilizadores na plataforma TigerText.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no TigerText. Contacte [equipa de suporte de cliente de Messenger Secure TigerText](mailTo:prosupport@tigertext.com) para adicionar os utilizadores na plataforma TigerText.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para TigerText Secure Messenger.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso TigerText Messenger de proteger.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a TigerText Secure Messenger, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida TigerText Messenger de proteger, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **TigerText Secure Messenger**.
+2. Na lista de aplicações, selecione **Messenger de proteger TigerText**.
 
     ![TigerText Secure Messenger na lista de aplicações](./media/tigertext-tutorial/tutorial_tigertext_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico TigerText no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de TigerText. Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico TigerText no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo TigerText. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

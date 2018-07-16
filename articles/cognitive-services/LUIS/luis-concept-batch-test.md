@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 0e484a6cae1b56983c4854664088ada8aa504568
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a51fcc9c0729c18428b51cbdbdf0b6ff13ca1372
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918820"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040008"
 ---
 # <a name="batch-testing-in-luis"></a>Lote de teste de LUIS
 
@@ -43,9 +43,90 @@ Entidades incluem pais simples, hierárquicas e composição. Todas as entidades
 ## <a name="batch-file-format"></a>Formato de ficheiro de batch
 O arquivo em lotes consiste em expressões. Cada expressão tem de ter uma previsão de intenção esperada, juntamente com quaisquer [entidades aprendidas por máquina](luis-concept-entity-types.md#types-of-entities) espera ser detetado. 
 
-Segue-se um ficheiro de batch de exemplo:
+Segue-se um exemplo de um arquivo em lotes com a sintaxe adequada:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Modelo de sintaxe de batch
+
+Utilize o modelo seguinte para iniciar seu arquivo em lotes:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+O ficheiro batch utiliza o **startPos** e **endPos** propriedades observar de início e no fim de uma entidade. Os valores não são baseado em zero e devem começar ou terminar num espaço. 
+
+Isso é diferente dos registos de consulta, o que utilizar propriedades startIndex e endIndex. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Importação de um lote de erros comuns

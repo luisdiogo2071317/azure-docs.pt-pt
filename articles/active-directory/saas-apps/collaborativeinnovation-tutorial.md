@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com inovação colaboração | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e inovação colaboração.
+title: 'Tutorial: Integração do Azure Active Directory com inovação colaboração | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e inovação de colaboração.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 897db5a4d794c22f436fa074ec2c359edc5b590c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0e2936d0b428249226e428ddc0912d62e29a84f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225063"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042419"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory com inovação colaboração
+# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory com a inovação de colaboração
 
-Neste tutorial, irá aprender integrar inovação colaboração do Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar a inovação de colaboração com o Azure Active Directory (Azure AD).
 
-Integrar inovação colaboração com o Azure AD fornece as seguintes vantagens:
+Integrar a inovação de colaboração com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao inovação colaboração
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para colaboração inovação (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD, quem tem acesso a inovação de colaboração
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para a inovação colaboração (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com inovação colaboração, terá dos seguintes itens:
+Para configurar a integração do Azure AD com inovação de colaboração, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um colaboração inovação início de sessão único subscrição ativado
+- Um inovação colaboração início de sessão único na subscrição ativado
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. A adição de colaboração inovação de galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando a inovação de colaboração da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-collaborative-innovation-from-the-gallery"></a>A adição de colaboração inovação de galeria
-Para configurar a integração de inovação colaboração com o Azure AD, tem de adicionar inovação colaboração na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-collaborative-innovation-from-the-gallery"></a>Adicionando a inovação de colaboração da Galeria
+Para configurar a integração de colaboração de inovação para o Azure AD, terá de adicionar inovação de colaboração a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar inovação colaboração a partir da galeria, execute os seguintes passos:**
+**Para adicionar a inovação de colaboração da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,72 +75,72 @@ Para configurar a integração de inovação colaboração com o Azure AD, tem d
 
     ![Criar um utilizador de teste do Azure AD](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_search.png)
 
-5. No painel de resultados, selecione **inovação colaboração**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **inovação colaboração**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com inovação colaboração com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com inovação de colaboração com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo na inovação colaboração é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na inovação colaboração tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de equivalente na inovação de colaboração a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na inovação de colaboração tem de ser estabelecida.
 
-Na inovação colaboração, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Na inovação de colaboração, atribua o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com inovação colaboração, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com inovação de colaboração, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de colaboração inovação](#creating-a-collaborative-innovation-test-user)**  - para ter um homólogo de Britta Simon na inovação colaboração que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de inovação colaboração](#creating-a-collaborative-innovation-test-user)**  - para ter um equivalente da Eduarda Almeida na inovação de colaboração que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação de colaboração inovação.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação de colaboração inovação.
 
-**Para configurar o Azure AD-início de sessão único com inovação colaboração, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com inovação de colaboração, execute os seguintes passos:**
 
-1. No portal do Azure, no **inovação colaboração** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **inovação colaboração** página de integração de aplicativo, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_samlbase.png)
 
-3. No **colaboração inovação domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **colaboração de inovação de domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instancename>.foundry.<companyname>.com/`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<instancename>.foundry.<companyname>.com/`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instancename>.foundry.<companyname>.com`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<instancename>.foundry.<companyname>.com`
     
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de colaboração inovação cliente](https://www.unilever.com/contact/) para obter estes valores.  
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de inovação colaboração](https://www.unilever.com/contact/) obter esses valores.  
 
-4. Aplicação de inovação colaboração espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
+4. Aplicativo de inovação colaboração espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos da "**atributos de utilizador**" secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.
     
     ![Configurar o início de sessão único](./media/collaborativeinnovation-tutorial/attribute.png)
     
-5. Clique em **ver e editar todos os outros atributos de utilizador** caixa de verificação no **atributos de utilizador** secção para expandir os atributos. Execute os seguintes passos em cada um dos atributos apresentadas-
+5. Clique em **ver e editar todos os outros atributos de utilizador** caixa de seleção o **atributos de utilizador** secção para expandir os atributos. Execute os seguintes passos em cada um dos atributos apresentados-
 
     | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |    
     | givenName | User.givenName |
     | Apelido | User.Surname |
     | endereço de correio eletrónico | user.userprincipalname |
-    | name | user.userprincipalname |
+    | nome | user.userprincipalname |
 
     a. Clique no atributo para abrir o **Editar atributo** janela.
 
     ![Configurar o início de sessão único](./media/collaborativeinnovation-tutorial/url_update.png)
 
-    b. Eliminar o valor do URL do **espaço de nomes**.
+    b. Eliminar o valor de URL dos **espaço de nomes**.
     
     c. Clique em **Ok** para guardar a definição.
 
-6. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+6. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_certificate.png) 
 
@@ -148,20 +148,20 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/collaborativeinnovation-tutorial/tutorial_general_400.png)
 
-8. Para configurar o início de sessão único em **inovação colaboração** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de colaboração inovação](https://www.unilever.com/contact/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+8. Para configurar o início de sessão único num **inovação colaboração** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de inovação colaboração](https://www.unilever.com/contact/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/collaborativeinnovation-tutorial/create_aaduser_01.png) 
 
@@ -169,39 +169,39 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/collaborativeinnovation-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/collaborativeinnovation-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/collaborativeinnovation-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-collaborative-innovation-test-user"></a>Criar um utilizador de teste inovação colaboração
+### <a name="creating-a-collaborative-innovation-test-user"></a>Criar um utilizador de teste de inovação de colaboração
 
-Para permitir que os utilizadores do Azure AD iniciem sessão inovação colaboração, têm de ser aprovisionados para colaboração inovação.  
+Para ativar a utilizadores do Azure AD iniciar sessão na inovação de colaboração, tem de ser aprovisionados na inovação de colaboração.  
 
-Em caso desta aplicação de aprovisionamento é automático dado que a aplicação suporta apenas no aprovisionamento de utilizadores de tempo. Por isso, é necessário para efetuar quaisquer passos aqui.
+Em caso desta aplicação de aprovisionamento é automático como o aplicativo oferece suporte apenas no tempo de aprovisionamento de utilizador. Portanto, não é necessário para efetuar outros passos aqui.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para colaboração inovação.
+Nesta secção, vai ativar Eduarda Almeida a utilizar do Azure-início de sessão único, conceder acesso à inovação de colaboração.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a colaboração inovação, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a inovação de colaboração, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **inovação colaboração**.
 
@@ -209,29 +209,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de colaboração inovação no painel de acesso, deve obter a página de início de sessão da aplicação de colaboração inovação.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico de inovação de colaboração no painel de acesso, deve obter a página de início de sessão da aplicação de colaboração inovação.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

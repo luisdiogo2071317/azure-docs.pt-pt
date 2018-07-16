@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com vários módulos de limite de IoT do Azure no VS Code | Microsoft Docs
-description: Utilizar a extensão de IoT para Visual Studio Code para desenvolver vários módulos de uma só vez para o limite de IoT do Azure
+title: Trabalhar com vários módulos do Azure IoT Edge no VS Code | Documentos da Microsoft
+description: Utilizar a extensão de IoT para o Visual Studio Code para desenvolver vários módulos de uma só vez para o Azure IoT Edge
 services: iot-edge
 keywords: ''
 author: shizn
@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048265"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041261"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code
 
@@ -33,15 +33,15 @@ Para concluir os passos descritos neste artigo, tem de cumprir os seguintes requ
 
 Também precisa do [Docker para o VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) com a integração do Device Explorer do Hub IoT do Azure para gerir imagens e contentores.
 
-## <a name="create-your-iot-edge-solution"></a>Crie a sua solução de IoT Edge
+## <a name="create-your-iot-edge-solution"></a>Criar a sua solução de IoT Edge
 
-1. No Visual Studio code, abra o terminal integrado selecionando **vista** > **terminal integrada**. 
+1. No Visual Studio code, abra o terminal integrado selecionando **View** > **terminal integrado**. 
 
-1. No VS Code **paleta de comando**, introduza e execute o comando **contorno de IoT do Azure: solução de ponta de IoT novo**. Selecione a pasta da sua área de trabalho e indique o nome da solução (o nome predefinido é EdgeSolution). Criar um módulo de c# (com o nome **PipeModule**) como o módulo de utilizador primeiro nesta solução. O modelo predefinido do c# módulo é um módulo de pipe, que diretamente encaminha mensagens da montante para downstream. Também tem de especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens predefinido baseia-se um registo local do Docker (**localhost:5000/<first module name>**). Pode alterá-lo para o Azure Container Registry ou para o Hub do Docker. 
+1. No código VS **paleta de comandos**, introduza e execute o comando **Azure IoT Edge: solução nova do IoT Edge**. Selecione a pasta da sua área de trabalho e indique o nome da solução (o nome predefinido é EdgeSolution). Criar um módulo de c# (com o nome **PipeModule**) como o primeiro módulo do utilizador nesta solução. O modelo padrão do módulo de c# é um módulo de pipe, que diretamente encaminha as mensagens da montante ao longo do caminho. Também tem de especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens predefinido baseia-se um registo local do Docker (**localhost:5000/<first module name>**). Pode alterá-lo para o Azure Container Registry ou para o Hub do Docker. 
 
 2. A janela do VS Code carrega a área de trabalho da solução do IoT Edge. A pasta raiz contém a pasta **módulos**, a pasta **.vscode** e um ficheiro de modelo do manifesto de implementação. As configurações de depuração encontram-se na pasta .vscode. Todos os códigos do módulo de utilizador são subpastas da pasta módulos. O ficheiro deployment.template.json é o modelo do manifesto de implementação. Alguns dos parâmetros neste ficheiro são analisados a partir do ficheiro module.json, o qual existe em cada pasta de módulo.
 
-3. Adicione o seu segundo módulo ao projeto desta solução. Existem várias formas para adicionar um novo módulo à atual solução. Introduza e execute o comando **Azure IoT contorno: o módulo de limite de IoT adicionar**. Selecione o ficheiro de modelo de implementação para atualizar. Ou clique com o botão direito na pasta de módulos ou o ficheiro deployment.template.json com o botão direito e selecione **Adicionar módulo de limite de IoT**. Em seguida, haverá na lista pendente para selecionar o tipo de módulo. Selecione um **das funções do Azure - c#** módulo com o nome **PipeFunction** e o repositório de imagens do Docker. O modelo predefinido do módulo de funções do c# é um módulo de pipe, que diretamente encaminha mensagens da montante para downstream.
+3. Adicione o seu segundo módulo ao projeto desta solução. Existem várias formas para adicionar um novo módulo para a solução atual. Introduza e execute o comando **do Azure IoT Edge: módulo do IoT Edge/adicionar**. Selecione o ficheiro de modelo de implementação para atualizar. Ou clique com o botão direito na pasta de módulos ou o ficheiro de deployment.template.json com o botão direito e selecione **Adicionar módulo do IoT Edge**. Em seguida, haverá uma lista pendente para selecionar o tipo de módulo. Selecione um **as funções do Azure - c#** módulo com o nome **PipeFunction** e seu repositório de imagens do Docker. O modelo padrão do módulo de funções c# é um módulo de pipe, que diretamente encaminha as mensagens da montante ao longo do caminho.
 
 4. Abra o ficheiro deployment.template.json. Certifique-se de que o ficheiro declara três módulos e o runtime. A mensagem é gerada a partir do módulo tempSensor. A mensagem é encaminhada diretamente através dos módulos SampleModule e SampleFunction e, em seguida, enviada para o seu hub IoT. 
 
@@ -59,11 +59,11 @@ Também precisa do [Docker para o VS Code](https://marketplace.visualstudio.com/
 
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>Criar e implementar a sua solução do IoT Edge
 
-1. No VS Code **paleta de comando**, introduza e execute o comando **contorno de IoT do Azure: solução de ponta de IoT criar**. Com base no ficheiro module.json em cada pasta de módulo, o comando começa a criar, a colocar em contentores e a emitir cada imagem do Docker do módulo. Em seguida, o comando passa o valor necessário para o ficheiro deployment.template.json e gera o ficheiro deployment.json com informações da pasta de configuração. O terminal integrado no VS Code mostra o progresso da compilação. 
+1. No código VS **paleta de comandos**, introduza e execute o comando **Azure IoT Edge: solução de IoT Edge criar**. Com base no ficheiro module.json em cada pasta de módulo, o comando começa a criar, a colocar em contentores e a emitir cada imagem do Docker do módulo. Em seguida, o comando passa o valor necessário para o ficheiro deployment.template.json e gera o ficheiro deployment.json com informações da pasta de configuração. O terminal integrado no VS Code mostra o progresso da compilação. 
 
 2. No **Device Explorer** do Azure IoT Hub IoT, clique com o botão direito do rato num ID de dispositivo do IoT Edge e, em seguida, selecione o comando **Create deployment for Edge device**. Selecione o ficheiro deployment.json na pasta de configuração. O terminal integrado no VS Code mostra a implementação criada com êxito com um ID de implementação.
 
-3. Se estiver a simulando um dispositivo de limite de IoT no computador de desenvolvimento, pode ver ver de que todos os contentores de imagem de módulo iniciam dentro de alguns minutos.
+3. Se estiver a simular um dispositivo IoT Edge no computador de desenvolvimento, pode ver ver que todos os contentores de imagem do módulo começar em poucos minutos.
 
 ## <a name="view-the-generated-data"></a>Ver os dados gerados
 
@@ -74,5 +74,7 @@ Também precisa do [Docker para o VS Code](https://marketplace.visualstudio.com/
 
 Saiba mais sobre outros cenários para programar com o Azure IoT Edge no Visual Studio Code:
 
-* [Desenvolver um módulo c# no VS Code](how-to-develop-csharp-module.md)
-* [Desenvolver uma função de c# no VS Code](how-to-develop-csharp-function.md)
+* Desenvolver módulos no VS Code com [c#](how-to-develop-csharp-module.md) ou [node. js](how-to-develop-node-module.md).
+* Desenvolver as funções do Azure no VS Code com [c#](how-to-develop-csharp-function.md).
+
+Para desenvolver módulos para os seus dispositivos de IoT Edge [compreender e utilizar os SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).

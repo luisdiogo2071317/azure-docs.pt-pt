@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com autenticação de identidade da plataforma de nuvem de SAP | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e autenticação de identidade da plataforma de nuvem de SAP.
+title: 'Tutorial: Integração do Azure Active Directory com a autenticação de identidade de plataforma de Cloud SAP | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e autenticação de identidade da plataforma de Cloud de SAP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,148 +15,148 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: dc62d7a24a53ffa04026c0f1a40b05b18e6db71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231394"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042151"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do Azure Active Directory com autenticação de identidade da plataforma de nuvem de SAP
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do Azure Active Directory com autenticação de identidade da plataforma de Cloud de SAP
 
-Neste tutorial, saiba como integrar a autenticação de identidade da plataforma de nuvem de SAP no Azure Active Directory (Azure AD). Autenticação de identidade da plataforma de nuvem SAP é utilizada como um proxy IdP para aceder às aplicações de SAP que utilizam o Azure AD como IdP principal.
+Neste tutorial, saiba como integrar a autenticação de identidade da plataforma de Cloud de SAP no Azure Active Directory (Azure AD). Autenticação de identidade da plataforma de Cloud SAP é utilizada como um IdP de proxy para aceder às aplicações de SAP que utilizam o Azure AD como o IdP principal.
 
-Quando integrar a autenticação de identidade da plataforma de nuvem de SAP com o Azure AD, obtenha as seguintes vantagens:
+Ao integrar a autenticação de identidade da plataforma de Cloud de SAP com o Azure AD, obtém os seguintes benefícios:
 
-- Pode controlar no Azure AD quem tem acesso às aplicações SAP.
-- Pode permitir aos utilizadores iniciar sessão automaticamente para SAP aplicações com as respetivas contas do Azure AD.
-- Pode gerir as contas numa única localização central, o portal do Azure.
+- Pode controlar no Azure AD que tenha acesso às aplicações SAP.
+- Pode permitir que os utilizadores iniciem sessão automaticamente nas aplicações com as suas contas do Azure AD de SAP.
+- Pode gerir as suas contas num local central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com autenticação de identidade da plataforma de nuvem de SAP, terá dos seguintes itens:
+Para configurar a integração do Azure AD com autenticação de identidade da plataforma de Cloud de SAP, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD.
-- Uma única sessão em ativado subscrição para autenticação de identidade da plataforma de nuvem de SAP.
+- Uma única sessão em ativada subscrição para autenticação de identidade da plataforma de Cloud de SAP.
 
 > [!NOTE]
-> Não recomendamos a utilização de um ambiente de produção para testar os passos neste tutorial.
+> Não é recomendado utilizar um ambiente de produção para testar os passos neste tutorial.
 
-Para testar os passos neste tutorial, siga estas recomendações:
+Para testar os passos neste tutorial, siga as seguintes recomendações:
 
-- Não utilize o seu ambiente de produção, exceto se for necessário.
+- Não utilize o seu ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, [obtenha uma avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário é descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário que é descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar autenticação de identidade da plataforma de nuvem de SAP da galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando autenticação de identidade da plataforma de Cloud de SAP da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-Antes de aprofundar os detalhes técnicos, é vital para compreender os conceitos que vai consultar. Os serviços de Federação do Active Directory e autenticação de identidade da plataforma de nuvem de SAP permitem-lhe implementar SSO em aplicações ou serviços que estão protegidos pelo Azure AD (como um IdP) com aplicações SAP e serviços que estão protegidos pelo SAP Cloud Autenticação de identidade da plataforma.
+Antes de aprofundar os detalhes técnicos, é fundamental para compreender os conceitos que pretende examinar. A autenticação de identidade da plataforma de Cloud de SAP e serviços de Federação do Active Directory permitem implementar SSO em aplicações ou serviços que estão protegidos pelo Azure AD (como um IdP) com aplicações SAP e serviços que estão protegidos pelo SAP Cloud Autenticação de identidade da plataforma.
 
-Atualmente, autenticação de identidade da plataforma de nuvem de SAP atua como um fornecedor de identidade de Proxy de aplicações SAP. Azure Active Directory por sua vez atua como o fornecedor de identidade à esquerda nesta configuração. 
+Atualmente, a autenticação de identidade da plataforma de Cloud de SAP atua como um fornecedor de identidade do Proxy de aplicações SAP. O Azure Active Directory funciona, por sua vez, como líder no fornecimento de identidade nessa configuração. 
 
-O diagrama seguinte ilustra esta relação:
+O diagrama seguinte ilustra essa relação:
 
 ![Criar um utilizador de teste do Azure AD](./media/sap-hana-cloud-platform-identity-authentication-tutorial/architecture-01.png)
 
-Com esta configuração, o seu inquilino de autenticação de identidade da plataforma de nuvem de SAP está configurado como uma aplicação no Azure Active Directory fidedigna. 
+Com esta configuração, o seu inquilino de autenticação de identidade da plataforma de Cloud de SAP está configurado como um aplicativo confiável no Azure Active Directory. 
 
-Todas as aplicações SAP e serviços que pretende proteger desta forma, subsequentemente, são configurados na consola de gestão de autenticação de identidade da plataforma de nuvem de SAP.
+Todas as aplicações SAP e serviços que pretende proteger desta forma, em seguida, são configurados na consola de gestão de autenticação de identidade da plataforma de Cloud de SAP.
 
-Por conseguinte, a autorização para conceder acesso a serviços e aplicações SAP tem de ocorrer na autenticação de identidade do SAP Cloud Platform (por oposição a Azure Active Directory).
+Por conseguinte, a autorização para conceder acesso a serviços e aplicações SAP precisa ser feita na autenticação de identidade do SAP Cloud Platform (em oposição ao Azure Active Directory).
 
-Ao configurar a autenticação de identidade de plataforma do SAP na nuvem como uma aplicação através do Azure Active Directory Marketplace, não precisa de configurar afirmações individuais ou de asserções de SAML.
+Ao configurar a autenticação de identidade da plataforma de Cloud de SAP como uma aplicação através do Azure Active Directory Marketplace, não terá de configurar afirmações individuais ou asserções SAML.
 
 >[!NOTE] 
->Atualmente, apenas SSO Web foi testado por ambas as partes. Os fluxos que são necessários para a aplicação para API ou outras comunicações API para API devem funcionar mas ainda não foram testados. Irá testar durante as atividades subsequentes.
+>Atualmente, apenas SSO de Web foi testado por ambas as partes. Os fluxos que são necessários para a API de aplicações ou a comunicação de API para API devem funcionar, mas ainda não foram testados. Serão testados durante as atividades subsequentes.
 >
 
-## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>Adicionar autenticação de identidade da plataforma de nuvem de SAP a partir da Galeria
-Para configurar a integração da autenticação de identidade da plataforma de nuvem de SAP no Azure AD, terá de adicionar a autenticação de identidade da plataforma de nuvem de SAP da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>Adicionar autenticação de identidade da plataforma de Cloud de SAP a partir da Galeria
+Para configurar a integração de autenticação de identidade da plataforma de Cloud de SAP no Azure AD, terá de adicionar autenticação de identidade da plataforma de Cloud de SAP a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar a autenticação de identidade da plataforma de nuvem de SAP da galeria do, siga os passos seguintes:**
+**Para adicionar a autenticação de identidade da plataforma de Cloud de SAP da galeria, siga os passos seguintes:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione o **do Azure Active Directory** ícone. 
+1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione a **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Aceda a **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Aceda a **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar novas a nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
+3. Para adicionar novos a nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **autenticação de identidade da plataforma de nuvem de SAP**. 
+4. Na caixa de pesquisa, escreva **autenticação de identidade da plataforma de Cloud de SAP**. 
 
-5. Selecione **autenticação de identidade da plataforma de nuvem de SAP** no painel de resultados e, em seguida, selecione o **adicionar** botão.
+5. Selecione **autenticação de identidade da plataforma de Cloud de SAP** no painel de resultados e, em seguida, selecione a **Add** botão.
 
-    ![SAP autenticação na identidade de plataforma em nuvem na lista de resultados](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_addfromgallery.png)
+    ![Autenticação de identidade do SAP Cloud Platform na lista de resultados](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com autenticação de identidade da plataforma de nuvem de SAP. Configurar e testar com um utilizador de teste chamado "Britta Simon."
+Nesta secção, configure e teste do Azure AD início de sessão único com autenticação de identidade da plataforma de Cloud de SAP. Configurar e testá-lo com um utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber a quem é o utilizador homólogo na autenticação de identidade da plataforma de nuvem de SAP. Por outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado na autenticação de identidade da plataforma de nuvem de SAP.
+Para o início de sessão único funcione, o Azure AD precisa saber quem é o utilizador de equivalente na autenticação de identidade da plataforma de Cloud de SAP. Em outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado na autenticação de identidade da plataforma de Cloud de SAP.
 
-Na autenticação de identidade de plataforma de nuvem de SAP, atribua o valor **Username** o mesmo valor como **nome de utilizador** no Azure AD. Agora tem de estabelecer a ligação entre dois utilizadores.
+Na autenticação de identidade de plataforma de Cloud SAP, atribua o valor **nome de utilizador** o mesmo valor como **nome de utilizador** no Azure AD. Agora que estabeleceu a ligação entre os dois usuários.
 
-Para configurar e testar o Azure AD-início de sessão único com autenticação de identidade da plataforma de nuvem de SAP, conclua os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com autenticação de identidade da plataforma de Cloud de SAP, execute os seguintes blocos de construção:
 
-1. [Configurar o Azure AD-início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar do Azure AD-início de sessão único com Britta Simon.
-3. [Criar um utilizador de teste de autenticação de identidade da plataforma de nuvem de SAP](#create-an-sap-cloud-platform-identity-authentication-test-user) para ter um homólogo de Britta Simon no SAP Cloud Platform autenticação de identidade que está ligada a representação do Azure AD do utilizador.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. [Teste o início de sessão único](#test-single-sign-on) para verificar que a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
+2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. [Criar um utilizador de teste de autenticação de identidade da plataforma de Cloud de SAP](#create-an-sap-cloud-platform-identity-authentication-test-user) para ter um equivalente da Eduarda Almeida no SAP Cloud Platform autenticação de identidade que está ligado à representação de utilizador do Azure AD.
+4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação de autenticação de identidade da plataforma de nuvem de SAP.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação de autenticação de identidade da plataforma de Cloud de SAP.
 
-**Para configurar o Azure AD-início de sessão único com autenticação de identidade da plataforma de nuvem de SAP, siga os passos seguintes:**
+**Para configurar o Azure AD início de sessão único com autenticação de identidade da plataforma de Cloud de SAP, siga os passos seguintes:**
 
-1. No portal do Azure, no **autenticação de identidade da plataforma de nuvem de SAP** página de integração de aplicações, selecione **de sessão único-**.
+1. No portal do Azure, sobre o **autenticação de identidade da plataforma de Cloud de SAP** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo em **baseados em SAML início de sessão**, selecione **modo** para ativar o início de sessão único.
+2. Na **início de sessão único** caixa de diálogo em **baseado em SAML início de sessão**, selecione **modo** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Se pretender configurar a aplicação no **IDP** iniciou modo, o **SAP nuvem plataforma de identidade de autenticação de domínio e os URLs** secção, execute os seguintes passos:  
+3. Se quiser configurar a aplicação no **IDP** iniciadas pelo modo, na **URLs de domínio de autenticação de identidade de plataforma na Cloud SAP e** secção, execute os seguintes passos:  
 
-    ![SAP nuvem plataforma de identidade de autenticação de domínio e os URLs únicos de informações de início de sessão](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
+    ![URLs de domínio de autenticação de identidade de plataforma na Cloud SAP e únicas início de sessão em informações](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
 
-    a. No **identificador** caixa, escreva um URL com o padrão do seguinte: `<IAS-tenant-id>.accounts.ondemand.com`
+    a. Na **identificador** caixa, escreva um URL com o seguinte padrão: `<IAS-tenant-id>.accounts.ondemand.com`
 
-    b. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
-
-    > [!NOTE]
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte o [equipa de suporte de cliente de autenticação de identidade de plataforma de nuvem de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) para obter estes valores. Se não compreender o valor do identificador, leia a documentação de autenticação de identidade da plataforma de nuvem de SAP sobre [inquilino SAML 2.0 configuração](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
-
-4. Se pretender configurar a aplicação no **SP** modo iniciado, selecione **Mostrar avançadas definições de URL**.
-
-    ![SAP nuvem plataforma de identidade de autenticação de domínio e os URLs únicos de informações de início de sessão](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
-
-    No **URL de início de sessão** caixa, escreva um URL com o padrão seguinte: `{YOUR BUSINESS APPLICATION URL}`.
+    b. Na **URL de resposta** caixa, escreva um URL com o seguinte padrão: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
     > [!NOTE]
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Utilize o seu negócio específico início de sessão no URL da aplicação. Contacte o [equipa de suporte de cliente de autenticação de identidade de plataforma de nuvem de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) se tiver qualquer dúvida.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte os [equipa de suporte de cliente de autenticação de identidade de plataforma de Cloud de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) obter esses valores. Se não sabe o valor do identificador, leia a documentação de autenticação de identidade da plataforma de Cloud de SAP sobre [configuração do inquilino SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-5. No **certificado de assinatura de SAML** secção, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
+4. Se quiser configurar a aplicação no **SP** modo iniciado, selecione **Mostrar definições de URL avançadas**.
 
-    ![A hiperligação de transferência do certificado](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_certificate.png)
+    ![URLs de domínio de autenticação de identidade de plataforma na Cloud SAP e únicas início de sessão em informações](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
 
-6. Aplicação de autenticação de identidade de plataforma em nuvem do SAP espera as asserções de SAML num formato específico. Gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo do formato. 
+    Na **URL de início de sessão** caixa, escreva um URL com o seguinte padrão: `{YOUR BUSINESS APPLICATION URL}`.
+
+    > [!NOTE]
+    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Utilize o seu negócio específico início de sessão URL da aplicação. Contacte os [equipa de suporte de cliente de autenticação de identidade de plataforma de Cloud de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) se tiver qualquer dúvida.
+
+5. Na **certificado de assinatura SAML** secção, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
+
+    ![O link de download de certificado](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_certificate.png)
+
+6. Aplicação de autenticação de identidade de plataforma em nuvem SAP espera que as asserções SAML num formato específico. Gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicativo. Captura de ecrã seguinte mostra um exemplo do formato. 
 
     ![Configurar o início de sessão único](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
 
-7. Se a aplicação de SAP espera um atributo, tal como **firstName**, adicionar o **firstName** atributo no **atributos de utilizador** secção. Esta opção está disponível no **de sessão único-** caixa de diálogo do **atributos token SAML** caixa de diálogo...
+7. Se a sua aplicação SAP espera que um atributo, tal como **firstName**, adicionar o **firstName** atributo o **atributos de utilizador** secção. Esta opção está disponível na **início de sessão único** caixa de diálogo da **atributos de token SAML** caixa de diálogo....
 
     a. Para abrir o **adicionar atributo** caixa de diálogo, selecione **adicionar atributo**. 
     
@@ -164,42 +164,42 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     ![Configurar o início de sessão único](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_05.png)
     
-    b. No **nome** caixa, escreva o nome de atributo **firstName**.
+    b. Na **Name** , escreva o nome de atributo **firstName**.
     
-    c. Do **valor** lista, selecione o valor do atributo **user.givenname**.
+    c. Partir do **valor** , selecione o valor do atributo **user.givenname**.
     
     d. Selecione **Ok**.
 
 8. Selecione o botão **Guardar**.
 
-    ![Configurar o início de sessão de gravação botão](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_400.png)
+    ![Configurar o início de sessão único botão Save](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_400.png)
 
-9. No **configuração de autenticação de identidade de plataforma de nuvem de SAP** secção, selecione **configurar a autenticação na nuvem plataforma de identidade** para abrir o **configurar início de sessão**janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+9. Na **configuração de autenticação de identidade de plataforma de Cloud de SAP** secção, selecione **configurar a SAP Cloud plataforma de identidade de autenticação** para abrir o **configurar início de sessão**janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
-    ![Configuração de autenticação de identidade de plataforma de nuvem SAP](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_configure.png) 
+    ![Configuração de autenticação de identidade de plataforma de Cloud SAP](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_configure.png) 
 
-10. Para obter SSO configurado para a sua aplicação, vá para a consola de administração de autenticação de identidade da plataforma de nuvem de SAP. O URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin`. Em seguida, leia a documentação sobre autenticação de identidade do SAP Cloud Platform em [integração com o Microsoft Azure AD](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
+10. Para obter SSO configurado para a sua aplicação, vá para a consola de administração de autenticação de identidade da plataforma de Cloud de SAP. O URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin`. Em seguida, leia a documentação sobre a autenticação de identidade do SAP Cloud Platform em [integração com o Microsoft Azure AD](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
 
 11. No portal do Azure, selecione o **guardar** botão.
 
-12. Só continue com o seguinte se pretende adicionar e ativar a SSO para outra aplicação de SAP. Repita os passos na secção **adicionar SAP autenticação em nuvem plataforma de identidade da galeria do**.
+12. Continue com o seguinte procedimento apenas se pretende adicionar e ativar o SSO para outra aplicação SAP. Repita os passos na secção **adicionar SAP Cloud Platform autenticação de identidade na galeria do**.
 
-13. No portal do Azure, no **autenticação de identidade da plataforma de nuvem de SAP** página de integração de aplicações, selecione **ligado início de sessão**.
+13. No portal do Azure, sobre o **autenticação de identidade da plataforma de Cloud de SAP** página de integração de aplicações, selecione **início de sessão ligado em**.
 
     ![Configurar o início de sessão ligado](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
 
 14. Guarde a configuração.
 
 >[!NOTE] 
->A nova aplicação tira partido da configuração único início de sessão da aplicação SAP anterior. Certifique-se de que utiliza o mesmo fornecedores de identidade empresarial na consola de administração de autenticação de identidade da plataforma de nuvem de SAP.
+>A nova aplicação tira partido da configuração única início de sessão do aplicativo SAP anterior. Certifique-se de que utilizar os mesmos fornecedores de identidade empresarial na consola de administração de autenticação de identidade da plataforma de Cloud de SAP.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com) enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir de **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e aceder a incorporados documentação através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados em [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com) enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e acessar o embedded documentação através da **configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded em [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
@@ -211,76 +211,76 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, selecione **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, selecione **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **utilizador** caixa de diálogo, selecione **Add** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, siga os passos seguintes:
+4. Na **utilizador** diálogo caixa, siga os passos seguintes:
 
     ![A caixa de diálogo de utilizador](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Selecione **Criar**.
  
-### <a name="create-an-sap-cloud-platform-identity-authentication-test-user"></a>Criar um utilizador de teste de autenticação de identidade da plataforma de nuvem de SAP
+### <a name="create-an-sap-cloud-platform-identity-authentication-test-user"></a>Criar um utilizador de teste de autenticação de identidade da plataforma de Cloud de SAP
 
-Não precisa de criar um utilizador na autenticação de identidade da plataforma de nuvem de SAP. Os utilizadores que estão no arquivo de utilizador do Azure AD podem utilizar a funcionalidade SSO.
+Não precisa de criar um utilizador na autenticação de identidade da plataforma de Cloud de SAP. Os utilizadores que estão no arquivo de utilizador do Azure AD podem utilizar a funcionalidade SSO.
 
-A autenticação de identidade da plataforma de nuvem SAP suporta a opção de Federação de identidade. Esta opção permite que a aplicação verificar se os utilizadores que são autenticados pelo fornecedor de identidade empresarial existem no arquivo de SAP nuvem plataforma de identidade autenticação de utilizador. 
+Autenticação de identidade da plataforma de Cloud SAP suporta a opção de Federação de identidades. Esta opção permite que o aplicativo verificar se os utilizadores que são autenticados pelo fornecedor de identidade empresarial existem no arquivo de SAP Cloud plataforma de identidade autenticação de utilizador. 
 
-A opção de Federação de identidade está desativada por predefinição. Se estiver ativada a Federação de identidade, apenas os utilizadores que são importados na autenticação de identidade da plataforma de nuvem de SAP podem aceder à aplicação. 
+A opção de Federação de identidades está desativada por predefinição. Se estiver ativada a Federação de identidades, apenas os utilizadores que são importados na autenticação de identidade da plataforma de Cloud de SAP podem aceder à aplicação. 
 
-Para obter mais informações sobre como ativar ou desativar a Federação de identidade com a autenticação de identidade da plataforma de nuvem de SAP, consulte "Ativar identidade federação com o SAP autenticação em nuvem plataforma de identidade" em [configurar a Federação de identidade com o Autenticação de identidade do utilizador arquivo do SAP na nuvem plataforma](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
+Para obter mais informações sobre como ativar ou desativar o Federação de identidades com autenticação de identidade da plataforma de Cloud de SAP, consulte "Ativar a Federação com o SAP Cloud plataforma identidade autenticação de identidade" no [configurar a Federação de identidades com o Autenticação de identidade do utilizador Store de SAP Cloud Platform](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para autenticação de identidade da plataforma de nuvem de SAP.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para autenticação de identidade da plataforma de Cloud de SAP.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a autenticação de identidade da plataforma de nuvem de SAP, siga os passos seguintes:**
+**Para atribuir a Eduarda Almeida a autenticação de identidade da plataforma de Cloud de SAP, siga os passos seguintes:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, avance para a vista de diretório. Em seguida, aceda a **aplicações empresariais**e, em seguida, selecione **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, vá para o modo de exibição do diretório. Em seguida, aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **autenticação de identidade da plataforma de nuvem de SAP**.
+2. Na lista de aplicações, selecione **autenticação de identidade da plataforma de Cloud de SAP**.
 
-    ![A ligação de autenticação de identidade da plataforma de nuvem de SAP na lista de aplicações](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
+    ![A ligação de autenticação de identidade da plataforma de Cloud de SAP na lista de aplicações](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
 4. Selecione o **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em de **selecione** clique no botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique nas **selecionar** botão no **utilizadores e grupos** caixa de diálogo.
 
-7. Selecione o **atribuir** clique no botão no **adicionar atribuição** caixa de diálogo.
+7. Selecione o **atribua** botão no **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 
-Quando seleciona o mosaico de autenticação de identidade da plataforma de nuvem de SAP no painel de acesso, pode obter iniciada automaticamente a aplicação de autenticação de identidade da plataforma de nuvem de SAP.
+Ao selecionar o mosaico de autenticação de identidade da plataforma de Cloud de SAP no painel de acesso, é automaticamente feita na sua aplicação de autenticação de identidade da plataforma de Cloud de SAP.
 
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
