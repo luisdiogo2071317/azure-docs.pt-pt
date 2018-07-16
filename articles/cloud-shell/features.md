@@ -1,5 +1,5 @@
 ---
-title: Recursos do Azure Cloud Shell de bash | Documentos da Microsoft
+title: As funcionalidades do Azure Cloud Shell | Documentos da Microsoft
 description: Descrição geral das funcionalidades de Bash no Azure Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: f0be50a3e8328c26651e0db5c8fae708518a0ea1
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 09c3ca23aafc8519b9e3ad57d030f066bb153e26
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861895"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056196"
 ---
-# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Bash no Azure Cloud Shell
+# <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Azure Cloud Shell
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
@@ -59,11 +59,11 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 
 |Categoria   |Nome   |
 |---|---|
-|Ferramentas do Linux            |bash<br> zsh<br> SH<br> tmux<br> aprofundar<br>               |
+|Ferramentas do Linux            |Bash<br> zsh<br> SH<br> tmux<br> aprofundar<br>               |
 |Ferramentas do Azure            |[CLI 2.0 do Azure](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Editores de texto           |VIM<br> Nano<br> emacs       |
 |Controlo de origem         |git                    |
-|Ferramentas de compilação            |tornar<br> maven<br> npm<br> PIP         |
+|Ferramentas de compilação            |Tornar<br> Maven<br> npm<br> PIP         |
 |Contentores             |[CLI do docker](https://github.com/docker/cli)/[máquina do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bases de Dados              |Cliente de MySQL<br> PostgreSql client<br> [Utilitário de SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Outros                  |iPython cliente<br> [Cloud Foundry da CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 

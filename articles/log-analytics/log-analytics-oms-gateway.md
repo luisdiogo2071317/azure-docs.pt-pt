@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bbb17d1b47c5409d15a15a7461da981fa5e09f7e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868944"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056839"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar computadores sem acesso à Internet através do Gateway de OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e ligadas do Log Analytics com o Gateway do OMS quando direto ou computadores monitorizados do Operations Manager não tem acesso à Internet.  O Gateway de OMS, que é um proxy de encaminhamento de HTTP que suporte a HTTP com o comando de ligação HTTP de túnel, pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em seu nome.  
@@ -89,8 +89,8 @@ A tabela seguinte realça o número suportado de agentes ao comunicar com um ser
 
 |Gateway |Aprox. número de agentes suportados|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON CPU E5 2660 v3 @ 2,6 GHz 2 núcleos<br> -Memória: 4 GB<br> -Largura de banda de rede: 1 Gbps| 600|  
-|-CPU: Intel XEON CPU E5 2660 v3 @ 2,6 GHz 4 núcleos<br> -Memória: 8 GB<br> -Largura de banda de rede: 1 Gbps| 1000|  
+|-CPU: Intel XEON CPU E5 2660 v3 \@ núcleos de 2,6 GHz 2<br> -Memória: 4 GB<br> -Largura de banda de rede: 1 Gbps| 600|  
+|-CPU: Intel XEON CPU E5 2660 v3 \@ 2,6 GHz 4 núcleos<br> -Memória: 8 GB<br> -Largura de banda de rede: 1 Gbps| 1000|  
 
 ## <a name="download-the-oms-gateway"></a>Transferir o Gateway OMS
 

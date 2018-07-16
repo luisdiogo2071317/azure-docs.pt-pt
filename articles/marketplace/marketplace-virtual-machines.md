@@ -1,0 +1,79 @@
+---
+title: Guia para o Azure Marketplace de publicação de oferta de máquina virtual
+description: Este artigo descreve os requisitos para publicar uma máquina virtual e uma versão de avaliação gratuita de software para ser implementadas a partir do Marketplace.
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+documentationcenter: ''
+author: ellacroi
+manager: nunoc
+editor: ''
+ms.assetid: ''
+ms.service: marketplace
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: article
+ms.date: 07/09/2018
+ms.author: ellacroi
+ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059768"
+---
+# <a name="virtual-machine-offer-publishing-guide"></a>Guia de publicação de oferta de máquina virtual
+
+Imagens de máquinas virtuais são uma das principais formas que publicar uma solução no Azure Marketplace. Utilize este guia para compreender os requisitos para esta oferta. 
+
+Estes são ofertas de transação que são implementadas e faturadas através do Marketplace. A chamada a ação que um utilizador vê é a "Obter agora."
+
+## <a name="free-trial"></a>Avaliação gratuita 
+
+Pode fazer com que os utilizadores testar a sua oferta acedendo às licenças de software do período de validade limitado ao utilizar o modelo de blling traga a sua própria licença (BYOL). Seguem-se os requisitos para implementar esta oferta. 
+
+|Requisitos  |Detalhes  |
+|---------|---------|
+|Período de avaliação gratuita e a experiência de avaliação     |   Seu cliente pode experimentar a aplicação gratuitamente por um período limitado. Seu cliente não é necessário pagar quaisquer taxas de licenciamento ou de subscrição para a sua oferta. Os clientes não são necessários para pagar o produto de original Microsoft subjacente ou serviço. Todas as opções de avaliação são implementadas para a sua subscrição do Azure. Tem controle único da otimização de custos e a gestão. Pode optar por uma demonstração de avaliação ou interativa gratuita. Não importa o que escolha, a sua avaliação gratuita tem de fornecer o cliente uma quantidade predefinida de tempo de testar a sua oferta sem custos adicionais.|
+|Solução facilmente configurável e prontos a utilizar    |  A aplicação tem de ser fácil e rápida configurar e configurar.       |
+|Disponibilidade / tempo de atividade    |    A aplicação de SaaS ou plataforma tem de ter um tempo de atividade de, pelo menos, 99,9%.     |
+|Azure Active Directory     |    A oferta tem de permitir a que Azure Active Directory (Azure AD) federadas início de sessão único (SSO) (SSO federado do Azure AD) com o consentimento ativado.     |
+
+## <a name="test-drive"></a>Test Drive
+
+Implementar um ou mais máquinas virtuais por meio de infrastructure-as-a-service(IaaS) ou aplicações SaaS. Tour interativo de um benefício da unidade de teste que opção de publicação é o aprovisionamento automatizado de uma máquina virtual ou a solução inteira, liderado por um hospedada pelo parceiro. Uma versão de teste fornece uma edição de avaliação sem custos adicionais para o seu cliente. Seu cliente não precisa de ser um cliente existente do Azure a interagir com a experiência de avaliação. 
+
+E-mail amp-testdrive@microsoft.com para começar a utilizar. 
+
+|Requisitos  |Detalhes |
+|---------|---------|
+| Tem um aplicativo do Marketplace   |    Um ou mais máquinas de virtuais por meio de IaaS ou SaaS.      |
+
+## <a name="interactive-demo"></a>Demo Interativa
+
+Fornecer uma experiência orientada da sua solução aos seus clientes através de uma demonstração interativa. O benefício de demonstração interativa, opção de publicação é que fornecer uma experiência de avaliação sem aprovisionar complicadas da sua solução complexa. 
+
+## <a name="virtual-machine-offer"></a>Oferta de máquina virtual
+
+Utilize o tipo de oferta de máquina virtual ao implementar uma aplicação virtual para a subscrição associada do seu cliente. As VMs são totalmente commerce ativada com modelos de licenciamento de pay as you go ou bring-your-own-license (BYOL). A Microsoft aloja a transação de comércio e cobra o seu cliente em seu nome. Obtém a vantagem de utilizar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo todos os contratos Enterprise.
+
+>[!NOTE]
+>Neste momento, compromissos monetários, associados com um contrato Enterprise podem ser utilizado contra a utilização do Azure da sua VM, mas não em relação a taxas de licenciamento de software.  
+
+>[!NOTE]
+>É possível restringir a deteção e a implementação da sua VM a um conjunto específico de clientes ao publicar a imagem e preços como uma oferta privada. Ofertas privadas desbloquear a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e personalizada de software e os termos da oferta. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo o campo ministrado por negociações com especializadas de preços e termos, bem como acesso antecipado a software de versão limitada. Ofertas privadas ativar para lhe permitir disponibilizar preços específicos ou produtos para um conjunto limitado de clientes através da criação de um novo SKU com esses detalhes.  
+*   Para obter mais informações sobre ofertas privadas, visite as ofertas de privado no Azure Marketplace, página localizada em [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+
+| Requisito | Detalhes |  
+|:--- |:--- | 
+| Faturação e medição | A VM tem de suportar uma faturação mensal BYOL ou pay as you go. |  
+| Compatível com o Azure de disco rígido virtual (VHD) | As VMs devem ser criadas no Windows ou Linux.<ul> <li>Para obter mais informações sobre a criação de um VHD do Linux, visite o criar um VHD compatível com o Azure (baseado em Linux) secção localizado em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-Compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obter mais informações sobre a criação de um VHD do Windows, visite o criar um VHD compatível com o Azure secção (baseados em Windows), localizado em [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-Compatible-VHD-Windows-Based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+
+## <a name="next-steps"></a>Próximos Passos
+
+Se ainda não fez isso, 
+
+- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace
+
+Se é registrado e estiver a criar uma nova oferta ou trabalhando num já existente
+
+- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta

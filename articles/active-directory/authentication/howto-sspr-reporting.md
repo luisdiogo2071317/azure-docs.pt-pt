@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37444247"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044533"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -49,7 +49,7 @@ A experiência do portal do Azure, melhorámos a maneira que pode ver a reposiç
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no painel esquerdo.
 3. Procure **do Azure Active Directory** na lista de serviços e selecioná-lo.
-4. Selecione **utilizadores e grupos**.
+4. Selecionar **Utilizadores e grupos**.
 5. Selecione **registos de auditoria** partir do **utilizadores e grupos** menu. Isso mostra todos os eventos de auditoria que ocorreram em relação a todos os utilizadores no seu diretório. Pode filtrar esta vista para ver todos os eventos relacionados com a palavra-passe.
 6. Para filtrar esta vista para ver apenas os eventos relacionados à reposição de palavra-passe, selecione o **filtro** botão na parte superior do painel.
 7. Do **filtro** menu, selecione a **categoria** pendente lista e altere-o para o **gestão de palavras-passe Self-Service** tipo de categoria.
@@ -173,8 +173,8 @@ A lista a seguir explica esta atividade detalhadamente:
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Reponha ou altere a palavra-passe](../active-directory-passwords-update-your-own-password.md).
-* [Registe-se na reposição personalizada de palavras-passe](../active-directory-passwords-reset-register.md).
+* [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registe-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md).
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)

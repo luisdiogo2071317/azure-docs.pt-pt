@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com 8 x 8 Virtual Office | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory diretório e 8 x 8 Virtual Office.
+title: 'Tutorial: Integração do Azure Active Directory com o Office de Virtual de 8 x 8 | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory diretório e 8 x 8 Virtual Office.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: a7557a5dc19fd08461a18252d914b74306816c8a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3a33f9ba0ca744709e21e9e55acc22b657c2adc2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216852"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048424"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integração do Azure Active Directory com 8 x 8 Virtual Office
+# <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integração do Azure Active Directory com o Office de Virtual de 8 x 8
 
-Neste tutorial, irá aprender a integrar 8 x 8 Virtual Office no Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o Office de Virtual de 8 x 8 com o Azure Active Directory (Azure AD).
 
-Integrar 8 x 8 Office Virtual com o Azure AD fornece as seguintes vantagens:
+Integração de 8 x 8 Office Virtual com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Office de Virtual 8 x 8
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para 8 x 8 Virtual Office (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao Office de Virtual de 8 x 8
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o Office de Virtual de 8 x 8 (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com 8 x 8 Virtual Office, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o Office de Virtual de 8 x 8, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Uma 8 x 8 Virtual único início de sessão ativada subscrição do Office
+- Um 8 x 8 Virtual Office-início de sessão único de subscrição ativada
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. A adição de 8 x 8 Virtual Office de galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionar 8 x 8 Virtual Office a partir da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-8x8-virtual-office-from-the-gallery"></a>A adição de 8 x 8 Virtual Office de galeria
-Para configurar a integração do Office de Virtual 8 x 8 com o Azure AD, tem de adicionar 8 x 8 Virtual Office da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-8x8-virtual-office-from-the-gallery"></a>Adicionar 8 x 8 Virtual Office a partir da Galeria
+Para configurar a integração do Office de Virtual de 8 x 8 com o Azure AD, terá de adicionar 8 x 8 Virtual Office a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar 8 x 8 Virtual Office da galeria do, execute os seguintes passos:**
+**Para adicionar 8 x 8 Virtual Office a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,60 +75,60 @@ Para configurar a integração do Office de Virtual 8 x 8 com o Azure AD, tem de
 
     ![Criar um utilizador de teste do Azure AD](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_search.png)
 
-5. No painel de resultados, selecione **8 x 8 Virtual Office**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **8 x 8 Virtual Office**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configurar e testar o Azure AD-início de sessão único com 8 x 8 que virtual Office com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configurar e testar o Azure AD início de sessão único com 8 x 8 que virtual Office com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber que o utilizador de homólogo 8 x 8 Virtual Office for para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no 8 x 8 Virtual Office tem de ser estabelecida.
+Para início de sessão único funcione, o Azure AD precisa de saber o que o utilizador de contraparte 8 x 8 Virtual Office for para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado 8 x 8 Virtual Office deve ser estabelecido.
 
-No escritório de Virtual 8, 8, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+No escritório de Virtual de 8 x 8, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com o Office de Virtual 8, 8, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o Office de Virtual de 8 x 8, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste do Virtual Office 8 x 8](#creating-a-8x8-virtual-office-test-user)**  - para ter um homólogo de Britta Simon 8 x 8 Virtual Office que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de escritório Virtual 8 x 8](#creating-a-8x8-virtual-office-test-user)**  - para ter um equivalente da Eduarda Almeida no escritório de Virtual de 8 x 8 que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação do Virtual Office 8 x 8.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na aplicação do Virtual Office de 8 x 8.
 
-**Para configurar o Azure AD-início de sessão único com 8 x 8 Virtual Office, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o Office de Virtual de 8 x 8, execute os seguintes passos:**
 
-1. No portal do Azure, no **8 x 8 Virtual Office** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **8 x 8 Virtual Office** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_samlbase.png)
 
-3. No **8 x 8 Virtual Office domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **8 x 8 Virtual Office domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
 
     | `https://sso.8x8.com/<companyname>` |
     | `https://www.8x8.com/<companyname>` |
     | `https://sso.8x8pilot.com/<companyname>` |
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
 
     | `https://<subdomain>.8x8.com/saml2` |
     | `https://<subdomain>.8x8pilot.com/saml2`|
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte do Virtual Office 8 x 8](https://www.8x8.com/about-us/contact-us) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte do Virtual Office 8 x 8](https://www.8x8.com/about-us/contact-us) obter esses valores.
  
 
 
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (bruto)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (bruto)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_certificate.png) 
 
@@ -136,21 +136,21 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/8x8virtualoffice-tutorial/tutorial_general_400.png)
 
-6. No **8 x 8 Virtual Office configuração** secção, clique em **Office Virtual configurar 8 x 8** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Na **configuração do Office de Virtual de 8 x 8** secção, clique em **Office Virtual de configurar 8 x 8** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_configure.png) 
 
-7. Início de sessão no seu inquilino de Virtual Office 8 x 8 como administrador.
+7. Início de sessão no seu inquilino do Virtual Office 8 x 8 como administrador.
 
-8. Selecione **Gestor de conta do Virtual Office** no painel da aplicação.
+8. Selecione **Gestor de conta do Virtual Office** no painel de aplicação.
    
     ![Configurar no lado de aplicação](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
-9. Selecione **negócio** conta para gerir e clique em **sessão** botão.
+9. Selecione **Business** conta para gerir e clique em **sessão** botão.
    
     ![Configurar no lado de aplicação](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. Clique em **contas** separador na lista de menu.
+10. Clique em **contas** guia na lista de menu.
    
     ![Configurar no lado de aplicação](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
@@ -162,24 +162,24 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     ![Configurar no lado de aplicação](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. Cópia **URL SAML SSO**, **único iniciar sessão enviados o URL do serviço** e **URL do emissor** do Azure AD para **iniciar sessão no URL**, **termine URL**  e **URL do emissor** no escritório Virtual 8 x 8. 
+13. Cópia **URL de SAML SSO**, **única sessão. o URL do serviço de fim** e **URL do emissor** do Azure AD para **inicie sessão no URL**, **termine de URL**  e **URL do emissor** no escritório de Virtual de 8 x 8. 
     
     ![Configurar no lado de aplicação](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
     
-14. Clique em **Browser** botão para carregar o certificado que transferiu a partir do Azure AD e clique em de **guardar** botão.
+14. Clique em **Browser** botão para carregar o certificado que transferiu a partir do Azure AD e clique nas **guardar** botão.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/8x8virtualoffice-tutorial/create_aaduser_01.png) 
 
@@ -187,42 +187,42 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/8x8virtualoffice-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/8x8virtualoffice-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/8x8virtualoffice-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-8x8-virtual-office-test-user"></a>Criar um utilizador de teste do Virtual Office 8 x 8
+### <a name="creating-a-8x8-virtual-office-test-user"></a>Criar um utilizador de teste de escritório Virtual 8 x 8
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon no escritório de Virtual 8 x 8. 8 x 8 Virtual Office suporta aprovisionamento just-in-time, que é por predefinição ativada.
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida no escritório de Virtual de 8 x 8. 8 x 8 Virtual Office suporta o aprovisionamento just-in-time, que está por predefinição, ativada.
 
-Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante a tentativa de aceder a 8 x 8 Virtual Office se não existir ainda. 
+Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder a 8 x 8 Virtual Office se não existir ainda. 
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte do Virtual Office 8 x 8](https://www.8x8.com/about-us/contact-us). 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso ao Office de Virtual 8 x 8.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao Office de Virtual de 8 x 8.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a 8 x 8 Virtual Office, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida 8 x 8 Virtual Office, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **8 x 8 Virtual Office**.
 
@@ -230,29 +230,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico do Virtual Office 8 x 8 no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação do Virtual Office 8 x 8.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md)
+Quando clica no mosaico de escritório Virtual 8 x 8 no painel de acesso, deve obter automaticamente com sessão iniciada a aplicação do Virtual Office de 8 x 8.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

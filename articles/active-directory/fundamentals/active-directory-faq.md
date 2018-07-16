@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 8b0a591f84dd8ece0f6a8e2de19cddfee21b28e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450112"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054748"
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -93,7 +93,7 @@ Para obter mais informações, consulte [Integrating your on-premises identities
 
 **R:** Sim, o Azure AD fornece o acesso ao [Painel de Acesso do Azure AD](http://myapps.microsoft.com) para acesso a utilizadores pessoalizados e a aplicações. Se for um cliente do Office 365, poderá encontrar muitas das mesmas funcionalidades no portal do Office 365.
 
-Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](../active-directory-saas-access-panel-introduction.md).
+Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](../user-help/active-directory-saas-access-panel-introduction.md).
 
 - - -
 **P: O Azure AD ajuda-me a gerir a minha infraestrutura no local?**

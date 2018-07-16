@@ -1,3 +1,3 @@
 > [!TIP]
-> O conteúdo neste artigo aplica-se para o armazenamento de Azure Table original. No entanto, agora é um oferta para armazenamento de tabelas, a API de tabela de base de dados do Azure Cosmos, oferece tabelas com otimização de débito, distribuição global e índices secundários automáticos de premium. Para obter mais informações e experimentar a experiência de premium, consulte [API de tabela de base de dados do Azure Cosmos](https://aka.ms/premiumtables).
+> O conteúdo deste artigo aplica-se ao armazenamento de Tabelas do Azure original. Contudo, agora existe uma oferta premium do armazenamento de tabelas, a API de Tabela do Azure Cosmos DB, que oferece tabelas com otimização de débito, distribuição global e índices secundários automáticos. Para saber mais e experimentar a experiência premium, veja [API de Tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
 >

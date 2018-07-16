@@ -1,6 +1,6 @@
 ---
-title: Azure multi-factor Authentication FAQ | Microsoft Docs
-description: Perguntas mais frequentes e respostas relacionadas com a multi-factor Authentication do Azure.
+title: Multi-factor Authentication perguntas frequentes | Documentos da Microsoft
+description: Perguntas mais frequentes e respostas relacionadas ao Azure multi-factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -10,29 +10,29 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128695"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049416"
 ---
-# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o multi-factor Authentication do Azure
+# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
-Estas FAQ responde a questões recorrentes sobre o multi-factor Authentication do Azure e utilizar o serviço de multi-factor Authentication. Este é dividido em perguntas sobre o serviço em geral, modelos, experiências de utilizador, de faturação e resolução de problemas.
+Encontre respostas para perguntas comuns sobre o multi-factor Authentication do Azure e utilizar o serviço de multi-factor Authentication. Ele é dividido em perguntas sobre o serviço em geral, modelos, experiências do usuário, de faturação e resolução de problemas.
 
 ## <a name="general"></a>Geral
-**P: como é que o servidor do Azure multi-factor Authentication processar dados de utilizador?**
+**P: como é que o servidor de autenticação do multi-factor do Azure processa dados de utilizador?**
 
-Com o servidor do multi-factor Authentication, os dados de utilizador são armazenados apenas nos servidores no local. Nenhuns dados de utilizador persistentes são armazenados na nuvem. Quando o utilizador efetua a verificação de dois passos, o servidor multi-factor Authentication envia dados para o serviço de nuvem do Azure multi-factor Authentication para autenticação. A comunicação entre o servidor multi-factor Authentication e o serviço de nuvem do multi-factor Authentication utiliza Secure Sockets Layer (SSL) ou Transport Layer Security (TLS) através da porta 443 de saída.
+Com o servidor do multi-factor Authentication, os dados de utilizador são armazenados apenas nos servidores no local. Nenhuns dados de utilizador persistentes são armazenados na nuvem. Quando o utilizador efetua a verificação de dois passos, o servidor multi-factor Authentication envia dados para o serviço de nuvem do Azure multi-factor Authentication para autenticação. A comunicação entre o servidor multi-factor Authentication e o serviço de nuvem do multi-factor Authentication utiliza o Secure Sockets Layer (SSL) ou Transport Layer Security (TLS) através da porta 443 de saída.
 
-Pedidos de autenticação são enviados para o serviço em nuvem, os dados são recolhidos para autenticação e a utilização de relatórios. Os campos de dados incluídos nos registos de verificação de dois passos são os seguintes:
+Quando os pedidos de autenticação são enviados para o serviço em nuvem, os dados são recolhidos para a autenticação e a utilização de relatórios. Campos de dados incluídos nos logs de verificação de dois passos são os seguintes:
 
-* **ID exclusivo** (o nome ou no local multi-factor Authentication Server ID de utilizador)
+* **ID exclusivo** (de qualquer nome ou no local multi-factor Authentication Server ID de utilizador)
 * **Primeiro e último nome** (opcional)
-* **Endereço de correio eletrónico** (opcional)
+* **Endereço de e-mail** (opcional)
 * **Número de telefone** (ao utilizar uma chamada de voz ou autenticação por SMS)
-* **Token do dispositivo** (ao utilizar a autenticação da aplicação móvel)
+* **Token de dispositivo** (ao utilizar a autenticação da aplicação móvel)
 * **Modo de autenticação**
 * **Resultado da autenticação**
 * **Nome do servidor multi-factor Authentication**
@@ -41,182 +41,182 @@ Pedidos de autenticação são enviados para o serviço em nuvem, os dados são 
 
 Os campos opcionais podem ser configurados no servidor multi-factor Authentication.
 
-O resultado de verificação (êxito ou recusa) e o motivo pelo qual se foi negado, é armazenada com os dados de autenticação. Estes dados ficarem disponíveis nos relatórios de utilização e de autenticação.
+O resultado da verificação (êxito ou recusa) e o motivo pelo qual se foi negado, são armazenados com os dados de autenticação. Estes dados estão disponíveis em relatórios de utilização e de autenticação.
 
-**P: quais códigos curtos de SMS são utilizados para enviar mensagens SMS para os meus utilizadores?**
+**P: quais códigos de curtos de SMS são utilizados para enviar mensagens SMS para os meus utilizadores?**
 
-Dos Estados Unidos, a Microsoft utiliza os seguintes códigos de curtos de SMS:
+No Microsoft dos Estados Unidos utiliza os seguintes códigos de curtos de SMS:
 
    * 97671
    * 69829
    * 51789
    * 99399
 
-No Canadá, a Microsoft utiliza os seguintes códigos de curtos de SMS:
+No Canadá Microsoft utiliza os seguintes códigos de curtos de SMS:
 
    * 759731 
    * 673801
 
-A Microsoft não garante consistente SMS ou baseada em voz multi-factor Authentication pedida de entrega pelo mesmo número. Com o intuito de nossos utilizadores, o Microsoft poderá de adicionar ou remover códigos curtos em qualquer altura, como podemos efetuar ajustes de rota para melhorar a deliverability SMS. Microsoft não suporta códigos curtos para países para além dos Estados Unidos e Canadá
+A Microsoft não garante consistente SMS ou voz com base no multi-factor Authentication prompt entrega pelo mesmo número. Com o intuito de nossos usuários, a Microsoft poderá adicionar ou remover curtos códigos em qualquer altura, à medida que faz ajustes de rota para melhorar a capacidade de entrega SMS. A Microsoft não suporta códigos curtos para países além dos Estados Unidos e Canadá
 
 ## <a name="billing"></a>Faturação
-Perguntas sobre faturação a maioria das pode ser respondido ao referir-se quer o [página de preços do multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou a documentação sobre [como obter o Azure multi-factor Authentication](concept-mfa-licensing.md).
+A maioria das questões de faturas podem ser respondidas ao referir-se a qualquer uma de [página de preços do multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou a documentação sobre [como obter o Azure multi-factor Authentication](concept-mfa-licensing.md).
 
-**P: é a minha organização cobrada para enviar as mensagens de texto que são utilizadas para autenticação e as chamadas telefónicas?**
+**P: é a minha organização cobrada para enviar as chamadas telefónicas e mensagens de texto que são utilizadas para autenticação?**
 
-Não, não lhe serem cobrados para texto ou individuais chamadas telefónicas colocadas as mensagens enviadas aos utilizadores através do Azure multi-factor Authentication. Se utilizar um fornecedor MFA por autenticação, é-lhe faturado para cada autenticação, mas não para o método utilizado.
+Não, não é cobrada por telefonemas individuais ou texto as mensagens enviadas aos utilizadores através do multi-factor Authentication. Se utilizar um fornecedor MFA por autenticação, é-lhe cobrada para cada autenticação, mas não para o método utilizado.
 
-Os utilizadores poderão cobrados a chamadas de telefone ou as mensagens de texto que recebem, de acordo com o seu serviço de telefone pessoal.
+Os utilizadores poderão ser cobrados para chamadas telefónicas ou mensagens de texto que recebem, de acordo com o serviço de telefone pessoal.
 
-**P: o modelo de faturação por utilizador cobram que me são ativados todos os utilizadores ou apenas aqueles que efetuar a verificação de dois passos?**
+**P: o modelo de faturação por utilizador cobra-me para utilizadores ativados tudo ou apenas aqueles que efetuar a verificação de dois passos?**
 
-Faturação baseada no número de utilizadores configurados para utilizar o multi-factor Authentication, independentemente de se poderem efetuar verificação de dois passos desse mês.
+A faturação baseia-se no número de utilizadores configurado para utilizar o multi-factor Authentication, independentemente se foi executada a verificação de dois passos nesse mês.
 
 **P: como funciona a faturação do multi-factor Authentication?**
 
-Quando criar um fornecedor MFA por utilizador ou por autenticação, a subscrição do Azure da sua organização é faturada mensalmente com base na utilização. Este modelo de faturação é semelhante à forma como o Azure cobra para utilização de máquinas virtuais e os Web sites.
+Ao criar um fornecedor MFA por utilizador ou por autenticação, a subscrição do Azure da sua organização é faturada mensalmente com base na utilização. Este modelo de faturação é semelhante a como o Azure cobra para utilização de máquinas virtuais e Web sites.
 
-Ao adquirir uma subscrição do Azure multi-factor Authentication, a organização pays apenas a taxa de licença anuais para cada utilizador. Licenças MFA e do Office 365, Azure AD Premium, ou Enterprise Mobility + os pacotes de segurança são faturados desta forma. 
+Ao adquirir uma subscrição do Azure multi-factor Authentication, sua organização paga apenas o valor da licença anual para cada utilizador. Licenças MFA e do Office 365, Azure AD Premium ou Enterprise Mobility + os pacotes de segurança são faturados dessa maneira. 
 
-Saiba mais sobre as suas opções em [como obter o Azure multi-factor Authentication](concept-mfa-licensing.md).
+Saiba mais sobre as suas opções no [como obter o Azure multi-factor Authentication](concept-mfa-licensing.md).
 
-**P: existe uma versão gratuita do Azure multi-factor Authentication?**
-
-Em alguns casos, Sim.
-
-Autenticação Multifator para os administradores do Azure oferece um subconjunto das funcionalidades de MFA do Azure sem custos de acesso a serviços online da Microsoft, incluindo os portais de administrador do Azure e o Office 365. Esta oferta aplica-se apenas para os administradores globais em instâncias do Azure Active Directory que não têm a versão completa do MFA do Azure através de uma licença do MFA, um pacote ou um fornecedor de autónomo com base no consumo. Se os seus administradores de utilizam a versão gratuita e, em seguida, comprar uma versão completa do MFA do Azure, em seguida, todos os administradores globais são elevados para a versão paga automaticamente.
-
-Autenticação Multifator para utilizadores do Office 365 oferece um subconjunto das funcionalidades de MFA do Azure sem custos para aceder aos serviços do Office 365, incluindo o Exchange Online e SharePoint Online. Esta oferta aplica-se os utilizadores que possuem uma licença do Office 365 atribuída, quando a instância correspondente do Azure Active Directory não tem a versão completa do MFA do Azure através de uma licença do MFA, um pacote ou um fornecedor de autónomo com base no consumo.
-
-**P: pode mudar a minha organização entre por utilizador e por autenticação modelos de faturação consumo em qualquer altura?**
-
-Se a sua organização comprar o MFA como um serviço autónomo com faturação baseada no consumo, escolha um modelo de faturação quando criar um fornecedor de MFA. Não é possível alterar o modelo de faturação depois de criar um fornecedor de MFA. No entanto, pode eliminar o fornecedor MFA e, em seguida, criar uma com um modelo de faturação diferente.
-
-Quando é criado um fornecedor de MFA, podem ser associado a um Azure Active Directory (também conhecido como "inquilino do Azure AD"). Se o fornecedor de MFA atual estiver associado a um inquilino do Azure AD, pode eliminar o fornecedor MFA com segurança e criar um que está ligada ao mesmo inquilino do Azure AD. Em alternativa, se comprou licenças suficientes do MFA, Azure AD Premium ou Enterprise Mobility + Security (EMS) para abranger todos os utilizadores ativados para o MFA, pode eliminar totalmente o fornecedor do MFA.
-
-Se for o fornecedor MFA *não* ligado a um inquilino do Azure AD ou ligar o novo fornecedor MFA um Azure AD diferentes inquilinos, as definições de utilizador e as opções de configuração não são transferidas. Além disso, os Servidores MFA do Azure existentes têm de ser reativados com as credenciais de ativação geradas através do novo Fornecedor do MFA. Reativar os Servidores MFA para associá-los ao novo Fornecedor do MFA não afeta a autenticação por chamada telefónica e mensagem de texto, mas as notificações da aplicação móvel deixarão de funcionar para todos os utilizadores até que reativem a aplicação móvel.
-
-Saiba mais sobre os fornecedores MFA no [introdução de um fornecedor do Azure multi-factor Auth](concept-mfa-authprovider.md).
-
-**P: a minha organização alternar entre com base no consumo de faturação e subscrições (um modelo baseado em licenças) em qualquer altura?**
+**P: existe uma versão gratuita do multi-factor Authentication do Azure?**
 
 Em alguns casos, Sim.
 
-Se tiver o seu diretório um *por utilizador* fornecedor do multi-factor Authentication do Azure, pode adicionar licenças MFA. Os utilizadores com licenças não são contabilizadas na faturação baseada no consumo por utilizador. Os utilizadores sem licenças ainda podem ser ativados para a MFA através do fornecedor MFA. Se comprar e atribuir licenças para todos os utilizadores configurados para utilizar o multi-factor Authentication, pode eliminar o fornecedor de multi-factor Authentication do Azure. Pode criar sempre outro fornecedor MFA por utilizador se tiver mais utilizadores a licenças no futuro.
+Multi-factor Authentication para administradores do Azure oferece um subconjunto das funcionalidades de MFA do Azure sem custos para o acesso ao Microsoft online services, incluindo os portais de administrador do Azure e o Office 365. Esta oferta aplica-se apenas para os administradores globais em instâncias do Azure Active Directory que não têm a versão completa do MFA do Azure através de uma licença do MFA, um pacote ou um fornecedor de autónomo baseado no consumo. Se os administradores de utilizam a versão gratuita e, em seguida, adquirir uma versão completa do MFA do Azure, em seguida, todos os administradores globais são elevados para a versão paga automaticamente.
 
-Se tiver o seu diretório um *por autenticação* fornecedor do multi-factor Authentication do Azure, é sempre faturado por cada autenticação, desde que o fornecedor MFA está ligado à sua subscrição. Pode atribuir licenças do MFA para utilizadores, mas irá ainda ser-lhe faturado para cada pedido de verificação de dois passos, se se trata de outra pessoa com uma licença do MFA atribuída ou não.
+Autenticação Multifator para utilizadores do Office 365 oferece um subconjunto das funcionalidades de MFA do Azure sem custos para o acesso a serviços do Office 365, incluindo o Exchange Online e SharePoint Online. Esta oferta aplica-se aos utilizadores que têm uma licença do Office 365 atribuída, quando a instância correspondente do Azure Active Directory não tem a versão completa do MFA do Azure através de uma licença do MFA, um pacote ou um fornecedor de autónomo baseado no consumo.
 
-**P: a minha organização tem de utilizar e sincronizar identidades ao utilizar o multi-factor Authentication do Azure?**
+**P: a minha organização alternar entre por utilizador e por autenticação modelos de faturação consumo em qualquer altura?**
 
-Se a organização utilizar um modelo de faturação baseada no consumo, o Azure Active Directory é opcional, mas não é necessária. Se o seu fornecedor MFA não está ligado a um inquilino do Azure AD, pode implementar apenas no local do servidor do Azure multi-factor Authentication.
+Se a sua organização comprar MFA como um serviço autónomo com a faturação com base no consumo, escolha um modelo de faturação ao criar um fornecedor de MFA. Não é possível alterar o modelo de faturação após a criação de um fornecedor de MFA. No entanto, pode eliminar o fornecedor MFA e, em seguida, criar um com um modelo de faturação diferente.
 
-Azure Active Directory é necessário para o modelo de licença porque licenças são adicionadas ao inquilino do Azure AD quando comprar e atribuí-las aos utilizadores no diretório.
+Quando é criado um fornecedor de MFA, podem ser associado a um Azure Active Directory (também conhecido como "inquilino do Azure AD"). Se o fornecedor de MFA atual estiver associado a um inquilino do Azure AD, pode eliminar o fornecedor MFA com segurança e criar um que esteja associado ao mesmo inquilino do Azure AD. Em alternativa, se comprou licenças suficientes do MFA, Azure AD Premium ou Enterprise Mobility + Security (EMS) para abranger todos os utilizadores ativados para o MFA, pode eliminar totalmente o fornecedor do MFA.
 
-## <a name="manage-and-support-user-accounts"></a>Gerir e suportam contas de utilizador
+Se for o fornecedor de MFA *não* ligado a um inquilino do Azure AD ou associar o novo fornecedor do MFA com um Azure AD diferentes inquilinos, as definições de utilizador e opções de configuração não são transferidas. Além disso, os Servidores MFA do Azure existentes têm de ser reativados com as credenciais de ativação geradas através do novo Fornecedor do MFA. Reativar os Servidores MFA para associá-los ao novo Fornecedor do MFA não afeta a autenticação por chamada telefónica e mensagem de texto, mas as notificações da aplicação móvel deixarão de funcionar para todos os utilizadores até que reativem a aplicação móvel.
 
-**P: o que devo dizer os meus utilizadores fazer se não recebeu uma resposta no seu telefone ou não tem o telefone com os mesmos?**
+Saiba mais sobre os fornecedores de MFA na [introdução ao fornecedor do Azure multi-factor Auth](concept-mfa-authprovider.md).
 
-Hopefully todos os seus utilizadores configurado mais do que um método de verificação. Diga-lhes que selecionem um método de verificação diferente na página de início de sessão e que tentem iniciar sessão novamente.
+**P: a minha organização alternar entre a faturação e subscrições (um modelo baseado em licença) baseado no consumo em qualquer altura?**
 
-Pode apontar os seus utilizadores para o [guia de resolução de problemas do utilizador final](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
+Em alguns casos, Sim.
+
+Se o seu diretório tem um *por utilizador* fornecedor de multi-factor Authentication do Azure, pode adicionar licenças MFA. Os utilizadores com licenças não são contabilizadas na faturação baseado no consumo por utilizador. Os utilizadores sem licenças ainda podem ser ativados para a MFA através do fornecedor de MFA. Se adquirir e atribuir licenças para todos os seus utilizadores configurados para utilizar o multi-factor Authentication, pode eliminar o fornecedor de multi-factor Authentication. Pode sempre criar outro fornecedor MFA por utilizador, se tiver mais utilizadores a licenças no futuro.
+
+Se o seu diretório tem um *por autenticação* fornecedor de multi-factor Authentication do Azure, é sempre faturado por cada autenticação, desde que o fornecedor MFA está ligado à sua subscrição. Pode atribuir licenças MFA para utilizadores, mas ainda é cobrado por cada pedido de verificação de dois passos, se trata de alguém com uma licença do MFA atribuída ou não.
+
+**P: o minha organização que utilize e sincronizar identidades para utilizar o multi-factor Authentication do Azure?**
+
+Se a sua organização utilizar um modelo de faturação baseado no consumo, o Azure Active Directory é opcional, mas não necessária. Se o fornecedor de MFA não estiver associado a um inquilino do Azure AD, só pode implementar Azure multi-factor Authentication Server no local.
+
+O Azure Active Directory é necessário para o modelo de licença porque licenças adicionadas ao inquilino do Azure AD ao adquirir e atribuí-las aos utilizadores no diretório.
+
+## <a name="manage-and-support-user-accounts"></a>Gerir e suportar contas de utilizador
+
+**P: o que devo dizer que os meus utilizadores fazer se não receber uma resposta no seu telemóvel ou não tem o seu telefone com eles?**
+
+Espero que todos os seus utilizadores configurado mais do que um método de verificação. Diga-lhes que selecionem um método de verificação diferente na página de início de sessão e que tentem iniciar sessão novamente.
+
+Pode indicar a seus usuários para o [guia de resolução de problemas do utilizador final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
 
-**P: o que posso fazer se um dos meus utilizadores não é possível obter a conta?**
+**P: o que devo fazer se um dos meus utilizadores não é possível obter sua conta?**
 
-Só pode repor a conta de utilizador por torná-los para seguir o processo de registo novamente. Saiba mais sobre [gerir definições de utilizadores e dispositivos com o Azure multi-factor Authentication na nuvem](howto-mfa-userdevicesettings.md).
+Pode repor a conta de utilizador, tornando-os para percorrer o processo de registo novamente. Saiba mais sobre [gerir definições de utilizador e dispositivo com multi-factor Authentication na cloud](howto-mfa-userdevicesettings.md).
 
-**P: o que devo fazer se perder um dos meus utilizadores um telefone que está a utilizar palavras-passe de aplicação?**
+**P: o que devo fazer se perder um dos meus utilizadores um telefone que está a utilizar as palavras-passe de aplicação?**
 
-Para impedir o acesso não autorizado, elimine palavras-passe de aplicação do utilizador. Depois do utilizador tiver um dispositivo de substituição, estes podem recriar as palavras-passe. Saiba mais sobre [gerir definições de utilizadores e dispositivos com o Azure multi-factor Authentication na nuvem](howto-mfa-userdevicesettings.md).
+Para evitar acessos não autorizados, elimine palavras-passe de aplicação do utilizador. Depois do utilizador tiver um dispositivo de substituição, eles podem recriar as palavras-passe. Saiba mais sobre [gerir definições de utilizador e dispositivo com multi-factor Authentication na cloud](howto-mfa-userdevicesettings.md).
 
 **P: E se um utilizador não é possível iniciar sessão em aplicações não baseadas no browser?**
 
-Se a organização ainda utilizar clientes legados e [permitida a utilização de palavras-passe de aplicação](howto-mfa-mfasettings.md#app-passwords), em seguida, os utilizadores não é possível iniciar sessão para estes clientes legados com o respetivo nome de utilizador e palavra-passe. Em vez disso, precisam de [configurar palavras-passe de aplicação](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Os utilizadores tem de limpar (delete) as suas informações de início de sessão, reiniciar a aplicação e, em seguida, inicie sessão com o nome de utilizador e *palavra-passe de aplicação* em vez da palavra-passe normal.
+Se a organização ainda utilizar clientes legados e [permitida a utilização de palavras-passe de aplicação](howto-mfa-mfasettings.md#app-passwords), em seguida, os utilizadores não podem iniciar sessão para estes clientes legados com o respetivo nome de utilizador e palavra-passe. Em vez disso, eles precisam [configurar palavras-passe de aplicação](../user-help/multi-factor-authentication-end-user-app-passwords.md). Os utilizadores tem de limpar (eliminar) as informações de início de sessão, reiniciar a aplicação e, em seguida, inicie sessão com o respetivo nome de utilizador e *palavra-passe de aplicação* em vez da palavra-passe regular.
 
-Se a sua organização não tiver clientes legados, não deve permitir que os utilizadores criem palavras-passe de aplicação.
+Se sua organização não tiver clientes legados, não deve permitir que os utilizadores criem palavras-passe de aplicação.
 
 > [!NOTE]
 > Autenticação moderna para clientes do Office 2013
 >
-> As palavras-passe de aplicação só são necessárias para as aplicações que não suportem a autenticação moderna. Os clientes do Office 2013 suportam os protocolos de autenticação moderna, mas tem de ser configurado. Clientes mais recentes do Office suportam automaticamente os protocolos de autenticação moderna. Para obter mais informações, consulte o [anúncio de pré-visualização pública de autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> As palavras-passe de aplicação são necessárias apenas para aplicações que não suportam a autenticação moderna. Os clientes do Office 2013 suportam protocolos de autenticação moderna, mas têm de ser configurados. Clientes mais recentes do Office suportam automaticamente os protocolos de autenticação moderna. Para obter mais informações, consulte a [anúncio de pré-visualização pública de autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-**P: os meus utilizadores dizem que por vezes, não recebem a mensagem de texto, ou responder a mensagens de texto bidirecional, mas a verificação de tempo excedido.**
+**P: os meus utilizadores dizem que às vezes, não receber a mensagem de texto, ou eles respondem às mensagens de texto bidirecional mas a verificação de exceder o tempo limite.**
 
-Não é garantido que entrega de mensagens de texto e a receção de respostas na SMS bidirecional porque existem uncontrollable fatores que podem afetar a fiabilidade do serviço. Estes fatores incluem o país/região de destino, operadora telemóvel e força o sinal.
+Entrega de mensagens de texto e de receção de respostas no SMS bidirecional não são garantidos porque há fatores incontroláveis para que possam afetar a confiabilidade do serviço. Estes fatores incluem o país de destino, a operadora de celular e a intensidade do sinal.
 
-Se os utilizadores têm, muitas vezes, problemas com a receção de forma fiável as mensagens de texto, informe-o para utilizar o método de aplicação ou chamada telefónica móvel em vez disso. A aplicação móvel pode receber notificações tanto através de ligações Wi-Fi e de rede móvel. Além disso, a aplicação móvel pode gerar códigos de verificação, mesmo quando o dispositivo tem sem sinal de todo. A aplicação Authenticator da Microsoft está disponível para [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+Se os utilizadores têm problemas frequentes com a receção fiável de mensagens de texto, peça-lhes para usar o método de chamada telefónica ou aplicação móvel em vez disso. A aplicação móvel pode receber notificações, tanto pela rede móvel e ligações Wi-Fi. Além disso, a aplicação móvel pode gerar códigos de verificação, mesmo quando o dispositivo não tem nenhum sinal de todo. A aplicação Microsoft Authenticator está disponível para [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
-Se tiver de utilizar as mensagens de texto, recomendamos que utilize o SMS unidirecional em vez de SMS bidirecional sempre que possível. SMS unidirecional é mais fiável e impede que os utilizadores incorrer em custos globais de SMS de resposta a uma mensagem de texto foi enviada a partir de outro país.
+Se tiver de utilizar mensagens de texto, recomendamos que utilize SMS unidirecional, em vez de SMS bidirecional, sempre que possível. SMS unidirecional é mais fiável e evita que os utilizadores a incorrer em custos globais de SMS de responder a uma mensagem de texto que foi enviada a partir de outro país.
 
-**P: Posso alterar a quantidade de tempo, que os meus utilizadores tenham de introduzir o código de verificação a partir de uma mensagem de texto, antes do sistema exceder o tempo limite?**
+**P: Posso alterar a quantidade de meus usuários tenham de introduzir o código de verificação de uma mensagem de texto, antes do sistema exceder o tempo limite de tempo?**
 
 Em alguns casos, Sim. 
 
-Para SMS unidirecional com o servidor MFA do Azure v-7.0 ou superior, pode configurar o tempo limite ao efectuar a definição uma chave de registo. Depois do serviço de nuvem MFA envia a mensagem de texto, é devolvido o código de verificação (ou o código de acesso Monouso) para o servidor MFA. O servidor MFA armazena o código na memória para 300 segundos por predefinição. Se o utilizador não introduzir o código antes de que passaram os 300 segundos, a autenticação é negada. Utilize estes passos para alterar a definição de tempo limite predefinido:
+Para SMS unidirecional com o servidor MFA do Azure v7.0 ou superior, pode configurar o tempo limite de definição por definição de uma chave de registo. Depois do serviço de nuvem do MFA envia a mensagem de texto, é devolvido o código de verificação (ou código de acesso único) para o servidor MFA. O servidor MFA armazena o código na memória para 300 segundos por padrão. Se o utilizador não introduzir o código antes de passaram os 300 segundos, a autenticação é negada. Utilize estes passos para alterar a configuração de tempo limite padrão:
 
-1. Aceda à HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
-2. Crie uma chave de registo DWORD denominada **pfsvc_pendingSmsTimeoutSeconds** e defina o tempo em segundos que pretende que o servidor MFA do Azure para armazenar os códigos de acesso Monouso.
+1. Vá para HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
+2. Criar uma chave de registo DWORD denominada **pfsvc_pendingSmsTimeoutSeconds** e definir o tempo em segundos que pretende que o servidor de MFA do Azure para armazenar os códigos de acesso de uso individual.
 
 >[!TIP] 
->Se tiver vários servidores de MFA, apenas o um que processou o pedido de autenticação original sabe o código de verificação que foi enviado ao utilizador. Quando o utilizador introduz o código, o pedido de autenticação para validar é necessário enviar para o mesmo servidor. Se a validação do código é enviada para um servidor diferente, a autenticação é negada. 
+>Se tiver vários servidores MFA, apenas aquele que processou o pedido de autenticação original sabe o código de verificação que foi enviado para o utilizador. Quando o usuário insere o código, o pedido de autenticação para validar têm de ser enviado para o mesmo servidor. Se a validação do código é enviada para um servidor diferente, a autenticação é negada. 
 
-Para obter SMS bidirecional com o servidor MFA do Azure, pode configurar a definição de tempo limite no Portal de gestão MFA. Se os utilizadores não responder a SMS dentro do período de tempo limite definido, a autenticação é negada. 
+Para obter SMS bidirecional com o servidor MFA do Azure, pode configurar a definição de tempo limite no Portal de gestão do MFA. Se os utilizadores não responder a do SMS dentro do período de tempo limite definido, a autenticação é negada. 
 
-Para obter SMS unidirecional com a Azure MFA na nuvem (incluindo o adaptador AD FS ou a extensão de servidor de políticas de rede), não é possível configurar a definição de tempo limite. Azure AD armazena o código de verificação para 180 segundos. 
+Para obter SMS unidirecional com a Azure MFA na cloud (incluindo o adaptador AD FS ou a extensão de servidor de políticas de rede), não é possível configurar a definição de tempo limite. Azure AD armazena o código de verificação para 180 segundos. 
 
 **P: Posso utilizar tokens de hardware com o servidor do Azure multi-factor Authentication?**
 
-Se estiver a utilizar o servidor do Azure multi-factor Authentication, pode importar tokens de baseados no tempo, uma única palavra-passe (TOTP) de autenticação aberta (OATH) de terceiros e, em seguida, utilizá-los para a verificação de dois passos.
+Se estiver a utilizar o servidor do Azure multi-factor Authentication, pode importar tokens de baseados no tempo e única palavra-passe (TOTP) de autenticação aberta (OATH) de terceiros e, em seguida, utilizá-los para verificação de dois passos.
 
-Pode utilizar ActiveIdentity tokens que são tokens OATH TOTP se colocar a chave secreta num ficheiro CSV e importar para o servidor do Azure multi-factor Authentication. Pode utilizar OATH tokens com serviços de Federação do Active Directory (ADFS), autenticação baseada em formulários do servidor de informação Internet (IIS) e RADIUS Remote Authentication Dial-In User Service (), desde que o sistema de cliente pode aceitar a entrada do utilizador.
+Pode utilizar tokens de ActiveIdentity que são tokens OATH TOTP se colocar a chave secreta num arquivo CSV e importar para o servidor do Azure multi-factor Authentication. Pode utilizar OATH tokens com serviços de Federação do Active Directory (ADFS), autenticação baseada em formulários do servidor de informação Internet (IIS) e Remote Authentication Dial-In User Service (RADIUS), desde que o sistema de cliente pode aceitar a entrada do usuário.
 
 Pode importar tokens OATH TOTP de terceiros com os seguintes formatos:  
 
-- Contentor de chave simétrico (PSKC) portátil  
+- Contentor da chave simétrica (PSKC) portátil  
 - Se o ficheiro contém um número de série, uma chave secreta no formato de Base 32 e um intervalo de tempo CSV  
 
 **P: Posso utilizar servidor do Azure multi-factor Authentication para proteger os serviços de Terminal?**
 
-Sim, mas se estiver a utilizar o Windows Server 2012 R2 ou posterior só pode proteger os serviços de Terminal utilizando o Gateway de ambiente de trabalho remoto (Gateway de RD).
+Sim, mas se estiver a utilizar o Windows Server 2012 R2 ou posterior só pode proteger os serviços de Terminal com o Gateway de ambiente de trabalho remoto (Gateway de RD).
 
-Alterações de segurança no Windows Server 2012 R2 alterar como o servidor do Azure multi-factor Authentication liga ao pacote de segurança de autoridade de segurança Local (LSA) no Windows Server 2012 e versões anteriores. Para as versões dos serviços de Terminal no Windows Server 2012 ou anterior, pode [proteger uma aplicação com a autenticação do Windows](howto-mfaserver-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure). Se estiver a utilizar o Windows Server 2012 R2, tem de Gateway de RD.
+Alterações de segurança no Windows Server 2012 R2 alterado como o Azure multi-factor Authentication Server se conecta ao pacote de segurança de autoridade de segurança Local (LSA) no Windows Server 2012 e versões anteriores. Para obter versões de serviços de Terminal no Windows Server 2012 ou anterior, pode [proteger uma aplicação com a autenticação do Windows](howto-mfaserver-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure). Se estiver a utilizar o Windows Server 2012 R2, tem de Gateway de RD.
 
-**P: Posso configurado o ID do autor da chamada no servidor MFA, mas os meus utilizadores continuar a receber chamadas de multi-factor Authentication de um emissor anónimo.**
+**P: Posso configurado ID do autor da chamada no servidor MFA, mas os meus utilizadores recebem chamadas de multi-factor Authentication de um chamador anônimo.**
 
-Quando são colocadas chamadas de multi-factor Authentication através da rede pública telefone, por vezes, estes são encaminhados através de uma operadora que não suporta o ID do autor da chamada. Por este motivo, ID do autor da chamada não é garantido, apesar do sistema de multi-factor Authentication sempre envia-a.
+Quando as chamadas de multi-factor Authentication forem colocadas através da rede telefônica pública, às vezes, eles são encaminhados através de uma operadora que não suporta o ID do autor da chamada. Por este motivo, ID do autor da chamada não é garantido, mesmo que o sistema de multi-factor Authentication sempre envia-os.
 
-**P: por que razão os meus utilizadores que está a ser solicitado que registe as suas informações de segurança?**
-Existem vários motivos para que os utilizadores podem ser solicitado que registe as suas informações de segurança:
+**P: por que meus usuários que está a ser-lhe pedidos para registar as suas informações de segurança?**
+Há vários motivos que poderiam ser pedido aos utilizadores para registar as suas informações de segurança:
 
-- O utilizador foi ativado para a MFA pelo seu administrador no Azure AD, mas não tem informações de segurança ainda registadas para a respetiva conta.
-- O utilizador foi ativado para o self-service reposição palavra-passe no Azure AD. As informações de segurança irão ajudá-lo a repor a palavra-passe no futuro, se se esquecer da-lo.
-- O utilizador acedeu a uma aplicação que tenha uma política de acesso condicional para exigir a MFA e ainda não registada para a MFA.
-- O utilizador está a registar um dispositivo com o Azure AD (incluindo a associação do Azure AD) e organização exige a MFA para registo de dispositivos, mas o utilizador ainda não registada para a MFA.
-- O utilizador está a gerar Windows Hello para empresas no Windows 10 (o que necessita de MFA) e não registada para a MFA.
-- A organização tem criado e ativado uma política de registo do MFA que foi aplicada ao utilizador.
-- O utilizador registado para MFA anteriormente, mas escolher um método de verificação que desativada uma vez que um administrador. O utilizador, por conseguinte, deve passar por registo do MFA novamente para selecionar um novo método de verificação de predefinição.
+- O utilizador foi ativado para a MFA pelo seu administrador no Azure AD, mas não tem informações de segurança registadas na sua conta ainda.
+- O utilizador tenha sido ativado para o self-service reposição palavra-passe no Azure AD. As informações de segurança irão ajudá-los a repor a palavra-passe no futuro, se esquecerem nunca.
+- O utilizador aceder a uma aplicação que tenha uma política de acesso condicional para exigir a MFA e ainda não registou anteriormente para a MFA.
+- O utilizador está a registar um dispositivo com o Azure AD (incluindo associação do Azure AD) e sua organização requer MFA para registo de dispositivos, mas o utilizador não registou anteriormente para a MFA.
+- O utilizador está a gerar Windows Hello para empresas no Windows 10 (que requer MFA) e ainda não registou anteriormente para a MFA.
+- A organização tem criado e ativado uma política de registo na MFA que foi aplicada ao usuário.
+- O utilizador registado para MFA anteriormente, mas escolhi um método de verificação que uma vez que um administrador desativou. O utilizador, por conseguinte, deve passar por registo na MFA novamente para selecionar um novo método de verificação padrão.
 
 
 ## <a name="errors"></a>Erros
-**P: o que devem fazer os utilizadores se veem uma mensagem de erro "o pedido de autenticação não é para uma conta ativada" quando utilizar notificações de aplicação móvel?**
+**P: o que devem fazer os utilizadores se veem uma mensagem de erro "o pedido de autenticação não é para uma conta ativada" ao utilizar notificações da aplicação móvel?**
 
-Informe-os a seguir este procedimento para remover a conta da aplicação móvel e, em seguida, adicioná-la novamente:
+Peça-lhes para seguir este procedimento para remover a conta a partir da aplicação móvel, em seguida, adicioná-lo novamente:
 
-1. Aceda a [o perfil de portal do Azure](https://account.activedirectory.windowsazure.com/profile/) e inicie sessão com a sua conta organizacional.
+1. Aceda a [seu perfil de portal do Azure](https://account.activedirectory.windowsazure.com/profile/) e inicie sessão com a sua conta organizacional.
 2. Selecione **verificação adicional de segurança**.
-3. Remova a conta existente da aplicação móvel.
+3. Remova a conta existente a partir da aplicação móvel.
 4. Clique em **configurar**e, em seguida, siga as instruções para reconfigurar a aplicação móvel.
 
-**P: o que devem fazer os utilizadores se veem uma mensagem de erro de 0x800434D4L quando iniciar sessão a uma aplicação não baseadas no browser?**
+**P: o que devem fazer os utilizadores se é apresentada uma mensagem de erro de 0x800434D4L quando o início de sessão aplicação não baseada no browser?**
 
-O erro 0x800434D4L ocorre quando tenta iniciar sessão para uma aplicação não baseadas no browser, instalada num computador local, que não funciona com contas que necessitem de verificação em dois passos.
+O erro 0x800434D4L ocorre quando tenta iniciar sessão para um aplicativo fora do browser, instalado num computador local, que não funciona com contas que necessitam de verificação de dois passos.
 
-Uma solução para este erro é ter utilizador separado das contas para relacionadas com administração e as operações de não administrador. Mais tarde, pode ligar caixas de correio entre a sua conta de administrador e a conta não administrativa, de modo a que pode iniciar sessão no Outlook ao utilizar a sua conta não administrativa. Para obter mais detalhes sobre esta solução, saiba como [conceder a capacidade de abrir e ver o conteúdo da caixa de correio de um utilizador de administrador](http://help.outlook.com/141/gg709759.aspx?sl=1).
+Uma solução alternativa para este erro é fazer com que o utilizador em separado totaliza relacionados com a administração e operações de não-administrador. Mais tarde, pode ligar as caixas de correio entre a sua conta de administrador e a conta não administrativa, de modo a que pode iniciar sessão Outlook ao utilizar a sua conta não administrativa. Para obter mais detalhes sobre esta solução, saiba como [dar um administrador a possibilidade de abrir e ver o conteúdo da caixa de correio de um utilizador](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se a sua pergunta não é atendida aqui, deixe-nos comentários na parte inferior da página. Em alternativa, aqui estão algumas opções adicionais para obter ajuda:
+Se a sua pergunta não respondida aqui,. Deixe-nos comentários na parte inferior da página. Em alternativa, aqui estão algumas opções adicionais para obter ajuda:
 
-* Pesquisa de [Base de dados de conhecimento de suporte do Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para soluções para problemas técnicos comuns.
-* Procure e procurar técnicas perguntas e respostas da Comunidade ou peça ao seu próprio pergunta no [fóruns do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
-* Se tiver um cliente legado do PhoneFactor e tiver dúvidas ou precisar de ajuda para repor a palavra-passe, utilize o [reposição de palavra-passe](mailto:phonefactorsupport@microsoft.com) ligação para abrir um incidente de suporte.
-* Contactar um profissional de suporte através de [suporte de servidor do Azure multi-factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando contactar-nos, é útil se pode incluir a maior quantidade informações sobre o problema quanto possível. Pode fornecer as informações incluem a página onde vimos o erro, o código de erro específico, o ID de sessão específico e o ID do utilizador que vimos o erro.
+* Pesquisa o [Base de dados de conhecimento de suporte Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para soluções para problemas técnicos comuns.
+* Procurar e navegue perguntas técnicas e respostas da Comunidade ou fazer sua própria pergunta no [fóruns do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Se for um cliente herdado do PhoneFactor e tiver alguma dúvida ou precisa de ajuda para repor uma palavra-passe, utilize o [reposição de palavra-passe](mailto:phonefactorsupport@microsoft.com) link para abrir um incidente de suporte.
+* Entre em contato com um analista de suporte por meio [suporte do Azure multi-factor Authentication Server (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando contactar-nos, é útil se pode incluir o máximo de informações sobre o seu problema quanto possível. Pode fornecer as informações incluem a página em que viu o erro, o código de erro específico, o ID de sessão específico e o ID do utilizador que viu o erro.

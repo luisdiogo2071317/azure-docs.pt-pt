@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d1a134d490595b1dee7c24ac36f78f2266cfe375
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036579"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056509"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar funções do Azure para o Azure IoT Edge
 
@@ -65,9 +65,19 @@ Existem quatro itens dentro da solução:
 * R **.vscode** pasta contém as configurações de depuração.
 * R **módulos** pasta contém subpastas para cada módulo. Neste momento, tem apenas um. Mas pode adicionar mais por meio da paleta de comandos com o comando **do Azure IoT Edge: Adicionar módulo do IoT Edge**.
 * Uma **. env** ficheiro apresenta uma lista de variáveis do seu ambiente. Se o Azure Container Registry é o seu registo, terá um nome de utilizador do Azure Container Registry e a palavra-passe no mesmo. 
+
+   >[!NOTE]
+   >Só é criado o ficheiro de ambiente se fornecer um repositório de imagens para o módulo. Se aceitou os padrões de localhost para testar e depurar localmente, não tem de declarar as variáveis de ambiente. 
+
 * R **deployment.template.json** seu novo módulo juntamente com um exemplo apresenta uma lista de ficheiros **tempSensor** módulo que simula dados pode utilizar para fins de teste. Para obter mais informações sobre como o trabalho de manifestos de implantação, consulte [Aprenda a usar manifestos de implantação para implementar módulos e rotas](module-composition.md).
 
-## <a name="build-your-iot-edge-function-module-for-debugging"></a>Criar o módulo de função do IoT Edge para depuração
+## <a name="devlop-your-module"></a>Devlop seu módulo
+
+O código de função do Azure de predefinição que vem com a solução está localizado em **módulos** > **\<seu nome de módulo\>**   >   **EdgeHubTrigger-Csharp** > **csx**. O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
+
+Quando estiver pronto para personalizar o modelo de função do Azure com o seu próprio código, utilize o [SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos esse endereço tem da chave para soluções de IoT, como segurança, gestão de dispositivos e confiabilidade. 
+
+## <a name="build-your-module-for-debugging"></a>Criar o módulo para depuração
 1. Para iniciar a depuração, utilize **Dockerfile.amd64.debug** para reconstruir a imagem do docker e implemente a sua solução de Edge novamente. No Explorador do VS Code, navegue para o `deployment.template.json` ficheiro. Atualize o seu URL de imagem de função ao adicionar `.debug` ao fim.
 
     ![Criar imagem de depuração](./media/how-to-debug-csharp-function/build-debug-image.png)
@@ -80,7 +90,7 @@ Verificar o estado do contentor no Explorador de Docker de código do VS ou ao e
 ## <a name="start-debugging-c-functions-in-vs-code"></a>Iniciar a depuração de funções c# no VS Code
 1. Mantém depuração de código de VS informações de configuração num `launch.json` ficheiros localizados num `.vscode` pasta na sua área de trabalho. Isso `launch.json` arquivo foi gerado quando criou uma nova solução de IoT Edge. Ele atualiza cada vez que adiciona um novo módulo que oferece suporte à depuração. Navegue para a vista de depuração. Selecione o ficheiro de configuração de depuração correspondente. O nome de opção de depuração deve ser semelhante à **ModuleName depuração remota (.NET Core)**.
 
-    ![Configuração de depuração Select](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
+   ![Configuração de depuração Select](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
 2. Navegue para `run.csx`. Adicione um ponto de interrupção na função.
 3. Selecione **iniciar depuração** ou selecione **F5**. Selecione o processo para anexar a.
@@ -93,3 +103,5 @@ Verificar o estado do contentor no Explorador de Docker de código do VS ou ao e
 ## <a name="next-steps"></a>Passos Seguintes
 
 Depois de criar seu módulo, saiba como [módulos de implementar o Azure IoT Edge do Visual Studio Code](how-to-deploy-modules-vscode.md).
+
+Para desenvolver módulos para os seus dispositivos de IoT Edge [compreender e utilizar os SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).

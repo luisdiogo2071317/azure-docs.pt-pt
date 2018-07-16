@@ -1,6 +1,6 @@
 ---
-title: Entrada de validação - ferramenta de modelação de ameaça Microsoft - Azure | Microsoft Docs
-description: Mitigações ameaças exposta na ferramenta de modelação de ameaça
+title: Entrada de validação - ferramenta de modelagem de ameaças da Microsoft - Azure | Documentos da Microsoft
+description: atenuações para ameaças expostas na ferramenta de modelagem de ameaças
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: d26d869748283718375e35ae4183eef0e51a96ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d97388732f0b5cf4570026d5b23a64b2d689e5d4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778584"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056856"
 ---
-# <a name="security-frame-input-validation--mitigations"></a>Moldura de segurança: Validação de entrada | Mitigações 
+# <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
-| **Aplicação Web** | <ul><li>[Desativar o XSLT scripting para todas as transformações utilizando folhas de estilo não fidedignos](#disable-xslt)</li><li>[Certifique-se de que cada página que pode conter conteúdo controllable utilizador evita interceção de MIME automática](#out-sniffing)</li><li>[Proteger ou desativar a resolução de entidade XML](#xml-resolution)</li><li>[As aplicações que a utilização de http.sys efetuar verificação de colocação em forma canónica de URL](#app-verification)</li><li>[Certifique-se de que os controlos adequados estão em vigor quando os ficheiros dos utilizadores a aceitar](#controls-users)</li><li>[Certifique-se de que os parâmetros de tipo seguro são utilizados na aplicação Web para acesso a dados](#typesafe)</li><li>[Utilize as classes de enlace do modelo separadas ou apresenta uma lista de filtro de enlace para impedir a vulnerabilidade de atribuição em massa do MVC](#binding-mvc)</li><li>[Codificar o resultado da web não fidedignos antes da composição](#rendering)</li><li>[Efetuar a validação de entrada e filtrar no tipo de cadeia todas as propriedades de modelo](#typemodel)</li><li>[Sanitização deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto formatado](#richtext)</li><li>[Não atribua elementos DOM para sinks que não têm a codificação integradas](#inbuilt-encode)</li><li>[Validar se todos os redireccionamentos na aplicação são fechados ou feitos de forma segura](#redirect-safe)</li><li>[Implementar a validação de entrada em todos os parâmetros de tipo de cadeia aceites pelos métodos de controlador](#string-method)</li><li>[Definir limite de tempo limite superior para a expressão regular de processamento para evitar DoS devido a expressões regulares incorretas](#dos-expression)</li><li>[Evite utilizar Html.Raw nas vistas de Razor](#html-razor)</li></ul> | 
+| **Aplicação Web** | <ul><li>[Desativar o XSLT scripts para todas as transformações com folhas de estilo não fidedigno](#disable-xslt)</li><li>[Certifique-se de que cada página que pode conter o conteúdo de utilizador controlável opta ativamente por detecção automática de MIME](#out-sniffing)</li><li>[Proteger ou desativar a resolução de entidades XML](#xml-resolution)</li><li>[Aplicações com o HTTP. sys efetuar verificação de canonização do URL](#app-verification)</li><li>[Certifique-se de que controles adequados estão em vigor quando abertos ao recebimento de arquivos de usuários](#controls-users)</li><li>[Certifique-se de que os parâmetros de tipo seguro são utilizados numa aplicação Web para acesso a dados](#typesafe)</li><li>[Utilizar classes de ligações de modelo separado ou apresenta uma lista de filtro de associação para impedir a vulnerabilidade de atribuição em massa do MVC](#binding-mvc)</li><li>[Codificar a saída da web não fidedignos antes da composição](#rendering)</li><li>[Realizar validação de entrada e filtragem no tipo de cadeia de caracteres de todas as propriedades do modelo](#typemodel)</li><li>[A limpeza deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto avançado](#richtext)</li><li>[Não atribua elementos DOM a Coletores de que não têm a codificação incorporadas](#inbuilt-encode)</li><li>[Validar se todos os redirecionamentos de dentro do aplicativo são fechados ou feitos com segurança](#redirect-safe)</li><li>[Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos de controlador](#string-method)</li><li>[Definir o tempo limite de limite superior para a expressão regular de processamento para impedir que o DoS devido a más expressões regulares](#dos-expression)</li><li>[Evite utilizar Html.Raw em modos de exibição do Razor](#html-razor)</li></ul> | 
 | **Base de Dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
-| **API Web** | <ul><li>[Certifique-se de que a validação do modelo é efetuada em métodos de Web API](#validation-api)</li><li>[Implementar a validação de entrada em todos os parâmetros de tipo de cadeia aceites pelos métodos de Web API](#string-api)</li><li>[Certifique-se de que os parâmetros de tipo seguro são utilizados na Web API para acesso a dados](#typesafe-api)</li></ul> | 
-| **Base de dados de documento do Azure** | <ul><li>[Utilizar consultas SQL parametrized para base de dados do Azure Cosmos](#sql-docdb)</li></ul> | 
-| **WCF** | <ul><li>[Validação de entrada de WCF através de vinculação ao esquema](#schema-binding)</li><li>[Validação de WCF - entrada através do parâmetro Inspetores](#parameters)</li></ul> |
+| **API Web** | <ul><li>[Certifique-se de que a validação de modelo é feita nos métodos da Web API](#validation-api)</li><li>[Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos da Web API](#string-api)</li><li>[Certifique-se de que são utilizados os parâmetros de tipo seguro na Web API para acesso a dados](#typesafe-api)</li></ul> | 
+| **DB de documentos do Azure** | <ul><li>[Utilizar consultas SQL parametrized para o Azure Cosmos DB](#sql-docdb)</li></ul> | 
+| **WCF** | <ul><li>[Validação de entrada do WCF por meio da associação de esquema](#schema-binding)</li><li>[Validação de entrada WCF por meio dos Inspetores de parâmetro](#parameters)</li></ul> |
 
-## <a id="disable-xslt"></a>Desativar o XSLT scripting para todas as transformações utilizando folhas de estilo não fidedignos
+## <a id="disable-xslt"></a>Desativar o XSLT scripts para todas as transformações com folhas de estilo não fidedigno
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Segurança XSLT](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [propriedade XsltSettings](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Passos** | Suporta o XSLT scripting dentro de folhas de estilo utilizando o `<msxml:script>` elemento. Isto permite que as funções personalizadas ser utilizada numa transformação XSLT. O script é executado no contexto do processo de efetuar a transformação. Script XSLT tem de ser desativada quando num ambiente não fidedigno para impedir a execução do código não fidedigno. *Se utilizar o .NET:* XSLT scripting está desativada por predefinição; no entanto, tem de garantir que este não foi explicitamente ativado através de `XsltSettings.EnableScript` propriedade.|
+| **Referências**              | [Segurança XSLT](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript propriedade](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
+| **Passos** | XSLT oferece suporte a scripts no interior de folhas de estilo usando o `<msxml:script>` elemento. Isso permite que as funções personalizadas ser usado numa transformação XSLT. O script é executado sob o contexto do processo de executar a transformação. XSLT script tem de ser desativada quando num ambiente não fidedigno para impedir a execução de código não confiável. *Se utilizar o .NET:* XSLT de scripts está desativada por predefinição; no entanto, deve garantir que ele não foi explicitamente ativado através do `XsltSettings.EnableScript` propriedade.|
 
 ### <a name="example"></a>Exemplo 
 
@@ -49,34 +49,34 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Exemplo
-Se estiver a utilizar com o MSXML 6.0, XSLT scripting está desativada por predefinição; No entanto, tem de se certificar de que este não foi explicitamente ativado através da propriedade do objeto XML DOM AllowXsltScript. 
+Se estiver a utilizar com o MSXML 6.0, XSLT de scripts está desativada por padrão. No entanto, tem de se certificar de que ele não foi explicitamente ativado por meio da propriedade de objeto do XML DOM AllowXsltScript. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Exemplo
-Se estiver a utilizar o MSXML 5 ou abaixo, XSLT de scripts está ativada por predefinição e tem explicitamente desativá-lo. Defina a propriedade do objeto XML DOM AllowXsltScript como false. 
+Se estiver usando MSXML 5 ou abaixo, a criação de scripts do XSLT está ativada por predefinição e deve usar explicitamente desativá-la. Defina a propriedade de objeto do XML DOM AllowXsltScript como false. 
 
 ```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
-## <a id="out-sniffing"></a>Certifique-se de que cada página que pode conter conteúdo controllable utilizador evita interceção de MIME automática
+## <a id="out-sniffing"></a>Certifique-se de que cada página que pode conter o conteúdo de utilizador controlável opta ativamente por detecção automática de MIME
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [IE8 V de parte de segurança - proteção completa](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
-| **Passos** | <p>Para cada página que possam conter conteúdo controllable do utilizador, tem de utilizar o cabeçalho HTTP `X-Content-Type-Options:nosniff`. Para cumprir este requisito, ou pode definir o cabeçalho necessário página por página para apenas essas páginas que podem conter conteúdo de utilizador controllable ou pode configurá-lo global para todas as páginas na aplicação.</p><p>Cada tipo de ficheiro fornecido de um servidor web tem um associados [tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) (também designado por um *tipo de conteúdo*) que descreve a natureza do conteúdo (ou seja, imagem, texto, aplicação, etc.)</p><p>O cabeçalho X-conteúdo--opções do tipo é um cabeçalho de HTTP que permite aos programadores especificar que o conteúdo não deve ser intercetados na MIME. Este cabeçalho foi concebido para mitigar ataques de Interceção de MIME. Foi adicionado suporte para este cabeçalho no Internet Explorer 8 (IE8)</p><p>Apenas os utilizadores do Internet Explorer 8 (IE8) irão beneficiar X conteúdo-tipo opções. Versões anteriores do Internet Explorer não respeitem atualmente o cabeçalho X-conteúdo--opções do tipo</p><p>Internet Explorer 8 (e versões posterior) são os browsers principais apenas para implementar uma funcionalidade de ativamente MIME de interceção. Se e quando outros browsers principais (Firefox, Safari, Chrome) implementam semelhantes funcionalidades, esta recomendação irá ser atualizada para incluir sintaxe para esses browsers bem</p>|
+| **Referências**              | [IE8 V de parte de segurança-proteção abrangente](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
+| **Passos** | <p>Para cada página que pode conter conteúdo controlável do utilizador, tem de utilizar o cabeçalho de HTTP `X-Content-Type-Options:nosniff`. Para cumprir este requisito, pode optar por definir o cabeçalho necessário página por página para apenas as páginas que podem conter o conteúdo de utilizador controlável ou pode configurá-lo globalmente para todas as páginas no aplicativo.</p><p>Cada tipo de ficheiro fornecido de um servidor web tem um associados [tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) (também chamado de um *tipo de conteúdo*) que descreve a natureza do conteúdo (ou seja, imagem, texto, aplicação, etc.)</p><p>O cabeçalho X-conteúdo-tipo-Options é um cabeçalho HTTP que permite que os desenvolvedores especifiquem que seu conteúdo não deve ser intercetados de MIME. Este cabeçalho é projetado para mitigar ataques de detecção de MIME. Foi adicionado suporte para esse cabeçalho no Internet Explorer 8 (IE8)</p><p>Apenas os usuários do Internet Explorer 8 (IE8) serão beneficiados pelo X-conteúdo-tipo-Options. As versões anteriores do Internet Explorer não respeitarem atualmente o cabeçalho X-conteúdo-tipo-Options</p><p>Internet Explorer 8 (e posterior) são os browsers principais apenas para implementar um recurso de sair de detecção de MIME. Se e quando principais navegadores (Firefox, Safari, Chrome) implementam recursos semelhantes, esta recomendação será atualizada para incluir a sintaxe para esses navegadores</p>|
 
 ### <a name="example"></a>Exemplo
-Para ativar o cabeçalho necessário global para todas as páginas na aplicação, pode efetuar um dos seguintes: 
+Para ativar o cabeçalho necessário globalmente para todas as páginas do aplicativo, pode fazer um dos seguintes: 
 
-* Adicionar o cabeçalho no ficheiro Web. config, se a aplicação for alojada pelos serviços de informação Internet (IIS) 7 
+* Adicione o cabeçalho no ficheiro Web. config, se o aplicativo é hospedado pelos serviços de informação Internet (IIS) 7 
 
 ```
 <system.webServer> 
@@ -88,7 +88,7 @@ Para ativar o cabeçalho necessário global para todas as páginas na aplicaçã
 </system.webServer> 
 ```
 
-* Adicionar cabeçalho através da aplicação global\_BeginRequest 
+* Adicionar cabeçalho através do aplicativo global\_BeginRequest 
 
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
@@ -97,7 +97,7 @@ void Application_BeginRequest(object sender, EventArgs e)
 } 
 ```
 
-* Módulo HTTP personalizado implementar 
+* Módulo HTTP personalizado de implementar 
 
 ``` 
 public class XContentTypeOptionsModule : IHttpModule 
@@ -125,25 +125,25 @@ public class XContentTypeOptionsModule : IHttpModule
 
 ``` 
 
-* Pode ativar o cabeçalho necessário apenas para páginas específicas, adicionando-a respostas individuais: 
+* Pode ativar o cabeçalho necessário apenas para páginas específicas ao adicioná-la para as respostas individuais: 
 
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
 ``` 
 
-## <a id="xml-resolution"></a>Proteger ou desativar a resolução de entidade XML
+## <a id="xml-resolution"></a>Proteger ou desativar a resolução de entidades XML
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Expansão de entidade XML](http://capec.mitre.org/data/definitions/197.html), [ataques XML recusa de serviço e defesas](http://msdn.microsoft.com/magazine/ee335713.aspx), [descrição geral de segurança do MSXML](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [melhores práticas para proteger o MSXML código](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [ Referência do protocolo NSXMLParserDelegate](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [resolver referências externas](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
-| **Passos**| <p>Apesar de não é amplamente utilizado, há uma funcionalidade de XML, que permite que o analisador de XML expandir entidades de macro com valores definidos no documento em si ou a partir de origens externas. Por exemplo, o documento poderá definir uma entidade "companyname" com o valor "Microsoft", por isso que sempre que o texto "&companyname;" é apresentado no documento, é automaticamente substituído com o texto da Microsoft. Em alternativa, o documento poderá definir uma entidade "MSFTStock" que faça referência a um serviço web externo ao obter o valor atual do gráfico de cotações de Microsoft.</p><p>Em seguida, em qualquer altura "&MSFTStock;" é apresentado no documento, é automaticamente substituído com o preço as cotações atual. No entanto, esta funcionalidade pode ser abused criar recusa dos termos de serviço (DoS). Um atacante pode ser aninhado várias entidades para criar um bomb XML exponencial expansão que consome toda a memória disponível no sistema. </p><p>Em alternativa, ele pode criar uma referência externa que fluxos back uma infinita quantidade de dados ou que bloqueia simplesmente o thread. Como resultado, todas as equipas tem de desativar resolução de entidade XML interna e/ou externa completamente se as respetivas aplicações não utilizá-lo, ou manualmente limitar a quantidade de memória e a hora em que a aplicação pode consumir para a resolução de entidade se esta funcionalidade é absolutamente necessário. Se a resolução de entidade não é exigida pela sua aplicação, em seguida, desative-o. </p>|
+| **Referências**              | [Expansão da entidade XML](http://capec.mitre.org/data/definitions/197.html), [XML de negação de serviço de ataques e defesas](http://msdn.microsoft.com/magazine/ee335713.aspx), [descrição geral da segurança do MSXML](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [melhores práticas para proteger o código do MSXML](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [ Referência do protocolo de NSXMLParserDelegate](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [resolver as referências externas](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
+| **Passos**| <p>Embora não é amplamente utilizado, há um recurso do XML que permite que o analisador XML expandir as entidades de macro com valores definidos dentro do próprio documento ou a partir de origens externas. Por exemplo, o documento pode definir uma entidade "companyname" com o valor "Microsoft", então, que sempre que o texto "&companyname;" é apresentado no documento, é substituído automaticamente com o texto de Microsoft. Em alternativa, o documento pode definir uma entidade "MSFTStock" que faça referência a um serviço web externo para buscar o valor atual de estoque de Microsoft.</p><p>Em seguida, em qualquer altura "&MSFTStock;" é apresentado no documento, ele é automaticamente substituído pelo preço das ações atual. No entanto, essa funcionalidade pode ser abusada para criar a negação de condições de serviço (DoS). Um invasor pode aninhar várias entidades para criar uma bomba XML de expansão exponencial que consuma toda a memória disponível no sistema. </p><p>Em alternativa, ele pode criar uma referência externa que transmite os back uma quantidade infinita de dados ou que simplesmente pára o thread. Como resultado, todas as equipes terá de desativar a resolução de entidades XML interna e/ou externa inteiramente se seu aplicativo não usá-lo, ou manualmente limitar a quantidade de memória e a hora em que o aplicativo pode consumir para a resolução de entidade se esta funcionalidade está absolutamente necessário. Se a resolução de entidade não é exigida pela sua aplicação, em seguida, desativá-la. </p>|
 
 ### <a name="example"></a>Exemplo
-Código do .NET Framework, pode utilizar as seguintes abordagens:
+Para o código do .NET Framework, pode usar as seguintes abordagens:
 
 ```csharp
 XmlTextReader reader = new XmlTextReader(stream);
@@ -158,10 +158,10 @@ XmlReaderSettings settings = new XmlReaderSettings();
 settings.DtdProcessing = DtdProcessing.Prohibit;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Tenha em atenção que o valor predefinido de `ProhibitDtd` no `XmlReaderSettings` for VERDADEIRO, mas em `XmlTextReader` é falso. Se estiver a utilizar XmlReaderSettings, não é necessário definir ProhibitDtd como verdadeiro explicitamente, mas é recomendado para sake de segurança que efetuar. Note também que a classe de XmlDocument permite a resolução da entidade por predefinição. 
+Tenha em atenção que o valor predefinido `ProhibitDtd` no `XmlReaderSettings` for VERDADEIRO, mas em `XmlTextReader` é falso. Se estiver a utilizar XmlReaderSettings, não é necessário definir ProhibitDtd como verdadeiro explicitamente, mas é recomendado para o efeito de segurança que o faça. Observe também que a classe XmlDocument permite a resolução de entidade por predefinição. 
 
 ### <a name="example"></a>Exemplo
-Para desativar a resolução de entidades para XmlDocuments, utilize o `XmlDocument.Load(XmlReader)` sobrecarga do método de carregamento e defina as propriedades adequadas no argumento de XmlReader para desativar a resolução, conforme ilustrado no seguinte código: 
+Para desativar a resolução de entidades para XmlDocument, utilize o `XmlDocument.Load(XmlReader)` de sobrecarga do método de carga e definir as propriedades adequadas no argumento XmlReader para desativar a resolução, conforme ilustrado no seguinte código: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -172,7 +172,7 @@ doc.Load(reader);
 ```
 
 ### <a name="example"></a>Exemplo
-Se desativar a resolução de entidade não é possível para a sua aplicação, defina a propriedade de XmlReaderSettings.MaxCharactersFromEntities para um valor razoável de acordo com as necessidades da sua aplicação. Isto irá limitar o impacto de prevenção de expansão exponencial potenciais ataques. O código seguinte fornece um exemplo desta abordagem: 
+Se desativar a resolução de entidade não é possível para a sua aplicação, defina a propriedade de XmlReaderSettings.MaxCharactersFromEntities como um valor razoável, de acordo com as necessidades da sua aplicação. Isso limitará o impacto de potenciais ataques de expansão exponencial. O código a seguir fornece um exemplo desta abordagem: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -182,7 +182,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Exemplo
-Se precisar de resolver inline entidades, mas fazer não é necessário resolver as entidades externas, defina a propriedade de XmlReaderSettings.XmlResolver como nulo. Por exemplo: 
+Se tiver de resolver entidades inline, mas fazer não é necessário resolver entidades externas, defina a propriedade de XmlReaderSettings.XmlResolver como nulo. Por exemplo: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -191,32 +191,32 @@ settings.MaxCharactersFromEntities = 1000;
 settings.XmlResolver = null;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Tenha em atenção que o MSXML6, ProhibitDTD é definido como VERDADEIRO (desativar o processamento DTD) por predefinição. Código de OSX/iOS da Apple, existem dois parsers de XML, pode utilizar: NSXMLParser e libXML2. 
+Tenha em atenção que o MSXML6, ProhibitDTD está definido como true (processamento de DTD desativar) por predefinição. Para o código de Apple OSX/iOS, existem dois analisadores XML, pode utilizar: NSXMLParser e libXML2. 
 
-## <a id="app-verification"></a>As aplicações que a utilização de http.sys efetuar verificação de colocação em forma canónica de URL
+## <a id="app-verification"></a>Aplicações com o HTTP. sys efetuar verificação de canonização do URL
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Qualquer aplicação que utiliza o http.sys deve seguir estas diretrizes:</p><ul><li>Limita o comprimento do URL a mais do que 16.384 carateres (ASCII ou Unicode). Este é o absoluto comprimento máximo do URL com base na predefinição de serviços de informação Internet (IIS) 6. Web sites devem esforçar-por um período mais curto que estes se possível</li><li>Utilizar as classes de ficheiro e/s padrão do .NET Framework (por exemplo, FileStream) como estes serão tirar partido das regras de colocação em forma canónica do FX .NET</li><li>Explicitamente compilar uma lista de permissões de nomes de ficheiros conhecida</li><li>Rejeitar explicitamente filetypes conhecidos que não processará UrlScan rejeita: exe, bat, cmd, com, htw, ida, idq, htr, idc, shtm [l], stm, impressoras, ini, pol, ficheiros de dados</li><li>Detetar as seguintes exceções:<ul><li>System.ArgumentException (para nomes de dispositivo)</li><li>System.NotSupportedException (para fluxos de dados)</li><li>System.IO.FileNotFoundException (para nomes de ficheiros com caráter de escape inválida)</li><li>System.IO.DirectoryNotFoundException (para dirs com caráter de escape inválida)</li></ul></li><li>*Não* chamar ficheiro Win32 APIs e/s. Num URL inválido transições devolver um erro 400 ao utilizador e inicie o erro real.</li></ul>|
+| **Passos** | <p>Qualquer aplicação que utiliza HTTP. sys deve seguir estas diretrizes:</p><ul><li>Limite o comprimento da URL para não mais do que 16.384 carateres (ASCII ou Unicode). Este é o comprimento de URL de máximo absoluto, com base na predefinição de serviços de informação Internet (IIS) 6. Web sites devem se esforçar durante um período menor do que isso se possível</li><li>Utilizar as classes de e/s de arquivo padrão do .NET Framework (como FileStream) como estes serão aproveitar as regras de canonização no .NET FX</li><li>Criar explicitamente uma lista de permissões de nomes de ficheiros conhecidos</li><li>Rejeitar explicitamente conhecidos tipos de ficheiro não irá servir rejeita do UrlScan: exe, morcego, cmd, com, htw, ida, idq, htr, idc, shtm [l], stm, impressora, ini, pol, arquivos de dados</li><li>Captura as seguintes exceções:<ul><li>System.ArgumentException (para os nomes de dispositivo)</li><li>System.NotSupportedException (para fluxos de dados)</li><li>FileNotFoundException (para nomes de ficheiros com caráter de escape inválido)</li><li>System.IO.DirectoryNotFoundException (para dirs com caráter de escape inválido)</li></ul></li><li>*Isso não é possível* chamar APIs de e/s de arquivos do Win32. Num URL inválido com elegância retornar um erro 400 para o usuário e registrar o erro real.</li></ul>|
 
-## <a id="controls-users"></a>Certifique-se de que os controlos adequados estão em vigor quando os ficheiros dos utilizadores a aceitar
+## <a id="controls-users"></a>Certifique-se de que controles adequados estão em vigor quando abertos ao recebimento de arquivos de usuários
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Sem restrições de carregamento de ficheiros](https://www.owasp.org/index.php/Unrestricted_File_Upload), [tabela de assinatura de ficheiros](http://www.garykessler.net/library/file_sigs.html) |
-| **Passos** | <p>Os ficheiros carregados representam um risco significativo para as aplicações.</p><p>O primeiro passo na muitos ataques é obter alguns códigos para o sistema a ser atacado. Em seguida, ataque apenas tem de encontrar uma forma de obter o código executado. Utilizar um carregamento de ficheiros ajuda-o atacante realizar o primeiro passo. As consequências de carregamento de ficheiros sem restrições podem variar, incluindo aquisições sistema completo, um sistema de ficheiros sobrecarregado ou a base de dados, ataques de sistemas de back-end e simple defacement de reencaminhamento.</p><p>Depende do que a aplicação faz com que o ficheiro carregado e especialmente onde está armazenada. Validação do lado do servidor de carregamentos de ficheiros está em falta. Os seguintes controlos de segurança devem ser implementados para carregar ficheiros de funcionalidade:</p><ul><li>Verificação de extensão de ficheiro (apenas um conjunto de tipo de ficheiro permitido válido deve ser aceite)</li><li>Limite de tamanho máximo do ficheiro</li><li>Ficheiro não deve ser carregado para webroot; a localização deve ser um diretório na unidade de sistema não</li><li>Convenção de nomenclatura deve ser seguido, substitui de forma a que o nome de ficheiro carregado tem algumas randomness, de modo a impedir que o ficheiro</li><li>Devem ser analisados ficheiros antivírus antes de escrever para o disco</li><li>Certifique-se de que o nome de ficheiro e de quaisquer outros metadados (por exemplo, o caminho de ficheiro) são validados caracteres maliciosos</li><li>Assinatura de formato de ficheiro deve ser verificada para impedir que um utilizador carregar um ficheiro masqueraded (por exemplo, carregar um ficheiro. exe alterando a extensão para txt)</li></ul>| 
+| **Passos** | <p>Os ficheiros carregados representam um risco significativo para aplicações.</p><p>O primeiro passo para muitos ataques é obter alguns códigos para o sistema para ser atacado. Em seguida, o ataque só precisa de encontrar uma forma de obter o código executado. Usar o carregamento do ficheiro ajuda o invasor conseguir a primeira etapa. As conseqüências de carregamento de ficheiros sem restrições podem variar, incluindo obtenção de controlo completo do sistema, um sistema de ficheiros sobrecarregado ou a base de dados, ataques de sistemas back-end e desfiguração simple de reencaminhamento.</p><p>Depende de que o aplicativo faz com que o ficheiro carregado e especialmente onde estão armazenados. Validação do lado do servidor de carregamentos de ficheiros está em falta. Controlos de segurança a seguir deve ser implementada para a funcionalidade de carregamento de ficheiros:</p><ul><li>Verificação de extensão de ficheiro (deve ser aceite apenas um conjunto válido de tipo de ficheiro permitidos)</li><li>Limite de tamanho máximo do ficheiro</li><li>Ficheiro não deve ser carregado para webroot; a localização deve ser um diretório na unidade de sistema não</li><li>Convenção de nomenclatura deverão ser seguidas, substitui, de modo a que o nome de ficheiro carregado tem um pouco da aleatoriedade, de modo a impedir que o ficheiro</li><li>Arquivos devem ser analisados relativamente a software antivírus antes de gravar no disco</li><li>Certifique-se de que o nome de ficheiro e quaisquer outros metadados (por exemplo, o caminho de ficheiro) sejam validados para caracteres maliciosos</li><li>Assinatura de formato de ficheiro deve ser verificada, para impedir um utilizador de carregamento de um ficheiro masqueraded (por exemplo, carregar um arquivo exe, alterando a extensão para txt)</li></ul>| 
 
 ### <a name="example"></a>Exemplo
-Para a criação do última ponto relativas a validação de assinatura do formato de ficheiro, consulte a classe abaixo para obter mais detalhes: 
+Para o último ponto sobre validação de assinatura de formato de ficheiro, consulte a classe abaixo para obter mais detalhes: 
 
 ```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
@@ -320,19 +320,19 @@ Para a criação do última ponto relativas a validação de assinatura do forma
         }
 ```
 
-## <a id="typesafe"></a>Certifique-se de que os parâmetros de tipo seguro são utilizados na aplicação Web para acesso a dados
+## <a id="typesafe"></a>Certifique-se de que os parâmetros de tipo seguro são utilizados numa aplicação Web para acesso a dados
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Se utilizar a coleção de parâmetros, trata do SQL Server é a entrada como um valor literal em vez disso, em seguida, como o código executável. A coleção de parâmetros pode ser utilizada para impor restrições de tipo e o comprimento em dados de entrada. Valores fora do intervalo acionam uma excepção. Se não forem utilizados parâmetros de tipo seguro SQL Server, os atacantes poderão executar ataques de injeção que estão incorporados na entrada e não filtrada.</p><p>Utilize os parâmetros de tipo seguro quando construir consultas SQL para evitar possíveis ataques de injeção de SQL que podem ocorrer com entrada e não filtrada. Pode utilizar os parâmetros de tipo seguro com procedimentos armazenados e com as instruções SQL dinâmicas. Os parâmetros são tratados como valores literais pela base de dados e não como o código executável. Os parâmetros também são verificados para o tipo e o comprimento.</p>|
+| **Passos** | <p>Se utilizar a coleção de parâmetros, o SQL trata a entrada é como um valor literal em vez disso, em seguida, como o código executável. A coleção de parâmetros pode ser usada para impor restrições de tipo e comprimento em dados de entrada. Valores fora do intervalo disparar uma exceção. Se não forem utilizados parâmetros SQL de tipo seguro, os atacantes poderão executar ataques de injeção incorporados na entrada não filtrada.</p><p>Utilize parâmetros de tipo seguro ao construir consultas SQL para evitar possíveis ataques de injeção de SQL que podem ocorrer com a entrada não filtrada. Pode usar parâmetros de tipo seguro com procedimentos armazenados e com instruções SQL dinâmicas. Parâmetros são tratados como valores literais pela base de dados e não como código executável. Parâmetros também são verificados para o tipo e comprimento.</p>|
 
 ### <a name="example"></a>Exemplo 
-O código seguinte mostra como utilizar os parâmetros de tipo seguro com o SqlParameterCollection ao chamar um procedimento armazenado. 
+O código seguinte mostra como utilizar parâmetros de tipo seguro com o SqlParameterCollection ao chamar um procedimento armazenado. 
 
 ```csharp
 using System.Data;
@@ -348,29 +348,29 @@ myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text;
 myCommand.Fill(userDataset);
 }  
 ```
-No exemplo de código anterior, o valor de entrada não pode ser superior a 11 carateres. Se os dados não está em conformidade com o tipo ou definido pelo parâmetro de comprimento, a classe de SqlParameter emite uma exceção. 
+No exemplo de código anterior, o valor de entrada não pode ser mais de 11 carateres. Se os dados não está em conformidade com o tipo ou definido pelo parâmetro de comprimento, a classe SqlParameter lançará uma exceção. 
 
-## <a id="binding-mvc"></a>Utilize as classes de enlace do modelo separadas ou apresenta uma lista de filtro de enlace para impedir a vulnerabilidade de atribuição em massa do MVC
+## <a id="binding-mvc"></a>Utilizar classes de ligações de modelo separado ou apresenta uma lista de filtro de associação para impedir a vulnerabilidade de atribuição em massa do MVC
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Atributos de metadados](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [pública chave segurança vulnerabilidade e atenuação](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [guia completo para a atribuição de massa no ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [introdução ao EF utilizar MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Passos** | <ul><li>**Quando deve ser de vulnerabilidades de publicação excessiva? -** Vulnerabilidades de publicação excessiva pode ocorrer a qualquer local vincular as classes do modelo da intervenção do utilizador. Estruturas como MVC podem representar os dados de utilizador em classes de .NET personalizadas, incluindo objetos CLR antigo (POCOs) simples. MVC preenche automaticamente estas classes de modelo com os dados do pedido, fornecendo uma representação conveniente para lidar com intervenção do utilizador. Quando estas classes incluem propriedades que não devem ser definidas pelo utilizador, a aplicação pode estar vulnerável a ataques, que permite que o controlo de utilizador dos dados que se destina a aplicação nunca de publicação excessiva. Como o enlace do modelo MVC, base de dados de aceder a tecnologias, como o objeto relacional mappers como do Entity Framework, muitas vezes, também suporte através de objetos de POCO para representar a base de dados. Estas classes de modelo de dados de fornecer a mesma conveniência no lidar com a base de dados, como sucede MVC no lidar com intervenção do utilizador. Porque MVC e a base de dados suportam modelos semelhantes, à POCO objetos, parece fácil reutilizar as mesmas classes para ambos os efeitos. Esta prática não consegue manter a separação das preocupações e é uma área comum, onde propriedades indesejadas são expostas ao enlace de modelo, ativar a ataques de publicação superior.</li><li>**Por que motivo não deve utilizar a minha classes de modelo de base de dados e não filtradas como parâmetros para os meus ações de MVC? -** Enlace do modelo MVC porque irá vincular a nada nessa classe. Mesmo que os dados não aparecem na vista, um utilizador mal intencionado pode enviar um pedido de HTTP com estes dados incluídos e MVC será gladly vinculá-la porque a ação indica que a classe de base de dados é a forma de dados, deve aceitar entrada do utilizador.</li><li>**Por que motivo deve importantes sobre a forma utilizada para enlace do modelo? -** Enlace do modelo a utilizar o ASP.NET MVC com os modelos abrangentes expõe uma aplicação para ataques de publicação excessiva. Foi possível ativar a publicação superior atacantes alterar os dados da aplicação para além de que o programador pretendido, tais como substituir o preço de um item ou os privilégios de segurança para uma conta. As aplicações devem utilizar o contrato de enlace modelos (ou as listas de filtros de propriedade permitidos específico) para fornecer explícita específicos de ação para que a entrada não fidedigno permitir através do enlace do modelo.</li><li>**Está a ter modelos de enlace separado duplicar apenas código? -** Não, é um fim de separação das preocupações. Se reutilizar os modelos de base de dados em métodos de ação, são indicar qualquer propriedade (ou propriedade secundárias) nessa classe pode ser definida pelo utilizador no pedido de HTTP. Se for esse não o que pretende MVC para o fazer, precisa de uma lista de filtro ou uma forma de classe separado para mostrar MVC os dados que podem resultar em vez disso, a intervenção do utilizador.</li><li>**Se tiver modelos de enlace separado para intervenção do utilizador, é necessário duplicar todos os atributos de anotação os meus dados? -** Não necessariamente. Pode utilizar MetadataTypeAttribute na classe de modelo de base de dados para ligar para os metadados de uma classe de enlace do modelo. Apenas tenha em atenção que o tipo referenciado pelo MetadataTypeAttribute tem de ser um subconjunto do tipo referência (pode ter menos de propriedades, mas não mais).</li><li>**Mover dados novamente e estabelecido entre os modelos de base de dados e modelos de entrada do utilizador é tedious. Pode posso apenas copiar através de todas as propriedades utilizando reflexão? -** Sim. As propriedades só que aparecem nos modelos de enlace são aqueles que tenha determinado para ser seguro para a entrada do utilizador. Não há nenhuma razão de segurança que impeça utilizando reflexão copiar através de todas as propriedades que existem em comum entre estes dois modelos.</li><li>**E vai [vincular (excluir = "â €¦")]. Posso utilizar o que em vez de ter modelos de enlace separado? -** Esta abordagem não é recomendada. Utilizar [vincular (excluir = "â €¦")] significa que qualquer propriedade novo que podem ser ligada por predefinição. Quando é adicionada uma nova propriedade, há um passo adicional de recordar para manter as coisas seguras, em vez de ter a estrutura de serem seguras por predefinição. Consoante o programador é arriscado esta lista de verificação, sempre que é adicionada uma propriedade.</li><li>**Está [vincular (incluir = "â €¦")] útil para operações de edição? -** Não. [Vincular (incluir = "â €¦")] só é adequado para operações de inserção de estilo (adicionar novos dados). Para operações de estilo de ATUALIZAÇÃO (dão origem de dados existentes), utilize outra abordagem, como ter modelos de enlace separado ou transmitir uma lista explícita de propriedades permitidas UpdateModel ou TryUpdateModel. Adicionar uma [vincular (incluir = "â €¦")] o atributo de uma operação de edição significa que o MVC irá criar uma instância de objeto e definir as propriedades listadas, deixando todos os outros nos respetivos valores predefinidos. Quando os dados são mantidos, inteiramente substituirá a entidade existente, repor os valores para as propriedades omitidos para as predefinições. Por exemplo, se IsAdmin foi omitido de uma [vincular (incluir = "â €¦")] o atributo de uma operação de edição, qualquer utilizador cujo nome foi editado através esta ação iria ser reposto no IsAdmin = false (qualquer utilizador editado perderia Estado administrador). Se pretende impedir que as atualizações para determinadas propriedades, utilize uma das outras abordagens acima. Tenha em atenção que algumas versões das ferramentas de MVC geram classes controlador [vincular (incluir = "â €¦")] no editar ações e implica que a remoção de uma propriedade que lista irá impedir ataques de publicação superior. No entanto, como descrito acima, o que abordagem não funcionar conforme pretendido e em vez disso, irá repor os dados nas propriedades de omitido para os respetivos valores predefinidos.</li><li>**Para as operações criar, existem quaisquer avisos com [vincular (incluir = "â €¦")] em vez de modelos de enlace separado? -** Sim. Primeiro esta abordagem não funciona para os cenários de edição, que requerem mantém duas abordagens separadas para mitigar todas as vulnerabilidades de publicação superior. Modelos de enlace segundo, separado imponha a separação das preocupações entre forma utilizada para intervenção do utilizador e a forma utilizada para a persistência, algo [vincular (incluir = "â €¦")] que não. Terceira, tenha em atenção que [vincular (incluir = "â €¦")] só pode processar propriedades de nível superior; Não é possível permitir que apenas as partes de propriedades secundárias (por exemplo, "Details.Name") no atributo. Por fim e talvez mais importante ainda, utilizando [vincular (incluir = "â €¦")] Adiciona um passo adicional que deve ser memorizado sempre a classe é utilizado para enlace do modelo. Se um novo método de ação vincula diretamente para a classe de dados e se esquecer incluir um [vincular (incluir = "â €¦")] o atributo, pode ser vulnerável a ataques, de publicação excessiva o [vincular (incluir = "â €¦")] abordagem é um pouco menos segura por predefinição. Se utilizar [vincular (incluir = "â €¦")], asseguramos sempre lembrar-se de especificá-la sempre as classes de dados aparecem como parâmetros de método de ação.</li><li>**Para as operações criar, colocando e sobre o [vincular (incluir = "â €¦")] atributo na classe de modelo em si? Não esta abordagem evitar a necessidade de não se esqueça de colocar o atributo em cada método da ação? -** Esta abordagem funciona em alguns casos. Utilizar [vincular (incluir = "â €¦")] no tipo de modelo em si (e não nos parâmetros de ação utilizando esta classe), a evitar a necessidade de não se esqueça de incluir o [vincular (incluir = "â €¦")] atributo em cada método de ação. Utilizando o atributo diretamente na classe de forma eficaz cria uma área de superfície separada desta classe para fins de enlace do modelo. No entanto, esta abordagem apenas permite uma forma de enlace de modelo por classe de modelo. Se um método de ação tem de permitir o enlace do modelo de um campo (por exemplo, um administrador só ação que atualiza as funções de utilizador) e outras ações que precisam impedir que o enlace do modelo deste campo, esta abordagem não funcionará. Cada classe só pode ter uma forma de enlace de modelo; Se precisam de ações diferentes formas de enlace de modelo diferente, têm de representar estes formas separadas a utilizar qualquer uma das classes de enlace separado do modelo ou de separar [vincular (incluir = "â €¦")] atributos nos métodos de ação.</li><li>**O que são enlace modelos? São a mesma coisa como modelos de vista? -** Estes são dois conceitos relacionados. O modelo de enlace prazo refere-se a uma classe de modelo utilizada na lista de parâmetros de uma ação (forma transmitida MVC enlace do modelo para o método da ação). O modelo de vista de prazo refere-se a uma classe de modelo transmitida a partir de um método de ação para uma vista. A utilização de um modelo de vista específico é uma abordagem comum para transmitir dados a partir de um método de ação para uma vista. Muitas vezes, esta forma também é adequada para o enlace do modelo e o modelo de vista do termo pode ser utilizado para designar o mesmo modelo utilizado em ambos os locais. Para que seja precisa, este procedimento aborda especificamente enlace modelos, concentrar-se na forma transmitida para a ação que é o que é importante para fins de atribuição em massa.</li></ul>| 
+| **Referências**              | [Atributos de metadados](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [pública chave vulnerabilidade e atenuação de segurança](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [guia completo para atribuição de massa no ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [introdução ao EF usando a MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
+| **Passos** | <ul><li>**Quando devo procurar para publicação excessiva vulnerabilidades? -** Vulnerabilidades de publicação excessiva pode ocorrer a qualquer lugar vincular as classes de modelo de entrada do usuário. Estruturas como o MVC podem representar os dados de usuário em classes personalizadas do .NET, incluindo Plain Old CLR Objects (POCOs). MVC povoa automaticamente essas classes de modelo com dados de solicitação, fornecendo uma representação conveniente para lidar com entrada do usuário. Quando essas classes incluem as propriedades que não devem ser definidas pelo utilizador, a aplicação pode estar vulnerável a ataques, que permitem o controle de usuário de dados que a aplicação nunca se destina de publicação excessiva. Como a associação de modelo do MVC, base de dados do acesso a tecnologias como mapeadores relacional/objeto, como o Entity Framework, muitas vezes, também suporte usando objetos POCO para representar os dados de base de dados. Essas classes de modelo de dados fornecem a mesma conveniência no lidando com dados de base de dados, como MVC faz em lidar com entrada do usuário. Porque o MVC e a base de dados suportam modelos semelhantes, como objetos POCO, parece fácil reutilizar as mesmas classes para ambos os efeitos. Esta prática falha preservar a separação de preocupações e é uma área comuns em que as propriedades de não-intencionais são expostas a associação de modelo, permitindo que os ataques de lançamento excessiva.</li><li>**Por que não deve utilizar minhas classes de modelo de base de dados não filtrado como parâmetros para meu ações MVC? -** Associação de modelo MVC porque irá vincular a nada nessa classe. Mesmo que os dados não aparecerem na vista, um utilizador mal intencionado pode enviar um pedido HTTP com estes dados incluídos e MVC será disparará vinculá-lo uma vez que a ação diz que a classe de base de dados é a forma de dados, que ele deve aceitar entrada do usuário.</li><li>**Por que devo me preocupar sobre a forma utilizada para a associação de modelo? -** Associação de modelo usando o ASP.NET MVC com modelos de demasiado abrangentes expõe um aplicativo para ataques de publicação excessiva. Excesso de lançamento foi possível ativar a atacantes alterar os dados de aplicação para além de que o programador pretendido, por exemplo, substituindo o preço de um item ou os privilégios de segurança para uma conta. Os aplicativos devem usar o contrato de modelos (ou listas de filtros de propriedade permitidos específica) para fornecer um explícita de ligação de ação específica para as entradas não confiáveis permitir por meio de associação de modelo.</li><li>**É fazer com que os modelos de enlace separado apenas duplicação de código? -** Não é uma questão de separação de preocupações. Se reutilize modelos de base de dados em métodos de ação, está dizendo qualquer propriedade (ou subpropriedade) em que a classe pode ser definida pelo usuário numa solicitação HTTP. Se for esse não o que deseja MVC para o fazer, precisa de uma lista de filtro ou uma forma de classe separada para mostrar o MVC os dados que podem ser provenientes de em vez disso, a intervenção do utilizador.</li><li>**Se eu tiver modelos de enlace separado para a entrada do usuário, é necessário duplicar todos os atributos de anotação meus dados? -** Não necessariamente. Pode usar MetadataTypeAttribute na classe de modelo de base de dados para ligar a metadados numa classe de associação de modelo. Apenas observe que o tipo referenciado pelo MetadataTypeAttribute tem de ser um subconjunto do tipo de referência (ele pode ter menos propriedades, mas não mais).</li><li>**Mover dados e volta entre modelos de entrada do usuário e modelos de base de dados é entediante. Pode simplesmente copiar ao longo de todas as propriedades usando a reflexão? -** Sim. As únicas propriedades que aparecem nos modelos do enlace são os que determinou a ser seguros para a entrada do usuário. Não há nenhum motivo de segurança que impede a usando a reflexão para copiar ao longo de todas as propriedades que existem em comum entre esses dois modelos.</li><li>**Que tal [vincular (excluir = "â €¦")]. Posso utilizar que em vez de ter modelos de enlace separado? -** Essa abordagem não é recomendada. Com [vincular (excluir = "â €¦")] significa que qualquer nova propriedade é vinculáveis por predefinição. Quando é adicionada uma nova propriedade, existe um passo extra lembrar-se de manter as coisas segura, em vez de ter o design ser seguro por padrão. Dependendo do desenvolvedor verificar esta lista, sempre que for adicionada uma propriedade é arriscado.</li><li>**É [vincular (incluir = "â €¦")] útil para operações de edição? -** Não. [Ligar (incluir = "â €¦")] só é adequado para operações de inserção-estilo (adicionar dados novos). Para operações de ATUALIZAÇÃO-estilo (revisando os dados existentes), utilize outra abordagem, como ter modelos de enlace separado ou passar uma lista explícita de propriedades permitidas para UpdateModel ou TryUpdateModel. Adicionar um [vincular (incluir = "â €¦")] atributo numa operação de edição significa que o MVC irá criar uma instância de objeto e definir as propriedades listadas, deixando todos os outros com os valores padrão. Quando os dados são persistentes, substituirá totalmente a entidade existente, repor os valores para todas as propriedades omitidos para as predefinições. Por exemplo, se IsAdmin foi omitida de um [vincular (incluir = "â €¦")] atributo numa operação de edição, qualquer usuário cujo nome foi editado por esta ação teria de ser reposto para IsAdmin = false (qualquer utilizador editado perderia estado de administrador). Se quiser impedir que as atualizações para determinadas propriedades, utilize uma das outras abordagens acima. Tenha em atenção que algumas versões das ferramentas do MVC geram classes de controlador com [vincular (incluir = "â €¦")] sobre como editar ações e implica que uma propriedade a remover da lista irá impedir que os ataques de lançamento excessiva. No entanto, conforme descrito acima, essa abordagem não funciona como pretendido e em vez disso, irá repor todos os dados nas propriedades de omitido para os valores predefinidos.</li><li>**Para operações Create, existem os avisos com [vincular (incluir = "â €¦")] em vez de modelos de enlace separado? -** Sim. Primeiro essa abordagem não funciona para cenários de edição, que exigem a manutenção de duas abordagens separadas para a atenuação todas as vulnerabilidades de lançamento excessiva. Modelos de enlace separado, segundo impõem a separação das preocupações entre forma utilizada para a entrada do usuário e a forma utilizada para a persistência, algo [vincular (incluir = "â €¦")] não faz. Em terceiro lugar, tenha em atenção que [vincular (incluir = "â €¦")] pode apenas tratar de propriedades de nível superior; Não é possível permitir apenas partes de subpropriedades (por exemplo, "Details.Name") no atributo. Por fim e talvez mais importante é que, usando [vincular (incluir = "â €¦")] Adiciona um passo extra que deve ser memorizado sempre que a classe é utilizado para a associação de modelo. Se um novo método de ação liga diretamente para a classe de dados e esquecer de incluir um [vincular (incluir = "â €¦")] atributo, ele pode ser vulnerável a ataques, de publicação excessiva pelo que a [vincular (incluir = "â €¦")] abordagem é um pouco menos segura por padrão. Se usar [vincular (incluir = "â €¦")], tenha cuidado sempre se lembrar de especificá-lo sempre que suas classes de dados são apresentados como parâmetros de método de ação.</li><li>**Para operações Create, que tal colocando o [vincular (incluir = "â €¦")] atributo na classe de modelo em si? Não, essa abordagem evitar a necessidade de não se esqueça de colocar o atributo em cada método de ação? -** Essa abordagem funciona em alguns casos. Com [vincular (incluir = "â €¦")] o próprio tipo de modelo (em vez de parâmetros de ação usando essa classe), a evitar a necessidade de não se esqueça de incluir o [vincular (incluir = "â €¦")] atributo em cada método de ação. Usando o atributo diretamente à classe de forma eficaz, cria uma área de superfície separada dessa classe para fins de vinculação de modelo. No entanto, esta abordagem permite apenas para uma forma de associação de modelo por classe de modelo. Se um método de ação tem de permitir que a associação de modelo de um campo (por exemplo, um administrador só ação que Atualize funções de utilizador) e outras ações tem de impedir a associação de modelo deste campo, essa abordagem não funcionará. Cada classe só pode ter uma forma de associação de modelo; Se precisam de ações diferentes formas de associação de modelo diferente, que precisam para representar essas formas separadas usando qualquer uma das classes de ligações de modelo separado ou separar [vincular (incluir = "â €¦")] atributos sobre os métodos de ação.</li><li>**O que uma ligação modelos? Eles são a mesma coisa que modelos de exibição? -** São dois conceitos relacionados. O modelo de ligação do termo refere-se para uma classe de modelo utilizada na lista de parâmetros de uma ação (a forma passada de associação de modelo MVC para o método de ação). O modelo de exibição do termo refere-se para uma classe de modelo transmitida de um método de ação para uma vista. Usando um modelo de específica de exibição é uma abordagem comum para passar dados de um método de ação para uma vista. Muitas vezes, esta forma também é adequada para a associação de modelo e o modelo de exibição do termo pode ser usado para consultar o mesmo modelo usado em ambos os locais. Para ser preciso, este procedimento fale especificamente sobre o enlace de modelos, concentrando-se na forma passada para a ação, o que é o que é importante para fins de atribuição em massa.</li></ul>| 
 
-## <a id="rendering"></a>Codificar o resultado da web não fidedignos antes da composição
+## <a id="rendering"></a>Codificar a saída da web não fidedignos antes da composição
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérico, MVC6 de formulários, MVC5, Web |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Genéricas, Web Forms, MVC5, MVC6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Como impedir a criação de scripts entre sites no ASP.NET](http://msdn.microsoft.com/library/ms998274.aspx), [script entre sites](http://cwe.mitre.org/data/definitions/79.html), [Cheat folha do prevenção XSS (scripts entre sites)](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
-| **Passos** | Processamento de scripts entre sites (frequentemente abreviado como XSS) é um vetor de ataque de serviços online ou qualquer/componente da aplicação que consome entrada a partir do web. Vulnerabilidades XSS podem permitir que um atacante ao executar script na máquina de outro utilizador através de uma aplicação web vulnerável. Scripts maliciosos podem ser utilizados para roubar cookies e caso contrário adulterar a máquina de uma vítima através do JavaScript. XSS é evitada ao validar a intervenção do utilizador, garantindo que está bem formado e codificação antes de este é composta numa página web. Validação de entrada e saída codificação podem ser feitas utilizando a biblioteca de proteção de Web. Para código gerido (C\#, VB.net, etc.), utilize um ou mais adequado métodos codificação da biblioteca Web proteção (Anti-XSS), consoante o contexto em que a entrada de utilizador obtém apresentada:| 
+| **Referências**              | [Como impedir scripts entre sites no ASP.NET](http://msdn.microsoft.com/library/ms998274.aspx), [Scripting entre sites](http://cwe.mitre.org/data/definitions/79.html), [folha de referência de prevenção de XSS (Cross scripts sites)](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
+| **Passos** | Scripts entre sites (frequentemente abreviado como XSS) é um vetor de ataque de serviços online ou qualquer aplicação/componente que consome a entrada da web. As vulnerabilidades de XSS podem permitir que um invasor execute o script na máquina de outro utilizador através de um aplicativo web vulnerável. Scripts maliciosos podem ser utilizados para roubar cookies e caso contrário, adulterar a máquina de uma vítima através do JavaScript. XSS é impedida pela validação de entrada do utilizador, garantir que ela estiver bem formada e codificação antes de ele é processado numa página da web. Validação de entrada e a codificação de saída podem ser feitos usando Web Protection Library. Para código gerido (C\#, VB.net, etc.), utilize um ou mais apropriado de métodos de codificação da biblioteca de proteção da Web (Anti-XSS), dependendo do contexto em que a entrada do usuário é apresentada:| 
 
 ### <a name="example"></a>Exemplo
 
@@ -386,41 +386,41 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 * Encoder.LdapEncode 
 ```
 
-## <a id="typemodel"></a>Efetuar a validação de entrada e filtrar no tipo de cadeia todas as propriedades de modelo
+## <a id="typemodel"></a>Realizar validação de entrada e filtragem no tipo de cadeia de caracteres de todas as propriedades do modelo
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | MVC6 genérico, MVC5, |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Genérico, MVC5, MVC6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [A adição de validação](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [validar o modelo de dados numa aplicação MVC](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ao servir pelos princípios para as suas aplicações de ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Passos** | <p>Todos os parâmetros de entrada tem de ser validados antes de poderem são utilizados na aplicação para se certificar de que a aplicação é protegida contra entradas do utilizador mal intencionado. Valide os valores de entrada utilizando validações de expressão regular no lado do servidor com uma estratégia de validação da lista branca. Unsanitized introduções de utilizador / parâmetros transmitidos para os métodos podem fazer com código de vulnerabilidades de injeção.</p><p>Para aplicações web, também podem incluir pontos de entrada campos do formulário, QueryStrings, os cookies, cabeçalhos de HTTP e os parâmetros do serviço web.</p><p>As seguintes verificações de validação de entrada tem de ser executadas após o enlace do modelo:</p><ul><li>As propriedades do modelo devem ser anotadas com anotação RegularExpression, para aceitar caracteres permitidos e o comprimento permissível máximo</li><li>Os métodos de controlador devem efetuar ModelState validade</li></ul>|
+| **Referências**              | [Adicionar validação](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [validar os dados de modelo num aplicativo MVC](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [princípios básicos para aplicativos ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+| **Passos** | <p>Todos os parâmetros de entrada têm de ser validados antes de serem utilizadas no aplicativo para se certificar de que a aplicação é protegida contra entradas de utilizador mal intencionado. Valide os valores de entrada usando validações de expressão regular no lado do servidor com uma estratégia de validação da lista de permissões. Unsanitized entradas do utilizador / parâmetros passados para os métodos podem fazer com que o código vulnerabilidades de injeção.</p><p>Para aplicações web, pontos de entrada também podem incluir campos de formulário, QueryStrings, cookies, cabeçalhos HTTP e parâmetros do serviço web.</p><p>As seguintes verificações de validação de entrada tem de ser executadas após a associação de modelo:</p><ul><li>As propriedades do modelo devem ser anotadas com anotação RegularExpression, para aceitar caracteres permitidos e o comprimento máximo permitido</li><li>Os métodos de controlador devem executar ModelState validade</li></ul>|
 
-## <a id="richtext"></a>Sanitização deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto formatado
+## <a id="richtext"></a>A limpeza deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto avançado
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Codificar entrada insegura](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [Sanitizer de HTML](https://github.com/mganss/HtmlSanitizer) |
-| **Passos** | <p>Identifique todas as etiquetas de marcação estáticos que pretende utilizar. É uma prática comum para restringir a formatação para elementos HTML seguros, tais como `<b>` (negrito) e `<i>` (itálico).</p><p>Antes de escrever os dados, codificar de HTML-lo. Isto faz com que quaisquer scripts maliciosos seguro, causando-lo para ser processado como texto, não como o código executável.</p><ol><li>Desativar a validação de pedido do ASP.NET adicionando o o ValidateRequest = "false" atributo como diretiva @ página</li><li>Codificar a entrada de cadeia com o método HtmlEncode</li><li>Utilize um StringBuilder e chame o método de substituição para remover seletivamente a codificação nos elementos HTML que pretende permitir</li></ol><p>O página-na validação do pedido ASP.NET desativa referências definindo `ValidateRequest="false"`. -Lo a entrada de codifica HTML e seletivamente permite o `<b>` e `<i>` em alternativa, também pode ser utilizada uma biblioteca de .NET de sanitização de HTML.</p><p>HtmlSanitizer é uma biblioteca de .NET para a limpeza de fragmentos HTML e os documentos de construções que podem conduzir a ataques XSS. Utiliza AngleSharp para analisar, a manipulação e a compor HTML e CSS. HtmlSanitizer pode ser instalado como um pacote NuGet e pode ser transmitida a entrada de utilizador relevantes HTML ou CSS sanitização métodos, conforme aplicável, no lado do servidor. Tenha em atenção que Sanitização como um controlo de segurança deve ser considerada apenas como uma opção de último.</p><p>Validação de entrada e saída codificação são consideradas a melhor controlos de segurança.</p> |
+| **Referências**              | [Uma entrada de codificar](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML Sanitizer](https://github.com/mganss/HtmlSanitizer) |
+| **Passos** | <p>Identifique todas as marcas de marcação estática que pretende utilizar. Uma prática comum é restringir a formatação para elementos HTML seguros, tais como `<b>` (negrito) e `<i>` (itálico).</p><p>Antes de escrever os dados, codificar com HTML-lo. Isso faz com que qualquer script mal-intencionado seguro, causando-lo ser tratada como texto, não como código executável.</p><ol><li>Desativar a validação de pedido do ASP.NET adicionando o o ValidateRequest = "false" atributo para o \@ diretiva Page</li><li>Codificar a entrada de cadeia de caracteres com o método HtmlEncode</li><li>Utilizar um StringBuilder e chamar seu método de substituição para remover seletivamente a codificação nos elementos HTML que deseja permitir</li></ol><p>Página da validação do pedido ASP.NET desativa referências ao definir `ValidateRequest="false"`. Ele codifica HTML de entrada e seletivamente permite que o `<b>` e `<i>` em alternativa, uma biblioteca .NET para a limpeza de HTML também pode ser utilizada.</p><p>HtmlSanitizer é uma biblioteca de .NET para a limpeza de HTML fragmentos e documentos de construções que podem conduzir a ataques XSS. Ele usa o AngleSharp para analisar, manipular e compor HTML e CSS. HtmlSanitizer pode ser instalado como um pacote NuGet e a entrada do usuário pode ser passada por meio de HTML ou CSS a limpeza métodos relevantes, conforme aplicável, no lado do servidor. Tenha em atenção que a limpeza de como um controle de segurança deve ser considerada apenas como uma última opção.</p><p>Validação de entrada e a codificação de saída são consideradas a melhor controlos de segurança.</p> |
 
-## <a id="inbuilt-encode"></a>Não atribua elementos DOM para sinks que não têm a codificação integradas
+## <a id="inbuilt-encode"></a>Não atribua elementos DOM a Coletores de que não têm a codificação incorporadas
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | Muitas funções de javascript não fazem nada codificação por predefinição. Ao atribuir a entrada não fidedigna para os elementos de DOM através essas funções, poderão resultar entre execuções de script (XSS) do site.| 
+| **Passos** | Muitas funções de javascript não fazem a codificação por predefinição. Ao atribuir entradas não confiáveis a elementos DOM através de funções, pode resultar em cruzada execuções de script (XSS) do site.| 
 
 ### <a name="example"></a>Exemplo
-Seguem-se exemplos inseguras: 
+Seguem-se exemplos de não seguro: 
 
 ```
 document.getElementByID("div1").innerHtml = value;
@@ -430,59 +430,59 @@ $('body').append(resHTML);
 ```
 Não utilize `innerHtml`; em vez disso, utilize `innerText`. Da mesma forma, em vez de `$("#elm").html()`, utilize `$("#elm").text()` 
 
-## <a id="redirect-safe"></a>Validar se todos os redireccionamentos na aplicação são fechados ou feitos de forma segura
+## <a id="redirect-safe"></a>Validar se todos os redirecionamentos de dentro do aplicativo são fechados ou feitos com segurança
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [A estrutura de autorização do OAuth 2.0 - Redirectors abertas](http://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Passos** | <p>Estrutura de aplicação que requerem redirecionamento para uma localização fornecido pelo utilizador tem de restringir os destinos de redirecionamento possíveis para uma lista predefinida de "seguro" de sites ou domínios. Todos os redireccionamentos na aplicação tem de ser fechado/segura.</p><p>Para efetuar este procedimento:</p><ul><li>Identifique todos os redirecionamentos</li><li>Implemente uma mitigação adequada para cada tipo de redirecionamento. Mitigações adequadas incluem confirmação de lista de permissões ou de utilizador de redirecionamento. Se a um web site ou serviço com uma vulnerabilidade do redirecionamento abra utiliza fornecedores de identidade OAuth/Facebook/OpenID, um atacante pode roubar o token de início de sessão do utilizador e representar esse utilizador. Isto é um risco inerente ao utilizar OAuth, que é descrita no RFC 6749 "O OAuth 2.0 autorização Framework", secção 10.15 "abrir redireciona" da mesma forma, as credenciais de utilizadores podem ficar comprometidas por ataques de phishing spear utilizando redirecionamentos abertos</li></ul>|
+| **Referências**              | [A estrutura de autorização de OAuth 2.0 - Redirecionadores abertos](http://tools.ietf.org/html/rfc6749#section-10.15) |
+| **Passos** | <p>Design do aplicativo que requerem redirecionamento para uma localização fornecida pelo usuário tem de restringir os destinos de redirecionamento possíveis para uma lista predefinida de "segura" de sites ou domínios. Todos os redirecionamentos no aplicativo tem de ser fechado/seguro.</p><p>Para efetuar este procedimento:</p><ul><li>Identificar todos os redirecionamentos</li><li>Implemente um apropriado de atenuação para cada tipo de redirecionamento. Atenuações apropriadas incluem a confirmação de lista de permissões ou utilizador de redirecionamento. Se a um site ou serviço com uma vulnerabilidade de redirecionamento aberto utiliza fornecedores de identidade do Facebook/OAuth/OpenID, um invasor pode roubar o token de início de sessão de um utilizador e representar esse utilizador. Este é um risco inerente ao utilizar o OAuth, que está documentado em RFC 6749 "O OAuth 2.0 autorização Framework", secção 10.15 "abrir redireciona" da mesma forma, credenciais dos utilizadores podem ser comprometidas por ataques de phishing spear usando redirecionamentos abertos</li></ul>|
 
-## <a id="string-method"></a>Implementar a validação de entrada em todos os parâmetros de tipo de cadeia aceites pelos métodos de controlador
+## <a id="string-method"></a>Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos de controlador
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | MVC6 genérico, MVC5, |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Genérico, MVC5, MVC6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Validar o modelo de dados numa aplicação MVC](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ao servir pelos princípios para as suas aplicações de ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Passos** | Métodos de que apenas aceitam o tipo de dados primitivo e não modelos como argumento, deve ser feita utilizando uma expressão Regular de validação de entrada. Aqui Regex.IsMatch deve ser utilizada com um padrão regex válido. Se a entrada não corresponde à expressão Regular especificada, o controlo não deverá continuar e deve ser apresentado um aviso sobre a falha de validação adequado.| 
+| **Referências**              | [A validar o modelo de dados num aplicativo MVC](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [princípios básicos para aplicativos ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+| **Passos** | Para métodos que aceitam apenas o tipo de dados primitivos e não modelos como argumento, deve ser feita usando a expressão Regular de validação de entrada. Aqui, RegEx deve ser utilizada com um padrão regex válido. Se a entrada não corresponde à expressão Regular especificada, controle não deve avançar e deve ser apresentado um aviso adequado em relação à falha de validação.| 
 
-## <a id="dos-expression"></a>Definir limite de tempo limite superior para a expressão regular de processamento para evitar DoS devido a expressões regulares incorretas
+## <a id="dos-expression"></a>Definir o tempo limite de limite superior para a expressão regular de processamento para impedir que o DoS devido a más expressões regulares
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérico, MVC6 de formulários, MVC5, Web  |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Genéricas, Web Forms, MVC5, MVC6  |
 | **Atributos**              | N/A  |
 | **Referências**              | [Propriedade de DefaultRegexMatchTimeout ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
-| **Passos** | Para assegurar o ataques denial of service contra formatado criadas expressões regulares, o que fazer com que uma grande quantidade de controlo inverso, defina o tempo limite global predefinido. Se o tempo de processamento demora mais que o limite superior definido, poderia acionar uma exceção de tempo limite. Se nada estiver configurado, o tempo limite seria infinito.| 
+| **Passos** | Para garantir que ataques denial of service contra incorretamente o criado expressões regulares, o que fazer com que muitos backtracking, definir o tempo limite padrão global. Se o tempo de processamento demorar mais tempo do que o limite superior definido, ela lançaria uma exceção de tempo limite. Se nada estiver configurado, o tempo limite seria infinito.| 
 
 ### <a name="example"></a>Exemplo
-Por exemplo, a seguinte configuração irá gerar um RegexMatchTimeoutException, se o processamento demora mais de 5 segundos: 
+Por exemplo, a seguinte configuração irá gerar um RegexMatchTimeoutException, se o processamento demorar mais de 5 segundos: 
 
 ```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
-## <a id="html-razor"></a>Evite utilizar Html.Raw nas vistas de Razor
+## <a id="html-razor"></a>Evite utilizar Html.Raw em modos de exibição do Razor
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| Passo | Páginas Web do ASP.Net (Razor) execute a codificação de HTML automática. Todas as cadeias impressas por nuggets código incorporado (@ blocos) são automaticamente codificado em HTML. No entanto, quando `HtmlHelper.Raw` método é invocado, devolve markup que não é codificado em HTML. Se `Html.Raw()` é utilizado o método de programa auxiliar, se ignora a proteção automática de codificação que fornece Razor.|
+| Passo | Páginas da Web ASP.Net (Razor) realizar a codificação de HTML automática. Todas as cadeias de caracteres impressas por preciosidades do código incorporado (@ blocos) são automaticamente codificado em HTML. No entanto, quando `HtmlHelper.Raw` método é invocado, ele retorna marcação que não é codificado em HTML. Se `Html.Raw()` é utilizado o método auxiliar, ele ignora a proteção automática de codificação que fornece o Razor.|
 
 ### <a name="example"></a>Exemplo
-Segue-se um exemplo inseguras: 
+Segue-se um exemplo inseguro: 
 
 ```csharp
 <div class="form-group">
@@ -493,21 +493,21 @@ Segue-se um exemplo inseguras:
         </div>
 </div>
 ```
-Não utilize `Html.Raw()` , a menos que tem de apresentar markup. Este método não efetua a saída codificação implicitamente. Por exemplo, a utilizar outros programas de ajuda do ASP.NET `@Html.DisplayFor()` 
+Não utilize `Html.Raw()` , a menos que precisa exibir a marcação. Este método não executa implicitamente a codificação de saída. Por exemplo, a utilizar outros auxiliares ASP.NET `@Html.DisplayFor()` 
 
 ## <a id="stored-proc"></a>Não utilize consultas dinâmicas em procedimentos armazenados
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Um ataque de injeção de SQL explorar vulnerabilidades na validação de entrada para executar comandos arbitrários na base de dados. Isto pode ocorrer quando a aplicação utiliza entrada para construir dinâmicas instruções SQL para aceder à base de dados. Também pode ocorrer se o seu código utiliza os procedimentos armazenados que são transmitidos cadeias que contêm a intervenção do utilizador não processados. Utilizar o ataque de injeção de SQL, o atacante pode executar comandos arbitrários na base de dados. Todas as instruções SQL (incluindo as instruções SQL em procedimentos armazenados) tem de ser parametrizadas. Aceitam carateres que têm um significado especial para o SQL Server (como aspa simples) sem problemas, porque estes são tipos de dados inflexíveis instruções parametrizadas do SQL Server. |
+| **Passos** | <p>Um ataque de injeção de SQL explora vulnerabilidades na validação de entrada para executar comandos arbitrários na base de dados. Pode ocorrer quando o aplicativo usa a entrada para construir instruções SQL dinâmicas para acessar o banco de dados. Também pode ocorrer se o seu código utiliza os procedimentos armazenados que são transmitidos a cadeias que contêm a entrada do usuário não processados. Utilizar o ataque de injeção de SQL, o invasor pode executar comandos arbitrários na base de dados. Todas as instruções de SQL (incluindo as instruções SQL em procedimentos armazenados) devem ser parametrizadas. Instruções de SQL parametrizadas irão aceitar caracteres que têm um significado especial para o SQL (como aspa) sem problemas, porque eles tem rigidez de tipos. |
 
 ### <a name="example"></a>Exemplo
-Segue-se um exemplo de procedimento armazenado de dinâmica inseguras: 
+Segue-se um exemplo de procedimento armazenado de dinâmica inseguro: 
 
 ```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
@@ -555,19 +555,19 @@ AS
        END
 ```
 
-## <a id="validation-api"></a>Certifique-se de que a validação do modelo é efetuada em métodos de Web API
+## <a id="validation-api"></a>Certifique-se de que a validação de modelo é feita nos métodos da Web API
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC5, MVC6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Validação do modelo na API Web do ASP.NET ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Passos** | Quando um cliente envia dados para uma API web, é obrigatório para validar os dados antes de efetuar qualquer processamento. Para APIs da Web de ASP.NET que aceite modelos como entrada, utilize anotações de dados em modelos para definir as regras de validação nas propriedades do modelo.|
+| **Referências**              | [Validação de modelo na ASP.NET Web API ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Passos** | Quando um cliente envia dados para uma API web, é obrigatório para validar os dados antes de efetuar qualquer processamento. Para APIs da Web ASP.NET que aceitar o modelos como entrada, utilize anotações de dados em modelos para definir regras de validação nas propriedades do modelo.|
 
 ### <a name="example"></a>Exemplo
-O código seguinte demonstra a mesma: 
+O código a seguir demonstra o mesmo: 
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -588,7 +588,7 @@ namespace MyApi.Models
 ```
 
 ### <a name="example"></a>Exemplo
-O método de ação dos controladores de API, validade do modelo tem de ser explicitamente marcada como mostrado abaixo: 
+O método de ação dos controladores da API, a validade do modelo tem a ser verificado explicitamente conforme mostrado abaixo: 
 
 ```csharp
 namespace MyApi.Controllers
@@ -612,30 +612,30 @@ namespace MyApi.Controllers
 }
 ```
 
-## <a id="string-api"></a>Implementar a validação de entrada em todos os parâmetros de tipo de cadeia aceites pelos métodos de Web API
+## <a id="string-api"></a>Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos da Web API
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, MVC 5, 6 de MVC |
 | **Atributos**              | N/A  |
-| **Referências**              | [Validar o modelo de dados numa aplicação MVC](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ao servir pelos princípios para as suas aplicações de ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Passos** | Métodos de que apenas aceitam o tipo de dados primitivo e não modelos como argumento, deve ser feita utilizando uma expressão Regular de validação de entrada. Aqui Regex.IsMatch deve ser utilizada com um padrão regex válido. Se a entrada não corresponde à expressão Regular especificada, o controlo não deverá continuar e deve ser apresentado um aviso sobre a falha de validação adequado.|
+| **Referências**              | [A validar o modelo de dados num aplicativo MVC](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [princípios básicos para aplicativos ASP.NET MVC](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+| **Passos** | Para métodos que aceitam apenas o tipo de dados primitivos e não modelos como argumento, deve ser feita usando a expressão Regular de validação de entrada. Aqui, RegEx deve ser utilizada com um padrão regex válido. Se a entrada não corresponde à expressão Regular especificada, controle não deve avançar e deve ser apresentado um aviso adequado em relação à falha de validação.|
 
-## <a id="typesafe-api"></a>Certifique-se de que os parâmetros de tipo seguro são utilizados na Web API para acesso a dados
+## <a id="typesafe-api"></a>Certifique-se de que são utilizados os parâmetros de tipo seguro na Web API para acesso a dados
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | <p>Se utilizar a coleção de parâmetros, trata do SQL Server é a entrada como um valor literal em vez disso, em seguida, como o código executável. A coleção de parâmetros pode ser utilizada para impor restrições de tipo e o comprimento em dados de entrada. Valores fora do intervalo acionam uma excepção. Se não forem utilizados parâmetros de tipo seguro SQL Server, os atacantes poderão executar ataques de injeção que estão incorporados na entrada e não filtrada.</p><p>Utilize os parâmetros de tipo seguro quando construir consultas SQL para evitar possíveis ataques de injeção de SQL que podem ocorrer com entrada e não filtrada. Pode utilizar os parâmetros de tipo seguro com procedimentos armazenados e com as instruções SQL dinâmicas. Os parâmetros são tratados como valores literais pela base de dados e não como o código executável. Os parâmetros também são verificados para o tipo e o comprimento.</p>|
+| **Passos** | <p>Se utilizar a coleção de parâmetros, o SQL trata a entrada é como um valor literal em vez disso, em seguida, como o código executável. A coleção de parâmetros pode ser usada para impor restrições de tipo e comprimento em dados de entrada. Valores fora do intervalo disparar uma exceção. Se não forem utilizados parâmetros SQL de tipo seguro, os atacantes poderão executar ataques de injeção incorporados na entrada não filtrada.</p><p>Utilize parâmetros de tipo seguro ao construir consultas SQL para evitar possíveis ataques de injeção de SQL que podem ocorrer com a entrada não filtrada. Pode usar parâmetros de tipo seguro com procedimentos armazenados e com instruções SQL dinâmicas. Parâmetros são tratados como valores literais pela base de dados e não como código executável. Parâmetros também são verificados para o tipo e comprimento.</p>|
 
 ### <a name="example"></a>Exemplo
-O código seguinte mostra como utilizar os parâmetros de tipo seguro com o SqlParameterCollection ao chamar um procedimento armazenado. 
+O código seguinte mostra como utilizar parâmetros de tipo seguro com o SqlParameterCollection ao chamar um procedimento armazenado. 
 
 ```csharp
 using System.Data;
@@ -651,37 +651,37 @@ myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text;
 myCommand.Fill(userDataset);
 }  
 ```
-No exemplo de código anterior, o valor de entrada não pode ser superior a 11 carateres. Se os dados não está em conformidade com o tipo ou definido pelo parâmetro de comprimento, a classe de SqlParameter emite uma exceção. 
+No exemplo de código anterior, o valor de entrada não pode ser mais de 11 carateres. Se os dados não está em conformidade com o tipo ou definido pelo parâmetro de comprimento, a classe SqlParameter lançará uma exceção. 
 
-## <a id="sql-docdb"></a>Utilizar consultas SQL parametrized para Cosmos DB
+## <a id="sql-docdb"></a>Utilizar consultas SQL parametrized para o Cosmos DB
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de dados de documento do Azure | 
-| **Fase SDL**               | Compilação |  
+| **Componente**               | Azure DocumentDB | 
+| **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Anunciar Parameterization de SQL no Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Passos** | Embora a base de dados do Azure Cosmos só suporta consultas de só de leitura, injeção de SQL é possível se as consultas são construídas por concatenar com a intervenção do utilizador. Poderá ser possível que um utilizador obtenha acesso aos dados que não devem estar a aceder aos dentro da mesma coleção por maliciosas consultas SQL de composição. Utilize consultas parametrizadas do SQL Server se as consultas são construídas com base na entrada de utilizador. |
+| **Referências**              | [Anunciamos a parametrização de SQL no Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Passos** | Embora o Azure Cosmos DB suporta apenas consultas só de leitura, injeção de SQL ainda é possível se as consultas são construídas pela concatenação com entrada do usuário. Poderá ser possível que um utilizador obtenha acesso a dados que não devem ser acessando dentro da mesma coleção ao criar consultas SQL mal-intencionado. Utilize consultas SQL parametrizadas se consultas são construídas com base na entrada do usuário. |
 
-## <a id="schema-binding"></a>Validação de entrada de WCF através de vinculação ao esquema
+## <a id="schema-binding"></a>Validação de entrada do WCF por meio da associação de esquema
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérico, o NET Framework 3 |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
-| **Passos** | <p>Falta de validação leva a ataques de injeção de tipo diferente.</p><p>Validação da mensagem representa uma linha de defesa na proteção da sua aplicação de WCF. Com esta abordagem, validar mensagens utilizando esquemas para proteger as operações de serviço WCF contra ataques por um cliente malicioso. Valide todas as mensagens recebidas pelo cliente para proteger o cliente contra ataques por um serviço malicioso. Validação da mensagem torna possível validar o mensagens operações consumir contratos de mensagem ou contratos de dados, que não podem ser efetuados utilizando a validação do parâmetro. Validação da mensagem permite-lhe criar lógica de validação no interior de esquemas, deste modo, fornecendo uma maior flexibilidade e reduzir o tempo de desenvolvimento. Esquemas podem ser reutilizadas em diferentes aplicações dentro da organização, criar normas de representação de dados. Além disso, validação de mensagem permite-lhe proteger operações quando consumirem tipos de dados mais complexos, envolvendo contratos que representa a lógica de negócio.</p><p>Para efetuar a validação da mensagem, primeiro crie um esquema que representa as operações do seu serviço e os tipos de dados consumidos por essas operações. Em seguida, crie uma classe .NET que implementa um inspector de mensagem de cliente personalizadas e inspector de mensagem de emissor personalizado para validar as mensagens enviadas/recebido do serviço. Em seguida, implementar um comportamento de ponto final personalizadas para ativar a validação de mensagem com o cliente e o serviço. Por fim, implementar um elemento de configuração personalizada na classe que lhe permite expor o comportamento de ponto final personalizado expandida no ficheiro de configuração do serviço ou o cliente"</p>|
+| **Passos** | <p>Falta de validação leva a ataques de injeção de tipo diferente.</p><p>Validação da mensagem representa uma linha de defesa na proteção da sua aplicação do WCF. Com esta abordagem, validar as mensagens usando esquemas para proteger a operações de serviço do WCF de ataque por um cliente malicioso. Valide todas as mensagens recebidas pelo cliente para proteger o cliente contra ataques por um serviço mal-intencionado. Validação da mensagem faz com que seja possível validar as mensagens quando operações de consumam os contratos de mensagem ou contratos de dados, que não podem ser feitos usando validação de parâmetro. Validação de mensagem permite-lhe criar a lógica de validação dentro de esquemas, assim, oferecendo mais flexibilidade e reduzindo o tempo de desenvolvimento. Esquemas podem ser reutilizados entre diferentes aplicativos dentro da organização, criando padrões para a representação de dados. Além disso, validação de mensagem permite-lhe proteger operações quando consumirem tipos de dados mais complexos que envolvem contratos que representa a lógica de negócios.</p><p>Para executar a validação de mensagem, primeiro crie um esquema que representa as operações do seu serviço e os tipos de dados consumidos por essas operações. Em seguida, cria uma classe do .NET que implementa um inspetor de mensagem de cliente personalizadas e o inspetor de mensagem do dispatcher personalizado para validar as mensagens enviado/recebido de/para o serviço. Em seguida, implementar um comportamento de ponto final personalizado para ativar a validação de mensagem com o cliente e o serviço. Por fim, implementar um elemento de configuração personalizada na classe que permite expor o comportamento de ponto final personalizado expandida no ficheiro de configuração de serviço ou o cliente"</p>|
 
-## <a id="parameters"></a>Validação de WCF - entrada através do parâmetro Inspetores
+## <a id="parameters"></a>Validação de entrada WCF por meio dos Inspetores de parâmetro
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérico, o NET Framework 3 |
+| **Fase do SDL**               | Compilação |  
+| **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
-| **Passos** | <p>Validação de entrada e de dados representa um importante de linha de defesa na proteção da sua aplicação de WCF. Deve validar todos os parâmetros expostos em operações de serviço WCF para proteger o serviço de ataque por um cliente malicioso. Por outro lado, também deve validar todos os valores de retorno recebidos pelo cliente para proteger o cliente contra ataques por um serviço malicioso</p><p>WCF fornece pontos de extensibilidade diferentes que lhe permitem personalizar o comportamento de tempo de execução WCF através da criação de extensões personalizadas. Mensagem Inspetores e parâmetro Inspetores são dois mecanismos de extensibilidade utilizados para obter maior controlo sobre os dados passar entre um cliente e um serviço. Deve utilizar inspetores de parâmetro para a validação de entrada e utilizar inspetores mensagem apenas quando precisar de inspecionar a mensagem completa fluir dentro e fora de um serviço.</p><p>Para efetuar a validação de entrada, irá criar uma classe de .NET e implementar uma inspector de parâmetro personalizado para validar os parâmetros em operações no seu serviço. Em seguida, irá implementar um comportamento de ponto final personalizadas para ativar a validação no cliente e o serviço. Por fim, irá implementar um elemento de configuração personalizada na classe que lhe permite expor o comportamento de ponto final personalizado expandida no ficheiro de configuração do serviço ou o cliente</p>|
+| **Passos** | <p>Validação de entrada e de dados representa uma importante linha de defesa na proteção da sua aplicação do WCF. Deve validar todos os parâmetros expostos em operações de serviço do WCF para proteger o serviço de ataque por um cliente malicioso. Por outro lado, também deve validar todos os valores de retorno recebidos pelo cliente para proteger o cliente contra ataques por um serviço mal-intencionado</p><p>O WCF fornece pontos de extensibilidade diferentes que permitem-lhe personalizar o comportamento de tempo de execução do WCF através da criação de extensões personalizadas. Inspetores de mensagem e dos Inspetores de parâmetro são dois mecanismos de extensibilidade usados para obter maior controle sobre os passagem entre um cliente e um serviço de dados. Deve usar inspetores de parâmetro para validação de entrada e usar inspetores de mensagem apenas quando precisar de inspecionar a mensagem inteira que entram e saem de um serviço.</p><p>Para efetuar a validação de entrada, irá criar uma classe do .NET e implementar um inspetor de parâmetro personalizado para validar parâmetros nas operações no seu serviço. Em seguida, irá implementar um comportamento de ponto final personalizado para ativar a validação no cliente e o serviço. Por fim, irá implementar um elemento de configuração personalizada na classe que permite expor o comportamento de ponto final personalizado expandida no ficheiro de configuração de serviço ou o cliente</p>|

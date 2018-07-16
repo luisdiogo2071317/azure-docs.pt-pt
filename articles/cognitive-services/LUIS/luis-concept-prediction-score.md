@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 88d5eb22186248024a356610addab0d43f68a961
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: dd5bea791fed0c16195eadca03ba2f9a8c11da1b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887135"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044956"
 ---
 # <a name="prediction-score"></a>Classificação da predição
 Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 
@@ -57,6 +57,9 @@ Pontuações de predição podem usar a notação expoente, *que aparece* acima 
 Quando treinar o mesmo modelo num aplicativo diferente, e as pontuações não nesse mesmas, isto acontece porque existe um elemento um pouco da aleatoriedade no treinamento. Em segundo lugar, a qualquer sobrepõem-se de uma expressão em mais do que uma intenção significa que a intenção de superior para a mesma expressão pode mudar com base na formação.
 
 Se sua chatbot exigir uma pontuação de LUIS específica para indicar a confiança numa intenção, deve usar a diferença de pontuação entre os objetivos de duas principais. Isto proporciona flexibilidade para variações no treinamento. 
+
+## <a name="punctuation"></a>Pontuação
+Pontuação é um token separado no LUIS. Uma expressão que contém um ponto no final em comparação com uma expressão que não são duas expressões separados e poderá receber duas previsões diferentes. Certificar-se de que o modelo processa tanto a pontuação no [expressões de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [patterns}(luis-concept-patterns.md) onde é mais fácil Ignorar pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

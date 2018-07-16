@@ -2,13 +2,13 @@
 
 No DNS do Azure, os registos são especificados com nomes relativos. Um nome de domínio *completamente qualificado* (FQDN) inclui o nome da zona, enquanto um nome *relativo* não. Por exemplo, o nome do registo relativo “www” na zona “contoso.com” fornece o nome do registo completamente qualificado “www.contoso.com”.
 
-Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, o zona DNS "contoso.com", um registo de apex também tem o nome totalmente qualificado "contoso.com" (por vezes denominado um domínio *sem prefixo*).  Por convenção, o nome relativo '@' é utilizado para representar registos apex.
+Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, o zona DNS "contoso.com", um registo de apex também tem o nome totalmente qualificado "contoso.com" (por vezes denominado um domínio *sem prefixo*).  Por convenção, o nome relativo "\@" é usado para representar registos apex.
 
 ### <a name="record-types"></a>Tipos de registo
 
 Cada registo DNS tem um nome e um tipo. Os registos são organizados em vários tipos de acordo com os dados que contêm. O tipo mais comum é um registo “A”, que mapeia um nome para um endereço IPv4. Outro tipo comum é um registo “MX”, que mapeia um nome para um servidor de correio.
 
-O DNS do Azure suporta todos os tipos de registo DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
+DNS do Azure suporta todos os tipos de registo DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registos
 

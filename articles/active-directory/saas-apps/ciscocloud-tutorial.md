@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28576452ab982896614af5527a0237ca4ab275f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866564"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Azure Active Directory com nuvem Cisco
 
@@ -128,10 +128,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. Clique em **ver e editar todos os outros atributos de utilizador** caixa de seleção o **atributos de utilizador** secção para expandir os atributos. Execute os seguintes passos em cada um dos atributos apresentados-
 
-    | Nome de atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ---------------| ----------------|
-    | país      |User. Country |
-    | empresa      |user.companyname |
+    | País      |User. Country |
+    | Empresa      |user.companyname |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -228,7 +228,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico de Cisco Cloud no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação na Cloud da Cisco.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,93 +1,93 @@
 ---
-title: Derivar coluna ao utilizar o Azure Machine Learning Workbench de transformação de exemplo
-description: O documento de referência para a transformação 'Deriva coluna por exemplo'
+title: Derivar coluna por transformação de exemplo com o Azure Machine Learning Workbench
+description: O documento de referência para a transformação de "Derivar coluna por exemplo"
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833768"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39060573"
 ---
-# <a name="derive-column-by-example-transformation"></a>Derivar coluna, transformação de exemplo
+# <a name="derive-column-by-example-transformation"></a>Derivar coluna por transformação de exemplo
 
-O **derivar coluna, por exemplo** transformação permite aos utilizadores criar um derivativo de exemplos de fornecido pelo utilizador do resultado derivado a utilizar uma ou mais colunas existentes. O derivativo pode ser qualquer combinação da cadeia suportada, a data e a número transformações. 
+O **derivar coluna por exemplo** transformação permite aos utilizadores criarem um derivativo de um ou mais colunas existentes, com exemplos do fornecido pelo utilizador do resultado derivado. O derivativo pode ser qualquer combinação de cadeia de caracteres suportada, de data e transformações de número. 
 
-Os seguintes cadeia, a data e o número de transformações são suportadas:
+Após a cadeia de caracteres, datas e número de transformações são suportadas:
 
-**Transformações de cadeia:** 
+**Transformações de cadeia de caracteres:** 
 
-Subcadeia incluindo extração inteligente de número e datas, concatenação, manipulação de maiúsculas e minúsculas, mapeamento de valores constantes.
+Incluindo extração inteligente de número e datas, valores de constantes de mapeamento de concatenação, manipulação de caso de subcadeia.
 
-**Transformações de datas:** 
+**Transformações de data:** 
 
-Alterar o formato de data, extrair partes da data, hora mapeamento para intervalos de tempo de binários.
+Formato de data alterar, extrair partes de data, hora de mapeamento de mensagens em fila de caixas de tempo.
 
-As transformações data são bastante genéricas com algumas limitações importantes:
+As transformações de data são bastante genéricas com algumas limitações importantes:
 * Timezones não são suportadas.
 * Alguns formatos comuns que não são suportados:
     * ISO 8601 semana do formato de ano (por exemplo "2009-W53-7") 
-    * Tempo de época UNIX.
-* Todos os formatos são sensíveis a maiúsculas (as notavelmente "4 am" não é reconhecida como uma hora apesar de ser "4 AM").
+    * UNIX hora "Epoch".
+* Todos os formatos diferenciam maiúsculas de minúsculas (as notavelmente "4 am" não é reconhecido como uma hora apesar de ser "4 AM").
 
-**Número de transformações de:** 
+**Transformações de número:** 
 
-Arredondar piso, limite a Discretização, preenchimento com zeros ou espaço, uma divisão ou multiplicação por uma potência de 1000.
+Arredondar, andar, invisível, Discretização, de preenchimento com zeros ou espaço, divisão ou multiplicação por uma potência de 1000.
 
-**Transformações compostas:** 
+**Transformações de composto:** 
 
-Qualquer combinação de cadeia, número ou transformações de data.
+Qualquer combinação de cadeia de caracteres, número ou transformações de data.
 
-## <a name="how-to-use-this-transformation"></a>Como utilizar esta transformação
+## <a name="how-to-use-this-transformation"></a>Como usar essa transformação
 
-Para efetuar esta transformação, siga estes passos:
-1. Selecione uma ou mais colunas que pretende deriva de valor. 
-2. Selecione **derivar coluna, por exemplo** do **transforma** menu. Em alternativa, clique no cabeçalho de qualquer uma das colunas selecionadas e selecione **derivar coluna, por exemplo** no menu de contexto. Abre o Editor de transformação e uma nova coluna é adicionada junto a coluna da direita mais selecionada. Colunas selecionadas podem ser identificadas pelas caixas de verificação dos cabeçalhos das colunas. Adição e remoção das colunas da seleção podem ser feitas utilizando as caixas de verificação dos cabeçalhos das colunas.
-3. Escreva um exemplo do *saída* contra uma linha e prima introduza. Neste momento, o Workbench analisa a coluna de entrada, bem como o resultado fornecido para sintetizar um programa que pode transformar as entradas fornecidas para saída. O programa sintetizado é executado relativamente a todas as linhas na grelha de dados. Nos casos ambíguo e complicados, vários exemplos podem ser necessárias. Dependendo se está no modo básico ou avançado, vários exemplos podem ser fornecidos de formas diferentes.
-4. Reveja os resultados e clique em **OK** para aceitar a transformação.
+Para executar essa transformação, siga estes passos:
+1. Selecione uma ou mais colunas que pretende derivar o valor de. 
+2. Selecione **derivar coluna por exemplo** partir do **transforma** menu. Em alternativa, clique com o botão direito do rato no cabeçalho de qualquer uma das colunas selecionadas e selecione **derivar coluna por exemplo** no menu de contexto. O Editor de transformar é aberto e uma nova coluna é adicionada ao lado da coluna da direita mais selecionada. Colunas selecionadas podem ser identificadas pelas caixas de verificação nos cabeçalhos de coluna. Adição e remoção de colunas da seleção podem ser feitos usando as caixas de verificação nos cabeçalhos de coluna.
+3. Escreva um exemplo do *saída* em relação a uma linha e prima introduza. Neste momento, o Workbench analisa a coluna de entrada, bem como a saída fornecida para sintetizar um programa que pode transformar as entradas de determinado na saída. O programa sintetizado é executado em relação a todas as linhas na grade de dados. Para casos ambíguos e complicados, talvez seja necessário vários exemplos. Dependendo se estiver no modo básico ou avançado, vários exemplos podem ser fornecidos de diferentes maneiras.
+4. Reveja o resultado e clique em **OK** para aceitar a transformação.
 
-### <a name="transform-editor-basic-mode"></a>Transformar o editor: modo básico
+### <a name="transform-editor-basic-mode"></a>Transformar editor: modo básico
 
-O modo básico fornece um inline experiência na grelha de dados de edição. Pode fornecer exemplos de saída ao navegar para a célula de interesse e escrever o valor. 
+Modo básico fornece uma linha interna experiência na grade de dados de edição. Pode fornecer exemplos de saída ao navegar para a célula de interesse e escrever o valor. 
 
-O workbench analyses os dados e tenta identificar os casos de limite devem ser revistos pelo utilizador. Enquanto os dados está a ser analisados, **analisar dados** é apresentado no cabeçalho do Editor de transformação. Um a análise estiver concluído, quer **sem sugestões** ou, **linha sugerida seguinte de revisão** é apresentado no cabeçalho. Pode navegar através de cenários de limite, clicando no **linha sugerida seguinte de revisão**. No caso do valor incorreto para uma linha, deve chave no valor de correto como exemplo adicional. 
+O workbench analisa os dados e tenta identificar os casos extremos, que devem ser revistos pelo utilizador. Enquanto está a ser analisados os dados, **analisar dados** é mostrado no cabeçalho do Editor transformar. Um a análise estiver concluído, seja **sem sugestões** ou, **rever próxima linha sugerida** é apresentado no cabeçalho. Pode navegar pelos casos extremos, clicando em **rever próxima linha sugerida**. Caso o valor incorreto para uma linha, deve chave no valor correto como exemplo adicional. 
 
-### <a name="transform-editor-advanced-mode"></a>Transformar o editor: modo avançado
+### <a name="transform-editor-advanced-mode"></a>Transformar editor: modo avançado
 
-Modo avançado fornece uma experiência mais rica para efetuar a derivação de colunas por exemplo. Todos os exemplos são apresentados num único local. Também pode rever todos os cenários de limite num único local ao clicar no **Mostrar sugestões de exemplos**. 
+Modo avançado fornece uma experiência mais rica para efetuar a derivação de colunas com um exemplo. Todos os exemplos são apresentados num único local. Também pode rever todos os casos de borda num único lugar ao clicar em **Mostrar sugestões de exemplos**. 
 
-O modo avançado, pode adicionar qualquer linha como uma linha de exemplo, fazendo duplo clique na linha na grelha. Um uma linha é copiado como uma linha de exemplo, também pode editar os dados nas colunas de origem para se um exemplo sintético. Ao fazê-lo, pode adicionar casos que não estão atualmente presentes nos dados de exemplo.
+No modo avançado, pode adicionar qualquer linha como uma linha de exemplo ao fazer duplo clique numa linha na grelha. Uma linha é copiada como uma linha de exemplo, também pode editar os dados nas colunas de origem para tornar um exemplo sintético. Ao fazer isso, pode adicionar casos que não estão atualmente presentes nos dados de exemplo.
 
-Utilizador pode alternar entre o **modo básico** e **modo avançado** clicando nas ligações do Editor de transformação.
+Usuário pode alternar entre o **modo básico** e o **modo avançado** clicando nas hiperligações no Editor de transformação.
 
-### <a name="transform-editor-send-feedback"></a>Transformar o editor: enviar comentários
+### <a name="transform-editor-send-feedback"></a>Transformar editor: enviar comentários
 
-Clicar no **enviar comentários** hiperligação abre o **comentários** forneceu a caixa de diálogo com a caixa de comentários pré-preenchida com o utilizador de exemplos. Utilizador deve rever o conteúdo da caixa de comentários e fornecem mais detalhes para o ajudar-na compreender o problema. Se o utilizador não pretender partilhar dados com a Microsoft, o utilizador deve eliminar os dados de exemplo pré-preenchida antes de clicar no **enviar comentários** botão. 
+Clicar no **enviar comentários** abre-se de vincular a **comentários** forneceu a caixa de diálogo com a caixa de comentários pré-preenchido com o utilizador de exemplos. Utilizador deve rever o conteúdo da caixa de comentários e fornecer mais detalhes para ajudar-na compreender o problema. Se o utilizador não quer partilhar dados com a Microsoft, o utilizador deve eliminar os dados de exemplo pré-preenchida antes de clicar o **enviar Feedback** botão. 
 
 ### <a name="editing-existing-transformation"></a>Editar transformação existente
 
-Um utilizador pode editar uma existente **derivar coluna por exemplo** transformar selecionando **editar** opção do passo de transformação. Clicar no **editar** abre o Editor de transformação de mensagens em fila no **modo avançado**, e são apresentados todos os exemplos que foram fornecidos durante a criação de transformação.
+Um utilizador pode editar uma existente **derivar coluna por exemplo** transformar selecionando **editar** opção do passo de transformação. Clicar em **edite** é aberto o Editor de transformação de mensagens em fila no **modo avançado**, e são apresentados todos os exemplos que foram fornecidos durante a criação da transformação.
 
-## <a name="examples-of-string-transformations-by-example"></a>Exemplos de transformações de cadeia, por exemplo
+## <a name="examples-of-string-transformations-by-example"></a>Exemplos de transformações de cadeia de caracteres por meio de exemplos
 
 
 >[!NOTE] 
->Os valores no **negrito** representam os exemplos que foram fornecidos para concluir a transformação no conjunto de dados indicado.
+>Os valores na **negrito** representam os exemplos fornecidos para concluir a transformação no conjunto de dados mostrado.
 
 
-### <a name="s1-extracting-file-names-from-file-paths"></a>S1. Extrair os nomes de ficheiros de caminhos de ficheiro
+### <a name="s1-extracting-file-names-from-file-paths"></a>S1. Extrair nomes de ficheiros de caminhos de ficheiros
 
-Número de exemplos que são necessários para este cenário: 2
+Número de exemplos que eram necessários para este caso: 2
 
 |Input|Saída|
 |:-----|:-----|
@@ -102,43 +102,43 @@ Número de exemplos que são necessários para este cenário: 2
 |C:\Python35\Tools\Scripts\byteyears.PY|byteyears.PY|
 |C:\Python35\Tools\Scripts\checkappend.py|checkappend.PY|
 
-### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Manipulação de maiúsculas e durante a extração de cadeia
+### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Manipulação de maiúsculas durante a extração de cadeia de caracteres
 
-Número de exemplos que são necessários para este cenário: 3
-
-|Input|Saída|
-|:-----|:-----|
-|REINDEER Cionar & fim de mensagens não;  NOVO HANOVER; Estação 332; 2015-12-10 @ 17:10:52;|**Novo Hanover**|
-|CAMINHO de BRIAR & WHITEMARSH LN;  HATFIELD TOWNSHIP; Estação 345; 2015-12-10 @ 17:29:21;|Hatfield Township|
-|HAWS AVE; NORRISTOWN; 2015-12-10 @ 14:39:21-estação: STA27;|**Norristown**|
-|Santa AIRY & SWEDE ST;  NORRISTOWN; Estação 308A; 2015-12-10 @ 16:47:36;|**Norristown**|
-|CHERRYWOOD Cionar & fim de mensagens não;  INFERIOR POTTSGROVE; Estação 329; 2015-12-10 @ 16:56:52;|Pottsgrove inferior|
-|CANNON AVE & TIR 9TH ST;  LANSDALE; Estação 345; 2015-12-10 @ 15:39:04;|Lansdale|
-|LAUREL AVE & OAKDALE AVE;  HORSHAM; Estação 352; 2015-12-10 @ 16:46:48;|Horsham|
-|COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Estação 336; 2015-12-10 @ 16:17:05;|Skippack|
-|Pa & antigo SUMNEYTOWN PIKE; principal  INFERIOR SALFORD; Estação 344; 2015-12-10 @ 16:51:42;|Salford inferior|
-|BLUEROUTE &AMP; PREPARAÇÃO I476 NB PARA CHEMICAL RD; PLYMOUTH; 2015-12-10 @ 17:35:41;|Plymouth|
-|RT202 PKWY &AMP; KNAPP RD; MONTGOMERY; 2015-12-10 @ 17:33:50;|Montgomery|
-|BROOK RD &AMP; COLWELL LN; PLYMOUTH; 2015-12-10 @ 16:32:10;|Plymouth|
-
-### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Manipulação de formato de data durante a extração de cadeia
-
-Número de exemplos que são necessários para este cenário: 1
+Número de exemplos que eram necessários para este caso: 3
 
 |Input|Saída|
 |:-----|:-----|
-|MONTGOMERY AVE & WOODSIDE RD;  INFERIOR MERION; Estação 313; 2015-12-11 @ 04:11:35;|**12 de Novembro de 2015 4 AM**|
-|DREYCOTT LN & TIR LANCASTER AVE;  INFERIOR MERION; Estação 313; 2015-12-11 @ 01:29:52;|12 de Novembro de 2015 1: 00|
-|I LEVERING MILL RD &AMP; CONSHOHOCKEN ESTADO RD; INFERIOR MERION; 2015-12-11 @ 07:29:58;|12 de Novembro de 2015 7 AM|
-|PENN VALLEY RD & MANOR RD;  INFERIOR MERION; Estação 313; 2015-12-10 @ 20:53:30;|12 de FPO de 2015 8 PM|
-|BELMONT AVE &AMP; OVERHILL RD; INFERIOR MERION; 2015-12-10 @ 23:02:27;|12 de FPO de 2015 23: 00|
-|W MONTGOMERY AVE &AMP; PENNSWOOD RD; INFERIOR MERION; 2015-12-10 @ 19:25:22;|12 de FPO de 2015 as 19: 00|
-|ROSEMONT AVE & fim de mensagens não;  INFERIOR MERION; Estação 313; 2015-12-10 @ 18:43:07;|12 de FPO de 2015 18: 00|
-|AVIGNON DR & fim de mensagens não; INFERIOR MERION; 2015-12-10 @ 20:01:29-estação: STA24;|12 de FPO de 2015 8 PM|
+|REINDEER CT & final de mensagens não;  NOVO HANOVER; Estação 332; 2015-12-10 \@ 17:10:52;|**Novo Hanover**|
+|CAMINHO de BRIAR & WHITEMARSH LN;  HATFIELD TOWNSHIP; Estação 345; 2015-12-10 \@ 17:29:21;|Hatfield Township|
+|HAWS AVE; NORRISTOWN; 2015-12-10 \@ 14:39:21-estação: STA27;|**Norristown**|
+|ST NADA & SWEDE ST;  NORRISTOWN; Estação 308A; 2015-12-10 \@ 16:47:36;|**Norristown**|
+|CHERRYWOOD CT & final de mensagens não;  INFERIOR POTTSGROVE; Estação 329; 2015-12-10 \@ 16:56:52;|Pottsgrove inferior|
+|CANNON AVE & W 9TH ST;  LANSDALE; Estação 345; 2015-12-10 \@ 15:39:04;|Lansdale|
+|LAUREL AVE & ARDAR de OAKDALE;  HORSHAM; Estação 352; 2015-12-10 \@ 16:46:48;|Horsham|
+|Área de trabalho remota COLLEGEVILLE & LYWISKI RD;  SKIPPACK; Estação 336; 2015-12-10 \@ 16:17:05;|Skippack|
+|MAIN ST & antigo SUMNEYTOWN PIKE;  INFERIOR SALFORD; Estação 344; 2015-12-10 \@ 16:51:42;)|Salford inferior|
+|BLUEROUTE &AMP; RAMP I476 NB PARA RD QUÍMICAS; PLYMOUTH; 2015-12-10 \@ 17:35:41;|Plymouth|
+|RT202 PKWY &AMP; KNAPP RD; MONTGOMERY; 2015-12-10 \@ 17:33:50;|Montgomery|
+|ÁREA DE TRABALHO REMOTA BROOK &AMP; COLWELL LN; PLYMOUTH; 2015-12-10 \@ 16:32:10;|Plymouth|
 
-### <a name="s4-concatenating-strings"></a>S4. Concatenar cadeias
+### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Manipulação de formato de data durante a extração de cadeia de caracteres
 
-Número de exemplos que são necessários para este cenário: 1
+Número de exemplos que eram necessários para este caso: 1
+
+|Input|Saída|
+|:-----|:-----|
+|MONTGOMERY AVE & WOODSIDE RD;  INFERIOR MERION; Estação 313; 2015-12-11 \@ 04:11:35;|**12 de Novembro de 2015 4 AM**|
+|DREYCOTT LN & W LANCASTER AVE;  INFERIOR MERION; Estação 313; 2015-12-11 \@ 01:29:52;|12 de Novembro de 2015 1 AM|
+|ÁREA DE TRABALHO REMOTA E LEVERING MILL &AMP; CONSHOHOCKEN ESTADO RD; INFERIOR MERION; 2015-12-11 \@ 07:29:58;|12 de Novembro de 2015 7 AM|
+|Área de trabalho remota VALLEY PENN & MANOR RD;  INFERIOR MERION; Estação 313; 2015-12-10 \@ 20:53:30;|12 de Outubro de 2015 8 PM|
+|BELMONT AVE &AMP; OVERHILL RD; INFERIOR MERION; 2015-12-10 \@ 23:02:27;|12 de Outubro de 2015 23 horas|
+|W MONTGOMERY AVE &AMP; PENNSWOOD RD; INFERIOR MERION; 2015-12-10 \@ 19:25:22;|12 de Outubro de 2015 7 PM|
+|ROSEMONT AVE & final de mensagens não;  INFERIOR MERION; Estação 313; 2015-12-10 \@ 43: 18:07;|12 de Outubro de 2015 6 PM|
+|AVIGNON DR & final de mensagens não; INFERIOR MERION; 2015-12-10 \@ 20:01:29-estação: STA24;|12 de Outubro de 2015 8 PM|
+
+### <a name="s4-concatenating-strings"></a>S4. Concatenação de cadeias de caracteres
+
+Número de exemplos que eram necessários para este caso: 1
 
 >[!NOTE] 
 >Neste exemplo, · caráter especial representa espaços na coluna de saída.
@@ -146,47 +146,47 @@ Número de exemplos que são necessários para este cenário: 1
 |Nome Próprio|Média inicial|Apelido|Saída|
 |:-----|:-----|:-----|:-----|
 |Laquanda||Lohmann|Laquanda··Lohmann|
-|Claudio|A|Chew|**Claudio· A· Chew**|
-|Joana o Sarah|S|Smith|Sarah Jane· S· Santos|
+|Claudio|A|Mastigar|**Claudio· A· Mastigar**|
+|Sarah Joana|S|Smith|Sarah Jane· S· Smith|
 |Brandi||Blumenthal|Brandi·· Blumenthal|
-|Jesusita|R|Journey|Jesusita· R· Journey|
+|Jesusita|R|Jornada|Jesusita· R· Jornada|
 |Hermina||Hults|Hermina·· Hults|
 |Anne Marie|W|Jones|Anne Marie· W· Jones|
 |Rico||Ropp|Rico··Ropp|
-|Maio de Lauren||Fullmer|Lauren May·· Fullmer|
+|Lauren-Maio||Fullmer|Lauren May·· Fullmer|
 |Marc|T|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
 |John-Paul||Smith|John-Paul··Smith|
-|Song|W|Staller|Song· W· Staller|
+|Música|W|Staller|Song· W· Staller|
 |Jill||Jefferies|Jill·· Jefferies|
-|Tolerância Ruby|M|Simmons|Ruby Grace· M· Simmons|
+|Tolerância de Ruby|M|Simmons|Ruby Grace· M· Simmons|
 
 ### <a name="s5-generating-initials"></a>S5. Gerar iniciais
 
-Número de exemplos que são necessários para este cenário: 2
+Número de exemplos que eram necessários para este caso: 2
 
 |Nome Completo|Saída|
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
-|Claudio Chew|C.C.|
-|A Joana o Sarah Santos|S.S.|
+|Claudio mastigar|C.C.|
+|Sarah Joana Silva|S.S.|
 |Brandi Blumenthal|B.B.|
-|Jesusita Journey|J.J.|
+|Percurso de Jesusita|J.J.|
 |Hermina Hults|H.H.|
 |Anne Marie Jones|A.J.|
 |Rico Ropp|R.R.|
-|Maio de Lauren Fullmer|L.F.|
+|Fullmer Lauren-Maio|L.F.|
 |Marc Maine|M.M.|
 |Angie Adelman|A.A.|
-|Paul João Silva|**J.S.**|
-|Song Staller|S.S.|
+|John Paul Smith|**J.S.**|
+|Música Staller|S.S.|
 |Jill Jefferies|J.J.|
-|Simmons tolerância Ruby|R.S.|
+|Simmons de tolerância de Ruby|R.S.|
 
 
 ### <a name="s6-mapping-constant-values"></a>S6. Valores de constantes de mapeamento
 
-Número de exemplos que são necessários para este cenário: 3
+Número de exemplos que eram necessários para este caso: 3
 
 |Sexo administrativo|Saída|
 |:-----|:-----:|
@@ -200,15 +200,15 @@ Número de exemplos que são necessários para este cenário: 3
 |Masculino|0|
 |Feminino|1|
 
-## <a name="examples-of-number-transformations-by-example"></a>Exemplos de transformações de números, por exemplo
+## <a name="examples-of-number-transformations-by-example"></a>Exemplos de transformações de número, por exemplo
 
 >[!NOTE] 
->Os valores no **negrito** representam os exemplos que foram fornecidos para concluir a transformação no conjunto de dados indicado.
+>Os valores na **negrito** representam os exemplos fornecidos para concluir a transformação no conjunto de dados mostrado.
 
 
-### <a name="n1-rounding-to-nearest-10"></a>N1. Arredondamento para 10 mais próximo
+### <a name="n1-rounding-to-nearest-10"></a>N1. Arredondamento para o 10 mais próximo
 
-Número de exemplos que são necessários para este cenário: 1
+Número de exemplos que eram necessários para este caso: 1
 
 |Input|Saída|
 |-----:|-----:|
@@ -218,9 +218,9 @@ Número de exemplos que são necessários para este cenário: 1
 |11119|11120|
 |548|550|
 
-### <a name="n2-rounding-down-to-nearest-10"></a>N2. Arredondamento até mais próximo 10
+### <a name="n2-rounding-down-to-nearest-10"></a>N2. Arredondamento para mais próximo de 10
 
-Número de exemplos que são necessários para este cenário: 2
+Número de exemplos que eram necessários para este caso: 2
 
 |Input|Saída|
 |-----:|-----:|
@@ -232,7 +232,7 @@ Número de exemplos que são necessários para este cenário: 2
 
 ### <a name="n3-rounding-to-nearest-005"></a>N3. Arredondamento para 0,05 mais próximo
 
-Número de exemplos que são necessários para este cenário: 2
+Número de exemplos que eram necessários para este caso: 2
 
 |Input|Saída|
 |-----:|-----:|
@@ -243,9 +243,9 @@ Número de exemplos que são necessários para este cenário: 2
 |-75.6033497|-75.60|
 |-75.283245|-75.30|
 
-### <a name="n4-binning"></a>N4. A discretização
+### <a name="n4-binning"></a>N4. Discretização
 
-Número de exemplos que são necessários para este cenário: 1
+Número de exemplos que eram necessários para este caso: 1
 
 |Input|Saída|
 |-----:|:-----:|
@@ -256,9 +256,9 @@ Número de exemplos que são necessários para este cenário: 1
 |3.73|0-5|
 |7.36|5-10|
 
-### <a name="n5-scaling-by-1000"></a>N5. Dimensionamento, 1000
+### <a name="n5-scaling-by-1000"></a>N5. Dimensionamento de 1000
 
-Número de exemplos que são necessários para este cenário: 1
+Número de exemplos que eram necessários para este caso: 1
 
 |Input|Saída|
 |-----:|-----:|
@@ -270,7 +270,7 @@ Número de exemplos que são necessários para este cenário: 1
 
 ### <a name="n6-padding"></a>N6. Preenchimento
 
-Número de exemplos que são necessários para este cenário: 1
+Número de exemplos que eram necessários para este caso: 1
 
 |Código|Saída|
 |-----:|-----:|
@@ -282,114 +282,114 @@ Número de exemplos que são necessários para este cenário: 1
 |10029|10029|
 |7204|07204|
 
-## <a name="examples-of-date-transformations-by-example"></a>Exemplos de transformações de data, por exemplo
+## <a name="examples-of-date-transformations-by-example"></a>Exemplos de transformações de data por meio de exemplos
 
 >[!NOTE] 
->Os valores no **negrito** representam os exemplos que foram fornecidos para concluir a transformação no conjunto de dados indicado.
+>Os valores na **negrito** representam os exemplos fornecidos para concluir a transformação no conjunto de dados mostrado.
 
 
-### <a name="d1-extracting-date-parts"></a>D1. Extrair partes da data
+### <a name="d1-extracting-date-parts"></a>D1. Extrair partes de data
 
-Estas partes da data foram extraídos utilizando transformações por exemplo diferentes no mesmo conjunto de dados. Cadeias de negrito representam os exemplos que foram fornecidos na respetiva transformação correspondentes.
+Essas partes de data foram extraídos usando transformações por exemplo diferente no mesmo conjunto de dados. Cadeias de caracteres em negrito representam os exemplos que foram fornecidos na respetiva transformação respectiva.
 
-|DateTime|dia da semana|Date|Mês|Ano|Hora|Minuto|Segundo|
+|DateTime|Dia da semana|Date|Mês|Ano|Hora|Minuto|Segundo|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|2031 de Janeiro de 31 05:54 em: 18|**Sab**|**31**|**Janeiro**|**2031**|**5**|**54**|**18**|
-|17-Jan-1990 13:32:01|Qua.|17|Jan.|1990|13|32|01|
-|14-Fev-2034 05:36:07|Ter.|14|Fev.|2034|5|36|07|
-|Mar-14-2002 13:16:16|Qui.|14|Mar.|2002|13|16|16|
-|Jan-21-1985 05:44:43|Seg.|21|Jan.|1985|5|44|**43**|
-|16-Aug-1985 01:11:56|Sex.|16|Ago.|1985|1|11|56|
-|20-Dec-2033 18:36:29|Ter.|20|Dez.|2033|18|36|29|
+|05:54:18 de Janeiro – 31-2031|**Sexta-feira**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
+|17-Janeiro de 1990 13:32:01|Qua.|17|Jan|1990|13|32|01|
+|14-Fev-2034 05:36:07|Ter.|14|Fev|2034|5|36|07|
+|14-Mar-2002 13:16:16|Qui.|14|Mar.|2002|13|16|16|
+|21-Janeiro de 1985 05:44:43|Seg.|21|Jan|1985|5|44|**43**|
+|16-Agosto de 1985 01: 11:56|Sex.|16|Ago|1985|1|11|56|
+|20-Dezembro-2033 18:36:29|Ter.|20|Dez|2033|18|36|29|
 |16-Jul-1984 10:21:59|Seg.|16|Jul.|1984|10|21|59|
-|13-Janeiro de 2038 10:59:36|Qua.|13|Jan.|2038|10|59|36|
-|Aug-14-1982 15:13:54 em|Sáb.|14|Ago.|1982|15|13|54|
-|22-Novembro-2030 08:18:08|Sex.|22|Nov.|2030|8|18|08|
-|FPO-21-1997 08:42:58|Ter.|21|Out.|1997|8|42|58|
-|2006 de Novembro de 28 14:19:15|Ter.|28|Nov.|2006|14|19|15|
-|29-Apr-2031 04:59:45.|Ter.|29|Abr.|2031|4|59|45|
-|29-Jan-2032 02:38:36|Qui.|29|Jan.|2032|2|38|36|
-|2028 de Maio de 11 15:31:52|Qui.|11|Maio|2028|15|31|52|
+|13-Jan-2038 10:59:36|Qua.|13|Jan|2038|10|59|36|
+|14-Agosto-1982 15:13:54|Sáb.|14|Ago|1982|15|13|54|
+|22-Novembro-2030 08:18:08|Sex.|22|Nov|2030|8|18|08|
+|21-Outubro de 1997 08:42:58|Ter.|21|Out|1997|8|42|58|
+|28-Novembro de 2006 14:19:15|Ter.|28|Nov|2006|14|19|15|
+|29-Abril-2031 04:59:45|Ter.|29|Abr.|2031|4|59|45|
+|29-Jan-2032 02:38:36|Qui.|29|Jan|2032|2|38|36|
+|11-Maio-2028 15:31:52|Qui.|11|Maio|2028|15|31|52|
 |15-Jul-1977 12:45:39|Sex.|15|Jul.|1977|12|45|39|
-|27-Jan-2029 05:55:41|Sáb.|27|Jan.|2029|5|55|41|
-|Mar-03-2024 10:17:49|Dom.|3|Mar.|2024|10|17|49|
-|00:23:13 de 14-Apr-2010|Qua.|14|Abr.|2010|0|23|13|
+|27-Jan-2029 05:55:41|Sáb.|27|Jan|2029|5|55|41|
+|03-Mar-2024 10:17:49|Dom.|3|Mar.|2024|10|17|49|
+|14-Abril de 2010 00:23:13|Qua.|14|Abr.|2010|0|23|13|
 
-### <a name="d2-formatting-dates"></a>D2. Formatar datas
+### <a name="d2-formatting-dates"></a>D2. Formatação de datas
 
-Estes formattings data foram efetuadas utilizando transformações por exemplo diferentes no mesmo conjunto de dados. Cadeias de negrito representam os exemplos que foram fornecidos na respetiva transformação correspondentes.
+Estes formattings data realizadas usando transformações por exemplo diferente no mesmo conjunto de dados. Cadeias de caracteres em negrito representam os exemplos que foram fornecidos na respetiva transformação respectiva.
 
 |DateTime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
-|2031 de Janeiro de 31 05:54 em: 18|**1/31/2031**|**Sexta-feira, 31 de Janeiro de 2031**|**01312031 5:54**|**1/31/2031 5:54 EM AM**|**Q1 2031**|
-|17-Jan-1990 13:32:01|1/17/1990|Quarta-feira, 17 de Janeiro de 1990|01171990 13:32|17/1/1990 1:32 PM|Q1 1990|
-|14-Fev-2034 05:36:07|2/14/2034|Terça-feira, 14 de Fevereiro de 2034|02142034 5:36|14/2/2034 5:36 AM|Q1 2034
-|Mar-14-2002 13:16:16|3/14/2002|Quinta-feira, 14 de Março de 2002|03142002 13:16|3/14/2002 1:16 PM|Q1 2002
-|Jan-21-1985 05:44:43|1/21/1985|Segunda-feira, 21 de Janeiro de 1985|01211985 5:44|21/1/1985 5:44 AM|Q1 1985
-|16-Aug-1985 01:11:56|8/16/1985|Sexta-feira, 16 de Agosto de 1985|08161985 1:11|8/16/1985 1:11:00|Q3 1985
-|20-Dec-2033 18:36:29|12/20/2033|Terça-feira, 20 de Dezembro de 2033|12202033 18:36|20/12/2033 6:36 PM|Q4 2033
-|16-Jul-1984 10:21:59|7/16/1984|Segunda, 16 de Julho de 1984|07161984 10:21|16/7/1984 10:21 AM|Q3 1984
-|13-Janeiro de 2038 10:59:36|1/13/2038|Quarta-feira, 13 de Janeiro de 2038|01132038 10:59|13/1/2038 10:59 AM|Q1 2038
-|Aug-14-1982 15:13:54 em|8/14/1982|Sábado, 14 de Agosto de 1982|08141982 15:13|8/14/1982 ÀS 15:13|Q3 1982
-|22-Novembro-2030 08:18:08|11/22/2030|Sexta-feira, 22 de Novembro de 2030|11222030 8:18|22/11/2030 8:18 AM|Q4 2030
-|FPO-21-1997 08:42:58|10/21/1997|Terça-feira, 21 de Outubro de 1997|10211997 8:42|21/10/1997 8:42 AM|Q4 1997
-|2006 de Novembro de 28 14:19:15|11/28/2006|Terça-feira, 28 de Novembro de 2006|11282006 14:19|11/28/2006 2:19 PM|Q4 2006
-|29-Apr-2031 04:59:45.|4/29/2031|Terça-feira, 29 de Abril de 2031|04292031 4:59|4/29/2031 4:59 AM|Q2 2031
-|29-Jan-2032 02:38:36|1/29/2032|Quinta-feira, 29 de Janeiro de 2032|01292032 2:38|29/1/2032 2:38 AM|Q1 2032
-|2028 de Maio de 11 15:31:52|5/11/2028|Quinta-feira, 11 de Maio de 2028|05112028 15:31|11/5/2028 ÀS 15:31|Q2 2028
-|15-Jul-1977 12:45:39|7/15/1977|Sexta-feira, 15 de Julho de 1977|07151977 12:45|15/7/1977 12:45 PM|Q3 1977
-|27-Jan-2029 05:55:41|1/27/2029|Sábado, 27 de Janeiro de 2029|01272029 5:55|27/1/2029 5:55 AM|Q1 2029
-|Mar-03-2024 10:17:49|3/3/2024|Domingo, 3 de Março de 2024|03032024 10:17|3/3/2024 10:17 AM|Q1 2024
-|00:23:13 de 14-Apr-2010|4/14/2010|Quarta-feira, 14 de Abril de 2010|04142010 0:23|4/14/2010 12:23:00|Q2 2010
+|05:54:18 de Janeiro – 31-2031|**1/31/2031**|**Sexta-feira, 31 de Janeiro de 2031**|**01312031 5:54**|**31/1/2031 5 54 AM**|**2031 P1**|
+|17-Janeiro de 1990 13:32:01|1/17/1990|Quarta-feira, 17 de Janeiro de 1990|01171990 13:32|17/1/1990 1:32 PM|P1 1990|
+|14-Fev-2034 05:36:07|2/14/2034|Terça-feira, 14 de Fevereiro de 2034|02142034 5:36|14/2/2034 5 36 AM|2034 P1
+|14-Mar-2002 13:16:16|3/14/2002|Quinta-feira, 14 de Março de 2002|03142002 13:16|14/3/2002 1 16 PM|P1 2002
+|21-Janeiro de 1985 05:44:43|1/21/1985|Segunda-feira, 21 de Janeiro de 1985|01211985 5:44|21/1/1985 5 44 AM|P1 1985
+|16-Agosto de 1985 01: 11:56|8/16/1985|Sexta-feira, 16 de Agosto de 1985|08161985 1:11|8/16/1985 ÀS 11H 1:|P3 1985
+|20-Dezembro-2033 18:36:29|12/20/2033|Terça-feira, 20 de Dezembro de 2033|12202033 18:36|20/12/2033 6 36 PM|2033 P4
+|16-Jul-1984 10:21:59|7/16/1984|Segunda-feira, 16 de Julho de 1984|07161984 10:21|7/16/1984 10:21 AM|P3 1984
+|13-Jan-2038 10:59:36|1/13/2038|Quarta-feira, 13 de Janeiro de 2038|01132038 10:59|1/13/2038 10:59 AM|P1 2038
+|14-Agosto-1982 15:13:54|8/14/1982|Sábado, 14 de Agosto de 1982|08141982 15:13|8/14/1982 3 13 PM|P3 1982
+|22-Novembro-2030 08:18:08|11/22/2030|Sexta-feira, 22 de Novembro de 2030|11222030 8:18|11/22/2030 8 18 AM|2030 P4
+|21-Outubro de 1997 08:42:58|10/21/1997|Terça-feira, 21 de Outubro de 1997|10211997 8:42|21/10/1997 8 42 AM|P4 1997
+|28-Novembro de 2006 14:19:15|11/28/2006|Terça-feira, 28 de Novembro de 2006|11282006 14:19|11/28/2006 19 14:00,|2006 P4
+|29-Abril-2031 04:59:45|4/29/2031|Terça-feira, 29 de Abril de 2031|04292031 4:59|4/29/2031 4:59 AM|Q2 2031
+|29-Jan-2032 02:38:36|1/29/2032|Quinta-feira, 29 de Janeiro de 2032|01292032 2:38|29/1/2032 2AM: 38|2032 P1
+|11-Maio-2028 15:31:52|5/11/2028|Quinta-feira, 11 de Maio de 2028|05112028 15:31|11/5/2028 3 31 PM|2028 P2
+|15-Jul-1977 12:45:39|7/15/1977|Sexta-feira, 15 de Julho de 1977|07151977 12:45|15/7/1977 ÀS 17:45 12:|P3 1977
+|27-Jan-2029 05:55:41|1/27/2029|Sábado, 27 de Janeiro de 2029|01272029 5:55|27/1/2029 5 55 AM|2029 P1
+|03-Mar-2024 10:17:49|3/3/2024|Domingo, 3 de Março de 2024|03032024 10:17|3/3/2024 10 17 AM|2024 P1
+|14-Abril de 2010 00:23:13|4/14/2010|Quarta-feira, 14 de Abril de 2010|04142010 0:23|14/4/2010 12AM: 23|Q2 2010
 
 
-### <a name="d3-mapping-time-to-time-periods"></a>D3. Períodos de hora a hora de mapeamento
+### <a name="d3-mapping-time-to-time-periods"></a>D3. Períodos de tempo para tempo de mapeamento
 
-Estes DateTime para mapeamentos de período foram efetuadas utilizando transformações por exemplo diferentes no mesmo conjunto de dados. Cadeias de negrito representam os exemplos que foram fornecidos na respetiva transformação correspondentes.
+Estes Datetimes para mapeamentos de período realizadas usando transformações por exemplo diferente no mesmo conjunto de dados. Cadeias de caracteres em negrito representam os exemplos que foram fornecidos na respetiva transformação respectiva.
 
 |DateTime|Period(seconds)|Period(minutes)|Período (duas horas)|Período (30 minutos)|
 |-----:|-----:|-----:|-----:|-----:|
-|2031 de Janeiro de 31 05:54 em: 18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
-|17-Jan-1990 13:32:01|**0-20**|30-45|ÀS 1 PM - 15|13:30-14:00|
+|05:54:18 de Janeiro – 31-2031|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
+|17-Janeiro de 1990 13:32:01|**0-20**|30-45|1 PM - 3 PM|13:30-14:00|
 |14-Fev-2034 05:36:07|0-20|30-45|5 AM - 7 AM|5:30-6:00|
-|Mar-14-2002 13:16:16|0-20|15-30|ÀS 1 PM - 15|13:00-13:30|
-|Jan-21-1985 05:44:43|40-60|30-45|5 AM - 7 AM|5:30-6:00|
-|16-Aug-1985 01:11:56|40-60|0-15|1: 00 - 3 AM|1:00-1:30|
-|20-Dec-2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
-|16-Jul-1984 10:21:59|40-60|15-30|09: 00 - 11 AM|10:00-10:30|
-|13-Janeiro de 2038 10:59:36|20-40|45-60|09: 00 - 11 AM|10:30-11:00|
-|Aug-14-1982 15:13:54 em|40-60|0-15|3PM-5PM|15:00-15:30|
-|22-Novembro-2030 08:18:08|0-20|15-30|7 AM - 09: 00|8:00-8:30|
-|FPO-21-1997 08:42:58|40-60|30-45|7 AM - 09: 00|8:30-9:00|
-|2006 de Novembro de 28 14:19:15|0-20|15-30|ÀS 1 PM - 15|14:00-14:30|
-|29-Apr-2031 04:59:45.|40-60|45-60|AM DE 3-5 AM|4:30-5:00|
-|29-Jan-2032 02:38:36|20-40|30-45|1: 00 - 3 AM|2:30-3:00|
-|2028 de Maio de 11 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
-|15-Jul-1977 12:45:39|20-40|45-60|11 AM - 1 PM|12:30-13:00|
+|14-Mar-2002 13:16:16|0-20|15-30|1 PM - 3 PM|13:00-13:30|
+|21-Janeiro de 1985 05:44:43|40-60|30-45|5 AM - 7 AM|5:30-6:00|
+|16-Agosto de 1985 01: 11:56|40-60|0-15|1AM - 3 AM|1:00-1:30|
+|20-Dezembro-2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
+|16-Jul-1984 10:21:59|40-60|15-30|ÀS 9H - 11H|10:00-10:30|
+|13-Jan-2038 10:59:36|20-40|45-60|ÀS 9H - 11H|10:30-11:00|
+|14-Agosto-1982 15:13:54|40-60|0-15|3PM-5PM|15:00-15:30|
+|22-Novembro-2030 08:18:08|0-20|15-30|7 AM -9H|8:00-8:30|
+|21-Outubro de 1997 08:42:58|40-60|30-45|7 AM -9H|8:30-9:00|
+|28-Novembro de 2006 14:19:15|0-20|15-30|1 PM - 3 PM|14:00-14:30|
+|29-Abril-2031 04:59:45|40-60|45-60|AM DE 3-5 AM|4:30-5:00|
+|29-Jan-2032 02:38:36|20-40|30-45|1AM - 3 AM|2:30-3:00|
+|11-Maio-2028 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
+|15-Jul-1977 12:45:39|20-40|45-60|PM ÀS 11H-1|12:30-13:00|
 |27-Jan-2029 05:55:41|40-60|45-60|5 AM - 7 AM|5:30-6:00|
-|Mar-03-2024 10:17:49|40-60|15-30|09: 00 - 11 AM|10:00-10:30|
-|00:23:13 de 14-Apr-2010|0-20|15-30|23: 00 - 1: 00|0:00-0:30|
+|03-Mar-2024 10:17:49|40-60|15-30|ÀS 9H - 11H|10:00-10:30|
+|14-Abril de 2010 00:23:13|0-20|15-30|23 HORAS - 1 AM|0:00-0:30|
 
-## <a name="examples-of-composite-transformations-by-example"></a>Exemplos de transformações compostos por exemplo
+## <a name="examples-of-composite-transformations-by-example"></a>Exemplos de transformações compostos por meio de exemplos
 
-|tripduration|StartTime|iniciar o id de estação|iniciar a latitude de estação|iniciar a longitude de estação|UserType|Coluna|
+|tripduration|StartTime|iniciar o id de estação|começar a latitude de estação|começar a longitude de estação|UserType|Coluna|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|61|2016-01-08 16:09:32|107|42.3625|-71.08822|Subscritor|**Um subscritor selecionado uma bicicleta de estação 107, lat/longa (42.363,-71.088), no 08 de Janeiro de 2016 em cerca de 4 PM. A duração da viagem foi 61 minutos**|
-|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Cliente|Um cliente selecionado uma bicicleta de estação 74, lat/longa (42.373,-71.119), no 17 de Janeiro de 2016 em cerca de 09: 00. A duração da viagem foi 61 minutos|
-|62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Subscritor|Um subscritor selecionado uma bicicleta de estação 176, lat/longa (42.387,-71.119), em 25 de Janeiro de 2016 em cerca de 8 AM. A duração da viagem foi 62 minutos|
-|63|2016-01-08 10:10:29|107|42.3625|-71.08822|Subscritor|Um subscritor selecionado uma bicicleta de estação 107, lat/longa (42.363,-71.088), no 08 de Janeiro de 2016 em cerca de 10 AM. A duração da viagem foi 63 minutos|
-|64|2016-01-15 19:42:08|68|42.36507|-71.1031|Subscritor|Um subscritor selecionado uma bicicleta de estação 68, lat/longa (42.365,-71.103), em 15 de Janeiro de 2016 em cerca de 7 PM. A duração da viagem foi 64 minutos|
-|64|2016-01-22 18:16:13|115|42.387995|-71.119084|Subscritor|Um subscritor selecionado uma bicicleta de estação 115, lat/longa (42.388,-71.119), no 22 de Janeiro de 2016 em cerca de 18: 00. A duração da viagem foi 64 minutos|
-|68|2016-01-18 09:51:52|178|42.359573201090441|-71.101294755935669|Subscritor|Um subscritor selecionado uma bicicleta de estação 178, lat/longa (42.360,-71.101), no 18 de Janeiro de 2016 em cerca de 09: 00. A duração da viagem foi 68 minutos|
-|69|2016-01-14 08:57:55|176|42.386748020450561|-71.119018793106079|Subscritor|Um subscritor selecionado uma bicicleta de estação 176, lat/longa (42.387,-71.119), no 14 de Janeiro de 2016 em cerca de 8 AM. A duração da viagem foi 69 minutos|
-|69|2016-01-13 22:12:55|141|42.363560158429884|-71.08216792345047|Subscritor|Um subscritor selecionado uma bicicleta de estação 141, lat/longa (42.364,-71.082), em 13 de Janeiro de 2016 em cerca de 10 PM. A duração da viagem foi 69 minutos|
-|69|2016-01-15 08:13:09|176|42.386748020450561|-71.119018793106079|Subscritor|Um subscritor selecionado uma bicicleta de estação 176, lat/longa (42.387,-71.119), em 15 de Janeiro de 2016 em cerca de 8 AM. A duração da viagem foi 69 minutos|
+|61|2016-01-08 16:09:32|107|42.3625|-71.08822|Subscritor|**Um subscritor escolhidos uma bicicleta de estação 107, lat/longa (42.363,-71.088), 08 de Janeiro de 2016, às 16:00 cerca. Duração da viagem foi 61 minutos**|
+|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Cliente|Um cliente escolhido uma bicicleta de uma estação de 74, lat/longa (42.373,-71.119), em 17 de Janeiro de 2016, às 9h cerca. Duração da viagem foi 61 minutos|
+|62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Subscritor|Um subscritor escolhidos uma bicicleta de estação 176, lat/longa (42.387,-71.119), 25 de Janeiro de 2016, às 8:00 cerca. Duração da viagem foi 62 minutos|
+|63|2016-01-08 10:10:29|107|42.3625|-71.08822|Subscritor|Um subscritor escolhidos uma bicicleta de estação 107, lat/longa (42.363,-71.088), 08 de Janeiro de 2016, em cerca de 10 AM. Duração da viagem foi 63 minutos|
+|64|2016-01-15 19:42:08|68|42.36507|-71.1031|Subscritor|Um subscritor escolhidos uma bicicleta de estação 68, lat/longa (42.365,-71.103), 15 de Janeiro de 2016, em cerca de 7 PM. Duração da viagem foi 64 minutos|
+|64|2016-01-22 18:16:13|115|42.387995|-71.119084|Subscritor|Um subscritor escolhidos uma bicicleta de estação 115, Considerando lat/longa (42.388,-71.119), 22 de Janeiro de 2016 para as 18:00 cerca. Duração da viagem foi 64 minutos|
+|68|2016-01-18 09:51:52|178|42.359573201090441|-71.101294755935669|Subscritor|Um subscritor escolhidos uma bicicleta de estação 178, lat/longa (42.360,-71.101), 18 de Janeiro de 2016 às 9h cerca. Duração da viagem foi 68 minutos|
+|69|2016-01-14 08:57:55|176|42.386748020450561|-71.119018793106079|Subscritor|Um subscritor escolhidos uma bicicleta de estação 176, lat/longa (42.387,-71.119), 14 de Janeiro de 2016, às 8:00 cerca. Duração da viagem foi 69 minutos|
+|69|2016-01-13 22:12:55|141|42.363560158429884|-71.08216792345047|Subscritor|Um subscritor escolhidos uma bicicleta de estação 141, lat/longa (42.364,-71.082), em 13 de Janeiro de 2016, em cerca de 10 PM. Duração da viagem foi 69 minutos|
+|69|2016-01-15 08:13:09|176|42.386748020450561|-71.119018793106079|Subscritor|Um subscritor escolhidos uma bicicleta de estação 176, lat/longa (42.387,-71.119), 15 de Janeiro de 2016, às 8:00 cerca. Duração da viagem foi 69 minutos|
 
 
 ## <a name="technical-notes"></a>Notas técnicas
 
 ### <a name="conditional-transformations"></a>Transformações condicionais
-Em alguns casos, não é possível encontrar uma transformação único que satisfaça os exemplos indicados. Nestes casos, derivar coluna, por exemplo transformar tenta agrupar as entradas com base num padrão de algumas e saiba transformação separada para cada grupo. Chamamos a isto **transformação condicional**. **Transformação condicional** é tentada apenas para transformações com uma única coluna de entrada. 
+Em alguns casos, não é possível localizar uma transformação única que coincida com os exemplos de determinado. Nesses casos, derivar coluna por exemplo transformar tenta agrupar as entradas com base em algum padrão e Aprenda a transformação separada para cada grupo. Chamamos a isto **transformação condicional**. **Transformação condicional** é tentada apenas para transformações com uma única coluna de entrada. 
 
 ### <a name="reference"></a>Referência
-Podem encontrar mais informações sobre a transformação de cadeia por tecnologia de exemplo no [esta publicação](https://www.microsoft.com/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).
+Podem encontrar mais informações sobre a transformação de cadeia de caracteres através de uma tecnologia de exemplo na [esta publicação](https://www.microsoft.com/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

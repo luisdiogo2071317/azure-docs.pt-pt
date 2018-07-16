@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com xMatters OnDemand | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e xMatters OnDemand.
+title: 'Tutorial: Integração do Azure Active Directory com xMatters OnDemand | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e xMatters OnDemand.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a3555f9efa34a5da2e6fa624da0f80d52dab077
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 60991f2780de86f0b15f64def6b1776316f974d4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211640"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com xMatters OnDemand
 
-Neste tutorial, irá aprender a integrar xMatters OnDemand com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar xMatters OnDemand com o Azure Active Directory (Azure AD).
 
-Integrar xMatters OnDemand com o Azure AD fornece as seguintes vantagens:
+Integrar xMatters OnDemand no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao xMatters OnDemand
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para xMatters OnDemand (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para xMatters OnDemand (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com xMatters OnDemand, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um xMatters OnDemand-início de sessão único ativada subscrição
+- Um xMatters OnDemand logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar xMatters OnDemand a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando xMatters OnDemand da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-xmatters-ondemand-from-the-gallery"></a>Adicionar xMatters OnDemand a partir da Galeria
-Para configurar a integração de xMatters OnDemand com o Azure AD, terá de adicionar xMatters OnDemand a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-xmatters-ondemand-from-the-gallery"></a>Adicionando xMatters OnDemand da Galeria
+Para configurar a integração do xMatters OnDemand para o Azure AD, terá de adicionar xMatters OnDemand a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar xMatters OnDemand a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,44 +75,44 @@ Para configurar a integração de xMatters OnDemand com o Azure AD, terá de adi
 
     ![Criar um utilizador de teste do Azure AD](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. No painel de resultados, selecione **xMatters OnDemand**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **xMatters OnDemand**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com xMatters que ondemand com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com xMatters que ondemand com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber que o utilizador de homólogo xMatters OnDemand for para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no xMatters OnDemand tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa de saber o que o utilizador de contraparte xMatters OnDemand for para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no xMatters OnDemand deve ser estabelecido.
 
-No xMatters OnDemand, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+XMatters OnDemand, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com xMatters OnDemand, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com xMatters OnDemand, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de OnDemand xMatters](#creating-a-xmatters-ondemand-test-user)**  - para ter um homólogo de Britta Simon no xMatters OnDemand que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de OnDemand xMatters](#creating-a-xmatters-ondemand-test-user)**  - para ter um equivalente da Eduarda Almeida na xMatters OnDemand que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua xMatters OnDemand aplicação.
+Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único na sua xMatters aplicação OnDemand.
 
-**Para configurar o Azure AD-início de sessão único com xMatters OnDemand, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com xMatters OnDemand, execute os seguintes passos:**
 
-1. No portal do Azure, no **xMatters OnDemand** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **xMatters OnDemand** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Configurar o início de sessão único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
-3. No **xMatters OnDemand domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **xMatters OnDemand domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -121,7 +121,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://www.xmatters.com`|
     | `https://<companyname>.xmatters.com.au/`|
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -130,53 +130,53 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://<companyname>.au1.xmatters.com.au/<instancename>`|
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [xMatters OnDemand suporta equipa](https://www.xmatters.com/company/contact-us/) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de xMatters OnDemand](https://www.xmatters.com/company/contact-us/) obter esses valores.
 
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado localmente como **c:\\XMatters OnDemand.cer**.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado localmente como **c:\\XMatters OnDemand.cer**.
 
     ![Configurar o início de sessão único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
 
     > [!IMPORTANT]
-    > É necessário reencaminhar o certificado para o [xMatters OnDemand suporta equipa](https://www.xmatters.com/company/contact-us/). O certificado tem de ser carregado pela equipa de suporte do xMatters antes de pode finalizar a configuração de início de sessão único. 
+    > Tem de reencaminhar o certificado para o [equipa de suporte de xMatters OnDemand](https://www.xmatters.com/company/contact-us/). O certificado tem de ser carregado pela equipe de suporte do xMatters antes de pode finalizar a configuração de início de sessão única. 
 
 5. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/xmatters-ondemand-tutorial/tutorial_general_400.png)
 
-6. No **xMatters OnDemand configuração** secção, clique em **configurar xMatters OnDemand** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Sobre o **xMatters configuração OnDemand** secção, clique em **configurar xMatters OnDemand** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_configure.png) 
 
 7. Numa janela do browser web diferente, inicie sessão no site da sua empresa XMatters OnDemand como administrador.
 
-8. Na barra de ferramentas na parte superior, clique em **Admin**e, em seguida, clique em **os dados da empresa** na barra de navegação no lado esquerdo.
+8. Na barra de ferramentas na parte superior, clique em **administrador**e, em seguida, clique em **detalhes da empresa** na barra de navegação no lado esquerdo.
 
-    ![Administração](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
+    ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
-9. No **configuração SAML** página, execute os seguintes passos:
+9. Sobre o **configuração SAML do** página, execute os seguintes passos:
 
-    ![Configuração de SAML](./media/xmatters-ondemand-tutorial/IC776796.png "configuração SAML")
+    ![Configuração de SAML](./media/xmatters-ondemand-tutorial/IC776796.png "configuração de SAML")
 
     a. Selecione **ativar SAML**.
 
-    b. No **ID do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML** valor que copiou do portal do Azure.
+    b. Na **ID do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML** valor que copiou do portal do Azure.
 
-    c. No **início de sessão único no URL** caixa de texto, colar **único início de sessão no URL do serviço SAML** valor que copiou do portal do Azure.
+    c. Na **início de sessão único na URL** caixa de texto, colar **SAML único início de sessão no URL do serviço** valor que copiou do portal do Azure.
 
-    d. No **URL de fim de sessão único** caixa de texto, colar **Sign-Out URL**, que copiou do portal do Azure.
+    d. Na **URL de fim de sessão único** caixa de texto, colar **URL de fim de sessão**, que copiou do portal do Azure.
 
     e. Na página de detalhes da empresa, na parte superior, clique em **guardar alterações**.
 
     ![Detalhes de empresa](./media/xmatters-ondemand-tutorial/IC776797.png "da empresa detalhes")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
@@ -184,61 +184,61 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
     ![Criar um utilizador de teste do Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
 
     ![Criar um utilizador de teste do Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
 
     ![Criar um utilizador de teste do Azure AD](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Criar um utilizador de teste de OnDemand xMatters
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon xMatters OnDemand. xMatters OnDemand suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](xmatters-ondemand-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no xMatters OnDemand. xMatters OnDemand suporta o aprovisionamento automático de utilizadores, que está por predefinição, ativada. Pode encontrar mais detalhes [aqui](xmatters-ondemand-provisioning-tutorial.md) sobre como configurar o aprovisionamento automático de utilizadores.
 
 **Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
 
 1. Inicie sessão no seu **XMatters OnDemand** inquilino.
 
-2.  Clique em **utilizadores** separador. e, em seguida, clique em **adicionar utilizador**.
+2.  Clique em **usuários** separador e clique em **adicionar utilizador**.
 
     ![Os utilizadores](./media/xmatters-ondemand-tutorial/IC781048.png "utilizadores")
 
-3. No **adicionar um utilizador** secção, execute os seguintes passos:
+3. Na **adicionar um utilizador** secção, execute os seguintes passos:
 
-    ![Adicionar um utilizador](./media/xmatters-ondemand-tutorial/IC781049.png "adicionar um utilizador")
+    ![Adicionar um usuário](./media/xmatters-ondemand-tutorial/IC781049.png "adicionar um utilizador")
 
     a. Selecione **Active Directory**.
 
-    b. No **ID de utilizador** caixa de texto, como o tipo de id de utilizador do utilizador Brittasimon@contoso.com.
+    b. Na **ID de utilizador** caixa de texto, como o tipo o id de utilizador do utilizador Brittasimon@contoso.com.
 
-    c. No **nome próprio** caixa de texto, nome do primeiro tipo de utilizador como Britta.
+    c. Na **nome próprio** caixa de texto, tipo primeiro nome do utilizador, como a Eduarda.
 
-    d. No **Apelido** caixa de texto, apelido tipo do utilizador como Simon.
+    d. Na **Apelido** apelido tipo do utilizador, como Simon, caixa de texto.
 
-    e. No **Site** caixa de texto, introduza o site válido de um Azure válido conta do AD que pretende aprovisionar.
+    e. Na **Site** caixa de texto, introduza o site válido de um Azure válido conta AD que pretende aprovisionar.
 
     f. Clique em **Guardar**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso aos xMatters OnDemand.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso aos xMatters OnDemand.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a xMatters OnDemand, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a xMatters OnDemand, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **xMatters OnDemand**.
 
@@ -246,30 +246,30 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar o xMatters OnDemand mosaico no painel de acesso, deve obter automaticamente com sessão iniciada para sua xMatters OnDemand aplicação.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Ao clicar o xMatters OnDemand mosaico no painel de acesso, deve obter automaticamente com sessão iniciada para sua xMatters aplicação OnDemand.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar o aprovisionamento de utilizadores](xmatters-ondemand-provisioning-tutorial.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurar o aprovisionamento do utilizador](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

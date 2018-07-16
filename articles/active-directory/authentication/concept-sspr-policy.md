@@ -1,6 +1,6 @@
 ---
 title: Políticas - Azure Active Directory de reposição de palavra-passe self-service
-description: As opções de política de reposição de Azure AD self-service palavra-passe
+description: Opções de política de reposição do Azure AD self-service palavra-passe
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5952d0b1568e2554f53797515cde5cb23ad95a9b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867447"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054765"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
-Este artigo descreve os requisitos de complexidade associados a contas de utilizador armazenadas no seu inquilino do Azure Active Directory (Azure AD) e políticas de palavra-passe.
+Este artigo descreve as políticas de palavra-passe e os requisitos de complexidade associados a contas de utilizador armazenadas no seu inquilino do Azure Active Directory (Azure AD).
 
 ## <a name="administrator-password-policy-differences"></a>Diferenças de política de palavra-passe de administrador
 
-Microsoft impõe uma predefinição forte *dois porta* política para qualquer função de administrador do Azure de reposição de palavra-passe. 
+A Microsoft impõe uma predefinidas fortes *dois-gate* política para qualquer função de administrador do Azure de reposição de palavra-passe. 
 
-Com a política de porta de dois, os administradores não têm a capacidade de utilizar perguntas de segurança.
+Com uma política de porta de dois, os administradores não têm a capacidade de utilizar perguntas de segurança.
 
- Uma política de porta de dois requer dois tipos de dados de autenticação, tais como um endereço de e-mail *e* um número de telefone. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
+ Uma política de porta de dois requer dois tipos de dados de autenticação, como um endereço de e-mail *e* um número de telefone. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
 
-* São afetadas todas as seguintes funções de administrador do Azure:
+* Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de suporte técnico
-  * Administrador de suporte de serviço
+  * Administrador de assistência técnica
   * Administrador de faturação
   * Parceiro de Suporte de Escalão 1
   * Parceiro de Suporte de Escalão 2
@@ -39,35 +39,35 @@ Com a política de porta de dois, os administradores não têm a capacidade de u
   * Administrador do serviço Lync
   * Administrador de conta de utilizador
   * Escritores de diretórios
-  * Administrador global ou de administrador da empresa
-  * Administrador de serviço do SharePoint
+  * Administrador global ou administrador de empresa
+  * Administrador de serviços do SharePoint
   * Administrador de Conformidade
   * Administrador de aplicações
   * Administrador de segurança
   * Administrador com Função Privilegiada
   * Administrador de serviços do Microsoft Intune
   * Administrador de serviço de proxy de aplicações
-  * Administrador de serviço do CRM
+  * Administrador de serviço CRM
   * Administrador de serviço do Power BI
   
-* Se o prazo de 30 dias decorridos numa subscrição de avaliação
+* Se a 30 dias decorridos numa subscrição de avaliação
 
   ou
 
-* Um domínio está presente, tal como contoso.com
+* Um domínio personalizado está presente, por exemplo, contoso.com
 
   ou
 
-* O Azure AD Connect está a sincronizar as identidades do seu diretório no local
+* O Azure AD Connect está a sincronizar identidades do seu diretório no local
 
 ### <a name="exceptions"></a>Exceções
 Uma política de uma porta requer um conjunto de dados de autenticação, como um endereço de e-mail *ou* número de telefone. Uma porta de uma política aplica-se nas seguintes circunstâncias:
 
-* É dentro os primeiros 30 dias de uma subscrição de avaliação
+* É nos primeiros 30 dias de uma subscrição de avaliação
 
   ou
 
-* Um domínio não está presente (*. c o m) 
+* Um domínio personalizado não estiver presente (*. onmicrosoft.com) 
 
   e 
 
@@ -76,78 +76,78 @@ Uma política de uma porta requer um conjunto de dados de autenticação, como u
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas de UserPrincipalName que se aplicam a todas as contas de utilizador
 
-Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor de atributo de nome principal (UPN) de utilizador exclusivo associado à sua conta. A seguinte tabela destaca as políticas que se aplicam a ambas as contas de utilizador de Active Directory no local que são sincronizadas para a nuvem e às contas de utilizador só de nuvem:
+Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor de atributo de nome principal (UPN) de utilizador exclusivo associado à sua conta. A tabela seguinte descreve as políticas que se aplicam a ambas as contas de utilizador de Active Directory no local que são sincronizadas para a cloud e às contas de utilizador apenas na cloud:
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
 | Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Não são permitidos carateres |<ul> <li>Qualquer "\@ \" caráter que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de período "." existentes imediatamente antes do "\@ \" símbolo</li></ul> |
-| Restrições de comprimento |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Podem existir até 64 carateres antes do "\@ \" símbolo</li><li>Podem existir até 48 carateres após o "\@ \" símbolo</li></ul> |
+| Carateres não permitidos |<ul> <li>Qualquer "\@ \" caractere que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de ponto final "." imediatamente anterior a "\@ \" símbolo</li></ul> |
+| Restrições de tamanho |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Pode haver até 64 carateres antes do "\@ \" símbolo</li><li>Pode haver até 48 carateres após o "\@ \" símbolo</li></ul> |
 
-## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de palavra-passe que só se aplicam a contas de utilizador de nuvem
+## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de palavra-passe que só se aplicam a contas de utilizador de cloud
 
 A tabela seguinte descreve as definições de política de palavra-passe disponíveis que podem ser aplicadas a contas de utilizador que são criadas e geridas no Azure AD:
 
 | Propriedade | Requisitos |
 | --- | --- |
 | Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Não são permitidos carateres |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes</li></ul> |
-| Restrições de palavra-passe |<ul><li>Um mínimo de 8 carateres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três fora de quatro das seguintes opções:<ul><li>Caracteres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
-| Duração de expiração da palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
-| Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
-| Expiração da palavra-passe |<ul><li>Valor predefinido: **falso** dias (indica que expiração de palavra-passe está ativada).</li><li>O valor pode ser configurado para contas de utilizador individuais utilizando o `Set-MsolUser` cmdlet.</li></ul> |
-| Histórico de alterações de palavra-passe |A palavra-passe último *não é possível* ser utilizadas novamente quando o utilizador altera uma palavra-passe. |
-| Histórico de reposição de palavra-passe | A palavra-passe último *pode* ser utilizadas novamente quando o utilizador repõe uma palavra-passe esquecida. |
-| Bloqueio de conta |Após 10 sem início de sessão tentativas com a palavra-passe errada, o utilizador está bloqueado para um minuto. Ainda mais o início de sessão incorreto tenta bloqueio enviados ao utilizador para aumentar a duração de tempo. |
+| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes</li></ul> |
+| Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
+| Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
+| Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
+| Expiração de palavra-passe |<ul><li>Valor predefinido: **false** dias (indica que expiração de palavra-passe está ativada).</li><li>O valor pode ser configurado para contas de utilizador individuais ao utilizar o `Set-MsolUser` cmdlet.</li></ul> |
+| Histórico de alterações de palavra-passe |A última palavra-passe *não é possível* ser usado novamente quando o utilizador altera uma palavra-passe. |
+| Histórico de reposição de palavra-passe | A última palavra-passe *pode* ser usado novamente quando o usuário repõe uma palavra-passe esquecida. |
+| Bloqueio de conta |Após 10 tentativas malsucedidas de início de sessão com a palavra-passe errada, o utilizador está bloqueado durante um minuto. Ainda mais o início de sessão incorreto tenta bloquear o utilizador para aumentar a duração de tempo. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Definir políticas de expiração de palavra-passe no Azure AD
 
-Um administrador global para um serviço em nuvem da Microsoft pode utilizar o módulo do Microsoft Azure AD para o Windows PowerShell para definir palavras-passe do utilizador para não expirarem. Também pode utilizar cmdlets do Windows PowerShell para remover o nunca-expira a configuração ou para ver o que utilizador palavras-passe estão definidas para nunca expirar. 
+Um administrador global para um serviço cloud da Microsoft pode utilizar o módulo do Microsoft Azure AD para o Windows PowerShell para definir palavras-passe de utilizador não a expirar. Também pode utilizar cmdlets do Windows PowerShell para remover o nunca-expira a configuração ou para ver o que utilizador palavras-passe são definidas para nunca expirar. 
 
-Esta orientação aplica-se para outros fornecedores, como o Intune e o Office 365, que também dependem do Azure AD para os serviços de identidade e de diretório. Expiração de palavra-passe é a única parte da política que pode ser alterada.
+Esta orientação aplica-se para outros fornecedores, como o Intune e Office 365, que também dependem do Azure AD para os serviços de identidade e de diretório. Expiração de palavra-passe é a única parte da política que pode ser alterada.
 
 > [!NOTE]
-> Apenas as palavras-passe para contas de utilizador que não estão sincronizadas através de sincronização de diretórios podem ser configuradas para não expirarem. Para mais informações sobre a sincronização de diretórios, consulte [Connect AD com o Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+> Apenas palavras-passe para contas de utilizador que não estão sincronizadas através da sincronização de diretório podem ser configuradas para não expirar. Para obter mais informações sobre a sincronização de diretórios, consulte [Connect AD com o Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
 >
 
-## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verifique as políticas de palavra-passe utilizando o PowerShell
+## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verifique as políticas de palavra-passe com o PowerShell
 
-Para começar, terá de [transferir e instalar o módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Depois de ter instalado, pode utilizar os seguintes passos para configurar cada campo.
+Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Depois de ter instalado, pode utilizar os seguintes passos para configurar cada campo.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Como verificar a política de expiração uma palavra-passe
-1. Liga ao Windows PowerShell, utilizando as credenciais de administrador da empresa.
+### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Como verificar a política de expiração para uma palavra-passe
+1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet utilizando o UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Para ver o **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Para ver se a palavra-passe de um único utilizador está definida para nunca expirar, execute o seguinte cmdlet através do UPN (por exemplo, *aprilr@contoso.onmicrosoft.com*) ou o ID de utilizador do utilizador que pretende verificar: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Para ver os **palavra-passe nunca expira** definir para todos os utilizadores, execute o seguinte cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Definir uma palavra-passe a expirar
 
-1. Liga ao Windows PowerShell, utilizando as credenciais de administrador da empresa.
+1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para definir a palavra-passe de um utilizador para que a palavra-passe expira, execute o seguinte cmdlet utilizando o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Para definir as palavras-passe de todos os utilizadores na organização de modo a que expirarem, utilize o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Para definir a palavra-passe de um utilizador para que a palavra-passe expirar, execute o seguinte cmdlet com o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Para definir as palavras-passe de todos os utilizadores na organização, de modo a que esta expira, utilize o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
-### <a name="set-a-password-to-never-expire"></a>Definir uma palavra-passe nunca expira
+### <a name="set-a-password-to-never-expire"></a>Definir uma palavra-passe para nunca expirar
 
-1. Liga ao Windows PowerShell, utilizando as credenciais de administrador da empresa.
+1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 
-   * Para definir a palavra-passe de um utilizador para nunca expirar, execute o seguinte cmdlet utilizando o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Para definir as palavras-passe de todos os utilizadores numa organização nunca expirem, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Para definir a palavra-passe de um utilizador para nunca expirar, execute o cmdlet seguinte ao utilizar o UPN ou o ID de utilizador do utilizador: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Para definir as palavras-passe de todos os usuários numa organização para nunca expirar, execute o seguinte cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
-   > As palavras-passe definida como `-PasswordNeverExpires $true` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e avance 90 dias, as palavras-passe expirarem. Com base no `pwdLastSet` atributo, se alterar a expiração para `-PasswordNeverExpires $false`, todas as palavras-passe que tenham um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciar sessão. Esta alteração pode afetar a um grande número de utilizadores. 
+   > As palavras-passe definida como `-PasswordNeverExpires $true` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e vão 90 dias, as palavras-passe expirarem. Com base na `pwdLastSet` atributo, se alterar a expiração para `-PasswordNeverExpires $false`, todas as palavras-passe que têm um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciarem sessão. Esta alteração pode afetar um grande número de utilizadores. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os artigos seguintes fornecem informações adicionais sobre a reposição através do Azure AD palavra-passe:
+Os seguintes artigos fornecem informações adicionais sobre a palavra-passe, repor através do Azure AD:
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Reponha ou altere a palavra-passe](../active-directory-passwords-update-your-own-password.md).
-* [Registe-se na reposição personalizada de palavras-passe](../active-directory-passwords-reset-register.md).
+* [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registe-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md).
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)

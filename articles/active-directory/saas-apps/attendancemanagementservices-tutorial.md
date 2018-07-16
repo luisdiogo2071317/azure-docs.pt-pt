@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com serviços de gestão de assistência | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e os serviços de gestão de assistência.
+title: 'Tutorial: Integração do Azure Active Directory com os serviços de gestão de participação | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e dos serviços de gestão de participação.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: c718284ca65bc17990fb16b07a27787f28f362c2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e664d9d337b4709b320fdbe1d8e7bd71df3441f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227120"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048213"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Azure Active Directory com serviços de gestão de assistência
+# <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Azure Active Directory com os serviços de gestão de participação
 
-Neste tutorial, irá aprender a integrar os serviços de gestão de assistência com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar os serviços de gestão de participação no Azure Active Directory (Azure AD).
 
-Integração dos serviços de gestão de assistência com o Azure AD fornece as seguintes vantagens:
+Integração de serviços de gestão de participação com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso aos serviços de gestão de assistência.
-- Pode permitir aos utilizadores automaticamente obter com sessão iniciada assistência nos serviços de gestão (Single Sign-On) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central - portal do Azure.
+- Pode controlar no Azure AD que tenha acesso aos serviços de gestão de participação.
+- Pode permitir que os utilizadores automaticamente obter sessão iniciada em serviços de gestão de participação (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com os serviços de gestão de assistência, terá dos seguintes itens:
+Para configurar a integração do Azure AD com os serviços de gestão de participação, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Dos serviços de gestão de assistência-início de sessão único ativada subscrição
+- Dos serviços de gestão de participação no início de sessão único de subscrição ativada
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,209 +50,209 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. A adição de serviços de gestão de assistência de galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando os serviços de gestão de participação da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-attendance-management-services-from-the-gallery"></a>A adição de serviços de gestão de assistência de galeria
-Para configurar a integração dos serviços de gestão de assistência com o Azure AD, tem de adicionar serviços de gestão de assistência da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-attendance-management-services-from-the-gallery"></a>Adicionando os serviços de gestão de participação da Galeria
+Para configurar a integração dos serviços de gestão de participação no Azure AD, terá de adicionar serviços de gestão de participação na partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar serviços de gestão de assistência da galeria do, execute os seguintes passos:**
+**Para adicionar serviços de gestão de participação da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **dos serviços de gestão de assistência**, selecione **dos serviços de gestão de assistência** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **dos serviços de gestão de participação**, selecione **dos serviços de gestão de participação** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Serviços de gestão de assistência na lista de resultados](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_addfromgallery.png)
+    ![Serviços de gestão de participação na lista de resultados](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com os serviços de gestão de assistência com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configure e teste do Azure AD início de sessão único com os serviços de gestão de presença com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo nos serviços de gestão de assistência é um utilizador no Azure AD. Por outras palavras, uma relação entre um utilizador do Azure AD e o utilizador relacionado nos serviços de gestão de assistência de ligação tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte nos serviços de gestão de participação para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado nos serviços de gestão de participação deve ser estabelecido.
 
-Para configurar e testar o Azure AD-início de sessão único com os serviços de gestão de assistência, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com os serviços de gestão de participação, precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de serviços de gestão de assistência](#create-an-attendance-management-service-test-user)**  - para ter um homólogo de Britta Simon nos serviços de gestão de assistência está ligado a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de serviços de gestão de participação](#create-an-attendance-management-service-test-user)**  - para ter um equivalente da Eduarda Almeida na participação dos serviços de gestão que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação de serviços de gestão de assistência.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de serviços de gestão de participação.
 
-**Para configurar o Azure AD-início de sessão único com os serviços de gestão de assistência, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com os serviços de gestão de participação, execute os seguintes passos:**
 
-1. No portal do Azure, no **dos serviços de gestão de assistência** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, no **dos serviços de gestão de participação** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_samlbase.png)
 
-3. No **assistência gestão dos serviços de domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **participação no gerenciamento de serviços de domínio e URLs** secção, execute os seguintes passos:
 
-    ![Assistência gestão dos serviços de domínio e os URLs únicos de informações de início de sessão](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_url.png)
+    ![Participação no gerenciamento de serviços de domínio e URLs únicas início de sessão em informações](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://id.obc.jp/<tenant information >/`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://id.obc.jp/<tenant information >/`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://id.obc.jp/<tenant information >/`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://id.obc.jp/<tenant information >/`
 
     > [!NOTE]
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de serviços de gestão de assistência](http://www.obcnet.jp/) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de serviços de gestão de participação](http://www.obcnet.jp/) obter esses valores.
 
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_certificate.png) 
+    ![O link de download de certificado](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_certificate.png) 
 
 5. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/attendancemanagementservices-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/attendancemanagementservices-tutorial/tutorial_general_400.png)
 
-6. No **configuração de serviços de gestão de assistência** secção, clique em **configurar serviços de gestão de assistência** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Na **configuração de serviços de gestão de participação** secção, clique em **configurar serviços de gestão de participação** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
-    ![Configuração de serviços de gestão de assistência](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_configure.png) 
+    ![Configuração de serviços de gestão de participação](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_configure.png) 
 
-7. Numa janela do browser diferente, início de sessão no site da sua empresa dos serviços de gestão de assistência como administrador.
+7. Numa janela do browser diferente, início de sessão para o site da sua empresa de serviços de gestão de participação como administrador.
 
-8. Clique em **autenticação SAML** sob o **secção de gestão de segurança**.
+8. Clique em **autenticação SAML** sob a **seção de gerenciamento de segurança**.
 
-    ![Configuração de serviços de gestão de assistência](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Configuração de serviços de gestão de participação](./media/attendancemanagementservices-tutorial/user1.png)
 
 9. Execute os seguintes passos:
 
-    ![Configuração de serviços de gestão de assistência](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Configuração de serviços de gestão de participação](./media/attendancemanagementservices-tutorial/user2.png)
 
-    a. Selecione **autenticação SAML utilize**.
+    a. Selecione **autenticação de utilização SAML**.
 
-    b. No **identificador** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure. 
+    b. Na **identificador** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure. 
 
-    c. No **URL de ponto final de autenticação** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
+    c. Na **URL de ponto final de autenticação** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
 
-    d. Clique em **selecione um ficheiro** para carregar o certificado que transferiu a partir do Azure AD.
+    d. Clique em **selecionar um ficheiro** para carregar o certificado que transferiu a partir do Azure AD.
 
     e. Selecione **desative a autenticação de palavra-passe**.
 
     f. Clique em **registo**
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação! Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação! Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/attendancemanagementservices-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/attendancemanagementservices-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/attendancemanagementservices-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/attendancemanagementservices-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/attendancemanagementservices-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/attendancemanagementservices-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
-### <a name="create-an-attendance-management-services-test-user"></a>Criar um utilizador de teste de serviços de gestão de assistência
+### <a name="create-an-attendance-management-services-test-user"></a>Criar um utilizador de teste de serviços de gestão de participação
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos serviços de gestão de assistência, tem de ser aprovisionadas para os serviços de gestão de assistência. No caso dos serviços de gestão de assistência, o aprovisionamento é uma tarefa manual.
+Para ativar a utilizadores do Azure AD iniciar sessão serviços de gestão de participação, tem de ser aprovisionados para os serviços de gestão de participação. No caso dos serviços de gestão de participação, o aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no site da sua empresa dos serviços de gestão de assistência como administrador.
+1. Inicie sessão no site da sua empresa dos serviços de gestão de participação como administrador.
 
-2. Clique em **gestão de utilizadores** sob o **secção de gestão de segurança**.
+2. Clique em **gestão de utilizadores** sob a **seção de gerenciamento de segurança**.
 
-    ![Adicionar empregado](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Adicionar o funcionário](./media/attendancemanagementservices-tutorial/user5.png)
 
 3. Clique em **novo início de sessão de regras**.
 
-    ![Adicionar empregado](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Adicionar o funcionário](./media/attendancemanagementservices-tutorial/user3.png)
 
-4. No **OBCiD informações** secção, execute os seguintes passos:
+4. Na **OBCiD informações** secção, execute os seguintes passos:
 
-    ![Adicionar empregado](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Adicionar o funcionário](./media/attendancemanagementservices-tutorial/user4.png)
 
-    a. No **OBCiD** caixa de texto, como o tipo de mensagem de correio eletrónico do utilizador **BrittaSimon@contoso.com**.
+    a. Na **OBCiD** caixa de texto, como o tipo de e-mail do utilizador **BrittaSimon@contoso.com**.
 
-    b. No **palavra-passe** caixa de texto, escreva a palavra-passe do utilizador.
+    b. Na **palavra-passe** caixa de texto, escreva a palavra-passe do utilizador.
 
     c. Clique em **registo**
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso aos serviços de gestão de assistência.
+Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão único, concedendo acesso aos serviços de gestão de participação.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon assistência nos serviços de gestão, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a participação no Serviços de gestão, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **dos serviços de gestão de assistência**.
+2. Na lista de aplicações, selecione **dos serviços de gestão de participação**.
 
-    ![A ligação de serviços de gestão de assistência na lista de aplicações](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_app.png)  
+    ![A ligação de serviços de gestão de participação na lista de aplicações](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_app.png)  
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico serviços de gestão de assistência no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de serviços de gestão de assistência.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico de serviços de gestão de participação no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de serviços de gestão de participação.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

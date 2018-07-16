@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o segredo de servidor (no local) | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e o segredo de servidor (no local).
+title: 'Tutorial: Integração do Azure Active Directory com o segredo do servidor (no local) | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o segredo do servidor (no local).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: c9229afd7bd8ebad85ce9e329fb11f992236bce0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37ae91743077a9cb9ef9b8f97747563a580fada9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220106"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051283"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integração do Azure Active Directory com o segredo de servidor (no local)
+# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integração do Azure Active Directory com o segredo do servidor (no local)
 
-Neste tutorial, irá aprender a integrar o segredo de servidor (no local) com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o segredo do servidor (no local) no Azure Active Directory (Azure AD).
 
-Integrar o segredo de servidor (no local) com o Azure AD fornece as seguintes vantagens:
+Integrar o segredo do servidor (no local) no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao segredo de servidor (no local).
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada ao segredo de servidor (no local) (Single Sign-On) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central - portal do Azure.
+- Pode controlar no Azure AD que tenha acesso ao segredo do servidor (no local).
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o segredo do servidor (no local) (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o segredo de servidor (no local), terá dos seguintes itens:
+Para configurar a integração do Azure AD com segredo do servidor (no local), terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um segredo de servidor (no local)-início de sessão único ativada subscrição
+- Um segredo de servidor (no local) início de sessão único de subscrição ativada
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,175 +50,175 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar o segredo de servidor (no local) da galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando o segredo do servidor (no local) da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Adicionar o segredo de servidor (no local) da galeria do
-Para configurar a integração do segredo de servidor (no local) com o Azure AD, tem de adicionar segredo de servidor (no local) da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Adicionando o segredo do servidor (no local) da Galeria
+Para configurar a integração do segredo do servidor (no local) para o Azure AD, terá de adicionar segredo do servidor (no local) a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar o segredo de servidor (no local) da galeria do, execute os seguintes passos:**
+**Para adicionar segredo do servidor (no local) a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **segredo de servidor (no local)**, selecione **segredo de servidor (no local)** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **segredo do servidor (no local)**, selecione **segredo do servidor (no local)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Servidor secreta (no local), na lista de resultados](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com o segredo de servidor (no local), com base no chamado "Britta Simon" um utilizador de teste.
+Nesta secção, configure e teste do Azure AD início de sessão único com o segredo do servidor (no local), com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no segredo Server (no local) é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no segredo do servidor (no local) tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no segredo do servidor (no local) para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no segredo do servidor (no local) deve ser estabelecido.
 
-Para configurar e testar o Azure AD-início de sessão único com o segredo de servidor (no local), tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o segredo do servidor (no local), tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste do segredo de servidor (no local)](#create-a-secret-server-on-premises-test-user)**  - para ter um homólogo de Britta Simon no segredo do servidor (no local), que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de segredo de servidor (no local)](#create-a-secret-server-on-premises-test-user)**  - para ter um equivalente da Eduarda Almeida no segredo do servidor (no local) que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação segredo de servidor (no local).
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação de servidor de segredo (no local).
 
-**Para configurar o Azure AD-início de sessão único com o segredo de servidor (no local), execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o segredo do servidor (no local), execute os seguintes passos:**
 
-1. No portal do Azure, no **segredo de servidor (no local)** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **segredo do servidor (no local)** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Caixa de diálogo de início de sessão único](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
 
-3. No **domínio segredo de servidor (no local) e URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
+3. Na **segredo de servidor (no local) de domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação na **IDP** iniciada pelo modo:
 
-    ![Segredo URLs de domínio do servidor (no local) e única informações de início de sessão](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
+    ![Secreta URLs de domínio do servidor (no local) e single informações de início de sessão](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-    a. No **identificador** caixa de texto, introduza o utilizador escolhido o valor como um exemplo: `https://secretserveronpremises.azure`
+    a. Na **identificador** caixa de texto, introduza o utilizador escolhido o valor como um exemplo: `https://secretserveronpremises.azure`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
 
     > [!NOTE]
-    > O ID de entidade mostrado acima é apenas um exemplo e estiver livre para escolher qualquer valor exclusivo que identifica a instância do servidor do segredo no Azure AD. É necessário enviar este ID de entidade para [equipa de suporte de cliente do segredo de servidor (no local)](https://thycotic.force.com/support/s/) e configurarem no seu lado. Para obter mais detalhes, leia [neste artigo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
+    > O ID de entidade mostrado acima é apenas um exemplo e é livre para escolher qualquer valor exclusivo que identifica a instância do servidor de segredo no Azure AD. Terá de enviar este ID de entidade ao [equipa de suporte de cliente de segredo de servidor (no local)](https://thycotic.force.com/support/s/) e eles configurá-lo no seu lado. Para obter mais detalhes, leia [este artigo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
 
-4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
+4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Segredo URLs de domínio do servidor (no local) e única informações de início de sessão](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
+    ![Secreta URLs de domínio do servidor (no local) e single informações de início de sessão](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<SecretServerURL>/login.aspx`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<SecretServerURL>/login.aspx`
      
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente do segredo de servidor (no local)](https://thycotic.force.com/support/s/) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente de segredo de servidor (no local)](https://thycotic.force.com/support/s/) obter esses valores.
 
-5. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+5. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
+    ![O link de download de certificado](./media/secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
 
-6. Verifique **Mostrar avançadas definições de assinatura de certificado** e selecione **assinatura opção** como **resposta de início de sessão SAML e asserção**.
+6. Verifique **Mostrar definições de assinatura de certificado avançadas** e selecione **opção assinatura** como **asserção e resposta SAML de início de sessão**.
 
     ![Opções de assinatura](./media/secretserver-on-premises-tutorial/signing.png)
 
 7. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
-8. No **configuração segredo de servidor (no local)** secção, clique em **configurar o segredo de servidor (no local)** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+8. Sobre o **configuração do servidor de segredo (no local)** secção, clique em **configurar o segredo do servidor (no local)** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração do servidor secreta (no local)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-9. Para configurar o início de sessão único em **segredo de servidor (no local)** lado, terá de enviar o transferido **Certificate(Base64), Sign-Out URL, único início de sessão no URL do serviço SAML**, e **SAML entidade ID** para [equipa de suporte do segredo de servidor (no local)](https://thycotic.force.com/support/s/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+9. Para configurar o início de sessão único num **segredo do servidor (no local)** lado, terá de enviar o transferido **Certificate(Base64), URL de fim de sessão, SAML único início de sessão no URL do serviço**, e **entidade de SAML ID** para [equipa de suporte do segredo de servidor (no local)](https://thycotic.force.com/support/s/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/secretserver-on-premises-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/secretserver-on-premises-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/secretserver-on-premises-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/secretserver-on-premises-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/secretserver-on-premises-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
-### <a name="create-a-secret-server-on-premises-test-user"></a>Criar um utilizador de teste do segredo de servidor (no local)
+### <a name="create-a-secret-server-on-premises-test-user"></a>Criar um utilizador de teste de segredo de servidor (no local)
 
-Nesta secção, vai criar um utilizador chamado Britta Simon no segredo do servidor (no local). Trabalhar com [equipa de suporte do segredo de servidor (no local)](https://thycotic.force.com/support/s/) para adicionar os utilizadores na plataforma segredo de servidor (no local). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no segredo do servidor (no local). Trabalhar com [equipa de suporte do segredo de servidor (no local)](https://thycotic.force.com/support/s/) para adicionar os utilizadores na plataforma do servidor de segredo (no local). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso ao segredo de servidor (no local).
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao servidor de segredo (no local).
 
 ![Atribuir a função de utilizador][200]
 
-**Para atribuir Britta Simon ao segredo de servidor (no local), execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida ao segredo do servidor (no local), execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201]
+    ![Atribuir utilizador][201]
 
-2. Na lista de aplicações, selecione **segredo de servidor (no local)**.
+2. Na lista de aplicações, selecione **segredo do servidor (no local)**.
 
-    ![A ligação do segredo de servidor (no local) na lista de aplicações](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
+    ![A ligação de segredo de servidor (no local) na lista de aplicações](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico do segredo de servidor (no local) no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de servidor segredo (no local).
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico de segredo de servidor (no local) no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de servidor de segredo (no local).
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

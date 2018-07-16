@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory SAP nuvem de cliente | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e na nuvem do SAP para o cliente.
+title: 'Tutorial: Integração do Azure Active Directory com SAP Cloud para o cliente | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o SAP Cloud para o cliente.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 661bb15f93c505ad069e826b1506f6e69c5339e0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8855a82c1490c916e040f61c07e1116d9125e7e6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223353"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045867"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: Integração do Azure Active Directory SAP nuvem de cliente
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: Integração do Azure Active Directory com SAP Cloud para o cliente
 
-Neste tutorial, irá aprender a integrar nuvem SAP para o cliente com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o SAP Cloud para clientes com o Azure Active Directory (Azure AD).
 
-Integrar o SAP nuvem para o cliente com o Azure AD fornece as seguintes vantagens:
+Integrar SAP Cloud para o cliente com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso à nuvem de SAP para o cliente
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para a nuvem de cliente (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso para a Cloud de SAP para o cliente
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para a Cloud de SAP para o cliente (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com a nuvem de cliente, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o SAP Cloud para o cliente, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Uma nuvem de SAP para cliente-início de sessão único ativada subscrição
+- Uma nuvem SAP para clientes de logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -49,86 +49,86 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar nuvem SAP para o cliente a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando o SAP Cloud para o cliente da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Adicionar nuvem SAP para o cliente a partir da Galeria
-Para configurar a integração da nuvem de SAP para o cliente com o Azure AD, tem de adicionar nuvem SAP para o cliente na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Adicionando o SAP Cloud para o cliente da Galeria
+Para configurar a integração da Cloud do SAP para o cliente para o Azure AD, terá de adicionar SAP Cloud para o cliente a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar nuvem SAP para o cliente na galeria do, execute os seguintes passos:**
+**Para adicionar SAP Cloud para o cliente a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **nuvem SAP para o cliente**.
+4. Na caixa de pesquisa, escreva **SAP Cloud para o cliente**.
 
     ![Criar um utilizador de teste do Azure AD](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_search.png)
 
-5. No painel de resultados, selecione **nuvem SAP para o cliente**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **SAP Cloud para o cliente**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com a nuvem para o cliente com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com o SAP Cloud para o cliente com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo na nuvem de SAP para o cliente é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na nuvem de SAP para o cliente tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador equivalente na Cloud SAP para o cliente a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Cloud SAP para o cliente tem de ser estabelecida.
 
-Na nuvem de SAP para o cliente, atribua o valor do **nome de utilizador** no Azure AD como o valor de **Username** para estabelecer a relação de ligação.
+Na Cloud de SAP para o cliente, atribui o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com a nuvem de cliente, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o SAP Cloud para o cliente, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar uma nuvem de SAP para o utilizador de teste de cliente](#creating-a-sap-cloud-for-customer-test-user)**  - para ter um homólogo de Britta Simon na nuvem do SAP para o cliente está ligado a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar uma nuvem SAP para o utilizador de teste de cliente](#creating-a-sap-cloud-for-customer-test-user)**  - para ter um equivalente da Eduarda Almeida na Cloud do SAP para o cliente que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua nuvem SAP para aplicação de cliente.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua Cloud SAP para a aplicação de cliente.
 
-**Para configurar do Azure AD-início de sessão único com a nuvem de cliente, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o SAP Cloud para o cliente, execute os seguintes passos:**
 
-1. No portal do Azure, no **nuvem SAP para o cliente** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **SAP Cloud para o cliente** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_samlbase.png)
 
-3. No **nuvem SAP para o domínio de cliente e os URLs** secção, execute os seguintes passos:
+3. Sobre o **SAP Cloud para clientes de domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server name>.crm.ondemand.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<server name>.crm.ondemand.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server name>.crm.ondemand.com`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<server name>.crm.ondemand.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [SAP nuvem para a equipa de suporte ao cliente cliente](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [SAP Cloud para a equipa de suporte do cliente de cliente](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) obter esses valores. 
 
-4. No **atributos de utilizador** secção, execute os seguintes passos:
+4. Sobre o **atributos de utilizador** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_attribute.png)
 
-    a. No **identificador de utilizador** lista, selecione o **ExtractMailPrefix()** função.
+    a. Na **identificador de utilizador** lista, selecione a **ExtractMailPrefix()** função.
 
-    b. Do **correio** lista, selecione o atributo de utilizador que pretende utilizar para a implementação.
-    Por exemplo, se pretender utilizar o campo IDdeEmpregado como identificador exclusivo do utilizador e ter armazenou o valor do atributo no ExtensionAttribute2, em seguida, selecione user.extensionattribute2.  
+    b. Partir do **correio** , selecione o atributo de utilizador que pretende utilizar para a sua implementação.
+    Por exemplo, se pretender utilizar o campo IDdeEmpregado como identificador de utilizador exclusivo e armazenou o valor do atributo a ExtensionAttribute2, em seguida, selecione user.extensionattribute2.  
 
-5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_certificate.png) 
 
@@ -136,65 +136,65 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_general_400.png)
 
-7. No **SAP nuvem para a configuração de cliente** secção, clique em **configurar nuvem SAP para o cliente** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+7. Sobre o **SAP Cloud para a configuração de cliente** secção, clique em **configurar SAP na Cloud para o cliente** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_configure.png) 
 
 8. Para obter SSO configurado, execute os seguintes passos:
    
-    a. Início de sessão na nuvem do SAP para o portal de cliente com direitos de administrador.
+    a. Início de sessão para a Cloud de SAP para o portal do cliente com direitos de administrador.
    
-    b. Navegue para o **aplicação e tarefas comuns de gestão de utilizador** e clique em de **fornecedor de identidade** separador.
+    b. Navegue para o **aplicativo e tarefas comuns de gestão de utilizador** e clique nas **fornecedor de identidade** separador.
    
-    c. Clique em **novo fornecedor de identidade** e selecione o ficheiro XML de metadados transferiu do portal do Azure. Ao importar os metadados, o sistema carrega automaticamente o certificado de assinatura necessária e o certificado de encriptação.
+    c. Clique em **novo fornecedor de identidade** e selecione o ficheiro XML de metadados que transferiu do portal do Azure. Ao importar os metadados, o sistema carrega automaticamente o certificado de assinatura necessária e o certificado de encriptação.
    
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
-    d. Azure Active Directory requer que o elemento asserção URL do serviço de consumidor no pedido SAML, por isso, selecione o **incluem asserção consumidor URL do serviço** caixa de verificação.
+    d. O Azure Active Directory requer o elemento de URL do serviço de consumidor de asserção no pedido de SAML, por isso, selecione o **incluem o URL de serviço de consumidor de asserção** caixa de verificação.
    
     e. Clique em **ativar o início de sessão único**.
    
     f. Guarde as alterações.
    
-    g. Clique em de **meu sistema** separador.
+    g. Clique nas **meu sistema** separador.
    
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
-    h. No **início de sessão do Azure AD no URL** caixa de texto, colar **único início de sessão no URL do serviço SAML** que copiou do portal do Azure.
+    h. Na **início de sessão do Azure AD no URL** caixa de texto, colar **SAML único início de sessão no URL do serviço** que copiou do portal do Azure.
    
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-    i. Especifique se o empregado manualmente pode escolher entre o início de sessão com o ID de utilizador e palavra-passe ou SSO selecionando o **seleção de fornecedor de identidade Manual**.
+    i. Especifique se o funcionário pode escolher manualmente entre o início de sessão com o ID de utilizador e palavra-passe ou SSO ao selecionar o **seleção de fornecedor de identidade Manual**.
    
-    j. No **SSO URL** secção, especifique o URL que deve ser utilizado pelos seus empregados, para iniciar sessão sistema. 
-    No **URL enviados para o empregado** lista, pode escolher entre as seguintes opções:
+    j. Na **URL de SSO** secção, especifique o URL que deve ser utilizado pelos funcionários para iniciar sessão sistema. 
+    Na **URL enviado para o funcionário** lista, pode escolher entre as seguintes opções:
    
     **URL não SSO**
    
-    O sistema envia apenas o URL de sistema normal para o empregado. O empregado não é possível iniciar sessão com o SSO e tem de utilizar palavras-passe ou certificado em vez disso.
+    O sistema envia apenas o URL de normais do sistema ao funcionário. O funcionário não pode iniciar sessão através do SSO e tem de utilizar palavra-passe ou certificado em vez disso.
    
     **URL DE SSO** 
    
-    O sistema envia apenas o URL do SSO para o empregado. O empregado pode iniciar sessão com o SSO. Pedido de autenticação é redirecionado através do IdP.
+    O sistema envia apenas o URL de SSO ao funcionário. O funcionário pode iniciar sessão através do SSO. Pedido de autenticação é redirecionado através do IdP.
    
     **Seleção automática**
    
-    Se SSO não estiver ativo, o sistema envia o URL de sistema normal para o empregado. Se o SSO está ativo, o sistema verifica se o empregado tem uma palavra-passe. Se estiver disponível uma palavra-passe, SSO URL e o URL do SSO não são enviadas para o empregado. No entanto, se o empregado não tem nenhuma palavra-passe, apenas o URL de SSO é enviado para o empregado.
+    Se o SSO não estiver ativo, o sistema envia o URL de normais do sistema ao funcionário. Se o SSO estiver ativo, o sistema verifica se o funcionário tem uma palavra-passe. Se uma palavra-passe estiver disponível, o URL do SSO e o URL de SSO não são enviadas para o funcionário. No entanto, se o funcionário não tiver nenhuma palavra-passe, apenas o URL de SSO é enviado ao funcionário.
    
     k. Guarde as alterações.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/sap-customer-cloud-tutorial/create_aaduser_01.png) 
 
@@ -202,70 +202,70 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/sap-customer-cloud-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/sap-customer-cloud-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/sap-customer-cloud-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Criar uma nuvem de SAP para o utilizador de teste de cliente
+### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Criar uma nuvem SAP para o utilizador de teste de cliente
 
-Nesta secção, vai criar um utilizador chamado Britta Simon na nuvem do SAP para o cliente. Consulte [SAP nuvem para a equipa de suporte ao cliente](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) para adicionar os utilizadores na nuvem SAP para a plataforma de cliente. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na Cloud do SAP para o cliente. Trabalhe em conjunto com [SAP Cloud para a equipa de suporte ao cliente](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) para adicionar os utilizadores na Cloud SAP para a plataforma de cliente. 
 
 > [!NOTE]
-> Certifique-se que o valor de NameID deve corresponder com o campo de nome de utilizador na nuvem SAP para a plataforma de cliente.
+> Certifique-se de que o valor de NameID deve corresponder com o campo de nome de utilizador na Cloud SAP para a plataforma de cliente.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso à nuvem de SAP para o cliente.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso à nuvem SAP para o cliente.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon nuvem SAP para o cliente, execute os seguintes passos:**
+**Para atribuir Eduarda Almeida a SAP Cloud para o cliente, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **nuvem SAP para o cliente**.
+2. Na lista de aplicações, selecione **SAP Cloud para o cliente**.
 
     ![Configurar o início de sessão único](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar em nuvem SAP para o mosaico de cliente no painel de acesso, deve obter automaticamente com sessão iniciada para a nuvem de SAP para aplicação de cliente.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica em nuvem SAP para o mosaico de cliente no painel de acesso, deve obter automaticamente com sessão iniciada para a Cloud de SAP para a aplicação de cliente.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

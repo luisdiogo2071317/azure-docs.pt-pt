@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: cc7bfebd24da0d69e4b42b1a3afd7a640016dd35
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901216"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052096"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurar uma identidade do serviço gerido VMSS utilizando um modelo
 
@@ -55,7 +55,7 @@ Nesta secção, irá ativar e desativar o sistema de identidade com um modelo Az
 
 1. Carregar o modelo para um editor, localize a `Microsoft.Compute/virtualMachineScaleSets` recursos de interesse no `resources` secção. Sua poderá parecer ligeiramente diferente da captura de ecrã seguinte, consoante o editor que estiver a utilizar e se estiver a editar um modelo para uma implementação novo ou existente.
    
-   ![Captura de ecrã do modelo - localize a VM](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
+   ![Captura de ecrã do modelo - localize a VM](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
 2. Para ativar a identidade do sistema atribuído, adicione a `"identity"` propriedade o mesmo nível, como o `"type": "Microsoft.Compute/virtualMachineScaleSets"` propriedade. Utilize a seguinte sintaxe:
 
@@ -91,7 +91,7 @@ Nesta secção, irá ativar e desativar o sistema de identidade com um modelo Az
 
 4. Quando tiver terminado, o modelo deve ter um aspeto semelhante ao seguinte:
 
-   ![Captura de ecrã do modelo após atualização](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ![Captura de ecrã do modelo após atualização](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Desativar uma identidade de sistema atribuída de um conjunto de dimensionamento de máquina virtual do Azure
 

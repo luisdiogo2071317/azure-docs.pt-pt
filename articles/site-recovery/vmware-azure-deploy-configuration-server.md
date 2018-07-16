@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718962"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056764"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -38,9 +38,9 @@ Os requisitos de dimensionamento para o servidor de configuração dependem da t
 
 | **CPU** | **Memória** | **Tamanho do disco de cache** | **Taxa de alteração de dados** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPUs (2 sockets * 4 núcleos @ 2,5 GHz) |16 GB |300 GB |500 GB ou menos |Replicar máquinas menos de 100. |
-| 12 vCPUs (2 sockets * 6 núcleos @ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar máquinas de 100 150. |
-| 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz) |32 GB |1 TB |1 TB para 2 TB |Replicar máquinas de 150 a 200. |
+| 8 vCPUs (2 sockets * 4 núcleos \@ 2,5 GHz) |16 GB |300 GB |500 GB ou menos |Replicar máquinas menos de 100. |
+| 12 vCPUs (2 sockets * 6 núcleos \@ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar máquinas de 100 150. |
+| 16 vCPUs (2 sockets * 8 núcleos \@ 2,5 GHz) |32 GB |1 TB |1 TB para 2 TB |Replicar máquinas de 150 a 200. |
 
 Se estiver a replicar mais do que uma VM de VMware, leia [considerações de planeamento de capacidade](/site-recovery-plan-capacity-vmware.md). Executar o [ferramenta Planeador de implementações](site-recovery-deployment-planner.md) para a replicação de VMWare.
 

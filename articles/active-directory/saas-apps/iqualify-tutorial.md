@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com iQualify LMS | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e iQualify LMS.
+title: 'Tutorial: Integração do Azure Active Directory com iQualify LMS | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e iQualify LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 166dfa8c5b3456de59055e5f62a566064540db31
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3ff5a833da5bbe99c5c6d1576b9775051b3ce07b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225029"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com iQualify LMS
 
-Neste tutorial, irá aprender a integrar iQualify LMS com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar iQualify LMS com o Azure Active Directory (Azure AD).
 
-Integrar iQualify LMS com o Azure AD fornece as seguintes vantagens:
+Integrar iQualify LMS no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao iQualify LMS.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para iQualify LMS (Single Sign-On) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central - portal do Azure.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para iQualify LMS (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com iQualify LMS, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um iQualify LMS-início de sessão único ativada subscrição
+- Um iQualify LMS logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,96 +50,96 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar iQualify LMS a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando iQualify LMS da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-iqualify-lms-from-the-gallery"></a>Adicionar iQualify LMS a partir da Galeria
-Para configurar a integração de iQualify LMS com o Azure AD, terá de adicionar iQualify LMS a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-iqualify-lms-from-the-gallery"></a>Adicionando iQualify LMS da Galeria
+Para configurar a integração do iQualify LMS com o Azure AD, terá de adicionar iQualify LMS a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar iQualify LMS a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **iQualify LMS**, selecione **iQualify LMS** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **iQualify LMS**, selecione **iQualify LMS** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![iQualify LMS na lista de resultados](./media/iqualify-tutorial/tutorial_iqualify_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configurar e testar o Azure AD-início de sessão único com iQualify que LMs com base num utilizador de teste chamado "Britta Simon."
+Nesta secção, configurar e testar o Azure AD início de sessão único com iQualify que LMs com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber que o utilizador de homólogo iQualify LMS for para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no iQualify LMS tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa de saber o que o utilizador de contraparte iQualify LMS for para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no iQualify LMS deve ser estabelecido.
 
-No iQualify LMS, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+IQualify LMS, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com iQualify LMS, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com iQualify LMS, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste LMS iQualify](#create-an-iqualify-lms-test-user)**  - para ter um homólogo de Britta Simon no iQualify LMS que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste LMS iQualify](#create-an-iqualify-lms-test-user)**  - para ter um equivalente da Eduarda Almeida na iQualify LMS que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação de LMS iQualify.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de LMS iQualify.
 
-**Para configurar o Azure AD-início de sessão único com iQualify LMS, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com iQualify LMS, execute os seguintes passos:**
 
-1. No portal do Azure, no **iQualify LMS** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **iQualify LMS** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/iqualify-tutorial/tutorial_iqualify_samlbase.png)
 
-3. No **iQualify LMS domínio e os URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no modo de IDP iniciado:
+3. Sobre o **iQualify LMS domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no modo de IDP iniciado:
 
-    ![informações de iQualify LMS domínio e os URLs-início de sessão único](./media/iqualify-tutorial/tutorial_iqualify_url.png)
+    ![informações de iQualify LMS domínio e URLs de início de sessão único](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: 
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: 
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/`|
     | Ambiente de teste: `https://<yourorg>.iqualify.io`|
     
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: 
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: 
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
     | Ambiente de teste: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
-4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
+4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![informações de iQualify LMS domínio e os URLs-início de sessão único](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
+    ![informações de iQualify LMS domínio e URLs de início de sessão único](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/login` |
     | Ambiente de teste: `https://<yourorg>.iqualify.io/login` |
      
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente LMS iQualify](https://www.iqualify.com) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente de LMS iQualify](https://www.iqualify.com) obter esses valores. 
 
-5. A aplicação de LMS iQualify espera as asserções de Security Assertion Markup Language (SAML) para ser apresentado num formato específico. Configurar as afirmações e gerir os valores dos atributos no **atributos de utilizador** secção iQualify página da aplicação integração, conforme mostrado na captura de ecrã seguinte:
+5. O aplicativo de LMS iQualify espera que as asserções de Security Assertion Markup Language (SAML) a ser exibido num formato específico. As declarações de configurar e gerir os valores dos atributos na **atributos de utilizador** secção iQualify página da aplicação integração, conforme mostrado na captura de ecrã seguinte:
     
     ![Configurar o início de sessão único](./media/iqualify-tutorial/atb.png)
 
-6. No **atributos de utilizador** secção no **de sessão único-** diálogo execute os seguintes passos para cada linha mostrada na tabela abaixo:
+6. No **atributos de utilizador** secção sobre o **início de sessão único** diálogo execute os seguintes passos para cada linha, mostrada na tabela abaixo:
     
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
@@ -154,110 +154,110 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/iqualify-tutorial/atb3.png)
     
-    b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
     
-    c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha.
     
     d. Clique em **Ok**
 
     e. Repita os passos "a" através de "d" para as linhas da tabela seguintes. 
 
     > [!Note]
-    > Repetir os passos "a" através de "d" para o **person_id** atributo **opcional**
+    > Repetir os passos "a" através de "d" para o **person_id** atributo é **opcional**
 
-7. No **certificado de assinatura de SAML** secção, clique em **certificado (Base 64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+7. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base 64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/iqualify-tutorial/tutorial_iqualify_certificate.png) 
+    ![O link de download de certificado](./media/iqualify-tutorial/tutorial_iqualify_certificate.png) 
 
 8. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/iqualify-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/iqualify-tutorial/tutorial_general_400.png)
     
-9. No **iQualify LMS configuração** secção, clique em **configurar iQualify LMS** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+9. Sobre o **iQualify configuração de LMS** secção, clique em **configurar iQualify LMS** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![iQualify LMS configuração](./media/iqualify-tutorial/tutorial_iqualify_configure.png) 
 
-10.  Abra uma nova janela do browser e, em seguida, inicie sessão no seu ambiente iQualify como administrador.
+10.  Abra uma nova janela do browser e, em seguida, inicie sessão no seu ambiente de iQualify como administrador.
 
-11. Depois de iniciarem sessão, clique no seu avatar no canto superior direito, em seguida, clique em **"Definições da conta".**
+11. Assim que tiver iniciado a sessão, clique no seu avatar no canto superior direito, em seguida, clique em **"Definições da conta".**
 
     ![Definições de conta](./media/iqualify-tutorial/setting1.png) 
-12. Na área de definições de conta, clique no menu do friso à esquerda e clique em **"INTEGRAÇÕES."**
+12. Na área de definições de conta, clique no menu à esquerda da faixa de opções e clique em **"INTEGRAÇÕES."**
     
     ![INTEGRAÇÕES](./media/iqualify-tutorial/setting2.png)
 
-13. Em INTEGRAÇÕES, clique em de **SAML** ícone.
+13. Em INTEGRAÇÕES, clique nas **SAML** ícone.
 
     ![Ícone SAML](./media/iqualify-tutorial/setting3.png)
 
-14. No **definições de autenticação SAML** diálogo caixa, execute os seguintes passos:
+14. Na **definições de autenticação SAML** diálogo caixa, execute os seguintes passos:
 
     ![Definições de autenticação SAML](./media/iqualify-tutorial/setting4.png)
 
-    a. No **URL do serviço no início de sessão único SAML** caixa, cole o **URL do serviço Sign‑On único SAML** valor copiados a partir da janela de configuração de aplicação do Azure AD.
+    a. Na **URL do serviço Diante de início de sessão único SAML** caixa, cole a **URL de serviço do SAML único Sign‑On** valor copiados a partir da janela de configuração de aplicação do Azure AD.
     
-    b. No **URL de fim de sessão SAML** caixa, cole o **Sign‑Out URL** valor copiados a partir da janela de configuração de aplicação do Azure AD.
+    b. Na **URL de fim de sessão de SAML** caixa, cole a **URL de Sign‑Out** valor copiados a partir da janela de configuração de aplicação do Azure AD.
     
     c. Abra o ficheiro de certificado transferido no bloco de notas, copie o conteúdo e, em seguida, cole-a no **certificado público** caixa.
     
-    d. No **etiqueta de botão de início de sessão** introduza o nome para o botão para ser apresentada na página de início de sessão.
+    d. Na **etiqueta do botão de início de sessão** introduza o nome do botão a ser apresentado na página de início de sessão.
     
     e. Clique em **GUARDAR**.
 
     f. Clique em **ATUALIZAÇÃO**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/iqualify-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/iqualify-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/iqualify-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/iqualify-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/iqualify-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/iqualify-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-an-iqualify-lms-test-user"></a>Criar um utilizador de teste LMS iQualify
 
-Nesta secção, é criado um utilizador chamado Britta Simon iQualify. iQualify LMS suporta just‑in‑time aprovisionamento de utilizadores, que está ativada por predefinição.
+Nesta secção, um usuário chamado Eduarda Almeida é criado na iQualify. iQualify LMS suporta o aprovisionamento de utilizadores just‑in‑time, que está ativado por predefinição.
 
-Não há nenhum item de ação para si nesta secção. Se um utilizador já não existe na iQualify, uma nova é criada quando tentar aceder iQualify LMS.
+Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no iQualify, uma nova é criada quando tentar acessar iQualify LMS.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso aos iQualify LMS.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso aos iQualify LMS.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a iQualify LMS, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a iQualify LMS, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **iQualify LMS**.
 
@@ -265,34 +265,34 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar iQualify LMS na peça de mosaico do painel de acesso, deve obter a página de início de sessão da sua aplicação de LMS iQualify. 
+Quando clica iQualify LMS mosaico no painel de acesso, deve obter a página de início de sessão da sua aplicação de LMS iQualify. 
 
    ![página de início de sessão](./media/iqualify-tutorial/login.png) 
 
-Clique em **iniciar sessão no Azure AD** botão e, deve obter automaticamente com sessão iniciada para a aplicação de LMS iQualify.
+Clique em **iniciar sessão no Azure AD** botão e deve obter automaticamente sessão iniciada em seu aplicativo de LMS iQualify.
 
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

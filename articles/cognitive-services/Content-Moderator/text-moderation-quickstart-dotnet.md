@@ -1,6 +1,6 @@
 ---
-title: Moderator conteúdo do Azure - texto moderada através do .NET | Microsoft Docs
-description: Como texto moderado utilizando o SDK de Moderator conteúdo do Azure para .NET
+title: Azure Content Moderator - moderado texto usando o .NET | Documentos da Microsoft
+description: Como moderada de texto com o SDK de moderador de conteúdos do Azure para .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,49 +9,49 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352693"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049886"
 ---
 # <a name="moderate-text-using-net"></a>Texto moderado através do .NET
 
-Este artigo fornece informações e exemplos de código para o ajudar a começar a utilizar o SDK Moderator conteúdo para o .NET para:
-- Detetar potencial profanity em texto com filtragem baseada no prazo
-- Utilizar modelos de machine learning baseada em que [classificar o texto](text-moderation-api.md#classification) em três categorias.
-- Deteta informações de identificação pessoal (PII) como E.U.A. e números de telefone RU, endereços de correio eletrónico e E.U.A. endereços de correio postal.
-- Normaliza o texto e autocorrect erros de digitação
+Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o SDK de moderador de conteúdo para o .NET para:
+- Detetar potencial linguagem obscena em texto com a filtragem baseada no termo
+- Utilizar modelos baseados em machine-learning para [classificar o texto](text-moderation-api.md#classification) em três categorias.
+- Detete informações de identificação pessoal (PII) como dos EUA e do Reino Unido números de telefone, endereços de e-mail e dos Estados Unidos, endereços de correspondência.
+- Normalizar os erros de digitação de texto e correção automática
 
-Este artigo pressupõe que já estiver familiarizado com o Visual Studio e c#.
+Este artigo pressupõe que já está familiarizado com o Visual Studio e c#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se os serviços de Moderator conteúdo
+## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se para os serviços do Content Moderator
 
-Antes de poder utilizar os serviços de Moderator conteúdo através da API REST ou o SDK, precisa de uma chave de subscrição.
-Consulte o [início rápido](quick-start.md) para saber como pode obter a chave.
+Antes de poder utilizar os serviços de Content Moderator através da API REST ou o SDK, precisa de uma chave de subscrição.
+Consulte a [guia de introdução](quick-start.md) para saber como pode obter a chave.
 
-## <a name="create-your-visual-studio-project"></a>Criar o projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar o seu projeto do Visual Studio
 
-1. Adicione um novo **aplicação de consola (.NET Framework)** projeto para a sua solução.
+1. Adicionar um novo **aplicação de consola (.NET Framework)** projeto à sua solução.
 
-   No código de exemplo, nome do projeto **TextModeration**.
+   No código de exemplo, nomeie o projeto **TextModeration**.
 
 1. Selecione este projeto como o projeto de arranque único para a solução.
 
-1. Adicione uma referência para o **ModeratorHelper** projeto de assemblagem que criou no [início rápido do programa auxiliar de cliente Moderator conteúdo](content-moderator-helper-quickstart-dotnet.md).
+1. Adicionar uma referência para o **ModeratorHelper** projeto assembly que criou no [guia de introdução do Content Moderator cliente auxiliar](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Instalar pacotes necessários
 
-Instale os pacotes de NuGet seguintes:
+Instale os seguintes pacotes de NuGet:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft
 
-### <a name="update-the-programs-using-statements"></a>O programa de atualização do instruções de utilização
+### <a name="update-the-programs-using-statements"></a>O programa de atualização usando instruções
 
-Modificar o programa de instruções de utilização.
+Modifique o programa usando instruções.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -63,9 +63,9 @@ Modificar o programa de instruções de utilização.
     using System.Threading;
 
 
-### <a name="initialize-application-specific-settings"></a>Inicializar definições específicas da aplicação
+### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
 
-Adicione os seguintes campos estáticos para o **programa** a classe Program. cs.
+Adicione os seguintes campos estáticos para o **programa** classe no Program.cs.
 
     /// <summary>
     /// The name of the file that contains the text to evaluate.
@@ -80,10 +80,10 @@ Adicione os seguintes campos estáticos para o **programa** a classe Program. cs
     /// <remarks>Relative paths are ralative the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
-Utilizámos o seguinte texto para gerar a saída para este guia de introdução:
+Usamos o seguinte texto para gerar a saída para este início rápido:
 
 > [!NOTE]
-> O número de segurança social inválidos no texto de exemplo seguinte é intencional. O objetivo é transmitir o exemplo de entrada e saída de formato.
+> O número de segurança social inválidos no texto de exemplo a seguir é intencional. O objetivo é transmitir a entrada de exemplo e formato de saída.
 
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
     These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
@@ -117,13 +117,13 @@ Adicione o seguinte código para o **Main** método.
     }
 
 > [!NOTE]
-> A chave do serviço Moderator conteúdo tem um pedidos por segundo (RPS) para o limite de velocidade e, se for excedido o limite, o SDK emite uma exceção com um código de 429 erro.
+> A chave de serviço do Content Moderator tem um pedidos por segundo limite de taxa (RPS) e, se exceder o limite, o SDK lançará uma exceção com um código de 429 erro.
 >
-> Uma chave de escalão gratuito tem um limite de taxa de um RPS.
+> Quando utilizar uma chave de escalão gratuito, a taxa de pedidos está limitada a um pedido por segundo.
 
 ## <a name="run-the-program-and-review-the-output"></a>Execute o programa e reveja o resultado
 
-O exemplo de saída do programa, que escritos no ficheiro de registo, é:
+O exemplo de saída do programa, como escrito para o ficheiro de registo é:
 
     Autocorrect typos, check for matching terms, PII, and classify.
     {
@@ -211,4 +211,4 @@ O exemplo de saída do programa, que escritos no ficheiro de registo, é:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Transferir a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esta e outros inícios rápidos de Moderator conteúdo para o .NET e começar a utilizar a integração.
+[Transferir a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para esse e outros guias de introdução do Content Moderator para .NET e começar a trabalhar com sua integração.

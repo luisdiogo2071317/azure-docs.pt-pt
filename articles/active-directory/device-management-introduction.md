@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a2b32e7e0e86608f879941485395ebe379a5c1e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970905"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048866"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução à gestão de dispositivos no Azure Active Directory
 
@@ -181,8 +181,8 @@ Como regra de um princípio básico, deve usar:
 - Para saber mais sobre o acesso condicional com base no dispositivo, veja [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 - A configuração:
-    - O Azure Active Directory de dispositivos Windows 10 registados, consulte [dispositivos Windows 10 registados de como configurar o Azure Active Directory](device-management-azuread-registered-devices-windows10-setup.md)
-    - Dispositivos associados ao Azure Active Directory, consulte [dispositivos associados ao como configurar o Azure Active Directory](device-management-azuread-joined-devices-setup.md)
+    - O Azure Active Directory de dispositivos Windows 10 registados, consulte [dispositivos Windows 10 registados de como configurar o Azure Active Directory](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - Dispositivos associados ao Azure Active Directory, consulte [dispositivos associados ao como configurar o Azure Active Directory](user-help/device-management-azuread-joined-devices-setup.md)
     - Dispositivos de associados ao Azure AD híbrido, consulte [como configurar híbrida do Azure Active Directory dispositivos associados ao](device-management-hybrid-azuread-joined-devices-setup.md).
 
 

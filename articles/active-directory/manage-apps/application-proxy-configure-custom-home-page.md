@@ -1,6 +1,6 @@
 ---
-title: Definir uma página inicial personalizada para as aplicações publicadas através do Proxy de aplicações do Azure AD | Microsoft Docs
-description: Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD
+title: Definir uma página inicial personalizada para aplicações publicadas com o Proxy de aplicações do Azure AD | Documentos da Microsoft
+description: Abrange as noções básicas sobre os conectores de Proxy de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -15,54 +15,54 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a1801af582e9e4bfa82dab4b5916c164fcf3bb76
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3ea8b74eb6ef5b6bcab2935236e2ee3551117b12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161988"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054374"
 ---
-# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma página inicial personalizada para as aplicações publicadas através do Proxy de aplicações do Azure AD
+# <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma página inicial personalizada para aplicações publicadas com o Proxy de aplicações do Azure AD
 
-Este artigo explica como configurar aplicações para direcionar os utilizadores para uma página inicial personalizado. Quando publica uma aplicação com o Proxy de aplicações, defina um URL interno de uma só, mas por vezes, o que não é a página que os seus utilizadores devem ver primeiro. Defina uma página inicial personalizada que os utilizadores aceder à página de direita quando acedem as aplicações. Os seus utilizadores verão a home page personalizada definida, se acederem a aplicação do Azure Active Directory do painel de acesso ou o iniciador de aplicações do Office 365.
+Este artigo descreve como configurar as aplicações para direcionar os utilizadores para uma página inicial personalizada. Quando publica um aplicativo com o Proxy de aplicações, definir um URL interno de uma só, mas, às vezes, o que não é a página de que seus usuários deverá ver primeiro. Defina uma página inicial personalizada para que os utilizadores Ir para a página correta quando acedem as aplicações. Os utilizadores verão a página inicial personalizada que definir, se que aceder à aplicação a partir do painel de acesso de diretório Active Directory do Azure ou no iniciador de aplicações do Office 365.
 
-Quando os utilizadores iniciarem a aplicação, este estão direcionado por predefinição para o URL do domínio de raiz para a aplicação publicada. Normalmente, a página de destino está definida como o URL da página inicial. Utilize o módulo Azure AD PowerShell para definir os URLs de página inicial personalizada quando pretender que os utilizadores da aplicação encaminhado para uma página específica na aplicação. 
+Quando os utilizadores iniciarem o, este estão direcionado por predefinição para o URL de domínio de raiz para a aplicação publicada. Normalmente, a página de destino está definida como o URL da home page. Utilize o módulo Azure AD PowerShell para definir URLs de página inicial personalizada quando pretender que os utilizadores da aplicação aterrar numa página específica no aplicativo. 
 
-Eis um exemplo de razão pela qual uma empresa iria definir uma página inicial personalizada:
-- Dentro da sua rede empresarial, os utilizadores aceder a *https://ExpenseApp/login/login.aspx* para iniciar sessão e aceder à sua aplicação.
-- Como tem outros recursos, como imagens que o Proxy da aplicação precisar de aceder no nível superior da estrutura de pasta, publicar a aplicação com *https://ExpenseApp* como o URL interno.
-- O URL externo predefinido é *https://ExpenseApp-contoso.msappproxy.net*, que não tem os seus utilizadores para a página de início de sessão.  
-- Definir *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* como o URL da página inicial. 
+Eis um exemplo de motivo pelo qual uma empresa definiria uma página inicial personalizada:
+- No interior da rede empresarial, os utilizadores aceder a *https://ExpenseApp/login/login.aspx* para iniciar sessão e aceder à sua aplicação.
+- Como tem outros recursos, como imagens que precisa de Proxy de aplicações de acesso no nível superior da estrutura de pasta, publicar a aplicação com *https://ExpenseApp* como o URL interno.
+- O URL externo de predefinido é *https://ExpenseApp-contoso.msappproxy.net*, que não usa os seus utilizadores para a página de início de sessão.  
+- Definir *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* como o URL da home page. 
 
 >[!NOTE]
->Quando lhe conceder aos utilizadores acesso a aplicações publicadas, as aplicações são apresentadas no [painel de acesso do Azure AD](../active-directory-saas-access-panel-introduction.md) e [iniciador da aplicação do Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
+>Quando concede aos utilizadores acesso a aplicações publicadas, as aplicações são apresentadas na [painel de acesso do Azure AD](../user-help/active-directory-saas-access-panel-introduction.md) e o [iniciador de aplicações do Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de definir o URL da página inicial, tenha em consideração os seguintes requisitos:
+Antes de definir o URL da home page, tenha em atenção os seguintes requisitos:
 
-* Certifique-se de que o caminho especificado é um caminho de subdomínios do URL do domínio de raiz.
+* Certifique-se de que o caminho especificado é um caminho de subdomínio do URL de domínio de raiz.
 
-  Se o URL do domínio de raiz, por exemplo, https://apps.contoso.com/app1/, o URL da página inicial que configurar tem de começar com https://apps.contoso.com/app1/.
+  Se, por exemplo, o URL de domínio de raiz for https://apps.contoso.com/app1/, o URL da home page que configurar tem de começar com https://apps.contoso.com/app1/.
 
-* Se fizer uma alteração para a aplicação publicada, a alteração poderá repor o valor do URL da página inicial. Quando atualizar a aplicação no futuro, deve Reverificar e, se necessário, atualize o URL da página inicial.
+* Se fizer uma alteração para a aplicação publicada, a alteração poderá repor o valor de URL da home page. Quando atualizar a aplicação no futuro, deve verificar novamente e, se necessário, atualize o URL da home page.
 
-## <a name="change-the-home-page-in-the-azure-portal"></a>Alterar a home page do portal do Azure
+## <a name="change-the-home-page-in-the-azure-portal"></a>Alterar a home page no portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. Navegue para **do Azure Active Directory** > **registos de aplicação** e escolha a aplicação a partir da lista. 
-3. Selecione **propriedades** das definições.
-4. Atualização do **URL da página inicial** campo com o novo caminho. 
+2. Navegue para **do Azure Active Directory** > **registos das aplicações** e escolha a sua aplicação na lista. 
+3. Selecione **propriedades** das configurações.
+4. Atualização do **URL da Home page** campo com o novo caminho. 
 
-   ![Forneça o novo URL de página inicial](./media/application-proxy-configure-custom-home-page/homepage.png)
+   ![Fornecer o novo URL da home page](./media/application-proxy-configure-custom-home-page/homepage.png)
 
 5. Selecione **guardar**
 
 ## <a name="change-the-home-page-with-powershell"></a>Alterar a home page com o PowerShell
 
-### <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo PowerShell do Azure AD
+### <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do PowerShell do Azure AD
 
-Antes de definir um URL de página inicial personalizada utilizando o PowerShell, instale o módulo Azure AD PowerShell. Pode transferir o pacote de [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), que utiliza o ponto final da Graph API. 
+Antes de definir um URL de página inicial personalizada com o PowerShell, instale o módulo do PowerShell do Azure AD. Pode transferir o pacote a partir da [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), que utiliza o ponto de extremidade do Graph API. 
 
 Para instalar o pacote, siga estes passos:
 
@@ -71,30 +71,30 @@ Para instalar o pacote, siga estes passos:
     ```
      Install-Module -Name AzureAD
     ```
-    Se estiver a executar o comando como um não administrador, utilize o `-scope currentuser` opção.
-2. Durante a instalação, selecione **Y** instalar dois pacotes a partir de Nuget.org. Ambos os pacotes são necessários. 
+    Se estiver a executar o comando como um não-administrador, utilize o `-scope currentuser` opção.
+2. Durante a instalação, selecione **Y** para instalar dois pacotes de Nuget.org. Ambos os pacotes são necessários. 
 
 ### <a name="find-the-objectid-of-the-app"></a>Localizar o ObjectID da aplicação
 
-Obtenha o ObjectID da aplicação e, em seguida, procure a aplicação pela sua home page do.
+Obtenha o ObjectID da aplicação e, em seguida, procure a aplicação pela sua página inicial.
 
-1. Na janela do PowerShell do mesma, importe o módulo do Azure AD.
+1. Na mesma janela do PowerShell, importe o módulo do Azure AD.
 
     ```
     Import-Module AzureAD
     ```
 
-2. Inicie sessão no módulo do Azure AD como administrador de inquilinos.
+2. Inicie sessão no módulo do Azure AD como o administrador de inquilino.
 
     ```
     Connect-AzureAD
     ```
-3. Localize a aplicação com base no respetivo URL de página inicial. Pode encontrar o URL no portal, acedendo a **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**. Este exemplo utiliza *sharepoint iddemo*.
+3. Localize a aplicação com base no seu URL da home page. Pode encontrar o URL no portal, acedendo a **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**. Este exemplo utiliza *sharepoint iddemo*.
 
     ```
     Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
-4. Deve obter um resultado semelhante ao apresentado aqui. Copie o GUID de ObjectID para utilizar na secção seguinte.
+4. Deve obter um resultado semelhante à mostrada aqui. Copie o GUID de ObjectID para utilizar na secção seguinte.
 
     ```
     DisplayName : SharePoint
@@ -102,30 +102,30 @@ Obtenha o ObjectID da aplicação e, em seguida, procure a aplicação pela sua 
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-### <a name="update-the-home-page-url"></a>Atualizar o URL da página inicial
+### <a name="update-the-home-page-url"></a>Atualizar o URL da home page
 
-Crie o URL da página inicial e atualizar a sua aplicação com esse valor. Continue a utilizar a mesma janela do PowerShell para executar estes comandos. Ou, se estiver a utilizar uma nova janela do PowerShell, inicie sessão no módulo do Azure AD novamente utilizando `Connect-AzureAD`. 
+Crie o URL da home page e atualizar a sua aplicação com esse valor. Continue a utilizar a mesma janela do PowerShell para executar esses comandos. Ou, se estiver a utilizar uma nova janela do PowerShell, inicie sessão no módulo do Azure AD novamente usando `Connect-AzureAD`. 
 
-1. Confirme que a aplicação correta e substituir *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* com o ObjectID que copiou na secção anterior.
+1. Confirme que a aplicação correta e substitua *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* com o ObjectID que copiou na secção anterior.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Agora que já confirmada a aplicação, está pronto para atualizar a home page, da seguinte forma.
+ Agora que confirmou que a aplicação, está pronto para atualizar a home page, da seguinte forma.
 
-2. Crie um objeto de aplicação em branco para manter as alterações que pretende efetuar. Esta variável contém os valores que pretende atualizar. Nada é criado neste passo.
+2. Crie um objeto de aplicativo em branco para manter as alterações que deseja fazer. Esta variável contém os valores que pretende atualizar. Nada é criado neste passo.
 
     ```
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Defina o URL da página inicial para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da página inicial do *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os utilizadores da aplicação aceda diretamente à home page personalizada.
+3. Defina o URL da home page para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da home page da *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os utilizadores da aplicação vão diretamente para a home page personalizada.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
-4. Efetue a atualização utilizando o GUID (ObjectID) que copiou no "passo 1: localizar o ObjectID da aplicação."
+4. Faça a atualização com o GUID (ObjectID) que copiou no "passo 1: localizar o ObjectID da aplicação."
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
@@ -137,9 +137,9 @@ Crie o URL da página inicial e atualizar a sua aplicação com esse valor. Cont
     ```
 
 >[!NOTE]
->Quaisquer alterações que efetuar para a aplicação podem repor o URL da página inicial. Se repõe o seu URL de página inicial, repita os passos nesta secção para voltar a defini-lo.
+>Quaisquer alterações que fizer para a aplicação poderão repor o URL da home page. Se repõe o seu URL da home page, repita os passos nesta secção para configurá-lo novamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
-- [Ativar o Proxy da aplicação no portal do Azure](application-proxy-enable.md)
+- [Ativar o Proxy de aplicações no portal do Azure](application-proxy-enable.md)

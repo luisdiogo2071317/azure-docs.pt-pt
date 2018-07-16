@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307301"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049981"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure
 
@@ -55,7 +55,7 @@ O registo TXT que precisa depende o registo DNS que pretende migrar. Para obter 
 
 | Exemplo de registo DNS | Anfitrião TXT | Valor TXT |
 | - | - | - |
-| @ (root) | _awverify_ | _&lt;appname >. azurewebsites_ |
+| \@ (root) | _awverify_ | _&lt;appname >. azurewebsites_ |
 | www (sub) | _awverify.www_ | _&lt;appname >. azurewebsites_ |
 | \* (com carateres universais) | _awverify.\*_ | _&lt;appname >. azurewebsites_ |
 

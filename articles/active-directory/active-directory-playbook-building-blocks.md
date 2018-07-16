@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451704"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049474"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -157,7 +157,7 @@ Obter uma estimativa de tempo para concluir: 60 minutos
 | Siga as instruções para configurar o ServiceNow |  |
 | No painel de "Aprovisionamento" da aplicação de ServiceNow ativar o aprovisionamento "Automático" | [Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no novo portal do Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Aguarde alguns minutos enquanto o aprovisionamento esteja concluído.  Entretanto, pode verificar os relatórios de aprovisionamento |  |
-| Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso | [O que é o painel de acesso?](active-directory-saas-access-panel-introduction.md) |
+| Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso | [O que é o painel de acesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Clique no mosaico da aplicação que acabou de ser criado. Confirmar o acesso |  |
 | Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 | Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Atribuir a aplicação para o grupo identificado nos pré-requisitos | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso |  |
-| Clique no mosaico da aplicação que acabou de ser criado. | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Forneça a credencial de aplicação | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Clique no mosaico da aplicação que acabou de ser criado. | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Forneça a credencial de aplicação | [O que é o painel de acesso?: SSO baseado em palavra-passe sem o aprovisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fechar o navegador e repetir o início de sessão. Desta vez o utilizador deverá ver o acesso totalmente integrado ao aplicativo. |  |
 | Opcionalmente, pode verificar os relatórios de utilização da aplicação. Tenha em atenção de que existe alguma latência, por isso terá de aguardar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividade de início de sessão no portal do Azure Active Directory: utilização de aplicações geridas](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 | Aplicação SaaS (SSO federado ou SSO de palavra-passe) foi já configurada | Bloco de construção: [SaaS configuração de SSO federado](#saas-federated-sso-configuration) |
 | Grupo de cloud que é atribuído o acesso à aplicação no #1 é identificado | Bloco de construção: [SaaS configuração de SSO federado](#saas-federated-sso-configuration) <br/>[Criar um grupo e adicionar membros no Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | As credenciais para o proprietário do grupo estão disponíveis | [Manage access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md) (Gerir o acesso aos recursos com grupos do Azure Active Directory) |
-| Foi identificado as credenciais para o operador de informações a aceder as aplicações | [O que é o painel de acesso?](active-directory-saas-access-panel-introduction.md) |
+| Foi identificado as credenciais para o operador de informações a aceder as aplicações | [O que é o painel de acesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Passos
@@ -318,7 +318,7 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 | Identificar o grupo que tenha sido concedido acesso à aplicação e configure o proprietário de determinado grupo| [Gerir as definições para um grupo no Azure Active Directory ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Inicie sessão como o proprietário do grupo, consulte a associação a grupos no separador de grupos do painel de acesso | [Página de gestão de grupos do Active Directory do Azure](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Adicionar o operador de informações que pretende testar |  |
-| Inicie sessão como o operador de informações, confirme que o mosaico está disponível | [O que é o painel de acesso?](active-directory-saas-access-panel-introduction.md) |
+| Inicie sessão como o operador de informações, confirme que o mosaico está disponível | [O que é o painel de acesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -332,7 +332,7 @@ Se a aplicação tiver ativado o aprovisionamento, poderá ter de aguardar algun
 | --- | --- |
 | Aplicação SaaS (SSO federado ou SSO de palavra-passe) foi já configurada | Bloco de construção: [SaaS configuração de SSO federado](#saas-federated-sso-configuration) |
 | Grupo de cloud que é atribuído o acesso à aplicação no #1 é identificado | Bloco de construção: [SaaS configuração de SSO federado](#saas-federated-sso-configuration) <br/>[Criar um grupo e adicionar membros no Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Foi identificado as credenciais para o operador de informações a aceder as aplicações | [O que é o painel de acesso?](active-directory-saas-access-panel-introduction.md) |
+| Foi identificado as credenciais para o operador de informações a aceder as aplicações | [O que é o painel de acesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Passos
@@ -380,7 +380,7 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Ative a gestão de palavras-passe self-service no seu inquilino. | [O Azure Active Directory reposição palavra-passe para os administradores de TI](active-directory-passwords-update-your-own-password.md) |
+| Ative a gestão de palavras-passe self-service no seu inquilino. | [O Azure Active Directory reposição palavra-passe para os administradores de TI](user-help/active-directory-passwords-update-your-own-password.md) |
 | Ative a palavra-passe write back para gerir palavras-passe no local. Observe que isso requer específico do Azure AD Connect versões | [Pré-requisitos da Repetição de Escrita de Palavras-passe](authentication/howto-sspr-writeback.md) |
 | Identificar os utilizadores de prova de conceito que irão utilizar esta funcionalidade e certifique-se de que são membros de um grupo de segurança. Os utilizadores têm de ser não-administradores para demonstrar totalmente a capacidade | [Personalizar: Gestão de palavra-passe de AD do Azure: restringir o acesso a reposição de palavra-passe](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 | Fornecer os dados de reposição de palavra-passe Self-Service, uma vez configurados para cada passo 2 | https://aka.ms/ssprsetup |
 | Feche o browser |  |
 | Começar o processo de início de sessão como o operador de informações que utilizou no passo 4 |  |
-| Repor a palavra-passe | [Atualizar a sua própria palavra-passe: repor a palavra-passe](active-directory-passwords-update-your-own-password.md) |
+| Repor a palavra-passe | [Atualizar a sua própria palavra-passe: repor a palavra-passe](user-help/active-directory-passwords-update-your-own-password.md) |
 | Tente iniciar sessão com a sua nova palavra-passe para o Azure AD, bem como para recursos no local |  |
 
 ### <a name="considerations"></a>Considerações
@@ -428,7 +428,7 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 ### <a name="considerations"></a>Considerações
 
 1. Os passos de prova de conceito neste bloco de construção configurando explicitamente o MFA para um utilizador em todos os inícios de sessão. Existem outras ferramentas, como o acesso condicional e a proteção de identidade que interaja com a MFA em mais cenários de destino. Isso será algo a ter em consideração quando mudar de prova de conceito para produção.
-2. Os passos de prova de conceito neste bloco de construção são explicitamente usando chamadas telefónicas como o método MFA para se. À medida que faça a transição da prova de conceito para produção, recomendamos a utilização aplicações como o [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) como seu segundo fator sempre que possível.
+2. Os passos de prova de conceito neste bloco de construção são explicitamente usando chamadas telefónicas como o método MFA para se. À medida que faça a transição da prova de conceito para produção, recomendamos a utilização aplicações como o [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) como seu segundo fator sempre que possível.
 Saiba mais: [publicação especial do NIST rascunho 800 63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Acesso condicional do MFA para aplicações SaaS
@@ -553,7 +553,7 @@ Obter uma estimativa de tempo para concluir: 20 minutos
 | --- | --- |
 | Dispositivo com o certificado de utilizador aprovisionado (Windows, iOS ou Android) da PKI de empresa | [Implementar certificados de utilizador](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Domínio do Azure AD federadas com o AD FS | [Azure AD Connect e a federação](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Descrição geral de serviços de certificados do Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Para dispositivos iOS têm a aplicação Microsoft Authenticator instalada | [Comece com a aplicação Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Para dispositivos iOS têm a aplicação Microsoft Authenticator instalada | [Comece com a aplicação Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Passos
 

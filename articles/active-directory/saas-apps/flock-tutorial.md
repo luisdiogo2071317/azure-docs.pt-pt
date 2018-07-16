@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Flock | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Flock.
+title: 'Tutorial: Integração do Azure Active Directory com Flock | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Flock.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 633828cc7e244dca1e43c45852910211aeda68d9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f0bb2b336927b4279403bf87d44a9a5ef1539607
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229500"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Azure Active Directory com Flock
 
-Neste tutorial, irá aprender a integrar Flock com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Flock com o Azure Active Directory (Azure AD).
 
-Flock integrar com o Azure AD fornece as seguintes vantagens:
+Flock integrando com o Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Flock.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Flock (Single Sign-On) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central - portal do Azure.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Flock (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Flock, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Flock-início de sessão único ativada subscrição
+- Um Flock logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,164 +50,164 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Flock a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-flock-from-the-gallery"></a>Adicionar Flock a partir da Galeria
-Para configurar a integração de Flock com o Azure AD, terá de adicionar Flock a partir da Galeria à sua lista de aplicações SaaS geridas.
+Para configurar a integração do Flock com o Azure AD, terá de adicionar Flock a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Flock a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Flock**, selecione **Flock** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Flock**, selecione **Flock** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Flock na lista de resultados](./media/flock-tutorial/tutorial_flock_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com Flock com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configure e teste do Azure AD início de sessão único com Flock com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Flock é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Flock tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Flock a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Flock deve ser estabelecido.
 
-Para configurar e testar o Azure AD-início de sessão único com Flock, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Flock, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Flock](#create-a-flock-test-user)**  - para ter um homólogo de Britta Simon Flock que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste Flock](#create-a-flock-test-user)**  - para ter um equivalente da Eduarda Almeida na Flock que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Flock.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Flock.
 
-**Para configurar o Azure AD-início de sessão único com Flock, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Flock, execute os seguintes passos:**
 
-1. No portal do Azure, no **Flock** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Flock** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Caixa de diálogo de início de sessão único](./media/flock-tutorial/tutorial_flock_samlbase.png)
 
-3. No **Flock domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **Flock domínio e URLs** secção, execute os seguintes passos:
 
-    ![Domínio flock e os URLs únicos de informações de início de sessão](./media/flock-tutorial/tutorial_flock_url.png)
+    ![Flock domínio e URLs únicas início de sessão em informações](./media/flock-tutorial/tutorial_flock_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.flock.com/`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.flock.com/`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.flock.com/`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.flock.com/`
 
     > [!NOTE]
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Flock](mailto:support@flock.com) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Flock](mailto:support@flock.com) obter esses valores.
 
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/flock-tutorial/tutorial_flock_certificate.png)
+    ![O link de download de certificado](./media/flock-tutorial/tutorial_flock_certificate.png)
 
 5. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/flock-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/flock-tutorial/tutorial_general_400.png)
 
-6. No **Flock configuração** secção, clique em **configurar Flock** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML e único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Sobre o **Flock configuração** secção, clique em **configurar Flock** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de flock](./media/flock-tutorial/tutorial_flock_configure.png) 
 
 7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Flock como administrador.
 
-8. Selecione **autenticação** separador a partir do painel de navegação esquerdo e, em seguida, selecione **autenticação SAML**.
+8. Selecione **autenticação** separador do painel de navegação esquerdo e, em seguida, selecione **autenticação SAML**.
 
     ![Configuração de flock](./media/flock-tutorial/configure1.png)
 
-9. No **autenticação SAML** secção, execute os seguintes passos:
+9. Na **autenticação SAML** secção, execute os seguintes passos:
 
     ![Configuração de flock](./media/flock-tutorial/configure2.png)
 
-    a. No **SAML 2.0 Endpoint(HTTP)** caixa de texto, colar **único início de sessão no URL do serviço SAML** valor que copiou do portal do Azure.
+    a. Na **SAML 2.0 Endpoint(HTTP)** caixa de texto, colar **SAML único início de sessão no URL do serviço** valor que copiou do portal do Azure.
 
-    b. No **emissor do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML** valor que copiou do portal do Azure.
+    b. Na **emissor do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML** valor que copiou do portal do Azure.
 
-    c. Abra o transferido **Certificate(Base64)** no portal do Azure no bloco de notas, cole o conteúdo para o **certificado público** caixa de texto.
+    c. Abra o transferido **Certificate(Base64)** partir do portal do Azure no bloco de notas, cole o conteúdo para o **certificado público** caixa de texto.
 
     d. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/flock-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/flock-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/flock-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/flock-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/flock-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/flock-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
 
 ### <a name="create-a-flock-test-user"></a>Criar um utilizador de teste Flock
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos Flock, têm de ser aprovisionados para Flock. No caso de Flock, o aprovisionamento é uma tarefa manual.
+Para ativar a utilizadores do Azure AD iniciar sessão no Flock, tem de ser aprovisionados em Flock. No caso de Flock, o aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
 1. Inicie sessão no site da sua empresa Flock como administrador.
 
-2. Clique em **Gerir equipa** partir do painel de navegação esquerdo.
+2. Clique em **equipa gerir** do painel de navegação à esquerda.
 
-    ![Adicionar empregado](./media/flock-tutorial/user1.png)
+    ![Adicionar o funcionário](./media/flock-tutorial/user1.png)
 
-3. Clique em **Add Member** separador e, em seguida, selecione **os membros da equipa**.
+3. Clique em **Adicionar membro** separador e, em seguida, selecione **membros da Equipe**.
 
-    ![Adicionar empregado](./media/flock-tutorial/user2.png)
+    ![Adicionar o funcionário](./media/flock-tutorial/user2.png)
 
-4. Introduza o endereço de e-mail do utilizador, como **Brittasimon@contoso.com** e, em seguida, selecione **adicionar utilizadores**.
+4. Introduza o endereço de e-mail do utilizador, como **Brittasimon@contoso.com** e, em seguida, selecione **adicionar usuários**.
 
-    ![Adicionar empregado](./media/flock-tutorial/user3.png)
+    ![Adicionar o funcionário](./media/flock-tutorial/user3.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Flock.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Flock.
 
 ![Atribuir a função de utilizador][200]
 
-**Para atribuir Britta Simon a Flock, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Flock, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201]
+    ![Atribuir utilizador][201]
 
 2. Na lista de aplicações, selecione **Flock**.
 
@@ -215,29 +215,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Flock no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Flock.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico Flock no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Flock.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

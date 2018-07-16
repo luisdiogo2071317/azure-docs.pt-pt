@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com OpenAthens | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e OpenAthens.
+title: 'Tutorial: Integração do Azure Active Directory com OpenAthens | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: d29904b58107e84744fb9469956e4b321bab4e88
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230476"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integração do Azure Active Directory com OpenAthens
 
-Neste tutorial, irá aprender a integrar OpenAthens com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar OpenAthens com o Azure Active Directory (Azure AD).
 
-Integrar OpenAthens com o Azure AD fornece as seguintes vantagens:
+Integrar OpenAthens no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao OpenAthens.
-- Pode permitir aos utilizadores iniciar sessão automaticamente para OpenAthens (-início de sessão único) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa única localização central, o portal do Azure.
+- Pode permitir aos utilizadores iniciar sessão automaticamente OpenAthens (início de sessão único) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com OpenAthens, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um OpenAthens-início de sessão único ativada subscrição
+- Um OpenAthens logon único habilitado subscrição
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -47,112 +47,112 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar OpenAthens a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando OpenAthens da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-openathens-from-the-gallery"></a>Adicionar OpenAthens a partir da Galeria
-Para configurar a integração de OpenAthens com o Azure AD, terá de adicionar OpenAthens a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-openathens-from-the-gallery"></a>Adicionando OpenAthens da Galeria
+Para configurar a integração do OpenAthens com o Azure AD, terá de adicionar OpenAthens a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar OpenAthens a partir da Galeria**
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o **do Azure Active Directory** ícone. 
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue até à **aplicações empresariais**e, em seguida, aceda a **todas as aplicações**.
+2. Navegue até **aplicações empresariais**e, em seguida, aceda à **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, selecione o **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **OpenAthens**, selecione **OpenAthens** no painel de resultados e, em seguida, selecione o **adicionar** botão.
+4. Na caixa de pesquisa, escreva **OpenAthens**, selecione **OpenAthens** no painel de resultados e, em seguida, selecione o **Add** botão.
 
     ![OpenAthens na lista de resultados](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com OpenAthens com base num utilizador de teste com o nome "Britta Simon."
+Nesta secção, configure e teste do Azure AD início de sessão único com OpenAthens com base num utilizador de teste com o nome "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no OpenAthens é o utilizador no Azure AD. Por outras palavras, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no OpenAthens.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no OpenAthens ao utilizador no Azure AD. Em outras palavras, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no OpenAthens.
 
-No OpenAthens, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+OpenAthens, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com OpenAthens, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com OpenAthens, tem de concluir os seguintes blocos de construção:
 
-1. [Configurar o Azure AD-início de sessão único](#configure-azure-ad-single-sign-on), para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user), para testar o Azure AD-início de sessão único com Britta Simon.
-3. [Criar um utilizador de teste OpenAthens](#create-a-openathens-test-user), para ter um homólogo de Britta Simon OpenAthens que está ligada a representação do Azure AD do utilizador.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user), para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. [Teste o início de sessão único](#test-single-sign-on), para verificar se a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on), para permitir aos utilizadores utilizar esta funcionalidade.
+2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user), para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. [Criar um utilizador de teste OpenAthens](#create-a-openathens-test-user), ter um equivalente da Eduarda Almeida na OpenAthens que está ligado a representação do Azure AD do utilizador.
+4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user), para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. [Testar início de sessão único](#test-single-sign-on), para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação OpenAthens.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo OpenAthens.
 
-**Para configurar o Azure AD-início de sessão único com OpenAthens**
+**Para configurar o Azure AD início de sessão único com OpenAthens**
 
-1. No portal do Azure, no **OpenAthens** página de integração de aplicações, selecione **de sessão único-**.
+1. No portal do Azure, sobre o **OpenAthens** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. Para ativar o início de sessão, no **de sessão único-** caixa de diálogo, selecione **baseados em SAML início de sessão** como o **modo**.
+2. Para ativar o início de sessão único, na **início de sessão único** caixa de diálogo, selecione **baseado em SAML início de sessão** como o **modo**.
  
     ![Caixa de diálogo de início de sessão único](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. No **OpenAthens domínio e os URLs** secção, introduza o valor `https://login.openathens.net/saml/2/metadata-sp` no **identificador** caixa de texto.
+3. Na **OpenAthens domínio e URLs** , digite o valor `https://login.openathens.net/saml/2/metadata-sp` no **identificador** caixa de texto.
 
-    ![Domínio OpenAthens e os URLs únicos de informações de início de sessão](./media/openathens-tutorial/tutorial_openathens_url.png)
+    ![Informações de início de sessão de único OpenAthens domínio e URLs](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. No **certificado de assinatura de SAML** secção, selecione **XML de metadados**e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Na **certificado de assinatura SAML** secção, selecione **XML de metadados**e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![O certificado de assinatura de AMSL transferir ligação](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
+    ![O certificado de assinatura de AMSL ligação de transferência](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
 5. Selecione o botão **Guardar**.
 
-    ![O início de sessão de gravação botão](./media/openathens-tutorial/tutorial_general_400.png)
+    ![O início de sessão único botão Save](./media/openathens-tutorial/tutorial_general_400.png)
 
 6. Numa janela do browser web diferente, inicie sessão no site da sua empresa OpenAthens como administrador.
 
-7. Selecione **ligações** da lista sob o **gestão** separador. 
+7. Selecione **conexões** da lista sob a **gestão** separador. 
 
     ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Selecione **SAML 1.1/2.0**e, em seguida, selecione o **configurar** botão.
+8. Selecione **SAML 1.1/2.0**e, em seguida, selecione a **configurar** botão.
 
     ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-9. Para adicionar a configuração, selecione o **procurar** botão para carregar o ficheiro. XML de metadados do que transferiu a partir do portal do Azure e, em seguida, selecione **adicionar**.
+9. Para adicionar a configuração, selecione o **navegue** para carregar o ficheiro. XML de metadados que transferiu a partir do portal do Azure e, em seguida, selecione **Add**.
 
     ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Execute os seguintes passos no **detalhes** separador.
+10. Execute os seguintes passos sob o **detalhes** separador.
 
     ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
-    a. No **mapeamento de nome de apresentação**, selecione **utilizar atributo**.
+    a. Na **mapeamento de nome de exibição**, selecione **utilizar atributo**.
 
-    b. No **atributo de nome de apresentação** texto, introduza o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Na **atributo de nome de exibição** texto, digite o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
-    c. No **mapeamento de utilizador exclusivo**, selecione **utilizar atributo**.
+    c. Na **mapeamento de utilizador exclusivo**, selecione **utilizar atributo**.
 
-    d. No **atributo de utilizador exclusivo** texto, introduza o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. Na **atributo de utilizador exclusivo** texto, digite o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    e. No **estado**, selecione todas as três caixas de verificação.
+    e. Na **estado**, selecione todas as três caixas de verificação.
 
-    f. No **criar contas locais**, selecione **automaticamente**.
+    f. Na **criar contas locais**, selecione **automaticamente**.
 
     g. Selecione **guardar alterações**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação. Depois de adicionar esta aplicação a partir de **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e aceder a incorporados documentação através de **configuração** secção na parte inferior. Para obter mais informações sobre a funcionalidade de documentação embedded, consulte o [do Azure AD incorporado documentação](https://go.microsoft.com/fwlink/?linkid=845985).
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação. Depois de adicionar esta aplicação a partir da **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e acessar o embedded documentação através da **configuração** seção na parte inferior. Para obter mais informações sobre a funcionalidade de documentação do embedded, veja a [documentação do embedded do Azure AD](https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado "Britta Simon."
+O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado "Eduarda Almeida."
 
    ![Criar um utilizador de teste do Azure AD][100]
 
@@ -164,69 +164,69 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, selecione **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/openathens-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, selecione **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **utilizador** caixa de diálogo, selecione **Add** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/openathens-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/openathens-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa de texto, escreva **BrittaSimon**.
+    a. Na **Name** caixa de texto, escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, escreva o endereço de e-mail para Britta Simon.
+    b. Na **nome de utilizador** caixa de texto, escreva o endereço de e-mail para Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa de texto.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa de texto.
 
     d. Selecione **Criar**.
   
 ### <a name="create-an-openathens-test-user"></a>Criar um utilizador de teste OpenAthens
 
-OpenAthens suporta just-in-time o aprovisionamento e os utilizadores são criados automaticamente após a autenticação com êxito. Não precisa de executar qualquer acção nesta secção.
+OpenAthens suporta o aprovisionamento de just-in-time e os utilizadores são criados automaticamente após a autenticação com êxito. Não precisa de realizar qualquer ação indicadas nesta secção.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão único, conceder o acesso ao OpenAthens.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para OpenAthens.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a OpenAthens**
+**Para atribuir a Eduarda Almeida a OpenAthens**
 
-1. No portal do Azure, abra as aplicações ver, navegue para a vista de diretório e aceda a **aplicações empresariais**e, em seguida, selecione **todas as aplicações**.
+1. No portal do Azure, abra os aplicativos ver, navegue para a vista de diretório e aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. No **aplicações** lista, selecione **OpenAthens**.
+2. Na **aplicativos** lista, selecione **OpenAthens**.
 
     ![A ligação de OpenAthens na lista de aplicações](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
 4. Selecione o **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** painel.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** lista, selecione **Britta Simon**.
+5. Na **utilizadores e grupos** lista, selecione **Eduarda Almeida**.
 
-6. Selecione o **selecione** clique no botão no **utilizadores e grupos** lista.
+6. Selecione o **selecionar** botão no **utilizadores e grupos** lista.
 
-7. Selecione o **atribuir** clique no botão no **adicionar atribuição** painel.
+7. Selecione o **atribua** botão no **adicionar atribuição** painel.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 
-Quando seleciona o **OpenAthens** na peça de mosaico do painel de acesso, esta deve ser iniciada automaticamente aplicação OpenAthens.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Quando seleciona a **OpenAthens** mosaico no painel de acesso, deve ser automaticamente a sessão iniciada sua aplicação OpenAthens.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* Para obter uma lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory, consulte [tutoriais de integração de aplicações de SaaS para utilização com o Azure AD](tutorial-list.md).
-* Para obter mais informações sobre o acesso a aplicações e início de sessão no Azure Active Directory, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+* Para obter uma lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory, consulte [tutoriais de integração de aplicações de SaaS para utilização com o Azure AD](tutorial-list.md).
+* Para obter mais informações sobre o acesso a aplicações e início de sessão único com o Azure Active Directory, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859152"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055020"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressões e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ Valores JSON na definição podem ser literal ou expressões que são avaliadas 
 ```
 
 ## <a name="expressions"></a>Expressões  
-Expressões podem aparecer em qualquer local num valor de cadeia de caracteres do JSON e sempre resulta em outro valor JSON. Se um valor JSON é uma expressão, o corpo da expressão é extraído, removendo no início de sessão (\@). Se necessitar de uma cadeia literal que começa com @, devem ser escrito utilizando@. Os exemplos seguintes mostram como as expressões são avaliadas.  
+Expressões podem aparecer em qualquer local num valor de cadeia de caracteres do JSON e sempre resulta em outro valor JSON. Se um valor JSON é uma expressão, o corpo da expressão é extraído, removendo no início de sessão (\@). Se necessitar de uma cadeia literal que começa com \@, devem ser escrito usando \@ \@. Os exemplos seguintes mostram como as expressões são avaliadas.  
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"parâmetros"|Os carateres 'parameters' são devolvidos.|  
 |"parâmetros [1]"|Os carateres 'parameters [1]' são devolvidos.|  
-|"\@@"|Uma cadeia de 1 caráter que contém ' @' é devolvido.|  
-|" \@"|Uma cadeia de caracteres de 2 que contém ' @' é devolvido.|  
+|"\@\@"|Uma cadeia de 1 caráter que contém '\@"é devolvido.|  
+|" \@"|Uma cadeia de caracteres de 2 que contém ' \@"é devolvido.|  
   
  As expressões também podem aparecer dentro de cadeias de caracteres, usando um recurso chamado *interpolação de cadeias de caracteres* onde as expressões são encapsuladas em `@{ ... }`. Por exemplo: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ Expressões podem aparecer em qualquer local num valor de cadeia de caracteres d
 |"\@{pipeline ().parameters.myNumber}"| Devolve `42` como uma *cadeia*.|  
 |"Resposta é: @{pipeline ().parameters.myNumber}"| Devolve a cadeia de caracteres `Answer is: 42`.|  
 |"\@concat (' resposta é:", string(pipeline().parameters.myNumber)) "| Devolve a cadeia de caracteres `Answer is: 42`|  
-|"Resposta é: \@@{pipeline ().parameters.myNumber}"| Devolve a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"Resposta é: \@ \@{pipeline ().parameters.myNumber}"| Devolve a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Exemplos
 
@@ -168,7 +168,7 @@ No exemplo a seguir, o pipeline utiliza **inputPath** e **outputPath** parâmetr
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
 |contém|Devolve VERDADEIRO se o dicionário contém uma lista de chaves, contém o valor ou cadeia de caracteres contém subcadeia. Por exemplo, retorna a seguinte expressão `true:``contains('abacaba','aca')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: dentro de coleção<br /><br /> **Descrição**: necessário. A coleção em que procurar.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: objeto Find<br /><br /> **Descrição**: necessário. O objeto a encontrar os **dentro de coleção**.|  
-|comprimento|Devolve o número de elementos de uma matriz ou cadeia de caracteres. Por exemplo, a seguinte expressão retorna `3`:  `length('abc')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para obter o comprimento de.|  
+|Comprimento|Devolve o número de elementos de uma matriz ou cadeia de caracteres. Por exemplo, a seguinte expressão retorna `3`:  `length('abc')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para obter o comprimento de.|  
 |Vazio|Devolve VERDADEIRO se o objeto, matriz ou cadeia de caracteres está vazia. Por exemplo, a seguinte expressão retorna `true`:<br /><br /> `empty('')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para verificar se está vazia.|  
 |intersecção|Devolve uma matriz simples ou o objeto com os elementos comuns entre as matrizes ou objetos passados para ele. Por exemplo, esta função devolve `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome, o último objeto com esse nome aparece no objeto final.<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: coleção *n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Tem de ser um objeto em todas as coleções transmitidas para aparecer no resultado.|  
 |União|Devolve uma matriz simples ou o objeto com todos os elementos que estão na matriz ou no objeto passado a ele. Por exemplo, esta função devolve `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome no resultado final, o último objeto com esse nome aparece no objeto final.<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: coleção *n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Um objeto que apareça em qualquer uma das coleções é apresentada no resultado.|  
@@ -213,7 +213,7 @@ No exemplo a seguir, o pipeline utiliza **inputPath** e **outputPath** parâmetr
 |cadeia|Converta o parâmetro para uma cadeia de caracteres. Por exemplo, a seguinte expressão retorna `'10'`: `string(10)` também pode converter um objeto numa cadeia de caracteres, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
 |json|Converta o parâmetro para um valor de tipo JSON. É o oposto de String (). Por exemplo, a seguinte expressão retorna `[1,2,3]` como uma matriz, em vez de uma cadeia de caracteres:<br /><br /> `json('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia de caracteres a um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia de caracteres que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |flutuante|Converta o argumento do parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão retorna `10.333`:  `float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
-|bool|Converta o parâmetro para um valor booleano. Por exemplo, a seguinte expressão retorna `false`:  `bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para booleano.|  
+|Bool|Converta o parâmetro para um valor booleano. Por exemplo, a seguinte expressão retorna `false`:  `bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para booleano.|  
 |Coalesce|Devolve o primeiro objeto não nulo nos argumentos passados. Nota: uma cadeia vazia não é nula. Por exemplo, se os parâmetros 1 e 2 não são definidos, esta ação devolve `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: objeto*n*<br /><br /> **Descrição**: necessário. Os objetos para procurar `null`.|  
 |base64|Devolve a representação base64 de cadeia de entrada. Por exemplo, a seguinte expressão retorna `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de cadeias de caracteres<br /><br /> **Descrição**: necessário. A cadeia a codificar numa representação base64.|  
 |base64ToBinary|Devolve uma representação binária de uma cadeia de caracteres codificada em base64. Por exemplo, a expressão a seguir devolve a representação binária da alguma cadeia de caracteres: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia de caracteres codificada em base64.|  
@@ -246,7 +246,7 @@ No exemplo a seguir, o pipeline utiliza **inputPath** e **outputPath** parâmetr
 |MOD|Devolve o resultado do restante após a divisão dos dois números (módulo). Por exemplo, a seguinte expressão retorna `2`:<br /><br /> `mod(10,4)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: dividendo<br /><br /> **Descrição**: necessário. O número pelo qual dividir o **Divisor**.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: Divisor<br /><br /> **Descrição**: necessário. O número a dividir os **dividendo** pelo. Após a divisão, o resto é retirado.|  
 |min.|Existem dois padrões diferentes para chamar essa função: `min([0,1,2])` aqui min assume uma matriz. Esta expressão devolve `0`. Em alternativa, esta função pode assumir uma lista separada por vírgulas de valores: `min(0,1,2)` esta função também devolve 0. Tenha em atenção de que todos os valores têm de ser números, portanto, se o parâmetro é uma matriz tem de ter apenas os números na mesma.<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor ou de coleção<br /><br /> **Descrição**: necessário. Ele pode ser uma matriz de valores para encontrar o valor mínimo ou o primeiro valor de um conjunto.<br /><br /> **Número de parâmetro**: 2... *n*<br /><br /> **Nome**: valor *n*<br /><br /> **Descrição**: opcional. Se o primeiro parâmetro é um valor, em seguida, pode passar valores adicionais e o mínimo de todos os valores transmitidos são devolvidos.|  
 |máx.|Existem dois padrões diferentes para chamar essa função:  `max([0,1,2])`<br /><br /> Aqui max assume uma matriz. Esta expressão devolve `2`. Em alternativa, esta função pode assumir uma lista separada por vírgulas de valores: `max(0,1,2)` esta função devolve 2. Tenha em atenção de que todos os valores têm de ser números, portanto, se o parâmetro é uma matriz tem de ter apenas os números na mesma.<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor ou de coleção<br /><br /> **Descrição**: necessário. Ele pode ser uma matriz de valores para encontrar o valor máximo ou o primeiro valor de um conjunto.<br /><br /> **Número de parâmetro**: 2... *n*<br /><br /> **Nome**: valor *n*<br /><br /> **Descrição**: opcional. Se o primeiro parâmetro é um valor, em seguida, pode passar valores adicionais e o número máximo de todos os valores transmitidos são devolvidos.|  
-|intervalo| Gera uma matriz de inteiros a partir de um determinado número, e definir o comprimento da matriz retornada. Por exemplo, esta função devolve `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: índice inicial<br /><br /> **Descrição**: necessário. É o primeiro número inteiro na matriz.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: contagem<br /><br /> **Descrição**: necessário. Número de números inteiros que estão na matriz.|  
+|Intervalo| Gera uma matriz de inteiros a partir de um determinado número, e definir o comprimento da matriz retornada. Por exemplo, esta função devolve `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: índice inicial<br /><br /> **Descrição**: necessário. É o primeiro número inteiro na matriz.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: contagem<br /><br /> **Descrição**: necessário. Número de números inteiros que estão na matriz.|  
 |rand| Gera um número inteiro aleatório dentro do intervalo especificado (inclusive em ambas as extremidades. Por exemplo, isso pode devolver `42`:<br /><br /> `rand(-1000,1000)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: mínimo<br /><br /> **Descrição**: necessário. O menor número inteiro que pode ser devolvido.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: máximo<br /><br /> **Descrição**: necessário. O número inteiro maior que pode ser devolvido.|  
   
 ## <a name="date-functions"></a>Funções de data  

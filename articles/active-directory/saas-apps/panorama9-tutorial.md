@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Panorama9 | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Panorama9.
+title: 'Tutorial: Integração do Azure Active Directory com Panorama9 | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Panorama9.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: a6b3751361b198126c2d05d1650acbf89d2bbc1b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7285ef4bea1dccb651360520bfe8bc4289d54f8c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215805"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Azure Active Directory com Panorama9
 
-Neste tutorial, irá aprender a integrar Panorama9 com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Panorama9 com o Azure Active Directory (Azure AD).
 
-Integrar Panorama9 com o Azure AD fornece as seguintes vantagens:
+Integrar Panorama9 no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Panorama9
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Panorama9 (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Panorama9 (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Panorama9, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Panorama9-início de sessão único ativada subscrição
+- Um Panorama9 logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Panorama9 a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Panorama9 da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-panorama9-from-the-gallery"></a>Adicionar Panorama9 a partir da Galeria
-Para configurar a integração de Panorama9 com o Azure AD, terá de adicionar Panorama9 a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-panorama9-from-the-gallery"></a>Adicionando Panorama9 da Galeria
+Para configurar a integração do Panorama9 com o Azure AD, terá de adicionar Panorama9 a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Panorama9 a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,52 +75,52 @@ Para configurar a integração de Panorama9 com o Azure AD, terá de adicionar P
 
     ![Criar um utilizador de teste do Azure AD](./media/panorama9-tutorial/tutorial_panorama9_search.png)
 
-5. No painel de resultados, selecione **Panorama9**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **Panorama9**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/panorama9-tutorial/tutorial_panorama9_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com Panorama9 com base num utilizador de teste chamado "Britta Simon."
+Nesta secção, configure e teste do Azure AD início de sessão único com Panorama9 com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Panorama9 é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Panorama9 tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Panorama9 a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Panorama9 deve ser estabelecido.
 
-No Panorama9, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Panorama9, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com Panorama9, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Panorama9, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Panorama9](#creating-a-panorama9-test-user)**  - para ter um homólogo de Britta Simon Panorama9 que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste Panorama9](#creating-a-panorama9-test-user)**  - para ter um equivalente da Eduarda Almeida na Panorama9 que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Panorama9.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Panorama9.
 
-**Para configurar o Azure AD-início de sessão único com Panorama9, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Panorama9, execute os seguintes passos:**
 
-1. No portal do Azure, no **Panorama9** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Panorama9** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/panorama9-tutorial/tutorial_panorama9_samlbase.png)
 
-3. No **Panorama9 domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **Panorama9 domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL como: `https://dashboard.panorama9.com/saml/access/3262`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL como: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `http://www.panorama9.com/saml20/<tenant-name>`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `http://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Panorama9](https://support.panorama9.com) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Panorama9](https://support.panorama9.com) obter esses valores. 
  
-4. No **certificado de assinatura de SAML** secção, copie o **THUMBPRINT** valor do certificado.
+4. Sobre o **certificado de assinatura SAML** secção, copie a **THUMBPRINT** valor do certificado.
 
     ![Configurar o início de sessão único](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
@@ -128,40 +128,40 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/panorama9-tutorial/tutorial_general_400.png)
 
-6. No **Panorama9 configuração** secção, clique em **configurar Panorama9** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Sobre o **Panorama9 configuração** secção, clique em **configurar Panorama9** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/panorama9-tutorial/tutorial_panorama9_configure.png) 
 
-5. Numa janela do browser web diferente, inicie sessão no site da sua empresa Panorama9 como administrador.
+5. Numa janela do browser web diferente, inicie sessão no site da sua empresa Panorama9 como um administrador.
 
-6. Na barra de ferramentas na parte superior, clique em **gerir**e, em seguida, clique em **extensões**.
+6. Na barra de ferramentas na parte superior, clique em **Manage**e, em seguida, clique em **extensões**.
    
-   ![Extensões](./media/panorama9-tutorial/ic790023.png "extensões")
-7. No **extensões** caixa de diálogo, clique em **Single Sign-On**.
+   ![As extensões](./media/panorama9-tutorial/ic790023.png "extensões")
+7. Sobre o **extensões** caixa de diálogo, clique em **Single Sign-On**.
    
-   ![De sessão único-](./media/panorama9-tutorial/ic790024.png "Single Sign-On")
-8. No **definições** secção, execute os seguintes passos:
+   ![Início de sessão único](./media/panorama9-tutorial/ic790024.png "início de sessão único")
+8. Na **definições** secção, execute os seguintes passos:
    
-   ![Definições](./media/panorama9-tutorial/ic790025.png "definições")
+   ![As definições](./media/panorama9-tutorial/ic790025.png "definições")
    
-    a. No **URL do fornecedor de identidade** caixa de texto, cole o valor de **URL Single Sign-On serviço**, que copiou do portal do Azure.
+    a. Na **URL de fornecedor de identidade** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
    
-    b. No **impressão digital do certificado** caixa de texto, cole o **Thumbprint** valor do certificado, o qual copiou a partir do portal do Azure.    
+    b. Na **impressão digital de certificado** caixa de texto, colar a **Thumbprint** valor do certificado que copiou do portal do Azure.    
          
 9. Clique em **Guardar**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/panorama9-tutorial/create_aaduser_01.png) 
 
@@ -169,25 +169,25 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/panorama9-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/panorama9-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/panorama9-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-panorama9-test-user"></a>Criar um utilizador de teste Panorama9
 
-Para permitir que os utilizadores do Azure AD sessão Panorama9, têm de ser aprovisionados para Panorama9.  
+Para habilitar logon Panorama9 de utilizadores do Azure AD, tem de ser aprovisionados em Panorama9.  
 
 No caso de Panorama9, o aprovisionamento é uma tarefa manual.
 
@@ -195,7 +195,7 @@ No caso de Panorama9, o aprovisionamento é uma tarefa manual.
 
 1. Inicie sessão no seu **Panorama9** site da empresa como administrador.
 
-2. No menu na parte superior, clique em **gerir**e, em seguida, clique em **utilizadores**.
+2. No menu na parte superior, clique em **Manage**e, em seguida, clique em **utilizadores**.
    
   ![Os utilizadores](./media/panorama9-tutorial/ic790027.png "utilizadores")
 
@@ -203,24 +203,24 @@ No caso de Panorama9, o aprovisionamento é uma tarefa manual.
 
  ![Os utilizadores](./media/panorama9-tutorial/ic790028.png "utilizadores")
 
-4. Consulte a secção de dados do utilizador, escreva o endereço de e-mail de um utilizador válido do Azure Active Directory que pretende aprovisionar no **E-Mail** caixa de texto.
+4. Aceda à secção de dados de utilizador, escreva o endereço de e-mail de um utilizador válido do Azure Active Directory que pretende aprovisionar para o **E-Mail** caixa de texto.
 
-5. São fornecidos na secção utilizadores, clique em **guardar**.
+5. São fornecidos para a secção de utilizadores, clique em **guardar**.
    
 > [!NOTE]
-    > Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
+    > O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Panorama9.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Panorama9.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a Panorama9, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Panorama9, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **Panorama9**.
 
@@ -228,29 +228,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico Panorama9 no painel de acesso, deve obter automaticamente com sessão iniciada a aplicação de Panorama9.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

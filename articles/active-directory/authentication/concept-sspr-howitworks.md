@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 04a446f43bd39ef7bfca590af67289813eab4032
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869012"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048884"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Senhas de auto-atendimento Repor no aprofundamento do Azure AD
 
@@ -55,7 +55,7 @@ Se estiver ativada a SSPR, tem de selecionar pelo menos uma das seguintes opçõ
 
 * Email
 * Número de telemóvel
-* Telefone do escritório
+* Telefone do emprego
 * Perguntas de segurança
 
 ![Autenticação][Authentication]
@@ -112,41 +112,41 @@ Se utilizar perguntas de segurança, recomendamos que utilize-os em conjunto com
 
 Todas as perguntas predefinidas que se seguem são localizadas para o conjunto completo de idiomas do Office 365 e baseiam-se na localidade do navegador do usuário:
 
-* Em que localidade conheceu o seu primeiro cônjuge/companheiro(a)?
-* Em que localidade se conheceram os seus pais?
-* Em que localidade mora o seu irmão/irmã mais próximo?
-* Em que localidade nasceu o seu pai?
-* Em que localidade teve o seu primeiro emprego?
-* Em que localidade nasceu a sua mãe?
-* Onde estava (localidade) na Passagem de Ano de 2000?
-* Qual é o apelido do seu professor/professora preferido na secundária?
-* Qual é o nome de uma universidade a que se candidatou, mas que não frequentou?
-* Qual é o nome do local onde organizou a sua primeira festa de casamento?
+* Em que cidade conheceu o seu primeiro namorado/a ou /companheiro/a?
+* Em que cidade os seus pais se conheceram?
+* Em que cidade vive o/a seu/sua irmão/irmã que está mais próximo/a?
+* Em que cidade nasceu o seu pai?
+* Em que cidade teve o seu primeiro emprego?
+* Em que cidade nasceu a sua mãe?
+* Em que cidade estava na passagem para 2000?
+* Qual é o último nome do/a seu/sua professor/a preferido/a na escola secundária?
+* Qual é o nome da instituição de ensino superior a que candidatou mas não frequentou?
+* Qual é o nome do lugar onde organizou a sua primeira festa de casamento?
 * Qual é o segundo nome do seu pai?
-* Qual é o seu prato preferido?
-* Qual é o primeiro e último nome da sua avó materna?
+* Qual é o seu prato favorito?
+* Quais são o primeiro e último nome da sua avó materna?
 * Qual é o segundo nome da sua mãe?
 * O que é o mês de nascimento e ano de seu irmão mais antigo? (por exemplo, de Novembro de 1985)
-* Qual é o segundo nome do seu irmão/irmã mais velho?
-* Qual é o primeiro e último nome do seu avô paterno?
-* Qual é o segundo nome do seu irmão/irmã mais novo?
-* Qual foi a escola que frequentou durante o sexto ano?
-* Qual era o primeiro e último nome do seu melhor amigo de infância?
-* Qual era o primeiro e último nome do seu primeiro amor?
-* Qual era o apelido do seu professor/professora preferido da primária?
-* Qual era a marca e modelo do seu primeiro carro ou motociclo?
-* Como se chamava a primeira escola que frequentou?
-* Qual era o nome do hospital em que nasceu?
-* Qual era o nome da rua da sua primeira casa de infância?
-* Qual era o nome do seu herói de infância?
-* Qual era o nome do seu peluche preferido?
+* Qual é o segundo nome do/a seu/sua irmão/irmã mais velho/a?
+* Quais são o primeiro e último nome do seu avô paterno?
+* Qual é o nome do meio do/a seu/sua irmão/irmã mais novo/a?
+* Em que escola andou quando estava no 6º ano?
+* Quais eram o primeiro e último nome do seu/sua melhor amigo/a de infância?
+* Quais eram o primeiro e último nome do/a seu/sua companheiro/a?
+* Qual era o último nome do/a seu/sua professor/a da escola primária preferido/a?
+* Qual era a marca e o modelo do seu primeiro carro ou da sua motocicleta?
+* Qual é o nome da primeira escola que frequentou?
+* Qual é o nome do hospital em que nasceu?
+* Qual é o nome da rua da primeira casa onde viveu em criança?
+* Qual é o nome do/a seu/sua herói/heroína preferido/a quando era criança?
+* Qual era o nome do seu animal de peluche preferido?
 * Qual era o nome do seu primeiro animal de estimação?
-* Qual era a sua alcunha de infância?
-* Qual era o seu desporto preferido na secundária?
+* Qual era a sua alcunha em criança?
+* Qual era o seu desporto favorito na escola secundária?
 * Qual foi o seu primeiro emprego?
-* Quais eram os quatro últimos algarismos do seu número de telefone de infância?
-* Quando era criança, o que queria ser quando crescesse?
-* Como se chama a maior celebridade que já conheceu?
+* Quais eram os últimos quatro dígitos do seu número telefone de infância?
+* Quando era mais novo/a, onde queria estar quando fosse adulto/a?
+* Quem é a pessoa mais famosa que já conheceu?
 
 ### <a name="custom-security-questions"></a>Perguntas de segurança personalizadas
 
@@ -248,8 +248,8 @@ Para testar este cenário, aceda a http://passwordreset.microsoftonline.com com 
 Os artigos seguintes disponibilizam informações adicionais relativamente à reposição de palavras-passe através do Azure AD:
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Repor ou alterar a palavra-passe](../active-directory-passwords-update-your-own-password.md)
-* [Registar-se na reposição personalizada de palavra-passe](../active-directory-passwords-reset-register.md)
+* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)

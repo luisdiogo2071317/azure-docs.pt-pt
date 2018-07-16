@@ -9,25 +9,25 @@ ms.date: 02/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: b9484336add0719749e9f0af56bdd70fa3906ef5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29532346"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38752664"
 ---
-Para adicionar duas etiquetas para um grupo de recursos, utilize o [atualização az da grupo](/cli/azure/group#az_group_update) comando:
+Para adicionar duas etiquetas a um grupo de recursos, utilize o comando [az group update](/cli/azure/group#az_group_update):
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Vamos imaginar que pretende adicionar uma etiqueta de terceira. Execute o comando novamente com a nova tag. É acrescentado a para as etiquetas existentes.
+Vamos supor que pretende adicionar uma terceira etiqueta. Execute o comando novamente com a nova etiqueta. Esta é acrescentada às etiquetas existentes.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.Project=Documentation
 ```
 
-Recursos não herdam as etiquetas do grupo de recursos. Atualmente, o grupo de recursos tem três etiquetas, mas os recursos não tem quaisquer etiquetas. Para aplicar todas as etiquetas de um grupo de recursos para os respetivos recursos e manter as etiquetas existentes nos recursos, utilize o seguinte script:
+Os recursos não herdam etiquetas do grupo de recursos. Atualmente, o seu grupo de recursos tem três etiquetas, mas os recursos não têm etiquetas. Para aplicar todas as etiquetas de um grupo de recursos a todos os respetivos recursos e reter as etiquetas existentes nos recursos, utilize o script seguinte:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -53,7 +53,7 @@ do
 done
 ```
 
-Em alternativa, pode aplicar etiquetas do grupo de recursos para os recursos sem manter as etiquetas existentes:
+Em alternativa, pode aplicar etiquetas do grupo de recursos nos recursos, sem manter as etiquetas existentes:
 
 ```azurecli-interactive
 # Get the tags for the resource group
@@ -73,7 +73,7 @@ do
 done
 ```
 
-Combinar uma única tag de vários valores, utilize uma cadeia JSON.
+Para combinar vários valores numa única etiqueta, utilize uma cadeia JSON.
 
 ```azurecli-interactive
 az group update -n myResourceGroup --set tags.CostCenter='{"Dept":"IT","Environment":"Test"}'

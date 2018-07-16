@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com ficheiros Flatter | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Flatter ficheiros.
+title: 'Tutorial: Integração do Azure Active Directory com mais simples de arquivos | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o mais simples de arquivos.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 1189a60b33c385377767ea44877dd5fdf853f260
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4ae5c9834352bd2413075e87c79e27a9a3c354b9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221540"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047648"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Active Directory com ficheiros Flatter
+# <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Active Directory com mais simples de arquivos
 
-Neste tutorial, irá aprender a integrar Flatter ficheiros com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o mais simples de arquivos com o Azure Active Directory (Azure AD).
 
-Integrar Flatter ficheiros com o Azure AD fornece as seguintes vantagens:
+Integrar arquivos mais simples no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso aos ficheiros Flatter
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para ficheiros Flatter (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso a mais simples de ficheiros
+- Pode permitir que os utilizadores automaticamente obter sessão iniciada em arquivos mais simples (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com ficheiros Flatter, terá dos seguintes itens:
+Para configurar a integração do Azure AD com ficheiros mais simples, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Um ficheiros Flatter-início de sessão único ativada subscrição
+- Um ficheiros mais simples de logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar ficheiros Flatter na galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando mais simples de arquivos da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-flatter-files-from-the-gallery"></a>Adicionar ficheiros Flatter na galeria do
-Para configurar a integração de Flatter ficheiros com o Azure AD, terá de adicionar ficheiros Flatter na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-flatter-files-from-the-gallery"></a>Adicionando mais simples de arquivos da Galeria
+Para configurar a integração de arquivos mais simples para o Azure AD, terá de adicionar mais simples de arquivos a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar ficheiros Flatter na galeria do, execute os seguintes passos:**
+**Para adicionar ficheiros mais simples a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **ficheiros Flatter**.
+4. Na caixa de pesquisa, escreva **mais simples de arquivos**.
 
     ![Criar um utilizador de teste do Azure AD](./media/flatter-files-tutorial/tutorial_flatterfiles_search.png)
 
-5. No painel de resultados, selecione **ficheiros Flatter**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **mais simples de arquivos**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/flatter-files-tutorial/tutorial_flatterfiles_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com ficheiros Flatter com base num utilizador teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com arquivos mais simples com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo nos ficheiros Flatter é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado nos ficheiros Flatter tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte em arquivos mais simples para um utilizador no Azure AD. Em outras palavras, uma relação entre um utilizador do Azure AD e o utilizador relacionado em arquivos mais simples de ligação tem de ser estabelecida.
 
-Ficheiros Flatter, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Em arquivos mais simples, atribuir o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com ficheiros Flatter, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com mais simples de arquivos, precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de ficheiros Flatter](#creating-a-flatter-files-test-user)**  - para ter um homólogo de Britta Simon Flatter ficheiros que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste mais simples de arquivos](#creating-a-flatter-files-test-user)**  - para ter um equivalente da Eduarda Almeida em arquivos mais simples que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Flatter ficheiros.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação de arquivos mais simples.
 
-**Para configurar o Azure AD-início de sessão único com ficheiros Flatter, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com mais simples de arquivos, execute os seguintes passos:**
 
-1. No portal do Azure, no **ficheiros Flatter** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **mais simples de arquivos** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
 
-3. No **Flatter de ficheiros de domínio e os URLs** secção, o utilizador não tem de efetuar quaisquer passos, tal como a aplicação já está pré-integrada com o Azure.
+3. Sobre o **mais simples de arquivos de domínio e URLs** secção, o utilizador não tem de efetuar outros passos de como a aplicação já está pré-integrada com o Azure.
 
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
  
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
 
@@ -120,17 +120,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_general_400.png)
 
-6. No **Flatter de ficheiros de configuração** secção, clique em **configurar ficheiros Flatter** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Sobre o **mais simples de arquivos de configuração** secção, clique em **configurar ficheiros mais simples** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
 
-7. Início de sessão para a aplicação de ficheiros Flatter como administrador.
+7. Início de sessão na sua aplicação de arquivos mais simples, como administrador.
 
 8. Clique em **DASHBOARD**. 
    
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-9. Clique em **definições**e, em seguida, execute os seguintes passos no **empresa** separador: 
+9. Clique em **configurações**e, em seguida, execute os seguintes passos no **empresa** separador: 
    
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -138,33 +138,33 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     b. Clique em **configurar SAML**.
 
-8. No **configuração SAML** caixa de diálogo, execute os seguintes passos: 
+8. Sobre o **configuração SAML do** caixa de diálogo, execute os seguintes passos: 
    
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
-    a. No **domínio** caixa de texto, escreva o seu domínio registado.
+    a. Na **domínio** caixa de texto, escreva o seu domínio registado.
    
     >[!NOTE]
-    >Se não tiver um domínio registado ainda, contacte o seu ficheiros Flatter suportam equipa através de [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
+    >Se não tiver um domínio registado ainda, contacte os ficheiros mais simples equipa através de suporte [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
     
-    b. No **URL do fornecedor de identidade** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML** que copiou formar o portal do Azure.
+    b. Na **URL de fornecedor de identidade** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço** que copiou formam o portal do Azure.
    
-    c.  Abra o certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade** caixa de texto.
+    c.  Abra o certificado com codificação base 64 no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade** caixa de texto.
 
     d. Clique em **atualização**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/flatter-files-tutorial/create_aaduser_01.png) 
 
@@ -172,90 +172,90 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/flatter-files-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/flatter-files-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/flatter-files-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-flatter-files-test-user"></a>Criar um utilizador de teste de ficheiros Flatter
+### <a name="creating-a-flatter-files-test-user"></a>Criar um utilizador de teste mais simples de arquivos
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon nos ficheiros Flatter.
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida em arquivos mais simples.
 
-**Para criar um utilizador chamado Britta Simon nos ficheiros Flatter, execute os seguintes passos:**
+**Para criar um usuário chamado Eduarda Almeida no mais simples de arquivos, execute os seguintes passos:**
 
-1. Inicie sessão no seu **ficheiros Flatter** site da empresa como administrador.
+1. Inicie sessão no seu **mais simples de arquivos** site da empresa como administrador.
 
-2. No painel de navegação à esquerda, clique em **definições**e, em seguida, clique em de **utilizadores** separador.
+2. No painel de navegação à esquerda, clique em **configurações**e, em seguida, clique nas **utilizadores** separador.
    
-    ![Criar um utilizador de ficheiros Flatter](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Criar um utilizador mais simples de arquivos](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Clique em **adicionar utilizador**. 
 
-4. No **adicionar utilizador** caixa de diálogo, execute os seguintes passos:
+4. Sobre o **adicionar utilizador** caixa de diálogo, execute os seguintes passos:
    
-    ![Criar um utilizador de ficheiros Flatter](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
+    ![Criar um utilizador mais simples de arquivos](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
-    a. No **nome próprio** caixa de texto, tipo **Britta**.
+    a. Na **nome próprio** caixa de texto, tipo **Eduarda**.
    
-    b. No **Apelido** caixa de texto, tipo **Simon**. 
+    b. Na **sobrenome** caixa de texto, tipo **Simon**. 
    
-    c. No **endereço de correio eletrónico** caixa de texto, escreva o endereço de correio eletrónico de Britta no portal do Azure.
+    c. Na **endereço de E-Mail** caixa de texto, escreva o endereço de e-mail da Eduarda no portal do Azure.
    
     d. Clique em **submeter**.   
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso aos ficheiros Flatter.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso aos ficheiros mais simples.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon Flatter ficheiros, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a mais simples de arquivos, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **ficheiros Flatter**.
+2. Na lista de aplicações, selecione **mais simples de arquivos**.
 
     ![Configurar o início de sessão único](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de ficheiros Flatter no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Flatter ficheiros.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico de arquivos mais simples no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de arquivos mais simples.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

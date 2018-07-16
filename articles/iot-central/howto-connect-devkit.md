@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c2a7278f4ee6861a1e47610c06fdc6ffcec52247
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931087"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049457"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -128,7 +128,7 @@ Para preparar o dispositivo DevKit:
     - a palavra-passe de rede do Wi-Fi 
     - CÓDIGO de PIN mostrado no dispositivo de LCD 
     - a cadeia de ligação do seu dispositivo. 
-      Pode encontrar a cadeia de ligação @ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (no canto superior direito) 
+      Pode encontrar a cadeia de ligação \@ `https://apps.iotcentral.com`  ->  `Device Explorer`  ->  `Device`  ->  `Select or Create a new Real Device`  ->  `Connect this device` (no canto superior direito) 
     - Selecione todas as medidas a telemetria disponível! 
 
 1. Depois de escolher **configurar dispositivo**, vê esta página:

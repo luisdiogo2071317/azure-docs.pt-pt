@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ba4c4525899e82b4dd93fc46d9e9bbc1850500dc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: afa65cec0d00f2063be05a48085183da72af9048
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003041"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049399"
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Utilize um utilizador atribuído Managed Service Identity (MSI) numa VM do Linux para aceder ao armazenamento do Azure
 
@@ -114,7 +114,7 @@ Se ainda não tiver uma, agora crie uma conta de armazenamento. Também pode ign
 5. Certifique-se a **subscrição** e **grupo de recursos** corresponder aos perfis que especificou quando criou a VM no passo anterior.
 6. Clique em **Criar**.
 
-    ![Criar nova conta de armazenamento](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Criar nova conta de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Criar um contentor de BLOBs na conta de armazenamento
 
@@ -125,11 +125,11 @@ Uma vez que ficheiros requerem armazenamento de BLOBs, tem de criar um contentor
 3. Clique em **+ contentor** na parte superior da página e um "novo contentor" painel desliza.
 4. Dê um nome ao contentor, selecione um nível de acesso, em seguida, clique em **OK**. O nome que especificou também é utilizado mais tarde no tutorial. 
 
-    ![Criar contentor de armazenamento](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Criar contentor de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Carregar um ficheiro para o contentor recém-criado ao clicar no nome do contentor e, em seguida, **carregue**, em seguida, selecione um ficheiro, em seguida, clique em **carregar**.
 
-    ![Carregar ficheiro de texto](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Carregar ficheiro de texto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-user-assigned-msi-access-to-an-azure-storage-container"></a>Conceder o acesso MSI atribuídos do utilizador para um contentor de armazenamento do Azure
 

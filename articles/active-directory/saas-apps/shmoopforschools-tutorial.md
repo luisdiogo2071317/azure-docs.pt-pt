@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Shmoop para escolas | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Shmoop para escolas.
+title: 'Tutorial: Integração do Azure Active Directory com Shmoop para instituições de ensino | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Shmoop para instituições de ensino.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,116 +15,116 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301146"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com Shmoop para escolas
 
-Neste tutorial, irá aprender a integrar Shmoop para escolas com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Shmoop para instituições de ensino com o Azure Active Directory (Azure AD).
 
-Integrar Shmoop para escolas com o Azure AD fornece as seguintes vantagens:
+Integrar Shmoop para instituições de ensino com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Shmoop para escolas.
-- Pode permitir que os utilizadores automaticamente obter a sessão iniciada no Shmoop para escolas com as respetivas contas do Azure AD.
-- Pode gerir as contas numa única localização central, o portal do Azure.
+- Pode controlar no Azure AD que tenha acesso para Shmoop para instituições de ensino.
+- Pode permitir que os utilizadores automaticamente obter a sessão iniciada no Shmoop para instituições de ensino com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Shmoop para escolas, terá dos seguintes itens:
+Para configurar a integração do Azure AD com Shmoop para instituições de ensino, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Shmoop para escolas-início de sessão único ativada subscrição
+- Um Shmoop para instituições de ensino logon único habilitado subscrição
 
 > [!NOTE]
-> Não recomendamos a utilização de um ambiente de produção para testar os passos neste tutorial.
+> Não é recomendado utilizar um ambiente de produção para testar os passos neste tutorial.
 
-Para testar os passos neste tutorial, recomendamos que:
+Para testar os passos neste tutorial, recomendamos:
 
-- Utilizar o evironment produção apenas se for necessário.
-- Obter um [um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) se ainda não tiver um ambiente de avaliação do Azure AD.
+- Usando sua evironment de produção apenas se for necessário.
+- Obter um [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) se ainda não tiver um ambiente de avaliação do Azure AD.
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário é descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário que é descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Shmoop para escolas a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Shmoop para instituições de ensino da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="add-shmoop-for-schools-from-the-gallery"></a>Adicionar Shmoop para escolas a partir da Galeria
-Para configurar a integração de Shmoop para escolas com o Azure AD, terá de adicionar Shmoop para escolas a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="add-shmoop-for-schools-from-the-gallery"></a>Adicionar Shmoop para instituições de ensino a partir da Galeria
+Para configurar a integração do Shmoop para instituições de ensino com o Azure AD, terá de adicionar Shmoop para instituições de ensino a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Shmoop para escolas a partir da galeria, siga os passos seguintes:**
+**Para adicionar Shmoop para instituições de ensino a partir da galeria, siga os passos seguintes:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o **do Azure Active Directory** ícone. 
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Aceda a **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Aceda a **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Shmoop para escolas**. Selecione **Shmoop para escolas** nos resultados, em seguida, selecione o **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Shmoop para instituições de ensino**. Selecione **Shmoop para instituições de ensino** nos resultados, em seguida, selecione a **Add** botão para adicionar a aplicação.
 
-    ![Shmoop para escolas na lista de resultados](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
+    ![Shmoop para instituições de ensino na lista de resultados](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com Shmoop para escolas com base num utilizador de teste chamado "Britta Simon."
+Nesta secção, configure e teste do Azure AD início de sessão único com Shmoop para escolas com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber que o utilizador homólogo no Shmoop para escolas for para um utilizador no Azure AD. Por outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado no Shmoop para escolas.
+Para o início de sessão único funcione, o Azure AD precisa saber que o utilizador de contraparte no Shmoop para instituições de ensino for para um utilizador no Azure AD. Em outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado no Shmoop para instituições de ensino.
 
-Para configurar e testar o Azure AD-início de sessão único com Shmoop para escolas, conclua os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Shmoop para instituições de ensino, conclua os seguintes blocos de construção:
 
-1. [Configurar o Azure AD-início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar do Azure AD-início de sessão único com Britta Simon.
-3. [Criar um utilizador de teste Shmoop para escolas](#create-a-shmoop-for-schools-test-user) para ter um homólogo de Britta Simon no Shmoop para escolas que está ligada a representação do Azure AD do utilizador.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. [Teste o início de sessão único](#test-single-sign-on) para verificar que a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
+2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. [Criar um utilizador de teste Shmoop para instituições de ensino](#create-a-shmoop-for-schools-test-user) ter um equivalente da Eduarda Almeida na Shmoop para instituições de ensino que está ligado a representação do Azure AD do utilizador.
+4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Shmoop para escolas.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Shmoop para instituições de ensino.
 
-**Para configurar o Azure AD-início de sessão único com Shmoop para escolas, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Shmoop para instituições de ensino, execute os seguintes passos:**
 
-1. No portal do Azure, no **Shmoop para escolas** página de integração de aplicações, selecione **de sessão único-**.
+1. No portal do Azure, sobre o **Shmoop para instituições de ensino** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, no menu pendente em **modo de início de sessão único**, selecione **baseados em SAML início de sessão**.
+2. Na **início de sessão único** caixa de diálogo, no menu suspenso sob **modo de início de sessão único**, selecione **baseado em SAML logon**.
  
     ![Caixa de diálogo de início de sessão único](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_samlbase.png)
 
-3. No **Shmoop para escolas com o domínio e os URLs** secção, siga os passos seguintes:
+3. Na **Shmoop para instituições de ensino com o domínio e URLs** secção, siga os passos seguintes:
 
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
-    a. No **URL de início de sessão** caixa, escreva um URL com o padrão do seguinte: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+    a. Na **URL de início de sessão** caixa, escreva um URL com o seguinte padrão: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
-    b. No **identificador** caixa, escreva um URL com o padrão do seguinte: `https://schools.shmoop.com/<uniqueid>`
+    b. Na **identificador** caixa, escreva um URL com o seguinte padrão: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte o [equipa de suporte de cliente de Shmoop para escolas](mailto:support@shmoop.com) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte os [equipa de suporte de cliente de Shmoop para instituições de ensino](mailto:support@shmoop.com) obter esses valores. 
  
-4. A aplicação de Shmoop para escolas espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Captura de ecrã seguinte mostra como configurar as asserções:
+4. O aplicativo Shmoop para instituições de ensino espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicativo. Captura de ecrã seguinte mostra como configurar as asserções:
 
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop para escola suporta duas funções para os utilizadores: **professor** e **estudante**. Configure estas funções no Azure AD para que os utilizadores podem ser atribuídos as funções adequadas. Para saber como configurar as funções no Azure AD, consulte [gerir o acesso através do portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+    > Shmoop para instituição de ensino suporta duas funções para os utilizadores: **professor** e **estudante**. Configure estas funções no Azure AD para que os utilizadores podem ser atribuídos as funções adequadas. Para compreender como configurar funções no Azure AD, veja [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
     
-5. No **atributos de utilizador** secção o **de sessão único-** diálogo caixa, configure o atributo de token SAML, conforme mostrado na imagem anterior.  Em seguida, siga os passos seguintes:
+5. Na **atributos de utilizador** secção a **início de sessão único** diálogo caixa, configure o atributo de token SAML, conforme mostrado na imagem anterior.  Em seguida, siga os passos seguintes:
 
-    | Nome do atributo | Valor do atributo |
+    | Nome de atributo | Valor do atributo |
     | -------------- | --------------- |
     | função           | user.assignedroles |
 
@@ -134,9 +134,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     
-    b. No **nome** caixa, escreva o nome do atributo que é apresentado para essa linha.
+    b. Na **nome** , escreva o nome de atributo que é mostrado para essa linha.
     
-    c. Do **valor** lista, selecione o valor do atributo que é apresentado para essa linha.
+    c. Partir do **valor** , selecione o valor do atributo que é mostrado para essa linha.
 
     d. Deixe o **espaço de nomes** caixa vazia.
     
@@ -146,15 +146,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+7. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
-    ![A hiperligação de transferência do certificado](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
+    ![O link de download de certificado](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-8. Para configurar o início de sessão único no **Shmoop para escolas** lado, terá de enviar o **Url de metadados de Federação de aplicação** para o [Shmoop para escolas suporta equipa](mailto:support@shmoop.com).
+8. Para configurar o início de sessão único no **Shmoop para instituições de ensino** lado, terá de enviar o **Url de metadados de Federação de aplicação** para o [Shmoop para instituições de ensino a equipa de suporte](mailto:support@shmoop.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste chamado Britta Simon no portal do Azure.
+O objetivo desta secção é criar um utilizador de teste chamado Eduarda Almeida no portal do Azure.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
@@ -166,73 +166,73 @@ O objetivo desta secção consiste em criar um utilizador de teste chamado Britt
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**. Em seguida, selecione **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/shmoopforschools-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/shmoopforschools-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, selecione **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **utilizador** caixa de diálogo, selecione **Add** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/shmoopforschools-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/shmoopforschools-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, siga os passos seguintes:
+4. Na **utilizador** diálogo caixa, siga os passos seguintes:
 
     ![A caixa de diálogo de utilizador](./media/shmoopforschools-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Selecione **Criar**.
  
 ### <a name="create-a-shmoop-for-schools-test-user"></a>Criar um utilizador de teste Shmoop para escolas
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Shmoop para escolas. Shmoop para escolas suporta o aprovisionamento de just-in-time, que está ativada por predefinição. Não há nenhum item de ação para si nesta secção. Se um novo utilizador ainda não existir, é criada durante a tentativa de aceder Shmoop para escolas.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Shmoop para instituições de ensino. Shmoop para instituições de ensino suporta o aprovisionamento de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se ainda não existir um novo utilizador, é criada durante a tentativa de acessar Shmoop para instituições de ensino.
 
 >[!NOTE]
->Se precisar de criar manualmente um utilizador, contacte o [Shmoop para escolas suporta equipa](mailto:support@shmoop.com).
+>Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte de Shmoop para instituições de ensino](mailto:support@shmoop.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Shmoop para escolas.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Shmoop para instituições de ensino.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a Shmoop para escolas, siga os passos seguintes:**
+**Para atribuir a Eduarda Almeida a Shmoop para instituições de ensino, siga os passos seguintes:**
 
-1. No portal do Azure, abra a vista de aplicações. Em seguida, aceda a **aplicações empresariais** na vista de diretório.  Em seguida, selecione **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicações. Em seguida, aceda a **aplicações empresariais** na vista de diretório.  Em seguida, selecione **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Shmoop para escolas**.
+2. Na lista de aplicações, selecione **Shmoop para instituições de ensino**.
 
-    ![A ligação de Shmoop para escolas na lista de aplicações](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
+    ![A ligação de Shmoop para instituições de ensino na lista de aplicações](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Selecione o **adicionar** botão. Em seguida, no **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
+4. Selecione o **adicionar** botão. Em seguida, na **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. No **utilizadores e grupos** caixa de diálogo, clique em de **selecione** botão. 
+6. Na **utilizadores e grupos** caixa de diálogo, clique nas **selecione** botão. 
 
-7. No **adicionar atribuição** caixa de diálogo, selecione o **atribuir** botão.
+7. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 
-Quando seleciona o **Shmoop para escolas** na peça de mosaico do painel de acesso, que deve obter automaticamente sessão na sua aplicação Shmoop para escolas.
+Quando seleciona a **Shmoop para instituições de ensino** mosaico no painel de acesso, deve obter automaticamente a sessão iniciada sua aplicação Shmoop para instituições de ensino.
 
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Lista de tutoriais para saber como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

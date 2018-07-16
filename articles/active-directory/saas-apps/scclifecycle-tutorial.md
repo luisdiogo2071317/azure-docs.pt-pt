@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o ciclo de vida SCC | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e SCC ciclo de vida.
+title: 'Tutorial: Integração do Azure Active Directory com o ciclo de vida de SCC | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o ciclo de vida de SCC.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 3fbd68864635a50671a8b789c8b9d491f930c2a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1d7ce538ed6ae76f9392433eb88929e375f9d0cb
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218134"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045928"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Azure Active Directory com SCC ciclo de vida
+# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Azure Active Directory com o ciclo de vida de SCC
 
-Neste tutorial, irá aprender a integrar o ciclo de vida SCC com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o ciclo de vida de SCC com o Azure Active Directory (Azure AD).
 
-Integrar o ciclo de vida SCC com o Azure AD fornece as seguintes vantagens:
+Integrar o ciclo de vida de SCC no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao SCC ciclo de vida
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para SCC ciclo de vida (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao ciclo de vida de SCC
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o ciclo de vida de SCC (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com SCC ciclo de vida, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o ciclo de vida do SCC, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um ciclo de vida SCC-início de sessão único ativada subscrição
+- Um ciclo de vida de SCC logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -49,82 +49,82 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar SCC ciclo de vida da galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando o ciclo de vida de SCC da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-scc-lifecycle-from-the-gallery"></a>Adicionar SCC ciclo de vida da galeria do
-Para configurar a integração do ciclo de vida SCC com o Azure AD, tem de adicionar SCC ciclo de vida da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-scc-lifecycle-from-the-gallery"></a>Adicionando o ciclo de vida de SCC da Galeria
+Para configurar a integração do ciclo de vida de SCC com o Azure AD, terá de adicionar o ciclo de vida de SCC partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar SCC ciclo de vida da galeria do, execute os seguintes passos:**
+**Para adicionar o ciclo de vida de SCC da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **SCC ciclo de vida**.
+4. Na caixa de pesquisa, escreva **ciclo de vida de SCC**.
 
     ![Criar um utilizador de teste do Azure AD](./media/scclifecycle-tutorial/tutorial_scclifecycle_search.png)
 
-5. No painel de resultados, selecione **SCC ciclo de vida**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **ciclo de vida de SCC**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/scclifecycle-tutorial/tutorial_scclifecycle_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com o ciclo de vida SCC com base num utilizador de teste chamado "Britta Simon."
+Nesta secção, configure e teste do Azure AD início de sessão único com o ciclo de vida de SCC com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no ciclo de vida SCC é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no ciclo de vida SCC tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador equivalente no ciclo de vida de SCC a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no ciclo de vida de SCC deve ser estabelecido.
 
-No ciclo de vida SCC, atribua o valor do **nome de utilizador** no Azure AD como o valor de **Username** para estabelecer a relação de ligação.
+No ciclo de vida de SCC, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com SCC ciclo de vida, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o ciclo de vida de SCC, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste do ciclo de vida SCC](#creating-an-scc-lifecycle-test-user)**  - para ter um homólogo de Britta Simon no ciclo de vida de SCC que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste do ciclo de vida de SCC](#creating-an-scc-lifecycle-test-user)**  - para ter um equivalente da Eduarda Almeida no ciclo de vida de SCC que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação SCC ciclo de vida.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de ciclo de vida de SCC.
 
-**Para configurar o Azure AD-início de sessão único com SCC ciclo de vida, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o ciclo de vida de SCC, execute os seguintes passos:**
 
-1. No portal do Azure, no **SCC ciclo de vida** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **ciclo de vida de SCC** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
 
-3. No **SCC ciclo de vida do domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **SCC ciclo de vida do domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/scclifecycle-tutorial/tutorial_scclifecycle_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|--|
     | `https://bs1.scc.com/<entity>`|
     | `https://lifecycle.scc.com/<entity>`|
     
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de ciclo de vida de SCC](mailto:lifecycle.support@scc.com) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de ciclo de vida de SCC](mailto:lifecycle.support@scc.com) obter esses valores. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/scclifecycle-tutorial/tutorial_scclifecycle_certificate.png) 
 
@@ -132,23 +132,23 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/scclifecycle-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único em **SCC ciclo de vida** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte do ciclo de vida SCC](mailto:lifecycle.support@scc.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+6. Para configurar o início de sessão único num **ciclo de vida de SCC** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte do ciclo de vida de SCC](mailto:lifecycle.support@scc.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
   >[!NOTE]
-  >O início de sessão único tem de ser ativado pela equipa de suporte do ciclo de vida SCC.
+  >Início de sessão único tem de ser ativada pela equipa de suporte do ciclo de vida de SCC.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/scclifecycle-tutorial/create_aaduser_01.png) 
 
@@ -156,72 +156,72 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/scclifecycle-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/scclifecycle-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-an-scc-lifecycle-test-user"></a>Criar um utilizador de teste SCC ciclo de vida
+### <a name="creating-an-scc-lifecycle-test-user"></a>Criar um utilizador de teste do ciclo de vida de SCC
 
-Para permitir que os utilizadores do Azure AD inicie sessão no ciclo de vida SCC, têm de ser aprovisionados para SCC ciclo de vida. Não há nenhum item de ação para configurar o aprovisionamento de utilizadores para SCC ciclo de vida.
+Para habilitar os utilizadores do Azure AD iniciar sessão no ciclo de vida de SCC, tem de ser aprovisionados no ciclo de vida de SCC. Não existe nenhum item de ação para configurar o aprovisionamento de utilizadores para o ciclo de vida de SCC.
 
-Quando um utilizador atribuído tenta iniciar sessão no ciclo de vida SCC, uma conta de ciclo de vida SCC é criada automaticamente se necessário.
+Quando um utilizador atribuído tenta iniciar sessão no ciclo de vida de SCC, uma conta de ciclo de vida de SCC é criada automaticamente se necessário.
 
 > [!NOTE]
-> Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
+> O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para SCC ciclo de vida.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para o ciclo de vida de SCC.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a SCC ciclo de vida, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida ao ciclo de vida de SCC, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda à **aplicações empresariais** , em seguida, clique em **todas as aplicações.**
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda à **aplicações empresariais** , em seguida, clique em **todas as aplicações.**
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **SCC ciclo de vida**.
+2. Na lista de aplicações, selecione **ciclo de vida de SCC**.
 
     ![Configurar o início de sessão único](./media/scclifecycle-tutorial/tutorial_scclifecycle_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de ciclo de vida SCC no painel de acesso, deve obter automaticamente com sessão iniciada a aplicação de SCC ciclo de vida.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico de ciclo de vida de SCC no painel de acesso, deve obter automaticamente com sessão iniciada a aplicação de ciclo de vida de SCC.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

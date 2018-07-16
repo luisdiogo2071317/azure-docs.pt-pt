@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b3d334edd770ac381a7e0ae6aaa1a9db8c91b961
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 20f8ac8f301302f3121880752ea698425c194623
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002944"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049440"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utilizar um Windows VM Managed Service Identity (MSI) para aceder ao Azure Key Vault 
 
@@ -88,7 +88,7 @@ Em primeiro lugar, é necessário criar um Key Vault e conceder acesso de identi
 7. Clique em **OK** para concluir a adição de nova política de acesso, e **OK** para concluir a seleção da política de acesso. 
 8. Clique em **criar** para concluir a criação do Cofre de chaves. 
 
-    ![Texto alternativo da imagem](~/articles/active-directory/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
 Em seguida, adicione um segredo ao Key Vault, para que mais tarde possa obter o segredo com código em execução na sua VM: 

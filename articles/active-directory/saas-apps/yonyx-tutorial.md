@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com guias interativa Yonyx | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e guias interativa Yonyx.
+title: 'Tutorial: Integração do Azure Active Directory com os guias de Yonyx interativa | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e guias de Yonyx interativo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e8873a15653bfaca5ea4da8fecf0edcd7b6f8af
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1f337f453a5721792527d5494e8faf9ba47437f7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212319"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050634"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com guias interativa Yonyx
+# <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com os guias de Yonyx interativa
 
-Neste tutorial, irá aprender a integrar guias interativa Yonyx com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar os guias de Yonyx interativa com o Azure Active Directory (Azure AD).
 
-Guias de interativa Yonyx a integração com o Azure AD fornece as seguintes vantagens:
+Integração de guias de Yonyx interativa com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao guias interativa Yonyx
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Yonyx guias interativa (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso interativo Yonyx de guias de procedimentos
+- Pode permitir que os utilizadores automaticamente obter sessão iniciada em Yonyx guias interativa (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com guias interativa Yonyx, terá dos seguintes itens:
+Para configurar a integração do Azure AD com guias de Yonyx interativa, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Um guias interativa Yonyx-início de sessão único ativada subscrição
+- Um Yonyx guias de Interactive logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,174 +50,174 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. A adição de guias interativa Yonyx de galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Yonyx guias de interativo da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-yonyx-interactive-guides-from-the-gallery"></a>A adição de guias interativa Yonyx de galeria
-Para configurar a integração de guias interativa Yonyx com o Azure AD, tem de adicionar guias interativa Yonyx na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-yonyx-interactive-guides-from-the-gallery"></a>Adicionando Yonyx guias de interativo da Galeria
+Para configurar a integração de guias de Yonyx interativa com o Azure AD, terá de adicionar guias de Yonyx interativos a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar guias interativa Yonyx na galeria do, execute os seguintes passos:**
+**Para adicionar guias de Yonyx interativos a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **guias interativa Yonyx**, selecione **guias interativa Yonyx** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **guias de interativo Yonyx**, selecione **guias de interativo Yonyx** no painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-    ![Guias de interativa Yonyx na lista de resultados](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_addfromgallery.png)
+    ![Guias de interativo Yonyx na lista de resultados](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com os guias de interativa Yonyx com base num utilizador de teste chamado "Britta Simon".
+Nesta secção, configure e teste do Azure AD início de sessão único com os guias de interativo Yonyx com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo guias interativa Yonyx é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado guias interativa Yonyx tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte nos guias de Yonyx interativo para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado nos guias de interativo Yonyx deve ser estabelecido.
 
-Guias de interativa Yonyx, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Guias de Yonyx interativo, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **nome de utilizador** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com guias interativa Yonyx, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com os guias de Yonyx interativo, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de guias interativa Yonyx](#create-a-yonyx-interactive-guides-test-user)**  - para ter um homólogo de Britta Simon Yonyx guias interativas que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste de guias de interativo Yonyx](#create-a-yonyx-interactive-guides-test-user)**  - para ter um equivalente da Eduarda Almeida Yonyx guias interativo que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação guias interativa Yonyx.
+Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único em seu aplicativo de guias de Yonyx interativo.
 
-**Para configurar o Azure AD-início de sessão único com guias interativa Yonyx, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com os guias de Yonyx interativo, execute os seguintes passos:**
 
-1. No portal do Azure, no **guias interativa Yonyx** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, no **guias de interativo Yonyx** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_samlbase.png)
 
-3. No **Yonyx interativa guias de domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **Yonyx interativo guias de domínio e URLs** secção, execute os seguintes passos:
 
-    ![Yonyx interativa guias de domínio e os URLs únicos de informações de início de sessão](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
+    ![Yonyx interativo guias de domínio e URLs únicas início de sessão em informações](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.yonyx.com`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.yonyx.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de guias interativa Yonyx](mailto:support@yonyx.com) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de guias interativo Yonyx](mailto:support@yonyx.com) obter esses valores. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_certificate.png) 
+    ![O link de download de certificado](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_certificate.png) 
 
 5. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/yonyx-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/yonyx-tutorial/tutorial_general_400.png)
 
-6. No **Yonyx interativa guias de configuração** secção, clique em **configurar interativa guias de Yonyx** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Na **Yonyx interativo guias de configuração** secção, clique em **Configurar guias interativa de Yonyx** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
-    ![Configuração de guias interativa Yonyx](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_configure.png) 
+    ![Configuração de guias interativo Yonyx](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_configure.png) 
 
-7. Para configurar o início de sessão único em **guias interativa Yonyx** lado, terá de enviar o transferido **Certificate(Base64)**, **Sign-Out URL**, **SAML único URL do serviço de início de sessão** **ID de entidade de SAML** para [guias interativa Yonyx suporta equipa](mailto:support@yonyx.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Para configurar o início de sessão único num **guias de interativo Yonyx** lado, terá de enviar o transferido **Certificate(Base64)**, **URL de fim de sessão**, **único SAML URL do serviço de início de sessão** **ID da entidade de SAML** para [equipa de suporte de guias de interativo Yonyx](mailto:support@yonyx.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
   ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](./media/yonyx-tutorial/create_aaduser_01.png) 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/yonyx-tutorial/create_aaduser_02.png) 
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/yonyx-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
-    ![O botão de adição](./media/yonyx-tutorial/create_aaduser_03.png) 
+    ![Botão Adicionar](./media/yonyx-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![A caixa de diálogo de utilizador](./media/yonyx-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="create-a-yonyx-interactive-guides-test-user"></a>Criar um utilizador de teste de guias interativa Yonyx
+### <a name="create-a-yonyx-interactive-guides-test-user"></a>Criar um utilizador de teste de guias de Yonyx interativa
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon guias interativa Yonyx. Guias de interativa Yonyx suportam o aprovisionamento de just-in-time, que é por predefinição ativada.
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida nos guias de Yonyx interativo. Guias de interativo Yonyx suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
 
-Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante a tentativa de aceder guias interativa Yonyx se não existir ainda.
+Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder guias de interativo Yonyx se não existir ainda.
 
 >[!NOTE]
->Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de guias interativa Yonyx através de <mailto:support@yonyx.com>. 
+>Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de guias de interativo Yonyx por <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para guias interativa Yonyx.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso interativo Yonyx de guias de procedimentos.
 
 ![Atribuir a função de utilizador][200]
 
-**Para atribuir Britta Simon a guias interativa Yonyx, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida interativo Yonyx de guias de procedimentos, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **guias interativa Yonyx**.
+2. Na lista de aplicações, selecione **guias de interativo Yonyx**.
 
-    ![A ligação de guias interativa Yonyx na lista de aplicações](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_app.png) 
+    ![A ligação de guias de interativo Yonyx na lista de aplicações](./media/yonyx-tutorial/tutorial_yonyxinteractiveguides_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de guias interativa Yonyx no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de guias interativa Yonyx.
+Quando clica no mosaico de guias de interativo Yonyx no painel de acesso, deve obter automaticamente sessão iniciada em à sua aplicação de guias de Yonyx interativo.
 
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

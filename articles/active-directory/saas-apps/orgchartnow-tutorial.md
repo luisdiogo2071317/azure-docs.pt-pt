@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com OrgChart agora | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e OrgChart agora.
+title: 'Tutorial: Integração do Azure Active Directory com OrgChart agora | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e OrgChart agora.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: f68c5d6a022cccecde3b3eb272e51f75ae6bc50e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5679c815b26bf0b5e3a427e9551dde7b5dffa3d2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222066"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Azure Active Directory com OrgChart agora
 
-Neste tutorial, irá aprender a integrar OrgChart agora com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar OrgChart agora com o Azure Active Directory (Azure AD).
 
 Integrar OrgChart agora com o Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao OrgChart agora.
-- Pode permitir aos utilizadores automaticamente obter com sessão iniciada para OrgChart agora (Single Sign-On) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central - portal do Azure.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para OrgChart agora (Single Sign-On) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central – portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com OrgChart agora, terá dos seguintes itens:
+Para configurar a integração do Azure AD com OrgChart agora, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Um OrgChart agora início de sessão único subscrição ativado
+- Um OrgChart agora início de sessão único na subscrição ativado
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -50,148 +50,148 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar OrgChart agora a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando OrgChart agora da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-orgchart-now-from-the-gallery"></a>Adicionar OrgChart agora a partir da Galeria
-Para configurar a integração de OrgChart agora com o Azure AD, tem de adicionar OrgChart agora na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-orgchart-now-from-the-gallery"></a>Adicionando OrgChart agora da Galeria
+Para configurar a integração do OrgChart agora para o Azure AD, terá de adicionar OrgChart agora a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar OrgChart agora a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **OrgChart agora**, selecione **OrgChart agora** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **agora OrgChart**, selecione **OrgChart agora** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![OrgChart agora na lista de resultados](./media/orgchartnow-tutorial/tutorial_orgchartnow_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com OrgChart agora baseado na chamado "Britta Simon" um utilizador de teste.
+Nesta secção, configure e teste do Azure AD início de sessão único com OrgChart agora com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no OrgChart agora é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no OrgChart agora tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte OrgChart agora a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado OrgChart agora tem de ser estabelecida.
 
-Para configurar e testar o Azure AD-início de sessão único com OrgChart agora, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com OrgChart agora, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste agora OrgChart](#create-an-orgchart-now-test-user)**  - para ter um homólogo de Britta Simon OrgChart agora que está ligada a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste agora OrgChart](#create-an-orgchart-now-test-user)**  - para ter um equivalente da Eduarda Almeida OrgChart agora que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação OrgChart agora.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo OrgChart agora.
 
-**Para configurar o Azure AD-início de sessão único com OrgChart agora, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com OrgChart agora, execute os seguintes passos:**
 
-1. No portal do Azure, no **OrgChart agora** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **agora OrgChart** página de integração de aplicativo, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão único][4]
+    ![Configurar a ligação de início de sessão única][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/orgchartnow-tutorial/tutorial_orgchartnow_samlbase.png)
 
-3. No **OrgChart agora o domínio e os URLs** secção, se pretender configurar a aplicação no **IDP** iniciada modo:
+3. Sobre o **OrgChart agora o domínio e URLs** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
-    ![OrgChart agora o domínio e os URLs únicos de informações de início de sessão](./media/orgchartnow-tutorial/tutorial_orgchartnow_url.png)
+    ![OrgChart agora o domínio e URLs únicas início de sessão em informações](./media/orgchartnow-tutorial/tutorial_orgchartnow_url.png)
 
-    No **identificador** caixa de texto, escreva um URL: `https://sso2.orgchartnow.com`
+    Na **identificador** caixa de texto, escreva um URL: `https://sso2.orgchartnow.com`
 
-4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
+4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![OrgChart agora o domínio e os URLs únicos de informações de início de sessão](./media/orgchartnow-tutorial/tutorial_orgchartnow_url1.png)
+    ![OrgChart agora o domínio e URLs únicas início de sessão em informações](./media/orgchartnow-tutorial/tutorial_orgchartnow_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
      
     > [!NOTE]
-    > `<YourEntityID>` o ID de entidade de SAML é copiado da secção de referência rápida, descrita mais adiante no tutorial.
+    > `<YourEntityID>` o ID de entidade de SAML é copiado da secção de referência rápida, descrita mais à frente no tutorial.
 
-5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/orgchartnow-tutorial/tutorial_orgchartnow_certificate.png) 
+    ![O link de download de certificado](./media/orgchartnow-tutorial/tutorial_orgchartnow_certificate.png) 
 
 6. Clique em **guardar** botão.
 
-    ![Configurar botão único início de sessão guardar](./media/orgchartnow-tutorial/tutorial_general_400.png)
+    ![Configurar o botão único início de sessão em Guardar](./media/orgchartnow-tutorial/tutorial_general_400.png)
     
-7. No **OrgChart agora configuração** secção, clique em **configurar agora OrgChart** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML** do **secção de referência rápida** e utilizá-lo para concluir **URL de início de sessão** no **OrgChart agora o domínio e os URLs secção**.
+7. Sobre o **OrgChart agora Configuration** secção, clique em **configurar OrgChart agora** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** partir o **secção de referência rápida** e utilizá-lo a concluir **URL de início de sessão** no **OrgChart agora o domínio e URLs secção**.
 
     ![Configuração de OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_configure.png) 
 
-8. Para configurar o início de sessão único em **OrgChart agora** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de OrgChart agora](mailto:ocnsupport@officeworksoftware.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+8. Para configurar o início de sessão único num **agora OrgChart** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de OrgChart agora](mailto:ocnsupport@officeworksoftware.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
    ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/orgchartnow-tutorial/create_aaduser_01.png)
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/orgchartnow-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/orgchartnow-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
-    ![O botão de adição](./media/orgchartnow-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/orgchartnow-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+4. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/orgchartnow-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-an-orgchart-now-test-user"></a>Criar um utilizador de teste OrgChart agora
 
-Para permitir que os utilizadores do Azure AD iniciem sessão nos OrgChart agora, têm de ser aprovisionados para OrgChart agora. 
+Para ativar a utilizadores do Azure AD iniciar sessão no OrgChart agora, tem de ser aprovisionados em OrgChart agora. 
 
-1. OrgChart agora suporta o aprovisionamento just-in-time, que é por predefinição ativada. Um novo utilizador é criado durante a tentativa de aceder OrgChart agora se não existir ainda. A funcionalidade de aprovisionamento de utilizadores de just-in-time só irão criar um **só de leitura** utilizador quando um pedido SSO é proveniente de um IDP reconhecido e o e-mail na asserção SAML não foi encontrado na lista de utilizadores. Para este automaticamente a funcionalidade de aprovisionamento tem de criar um grupo de acesso intitulado **geral** no OrgChart agora. Siga os passos abaixo para criar um grupo de acesso:
+1. OrgChart agora suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Um novo utilizador é criado durante uma tentativa de aceder OrgChart agora, se não existir ainda. A funcionalidade de aprovisionamento de utilizadores de just-in-time só irão criar um **só de leitura** utilizador quando um pedido SSO é proveniente de um IDP reconhecido e o e-mail na asserção de SAML não foi encontrado na lista de utilizadores. Para este automaticamente a funcionalidade de aprovisionamento tem de criar um grupo de acesso intitulado **gerais** OrgChart agora. Siga os passos abaixo para criar um grupo de acesso:
 
-    a. Vá para o **gerir grupos** opção depois de clicar o **gear** no canto superior direito da IU.
+    a. Vá para o **gerir grupos** opção depois de clicar o **engrenagem** no canto superior direito da interface do Usuário.
 
     ![Grupos de OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
-    b. Selecione o **adicionar** ícone e o nome do grupo de **geral** , em seguida, clique em **OK**. 
+    b. Selecione o **Add** ícone e o nome do grupo **gerais** , em seguida, clique em **OK**. 
 
     ![Adicionar OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_add.png)
 
-    c. Selecione as pastas que pretende gerais ou só de leitura aos utilizadores ser capazes de aceder:
+    c. Selecione a pasta (s) que pretende que os usuários gerais ou só de leitura para poder aceder a:
 
     ![Pastas de OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_chart.png)
 
     d. **Bloqueio** as pastas para que apenas os utilizadores administradores podem modificá-las. Em seguida, prima **OK**.
 
-    ![Bloqueio OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_lock.png)
+    ![Bloqueio de OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_lock.png)
 
-2. Para criar **Admin** utilizadores e **leitura/escrita** utilizadores, tem de criar manualmente um utilizador para aceder ao respetivo nível de privilégio através de SSO. Para Aprovisionar uma conta de utilizador, execute os seguintes passos:
+2. Para criar **administrador** os utilizadores e **leitura/escrita** utilizadores, tem de criar manualmente um utilizador para obter acesso ao respetivo nível de privilégios através de SSO. Para Aprovisionar uma conta de utilizador, execute os seguintes passos:
 
     a. Inicie sessão no OrgChart agora como um administrador de segurança.
 
-    b.  Clique em **definições** na parte superior direita canto e, em seguida, navegue para **gerir utilizadores**.
+    b.  Clique em **configurações** no canto superior direito canto e, em seguida, navegue até à **Manage Users**.
 
     ![Definições de OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_settings.png)
 
@@ -199,23 +199,23 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos OrgChart agora
 
     ![Gerir OrgChart agora](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * No **ID de utilizador** caixa de texto, introduza o ID de utilizador como **brittasimon@contoso.com**.
+    * Na **ID de utilizador** caixa de texto, introduza o ID de utilizador, como **brittasimon@contoso.com**.
 
-    * No **endereço de correio eletrónico** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    * Na **endereço de E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
 
     * Clique em **Adicionar**.
     
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para OrgChart agora.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a OrgChart Now.
 
 ![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a OrgChart agora, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a OrgChart agora, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **OrgChart agora**.
 
@@ -223,29 +223,29 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico OrgChart agora no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação agora OrgChart.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico OrgChart agora no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação OrgChart agora.
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

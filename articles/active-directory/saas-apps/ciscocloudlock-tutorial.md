@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 56f88af5d1ec8adb44d5f5c7f539925e26459e19
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865459"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Integração do Azure Active Directory com os recursos de infraestrutura de segurança de Cloud
 
@@ -203,7 +203,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica em mosaico a recursos de infraestrutura de segurança de Cloud, no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de acesso a recursos de infraestrutura de segurança de Cloud.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

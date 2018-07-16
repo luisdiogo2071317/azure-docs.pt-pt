@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Remix do Gestor de vendas da I | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Remix do Gestor de vendas da I.
+title: 'Tutorial: Integração do Azure Active Directory com E Sales Manager Remix | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Remix do Gestor de vendas da I.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,167 +15,167 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 07cbc047179c3de19d6f648d0342d47970c81dbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231377"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052674"
 ---
-# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Remix de Gestor de vendas E do Azure Active Directory
+# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Azure Active Directory E Gestor de vendas Remix
 
-Neste tutorial, saiba como integrar o Azure Active Directory (Azure AD) com Remix do Gestor de vendas da I.
+Neste tutorial, saiba como integrar o Azure Active Directory (Azure AD) com E Sales Manager Remix.
 
-Através da integração do Azure AD com Remix do Gestor de vendas da I, obtenha as seguintes vantagens:
+Com a integração do Azure AD com E Sales Manager Remix, obtenha os seguintes benefícios:
 
-- Pode controlar no Azure AD que tenha acesso ao Remix do Gestor de vendas da I.
-- Pode permitir aos utilizadores obter a sessão iniciada no automaticamente i vendas Manager Remix (o início de sessão único, ou SSO) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central, o portal do Azure.
+- Pode controlar no Azure AD que tenha acesso ao E Sales Manager Remix.
+- Pode ativar os seus utilizadores obter a sessão iniciada no automaticamente E Sales Manager Remix (início de sessão único, ou SSO) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central, o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Remix do Gestor de vendas da I, terá dos seguintes itens:
+Para configurar a integração do Azure AD com E Sales Manager Remix, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Uma subscrição i vendas Manager Remix SSO ativado
+- Uma subscrição E Sales Manager Remix SSO ativado
 
 > [!NOTE]
-> Quando o testar os passos neste tutorial, recomendamos que efetue *não* utilizar um ambiente de produção.
+> Quando testa os passos neste tutorial, é recomendável que faça *não* utilizar um ambiente de produção.
 
-Para testar os passos neste tutorial, siga estas recomendações:
+Para testar os passos neste tutorial, siga as seguintes recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. 
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. 
 
-O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-* A adição de Remix do Gestor de vendas da i de galeria
-* Configurar e testar o Azure AD de sessão único-
+* Adicionando E Sales Manager Remix da Galeria
+* Configuração e teste do Azure AD início de sessão único
 
-## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adicionar Remix do Gestor de vendas da i a partir da Galeria
-Para configurar a integração do Azure AD com Remix do Gestor de vendas da I, adicione Remix do Gestor de vendas da i na Galeria à sua lista de aplicações SaaS geridas efetuando o seguinte procedimento:
+## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adicionar E Sales Manager Remix a partir da Galeria
+Para configurar a integração do Azure AD com Remix do Gestor de vendas da I, adicione E Sales Manager Remix partir da Galeria à sua lista de aplicações geridas do SaaS, fazendo o seguinte:
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **do Azure Active Directory**. 
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
 
     ![O botão do Azure Active Directory][1]
 
 2. Selecione **aplicações empresariais** > **todas as aplicações**.
 
-    ![A janela de "Aplicações da empresa"][2]
+    ![A janela de "Aplicações empresariais"][2]
     
 3. Para adicionar uma nova aplicação, selecione **nova aplicação** na parte superior da janela.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Remix do Gestor de vendas da i**, selecione **Remix do Gestor de vendas da i** na lista de resultados e, em seguida, selecione **adicionar**.
+4. Na caixa de pesquisa, escreva **Remix do Gestor de vendas da i**, selecione **Remix do Gestor de vendas da i** na lista de resultados e, em seguida, selecione **Add**.
 
-    ![I Remix de Gestor de vendas na lista de resultados](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
+    ![E Remix de Gestor de vendas na lista de resultados](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configurar e testar o Azure AD-início de sessão único com i vendas Manager Remix, com base num utilizador de teste chamado "Britta Simon."
+Nesta secção, configurar e testar o Azure AD início de sessão único com E Sales Manager Remix, com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de identificar o utilizador Remix do Gestor de vendas da i e o respetivo homólogo no Azure AD. Por outras palavras, tem de ser estabelecida uma relação de ligação entre um utilizador do Azure AD e o mesmo utilizador na Remix do Gestor de vendas da I.
+Para o início de sessão único funcione, o Azure AD precisa identificar o utilizador E Sales Manager Remix e sua contraparte no Azure AD. Em outras palavras, é necessário estabelecer uma relação de ligação entre um utilizador do Azure AD e o mesmo utilizador em Remix do Gestor de vendas da I.
 
-Para configurar e testar o Azure AD-início de sessão único com Remix do Gestor de vendas da I, conclua os blocos modulares nas cinco seguinte secções:
+Para configurar e testar o Azure AD início de sessão único com E Sales Manager Remix, conclua os blocos de construção nas seções a seguir cinco:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Ativar o Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Remix do Gestor de vendas da i efetuando o seguinte procedimento:
+Ativar o Azure AD início de sessão único no portal do Azure e configurar o início de sessão único na sua aplicação E Sales Manager Remix efetuando o seguinte procedimento:
 
-1. No portal do Azure, no **Remix do Gestor de vendas da i** página de integração de aplicações, selecione **de sessão único-**.
+1. No portal do Azure, sobre o **Remix do Gestor de vendas da i** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![A hiperligação "De sessão único"][4]
+    ![A ligação de "Início de sessão único"][4]
 
-2. No **de sessão único-** janela, no **modo de início de sessão único** caixa, selecione **baseados em SAML início de sessão**.
+2. Na **início de sessão único** janela, na **modo de início de sessão único** caixa, selecione **baseado em SAML logon**.
  
-    ![A janela "De sessão único"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
+    ![A janela de "Início de sessão único"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. Em **i vendas Manager Remix domínio e os URLs**, efetue o seguinte procedimento:
+3. Sob **Remix domínio do Gestor de vendas E e URLs**, efetue o seguinte procedimento:
 
-    ![I vendas Manager Remix domínio e os URLs únicos de informações de início de sessão](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
+    ![URLs e Remix domínio do Gestor de vendas E únicas início de sessão em informações](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. No **URL de início de sessão** caixa, escreva um URL no seguinte formato: *https://\<-com base-URL do servidor > /\<subdomínio > / esales pc*.
+    a. Na **URL de início de sessão** caixa, escreva um URL no seguinte formato: *https://\<Server-com base-URL > /\<subdomínio > / esales pc*.
 
-    b. No **identificador** caixa, escreva um URL no seguinte formato: *https://\<-com base-URL do servidor > /\<subdomínio > /*.
+    b. Na **identificador** caixa, escreva um URL no seguinte formato: *https://\<servidor-com base-URL > /\<subdomínio > /*.
 
-    c. Tenha em atenção o **identificador** valor para utilização posterior neste tutorial.
+    c. Tenha em atenção a **identificador** valor para utilização posterior neste tutorial.
     
     > [!NOTE] 
-    > Os valores anteriores não são reais. Atualize-as com o URL de início de sessão real e o identificador. Para obter os valores, contacte [equipa de suporte de cliente Remix Manager vendas i](mailto:esupport@softbrain.co.jp).
+    > Os valores anteriores não são reais. Atualize-as com o URL de início de sessão real e o identificador. Para obter os valores, contacte [equipa de suporte de cliente E vendas Manager Remix](mailto:esupport@softbrain.co.jp).
 
-4. Em **certificado de assinatura de SAML**, selecione **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sob **certificado de assinatura SAML**, selecione **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
+    ![O link de download de certificado (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. Selecione o **ver e editar todos os outros atributos de utilizador** caixa de verificação e, em seguida, selecione o **emailaddress** atributo.
+5. Selecione o **ver e editar todos os outros atributos de utilizador** caixa de verificação e, em seguida, selecione a **emailaddress** atributo.
     
     ![A janela de atributos de utilizador](./media/esalesmanagerremix-tutorial/configure1.png)
 
     O **Editar atributo** é aberta a janela.
 
-6. Copiar o **espaço de nomes** e **nome** valores. Gerar o valor no padrão de  *\<espaço de nomes > /\<nome >* e guardá-lo para utilização posterior neste tutorial.
+6. Copiar o **espaço de nomes** e **nome** valores. Gerar o valor no padrão  *\<espaço de nomes > /\<Name >* e guarde-o para utilização posterior neste tutorial.
 
-    ![A janela Editar atributo](./media/esalesmanagerremix-tutorial/configure2.png)
+    ![A janela de Editar atributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
-7. Em **Remix configuração do Gestor de vendas i**, selecione **configurar i vendas Manager Remix**.
+7. Sob **Remix configuração do Gestor de vendas i**, selecione **configurar E Sales Manager Remix**.
 
-    ![Configuração de Remix do Gestor de vendas i](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Configuração de Remix do Gestor de vendas E](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
-    O **configurar início de sessão** é aberta a janela.
+    O **configurar o início de sessão** é aberta a janela.
 
-8. No **referência rápida** secção, copie o URL de início de sessão e o URL do serviço de início de sessão único SAML.
+8. Na **referência rápida** secção, copie o URL de fim de sessão e o URL do serviço de início de início de sessão único SAML.
 
 9. Selecione **Guardar**.
 
-    ![O botão Guardar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
+    ![O botão salvar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-10. Inicie sessão na aplicação Remix do Gestor de vendas da i como administrador.
+10. Inicie sessão na sua aplicação E Sales Manager Remix como administrador.
 
-11. Na parte superior direita, selecione **ao Menu de administrador**.
+11. Na parte superior direita, selecione **para o Menu de administrador**.
 
     ![O comando "Para o administrador Menu"](./media/esalesmanagerremix-tutorial/configure4.png)
 
 12. No painel esquerdo, selecione **definições do sistema** > **cooperação com o sistema externo**.
 
-    ![A "Definições de sistema" e ligações de "Cooperação com o sistema externo"](./media/esalesmanagerremix-tutorial/configure5.png)
+    ![A "Definições do sistema" e os links de "Cooperação com o sistema externo"](./media/esalesmanagerremix-tutorial/configure5.png)
     
-13. No **cooperação com o sistema externo** janela, selecione **SAML**.
+13. Na **cooperação com o sistema externo** janela, selecione **SAML**.
 
-    ![A janela "Cooperação com o sistema externo"](./media/esalesmanagerremix-tutorial/configure6.png)
+    ![A janela de "Cooperação com o sistema externo"](./media/esalesmanagerremix-tutorial/configure6.png)
 
-14. Em **definição de autenticação SAML**, efetue o seguinte procedimento:
+14. Sob **definição de autenticação SAML**, efetue o seguinte procedimento:
 
-    ![A secção "Definição de autenticação SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
+    ![A secção de "Definição de autenticação de SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-    a. Selecione o **versão PC** caixa de verificação.
+    a. Selecione o **versão de PC** caixa de verificação.
     
-    b. No **item colaboração** secção, na lista pendente, selecione **e-mail**.
+    b. Na **item de colaboração** secção, na lista pendente, selecione **e-mail**.
 
-    c. No **item colaboração** caixa, cole o valor de afirmação que copiou anteriormente do portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na **item de colaboração** caixa, cole o valor de afirmação que copiou anteriormente no portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
-    d. No **emissor (ID de entidade)** caixa, colar o valor do identificador que copiou anteriormente do **i vendas Manager Remix domínio e os URLs** secção do portal do Azure.
+    d. Na **emissor (ID de entidade)** caixa, cole o valor do identificador que copiou anteriormente do **Remix domínio do Gestor de vendas E e URLs** seção do portal do Azure.
 
     e. Para carregar o certificado transferido do portal do Azure, selecione **seleção de ficheiros**.
 
-    f. No **URL de início de sessão do fornecedor de ID** caixa, cole o URL do serviço de início de sessão único SAML que copiou anteriormente no portal do Azure.
+    f. Na **URL de início de sessão do fornecedor de ID** caixa, cole o URL do serviço de início de início de sessão único SAML que copiou anteriormente no portal do Azure.
 
-    g. No **URL de fim de sessão do fornecedor de identidade** caixa, cole o valor de URL de início de sessão que copiou anteriormente no portal do Azure.
+    g. Na **URL de fim de sessão do fornecedor de identidade** caixa, cole o valor de URL de fim de sessão que copiou anteriormente no portal do Azure.
 
-    h. Selecione **definição concluída**.
+    h. Selecione **definição completa**.
 
 > [!TIP]
-> Como está a configurar a aplicação, pode ler uma versão das instruções anteriores no concisa o [portal do Azure](https://portal.azure.com). Depois de adicionar a aplicação no **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e, em seguida, aceder a incorporado documentação o **configuração** secção na parte inferior. Para obter mais informações sobre a funcionalidade de documentação embedded, consulte [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Como estamos configurando o aplicativo, pode ler uma versão concisa das instruções anteriores no [portal do Azure](https://portal.azure.com). Depois de adicionar a aplicação no **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e, em seguida, aceder a documentação em Embedded a **configuração** seção na parte inferior. Para obter mais informações sobre a funcionalidade de documentação do embedded, consulte [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta secção, criar o utilizador de teste Britta Simon no portal do Azure da seguinte forma:
+Nesta secção, vai criar o utilizador de teste Eduarda Almeida no portal do Azure, fazendo o seguinte:
 
 ![Criar um utilizador de teste do Azure AD][100]
 
@@ -185,94 +185,94 @@ Nesta secção, criar o utilizador de teste Britta Simon no portal do Azure da s
 
 2. Para apresentar uma lista de utilizadores atuais, selecione **utilizadores e grupos** > **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Na parte superior do **todos os utilizadores** janela, selecione **adicionar**.
+3. Na parte superior a **todos os utilizadores** janela, selecione **Add**.
 
-    ![O botão de adição](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
+    ![Botão Adicionar](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     O **utilizador** é aberta a janela.
 
-4. No **utilizador** janela, efetue o seguinte procedimento:
+4. Na **utilizador** janela, efetue o seguinte procedimento:
 
     ![A janela de utilizador](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Selecione **Criar**.
  
-### <a name="create-an-e-sales-manager-remix-test-user"></a>Criar um utilizador de teste Remix do Gestor de vendas da i
+### <a name="create-an-e-sales-manager-remix-test-user"></a>Criar um utilizador de teste E Sales Manager Remix
 
-1. Iniciar sessão sua aplicação Remix do Gestor de vendas da i como administrador.
+1. Inicie sessão seu aplicativo E Sales Manager Remix como administrador.
 
-2. Selecione **ao Menu de administrador** no menu na parte superior direita.
+2. Selecione **para o Menu de administrador** no menu na parte superior direita.
 
-    ![Configuração de Remix do Gestor de vendas i](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![Configuração de Remix do Gestor de vendas E](./media/esalesmanagerremix-tutorial/configure4.png)
 
 3. Selecione **definições da sua empresa** > **manutenção dos departamentos e funcionários**e, em seguida, selecione **funcionários registados**.
 
-    ![No separador "Funcionários registado"](./media/esalesmanagerremix-tutorial/user1.png)
+    ![O separador "Funcionários registered"](./media/esalesmanagerremix-tutorial/user1.png)
 
-4. No **novo registo de empregado** secção, efetue o seguinte:
+4. Na **novo registo de funcionário** secção, efetue o seguinte:
     
-    ![O "registo do empregado novo" secção](./media/esalesmanagerremix-tutorial/user2.png)
+    ![O "registo de funcionário novo" secção](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. No **empregado nome** caixa, escreva o nome do utilizador (por exemplo, **Britta**).
+    a. Na **nome do funcionário** , escreva o nome do utilizador (por exemplo, **Eduarda**).
 
     b. Conclua os campos obrigatórios restantes.
     
-    c. Se ativar SAML, o administrador não pode iniciar sessão a partir da página de início de sessão. Conceder início de sessão privilégios de administrador para o utilizador selecionando o **início de sessão de administrador** caixa de verificação.
+    c. Se ativar SAML, o administrador não pode iniciar sessão a partir da página de início de sessão. Concessão início de sessão privilégios de administrador para o utilizador ao selecionar o **início de sessão de administrador** caixa de verificação.
 
     d. Selecione **registo**.
 
-5. No futuro, para iniciar sessão como administrador, inicie sessão como o utilizador que tem permissões de administrador e, em seguida, no canto superior direito, selecione **ao Menu de administrador**.
+5. No futuro, para iniciar sessão como administrador, inicie sessão como o utilizador que tem permissões de administrador e, em seguida, na parte superior direita, selecione **para o Menu de administrador**.
 
     ![O comando "Para o administrador Menu"](./media/esalesmanagerremix-tutorial/configure4.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar utilizador Britta Simon para utilizar o Azure-início de sessão único, concedendo acesso para Remix do Gestor de vendas da I. Para tal, faça o seguinte: 
+Nesta secção, vai ativar utilizador Eduarda Almeida a utilizar do Azure-início de sessão único, conceder acesso à I Sales Manager Remix. Para tal, faça o seguinte: 
 
 ![Atribuir a função de utilizador][200] 
 
-1. No portal do Azure, abra o **aplicações** vista, aceda ao **diretório** visualizar e, em seguida, selecione **aplicações empresariais** > **todos os aplicações**.
+1. No portal do Azure, abra a **aplicativos** modo de exibição, vá para o **diretório** ver e, em seguida, selecione **aplicações empresariais** > **todos os aplicativos**.
 
-    ![O "As aplicações empresariais" e ligações de "Todas as aplicações"][201] 
+    ![A "Aplicações empresariais" e os links de "Todas as aplicações"][201] 
 
-2. No **aplicações** lista, selecione **Remix do Gestor de vendas da i**.
+2. Na **aplicativos** lista, selecione **Remix do Gestor de vendas da i**.
 
-    ![A ligação Remix do Gestor de vendas da i](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
+    ![A ligação E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
 3. No painel esquerdo, selecione **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202]
+    ![A ligação "Utilizadores e grupos"][202]
 
-4. Selecione **adicionar** e, em seguida, no **adicionar atribuição** painel, selecione **utilizadores e grupos**.
+4. Selecione **Add** e, em seguida, no **adicionar atribuição** painel, selecione **utilizadores e grupos**.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** janela, no **utilizadores** lista, selecione **Britta Simon**.
+5. Na **utilizadores e grupos** janela, na **utilizadores** lista, selecione **Eduarda Almeida**.
 
 6. Selecione o **selecione** botão.
 
-7. No **adicionar atribuição** janela, selecione **atribuir**.
+7. Na **adicionar atribuição** janela, selecione **atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 
-Quando seleciona o mosaico Remix do Gestor de vendas da i no painel de acesso, que deve ser iniciou sessão automaticamente à sua aplicação Remix do Gestor de vendas da I.
+Ao selecionar o mosaico E Sales Manager Remix no painel de acesso, deve estar conectado automaticamente à sua aplicação E Sales Manager Remix.
 
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre a integração de aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

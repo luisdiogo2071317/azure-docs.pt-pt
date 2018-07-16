@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 962f33a178048c459e8c6c2948eb17f0e78904ae
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930995"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054867"
 ---
 # <a name="improve-app-with-batch-test"></a>Melhorar a aplicação com o teste de batch
 
@@ -52,7 +52,7 @@ Requisitos do teste de batch:
 * Tipos de entidade permitidos: simples e compostos.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Criar um arquivo em lotes com expressões com
-1. Crie `HumanResources-jobs-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/). Ou transfira [o ficheiro](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) partir do repositório Github de exemplos do LUIS.
+1. Crie `HumanResources-jobs-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/). 
 
 2. No ficheiro batch formatada em JSON, adicionar expressões com o **intenção** desejar prevista no teste. 
 
@@ -189,7 +189,7 @@ Para verificar que as expressões no teste de batch estão previstas corretament
 Essa precisão de previsão de aplicação aumentou, encontrando erros no lote e corrigir o modelo ao adicionar mais expressões de exemplo para a intenção correta e o treinamento. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Selecione **as minhas aplicações** no menu à esquerda superior. Selecione as reticências **...**  à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências **...**  à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

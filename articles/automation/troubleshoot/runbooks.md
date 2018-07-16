@@ -4,16 +4,16 @@ description: Saiba como resolver problemas com os runbooks de automatização do
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929354"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044871"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -94,6 +94,31 @@ Se tiver de autenticação multifator na sua conta do Azure, não é possível u
 Para utilizar um certificado com os cmdlets do modelo de implementação clássica do Azure, veja [criação e adição de um certificado para gerir serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para utilizar um principal de serviço com os cmdlets do Azure Resource Manager, veja [criar através do portal do Azure principal de serviço](../../azure-resource-manager/resource-group-create-service-principal-portal.md) e [autenticar um principal de serviço com o Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
+
+### <a name="not-recognized-as-cmdlet"></a>Cenário: O runbook falhar devido a um cmdlet em falta
+
+#### <a name="issue"></a>Problema
+
+O runbook falhar com um erro semelhante ao seguinte exemplo:
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro pode dever-se pelos seguintes motivos:
+
+1. O módulo que contém o cmdlet não é importado para a conta de automatização
+2. O módulo containg o cmdlet é importado, mas está desatualizada
+
+#### <a name="resolution"></a>Resolução
+
+Este erro pode ser resolvido, efetuando uma das seguintes tarefas:
+
+Se o módulo é um módulo do Azure, veja [como atualizar módulos do Azure PowerShell na automatização do Azure](../automation-update-azure-modules.md) para saber como atualizar os módulos na conta de automatização.
+
+Se for um módulo separado, certifique-se o módulo no importados na conta de automatização.
 
 ### <a name="job-attempted-3-times"></a>Cenário: O início de tarefa de runbook foi tentado a três vezes, mas ocorreu uma falha para cada hora de início
 

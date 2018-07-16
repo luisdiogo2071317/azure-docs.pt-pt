@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bba72e0761553c81acda7609898c1b032bdf28a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917001"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044424"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory com o Azure AD Connect
 Este artigo descreve como gerir e personalizar os serviços de Federação do Active Directory (AD FS) com o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas de AD FS comuns que poderá ter de fazer para uma configuração completa de um farm do AD FS.
@@ -189,7 +189,7 @@ As secções seguintes fornecem detalhes sobre algumas das tarefas comuns que po
 Para alterar o logótipo da empresa que é apresentado no **início de sessão** página, utilize o seguinte cmdlet do Windows PowerShell e sintaxe.
 
 > [!NOTE]
-> As dimensões recomendadas para o logótipo são 260 x 35 a 96 dpi com um tamanho de ficheiro não superior a 10 KB.
+> As dimensões recomendadas para o logótipo são 260 x 35 a \@ 96 dpi com um tamanho de ficheiro não superior a 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 

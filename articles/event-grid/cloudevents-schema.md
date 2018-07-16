@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 41e7be80eb67deaf7a8189aa0d9f62c48b88799a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036242"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044554"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
@@ -73,6 +73,8 @@ Do CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
 Para obter mais informações, consulte a [especificação do CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
+Os valores de cabeçalhos para eventos fornecidos no esquema do CloudEvents e o esquema do Event Grid são iguais, com exceção do `content-type`. Para o esquema do CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema do Event Grid, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
+
 ## <a name="configure-event-grid-for-cloudevents"></a>Configurar o Event Grid para do CloudEvents
 
 Pode utilizar o Event Grid para entrada e saída de eventos no esquema do CloudEvents. Pode usar do CloudEvents para eventos de sistema, como eventos de armazenamento de BLOBs e eventos do IoT Hub e eventos personalizados. Ele também pode transformar esses eventos na conexão e volta.
@@ -89,7 +91,7 @@ Para todos os esquemas de eventos, o Event Grid exige validação quando publica
 
 ### <a name="input-schema"></a>Esquema de entrada
 
-Para definir o esquema de entrada num tópico personalizado do CloudEvents, utilize o seguinte parâmetro na CLI do Azure quando criar um tópico `--input-schema cloudeventv01schema`. O tópico personalizado agora espera que eventos de entrada no formato de v0.1 do CloudEvents.
+Para definir o esquema de entrada num tópico personalizado do CloudEvents, utilize o seguinte parâmetro na CLI do Azure ao criar o seu tópico personalizado `--input-schema cloudeventv01schema`. O tópico personalizado agora espera que eventos de entrada no formato de v0.1 do CloudEvents.
 
 Para criar um tópico do event grid, utilize:
 

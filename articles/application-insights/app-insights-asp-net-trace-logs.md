@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b1cd2e8d7649de48f34efb0c7d839e17906a29bf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969175"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044990"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do .NET no Application Insights
 Se usar o NLog, log4Net ou Trace para rastreamento de diagnóstico no seu aplicativo ASP.NET, pode ter os registos enviados para o [do Azure Application Insights][start], onde pode explorar e procurar -los. Os registos serão intercalados com a outra telemetria provenientes de seu aplicativo, para que possa identificar os rastreios associados com cada pedido de utilizador de manutenção e correlacioná-los com outros eventos e os relatórios de exceções.
@@ -65,7 +65,7 @@ Utilize este método se o tipo de projeto não é suportado pelo instalador do A
 
    * Microsoft.ApplicationInsights.TraceListener (para capturar Trace chamadas)
    * Microsoft.ApplicationInsights.EventSourceListener (para capturar eventos de EventSource)
-   * Microsoft.ApplicationInsights.EtwListener (para capturar eventos ETW)
+   * Microsoft.ApplicationInsights.EtwCollector (para capturar eventos ETW)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 

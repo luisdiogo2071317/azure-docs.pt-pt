@@ -1,6 +1,6 @@
 ---
-title: Utilizar das sondas personalizadas do Balanceador de carga para monitorizar o estado de funcionamento | Microsoft Docs
-description: Saiba como utilizar das sondas personalizadas para o Balanceador de carga do Azure para monitorizar instâncias por trás do Balanceador de carga
+title: Utilizar as pesquisas personalizadas do Balanceador de carga para monitorizar o estado de funcionamento | Documentos da Microsoft
+description: Saiba como utilizar as pesquisas personalizadas para o Balanceador de carga do Azure para monitorizar instâncias por trás do Balanceador de carga
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,85 +13,89 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69991a0b805b5502fc96fab4ce902b3d8bc77baf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176793"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056363"
 ---
-# <a name="understand-load-balancer-probes"></a>Compreender as pesquisas de Balanceador de carga
+# <a name="understand-load-balancer-probes"></a>Compreender as sondas do Balanceador de carga
 
-Balanceador de carga do Azure utiliza sondas de estado de funcionamento para determinar a que instância de conjunto de back-end deve receber novos fluxos. Quando uma sonda do Estado de funcionamento falha, deixa de Balanceador de carga novo fluxos a enviar para a respetiva instância mau estado de funcionamento e fluxos existentes nessa instância não são afetados.  Quando todas as instâncias do conjunto de back-end de sonda para baixo, todos os fluxos existentes serão o limite de tempo em todas as instâncias do conjunto back-end.
+O Azure Load Balancer utiliza sondas de estado de funcionamento para determinar que instância de conjunto de back-end deve receber novos fluxos.   Pode utilizar sondas de estado de funcionamento para detetar a falha de um aplicativo numa instância de back-end.  Também pode utilizar a resposta de sonda de estado de funcionamento do seu aplicativo para sinalizar para o Balanceador de carga se pretende continuar a enviar novos fluxos ou parar o envio de novos fluxos a uma instância de back-end para gerir a carga ou períodos de indisponibilidade planeados.
 
-Funções de serviço na nuvem (funções de trabalho e funções da web) utilizam o agente convidado para a monitorização de pesquisa. Tem de ser configuradas sondas de estado de funcionamento personalizado TCP ou HTTP ao utilizar VMs por trás do Balanceador de carga.
+Sondas de estado de funcionamento definem se novos fluxos são estabelecidos para instâncias de back-end em bom estado. Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento.  Conexões TCP estabelecidas continuam após falha de sonda de estado de funcionamento.  Fluxos UDP existentes vão passar a partir da instância de mau estado de funcionamento para outra instância do conjunto de back-end.
 
-## <a name="understand-probe-count-and-timeout"></a>Compreender a contagem de pesquisa e o tempo limite
+Se todas as sondas para um conjunto de back-end falharem, balanceadores de carga básico irá terminar todos os fluxos TCP existente para o conjunto de back-end, ao passo que o Balanceador de carga Standard irão permitir estabelecidos fluxos TCP para continuar; Não existem fluxos novos serão enviados para o conjunto de back-end.
 
-Comportamento de pesquisa depende:
+Funções de serviço cloud (funções de trabalho e funções da web) utilizam um agente de convidado para a monitorização de sonda. Tem de configurar o TCP ou HTTP sondas de estado de funcionamento personalizado ao utilizar serviços em nuvem com VMs de IaaS por trás do Balanceador de carga.
 
-* O número de pesquisas com êxito que permitem que uma instância a ser assinalada como como operacional.
-* O número de sondas de falha que fazer com que uma instância a ser assinalada como tão baixo.
+## <a name="understand-probe-count-and-timeout"></a>Compreender a contagem de sonda e o tempo limite
 
-Os valores de frequência e tempo limite definidos no SuccessFailCount determinam se uma instância é confirmada para estar em execução ou não está em execução. No portal do Azure, o tempo limite está definido para duas vezes o valor de frequência.
+Comportamento de sonda depende:
 
-A configuração de pesquisa de todas as instâncias com balanceamento de carga para um ponto final (ou seja, um conjunto com balanceamento de carga) têm de ser iguais. Não pode ter uma configuração de pesquisa diferente para cada instância de função ou a VM no mesmo serviço alojado para uma combinação de ponto final específico. Por exemplo, cada instância tem de ter idênticas portas locais e tempos limite.
+* O número de sondas com êxito, que permitem que uma instância como como períodos.
+* O número de sondas de falha que fazer com que uma instância como como Inativas.
+
+Os valores de tempo limite e a frequência definidos no SuccessFailCount determinam se uma instância foi confirmada para estar em execução ou não está em execução. No portal do Azure, o tempo limite é definido para duas vezes o valor da frequência.
+
+Configuração da pesquisa de todas as instâncias com balanceamento de carga para um ponto final (ou seja, um conjunto com balanceamento de carga) tem de ser o mesmo. Não pode ter uma configuração de pesquisa diferente para cada instância de função ou uma VM no mesmo serviço alojado para uma combinação de ponto de extremidade específico. Por exemplo, cada instância tem de ter as portas locais idênticas e tempos limite.
 
 > [!IMPORTANT]
-> Uma sonda do Balanceador de carga utiliza o endereço IP 168.63.129.16. Este endereço IP público facilita a comunicação para recursos de plataforma interna de bring-your-proprietário-IP cenário de rede Virtual do Azure. O endereço IP público 168.63.129.16 virtual é utilizado em todas as regiões, e não altera. Recomendamos que permitem este endereço IP em quaisquer políticas de local firewall. Este não deve ser considerada um risco de segurança porque apenas interna plataforma do Azure pode originar uma mensagem desse endereço. Se não permitir que este endereço IP nas políticas de firewall, um comportamento inesperado ocorre numa variedade de cenários. O comportamento inclui a configuração do mesmo intervalo de endereços IP de 168.63.129.16 e endereços IP de duplicação.
+> Uma sonda de Balanceador de carga utiliza o endereço IP 168.63.129.16. Este endereço IP público facilita a comunicação aos recursos da plataforma interna para o traga-your-own-IP cenário a rede Virtual do Azure. O endereço IP público 168.63.129.16 virtual é utilizado em todas as regiões, e não altera. Recomendamos que permite que este endereço IP em todas as políticas de local firewall. Ele não deve ser considerado um risco de segurança porque apenas a plataforma do Azure interna pode obter uma mensagem a partir desse endereço. Se não permitir este endereço IP nas suas políticas de firewall, ocorre um comportamento inesperado numa variedade de cenários. O comportamento inclui a configuração do mesmo intervalo de endereços IP de 168.63.129.16 e endereços IP de duplicar.
 
-## <a name="learn-about-the-types-of-probes"></a>Saiba mais sobre os tipos de pesquisas
+## <a name="learn-about-the-types-of-probes"></a>Saiba mais sobre os tipos de sondas
 
 ### <a name="guest-agent-probe"></a>Pesquisa do agente convidado
 
-Uma sonda do agente convidado só está disponível para serviços de nuvem do Azure. O agente convidado dentro da VM utiliza o Balanceador de carga. Em seguida, escuta e responde com uma resposta de HTTP 200 OK apenas quando a instância está no estado pronto. (Outros Estados são ocupado, a Reciclagem ou a parar.)
+Uma sonda de agente convidado só está disponível para serviços Cloud do Azure. Balanceador de carga utiliza o agente convidado dentro da VM. Em seguida, escuta e responde com uma resposta HTTP 200 OK, apenas quando a instância está no estado pronto. (Outros Estados são ocupado, reciclagem ou a parar.)
 
-Para obter mais informações, consulte [configurar o ficheiro de definição de serviço (. csdef) para sondas de estado de funcionamento](https://msdn.microsoft.com/library/azure/ee758710.aspx) ou [começar através da criação de um balanceador de carga públicos para serviços em nuvem](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
+Para obter mais informações, consulte [configurar o ficheiro de definição de serviço (. csdef) para sondas de estado de funcionamento](https://msdn.microsoft.com/library/azure/ee758710.aspx) ou [comece por criar um balanceador de carga público para os serviços cloud](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
-### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy"></a>O que faz uma sonda do agente convidado marcar uma instância como estando danificado?
+### <a name="what-makes-a-guest-agent-probe-mark-an-instance-as-unhealthy"></a>O que faz uma pesquisa de agente convidado marcar uma instância como o mau estado de funcionamento?
 
-Se o agente convidado não conseguir responder com HTTP 200 OK, o Balanceador de carga marca a instância de responder. Em seguida, interrompe envio de tráfego para essa instância. O Balanceador de carga continua a executar um ping a instância. Se o agente convidado responde com uma HTTP 200, o Balanceador de carga envia tráfego a essa instância novamente.
+Se o agente convidado não responder com HTTP 200 OK, o Balanceador de carga marca a instância como não responsivo. Em seguida, pára a enviar tráfego para essa instância. O Balanceador de carga continua a enviar um ping a instância. Se o agente convidado responde com um HTTP 200, o Balanceador de carga envia o tráfego para essa instância novamente.
 
-Quando utiliza uma função da web, o código de site normalmente é executado no w3wp.exe, que não é monitorizado por do Azure agente convidado ou recursos de infraestrutura. Não são comunicadas falhas no w3wp.exe (por exemplo, as respostas HTTP 500) para o agente convidado. Consequentemente, o Balanceador de carga não efetuar essa instância fora de rotação.
+Quando utiliza uma função da web, normalmente, executa o código de site no w3wp.exe, que não é monitorizado pelo Azure agente de recursos de infraestrutura ou de convidado. Falhas no w3wp.exe (por exemplo, as respostas HTTP 500) não são relatadas para o agente convidado. Conseqüentemente, o Balanceador de carga não Use essa instância da rotação.
 
-### <a name="http-custom-probe"></a>Pesquisa HTTP personalizada
+### <a name="http-custom-probe"></a>Sonda personalizada de HTTP
 
-A pesquisa personalizada HTTP substitui a sonda de agente de convidados predefinida. Pode criar a sua própria lógica personalizada para determinar o estado de funcionamento da instância de função. O Balanceador de carga as sondas o ponto final de cada 15 segundos, por predefinição. A instância for considerada na rotação de Balanceador de carga se responder com um HTTP 200 dentro do período de tempo limite. O período de tempo limite é de 31 segundos por predefinição.
+Sonda HTTP personalizada substitui a sonda de agente de convidado de predefinida. Pode criar sua própria lógica personalizada para determinar o estado de funcionamento da instância de função. O load balancer sonda o ponto final a cada 15 segundos, por predefinição. A instância é considerada na rotação do Balanceador de carga se ele responde com um HTTP 200 dentro do período de tempo limite. O período de tempo limite é 31 segundos por padrão.
 
-Uma sonda personalizada de HTTP pode ser útil se pretender implementar a sua própria lógica para remover as instâncias de rotação de Balanceador de carga. Por exemplo, pode optar por remover uma instância se estiver acima de 90% de CPU e devolve um Estado não 200. Se tiver de funções da web que utilizam w3wp.exe, utilizador também obtém automática de monitorização do seu site. Falhas no seu código de site devolverem um Estado não 200 para a sonda do Balanceador de carga.
-
-> [!NOTE]
-> A pesquisa personalizada HTTP suporta caminhos relativos e apenas os protocolos HTTP. Não é suportado HTTPS.
-
-### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy"></a>O que faz uma sonda personalizada de HTTP marcar uma instância como estando danificado?
-
-* A aplicação de HTTP devolve um código de resposta HTTP diferente de 200 (por exemplo, 403, 404 ou 500). Esta confirmação positiva alertas colocar a instância da aplicação de serviço fora de imediato.
-* O servidor de HTTP não responde em todas as após o período de tempo limite. Dependendo do valor de limite de tempo definido, vários pedidos de sonda poderão ir unanswered antes da pesquisa obtém marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
-* O servidor fecha a ligação através de uma reposição do TCP.
-
-### <a name="tcp-custom-probe"></a>Sonda personalizada TCP
-
-Das sondas personalizadas de TCP iniciam uma ligação ao efetuar um handshake de três vias com a porta definido.
-
-### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy"></a>O que faz uma sonda personalizada de TCP marcar uma instância como estando danificado?
-
-* O servidor TCP não responde em todas as após o período de tempo limite. Quando a pesquisa está marcada como não está em execução depende do número de pedidos de sonda falhadas que foram configurados para ir unanswered antes de marcar a sonda como não está em execução.
-* A sonda recebe um TCP repor a instância de função.
-
-Para obter mais informações sobre como configurar uma sonda do Estado de funcionamento HTTP ou uma sonda TCP, consulte [introdução à criação de um balanceador de carga público no Gestor de recursos com o PowerShell](load-balancer-get-started-internet-arm-ps.md).
-
-## <a name="add-healthy-instances-back-into-the-load-balancer-rotation"></a>Adicionar as instâncias em bom estado de volta para a rotação de Balanceador de carga
-
-As pesquisas de TCP e HTTP são consideradas em bom estado de funcionamento e marcar a instância de função quando bom estado de funcionamento:
-
-* O Balanceador de carga obtém uma sonda positiva pela primeira vez a VM arranca.
-* O número de SuccessFailCount (descrito anteriormente) define o valor de pesquisas com êxito, que são necessárias para marcar a instância de função em bom estado. Se uma instância de função tiver sido removida, o número de pesquisas com êxito, sucessivas tem de ser igual ou exceder o valor de SuccessFailCount para marcar a instância de função em execução.
+Uma sonda personalizada HTTP pode ser útil se pretender implementar sua própria lógica para remover instâncias de rotação do Balanceador de carga. Por exemplo, pode decidir remover uma instância se for superior a 90% da CPU e devolve um Estado que não 200. Se tiver funções da web que utilizam w3wp.exe, também obtém automática de monitorização do seu Web site. Falhas no código do seu site devolver um Estado que não 200 para a sonda de Balanceador de carga.
 
 > [!NOTE]
-> Se o estado de funcionamento de uma instância de função flutuação, o Balanceador de carga já aguarda antes de ter a funcionalidade guarda a instância de função novamente no estado de bom estado de funcionamento. Este tempo de espera extra protege o utilizador e a infraestrutura e uma política intencional.
+> A sonda personalizada do HTTP suporta caminhos relativos e apenas os protocolos HTTP. HTTPS não é suportada.
 
-## <a name="use-log-analytics-for-a-load-balancer"></a>Análise de registos de utilização de um balanceador de carga
+### <a name="what-makes-an-http-custom-probe-mark-an-instance-as-unhealthy"></a>O que torna uma sonda personalizada de HTTP marcar uma instância como o mau estado de funcionamento?
 
-Pode utilizar [Iniciar análise](load-balancer-monitor-log.md) para verificar o estado de funcionamento de sonda de Balanceador de carga e a contagem de pesquisa. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.
+* A aplicação de HTTP devolve um código de resposta HTTP que não 200 (por exemplo, 403, 404 ou 500). Esta confirmação positiva alertá-lo para tomar a instância da aplicação fora de serviço agora mesmo.
+* O servidor HTTP não responde depois do período de tempo limite. Dependendo do valor de tempo limite que está definido, várias solicitações de sondagem podem passar sem resposta antes da sonda é marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
+* O servidor fecha a ligação através de uma reposição TCP.
+
+### <a name="tcp-custom-probe"></a>Sonda personalizada de TCP
+
+As pesquisas personalizadas de TCP iniciam uma ligação ao efetuar um handshake de três vias com a porta definido.
+
+### <a name="what-makes-a-tcp-custom-probe-mark-an-instance-as-unhealthy"></a>O que torna uma sonda personalizada de TCP marcar uma instância como o mau estado de funcionamento?
+
+* O servidor TCP não responde depois do período de tempo limite. Quando a sonda está marcada como não está em execução depende do número de pedidos de sonda com falha que foram configuradas para ir sem resposta antes de os marcar a sonda como não está em execução.
+* A sonda recebe um TCP repor a partir da instância de função.
+
+Para obter mais informações sobre como configurar uma sonda de estado de funcionamento HTTP ou uma sonda TCP, consulte [introdução à criação de um balanceador de carga público no Resource Manager com o PowerShell](load-balancer-get-started-internet-arm-ps.md).
+
+## <a name="add-healthy-instances-back-into-the-load-balancer-rotation"></a>Adicionar instâncias em bom estado de volta para a rotação do Balanceador de carga
+
+Sondas TCP e HTTP são consideradas íntegros e marcar a instância de função em bom estado quando:
+
+* O Balanceador de carga obtém uma sonda positiva arranca a VM de pela primeira vez.
+* O número para SuccessFailCount (descrita anteriormente) define o valor de sondas com êxito, que são necessárias para marcar a instância de função em bom estado. Se uma instância de função tiver sido removida, o número de sondas com êxito, sucessivas tem de ser igual ou exceder o valor de SuccessFailCount para marcar a instância de função em execução.
+
+> [!NOTE]
+> Se o estado de funcionamento de uma instância de função varia, o Balanceador de carga tem de aguardar já para a funcionalidade guarda a instância de função em bom estado. Este tempo de espera extra protege o utilizador e a infraestrutura e é uma política intencional.
+
+## <a name="use-log-analytics-for-a-load-balancer"></a>Utilizar o log analytics para um balanceador de carga
+
+Pode usar [do log analytics](load-balancer-monitor-log.md) para verificar o estado de funcionamento de sonda de Balanceador de carga e sonda de contagem. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c173f4f224c7021c0a0db057cb65aa9c6f900528
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55fc1bf9d59c82abc76e40e834f67aa49942db44
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915576"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056703"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Ativação pós-falha de teste para o Azure no Site Recovery
 
@@ -72,7 +72,7 @@ Nos seguintes cenários, a ativação pós-falha requer uma etapa extra intermed
     * storflt
     * intelide
     * ATAPI
-* VM do VMware que não têm o DHCP ativado, rrespective de se estão a utilizar DHCP ou endereços IP estáticos.
+* VM de VMware que não têm o DHCP ativado, deixou de se estão a utilizar DHCP ou IP estático de endereços.
 
 Em todos os outros casos, não é necessária nenhuma etapa intermediária e ativação pós-falha demora muito menos tempo.
 
