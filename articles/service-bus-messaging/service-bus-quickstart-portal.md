@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660635"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867210"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Início Rápido: Enviar e receber mensagens com o portal do Azure e o .NET
 
@@ -34,7 +34,7 @@ Para concluir este tutorial, confirme que tem instalada:
 - [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](http://www.visualstudio.com/vs) ou posterior.
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-## <a name="log-on-to-the-azure-portal"></a>Inicie sessão no portal do Azure
+## <a name="log-on-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Primeiro, entre no [Portal do Azure][Azure portal] e inicie sessão com a sua subscrição do Azure. O primeiro passo é criar um espaço de nomes de Service Bus do tipo **Mensagens**.
 
@@ -42,7 +42,7 @@ Primeiro, entre no [Portal do Azure][Azure portal] e inicie sessão com a sua su
 
 Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito exclusivo, referenciado pela [nome de domínio completamente qualificado][], no qual cria uma ou mais filas, tópicos e subscrições. O exemplo seguinte cria um espaço de nomes de mensagens do Service Bus num [ grupo de recursos](/azure/azure-resource-manager/resource-group-portal) novo ou existente:
 
-1. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Integração do Enterprise** e em **Service Bus**.
+1. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Enterprise Integration** e em **Service Bus**.
 2. Na caixa de diálogo **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
 3. Após se confirmar que o espaço de nomes está disponível, selecione o escalão de preço (Standard ou Premium).
 4. No campo **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
@@ -50,7 +50,7 @@ Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito 
 6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
 7. Clique em **Criar**. O sistema cria o espaço de nomes e ativa-o. Poderá ter de aguardar alguns minutos enquanto o sistema aprovisiona recursos para a sua conta.
 
-![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
+![espaço de nomes](./media/service-bus-quickstart-portal/create-namespace.png)
 
 ### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gestão
 
@@ -62,7 +62,7 @@ A criação de um espaço de nomes gera automaticamente uma regra inicial de Ass
 4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** junto a **Cadeia de Ligação Primária** para copiar a cadeia de ligação para a sua área de transferência e utilizá-la mais tarde. Cole este valor no Bloco de Notas ou noutra localização temporária. 
 
     ![connection-string][connection-string]
-5. Repita o passo anterior, copie e cole o valor da **Chave Primária** para uma localização temporária para utilizar mais tarde.
+5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
@@ -79,7 +79,7 @@ Para criar uma fila do Service Bus, especifique o espaço de nomes abaixo da fil
 
 Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
 
-Para executar o código, realize o seguinte:
+Para executar o código, faça o seguinte:
 
 1. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o comando seguinte:
 
@@ -119,7 +119,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-O nome da fila e a cadeia de ligação são transmitidos para o método `Main()` como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+Os nomes da fila e da cadeia de ligação são transmitidos para o método `Main()` como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)

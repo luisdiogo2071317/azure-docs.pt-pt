@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 2018f5b7051f2b6906372dad3319c763974b93b1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 49702349b1c2476f5743122b33cb3375e54df191
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355190"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930101"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Início Rápido: Criar uma aplicação Web Java no Serviço de Aplicações no Linux
 
@@ -76,7 +76,7 @@ Para implementar a partir do Maven, adicione a seguinte definição de plug-in d
       <plugin>
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <configuration> 
           <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
           <appName>YOUR_WEB_APP</appName> 
@@ -106,7 +106,39 @@ Atualize os seguintes marcadores de posição na configuração do plug-in:
 | `YOUR_RESOURCE_GROUP` | Nome do novo grupo de recursos no qual irá criar a sua aplicação Web. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos eliminará todos os recursos associados à aplicação. Atualize este valor com um nome exclusivo do novo grupo de recursos, como, por exemplo, *TestResources*. Irá utilizar este nome de grupo de recursos para limpar todos os recursos do Azure numa secção posterior. |
 | `YOUR_WEB_APP` | O nome da aplicação irá fazer parte do nome do anfitrião da aplicação Web aquando da implementação no Azure (A_SUA_APLICAÇÃO_WEB.azurewebsites.net). Atualize este valor com um nome exclusivo para a nova aplicação Web do Azure, o que irá alojar a sua aplicação Java, como, por exemplo, *contoso*. |
 
-O elemento `linuxRuntime` da configuração controla que imagem do Linux incorporada é utilizada com a sua aplicação.
+O elemento `linuxRuntime` da configuração controla que imagem do Linux incorporada é utilizada com a sua aplicação. Pode encontrar todas as pilhas do runtime suportadas [nesta ligação](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks). 
+
+
+> [!NOTE] 
+> Neste artigo estamos apenas a trabalhar com ficheiros WAR. No entanto, o plug-in oferece suporte a aplicações Web JAR, através da seguinte definição de plug-in no interior do elemento `<build>` de um ficheiro *pom.xml*:
+>
+>```xml
+>    <plugins>
+>      <plugin>
+>        <groupId>com.microsoft.azure</groupId> 
+>        <artifactId>azure-webapp-maven-plugin</artifactId> 
+>        <version>1.2.0</version>
+>        <configuration> 
+>          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+>          <appName>YOUR_WEB_APP</appName> 
+>          <linuxRuntime>jre8</linuxRuntime>   
+>          <!-- This is to make sure the jar file will not be occupied during the deployment -->
+>          <stopAppDuringDeployment>true</stopAppDuringDeployment>
+>          <deploymentType>ftp</deploymentType> 
+>          <resources> 
+>              <resource> 
+>                  <directory>${project.basedir}/target</directory> 
+>                  <targetPath>webapps</targetPath> 
+>                  <includes> 
+>                      <!-- Currently it is required to set as app.jar -->
+>                      <include>app.jar</include> 
+>                  </includes>  
+>              </resource> 
+>          </resources> 
+>        </configuration>
+>      </plugin>
+>    </plugins>
+>```    
 
 Execute o seguinte comando e siga todas as instruções para autenticar com a CLI do Azure:
 

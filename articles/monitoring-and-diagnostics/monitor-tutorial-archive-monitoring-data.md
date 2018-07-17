@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263155"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918276"
 ---
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitorização do Azure
 
@@ -136,6 +136,11 @@ Os dados de monitorização do seu recurso estão agora a ser encaminhados para 
 Os dados de monitorização das suas máquinas virtuais estão agora a ser encaminhados para a conta de armazenamento.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Ver os dados de monitorização na conta de armazenamento
+
+> [!WARNING]
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Se tiver seguido os passos anteriores, os dados começaram a fluir para a sua conta de armazenamento.
 

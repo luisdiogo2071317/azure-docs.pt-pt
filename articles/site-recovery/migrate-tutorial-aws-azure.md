@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737617"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922662"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -34,10 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 - Certifique-se de que as VMs que quer migrar têm uma versão suportada do SO. As versões suportadas incluem: 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - a versão de 64 bits do Windows Server 2008 R2 SP1 ou posterior
-    - Red Hat Enterprise Linux 6.7 (apenas instâncias HVM virtualizadas), com um controlador de dispositivo Citrix Paravirtual ou um controlador Paravirtual AWS. Instâncias com controladores de dispositivo Red Hat Paravirtual *não* são suportadas.
+    - Red Hat Enterprise Linux 6.7 (apenas instâncias HVM virtualizadas) e apenas controladores Citrix PV ou AWS PV. As instâncias que executem controladores Red Hat PV **não são** suportadas.
 
 - O Serviço de mobilidade tem de ser instalado em cada VM que queira replicar. 
 

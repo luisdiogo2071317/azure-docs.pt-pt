@@ -1,3 +1,3 @@
 > [!NOTE]
-> Serviço de aplicações gratuito e partilhado (pré-visualização) planos de alojamento são as camadas de base que são executados na mesma VM do Azure que outras aplicações de serviço de aplicações. Algumas aplicações poderão pertencer a outros clientes. Estas camadas destinam-se a ser utilizadas apenas para efeitos de desenvolvimento e teste.
+> Os planos de alojamento Gratuito e Partilhado (pré-visualização) do Serviço de Aplicações são camadas base que são executadas na mesma VM do Azure que outras aplicações do Serviço de Aplicações. Algumas aplicações poderão pertencer a outros clientes. Estas camadas destinam-se a ser utilizadas apenas para efeitos de desenvolvimento e teste.
 >

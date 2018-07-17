@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793026"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950687"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -29,8 +29,8 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 ## <a name="find-azure-search"></a>Localizar o Azure Search
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique no sinal ("+") no canto superior esquerdo.
-3. Selecione **Web + Móvel** > **Azure Search**.
+2. Clique no sinal de soma ("+ Criar recurso") no canto superior esquerdo.
+3. Selecione **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -77,12 +77,14 @@ As ***partições*** permitem ao serviço armazenar e pesquisar mais documentos.
 
 As ***réplicas*** permitem ao serviço processar uma carga maior de consultas de pesquisa.
 
+A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode ajudá-lo a compreender as ramificações de faturação da adição de recursos. Lembre-se de que pode ajustar os recursos com base na carga. Por exemplo, pode aumentar os recursos para criar um índice inicial completo e, em seguida, reduzir recursos mais tarde para um nível mais adequado para a indexação incremental.
+
 > [!Important]
 > Um serviço tem de ter [2 réplicas para SLA só de leitura e 3 réplicas para SLA de leitura/escrita](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Aceda à página do serviço de pesquisa no portal do Azure.
 2. No painel de navegação esquerdo, selecione **Definições** > **Dimensionar**.
-3. Utilize a barra de deslize para adicionar Réplicas ou Partições.
+3. Utilize a barra de deslize para adicionar recursos de qualquer tipo.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 
@@ -91,7 +93,7 @@ As ***réplicas*** permitem ao serviço processar uma carga maior de consultas d
 
 ## <a name="when-to-add-a-second-service"></a>Quando adicionar um segundo serviço
 
-A grande maioria dos clientes utiliza apenas um serviço aprovisionado num escalão que fornece o [equilíbrio certo de recursos](search-sku-tier.md). Um serviço pode alojar vários índices, sujeitos aos [limites máximos do escalão que selecionar](search-capacity-planning.md), com os índices isolados uns dos outros. No Azure Search, os pedidos só podem ser direcionados para um índice, o que minimiza a possibilidade de obtenção de dados acidental ou intencional a partir de outros índices no mesmo serviço.
+A grande maioria dos clientes utiliza apenas um serviço aprovisionado num escalão que oferece o [equilíbrio certo de recursos](search-sku-tier.md). Um serviço pode alojar vários índices, sujeitos aos [limites máximos do escalão que selecionar](search-capacity-planning.md), com os índices isolados uns dos outros. No Azure Search, os pedidos só podem ser direcionados para um índice, o que minimiza a possibilidade de obtenção de dados acidental ou intencional a partir de outros índices no mesmo serviço.
 
 Embora a maioria dos clientes utilize apenas um serviço, a redundância de serviços pode ser necessária se os requisitos operacionais incluírem o seguinte:
 

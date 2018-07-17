@@ -1,6 +1,6 @@
 ---
-title: Utilize um MSI de VM do Windows para aceder ao Cofre de chaves do Azure
-description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Cofre de chaves do Azure.
+title: Utilizar uma MSI de VM do Windows para aceder ao Azure Key Vault
+description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Key Vault.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,31 +9,31 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 35391c8148246146eeb0c07bf57aea8a2a95d277
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 81509108060b636e47154a8c375f5569cac73648
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594939"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902739"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Cofre de chaves do Azure 
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como ativar a identidade de serviço geridas (MSI) para uma Máquina Virtual do Windows, em seguida, utilizar essa identidade para aceder ao Cofre de chaves do Azure. A funcionar como um arranque, Cofre de chaves torna possível para a sua aplicação de cliente, em seguida, utilizar o segredo para aceder a recursos não estão protegidos pelo Azure Active Directory (AD). Identidades de serviço geridas são automaticamente geridas pelo Azure e permitem-lhe autenticar para serviços que suportam a autenticação do Azure AD, sem necessidade de introduzir as credenciais para o seu código. 
+Este tutorial mostra como ativar a Identidade de Serviço Gerida (MSI) para uma Máquina Virtual do Windows e, em seguida, utilizar essa identidade para aceder ao Azure Key Vault. A servir de arranque, o Key Vault permite à sua aplicação cliente utilizar o segredo para aceder aos recursos não protegidos pelo Azure Active Directory (AD). As Identidades de Serviço Geridas são geridas automaticamente pelo Azure e permitem-lhe fazer a autenticação em serviços que suportam a autenticação do Azure AD, sem ser necessário inserir as credenciais no seu código. 
 
 Saiba como:
 
 
 > [!div class="checklist"]
-> * Ativar a identidade de serviço geridas na máquina Virtual do Windows 
-> * Conceder o acesso VM para um segredo armazenado no Cofre de chaves 
-> * Obter um token de acesso utilizando a identidade da VM e utilizá-lo a obter o segredo do Cofre de chaves 
+> * Ativar a Identidade de Serviço Gerida numa Máquina Virtual do Windows 
+> * Conceder o acesso da VM a um segredo armazenado num Key Vault 
+> * Obter um token de acesso com a identidade da VM e utilizá-lo para obter o segredo a partir do Key Vault 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,73 +47,73 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
-Para este tutorial, iremos criar uma nova VM do Windows. Também pode ativar MSI numa VM existente.
+Neste tutorial, vamos criar uma nova VM do Windows. Também pode ativar o MSI numa VM existente.
 
 1.  Clique no botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3.  Introduza as informações da máquina virtual. O **Username** e **palavra-passe** criada aqui é as credenciais que utiliza para início de sessão para a máquina virtual.
-4.  Escolha o adequado **subscrição** para a máquina virtual na lista pendente.
-5.  Para selecionar um novo **grupo de recursos** gostaria que a máquina virtual para ser criado no, escolha **criar novo**. Quando terminar, clique em **OK**.
+3.  Introduza as informações da máquina virtual. O **Nome de Utilizador** e a **Palavra-passe** aqui criados são as credenciais a utilizar para iniciar sessão na máquina virtual.
+4.  Escolha uma **Subscrição** para a máquina virtual na lista pendente.
+5.  Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, selecione **Criar Novo**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e clique em **OK**.
 
     ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM 
+## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM 
 
-Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Ativar MSI diz ao Azure para criar uma identidade de gerido para a Máquina Virtual. Nos bastidores, permitir MSI duas coisas: regista a VM com o Azure Active Directory para criar a respetiva identidade gerida e configura a identidade da VM.
+Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. A ativação do MSI informa o Azure para criar uma identidade gerida para a sua Máquina Virtual. Nos bastidores, ativar a MSI faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
 
-1.  Selecione o **Máquina Virtual** que pretende ativar o MSI em.  
-2.  Na barra de navegação esquerdo em **configuração**. 
-3.  Verá **identidade de serviço geridas**. Para registar e ativar o MSI, selecione **Sim**, se pretender desativá-la, escolha não. 
-4.  Certifique-se de que clica **guardar** para guardar a configuração.  
+1.  Selecione a **Máquina Virtual** na qual pretende ativar a MSI.  
+2.  Na barra de navegação esquerda, clique em **Configuração**. 
+3.  Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não. 
+4.  Certifique-se de que clica em **Guardar** para guardar a configuração.  
 
     ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso VM a um segredo armazenado no Cofre de chaves 
+## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso da VM a um segredo armazenado num Key Vault 
  
-Utilizar MSI código pode obter tokens de acesso para autenticar em recursos que suportam a autenticação do Azure AD.  No entanto, nem todos os serviços do Azure suportam a autenticação do Azure AD. Para utilizar MSI com esses serviços, armazenar as credenciais de serviço no Cofre de chaves do Azure e utilizar MSI para aceder ao Cofre de chaves para obter as credenciais. 
+Com a MSI, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure AD.  No entanto, nem todos os serviços do Azure suportam a autenticação do Azure AD. Para utilizar a MSI com esses serviços, armazene as credenciais do serviço no Azure Key Vault e utilize a MSI para aceder ao Key Vault para obter as credenciais. 
 
-Em primeiro lugar, temos de criar um cofre de chaves e conceder acesso de identidade do nosso VM para o Cofre de chaves.   
+Primeiro, é necessário criar um Key Vault e conceder o acesso de identidade da VM ao Key Vault.   
 
-1. Na parte superior da barra de navegação esquerdo, selecione **crie um recurso** > **segurança + identidade** > **Cofre de chaves**.  
-2. Forneça um **nome** para o novo cofre de chaves. 
-3. Localize o Cofre de chaves do mesmo grupo de subscrição e dos recursos da VM que criou anteriormente. 
-4. Selecione **políticas de acesso** e clique em **adicionar novo**. 
-5. Configurar a partir do modelo, selecionar **segredo gestão**. 
-6. Escolha **selecione Principal**e o campo de pesquisa, introduza o nome da VM que criou anteriormente.  Selecione a VM na lista de resultados e clique em **selecione**. 
-7. Clique em **OK** para concluir a adicionar a nova política de acesso, e **OK** para concluir a seleção da política de acesso. 
-8. Clique em **criar** para concluir a criação do Cofre de chaves. 
+1. Na parte superior da barra de navegação esquerda, selecione **Criar um recurso** > **Segurança + Identidade** > **Key Vault**.  
+2. Indique um **Nome** para o novo Key Vault. 
+3. Localize o Key Vault na mesma subscrição e grupo de recursos da VM que criou anteriormente. 
+4. Selecione **Políticas de acesso** e clique em **Adicionar novo**. 
+5. Em Configurar a partir do modelo, selecione **Gestão de Segredos**. 
+6. Selecione **Selecionar Principal** e, no campo de pesquisa, introduza o nome da VM que criou anteriormente.  Selecione a VM na lista de resultados e clique em **Selecionar**. 
+7. Clique em **OK** para concluir a adição da nova política de acesso e em **OK** para concluir a seleção da política de acesso. 
+8. Clique em **Criar** para concluir a criação do Key Vault. 
 
     ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
-Em seguida, adicione um segredo ao Cofre de chaves, para que mais tarde possa obter o segredo do código em execução numa VM a utilizar: 
+Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o segredo com o código em execução na sua VM: 
 
-1. Selecione **todos os recursos**e localize e selecione o Cofre de chaves que criou. 
-2. Selecione **segredos**e clique em **adicionar**. 
-3. Selecione **Manual**, de **carregar opções**. 
-4. Introduza um nome e valor para o segredo.  O valor pode ser qualquer coisa que pretende. 
-5. Deixe a data de ativação e a data de expiração clara e deixe **ativado** como **Sim**. 
-6. Clique em **criar** para criar o segredo. 
+1. Selecione **Todos os Recursos** e localize e selecione o Key Vault que criou. 
+2. Selecione **Segredos** e clique em **Adicionar**. 
+3. Selecione **Manual** em **Opções de carregamento**. 
+4. Introduza o nome e o valor do segredo.  O valor pode ser o que quiser. 
+5. Deixe as datas de ativação e expiração claras e mantenha **Ativado** como **Sim**. 
+6. Clique em **Criar** para criar o segredo. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obter um token de acesso utilizando a identidade da VM e utilizá-lo a obter o segredo do Cofre de chaves  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obter um token de acesso com a identidade da VM e utilizá-lo para obter o segredo a partir do Key Vault  
 
-Se não tiver PowerShell 4.3.1 ou posterior instalado, terá [transfira e instale a versão mais recente](https://docs.microsoft.com/powershell/azure/overview).
+Se não tiver o PowerShell 4.3.1 ou posterior instalado, terá de [transferir e instalar a versão mais recente](https://docs.microsoft.com/powershell/azure/overview).
 
-Em primeiro lugar, utilizamos MSI da VM para obter um token de acesso para autenticar para o Cofre de chaves:
+Primeiro, utilizamos a MSI da VM para obter um token de acesso para autenticação no Key Vault:
  
-1. No portal, navegue para **máquinas virtuais** e vá para a máquina virtual do Windows e no **descrição geral**, clique em **Connect**.
-2. Introduza o **Username** e **palavra-passe** para que adicionou ao criar o **VM do Windows**.  
-3. Agora que já criou um **ligação ao ambiente de trabalho remoto** com a máquina virtual, abra o PowerShell na sessão remota.  
-4. No PowerShell, invoque o pedido web no inquilino ao obter o token para o anfitrião local na porta específica para a VM.  
+1. No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**.
+2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a **VM do Windows**.  
+3. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o PowerShell na sessão remota.  
+4. No PowerShell, invoca o pedido Web no inquilino para obter o token para o anfitrião local na porta específica para a VM.  
 
-    O pedido de PowerShell:
+    O pedido do PowerShell:
     
     ```powershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -Method GET -Headers @{Metadata="true"} 
     ```
     
-    Em seguida, a extrair a resposta completa, que é armazenada como uma cadeia de JavaScript Object Notation (JSON) formatado no objeto $response.  
+    Em seguida, extraia a resposta completa, que é armazenada como uma cadeia formatada do JavaScript Object Notation (JSON) no objeto $response.  
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json 
@@ -125,23 +125,23 @@ Em primeiro lugar, utilizamos MSI da VM para obter um token de acesso para auten
     $KeyVaultToken = $content.access_token 
     ```
     
-    Por fim, utilize o comando de Invoke-WebRequest do PowerShell para obter o segredo que criou anteriormente no Cofre de chaves, transmitir o token de acesso no cabeçalho de autorização.  Terá do URL do seu Cofre de chaves, que está a ser o **Essentials** secção o **descrição geral** página do Cofre de chaves.  
+    Por fim, utilize o comando Invoke-WebRequest do PowerShell para obter o segredo que criou anteriormente no Key Vault ao transmitir o token de acesso no cabeçalho de Autorização.  Precisará do URL do Key Vault, que está na secção **Informações Básicas** da página **Descrição Geral** do Key Vault.  
     
     ```powershell
     (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 
     ```
     
-    A resposta irá ter este aspeto: 
+    A resposta terá o seguinte aspeto: 
     
     ```powershell
     {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
     ```
     
-Assim que tiver obtido o segredo do Cofre de chaves, pode utilizá-lo para se autenticarem num serviço que necessita de um nome e uma palavra-passe. 
+Depois de recuperar o segredo do Key Vault, pode utilizá-lo para autenticação num serviço que requeira um nome e uma palavra-passe. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar uma identidade de serviço gerida para aceder ao Cofre de chaves do Azure.  Para saber mais sobre o Cofre de chaves do Azure, consulte:
+Neste tutorial, aprendeu a criar uma Identidade de Serviço Gerida para aceder ao Azure Key Vault.  Para saber mais sobre o Azure Key Vault, veja:
 
 > [!div class="nextstepaction"]
 >[Cofre de Chaves do Azure](/azure/key-vault/key-vault-whatis)

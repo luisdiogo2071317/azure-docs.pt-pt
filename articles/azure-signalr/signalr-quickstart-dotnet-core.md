@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674857"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de chat com o SignalR Service
 
@@ -86,18 +87,18 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
 
 1. Execute o seguinte comando para adicionar uma referência para o pacote de NuGet `Microsoft.Azure.SignalR`:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Execute o seguinte comando para restaurar os pacotes do seu projeto.
 
         dotnet restore
 
-3. Adicione um segredo denominado *Azure:SignalR:ConnectionString* ao Secret Manager. Este segredo irá conter a cadeia de ligação para aceder ao seu recurso do SignalR Service. *Azure:SignalR:ConnectionString* é a chave de configuração predefinida que o SignalR procura para estabelecer uma ligação. Substitua o valor no comando abaixo pela cadeia de ligação do recurso do SignalR Service.
+3. Adicione um segredo denominado *Azure__SignalR__ConnectionString* ao Secret Manager. Este segredo é um valor de configuração hierárquica e dois pontos (:) pode não funcionar em todas as plataformas. O duplo caráter de sublinhado (_), conforme utilizado neste segredo, é suportado por todas as plataformas.  Este segredo irá conter a cadeia de ligação para aceder ao seu recurso do SignalR Service. *Azure__SignalR__ConnectionString* é a chave de configuração predefinida que o SignalR procura para estabelecer uma ligação. Substitua o valor no comando abaixo pela cadeia de ligação do recurso do SignalR Service.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     O Secret Manager só será utilizado para testar a aplicação Web enquanto estiver alojada localmente. Num próximo tutorial, vai implementar a aplicação Web de chat no Azure. Quando a aplicação Web estiver implementada no Azure, vai utilizar uma definição de aplicação em vez de armazenar a cadeia de ligação no Secret Manager.
@@ -112,7 +113,7 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
     }
     ```
 
-    Se não for transmitido um parâmetro para `AddAzureSignalR()`, este código utiliza a chave de configuração predefinida, *Azure:SignalR:ConnectionString*, para a cadeia de ligação do recurso do SignalR Service.
+    Se não for transmitido um parâmetro para `AddAzureSignalR()`, este código utiliza a chave de configuração predefinida, *Azure__SignalR__ConnectionString*, para a cadeia de ligação do recurso do SignalR Service.
 
 5. Também no *Startup.cs*, atualize o método `Configure` ao substituir a chamada para `app.UseStaticFiles()` pelo seguinte código e guarde o ficheiro.
 
@@ -246,13 +247,13 @@ Se avançar para o próximo tutorial, pode manter os recursos que criou neste in
 Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, pode eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 > 
 > 
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste início rápido utilizaram um grupo de recursos denominado *SignalRTestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste início rápido utilizaram um grupo de recursos denominado *SignalRTestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
    
 ![Eliminar](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

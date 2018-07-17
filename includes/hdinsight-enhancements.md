@@ -1,2 +1,2 @@
 > [!NOTE]
-> [Saiba mais sobre os melhoramentos e capacidades](https://aka.ms/hdinsightnew).
+> [Saiba mais sobre os melhoramentos e capacidades futuros](https://aka.ms/hdinsightnew).

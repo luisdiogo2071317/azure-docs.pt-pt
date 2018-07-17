@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867498"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972986"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -28,7 +28,7 @@ Para que os utilizadores possam repor as palavras-passe do Azure AD a partir do 
 * A Atualização de 10 de Abril de 2018 do Windows ou o cliente mais recente [associado ao Azure AD](../device-management-azure-portal.md) ou [associado ao Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md).
 * A reposição de palavras-passe self-service do Azure AD tem de estar ativada.
 * Configurar e implementar a definição para ativar a ligação Repor palavra-passe através de um dos métodos abaixo:
-   * [Perfil de configuração de dispositivo no Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Perfil de configuração de dispositivo no Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). Este método exige a inscrição do dispositivo no Intune.
    * [Chave de registo](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
@@ -66,7 +66,7 @@ Para que os utilizadores possam repor as palavras-passe do Azure AD a partir do 
    * Clique em **Selecionar**
 4. Clique em **Criar**.
 
-Estão disponíveis mais informações sobre a criação de grupos no artigo [Manage access to resources with Azure Active Directory groups](../active-directory-manage-groups.md) (Gerir o acesso a recursos com grupos do Azure Active Directory).
+Estão disponíveis mais informações sobre a criação de grupos no artigo [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md) (Gerir o acesso a recursos com grupos do Azure Active Directory).
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>Atribuir a política de configuração de dispositivos ao grupo de dispositivos
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795888"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453421"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: criar uma aplicação .NET Framework ou Core com a Graph API
 
@@ -86,7 +86,7 @@ Os seguintes fragmentos são retirados do ficheiro Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * Os comandos Gremlin a executar estão listados num Dicionário (Linha 26):
@@ -175,7 +175,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     `private static string database = "your-database";`
 
-5. Da mesma forma, com as informações da coleção criada acima, cole a coleção (que também é o nome do gráfico) dentro da variável `collection` na linha 23. 
+5. Da mesma forma, com as informações do contentor criado acima, cole a coleção (que também é o nome do gráfico) dentro da variável `collection` na linha 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -193,7 +193,7 @@ Clique em CTRL + F5 para executar a aplicação. A aplicação irá imprimir os 
 
 Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os dados do gráfico novo.
 
-1. No Data Explorer, a nova base de dados é apresentada no painel Gráficos. Expanda a base de dados e os nós da coleção e, em seguida, clique em **Gráfico**.
+1. No Data Explorer, a nova base de dados é apresentada no painel Gráficos. Expanda a base de dados e os nós do contentor e, em seguida, clique em **Gráfico**.
 
 2. Clique no botão **Aplicar Filtro** para utilizar a consulta predefinida para ver todos os vértices no gráfico. Os dados gerados pela aplicação de exemplo são apresentados no painel Gráficos.
 

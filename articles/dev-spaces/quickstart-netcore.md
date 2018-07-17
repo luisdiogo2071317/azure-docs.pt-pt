@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945861"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949871"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e VS Code)
 
@@ -32,7 +32,7 @@ Neste guia, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
-- Um [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) a executar o Kubernetes 1.9.6, na região EUA Leste, Europa Ocidental ou Leste do Canadá, com o **Encaminhamento de Aplicações de Http** ativado.
+- Um [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) a executar o Kubernetes 1.10.3, na região EUA Leste, E.U.A. Central, E.U.A. Central 2, 	Europa Ocidental, Canadá Central ou Leste do Canadá, com o **Encaminhamento de Aplicações de Http** ativado.
 
   ![É necessário ativar o Encaminhamento de Aplicações de Http.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -42,8 +42,7 @@ Neste guia, vai aprender a:
 
 1. Instale a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.0.38 ou superior).
 1. Configure Espaços de Programador no cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Transfira a [extensão dos Espaços de Programador do Azure](https://aka.ms/get-azds-code) para o VS Code.
-1. Instale a extensão: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Transfira a [extensão dos Espaços de Programador do Azure](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) para o VS Code. Clique em Instalar uma vez na página do Marketplace da extensão e, novamente, no VS Code.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
 
@@ -89,7 +88,7 @@ Nesta secção, vai utilizar o VS Code para depurar diretamente o contentor em e
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicializar ativos de depuração com a extensão do VS Code
 Primeiro tem de configurar o projeto de código para que o VS Code comunique com o espaço de programador no Azure. A extensão do VS Code para Espaços de Programação do Azure oferece um comando auxiliar para contribuir para a configuração da depuração. 
 
-Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Create configuration files for connected development`. 
+Abra a **Paleta de Comandos** (através do menu **Ver | Paleta de Comandos**), e utilize o preenchimento automático para escrever e selecione este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
 
 Esta ação adiciona a configuração de depuração para os Espaços de Programação do Azure na pasta `.vscode`.
 
@@ -143,4 +142,4 @@ Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá 
 Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento de colaboração ao trabalhar com diferentes versões ou ramos do seu código em diferentes espaços. 
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container) (Trabalhar com vários contentores e o desenvolvimento em equipa)
+> [Working with multiple containers and team development](team-development-netcore.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)

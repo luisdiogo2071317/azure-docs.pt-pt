@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722852"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar a sua primeira API 
 
@@ -52,6 +53,8 @@ Esta secção mostra como importar e publicar uma API de back-end de especifica�
 
     Pode definir os valores da API durante a criação ou mais tarde, acedendo ao separador **Definições**. O asterisco vermelho junto a um campo indica que o campo é obrigatório.
 
+    Utilize os valores da tabela abaixo para criar a sua primeira API.
+
     |Definição|Valor|Descrição|
     |---|---|---|
     |**Especificação de OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Referencia o serviço que implementa a API. A API de Gestão reencaminha os pedidos para este endereço.|
@@ -74,19 +77,21 @@ As operações podem ser chamadas diretamente a partir do Portal do Azure, que f
 1. Selecione a API que criou no passo anterior (do separador **APIs**).
 2. Prima o separador **Teste**.  ![Testar API](./media/api-management-get-started/test-api.png)
 3. Clique em **GetSpeakers**.
-    A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. A chave é preenchida automaticamente.
+    A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum, e cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. A chave é preenchida automaticamente.
 4. Prima **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.
 
 ## <a name="call-operation"> </a>Chamar uma operação a partir do portal do programador
 
-Também é possível chamar operações do **portal do Programador** para testar as APIs. 
+Também é possível chamar operações do **portal do Programador** para testar as APIs.
 
-1. Selecione **API da Conferência de Demonstração**.
-2. Clique em **GetSpeakers**.
+1. Navegue para o **portal do Programador**.
+![Portal do programador](./media/api-management-get-started/developer-portal.png)
+
+2. Selecione **APIS**, clique em **API da Conferência de Demonstração** e, em seguida **GetSpeakers**.
     
-    A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
+    A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum, e cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
 3. Prima **Experimente**.
 4. Prima **Enviar**.
     

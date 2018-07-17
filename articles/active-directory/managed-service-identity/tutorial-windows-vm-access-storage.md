@@ -1,6 +1,6 @@
 ---
-title: Utilize um MSI de VM do Windows para aceder ao armazenamento do Azure
-description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao armazenamento do Azure.
+title: Utilizar uma MSI de VM do Windows para aceder ao Armazenamento do Azure
+description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,29 +9,29 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 9bfaf7f4fa4b7778650638b3b4670e29906838a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 823b647dbc171050f7b36cfc729b0d3529e1f296
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594786"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901233"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade de serviço geridas do Windows VM para aceder ao armazenamento do Azure através de chave de acesso
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: utilizar uma Identidade de Serviço Gerida de VM do Windows para aceder ao Armazenamento do Azure através de uma chave de acesso
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como ativar a identidade de serviço geridas (MSI) para uma Máquina Virtual do Windows, em seguida, utilizar essa identidade obter chaves de acesso de conta de armazenamento. Pode utilizar as chaves de acesso de armazenamento como habitualmente quando efetuar operações de armazenamento, por exemplo, quando utilizar o SDK de armazenamento. Para este tutorial, carregar e transferir blobs através do PowerShell de armazenamento do Azure. Ficará a saber como:
+Este tutorial mostra como ativar a Identidade de Serviço Gerida (MSI) para uma Máquina Virtual do Windows e, em seguida, utilizar essa identidade para obter as chaves de acesso à conta de armazenamento. Pode utilizar as chaves de acesso ao armazenamento como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Neste tutorial, vamos carregar e transferir blobs com o PowerShell do Armazenamento do Azure. Vai aprender a:
 
 
 > [!div class="checklist"]
-> * Ativar MSI na máquina Virtual do Windows 
-> * Conceder o acesso VM para chaves de acesso de conta de armazenamento no Gestor de recursos 
-> * Obter um token de acesso através da identidade da VM e utilizá-lo para obter as chaves de acesso de armazenamento do Resource Manager 
+> * Ativar a MSI numa Máquina Virtual do Windows 
+> * Conceder aceder à VM a chaves de acesso da conta de armazenamento no Resource Manager 
+> * Obter um token de acesso com a identidade da VM e utilizá-lo para obter as chaves de acesso ao armazenamento a partir do Resource Manager 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,85 +45,85 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
-Para este tutorial, iremos criar uma nova VM do Windows. Também pode ativar MSI numa VM existente.
+Neste tutorial, vamos criar uma nova VM do Windows. Também pode ativar o MSI numa VM existente.
 
-1.  Clique em de **+ /Safari/Chrome criar novo serviço** botão encontrado no canto superior esquerdo do portal do Azure.
+1.  Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3.  Introduza as informações da máquina virtual. O **Username** e **palavra-passe** criada aqui é as credenciais que utiliza para início de sessão para a máquina virtual.
-4.  Escolha o adequado **subscrição** para a máquina virtual na lista pendente.
-5.  Para selecionar um novo **grupo de recursos** gostaria que a máquina virtual para ser criado no, escolha **criar novo**. Quando terminar, clique em **OK**.
+3.  Introduza as informações da máquina virtual. O **Nome de Utilizador** e a **Palavra-passe** aqui criados são as credenciais a utilizar para iniciar sessão na máquina virtual.
+4.  Escolha uma **Subscrição** para a máquina virtual na lista pendente.
+5.  Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e clique em **OK**.
 
     ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM
+## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM
 
-Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Nos bastidores, permitir MSI duas coisas: regista a VM com o Azure Active Directory para criar a respetiva identidade gerida e configura a identidade da VM.
+Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Nos bastidores, ativar o MSI faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
 
-1. Navegue para o grupo de recursos da nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
-2. Na VM "Definições" no lado esquerdo, clique em **configuração**.
-3. Para registar e ativar o MSI, selecione **Sim**, se pretender desativá-la, escolha não.
-4. Certifique-se de que clica **guardar** para guardar a configuração.
+1. Navegue para o grupo de recursos da sua nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
+2. Nas “Definições” da VM à esquerda, clique em **Configuração**.
+3. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não.
+4. Certifique-se de que clica em **Guardar** para guardar a configuração.
 
     ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
-Se ainda não tiver um, agora, irá criar uma conta de armazenamento. Também pode ignorar este passo e conceder o acesso do MSI da VM para as chaves de uma conta de armazenamento existente. 
+Se ainda não tiver uma, irá agora criar uma conta de armazenamento. Também pode ignorar este passo e conceder acesso à MSI da VM às chaves de uma conta de armazenamento existente. 
 
-1. Clique em de **+ /Safari/Chrome criar novo serviço** botão encontrado no canto superior esquerdo do portal do Azure.
-2. Clique em **armazenamento**, em seguida, **conta de armazenamento**, e irá apresentar um novo painel "Criar a conta de armazenamento".
-3. Introduza um nome para a conta de armazenamento, o que irá utilizar mais tarde.  
-4. **Modelo de implementação** e **conta kind** deve ser definido como "Gestor de recursos" e "Objetivo geral", respetivamente. 
-5. Certifique-se a **subscrição** e **grupo de recursos** corresponder aqueles que especificou quando criou a VM no passo anterior.
+1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
+2. Clique em **Armazenamento**, em seguida, em **Conta de Armazenamento**, e um novo painel "Criar a conta de armazenamento" será apresentado.
+3. Introduza um nome para a conta de armazenamento, que irá utilizar mais tarde.  
+4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como "Gestor de recursos" e "Fins gerais", respetivamente. 
+5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
 6. Clique em **Criar**.
 
     ![Criar nova conta de armazenamento](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-in-the-storage-account"></a>Criar um contentor de BLOBs na conta de armazenamento
+## <a name="create-a-blob-container-in-the-storage-account"></a>Criar um contentor de blobs na conta de armazenamento
 
-Iremos mais tarde carregar e transferir um ficheiro para a nova conta de armazenamento. Como os ficheiros requerem armazenamento de BLOBs, temos de criar um contentor do blob no qual pretende armazenar o ficheiro.
+Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armazenamento. Uma vez que os ficheiros requerem armazenamento de blobs, é necessário criar um contentor de blobs para armazenar o ficheiro.
 
-1. Navegue de volta para a sua conta de armazenamento criados recentemente.
-2. Clique em de **contentores** ligação no lado esquerdo, em BLOBs "serviço".
-3. Clique em **+ contentor** no topo da página e um contentor"novo" painel slides enviados.
-4. Dê um nome de contentor, selecione um nível de acesso, em seguida, clique em **OK**. O nome especificado será utilizado mais tarde no tutorial. 
+1. Navegue de volta para a sua conta de armazenamento recentemente criada.
+2. Clique na ligação **Contentores** à esquerda, em "Serviço Blob".
+3. Clique em **+ Contentor**, na parte superior da página, e surge um painel "Novo contentor".
+4. Dê um nome ao contentor, selecione um nível de acesso, e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
 
     ![Criar contentor de armazenamento](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Conceder acesso MSI da VM para utilizar chaves de acesso de conta de armazenamento 
+## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Conceder acesso à MSI da VM para utilizar chaves de acesso da conta de armazenamento 
 
-Armazenamento do Azure não suporta a autenticação do Azure AD nativamente.  No entanto, pode utilizar um MSI para obter chaves de acesso de conta de armazenamento do Resource Manager, em seguida, utilizar uma chave para aceder ao armazenamento.  Neste passo, pode conceder o acesso do MSI da VM para as chaves para a sua conta de armazenamento.   
+O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD.  No entanto, pode utilizar uma MSI para obter as chaves de acesso da conta de armazenamento do Resource Manager e, em seguida, utilizar uma chave para aceder ao armazenamento.  Neste passo, pode conceder acesso à MSI da VM às chaves da sua conta de armazenamento.   
 
-1. Navegue de volta para a sua conta de armazenamento criados recentemente.  
-2. Clique em de **(IAM) do controlo de acesso** ligação no painel esquerdo.  
-3. Clique em **+ adicionar** na parte superior da página para adicionar uma nova atribuição de função para a VM
-4. Definir **função** para "Armazenamento conta chave de serviço de função de operador", no lado direito da página. 
-5. Na lista pendente seguinte, defina **atribuir acesso** o recurso "Máquina Virtual".  
-6. Em seguida, certifique-se a subscrição correta está listada no **subscrição** lista pendente, em seguida, defina **grupo de recursos** a "Todos os grupos de recursos".  
-7. Por fim, em **selecione** escolha a sua máquina Virtual do Windows na lista pendente, em seguida, clique em **guardar**. 
+1. Navegue de volta para a sua conta de armazenamento recentemente criada.  
+2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.  
+3. Clique em **+ Adicionar** na parte superior da página para adicionar uma nova atribuição de função à sua VM
+4. Defina a **Função** como “Função do Serviço de Operador de Chave da Conta de Armazenamento”, no lado direito da página. 
+5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
+6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para "Todos os grupos de recursos".  
+7. Por fim, em **Selecionar** escolha a sua Máquina Virtual do Windows na lista pendente e clique em **Guardar**. 
 
     ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso através da identidade da VM e utilizá-la para chamar o Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso com a identidade da VM e utilizá-lo para chamar o Azure Resource Manager 
 
-Para o resto do tutorial, iremos trabalhar da VM que criou anteriormente. 
+No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente. 
 
-Terá de utilizar os cmdlets do PowerShell do Azure Resource Manager nesta parte.  Se não o tiver instalado, [transferir a versão mais recente](https://docs.microsoft.com/powershell/azure/overview) antes de continuar.
+Terá de utilizar os cmdlets PowerShell do Azure Resource Manager nesta parte.  Se não o tiver instalado, [transfira a versão mais recente](https://docs.microsoft.com/powershell/azure/overview) antes de continuar.
 
-1. No portal do Azure, navegue para **máquinas virtuais**, aceda a sua máquina virtual do Windows, em seguida, a partir de **descrição geral** página clique **Connect** na parte superior. 
-2. Introduza o **Username** e **palavra-passe** para que adicionou ao criar a VM do Windows. 
-3. Agora que já criou um **ligação ao ambiente de trabalho remoto** com a máquina virtual, abra o PowerShell na sessão remota.
-4. Através Invoke-WebRequest do Powershell, efetue um pedido para o ponto final local de MSI para obter acesso token para o Azure Resource Manager.
+1. No portal do Azure, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em seguida, na página **Descrição Geral**, clique em **Ligar** na parte superior. 
+2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
+3. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o PowerShell na sessão remota.
+4. Através de Invoke-WebRequest do PowerShell, faça um pedido ao ponto final da MSI local para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
-    > O valor do parâmetro "recursos" tem de ser uma correspondência exata para que é esperado pelo Azure AD. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra no final no URI.
+    > No pedido anterior, o valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure AD. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra à direita no URI.
     
-    Em seguida, a extrair o elemento "Conteúdo", que é armazenado como uma cadeia de JavaScript Object Notation (JSON) formatado no objeto $response. 
+    Em seguida, extraia o elemento "Content", que é armazenado como uma cadeia formatada do JavaScript Object Notation (JSON) no objeto $response. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
@@ -134,28 +134,28 @@ Terá de utilizar os cmdlets do PowerShell do Azure Resource Manager nesta parte
     $ArmToken = $content.access_token
     ```
  
-## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Obter chaves de acesso de conta de armazenamento do Azure Resource Manager para efetuar chamadas de armazenamento  
+## <a name="get-storage-account-access-keys-from-azure-resource-manager-to-make-storage-calls"></a>Obter chaves de acesso da conta de armazenamento do Azure Resource Manager para fazer chamadas de armazenamento  
 
-Agora utilizar o PowerShell para chamar o Resource Manager utilizando o token de acesso que obteve na secção anterior, para obter a chave de acesso de armazenamento. Assim que tivermos a chave de acesso de armazenamento, podemos chamar operações de carregamento/transferência de armazenamento.
+Agora, utilize o PowerShell para chamar o Resource Manager com o token de acesso que obtivemos na secção anterior para obter a chave de acesso à chave de acesso ao armazenamento. Assim que tivermos a chave de acesso ao armazenamento, podemos chamar operações de carregamento/transferência de armazenamento.
 
 ```powershell
 $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
 > [!NOTE] 
-> O URL é maiúsculas e minúsculas, por isso, certifique-se de utilizar as maiúsculas exata utilizada anteriormente, quando com o nome do grupo de recursos, incluindo letras maiúsculas "G" em "resourceGroups." 
+> O URL é sensível às maiúsculas de minúsculas; por isso, certifique-se de que utiliza as mesmas maiúsculas e minúsculas que utilizou anteriormente, quando atribuiu o nome ao Grupo de Recursos, incluindo a maiúscula “G” em “resourceGroups”. 
 
 ```powershell
 $keysContent = $keysResponse.Content | ConvertFrom-Json
 $key = $keysContent.keys[0].value
 ```
 
-Em seguida, crie um ficheiro chamado "test.txt". Em seguida, utilize a chave de acesso de armazenamento para autenticar com o `New-AzureStorageContent` cmdlet, carregar o ficheiro para o nosso contentor de blob, em seguida, transfira o ficheiro.
+Em seguida, criamos um ficheiro chamado "test.txt". Em seguida, utilize a chave de acesso ao armazenamento para autenticar com o cmdlet `New-AzureStorageContent`, carregar o ficheiro para o nosso contentor de blobs e, em seguida, transfira o ficheiro.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Não se esqueça de instalar os cmdlets de armazenamento do Azure em primeiro lugar, utilizando `Install-Module Azure.Storage`. Em seguida, carregue o blob que acabou de criar, utilizar o `Set-AzureStorageBlobContent` cmdlet do PowerShell:
+Não se esqueça de instalar primeiro os cmdlets de Armazenamento do Azure, com `Install-Module Azure.Storage`. Em seguida, carregue o blob que acabou de criar, com o cmdlet `Set-AzureStorageBlobContent` do PowerShell:
 
 ```powershell
 $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
@@ -176,7 +176,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-Também pode transferir o blob que acabou de carregar, utilizando o `Get-AzureStorageBlobContent` cmdlet do PowerShell:
+Também pode transferir o blob que acabou de carregar, com o cmdlet `Get-AzureStorageBlobContent` do PowerShell:
 
 ```powershell
 Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
@@ -196,10 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar uma identidade de serviço gerida para aceder ao armazenamento do Azure com uma chave de acesso.  Para obter mais informações sobre chaves de acesso de armazenamento do Azure, consulte:
+Neste tutorial, aprendeu a criar uma Identidade de Serviço Gerida para aceder ao Armazenamento do Azure com uma chave de acesso.  Para saber mais sobre as chaves de acesso ao Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
->[Gerir as chaves de acesso de armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Gerir as chaves de acesso ao armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

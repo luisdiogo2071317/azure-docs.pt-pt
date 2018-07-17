@@ -1,1 +1,1 @@
-Se não estiver familiarizado com o MSI, veja a [descrição geral de identidade do serviço gerido](../articles/active-directory/msi-overview.md). Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+Se não está a familiarizado com MSI, veja a [Descrição Geral da Identidade de Serviço Gerida](../articles/active-directory/msi-overview.md). Se ainda não tem uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.

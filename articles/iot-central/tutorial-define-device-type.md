@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 71ccae1951020a522fbbdddcdce0bbeeea5f1fb9
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235795"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869586"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na aplicação do Azure IoT Central
 
@@ -41,6 +41,7 @@ Neste tutorial, ficará a saber como:
 > * Ver estado simulado
 > * Utilizar propriedades do dispositivo
 > * Utilizar definições do dispositivo
+> * Utilizar comandos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,23 +51,29 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
 2. Introduza o endereço de e-mail e a palavra-passe que utiliza para aceder à sua subscrição do Azure:
 
-   ![Introduza a sua conta da organização](media/tutorial-define-device-type/sign-in.png)
+   ![Introduza a sua conta da organização](./media/tutorial-define-device-type/sign-in.png)
 
 3. Para começar a criar uma nova aplicação do Azure IoT Central, escolha **Nova Aplicação**:
 
-    ![Página do Gestor de Aplicações do Azure IoT Central](media/tutorial-define-device-type/iotcentralhome.png)
+    ![Página do Gestor de Aplicações do Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Para criar uma nova aplicação do Azure IoT Central:
 
     * Escolha um nome simpático para a aplicação, como **Ares Condicionados Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para si. Pode alterar este prefixo de URL para algo mais memorável.
+    
     * Escolha uma subscrição do Azure e do Azure Active Directory para utilizar. Para obter mais informações sobre as subscrições e diretórios, veja [Criar uma aplicação do Azure IoT Central](howto-create-application.md).
+    
     * Utilize um grupo de recursos existente ou crie um novo grupo de recursos com um nome à sua escolha. Por exemplo, **contoso-rg**.
+    
     * Escolha a região geograficamente mais próxima de si.
+    
     * Escolha o modelo de aplicação da **Aplicação Personalizada**.
+    
     * Escolha o plano de pagamento **Aplicação de Avaliação Gratuita de 30 Dias**.
+    
     * Escolha **Criar**.
 
-    ![Página da Aplicação do Azure IoT Central](media/tutorial-define-device-type/iotcentralcreate.png)
+    ![Página da Aplicação do Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
 Para obter mais informações, veja [Como criar uma aplicação do Azure IoT Central](howto-create-application.md).
 
@@ -74,9 +81,9 @@ Para obter mais informações, veja [Como criar uma aplicação do Azure IoT Cen
 
 Como construtor, pode criar e editar os modelos de dispositivos na sua aplicação. Quando cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria que lhe permite testar o comportamento da aplicação antes de ligar um dispositivo físico.
 
-Para adicionar um novo modelo de dispositivo à sua aplicação, visite a página **Construtor da Aplicação**. Para tal, escolha o **Construtor da aplicação** no menu de navegação à esquerda:
+Para adicionar um novo modelo de dispositivo à sua aplicação, visite a página **Construtor da Aplicação**. Para tal, selecione o **Construtor da aplicação** no menu de navegação à esquerda.
 
-    ![Application Builder page](media/tutorial-define-device-type/builderhome.png)
+![Página Application Builder](./media/tutorial-define-device-type/builderhome.png)
 
 ## <a name="add-a-device-and-define-telemetry"></a>Adicionar um dispositivo e definir a telemetria
 
@@ -84,37 +91,43 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
 1. Na página **Construtor da Aplicação**, escolha **Criar Modelo do Dispositivo**:
 
-    ![Página Construtor da Aplicação, Criar Modelo do Dispositivo](media/tutorial-define-device-type/builderhomedevices.png)
+    ![Página Construtor da Aplicação, Criar Modelo do Dispositivo](./media/tutorial-define-device-type/builderhomedevices.png)
 
 2. Na página **Modelos de Dispositivo**, escolha **Personalizar**. O modelo de dispositivo **Personalizar** permite-lhe definir todas as características e comportamentos do seu ar condicionado ligado:
 
-    ![Dispositivos](media/tutorial-define-device-type/builderhomedevicescustom.png)
+    ![Dispositivos](./media/tutorial-define-device-type/builderhomedevicescustom.png)
 
 3. Na página **Novo Modelo de Dispositivo**, introduza **Ar Condicionado Ligado** como o nome do seu dispositivo e, em seguida, escolha **Criar**. Também pode carregar uma imagem do seu dispositivo que está visível para os operadores no explorador do dispositivo:
 
-    ![Personalizar Dispositivo](media/tutorial-define-device-type/createcustomdevice.png)
+    ![Personalizar Dispositivo](./media/tutorial-define-device-type/createcustomdevice.png)
 
 4. No modelo do dispositivo **Ar Condicionado Ligado**, certifique-se de está na página **Medidas**, onde define a telemetria. Cada modelo de dispositivo que define tem páginas separadas para que possa:
 
     * Especificar os valores, como telemetria, eventos e estado, enviados pelo dispositivo.
+    
     * Definir as definições utilizadas para controlar o dispositivo.
+    
     * Definir as propriedades utilizadas para registar informações sobre o dispositivo.
+    
     * Definir as regras associadas ao dispositivo.
+    
     * Personalizar o dashboard do dispositivo para os operadores.
 
-    ![Medidas do ar condicionado](media/tutorial-define-device-type/airconmeasurements.png)
+    ![Medidas do ar condicionado](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
     > Para alterar o nome ou o modelo do dispositivo, clique no texto na parte superior da página.
 
 5. Para adicionar a medição de telemetria de temperatura, escolha **Nova Medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
 
-    ![Medidas do dispositivo de ar condicionado ligado](media/tutorial-define-device-type/airconmeasurementsnew.png)
+    ![Medidas do dispositivo de ar condicionado ligado](./media/tutorial-define-device-type/airconmeasurementsnew.png)
 
 6. Cada tipo de telemetria que define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md), como:
 
     * Opções de apresentação.
+
     * Detalhes da telemetria.
+
     * Parâmetros de simulação.
 
     Para configurar a sua telemetria de **Temperatura**, utilize as informações na tabela seguinte:
@@ -130,15 +143,15 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
     Também pode escolher uma cor para a apresentação de telemetria. Para guardar a definição de telemetria, escolha **Guardar**:
 
-    ![Configurar a simulação de Temperatura](media/tutorial-define-device-type/temperaturesimulation.png)
+    ![Configurar a simulação de Temperatura](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. Após um curto período, a página **Medidas** mostra um gráfico da telemetria de temperatura a partir do seu dispositivo simulado de ar condicionado ligado. Utilize os controlos para gerir a visibilidade, a agregação ou para editar a definição de telemetria:
 
-    ![Ver simulação de temperatura](media/tutorial-define-device-type/viewsimulation.png)
+    ![Ver simulação de temperatura](./media/tutorial-define-device-type/viewsimulation.png)
 
 8. Também pode personalizar o gráfico com os controlos **Linha**, **Empilhado** e **Editar Intervalo de Tempo**:
 
-    ![Personalizar o gráfico](media/tutorial-define-device-type/customizechart.png)
+    ![Personalizar o gráfico](./media/tutorial-define-device-type/customizechart.png)
 
 ## <a name="define-event-measurement"></a>Definir medição de Eventos
 
@@ -146,13 +159,15 @@ Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados
 
 1. Para adicionar a medição do evento **Erro de Motor da Ventoinha**, escolha **Nova Medição**. Em seguida, escolha **Evento** como o tipo de medição:
 
-    ![Medidas do dispositivo de ar condicionado ligado](media/tutorial-define-device-type/eventnew.png)
+    ![Medidas do dispositivo de ar condicionado ligado](./media/tutorial-define-device-type/eventnew.png)
 
 2. Cada tipo de Evento que define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md), como:
 
-    * Nome a Apresentar.
-    * Nome do Campo.
-    * Gravidade.
+   * Nome a Apresentar.
+
+   * Nome do Campo.
+
+   * Gravidade.
 
     Para configurar o seu evento **Erro do Motor da Ventoinha**, utilize as informações na tabela seguinte:
 
@@ -164,15 +179,15 @@ Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados
 
     Para guardar a definição do evento, escolha **Guardar**:
 
-    ![Configurar medição de Eventos](media/tutorial-define-device-type/eventconfiguration.png)
+    ![Configurar medição de Eventos](./media/tutorial-define-device-type/eventconfiguration.png)
 
 3. Após um curto período, a página **Medidas** mostra um gráfico dos eventos gerados de forma aleatória a partir do seu dispositivo simulado de ar condicionado ligado. Utilize os controlos para gerir a visibilidade ou para editar a definição do evento:
 
-    ![Ver simulação do evento](media/tutorial-define-device-type/eventview.png)
+    ![Ver simulação do evento](./media/tutorial-define-device-type/eventview.png)
 
 1. Para ver detalhes adicionais sobre o evento, clique no evento no gráfico:
 
-    ![Ver Detalhes do Evento](media/tutorial-define-device-type/eventviewdetail.png)
+    ![Ver Detalhes do Evento](./media/tutorial-define-device-type/eventviewdetail.png)
 
 ## <a name="define-state-measurement"></a>Definir medição de Estado
 
@@ -180,14 +195,17 @@ Pode utilizar o Estado para definir e visualizar o estado do dispositivo ou o re
 
 1. Para adicionar a medição **Modo de Ventoinha**, escolha **Nova Medição**. Em seguida, escolha **Estado** como o tipo de medição:
 
-    ![Medidas do estado do dispositivo de ar condicionado ligado](media/tutorial-define-device-type/statenew.png)
+    ![Medidas do estado do dispositivo de ar condicionado ligado](./media/tutorial-define-device-type/statenew.png)
 
 2. Cada tipo de Estado que define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md), como:
 
-    * Nome a Apresentar.
-    * Nome do Campo.
-    * Valores com etiquetas de apresentação opcionais.
-    * Cor para cada valor
+   * Nome a Apresentar.
+
+   * Nome do Campo.
+
+   * Valores com etiquetas de apresentação opcionais.
+
+   * Cor para cada valor.
 
     Para configurar o seu estado do **Modo da Ventoinha**, utilize as informações na tabela seguinte:
 
@@ -202,19 +220,19 @@ Pode utilizar o Estado para definir e visualizar o estado do dispositivo ou o re
 
     Para guardar a definição da medição do estado, escolha **Guardar**:
 
-    ![Configurar medição de Estado](media/tutorial-define-device-type/stateconfiguration.png)
+    ![Configurar medição de Estado](./media/tutorial-define-device-type/stateconfiguration.png)
 
 3. Após um curto período, a página **Medições** mostra um gráfico dos estados gerados de forma aleatória a partir do seu dispositivo simulado de ar condicionado ligado. Utilize os controlos para gerir a visibilidade ou para editar a definição do estado:
 
-    ![Ver simulação do estado](media/tutorial-define-device-type/stateview.png)
+    ![Ver simulação do estado](./media/tutorial-define-device-type/stateview.png)
 
 4. No caso, existem demasiados pontos de dados enviados pelo dispositivo num curto período, a medição de estado é apresentada com um visual diferente, conforme mostrado abaixo. Se clicar no gráfico, então todos os pontos de dados nesse período de tempo são apresentados por ordem cronológica. Também pode reduzir o tempo de intervalo para ver a medição desenhada no gráfico.
 
-    ![Ver Detalhes de estado](media/tutorial-define-device-type/stateviewdetail.png)
+    ![Ver Detalhes de estado](./media/tutorial-define-device-type/stateviewdetail.png)
 
-## <a name="properties-device-properties-and-settings"></a>Propriedades, propriedades do dispositivo e definições
+## <a name="settings-properties-and-commands"></a>Definições, propriedades e comandos
 
-As propriedades, as propriedades do dispositivo e as definições são diferentes valores definidos num modelo de dispositivo e associados a cada dispositivo individual:
+As definições, as propriedades, as propriedades do dispositivo e os comandos são valores diferentes definidos num modelo de dispositivo e associados a cada dispositivo individual:
 
 * Utilize _definições_ para enviar dados de configuração para um dispositivo da sua aplicação. Por exemplo, um operador pode utilizar uma definição para alterar o intervalo de telemetria do dispositivo de dois segundos para cinco segundos. Quando um operador altera uma definição, a definição é marcada como pendente na IU até que o dispositivo reconheça que acionou a alteração da definição.
 
@@ -222,13 +240,15 @@ As propriedades, as propriedades do dispositivo e as definições são diferente
 
 * Utilize _propriedades do dispositivo_ para ativar um dispositivo para enviar os valores de propriedade para a aplicação. Estas propriedades só podem ser alteradas pelo dispositivo. Para um operador, as propriedades do dispositivo são só de leitura.
 
+* Pode utilizar _comandos_ para gerir remotamente o dispositivo a partir da sua aplicação. Pode executar diretamente comandos no dispositivo a partir da cloud para controlar os dispositivos. Por exemplo, um operador pode executar comandos, como reiniciar, para reiniciar instantaneamente o dispositivo.
+
 ## <a name="use-settings"></a>Utilizar as definições
 
 Utilize *definições* para permitir que um operador envie dados de configuração para um dispositivo. Nesta secção, irá adicionar uma definição ao seu modelo de dispositivo **Ar Condicionado Ligado** que permite a um operador definir a temperatura de destino do ar condicionado ligado.
 
 1. Navegue para a página **Definições** para o seu modelo de dispositivo **Ar Condicionado Ligado**:
 
-    ![Preparar para adicionar uma definição](media/tutorial-define-device-type/deviceaddsetting.png)
+    ![Preparar para adicionar uma definição](./media/tutorial-define-device-type/deviceaddsetting.png)
 
     Pode criar definições de diferentes tipos, como texto ou números.
 
@@ -249,24 +269,24 @@ Utilize *definições* para permitir que um operador envie dados de configuraç�
 
     Em seguida, escolha **Guardar**:
 
-    ![Configure a definição Definir Temperatura](media/tutorial-define-device-type/configuresetting.png)
+    ![Configure a definição Definir Temperatura](./media/tutorial-define-device-type/configuresetting.png)
 
     > [!NOTE]
     > Quando o dispositivo reconhece uma alteração da definição, o estado da definição muda para **sincronizado**.
 
 4. Pode personalizar o esquema da página **Definições** ao mover e redimensionar mosaicos de definições:
 
-    ![Personalizar esquema de definições](media/tutorial-define-device-type/settingslayout.png)
+    ![Personalizar esquema de definições](./media/tutorial-define-device-type/settingslayout.png)
 
-## <a name="use-properties"></a>Utilizar propriedades
+## <a name="use-properties--device-properties"></a>Propriedades de utilização/propriedades do dispositivo
 
-Utilize *propriedades* para armazenar informações sobre o seu dispositivo na aplicação. Nesta secção, irá adicionar as propriedades ao modelo de dispositivo **Ar Condicionado Ligado** para armazenar o número de série do dispositivo e a versão de firmware para cada dispositivo.
-
+Utilize *propriedades* para armazenar informações sobre o seu dispositivo na aplicação. Nesta secção, irá adicionar as propriedades do dispositivo ao modelo de dispositivo **Ar Condicionado Ligado** para armazenar o número de série e a versão de firmware do dispositivo. Tenha em atenção que ambas as propriedades são só de leitura comunicadas pelo dispositivo e não é possível atribuir-lhes valores. As propriedades que pode utilizar às quais é possível atribuir valores para incluir a localização do dispositivo, as informações de propriedade e a data/hora do último serviço do dispositivo.
+ 
 1. Navegue para a página **Propriedades** para o seu modelo de dispositivo **Ar Condicionado Ligado**:
 
-    ![Preparar para adicionar uma propriedade](media/tutorial-define-device-type/deviceaddproperty.png)
+    ![Preparar para adicionar uma propriedade](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    Pode criar propriedades de diferentes tipos, como texto ou números. Para adicionar uma propriedade de número de série ao modelo de dispositivo, escolha **Texto**.
+    Pode criar propriedades do dispositivo de diferentes tipos, como texto ou números. Para adicionar uma propriedade de número de série ao modelo de dispositivo, escolha **Texto**.
 
 2. Para configurar a propriedade do número de série, utilize as informações na tabela seguinte:
 
@@ -279,13 +299,13 @@ Utilize *propriedades* para armazenar informações sobre o seu dispositivo na a
 
     Deixe os outros campos com os respetivos valores predefinidos.
 
-    ![Configurar as propriedades do dispositivo](media/tutorial-define-device-type/configureproperties.png)
+    ![Configurar as propriedades do dispositivo](./media/tutorial-define-device-type/configureproperties.png)
 
-    Em seguida, escolha **Guardar**.
+    Escolha **Guardar**.
 
-3. Para adicionar uma propriedade da versão de firmware ao modelo de dispositivo, escolha **Texto**
+3. Para adicionar uma versão de firmware às propriedades do modelo de dispositivo, selecione **Texto**.
 
-4. Para configurar a propriedade da versão do firmware, utilize as informações na tabela seguinte:
+4. Para configurar a propriedade do dispositivo da versão do firmware, utilize as informações na tabela seguinte:
 
     | Campo                | Valor                   |
     | -------------------- | ----------------------- |
@@ -294,13 +314,44 @@ Utilize *propriedades* para armazenar informações sobre o seu dispositivo na a
     | Valor Inicial        | 0.1                     |
     | Descrição          | Versão do firmware do dispositivo |
 
-    ![Configurar as propriedades do dispositivo](media/tutorial-define-device-type/configureproperties2.png)
+    ![Configurar as propriedades do dispositivo](./media/tutorial-define-device-type/configureproperties2.png)
 
-    Em seguida, escolha **Guardar**.
+    Escolha **Guardar**.
 
 5. Pode personalizar o esquema da página **Propriedades** ao mover e redimensionar mosaicos de propriedades:
 
-    ![Personalizar esquema de propriedades](media/tutorial-define-device-type/propertieslayout.png)
+    ![Personalizar esquema de propriedades](./media/tutorial-define-device-type/propertieslayout.png)
+
+
+## <a name="use-commands"></a>Utilizar comandos
+
+Pode utilizar _comandos_ para ativar um operador para executar comandos diretamente no dispositivo. Nesta secção, vai adicionar um comando ao seu modelo de dispositivo **Ar Condicionado Ligado** que permite a um operador apresentar uma determinada mensagem no ecrã do ar condicionado ligado (isto funciona com o código de exemplo MxChip).
+
+1. Navegue para a página **comandos** para o seu modelo de dispositivo **Ar Condicionado Ligado**:
+
+    ![Preparar para adicionar uma definição](media/tutorial-define-device-type/commandsecho.png)
+
+    Pode criar comandos de tipos diferentes com base nos seus requisitos. 
+
+1. Clique em **Novo Comando** para adicionar um comando ao seu dispositivo.
+
+1. Para configurar o novo comando, utilize as informações na tabela seguinte:
+
+    | Campo                | Valor           |
+    | -------------------- | -----------     |
+    | Nome a Apresentar         | Comando Echo    |
+    | Nome do Campo           | echo            |
+    | Tempo Limite Predefinido      | 30              |
+    | Nome a Apresentar         | Texto a Apresentar    |
+    | Tipo a Apresentar         | texto            |  
+
+Pode adicionar mais entradas ao comando ao clicar em **+** para entradas.
+
+2. Escolha **Guardar**.
+
+3. Pode personalizar o esquema da página **Comandos** ao mover e redimensionar mosaicos de comandos:
+
+    ![Personalizar esquema de definições](media/tutorial-define-device-type/commandstileresize.png)
 
 ## <a name="view-your-simulated-device"></a>Veja o seu dispositivo simulado
 
@@ -308,11 +359,11 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Escolha a página **Dashboard** para o seu modelo de dispositivo **Ar Condicionado Ligado**:
 
-    ![Dashboards de ar condicionado ligado](media/tutorial-define-device-type/aircondashboards.png)
+    ![Dashboards de ar condicionado ligado](./media/tutorial-define-device-type/aircondashboards.png)
 
 2. Escolha **Gráfico de Linhas** para adicionar o componente ao **Dashboard**:
 
-    ![Componentes do dashboard](media/tutorial-define-device-type/dashboardcomponents1.png)
+    ![Componentes do dashboard](./media/tutorial-define-device-type/dashboardcomponents1.png)
 
 3. Configure o componente **Gráfico de Linhas** com as informações na tabela seguinte:
 
@@ -322,7 +373,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medições | temperatura (escolha **Visibilidade** junto a **temperatura**) |
 
-    ![Definições do gráfico de linhas](media/tutorial-define-device-type/linechartsettings.png)
+    ![Definições do gráfico de linhas](./media/tutorial-define-device-type/linechartsettings.png)
 
     Em seguida, escolha **Guardar**.
 
@@ -334,7 +385,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medições | Erro do Motor da Ventoinha (escolha **Visibilidade** junto a **Erro do Motor da Ventoinha**) |
 
-    ![Definições do gráfico de linhas](media/tutorial-define-device-type/dashboardeventchartsetting.png)
+    ![Definições do gráfico de linhas](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
 
     Em seguida, escolha **Guardar**.
 
@@ -346,13 +397,13 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medições | Modo da Ventoinha (escolha **Visibilidade** junto a **Modo da Ventoinha**) |
 
-    ![Definições do gráfico de linhas](media/tutorial-define-device-type/dashboardstatechartsetting.png)
+    ![Definições do gráfico de linhas](./media/tutorial-define-device-type/dashboardstatechartsetting.png)
 
     Em seguida, escolha **Guardar**.
 
 6. Para adicionar a opção para definir a temperatura do dashboard, escolha **Definições e Propriedades**:
 
-    ![Componentes do dashboard](media/tutorial-define-device-type/dashboardcomponents4.png)
+    ![Componentes do dashboard](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
 7. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
@@ -361,13 +412,13 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
     | Título                   | Definir temperatura de destino |
     | Definições e Propriedades | Definir Temperatura |
 
-    ![Definições de propriedade do número de série](media/tutorial-define-device-type/propertysettings3.png)
+    ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings3.png)
 
     Em seguida, escolha **Guardar**.
 
 8. Para adicionar o número de série do dispositivo ao dashboard, escolha **Definições e Propriedades**:
 
-    ![Componentes do dashboard](media/tutorial-define-device-type/dashboardcomponents3.png)
+    ![Componentes do dashboard](./media/tutorial-define-device-type/dashboardcomponents3.png)
 
 9. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
@@ -376,13 +427,13 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
     | Título                   | Número de série |
     | Definições e Propriedades | Número de série |
 
-    ![Definições de propriedade do número de série](media/tutorial-define-device-type/propertysettings1.png)
+    ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings1.png)
 
     Em seguida, escolha **Guardar**.
 
 10. Para adicionar a versão de firmware do dispositivo ao dashboard, escolha **Definições e Propriedades**:
 
-    ![Componentes do dashboard](media/tutorial-define-device-type/dashboardcomponents4.png)
+    ![Componentes do dashboard](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
 11. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
@@ -391,7 +442,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
     | Título                   | Versão do firmware |
     | Definições e Propriedades | Versão do Firmware |
 
-    ![Definições de propriedade do número de série](media/tutorial-define-device-type/propertysettings2.png)
+    ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings2.png)
 
     Em seguida, escolha **Guardar**.
 

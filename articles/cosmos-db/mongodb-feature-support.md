@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796360"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928697"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte de API do MongoDB para a sintaxe e funcionalidades do MongoDB
 
@@ -23,14 +23,19 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 
 Ao utilizar a API do Azure Cosmos DB MongoDB, pode desfrutar dos benefícios das API do MongoDB a que está habituado, com todas as capacidades empresariais que o Azure Cosmos DB fornece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partition-data.md), disponibilidade e garantias de latência, indexação automática de cada campo, encriptação em inatividade, cópias de segurança, etc.
 
+## <a name="mongodb-protocol-support"></a>Suporte de Protocolo do MongoDB
+
+A API de MongoDB do Azure Cosmos DB é compatível com a versão do servidor do MongoDB **3.2** por predefinição. Os operadores suportados e quaisquer limitações ou exceções são listadas abaixo. As funcionalidades ou operadores de consulta adicionados na versão **3.4** do MongoDB estão atualmente disponíveis como uma funcionalidade de pré-visualização. Qualquer controlador de cliente que entende estes protocolos deve poder ligar ao Cosmos DB com a API do MongoDB.
+
+O [pipeline de agregação do MongoDB](#aggregation-pipeline) também está atualmente disponível como uma funcionalidade de pré-visualização separada.
+
 ## <a name="mongodb-query-language-support"></a>Suporte de linguagem de consulta do MongoDB
 
 A API do Azure Cosmos DB MongoDB presta suporte abrangente para construções de linguagem de consulta do MongoDB. Abaixo encontra a lista detalhada de operações, operadores, fases, comandos e opções atualmente suportados.
 
-
 ## <a name="database-commands"></a>Comandos da base de dados
 
-O Azure Cosmos DB suporta os seguintes comandos de base de dados em todas as contas de API do MongoDB. 
+O Azure Cosmos DB suporta os seguintes comandos de base de dados em todas as contas de API do MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e de escrita
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Não suportado. Em alternativa, utilize $regex 
+$text |  | Não suportado. Em alternativa, utilize $regex.
+
+## <a name="unsupported-operators"></a>Operadores não suportados
+
+Os operadores ```$where``` e ```$eval``` não são suportados pelo Azure Cosmos DB.
 
 ### <a name="methods"></a>Métodos
 
@@ -316,6 +325,10 @@ O Azure Cosmos DB ainda não suporta utilizadores e funções. O Azure Cosmos DB
 ## <a name="replication"></a>Replicação
 
 O Azure Cosmos DB suporta a replicação nativa e automática nas camadas inferiores. Esta lógica é expandida para conseguir também a replicação global de latência baixa. O Azure Cosmos DB não suporta comandos de replicação manuais.
+
+## <a name="write-concern"></a>Preocupação Escrita
+
+Determinadas APIs do MongoDB suportam uma [Preocupação Escrita](https://docs.mongodb.com/manual/reference/write-concern/) que especifica o número de respostas que é preciso durante uma operação escrita. Devido à forma como o Cosmos DB lida com a replicação em segundo plano, todas as escritas são automaticamente Quórum por predefinição. Qualquer preocupação escrita especificada pelo código do cliente é ignorada. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
 
 ## <a name="sharding"></a>Fragmentação
 

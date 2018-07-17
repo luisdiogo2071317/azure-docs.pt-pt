@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776717"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972279"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Xamarin.Android com Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -58,7 +58,7 @@ Neste tutorial, siga os passos seguintes:
 
 O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de ligação para registar a sua aplicação e para receber notificações e enviar notificações push.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Criar uma aplicação Xamarin.Android e ligá-la ao hub de notificação
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Criar uma aplicação Xamarin.Android e ligá-la ao hub de notificação
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Criar um projeto do Visual Studio e adicionar pacotes NuGet
 1. No Visual Studio, aponte para **Ficheiro**, selecione **Novo** e, em seguida, selecione **Projeto**. 
@@ -142,6 +142,7 @@ Abra o ficheiro **AndroidManifest.xml** e insira os seguintes elementos `<receiv
 8. Adicione o seguinte ao utilizar as instruções **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -183,6 +184,7 @@ Abra o ficheiro **AndroidManifest.xml** e insira os seguintes elementos `<receiv
 12. Adicione o seguinte através de instruções a **MyFirebaseMessagingService.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
@@ -237,7 +239,7 @@ Abra o ficheiro **AndroidManifest.xml** e insira os seguintes elementos `<receiv
 16. **Execute** a aplicação no dispositivo ou emulador carregado
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Enviar notificação de teste a partir do portal do Azure
-Pode testar a receção das notificações na aplicação com a opção *Envio de Teste* no [portal do Azure]. Esta ação envia uma notificação push de teste para o dispositivo.
+Pode testar a receção das notificações na aplicação com a opção *Envio de Teste* no [portal do Azure]. Esta ação envia uma notificação push de teste para o seu dispositivo.
 
 ![Portal do Azure – Envio de Teste](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -287,7 +289,7 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos And
 [Visual Studio com Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx

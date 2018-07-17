@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/16/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303560"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930482"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre os serviços do Azure que entregam mensagens
 
@@ -33,7 +33,7 @@ Há uma distinção importante a ter em atenção entre os serviços que entrega
 
 Um evento é uma notificação simples de uma condição ou alteração de estado. O publicador do evento não tem nenhum expectativa sobre o modo como o evento é processado. O consumidor do evento decide o que fazer com a notificação. Os eventos podem ser unidades discretas ou fazer parte de uma série.
 
-Os eventos discretos comunicam alterações de estado e são acionáveis. Para dar o passo seguinte, o consumidor só tem de saber que algo aconteceu. Os dados do evento contêm informações sobre o que aconteceu, mas não têm os dados que o acionaram. Por exemplo, um evento notifica os consumidores de que foi criado um ficheiro. Poderá conter informações gerais sobre o ficheiro, mas não contém o ficheiro em si. Os eventos discretos são ideais para soluções sem servidor que têm de ser dimensionadas.
+Os eventos discretos comunicam alterações de estado e são acionáveis. Para dar o passo seguinte, o consumidor só tem de saber que algo aconteceu. Os dados do evento têm informações sobre o que aconteceu, mas não têm os dados que o acionaram. Por exemplo, um evento notifica os consumidores de que foi criado um ficheiro. Poderá ter informações gerais sobre o ficheiro, mas não tem o ficheiro em si. Os eventos discretos são ideais para soluções sem servidor que têm de ser dimensionadas.
 
 Os eventos de série comunicam uma condição e são analisáveis. Os eventos são ordenados por tempo e inter-relacionados. O consumidor precisa da série sequenciada de eventos para analisar o que aconteceu.
 
@@ -46,22 +46,23 @@ Uma mensagem são dados não processados produzidos por um serviço e que vão s
 | Serviço | Objetivo | Tipo | Quando utilizar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programação reativa | Distribuição de eventos (discretos) | Reagir a alterações de estado |
-| Event Hubs | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
+| Hubs de Eventos | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
 | Service Bus | Mensagens empresariais de alto valor | Mensagem | Processamento de encomendas e de transações financeiras |
 
 ### <a name="event-grid"></a>Event Grid
 
 O Event Grid é um backplane de eventos que permite a programação reativa e orientada para eventos. Utiliza um modelo de publicação-subscrição. Os publicadores emitem eventos, mas não têm expectativas sobre que eventos são processados. Os subscritores decidem que eventos pretendem processar.
 
-O Event Grid está profundamente integrado nos serviços do Azure e pode ser integrado em serviços de terceiros. Ao eliminar a necessidade de consultas constantes, simplifica o consumo de eventos e reduz os custos. Encaminha, de forma eficiente e fiável, os eventos de recursos do Azure e não Azure. Distribui os eventos para pontos finais de subscritor registado. A mensagem do evento contém as informações necessárias para reagir a alterações em serviços e aplicações. O Event Grid não é um pipeline de dados e não entrega o objeto propriamente dito que foi atualizado.
+O Event Grid está profundamente integrado nos serviços do Azure e pode ser integrado em serviços de terceiros. Ao eliminar a necessidade de consultas constantes, simplifica o consumo de eventos e reduz os custos. Encaminha, de forma eficiente e fiável, os eventos de recursos do Azure e não Azure. Distribui os eventos para pontos finais de subscritor registado. A mensagem do evento tem as informações que sã precisas para reagir a alterações em serviços e aplicações. O Event Grid não é um pipeline de dados e não entrega o objeto propriamente dito que foi atualizado.
 
 Tem as seguintes características:
 
 * dinamicamente dimensionável
 * baixo custo
 * sem servidor
+* pelo menos uma entrega
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Hubs de Eventos
 
 Os Hubs de Eventos do Azure são um pipeline de macrodados. Facilita a captura, retenção e reprodução de dados de transmissão de telemetria e eventos. Os dados podem ter várias origens em simultâneo. Os Hubs de Eventos permitem que os dados de telemetria e eventos sejam disponibilizados a diversos serviços de análises e infraestruturas de processamento de transmissões em fluxo. Está disponível como fluxos de dados ou lotes de eventos integrados. Este serviço proporciona uma solução única que permite a obtenção de dados rápida para processamento em tempo real, bem como a reprodução repetida dos dados não processados armazenados. Pode capturar os dados de transmissão em fluxo num ficheiro para processamento e análise.
 
@@ -69,6 +70,7 @@ Tem as seguintes características:
 
 * baixa latência
 * capacidade para receber e processar milhões de eventos por segundo
+* pelo menos uma entrega
 
 ### <a name="service-bus"></a>Service Bus
 
@@ -80,6 +82,7 @@ Tem as seguintes características:
 
 * entrega de mensagens assíncrona fiável (mensagens empresariais como serviço) que requer consulta
 * funcionalidades de mensagens avançadas, como FIFO, processamento por lotes/sessões, transações, mensagens não entregues, controlo temporal, encaminhamento e filtragem e deteção de duplicados
+* entrega exatamente uma vez
 
 ## <a name="use-the-services-together"></a>Utilizar os serviços em conjunto
 
