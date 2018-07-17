@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 42552fa09f0a433cf12b92e11531303a0d1bd6bb
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346516"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069932"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 
@@ -48,7 +48,7 @@ Alguns recursos do **conversão de voz em texto** API não estão disponíveis a
 
 \* *LUIS intenções e entidades podem ser obtidas através de uma subscrição separada do LUIS. Com esta subscrição, o SDK pode chamar o LUIS para e fornecer resultados de entidade e propósito, bem como as transcrições de voz. Com a API REST, pode chamar o LUIS para derivar intenções e entidades com a sua subscrição do LUIS.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Preparar a sua subscrição de avaliação de conversão de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-windows.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

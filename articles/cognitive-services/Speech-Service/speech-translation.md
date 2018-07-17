@@ -1,6 +1,6 @@
 ---
-title: Sobre a conversão de reconhecimento de voz | Microsoft Docs
-description: Uma descrição geral das funcionalidades de tradução de reconhecimento de voz
+title: Sobre tradução de voz | Documentos da Microsoft
+description: Uma descrição geral das capacidades de tradução por voz
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,37 +10,37 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 43fcde887c21794989aa43540a214ef34893a630
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355616"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069207"
 ---
-# <a name="about-the-speech-translation-api"></a>Sobre a API de tradução de reconhecimento de voz
+# <a name="about-the-speech-translation-api"></a>Sobre a API de tradução de voz
 
-A API de reconhecimento de voz Microsoft permite-lhe adicionar ponto-a-ponto, em tempo real, multilingues tradução de reconhecimento de voz aos seus dispositivos, ferramentas e aplicações. A API do mesma pode ser utilizada para tradução de reconhecimento de voz-para-reconhecimento de voz e reconhecimento de voz para texto.
+A API de voz da Microsoft permite-lhe adicionar ponto-a-ponto, em tempo real, vários idioma tradução de voz às suas aplicações, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e conversão de voz em texto.
 
-Com a API de reconhecimento de voz do Microsoft tradutor, aplicações de cliente áudio de reconhecimento de voz para o serviço de fluxo e recebem um fluxo de resultados de volta. Estes resultados incluem o texto reconhecido no idioma de origem e a tradução na linguagem de destino. Traduções provisórias podem ser fornecidos até um utterance estiver concluída, em que momento é fornecida uma tradução final.
+Com a API de voz do Microsoft Translator, aplicativos cliente transmitir áudio de voz para o serviço e recebem um fluxo de resultados de volta. Esses resultados incluem o texto reconhecido no idioma de origem e a tradução no idioma de destino. Traduções provisórias podem ser fornecidos até que uma expressão for concluída, nesse momento é fornecida uma tradução final.
 
-Opcionalmente, uma versão de áudio sintetizada da tradução final possam ser preparada, ativar a tradução de reconhecimento de voz a voz verdadeira.
+Opcionalmente, uma versão de áudio sintetizada da tradução final poderá ser preparada, ativar a tradução de voz para voz verdadeira.
 
-A API de tradução de reconhecimento de voz utiliza um protocolo de WebSockets para fornecer um canal de comunicação de full-duplex entre o cliente e o servidor. Mas não tem de lidar com WebSockets; o SDK de reconhecimento de voz processa que por si.
+A API de tradução de voz utiliza um protocolo de WebSockets para fornecer um canal de comunicação de full duplex entre o cliente e o servidor. Mas não precisa lidar com WebSockets; o SDK de voz processa isto por si.
 
-A API de tradução de reconhecimento de voz emprega as mesmas tecnologias de energia vários produtos e serviços Microsoft. Este serviço já está utilizado por milhares de empresas em todo o mundo nas respetivas aplicações e os fluxos de trabalho.
+A API de tradução de voz emprega as mesmas tecnologias que suportam vários produtos e serviços Microsoft. Este serviço já é utilizado por milhares de empresas em todo o mundo em seus aplicativos e os fluxos de trabalho.
 
 ## <a name="about-the-technology"></a>Sobre a tecnologia
 
-Subjacente do motor de tradução da Microsoft é duas abordagens diferentes: análises tradução (SMT) e neuronal tradução (NMT). A última opção, uma abordagem de artificial intelligence empregar as redes neurais, é a abordagem mais moderna a tradução automática. NMT fornece traduções de melhor — não apenas mais exata, mas também mais fluent e natural. O motivo de chave para este fluidity é NMT que utiliza o contexto completo de uma frase traduzir palavras.
+Subjacentes mecanismo de tradução da Microsoft são as duas abordagens diferentes: estatísticos de tradução automática (SMT) e a tradução automática neuronal (NMT). A última opção, uma abordagem de inteligência artificial empregar as redes neurais, é a abordagem mais moderna para tradução automática. NMT fornece melhor traduções — não apenas mais precisos, mas também mais fluente e natural. O motivo principal para este fluidez é que o NMT utiliza o contexto completo de uma frase para traduzir palavras.
 
-Hoje em dia, Microsoft foi migrada para NMT para os idiomas mais populares, empregar SMT apenas em idiomas sem frequentemente utilizados. Todos os [idiomas disponíveis para tradução de reconhecimento de voz a voz](supported-languages.md#speech-translation) com tecnologia NMT. Tradução de reconhecimento de voz para texto utilizar SMT ou NMT consoante o par de idioma. Se o idioma de destino é suportado pelo NMT, a tradução completa é NMT-se ligados à corrente. Se o idioma de destino não é suportado pela NMT, a conversão é uma versão híbrida do NMT e SMT, utilizando o inglês como "dinâmica" entre os dois idiomas.
+Hoje em dia, Microsoft tiver migrado para NMT para as linguagens mais populares, empregando SMT apenas para linguagens utilizadas menos frequentemente. Todos os [idiomas disponíveis para a tradução de voz para voz](supported-languages.md#speech-translation) têm a tecnologia NMT. Tradução de voz em texto utilizar SMT ou NMT consoante o par de idioma. Se o idioma de destino é suportado pelo NMT, a tradução inteira é com a tecnologia de NMT. Se o idioma de destino não é suportado pelo NMT, a tradução é uma mistura de NMT e SMT, usando o inglês como uma tabela "dinâmica" entre as duas linguagens.
 
-As diferenças entre os modelos são internas para o motor de conversão. Os utilizadores finais Repare apenas a qualidade de tradução melhorada, especialmente para chinês, japonês e árabe.
+As diferenças entre os modelos são internas para o mecanismo de tradução. Os utilizadores finais observe apenas a qualidade das traduções de melhor, especialmente para chinês, japonês e árabe.
 
 > [!NOTE]
-> Estiver interessado em obter mais informações sobre a tecnologia por trás do motor de tradução da Microsoft? Consulte [tradução](https://www.microsoft.com/en-us/translator/mt.aspx).
+> Interessado em saber mais sobre a tecnologia por trás do mecanismo de tradução da Microsoft? Ver [tradução automática](https://www.microsoft.com/en-us/translator/mt.aspx).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver como reconhecer voz em c#](quickstart-csharp-windows.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: b9218600db8bd3e20528e61e411bb64c10dd9c84
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917640"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070948"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -236,4 +236,4 @@ O ponto final personalizado é funcionalmente idêntico ao ponto final do padrã
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconhecer a conversão de voz em c#](quickstart-csharp-windows.md)
+- [Reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

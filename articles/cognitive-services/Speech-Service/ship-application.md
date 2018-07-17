@@ -1,6 +1,6 @@
 ---
-title: Serviços cognitivos do Azure, cognitivos dos serviços de voz API do SDK documentação - tutoriais, referência da API | Microsoft Docs
-description: Saiba como criar e a desenvolver aplicações com o SDK de reconhecimento de voz serviços cognitivos
+title: API do SDK de voz documentação - tutoriais, referência da API dos serviços de serviços cognitivos do Azure, cognitivos | Documentos da Microsoft
+description: Saiba como criar e desenvolver aplicações com o SDK de voz dos serviços cognitivos
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
@@ -10,51 +10,51 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: d410dda09fdd30181b633c454b1d44610b10c472
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fe171ba9f6f0ff36a7c23c47f145d83f7a94fb5d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356239"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069493"
 ---
-# <a name="shipping-an-application"></a>Expedir uma aplicação
+# <a name="shipping-an-application"></a>Um aplicativo de envio
 
-Observar o [licença do SDK de reconhecimento de voz](license.md), bem como o [avisos de software de terceiros](third-party-notices.md) ao distribuir o SDK dos serviços de reconhecimento de voz cognitivos. Além disso, reveja o [declaração de privacidade do Microsoft](https://aka.ms/csspeech/privacy).
+Observe a [licença do SDK de voz](license.md), bem como o [notificações de software de terceiros](third-party-notices.md) ao distribuir o SDK de voz dos serviços cognitivos. Além disso, reveja os [declaração de privacidade do Microsoft](https://aka.ms/csspeech/privacy).
 
-Consoante a plataforma, diferentes dependências existem para executar a aplicação.
+Consoante a plataforma, existem dependências diferentes para executar seu aplicativo.
 
 ## <a name="windows"></a>Windows
 
-O SDK dos serviços de reconhecimento de voz cognitivos é testado no Windows 10 e no Windows Server 2016.
+O SDK de voz dos serviços cognitivos é testado no Windows 10 e no Windows Server 2016.
 
-O SDK de reconhecimento de voz serviços cognitivos requer o [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) no sistema. Pode transferir programas de instalação para a versão mais recente para o `Microsoft Visual C++ Redistributable for Visual Studio 2017` aqui:
+O SDK de voz dos serviços cognitivos requer o [Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) no sistema. Pode baixar os programas de instalação para a versão mais recente do `Microsoft Visual C++ Redistributable for Visual Studio 2017` aqui:
 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Se a aplicação estiver a utilizar o código gerido, o `.Net Framework 4.6.1` ou posterior é necessária no computador de destino.
+Se a aplicação estiver a utilizar o código gerenciado, o `.Net Framework 4.6.1` ou posterior é necessário no computador de destino.
 
-Para a entrada microfone, as bibliotecas do Media Foundation tem de ser instalado. Estas bibliotecas fazem parte do Windows 10 e Windows Server 2016. É possível utilizar o SDK de reconhecimento de voz sem estas bibliotecas, desde que microfone não é utilizado como o dispositivo de entrada de áudio.
+Para a entrada do microfone, as bibliotecas de base de dados tem de ser instalado. Essas bibliotecas fazem parte do Windows 10 e Windows Server 2016. É possível utilizar o SDK de voz dessas bibliotecas, desde que microfone não é utilizado como o dispositivo de entrada de áudio.
 
-Os ficheiros necessários do SDK de reconhecimento de voz podem ser implementados no mesmo diretório que a aplicação. Desta forma, que a aplicação pode aceder diretamente às bibliotecas. Certifique-se de que seleciona a versão correta (Win32/x64) correspondentes à sua aplicação.
+Os ficheiros necessários do SDK de voz podem ser implementados no mesmo diretório que seu aplicativo. Desta forma, que seu aplicativo pode acessar diretamente as bibliotecas. Certificar-se de que seleciona a versão correta (Win32/x64) correspondentes a sua aplicação.
 
 | Nome | Função
 |:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | Core SDK, necessária para a implementação nativa e gerida
+| `Microsoft.CognitiveServices.Speech.core.dll` | Core SDK, necessária para a implementação nativa e gerenciada
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | necessário para a implementação gerida
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | necessário para a implementação gerida
 
 ## <a name="linux"></a>Linux
 
-Para uma aplicação nativa, terá de enviar a biblioteca do SDK de reconhecimento de voz, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Certifique-se de que seleciona a versão (x86, x64) correspondentes à sua aplicação. Consoante a versão do Linux, também poderá ter de incluir as seguintes dependências:
+Para uma aplicação nativa, terá de enviar a biblioteca do SDK de voz, `libMicrosoft.CognitiveServices.Speech.core.so`.
+Certifique-se de selecionar a versão (x86, x64) correspondentes a sua aplicação. Dependendo da versão do Linux, também poderá incluir as seguintes dependências:
 
-* As bibliotecas partilhadas da biblioteca de C GNU (incluindo a biblioteca de programação de Threads POSIX `libpthreads`)
-* A biblioteca de OpenSSL (`libssl.so.1.0.0`)
+* As bibliotecas compartilhadas da biblioteca de C GNU (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
+* A biblioteca OpenSSL (`libssl.so.1.0.0`)
 * A biblioteca de cURL (`libcurl.so.4`)
-* A biblioteca partilhada para aplicações de ALSA (`libasound.so.2`)
+* A biblioteca partilhada para aplicativos de ALSA (`libasound.so.2`)
 
-No Ubuntu 16.04, por exemplo, as bibliotecas de GNU C devem ser instaladas por predefinição. A última três podem ser instalado utilizando estes comandos:
+No Ubuntu 16.04, por exemplo, as bibliotecas de C do GNU devem já ser instaladas por predefinição. Os três últimos podem ser instalados utilizando estes comandos:
 
 ```sh
 sudo apt-get update
@@ -63,5 +63,5 @@ sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver como reconhecer voz em c#](quickstart-csharp-windows.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

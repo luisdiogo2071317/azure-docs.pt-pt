@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 5ed98bb4c4f40b23988a4f73778e715bfbea2505
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004946"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068789"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -54,9 +54,9 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
   
     Pode criar um leitor, utilizando o [API de leitor de multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/). Utilizar o [API do Azure Media Player ProtectionInfo](http://amp.azure.net/libs/amp/latest/docs/) para especificar a tecnologia DRM a ser utilizada em diferentes plataformas DRM.
 
-    Para teste AES ou CENC (Widevine + PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de clicar em "Opções avançadas" e verifique o AES e fornecer o token.
+    Para teste AES ou CENC (Widevine e/ou PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de que clicar em "Opções avançadas" e verifique as opções de encriptação.
 
-    Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](http://aka.ms/amtest). O jogador suporta Widevine, PlayReady, e encriptação de chave de não FairPlay DRMs, bem como AES-128. Tem de escolher o navegador certo para testar diferentes DRMs: Opera/Chrome/Firefox para Widevine, MS. o Edge/IE11 para PlayReady, Safari no maOS para FairPlay.
+    Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](http://aka.ms/amtest). O jogador suporta Widevine, PlayReady, e encriptação de chave de não FairPlay DRMs, bem como AES-128. Tem de escolher o navegador certo para testar diferentes DRMs: Chrome/Opera/Firefox para Widevine, MS. o Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
 
 3. Proteger o serviço de Token (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos back-end. Pode utilizar os serviços de entrega de licença do AMS como o recurso de back-end. Tem um STS para definir o seguinte:
 
@@ -122,18 +122,6 @@ Com uma conteúdo chave política de token restrito, a chave de conteúdo é env
 
 Ao configurar a política de token restrito, tem de especificar a chave de verificação primária, emissor e parâmetros de público-alvo. A chave de verificação primária contém a chave de que o token foi assinado com. O emissor é o serviço de token seguro que emite o token. O público-alvo, às vezes chamado de âmbito, descreve a intenção do token ou o recurso o token de acesso a autoriza. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
 
-## <a name="streaming-urls"></a>URLs de transmissão em fluxo
-
-Se o seu elemento foi encriptado com o DRM mais do que uma, utilize uma marca de encriptação no URL de transmissão em fluxo: (formato ' Format=m3u8-aapl ', encriptação = "xxx").
-
-As seguintes considerações aplicam-se:
-
-* Tipo de encriptação não tem de ser especificado no URL, se apenas uma encriptação foi aplicada ao elemento.
-* Tipo de encriptação diferencia maiúsculas de minúsculas.
-* Os seguintes tipos de encriptação podem ser especificados:
-  * **cenc**: para PlayReady ou Widevine (encriptação comum)
-  * **cbcs-aapl**: para FairPlay (encriptação AES CBC)
-  * **CBC**: encriptação de envelope AES para
 
 ## <a name="next-steps"></a>Passos Seguintes
 

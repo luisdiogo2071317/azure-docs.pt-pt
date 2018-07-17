@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - CLI do Azure | Microsoft Docs
-description: Saiba como criar URL caminho com base em regras de encaminhamento para uma aplicação gateway e máquina virtual de conjunto de dimensionamento utilizando a CLI do Azure.
+title: Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - CLI do Azure | Documentos da Microsoft
+description: Saiba como criar URL baseado no caminho regras de encaminhamento para um aplicativo máquina virtual e gateway de conjunto de dimensionamento com a CLI do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,25 +8,25 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: ff02688d59f32641319e6816dc55744422c62eeb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e811527b8bc0b816f09f055f776fe8bd65bed07d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355020"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069408"
 ---
-# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento utilizando a CLI do Azure
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento com a CLI do Azure
 
-Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho de URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end utilizando um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, crie as regras de encaminhamento que certifique-se de que o tráfego web chega os servidores adequados nos agrupamentos de.
+Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho do URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end com um [conjunto de dimensionamento de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criar regras de encaminhamento que tornam-se de que o tráfego de web chega aos servidores adequados nos agrupamentos.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Configure a rede
+> * Configurar a rede
 > * Criar um gateway de aplicação com o mapa de URL
-> * Criar conjuntos de dimensionamento de máquina virtual com os conjuntos de back-end
+> * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 
 ![Exemplo de encaminhamento de URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
@@ -38,9 +38,9 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Criar um grupo de recursos utilizando [criar grupo az](/cli/azure/group#create).
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group#create).
 
-O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAG* no *eastus* localização.
+O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAG* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* utilizando [az rede vnet criar](/cli/azure/network/vnet#az_net). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessário para os servidores de back-end utilizando [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Criar o endereço IP público com o nome *myAGPublicIPAddress* utilizando [az público-ip da rede criar](/cli/azure/public-ip#az_network_public_ip_create).
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az_net). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -70,7 +70,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway-with-url-map"></a>Criar o gateway de aplicação com o mapa de URL
 
-Pode utilizar [criar gateway de aplicação do rede az](/cli/azure/application-gateway#create) para criar o gateway de aplicação com o nome *myAppGateway*. Quando cria um gateway de aplicação utilizando a CLI do Azure, especifique as informações de configuração, tais como a capacidade, sku e definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -88,18 +88,18 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Pode demorar alguns minutos até o gateway de aplicação a ser criado. Depois de criado o gateway de aplicação, pode ver estas novas funcionalidades do mesmo:
+ A criação do gateway de aplicação pode demorar vários minutos. Depois de criado o gateway de aplicação, pode ver estas novas funcionalidades do mesmo:
 
-- *appGatewayBackendPool* -um gateway de aplicação tem de ter, pelo menos, um conjunto de endereços de back-end.
-- *appGatewayBackendHttpSettings* -Especifica que a porta 80 e um protocolo HTTP é utilizado para comunicação.
-- *appGatewayHttpListener* -o serviço de escuta de predefinição associado *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -atribui *myAGPublicIPAddress* para *appGatewayHttpListener*.
-- *rule1* - predefinição encaminhamento regra que está associada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* - um gateway de aplicação tem de ter, pelo menos, um conjunto de endereços de back-end.
+- *appGatewayBackendHttpSettings* - especifica que a porta 80 e um protocolo HTTP são utilizados para a comunicação.
+- *appGatewayHttpListener* - o serviço de escuta predefinido associado a *appGatewayBackendPool*.
+- *appGatewayFrontendIP* - atribui *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* - a regra de encaminhamento predefinida associada a *appGatewayHttpListener*.
 
 
-### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar a imagem e o vídeo conjuntos de back-end e porta
+### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar conjuntos e portas de back-end de imagens e vídeos
 
-Pode adicionar conjuntos de back-end com o nome *imagesBackendPool* e *videoBackendPool* para o gateway de aplicação utilizando [az gateway de aplicação-conjunto de endereços rede criar](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). Adicionar a porta de front-end para os conjuntos utilizando [criar gateway de aplicação de rede az front-end-porta](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
+Pode adicionar conjuntos de back-end com o nome *imagesBackendPool* e *videoBackendPool* para o gateway de aplicação utilizando [decriaçãodeendereçodegatewaydeaplicaçãoderededeaz-conjunto](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). Adicione a porta de front-end para os conjuntos, com [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -117,9 +117,9 @@ az network application-gateway frontend-port create \
   --name port8080
 ```
 
-### <a name="add-backend-listener"></a>Adicionar serviço de escuta de back-end
+### <a name="add-backend-listener"></a>Adicionar o serviço de escuta de back-end
 
-Adicione o serviço de escuta de back-end com o nome *backendListener* que necessários para encaminhar o tráfego utilizando [az rede gateway de aplicação-serviço de escuta http criar](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Adicione o serviço de escuta de back-end denominado *backendListener* que é necessário para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
 
 
 ```azurecli-interactive
@@ -131,9 +131,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-url-path-map"></a>Adicionar mapeamento de caminho de URL
+### <a name="add-url-path-map"></a>Adicionar o mapa de caminho do URL
 
-Mapas de caminho de URL Certifique-se de que os URLs específicos são encaminhados para conjuntos back-end específico. Pode criar mapas de caminho de URL com o nome *imagePathRule* e *videoPathRule* utilizando [az rede gateway de aplicação url caminho-mapeamento criar](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) e [rede az Criar regra de mapa de caminho de url de gateway de aplicação](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
+Os mapas de caminho de URL asseguram que são encaminhados URLs específicos para conjuntos de back-end específicos. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) e [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -155,9 +155,9 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-routing-rule"></a>Adicionar regra de encaminhamento
+### <a name="add-routing-rule"></a>Adicionar a regra de encaminhamento
 
-A regra de encaminhamento associa os mapas de URL com o serviço de escuta que criou. Pode adicionar a regra com o nome *rule2* utilizando [criar regra de gateway de aplicação de rede az](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+A regra de encaminhamento associa os mapas do URL ao serviço de escuta que criou. Pode adicionar a regra com o nome *rule2* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -170,9 +170,9 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquina virtual
+## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, crie três conjuntos de dimensionamento de máquina virtual que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual instala NGINX.
+Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -214,13 +214,13 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
-## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
+## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, pode utilizar [mostrar de ip público de rede az](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser. Tal como *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, ou *http://40.121.222.19:8080/video/test.htm*.
+Para obter o endereço IP público do gateway de aplicação, pode utilizar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser. Como, por exemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* ou *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -230,23 +230,23 @@ az network public-ip show \
   --output tsv
 ```
 
-![URL de base de teste no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
+![Testar o URL base no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Altere o URL para http://<ip-address>:8080/video/test.html até ao final do base URL e deverá ver algo semelhante ao seguinte exemplo:
+Altere o URL para http://<ip-address>:8080/video/test.html ao final do base URL e deverá ver algo semelhante ao seguinte exemplo:
 
 ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
 Altere o URL para http://<ip-address>:8080/video/test.html e deverá ver algo semelhante ao seguinte exemplo.
 
-![URL de vídeo de teste no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
+![Testar o URL de vídeo no gateway de aplicação](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Configure a rede
+> * Configurar a rede
 > * Criar um gateway de aplicação com o mapa de URL
-> * Criar conjuntos de dimensionamento de máquina virtual com os conjuntos de back-end
+> * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 
-Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Para saber mais sobre os gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

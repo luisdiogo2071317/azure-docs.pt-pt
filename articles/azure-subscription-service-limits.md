@@ -1,26 +1,21 @@
 ---
-title: Quotas e limites de subscrição do Azure | Documentos da Microsoft
+title: Quotas e limites de subscrição do Azure
 description: Fornece uma lista de subscrição do Azure comuns e limites do serviço, quotas e restrições. Isto inclui informações sobre como aumentar os limites juntamente com os valores máximos.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: aecb687ea2352b482a97226219e9a075070c50a6
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990680"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069544"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -52,6 +47,8 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Application Insights](#application-insights-limits)
 * [Automatização](#automation-limits)
 * [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
+* [Base de Dados do Azure para MySQL](#azure-database-for-mysql)
+* [Base de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Cache de Redis do Azure](#azure-redis-cache-limits)
@@ -219,6 +216,12 @@ A tabela seguinte mostra os limites de serviços Biztalk do Azure.
 
 ### <a name="azure-cosmos-db-limits"></a>O Azure Cosmos DB limita
 O Azure Cosmos DB é uma base de dados de escala global em que o débito e armazenamento podem ser dimensionados para lidar com tudo o que requer a sua aplicação. Se tiver dúvidas sobre o dimensionamento do Azure Cosmos DB oferece, envie um email para askcosmosdb@microsoft.com.
+
+### <a name="azure-database-for-mysql"></a>Base de Dados do Azure para MySQL
+Para a base de dados do Azure para MySQL limites, consulte [limitações na base de dados do Azure para MySQL](mysql/concepts-limits.md).
+
+### <a name="azure-database-for-postgresql"></a>Base de Dados do Azure para PostgreSQL
+Para a base de dados do Azure para PostgreSQL limites, consulte [limitações na base de dados do Azure para PostgreSQL](postgresql/concepts-limits.md).
 
 ### <a name="mobile-engagement-limits"></a>Limites do Mobile Engagement
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

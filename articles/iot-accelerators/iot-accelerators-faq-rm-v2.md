@@ -1,5 +1,5 @@
 ---
-title: Remoto acelerador de solução de monitorização FAQ | Microsoft Docs
+title: Remoto acelerador de solução de monitorização perguntas frequentes | Documentos da Microsoft
 description: Perguntas mais frequentes sobre acelerador de solução de monitorização remota
 author: dominicbetts
 manager: timlt
@@ -8,41 +8,41 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21e02a9ae4679c1f9521cc188a6f72878276fb93
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627659"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39076312"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador de solução de monitorização remota
 
-Além disso, consulte geral [FAQ](iot-accelerators-faq.md).
+Além disso, consulte gerais [FAQ](iot-accelerators-faq.md).
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Quanto-lo de custos para aprovisionar a solução de monitorização remota novo?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Quanto custa para aprovisionar a nova solução de monitorização remota?
 
-O acelerador solução nova oferece duas opções de implementação:
+O novo solution accelerator oferece duas opções de implementação:
 
-* A *básico* opção concebida para programadores à procura de menor custo de desenvolvimento ou clientes pretende para compilar uma demonstração ou prova de conceito.
-* A *padrão* opção concebida para as empresas que pretenda implementar uma infraestrutura pronta para produção.
+* R *básica* opção concebida para programadores à procura de menor custo de desenvolvimento ou os clientes que pretendem para criar uma demonstração ou prova de conceito.
+* R *padrão* opção projetada para empresas que pretendem implementar uma infraestrutura de prontos para produção.
 
-### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Como garantir que posso mantenha os meus os custos reduzidos enquanto desenvolva a minha solução?
+### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>Como posso garantir que eu manter meu os custos baixos enquanto posso programar minha solução?
 
-Além de fornecer duas implementações diferenciadas, a nova solução de monitorização remota tem uma definição para ativar ou desativar a todos os dispositivos simulados a pedido. Desativar a simulação reduz os dados ingeridos na solução e, assim, o custo global.
+Além de fornecer duas implementações diferenciadas, a nova solução de monitorização remota tem uma definição para ativar ou desativar todos os dispositivos simulados a pedido. Desativar a simulação reduz os dados ingeridos a solução e, portanto, o custo geral.
 
-### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>O que é a diferença entre as opções de implementação básico e padrão? Como decidir entre as opções de implementação de dois?
+### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>O que é a diferença entre as opções de implementação de básico e standard? Como posso decidir entre as opções de implementação de dois?
 
-Cada opção de implementação responde às necessidades diferentes. A implementação básica é concebida para começar a desenvolver PoC e pilotos pequenos. Fornece uma arquitetura simplificada com os recursos necessários mínimos e um custo mais baixo. A implementação padrão foi concebida para criar e personalizar uma solução pronta para produção e fornece uma implementação com tenha em atenção que os elementos necessários. Para a fiabilidade e o dimensionamento, micro-serviços de aplicação são criados como contentores de Docker e implementadas utilizando um orchestrator (Kubernetes por predefinição). O orchestrator é responsável pela implementação, dimensionamento e gestão da aplicação. Deverá escolher uma opção com base nas necessidades atuais. Poderá utilizar um, o outro ou uma combinação de ambos, dependendo da fase de projeto.
+Cada opção de implementação responde às necessidades diferentes. A implementação básica destina-se para começar e desenvolver prova de conceito e pilotos pequenos. Ele fornece uma arquitetura simplificada com os recursos necessários mínimo e um custo mais baixo. A implementação padrão de foi concebida para criar e personalizar uma solução de prontos para produção e fornece uma implementação com os elementos necessários para perceber que. Para fiabilidade e dimensionamento, os microsserviços da aplicação são criados como contentores do Docker e implementados com um orquestrador (Kubernetes por predefinição). O orquestrador é responsável pela implementação, dimensionamento e gestão da aplicação. Deve escolher uma opção com base nas suas necessidades atuais. Pode usar um, a outra ou uma combinação de ambos, consoante a sua fase do projeto.
 
-### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Como configurar a um mapa dinâmico no dashboard
+### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Como posso configurar um mapa dinâmico no dashboard?
 
-Para obter mais informações, consulte [chave de mapa de atualização para ver os dispositivos num mapa dinâmico](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
+Para obter mais informações, consulte [chave de atualização de mapa para ver os dispositivos num mapa dinâmico](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
 ### <a name="next-steps"></a>Passos Seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 
-* [Explore as capacidades do acelerador de solução de monitorização remota](iot-accelerators-remote-monitoring-explore.md)
+* [Explore os recursos do solution accelerator monitorização remota](iot-accelerators-remote-monitoring-explore.md)
 * [Descrição geral do acelerador de soluções de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
-* [Descrição geral da ligados da acelerador solução do Factory](iot-accelerators-connected-factory-overview.md)
-* [Segurança de IoT a partir do zero](securing-iot-ground-up.md)
+* [Implementar o acelerador de solução de fábrica ligada](quickstart-connected-factory-deploy.md)
+* [Segurança de IoT desde o início](/azure/iot-fundamentals/iot-security-ground-up)

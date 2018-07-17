@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 17d84718c6adab8b2bd4f130f380edc12498102b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346047"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069579"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas suportados para o serviço de voz
 
@@ -220,7 +220,7 @@ Pode obter a lista de idiomas seja por meio de programação ou através do pont
 | Yucatec Maya      | `yua`          |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Preparar a sua subscrição de avaliação de conversão de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-windows.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

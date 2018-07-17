@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: db57e0bd0f7afcfa836ef6446cdfd74e5d61c440
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345265"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072131"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Perguntas mais frequentes sobre o serviço de voz personalizada
 
@@ -57,7 +57,7 @@ Quando o processamento estiver concluído, o estado irá ser "com êxito".
 
 Os conjuntos de dados antigos e novos deve ser combinados num único. zip (se for dados acústicos) ou um arquivo. txt, caso se trate de dados de idioma. Uma vez adaptação é feita as necessidades de modelo atualizado novo ser anular implementado para obter um novo ponto final
 
-**Pergunta**: E se eu precisar uma simultaneidade mais elevada para meu modelo de deloyed que o que está disponível no portal. 
+**Pergunta**: E se eu precisar uma simultaneidade mais elevada para meu modelo implementado que o que está disponível no portal. 
 
 **Resposta**: pode aumentar verticalmente o seu modelo em incrementos de 20 pedidos simultâneos. 
 
@@ -90,7 +90,7 @@ Se a grande maioria das expressões num dados acústicos ou idioma definido (por
 
 **Pergunta**: A quantidade de dados acústico é necessário?
 
-**Resposta**: Recomendamos que comece com 30 minutos a uma hora de dados acústicos
+**Resposta**: Recomendamos que comece com 30 minutos a uma hora de dados acústicos.
 
 **Pergunta**: os dados que posso coletar?
 
@@ -116,18 +116,18 @@ Também pode criar uma versão do seu aplicativo que registra os dados de áudio
 
 **Resposta**: Sim, basta selecionar o modelo acústico personalizado no menu pendente quando configurou o teste offline.
 
-**Pergunta**: o que é a taxa de erros do Word e como é calculada?
+**Pergunta**: o que é a taxa de erro do Word (WER) e como é calculada?
 
-**Resposta**: taxa de erros do Word é a métrica de avaliação de reconhecimento de fala. A VM é contabilizada como o número total de erros, que inclui inserções, eliminações e substituições, divididas pelo número total de palavras na transcrição de referência. Detalhes de modo [aqui](https://en.wikipedia.org/wiki/Word_error_rate)
+**Resposta**: taxa de erro do Word (WER) é a métrica de avaliação de reconhecimento de fala. A VM é contabilizada como o número total de erros, que inclui inserções, eliminações e substituições, divididas pelo número total de palavras na transcrição de referência. Mais detalhes [aqui](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Pergunta**: como posso determinar se os resultados de um teste de precisão é bom?
 
 **Resposta**: os resultados mostram uma comparação entre o modelo de linha de base e a personalizou.
-Tente atacar o modelo de linha de base para fazer a personalização que vale a pena
+Tente atacar o modelo de linha de base para fazer a personalização que vale a pena.
 
-**Pergunta**: como posso calcular o WER dos modelos de bases, para que eu possa ver se havia melhoria? 
+**Pergunta**: como posso calcular a taxa de erros do Word dos modelos de bases, para que eu possa ver se havia melhoria? 
 
-**Resposta**: os resultados do teste offline mostrarem a precisão de precisão de linha de base do modelo personalizado com a melhoria ao longo da linha de base
+**Resposta**: os resultados do teste offline mostrarem a precisão de precisão de linha de base do modelo personalizado com a melhoria ao longo da linha de base.
 
 ## <a name="creating-lm"></a>Criação de LM
 

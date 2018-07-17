@@ -1,6 +1,6 @@
 ---
-title: Referência do SDK de reconhecimento de voz | Microsoft Docs
-description: Referências para o SDK de reconhecimento de voz.
+title: Referência do SDK de voz | Documentos da Microsoft
+description: Referências para o SDK de voz.
 services: cognitive-services
 titleSuffix: Microsoft Cognitive Services
 author: v-jerkin
@@ -10,28 +10,21 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e0037cc8701c88325c3d55f6b3ab0eccf2fbd28
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ee7cc2db7ad6e2914d3916ad1aa578a9746e287
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354085"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072236"
 ---
-# <a name="speech-sdk-reference"></a>Referência do SDK de reconhecimento de voz
+# <a name="speech-sdk-reference"></a>Referência do SDK de voz
 
-O reconhecimento de voz Software Development Kit (SDK) fornece o acesso de aplicações para as funções do serviço de reconhecimento de voz, tornando mais fácil desenvolver software ativado por voz. Atualmente, os SDKs fornecem acesso a **reconhecimento de voz para texto** e **tradução de reconhecimento de voz**. Emprega de reconhecimento de voz do texto para [REST] (https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) POST chamadas através de HTTP.
+A conversão de voz Software Development Kit (SDK) fornece o acesso de aplicações para as funções do serviço de voz, tornando mais fácil desenvolver software habilitado para fala. Atualmente, os SDKs fornecem acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**.
 
-A tabela abaixo descreve os sistemas operativos e atualmente linguagens de programação.
-
-|Linguagem de programação|Plataforma|Referência da API|
-|-|-|-|
-|C#|Windows|[Procurar](https://aka.ms/csspeech/csharpref)
-|C/C++|Windows, Linux|[Procurar](https://aka.ms/csspeech/cppref)
-|Java\*|Dispositivos|[Procurar](https://aka.ms/csspeech/javaref)
-
-\* *O SDK de Java faz parte o [SDK de dispositivos de reconhecimento de voz](speech-devices-sdk.md).*
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver como reconhecer voz em c#](quickstart-csharp-windows.md)
+* [Experimente gratuitamente o serviço de voz](get-started.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

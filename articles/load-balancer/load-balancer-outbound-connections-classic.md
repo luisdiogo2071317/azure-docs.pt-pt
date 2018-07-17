@@ -1,6 +1,6 @@
 ---
-title: Ligações de saída no Azure (clássica) | Microsoft Docs
-description: Este artigo explica como o Azure permite serviços para comunicar com serviços de internet pública em nuvem.
+title: Ligações de saída no Azure (clássico) | Documentos da Microsoft
+description: Este artigo explica como o Azure permite que serviços para comunicar com serviços de internet pública em nuvem.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,168 +12,170 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939826"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069915"
 ---
-# <a name="outbound-connections-classic"></a>Ligações de saída (clássica)
+# <a name="outbound-connections-classic"></a>Ligações de saída (clássicas)
 
-O Azure oferece a conectividade de saída para implementações de cliente através de vários mecanismos diferentes. Este artigo descreve quais são os cenários, quando estas são aplicadas, como funcionam e como geri-los.
+O Azure fornece a conectividade de saída para implementações dos clientes através de diversos mecanismos diferentes. Este artigo descreve quais são os cenários, quando eles se aplicam, como elas funcionam e como geri-los.
 
 >[!NOTE]
->Este artigo abrange apenas a implementações clássicas.  Reveja [ligações de saída](load-balancer-outbound-connections.md) para todos os cenários de implementação do Gestor de recursos no Azure.
+>Este artigo abrange apenas a implementações clássicas.  Revisão [ligações de saída](load-balancer-outbound-connections.md) para todos os cenários de implementação do Resource Manager no Azure.
 
-Uma implementação no Azure pode comunicar com pontos finais fora do Azure no espaço de endereço IP público. Quando inicia a uma instância de um fluxo de saída para um destino no espaço de endereço IP público, o Azure mapeia dinamicamente o endereço IP privado para um endereço IP público. Após a criação desta mapeamento, tráfego de retorno deste fluxo originated saída também pode aceder ao endereço IP privado onde o fluxo foi originado.
+Uma implementação no Azure pode comunicar com pontos finais de fora do Azure no espaço de endereços IP público. Quando uma instância inicia um fluxo de saída para um destino no espaço de endereços IP público, do Azure maps dinamicamente o endereço IP privado para um endereço IP público. Depois de criar esse mapeamento, tráfego de retorno para este fluxo originado pela saída também pode acessar o endereço IP privado em que o fluxo teve origem.
 
-Azure utiliza a tradução de endereços de rede de origem (realizar o SNAT) para executar esta função. Quando vários endereços IP privados são masquerading atrás de um único endereço IP público, o Azure utiliza [tradução de endereços (TERESA) de porta](#pat) para representação endereços IP privados. Portas efémeras são utilizadas para TERESA e são [preallocated](#preallocatedports) com base no tamanho do conjunto.
+Para efetuar esta função, o Azure utiliza tradução de endereços de rede de origem (SNAT). Quando vários endereços IP privados são mascarando-o por trás de um único endereço IP público, o Azure utiliza [tradução de endereços (PAT) de porta](#pat) disfarçar os endereços IP privados. Portas efêmeras são utilizadas para PAT e são [pré-alocado](#preallocatedports) com base no tamanho do conjunto.
 
-Existem vários [cenários saídos](#scenarios). Pode combinar estes cenários, conforme necessário. Revê-los cuidadosamente de forma a compreender as capacidades, restrições e padrões de acordo com o modelo de implementação e o cenário de aplicação. Reveja as orientações para [gerir estes cenários](#snatexhaust).
+Existem várias [cenários de saída](#scenarios). Pode combinar estes cenários, conforme necessário. Reveja-os cuidadosamente para compreender as capacidades, restrições e padrões de acordo com seu modelo de implementação e o cenário do aplicativo. Reveja a documentação de orientação para [gerir estes cenários](#snatexhaust).
 
 ## <a name="scenarios"></a>Descrição geral do cenário
 
-O Azure oferece três métodos diferentes para atingir implementações clássicas de conectividade de saída.  Nem todas as implementações clássicas têm todos os três cenários disponíveis:
+O Azure fornece três métodos diferentes para alcançar as implementações clássicas de conectividade de saída.  Nem todas as implementações de clássico têm todos os três cenários disponíveis:
 
 | Cenário | Método | Protocolos IP | Descrição | Função de trabalho Web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. VM com um endereço IP público de nível de instância](#ilpip) | Realizar o SNAT, porta masquerading não utilizado | TCP, UDP, ICMP, ESP | Azure utiliza o IP público atribuído a Máquina Virtual. A instância tem todas as portas efémeras disponíveis. | Não | Sim |
-| [2. ponto final com balanceamento de carga público](#publiclbendpoint) | Realizar o SNAT com porta masquerading (PAT) para o ponto final público | TCP, UDP | Azure partilha o IP endereço público ponto final público com vários pontos finais privados. Azure utiliza portas efémeras do ponto final público para TERESA. | Sim | Sim |
-| [3. VM autónoma ](#defaultsnat) | Realizar o SNAT com porta masquerading (PAT) | TCP, UDP | Azure automaticamente designa um endereço IP público para realizar o SNAT, partilhe este endereço IP público com a implementação de toda e utiliza portas efémeras do endereço IP do ponto final público para TERESA. Este é um cenário de contingência para os cenários anteriores. Não recomendamos-lo se precisar de visibilidade e controlo. | Sim | Sim |
+| [1. VM com um endereço IP público de nível de instância](#ilpip) | SNAT, porta mascarando não utilizado | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído a Máquina Virtual. A instância tem todas as portas efêmeras disponíveis. | Não | Sim |
+| [2. ponto final com balanceamento de carga o público](#publiclbendpoint) | SNAT com porta mascarando (PAT) para o ponto final público | TCP, UDP | Azure partilha o IP endereço público ponto final público com vários pontos de extremidade privados. O Azure utiliza portas efêmeras do ponto final público para PAT. | Sim | Sim |
+| [3. VM autónoma ](#defaultsnat) | SNAT com mascarando-porta (PAT) | TCP, UDP | Azure designa um endereço IP público para SNAT automaticamente, compartilha este endereço IP público com toda a implantação e utiliza as portas efêmeras do endereço IP do ponto final público para PAT. Este é um cenário de contingência para os cenários anteriores. Não o recomendamos se precisar de visibilidade e controlo. | Sim | Sim |
 
 Este é um subconjunto da funcionalidade de ligação de saída disponível para implementações do Resource Manager no Azure.  
 
-Diferentes implementações no clássica têm funcionalidades diferentes:
+Implementações diferentes no modelo clássico têm diferentes funcionalidades:
 
 | Implementação clássica | Funcionalidade disponível | 
 | --- | --- |
 | Máquina Virtual | cenário [1](#ilpip), [2](#publiclbendpoint), ou [3](#defaultsnat) |
-| Função de trabalho Web | apenas de cenário [2](#publiclbendpoint), [3](#defaultsnat) | 
+| Função de trabalho Web | apenas o cenário [2](#publiclbendpoint), [3](#defaultsnat) | 
 
-[Estratégias de mitigação](#snatexhaust) também têm as mesmas diferenças.
+[Estratégias de atenuação](#snatexhaust) também têm as diferenças do mesmo.
 
-O [algoritmo utilizado para preallocating portas efémeras](#ephemeralports) para TERESA para implementações clássicas é igual para implementações de recursos do Azure Resource Manager.
+O [algoritmo utilizado para pré-alocação portas efêmeras](#ephemeralports) para PAT para implementações clássicas é igual de implementações de recursos do Azure Resource Manager.
 
 ### <a name="ilpip"></a>Cenário 1: VM com um endereço IP público de nível de instância
 
-Neste cenário, a VM possui uma instância do nível pública IP (ILPIP) atribuída. Como são preocupações ligações de saída, é irrelevante se a VM possui um ponto final de balanceamento de carga ou não. Este cenário tem precedência sobre as outras. Quando é utilizado um ILPIP, a VM utiliza o ILPIP para todos os fluxos de saída.  
+Neste cenário, a VM tem uma instância ao nível do público IP (ILPIP) atribuído a ele. Como diz respeito a ligações de saída, não importa se a VM tem o ponto final com balanceamento de carga ou não. Este cenário tem precedência sobre as outras. Quando é utilizado um ILPIP, a VM utiliza o ILPIP para todos os fluxos de saída.  
 
-Um público IP atribuído a uma VM é um 1:1 relação (em vez de 1:many) e implementado como um NAT de 1:1 sem monitorização de estado.  Não é utilizada a porta masquerading (TERESA) e a VM tem todas as portas efémeras disponíveis para utilização.
+Uma pública IP atribuído a uma VM é um 1:1 relação (em vez de 1:many) e implementado como um NAT de 1:1 sem monitoração de estado.  Não é utilizado a porta Disfarce (PAT) e a VM tem todas as portas efêmeras disponíveis para utilização.
 
-Se muitos fluxos de saída inicia a sua aplicação e experiência de esgotamento de porta de realizar o SNAT, considere atribuir um [ILPIP para mitigar restrições de realizar o SNAT](#assignilpip). Reveja [esgotamento de realizar o SNAT gerir](#snatexhaust) na íntegra.
+Se seu aplicativo inicia muitos fluxos de saída e tiver exaustão de porta SNAT, considere atribuir um [ILPIP para atenuar as restrições SNAT](#assignilpip). Revisão [esgotamento de gerenciamento de SNAT](#snatexhaust) na íntegra.
 
 ### <a name="publiclbendpoint"></a>Cenário 2: Com balanceamento de carga ponto final público
 
-Neste cenário, a função de trabalho Web ou VM está associada um endereço IP público através do ponto final com balanceamento de carga. A VM não tem um endereço IP público atribuído. 
+Neste cenário, a VM ou a função de trabalho da Web está associada um endereço IP público através do ponto final com balanceamento de carga. A VM não tem um endereço IP público atribuído ao mesmo. 
 
-Quando a VM de balanceamento de carga cria um fluxo de saída, Azure traduz o endereço IP de origem privada do fluxo de saída para o endereço IP público do ponto final público de balanceamento de carga. Azure utiliza realizar o SNAT para executar esta função. Também utiliza o Azure [PAT](#pat) para masquerade vários endereços IP privados atrás de um endereço IP público. 
+Quando a VM com balanceamento de carga cria um fluxo de saída, Azure traduz-se o endereço IP de origem privados do fluxo de saída para o endereço IP público do ponto de extremidade com balanceamento de carga público. O Azure utiliza o SNAT para efetuar esta função. O Azure também utiliza [dar um TAPINHA](#pat) disfarçar os vários endereços IP privados por trás de um endereço IP público. 
 
-Portas efémeras de frontend de endereço IP público do Balanceador de carga são utilizadas para distinguir fluxos individuais teve originados pela VM. Realizar o SNAT dinamicamente utiliza [preallocated portas efémeras](#preallocatedports) quando são criados os fluxos de saída. Neste contexto, as portas efémeras utilizadas para realizar o SNAT são designadas por portas de realizar o SNAT.
+Portas efêmeras de frontend de endereço IP público do Balanceador de carga são utilizadas para distinguir os fluxos individuais originados pela VM. Utiliza o SNAT dinamicamente [pré-alocado portas efêmeras](#preallocatedports) quando são criados os fluxos de saída. Neste contexto, as portas efémeras utilizadas para SNAT são chamadas de portas SNAT.
 
-Portas de realizar o SNAT são preallocated conforme descrito no [compreender realizar o SNAT e TERESA](#snat) secção. Se estiver a um recurso finito que pode ser esgotado. É importante compreender a forma como são [consumido](#pat). Para compreender como estruturar para este consumo e mitigar conforme necessário, reveja [esgotamento de realizar o SNAT gerir](#snatexhaust).
+Portas SNAT são pré-alocado conforme descrito no [SNAT de compreensão e PAT](#snat) secção. Eles são um recurso finito que pode esgotar-se. É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
-Quando [vários pontos finais públicos com balanceamento de carga](load-balancer-multivip.md) existe, se qualquer um destes endereços IP públicos um [candidato para fluxos de saída](#multivipsnat), e é selecionada uma aleatoriamente.  
+Quando [vários pontos finais públicos com balanceamento de carga](load-balancer-multivip.md) existe, qualquer um destes endereços IP públicos são uma [candidato para fluxos de saída](#multivipsnat), e um é selecionado aleatoriamente.  
 
 ### <a name="defaultsnat"></a>Cenário 3: Nenhum endereço IP público associado
 
-Neste cenário, a função de trabalho Web ou VM não faz parte de um ponto de final público com balanceamento de carga.  E, no caso de VM, não tem um endereço ILPIP atribuído ao mesmo. Quando a VM cria um fluxo de saída, Azure traduz o endereço IP de origem privada do fluxo de saída para um endereço IP público de origem. O endereço IP público utilizado para este fluxo de saída não é configurável e não count contra o limite de recurso IP público da subscrição.  Azure atribui automaticamente este endereço.
+Neste cenário, a VM ou a função de trabalho da Web não é parte de um ponto de final com balanceamento de carga público.  E, no caso de VM, não tem um endereço ILPIP atribuído a ele. Quando a VM cria um fluxo de saída, Azure traduz-se o endereço IP de origem privados do fluxo de saída para um endereço IP público de origem. O endereço IP público utilizado para este fluxo de saída não é configurável e não contam para o limite de recursos IP público da subscrição.  Azure atribui automaticamente este endereço.
 
-Azure utiliza realizar o SNAT com porta masquerading ([PAT](#pat)) para executar esta função. Este cenário é semelhante à [cenário 2](#lb), mas não há nenhum controlo sobre o endereço IP utilizado. Este é um cenário de contingência para quando não existem cenários 1 e 2. Não recomendamos este cenário se pretender que o controlo sobre o endereço de saída. Se as ligações de saída são uma parte fundamental da sua aplicação, deve escolher outro cenário.
+O Azure utiliza o SNAT com mascarando-porta ([dar um TAPINHA](#pat)) para efetuar esta função. Este cenário é semelhante à [cenário 2](#lb), mas não existe nenhum controle sobre o endereço IP utilizado. Este é um cenário de contingência para quando não existem cenários 1 e 2. Este cenário não é recomendada se pretender que o controle sobre o endereço de saída. Se as ligações de saída são uma parte crítica da sua aplicação, deve escolher outro cenário.
 
-Portas de realizar o SNAT são preallocated conforme descrito no [compreender realizar o SNAT e TERESA](#snat) secção.  O número de VMs ou funções de trabalho Web partilha o endereço IP público determina o número de portas efémeras preallocated.   É importante compreender a forma como são [consumido](#pat). Para compreender como estruturar para este consumo e mitigar conforme necessário, reveja [esgotamento de realizar o SNAT gerir](#snatexhaust).
+Portas SNAT são pré-alocado conforme descrito no [SNAT de compreensão e PAT](#snat) secção.  O número de VMs ou o endereço IP público de partilha do Web Worker Roles determina o número de portas efêmeras pré-alocado.   É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
-## <a name="snat"></a>Compreender a realizar o SNAT e TERESA
+## <a name="snat"></a>Noções básicas sobre SNAT e PAT
 
-### <a name="pat"></a>Porta masquerading realizar o SNAT (TERESA)
+### <a name="pat"></a>Porta Disfarce SNAT (PAT)
 
-Quando uma implementação estabelece uma ligação de saída, cada origem de ligação de saída é foi reescrita. A origem é rescrita do espaço de endereço IP privado para o IP público associado à implementação (baseada em cenários descritos acima). No espaço de endereço IP público, 5-cadeias de identificação do fluxo (endereço IP de origem, porta de origem, o protocolo de transporte IP, endereço IP de destino, porta de destino) tem de ser exclusivo.  
+Quando uma implementação faz uma ligação de saída, cada origem de ligação de saída é reescrita. A origem é Reescrita do espaço de endereço IP privado para o IP público associado com a implementação (com base em cenários descritos acima). No espaço de endereços IP públicos, a 5 cadeias de identificação do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) tem de ser exclusiva.  
 
-Portas efémeras (portas de realizar o SNAT) são utilizadas para atingir esse objetivo após a conversão de endereço IP de origem privada, porque vários fluxos provenientes de um único endereço IP público. 
+Portas efêmeras (portas SNAT) são utilizadas para conseguir isso depois de reescrever o endereço IP de origem privados, uma vez que vários fluxos provêm de um único endereço IP público. 
 
-Uma porta de realizar o SNAT é consumida por fluxo para um endereço IP de destino único, a porta e protocolo. Para vários fluxos para o mesmo endereço IP de destino, a porta e protocolo, cada fluxo consome uma única porta de realizar o SNAT. Isto garante que os fluxos são exclusivos quando provenientes do mesmo endereço IP público e vá para o mesmo endereço IP de destino, porta e protocolo. 
+Uma porta SNAT é consumida por fluxo para um endereço IP de destino único, porta e protocolo. Para vários fluxos para o mesmo endereço IP de destino, portas e protocolos, cada fluxo consome uma única porta SNAT. Isto garante que os fluxos são exclusivos, quando são provêm do mesmo endereço IP público e vão para o mesmo endereço IP de destino, porta e protocolo. 
 
-Vários fluxos, cada um para um endereço IP de destino diferente, a porta e protocolo, partilham uma única porta de realizar o SNAT. O endereço IP de destino, porta e protocolo tornar fluxos exclusivo sem a necessidade de origem adicionais portas para distinguir fluxos no espaço de endereço IP público.
+Vários fluxos, cada um para um endereço IP de destino diferente, porta e protocolo, partilham uma única porta SNAT. O endereço IP de destino, portas e protocolos que fluxos exclusivo sem a necessidade de origem adicionais portas para distinguir os fluxos no espaço de endereços IP público.
 
-Quando os recursos de porta de realizar o SNAT ficam esgotados, fluxos de saída falharem até que as portas de realizar o SNAT fluxos existentes da versão. Balanceador de carga reclama portas realizar o SNAT quando o fluxo fecha e utiliza um [tempo limite de inatividade de 4 minutos](#idletimeout) para realizar o SNAT as portas de fluxos de inatividade de reclamação.
+Quando os recursos de porta SNAT são esgotados, fluxos de saída falharem até que os fluxos existentes de portas SNAT de versão. Balanceador de carga reclama portas SNAT quando o fluxo fecha e utiliza um [tempo limite de inatividade de 4 minutos](#idletimeout) para reclamação portas SNAT de fluxos de inatividade.
 
-Padrões mitigar condições que normalmente levar ao esgotamento de porta de realizar o SNAT, reveja o [gerir realizar o SNAT](#snatexhaust) secção.
+Padrões atenuar as condições que normalmente conduzem a exaustão de porta SNAT, reveja os [SNAT de gerir](#snatexhaust) secção.
 
-### <a name="preallocatedports"></a>Preallocation de portas efémeras para a porta masquerading realizar o SNAT (TERESA)
+### <a name="preallocatedports"></a>Pré-alocação de porta efêmera para a porta mascarando-o SNAT (PAT)
 
-Realizar o SNAT masquerading Azure utiliza um algoritmo para determinar o número de preallocated realizar o SNAT portas disponíveis com base no tamanho do conjunto back-end ao utilizar a porta ([PAT](#pat)). Portas de realizar o SNAT são portas efémeras disponíveis para um determinado endereço de origem IP público.
+O Azure utiliza um algoritmo para determinar o número de pré-alocado SNAT portas disponíveis com base no tamanho do conjunto de back-end ao utilizar a porta SNAT de Disfarce ([dar um TAPINHA](#pat)). Portas SNAT são portas efêmeras disponíveis para um determinado endereço de origem IP público.
 
-Azure preallocates realizar o SNAT portas quando é implementada uma instância com base no quantas instâncias VM ou função de trabalho Web partilham um determinado endereço IP público.  Quando são criados os fluxos de saída, [PAT](#pat) dinamicamente consome (até ao limite preallocated) e liberta estas portas quando fecha o fluxo ou [tempos limite de inatividade](#ideltimeout) acontecer.
+Azure preallocates SNAT portas quando uma instância for implementada com base no número de instâncias VM ou a função de trabalho Web partilha um determinado endereço IP público.  Quando os fluxos de saída são criados, [dar um TAPINHA](#pat) dinamicamente consome (até ao limite preallocated) e as versões destas portas quando o fluxo for fechado ou [tempos limite de inatividade](#ideltimeout) acontecer.
 
-A tabela seguinte mostra os preallocations de porta de realizar o SNAT para as camadas de tamanhos de conjunto de back-end:
+A tabela seguinte mostra os preallocations de porta SNAT para os escalões de tamanhos de conjuntos de back-end:
 
-| Instâncias | Portas de realizar o SNAT preallocated por instância |
+| Instâncias | Portas SNAT pré-alocado por instância |
 | --- | --- |
 | 1 a 50 | 1,024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 
-Lembre-se de que o número de portas de realizar o SNAT disponíveis traduz diretamente para o número de fluxos. Uma única porta de realizar o SNAT pode ser reutilizada vários destinos exclusivo. As portas são consumidas apenas se for necessário para disponibilizar fluxos exclusivo. Para obter orientações de conceção e a respetiva mitigação, consulte a secção sobre [como gerir este recurso exhaustible](#snatexhaust) e a secção que descreve [PAT](#pat).
+Lembre-se de que o número de portas SNAT disponíveis não traduz diretamente para o número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos exclusivos. As portas são consumidas apenas se for necessário para que os fluxos exclusivo. Para obter orientações de design e mitigação, consulte a seção sobre [como gerir este recurso exhaustible](#snatexhaust) e a secção que descreve [dar um TAPINHA](#pat).
 
-Alterar o tamanho da implementação pode afetar alguns dos seus fluxos estabelecidos. Se o tamanho do conjunto back-end aumenta e passa para a próxima camada, metade das suas portas de realizar o SNAT preallocated são recuperados durante a transição para a próxima camada superior do conjunto back-end. Fluxos que estão associados uma porta de realizar o SNAT reclaimed serão o tempo limite e tem de ser restabelecer. Se um novo fluxo for tentado, o fluxo será bem sucedida imediatamente, desde que existem portas preallocated disponíveis.
+Alterar o tamanho da sua implementação pode afetar alguns dos seus fluxos estabelecidos. Se o tamanho do conjunto de back-end aumenta e faz a transição para a próxima camada, metade das suas portas SNAT preallocated são recuperada durante a transição para a próxima camada de conjunto de back-end maior. Fluxos associados uma porta SNAT reclaimed serão o tempo limite e devem ser restabelecidos. Se um novo fluxo é tentado, o fluxo será bem sucedida imediatamente, desde que as portas pré-alocado estão disponíveis.
 
-Se o tamanho da implementação diminui e passa para um escalão inferior, aumenta o número de portas de realizar o SNAT disponíveis. Neste caso, existentes alocado realizar o SNAT portas e os seus respetivos fluxos não são afetados.
+Se o tamanho de implementação diminui e faz a transição para um escalão mais baixo, aumenta o número de portas SNAT disponíveis. Neste caso, existente alocadas SNAT portas e seus respectivos fluxos não são afetados.
 
-As alocações de portas de realizar o SNAT são específico de protocolo de transporte IP (TCP e UDP que e mantidó em separado) e são lançadas sob as seguintes condições:
+Se um serviço em nuvem é reimplementado ou alterado, a infraestrutura temporariamente pode comunicar o conjunto de back-end para ser tão real até duas vezes, como grandes e o Azure irá por sua vez pré-alocar menos SNAT portas por instância que o esperado.  Temporariamente, isso pode aumentar a probabilidade de exaustão de porta SNAT. Finalmente, o tamanho do conjunto farão a transição para o tamanho real e Azure irá aumentar automaticamente pré-alocado portas SNAT para o número esperado de acordo com a tabela acima.  Este comportamento é propositado e não é configurável.
 
-### <a name="tcp-snat-port-release"></a>Versão de porta de TCP realizar o SNAT
+Alocações de portas SNAT são específico de protocolo de transporte IP (TCP e UDP que e mantidó em separado) e são lançadas nas seguintes condições:
 
-- Se o servidor/cliente envia FIN/ACK, porta de realizar o SNAT será lançada após 240 segundos.
-- Se um RST é utilizado, porta de realizar o SNAT será lançada após 15 segundos.
+### <a name="tcp-snat-port-release"></a>Versão de porta de TCP SNAT
+
+- Se ambos os servidor/cliente enviar FIN/ACK, porta SNAT será lançada após 240 segundos.
+- Se um RST é visto, porta SNAT será lançada após 15 segundos.
 - foi atingido o tempo limite de inatividade
 
-### <a name="udp-snat-port-release"></a>Versão de porta UDP realizar o SNAT
+### <a name="udp-snat-port-release"></a>Versão de porta de SNAT de UDP
 
 - foi atingido o tempo limite de inatividade
 
-## <a name="problemsolving"></a> Resolução do problema 
+## <a name="problemsolving"></a> Resolução de problemas 
 
-Esta secção destina-se para ajudar a mitigar o esgotamento de realizar o SNAT e outros cenários que podem ocorrer com ligações de saída no Azure.
+Esta secção destina-se para ajudar a atenuar o esgotamento de SNAT e outros cenários que podem ocorrer com ligações de saída no Azure.
 
-### <a name="snatexhaust"></a> Gestão de esgotamento de porta de realizar o SNAT (TERESA)
-[Portas efémeras](#preallocatedports) utilizado para [PAT](#pat) são um recurso exhaustible, conforme descrito em [não associado a um IP público](#defaultsnat) e [ponto final com balanceamento de carga público](#publiclbendpoint).
+### <a name="snatexhaust"></a> Gerir exaustão de porta de SNAT (PAT)
+[Portas efêmeras](#preallocatedports) utilizado para [dar um TAPINHA](#pat) são um recurso de exhaustible, conforme descrito na [nenhum IP público associado](#defaultsnat) e [ponto final com balanceamento de carga público](#publiclbendpoint).
 
-Se souber que está a iniciar muitas TCP ou UDP ligações de saída para o mesmo endereço IP de destino e a porta e observe a efetuar ligações de saída ou aconselhado pelo suporte que está a esgotar os portas de realizar o SNAT (preallocated [efémeras portas](#preallocatedports) utilizado pelo [PAT](#pat)), tem várias opções de mitigação geral. Reveja estas opções e decidir o que está disponível e melhor para o seu cenário. É possível que um ou mais podem ajudar a gerir este cenário.
+Se souber que está a iniciar muitos TCP ou UDP ligações de saída para o mesmo endereço IP de destino e porta e observar as ligações de saída a falhar ou aconselhado pelo suporte que está a esgotar portas SNAT (pré-alocado [efémeras portas](#preallocatedports) utilizada pelo [dar um TAPINHA](#pat)), tem várias opções de redução geral. Reveja estas opções e decidir o que está disponível e é melhor para seu cenário. É possível que um ou mais podem ajudar a lidar com esse cenário.
 
-Se estiver a ter problemas em compreender o comportamento de ligação de saída, pode utilizar as estatísticas de pilha IP (netstat). Ou pode ser útil observar comportamentos de ligação através da utilização de capturas de pacotes.
+Se estiver a ter dificuldades para compreender o comportamento de ligação de saída, pode usar estatísticas de pilha IP (netstat). Ou pode ser útil observar comportamentos de ligação através de capturas de pacotes.
 
-#### <a name="connectionreuse"></a>Modificar a aplicação reutilizar ligações 
-Pode reduzir a pedido para portas efémeras que são utilizados para realizar o SNAT por reutilizar as ligações na sua aplicação. Isto é particularmente verdadeiro protocolos, como HTTP/1.1, onde a reutilização de ligação é a predefinição. E outros protocolos que utilizam HTTP como transporte (por exemplo, REST) podem beneficiar por sua vez. 
+#### <a name="connectionreuse"></a>Modificar o aplicativo para reutilizar conexões 
+Pode reduzir a pedido para portas efêmeras que são utilizados para SNAT ao reutilizar conexões em seu aplicativo. Isso é especialmente verdadeiro para protocolos como HTTP/1.1, onde a reutilização de ligação é a predefinição. E outros protocolos que utilizam HTTP como transporte (por exemplo, REST) podem se beneficiar por sua vez. 
 
-Reutilização é sempre melhor do que individuais, atómicas ligações de TCP para cada pedido. Reutilize resulta em mais performant, transações de TCP muito eficientes.
+Reutilização é sempre melhor do que individuais, atômicas conexões TCP para cada solicitação. Reutilize resulta num melhor desempenho, transações de TCP muito eficientes.
 
-#### <a name="connection pooling"></a>Modificar a aplicação para utilizar o agrupamento de ligação
-Pode utilizar uma ligação de agrupamento de esquema na sua aplicação, onde os pedidos internamente estão distribuídos por um conjunto de ligações (cada reutilizar sempre que possível) fixo. Este esquema restringe o número de portas efémeras em utilização e cria um ambiente mais previsível. Este esquema também pode aumentar o débito de pedidos ao permitir várias operações simultâneas, quando uma ligação única está a bloquear a resposta de uma operação.  
+#### <a name="connection pooling"></a>Modificar a aplicação para utilizar o agrupamento de ligações
+Pode empregar uma ligação de agrupamento de esquema no seu aplicativo, onde os pedidos são distribuídos internamente por um conjunto fixo de ligações (cada reutilizando sempre que possível). Este esquema restringe o número de portas efêmeras em utilização e cria um ambiente mais previsível. Este esquema também pode aumentar o débito de pedidos ao permitir que várias operações simultâneas quando uma única ligação está a bloquear a resposta de uma operação.  
 
-Agrupamento de ligação poderá já existir dentro do framework que está a utilizar para desenvolver a sua aplicação ou as definições de configuração para a sua aplicação. Pode combinar o agrupamento de ligações com reutilização de ligação. Os pedidos de vários consumam, em seguida, um número fixo e previsível de portas para o mesmo endereço IP de destino e a porta. Os pedidos também beneficiam da utilização eficiente de transações de TCP, reduzindo a utilização de recursos e latência. Transações de UDP também podem beneficiar, porque a gerir o número de fluxos UDP pode evitar a esgotar os condições e gerir a utilização de porta de realizar o SNAT por sua vez.
+Agrupamento de ligações já pode existir dentro do framework que está a utilizar para desenvolver seu aplicativo ou as definições de configuração para a sua aplicação. Pode combinar o pool de conexões com a reutilização de ligação. Os pedidos de vários, em seguida, consumam um fixo e previsível, o número de portas para o mesmo endereço IP de destino e a porta. Os pedidos também beneficiam de uma utilização eficiente de reduzir a utilização de recursos e latência de transações de TCP. Transações de UDP também podem se beneficiar, porque a gerir o número de fluxos UDP pode evitar condições de esgotar e gerir a utilização de porta SNAT por sua vez.
 
-#### <a name="retry logic"></a>Modificar a aplicação para utilizar menos agressiva lógica de repetição
-Quando [preallocated portas efémeras](#preallocatedports) utilizado para [PAT](#pat) estão esgotadas, ou aplicação ocorram falhas, agressiva ou força bruta repete sem decay e término lógica causar esgotamento a ocorrer ou manter. Pode reduzir a pedido para portas efémeras utilizando uma menor agressiva lógica de repetição. 
+#### <a name="retry logic"></a>Modificar o aplicativo para usar menos agressiva lógica de repetição
+Quando [pré-alocado portas efêmeras](#preallocatedports) utilizado para [dar um TAPINHA](#pat) são esgotadas ou aplicação ocorrerem falhas, agressiva ou de força bruta repete sem Win32/decay e término de lógica de fazer com que o esgotamento de ocorrer ou manter. Pode reduzir a pedido para portas efêmeras utilizando uma lógica de repetição menos agressiva. 
 
-Portas efémeras tem um minuto 4 tempo limite de inatividade (não ajustável). Se as repetições são demasiado agressiva, o esgotamento não tem nenhuma oportunidade de limpar no seu próprio. Por conseguinte, considerar como – e com que frequência – a aplicação repete transações é uma parte fundamental da estrutura.
+Portas efêmeras têm um 4 minutos tempo limite de inatividade (não ajustável). Se as repetições são demasiado agressivas, o esgotamento não tem nenhuma oportunidade de limpar por conta própria. Portanto, considerar como – e quantas vezes – a aplicação repete transações é uma parte crítica do design.
 
 #### <a name="assignilpip"></a>Atribuir um IP público ao nível de instância para cada VM
-Atribuir um ILPIP altera o seu cenário para [IP público de nível de instância para uma VM](#ilpip). Todas as portas efémeras do IP público que são utilizadas para cada VM estão disponíveis para a VM. (Por oposição cenários em que as portas efémeras de um IP público são partilhadas com todas as VMs associados à respetiva implementação.) Existem trade-offs a ter em consideração, como o impacto potencial da branca um grande número de endereços IP individuais.
+Atribuir um ILPIP altera o seu cenário para [IP público de nível de instância para uma VM](#ilpip). Todas as portas efêmeras de IP público que são utilizadas para cada VM estão disponíveis para a VM. (Em vez de cenários nos quais as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas com a respetiva implementação.) Existem vantagens e desvantagens para considerar, como o impacto potencial de listas de permissões de um grande número de endereços IP individuais.
 
 >[!NOTE] 
->Esta opção não está disponível para as funções de trabalho web.
+>Esta opção não está disponível para funções de trabalho do web.
 
-### <a name="idletimeout"></a>Utilizar keepalives para repor o tempo limite inativo da saída
+### <a name="idletimeout"></a>Utilizar keepalives para repor o tempo de limite de inatividade saído
 
-Ligações de saída têm um tempo de limite de inatividade de 4 minutos. Não é ajustável este tempo limite. No entanto, pode utilizar o transporte (por exemplo, o TCP keepalives) ou keepalives de camada de aplicação para atualizar um fluxo de inatividade e repor este tempo limite de inatividade, se necessário.  Contacte o fornecedor de qualquer software instaladores se esta opção é suportada ou como ativá-la.  Geralmente, apenas um lado tem de gerar keepalives para repor o tempo limite de inatividade. 
+As ligações de saída têm um tempo de limite de inatividade de 4 minutos. Este tempo limite não é ajustável. No entanto, pode utilizar o transporte (por exemplo, o TCP keepalives) ou keepalives de camada de aplicativo para atualizar um fluxo de inatividade e repor este tempo limite de inatividade, se necessário.  Contacte o seu fornecedor de qualquer software de pacotes nIsto é suportado ou como ativá-lo.  Em geral, apenas um lado precisa gerar keepalives para repor o tempo limite de inatividade. 
 
 ## <a name="discoveroutbound"></a>Detetar o IP público que utiliza uma VM
-Existem várias formas para determinar o endereço IP de origem público de uma ligação de saída. OpenDNS fornece um serviço que pode apresentar-lhe o endereço IP público da sua VM. 
+Existem várias formas de determinar o endereço IP de origem público de uma ligação de saída. OpenDNS fornece um serviço que pode apresentar-lhe o endereço IP público da sua VM. 
 
-Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o myip.opendns.com de nome para a resolução de OpenDNS. O serviço devolve o endereço IP de origem que foi utilizado para enviar a consulta. Quando executar a consulta seguinte da sua VM, a resposta é o IP público utilizado relativamente a essa VM:
+Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o myip.opendns.com de nome para o resolvedor OpenDNS. O serviço devolve o endereço IP de origem que foi utilizado para enviar a consulta. Quando executar a consulta seguinte da VM, a resposta é o IP público utilizado para essa VM:
 
     nslookup myip.opendns.com resolver1.opendns.com
 
@@ -181,4 +183,4 @@ Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o myip.opendns
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md) utilizados em implementações do Resource Manager.
-- Conheça o modo [ligação saída](load-balancer-outbound-connections.md) cenários disponíveis nas implementações do Resource Manager.
+- Conheça o modo [ligação de saída](load-balancer-outbound-connections.md) cenários disponíveis em implementações do Resource Manager.

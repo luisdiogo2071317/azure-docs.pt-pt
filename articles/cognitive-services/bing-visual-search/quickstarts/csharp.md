@@ -1,7 +1,7 @@
 ---
-title: Início rápido c# para pesquisa de Visual Bing API | Microsoft Docs
+title: Início rápido em C#, para a API de pesquisa Visual do Bing | Documentos da Microsoft
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Mostra como carregar uma imagem para a API de pesquisa do Bing Visual e obter informações sobre a imagem a novamente.
+description: Mostra como carregar uma imagem para a API de pesquisa Visual do Bing e obter informações sobre a imagem.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd7531004759cdaeb59f4706dc2650d0db3c0cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355129"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070931"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>A primeira consulta de pesquisa de Visual Bing em c#
+# <a name="your-first-bing-visual-search-query-in-c"></a>Sua primeira consulta de pesquisa Visual do Bing em c#
 
-API de pesquisa do Bing Visual devolve informações sobre uma imagem que fornecer. Pode fornecer a imagem utilizando o URL da imagem, uma insights token, ou através do carregamento de uma imagem. Para obter informações sobre estas opções, consulte [o que é a API de pesquisa do Bing Visual?](../overview.md) Este artigo demonstra o carregamento de uma imagem. Carregamento de uma imagem pode ser útil em cenários móveis onde tirar uma fotografia de um landmark bem conhecido e voltar a informação sobre a mesma. Por exemplo, as informações podem incluir trivia sobre o landmark. 
+API de pesquisa Visual do Bing devolve informações sobre uma imagem que fornece. Pode fornecer a imagem utilizando o URL da imagem, um insights token, ou ao carregar uma imagem. Para obter informações sobre estas opções, consulte [o que é a API de pesquisa Visual do Bing?](../overview.md) Este artigo demonstra a carregar uma imagem. Carregar uma imagem pode ser útil em cenários móveis onde tirar uma fotografia de um ponto de referência bem conhecido e obter informações sobre ele. Por exemplo, as informações podem incluir trivia sobre o ponto de referência. 
 
-Se carregar uma imagem local, o seguinte mostra os dados do formulário que tem de incluir no corpo do POST. Os dados do formulário têm de incluir o cabeçalho de disposição de conteúdo. O `name` parâmetro tem de ser definido como "de imagem" e o `filename` parâmetro pode ser definido como qualquer cadeia. O conteúdo do formulário é o binário da imagem. O tamanho da imagem máximo, pode carregar é de 1 MB. 
+Se carregar uma imagem do local, o código a seguir mostra os dados do formulário que tem de incluir no corpo da POSTAGEM. Os dados do formulário tem de incluir o cabeçalho Content-Disposition. Seus `name` parâmetro tem de ser definido como "imagem" e o `filename` parâmetro pode ser definido como qualquer cadeia de caracteres. O conteúdo do formulário é o binário da imagem. O tamanho da imagem máximo que pode carregar é de 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,25 +32,25 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Este artigo inclui uma aplicação de consola simples que envia um pedido de API de pesquisa do Bing Visual e apresenta os resultados de pesquisa JSON. Enquanto esta aplicação é escrita em c#, a API é um serviço RESTful Web compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON. 
+Este artigo inclui uma aplicação de consola simples que envia um pedido de API de pesquisa Visual do Bing e exibe os resultados da pesquisa JSON. Embora esse aplicativo é escrito em c#, a API é um serviço RESTful Web compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
-O programa de exemplo utiliza apenas as classes de núcleo de .NET e é executado no Windows utilizando o CLR de .NET ou no Linux ou macOS utilizando [Mono](http://www.mono-project.com/).
+O programa de exemplo usa apenas as classes do .NET Core e é executado no Windows usando o CLR do .NET ou no Linux ou macOS, utilizando [Mono](http://www.mono-project.com/).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows. (A edição da Comunidade gratuito irá funcionar.)
+Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows. (A edição de Comunidade gratuito irá funcionar.)
 
-Para este início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
+Neste início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
-O seguinte mostra como enviar a mensagem utilizando HttpWebRequest. Para obter um exemplo que utiliza HttpClient, HttpRequestMessage e MultipartFormDataContent, consulte [utilizando HttpClient](#using-httpclient).
+O código a seguir mostra como enviar a mensagem com HttpWebRequest. Para obter um exemplo que utiliza o HttpClient, HttpRequestMessage e MultipartFormDataContent, consulte [usando o HttpClient](#using-httpclient).
 
 Para executar esta aplicação, siga estes passos:
 
 1. Crie uma nova solução de consola no Visual Studio.
-1. Substitua os conteúdos de `Program.cs` com o código mostrado neste guia de introdução.
+1. Substitua os conteúdos do `Program.cs` com o código mostrado neste início rápido.
 2. Substitua o `accessKey` valor com a sua chave de subscrição.
 2. Substitua o `imagePath` valor com o caminho da imagem para carregar.
 3. Execute o programa.
@@ -303,11 +303,11 @@ namespace VisualSearchUpload
 ```
 
 
-## <a name="using-httpclient"></a>Utilizar HttpClient
+## <a name="using-httpclient"></a>Usando o HttpClient
 
-Se utilizar HttpClient, pode utilizar MultipartFormDataContent para criar os dados do formulário. Utilize apenas as secções seguintes de código para substituir os mesmos métodos nomeados no exemplo anterior.
+Se usar o HttpClient, pode utilizar MultipartFormDataContent para criar os dados do formulário. Apenas utilize as secções seguintes de código para substituir os mesmos métodos nomeados no exemplo anterior.
 
-Substitua o método principal com este código:
+Substitua o método Main com este código:
 
 ```csharp
         static void Main()
@@ -386,9 +386,10 @@ Substitua o método BingImageSearch com este código:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Obter conhecimentos aprofundados sobre uma imagem utilizando um token de insights](../use-insights-token.md)  
-[Tutorial de aplicação de página única pesquisa Visual Bing](../tutorial-bing-visual-search-single-page-app.md)
-[descrição geral de pesquisa de Visual do Bing](../overview.md)  
-[Experimente](https://aka.ms/bingvisualsearchtryforfree)  
+[Obtenha informações sobre uma imagem com um token de insights](../use-insights-token.md)  
+[Tutorial de carregamento de imagem de pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)
+[tutorial de aplicação de página única de pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)
+[descrição geral de pesquisa Visual do Bing](../overview.md)  
+[Experimente-o](https://aka.ms/bingvisualsearchtryforfree)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referência da API de pesquisa do Bing Visual](https://aka.ms/bingvisualsearchreferencedoc)
+[Referência da API de pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)

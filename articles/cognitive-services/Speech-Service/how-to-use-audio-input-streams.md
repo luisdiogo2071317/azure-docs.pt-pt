@@ -1,5 +1,5 @@
 ---
-title: Conceitos de AudioInputStream | Microsoft Docs
+title: Conceitos de AudioInputStream | Documentos da Microsoft
 description: Uma descrição geral das funcionalidades da AudioInputStream API.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -10,72 +10,72 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: fmegen
-ms.openlocfilehash: 528356473c4221a815fa68cbec3426866c4cbd23
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0eafa7e88df5d00a67646ca7f82ca027602a40b3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356295"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071451"
 ---
-# <a name="about-the-audio-input-stream-api"></a>Sobre a entrada de áudio transmitido em fluxo API
+# <a name="about-the-audio-input-stream-api"></a>API do stream sobre a entrada de áudio
 
-O **fluxo de entrada de áudio** API fornece uma forma para transmitir os fluxos de áudio em recognizers em vez de utilizar o microfone ou o ficheiro de entrada de APIs.
+O **Stream de entrada de áudio** API fornece uma maneira para transmitir fluxos de áudio para os reconhecedores tenham em vez de utilizar o microfone ou o ficheiro de entrada de APIs.
 
 ## <a name="api-overview"></a>Descrição geral da API
 
 A API utiliza dois componentes, o `AudioInputStream` (os dados não processados áudio) e o `AudioInputStreamFormat`.
 
-O `AudioInputStreamFormat` define o formato dos dados de áudio. Este pode ser comparado com a norma `WAVEFORMAT` estrutura para wave os ficheiros no Windows.
+O `AudioInputStreamFormat` define o formato dos dados de áudio. Pode ser comparada ao padrão `WAVEFORMAT` estrutura para ficheiros de onda no Windows.
 
   - `FormatTag`
 
-    O formato de áudio. O SDK de reconhecimento de voz atualmente suporta apenas `format 1` (PCM - little endian).
+    O formato do áudio. O SDK de voz atualmente apenas suporta `format 1` (PCM - little-endian).
 
   - `Channels`
 
-    O número de canais. O serviço de reconhecimento de voz atual suporta material de áudio (mono) apenas um canal.
+    O número de canais. O serviço de voz atual suporta material de áudio (mono) de canal de apenas um.
 
   - `SamplesPerSec`
 
-    A frequência de amostragem. Gravar um microfone típico tem 16000 amostras por segundo.
+    A taxa de amostragem. Uma gravação de microfone típica tem 16000 exemplos por segundo.
 
   - `AvgBytesPerSec`
 
-    Média de bytes por segundo, calculados como `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Médios bytes por segundo podem ser diferentes para fluxos de áudio que utilizam a variável de forma.
+    Média de bytes por segundo, calculada como `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Média de bytes por segundo pode ser diferente para os fluxos de áudio que utilizam as velocidades de transmissão de variável.
 
   - `BlockAlign`
 
-    O tamanho de um único período, calculados como `Channels * ceil(wBitsPerSample, 8)`. Devido a preenchimento, o valor real pode ser superior a este valor.
+    O tamanho de um único quadro, calculada como `Channels * ceil(wBitsPerSample, 8)`. Devido a preenchimento, o valor real pode ser superior a este valor.
 
   - `BitsPerSample`
 
-    Bits por exemplo. Um fluxo típico de áudio utiliza 16 bits por exemplo (CD qualidade).
+    Os bits por amostra. Um fluxo de áudio típico usa 16 bits por amostra (qualidade de CD).
 
-O `AudioInputStream` classe base irá ser substituída pelo seu adaptador de fluxo personalizado. Esta placa tem de implementar estas funções:
+O `AudioInputStream` classe base será substituída pela sua placa de fluxos personalizados. Esta placa tem de implementar essas funções:
 
    - `GetFormat()`
 
-     Esta função é chamada para obter o formato do fluxo de áudio. Obtém um ponteiro para a memória intermédia AudioInputStreamFormat.
+     Esta função é chamada para obter o formato do fluxo de áudio. Obtém um ponteiro para o buffer de AudioInputStreamFormat.
 
    - `Read()`
 
-     Esta função é chamada para obter dados a partir da sequência de áudio. Um parâmetro. existe um ponteiro para a memória intermédia para copiar os dados de áudio em. O segundo parâmetro é o tamanho da memória intermédia. A função devolve o número de bytes copiados para a memória intermédia. Um valor de retorno da `0` indica o fim da sequência.
+     Esta função é chamada para obter dados de transmissão de áudio. Um parâmetro é um ponteiro para o buffer para copiar os dados de áudio em. O segundo parâmetro é o tamanho do buffer. A função devolve o número de bytes copiados para a memória intermédia. Um valor de retorno `0` indica o fim do fluxo.
 
    - `Close()`
 
-     Esta função é chamada para fechar a sequência de áudio.
+     Esta função é chamada para fechar o fluxo de áudio.
 
 ## <a name="usage-examples"></a>Exemplos de utilização
 
-Em geral, os seguintes passos envolvidos ao utilizar sequências de entrada de áudio:
+Em geral, as etapas a seguir são envolvidas ao utilizar fluxos de entrada de áudio:
 
-  - Identifique o formato do fluxo de áudio. O formato tem de ser suportado pelo SDK e o serviço de reconhecimento de voz. Atualmente, a seguinte configuração é suportada:
+  - Identifica o formato do fluxo de áudio. O formato tem de ser suportado pelo SDK e o serviço de voz. Atualmente é suportada a seguinte configuração:
 
-    Etiqueta de um formato de áudio (PCM), um canal, 16000 amostras por segundo, 32000 bytes por segundo, dois blocos alinhar (incluindo o preenchimento para um exemplo de 16 bits), 16 bits por exemplo
+    Etiqueta de um formato de áudio (PCM), um canal, 16000 exemplos por segundo, 32000 bytes por segundo, dois blocos alinhar (incluindo o preenchimento de um exemplo de 16 bits), de 16 bits por amostra
 
-  - Certifique-se de que o seu código pode fornecer os dados de áudio não processados sobre as especificações identificados acima. Se os dados de origem de áudio não correspondem os formatos suportados, áudio tem de ser transcodificação para o formato necessário.
+  - Certifique-se de que seu código pode fornecer os dados de áudio não processados sobre as especificações identificados acima. Se os dados de origem de áudio não corresponderem os formatos suportados, o áudio tem de ser transcodificados no formato necessário.
 
-  - Derivar a classe do fluxo de entrada de áudio personalizado do `AudioInputStream`. Implementar o `GetFormat()`, `Read()`, e `Close()` operação. A assinatura da função exato é dependente de idioma, mas o código será semelhante ao seguinte exemplo de código:
+  - Derivar a classe de fluxos de entrada de áudio personalizados de `AudioInputStream`. Implementar o `GetFormat()`, `Read()`, e `Close()` operação. A assinatura de função exata é dependente de idioma, mas o código será semelhante ao seguinte exemplo de código::
 
     ```
      public class ContosoAudioStream : AudioInputStream {
@@ -119,7 +119,7 @@ Em geral, os seguintes passos envolvidos ao utilizar sequências de entrada de �
     // delete contosoStream;
     ```
 
-  - Em alguns idiomas, o `contosoStream` tem de ser eliminado explicitamente após a conclusão de reconhecimento. Não é possível libertar o AudioStream antes de leitura de entrada completa. Num cenário com `StopContinuousRecognitionAsync` e `StopContinuousRecognitionAsync` requer um conceito ilustrado no seguinte exemplo:
+  - Em alguns idiomas, o `contosoStream` têm de ser eliminadas explicitamente após a conclusão do reconhecimento. Não é possível libertar o AudioStream antes da entrada completa é de leitura. Num cenário com `StopContinuousRecognitionAsync` e `StopContinuousRecognitionAsync` requer um conceito ilustrado neste exemplo:
 
     ```
     var contosoStream = new ContosoAudioStream(contosoConfig);
@@ -141,5 +141,5 @@ Em geral, os seguintes passos envolvidos ao utilizar sequências de entrada de �
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver como reconhecer voz em c#](quickstart-csharp-windows.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 43fadadc92e9562e1e9abe6d971f85d37a9825c2
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437087"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070439"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -84,7 +84,7 @@ Para ajudar a verificar o que não esteja conectado numa conta pessoal do browse
 
 ---  
 
-## <a name="issue-dev-center-registration"></a>Problema: Registo de centro de desenvolvimento  
+## <a name="get-help-with-dev-center-registration"></a>Obtenha ajuda com o registo do Centro de desenvolvimento  
 Se tiver problemas com o registo do Dev Center, em seguida, siga estes passos para submeter um pedido de suporte.  
 1.  Aceda ao suporte do Centro de desenvolvimento.  
     *   Para acesso a suporte, visite o Windows a página de suporte programador, localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).  
@@ -151,6 +151,41 @@ Se tiver problemas com o registo do Dev Center, em seguida, siga estes passos pa
 *   **Onde posso contactar o suporte com problemas com relação ao Registro do Centro de desenvolvimento?**
 Para acesso a suporte, visite o Windows a página de suporte programador, localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: Adicione informações do banco e imposto para dividendos de publicador  
+As informações do banco e o imposto são necessárias para todas as ofertas comerciais usando transact listagem tipo.  
+*   Se está a publicar ofertas comerciais para a compra de, em seguida, tem de adicionar informações dividendos e impostos e validação de pedido no Dev Center.  
+    >[!IMPORTANT]
+    >Para ofertas de comerciais (transact), tem de concluir as informações do banco e imposto antes de poder enviar suas ofertas para produção.  
+
+*   Se for publicação apenas gratuita ou BYOL oferece, em seguida, não é necessário adicionar as informações. Pode adicionar as informações mais tarde, mas a validação das informações de imposto sobre demora algum tempo. Se planeja oferecer comerciais ofertas de compra, deve adicionar as informações mais rapidamente possível.  
+
+## <a name="add-bank-information"></a>Adicionar informações bancárias  
+1.  Inicie sessão no Centro de desenvolvimento usando sua ID. Microsoft  
+    *   Para iniciar sessão no Dev Center, visite o Centro de desenvolvimento do Windows página localizada em [dev.windows.com](https://dev.windows.com).  
+2.  Selecione a conta de dividendos no menu da esquerda.
+3.  Sobre o `Choose payment method` página, selecione `Bank account` ou `PayPal`.  
+    >[!IMPORTANT]
+    >Se tiver ofertas comerciais que os clientes de compra no Marketplace, a conta de dividendos é onde recebe dividendos para as compras.  
+
+4.  Introduza as informações de pagamento. Após ter verificado que as informações estão corretas, clique no botão salvar.  
+    >[!IMPORTANT]
+    >Se atualiza ou alterar a sua conta de dividendos, tem de seguir os mesmos passos substituir as informações atuais com novas informações. Alterações à sua conta de dividendos podem atrasar pagamentos até o ciclo de um pagamento. Este atraso ocorre porque a Microsoft tem de verificar a alteração da conta, este é o mesmo que quando primeiro configure sua conta de dividendos. Obter pago a quantia total após a verificação da sua conta. Qualquer pagamentos devido de pagamento atual ciclo são adicionadas para o ciclo seguinte.  
+
+4.  Clique no botão seguinte. 
+
+---   
+
+## <a name="add-tax-information"></a>Adicionar informações fiscais  
+1.  Inicie sessão no Centro de desenvolvimento usando sua ID. Microsoft  
+    *   Para iniciar sessão no Dev Center, visite o Centro de desenvolvimento do Windows página localizada em [dev.windows.com](https://dev.windows.com).  
+2.  Selecione o perfil de imposto no menu da esquerda. 
+3.  Sobre o `Set up your tax form` , selecione o país ou região onde tenha residência permanente.  
+    
+    Selecione o país ou região onde mantém cidadania primária.  
+    
+    Clique no botão seguinte. 
+4.  Introduza os detalhes do seu imposto.  
+5.  Clique no botão seguinte.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 *   Visite o [Azure Marketplace e guia de publicador do AppSource](./marketplace-publishers-guide.md) página.  

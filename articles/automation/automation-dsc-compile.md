@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76b2b1983cc5a6cedfcff204871e0b0f985fef95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 897681cda31b2f187fca64e77621b7dc5ed4dfae
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900788"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072114"
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilar configurações no DSC de automatização do Azure
 
@@ -235,7 +235,7 @@ Referências de ativos são os mesmos em runbooks e configurações de DSC de au
 
 ### <a name="credential-assets"></a>Ativos de credencial
 
-Enquanto as configurações de DSC na automatização do Azure podem fazer referência a ativos de credencial usando **Get-AutomationPSCredential**, ativos de credencial podem também ser transmitidos através de parâmetros, se assim o desejar. Se uma configuração assume um parâmetro de **PSCredential** digite, em seguida, precisa passar o nome da cadeia de um recurso de credenciais da automatização do Azure como o valor do parâmetro, que, em vez de um objeto PSCredential. Em segundo plano, o recurso de credencial da automatização do Azure com esse nome é recuperado e passado para a configuração.
+Configurações de DSC na automatização do Azure podem fazer referência a recursos de credencial da automatização com `Get-AutomationPSCredential`. Se uma configuração tem um parâmetro que tem um **PSCredential** escrever, pode utilizar o `Get-AutomationPSCredential` cmdlet passando o nome da cadeia de um recurso de credenciais da automatização do Azure para o cmdlet para obter a credencial. Pode, em seguida, utilizar, em seguida, utilizar esse objeto para o parâmetro que requerem a **PSCredential** objeto. Em segundo plano, o recurso de credencial da automatização do Azure com esse nome é recuperado e passado para a configuração. O exemplo abaixo mostra isso em ação.
 
 Mantendo credenciais seguras em configurações de nó (documentos de configuração do MOF), é necessário criptografar as credenciais no ficheiro MOF de configuração de nó. No entanto, atualmente tem de pedir ao DSC de PowerShell é muito bem as credenciais ter saída em texto simples durante a geração do MOF de configuração de nó, porque o PowerShell DSC não sabe que automatização do Azure vai encriptar todo o arquivo MOF após sua geração por meio de uma tarefa de compilação.
 

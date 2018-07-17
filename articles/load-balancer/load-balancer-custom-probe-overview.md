@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 69991a0b805b5502fc96fab4ce902b3d8bc77baf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056363"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070880"
 ---
 # <a name="understand-load-balancer-probes"></a>Compreender as sondas do Balanceador de carga
 
@@ -28,7 +28,7 @@ O Azure Load Balancer utiliza sondas de estado de funcionamento para determinar 
 
 Sondas de estado de funcionamento definem se novos fluxos são estabelecidos para instâncias de back-end em bom estado. Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento.  Conexões TCP estabelecidas continuam após falha de sonda de estado de funcionamento.  Fluxos UDP existentes vão passar a partir da instância de mau estado de funcionamento para outra instância do conjunto de back-end.
 
-Se todas as sondas para um conjunto de back-end falharem, balanceadores de carga básico irá terminar todos os fluxos TCP existente para o conjunto de back-end, ao passo que o Balanceador de carga Standard irão permitir estabelecidos fluxos TCP para continuar; Não existem fluxos novos serão enviados para o conjunto de back-end.
+Se todas as sondas para um conjunto de back-end falharem, balanceadores de carga básico irá terminar todos os fluxos TCP existente para o conjunto de back-end, ao passo que o Balanceador de carga Standard irão permitir estabelecidos fluxos TCP para continuar; Não existem fluxos novos serão enviados para o conjunto de back-end.  Todos os fluxos UDP existentes irão terminar para básico e Balanceadores de carga Standard quando a ativação do conjunto de todas as sondas para um back-end.
 
 Funções de serviço cloud (funções de trabalho e funções da web) utilizam um agente de convidado para a monitorização de sonda. Tem de configurar o TCP ou HTTP sondas de estado de funcionamento personalizado ao utilizar serviços em nuvem com VMs de IaaS por trás do Balanceador de carga.
 

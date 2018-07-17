@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887696"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072080"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Agente de compilação de utilização do Azure Container Instances, como um Jenkins
 
@@ -92,31 +92,21 @@ Jenkins está agora configurado e pronto para criar e implementar código. Neste
 
 ## <a name="create-a-build-job"></a>Criar uma tarefa de compilação
 
-Quando estiver a utilizar uma imagem de contentor como um Jenkins criar destino, tem de especificar uma imagem que inclui todas as ferramentas necessárias para uma compilação bem-sucedida. Para especificar a imagem:
+Agora, é criada uma tarefa de compilação do Jenkins para demonstrar a que jenkins baseia-se uma instância de contentor do Azure.
 
-1. Selecione **gerir Jenkins** > **configurar o sistema** e desloque para baixo para o **nuvem** secção. Neste exemplo, atualize o valor de imagem do Docker para **microsoft/java-no-azure-jenkins-subordinado**.
-
-   Quando tiver terminado, selecione **guardar** para voltar ao dashboard do Jenkins.
-
-   ![Configuração de cloud do Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Agora, crie uma tarefa de compilação do Jenkins. Selecione **Novo Item**, dê um nome de projeto de compilação como **aci-java-demo**, selecione **projeto Freestyle**e selecione **OK**.
+1. Selecione **Novo Item**, dê um nome de projeto de compilação como **aci-demo**, selecione **projeto Freestyle**e selecione **OK**.
 
    ![Caixa para o nome da tarefa de compilação e lista de tipos de projeto](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. Sob **gerais**, certifique-se de que **restringir onde pode ser executado neste projeto** está selecionada. Introduza **linux** para a expressão de rótulo. Esta configuração garante que esta tarefa de compilação é executada na ACI cloud.
+2. Sob **gerais**, certifique-se de que **restringir onde pode ser executado neste projeto** está selecionada. Introduza **linux** para a expressão de rótulo. Esta configuração garante que esta tarefa de compilação é executada na ACI cloud.
 
    ![Separador "Geral", com detalhes de configuração](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. Sob **gestão de código fonte**, selecione **Git** e introduza **https://github.com/spring-projects/spring-petclinic.git** para o URL do repositório. Este repositório do GitHub contém o código de aplicativo de exemplo.
+3. Sob **crie**, selecione **Adicionar passo de compilação** e selecione **executar Shell**. Introduza `echo "aci-demo"` como o comando.
 
-   ![Separador "Gestão de código fonte" com informações de código de origem](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Separador "Build" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Sob **crie**, selecione **Adicionar passo de compilação** e selecione **invocar destinos de nível superior Maven**. Introduza **pacote** como o objetivo do passo de compilação.
-
-   ![Separador "Build" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Selecione **Guardar**.
+5. Selecione **Guardar**.
 
 ## <a name="run-the-build-job"></a>Executar a tarefa de compilação
 

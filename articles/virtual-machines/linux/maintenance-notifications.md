@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 840e961e753a15219ae41b8df55dfd95cc7ec774
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990257"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068632"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de manipulação planeada para máquinas virtuais do Linux
 
@@ -160,7 +160,7 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [regiõe
 
 **P: qual é a experiência no caso de conjuntos de dimensionamento de máquinas virtuais?**
 
-**R:** manutenção planeada já está disponível para os conjuntos de dimensionamento de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção self-service, consulte "Como é que a -> Gerir -> manutenção planeada" secção nos documentos do conjunto de dimensionamento de Máquina Virtual.
+**R:** manutenção planeada já está disponível para os conjuntos de dimensionamento de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção self-service, consulte [manutenção planeada para o VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) documento.
 
 **P: qual é a experiência no caso de serviços Cloud (função da Web/trabalho) e o Service Fabric?**
 

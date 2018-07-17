@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/15/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: cc69d2f195006fa196491fe9bed53db499eed11f
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859940"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069983"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
@@ -79,7 +79,7 @@ Ao utilizar a georreplicação entre dois conjuntos elásticos, recomenda-se que
 
 A tabela seguinte fornece orientações para os cenários de migração específica: 
 
-|Escalão de serviço atual|Escalão de serviço de destino|Tipo de migração|Ações do usuário|
+|Escalão de serviço atual|Escalão de serviço de destino|Tipo de migração|Ações de utilizador|
 |---|---|---|---|
 |Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas certifique-se de um dimensionamento apropriado vCore *|
 |Premium|Crítico para a Empresa|Lateral|Pode migrar em qualquer ordem, mas certifique-se de dimensionamento apropriado vCore *|

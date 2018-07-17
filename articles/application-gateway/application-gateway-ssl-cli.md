@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com a terminação de SSL - CLI do Azure | Microsoft Docs
-description: Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com a CLI do Azure.
+title: Criar um gateway de aplicação com a terminação de SSL - CLI do Azure | Documentos da Microsoft
+description: Saiba como criar um gateway de aplicação e adicionar um certificado para terminação SSL com a CLI do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,18 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/18/2018
+ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 03b5d0447ef732586fe2104690c609a3adec2b6c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5104b1ffa12e35f18ba0843718afb6d697df6c39
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356142"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068884"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicação com a terminação de SSL com a CLI do Azure
 
-Pode utilizar a CLI do Azure para criar um [gateway de aplicação](application-gateway-introduction.md) com um certificado para [terminação de SSL](application-gateway-backend-ssl.md) que utiliza um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao conjunto predefinido de back-end do gateway de aplicação.
+Pode utilizar a CLI do Azure para criar um [gateway de aplicação](application-gateway-introduction.md) com um certificado para [terminação SSL](application-gateway-backend-ssl.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
@@ -27,7 +27,7 @@ Neste artigo, vai aprender a:
 > * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicação com o certificado
-> * Criar um conjunto com o conjunto de back-end predefinido de dimensionamento de máquina virtual
+> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,25 +37,25 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para utilização em produção, deve importar um certificado válido assinado pelo fornecedor fidedigno. Para este tutorial, crie um certificado autoassinado e um ficheiro pfx utilizando o comando de openssl.
+Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Neste tutorial, vai criar um certificado autoassinado e um ficheiro pfx com o comando openssl.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-Introduza os valores que façam sentido para o seu certificado. Pode aceitar os valores predefinidos.
+Introduza valores que façam sentido para o seu certificado. Pode aceitar os valores predefinidos.
 
 ```azurecli-interactive
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
-Introduza a palavra-passe do certificado. Neste exemplo, *Azure123456!* está a ser utilizado.
+Introduza a palavra-passe para o certificado. Neste exemplo, *Azure123456!* é a palavra-passe utilizada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Criar um grupo de recursos utilizando [criar grupo az](/cli/azure/group#create).
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group#create).
 
-O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupAG* no *eastus* localização.
+O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAG* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -63,7 +63,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* utilizando [az rede vnet criar](/cli/azure/network/vnet#az_net). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessário para os servidores de back-end utilizando [az rede vnet sub-rede](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Criar o endereço IP público com o nome *myAGPublicIPAddress* utilizando [az público-ip da rede criar](/cli/azure/public-ip#az_network_public_ip_create).
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az_net). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -85,9 +85,9 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [criar gateway de aplicação do rede az](/cli/azure/application-gateway#create) para criar o gateway de aplicação. Quando cria um gateway de aplicação utilizando a CLI do Azure, especifique as informações de configuração, tais como a capacidade, sku e definições de HTTP. 
+Pode utilizar [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway de aplicação. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. 
 
-O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. Neste exemplo, associar o certificado que criou e respetiva palavra-passe quando criar o gateway de aplicação. 
+O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. Neste exemplo, vai associar o certificado que criou e a respetiva palavra-passe quando criar o gateway de aplicação. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,17 +108,17 @@ az network application-gateway create \
 
 ```
 
- Pode demorar alguns minutos até o gateway de aplicação a ser criado. Depois de criado o gateway de aplicação, pode ver estas novas funcionalidades do mesmo:
+ A criação do gateway de aplicação pode demorar vários minutos. Depois de criado o gateway de aplicação, pode ver estas novas funcionalidades do mesmo:
 
-- *appGatewayBackendPool* -um gateway de aplicação tem de ter, pelo menos, um conjunto de endereços de back-end.
-- *appGatewayBackendHttpSettings* -Especifica que a porta 80 e um protocolo HTTP é utilizado para comunicação.
-- *appGatewayHttpListener* -o serviço de escuta de predefinição associado *appGatewayBackendPool*.
-- *appGatewayFrontendIP* -atribui *myAGPublicIPAddress* para *appGatewayHttpListener*.
-- *rule1* - predefinição encaminhamento regra que está associada a *appGatewayHttpListener*.
+- *appGatewayBackendPool* - um gateway de aplicação tem de ter, pelo menos, um conjunto de endereços de back-end.
+- *appGatewayBackendHttpSettings* - especifica que a porta 80 e um protocolo HTTP são utilizados para a comunicação.
+- *appGatewayHttpListener* - o serviço de escuta predefinido associado a *appGatewayBackendPool*.
+- *appGatewayFrontendIP* - atribui *myAGPublicIPAddress* a *appGatewayHttpListener*.
+- *rule1* - a regra de encaminhamento predefinida associada a *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, crie um conjunto de dimensionamento de máquina virtual que fornece servidores para o conjunto predefinido de back-end no gateway de aplicação. As máquinas virtuais no conjunto de dimensionamento estão associadas *myBackendSubnet* e *appGatewayBackendPool*. Para criar a escala definida, pode utilizar [az vmss criar](/cli/azure/vmss#az_vmss_create).
+Neste exemplo, vai criar um conjunto de dimensionamento de máquinas virtuais que fornece servidores para o conjunto de back-end predefinido no gateway de aplicação. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \
@@ -145,13 +145,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
+## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Para obter o endereço IP público do gateway de aplicação, pode utilizar [mostrar de ip público de rede az](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser.
+Para obter o endereço IP público do gateway de aplicação, pode utilizar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -161,11 +161,11 @@ az network public-ip show \
   --output tsv
 ```
 
-![Aviso seguro](./media/application-gateway-ssl-cli/application-gateway-secure.png)
+![Aviso de segurança](./media/application-gateway-ssl-cli/application-gateway-secure.png)
 
-Para aceitar a segurança de aviso se utilizou um certificado autoassinado, selecione **detalhes** e, em seguida, **avance para a página Web**. O site NGINX protegido é apresentado como no exemplo seguinte:
+Para aceitar o aviso de segurança se tiver utilizado um certificado autoassinado, selecione **Detalhes** e, em seguida **Aceda à página Web**. O site NGINX protegido é apresentado como no exemplo seguinte:
 
-![URL de base de teste no gateway de aplicação](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
+![Testar o URL base no gateway de aplicação](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -175,6 +175,6 @@ Neste tutorial, ficou a saber como:
 > * Criar um certificado autoassinado
 > * Configurar uma rede
 > * Criar um gateway de aplicação com o certificado
-> * Criar um conjunto com o conjunto de back-end predefinido de dimensionamento de máquina virtual
+> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
 
-Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Para saber mais sobre os gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

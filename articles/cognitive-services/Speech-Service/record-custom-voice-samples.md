@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 11d96ce0c92916e1975e0cb403aabf057ab8b825
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1afab3b7c128abdf97c3a16fc493935bab5cfd4c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036834"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072270"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Como exemplos de registos de voz para uma voz personalizada
 
@@ -34,8 +34,8 @@ Existem quatro funções básicas num projeto de gravação de voz personalizada
 
 Função|Objetivo
 -|-
-Talentos de voz        |A pessoa cujo voz formará a base de voz personalizada.
-Engenheiro de gravação  |A pessoa que supervisiona os aspectos técnicos da gravação e opera o equipamento de gravação de mensagens em fila.
+Talentos de voz        |Voz desta pessoa formará a base de voz personalizada.
+Engenheiro de gravação  |Supervisiona os aspectos técnicos da gravação e opera o equipamento de gravação.
 Diretor            |Prepara o script e coaches desempenho o talento de voz.
 Editor              |Finaliza os arquivos de áudio e prepara-os para carregamento para o portal de voz personalizada.
 
@@ -50,19 +50,18 @@ Escolha o talento de voz cujo natural de voz, como. É possível criar vozes exc
 > [!TIP]
 > Em geral, evitar o uso de vozes reconhecíveis para criar uma voz personalizada, a menos que, certamente, seu objetivo é produzir uma voz de celebridade. Vozes de menos conhecidos são, normalmente, menos distração aos utilizadores.
 
-O único fator mais importante para a escolha de talentos de voz é a consistência. Idealmente, todas as gravações devem parecer pareçam feitas no mesmo dia na mesma sala. Pode abordar esse ideal através de práticas de gravação de bons e engenharia. 
+O único fator mais importante para a escolha de talentos de voz é a consistência. As gravações tudo soar pareçam feitas no mesmo dia na mesma sala. Pode abordar esse ideal através de práticas de gravação de bons e engenharia. 
 
 Seu talento de voz é a outra metade da equação. Ele deve poder falar com taxa consistente, nível de volume, pitch e tom. Limpar diction é essencial. Seu talento também tem de ser capaz de controlar rigorosamente seu variação pitch emocional efeito e mannerisms de voz.
 
 Gravação de exemplos de voz personalizada pode ser mais fatiguing que outros tipos de trabalho de voz. A maioria dos talentos de voz podem gravar para dois ou três horas por dia. Limite sessões para três ou quatro uma semana, com um dia desativar entre se possível.
 
-Gravações efetuadas para um modelo de voz devem ser emocionalmente neutras. Ou seja, uma expressão de sua decisão não deve ser lidos de forma a sua decisão. Tentarei pode ser adicionado para a fala sintetizada mais tarde. Trabalhar com o seu talento de voz para desenvolver uma "pessoa" que define o tom geral som e emocional de voz personalizada. No processo, vai identificar quais "neutral" parece ser para essa pessoa.
+Gravações efetuadas para um modelo de voz devem ser emocionalmente neutras. Ou seja, uma expressão de sua decisão não deve ser lidos de forma a sua decisão. Tentarei pode ser adicionado para a fala sintetizada mais tarde através dos controlos prosody. Trabalhar com o seu talento de voz para desenvolver uma "pessoa" que define o tom geral som e emocional de voz personalizada. No processo, vai identificar quais "neutral" parece ser para essa pessoa.
 
-Uma pessoa pode ter, por exemplo, uma personalidade upbeat naturalmente. Portanto, a voz pode trazer uma nota de optimism, mesmo quando falando neutrally. No entanto, uma característica de personalidade desse tipo deve ser sutil e consistente. Ouça a alguns vozes existentes para ter uma idéia de que o alvo é.
+Uma pessoa pode ter, por exemplo, uma personalidade upbeat naturalmente. Então, "seu" voz pode trazer uma nota de optimism, mesmo quando neutrally de fala. No entanto, uma característica de personalidade desse tipo deve ser sutil e consistente. Ouça a leituras, por vozes existentes para ter uma idéia de que o alvo é.
 
-### <a name="legalities"></a>Serem
-
-Normalmente, desejará ter as gravações de voz que fizer. Seu talento de voz deve ser acessível a um contrato de trabalho de contratação para o projeto.
+> [!TIP]
+> Normalmente, desejará ter as gravações de voz que fizer. Seu talento de voz deve ser acessível a um contrato de trabalho de contratação para o projeto.
 
 ## <a name="creating-a-script"></a>Criar um script
 
@@ -87,13 +86,13 @@ Pode escrever o seu script no Microsoft Word. O script é para utilização dura
 Um formato de script básico inclui três colunas:
 
 * O número de expressão, começando em 1. Numeração irá facilitar para todos os utilizadores no studio para fazer referência a uma expressão específica ("Vamos tentar número 356 novamente"). Pode usar o parágrafo do Word numeração funcionalidade numerar as linhas da tabela automaticamente.
-* Uma coluna em branco, onde irá escrever o número de take ou vez o código de cada ocorrência de pronunciação para o ajudar a localizá-la de gravação foi concluída.
+* Uma coluna em branco onde irá escrever o número de take ou vez o código de cada ocorrência de pronunciação para o ajudar a localizá-la de gravação foi concluída.)
 * O texto da expressão em si.
 
 ![Script de exemplo](media/custom-voice/script.png)
 
 > [!NOTE]
-> A maioria dos estúdios resumindo registam segmentos, conhecidos como "obtém", cada take contendo expressões de dez a 24. Apenas observar o número de take será suficiente para encontrar uma expressão de determinado mais tarde. Alguns estúdios podem preferir fazer gravações mais tempo. Neste caso desejará observar a compensação de tempo para o ficheiro (o código de tempo). O studio terá uma visualização da hora de destaque.
+> A maioria dos estúdios resumindo gravar segmentos conhecidos como *demora.* Cada take normalmente contém expressões de dez a 24. Apenas observar o número de take será suficiente para encontrar uma expressão mais tarde. Se estiver a gravação num estúdio que prefere para fazer gravações mais tempo, desejará observar o código de tempo em vez disso. O studio terá uma visualização da hora de destaque.
 
 Deixe espaço suficiente após cada linha escrever notas. Certifique-se de que nenhuma expressão é dividida entre páginas. Número de páginas e imprimir o seu script no lado do documento.
 
@@ -108,14 +107,14 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 |Origem de texto|Descrição|
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 frases selecionadas a partir de fora de copyright funciona especificamente para uso em projetos de síntese de fala. Um ponto de partida excelente.|
-|Já não funciona<br>autorais|Normalmente funciona publicado antes 1923. Para inglês, o Project Gutenberg oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, como o idioma será mais de perto como inglês modernos.|
+|Já não funciona<br>autorais|Normalmente funciona publicado antes 1923. Para inglês, [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, como o idioma será mais de perto como inglês modernos.|
 |Governo&nbsp;funciona|Funciona criada pelo Governo dos Estados Unidos não é protegidos por direitos autorais nos Estados Unidos, embora o Governo poderá solicitar copyright em outros países.|
 |Domínio público|Funciona para os quais direitos de autor tenham sido explicitamente isenta ou que tem sido dedicada para o domínio público. (Ele pode não ser possível renunciaremos aos direitos de autor inteiramente em alguns jurisdições.)|
 |Funciona permissively licenciado|Como o funciona distribuída sob uma licença Creative Commons ou a GNU documentação uma licença gratuita. Wikipedia utiliza o GFDL. Algumas licenças, no entanto, podem impor restrições sobre o desempenho do conteúdo licenciado que possam afetar a criação de um modelo de voz personalizadas, por isso, leia a licença com atenção.|
 
 ## <a name="recording-your-script"></a>Gravar o seu script
 
-De preferência, deve gravar o script num estúdio de profissional gravar especializada em projetos de voiceover. Eles terão um stand de gravação, os equipamentos certo para a tarefa e as pessoas certas para trabalhar com ele. Vale a pena não tentados na gravação.
+De preferência, deve gravar o script num estúdio de profissional gravar especializada em projetos de voz. Eles terão um stand de gravação, os equipamentos certo e as pessoas certas para trabalhar com ele. Vale a pena não tentados na gravação.
 
 Discuta o seu projeto com o engenheiro de gravação do studio e ouça seu Conselho. A gravação deve ter pouco ou nenhum compressão de intervalo dinâmico (máximo de 4:1). É fundamental que o áudio têm volume consistente e uma alta taxa de sinal e ruído, e está livre de sons indesejados.
 
@@ -123,47 +122,47 @@ Discuta o seu projeto com o engenheiro de gravação do studio e ouça seu Conse
 
 Se quiser fazer a gravação por conta própria, em vez de entrar num estúdio de gravação, aqui está uma cartilha curta. Graças ao aumento de gravação doméstica e podcasts, é mais fácil do que nunca encontrar conselhos de gravação de bons e recursos online.
 
-Seu estande"gravação" deve ser uma única sala sem eco perceptível ou "tom sala" e que é o mais silencioso e soundproof quanto possível. Drapes nas paredes podem ser utilizados para reduzir o eco e neutralizá ou "deaden" o som da sala.
+Seu estande"gravação" deve ser uma única sala sem eco perceptível ou "tom sala." Deve ser tão silencioso e soundproof quanto possível. Drapes nas paredes podem ser utilizados para reduzir o eco e neutralizá ou "deaden" o som da sala.
 
-Use um microfone de condenser ("mic") de alta qualidade studio destinado a gravação de voz. Sennheiser AKG e até mesmo mais recente microfones de Zoom podem produzem bons resultados. Pode comprar o mic ou alugar um a partir de uma empresa de aluguel audiovisuais local. Procure um com uma interface USB. Este tipo de mic convenientemente combina o elemento de microfone, preamp e conversor analógico para o digital num pacote, simplificando a conexão.
+Use um microfone de condenser ("mic" para abreviar) de alta qualidade studio destinado a gravação de voz. Sennheiser AKG e até mesmo mais recente microfones de Zoom podem produzem bons resultados. Pode comprar um mic ou alugar um a partir de uma empresa de aluguel audiovisuais local. Procure um com uma interface USB. Este tipo de mic convenientemente combina o elemento de microfone, preamp e conversor analógico para o digital num pacote, simplificando a conexão.
 
 Também pode usar um microfone analógico. Muitos alugueres casas oferecem microfones "capacidade" renomados para respetiva caractere de voz. Tenha em atenção que profissionais engrenagem analógica utiliza equilibradas XLR conectores, em vez de 1/4" conectar utilizadas em equipamentos de consumidor. Se for analógica, também terá uma preamp e uma interface de áudio do computador com estes conectores.
 
-Instalar o microfone num site ou boom e utilizar um filtro de POP-à frente do microfone para eliminar a interferência dos sons "plosive" como "p" e "b". Alguns microfones são fornecidos com uma montagem de suspensão os isola da vibrations em espera, o que é útil.
+Instalar o microfone num site ou boom e instalar um filtro de POP-à frente o microfone para eliminar a interferência de sons "plosive" como "p" e "b". Alguns microfones são fornecidos com uma montagem de suspensão os isola da vibrations em espera, o que é útil.
 
 Os talentos de voz devem manter-se a uma distância consistente do microfone. Utilize a banda no chão para marcar onde deve funcionar. Se prefere o talento sentar-se, tomar cuidado especial para monitorizar a distância de mic e evitar o ruído de cadeira.
 
 Utilize um para manter o script. Evite angling a espera para que ela pode refletir o som no microfone.
 
-A pessoa responsável, na verdade, a gravação — o engenheiro — deve estar num ambiente separado de talento, com alguma forma para comunicar com o talento no estande da gravação (um "circuito de talkback").
+A pessoa que o equipamento de gravação a funcionar — o engenheiro — deve estar num ambiente separado de talento, com alguma forma para comunicar com o talento no estande da gravação (um *circuito talkback).*
 
 A gravação deve conter como ruído pequeno quanto possível, com o objetivo de um rácio de sinal e ruído db 80 ou superior.
 
 Ouça diretamente a uma gravação de silêncio no seu "portagens," descobrir onde é proveniente de qualquer ruído e eliminar a causa. Origens comuns de ruído são eventos de ar, fluorescente ballasts leves, o tráfego nas proximidades de estradas e os nossos fãs de equipamentos (até mesmo bloco de notas PCs poderá ter de fãs). Microfones e cabos podem pegar elétrica interferência dos próximos conectando de AC, normalmente, um hum ou o buzz.
 
 > [!TIP]
-> Em alguns casos, poderá usar um equalizer ou um software de redução de ruído Plug-in para o ajudar a remover barulho do seu gravações, embora é sempre melhor interrompê-lo na origem sempre que possível.
+> Em alguns casos, poderá usar um equalizer ou um software de redução de ruído Plug-in para o ajudar a remover barulho do seu gravações, embora é sempre melhor interrompê-lo na origem.
 
 Níveis devem ser definidos, para que a maior parte do intervalo dinâmico disponível de gravação de digital é utilizado sem overdriving. Isso significa que voz alta, mas não tão voz alta que distorçam o áudio. Segue-se um exemplo de uma forma de onda de uma gravação de bons.
 
 ![gravação de boa forma de onda](media/custom-voice/good-recording.png)
 
-Pode ver que a maior parte do intervalo (altura) é utilizado, mas os mais elevados picos de sinal de não chegam a parte superior ou inferior da tela. Também pode ver que o silêncio na gravação aproxima-se uma linha horizontal dinâmico, que indica um andar de baixo de ruído. Esta gravação tem o intervalo aceitável de dinâmico e a proporção de sinal e ruído.
+Aqui, é utilizada a maior parte do intervalo (altura), mas os mais elevados picos de sinal de não chegam a parte superior ou inferior da janela. Também pode ver que o silêncio na gravação aproxima-se uma linha horizontal dinâmico, que indica um andar de baixo de ruído. Esta gravação tem o intervalo aceitável de dinâmico e a proporção de sinal e ruído.
 
-Registo diretamente no computador usando uma interface de áudio de alta qualidade ou uma porta USB, dependendo do tipo de mic está a utilizar. Simplificar a cadeia de áudio: mic, preamp, interface de áudio, computador. Ambos [ávido ferramentas Pro](http://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) podem ser licenciados mensalmente um custo razoável. Se o orçamento é extremamente curto, experimente gratuitamente [Audacity](https://www.audacityteam.org/).
+Registo diretamente no computador usando uma interface de áudio de alta qualidade ou uma porta USB, consoante o mic está a utilizar. Para analógicas, manter a cadeia de áudio simples: mic, preamp, interface de áudio, computador. Ambos [ávido ferramentas Pro](http://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) podem ser licenciados mensalmente um custo razoável. Se o orçamento é extremamente curto, experimente gratuitamente [Audacity](https://www.audacityteam.org/).
 
 Registe 44.1 KHz 16 bits monophonic (CD qualidade) ou melhor. Atual-de-modernas são 48 KHz 24 bits, se seu equipamento de oferecer suporte a ele. Será downsample o áudio a 16 KHz 16 bits antes de enviá-lo para o portal de voz personalizada. Ainda assim, vale a pena ter uma alta qualidade original gravar no caso de edições são necessários.
 
-O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e talento. Não tente fazê-lo a todos os sozinho! Numa situação de emergência, o diretor e o engenheiro podem ser uma única pessoa.
+O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e talento. Não tente fazê-lo a todos os sozinho! Numa situação de emergência, o diretor e o engenheiro podem ser uma pessoa.
 
 ### <a name="before-the-session"></a>Antes da sessão
 
-Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Como o talento de voz se torna familiar com o texto, pode clarificar a pronúncia de quaisquer palavras familiarizadas.
+Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Embora o talento de voz torna-se familiarizado com o texto, pode clarificar a pronúncia de quaisquer palavras familiarizadas.
 
 > [!NOTE]
 > A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará um hardcopy demasiado. Nesta fase, pode editar pequeno sons indesejável que tenha perdido durante a gravação — desde que eles não se sobrepõem a qualquer voz real.
 
-Se não é possível corrigir um arquivo, removê-lo do seu conjunto de dados totalmente, fazer uma observação que tenha feito. Downsample cada ficheiro 16 KHz e de 16 bits antes de guardar e, se de que registou no alto, remova o segundo canal. Guarde a cada ficheiro no formato WAV. Arquive o original gravar num local seguro, caso seja necessário voltar a ele mais tarde.
+Se não é possível corrigir um arquivo, removê-lo do seu conjunto de dados totalmente, fazer uma observação que tenha feito. Atores chamá-lo a "palavra operative". Guarde a cada ficheiro no formato WAV. Arquive o original gravar num local seguro, caso seja necessário voltar a ele mais tarde.
 
 Preserva o seu script e notas, demasiado. Está pronto para carregar as gravações e criar a sua voz personalizada! Sons não devem ser omitidos ou em conjunto, o que é comum na conversão de voz casual, slurred *, a menos que tenha sido escritos dessa forma no script.*
 
@@ -174,11 +173,11 @@ Preserva o seu script e notas, demasiado. Está pronto para carregar as gravaç�
 |como é a meteorologia hoje em dia|como é th "sobreviver aos hoje mesmo|
 |Diga Olá para meu amigo pouco|Diga Olá a minha lil "amigo|
 
-Deve talento *não* adicionar interrupções distintas entre as palavras. A frase ainda deve fluir naturalmente, mesmo durante o soar formal um pouco. Essa distinção bem pode demorar alguns prática de solucionar.
+Deve talento *não* adicionar interrupções distintas entre as palavras. A frase ainda deve fluir naturalmente, mesmo durante o soar formal um pouco. Essa distinção bem poderá demorar a prática de solucionar.
 
 ### <a name="the-recording-session"></a>A sessão de gravação
 
-Criar uma referência de gravação, ou *correspondência de arquivo,* de uma expressão comum no início da sessão. Faça o talento repetir esta linha de cada página ou a página e meio. Cada vez, compara a gravação de novo para a referência. Esta técnica ajuda o talento permanecer consistente no volume, o tempo, o argumento de venda e intonation. Enquanto isso, o engenheiro pode utilizar o ficheiro de correspondência como referência para níveis e a consistência geral de som.
+Criar uma referência de gravação, ou *correspondência de arquivo,* de uma expressão comum no início da sessão. Faça o talento repetir esta linha de cada página ou a página e meio. Cada vez, compara a gravação de novo para a referência. Essa prática ajuda o talento permanecer consistente no volume, o tempo, o argumento de venda e intonation. Enquanto isso, o engenheiro pode utilizar o ficheiro de correspondência como referência para níveis e a consistência geral de som.
 
 O ficheiro de correspondência é especialmente importante quando a retoma gravação, após uma interrupção ou em outro dia. Desejará reproduzi-lo a algumas vezes para o talento e tê-las a repeti-lo cada vez até que eles correspondem a bem.
 
@@ -187,32 +186,34 @@ Orientá-seu talento para tirar um respire fundo e colocar em pausa por um momen
 Registe um bom cinco segundos, de silêncio antes da gravação de primeira para capturar o "tom sala." Isto ajuda ao portal de voz personalizada compensar qualquer ruído restante nas gravações.
 
 > [!TIP]
-> Tudo que realmente precisa de registar é o talento de voz, para que não há problema em fazer uma gravação (canal de único) monophonic de apenas linhas. No entanto, se gravar no alto, pode utilizar o segundo canal para registrar o chatter numa sala de controlo. Muitas vezes é útil fazer referência a este mais tarde. Remova este Roteiro da versão carregada para o portal de voz personalizada.
+> Tudo o que realmente precisa é de linhas dos talentos de voz, para que possa tomar uma gravação (canal de único) monophonic de apenas linhas. No entanto, se gravar no alto, pode utilizar o segundo canal para registrar o chatter numa sala de controlo para capturar a discussão de linhas específicas ou demora. Remova este Roteiro da versão carregada para o portal de voz personalizada.
 
 Ouça com atenção, utilizar auscultadores, ao desempenho o talento de voz. Está à procura de diction boa mas natural, pronúncia correta e a falta de sons indesejados. Não hesite em fazer o seu talento para registrar novamente uma expressão que não cumpram estas normas. 
 
 > [!TIP] 
-> Ao gravar um grande volume de expressões, a perda de uma única expressão não afetem visivelmente a voz personalizada resultante. Por isso, poderá ser mais vantajoso simplesmente observar qualquer expressão que têm problemas, excluí-los a partir do seu conjunto de dados e veja como a voz personalizada acontece. Pode sempre voltar ao studio e registe os exemplos em falta mais tarde.
+> Ao gravar um grande volume de expressões, uma única expressão não pode ter um impacto considerável sobre a voz personalizada resultante. Portanto, pode ser mais vantajoso simplesmente observar qualquer expressões com problemas, excluí-los a partir do seu conjunto de dados e ver como acontece sua voz personalizada. Pode sempre voltar ao studio e registe os exemplos em falta mais tarde.
 
 Anote o número ou tempo de código no script para cada ocorrência de pronunciação. Peça o engenheiro se eles podem marcar cada ocorrência de pronunciação a gravação metadados ou indicação folha também.
 
-Tire quebras regulares para permitir que o seu talento de voz, manter a sua voz em bom estado. Forneça o talento algo a bebida para manter seus throat da obtenção de dry.
+Dê quebras regulares e fornecer uma bebida para ajudar o seu talento de voz, manter a sua voz em bom estado.
 
 ### <a name="after-the-session"></a>Após a sessão
 
-Os estúdios de gravação modernos executam em computadores. No final da sessão, em seguida, recebe uma ou mais arquivos de áudio, não uma banda. Estes ficheiros serão provavelmente WAV ou AIFF formato na qualidade de CD (44.1 KHz 16-bit) ou melhor. 48 kHz 24 bits é comum e desejável. Em geral, as taxas de amostragem mais elevadas, por exemplo, 96 KHz, não são necessários.
+Os estúdios de gravação modernos executam em computadores. No final da sessão, recebe uma ou mais arquivos de áudio, não uma banda. Estes ficheiros serão provavelmente WAV ou AIFF formato na qualidade de CD (44.1 KHz 16-bit) ou melhor. 48 kHz 24 bits é comum e desejável. Em geral, as taxas de amostragem mais elevadas, por exemplo, 96 KHz, não são necessários.
 
-O studio irá fornecer um ou mais arquivos de áudio que contém várias expressões. Para carregar as gravações para o portal de voz personalizada, cada expressão tem de ser em seu próprio arquivo. O engenheiro de gravação pode ter inserido um marcador no arquivo (ou fornecida uma lista de indicação separado) para indicar onde começa cada ocorrência de pronunciação.
+O portal de voz personalizada requer que cada ocorrência de pronunciação fornecida para estar em seu próprio arquivo. Os arquivos de áudio entregues pelo studio cada contenham expressões com vários. Assim, a principal tarefa pós-produção é dividir as gravações e prepará-los para a submissão. O engenheiro de gravação pode ter inserido marcadores no arquivo (ou fornecida uma lista de indicação separado) para indicar onde começa cada ocorrência de pronunciação.
 
-Precisará passar pelas gravações de áudio e fazer um arquivo WAV para cada ocorrência de pronunciação. Utilizar suas anotações para localizar as expressões exatas de que pretende e utiliza um som, tais como o utilitário de edição [ávido ferramentas profissionais](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), ou o software gratuito [Audacity](https://www.audacityteam.org/) para copiar cada um para um novo ficheiro.
+Utilize suas anotações para encontrar exatamente leva-o desejarem, em seguida, utilizam um som, tais como o utilitário de edição [ávido ferramentas Pro](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), ou o software gratuito [Audacity](https://www.audacityteam.org/) para copiar cada ocorrência de pronunciação num novo arquivo.
 
 Deixe apenas cerca de 0,2 segundos de silêncio no início e no final de cada clip, exceto o primeiro. Esse arquivo deve começar com um completo cinco segundos de silêncio. Não utilize o editor de áudio a partes de silenciosa "zero de saída" do ficheiro. Incluindo o tom"espaço" ajudará a voz personalizada algoritmos compensar nenhum barulho de fundo residual.
 
-Ouça a cada ficheiro com cuidado. Nesta fase, pode editar pequeno sons indesejável que tenha perdido durante a gravação, como um smack lip ligeira antes de uma linha, desde que eles não se sobrepõem a qualquer conversão de voz. Se não é possível corrigir um arquivo, removê-lo a partir do seu conjunto de dados, fazer uma observação que tenha feito.
+Ouça a cada ficheiro com cuidado. Nesta fase, pode editar pequeno sons indesejável que tenha perdido durante a gravação, como um smack lip ligeira antes de uma linha, mas tenha cuidado para não remover qualquer voz real. Se não é possível corrigir um arquivo, removê-lo a partir do seu conjunto de dados, fazer uma observação que tenha feito.
 
-Downsample cada ficheiro 16 KHz e de 16 bits antes de guardar e, se de que registou no alto, remova o segundo canal. Guarde a cada ficheiro no formato WAV.
+Converter cada ficheiro de 16 bits e uma taxa de amostragem de 16 KHz antes de guardar e, se registou o chatter studio, remova o segundo canal. Guarde cada ficheiro em formato WAV, nomear os ficheiros com o número de expressão do seu script.
 
-Arquive o original gravar num local seguro, caso seja necessário voltar a ele mais tarde. Preserva o seu script e notas, demasiado.
+Por fim, crie o *transcrição* que associa cada arquivo WAV com uma versão de texto da expressão correspondente. [Criar tipos de voz personalizada](how-to-customize-voice-font.md) inclui detalhes sobre o formato necessário. Pode copiar o texto diretamente a partir do seu script. Em seguida, crie um ficheiro ZIP dos arquivos WAV e a transcrição de texto.
+
+Arquive as gravações originais num local seguro no caso de precisa deles mais tarde. Preserva o seu script e notas, demasiado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

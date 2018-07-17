@@ -1,6 +1,6 @@
 ---
-title: O idioma de marcação de Synthesis de reconhecimento de voz | Microsoft Docs
-description: Utilizando a linguagem de reconhecimento de voz Synthesis Markup para controlar pronunciação e prosody no text-to-speech.
+title: A linguagem de marcação de síntese de voz | Documentos da Microsoft
+description: Usando a linguagem de marcação de síntese de voz para controlar pronúncia e prosody em voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,20 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354458"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071220"
 ---
-# <a name="speech-synthesis-markup-language"></a>Voz Synthesis Markup Language
+# <a name="speech-synthesis-markup-language"></a>Linguagem de marcação de síntese de voz
 
-O reconhecimento de voz Synthesis Markup Language (SSML) é um idioma de marcação baseado em XML que fornece uma forma de controlar a pronunciação e *prosody* de text-to-speech. (Prosody refere-se aos tipos de reconhecimento de voz e rhythm — os leitores de música, se irá). Pode especificar palavras phonetically, fornecer sugestões para interpretar números, inserir coloca em pausa, tipos de controlo, volume e velocidade e muito mais.
+O Speech Synthesis Markup Language (SSML) é uma linguagem de marcação baseada em XML que fornece uma forma de controlar a pronúncia e *prosody* de voz. (Prosody refere-se ao ritmo e pitch de voz — suas músicas, se quiser). Pode especificar palavras foneticamente, fornecer indicações para interpretar números, insira a coloca em pausa, pitch de controle, volume e taxa de e muito mais.
 
-Para obter mais informações, consulte [voz Synthesis Markup Language (SSML) versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) em de W3C.
+Para obter mais informações, consulte [Speech Synthesis Markup Language (SSML) versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) no W3C.
 
-Os exemplos seguintes mostram como utilizar SSML para as necessidades de synthesis de reconhecimento de voz comuns.
+Os exemplos seguintes mostram como utilizar SSML para necessidades comuns de síntese de fala.
 
 ## <a name="add-a-break"></a>Adicionar uma quebra de
 ```xml
@@ -33,7 +33,7 @@ Os exemplos seguintes mostram como utilizar SSML para as necessidades de synthes
 </voice> </speak>
 ```
 
-## <a name="change-speaking-rate"></a>Taxa de alteração falantes
+## <a name="change-speaking-rate"></a>Taxa de alteração de fala
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -42,7 +42,7 @@ Os exemplos seguintes mostram como utilizar SSML para as necessidades de synthes
 </prosody></voice> </speak>
 ```
 
-## <a name="pronunciation"></a>Pronunciação
+## <a name="pronunciation"></a>Pronúncia
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
@@ -59,7 +59,7 @@ Os exemplos seguintes mostram como utilizar SSML para as necessidades de synthes
 </prosody></voice> </speak>
 ```
 
-## <a name="change-pitch"></a>Tipos de alteração
+## <a name="change-pitch"></a>Alterar o argumento de venda
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -67,7 +67,7 @@ Os exemplos seguintes mostram como utilizar SSML para as necessidades de synthes
 </voice> </speak>
 ```
 
-## <a name="change-pitch-contour"></a>Contour de tipos de alteração
+## <a name="change-pitch-contour"></a>Contour de argumento de venda de alteração
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -78,5 +78,5 @@ Os exemplos seguintes mostram como utilizar SSML para as necessidades de synthes
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver como reconhecer voz em c#](quickstart-csharp-windows.md)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

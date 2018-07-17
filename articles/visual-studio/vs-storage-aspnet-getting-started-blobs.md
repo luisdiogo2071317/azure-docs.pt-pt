@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696570"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070560"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Blob do Azure (ASP.NET) de serviços de ligado de armazenamento e o Visual Studio
 
@@ -135,11 +135,11 @@ Os passos seguintes mostram como criar um contentor de BLOBs:
 
 1. Na **Explorador de soluções**, clique com botão direito a **vistas** pasta.
 
-2. No menu de contexto, selecione **Add** > **nova pasta**. Nomeie a nova pasta *Blobs*. 
+1. Se não há uma **Blobs** pasta, criar um. No menu de contexto, selecione **Add** > **nova pasta**. Nomeie a nova pasta *Blobs*. 
  
 1. Na **Explorador de soluções**, expanda o **vistas** pasta e o botão direito do mouse **Blobs**.
 
-4. No menu de contexto, selecione **Add** > **vista**.
+1. No menu de contexto, selecione **Add** > **vista**.
 
 1. Na **Adicionar vista** caixa de diálogo, introduza **CreateBlobContainer** para o nome da vista, selecione **Add**.
 

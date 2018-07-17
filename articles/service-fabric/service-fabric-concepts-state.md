@@ -1,5 +1,5 @@
 ---
-title: Definine e gerir o estado no Azure micro-serviços | Microsoft Docs
+title: Gerir o estado em microsserviços do Azure Service Fabric | Documentos da Microsoft
 description: Como definir e gerir o estado do serviço no Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213100"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072202"
 ---
 # <a name="service-state"></a>Estado do serviço
-**Estado do serviço** refere-se para a memória ou nos dados de disco que necessita de um serviço de função. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço de leituras e escritas para trabalhar. Dependendo de como o serviço é criado, também pode incluir ficheiros ou outros recursos que são armazenados no disco. Por exemplo, os ficheiros de uma base de dados utilizará para armazenar os registos de dados e a transação.
+**Estado do serviço** refere-se para a memória ou nos dados de disco que requer que um serviço de função. Ele inclui, por exemplo, as estruturas de dados e as variáveis de membro que o serviço de leituras e escritas para fazer o trabalho. Dependendo de como o serviço está arquitetado, também pode incluir ficheiros ou outros recursos que estão armazenados no disco. Por exemplo, os ficheiros de uma base de dados usaria para armazenar os registos de dados e transações.
 
-Como um serviço de exemplo, vamos considere uma calculadora. Um serviço de calculadora básica utiliza dois números e devolve os respetivos soma. Este cálculo a efetuar envolve nenhuma variável de membro ou outras informações.
+Como um serviço de exemplo, vamos considerar uma calculadora. Um serviço da calculadora básica leva dois números e devolve a soma. Efetuar esse cálculo envolve a nenhuma variável de membro ou outras informações.
 
-Agora, considere a Calculadora mesma, mas com um método adicional para armazenar e devolver a soma de último tem calculada. Este serviço está agora com monitorização de estado. Com monitorização de estado significa contém algum Estado que, quando escreve calcula a soma de novo e lê a partir da quando a peça para devolver a soma de calculada último.
+Agora, considere a Calculadora mesmo, mas com um método adicional para armazenar e devolver a soma de último tem computado. Este serviço agora é com monitoração de estado. Com monitorização de estado significa que ele contém algum Estado que escreve quando ele calcula uma soma de novo e lê a partir de quando pede que ela retorne a última soma calculada.
 
-No Azure Service Fabric, o primeiro serviço chama-se um serviço sem estado. O serviço do segundo denomina-se um serviço com monitorização de estado.
+No Azure Service Fabric, o primeiro serviço denomina-se um serviço sem estado. O serviço de segundo denomina-se um serviço com estado.
 
-## <a name="storing-service-state"></a>Armazenar o estado do serviço
-Estado pode ser externalized ou localizado conjuntamente com o código que é a manipulação de estado. Externalization de estado é geralmente feito utilizando uma base de dados externo ou noutro arquivo de dados que é executado em computadores diferentes através da rede ou fora do processo no mesmo computador. No nosso exemplo de calculadora, o arquivo de dados pode ser uma base de dados do SQL Server ou a instância do arquivo de tabela do Azure. Todos os pedidos para a soma de computação efetua uma atualização, estes dados e os pedidos para o serviço para devolver o resultado de valor num valor atual a ser obtido a partir da loja. 
+## <a name="storing-service-state"></a>Armazenamento do Estado do serviço
+Estado pode ser externalized ou localizado conjuntamente com o código que está manipulando o estado. Externalização de estado é geralmente feita utilizando uma base de dados externo ou noutro arquivo de dados que é executado em diferentes computadores através da rede ou fora do processo na mesma máquina. No nosso exemplo de calculadora, o arquivo de dados pode ser uma base de dados SQL ou a instância do Store de tabela do Azure. Cada solicitação para calcular a soma efetua uma atualização sobre estes dados e os pedidos para o serviço para retornar o resultado do valor no valor atual que está a ser obtido a partir da loja. 
 
-Também pode ser localizado conjuntamente com o código que manipula o estado de estado. Serviços com monitorização de estado no Service Fabric são normalmente criados utilizando este modelo. O Service Fabric fornece a infraestrutura para se certificar de que este estado é altamente disponível, consistente e durável e de que os serviços incorporados desta forma podem Dimensionar facilmente.
+Estado também pode ser localizado conjuntamente com o código que manipula o estado. Serviços com estado no Service Fabric são normalmente criados com este modelo. Service Fabric disponibiliza a infraestrutura para se certificar de que este estado é altamente disponível, consistente e durável e que os serviços criados dessa forma podem ser dimensionado facilmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre os conceitos de Service Fabric, consulte os artigos seguintes:
+Para obter mais informações sobre conceitos do Service Fabric, consulte os artigos seguintes:
 
 * [Disponibilidade dos serviços do Service Fabric](service-fabric-availability-services.md)
-* [Escalabilidade dos serviços do Service Fabric](service-fabric-concepts-scalability.md)
+* [Escalabilidade de serviços do Service Fabric](service-fabric-concepts-scalability.md)
 * [A criação de partições de serviços do Service Fabric](service-fabric-concepts-partitioning.md)
-* [Serviços do Service Fabric fiável](service-fabric-reliable-services-introduction.md)
+* [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)

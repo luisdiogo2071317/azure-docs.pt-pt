@@ -1,6 +1,6 @@
 ---
-title: Serviços cognitivos documentação do SDK de reconhecimento de voz | Microsoft Docs
-description: Notas de versão - o que mudou nas versões mais recentes
+title: Documentação do SDK de voz de serviços cognitivos | Documentos da Microsoft
+description: Notas de versão – o que foi alterado nas versões mais recentes
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
@@ -8,53 +8,83 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0b1559d288380cf3d0c180a225278cc13d22a5d0
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356303"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069435"
 ---
 # <a name="release-notes"></a>Notas de versão
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitivos SDK dos serviços de reconhecimento de voz 0.4.0: versão de Junho de 2018
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK de voz dos serviços cognitivos versão 0.5.0: versão de Julho de 2018
+
+**Novos recursos**
+
+* Plataforma Android de suporte (API 23: Android 6.0 Marshmallow ou superior).
+  Veja a [guia de introdução Android](quickstart-java-android.md).
+* Suporta o .NET Standard 2.0 no Windows.
+  Veja a [guia de introdução do .NET Core](quickstart-csharp-dotnetcore-windows.md).
+* Experimental: Suporte UWP no Windows (versão 1709 ou posterior)
+  * Confira nosso [guia de introdução do UWP](quickstart-csharp-uwp.md).
+  * Nota: As aplicações UWP compiladas com o SDK de voz não ainda passam o Kit de certificação de aplicações de Windows (WACK).
+* Suporte a reconhecimento de execução longa com o restabelecimento de ligação automática.
+
+**Alterações funcionais**
+
+* `StartContinuousRecognitionAsync()` oferece suporte a reconhecimento de execução longa
+* O resultado do reconhecimento contém mais campos: deslocamento de início de áudio e duração (ambos em tiques) do texto reconhecido, valores adicionais que representa o estado de reconhecimento, por exemplo, `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* AuthorizationToken de suporte para a criação de instâncias de fábrica.
+
+**Alterações recentes**
+
+* Eventos de reconhecimento: tipo de evento NoMatch é intercalado com o evento de erro.
+* SpeechOutputFormat na linguagem c# foi mudado para OutputFormat manter alinhado com o C++.
+
+**Correções de erros**
+
+* Fixo de valores de retorno incorreto no resultado quando `RecognizeAsync()` exceder o tempo limite.
+* A dependência de bibliotecas de base de dados no Windows é removida. O SDK agora está a utilizar APIs de áudio de núcleo.
+* Correção da documentação: adicionar uma página de região para descrever o que são as regiões suportadas.
+
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de voz dos serviços cognitivos 0.4.0: versão de Junho de 2018
 
 **Alterações funcionais**
 
 - AudioInputStream
 
-  Um reconhecedor agora pode consumir uma transmissão em fluxo como a origem de áudio. Para obter informações detalhadas, consulte o relacionados [guia de procedimentos](how-to-use-audio-input-streams.md).
+  Um reconhecedor agora pode utilizar um fluxo como a origem de áudio. Para obter informações detalhadas, consulte o relacionados [guia de procedimentos](how-to-use-audio-input-streams.md).
 
 - Formato de saída detalhada
 
-  Ao criar um `SpeechRecognizer`, pode pedir `Detailed` ou `Simple` formato de saída. O `DetailedSpeechRecognitionResult` contém uma pontuação de confiança, texto reconhecido, formato lexical não processado, formulário normalizado e formulário normalizado com profanity mascarada.
+  Ao criar um `SpeechRecognizer`, pode pedir `Detailed` ou `Simple` formato de saída. O `DetailedSpeechRecognitionResult` contém uma pontuação de confiança, texto reconhecido, formato léxico não processado, formato normalizado e formato normalizado com linguagem inapropriada mascarada.
 
-**Alteração de última hora**
+**Alteração significativa**
 
-- Alterar para `SpeechRecognitionResult.Text` de `SpeechRecognitionResult.RecognizedText` em c#.
+- Alterar para `SpeechRecognitionResult.Text` partir `SpeechRecognitionResult.RecognizedText` em c#.
 
 **Correções de erros**
 
-- Corrigir um problema de chamada de retorno possíveis na camada USP durante o encerramento.
+- Corrigi um problema de possíveis de retorno de chamada na camada USP durante o encerramento.
 
-- Se um reconhecedor consumido um ficheiro de entrada de áudio, foi premir para o identificador de ficheiro maior do que o necessário.
+- Se um reconhecedor consumido um ficheiro de entrada de áudio, ele foi manter o identificador de ficheiro maior do que o necessário.
 
-- Remover impasses várias entre bomba de mensagem e reconhecedor.
+- Remover vários deadlocks entre o bombardeamento de mensagens e o reconhecedor.
 
-- Acionar um `NoMatch` resultar quando a resposta do serviço é excedida.
+- Acionar um `NoMatch` quando a resposta do serviço é excedida.
 
-- As bibliotecas de foundation de suporte de dados no Windows são carregadas em atraso. Esta biblioteca é apenas necessário para a entrada do microfone.
+- As bibliotecas de base de dados no Windows são carregado com atraso. Esta biblioteca é apenas necessário para a entrada do microfone.
 
-- A velocidade de carregamento de dados de áudio está limitada a sobre duas vezes a velocidade de áudio original.
+- A velocidade de carregamento de dados de áudio é limitada a sobre duas vezes a velocidade de áudio original.
 
-- No Windows, as assemblagens c# .NET são agora com nome seguro.
+- No Windows, os assemblies de c# .NET são agora nome forte.
 
-- Correção de documentação: `Region` informações são necessárias para criar um reconhecedor.
+- Correção da documentação: `Region` informações são necessárias para criar um reconhecedor.
 
-Mais exemplos foram adicionados e estão constantemente a ser atualizados. Para o conjunto mais recente de exemplos, consulte o [repositório do GitHub de exemplo do SDK de reconhecimento de voz](https://aka.ms/csspeech/samples).
+Mais exemplos foram adicionados e estão constantemente a ser atualizados. Para o conjunto mais recente de exemplos, consulte a [repositório do GitHub de exemplo do SDK de voz](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitivos SDK dos serviços de reconhecimento de voz 0.2.12733: versão de Maio de 2018
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de voz dos serviços cognitivos 0.2.12733: versão de Maio de 2018
 
-A primeira versão de pré-visualização pública do SDK de reconhecimento de voz serviços cognitivos.
+A primeira versão de pré-visualização pública do SDK de voz dos serviços cognitivos.

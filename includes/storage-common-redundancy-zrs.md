@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 056007ba9d28280a6055ca3312e2aa53e635d1d3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859799"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069637"
 ---
 Armazenamento com redundância de zona (ZRS) replica os dados de forma síncrona em três clusters de armazenamento numa única região. Cada cluster de armazenamento é fisicamente separado dos outros e reside na sua própria zona de disponibilidade (AZ). Cada zona de disponibilidade e o cluster ZRS dentro da mesma, é autónomo, com utilitários separados e capacidades de rede.
 
@@ -24,7 +24,7 @@ Considere o ZRS para cenários que exigem uma consistência forte, forte durabil
 Para obter mais informações sobre as zonas de disponibilidade, consulte [descrição geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## <a name="support-coverage-and-regional-availability"></a>Cobertura de suporte e a disponibilidade regional
-Standard suporta atualmente o ZRS [para fins gerais v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2) tipos de conta. O ZRS está disponível para blobs de blocos, blobs de páginas sem disco, ficheiros, tabelas e filas. Além disso, todos os seus [a análise de armazenamento](../articles/storage/common/storage-analytics.md) registos e [métricas de armazenamento](../articles/storage/common/storage-enable-and-view-metrics.md)
+Standard suporta atualmente o ZRS [para fins gerais v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2-accounts) tipos de conta. O ZRS está disponível para blobs de blocos, blobs de páginas sem disco, ficheiros, tabelas e filas. Além disso, todos os seus [a análise de armazenamento](../articles/storage/common/storage-analytics.md) registos e [métricas de armazenamento](../articles/storage/common/storage-enable-and-view-metrics.md)
 
 O ZRS está disponível em geral nas seguintes regiões:
 
@@ -85,7 +85,7 @@ Um técnico de suporte, em seguida, irá entrar em contacto consigo. Essa pessoa
 >[!NOTE]
 > Assim que estiver ZRS [em disponibilidade geral](#support-coverage-and-regional-availability) numa região, já não será capaz de criar uma conta ZRS clássico a partir do portal nessa mesma região. No entanto, pode ainda criar uma por outros meios, como Microsoft PowerShell e CLI do Azure, ou seja, até que o ZRS Classic foi preterido.
 
-ZRS Classic assincronamente replica os dados em centros de dados dentro de uma ou duas regiões. Uma réplica pode não estar disponível, a menos que a Microsoft inicie a ativação pós-falha para o secundário. O ZRS clássico só está disponível para **blobs de blocos** na [para fins gerais V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1) contas de armazenamento. Uma conta ZRS Classic não pode ser convertida para ou do LRS ou GRS e não tem as métricas de capacidade de inicio de sessão.
+ZRS Classic assincronamente replica os dados em centros de dados dentro de uma ou duas regiões. Uma réplica pode não estar disponível, a menos que a Microsoft inicie a ativação pós-falha para o secundário. O ZRS clássico só está disponível para **blobs de blocos** na [para fins gerais V1 (GPv1)](../articles/storage/common/storage-account-options.md#general-purpose-v1-accounts) contas de armazenamento. Uma conta ZRS Classic não pode ser convertida para ou do LRS ou GRS e não tem as métricas de capacidade de inicio de sessão.
 
 As contas ZRS Classic não podem ser convertidas para ou do LRS, GRS ou RA-GRS. As contas ZRS Classic também não suportam as métricas ou de registo.
 

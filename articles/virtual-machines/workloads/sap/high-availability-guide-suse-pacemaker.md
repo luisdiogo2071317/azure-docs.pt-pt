@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921508"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070349"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -38,6 +38,11 @@ O dispositivo SBD necessita de uma máquina virtual adicional que age como um se
 Se não pretender que a investir numa máquina virtual adicional, também pode utilizar o agente de cerca de Azure. A desvantagem é que uma ativação pós-falha pode demorar entre 10 a 15 minutos, se falha de parar um recurso ou os nós do cluster não é possível comunicar que uns aos outros mais.
 
 ![Pacemaker no Descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Utilizar um dispositivo SBD para o seu cluster Pacemaker, é essencial para a confiabilidade global do cluster completo que o encaminhamento entre as VMs envolvidos e a VM (s) que aloja o SBD dispositivo (s) não está a passar através de quaisquer outros dispositivos, como [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, os problemas com a NVA podem ter um impacto negativo sobre a estabilidade e a confiabilidade da configuração do cluster geral. Para evitar esses obstáculos, investigar as regras de encaminhamento de NVAs e [regras de encaminhamento definido pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) ao planear e implementar dispositivos SBD.
+>
+
 
 ## <a name="sbd-fencing"></a>A delimitação por barreiras SBD
 

@@ -1,0 +1,123 @@
+---
+title: 'Início rápido: Reconhecer voz em c# numa aplicação UWP o SDK de voz dos serviços cognitivos | Documentos da Microsoft'
+titleSuffix: Microsoft Cognitive Services
+description: Aprender a reconhecer a voz numa aplicação UWP com o SDK de voz dos serviços cognitivos
+services: cognitive-services
+author: wolfma61
+manager: onano
+ms.service: cognitive-services
+ms.component: speech-service
+ms.topic: article
+ms.date: 07/16/2018
+ms.author: wolfma
+ms.openlocfilehash: 4599c3c4c69397a1ab1f65c246e4440085b8bb91
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072585"
+---
+# <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Início rápido: Reconhecer voz numa aplicação UWP utilizando o SDK de voz
+
+Neste artigo, irá aprender a criar uma aplicação plataforma Universal do Windows (UWP) usando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
+O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
+
+> [!NOTE]
+> Aplicações do UWP criadas com o SDK de voz ainda não passam o Kit de certificação de aplicações de Windows (WACK).
+> Sideload de aplicações é possível, uma aplicação para Windows Store não está a enviar.
+> Isso será corrigido numa versão futura.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma chave de subscrição para o serviço de voz. Ver [experimentar gratuitamente o serviço de voz](get-started.md).
+* Um PC Windows (Windows 10 Fall Creators Update ou posterior) com um microfone de trabalho.
+* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition ou superior.
+* O **desenvolvimento de plataforma Universal do Windows** carga de trabalho no Visual Studio.You pode ativá-la no **ferramentas** \> **obter ferramentas e funcionalidades**.
+
+  ![Ativar o desenvolvimento de plataforma Universal do Windows](media/sdk/vs-enable-uwp-workload.png)
+
+## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
+
+1. No Visual Studio 2017, crie um novo Visual c# Windows Universal aplicação em branco. Na **novo projeto** caixa de diálogo, no painel à esquerda, expanda **instalado** \> **Visual C#** \> **Windows Universal** e, em seguida, selecione **aplicação em branco (Universal Windows)**. Para o nome do projeto, introduza *helloworld*.
+
+    ![](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
+
+1. Na **novo projeto de plataforma Universal do Windows** janela que é exibido, escolha **Windows 10 Fall Creators Update (10.0; Compilação 16299)** como **versão mínima**e isso, ou qualquer versão posterior, como **versão de destino**, em seguida, clique em **OK**.
+
+    ![](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+
+1. Se estiver executando numa instalação do Windows de 64 bits, poderá alternar sua plataforma de compilação para `x64`:
+
+   ![Mude a plataforma de compilação para x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
+
+   > [!NOTE]
+   > Neste momento, o SDK de voz não oferece suporte para processadores ARM de destino.
+
+1. Instalar e fazer referência a [pacote NuGet do SDK de voz](https://aka.ms/csspeech/nuget). No Solution Explorer, clique com o botão direito a solução e selecione **gerir pacotes NuGet para solução**.
+
+    ![Contexto gerir pacotes NuGet para solução](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
+
+1. No canto superior direito, no **origem do pacote** campo, selecione **Nuget.org**. Procure e instale o `Microsoft.CognitiveServices.Speech` empacotar e instalá-lo para o **helloworld** projeto.
+
+    ![Instalar o pacote de NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "pacote Nuget instalar")
+
+1. No ecrã de licença que aparece, aceite a licença:
+
+    ![Aceitar a licença](media/sdk/qs-csharp-uwp-06-nuget-license.png "aceitar a licença")
+
+1. Na consola do Gestor de pacotes, verá a seguinte linha de saída:
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   ```
+
+## <a name="add-the-sample-code"></a>Adicione o código de exemplo
+
+1. No Explorador de soluções, faça duplo clique **Package. appxmanifest** para editar o manifesto da aplicação.
+   Selecione o **capacidades** separador, selecione a caixa de verificação a **microfone** capacidade e guarde as alterações.
+
+   ![](media/sdk/qs-csharp-uwp-07-capabilities.png)
+
+1. Editar a sua aplicação da interface do Usuário ao fazer duplo clique `MainPage.xaml` no Explorador de soluções.
+   Quando no modo de exibição XAML do designer, inserir o seguinte trecho XAML para a etiqueta de grade (entre `<Grid>` e `</Grid>`):
+
+   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
+
+1. Editar o XAML code-behind clicando duas vezes `MainPage.xaml.cs` no Explorador de soluções (ele é agrupado sob o `MainPage.xaml` item).
+   Substitua todo o código com o seguinte:
+
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
+
+1. Na `SpeechRecognitionFromMicrophone_ButtonClicked` manipulador, substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição.
+
+1. Na `SpeechRecognitionFromMicrophone_ButtonClicked` manipulador, substitua a cadeia de caracteres `YourServiceRegion` com o [região](regions.md) associados à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+
+1. Guarde todas as alterações ao projeto.
+
+## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
+
+1. Crie a aplicação. Na barra de menus, selecione **crie** > **compilar solução**. O código será compilado sem erros agora:
+
+    ![Compilação bem-sucedida](media/sdk/qs-csharp-uwp-08-build.png "compilação bem-sucedida")
+
+1. Inicie a aplicação. Na barra de menus, selecione **depurar** > **iniciar depuração**, ou prima **F5**.
+
+    ![Iniciar a aplicação em depuração](media/sdk/qs-csharp-uwp-09-start-debugging.png "iniciar a aplicação para depuração")
+
+1. Exibe uma janela de GUI. Clique primeiro o **microfone ativar** botão e confirmar a solicitação de permissão que aparece.
+
+    ![Iniciar a aplicação em depuração](media/sdk/qs-csharp-uwp-10-access-prompt.png "iniciar a aplicação para depuração")
+
+1. Em seguida, clique nas **reconhecimento de voz com a entrada do microfone** e fala uma frase curta em seu microfone.
+   O resultado do reconhecimento de voz deve ser exibida na GUI.
+
+    ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
+
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Procure este exemplo no `quickstart/csharp-uwp` pasta.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- [Tradução de voz](how-to-translate-speech.md)
+- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
+- [Personalizar modelos de linguagem](how-to-customize-language-model.md)

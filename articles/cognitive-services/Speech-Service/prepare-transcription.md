@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: acca6f4cd2f4e7b452f5a70457d3d034e4d4aa7e
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6043d01e26d9f28f90e45c2cc194863b3a9cd017
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345190"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072287"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Diretrizes de transcrição para utilizar o serviço de voz
 
@@ -170,5 +170,5 @@ Eis alguns exemplos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Preparar a sua subscrição de avaliação de conversão de voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconhecer a conversão de voz em c#](quickstart-csharp-windows.md)
+- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)

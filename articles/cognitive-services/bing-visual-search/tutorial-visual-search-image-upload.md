@@ -10,18 +10,18 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 90ea591137b306069c1a5c184aea07375c72ce5c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036545"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068673"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: A divisão de carregamento de pesquisa Visual do Bing
 
 Este tutorial divide o processo de carregar uma imagem para o Bing e voltar a obter informações. Ela também mostra como acessar e exibir as informações na resposta JSON. Para obter exemplo completo de HTML e JavaScript, consulte [concluir código](#complete-code).
 
-Este tutorial é fornecido para o desenvolvedor que deseja explorar o conteúdo da resposta do Bing. Não se aplicam a toda a utilização e apresentam os requisitos (por exemplo, ele não fornece uma ligação para a política de privacidade da Microsoft). Para todos os requisitos de utilização, consulte [requisitos de apresentação e utilização do Bing](./use-and-display-requirements.md).
+Este tutorial é fornecido para o desenvolvedor que deseja explorar o conteúdo da resposta de pesquisa Visual do Bing. Não se aplicam a toda a utilização e apresentam os requisitos (por exemplo, ele não fornece uma ligação para a política de privacidade da Microsoft). Para todos os requisitos de utilização, consulte [requisitos de apresentação e utilização do Bing](./use-and-display-requirements.md).
 
 
 ## <a name="where-to-start"></a>Onde começar?

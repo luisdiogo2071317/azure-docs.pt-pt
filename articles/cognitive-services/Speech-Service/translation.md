@@ -1,56 +1,56 @@
 ---
-title: Exemplo para tradução | Microsoft Docs
+title: Exemplo para a tradução | Documentos da Microsoft
 titleSuffix: Microsoft Cognitive Services
-description: Eis um exemplo de tradução de reconhecimento de voz.
+description: Eis um exemplo de tradução de voz.
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 1151628ed695e74e2196c20b08e33fa5eaf33282
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 66d26181334a71578f1a94000cb942a6a87398bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028392"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070796"
 ---
-# <a name="sample-for-translation"></a>Exemplo para conversão
+# <a name="sample-for-translation"></a>Exemplo para a tradução
 
-> [!NOTE]
-> Para obter instruções transferir este exemplo e outros utilizadores, consulte [amostras para o SDK de reconhecimento de voz](samples.md).
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+## <a name="top-level-declarations"></a>Declarações de nível superior
 
-> [!NOTE]
-> Para todos os exemplos abaixo as seguintes declarações de nível superior devem ser implementados:
->
-> [!code-csharp [Using Statements](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#toplevel)]
->
-> - - -
+Para todos os exemplos abaixo, as seguintes declarações de nível superior devem estar no local:
 
-## <a name="translation-using-the-microphone"></a>Tradução utilizando microfone
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#toplevel)]
 
-O fragmento de código abaixo mostra como traduzir entrada de voz do inglês para alemão e também obter o resultado de voz do texto traduzido. Utiliza o microfone.
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp#toplevel)]
 
-[!code-csharp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithMicrophoneAsync)]
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#toplevel)]
 
-- - -
+## <a name="translation-using-the-microphone"></a>Utilizar o microfone de tradução
 
-## <a name="translation-using-file-input"></a>Tradução de entrada de ficheiro
+O fragmento de código abaixo mostra como traduzir a entrada de voz de inglês para alemão e também obter o resultado de voz do texto traduzido. Ele usa o microfone.
 
-O fragmento de código abaixo mostra como converter a entrada de voz do inglês alemão e francês.
-Utiliza ficheiros como entrada.
+[!code-csharp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithMicrophoneAsync)]
 
-[!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/Windows/csharp_samples/translation_samples.cs#TranslationWithFileAsync)]
+[!code-cpp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/translation_samples.cpp#TranslationWithMicrophone)]
 
-- - -
+[!code-java [Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithMicrophoneAsync)]
 
-## <a name="sample-source-code"></a>Código de origem de exemplo
+## <a name="translation-using-file-input"></a>Tradução com entrada de arquivo
 
-A versão mais recente de exemplos e amostras ainda mais avançadas estão num dedicado [repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+O fragmento de código abaixo mostra como converter a entrada de voz de inglês para o alemão e francês.
+Ele usa o arquivo como entrada.
+
+[!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithFileAsync)]
+
+[!code-java [Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithFileAsync)]
+
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

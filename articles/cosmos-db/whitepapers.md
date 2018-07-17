@@ -1,6 +1,6 @@
 ---
-title: Documentos técnicos de Cosmos BD do Azure
-description: Documentos técnicos permitem-lhe explorar conceitos da base de dados do Azure Cosmos um nível mais aprofundado.
+title: White Papers de Cosmos DB do Azure
+description: Documentos técnicos permitem explorar os conceitos do Azure Cosmos DB num nível mais aprofundado.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -9,20 +9,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: sngun
-ms.openlocfilehash: f39f3f73dd70808a40caea2b3a11aca22ae72d66
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 23445e2243a2824be95ef6d94eb13342d884e0c8
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109642"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072253"
 ---
-# <a name="azure-cosmos-db-whitepapers"></a>Documentos técnicos de Cosmos BD do Azure 
+# <a name="azure-cosmos-db-whitepapers"></a>White Papers de Cosmos DB do Azure 
 
-Documentos técnicos permitem-lhe explorar conceitos da base de dados do Azure Cosmos um nível mais aprofundado. Este artigo fornece uma lista de documentos técnicos disponíveis para a base de dados do Azure Cosmos.
+Documentos técnicos permitem explorar os conceitos do Azure Cosmos DB num nível mais aprofundado. Este artigo fornece uma lista de documentos técnicos disponíveis para o Azure Cosmos DB.
 
 | **Documento técnico** | **Descrição** |
 | --- | --- |
-| [Custo total de propriedade de um serviço de nuvem de base de dados NoSQL](https://aka.ms/cosmosdb-tco-paper) |Este documento compara o custo total de financeiro de proprietário e a funcionar de software em configurações de implementação diferentes, como uma base de dados no local, base de dados utilizando a infraestrutura de nuvem. Este documento fornece também que calcula o Custo Total de propriedade para tipos de utilização, baixa, média e alta |
-|[Esquema Agnóstico indexação com Cosmos BD do Azure](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) | Este documento descreve o subsistema de indexação da BD do Cosmos do Azure. Este documento inclui capacidades de base de dados do Azure Cosmos como representação do documento, idioma de consulta, abordagem de indexação do documento, suporte de índice de núcleos e antecipado experiências de produção.|
-| [BD do Cosmos do Azure e dados pessoais](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=87cc6456-4b23-473c-94d3-6c713b8b8956&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers)| Este documento fornece orientações para clientes de base de dados do Azure Cosmos gerir uma base de dados baseado na nuvem, uma base de dados no local, ou ambos, e que precisam de garantir que os dados pessoais os respetivos sistemas de base de dados são processados e protegidos de acordo com as regras atuais. |
+|[Sem esquema de indexação com o Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) | Este documento descreve o subsistema de indexação do Azure Cosmos DB. Este documento inclui capacidades do Azure Cosmos DB, como a representação do documento, linguagem de consulta, abordagem de indexação do documento, suporte de índice de núcleos e experiências de produção iniciais.|
+| [O Azure Cosmos DB e dados pessoais](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=87cc6456-4b23-473c-94d3-6c713b8b8956&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers)| Este documento fornece orientação para os clientes do Azure Cosmos DB que gerir uma base de dados com base na cloud, uma base de dados no local, ou ambos, e que precisam para se certificar de que os dados pessoais em seus sistemas de base de dados são processados e protegidos de acordo com as regras atuais. |
 

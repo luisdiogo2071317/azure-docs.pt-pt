@@ -1,6 +1,6 @@
 ---
-title: Utilize o reconhecimento de voz para texto | Microsoft Docs
-description: Saiba como utilizar o reconhecimento de voz para texto no serviço de reconhecimento de voz
+title: Utilize a voz para texto | Documentos da Microsoft
+description: Saiba como utilizar a conversão de voz em texto no serviço de voz
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -8,61 +8,62 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 878a31992415b1f8688afcfb186fcd94ce2567b4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 26cecedfc3ad2d472b9686e25054fe08253cee77
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356231"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068527"
 ---
-# <a name="use-speech-to-text-in-the-speech-service"></a>Utilize "Reconhecimento de voz para texto" no serviço de reconhecimento de voz
+# <a name="use-speech-to-text-in-the-speech-service"></a>Utilize "Conversão de voz para texto" no serviço de voz
 
-Pode utilizar **reconhecimento de voz para texto** nas suas aplicações de duas formas diferentes.
+Pode usar **conversão de voz em texto** em seus aplicativos de duas formas diferentes.
 
 | Método | Descrição |
 |-|-|
-| [SDK](speech-sdk.md) | Método mais simples para programadores C/C++, c# e Java * |
-| [REST](rest-apis.md) | Reconhecer utterances curtos através de um pedido POST de HTTP | 
-
-\* *O SDK de Java faz parte o [SDK de dispositivos de reconhecimento de voz](speech-devices-sdk.md).*
+| [SDK](speech-sdk.md) | Método mais simples para os desenvolvedores de C/C++, c# e Java |
+| [REST](rest-apis.md) | Reconhecer expressões com curtos usando um pedido POST de HTTP | 
 
 ## <a name="using-the-sdk"></a>Utilizar o SDK
 
-O [SDK de reconhecimento de voz](speech-sdk.md) fornece a forma mais simples utilizar **reconhecimento de voz para texto** na sua aplicação com funcionalidade completa.
+O [SDK de voz](speech-sdk.md) fornece a forma mais simples de usar **voz em texto** em seu aplicativo com funcionalidade completa.
 
-1. Crie uma fábrica de reconhecimento de voz, fornecendo uma chave de subscrição do serviço de reconhecimento de voz ou um token de autorização. Também pode configurar opções, como o idioma de reconhecimento ou um ponto de final personalizado para os seus próprios modelos de reconhecimento de voz, neste momento.
+1. Criar uma fábrica de voz, fornecendo uma chave de subscrição do serviço de voz e [região](regions.md) ou um token de autorização. Também pode configurar opções, como o idioma do reconhecimento ou um ponto final personalizado para seus próprios modelos de reconhecimento de voz, neste momento.
 
-2. Obter um reconhecedor a fábrica. Três tipos diferentes de recognizers estão disponíveis. Cada tipo de reconhecedor pode utilizar microfone de predefinido do seu dispositivo, uma sequência de áudio ou no áudio a partir de um ficheiro.
+2. Obtenha um reconhecedor da fábrica. Três tipos diferentes de reconhecedores estão disponíveis. Cada tipo de reconhecedor pode utilizar o microfone de padrão do seu dispositivo, um fluxo de áudio ou áudio de um ficheiro.
 
     Reconhecedor | Função
     -|-
-    Utilitário de reconhecimento de voz|Fornece transcription de texto de reconhecimento de voz
-    Reconhecedor intenção|Derive intenção de orador através de [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) após reconhecimento\*
-    Reconhecedor tradução|Converte o texto transcribed para outro idioma (consulte [tradução de reconhecimento de voz](how-to-translate-speech.md))
+    Reconhecedor de voz|Fornece a transcrição de texto de voz
+    Reconhecedor intenção|Deriva a intenção de orador através de [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) depois de reconhecimento\*
+    Reconhecedor de tradução|Traduz texto transcrito para outro idioma (consulte [tradução por voz](how-to-translate-speech.md))
 
-    \* *Para reconhecimento intenção, terá de utilizar uma chave de subscrição LUIS separada ao criar uma fábrica de reconhecimento de voz para o reconhecedor intenção.*
+    \* *Para o reconhecimento da intenção, terá de utilizar uma chave de subscrição separada do LUIS, ao criar uma fábrica de voz para o reconhecedor intenção.*
     
-4. Associar a eventos para a operação assíncrona, se assim o desejar. O reconhecedor, em seguida, chama os processadores de eventos quando tem resultados intermédio e finais. Caso contrário, a aplicação irá receber um resultado de final transcription.
+4. Obstruir os eventos para a operação assíncrona, se assim o desejar. O reconhecedor, em seguida, chama seus manipuladores de eventos quando tem resultados intermediárias e finais. Caso contrário, a aplicação irá receber um resultado final transcrição.
 
 5. Inicie o reconhecimento.
+   Para o reconhecimento de única, como reconhecimento de comando ou uma consulta, utilize `RecognizeAsync()`, que retorna a primeira expressão a ser reconhecido.
+   Para o reconhecimento de longa execução, como transcrição, utilize `StartContinuousRecognitionAsync()` automático e ligar os eventos para resultados de reconhecimento assíncrono.
 
-### <a name="sdk-samples"></a>Exemplos SDK
+### <a name="sdk-samples"></a>Amostras de SDK
 
-Para o conjunto mais recente de exemplos, consulte o [repositório cognitivos GitHub de exemplo do SDK de reconhecimento de voz de serviços](https://aka.ms/csspeech/samples).
+Para o conjunto mais recente de exemplos, consulte a [cognitivos GitHub de exemplo do SDK de voz de serviços repositório](https://aka.ms/csspeech/samples).
 
-## <a name="using-the-rest-api"></a>Utilizando a API REST
+## <a name="using-the-rest-api"></a>Com a API REST
 
-A API REST é a forma mais simples para reconhecer o reconhecimento de voz se não estiver a utilizar um idioma suportado pelo SDK. Efetuar um pedido POST de HTTP para o ponto final de serviço, transmitir o utterance todo no corpo do pedido. Receberá uma resposta que contém o texto reconhecido.
+A API REST é a forma mais simples para reconhecer a voz, se não estiver a utilizar um idioma suportado pelo SDK. Fazer um pedido HTTP POST para o ponto final de serviço, passando a expressão inteira no corpo do pedido. Receber uma resposta que contém o texto reconhecido.
 
 > [!NOTE]
-> Utterances estão limitadas para 15 segundos ou menos ao utilizar a API REST.
+> Expressões com são limitadas para 15 segundos ou menos ao utilizar a API de REST.
 
-
-Para mais informações sobre o **reconhecimento de voz para texto** API de REST, consulte [REST APIs](rest-apis.md#speech-to-text). Para vê-lo em ação, transfira o [amostras de REST API](https://github.com/Azure-Samples/SpeechToText-REST) a partir do GitHub.
+Para obter mais informações sobre o **conversão de voz em texto** API de REST, veja [REST APIs](rest-apis.md#speech-to-text). Para ver em ação, transfira o [exemplos de REST API](https://github.com/Azure-Samples/SpeechToText-REST) do GitHub.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Como reconhecer voz em c#](quickstart-csharp-windows.md)
+- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Como reconhecer voz em C++](quickstart-cpp-windows.md)
+- [Como reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)
+- [Como reconhecer voz em Java](quickstart-java-android.md)

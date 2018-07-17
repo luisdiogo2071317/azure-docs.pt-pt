@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2018
+ms.date: 07/16/2018
 ms.author: magoedte
-ms.openlocfilehash: a94f7289c75a4f4d466542c608d81cf5b954f4b1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37917348"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069156"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) contentor (pré-visualização)
 
@@ -50,7 +50,7 @@ Esse recurso depende de um agente em contentores do OMS para Linux recolher dado
 >Se já tiver implementado um cluster do AKS, ativa a monitorização utilizando um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente.  
 >
 
-## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no Portal do Azure
+## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Ativar a monitorização de estado de funcionamento de contentor para um novo cluster
@@ -290,21 +290,41 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-performance-utilization"></a>Utilização de desempenho do Vista
-Quando abre o estado de funcionamento do contentor, a página apresenta imediatamente a utilização de desempenho de seus nós de cluster.  Ver informações sobre o seu cluster do AKS é organizado em três perspectivas:
+Quando abre o estado de funcionamento do contentor, a página apresenta imediatamente a utilização de desempenho do seu cluster inteiro.  Ver informações sobre o seu cluster do AKS está organizado em quatro perspectivas:
 
+- Cluster
 - Nós 
 - Controladores  
 - Contentores
 
-A hierarquia de linha segue o modelo de objeto do Kubernetes a partir do nó do cluster.  Expanda o nó e vir um ou mais pods em execução no nó e, se houver mais de um contêiner agrupado para um pod, eles são apresentados como a última linha na hierarquia.<br><br> ![Hierarquia de nós do Kubernetes de exemplo na vista de desempenho](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+No separador de Cluster, os gráficos de desempenho de linha mostram métricas chave de desempenho do seu cluster.  
 
-Pode selecionar os controladores ou contentores na parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Utilize as caixas de lista pendente na parte superior do ecrã para filtrar por espaço de nomes, o serviço e o nó. Se em vez disso, pretende rever a utilização da memória, do **métrica** selecione na lista pendente **memória RSS** ou **conjunto de trabalho de memória**.  **Memória RSS** só é suportado para Kubernetes versão 1.8 e posterior. Caso contrário, verá valores para **AVG %** que mostra como *NaN %*, que é um valor de tipo de dados numéricos que representa um valor indefinido ou não representável. 
+![Exemplos de gráficos de desempenho no separador de Cluster](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-![Vista de desempenho de nós de desempenho de contentor](./media/monitoring-container-health/container-performance-and-health-view-04.png)
+Segue-se uma análise detalhada das métricas de desempenho apresentadas:
 
-Por predefinição, os dados de desempenho se baseia em seis últimas horas, mas pode alterar a janela com o **intervalo de tempo** na lista pendente encontrado no canto superior direito da página. Neste momento, a página não atualização automática, por isso terá de atualizá-lo manualmente. 
+- O nó da CPU % de utilização - este gráfico representa um ponto de vista agregado da utilização da CPU para todo o cluster.  Pode filtrar os resultados para o intervalo de tempo, selecionando *Avg*, *Mín*, *Max*, *percentis 50 º*, *90*, e *95* do Seletor de percentis acima do gráfico, seja individualmente ou combinado. 
+- % De utilização de memória do nó - este gráfico representa um ponto de vista agregado de utilização da memória para todo o cluster.  Pode filtrar os resultados para o intervalo de tempo, selecionando *Avg*, *Mín*, *Max*, *percentis 50 º*, *90*, e *95* do Seletor de percentis acima do gráfico, seja individualmente ou combinado. 
+- Contagem de nós - este gráfico representa contagem de nós e o estado de Kubernetes.  Estado de nós do cluster representado são *todos os*, *pronto*, e *não está pronto* e podem ser filtrados individualmente ou combinado a partir de um Seletor de acima do gráfico.    
+- Contagem de pod de atividade - este gráfico representa estado e a contagem de pod de Kubernetes.  Estado de pods representado são *todos os*, *pendente*, *em execução*, e *desconhecido* e podem ser filtrados individualmente ou combinado a partir da Seletor de acima do gráfico.  
 
-No exemplo a seguir, tenha em atenção para o nó *aks-agentpool-3402399-0*, o valor de **contentores** é 10, que é um rollup do número total de contentores implementados.<br><br> ![Rollup de contentores, por exemplo de nó](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Ele pode ajudar a identificar rapidamente se não tiver um equilíbrio correto de contentores entre nós do cluster.  
+Mudar para o separador de nós, a hierarquia de linha segue o modelo de objeto do Kubernetes a partir do nó do cluster.  Expanda o nó e vir um ou mais pods em execução no nó e, se houver mais de um contêiner agrupado para um pod, eles são apresentados como a última linha na hierarquia. É possível ver também cargas de trabalho relacionadas não pod quantos estão sendo executados no anfitrião no caso de anfitrião tem pressão de memória ou processador.
+
+![Hierarquia de nós do Kubernetes de exemplo na vista de desempenho](./media/monitoring-container-health/container-health-nodes-view.png)
+
+Pode selecionar os controladores ou contentores na parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Utilize as caixas de lista pendente na parte superior do ecrã para filtrar por espaço de nomes, o serviço e o nó. Se em vez disso, pretende rever a utilização da memória, do **métrica** selecione na lista pendente **memória RSS** ou **conjunto de trabalho de memória**.  **Memória RSS** só é suportado para Kubernetes versão 1.8 e posterior. Caso contrário, verá valores para **MIN %** que mostra como *NaN %*, que é um valor de tipo de dados numéricos que representa um valor indefinido ou não representável. 
+
+![Vista de desempenho de nós de contentor](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+
+Por predefinição, os dados de desempenho se baseia em seis últimas horas, mas pode alterar a janela com o **intervalo de tempo** na lista pendente encontrado no canto superior direito da página. Neste momento, a página não atualização automática, por isso terá de atualizá-lo manualmente. Também pode filtrar os resultados dentro do intervalo de tempo, selecionando *Avg*, *Mín*, *Max*, *percentis 50 º*, *90*, e *95* do Seletor de percentil. 
+
+![Seleção de percentil para filtragem de dados](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
+
+No exemplo a seguir, tenha em atenção para o nó *aks-nodepool-3977305*, o valor de **contentores** é 5, que é um rollup do número total de contentores implementados.
+
+![Rollup de contentores, por exemplo de nó](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+
+Ele pode ajudar a identificar rapidamente se não tiver um equilíbrio correto de contentores entre nós do cluster.  
 
 A tabela seguinte descreve as informações apresentadas ao ver nós.
 
@@ -312,54 +332,80 @@ A tabela seguinte descreve as informações apresentadas ao ver nós.
 |--------|-------------|
 | Nome | O nome do anfitrião |
 | Estado | Vista de Kubernetes do Estado de nó |
-| % DA MÉDIA | Média de percentagem de nó com base na métrica selecionada durante o período de tempo selecionado. |
-| MÉDIA | Média de valor real de nós com base na métrica selecionada durante o período de tempo selecionado.  O valor médio é medido desde o limite de CPU/memória definido para um nó; para pods e contentores é o valor de média comunicado pelo host. |
+| % DA MÉDIA, MÍN %, % MÁX, 50TH %, 90TH % | Média de percentagem de nó com base no percentil de, durante esse período de tempo selecionado. |
+| AVG, MIN, MAX, 50TH, 90TH | Valor real de média de nós com base no percentil de, durante esse período de tempo selecionado.  O valor médio é medido desde o limite de CPU/memória definido para um nó; para pods e contentores é o valor de média comunicado pelo host. |
 | Contentores | Número de contentores. |
 | Tempo de atividade | Representa o tempo, uma vez que um nó iniciado ou foi reiniciado. |
-| Pod | Apenas para contentores. Ela mostra que pods-lo que residem. |
 | Controladores | Apenas para os contentores e pods. Mostra qual controlador está residindo. Nem todos os pods estará num controlador, para que alguns podem mostrar n/d. | 
-| % Da média de tendência | Tendência de gráfico de barras com base no contentor e o nó % de métrica de média. |
+| % Da média, Mín %, % Máx, 50TH %, 90TH % de tendência | Apresentação de percentil % métrica do controlador de tendência de gráfico de barras. |
 
 
-No Seletor, escolha **controladores**.<br><br> ![Selecione controladores de exibição](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+No Seletor, escolha **controladores**.
 
-Aqui pode ver o estado de funcionamento do desempenho dos seus controladores.<br><br> ![Vista de desempenho de controladores do < nome >](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+![Selecione controladores de exibição](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-A hierarquia de linha começa com um controlador e expande o controlador e ver os pods de um ou mais, ou um ou mais contentores.  Expanda um pod e a última linha mostram o contentor agrupado para o pod.  
+Aqui pode ver o estado de funcionamento do desempenho dos seus controladores.
+
+![Vista de desempenho de controladores do < nome >](./media/monitoring-container-health/container-health-controllers-view.png)
+
+A hierarquia de linha começa com um controlador e expande o controlador e ver um ou um ou mais contentores.  Expanda um pod e a última linha mostram o contentor agrupado para o pod.  
 
 A tabela seguinte descreve as informações apresentadas ao ver controladores.
 
 | Coluna | Descrição | 
 |--------|-------------|
 | Nome | O nome do controlador|
-| Estado | Estado dos contentores se foi concluída em execução com o estado, tal como *Terminated*, *com falhas* *parado*, ou *em pausa*. Se o contentor está em execução, mas o estado foi um não está corretamente apresentados ou não foi capturado pelo agente e não tenha respondido a mais de 30 minutos, o estado será *desconhecido*. |
-| % DA MÉDIA | Agregar média de média de % de cada entidade para a métrica selecionada. |
-| MÉDIA | Agregação do média da CPU millicore ou memória desempenho do contentor.  O valor médio é medido desde o limite de CPU/memória definido para um pod. |
+| Estado | Rollup de estado dos contentores se foi concluída em execução com o estado, tal como *OK*, *Terminated*, *falha* *parado*, ou  *Em pausa*. Se o contentor está em execução, mas o estado foi um não está corretamente apresentados ou não foi capturado pelo agente e não tenha respondido a mais de 30 minutos, o estado é *desconhecido*. São fornecidos detalhes adicionais do ícone de estado na tabela abaixo.|
+| % DA MÉDIA, MÍN %, % MÁX, 50TH %, 90TH % | Agregar média de média de % de cada entidade para a métrica selecionada e percentil. |
+| AVG, MIN, MAX, 50TH, 90TH  | Agregação do média da CPU millicore ou memória desempenho do contentor para o percentil selecionado.  O valor médio é medido desde o limite de CPU/memória definido para um pod. |
 | Contentores | Número total de contentores para o controlador ou pod. |
 | Reinicia | Agregação da contagem de reinício de contentores. |
 | Tempo de atividade | Representa o tempo desde o início de um contentor. |
-| Pod | Apenas para contentores. Ela mostra que pods-lo que residem. |
 | Nó | Apenas para os contentores e pods. Mostra qual controlador está residindo. | 
-| % Da média de tendência | Tendência de gráfico de barras, apresentando a média de % métrica do contentor. |
+| % Da média, Mín %, % Máx, 50TH %, 90TH % de tendência| Tendência de gráfico de barras que representa a métrica de percentil do controlador. |
 
-No Seletor, escolha **contentores**.<br><br> ![Ver os contentores selecionadas](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+Os ícones no campo status indicam o estado online dos contentores:
+ 
+| Ícone | Estado | 
+|--------|-------------|
+| ![Ícone de estado em execução pronto](./media/monitoring-container-health/container-health-ready-icon.png) | Em execução (pronto)|
+| ![Ícone de estado aguardando ou em pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | Aguardando ou em pausa|
+| ![Reportou pela última vez com o ícone de estado](./media/monitoring-container-health/container-health-grey-icon.png) | Por fim comunicados em execução, mas ainda não responderam a mais de 30 minutos|
+| ![Ícone de estado terminada](./media/monitoring-container-health/container-health-green-icon.png) | Parado ou falha ao parar com êxito|
 
-Aqui podemos ver o estado de funcionamento do desempenho de seus contêineres.<br><br> ![Vista de desempenho de controladores do < nome >](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+O ícone de estado mostra uma contagem com base no que fornece o pod. Mostra os piores dois Estados, e quando paira o rato sobre o status, mostra uma agregação de estado de todos os pods no contentor.  Se não existir um estado estável, o valor de estado irá mostrar um **(0)**.  
+
+No Seletor, escolha **contentores**.
+
+![Ver os contentores selecionadas](./media/monitoring-container-health/container-health-containers-tab.png)
+
+Aqui podemos ver o estado de funcionamento do desempenho de seus contêineres.
+
+![Vista de desempenho de controladores do < nome >](./media/monitoring-container-health/container-health-containers-view.png)
 
 A tabela seguinte descreve as informações apresentadas ao ver contentores.
 
 | Coluna | Descrição | 
 |--------|-------------|
 | Nome | O nome do controlador|
-| Estado | Agregação do estado dos contentores, se houver. |
-| % DA MÉDIA | Agregar média de média de % de cada entidade para a métrica selecionada. |
-| MÉDIA | Agregação do média da CPU millicore ou memória desempenho do contentor. O valor médio é medido desde o limite de CPU/memória definido para um pod. |
-| Contentores | Número total de contentores para o controlador.|
+| Estado | Estado dos contentores, se aplicável. São fornecidos detalhes adicionais do ícone de estado na tabela abaixo.|
+| % DA MÉDIA, MÍN %, % MÁX, 50TH %, 90TH % | Agregar média de média de % de cada entidade para a métrica selecionada e percentil. |
+| AVG, MIN, MAX, 50TH, 90TH  | Agregação do média da CPU millicore ou memória desempenho do contentor para o percentil selecionado.  O valor médio é medido desde o limite de CPU/memória definido para um pod. |
+| Pod | Contentor onde reside o pod.| 
+| Nó |  Nó onde reside o contentor. | 
 | Reinicia | Representa o tempo desde o início de um contentor. |
 | Tempo de atividade | Representa o tempo, uma vez que um contentor foi iniciado ou reiniciado. |
-| Pod | Informações de pod onde reside. |
-| Nó |  Nó onde reside o contentor.  | 
-| % Da média de tendência | Tendência de gráfico de barras, apresentando a média de % métrica do contentor. |
+| % Da média, Mín %, % Máx, 50TH %, 90TH % de tendência | Tendência de gráfico de barras que representa a média de % métrica do contentor. |
+
+Os ícones no campo status indicam o estado online de pods:
+ 
+| Ícone | Estado | 
+|--------|-------------|
+| ![Ícone de estado em execução pronto](./media/monitoring-container-health/container-health-ready-icon.png) | Em execução (pronto)|
+| ![Ícone de estado aguardando ou em pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | Aguardando ou em pausa|
+| ![Reportou pela última vez com o ícone de estado](./media/monitoring-container-health/container-health-grey-icon.png) | Por fim comunicados em execução, mas ainda não responderam a mais de 30 minutos|
+| ![Ícone de estado terminada](./media/monitoring-container-health/container-health-terminated-icon.png) | Parado ou falha ao parar com êxito|
+| ![Ícone de estado com falhas](./media/monitoring-container-health/container-health-failed-icon.png) | Estado de falha |
 
 ## <a name="container-data-collection-details"></a>Detalhes de recolha de dados de contentor
 Estado de funcionamento do contentor recolhe diversos dados de registo e métricas de desempenho a partir de anfitriões de contentor e contentores. Dados são recolhidos a cada três minutos.
@@ -387,7 +433,9 @@ A tabela seguinte mostra exemplos de registos recolhidos pelo Estado de funciona
 ## <a name="search-logs-to-analyze-data"></a>Registos de pesquisa para analisar dados
 O log Analytics pode ajudá-lo a analisar as tendências, diagnosticar afunilamentos, previsão, ou correlacionar dados que podem ajudar a determinam se a configuração de cluster atual é satisfatória.  Pesquisas de registos predefinidas são fornecidas para começar imediatamente a utilizar ou personalizar para retornar as informações da maneira como desejar. 
 
-Pode efetuar análises interativas de dados na área de trabalho ao selecionar o **ver registo** opção, disponível na extremidade direita quando expande um contentor.  **Pesquisa de registos** página é exibida bem acima a página onde estava no portal.<br><br> ![Analisar dados no Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+Pode efetuar análises interativas de dados na área de trabalho ao selecionar o **ver registo** opção, disponível na extremidade direita quando expande um controlador ou o contentor.  **Pesquisa de registos** página é exibida bem acima a página onde estava no portal.
+
+![Analisar dados no Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
 
 A saída de registos de contentor reencaminhada para o Log Analytics são STDOUT e STDERR. Uma vez que o estado de funcionamento do contentor está a monitorizar o Kubernetes gerido do Azure (AKS), o sistema do Kube não é coletado hoje devido ao grande volume de dados gerados.     
 
@@ -470,7 +518,9 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
     }
     ```
 
-4. Editar o valor para **aksResourceId** e **aksResourceLocation** pelos valores do cluster do AKS, que pode ser encontrado no **propriedades** página para o cluster selecionado.<br><br> ![Página de propriedades do contentor](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Editar o valor para **aksResourceId** e **aksResourceLocation** pelos valores do cluster do AKS, que pode ser encontrado no **propriedades** página para o cluster selecionado.
+
+    ![Página de propriedades do contentor](./media/monitoring-container-health/container-properties-page.png)
 
     Enquanto estiver a utilizar o **propriedades** página, também copiar a **ID de recurso da área de trabalho**.  Este valor é necessário se decidir que pretende eliminar a Log Analytics área de trabalho mais tarde, que não é executada como parte deste processo.  
 
@@ -549,7 +599,8 @@ Se o estado de funcionamento do contentor foi ativado e configurado com êxito, 
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Verifique os registos do agente. Quando o agente em contentores é implementado, ele executa uma verificação rápida ao executar comandos OMI e mostra a versão do agente e fornecedor de Docker. Para ver que o agente foi carregada com êxito, execute o seguinte comando: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Verifique os registos do agente. Quando o agente em contentores é implementado, executa uma verificação rápida executando OMI comandos e mostra a versão do agente e 
+5.  fornecedor. Para ver que o agente foi carregada com êxito, execute o seguinte comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     O estado deve assemelhar-se ao seguinte:
 
