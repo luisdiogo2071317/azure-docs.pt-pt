@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/10/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5cb1360731eeabe4963330210ba6fe090f0e088a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8c3f727c6154a0364f151d22000d2684c361676a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008826"
+ms.locfileid: "39037215"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -78,4 +78,4 @@ O UDR e a funcionalidade de encaminhamento estarão disponíveis aquando da Disp
 
 ### <a name="is-there-any-licensing-or-pricing-information-for-virtual-wan"></a>Existem informações de licenciamento ou de preços da WAN Virtual?
  
-Não existem custos adicionais. Os [preços de saída e de VPN do Azure](https://azure.microsoft.com/pricing/details/vpn-gateway/) atuais permanecem em vigor durante a Pré-visualização.
+Não existem custos adicionais durante a Pré-visualização. Os [preços de saída e de VPN do Azure](https://azure.microsoft.com/pricing/details/vpn-gateway/) atuais permanecem em vigor durante a Pré-visualização.

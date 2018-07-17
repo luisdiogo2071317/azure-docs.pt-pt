@@ -177,7 +177,7 @@
       items:
         - name: Construção de consulta básica
           href: search-query-overview.md
-        - name: Explorador de Procura (portal)
+        - name: Explorador de procura (portal)
           href: search-explorer.md
         - name: Sintaxe de consulta simples
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
