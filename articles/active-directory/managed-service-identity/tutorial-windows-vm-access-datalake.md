@@ -1,6 +1,6 @@
 ---
-title: Como utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store
-description: Um tutorial mostra-lhe como utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store.
+title: Como utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Data Lake Store
+description: Um tutorial que lhe mostra como utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,28 +9,28 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 31afe8579580ab392411aa8428f023fd52c4c4c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595296"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904293"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutorial: Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Tutorial: utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como utilizar uma identidade de serviço geridas (MSI) para uma máquina virtual (VM) do Windows para aceder a um Azure Data Lake Store. Identidades de serviço geridas são automaticamente geridas pelo Azure e permitem-lhe autenticar para serviços que suportam a autenticação do Azure AD, sem necessidade de introduzir as credenciais para o seu código. Saiba como:
+Este tutorial mostra-lhe como utilizar uma Identidade de Serviço Gerida (MSI) para que uma máquina virtual (VM) do Windows aceda ao Azure Data Lake Store. As Identidades de Serviço Geridas são geridas automaticamente pelo Azure e permitem-lhe fazer a autenticação em serviços que suportam a autenticação do Azure AD, sem ser necessário inserir as credenciais no seu código. Saiba como:
 
 > [!div class="checklist"]
-> * Ativar MSI na VM do Windows 
-> * Conceder o acesso VM a um Azure Data Lake Store
-> * Obter um token de acesso utilizando a identidade da VM e utilizá-lo para aceder a um Azure Data Lake Store
+> * Ativar o MSI numa VM do Windows 
+> * Conceder o acesso à sua VM ao Azure Data Lake Store
+> * Obter um token de acesso com a identidade da VM e utilizá-lo para aceder ao Azure Data Lake Store
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,70 +44,70 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
-Para este tutorial, iremos criar uma nova VM do Windows.  Também pode ativar MSI numa VM existente.
+Neste tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o MSI numa VM existente.
 
 1. Clique no botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3. Introduza as informações da máquina virtual. O **Username** e **palavra-passe** criada aqui é as credenciais que utiliza para início de sessão para a máquina virtual.
-4. Escolha o adequado **subscrição** para a máquina virtual na lista pendente.
-5. Para selecionar um novo **grupo de recursos** na qual pretende criar a máquina virtual, escolha **criar novo**. Quando terminar, clique em **OK**.
+3. Introduza as informações da máquina virtual. O **Nome de Utilizador** e a **Palavra-passe** aqui criados são as credenciais a utilizar para iniciar sessão na máquina virtual.
+4. Escolha uma **Subscrição** para a máquina virtual na lista pendente.
+5. Para selecionar um novo **Grupo de Recursos** no qual irá criar a sua máquina virtual, selecione **Criar Novo**. Quando terminar, clique em **OK**.
 6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Na página Definições, mantenha as predefinições e clique em **OK**.
 
    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM 
+## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM 
 
-Um MSI da VM permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Ativar MSI diz ao Azure para criar uma identidade de gerido para a VM. Nos bastidores, permitir MSI duas coisas: regista a VM com o Azure Active Directory para criar a respetiva identidade gerida e configura a identidade da VM.
+Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem ter de colocar as credenciais no código. A ativação do MSI informa o Azure para criar uma identidade gerida para a sua VM. Nos bastidores, ativar o MSI faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
 
-1. Selecione o **Máquina Virtual** que pretende ativar o MSI em.  
-2. Na barra de navegação esquerdo em **configuração**. 
-3. Verá **identidade de serviço geridas**. Para registar e ativar o MSI, selecione **Sim**, se pretender desativá-la, escolha não. 
-4. Certifique-se de que clica **guardar** para guardar a configuração.  
+1. Selecione a **Máquina Virtual** na qual pretende ativar a MSI.  
+2. Na barra de navegação esquerda, clique em **Configuração**. 
+3. Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não. 
+4. Certifique-se de que clica em **Guardar** para guardar a configuração.  
    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Se pretende verificar e certifique-se as extensões na VM, clique em **extensões**. Se estiver ativado MSI, em seguida, **ManagedIdentityExtensionforWindows** aparece na lista.
+5. Se desejar verificar as extensões que estão nesta VM, clique em **Extensões**. Se a MSI estiver ativada, **ManagedIdentityExtensionforWindows** aparece na lista.
 
    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder o acesso VM para o Azure Data Lake Store
+## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder acesso à VM ao Azure Data Lake Store
 
-Agora pode conceder o acesso VM para ficheiros e pastas um Azure Data Lake Store.  Para este passo, pode utilizar uma versão do Data Lake Store existente ou crie um novo.  Para criar um novo Data Lake Store utilizando o portal do Azure, siga este [início rápido do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Também existem inícios rápidos que utilizam a CLI do Azure e o Azure PowerShell no [documentação do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Agora, pode conceder o acesso à VM a ficheiros e pastas no Azure Data Lake Store.  Para este passo, pode utilizar um Data Lake Store existente ou criar um novo.  Para criar um novo Data Lake Store com o portal do Azure, siga este [Guia de início rápido do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Também existem inícios rápidos que utilizam a CLI do Azure e o Azure PowerShell na [Documentação do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-O Data Lake Store, criar uma nova pasta e conceder a permissão do MSI da VM para ler, escrever e executar ficheiros nessa pasta:
+No seu Data Lake Store, crie uma nova pasta e conceda à MSI da VM permissão para ler, escrever e executar ficheiros nessa pasta:
 
 1. No portal do Azure, clique em **Data Lake Store** no painel de navegação esquerdo.
-2. Clique em Data Lake Store que pretende utilizar para este tutorial.
-3. Clique em **Explorador de dados** na barra de comando.
-4. A pasta raiz do Data Lake Store está selecionada.  Clique em **acesso** na barra de comando.
-5. Clique em **Adicionar**.  No **selecione** campo, introduza o nome da sua VM, por exemplo **DevTestVM**.  Clique para selecionar os resultados da pesquisa a VM, em seguida, clique em **selecione**.
-6. Clique em **selecionar permissões**.  Selecione **leitura** e **executar**, adicionar a **esta pasta**e adicione como **apenas uma permissão de acesso**.  Clique em **OK**.  A permissão deve ser adicionada com êxito.
-7. Fechar o **acesso** painel.
-8. Para este tutorial, crie uma nova pasta.  Clique em **nova pasta** na barra de comandos e forneça a nova pasta um nome, por exemplo **TestFolder**.  Clique em **OK**.
-9. Clique na pasta que criou, em seguida, clique em **acesso** na barra de comando.
-10. Semelhante para o passo 5, clique em **adicionar**, além de **selecione** campo introduza o nome da sua VM, selecione-o e clique em **selecione**.
-11. Semelhante ao passo 6, clique em **selecionar permissões**, selecione **leitura**, **escrever**, e **executar**, adicionar a **esta pasta**e adicione como **uma entrada de permissão de acesso e uma entrada de permissão predefinidas**.  Clique em **OK**.  A permissão deve ser adicionada com êxito.
+2. Clique no Data Lake Store que pretende utilizar neste tutorial.
+3. Clique em **Data Explorer** na barra de comandos.
+4. A pasta raiz do Data Lake Store fica selecionada.  Clique em **Acesso** na barra de comandos.
+5. Clique em **Adicionar**.  No campo **Selecionar**, introduza o nome da sua VM, por exemplo **DevTestVM**.  Clique para selecionar a sua VM nos resultados da pesquisa e clique em **Selecionar**.
+6. Clique em **Selecionar Permissões**.  Selecione **Ler** e **Executar**, adicione a **Esta pasta**e adicione como **Apenas uma permissão de acesso**.  Clique em **OK**.  A permissão deve ser adicionada com êxito.
+7. Feche o painel **Acesso**.
+8. Neste tutorial, vai criar uma nova pasta.  Clique em **Nova Pasta** na barra de comandos e dê um nome à pasta, por exemplo **TestFolder**.  Clique em **OK**.
+9. Clique na pasta que criou e clique em **Acesso** na barra de comandos.
+10. Como no passo 5, clique em **Adicionar**, no campo **Selecionar** introduza o nome da sua VM, selecione-a e clique em **Selecionar**.
+11. Como no passo 6, clique em **Selecionar Permissões**, selecione **Ler**, **Escrever** e **Executar**, adicione a **Esta pasta** e adicione como **Uma entrada de permissão de acesso e uma entrada de permissão predefinida**.  Clique em **OK**.  A permissão deve ser adicionada com êxito.
 
-O MSI da VM pode agora efetuar todas as operações em ficheiros na pasta que criou.  Para obter mais informações sobre gerir o acesso ao Data Lake Store, continue a ler este artigo [controlo de acesso no Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+A MSI da VM pode agora realizar todas as operações nos ficheiros da pasta que criou.  Para obter mais informações sobre como gerir o acesso ao Data Lake Store, leia este artigo sobre [Controlo de Acesso no Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Obter um token de acesso utilizando o MSI da VM e utilizá-la para chamar o sistema de ficheiros do Azure Data Lake Store
+## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Obter um token de acesso com a MSI da VM e utilizá-lo para chamar o sistema de ficheiros do Azure Data Lake Store
 
-O Azure Data Lake Store nativamente autenticação de suporte do Azure AD, para que possa aceitar tokens de acesso diretamente obtidos através de MSI.  Para autenticar para o sistema de ficheiros do Data Lake Store que envia um token de acesso emitido pelo Azure AD para o Data Lake Store filesystem ponto final, num cabeçalho de autorização no formato "Portador < ACCESS_TOKEN_VALUE >".  Para saber mais sobre o suporte de Data Lake Store para autenticação do Azure AD, leia [autenticação com o Data Lake Store utilizando o Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+O Azure Data Lake Store suporta nativamente a autenticação do AD, para que possa aceitar diretamente tokens de acesso obtidos com a MSI.  Para autenticar para o sistema de ficheiros do Data Lake Store, envia um token de acesso emitido pelo Azure AD para o ponto final do sistema de ficheiros do Data Lake Store, num cabeçalho de autorização no formato "Bearer <ACCESS_TOKEN_VALUE>".  Para saber mais sobre o suporte do Data Lake Store para a autenticação do Azure AD, leia [Autenticação com o Data Lake Store através do Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
-> O cliente do sistema de ficheiros do Data Lake Store SDKs ainda não suportam uma identidade de serviço geridas.  Este tutorial será atualizado quando é adicionado suporte para o SDK.
+> Os SDKs cliente do sistema de ficheiros do Data Lake Store ainda não suportam a Identidade de Serviço Gerida.  Este tutorial será atualizado quando for adicionado suporte para o SDK.
 
-Neste tutorial, autenticar para o sistema de ficheiros do Data Lake Store pedidos de API de REST através do PowerShell para efetuar o resto. Para utilizar o MSI da VM para a autenticação, terá de efetuar os pedidos da VM.
+Neste tutorial, vai autenticar para a API REST do sistema de ficheiros do Data Lake Store com o PowerShell, para fazer pedidos REST. Para utilizar a MSI da VM para a autenticação, terá de fazer os pedidos a partir da VM.
 
-1. No portal, navegue para **máquinas virtuais**, aceda à sua VM do Windows e no **descrição geral** clique **Connect**.
-2. Introduza o **Username** e **palavra-passe** para que adicionou ao criar a VM do Windows. 
-3. Agora que já criou um **ligação ao ambiente de trabalho remoto** com a máquina virtual, abra **PowerShell** na sessão remota. 
-4. Através do PowerShell `Invoke-WebRequest`, efetue um pedido para o ponto final local de MSI para obter acesso token para o Azure Data Lake Store.  O identificador de recurso para o Data Lake Store é "https://datalake.azure.net/".  Data Lake não uma correspondência exata com o identificador do recurso e a barra no final é importante.
+1. No portal, navegue para **Máquinas Virtuais**, aceda à sua VM do Windows e, na **Descrição Geral** clique em **Ligar**.
+2. Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
+3. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
+4. Através de `Invoke-WebRequest` do PowerShell, faça um pedido ao ponto final da MSI local para obter um token de acesso para o Azure Data Lake Store.  O identificador de recurso do Data Lake Store é "https://datalake.azure.net/".  O Data Lake faz uma correspondência exata no identificador de recurso e a barra à direita é importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
    ```
     
-   Converter a resposta de um objeto JSON para um objeto do PowerShell. 
+   Converta a resposta de um objeto JSON num objeto do PowerShell. 
     
    ```powershell
    $content = $response.Content | ConvertFrom-Json
@@ -119,13 +119,13 @@ Neste tutorial, autenticar para o sistema de ficheiros do Data Lake Store pedido
    $AccessToken = $content.access_token
    ```
 
-5. Através 'Invoke-WebRequest' do PowerShell, efetue um pedido para ponto final REST do Data Lake Store para listar as pastas na pasta raiz.  Esta é uma forma simple para verificar que tudo está configurado corretamente.  É importante que a cadeia "Portador" no cabeçalho de autorização tem um capital "B".  Pode encontrar o nome do Data Lake Store no **descrição geral** secção do painel no portal do Azure Data Lake Store.
+5. Através de “Invoke-WebRequest” do PowerShell, faça um pedido ao ponto final REST do Data Lake Store para listar as pastas na pasta raiz.  Esta é uma forma simples de verificar se tudo está configurado corretamente.  É importante que a cadeia "Bearer" no cabeçalho de autorização possua um "B" maiúsculo.  Pode encontrar o nome do seu Data Lake Store na secção **Descrição Geral** do painel Data Lake Store no portal do Azure.
 
    ```powershell
    Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
    ```
 
-   Uma resposta com êxito se pareça com:
+   Uma resposta com êxito é semelhante à seguinte:
 
    ```powershell
    StatusCode        : 200
@@ -148,19 +148,19 @@ Neste tutorial, autenticar para o sistema de ficheiros do Data Lake Store pedido
    RawContentLength  : 556
    ```
 
-6. Agora pode tentar carregar um ficheiro para o Data Lake Store.  Em primeiro lugar, crie um ficheiro para carregar.
+6. Agora, pode tentar carregar um ficheiro para o Data Lake Store.  Primeiro, crie um ficheiro para carregar.
 
    ```powershell
    echo "Test file." > Test1.txt
    ```
 
-7. Através do PowerShell `Invoke-WebRequest`, efetue um pedido para ponto final REST do Data Lake Store para carregar o ficheiro para a pasta que criou anteriormente.  Este pedido demora dois passos.  No primeiro passo, efetue um pedido e obter um redirecionamento para onde o ficheiro deve ser carregado.  No segundo passo, na realidade, carregue o ficheiro.  Lembre-se definir o nome da pasta e ficheiro adequadamente se valores diferentes que que utilizou neste tutorial. 
+7. Através de `Invoke-WebRequest` do PowerShell, faça um pedido ao ponto final REST do Data Lake Store para carregar o ficheiro para a pasta que criou anteriormente.  Este pedido é feito em dois passos.  No primeiro passo, faz o pedido e obtém um redirecionamento para onde o ficheiro deve ser carregado.  No segundo, carrega o ficheiro.  Não se esqueça de definir o nome da pasta e do ficheiro adequadamente, se tiver utilizado valores diferentes aos deste tutorial. 
 
    ```powershell
    $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
-   Se a inspecionar o valor de `$HdfsRedirectResponse` deve ter o seguinte aspeto a seguinte resposta:
+   Se inspecionar o valor de `$HdfsRedirectResponse`, deve ser semelhante à seguinte resposta:
 
    ```powershell
    PS C:\> $HdfsRedirectResponse
@@ -180,13 +180,13 @@ Neste tutorial, autenticar para o sistema de ficheiros do Data Lake Store pedido
    RawContentLength  : 0
    ```
 
-   Conclua o carregamento por enviar um pedido para o ponto final de redirecionamento:
+   Conclua o carregamento, enviando um pedido para o ponto final de redirecionamento:
 
    ```powershell
    Invoke-WebRequest -Uri $HdfsRedirectResponse.Headers.Location -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
    ```
 
-   Um resposta com êxito aspeto:
+   Uma resposta com êxito é semelhante à seguinte:
 
    ```powershell
    StatusCode        : 201
@@ -205,13 +205,13 @@ Neste tutorial, autenticar para o sistema de ficheiros do Data Lake Store pedido
    RawContentLength  : 0
    ```
 
-Utilizar outro sistema de ficheiros do Data Lake Store APIs pode acrescentar a ficheiros, transferir os ficheiros e muito mais.
+Ao utilizar outras APIs do sistema de ficheiros do Data Lake Store pode anexar a ficheiros, transferir ficheiros, etc.
 
-Parabéns!  Tiver de autenticar para o sistema de ficheiros do Data Lake Store utilizando um MSI da VM.
+Parabéns!  Autenticou para o sistema de ficheiros do Data Lake Store com uma MSI de VM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a utilizar uma identidade de serviço gerida para uma máquina virtual do Windows para aceder a um Azure Data Lake Store. Para saber mais sobre o Azure Data Lake Store, consulte:
+Neste tutorial, aprendeu a utilizar uma Identidade de Serviço Gerida para uma máquina virtual do Windows aceder ao Azure Data Lake Store. Para saber mais sobre o Azure Data Lake Store, veja:
 
 > [!div class="nextstepaction"]
 >[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

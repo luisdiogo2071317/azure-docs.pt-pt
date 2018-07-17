@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 3ef910cc588b095b0c10f5e0928d7fadf17113f6
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989814"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091777"
 ---
 # <a name="azure-stack-1805-update"></a>Atualização de 1805 de pilha do Azure
 
@@ -78,7 +78,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização   
 - Durante a instalação da atualização 1805, poderá ver alertas com o título *erro – o modelo para typu FaultType UserAccounts.New está em falta.*  Pode ignorar com segurança estes alertas. Estes alertas fechará automaticamente depois de concluída a atualização para 1805.   
 
-- <!-- 2489559 - IS --> Não tente criar máquinas virtuais durante a instalação desta atualização. Para obter mais informações sobre a gestão de atualizações, seSe [gerir atualizações na descrição geral do Azure Stack](azure-stack-updates.md#plan-for-updates).
+- <!-- 2489559 - IS --> Não tente criar máquinas virtuais durante a instalação desta atualização. Para obter mais informações sobre a gestão de atualizações, consulte [gerir atualizações na descrição geral do Azure Stack](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="post-update-steps"></a>Passos de pós-atualização

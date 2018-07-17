@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651594"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869593"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
@@ -49,9 +49,9 @@ Pode verificar qual a versão atual do Node.js no seu computador de desenvolvime
 node --version
 ```
 
-Transfira o projeto Node.js de simulador de dispositivos de exemplo em https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip e extraia o arquivo ZIP.
+Transfira o projeto Node.js de simulador de dispositivos de exemplo em https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
 
-## <a name="create-an-iot-hub"></a>Criar um hub do IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Se tiver criado um hub do IoT gratuito ou padrão no tutorial ou guia de início rápido anterior, pode ignorar este passo.
 
@@ -123,6 +123,9 @@ Desta vez, verá um erro de autenticação quando a aplicação tenta estabelece
 Se o seu dispositivo utilizar um dos SDKs de dispositivo do Hub IoT, o código da biblioteca do SDK irá gerar o token SAS utilizado para autenticar com o hub. É gerado um token SAS a partir do nome do hub, do nome do dispositivo e da chave do dispositivo.
 
 Em alguns cenários, tal como num gateway de protocolo de cloud ou como parte de um esquema de autenticação personalizado, poderá ter de gerar o token SAS manualmente. Para resolver problemas com o código de geração SAS, é útil conseguir gerar um token SAS conhecido para utilizar durante o teste.
+
+> [!NOTE]
+> A amostra SimulatedDevice-2.js inclui exemplos de geração de um token SAS com e sem o SDK.
 
 Para gerar um token SAS válido conhecido com a CLI, execute o seguinte comando:
 
@@ -256,7 +259,7 @@ Além de receber as alterações de propriedades pretendidas à medida que são 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar do hub do IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
+Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

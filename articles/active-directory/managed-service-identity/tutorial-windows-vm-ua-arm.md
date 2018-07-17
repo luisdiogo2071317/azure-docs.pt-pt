@@ -1,6 +1,6 @@
 ---
-title: Utilize um utilizador de VM do Windows atribuído MSI para aceder ao Gestor de recursos do Azure
-description: Um tutorial que explica o processo de utilização de um utilizador atribuído geridos serviço de identidade (MSI) na VM do Windows, para aceder ao Gestor de recursos do Azure.
+title: Utilizar uma MSI atribuída pelo utilizador de VM do Windows para aceder ao Azure Resource Manager
+description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida (MSI) Atribuída pelo Utilizador numa VM do Windows, para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -9,45 +9,45 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
-ms.openlocfilehash: 57455c5abf8c566f3935ece73d0b7470863936f8
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699154"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904378"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilize um utilizador atribuído geridos serviço de identidade (MSI) na VM do Windows, para aceder ao Gestor de recursos do Azure
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida (MSI) Atribuída pelo Utilizador numa VM do Windows, para aceder ao Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Este tutorial explica como criar um utilizador atribuído a identidade, atribua-o para uma Máquina Virtual (VM do Windows) e, em seguida, utilizar essa identidade para aceder à API do Gestor de recursos do Azure. Identidades de serviço geridas são automaticamente geridas pelo Azure. Ativar a autenticação nos serviços que suportam a autenticação do Azure AD, sem ser necessário incorporar as credenciais para o seu código. 
+Este tutorial explica como criar uma identidade atribuída pelo utilizador, atribuí-la a uma Máquina Virtual (VM) do Windows e, em seguida, utilizar essa identidade para aceder à API do Azure Resource Manager. As Identidades de Serviço Geridas são geridas automaticamente pelo Azure. Permitem a autenticação em serviços que suportam a autenticação do Azure AD, sem ter de incorporar as credenciais no código. 
 
 Saiba como:
 
 > [!div class="checklist"]
 > * Criar uma VM do Windows 
-> * Criar um utilizador atribuído identidade
-> * Atribua o utilizador atribuído a identidade para a VM do Windows
-> * Conceder o acesso de identidade do utilizador atribuído a um grupo de recursos no Gestor de recursos do Azure 
-> * Obter um token de acesso utilizando a identidade de atribuída ao utilizador e utilizá-la para chamar o Azure Resource Manager 
-> * Ler as propriedades de um grupo de recursos
+> * Criar uma identidade atribuída pelo utilizador
+> * Atribuir a identidade atribuída pelo utilizador à sua VM do Windows
+> * Conceder o acesso de identidade atribuída pelo utilizador a um Grupo de Recursos no Azure Resource Manager 
+> * Obter um token de acesso com a identidade atribuída pelo utilizador e utilizá-lo para chamar o Azure Resource Manager 
+> * Ler as propriedades de um Grupo de Recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se o tem familiarizado com a identidade de serviço geridas, consulte o [descrição geral](overview.md) secção. **Certifique-se rever o [diferenças entre o sistema e de utilizador atribuída identidades](overview.md#how-does-it-work)**.
-- Se ainda não tiver uma conta do Azure, [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para efetuar a criação de recursos necessários e passos de gestão da função neste tutorial, a sua conta tem permissões de "Proprietário" no âmbito adequado (sua subscrição ou grupo de recursos). Se necessitar de assistência com a atribuição de função, consulte o artigo [Use Role-Based o controlo de acesso para gerir o acesso aos recursos da sua subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
+- Se está a familiarizado com a Identidade de Serviço Gerida, consulte a secção [Descrição Geral](overview.md). **Certifique-se de que revê as [diferenças entre as identidades atribuídas pelo sistema e pelo utilizador](overview.md#how-does-it-work)**.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, veja [Utilizar o Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos de subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 5.7 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.7 ou posterior do módulo Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-No exemplo seguinte, um grupo de recursos com o nome *myResourceGroupVM* é criado no *EastUS* região.
+No exemplo seguinte, é criado um grupo de recursos designado *myResourceGroupVM* na região *EastUS*.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
@@ -76,9 +76,9 @@ New-AzureRmVm `
     -Credential $cred
 ```
 
-## <a name="create-a-user-assigned-identity"></a>Criar um utilizador atribuído identidade
+## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo utilizador
 
-Um utilizador atribuído identidade é criado como uma autónoma recursos do Azure. Utilizar o [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), o Azure cria uma identidade no seu inquilino do Azure AD que pode ser atribuído a uma ou mais instâncias de serviço do Azure.
+A identidades atribuídas pelo utilizador são criadas como um recurso do Azure autónomo. Através de [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity), o Azure cria uma identidade no seu inquilino do Azure AD que pode ser atribuído a uma ou mais instâncias do serviço do Azure.
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -86,7 +86,7 @@ Um utilizador atribuído identidade é criado como uma autónoma recursos do Azu
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-A resposta contém detalhes para a identidade criada, semelhante ao seguinte exemplo de atribuída ao utilizador. Tenha em atenção o `Id` valor para a sua identidade de utilizador atribuída, tal como será utilizado no próximo passo:
+A resposta contém detalhes para a identidade atribuída pelo utilizador criada, semelhante ao seguinte exemplo. Anote o valor `Id` da identidade atribuída pelo utilizador, uma vez que vai ser utilizada no próximo passo:
 
 ```azurepowershell
 {
@@ -102,27 +102,27 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## <a name="assign-the-user-assigned-identity-to-a-windows-vm"></a>Atribua o utilizador atribuído a identidade para uma VM do Windows
+## <a name="assign-the-user-assigned-identity-to-a-windows-vm"></a>Atribuir a identidade atribuída pelo utilizador a uma VM do Windows
 
-Um utilizador atribuído identidade pode ser utilizado por clientes em vários recursos do Azure. Utilize os seguintes comandos para atribuir a identidade do utilizador atribuído a uma única VM. Utilize o `Id` propriedade devolvida no passo anterior para o `-IdentityID` parâmetro.
+Uma identidade atribuída pelo utilizador pode ser utilizada pelos clientes em vários recursos do Azure. Utilize os seguintes comandos para atribuir a identidade atribuída pelo utilizador a uma única VM. Utilize a propriedade `Id` devolvida no passo anterior para o parâmetro `-IdentityID`.
 
 ```azurepowershell-interactive
 $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder que ao utilizador atribuído acesso do MSI num grupo de recursos no Gestor de recursos do Azure 
+## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso da MSI atribuída pelo utilizador a um Grupo de Recursos no Azure Resource Manager 
 
-Identidade de serviço geridas (MSI) fornece identidades, que pode utilizar o código para pedir tokens de acesso para autenticar para o recurso APIs que a autenticação de suporte do Azure AD. Neste tutorial, o código irá aceder a API do Azure Resource Manager. 
+A Identidade de Serviço Gerida (MSI) fornece identidades que podem ser utilizadas pelo seu código para pedir os tokens de acesso para autenticar para APIs de recurso que suportam a autenticação do Azure AD. Neste tutorial, o seu código irá aceder à API do Azure Resource Manager. 
 
-Antes do seu código pode aceder à API do, tem de conceder o acesso de identidade para um recurso no Gestor de recursos do Azure. Neste caso, o grupo de recursos no qual a VM está contida. Atualize o valor para `<SUBSCRIPTION ID>` conforme adequado para o seu ambiente.
+Antes de o seu código pode aceder à API, tem de conceder o acesso de identidade a um recurso no Azure Resource Manager. Neste caso, o Grupo de Recursos no qual a VM está contida. Atualize o valor de `<SUBSCRIPTION ID>`, conforme adequado para o seu ambiente.
 
 ```azurepowershell-interactive
 $spID = (Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1).principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/"
 ```
 
-A resposta contém detalhes para a atribuição de função criada, semelhante ao seguinte exemplo:
+A resposta contém detalhes da atribuição de função criada, semelhante ao seguinte exemplo:
 
 ```azurepowershell
 RoleAssignmentId: /subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/myResourceGroupVM/providers/Microsoft.Authorization/roleAssignments/f9cc753d-265e-4434-ae19-0c3e2ead62ac
@@ -136,19 +136,19 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Obter um token de acesso através da identidade da VM e utilizá-la para chamar o Gestor de recursos 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-resource-manager"></a>Obter um token de acesso com a identidade da VM e utilizá-lo para chamar o Resource Manager 
 
-Para o resto do tutorial, irá trabalhar da VM que criou anteriormente.
+No resto do tutorial, vai trabalhar a partir da VM que criámos anteriormente.
 
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
-2. No portal, navegue para **máquinas virtuais** e vá para a máquina virtual do Windows e no **descrição geral**, clique em **Connect**.
+2. No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**.
 
-3. Introduza o **Username** e **palavra-passe** que utilizou quando criou a VM do Windows.
+3. Introduza o **Nome de Utilizador** e a **Palavra-passe** que utilizou quando criou a VM do Windows.
 
-4. Agora que já criou um **ligação ao ambiente de trabalho remoto** com a máquina virtual, abra **PowerShell** na sessão remota.
+4. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota.
 
-5. Através do PowerShell `Invoke-WebRequest`, efetue um pedido para o ponto final local de MSI para obter acesso token para o Azure Resource Manager.
+5. Através de `Invoke-WebRequest` do PowerShell, faça um pedido ao ponto final de MSI local para obter um token de acesso para o Azure Resource Manager.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}
@@ -156,22 +156,22 @@ Para o resto do tutorial, irá trabalhar da VM que criou anteriormente.
     $ArmToken = $content.access_token
     ```
 
-## <a name="read-the-properties-of-a-resource-group"></a>Ler as propriedades de um grupo de recursos
+## <a name="read-the-properties-of-a-resource-group"></a>Ler as propriedades de um Grupo de Recursos
 
-Utilize o token de acesso obtido no passo anterior para aceder ao Azure Resource Manager e ler as propriedades do recurso do grupo concedidos o acesso de identidade do utilizador atribuído. Substitua <SUBSCRIPTION ID> com o id de subscrição do seu ambiente.
+Utilize o token de acesso obtido no passo anterior para aceder ao Azure Resource Manager e ler as propriedades do Grupo de Recursos ao qual concedeu o acesso de identidade atribuída pelo utilizador. Substitua <SUBSCRIPTION ID> pelo ID da subscrição do seu ambiente.
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content
 ```
-A resposta contém as informações de grupo de recursos específicas, tal como no exemplo seguinte:
+A resposta contém as informações específicas do Grupo de Recursos, semelhantes ao seguinte exemplo:
 
 ```json
 {"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/TestRG","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar um utilizador atribuído a identidade e anexe-o a uma máquina de Virtual do Azure para aceder à API do Gestor de recursos do Azure.  Para obter mais informações sobre o Azure Resource Manager, consulte:
+Neste tutorial, aprendeu a criar uma identidade atribuída pelo utilizador e a anexá-la a uma Máquina Virtual do Azure para aceder à API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, veja:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

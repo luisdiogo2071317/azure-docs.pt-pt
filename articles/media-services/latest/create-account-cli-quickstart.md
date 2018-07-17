@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Criar uma conta dos Serviços de Multimédia do Azure com a CLI 2.0 | Microsoft Docs
+title: Início Rápido – Criar uma conta dos Serviços de Multimédia do Azure com a CLI do Azure| Microsoft Docs
 description: Siga os passos deste início rápido para criar uma conta dos Serviços de Multimédia do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779723"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767107"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Início Rápido: Criar uma conta dos Serviços de Multimédia do Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "33779723"
 
 Quer seja um programador ou um criador de conteúdo multimédia, para armazenar, encriptar, codificar, gerir e transmitir conteúdo multimédia no Azure, terá de criar uma conta dos Serviços de Multimédia. Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o ID de um recurso da conta de Armazenamento do Microsoft Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. Este recurso da conta de armazenamento tem de estar localizado na mesma região geográfica que a conta dos Serviços de Multimédia.  
 
-Este início rápido descreve os passos para criar uma nova conta doa Serviços de Multimédia do Azure através da CLI 2.0.  
+Este início rápido descreve os passos para criar uma nova conta dos Serviços de Multimédia do Azure através da CLI do Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Inicie sessão no [portal do Azure](http://portal.azure.com) e inicie o **CloudS
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Definir a subscrição do Azure
 

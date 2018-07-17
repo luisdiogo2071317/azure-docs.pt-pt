@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935577"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973003"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -58,10 +58,14 @@ A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilida
 Para aceder a métricas:
 
 1. Selecione **Métricas** no menu junto à parte inferior da página.
-2. Na lista pendente, selecione as métricas que lhe interessam (pode adicionar múltiplas métricas). 
 
+    ![métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Na lista pendente, selecione as métricas que lhe interessam (pode adicionar múltiplas métricas).  
     Por exemplo, selecione **Total de Pedidos do Gateway** e **Pedidos do Gateway Falhados** na lista de métricas disponíveis.
-3. O gráfico mostra o número total de chamadas à API. Mostra também o número de chamadas à API que falharam. 
+3. O gráfico mostra o número total de chamadas à API. Mostra também o número de chamadas à API que falharam.
+
+    ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para um pedido não autorizado
 
@@ -73,7 +77,10 @@ Pode configurar a receção de alertas com base em métricas e registos de ativi
 
 Para configurar alertas:
 
-1. Selecione **Regras de alerta** na barra de menus junto à parte inferior da página.
+1. Selecione **Alertas (clássico)** na barra de menus junto à parte inferior da página.
+
+    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Selecione **Adicionar alerta de métrica**.
 3. Introduza um **Nome** para este alerta.
 4. Selecione **Pedidos do Gateway Não Autorizados** como métrica a monitorizar.
@@ -100,6 +107,12 @@ Para ver registos de atividades:
 1. Selecione a instância de serviço APIM.
 2. Clique em **Registo de atividades**.
 
+    ![registo de atividades](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Selecione o âmbito de filtragem pretendido e clique em **Aplicar**.
+
+    ![registos de atividades](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Registos de Diagnóstico
 
 Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso.
@@ -107,7 +120,10 @@ Os registos de diagnóstico fornecem informações avançadas sobre operações 
 Para configurar os registos de diagnóstico:
 
 1. Selecione a instância de serviço APIM.
-2. Clique em **Registo de diagnóstico**.
+2. Clique em **Registos de diagnóstico**.
+
+    ![registos de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Clique em **Ativar diagnósticos**. Pode arquivar registos de diagnósticos juntamente com as métricas numa conta de armazenamento, transmiti-los em fluxo para um hub do Hub de Eventos ou enviá-los para o Log Analytics. 
 
 Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches criados de hora a hora) sobre pedidos à API individuais tendo cada entrada o esquema seguinte:

@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71d4bc0aa1ea2658c4cd40834a769eaaac649bc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228378"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970790"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -33,10 +33,6 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **VMware**: as VMs que planeia migrar têm de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de um anfitrião ESXi com a versão 5.0 ou superior para implementar a VM do recoletor.
-
-> [!NOTE]
-> O suporte para o Hyper-V está nas previsões e será ativado brevemente.
-
 - **Conta do vCenter Server**: precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
 - **Permissões**: no vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato .OVA.
 - **Definições de estatísticas**: as definições de estatísticas para o vCenter Server devem ser configuradas para o nível 3 antes de iniciar a implementação. Se estiverem num nível inferior a 3, a avaliação irá funcionar, mas não são recolhidos dados de desempenho para armazenamento e rede. As recomendações de tamanho neste caso serão efetuadas com base nos dados de desempenho para a CPU e a memória, e nos dados de configuração para o disco e os adaptadores de rede.
@@ -49,6 +45,7 @@ O Azure Migrate necessita de acesso aos servidores VMware para detetar automatic
 - Permissões: Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura
 - Detalhes: utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
 - Para restringir o acesso, atribua a função Sem acesso com Propagar ao objeto subordinado aos objetos subordinados (anfitriões vSphere, arquivos de dados, VMs e redes).
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -85,6 +82,14 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas definições.
+
+  Para a versão OVA 1.0.9.12
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   Para a versão OVA 1.0.9.8
 
@@ -143,7 +148,7 @@ Importe o ficheiro transferido para o vCenter Server.
 5. No Recoletor do Azure Migrate, abra **Configurar pré-requisitos**.
     - Aceite os termos de licenciamento e leia as informações de terceiros.
     - O recoletor verifica se a VM tem acesso à Internet.
-    - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) acerca dos requisitos de conectividade à Internet e da lista dos URLs a que o recoletor acede.
+    - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) acerca dos requisitos de conectividade à Internet e da lista dos URLs a que o recoletor acede.
 
     > [!NOTE]
     > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP.
@@ -157,10 +162,12 @@ Importe o ficheiro transferido para o vCenter Server.
     - Em **Âmbito da coleção**, selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) acerca da deteção de um ambiente maior.
 
 7. Em **Especificar projeto de migração**, especifique o ID e a chave de projeto do Azure Migrate que copiou do portal. Se não os tiver copiado, abra o portal do Azure a partir da VM do recoletor. Na página **Descrição geral** do projeto, clique em **Detetar Máquinas** e copie os valores.  
-8. Em **Ver progresso da coleção**, monitorize a deteção e verifique se os metadados recolhidos das VMs estão dentro do âmbito. O recoletor fornece um período de deteção aproximado. [Saiba mais](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
+8. Em **Ver progresso da coleção**, monitorize a deteção e verifique se os metadados recolhidos das VMs estão dentro do âmbito. O recoletor fornece um período de deteção aproximado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
 
 > [!NOTE]
-> O recoletor só suporta "Inglês (Estados Unidos)" como idioma do sistema operativo e da interface do recoletor. O suporte de mais idiomas estará disponível brevemente.
+> O recoletor só suporta "Inglês (Estados Unidos)" como idioma do sistema operativo e da interface do recoletor.
+> Se alterar as definições num computador que pretende avaliar, acione a deteção novamente antes de executar a avaliação. No recoletor, selecione a opção **Iniciar novamente a coleção** para fazê-lo. Depois de terminar a coleção, selecione a opção **Recalcular** para a avaliação no portal, para obter os resultados da avaliação atualizada.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
