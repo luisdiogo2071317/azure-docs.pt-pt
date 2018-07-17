@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723192"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Tutorial: Utilizar o Azure Machine Learning Workbench para preparação de dados avançada dados de partilha de bicicletas)
 O Azure Machine Learning (pré-visualização) é uma solução completa e integrada de análise avançada e de ciência de dados para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -42,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * Embora não seja necessário, é útil ter o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) instalado, para que possa carregar, transferir e ver os blobs na sua conta de armazenamento.
 
 ## <a name="data-acquisition"></a>Aquisição de dados
-Este tutorial utiliza o [conjunto de dados da Boston Hubway](https://s3.amazonaws.com/hubway-data/index.html) e os dados meteorológicos de Boston da [NOAA](http://www.noaa.gov/) (National Oceanic and Atmospheric Administration dos E.U.A.).
+Este tutorial utiliza o [conjunto de dados da Boston Hubway](https://s3.amazonaws.com/hubway-data/index.html) e os dados meteorológicos de Boston da [NOAA](http://www.noaa.gov/) (National Oceanic and Atmospheric Administration dos E.U.A).
 
 1. Transfira os ficheiros de dados a partir das ligações abaixo para o seu ambiente de desenvolvimento local:
 
@@ -253,7 +255,7 @@ Já não precisa da coluna __REPORTTYPE__. Clique com o botão direito do rato n
    ![Opção Remover Coluna](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Alterar os tipos de dados e remover erros
-1. Selecione Ctrl (Command ⌘ em Mac) enquanto seleciona os cabeçalhos das colunas para selecionar várias colunas ao mesmo tempo. Utilize esta técnica para selecionar os cabeçalhos seguintes:
+1. Selecione Ctrl (Comando ⌘ no Mac), enquanto seleciona os cabeçalhos de coluna para selecionar várias colunas ao mesmo tempo. Utilize esta técnica para selecionar os cabeçalhos seguintes:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -452,7 +454,7 @@ Para a preparação de dados, estão disponíveis visualizações úteis, denomi
 1. Selecione ao mesmo tempo as colunas **start station latitude** e **start station longitude**. Clique com o botão direito do rato numa das colunas e selecione **Mapa**.
 
     > [!TIP]
-    > Para permitir a seleção ao mesmo tempo, mantenha premida a tecla Ctrl (comando ⌘ em Mac) e selecione o cabeçalho de cada coluna.
+    > Para ativar a seleção múltipla, mantenha premida a tecla Ctrl (Comando ⌘ no Mac) e selecione o cabeçalho de cada coluna.
 
     ![Visualização do mapa](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -635,7 +637,7 @@ Para associar os dados meteorológicos aos dados de viagens, utilize os seguinte
 
     ![Coluna de período](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Para remover as colunas **Date Hour Range** e **r_Date Hour Range**, selecione Ctrl (comando ⌘ em Mac) e selecione cada cabeçalho de coluna. Clique com o botão direito do rato e selecione **Remover Coluna**.
+3. Para remover as colunas **Date Hour Range** e **r_Date Hour Range**, selecione Ctrl (Comando ⌘ no Mac) e, em seguida, selecione cada cabeçalho da coluna. Clique com o botão direito do rato e selecione **Remover Coluna**.
 
 ## <a name="read-data-from-python"></a>Ler dados a partir do Python
 
