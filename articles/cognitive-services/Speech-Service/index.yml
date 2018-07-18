@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 21f67f7fcce505e18792a3be830524d64dd8045e
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
+  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37045308"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39070115"
 abstract:
   description: O Serviço de Voz da Microsoft fornece aos programadores uma forma fácil de adicionar poderosas funcionalidades de voz às respetivas aplicações, incluindo controlo de comando de voz, transcrição, ditado e tradução com a <a href="rest-apis">API REST</a> ou um <a href="speech-sdk">SDK C#, C++ ou Java</a>.<p>O Serviço de Voz permite-lhe personalizar modelos de <a href="how-to-customize-speech-models">Conversão de Voz em Texto</a> para acomodar vocabulário especializado, ambientes ruidosos e diferentes formas de falar. A <a href="https://cris.ai/Home/customvoice">Conversão de Texto em Voz</a> e a <a href="https://www.microsoft.com/translator/customization.aspx">Tradução de Voz</a> também estão disponíveis.<p>Para obter mais detalhes, veja <a href="overview">O que é o serviço de Voz?</a>
 sections:
@@ -32,27 +32,63 @@ sections:
     style: dataMatrix
     columns:
     - image:
+        src: media/index/uwp.jpg
+    - image:
         src: media/index/logo_csharp.svg
     - image:
         src: media/index/logo_cplusplus.svg
     - image:
-        src: media/index/logo_java.jpg
+        src: media/index/logo_netcore.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
     rows:
     - title: Windows
       values:
+      - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
     - title: Linux
       values:
       - href: 
+      - href: 
       - href: quickstart-cpp-linux
       - href: 
-    - title: SDK de Dispositivos (Android)
+      - href: 
+    - title: SDK Android
       values:
       - href: 
       - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+      - href: 
+      - href: 
+      - href: quickstart-java-android
+      - href: 
+      - href: 
+    - title: SDK de Dispositivos
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: speech-devices-sdk
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: rest-apis
+      - href: rest-apis
 - title: Exemplos e Referência
   items:
   - type: list
@@ -62,10 +98,8 @@ sections:
     - title: Exemplos
       html: <ul><li><a href="speech-to-text-sample.md">Reconhecimento de Voz</a></li><li><a href="intent.md">Reconhecimento de Intenção</a></li><li><a href="translation.md">Tradução</a></li></ul>
     - title: Referência da API
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C#</a></li><li><a href="https://aka.ms/csspeech/cppref">API do C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java (SDK de Dispositivos de Voz)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C# (incluindo UWP e .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">API do C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java</a> para o SDK de Voz<br>e SDK de Dispositivos de Voz</li></ul>
 - title: SDK de Dispositivos de Voz
   items:
   - type: paragraph
-    text: Com a introdução do Serviço de Voz unificado, a Microsoft e os seus parceiros oferecem agora uma plataforma de hardware/software integrada otimizada para desenvolver dispositivos com funcionalidade de voz&#58; o <b>SDK de Dispositivos de Voz</b>. Este SDK é adequado para o desenvolvimento de dispositivos de voz inteligentes para todos os tipos de aplicações.
-  - type: paragraph
-    text: O <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">SDK de Dispositivos de Voz</a> permite-lhe criar os seus próprios dispositivos de ambiente com uma palavra personalizada para iniciar a interação exclusiva para a sua marca que aciona a captura de áudio. Também fornece processamento de áudio superior de origens de vários canais para um reconhecimento de voz mais exato, incluindo supressão de ruído, voz de campo distante e beamforming.
+    text: Com a introdução do Serviço de Voz unificado, a Microsoft e os seus parceiros oferecem agora uma plataforma de hardware/software integrada otimizada para desenvolver dispositivos com funcionalidade de voz&#58; o <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>SDK de Dispositivos de Voz</a>. Adequado para o desenvolvimento de dispositivos de ambiente para todos os tipos de aplicações, este SDK permite-lhe definir uma <I>palavra de reativação</I> personalizada exclusiva para a sua marca. O hardware fornece processamento de áudio superior de origens de vários canais para um reconhecimento de voz mais exato, incluindo supressão de ruído, voz de campo distante e beamforming.

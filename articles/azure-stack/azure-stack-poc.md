@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure Stack? | Microsoft Docs
-description: Pilha do Azure permite-lhe executar serviços do Azure no seu centro de dados.
+description: O Azure Stack permite-lhe executar serviços do Azure no seu centro de dados.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -25,27 +25,27 @@ ms.locfileid: "35234891"
 ---
 # <a name="what-is-azure-stack"></a>O que é o Azure Stack?
 
-Pilha do Microsoft Azure é uma plataforma de nuvem híbrida que lhe permite fornecer serviços do Azure no seu centro de dados. Esta plataforma foi concebida para suportar necessidades comerciais em desenvolvimento. Pilha do Azure pode ativar cenários de novo para as suas aplicações modernas, tais como o limite e ambientes desligados, ou cumpre os requisitos específicos de segurança e conformidade.
+O Microsoft Azure Stack é uma plataforma de cloud híbrida que lhe permite fornecer serviços do Azure no seu datacenter. Esta plataforma foi concebida para suportar as suas crescentes necessidades comerciais. O Azure Stack pode ativar cenários de novo para as suas aplicações modernas, tais como o limite e ambientes desligados, ou cumpre os requisitos específicos de segurança e conformidade.
 
-Pilha do Azure é oferecida na duas opções de implementação para satisfazer as necessidades.
+O Azure Stack é oferecida na duas opções de implementação para satisfazer as necessidades.
 
 ## <a name="azure-stack-integrated-systems"></a>Sistemas integrados do Azure Stack
-Pilha do Azure integrados sistemas são fornecidos através de uma parceria da Microsoft e [parceiros de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), criar uma solução que oferece inovação paced de nuvem e computação simplicidade de gestão. Porque a pilha do Azure é fornecida como um integrada de hardware e sistema de software, tem a flexibilidade e o controlo que tiver, juntamente com a capacidade inovar da nuvem. Sistemas de pilha integrada do Azure no intervalo de tamanho de nós de 4-12 e jointly são suportados pela Microsoft e parceiros de hardware.  Utilize sistemas de pilha do Azure integrado para criar novos cenários e implementar novas soluções para as cargas de trabalho de produção.
+Os sistemas integrados do Azure Stack são fornecidos através de uma parceria da Microsoft e [parceiros de hardware](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), ao criar uma solução que oferece inovação ao ritmo da cloud e simplicidade na gestão de computação. Por o Azure Stack ser oferecido como um sistema de hardware e software integrados, tem a flexibilidade e controlo de que precisa, juntamente com a capacidade de inovar na cloud. Os sistemas integrados do Azure Stack variam em tamanho de 4-12 nós e são suportados em conjunto pelo parceiro de hardware e pela Microsoft.  Utilize os sistemas do Azure Stack integrados para criar novos cenários e implementar novas soluções para as cargas de trabalho de produção.
 
 ## <a name="azure-stack-development-kit"></a>Development Kit do Azure Stack
 
-Microsoft [Kit de desenvolvimento de pilha do Azure (ASDK)](.\asdk\asdk-what-is.md) é uma implementação de nó único da pilha do Azure, que pode utilizar para avaliar e obter informações sobre a pilha do Azure.  Também pode utilizar ASDK como um ambiente de programação para criar aplicações com as APIs e as ferramentas que seja consistente com o Azure.
+O [Development Kit do Azure Stack (ASDK)](.\asdk\asdk-what-is.md) da Microsoft é uma implementação de nó único do Azure Stack, que pode utilizar para avaliar e saber mais sobre o Azure Stack.  Também pode utilizar o ASDK como um ambiente de programação para criar aplicações com as APIs e as ferramentas que sejam consistentes com o Azure.
 
 >[!Note]
 >O ASDK não se destina a ser utilizado como um ambiente de produção.
 
 O ASDK tem as seguintes limitações:
 
-* ASDK está associado um único do Azure Active Directory (Azure AD) ou o fornecedor de identidade de serviços de Federação do Active Directory (AD FS). Pode criar vários utilizadores neste diretório e atribuir as subscrições para cada utilizador.
-* Porque os componentes de pilha do Azure são implementados num computador anfitrião, estão limitados recursos físicos disponíveis para recursos de inquilino. Esta configuração não se destina à avaliação de escala ou desempenho.
-* Cenários de redes estão limitados devido aos requisitos de implementação de NIC e de anfitrião único.
+* O ASDK está associado um único fornecedor de identidade do Azure Active Directory (Azure AD) ou dos Serviços de Federação do Active Directory (AD FS). Pode criar vários utilizadores neste diretório e atribuir as subscrições a cada utilizador.
+* Por os componentes do Azure Stack estarem implementados num computador anfitrião, há recursos físicos limitados disponíveis para os recursos de inquilinos. Esta configuração não se destina à avaliação de dimensionamento ou de desempenho.
+* Os cenários de rede estão limitados devido aos requisitos de implementação NIC e de único anfitrião.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Funcionalidades e conceitos principais](azure-stack-key-features.md)
-- [Pilha do Azure: Uma extensão do Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+- [Azure Stack: Uma extensão do Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
