@@ -44,8 +44,8 @@
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
 ## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
 ## Node.js
-### [Gestão do cofre](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
-### [Gestão dos conteúdos do cofre](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
+### [Gestão do cofre](https://docs.microsoft.com/javascript/api/azure-keyvault/index?view=azure-node-latest)
+### [Gestão dos conteúdos do cofre](https://docs.microsoft.com/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## Programar
 ### [Vídeo de guia de introdução para programadores](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
