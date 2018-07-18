@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: b62c528716d9386b9da6ddee260fd1ec382fb4a5
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 3e5de521570a587b049702dabd3e3692c4227796
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036790"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114798"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
 
@@ -40,7 +40,7 @@ O seguinte é necessário para concluir o tutorial.
 
 ## <a name="download-code"></a>Baixe o código
 
-Clonar um repositório do GitHub que contém o exemplo de .NET completo debatidos neste tópico para o seu computador com o seguinte comando:
+Clonar um repositório do GitHub que contém o exemplo de .NET completo discutidos neste artigo para o seu computador com o seguinte comando:
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -53,13 +53,13 @@ O exemplo de "encriptar com AES-128" está localizado no [EncryptWithAES](https:
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
 
-Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com base nas credenciais fornecidas no ficheiro de configuração local. 
+Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, o **GetCredentialsAsync** função cria o objeto de ServiceClientCredentials com base nas credenciais fornecidas no ficheiro de configuração local. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateMediaServicesClient)]
 
 ## <a name="create-an-output-asset"></a>Criar um elemento de saída  
 
-A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação. Após a conclusão da codificação, o elemento de saída é publicado utilizando a encriptação de AES (ClearKey).  
+A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
  
@@ -87,27 +87,22 @@ Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkey-policy"></a>Criar uma política de ContentKey
+## <a name="create-a-contentkeypolicy"></a>Criar um ContentKeyPolicy
 
-Uma chave de conteúdo fornece acesso seguro a seus ativos. Terá de criar uma política de chave de conteúdo que configura a forma como a chave de conteúdo é entregue para clientes finais. A chave de conteúdo está associada a StreamingLocator. Serviços de multimédia também fornecem o serviço de entrega de chave que fornece as chaves de encriptação para os utilizadores autorizados. 
+Uma chave de conteúdo fornece acesso seguro a seus ativos. Tem de criar uma **ContentKeyPolicy** que configura a forma como a chave de conteúdo é entregue para clientes finais. A chave de conteúdo está associada **StreamingLocator**. Serviços de multimédia também fornecem o serviço de entrega de chave que fornece as chaves de encriptação para os utilizadores autorizados. 
 
 Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo (neste caso, ao utilizar a encriptação AES.) Para descriptografar o fluxo, o jogador solicita a chave do serviço de entrega de chave. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que especificou para a chave.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="get-a-token"></a>Obter um token
-        
-Neste tutorial, podemos especificar para a política de chave de conteúdo para ter uma restrição de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Serviços de multimédia suportam tokens no [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) formatos (JWT) e esse é o que podemos configurar o exemplo.
-
-O ContentKeyIdentifierClaim é utilizada na ContentKeyPolicy, o que significa que o token apresentado para o serviço de entrega de chave tem de ter o identificador do ContentKey nela. No exemplo, nós não especificamos uma chave de conteúdo ao criar o StreamingLocator, o sistema cria uma aleatória para nós. Para gerar o teste de token, podemos tem de obter o ContentKeyId colocar na afirmação ContentKeyIdentifierClaim.
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
-
 ## <a name="create-a-streaminglocator"></a>Criar um StreamingLocator
 
-Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode conseguir isto em dois passos: primeiro, crie um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e, segundo, crie os URLs de transmissão em fluxo que os clientes podem utilizar. 
+Depois da codificação é concluída e a política de chave de conteúdo é definida, a próxima etapa é tornar o vídeo na saída Asset disponível para os clientes para a reprodução. Para tal em duas etapas: 
 
-O processo de criação de um **StreamingLocator** denomina-se publicação. Por predefinição, o **StreamingLocator** é válido imediatamente depois de efetuar as chamadas de API e dura até serem eliminadas, a menos que configure as horas de início e de fim opcionais. 
+1. Criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. Crie os URLs de transmissão em fluxo que os clientes podem utilizar. 
+
+O processo de criação da **StreamingLocator** é chamado de publicação. Por predefinição, o **StreamingLocator** é válido imediatamente depois de efetuar as chamadas de API e dura até serem eliminadas, a menos que configure as horas de início e de fim opcionais. 
 
 Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o **StreamingPolicyName** pretendido. Neste tutorial, estamos a utilizar um dos PredefinedStreamingPolicies, que informa ao Media Services do Azure como publicar o conteúdo de transmissão em fluxo. Neste exemplo, a encriptação AES Envelope é aplicada (também denominado ClearKey encriptação como a chave é enviada para o cliente de reprodução através de HTTPS e não uma licença DRM).
 
@@ -115,6 +110,14 @@ Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streami
 > Quando utilizar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, deve conceber um conjunto limitado dessas políticas para a sua conta dos Serviços de Multimédia e utilizá-las novamente para os StreamingLocators sempre que são necessárias as mesmas opções de encriptação e os mesmos protocolos. A conta dos Serviços de Multimédia tem uma quota para o número de entradas de StreamingPolicy. Não deve criar uma nova StreamingPolicy para cada StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
+
+## <a name="get-a-test-token"></a>Obter um token de teste
+        
+Neste tutorial, podemos especificar para a política de chave de conteúdo para ter uma restrição de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Serviços de multimédia suportam tokens no [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) formatos (JWT) e esse é o que podemos configurar o exemplo.
+
+O ContentKeyIdentifierClaim é utilizada na ContentKeyPolicy, o que significa que o token apresentado para o serviço de entrega de chave tem de ter o identificador do ContentKey nela. No exemplo, nós não especificamos uma chave de conteúdo ao criar o StreamingLocator, o sistema cria uma aleatória para nós. Para gerar o teste de token, podemos tem de obter o ContentKeyId colocar na afirmação ContentKeyIdentifierClaim.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>Criar um TRAÇO URL de transmissão em fluxo
 
@@ -130,4 +133,4 @@ Em geral, deve limpar tudo exceto os objetos que está a planear reutilizar (nor
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descrição geral](content-protection-overview.md)
+Verificar como [proteger com o DRM](protect-with-drm.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: 1fa69cc09772b9f90e6de05820c823f0409d926e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070349"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115481"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -40,7 +40,7 @@ Se não pretender que a investir numa máquina virtual adicional, também pode u
 ![Pacemaker no Descrição geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Utilizar um dispositivo SBD para o seu cluster Pacemaker, é essencial para a confiabilidade global do cluster completo que o encaminhamento entre as VMs envolvidos e a VM (s) que aloja o SBD dispositivo (s) não está a passar através de quaisquer outros dispositivos, como [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, os problemas com a NVA podem ter um impacto negativo sobre a estabilidade e a confiabilidade da configuração do cluster geral. Para evitar esses obstáculos, investigar as regras de encaminhamento de NVAs e [regras de encaminhamento definido pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) ao planear e implementar dispositivos SBD.
+> Ao planejar e implantar o Linux Pacemaker em cluster os nós e dispositivos SBD, é essencial para a confiabilidade global da configuração do cluster completo que o encaminhamento entre as VMs envolvido e a VM (s) que aloja o SBD dispositivo (s) não está a passar através de todos os outros dispositivos, como [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo sobre a estabilidade e a confiabilidade da configuração do cluster geral. Para evitar esses obstáculos, não defina regras de encaminhamento de NVAs ou [regras de encaminhamento definido pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) esse encaminhar o tráfego entre nós em cluster e SBD através de NVAs e a dispositivos semelhantes ao planeamento e implementação do Linux Os nós de pacemaker em cluster e dispositivos SBD. 
 >
 
 

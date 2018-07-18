@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f0ad879bb084a8d3a50a0934557eae64621c0160
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68613b8613a2e5a9139b83eb23e66884659efc47
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054263"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutorial: Integração do Azure Active Directory com nuvem Atlassian
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre o software como uma integração de aplicaç
 Para configurar a integração do Azure AD com a nuvem da Atlassian, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD.
-- Para ativar a Security Assertion Markup Language (SAML) início de sessão único para produtos da Atlassian Cloud, terá de definir a cópia de segurança do Identity Manager. Saiba mais sobre [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- Para ativar a Security Assertion Markup Language (SAML) início de sessão único para produtos da Atlassian Cloud, terá de configurar o acesso da Atlassian. Saiba mais sobre [Atlassian acesso]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
 > Quando testa os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
@@ -99,22 +99,27 @@ Para configurar o Azure AD início de sessão único com a nuvem da Atlassian, f
 
     ![Janela de início de sessão única](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. Para configurar a aplicação no modo de iniciado o IDP, em **Atlassian Cloud domínio e URLs**, efetue o seguinte procedimento:
+3. Para configurar a aplicação no **iniciada pelo IDP** modo, em **Atlassian Cloud domínio e URLs**, efetue o seguinte procedimento:
 
     ![URLs de domínio na Cloud da Atlassian e único informações de início de sessão](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
     
-    a. Na **identificador** , escreva **`https://auth.atlassian.com/saml/<unique ID>`**.
+    a. Na **identificador** caixa, escreva um URL com o seguinte padrão: `https://auth.atlassian.com/saml/<unique ID>`.
     
-    b. Na **URL de resposta** , escreva **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
+    b. Na **URL de resposta** caixa, escreva um URL com o seguinte padrão: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
 
-    c. Na **estado de reencaminhamento** caixa, escreva um URL com a seguinte sintaxe: **`https://<instancename>.atlassian.net`**.
+    c. Verifique **Mostrar definições de URL avançadas**.
 
-4. Para configurar a aplicação no modo iniciado por SP, selecione o **Mostrar definições de URL avançadas** e, em seguida, no **iniciar sessão no URL** caixa, escreva um URL com a seguinte sintaxe: **`https://<instancename>.atlassian.net`** .
+    d. Na **estado de reencaminhamento** caixa, escreva um URL com o seguinte padrão: `https://<instancename>.atlassian.net`.
+
+    > [!NOTE]
+    > Os valores anteriores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Irá obter estes valores real a partir do ecrã de configuração de SAML do Cloud Atlassian que é explicado mais tarde no tutorial.
+
+4. Para configurar a aplicação no modo iniciado por SP, selecione o **Mostrar definições de URL avançadas** e, em seguida, no **iniciar sessão no URL** caixa, escreva um URL com o seguinte padrão: `https://<instancename>.atlassian.net`.
 
     ![URLs de domínio na Cloud da Atlassian e único informações de início de sessão](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE]
-    > Os valores anteriores não são reais. Atualize-as com o identificador real, o URL de resposta e o início de sessão em valores de URL. Pode obter os valores reais do ecrã de configuração de SAML do Cloud Atlassian. Explicamos os valores mais tarde no tutorial.
+    > O início de sessão anterior valor de URL não é real. Atualize o valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente de Cloud da Atlassian](https://support.atlassian.com/) para obter este valor.
 
 5. Sob **certificado de assinatura SAML**, selecione **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

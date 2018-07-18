@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: cd9b8eaf84ac4c1227c521628fd4156eec4506bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3c5746d0fd2c471f767bac4891178c63e21f0418
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38746272"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094398"
 ---
 # <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
 
@@ -67,7 +67,7 @@ Os seguintes pré-requisitos aplicam-se à utilização do acelerador de escrita
 - Os discos que pretende aplicar o acelerador de escrita do Azure em relação tem de ser [discos geridos do Azure](https://azure.microsoft.com/services/managed-disks/) no armazenamento Premium.
 - Tem de utilizar uma VM de série M
 
-### <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Ativar o acelerador de escrita de Azure com o Azure PowerShell
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Ativar o acelerador de escrita de Azure com o Azure PowerShell
 
 O módulo do Azure Power Shell da versão 5.5.0 incluem as alterações para os cmdlets relevantes para ativar ou desativar o acelerador de escrita para discos de armazenamento Premium do Azure específicos.
 Para ativar ou implementar discos suportados pela capacidade acelerador de escrita, os seguintes comandos de Power Shell foi alterados e estendidos para aceita um parâmetro do acelerador de escrita.
@@ -108,7 +108,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Dois cenários principais podem ser colocado em script conforme mostrado nas seções a seguir.
 
-#### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Adicionar um novo disco suportado pelo acelerador de escrita de mensagens em fila com o PowerShell
+### <a name="adding-a-new-disk-supported-by-write-accelerator-using-powershell"></a>Adicionar um novo disco suportado pelo acelerador de escrita de mensagens em fila com o PowerShell
 
 Pode utilizar este script para adicionar um novo disco à VM. O disco criado com este script utiliza o acelerador de escrita.
 
@@ -133,9 +133,9 @@ Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$dat
 Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 ```
 
-#### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Ativar o acelerador de escrita num disco do Azure existente com o PowerShell
+### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Ativar o acelerador de escrita num disco do Azure existente com o PowerShell
 
-Pode utilizar este script para ativar o acelerador de escrita num disco existente. Substitua `myVM`, `myWAVMs`, e `test-log001` com valores adequados para a sua implementação específica. O script adiciona o acelerador de escrita para um disco existente em que o valor para $newstatus está definido para '$true'. Usando o valor '$false' irá desativar o acelerador de escrita num determinado disco.
+Pode utilizar este script para ativar o acelerador de escrita num disco existente. Substitua `myVM`, `myWAVMs`, e `test-log001` com valores adequados para a sua implementação específica. O script adiciona o acelerador de escrita para um disco existente onde o valor para **$newstatus** está definida como '$true'. Usando o valor '$false' irá desativar o acelerador de escrita num determinado disco.
 
 ```PowerShell
 #Specify your VM Name
@@ -157,15 +157,15 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 > [!Note]
 > Executar o script acima serão desanexar o disco especificado, ativar o acelerador de escrita no disco e, em seguida, anexar o disco novamente
 
-### <a name="enabling-write-accelerator-using-the-azure-portal"></a>Ativar o acelerador de escrita de mensagens em fila com o portal do Azure
+## <a name="enabling-write-accelerator-using-the-azure-portal"></a>Ativar o acelerador de escrita de mensagens em fila com o portal do Azure
 
-Pode ativar o acelerador de escrita através do portal em que especificar seu disco, as definições de colocação em cache: 
+Pode ativar o acelerador de escrita através do portal em que especificar seu disco, as definições de colocação em cache:
 
 ![Acelerador de escrita no portal do Azure](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-write-accelerator-using-the-azure-cli"></a>Ativar o acelerador de escrita com a CLI do Azure
+## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Ativar o acelerador de escrita com a CLI do Azure
 
-Pode utilizar o [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) para ativar o acelerador de escrita. 
+Pode utilizar o [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) para ativar o acelerador de escrita.
 
 Para ativar o acelerador de escrita num disco existente, utilize [atualização do az vm](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), pode usar os exemplos seguintes, se substituir o diskName VMName e ResourceGroup pelos seus próprios valores: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
@@ -173,11 +173,11 @@ Anexar um disco com acelerador de escrita ativado uso [anexar o disco da vm az](
 
 Para desabilitar o acelerador de escrita, usar [atualização do az vm](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), definindo as propriedades como false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
-### <a name="enabling-through-rest-apis"></a>Ativação através de Rest APIs
+## <a name="enabling-write-accelerator-using-rest-apis"></a>Ativar o acelerador de escrita de mensagens em fila utilizando Rest APIs
 
 Para implementar através da API Rest do Azure, terá de instalar o armclient do Azure.
 
-#### <a name="install-armclient"></a>Instalar armclient
+### <a name="install-armclient"></a>Instalar armclient
 
 Para executar armclient, terá de instalá-lo usando o Chocolatey. Pode instalá-lo por meio de cmd.exe ou powershell. Utilize direitos elevados para estes comandos ("Executar como administrador").
 
@@ -187,7 +187,7 @@ Utilizar o Power Shell, execute o seguinte comando: `Set-ExecutionPolicy Bypass 
 
 Agora pode instalar o armclient utilizando o seguinte comando no cmd.exe ou o PowerShell `choco install armclient`
 
-#### <a name="getting-your-current-vm-configuration"></a>Obter a configuração da VM atual
+### <a name="getting-your-current-vm-configuration"></a>Obter a configuração da VM atual
 
 Para alterar os atributos da sua configuração de disco, tem primeiro de obter a configuração atual num ficheiro JSON. Pode obter a configuração atual, executando o seguinte comando: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
 

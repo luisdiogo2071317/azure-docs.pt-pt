@@ -28,7 +28,7 @@
       href: visual-search-sdk-python.md
 - name: Tutoriais
   items:
-    - name: Carregamento de imagens de Pesquisa Visual
+    - name: Aplicação Web de carregamento de imagens
       href: tutorial-visual-search-image-upload.md
     - name: Aplicação Web de página única
       href: tutorial-bing-visual-search-single-page-app.md

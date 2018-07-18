@@ -1,6 +1,6 @@
 ---
-title: A ligação do Apache Spark a Azure Cosmos DB | Microsoft Docs
-description: Utilize este tutorial para saber mais sobre o conector do Azure Cosmos DB Spark que permite-lhe ligar Apache Spark BD do Cosmos do Azure para efetuar distribuídas sciences agregações e esses dados no multi-inquilino globalmente distribuídas sistema da base de dados da Microsoft da concebida para a nuvem.
+title: O Apache Spark a ligar ao Azure Cosmos DB | Documentos da Microsoft
+description: Utilize este tutorial para saber mais sobre o conector do Spark do Azure Cosmos DB permite-lhe ligar Apache Spark para Azure Cosmos DB efetue globalmente distribuídas sciences agregações e esses dados no multi-inquilino distribuídas de sistema de banco de dados da Microsoft que concebido para a cloud.
 keywords: o Apache spark
 services: cosmos-db
 author: tknandu
@@ -8,84 +8,89 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: e115c7e18b32630b7331e22a6bdc33338d753fde
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cae66a40882231f7762af29cdeaaf658dd2aa968
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083299"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113952"
 ---
-# <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de macrodados em tempo real com o Spark para o conector Azure Cosmos DB
+# <a name="accelerate-real-time-big-data-analytics-by-using-the-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de macrodados em tempo real com o Spark para o conector do Azure Cosmos DB
+ 
+O Spark para o conector do Azure Cosmos DB permite que o Azure Cosmos DB para agir como entrada ou saída para tarefas do Apache Spark. Ligar [Spark](http://spark.apache.org/) ao [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelerará a sua capacidade para resolver problemas de ciência de dados rápida evolução em que pode utilizar o Azure Cosmos DB para manter e consultar dados rapidamente. O Spark para o conector do Azure Cosmos DB com eficiência utiliza os índices geridos do Azure Cosmos DB nativos. Os índices permitirá colunas atualizáveis ao realizar análises e push filtragem de predicados contra mudança globalmente distribuído dados, que variam de Internet das coisas (IoT) para cenários de análise e ciência de dados.
 
-O Spark para o conector de BD do Cosmos Azure permite a BD do Azure Cosmos agir como uma origem de entrada ou o sink de saída para as tarefas do Apache Spark. Ligar [Spark](http://spark.apache.org/) para [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelera a sua capacidade para resolver problemas de ciência de dados a mover fast onde pode utilizar o Azure Cosmos DB para rápida persistirem e consultar dados. O Spark para o conector Azure Cosmos DB eficientemente utiliza os índices de base de dados do Cosmos Azure geridos nativos. Os índices ativar colunas atualizáveis quando efetuar análises de push pendente predicado filtragem fast alteração globalmente distribuídos dados, que o intervalo da Internet das coisas (IoT) para cenários de ciência e análise de dados.
-
-Saiba mais neste vídeo com Nogueira Denny do Gestor de programa do Cosmos BD Principal do Azure. 
+Saiba mais sobre o Spark para o conector do Azure Cosmos DB neste vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
-## <a name="download"></a>Transferência
-
-Para começar, transfira o Spark para o conector Azure Cosmos BD a partir do [cosmosdb-azure-spark](https://github.com/Azure/azure-cosmosdb-spark/) repositório no GitHub.
-
 ## <a name="connector-components"></a>Componentes de conector
 
-O conector utiliza os seguintes componentes:
+O Spark para o conector do Azure Cosmos DB utiliza os seguintes componentes:
 
-* [BD do Azure do Cosmos](http://documentdb.com) permite que os clientes aprovisionar e dimensionar débito e armazenamento em qualquer número de regiões geográficas. As ofertas de serviço:
-   * Ativar a chave [distribuição global](distribute-data-globally.md) e dimensionamento horizontal
-   * Garantida latências único dígito, o percentil 99th
-   * [Vários modelos de consistência bem definidos](consistency-levels.md)
-   * Garantida elevada disponibilidade com capacidades multi homing
-   * Todas as funcionalidades são apoiadas por da indústria líder, abrangente [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLAs).
+* [O Azure Cosmos DB](http://documentdb.com) permite aos clientes aprovisionar e dimensionar o débito e armazenamento em qualquer número de regiões geográficas.  
 
-* [Apache Spark](http://spark.apache.org/) é um motor de processamento de open source para poderosas que está construído em torno de velocidade, facilidade de utilização e efetuar análises sofisticadas.
+* [Apache Spark](http://spark.apache.org/) é um motor de processamento de código-fonte aberto poderosa que é criado em torno de velocidade, facilidade de utilização e análise sofisticadas.  
 
-* [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) que pode implementar o Apache Spark na nuvem para implementações fundamentais utilizando [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+* [Cluster do Apache Spark no Azure Databricks](https://docs.azuredatabricks.net/getting-started/index.html) para executar tarefas do spark no cluster do spark.
 
-Oficialmente as versões suportadas:
+## <a name="connect-apache-spark-to-azure-cosmos-db"></a>Ligar o Apache Spark para Azure Cosmos DB
+
+Existem duas abordagens para ligar o Apache Spark e o Azure Cosmos DB:
+
+1. Usando [SDK de Python do Azure Cosmos DB SQL](https://github.com/Azure/azure-documentdb-python), spark baseados em Python para o conector do Cosmos DB, que também é referido como "pyDocumentDB".  
+
+2. Ao utilizar o [SDK de Java do Azure Cosmos DB SQL](https://github.com/Azure/azure-documentdb-java) spark baseadas em Java para o conector do Cosmos DB.
+
+
+**Versões suportadas**
 
 | Componente | Versão |
 |---------|-------|
-|Apache Spark|2.0.2, 2.1.0, 2.2.0|
-| Scala| 2.10, 2.11|
-| Java do Azure Cosmos BD do SQL Server SDK | 1.14.0, 1.15.0 |
+|Apache Spark| 2.1.x, 2.2.x, 2.3.x |
+| Scala|2.11|
+| Versão de runtime do Databricks | > 3.4 |
+| Azure Cosmos DB SQL Java SDK | 1.16.2 |
 
-Este artigo ajuda-o a executar alguns exemplos simples utilizando o Python (através de pyDocumentDB) e as interfaces de Scala.
+## <a name="connect-by-using-python-or-pydocumentdb-sdk"></a>Ligar com o Python ou pyDocumentDB SDK
 
-Existem duas abordagens para ligar o Apache Spark e o Azure Cosmos DB:
-- Utilize o pyDocumentDB através de [Azure Cosmos BD SQL Python SDK](https://github.com/Azure/azure-documentdb-python).
-- Criar um Spark baseada em Java para o conector de BD do Cosmos Azure utilizando o [SDK de Java do Azure Cosmos BD SQL](https://github.com/Azure/azure-documentdb-java).
+A imagem seguinte mostra a arquitetura de implementação do SDK pyDocumentDB:
 
-## <a name="pydocumentdb-implementation"></a>implementação de pyDocumentDB
-Atual [pyDocumentDB SDK](https://github.com/Azure/azure-documentdb-python) permite-lhe ligar Spark BD do Cosmos do Azure, conforme mostrado no diagrama seguinte:
-
-![Spark para o fluxo de dados de base de dados do Azure Cosmos através de pyDocumentDB DB](./media/spark-connector/spark-pydocumentdb.png)
+![Fluxo de dados do Azure Cosmos DB através de pyDocumentDB DB do spark](./media/spark-connector/spark-pydocumentdb.png)
 
 
-### <a name="data-flow-of-the-pydocumentdb-implementation"></a>Fluxo de dados da implementação pyDocumentDB
+### <a name="data-flow"></a>Fluxo de dados
 
-O fluxo de dados é o seguinte:
+Fluxo de dados da implementação do pyDocumentDB é o seguinte:
 
-1. Liga o nó mestre do Spark para o nó de gateway do Azure Cosmos DB através de pyDocumentDB. Um utilizador especifica apenas as ligações de Spark e base de dados do Azure Cosmos. As ligações para os respetivos nós de gateway e o mestre estão transparentes para o utilizador.
-2. O nó de gateway efetua a consulta de base de dados do Cosmos do Azure onde a consulta, subsequentemente, é executada relativamente a partições da coleção em nós de dados. A resposta para estas consultas é enviada para o nó de gateway e esse conjunto de resultados é devolvido para o nó mestre do Spark.
-3. Subsequentes consultas (por exemplo, um DataFrame Spark) são enviadas para nós de trabalho de Spark para processamento.
+* O nó mestre do spark liga-se para o nó de gateway do Azure Cosmos DB através de pyDocumentDB. Um utilizador Especifica o spark e apenas as ligações do Azure Cosmos DB. Ligações para os respetivos nós mestre e de gateway são transparentes ao usuário.  
 
-Comunicação entre o Spark e base de dados do Azure Cosmos está limitada ao nó principal do Spark e nós de gateway do Azure Cosmos DB.  As consultas aceda tão rápido permite que a camada de transporte entre estes dois nós.
+* O nó de gateway torna a consulta na Azure Cosmos DB em que a consulta é executada, em seguida, em relação a partições da coleção em nós de dados. A resposta para essas consultas é enviada para o nó de gateway e esse conjunto de resultados é devolvido para o nó mestre do spark.  
 
-### <a name="install-pydocumentdb"></a>Instalar o pyDocumentDB
-Pode instalar o pyDocumentDB no seu nó controladores utilizando **pip**, por exemplo:
+* Consultas subsequentes (por exemplo, em relação a um spark data frame) são enviadas para os nós de trabalho do Spark para processamento.  
 
-```bash
-pip install pyDocumentDB
-```
+Comunicação entre o spark e o Azure Cosmos DB é limitada para o nó mestre do spark e os nós de gateway do Azure Cosmos DB. As consultas passam o mais rápido que permite a camada de transporte entre estes dois nós.
 
+Execute os seguintes passos para ligar o spark para Azure Cosmos DB utilizando o pyDocumentDB SDK:
 
-### <a name="connect-spark-to-azure-cosmos-db-via-pydocumentdb"></a>Ligar o Spark BD do Cosmos do Azure através do pyDocumentDB
-Simplicidade o transporte de comunicações faz com que a execução de uma consulta do Spark BD do Cosmos do Azure utilizando o pyDocumentDB relativamente simple.
+1. Criar uma [área de trabalho do Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) e uma [cluster do spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks) (Databricks runtime versão 4.0 (inclui Apache Spark 2.3.0, Scala 2.11) nessa área de trabalho.  
 
-O fragmento de código seguinte mostra como utilizar o pyDocumentDB num contexto de Spark.
+2. Quando o cluster é criado e está em execução, navegue até **área de trabalho** > **Create** > **biblioteca**.  
+3. Na caixa de diálogo nova biblioteca, escolha **carregar ovo de Python ou PyPi** como a origem, fornecer **pydocumentdb** como o nome e selecione **instalar biblioteca**. SDK de PyDocumentdb já está publicado para os pacotes de pip para que possa encontrá-lo e instalar. 
+
+   ![Criar e anexar biblioteca](./media/spark-connector/create-library.png)
+
+4. Depois da biblioteca é instalada, anexá-lo para o cluster que criou anteriormente.  
+
+5. Em seguida, navegue para o **área de trabalho** > **Create** > **bloco de notas**.  
+
+6. Na **criar bloco de notas** caixa de diálogo caixa, introduza um nome amigável de utilizador, escolha **Python** como a linguagem. No menu pendente selecione o cluster que criou anteriormente e selecione **criar**.  
+
+7. A simplicidade do transporte de comunicações torna a execução de uma consulta do spark para Azure Cosmos DB com o pyDocumentDB relativamente simples. Em seguida será executado poucas consultas do spark ao utilizar os dados de exemplo de voos hospedado em "doctorwho" conta do Cosmos DB, que é acessível publicamente. A versão HTML do bloco de notas é alojada na [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub. Deve transferir os ficheiros de repositório e navegue para `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html` pode importar o bloco de notas à sua conta do Azure Databricks e executá-lo. A secção seguinte explica a funcionalidade dos blocos de código no detalhadas.
+
+O fragmento de código seguinte mostra como importar o pyDocumentDB SDK e executar uma consulta no contexto do spark. Conforme observado no fragmento de código, o pyDocumentDB SDK contém os parâmetros de ligação necessários para ligar a conta do Azure Cosmos DB. Ela importa as bibliotecas necessárias, configura a chave mestra e o anfitrião para criar o cliente do Azure Cosmos DB (pydocumentdb.document_client).
+
 
 ```python
 # Import Necessary Libraries
@@ -99,21 +104,14 @@ connectionPolicy = documents.ConnectionPolicy()
 connectionPolicy.EnableEndpointDiscovery
 connectionPolicy.PreferredLocations = ["Central US", "East US 2", "Southeast Asia", "Western Europe","Canada Central"]
 
-
 # Set keys to connect to Azure Cosmos DB
 masterKey = 'le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA=='
 host = 'https://doctorwho.documents.azure.com:443/'
 client = document_client.DocumentClient(host, {'masterKey': masterKey}, connectionPolicy)
+
 ```
 
-Conforme indicado no fragmento de código:
-
-* O SDK do Python Cosmos BD do Azure (`pyDocumentDB`) contém os todos os ligação necessárias parâmetros. Por exemplo, o parâmetro de localizações preferencial escolhe a ordem de réplica e a prioridade de leitura.
-*  Importar as bibliotecas necessárias e configurar o **masterKey** e **anfitrião** para criar a base de dados do Azure Cosmos *cliente* (**pydocumentdb.document_client** ).
-
-
-### <a name="execute-spark-queries-via-pydocumentdb"></a>Executar consultas do Spark através de pyDocumentDB
-Os exemplos seguintes utilizam a instância de base de dados do Azure Cosmos que foi criada no fragmento anterior utilizando as chaves especificadas de só de leitura. O seguinte fragmento de código liga-se ao **airports.codes** coleção na conta DoctorWho como especificado anteriormente e executa uma consulta para extrair as cidades airport no estado de Washington.
+Em seguida, pode executar consultas, o fragmento de código seguinte liga à coleção airports.codes na conta DoctorWho e executa uma consulta para extrair as cidades de aeroporto no Estado norte-americano de Washington. 
 
 ```python
 # Configure Database and Collections
@@ -127,227 +125,396 @@ collLink = dbLink + '/colls/' + collectionId
 # Set query parameter
 querystr = "SELECT c.City FROM c WHERE c.State='WA'"
 
+```
+
+Depois da consulta é executada, o resultado é um "query_iterable. QueryIterable"que é convertido numa lista de Python, que depois é convertida para um spark data frame. 
+
+```python
 # Query documents
 query = client.QueryDocuments(collLink, querystr, options=None, partition_key=None)
 
 # Query for partitioned collections
 # query = client.QueryDocuments(collLink, query, options= { 'enableCrossPartitionQuery': True }, partition_key=None)
 
-# Push into list `elements`
-elements = list(query)
-```
-
-Depois da consulta foi executada através de **consulta**, o resultado é um **query_iterable. QueryIterable** que é convertido para uma lista de Python. Uma lista de Python pode ser facilmente convertida para um DataFrame Spark utilizando o seguinte código:
-
-```python
 # Create `df` Spark DataFrame from `elements` Python list
-df = spark.createDataFrame(elements)
-```
+df = spark.createDataFrame(list(query))
 
-### <a name="why-use-the-pydocumentdb-to-connect-spark-to-azure-cosmos-db"></a>Porquê utilizar o pyDocumentDB ligar Spark BD do Cosmos do Azure?
-Ligar o Spark BD do Cosmos do Azure utilizando o pyDocumentDB é normalmente para cenários em que:
-
-* Pretende utilizar o Python.
-* Está a devolver um relativamente pequeno conjunto de resultados do BD do Cosmos Azure spark. Tenha em atenção que o conjunto de dados subjacente do BD Azure Cosmos pode ser bastante grande. São aplicar os filtros, ou seja, executar predicados filtros, contra a origem de BD do Cosmos do Azure.  
-
-## <a name="spark-to-azure-cosmos-db-connector"></a>Spark para o conector Azure Cosmos DB
-
-O Spark para o conector de BD do Cosmos Azure utiliza o [SDK de Java do Azure Cosmos BD SQL](https://github.com/Azure/azure-documentdb-java) e move dados entre os nós de trabalho do Spark e o Azure Cosmos DB, conforme mostrado no diagrama seguinte:
-
-![Fluxo de dados no Spark para o conector Azure Cosmos DB](./media/spark-connector/spark-connector.png)
-
-O fluxo de dados é o seguinte:
-
-1. Liga o nó mestre do Spark para o nó de gateway da BD do Cosmos do Azure para obter o mapa de partições. Um utilizador especifica apenas as ligações de Spark e base de dados do Azure Cosmos. As ligações para os respetivos nós de gateway e o mestre estão transparentes para o utilizador.
-2. Esta informação é fornecida para o nó mestre do Spark.  Neste momento, deverá conseguir analisar a consulta para determinar as partições e as respetivas localizações na base de dados do Azure Cosmos que precisem de aceder.
-3. Estas informações são transmitidas para nós de trabalho de Spark.
-4. Ligar os nós de trabalho do Spark para as partições de base de dados do Azure Cosmos diretamente para extrair os dados e devolver os dados para as partições de Spark em nós de trabalho de Spark.
-
-Comunicação entre o Spark e base de dados do Azure Cosmos é significativamente mais rápido porque o movimento de dados está entre os nós de trabalho do Spark e os nós de dados de base de dados do Azure Cosmos (partições).
-
-### <a name="build-the-spark-to-azure-cosmos-db-connector"></a>Criar o Spark para o conector Azure Cosmos DB
-Atualmente, o projeto de conector utiliza maven. Para criar o conector sem dependências, pode executar:
-```
-mvn clean package
-```
-Também pode transferir as versões mais recentes do JAR do [ *versões* pasta](https://github.com/Azure/azure-cosmosdb-spark/releases).
-
-### <a name="include-the-azure-cosmos-db-spark-jar"></a>Incluir o Spark de BD do Azure Cosmos JAR
-Antes de executar qualquer código, terá de incluir o JAR do Spark de BD do Cosmos de Azure.  Se estiver a utilizar o **spark shell**, em seguida, pode incluir o JAR utilizando o **– v7** opção.  
-
-```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0-uber.jar
-```
-
-Se pretender executar JAR sem dependências, utilize o seguinte código:
-
-```bash
-spark-shell --master $master --jars /$location/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar,/$location/azure-documentdb-1.14.0.jar,/$location/azure-documentdb-rx-0.9.0-rc2.jar,/$location/json-20140107.jar,/$location/rxjava-1.3.0.jar,/$location/rxnetty-0.4.20.jar 
-```
-
-Se estiver a utilizar um serviço de bloco de notas, como o serviço de bloco de notas do Jupyter do Azure HDInsight, pode utilizar o **spark magic** comandos:
-
-```
-%%configure
-{ "name":"Spark-to-Cosmos_DB_Connector", 
-  "jars": ["wasb:///example/jars/1.0.0/azure-cosmosdb-spark_2.1.0_2.11-1.0.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-1.14.0.jar", "wasb:///example/jars/1.0.0/azure-documentdb-rx-0.9.0-rc2.jar", "wasb:///example/jars/1.0.0/json-20140107.jar", "wasb:///example/jars/1.0.0/rxjava-1.3.0.jar", "wasb:///example/jars/1.0.0/rxnetty-0.4.20.jar"],
-  "conf": {
-    "spark.jars.excludes": "org.scala-lang:scala-reflect"
-   }
-}
-```
-
-O **v7** comando permite-lhe incluir o dois v7 que é necessários para **cosmosdb-azure-spark** (próprio e o SDK Java do Azure Cosmos BD do SQL Server) e excluir **scala-refletir**para que não interfere com as chamadas de Livy (bloco de notas do Jupyter > Livy > Spark).
-
-### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Ligar o Spark BD do Cosmos do Azure através do conector
-Embora o transporte de comunicação seja um pouco mais complicado, executar uma consulta do Spark BD do Cosmos do Azure utilizando o conector é significativamente mais rápido.
-
-O fragmento de código seguinte mostra como utilizar o conector numa sessão Spark; consulte `azure-cosmosdb-spark` [repositório do GitHub](https://github.com/Azure/azure-cosmosdb-spark) exemplos de Python.
-
-```
-// Import Necessary Libraries
-import org.joda.time._
-import org.joda.time.format._
-import com.microsoft.azure.cosmosdb.spark.schema._
-import com.microsoft.azure.cosmosdb.spark._
-import com.microsoft.azure.cosmosdb.spark.config.Config
-
-// Configure connection to your collection
-val baseConfig = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
-"Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
-"Database" -> "DepartureDelays",
-"preferredRegions" -> "Central US;East US2;",
-"Collection" -> "flights_pcoll",
-"SamplingRatio" -> "1.0"))
-
-// Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(baseConfig)
-coll.createOrReplaceTempView("c")
-```
-
-Conforme indicado no fragmento de código:
-
-- **Azure-cosmosdb-spark** contém os todos os ligação necessários parâmetros, que inclui as localizações preferenciais. Por exemplo, pode escolher a ordem de réplica e a prioridade de leitura.
-- Acabou de importar as bibliotecas necessárias e configurar o masterKey e o anfitrião para criar o cliente de base de dados do Azure Cosmos.
-
-### <a name="execute-spark-queries-via-the-connector"></a>Executar consultas do Spark através do conector
-
-O exemplo seguinte utiliza a instância de base de dados do Azure Cosmos que foi criada no fragmento anterior utilizando as chaves especificadas de só de leitura. O seguinte fragmento de código estabelece ligação à coleção DepartureDelays.flights_pcoll (na conta DoctorWho conforme especificado anteriormente) e executa uma consulta para extrair as informações de atraso de trânsito de flights são departing de Seattle.
-
-```
-// Queries
-var query = "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'"
-val df = spark.sql(query)
-
-// Run DF query (count)
-df.count()
-
-// Run DF query (show)
+# Show data
 df.show()
 ```
 
-### <a name="why-use-the-spark-to-azure-cosmos-db-connector-implementation"></a>Porquê utilizar o Spark para implementação do conector de BD do Cosmos do Azure?
+## <a name="considerations-when-using-pydocumentdb-sdk"></a>Considerações ao utilizar o pyDocumentDB SDK
+Ligar spark para Azure Cosmos DB com o pyDocumentDB que SDK recomenda-se nos seguintes cenários:
 
-Ligar o Spark BD do Cosmos do Azure utilizando o conector é normalmente para cenários em que:
+* Que pretende utilizar o Python.  
 
-* Pretende utilizar o Python e/ou Scala.
-* Tiver uma grande quantidade de dados para transferir entre Apache Spark e base de dados do Azure Cosmos.
+* Retornando um relativamente pequeno conjunto de resultados do Azure Cosmos DB para spark. Tenha em atenção que o conjunto de dados subjacente no Azure Cosmos DB pode ser muito grande e estiver a aplicar os filtros ou em execução filtros de predicados contra a origem do Azure Cosmos DB.
 
-Para lhe fornecer uma ideia da diferença de desempenho de consulta, consulte o [execuções do teste de consulta wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
+## <a name="connect-by-using-the-java-sdk"></a>Ligar com o SDK de Java
 
-## <a name="distributed-aggregation-example"></a>Exemplo de agregação distribuída
-Esta secção fornece alguns exemplos de como pode fazer agregações distribuídas e análise utilizando o Apache Spark e base de dados do Azure Cosmos em conjunto. BD do Azure do Cosmos já suporta agregações, de que é abordada no [agregados de escala Planet com blogue de base de dados do Azure Cosmos](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/). Eis como pode tirá-lo para o próximo nível com Apache Spark.
+A imagem seguinte mostra a arquitetura de implementação do SDK de Java do Azure Cosmos DB SQL e dados se movem entre os nós de trabalho do spark:
 
-Tenha em atenção que estas agregações reference para o [Spark para o bloco de notas do conector de BD do Azure Cosmos](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-CosmosDB_Connector.ipynb).
+![Fluxo de dados no Spark para o conector do Azure Cosmos DB](./media/spark-connector/spark-connector.png)
 
-### <a name="connect-to-flights-sample-data"></a>Ligar aos dados de exemplo flights
-Estes exemplos de agregação acederem a alguns dados de desempenho de trânsito são armazenados no nosso **DoctorWho** base de dados do Azure Cosmos DB. Para ligar ao mesmo, terá de utilizar o seguinte fragmento de código:
+### <a name="data-flow"></a>Fluxo de dados
 
-```
-// Import Spark to Azure Cosmos DB connector
-import com.microsoft.azure.cosmosdb.spark.schema._
-import com.microsoft.azure.cosmosdb.spark._
-import com.microsoft.azure.cosmosdb.spark.config.Config
+O fluxo de dados da implementação do SDK do Java é o seguinte:
 
-// Connect to Azure Cosmos DB Database
-val readConfig2 = Config(Map("Endpoint" -> "https://doctorwho.documents.azure.com:443/",
-"Masterkey" -> "le1n99i1w5l7uvokJs3RT5ZAH8dc3ql7lx2CG0h0kK4lVWPkQnwpRLyAN0nwS1z4Cyd1lJgvGUfMWR3v8vkXKA==",
-"Database" -> "DepartureDelays",
-"preferredRegions" -> "Central US;East US 2;",
-"Collection" -> "flights_pcoll",
-"SamplingRatio" -> "1.0"))
+* O nó mestre do spark liga-se para o nó de gateway do Azure Cosmos DB para obter o mapa de partições. Um utilizador especifica apenas o spark e ligações de Azure Cosmos DB. Ligações para os respetivos nós mestre e de gateway são transparentes ao usuário.  
 
-// Create collection connection
-val coll = spark.sqlContext.read.cosmosDB(readConfig2)
-coll.createOrReplaceTempView("c")
-```
+* Estas informações são fornecidas novamente para o nó mestre do spark. Neste momento, deve ser capaz de analisar a consulta para determinar as partições e suas localizações no Azure Cosmos DB que precisa acessar.  
 
-Com este fragmento, também iremos executar uma consulta de base que transfere o conjunto filtrado de dados da base de dados do Azure Cosmos spark onde esta última opção pode efetuar as agregações distribuídas. Neste caso, pedimos para flights depart de Seattle (SEA).
+* Estas informações são transmitidas para os nós de trabalho do spark.  
 
-```
-// Run, get row count, and time query
-val originSEA = spark.sql("SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'")
-originSEA.createOrReplaceTempView("originSEA")
-```
+* Ligue os nós de trabalho do spark para as partições do Azure Cosmos DB diretamente para extrair os dados e retornar os dados para as partições de spark em nós de trabalho.  
 
-Os seguintes resultados foram gerados ao executar consultas do serviço de bloco de notas do Jupyter.  Tenha em atenção de que todos os fragmentos de código são genérico e não específicas para qualquer serviço.
+A comunicação entre o spark e o Azure Cosmos DB é significativamente mais rápida devido aos dados de movimento é entre os nós de trabalho do spark e os nós de dados do Azure Cosmos DB (partições). Neste documento, irá enviar alguns dados do twitter de exemplo para a conta do Azure Cosmos DB e executar consultas do spark com esses dados. Utilize os seguintes passos para escrever dados de exemplo do Twitter ao Azure Cosmos DB:
 
-### <a name="running-limit-and-count-queries"></a>LIMITE de execução e a CONTAGEM de consultas
-Tal como que utilizou para, no SQL Server/Spark SQL, vamos começar com uma **limite** consulta:
+1. Criar uma [conta API SQL do Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) e [adicionar uma coleção](create-sql-api-dotnet.md#add-a-collection) para a conta.  
 
-![Consulta de limite de Spark](./media/spark-connector/spark-sql-query.png)
+2. Transfira o [TwitterCosmosDBFeed](https://github.com/tknandu/TwitterCosmosDBFeed) exemplo do GitHub, o que é utilizada para escrever dados de exemplo do Twitter ao Azure Cosmos DB.  
 
-A consulta seguinte é uma simples e rápido **CONTAGEM** consulta:
+3. Abra uma linha de comandos e instale Tweepy e pyDocumentdb módulos ao executar os comandos seguintes:
 
-![Consulta de CONTAGEM de Spark](./media/spark-connector/spark-count-query.png)
+   ```bash
+   pip install tweepy==3.3.0
+   pip install pyDocumentDB
+   ```
 
-### <a name="group-by-query"></a>GROUP BY consulta
-Neste conjunto seguinte, pode facilmente executamos **GROUP BY** consultas em relação a nossa base de dados do Azure Cosmos DB:
+4. Extraia o conteúdo do exemplo de feed do Twitter e abra o ficheiro config.py. Atualize os valores de masterKey, host, databaseId, collectionId e preferredLocations.  
 
-```
-select destination, sum(delay) as TotalDelays
-from originSEA
-group by destination
-order by sum(delay) desc limit 10
-```
+5. Navegue para `http://apps.twitter.com/` e registar o script como um novo aplicativo de feed do Twitter. Depois de escolher um nome e uma aplicação para a sua aplicação, será fornecido com um **chave de consumidor, o segredo de consumidor, o token de acesso e o segredo de token de acesso**. Copie estes valores e atualizá-los no ficheiro config.py para fornecer o aplicativo o acesso programático ao Twitter.   
 
-![O Spark GROUP BY gráfico de consulta](./media/spark-connector/group-by-query-graph.png)
+6. Guarde o ficheiro config.py. Linha de comandos aberta e executar a aplicação python utilizando o seguinte comando:
 
-### <a name="distinct-order-by-query"></a>DISTINTAS, consultas de ORDER BY
-E aqui está uma **DISTINCT, ORDER BY** consulta:
+   ```bash
+   Python driver.py
+   ```
 
-![O Spark GROUP BY gráfico de consulta](./media/spark-connector/order-by-query.png)
+7. Navegue para a coleção do Azure Cosmos DB no portal e certifique-se de que os dados do twitter foi escritos para a coleção.
 
-### <a name="continue-the-flight-data-analysis"></a>Continuar a análise de dados de eventos
-Pode utilizar as seguintes consultas de exemplo para continuar a análise dos dados de eventos:
+### <a name="find-and-attach-java-sdk-to-the-spark-cluster"></a>Localizar e anexar o SDK de Java para o cluster do spark
 
-#### <a name="top-5-delayed-destinations-cities-departing-from-seattle"></a>Parte superiores 5 atrasados destinos (cidades) departing de Seattle
-```
-select destination, sum(delay)
-from originSEA
-where delay < 0
-group by destination
-order by sum(delay) limit 5
-```
-![Gráfico de atrasos superior do Spark](./media/spark-connector/top-delays-graph.png)
+1. Criar uma [área de trabalho do Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) e uma [cluster do spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks) (Databricks runtime versão 4.0 (inclui Apache Spark 2.3.0, Scala 2.11) nessa área de trabalho.  
+
+2. Quando o cluster é criado e está em execução, navegue até **área de trabalho** > **Create** > **biblioteca**.  
+
+3. Na caixa de diálogo nova biblioteca, escolha **coordenada do Maven** como a origem, indique o valor da coordenada **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0**e selecione  **Criar a biblioteca**. As dependências do Maven são resolvidas e o pacote é adicionado à sua área de trabalho. O formato de coordenadas de maven acima, 2.3.0 representa a versão do spark, 2.11 representa a versão de scala e 1.2.0 representa a versão do conector do Azure Cosmos DB. 
+
+4. Depois da biblioteca é instalada, anexá-lo para o cluster que criou anteriormente. 
+
+Este artigo demonstra o uso do conector do spark SDK de Java nos seguintes cenários:
+
+* Ler dados do twitter a partir do Azure Cosmos DB  
+
+* Ler dados do twitter que é a transmissão em fluxo para o Azure Cosmos DB  
+
+* Escrever os dados do twitter ao Azure Cosmos DB 
+
+### <a name="read-twitter-data-from-azure-cosmos-db"></a>Ler dados do twitter a partir do Azure Cosmos DB
+ 
+Nesta secção, vai executar consultas do spark para ler um lote de dados do Twitter a partir do Azure Cosmos DB. A versão HTML do bloco de notas é alojada na [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub. Deve transferir os ficheiros de repositório e navegue para `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html` pode importar o bloco de notas à sua conta do Azure Databricks, atualizar a conta de URI, chave mestra, base de dados, nomes de coleções e executá-la ou pode criar o bloco de notas da seguinte forma:
+
+1. Navegue até à sua conta do Azure Databricks e selecione o **área de trabalho** > **Create** > **bloco de notas**. 
+
+2. Na **criar bloco de notas** caixa de diálogo caixa, introduza um nome amigável de utilizador, escolha **Python** como o idioma, no menu pendente selecione o cluster que criou anteriormente e selecione **criar**.  
+
+3. Atualize o ponto final, a chave mestra, a base de dados e coleção de valores para ligar à conta e ler os tweets com o comando spark.read.format().
+
+   ```python
+   # Configuration Map
+   tweetsConfig = {
+   "Endpoint" : "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" : "<Primary key of your Azure Cosmos DB account>",
+   "Database" : "<Your Azure Cosmos DB database name>",
+   "Collection" : "<Your Azure Cosmos DB collection name>", 
+   "preferredRegions" : "East US",
+   "SamplingRatio" : "1.0",
+   "schema_samplesize" : "200000",
+   "query_custom" : "SELECT c.id, c.created_at, c.user.screen_name, c.user.lang, c.user.location, c.text, c.retweet_count, c.entities.hashtags, c.entities.user_mentions, c.favorited, c.source FROM c"
+   }
+   # Read Tweets
+   tweets = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**tweetsConfig).load()
+   tweets.createOrReplaceTempView("tweets")
+   #tweets.cache()
+
+   ```
+
+4. Execute a consulta para obter a contagem de tweets por hashtags diferentes dos dados em cache. 
+
+   ```python
+   %sql
+   select hashtags.text, count(distinct id) as tweets
+   from (
+   select 
+     explode(hashtags) as hashtags,
+     id
+   from tweets
+   ) a
+   group by hashtags.text
+   order by tweets desc
+   limit 10
+   ```
+
+SDK de Java suporta os seguintes valores para o mapeamento de configuração: 
+
+|Definição  |Descrição  |
+|---------|---------|
+|query_maxdegreeofparallelism  | Define o número de operações simultâneas de execução no lado do cliente durante a execução paralela da consulta. Se estiver definido para um valor maior que 0, isso limita o número de operações simultâneas para o valor atribuído. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de operações simultâneas para executar. Como o conector mapeia cada partição de coleção com um executor, este valor não terá qualquer efeito sobre a operação de leitura.        |
+|query_maxbuffereditemcount     |    Define o número máximo de itens que podem ser colocados em memória intermédia no lado do cliente durante a execução paralela da consulta. Se estiver definido para um valor maior que 0, limita o número de itens em buffer para o valor atribuído. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de itens a memória intermédia.     |
+|query_enablescan    |   Define a opção para ativar a análise nas consultas que não foi possível ser apresentadas porque a indexação foi excluído em caminhos de pedido.       |
+|query_disableruperminuteusage  |  Desativa a unidades de pedido (RUs) / minuto a capacidade necessária para servir a consulta se regular aprovisionado RUs/segundo está esgotado.       |
+|query_emitverbosetraces   |   Define a opção para permitir consultas emitir os rastreios verbosos para investigação.      |
+|query_pagesize  |   Define o tamanho da página de resultados de consulta para cada solicitação de consulta. Para otimizar a taxa de transferência, utilize um tamanho de página grandes para reduzir o número de ida e volta ao obter os resultados de consultas.      |
+|query_custom  |  Define a consulta do Azure Cosmos DB para substituir a consulta predefinida ao obter dados do Azure Cosmos DB. Tenha em atenção que quando este valor é fornecido, será utilizado em vez de uma consulta com enviadas predicados também.     |
+
+Dependendo do cenário, os valores de configuração diferentes devem de ser utilizados para otimizar o desempenho e a taxa de transferência. Tenha em atenção que a chave de configuração está atualmente a maiúsculas e minúsculas e o valor de configuração é sempre uma cadeia de caracteres.
+
+### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Ler dados do twitter que é a transmissão em fluxo para o Azure Cosmos DB
+
+Nesta secção, vai executar consultas do spark para ler um feed de alterações de transmissão em fluxo de dados do twitter. Enquanto executa as consultas nesta secção, certifique-se de que o feed de aplicação do Twitter está em execução e bombeando os dados para o Azure Cosmos DB. A versão HTML do bloco de notas é alojada na [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub. Deve transferir os ficheiros de repositório e navegue para `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html` pode importar o bloco de notas à sua conta do Azure Databricks, atualizar a conta de URI, chave mestra, base de dados, nomes de coleções e executá-la ou pode criar o bloco de notas da seguinte forma:
+
+1. Navegue até à sua conta do Azure Databricks e selecione o **área de trabalho** > **Create** > **bloco de notas**.  
+
+2. Na **criar bloco de notas** caixa de diálogo caixa, introduza um nome amigável de utilizador, escolha **Scala** como o idioma, no menu pendente selecione o cluster que criou anteriormente e selecione **criar**.  
+
+3. Atualize o ponto final, a chave mestra, a base de dados e coleção de valores para ligar à conta do.
+
+   ```scala
+   // This script does the following:
+   // - creates a structured stream from a Twitter feed CosmosDB collection (on top of change feed)
+   // - get the count of tweets
+   import com.microsoft.azure.cosmosdb.spark._
+   import com.microsoft.azure.cosmosdb.spark.schema._
+   import com.microsoft.azure.cosmosdb.spark.config.Config
+   import org.codehaus.jackson.map.ObjectMapper
+   import com.microsoft.azure.cosmosdb.spark.streaming._
+   import java.time._
+
+   val sourceConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB collection name>", 
+   "ConnectionMode" -> "Gateway",
+   "ChangeFeedCheckpointLocation" -> "/tmp",
+   "changefeedqueryname" -> "Streaming Query from Cosmos DB Change Feed Internal Count")
+   ```
+4. Inicie o feed como um fluxo com o comando spark.readStream.format() de alterações de leitura:
+
+   ```scala
+   var streamData = spark.readStream.format(classOf[CosmosDBSourceProvider].getName).options(sourceConfigMap).load()
+   ```
+5. Inicie a consulta para a consola de transmissão em fluxo:
+
+   ```scala
+   //**RUN THE ABOVE FIRST AND KEEP BELOW IN SEPARATE CELL
+   val query = streamData.withColumn("countcol", streamData.col("id").substr(0,0)).groupBy("countcol").count().writeStream.outputMode("complete").format("console").start()
+   ```
+
+SDK de Java suporta os seguintes valores para o mapeamento de configuração:
+
+|Definição  |Descrição  |
+|---------|---------|
+|readchangefeed   |  Indica que o conteúdo da coleção é obtido a partir de Feed de alterações do cosmos DB. O valor predefinido é false.       |
+|changefeedqueryname |   Uma cadeia de caracteres personalizada para identificar a consulta. O conector mantém um registo dos tokens de continuação de coleção para diferente alterar feed consultas em separado. Se readchangefeedis true, esta é uma configuração necessária que não é possível colocar o valor vazio.      |
+|changefeedcheckpointlocation  |   Um caminho para o armazenamento de ficheiros local para manter os tokens de continuação em caso de falhas de nó.      |
+|changefeedstartfromthebeginning  |  Define se o feed de alterações deve começar do início (true) ou do ponto atual (false). Por predefinição, começa com a atual (false).       |
+|rollingchangefeed  |   Um valor Booleano indicando se a alteração feed deve ser da última consulta. O valor predefinido é false, o que significa que as alterações serão contadas da primeira leitura da coleção.      |
+|changefeedusenexttoken  |   Um valor booleano para oferecer suporte a cenários de falha de processamento. Ele é usado para indicar que o lote de feed de alterações atual tem sido manipuladas com elegância e o RDD deve utilizar os tokens de continuação seguintes para obter o lote subsequente de alterações.      |
+| InferStreamSchema | Um valor booleano que indicados se o esquema dos dados de transmissão em fluxo de amostragem no início da transmissão em fluxo. Por predefinição, este valor é definido como true. Se este parâmetro estiver definido como true e alterações de esquema dos dados de transmissão em fluxo depois dos dados são objeto de amostragem, propriedades recentemente adicionadas serão removidas na estrutura de dados de transmissão em fluxo. <br/><br/> Se pretender que o quadro de dados de transmissão em fluxo para ser independente de esquema, defina este parâmetro como false. Neste modo, o corpo dos documentos ler a partir do feed de alterações do Azure Cosmos DB são compactados numa propriedade de "corpo" na estrutura de dados transmissão em fluxo resultante além de valores de propriedade do sistema.
+ |
+
+### <a name="connection-settings"></a>Definições de ligação
+
+SDK de Java suporta as seguintes definições de ligação:
+
+|Definição  |Descrição  |
+|---------|---------|
+|connectionmode   |  Define o modo de ligação que o DocumentClient interno deve utilizar para comunicar com o Azure Cosmos DB. Valores permitidos são **DirectHttps** (valor predefinido) e **Gateway**. O modo de ligação DirectHttps encaminha os pedidos diretamente para as partições do CosmosDB e fornece uma vantagem de latência.       |
+|connectionmaxpoolsize   |  Define o valor do tamanho do conjunto de ligação utilizada pelo DocumentClient interno. O valor predefinido é 100.       |
+|connectionidletimeout  |  Define o valor de tempo limite para conexões ociosas em segundos. O valor predefinido é de 60.       |
+|query_maxretryattemptsonthrottledrequests    |  Define o número máximo de tentativas. Este valor é utilizado em caso de falha do pedido devido a taxa de limitação no cliente. Se não for especificado, o valor predefinido é de 1000 tentativas de repetição.       |
+|query_maxretrywaittimeinseconds   |  Conjuntos do tempo de repetição máximo em segundos. Por predefinição, é 1000 segundos.       |
+
+### <a name="write-twitter-data-to-azure-cosmos-db"></a>Escrever os dados do twitter ao Azure Cosmos DB 
+
+Nesta secção, vai executar consultas do spark para escrever um lote de dados do twitter para uma nova coleção na mesma base de dados. A versão HTML do bloco de notas é alojada na [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub. Deve transferir os ficheiros de repositório e navegue para `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html` pode importar o bloco de notas à sua conta do Azure Databricks, atualizar a conta de URI, chave mestra, base de dados, nomes de coleções e executá-la ou pode criar o bloco de notas da seguinte forma:
+
+1. Navegue até à sua conta do Azure Databricks e selecione o **área de trabalho** > **Create** > **bloco de notas**.  
+
+2. Na **criar bloco de notas** caixa de diálogo caixa, introduza um nome amigável de utilizador, escolha **Scala** como o idioma, no menu pendente selecione o cluster que criou anteriormente e selecione **criar**.  
+
+3. Atualize o ponto final, a chave mestra, a base de dados e coleção de valores para ligar à coleção de base de dados para ler e escrever dados do twitter.
+
+   ```scala
+   %scala
+   // Import Necessary Libraries
+   import org.joda.time._
+   import org.joda.time.format._
+   import com.microsoft.azure.cosmosdb.spark.schema._
+   import com.microsoft.azure.cosmosdb.spark._
+   import com.microsoft.azure.cosmosdb.spark.config.Config
+
+   // Maps
+   val readConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB source collection name>", 
+   "preferredRegions" -> "East US",
+   "SamplingRatio" -> "1.0",
+   "schema_samplesize" -> "200000",
+   "query_custom" -> "SELECT c.id, c.created_at, c.user.screen_name, c.user.location, c.text, c.retweet_count, c.entities.hashtags, c.entities.user_mentions, c.favorited, c.source FROM c"
+   )
+   val writeConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB destination collection name>", 
+   "preferredRegions" -> "East US",
+   "SamplingRatio" -> "1.0",
+   "schema_samplesize" -> "200000"
+   ) 
+
+   // Configs
+   // get read
+   val readConfig = Config(readConfigMap)
+   val tweets = spark.read.cosmosDB(readConfig)
+   tweets.createOrReplaceTempView("tweets")
+   tweets.cache()
+
+   // get write
+   val writeConfig = Config(writeConfigMap)
+   ```
+4. Execute a consulta para obter a contagem de tweets por hashtags diferentes dos dados em cache. 
+
+   ```scala
+   %sql
+   select hashtags.text, count(distinct id) as tweets
+   from (
+   select 
+     explode(hashtags) as hashtags,
+     id
+   from tweets
+   ) a
+   group by hashtags.text
+   order by tweets desc
+   limit 10
+   ```
+
+5. Criar novo quadro de dados de etiquetas de tweets e guardar os dados para a nova coleção. Depois de executar o código a seguir, pode, regresse ao portal e certifique-se de que os dados são escritos na coleção. 
+
+   ```scala
+   %scala
+   // Import SaveMode so you can Overwrite, Append, ErrorIfExists, Ignore
+   import org.apache.spark.sql.{Row, SaveMode, SparkSession}
+
+   // Create new DataFrame of tweets tags
+   val tweets_bytags = spark.sql("select '2018-06-12' as currdt, hashtags.text as hashtags, count(distinct id) as tweets from ( select explode(hashtags) as hashtags, id from tweets ) a group by hashtags.text order by tweets desc limit 10")
+
+   // Save to Cosmos DB (using Append in this case)
+   // Ensure the baseConfig contains a Read-Write Key
+   // The key provided in our examples is a Read-Only Key
+
+   tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
+   ```
+
+SDK de Java suporta os seguintes valores para o mapeamento de configuração:
+
+|Definição  |Descrição  |
+|---------|---------|
+| BulkImport | Um valor booleano que indica se os dados devem ser importados com a biblioteca do BulkExecutor. Por predefinição, este valor é definido como true. |
+|WritingBatchSize  |   Indica o tamanho do lote para utilizar ao escrever dados para a coleção do Azure Cosmos DB. <br/><br/> Se o parâmetro de BulkImport estiver definido como true, WritingBatchSize parâmetro indica o tamanho do lote fornecido como entrada para a API de importAll da biblioteca do BulkExecutor de documentos. Por predefinição, este valor é definido para 100 mil. <br/><br/> Se BulkImport parâmetro estiver definido como false, WritingBatchSize parâmetro indica o tamanho do lote ser usada para criar a coleção do Azure Cosmos DB. O conector envia pedidos de createDocument/upsertDocument de forma assíncrona no batch. Quanto maior for o lote dimensione o débito mais que podemos conseguir, desde que os recursos de cluster estão disponíveis. Por outro lado, especifique um tamanho mais pequeno número de batch para limitar a taxa de e o consumo de RU. Por predefinição, a escrita de tamanho de lote é definido como 500.  |
+|Upsert   |  Uma cadeia de valor booleano que indica se upsertDocument deve ser utilizado em vez de CreateDocument ao escrever a coleção do cosmos DB.   |
+| WriteThroughputBudget |  Uma cadeia de caracteres de número inteiro que representa o número de RU\s que pretende alocar para a tarefa do spark de ingestão em massa fora o débito total alocado à coleção. |
 
 
-#### <a name="calculate-median-delays-by-destination-cities-departing-from-seattle"></a>Calcular atrasos mediano por cidades destino departing de Seattle
-```
-select destination, percentile_approx(delay, 0.5) as median_delay
-from originSEA
-where delay < 0
-group by destination
-order by percentile_approx(delay, 0.5)
-```
+### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Escrever os dados do twitter que é a transmissão em fluxo para o Azure Cosmos DB 
 
-![Gráfico de atrasos mediano do Spark](./media/spark-connector/median-delays-graph.png)
+Nesta secção, vai executar consultas do spark para escrever o feed de alterações de dados do twitter para uma nova coleção na mesma base de dados de transmissão em fluxo. A versão HTML do bloco de notas é alojada na [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub. Deve transferir os ficheiros de repositório e navegue para `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html` pode importar o bloco de notas à sua conta do Azure Databricks, atualizar a conta de URI, chave mestra, base de dados, nomes de coleções e executá-la ou pode criar o bloco de notas da seguinte forma:
+
+1. Navegue até à sua conta do Azure Databricks e selecione o **área de trabalho** > **Create** > **bloco de notas**.  
+
+2. Na **criar bloco de notas** caixa de diálogo caixa, introduza um nome amigável de utilizador, escolha **Scala** como o idioma, no menu pendente selecione o cluster que criou anteriormente e selecione **criar**.  
+
+3. Atualize o ponto final, a chave mestra, a base de dados e coleção de valores para ligar à coleção de base de dados para ler e escrever dados do twitter.
+
+   ```scala
+   import com.microsoft.azure.cosmosdb.spark._
+   import com.microsoft.azure.cosmosdb.spark.schema._
+   import com.microsoft.azure.cosmosdb.spark.config.Config
+   import com.microsoft.azure.cosmosdb.spark.streaming._
+
+   // Configure connection to Azure Cosmos DB Change Feed (Trades)
+   val ConfigMap = Map(
+   // Account settings
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB source collection name>", 
+   // Change feed settings
+   "ReadChangeFeed" -> "true",
+   "ChangeFeedStartFromTheBeginning" -> "true",
+   "ChangeFeedCheckpointLocation" -> "dbfs:/cosmos-feed",
+   "ChangeFeedQueryName" -> "Structured Stream Read",
+   "InferStreamSchema" -> "true"
+   )
+   ```
+4. Inicie o feed como um fluxo com o comando spark.readStream.format() de alterações de leitura:
+ 
+   ```scala
+   // Start reading change feed of trades as a stream
+   var streamdata = spark
+     .readStream
+     .format(classOf[CosmosDBSourceProvider].getName)
+     .options(ConfigMap)
+     .load()
+   ```
+
+5. Definir a configuração de coleção de destino e iniciar a tarefa de transmissão em fluxo através do método writeStream.format():
+
+   ```scala
+   val sinkConfigMap = Map(
+   "Endpoint" -> "<Your Azure Cosmos DB endpoint>",
+   "Masterkey" -> "<Primary key of your Azure Cosmos DB account>",
+   "Database" -> "<Your Azure Cosmos DB database name>",
+   "Collection" -> "<Your Azure Cosmos DB destination collection name>", 
+   "checkpointLocation" -> "streamingcheckpointlocation6",
+   "WritingBatchSize" -> "100",
+   "Upsert" -> "true")
+
+   // Start the stream writer
+   val streamingQueryWriter = streamdata
+    .writeStream
+    .format(classOf[CosmosDBSinkProvider].getName)
+    .outputMode("append")
+    .options(sinkConfigMap)
+    .start()
+ ```
+
+SDK de Java suporta os seguintes valores para o mapeamento de configuração:
+
+|Definição  |Descrição  |
+|---------|---------|
+|Upsert   |  Uma cadeia de valor booleano que indica se upsertDocument deve ser utilizado em vez de CreateDocument ao escrever a coleção do cosmos DB.   |
+|checkpointlocation  |   Um caminho para o armazenamento de ficheiros local para manter os tokens de continuação em caso de falhas de nó.   |
+|WritingBatchSize  |  Indica o tamanho do lote para utilizar ao escrever dados para a coleção do Azure Cosmos DB. O conector envia pedidos de createDocument/upsertDocument de forma assíncrona no batch. Quanto maior for o lote dimensione o débito mais que podemos conseguir, desde que os recursos de cluster estão disponíveis. Por outro lado, especifique um tamanho mais pequeno número de batch para limitar a taxa de e o consumo de RU. Por predefinição, a escrita de tamanho de lote é definido como 500.  |
+
+
+## <a name="considerations-when-using-java-sdk"></a>Considerações ao utilizar o SDK de Java
+
+Spark ao ligar ao Azure Cosmos DB com Java SDK recomenda-se nos seguintes cenários:
+
+* Que pretende utilizar o Python e/ou Scala.  
+
+* Se tiver uma grande quantidade de dados a transferir entre Apache Spark e o Azure Cosmos DB, o SDK de Java tem um desempenho superior em comparação com o pyDocumentDB. Para dar uma idéia sobre a diferença de desempenho de consulta, consulte a [wiki de execuções de teste de consulta](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se ainda não o fez, transfira o Spark para o conector Azure Cosmos BD a partir do [cosmosdb-azure-spark](https://github.com/Azure/azure-cosmosdb-spark) repositório do GitHub e explorar os recursos adicionais no repositório:
+Se ainda não o fez, transfira o Spark para o conector do Azure Cosmos DB a partir da [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark) repositório do GitHub e explorar os recursos adicionais no repositório:
 
 * [Exemplos de agregações distribuída](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Scripts de exemplo e blocos de notas](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-Pode também querer rever o [Apache Spark SQL, DataFrames e conjuntos de dados guia](http://spark.apache.org/docs/latest/sql-programming-guide.html) e [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artigo.
+Pode também querer rever os [guia de conjuntos de dados, Apache Spark SQL e DataFrames](http://spark.apache.org/docs/latest/sql-programming-guide.html) e o [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artigo.

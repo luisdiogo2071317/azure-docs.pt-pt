@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920802"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056346"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planear a capacidade e dimensionamento para replicação do VMware com o Azure Site Recovery
 
@@ -34,9 +34,9 @@ Recolher informações sobre o ambiente de replicação ao executar o [do Azure 
 
 **CPU** | **Memória** | **Tamanho do disco de cache** | **Taxa de alteração de dados** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPUs (2 sockets * 4 núcleos @ 2,5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB ou menos | Replicar máquinas inferior a 100.
-12 vCPUs (2 sockets * 6 núcleos @ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 150 máquinas.
-16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz) | 32 GB | 1 TB | 1 TB para 2 TB | Replicar entre 150 200 máquinas.
+8 vCPUs (2 sockets * 4 núcleos \@ 2,5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB ou menos | Replicar máquinas inferior a 100.
+12 vCPUs (2 sockets * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 150 máquinas.
+16 vCPUs (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | 1 TB para 2 TB | Replicar entre 150 200 máquinas.
 Implementar outro servidor de processos | | | &GT; 2 TB | Implemente servidores de processos adicionais, se estiver a replicar mais de 200 máquinas ou, se alterar os dados diários de taxa superior a 2 TB.
 
 Em que:
@@ -60,9 +60,9 @@ A tabela seguinte descreve um cenário em que:
 
 **Servidor de configuração** | **Servidor de processos adicionais** | **Tamanho do disco de cache** | **Taxa de alteração de dados** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
-8 vCPUs (2 sockets * 4 núcleos @ 2.5ghz), 16 GB de memória | 4 vCPUs (2 sockets * 2 núcleos @ 2.5ghz), 8 GB de memória | 300 GB | 250 GB ou menos | Replicar máquinas 85 ou menos.
-8 vCPUs (2 sockets * 4 núcleos @ 2.5ghz), 16 GB de memória | 8 vCPUs (2 sockets * 4 núcleos @ 2.5ghz), 12 GB de memória | 600 GB | De 250 GB a 1 TB | Replicar entre máquinas de 85 150.
-12 vCPUs (2 sockets * 6 núcleos @ 2.5ghz), 18 GB de memória | 12 vCPUs (2 sockets * 6 núcleos @ 2.5ghz) 24 GB de memória | 1 TB | 1 TB para 2 TB | Replicar entre 150 225 máquinas.
+8 vCPUs (2 sockets * 4 núcleos \@ 2.5ghz), 16 GB de memória | 4 vCPUs (2 sockets * 2 núcleos \@ 2.5ghz), 8 GB de memória | 300 GB | 250 GB ou menos | Replicar máquinas 85 ou menos.
+8 vCPUs (2 sockets * 4 núcleos \@ 2.5ghz), 16 GB de memória | 8 vCPUs (2 sockets * 4 núcleos \@ 2.5ghz), 12 GB de memória | 600 GB | De 250 GB a 1 TB | Replicar entre máquinas de 85 150.
+12 vCPUs (2 sockets * 6 núcleos \@ 2.5ghz), 18 GB de memória | 12 vCPUs (2 sockets * 6 núcleos \@ 2.5ghz) 24 GB de memória | 1 TB | 1 TB para 2 TB | Replicar entre 150 225 máquinas.
 
 A maneira na qual dimensiona os seus servidores depende da sua preferência num modelo de aumento vertical ou horizontal.  Aumentar verticalmente ao implementar alguns ponta configuration e servidores de processos ou aumentar horizontalmente, ao implementar mais servidores com menos recursos. Por exemplo, se precisar de proteger 220 máquinas, o, pode efetuar uma das seguintes ações:
 

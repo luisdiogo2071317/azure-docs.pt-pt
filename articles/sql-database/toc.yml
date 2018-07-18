@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: Migrar para a Instância Gerida
           href: sql-database-managed-instance-migrate.md
+        - name: Migrar o certificado TDE para a Instância Gerida
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: Gerir a Base de Dados SQL após a migração
           href: sql-database-manage-after-migration.md
     - name: Carregar e mover dados
