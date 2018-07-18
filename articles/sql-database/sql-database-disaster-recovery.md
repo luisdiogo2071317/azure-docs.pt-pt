@@ -1,103 +1,103 @@
 ---
-title: Recuperação após desastre de base de dados SQL | Microsoft Docs
-description: Saiba como recuperar uma base de dados a partir de uma falha de centro de dados regionais ou falha com a SQL Database do Azure Active Directory georreplicação e capacidades de restauro de georreplicação.
+title: Recuperação após desastre de base de dados SQL | Documentos da Microsoft
+description: Saiba como recuperar uma base de dados a partir de uma falha do regional datacenter ou a falha com a base de dados do Azure SQL georreplicação ativa e o georrestauro capacidades.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ba59d39fb07dfe9c9772fa4bea6922df052f0385
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645216"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092601"
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um SQL Database do Azure ou a ativação pós-falha para uma secundária
-Base de dados SQL do Azure oferece as seguintes capacidades para recuperar a partir de uma falha:
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma base de dados do Azure SQL ou a ativação pós-falha para uma secundária
+Base de dados SQL do Azure oferece as seguintes funcionalidades para recuperar a partir de uma falha:
 
-* [Grupos de replicação geográfica e ativação pós-falha Active Directory](sql-database-geo-replication-overview.md)
-* [georrestauro](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Grupos de georreplicação e ativação pós-falha Active Directory](sql-database-geo-replication-overview.md)
+* [Restauro geográfico](sql-database-recovery-using-backups.md#point-in-time-restore)
 * [Bases de dados com redundância de zona](sql-database-high-availability.md)
 
-Para saber mais sobre cenários de continuidade do negócio e as funcionalidades destes cenários de suporte, consulte [continuidade do negócio](sql-database-business-continuity.md).
+Para saber mais sobre os cenários de continuidade de negócios e os recursos para esses cenários, consulte [continuidade do negócio](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Se estiver a utilizar com redundância de zona bases de dados Premium ou crítico de negócio ou agrupamentos (pré-visualização), o processo de recuperação é um processo automatizado o resto deste material, não sendo aplicável. 
+> Se estiver a utilizar ou conjuntos de bases de dados de Premium ou críticas para a empresa com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica. 
 
-### <a name="prepare-for-the-event-of-an-outage"></a>Preparar para o evento de indisponibilidade
-Para o êxito da recuperação noutra região de dados através de grupos de ativação pós-falha ou as cópias de segurança georredundante, terá de preparar um servidor no Centro de dados noutro interrupção para se tornar o novo servidor primário deve a necessidade de surgir, bem como tem bem definidos passos documentados e testar para garantir uma recuperação sem problemas. Estes passos de preparação incluem:
+### <a name="prepare-for-the-event-of-an-outage"></a>Preparar para o evento de um período de indisponibilidade
+Para o êxito da recuperação para outra região de dados através de grupos de ativação pós-falha ou cópias de segurança georredundante, tem de preparar um servidor no Centro de dados de outra falha se tornar o novo servidor primário caso seja preciso surgir, bem como tem bem definidos passos documentados e testadas para assegurar uma recuperação sem problemas. Estes passos de preparação incluem:
 
-* Identifica o servidor lógico noutra região para se tornar o novo servidor primário. Para georrestauro, isto é, geralmente, um servidor no [região emparelhado](../best-practices-availability-paired-regions.md) para a região onde está localizada a base de dados. Isto elimina o custo de tráfego adicionais durante as operações de restauro de georreplicação.
-* Identificar e, opcionalmente, defina, as regras de firewall ao nível do servidor necessárias para os utilizadores acederem a nova base de dados primária.
-* Determine como vai para redirecionar os utilizadores para o novo servidor primário, tal como alterando as cadeias de ligação ou alterando as entradas de DNS.
-* Identifique e, opcionalmente, criar, os inícios de sessão que tem de estar presente na base de dados mestra no novo servidor primário e certifique-se de que estes inícios de sessão tem as permissões adequadas na base de dados mestra, se aplicável. Para obter mais informações, consulte [segurança da base de dados do SQL Server após a recuperação de desastre](sql-database-geo-replication-security-config.md)
-* Identifica as regras de alertas que necessitam de ser atualizados para mapear para a nova base de dados primária.
-* A configuração da auditoria na base de dados primária atual do documento
-* Efetuar uma [exercício de recuperação após desastre](sql-database-disaster-recovery-drills.md). Para simular a uma falha do restauro georreplicação, pode eliminar ou mudar o nome da base de dados de origem para fazer com que a falha de conectividade da aplicação. Para simular indisponibilidade através de grupos de ativação pós-falha, pode desativar a aplicação web ou a máquina virtual ligada à base de dados ou a ativação pós-falha da base de dados para provocar falhas de conectividade da aplicação.
+* Identifica o servidor lógico noutra região para se tornar o novo servidor primário. Para o restauro geográfico, isso geralmente é um servidor no [região emparelhada](../best-practices-availability-paired-regions.md) para a região em que se encontra a base de dados. Isso elimina o custo de tráfego adicional durante as operações de restauração de georreplicação.
+* Identifique e definir opcionalmente, as regras de firewall ao nível do servidor necessárias em que os utilizadores acedam a nova base de dados primário.
+* Determine como vai redirecionar utilizadores para o novo servidor primário, por exemplo, alterando as cadeias de ligação ou alterando as entradas de DNS.
+* Identifique e, opcionalmente, criar, os inícios de sessão que têm de estar presente na base de dados mestra no novo servidor primário e certifique-se de que estes inícios de sessão tem as permissões adequadas na base de dados mestra, se houver. Para obter mais informações, consulte [segurança da base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md)
+* Identifica as regras de alerta que precisam ser atualizados para mapear para a nova base de dados primário.
+* Documentar a configuração de auditoria na base de dados primária atual
+* Efetuar uma [teste de recuperação após desastre](sql-database-disaster-recovery-drills.md). Para simular uma falha para o restauro geográfico, pode eliminar ou mudar o nome da base de dados de origem para fazer com que a falha de conectividade da aplicação. Para simular uma falha através de grupos de ativação pós-falha, pode desativar a aplicação web ou máquina virtual ligada à base de dados ou ativação pós-falha da base de dados para fazer com que as falhas de conectividade de aplicativo.
 
 ## <a name="when-to-initiate-recovery"></a>Quando iniciar a recuperação
-A operação de recuperação tem impacto sobre a aplicação. É também exige a alteração a cadeia de ligação do SQL Server ou o redirecionamento com DNS e pode resultar em perda de dados permanente. Por conseguinte, deve ser feita apenas quando a interrupção estiver provável até ao último há mais do que o objetivo de tempo de recuperação da sua aplicação. Quando a aplicação for implementada para produção deve efetuar a monitorização regular do Estado de funcionamento de aplicação e utilizar os seguintes pontos de dados para que a recuperação é garantida de asserção:
+A operação de recuperação tem impacto sobre a aplicação. Ele exige a alteração a cadeia de ligação de SQL ou o redirecionamento através de DNS e pode resultar em perda de dados permanente. Por conseguinte, deve ser feito apenas quando a falha for provável que durar mais do que o objetivo de tempo de recuperação da sua aplicação. Quando a aplicação é implementada em produção deve executar o monitoramento regular do Estado de funcionamento da aplicação e utilizar os seguintes pontos de dados para que a recuperação é garantida de declaração:
 
-1. Falha de conectividade permanente da camada de aplicação para a base de dados.
-2. O portal do Azure mostra um alerta sobre um incidente na região com impacto abrangente.
+1. Falha de conectividade permanente da camada de aplicativos para a base de dados.
+2. O portal do Azure mostra um alerta sobre um incidente na região com impacto.
 
 > [!NOTE]
-> Se estiver a utilizar grupos de ativação pós-falha e escolher a ativação pós-falha automática, o processo de recuperação é automática e transparente para a aplicação. 
+> Se estiver a utilizar grupos de ativação pós-falha e escolheu a ativação pós-falha automática, o processo de recuperação é automatizada e transparente para a aplicação. 
 
-Dependendo da sua tolerância de aplicação para o período de indisponibilidade e possíveis responsabilidade de negócio pode considerar as seguintes opções de recuperação.
+Dependendo da sua tolerância ao aplicativo para o período de indisponibilidade e possíveis responsabilidade de negócios, pode considerar as seguintes opções de recuperação.
 
-Utilize o [obter base de dados recuperáveis](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) para obter o ponto de restauro georreplicação mais recente.
+Utilize o [obter base de dados recuperáveis](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) para obter o ponto de restauro georreplicado mais recente.
 
 ## <a name="wait-for-service-recovery"></a>Aguarde pela recuperação de serviço
-O trabalho do Azure equipas diligently para restaurar a disponibilidade do serviço como rapidamente quanto possível, mas, dependendo de raiz com que pode demorar horas ou dias.  Se a sua aplicação pode tolerar o período de indisponibilidade significativo que simplesmente pode aguardar a recuperação concluir. Neste caso, não é necessária qualquer ação da sua parte. Pode ver o estado atual do serviço no nosso [Dashboard de estado de funcionamento do serviço de Azure](https://azure.microsoft.com/status/). Após a recuperação da região, é restaurada a disponibilidade da aplicação.
+O trabalho de equipes do Azure rapidamente para restaurar a disponibilidade de serviço como fazê-lo rapidamente possível, mas dependendo de raiz pode demorar horas ou dias.  Se a sua aplicação pode tolerar períodos de indisponibilidade significativos, que pode simplesmente esperar para a recuperação concluir. Neste caso, nenhuma ação da sua parte é necessária. Pode ver o estado atual do serviço no nosso [Dashboard de estado de funcionamento do serviço de Azure](https://azure.microsoft.com/status/). Após a recuperação da região, a disponibilidade da aplicação é restaurada.
 
-## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Ativação pós-falha para o servidor secundário georreplicação no grupo de ativação pós-falha
-Se o período de indisponibilidade da sua aplicação pode resultar em responsabilidade de negócio, deve utilizar grupos de ativação pós-falha. Permite que a aplicação para restauro rápido disponibilidade numa região diferente em caso de indisponibilidade. Saiba como [configurar grupos de ativação pós-falha](sql-database-geo-replication-portal.md).
+## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Ativação pós-falha para o servidor secundário georreplicado no grupo de ativação pós-falha
+Se o tempo de inatividade do seu aplicativo pode resultar em encargos de negócios, deve usar grupos de ativação pós-falha. Permite que a aplicação restaurar rapidamente a disponibilidade numa região diferente em caso de indisponibilidade. Saiba como [configurar grupos de ativação pós-falha](sql-database-geo-replication-portal.md).
 
-Para restaurar a disponibilidade das bases de dados tem de iniciar a ativação pós-falha para o servidor secundário utilizando um dos métodos suportados.
+Para restaurar a disponibilidade das bases de dados terá de iniciar a ativação pós-falha para o servidor secundário, através de um dos métodos suportados.
 
-Utilize um dos seguintes guias para efetuar a ativação pós-falha um georreplicação base de dados secundária:
+Utilize um dos seguintes guias para efetuar a ativação pós-falha para um georreplicada secundária da base de dados:
 
-* [Ativação pós-falha para um servidor secundário georreplicação no portal do Azure](sql-database-geo-replication-portal.md)
+* [Efetuar a ativação pós-falha num servidor secundário georreplicado com o portal do Azure](sql-database-geo-replication-portal.md)
 * [Efetuar a ativação pós-falha para o servidor secundário com o PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 
-## <a name="recover-using-geo-restore"></a>Recuperar utilizando georrestauro
-Se o período de indisponibilidade da sua aplicação não resulta numa responsabilidade de empresas podem utilizar [georrestauro](sql-database-recovery-using-backups.md) como um método para recuperar as bases de dados de aplicação. Cria uma cópia da base de dados de cópia de segurança georredundante mais recente.
+## <a name="recover-using-geo-restore"></a>Recuperar ao utilizar o restauro geográfico
+Se o tempo de inatividade do seu aplicativo não resulta em encargos de negócios pode utilizar [georrestauro](sql-database-recovery-using-backups.md) como um método para recuperar as suas bases de dados do aplicativo. Ele cria uma cópia da base de dados da sua mais recente cópia de segurança georredundante.
 
-## <a name="configure-your-database-after-recovery"></a>Configurar a base de dados após a recuperação
-Se estiver a utilizar georrestauro para recuperar a partir de uma falha, tem de se certificar de que a conectividade com as novas bases de dados está configurada corretamente para que a função de normal da aplicação pode ser retomada. Esta é uma lista de verificação de tarefas para preparar a produção de base de dados recuperada.
+## <a name="configure-your-database-after-recovery"></a>Configurar a sua base de dados após a recuperação
+Se estiver a utilizar o restauro geográfico para recuperar a partir de um período de indisponibilidade, deve certificar-se de que a conectividade com as novas bases de dados está corretamente configurada para que a função normal de aplicativos pode ser retomada. Esta é uma lista de verificação de tarefas para preparar a sua produção de base de dados recuperada.
 
 ### <a name="update-connection-strings"></a>Atualizar cadeias de ligação
-Porque a base de dados recuperada reside num servidor diferente, terá de atualizar a cadeia de ligação da sua aplicação para apontar para esse servidor.
+Como a base de dados recuperada reside num servidor diferente, tem de atualizar a cadeia de ligação da sua aplicação para apontar para esse servidor.
 
-Para obter mais informações sobre como alterar cadeias de ligação, consulte a linguagem de desenvolvimento adequado para a sua [biblioteca de ligação](sql-database-libraries.md).
+Para obter mais informações sobre como alterar as cadeias de ligação, veja a linguagem de desenvolvimento adequadas para sua [biblioteca de conexão](sql-database-libraries.md).
 
 ### <a name="configure-firewall-rules"></a>Configurar regras de Firewall
-Tem de certificar-se de que as regras de firewall configuradas no servidor e na base de dados correspondem às que foram configurados no servidor primário e base de dados primária. Para obter mais informações, consulte [como: configurar as definições da Firewall (base de dados do Azure SQL)](sql-database-configure-firewall-settings.md).
+Tem de certificar-se de que as regras de firewall configuradas no servidor e na base de dados corresponderem aos que foram configurados no servidor primário e base de dados primária. Para obter mais informações, consulte [como: configurar as definições da Firewall (base de dados do Azure SQL)](sql-database-configure-firewall-settings.md).
 
-### <a name="configure-logins-and-database-users"></a>Configurar utilizadores de base de dados e inícios de sessão
-Tem de certificar-se de que todos os inícios de sessão utilizados pela sua aplicação existem no servidor que está a alojar a base de dados recuperada. Para obter mais informações, consulte [configuração de segurança a georreplicação](sql-database-geo-replication-security-config.md).
+### <a name="configure-logins-and-database-users"></a>Configurar os inícios de sessão e utilizadores de base de dados
+Tem de certificar-se de que todos os inícios de sessão utilizados pela sua aplicação existem no servidor que está a alojar a base de dados recuperada. Para obter mais informações, consulte [configuração de segurança para georreplicação](sql-database-geo-replication-security-config.md).
 
 > [!NOTE]
-> Deve configurar e testar as regras de firewall do servidor e inícios de sessão (e as respetivas permissões) durante um exercício de recuperação após desastre. Estes objetos ao nível do servidor e a respetiva configuração poderão não estar disponíveis durante a interrupção.
+> Deve configurar e testar as suas regras de firewall do servidor e inícios de sessão (e as respetivas permissões) durante um teste de recuperação após desastre. Esses objetos ao nível do servidor e a configuração podem não estar disponíveis durante o período de inatividade.
 > 
 > 
 
 ### <a name="setup-telemetry-alerts"></a>Configurar alertas de telemetria
-Tem de certificar-se de que as definições de regra de alerta existentes são atualizadas para mapear para a base de dados recuperada e o outro servidor.
+Tem de certificar-se de que as definições da regra de alerta existentes são atualizadas para mapear para a base de dados recuperada e o servidor diferente.
 
-Para obter mais informações sobre regras de alerta de base de dados, consulte [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [controlar serviço de integridade](../monitoring-and-diagnostics/insights-service-health.md).
+Para obter mais informações sobre regras de alerta de base de dados, consulte [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [estado de funcionamento de serviço de controle](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### <a name="enable-auditing"></a>Ativar a auditoria
-Se a auditoria é necessária para aceder à sua base de dados, terá de ativar a auditoria após a recuperação de base de dados. Para obter mais informações, consulte [auditoria de base de dados](sql-database-auditing.md).
+Se a auditoria é necessário para acessar seu banco de dados, terá de ativar a auditoria após a recuperação de base de dados. Para obter mais informações, consulte [auditoria de base de dados](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre o SQL do Azure, base de dados automática de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md)
-* Para saber mais sobre cenários de design e de recuperação de continuidade do negócio, consulte [cenários de continuidade](sql-database-business-continuity.md)
-* Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados de cópias de segurança iniciou o serviço](sql-database-recovery-using-backups.md)
+* Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md)
+* Para saber mais sobre cenários de design e a recuperação de continuidade de negócio, veja [cenários de continuidade](sql-database-business-continuity.md)
+* Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados a partir de cópias de segurança iniciadas pelo serviço](sql-database-recovery-using-backups.md)
 

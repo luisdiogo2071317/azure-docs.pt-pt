@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446882"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092015"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -267,7 +267,7 @@ Tabelas externas, fazer referência aos arquivos no armazenamento de Blobs do HD
 
 ### <a name="replication"></a>Replicação 
  
-Replicação ainda não é suportada. Para obter informações sobre a replicação, consulte [replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+A replicação é suportada na instância gerida. Para obter informações sobre a replicação, consulte [replicação do SQL Server](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>RESTAURAR a instrução 
  
@@ -335,7 +335,7 @@ Para obter informações sobre instruções de restauro, veja [restaurar instru�
 - `sp_attach_db`, `sp_attach_single_file_db`, e `sp_detach_db` não são suportadas. Ver [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` Não é suportada. Ver [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>Agente do SQL Server 
+### <a name="sql-server-agent"></a>SQL Server Agent 
  
 - Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.  
 - Tarefas - apenas os passos de tarefa do T-SQL são atualmente suportados (serão adicionados mais passos durante a pré-visualização pública).
@@ -371,11 +371,11 @@ Para obter informações sobre o agente do SQL Server, consulte [SQL Server Agen
 As seguintes ações não são suportadas: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 Para obter informações sobre a criação e tabelas de alteração, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Alterações de comportamento 
  
 As seguintes variáveis, funções e exibições devolvem resultados diferentes:  

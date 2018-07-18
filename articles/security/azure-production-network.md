@@ -1,6 +1,6 @@
 ---
 title: Rede de produção do Azure
-description: Este artigo fornece uma descrição geral da rede de produção do Microsoft Azure.
+description: Este artigo fornece uma descrição geral da rede de produção do Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,78 +14,78 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5c0bfae35464e73278a1efd9c04a03123bb9018a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102487"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114033"
 ---
-# <a name="azure-production-network"></a>Rede de produção do Azure
-Os utilizadores de rede de produção do Azure incluem clientes externos ao aceder às suas próprias aplicações do Microsoft Azure, bem como os técnicos de suporte de Microsoft Azure internos que gerir a rede de produção. Os métodos de acesso de segurança e mecanismos de proteção para estabelecer ligações à rede de produção do Azure são abordados neste artigo.
+# <a name="the-azure-production-network"></a>A rede de produção do Azure
+Os utilizadores da rede de produção do Azure incluem ambos os clientes externos que acedem aos seus próprios aplicações do Azure e a equipe de suporte do Azure interno que gerem a rede de produção. Este artigo aborda os métodos de acesso de segurança e mecanismos de proteção para o estabelecimento de ligações à rede de produção do Azure.
 
-## <a name="internet-routing-and-fault-tolerance"></a>Encaminhamento de Internet e tolerância a falhas
-Fornecer uma infraestrutura de serviço de nome (WADNS) do Microsoft Azure domínio de internos e externos globalmente redundante juntamente com vários clusters de servidores de serviço de nomes de domínio (DNS) de principal e secundário para tolerância a falhas ao rede adicional do Microsoft Azure os controlos da segurança, tais como NetScaler são utilizados para impedir distribuídas ataques Denial of Service (DDoS distribuídos) e proteger a integridade dos serviços de DNS do Microsoft Azure.
+## <a name="internet-routing-and-fault-tolerance"></a>Tolerância a falhas e encaminhamento de Internet
+Uma globalmente redundantes internos e externos serviço de nomes de domínio (DNS) do Azure a infraestrutura, combinada com vários primários e secundários DNS server clusters, fornece tolerância a falhas. Ao mesmo tempo, os controlos de segurança de rede do Azure adicionais, como o NetScaler, são utilizados para impedir ataques denial of service (DDoS) distribuídos e proteger a integridade dos serviços de DNS do Azure.
 
-Os servidores WADNS estão localizados em várias instalações do Centro de dados. A implementação de WADNS incorpora uma hierarquia de servidores DNS secundário/primária publicamente resolver nomes de domínio do cliente do Azure. Os nomes de domínio, normalmente, resolver para um endereço de CloudApp.net que encapsula num wrapper o endereço IP Virtual (VIP) para o serviço do cliente. Exclusivo para o Azure, o VIP correspondente ao endereço IP dedicado (DIP) interno da tradução inquilino é feito por responsável por essa VIP de balanceadores de carga Microsoft.
+Os servidores de DNS do Azure estão localizados em vários locais do Centro de dados. A implementação de DNS do Azure incorpora uma hierarquia de servidores DNS primários e secundários para publicamente resolver nomes de domínio do cliente do Azure. Normalmente, resolvem os nomes de domínio para um endereço de CloudApp.net, que encapsula o endereço IP virtual (VIP) para o serviço do cliente. Exclusivo para o Azure, o VIP que corresponde ao endereço de IP (DIP) dedicado interno da tradução de inquilino é feito com os balanceadores de carga do Microsoft, responsáveis por esse VIP.
 
-Azure está alojado nos centros de dados do Azure distribuídos geograficamente nos EUA e baseia-se em plataformas de encaminhamento de estado da última implementação robustas e dimensionáveis normas da arquitetura. Algumas das funcionalidades importantes são:
+Azure está alojado em datacenters do Azure distribuídos geograficamente, nos E.U.A. e tenha sido criada nas plataformas de encaminhamento de topo de gama que implementam as normas de arquitetura robustas e escaláveis. Entre os recursos importantes são:
 
-- Mudar de etiqueta multiprotocolo (MPLS) com base em fornecer uma utilização eficiente de ligação e a degradação correto do serviço se houver uma falha de engenharia de tráfego
-- Redes são implementadas com "necessário e um" (N + 1) arquiteturas de redundância ou superior.
-- Externamente, centros de dados são servidos pelo circuitos de rede dedicado, largura de banda alta redundantly ligar propriedades com mais 1,200 fornecedores de serviços de Internet global em vários pontos de peering fornecer que excedam gigabytes 2.000 por segundo (Gbps) do capacidade de limite.
+- Engenharia de tráfego com base em MPLS de troca de etiqueta multiprotocolo, que fornece a utilização do link eficiente e redução gradual do serviço, se houver uma falha.
+- Redes são implementadas com "necessidade de mais um" (N + 1) as arquiteturas de redundância ou superior.
+- Externamente, centros de dados são servidos pelo circuitos de rede dedicado, de grande largura de banda que ligam adquiria propriedades com mais de 1.200 fornecedores de serviços de internet globalmente em vários pontos de peering. Esta ligação fornece em excesso de 2.000 gigabytes por segundo (GBps) da capacidade de borda.
 
-Como Microsoft detém os seus próprios circuitos de rede entre centros de dados, estes atributos ajudam a oferta Azure alcançar 99.9 + % de disponibilidade de rede sem a necessidade de fornecedores de serviços de Internet de terceiros tradicionais.
+Uma vez que a Microsoft possui seus próprio circuitos de rede entre os datacenters, esses atributos ajudam a alcançar + de 99,9% de disponibilidade de rede sem a necessidade de fornecedores de serviços de internet de terceiros tradicional de oferta do Azure.
 
-## <a name="connection-to-production-network-and-associated-firewalls"></a>Ligação à rede de produção e Firewalls associadas
-A política de fluxo de tráfego de Internet de rede do Azure direciona o tráfego para a rede de produção do Azure localizado no Centro de dados regional mais próximo no interior dos Estados Unidos. Uma vez que os centros de dados de produção do Azure mantém a arquitetura de rede consistente e hardware, o abaixo fluxo de tráfego descrição aplica-se consistente para todos os centros de dados.
+## <a name="connection-to-production-network-and-associated-firewalls"></a>Ligação à rede de produção e firewalls associados
+A política de fluxo de tráfego de internet de rede do Azure direciona o tráfego para a rede de produção do Azure que está localizado no datacenter regional mais próximo dentro dos EUA. Uma vez que os datacenters de produção do Azure manter a arquitetura de rede consistente e de hardware, a descrição do fluxo de tráfego que se segue aplica-se consistente para todos os datacenters.
 
-Depois do tráfego de Internet para o Azure é encaminhado para o Centro de dados mais próximo, é estabelecida uma ligação para os routers de acesso. Estes routers acesso servem para isolar o tráfego entre nós do Azure e VMs com instâncias de cliente. Dispositivos de infraestrutura de rede nas localizações de acesso e limite são os pontos de limites em que são aplicados filtros de entrada e/ou de saída. Estes routers são configurados através de uma ACL em camadas para filtrar o tráfego de rede indesejado e aplicar limites de velocidade de tráfego, se necessário. O tráfego permitido por ACL é encaminhado para os balanceadores de carga. Routers de distribuição foram concebidos para permitir que apenas os endereços IP aprovado Microsoft, forneça o spoofing de antimalware e estabelecer ligações de TCP utilizar ACLs.
+Depois do tráfego de internet para o Azure é encaminhado para o datacenter mais próximo, é estabelecida uma ligação para os routers de acesso. Estes routers acesso servem para isolar o tráfego entre nós do Azure e VMs instanciado por cliente. Dispositivos de infraestrutura de rede nas localizações de acesso e o edge são os pontos de limites nos quais os filtros de entrada e de saída são aplicados. Estes routers são configuradas através de uma lista de controle em camadas de acesso (ACL) para filtrar o tráfego de rede indesejado e aplicar limites de velocidade de tráfego, se necessário. Tráfego permitido por ACL é encaminhado para os balanceadores de carga. Routers de distribuição foram concebidos para permitir que apenas os endereços IP aprovado Microsoft, forneça o antisspoofing e estabelecer ligações TCP que usam ACLs.
 
-Dispositivos de balanceamento de carga externos atrás os routers de acesso para efetuar a tradução de endereços de rede (NAT) IPs encaminháveis para a Internet para IPs interno do Azure. Estes também encaminhar pacotes para válido IPs interno de produção e de portas e atuam como um mecanismo de proteção para limitar a exposição de espaço de endereços de rede de produção interno.
+Dispositivos de balanceamento de carga externos localizados atrás dos routers de acesso para efetuar a tradução de endereços de rede (NAT) de IPs encaminháveis para a internet para IPs interno do Azure. Os dispositivos também encaminham pacotes para a produção válida interno IPs e portas e eles atuam como um mecanismo de proteção para limitar a exposição o espaço de endereços de rede de produção interno.
 
-Por predefinição, o Microsoft impõe Hypertext Transfer Protocol Secure (HTTPS) para todo o tráfego que está a ser transmitido para o web do cliente browsers, incluindo a iniciar sessão e todo o tráfego após essa data. A utilização de TLS v1.2 permite que um túnel seguro para o tráfego através de. ACLs nos routers de núcleo de acesso e certifique-se que a origem do tráfego é consistente com o que é esperado.
+Por predefinição, a Microsoft impõe o protocolo Secure HTTPS (Hypertext Transfer) para todo o tráfego que é transmitido a navegadores da web dos clientes, incluindo o início de sessão e todo o tráfego após esta data. A utilização da versão do TLS 1.2 permite que um túnel seguro para o tráfego através de. As ACLs em routers de acesso e core Certifique-se de que a origem do tráfego é consistente com o esperado.
 
-Uma distinção importante nesta arquitetura em comparação comparada a arquitetura de segurança tradicionais é que existem não existem firewalls de hardware dedicado, intrusões especializadas deteção/prevenção dispositivos ou outras aplicações de segurança normalmente esperadas antes são feitas ligações ao ambiente de produção do Azure. Os clientes esperam, normalmente, estes dispositivos de firewall de hardware na rede do Azure; No entanto, existem nenhum utilizada no Azure. Quase exclusivamente, essas funcionalidades de segurança incorporadas no software com o ambiente do Azure para fornecer os mecanismos de segurança de vários em camadas robusta, incluindo as capacidades de firewall. Além disso, o âmbito do limite e sprawl associado de dispositivos de segurança críticas é mais fácil de gerir e inventário conforme mostrado na ilustração acima, porque é gerida pelo software do Azure a executar.
+Uma distinção importante nesta arquitetura, quando são comparados com a arquitetura de segurança tradicionais, é que existem outras aplicações de segurança que são normalmente ou dispositivos de prevenção, detecção de intrusão especializadas ou não firewalls de hardware dedicado era esperado antes das ligações são estabelecidas no ambiente de produção do Azure. Que os clientes exigem, normalmente, estes dispositivos de hardware do firewall na rede do Azure; No entanto, nenhum são empregados no Azure. Quase que exclusivamente, esses recursos de segurança são criados no software que executa o ambiente do Azure para fornecer mecanismos de segurança robusta, com várias camadas, incluindo capacidades de firewall. Além disso, o âmbito do limite e associada à expansão desordenada de dispositivos de segurança crítico é fácil de gerenciar e de inventário, conforme mostrado na ilustração anterior, porque é gerida pelo software que está a executar o Azure.
 
-## <a name="core-security-and-firewall-features"></a>Funcionalidades de segurança e de firewall de núcleo
-Azure implementa segurança software robusta e funcionalidades de firewall em vários níveis para impor as funcionalidades de segurança esperadas, normalmente, num ambiente tradicional para proteger o limite de autorização de segurança do núcleo.
+## <a name="core-security-and-firewall-features"></a>Principais recursos de segurança e de firewall
+O Azure implementa recursos de firewall em vários níveis para impor a recursos de segurança que, normalmente, espera-se num ambiente tradicional para proteger os limites de autorização de segurança de principais de segurança de software robusto e.
 
-### <a name="azure-security-features"></a>Funcionalidades de segurança do Azure
-Azure implementa firewalls de software baseado em anfitrião dentro da rede de produção. Vários principais de segurança e funcionalidades de firewall residem dentro do núcleo do ambiente do Azure. Estas funcionalidades de segurança refletem uma estratégia de defesa em profundidade no ambiente do Azure. Dados de cliente no Microsoft Azure estão protegidos por firewalls seguintes:
+### <a name="azure-security-features"></a>Recursos de segurança do Azure
+O Azure implementa firewalls de software baseados em host dentro da rede de produção. Vários núcleos de segurança e recursos de firewall residem no núcleo do ambiente do Azure. Estas funcionalidades de segurança refletem uma estratégia de defesa em profundidade dentro do ambiente do Azure. Dados do cliente no Azure estão protegidos pelos firewalls seguintes:
 
-**Firewall de hipervisor (pacote filtro)**: este firewall está implementado no hipervisor e configurado pelo agente de FC. Este firewall protege o inquilino no interior da VM contra acesso não autorizado. Por predefinição, quando é criada uma VM todo o tráfego é bloqueado e, em seguida, o agente FC adiciona exceções de regras/no filtro para permitir tráfego autorizado.
+**Firewall de hipervisor (filtro de pacotes)**: esta firewall é implementada no hipervisor e configurada pelo agente de controlador (FC) de recursos de infraestrutura. Esta firewall protege o inquilino que é executado dentro da VM contra acesso não autorizado. Por predefinição, quando é criada uma VM, todo o tráfego é bloqueado e, em seguida, o agente FC adiciona regras e exceções no filtro para permitir tráfego autorizado.
 
-Existem duas categorias de regras que são programadas aqui:
+Duas categorias de regras são programadas aqui:
 
-- Regras de infraestrutura ou de configuração do computador: por predefinição, todas as comunicações está bloqueada. Existem exceções para permitir que uma VM enviar e receber informações de protocolo de configuração dinâmica de anfitrião (DHCP), as informações de DNS, enviar o tráfego à Internet "pública", saída para as outras VMs no cluster FC e servidor de ativação de SO. Uma vez que as máquinas virtuais permitidas a lista de saída destinos não inclui as sub-redes de router do Microsoft Azure e outras propriedades da Microsoft, as regras agirem como uma camada de defesa para os mesmos.
-- Ficheiro de configuração de função: Define as ACLs de entrada com base no modelo de serviço dos inquilinos. Por exemplo, se um inquilino tem um front-end da web na porta 80 numa determinada VM, a porta 80 está aberta todos os endereços IP. Se a VM possui uma função de trabalho em execução, é aberta a função de trabalho apenas para a VM no mesmo inquilino.
+- **Regras de configuração ou a infraestrutura do computador**: por predefinição, todas as comunicações é bloqueada. Exceções existem que permitem que uma VM enviar e receber comunicações de anfitrião configuração protocolo DHCP (Dynamic) e informações de DNS e enviar tráfego de saída para outras VMs dentro do cluster FC e o servidor de ativação de sistema operacional para a internet "pública". Uma vez que as VMs permitido a lista de saída destinos não inclui sub-redes de router do Azure e outras propriedades da Microsoft, as regras de atuam como uma camada de defesa para eles.
+- **Regras de ficheiro de configuração de função**: define as ACLs de entrada com base no modelo de serviço dos inquilinos. Por exemplo, se um inquilino tiver um front-end da web na porta 80 de uma determinada VM, a porta 80 está aberta para todos os endereços IP. Se a VM tem uma função de trabalho em execução, é aberta a função de trabalho apenas para a VM no mesmo inquilino.
 
-**Firewall de anfitrião nativo**: armazenamento e de recursos de infraestrutura do Microsoft Azure executam num nativo, que tem não hipervisor e, por conseguinte, a Firewall do Windows está configurada com dois conjuntos de regras que se acima.
+**Firewall de host nativo**: Azure Service Fabric e armazenamento do Azure, que são executados num SO nativo sem hipervisor e, portanto, o Firewall do Windows está configurado com os anteriores dois conjuntos de regras.
 
-**Firewall de anfitrião**: A firewall do anfitrião protege partição do anfitrião, o que é executado o hipervisor. As regras são programadas para permitir apenas o FC e ir caixas para falar à partição do anfitrião numa porta específica. As outras exceções são permitir a resposta DHCP e Respostas DNS. Azure utiliza um ficheiro de configuração da máquina, que tem o modelo de regras de firewall para a partição do anfitrião. Também é uma exceção de firewall de anfitrião que permite que as VMs comunicar com anfitriões componentes, durante a transmissão & servidor servidor de metadados, através do protocolo/portas específicas.
+**Firewall de Host**: A firewall do anfitrião protege a partição de anfitrião, que executa o hipervisor. As regras são programadas para permitir apenas o FC e as caixas para comunicar com a partição de anfitrião numa porta específica de ligação. As restantes exceções encontram-se permitir que a resposta DHCP e respostas DNS. O Azure utiliza um ficheiro de configuração de máquina, que contém um modelo de regras de firewall para a partição do anfitrião. Uma exceção de firewall do anfitrião existe que permite às VMs comunicarem para alojar componentes do servidor durante a transmissão e servidor de metadados como, por meio de protocolo/portas específicas.
 
-**Firewall de convidado**: peça da Firewall do Windows do SO convidado, que é configurável pelo cliente em VMs do cliente e de armazenamento.
+**Firewall de convidado**: O Firewall do Windows informação o SO convidado, que é configurável por parte dos clientes em VMs de cliente e de armazenamento.
 
-Funcionalidades de segurança adicionais incorporado nas capacidades do Azure:
+Recursos de segurança adicionais que são criados para as capacidades do Azure incluem:
 
-- Componentes de infraestrutura são atribuídos a endereços IP que sejam IPs dedicado (DIPs). Um atacante na Internet não é possível resolver tráfego para esses endereços porque iria atingirem não Microsoft. Routers de Gateway para a Internet filtra pacotes endereçadas unicamente para endereços internos, pelo que não introduziria a rede de produção. Os componentes de apenas aceitam o tráfego direcionado para VIPs são balanceadores de carga.
-- As firewalls implementadas em todos os nós internos tem três considerações de arquitetura de segurança primário para qualquer cenário determinado:
+- Componentes de infraestrutura que são atribuídos endereços IP que pertençam a DIPs. Um invasor na internet não consegue resolver o tráfego para esses endereços porque ele não seria chegam à Microsoft. Routers de gateway de Internet filtrar pacotes que são resolvidos exclusivamente para endereços internos, para que eles não deve introduzir a rede de produção. Os componentes de apenas aceitam o tráfego é direcionado para VIPs são balanceadores de carga.
+- Firewalls que estão implementadas em todos os nós internos tem três considerações de arquitetura de segurança principal para qualquer cenário determinado:
 
-   - Estes são colocadas atrás do Balanceador de carga (LB) e aceitam pacotes a partir de qualquer lugar. Estes são se destina a ser expostos externamente e iriam correspondem para as portas abrir uma firewall de perímetro tradicional.
-   - Aceite apenas pacotes de um conjunto limitado de endereços. Esta é a parte da estratégia de aprofundada de defesa contra ataques denial of service. Essas ligações são autenticadas criptograficamente.
-   - Firewalls só podem ser acedidas a partir de nós internos selecionadas, nesse caso aceitem pacotes apenas a partir de uma lista de endereços IP de origem, as quais são DIPs dentro da rede do Azure enumerada. Por exemplo, um ataque na rede empresarial direcionar pedidos para estes endereços, mas seriam bloqueados, exceto se o endereço de origem do pacote foi um na lista enumerada dentro da rede do Azure.
-   - O router de acesso no perímetro bloqueia pacotes de saída endereçadas a um endereço dentro da rede do Azure devido ao respetivos encaminhamentos estáticos configurados.
+   - Firewalls são colocadas atrás do Balanceador de carga e aceitam os pacotes a partir de qualquer lugar. Estes pacotes destinam-se para ser exposto externamente e correspondem a abrir portas na firewall do perímetro tradicional.
+   - Firewalls aceitam pacotes apenas a partir de um conjunto limitado de endereços. Isso é parte da estratégia de defesa aprofundada contra ataques DDoS. Tais conexões criptograficamente são autenticados.
+   - Firewalls podem ser acedidos apenas a partir de nós internos selecionados. Eles aceitam os pacotes apenas a partir de uma lista enumerada de endereços IP de origem, todos eles DIPs dentro da rede do Azure. Por exemplo, um ataque na rede da empresa pode direcionar os pedidos para estes endereços, mas os ataques seriam bloqueados, a menos que o endereço de origem do pacote foi um na lista enumerada dentro da rede do Azure.
+     - O router de acesso no perímetro bloqueia os pacotes de saída que são resolvidos para um endereço que está dentro da rede do Azure devido a seu encaminhamentos estáticos configurados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o que faz Microsoft para proteger a infraestrutura do Azure, consulte:
+Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Azure, veja:
 
-- [Instalações do Azure, no local e a segurança física](azure-physical-security.md)
+- [Recursos do Azure, no local e a segurança física](azure-physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](azure-infrastructure-availability.md)
 - [Componentes de sistema de informações do Azure e limites](azure-infrastructure-components.md)
 - [Arquitetura de rede do Azure](azure-infrastructure-network.md)
-- [Funcionalidades de segurança da base de dados de SQL do Microsoft Azure](azure-infrastructure-sql.md)
-- [Gestão e operações de produção do Azure](azure-infrastructure-operations.md)
-- [Monitorização da infraestrutura do Azure](azure-infrastructure-monitoring.md)
-- [Integridade da infraestrutura do Azure](azure-infrastructure-integrity.md)
-- [Proteção de dados de cliente no Azure](azure-protection-of-customer-data.md)
+- [Funcionalidades de segurança da base de dados SQL do Azure](azure-infrastructure-sql.md)
+- [Gerenciamento e operações de produção do Azure](azure-infrastructure-operations.md)
+- [Monitorização de infraestrutura do Azure](azure-infrastructure-monitoring.md)
+- [Integridade de infraestrutura do Azure](azure-infrastructure-integrity.md)
+- [Proteção de dados do cliente do Azure](azure-protection-of-customer-data.md)

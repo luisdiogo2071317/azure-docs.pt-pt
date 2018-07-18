@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 2c919040233226818505dbafc260d56d4d0e3c9e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070737"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116151"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
 
@@ -34,7 +34,7 @@ Neste artigo, saiba como criar uma aplicação de consola C++ no Linux (Ubuntu 1
 
 ## <a name="get-the-speech-sdk"></a>Obtenha o SDK de voz
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 A versão atual do SDK de voz dos serviços cognitivos é `0.5.0`.
 
@@ -70,7 +70,7 @@ Transfira e instale o SDK da seguinte forma:
 
    Deve mostrar aviso de terceiros e arquivos de licença, bem como um `include` diretório para cabeçalhos e um `lib` diretório para bibliotecas.
 
-   [!include[Linux Binary Archive Content](includes/linuxbinary-content.md)]
+   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## <a name="add-the-sample-code"></a>Adicione o código de exemplo
 

@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fcc860daddbaa0b3275116027136bcde9dbcf256
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35648862"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092032"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -42,7 +42,7 @@ Pode utilizar estas cópias de segurança para:
 > 
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo as cópias de segurança permanecem?
-Cada cópia de segurança da base de dados SQL tem um período de retenção predefinido que baseia-se no escalão de serviço da base de dados e é diferente entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md). Pode atualizar o período de retenção de cópia de segurança para uma base de dados. Ver [período de retenção de cópia de segurança de alteração](#how-to-change-backup-retention-period) para obter mais detalhes.
+Cada cópia de segurança da base de dados SQL tem um período de retenção predefinido que baseia-se no escalão de serviço da base de dados e é diferente entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Pode atualizar o período de retenção de cópia de segurança para uma base de dados. Ver [período de retenção de cópia de segurança de alteração](#how-to-change-backup-retention-period) para obter mais detalhes.
 
 Se eliminar uma base de dados, base de dados SQL manterá as cópias de segurança da mesma forma que faria para uma base de dados online. Por exemplo, se eliminar uma base de dados básico que tem um período de retenção de sete dias, é guardada uma cópia de segurança que é de quatro dias de antiguidade por três dias mais.
 
@@ -61,11 +61,6 @@ O período de retenção predefinido para uma base de dados criada com o modelo 
 Se reduzir o período de retenção PITR atual, todas as cópias de segurança existentes mais antigas do que o novo período de retenção já não estará disponíveis. 
 
 Se aumentar o período de retenção PITR atual, base de dados SQL manterá as cópias de segurança existentes até que o período de retenção mais longo for atingido.
-
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>Retenção de PITR para os escalões de serviço baseado em vCore (pré-visualização)
-
-Durante a pré-visualização, o período de retenção PITR para bases de dados criada com o modelo de compra baseado em vCore está definido como 7 dias. O armazenamento associado está incluído gratuitamente.    
-
 
 ## <a name="how-often-do-backups-happen"></a>Com que frequência as cópias de segurança acontecem?
 ### <a name="backups-for-point-in-time-restore"></a>Cópias de segurança para restauro para ponto no tempo

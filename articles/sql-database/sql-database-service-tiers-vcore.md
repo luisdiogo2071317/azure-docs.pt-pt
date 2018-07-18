@@ -1,20 +1,20 @@
 ---
 title: Serviço de base de dados SQL do Azure - vCore | Documentos da Microsoft
-description: O modelo de compra baseado em vCore (pré-visualização) permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente.
+description: O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/15/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: cc69d2f195006fa196491fe9bed53db499eed11f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069983"
+ms.locfileid: "39091497"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviços de vCore, computação, memória, armazenamento e recursos de e/s
 
@@ -30,11 +30,9 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalõe
 |Armazenamento|Armazenamento Premium remoto, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 4 TB|
 |Débito de e/s (aproximado)|500 IOPS por vCore com IOPS máximos de 7000|5000 IOPS por núcleo com IOPS máximos 200000|
 |Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [uma escala de leitura](sql-database-read-scale-out.md), HA com redundância de zona|
-|Cópias de segurança|RA-GRS, 7-35 dias (7 dias por predefinição)|RA-GRS, 7-35 dias (7 dias por predefinição) *|
+|Cópias de segurança|RA-GRS, 7-35 dias (7 dias por predefinição)|RA-GRS, 7-35 dias (7 dias por predefinição)|
 |Dentro da memória|N/A|Suportadas|
 |||
-
-\* Durante a pré-visualização, o período de retenção de cópias de segurança não é configurável e é fixado para 7 dias.
 
 > [!IMPORTANT]
 > Se precisar de menos de um vCore de capacidade de computação, utilize o modelo de compra baseado em DTU.
@@ -67,7 +65,7 @@ Armazenamento para cópias de segurança da base de dados é alocado para suport
 
 ## <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
 
-No vCore com base no modelo de compra (pré-visualização), podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
+No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 

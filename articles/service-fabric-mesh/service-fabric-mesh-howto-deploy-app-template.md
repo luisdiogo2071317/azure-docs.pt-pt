@@ -1,7 +1,7 @@
 ---
 title: Implementar uma aplicação no Azure Service Fabric em malha através de um modelo | Documentos da Microsoft
 description: Saiba como implementar uma aplicação a malha de recursos de infraestrutura do serviço .NET Core a partir de um modelo com a CLI do Azure.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 11b3ad6bf83eebfc94ead6f8a730b8e6a6b8de2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 8d813669f2f44fd64db669e9750e3bc064c7f916
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076311"
+ms.locfileid: "39090342"
 ---
 # <a name="deploy-a-service-fabric-mesh-application-to-service-fabric-mesh-using-a-template"></a>Implementar uma aplicação de malha de recursos de infraestrutura do serviço de mensagens em fila para a malha de recursos de infraestrutura de serviço com um modelo
 Este artigo mostra como implementar uma aplicação .NET Core para a malha de recursos de infraestrutura do serviço através de um modelo. Quando tiver terminado, terá uma aplicação de voto com um front-end de que guarda os resultados das votações num serviço de back-end do cluster da web ASP.NET Core. O front-end utiliza o DNS para resolver o endereço do serviço de back-end.
@@ -54,28 +54,28 @@ O comando anterior implementa um aplicativo do Windows usando [mesh_rp.windows.j
 
 Dentro de alguns minutos, o comando deverá devolver com:
 
-`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>.` 
-
-Por exemplo, o endereço IP é 13.68.129.22.
+`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>` 
 
 ## <a name="open-the-application"></a>Abra a aplicação
-Assim que a aplicação é implementada com êxito, ligue para o ponto final do serviço (13.68.129.22, no exemplo anterior) num navegador.  
+Assim que a aplicação é implementada com êxito, obtenha o endereço IP público para o ponto final de serviço e abra-o num browser. Ele exibe após a página da web. 
 
 ![Aplicação Voting](./media/service-fabric-mesh-howto-deploy-app-template/VotingApplication.png)
 
 Agora pode adicionar opções de votos para o aplicativo e vote nela ou eliminar opções de votos.
+
+O comando de implementação devolve o endereço IP público do ponto de extremidade de serviço. Opcionalmente, também pode consultar o recurso de rede para encontrar o endereço IP público do ponto de extremidade de serviço. 
+
+O nome de recurso de rede para esta aplicação está `VotingAppNetwork`, obter informações sobre ele usando o seguinte comando. 
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
+```
 
 ## <a name="check-the-application-details"></a>Verifique os detalhes da aplicação
 Pode verificar o estado do aplicativo usando o `app show` comando. O nome da aplicação para a aplicação implementada é "VotingApp", então, obter os detalhes. 
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name VotingApp
-```
-
-Também pode consultar o recurso de rede para encontrar o endereço IP do contentor onde o serviço é implementado, executando o comando "az mesh show de rede":
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
 ## <a name="list-the-deployed-applications"></a>Lista as aplicações implementadas

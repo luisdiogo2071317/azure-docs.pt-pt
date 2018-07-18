@@ -1,43 +1,44 @@
-
-<!--
-includes/sql-database-include-ip-address-22-v12portal.md
-
-Latest Freshness check:  2016-03-21 , daleche.
-
-As of circa 2015-09-04, the following topics might include this include:
-articles/sql-database/sql-database-configure-firewall-settings.md
-articles/sql-database/sql-database-connect-query.md
-
-
-## Server-level firewall rules
-
-### Add a server-level firewall rule through the new Azure portal
--->
-
-
+---
+title: Regras de firewall ao nível do servidor
+description: Regras de firewall ao nível do servidor
+keywords: ligação de SQL, cadeia de ligação
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: 07bbba28b7e1b048ef3a4e1afa4db255967dc093
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117278"
+---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Na lista à esquerda, selecione **todos os serviços**. 
+2. Na lista à esquerda, selecione **todos os serviços**.
 
-3. Desloque-se e selecione **servidores SQL**. 
-   
-    ![Localizar o servidor da SQL Database do Azure no portal][b21-FindServerInPortal]
-5. Na caixa de texto de filtro, comece a escrever o nome do seu servidor. A linha é apresentada.
+3. Desloque-se e selecione **servidores SQL**.
 
-6. Selecione a linha para o servidor. É apresentado um painel para o servidor.
+    ![Encontrar o seu servidor de base de dados do Azure SQL no portal do][b21-FindServerInPortal]
+5. Na caixa de texto de filtro, comece a escrever o nome do seu servidor. A linha é exibida.
 
-7. No painel do servidor, selecione **definições**. 
+6. Selecione a linha para o seu servidor. É apresentado um painel para o seu servidor.
 
-8. Selecione **Firewall**. 
-   
-    ![Selecione as definições > Firewall][b31-SettingsFirewallNavig]
+7. No painel do servidor, selecione **definições**.
+
+8. Selecione **Firewall**.
+
+    ![Selecione definições > Firewall][b31-SettingsFirewallNavig]
 9. Selecione **Adicionar cliente IP**. Escreva um nome para a nova regra na primeira caixa de texto.
 
-10. Escreva os valores de endereço IP baixos e alto para o intervalo de que pretende ativar.
-    
-    * Pode ser útil ter end valor baixo com **.0** e o valor elevado, terminar com **.255**.
-    
-    ![Adicionar um intervalo de endereços IP para permitir][b41-AddRange]
+10. Escreva os valores de endereço IP de baixos e elevados para o intervalo que pretende ativar.
+
+    * Pode ser útil ter final com o valor baixo **.0** e o alto valor terminar com **.255**.
+
 11. Selecione **Guardar**.
 
 <!-- Image references. -->

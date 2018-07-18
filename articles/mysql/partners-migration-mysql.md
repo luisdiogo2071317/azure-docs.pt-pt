@@ -6,14 +6,14 @@ author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: mysql-database
-ms.topic: article
-ms.date: 07/11/2018
-ms.openlocfilehash: fd3b47d52cf785798d4063eeed20148436b72947
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: 4cd6b82073380cdb0258f9faedd47492fd032da9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531751"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116025"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Base de dados do Azure para parceiros de migração do MySQL
 Para suportar amplamente sua base de dados do Azure para MySQL solução, escolha entre uma ampla variedade de ferramentas e de parceiros líderes do setor. Este artigo destaca a empresas parceiras da Microsoft com soluções de migração que suporta a base de dados do Azure para MySQL.
@@ -42,7 +42,7 @@ Para saber mais sobre alguns dos outros parceiros da Microsoft, consulte a [site
 [dbbest_website]:https://www.dbbest.com/technologies/azure-database-service-mysql-postgresql//
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
-[credativ_website]:https://credativ.com
+[credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
 
 <!--Get Started Links-->
 <!--Datasheet Links-->

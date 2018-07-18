@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 741b32f394ca2ce447826f7207f7fd9cbede9c51
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070880"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112727"
 ---
 # <a name="understand-load-balancer-probes"></a>Compreender as sondas do Balanceador de carga
 
 O Azure Load Balancer utiliza sondas de estado de funcionamento para determinar que instância de conjunto de back-end deve receber novos fluxos.   Pode utilizar sondas de estado de funcionamento para detetar a falha de um aplicativo numa instância de back-end.  Também pode utilizar a resposta de sonda de estado de funcionamento do seu aplicativo para sinalizar para o Balanceador de carga se pretende continuar a enviar novos fluxos ou parar o envio de novos fluxos a uma instância de back-end para gerir a carga ou períodos de indisponibilidade planeados.
 
-Sondas de estado de funcionamento definem se novos fluxos são estabelecidos para instâncias de back-end em bom estado. Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento.  Conexões TCP estabelecidas continuam após falha de sonda de estado de funcionamento.  Fluxos UDP existentes vão passar a partir da instância de mau estado de funcionamento para outra instância do conjunto de back-end.
+Sondas de estado de funcionamento definem se novos fluxos são estabelecidos para instâncias de back-end em bom estado. Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento.  Conexões TCP estabelecidas continuam após falha de sonda de estado de funcionamento.  Fluxos UDP existentes irão mudar da instância de mau estado de funcionamento para outra instância de bom estado de funcionamento do conjunto de back-end.
 
 Se todas as sondas para um conjunto de back-end falharem, balanceadores de carga básico irá terminar todos os fluxos TCP existente para o conjunto de back-end, ao passo que o Balanceador de carga Standard irão permitir estabelecidos fluxos TCP para continuar; Não existem fluxos novos serão enviados para o conjunto de back-end.  Todos os fluxos UDP existentes irão terminar para básico e Balanceadores de carga Standard quando a ativação do conjunto de todas as sondas para um back-end.
 

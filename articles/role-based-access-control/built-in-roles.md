@@ -1,6 +1,6 @@
 ---
 title: Funções incorporadas no Azure | Documentos da Microsoft
-description: Descreve as funções incorporadas para o controlo de acesso baseado em funções (RBAC) no Azure. Lista de ações, notActions, dataActions e notDataActions.
+description: Descreve as funções incorporadas para o controlo de acesso baseado em funções (RBAC) no Azure. Lista de ações, NotActions, DataActions e NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,20 +15,20 @@ ms.date: 06/28/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c5624de13d5d31320beb85aff67c61addaffcbea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8152a9934d6a280abfc75fdc74e0864053d82f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437931"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116083"
 ---
 # <a name="built-in-roles-in-azure"></a>Funções incorporadas no Azure
-[Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as funções incorporadas não atenderem às necessidades específicas da sua organização, pode criar a sua própria [funções personalizadas](custom-roles.md).
+[Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
 
 As funções incorporadas estão sempre a evoluir. Para obter as definições de função mais recentes, utilize [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descrições de função incorporada
-A tabela seguinte fornece breves descrições das funções incorporadas. Clique no nome de função para ver a lista de `actions`, `notActions`, `dataActions`, e `notDataActions` para cada função.
+A tabela seguinte fornece breves descrições das funções incorporadas. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions`, e `NotDataActions` para cada função.
 
 
 | Função incorporada | Descrição |
@@ -104,7 +104,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Leitor de dados de fila de armazenamento (pré-visualização)](#storage-queue-data-reader-preview) | Permite acesso de leitura às filas e mensagens de fila de Armazenamento do Azure |
 | [Contribuidor de pedido de suporte](#support-request-contributor) | Permite-lhe criar e gerir os pedidos de Suporte |
 | [Contribuidor do Gestor de tráfego](#traffic-manager-contributor) | Permite-lhe gerir perfis do Gestor de Tráfego, mas não lhe permite controlar quem tem acesso aos mesmos. |
-| [Administrador de acesso de utilizador](#user-access-administrator) | Permite-lhe gerir o acesso de utilizador aos recursos do Azure. |
+| [Administrador de Acesso de Utilizador](#user-access-administrator) | Permite-lhe gerir o acesso de utilizador aos recursos do Azure. |
 | [Início de sessão de administrador de máquinas virtuais](#virtual-machine-administrator-login) | Ver máquinas de virtuais no portal e inicie sessão como administrador |
 | [Contribuidor de Máquina Virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder às mesmas, nem à rede virtual ou conta de armazenamento às quais estão ligadas. |
 | [Início de sessão de utilizador de máquina virtual](#virtual-machine-user-login) | Ver as máquinas virtuais no portal e inicie sessão como um utilizador normal. |
@@ -964,7 +964,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Insights/LogDefinitions/* | Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de Atividades através do portal. Lista as categorias de registo no registo de atividades. |
 > | Microsoft.Insights/MetricDefinitions/* | Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso). |
 > | Microsoft.Insights/Metrics/* | Ler métricas para um recurso. |
-> | Microsoft.Insights/Register/Action | Registar o fornecedor de microsoft insights |
+> | Microsoft.Insights/Register/Action | Registar o fornecedor do microsoft insights |
 > | Microsoft.Insights/webtests/* | Testes web do Application Insights de leitura/escrita/eliminar. |
 > | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/metricalerts/* |  |

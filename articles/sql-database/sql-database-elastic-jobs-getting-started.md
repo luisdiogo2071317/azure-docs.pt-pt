@@ -1,5 +1,5 @@
 ---
-title: Introdução às tarefas de bases de dados elásticas | Microsoft Docs
+title: Introdução às tarefas de bases de dados elásticas | Documentos da Microsoft
 description: Utilize tarefas de bases de dados elásticas para executar scripts T-SQL que abrangem várias bases de dados.
 services: sql-database
 manager: craigg
@@ -7,40 +7,45 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 8b03d228464978995a7a97e2f245b629b52ed812
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649157"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093143"
 ---
-# <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de base de dados elástica
-As tarefas de base de dados elásticas (pré-visualização) para a SQL Database do Azure permite-lhe fiável executar scripts T-SQL que abrangem várias bases de dados ao repetir e fornecer garantias de conclusão de uma eventual automaticamente. Para obter mais informações sobre a funcionalidade de tarefa de bases de dados elásticas, consulte [as tarefas elásticas](sql-database-elastic-jobs-overview.md).
+# <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de bases de dados elásticas
 
-Este artigo expande o exemplo encontrado no [introdução com ferramentas de base de dados elástica](sql-database-elastic-scale-get-started.md). Quando concluído, irá aprender a criar e gerir tarefas Gerir um grupo de bases de dados relacionados. Não é necessário utilizar as ferramentas do dimensionamento elástico para tirar partido dos benefícios das tarefas elásticas.
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+Tarefas de base de dados elástica (pré-visualização) para a base de dados do Azure SQL permite que execute com fiabilidade scripts T-SQL que abrangem várias bases de dados ao repetir automaticamente e o fornecimento de garantias de sua eventual conclusão. Para obter mais informações sobre a funcionalidade de trabalho de bases de dados elásticas, consulte [tarefas elásticas](sql-database-elastic-jobs-overview.md).
+
+Este artigo estende a amostra encontrada na [introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md). Quando concluído, irá aprender a criar e gerir tarefas que gerem um grupo de bases de dados relacionados. Não é necessário utilizar as ferramentas de escala elástica para tirar o máximo partido dos benefícios das tarefas elásticas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Transfira e execute o [introdução com exemplo de ferramentas de base de dados elástica](sql-database-elastic-scale-get-started.md).
+Transferir e executar o [introdução ao exemplo de ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um ID de partição horizontal manager mapa utilizando a aplicação de exemplo
-Aqui, criar um mapa de partições horizontais manager juntamente com vários shards, seguido de inserção de dados para os shards. Se já tiver shards configurado com a dados fragmentados nos mesmos, pode ignorar os passos seguintes e mover para a secção seguinte.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar uma partição horizontal Gestor de mapas de utilizar a aplicação de exemplo
+Aqui é criar um mapa de partições horizontais manager juntamente com vários fragmentos, seguido de inserção de dados em partições horizontais. Se já tiver partições horizontais que configurar com dados em partição horizontal nos mesmos, pode ignorar os passos seguintes e mover para a secção seguinte.
 
-1. Compilar e executar o **introdução com ferramentas de base de dados elástica** aplicação de exemplo. Siga os passos até que o passo 7 na secção [transferir e executar a aplicação de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). No final do passo 7, consulte a seguinte linha de comandos:
+1. Criar e executar o **introdução às ferramentas de bases de dados elásticas** aplicação de exemplo. Siga os passos até o passo 7 na secção [transferir e executar a aplicação de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). No final do 7 passo, verá a seguinte linha de comandos:
 
    ![linha de comandos](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. Na janela de comandos, escreva "1" e prima **Enter**. Isto cria as partições horizontais Gestor de mapa e adiciona dois shards para o servidor. Em seguida, escreva "3" e prima **Enter**; repetir esta ação quatro vezes. Isto insere linhas de dados de exemplo na sua shards.
-3. O [portal do Azure](https://portal.azure.com) deve mostrar três bases de dados nova:
+2. Na janela de comandos, escreva "1" e prima **Enter**. Esta ação cria a partição horizontal Gestor de mapas e adiciona as partições dois horizontais para o servidor. Em seguida, escreva "3" e prima **Enter**; Repita esta ação quatro vezes. Isso insere as linhas de dados de exemplo em suas partições horizontais.
+3. O [portal do Azure](https://portal.azure.com) deve mostrar três novas bases de dados:
 
    ![Confirmação do Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   Neste momento, iremos criar uma coleção de base de dados personalizada que reflete todas as bases de dados no mapa de partições horizontais. Isto permite-nos criar e executar uma tarefa que adiciona uma nova tabela em partições horizontais.
+   Neste ponto, podemos criar uma coleção de banco de dados personalizado que reflete todas as bases de dados no mapa de partições horizontais. Isso permite criar e executar uma tarefa que adiciona uma nova tabela em partições horizontais.
 
-Aqui iremos normalmente criaria um mapa de partições horizontais de destino, utilizando o **New-AzureSqlJobTarget** cmdlet. A base de dados do Gestor de mapa do ID de partição horizontal tem de ser definido como um destino de base de dados e, em seguida, o mapa de partições horizontais específico está especificado como um destino. Em vez disso, vamos enumerar todas as bases de dados no servidor e adicionar as bases de dados para a nova coleção personalizada com a exceção de base de dados mestra.
+Aqui estamos normalmente criaria um mapa de partições horizontais de destino, utilizando o **New-AzureSqlJobTarget** cmdlet. A base de dados de Gestor de mapas de partições horizontais tem de ser definido como um destino de base de dados e, em seguida, o mapa de partições horizontais específico é especificado como destino. Em vez disso, vamos enumerar todas as bases de dados no servidor e adicionar as bases de dados para a nova coleção personalizada, com exceção de base de dados mestra.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Cria uma coleção personalizada e adicione todas as bases de dados no servidor de destino coleções personalizadas com a exceção mestre.
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Cria uma coleção personalizada e adicionar todas as bases de dados no servidor para o destino de coleção personalizada com a exceção principal.
    ```
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -124,7 +129,7 @@ Aqui iremos normalmente criaria um mapa de partições horizontais de destino, u
     Write-Output $script
    ```
 
-## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Criar a tarefa para executar um script entre o grupo de bases de dados personalizado
+## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Criar a tarefa para executar um script entre o grupo personalizado de bases de dados
 
    ```
     $jobName = "create on server dbs"
@@ -139,7 +144,7 @@ Aqui iremos normalmente criaria um mapa de partições horizontais de destino, u
 ## <a name="execute-the-job"></a>Executar a tarefa
 O seguinte script do PowerShell pode ser utilizado para executar uma tarefa existente:
 
-Atualize a seguinte variável para refletir o nome da tarefa pretendida para ter executada:
+Atualize a seguinte variável para refletir o nome da tarefa pretendida foram executados:
 
    ```
     $jobName = "create on server dbs"
@@ -147,8 +152,8 @@ Atualize a seguinte variável para refletir o nome da tarefa pretendida para ter
     Write-Output $jobExecution
    ```
 
-## <a name="retrieve-the-state-of-a-single-job-execution"></a>Obter o estado de execução de uma única tarefa
-Utilizar o mesmo **Get-AzureSqlJobExecution** cmdlet com o **includechildren exige** parâmetro para ver o estado de execuções de tarefa subordinada, nomeadamente o estado específico para cada execução da tarefa em relação a cada base de dados visada pela tarefa.
+## <a name="retrieve-the-state-of-a-single-job-execution"></a>Obter o estado de uma execução de tarefa individual
+Utilizar o mesmo **Get-AzureSqlJobExecution** cmdlet com o **IncludeChildren** parâmetro para ver o estado de execuções de tarefas de subordinado, ou seja, o estado específico para cada execução de tarefa em relação a cada base de dados visada pela tarefa.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -156,29 +161,29 @@ Utilizar o mesmo **Get-AzureSqlJobExecution** cmdlet com o **includechildren exi
     Write-Output $jobExecutions
    ```
 
-## <a name="view-the-state-across-multiple-job-executions"></a>Ver o estado em várias execuções de tarefa
-O **Get-AzureSqlJobExecution** cmdlet tem vários parâmetros opcionais que podem ser utilizados para apresentar várias execuções de tarefa, filtradas através dos parâmetros fornecidos. O seguinte demonstra Algumas das formas possíveis para Utilize Get-AzureSqlJobExecution:
+## <a name="view-the-state-across-multiple-job-executions"></a>Ver o estado entre várias execuções de tarefas
+O **Get-AzureSqlJobExecution** cmdlet tem vários parâmetros opcionais que podem ser usados para exibir várias execuções de tarefas, filtradas por meio dos parâmetros fornecidos. O seguinte exemplo demonstra Algumas das formas possíveis para utilizar Get-AzureSqlJobExecution:
 
-Obter todas as execuções de tarefa de nível superior de Active Directory:
+Obter todas as execuções de tarefas ativas de nível superior:
 
    ```
     Get-AzureSqlJobExecution
    ```
 
-Obter todas as execuções de tarefa de nível superior, incluindo as execuções de tarefa inativo:
+Obter todas as execuções de tarefas de nível superior, incluindo as execuções de tarefas inativa:
 
    ```
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
-Obter todas as execuções de tarefa de subordinados de um ID de execução da tarefa fornecida, incluindo execuções de tarefa inativo:
+Obter todas as execuções de tarefas de subordinado de um ID de execução de tarefa fornecida, incluindo as execuções de tarefas inativa:
 
    ```
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
-Obter todas as execuções de tarefa criadas com base numa agenda / combinação, incluindo tarefas Inativas da tarefa:
+Obter todas as execuções de tarefas criadas com base numa agenda / combinação, incluindo Inativas tarefas da tarefa:
 
    ```
     $jobName = "{Job Name}"
@@ -186,7 +191,7 @@ Obter todas as execuções de tarefa criadas com base numa agenda / combinação
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
    ```
 
-Obter todas as tarefas direcionada para um mapa de partições horizontais especificado, incluindo tarefas Inativas:
+Obter todas as tarefas de direcionamento um mapa de fragmentos especificado, incluindo tarefas Inativas:
 
    ```
     $shardMapServerName = "{Shard Map Server Name}"
@@ -196,7 +201,7 @@ Obter todas as tarefas direcionada para um mapa de partições horizontais espec
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
    ```
 
-Obter todas as tarefas direcionada para uma coleção personalizada especificada, incluindo tarefas Inativas:
+Obter todas as tarefas de direcionamento de uma coleção personalizada especificada, incluindo tarefas Inativas:
 
    ```
     $customCollectionName = "{Custom Collection Name}"
@@ -204,7 +209,7 @@ Obter todas as tarefas direcionada para uma coleção personalizada especificada
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
    ```
 
-Obter a lista de execuções de tarefas da tarefa em execução uma tarefa específica:
+Obter a lista de execuções de tarefas de tarefas dentro de uma execução de tarefa específica:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -212,17 +217,17 @@ Obter a lista de execuções de tarefas da tarefa em execução uma tarefa espec
     Write-Output $jobTaskExecutions
    ```
 
-Obter os detalhes de tarefa de execução da tarefa:
+Obter detalhes de execução da tarefa de tarefa:
 
-O seguinte script do PowerShell pode ser utilizado para ver os detalhes de uma execução de tarefas da tarefa, que é particularmente útil quando a depuração de falhas de execução.
+O seguinte script do PowerShell pode ser utilizado para ver os detalhes de uma execução de tarefas da tarefa, que é particularmente útil na depuração de falhas de execução.
    ```
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
-## <a name="retrieve-failures-within-job-task-executions"></a>Obter falhas num execuções de tarefas da tarefa
-O objeto de JobTaskExecution inclui uma propriedade para o ciclo de vida da tarefa, juntamente com uma propriedade de mensagem. Se uma execução de tarefas da tarefa falhou, o ciclo de vida for definida como *falha* e a propriedade da mensagem está definida para a mensagem de exceção resultante e a pilha. Se uma tarefa não foi concluída com êxito, é importante ver os detalhes das tarefas que não foram concluída com êxito para uma determinada tarefa.
+## <a name="retrieve-failures-within-job-task-executions"></a>Recuperar de falhas dentro de execuções de tarefas de tarefas
+O objeto de JobTaskExecution inclui uma propriedade para o ciclo de vida da tarefa, juntamente com uma propriedade da mensagem. Se uma execução de tarefas da tarefa falhou, a propriedade de ciclo de vida é definida como *falhada* e a propriedade Message é definida como a mensagem de exceção resultante e sua pilha. Se uma tarefa não foi concluída com êxito, é importante ver os detalhes das tarefas de tarefa que falhou para uma determinada tarefa.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -236,8 +241,8 @@ O objeto de JobTaskExecution inclui uma propriedade para o ciclo de vida da tare
         }
    ```
 
-## <a name="waiting-for-a-job-execution-to-complete"></a>A aguardar a conclusão da execução tarefa
-O seguinte script do PowerShell pode ser utilizado para aguardar a tarefa concluir:
+## <a name="waiting-for-a-job-execution-to-complete"></a>A aguardar pela conclusão de uma execução de tarefa
+O seguinte script do PowerShell pode ser utilizado para aguardar pela conclusão de uma tarefa de tarefa:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -245,27 +250,27 @@ O seguinte script do PowerShell pode ser utilizado para aguardar a tarefa conclu
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>Criar uma política de execução personalizado
-As tarefas de base de dados elásticas suporta a criação de políticas de execução personalizadas que podem ser aplicadas ao iniciar trabalhos.
+Tarefas elásticas da base de dados suporta a criação de políticas de execução personalizado que podem ser aplicadas quando a partir de tarefas.
 
 Atualmente permitem definir políticas de execução:
 
 * Nome: Identificador para a política de execução.
-* Tempo limite de tarefa: Total de tempo antes de uma tarefa foi cancelada por tarefas de base de dados elásticas.
-* Intervalo de repetição inicial: Intervalo a aguardar antes de repetir primeiro.
-* Intervalo máximo de tentativas: Limite de intervalos de repetição para utilizar.
-* Repetir coeficiente de término de intervalo: Coeficiente utilizado para calcular o próximo intervalo entre tentativas.  É utilizada a seguinte fórmula: (intervalo de Repita inicial) * Math.pow ((coeficiente de término de intervalo), (número de tentativas) - 2).
-* Número máximo de tentativas: O número máximo de repetições tenta executar dentro de uma tarefa.
+* Tempo limite da tarefa: Tempo Total antes de uma tarefa é cancelada por tarefas elásticas da base de dados.
+* Intervalo inicial de repetição: Intervalo a aguardar antes da primeira repetição.
+* Intervalo de repetições máximo: Limite de intervalos de repetição para utilizar.
+* Coeficiente de término do intervalo de repetição: O coeficiente utilizado para calcular o próximo intervalo entre repetições.  É utilizada a seguinte fórmula: (intervalo de repetição inicial) * Math.pow ((coeficiente de término de intervalo), (Number of Retries) - 2).
+* Máximo de tentativas: O número máximo de repetições tentou fazer dentro de uma tarefa.
 
 A política de execução predefinido utiliza os seguintes valores:
 
-* Nome: Política de execução de predefinida
-* Tempo limite de tarefa: 1 semana
+* Nome: Política de execução do padrão
+* Tempo limite da tarefa: semana
 * Intervalo de repetição inicial: 100 milissegundos
-* Intervalo máximo de tentativas: 30 minutos
+* Intervalo de repetições máximo: 30 minutos
 * Repita o coeficiente de intervalo: 2
-* Número máximo de tentativas: 2 147 483 647
+* Máximo de tentativas: 2 147 483 647
 
-Crie a política de execução pretendido:
+Crie a política de execução desejado:
 
    ```
     $executionPolicyName = "{Execution Policy Name}"
@@ -279,7 +284,7 @@ Crie a política de execução pretendido:
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>Atualizar uma política de execução personalizado
-Atualize a política de execução pretendido para atualizar:
+Atualize a política de execução desejado para atualizar:
 
    ```
     $executionPolicyName = "{Execution Policy Name}"
@@ -293,28 +298,28 @@ Atualize a política de execução pretendido para atualizar:
    ```
 
 ## <a name="cancel-a-job"></a>Cancelar uma tarefa
-As tarefas de base de dados elásticas suporta pedidos de cancelamento de tarefas.  Se as tarefas de base de dados elásticas Deteta um pedido de cancelamento de uma tarefa atualmente a ser executado, este tenta parar a tarefa.
+Tarefas elásticas da base de dados oferece suporte a solicitações de cancelamento de tarefas.  Se as tarefas de base de dados elásticas detectar uma solicitação de cancelamento de uma tarefa atualmente a ser executada, tenta parar a tarefa.
 
-Existem duas formas diferentes, que as tarefas de base de dados elásticas podem executar um cancelamento:
+Existem duas formas diferentes, que as tarefas elásticas da base de dados pode efetuar um cancelamento:
 
-1. Atualmente a executar a cancelar tarefas: se for detetado um cancelamento enquanto uma tarefa está atualmente em execução, um cancelamento é tentado dentro do aspeto atualmente em execução da tarefa.  Por exemplo: se houver uma consulta de execução longa atualmente a ser efetuada quando é tentado um cancelamento, houver uma tentativa para cancelar a consulta.
-2. Cancelamento de tarefas de tentativas: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controlo evita a iniciar a tarefa e declarar o pedido como cancelada.
+1. A cancelar a execução no momento tarefas: se um cancelamento é detetado enquanto uma tarefa está atualmente em execução, um cancelamento for tentado no aspecto atualmente em execução da tarefa.  Por exemplo: se houver uma consulta de execução longa atualmente a ser realizada quando um cancelamento é tentado, há uma tentativa de cancelar a consulta.
+2. Cancelamento de tarefa de repetições: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle evita a iniciar a tarefa e declarar o pedido como canceladas.
 
-Se for pedido um cancelamento de tarefas para uma tarefa principal, o pedido de cancelamento é honrado a tarefa principal de e para todos os respetivos tarefas subordinadas.
+Se é pedido um cancelamento de tarefa para uma tarefa principal, a solicitação de cancelamento é honrada para a tarefa principal e para todas as tarefas de subordinado.
 
-Para submeter um pedido de cancelamento, utilize o **Stop-AzureSqlJobExecution** cmdlet e defina o **JobExecutionId** parâmetro.
+Para submeter um pedido de cancelamento, utilize o **Stop-AzureSqlJobExecution** cmdlet e defina a **JobExecutionId** parâmetro.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
-## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminar uma tarefa de por nome e o histórico da tarefa
-As tarefas de base de dados elásticas suporta eliminação assíncrona de tarefas. Uma tarefa pode ser marcada para eliminação e o sistema elimina a tarefa e todos os respetivo histórico de tarefas depois de concluir todas as execuções de tarefa para a tarefa. O sistema não cancelar automaticamente execuções de tarefas ativas.  
+## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminar uma tarefa por nome e o histórico da tarefa
+Tarefas elásticas da base de dados suporta a eliminação assíncrona de tarefas. Uma tarefa pode ser marcada para eliminação e o sistema elimina a tarefa e o respetivo histórico de tarefas depois de concluíram todas as execuções de tarefas para a tarefa. O sistema não cancela automaticamente as execuções de tarefas do Active Directory.  
 
-Em vez disso, Stop-AzureSqlJobExecution tem de ser invocado para cancelar execuções de tarefas ativas.
+Em vez disso, Stop-AzureSqlJobExecution tem de ser invocado para cancelar as execuções de tarefas do Active Directory.
 
-Para acionar a eliminação da tarefa, utilize o **remover AzureSqlJob** cmdlet e defina o **JobName** parâmetro.
+Para acionar a eliminação da tarefa, utilize o **Remove-AzureSqlJob** cmdlet e defina a **JobName** parâmetro.
 
    ```
     $jobName = "{Job Name}"
@@ -322,9 +327,9 @@ Para acionar a eliminação da tarefa, utilize o **remover AzureSqlJob** cmdlet 
    ```
 
 ## <a name="create-a-custom-database-target"></a>Criar um destino de base de dados personalizada
-Destinos de base de dados personalizada podem ser definidos nas tarefas de bases de dados elásticas que podem ser utilizadas para execução diretamente ou para inclusão dentro de um grupo de base de dados personalizada. Uma vez que **conjuntos elásticos** não são ainda diretamente suportadas através das APIs do PowerShell, simplesmente cria um destino de base de dados personalizada e o destino de coleção de base de dados personalizada que abrange todas as bases de dados no conjunto.
+Destinos de banco de dados personalizados podem ser definidos nas tarefas de bases de dados elásticas, que podem ser utilizadas para a execução diretamente ou para inclusão dentro de um grupo de base de dados personalizada. Uma vez que **conjuntos elásticos** não são ainda diretamente suportadas por meio das APIs do PowerShell, basta criar um destino de banco de dados personalizado e o destino de coleção de banco de dados personalizado que abrange todas as bases de dados no conjunto.
 
-Defina as seguintes variáveis para refletir as informações da base de dados pretendido:
+Defina as variáveis seguintes para refletir as informações de banco de dados desejado:
 
    ```
     $databaseName = "{Database Name}"
@@ -332,20 +337,20 @@ Defina as seguintes variáveis para refletir as informações da base de dados p
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
-## <a name="create-a-custom-database-collection-target"></a>Criar uma base de dados personalizada recolha de destino
-Uma base de dados personalizada recolha de destino pode ser definido para permitir a execução em vários destinos de base de dados definido. Depois de criar um grupo de base de dados, as bases de dados podem ser associados ao destino coleção personalizada.
+## <a name="create-a-custom-database-collection-target"></a>Criar um destino de coleção de base de dados personalizada
+Um destino de coleção de base de dados personalizada pode ser definido para permitir a execução em vários destinos de bases de dados definidos. Depois de criar um grupo de base de dados, bases de dados podem ser associados para o destino de coleção personalizada.
 
-Defina as seguintes variáveis para refletir a configuração de destino pretendida coleção personalizada:
+Defina as variáveis seguintes para refletir a configuração de destino pretendido de coleção personalizada:
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
-### <a name="add-databases-to-a-custom-database-collection-target"></a>Adicionar bases de dados para um destino de coleção da base de dados personalizada
-Destinos de base de dados podem ser associados com destinos de coleção da base de dados personalizada para criar um grupo de bases de dados. Sempre que é criada uma tarefa que está direcionada para um destino de coleção da base de dados personalizada, esteja expandido para as bases de dados associadas ao grupo no momento da execução de destino.
+### <a name="add-databases-to-a-custom-database-collection-target"></a>Adicionar bases de dados para um destino de coleção de base de dados personalizada
+Destinos de base de dados podem ser associados com destinos de coleção de base de dados personalizada para criar um grupo de bases de dados. Sempre que é criada uma tarefa que tenha como destino um destino de coleção de base de dados personalizada, expandir-se para as bases de dados associados ao grupo de no momento da execução de destino.
 
-Adicione a base de dados pretendido para uma coleção personalizada específica:
+Adicione a base de dados desejado para uma coleção personalizada específica:
 
    ```
     $serverName = "{Database Server Name}"
@@ -354,8 +359,8 @@ Adicione a base de dados pretendido para uma coleção personalizada específica
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
-#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Reveja as bases de dados dentro de um destino de coleção da base de dados personalizada
-Utilize o **Get-AzureSqlJobTarget** cmdlet para obter as bases de dados do subordinado dentro de uma base de dados personalizada recolha de destino.
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Reveja as bases de dados dentro de um destino de coleção de base de dados personalizada
+Utilize o **Get-AzureSqlJobTarget** cmdlet para obter as bases de dados do filho dentro de um destino de coleção de base de dados personalizada.
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
@@ -364,8 +369,8 @@ Utilize o **Get-AzureSqlJobTarget** cmdlet para obter as bases de dados do subor
     Write-Output $childTargets
    ```
 
-### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Criar uma tarefa para executar um script através de um destino de coleção da base de dados personalizada
-Utilize o **New-AzureSqlJob** cmdlet para criar uma tarefa em relação a um grupo de bases de dados definidas por um destino de coleção da base de dados personalizada. As tarefas de base de dados elásticas expande a tarefa para várias tarefas de subordinados cada correspondente a uma base de dados associada com a base de dados personalizada recolha de destino e certifique-se de que o script é executado em relação a cada base de dados. Novamente, é importante que os scripts estão idempotent para sejam resilientes a tentativas.
+### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Criar uma tarefa para executar um script num destino de coleção de base de dados personalizada
+Utilize o **New-AzureSqlJob** cmdlet para criar uma tarefa em relação a um grupo de bases de dados definidos por um destino de coleção de base de dados personalizada. Tarefas de base de dados elásticas expande a tarefa em várias tarefas de subordinado cada um correspondendo a um banco de dados associado com o destino de coleção de base de dados personalizados e certifique-se de que o script é executado em cada banco de dados. Novamente, é importante que os scripts são idempotentes para que seja resiliente para repetições.
 
    ```
     $jobName = "{Job Name}"
@@ -378,13 +383,13 @@ Utilize o **New-AzureSqlJob** cmdlet para criar uma tarefa em relação a um gru
    ```
 
 ## <a name="data-collection-across-databases"></a>Recolha de dados entre bases de dados
-**As tarefas de base de dados elásticas** suporta a executar uma consulta entre um grupo de bases de dados e envia os resultados à tabela de uma especificado da base de dados. A tabela pode ser consultada após o facto para ver os resultados da consulta de cada base de dados. Esta opção fornece um mecanismo assíncrono para executar uma consulta em muitas bases de dados. Cenários de falha, tais como uma das bases de dados está temporariamente indisponível são processados automaticamente através de tentativas.
+**Tarefas de base de dados elásticas** suporta a execução de uma consulta num grupo de bases de dados e envia os resultados à tabela de um especificado da base de dados. A tabela pode ser consultada após o facto para ver os resultados da consulta de cada base de dados. Esta opção fornece um mecanismo assíncrono para executar uma consulta em muitas bases de dados. Casos de falha como uma das bases de dados a ser temporariamente indisponível são processados automaticamente por meio de novas tentativas.
 
-A tabela de destino especificado é criada automaticamente se ainda existir, o esquema do conjunto de resultados devolvido de correspondência. Se uma execução de script devolver vários conjuntos de resultados, tarefas de bases de dados elásticas envia apenas o um primeiro para a tabela de destino fornecido.
+A tabela de destino especificado é criada automaticamente se ele ainda não existir, o esquema do conjunto de resultados retornados de correspondência. Se uma execução de script devolver vários conjuntos de resultados, tarefas de bases de dados elásticas envia apenas aquele primeiro para a tabela de destino fornecido.
 
-O seguinte script do PowerShell pode ser utilizado para executar um script recolher os resultados para uma tabela especificada. Este script assume que foi criado um script T-SQL que produz um conjunto de resultados único e foi criado um destino de coleção da base de dados personalizada.
+O seguinte script do PowerShell pode ser utilizado para executar um script coletando os resultados numa tabela especificada. Este script presume que foi criado um script T-SQL que produz um conjunto de resultados único e um destino de coleção de banco de dados personalizado foi criado.
 
-Defina o seguinte para refletir o script pretendido, o credenciais e o destino de execução:
+Defina o seguinte para refletir o script desejado, credenciais e o destino de execução:
 
    ```
     $jobName = "{Job Name}"
@@ -407,8 +412,8 @@ Defina o seguinte para refletir o script pretendido, o credenciais e o destino d
     Write-Output $jobExecution
    ```
 
-## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Criar um agendamento para execução da tarefa com um acionador da tarefa
-O seguinte script do PowerShell pode ser utilizado para criar uma agenda reoccurring. Este script utiliza um intervalo de um minuto, mas New-AzureSqlJobSchedule também suporta os parâmetros - DayInterval, - HourInterval, - MonthInterval e - WeekInterval. As agendas que executar apenas uma vez que podem ser criadas por transmitir - OneTime.
+## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Criar um agendamento para execução da tarefa com um acionador de tarefa
+O seguinte script do PowerShell pode ser utilizado para criar um agendamento recorrente. Este script utiliza um intervalo de um minuto, mas New-AzureSqlJobSchedule também suporta o DayInterval-, - HourInterval, - MonthInterval e - WeekInterval parâmetros. Agendas que execute apenas uma vez que podem ser criadas por passando - OneTime.
 
 Crie uma nova agenda:
    ```
@@ -419,10 +424,10 @@ Crie uma nova agenda:
     Write-Output $schedule
    ```
 
-### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Criar um acionador da tarefa para que uma tarefa executada num horário
-Um acionador da tarefa pode ser definido para que uma tarefa executada segundo uma agenda de tempo. O seguinte script do PowerShell pode ser utilizado para criar um acionador da tarefa.
+### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Criar um acionador de tarefa para que uma tarefa seja executada com base numa agenda de tempo
+Um acionador de tarefa pode ser definido para que uma tarefa seja executada de acordo com uma agenda de tempo. O seguinte script do PowerShell pode ser utilizado para criar um acionador de tarefa.
 
-Defina as seguintes variáveis de forma a corresponderem da tarefa pretendida e a agenda:
+Defina as variáveis seguintes para corresponder para a tarefa pretendida e a agenda:
 
    ```
     $jobName = "{Job Name}"
@@ -431,9 +436,9 @@ Defina as seguintes variáveis de forma a corresponderem da tarefa pretendida e 
     Write-Output $jobTrigger
    ```
 
-### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Remover uma associação agendada para parar a tarefa de execução numa agenda
-Para descontinuar a execução da tarefa a ocorrer através de um acionador da tarefa, o acionador da tarefa pode ser removido.
-Remover um acionador da tarefa para parar uma tarefa de que está a ser executado, de acordo com uma agenda a utilizar o **remover AzureSqlJobTrigger** cmdlet.
+### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Remover uma associação agendada para parar a tarefa a execução numa agenda
+Para descontinuar a execução da tarefa recorrente por meio de um acionador de tarefa, pode ser removido o acionador de tarefa.
+Remover um acionador de tarefa para parar uma tarefa de que está sendo executada, de acordo com um agendamento a utilizar o **Remove-AzureSqlJobTrigger** cmdlet.
 
    ```
     $jobName = "{Job Name}"
@@ -445,25 +450,25 @@ Remover um acionador da tarefa para parar uma tarefa de que está a ser executad
  Pode importar os resultados de uma consulta para um ficheiro do Excel.
 
 1. Inicie o Excel 2013.
-2. Navegue para o **dados** Friso.
+2. Navegue para o **dados** faixa de opções.
 3. Clique em **de outras origens** e clique em **do SQL Server**.
 
-   ![Importação de Excel de outras origens](./media/sql-database-elastic-query-getting-started/exel-sources.png)
+   ![Importação de Excel a partir de outras origens](./media/sql-database-elastic-query-getting-started/exel-sources.png)
 
-4. No **Assistente de ligação de dados** escreva as credenciais de início de sessão e nome do servidor. Clique depois em **Seguinte**.
-5. Na caixa de diálogo **selecione a base de dados que contém os dados que pretende**, selecione o **ElasticDBQuery** base de dados.
-6. Selecione o **clientes** uma tabela na vista de lista e clique em **seguinte**. Em seguida, clique em **concluir**.
-7. No **importar dados** formulário em **Selecione como pretende ver estes dados no seu livro**, selecione **tabela** e clique em **OK**.
+4. Na **Assistente de ligação de dados** escreva as credenciais de início de sessão e o nome do servidor. Clique depois em **Seguinte**.
+5. Na caixa de diálogo **selecione a base de dados que contém os dados que pretende**, selecione a **ElasticDBQuery** base de dados.
+6. Selecione o **os clientes** da tabela na vista de lista e clique em **próxima**. Em seguida, clique em **concluir**.
+7. Na **importar dados** formam, em **Selecione como pretende ver estes dados no seu livro**, selecione **tabela** e clique em **OK**.
 
-Todas as linhas da **clientes** tabela, armazenada em diferentes shards preencher a folha do Excel.
+Todas as linhas da **clientes** tabela, armazenada em partições horizontais diferentes preencher a folha do Excel.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora, pode utilizar as funções do dados do Excel. Utilize a cadeia de ligação com o nome do servidor, nome de base de dados e as credenciais para ligar as ferramentas de integração do BI e os dados na base de dados elásticas consulta. Certifique-se de que o SQL Server é suportada como uma origem de dados para a ferramenta. Consulte a base de dados elásticas consultas e tabelas externas, tal como qualquer outra base de dados do SQL Server e tabelas de SQL Server que seria se ligam a com a ferramenta.
+Agora, pode utilizar as funções de dados do Excel. Utilize a cadeia de ligação com o nome do servidor, nome de base de dados e as credenciais para ligar as ferramentas de integração BI e os dados na base de dados de consulta elástica. Certifique-se de que o SQL Server é suportado como uma origem de dados para a sua ferramenta. Consulte a base de dados de consulta elástica e tabelas externas, assim como qualquer outro banco de dados do SQL Server e tabelas do SQL Server que iria a estabelecer ligação com a sua ferramenta.
 
 ### <a name="cost"></a>Custo
-Não há sem encargos adicionais para utilizar a funcionalidade de consulta de base de dados elásticas. No entanto, neste momento, esta funcionalidade só está disponível no negócio crítico (pré-visualização) e Premium bases de dados e conjuntos elásticos como um ponto final, mas os shards podem ser de qualquer camada de serviço.
+Não é sem custos adicionais para utilizar a funcionalidade de consulta de base de dados elástica. No entanto, neste momento esta funcionalidade está disponível apenas nos conjuntos elásticos e bases de dados Premium e crítico para a empresa como um ponto final, mas as partições horizontais podem ser de qualquer camada de serviços.
 
-Para obter informações sobre preços, consulte [detalhes de preços de base de dados do SQL Server](https://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre preços, consulte [detalhes de preços de base de dados do SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

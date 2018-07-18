@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7313ea1ff26d9c732d04b02f8b88f14e2aa4dd2f
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072056"
+ms.locfileid: "39091327"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -104,7 +104,21 @@ Selecione a mensagem para obter mais detalhes. Na imagem seguinte, verá uma **I
 
 ### <a name="deployment-errors"></a>Erros de implementação
 
-Quando a operação de passa na validação, mas falha durante a implementação, verá o erro nas notificações. Selecione a notificação.
+Quando a operação de passa na validação, mas falha durante a implementação, recebe um erro de implementação.
+
+Para ver os códigos de erro de implementação e as mensagens com o PowerShell, utilize:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Para ver os códigos de erro de implementação e de mensagens com a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+No portal, selecione a notificação.
 
 ![Erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
 

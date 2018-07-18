@@ -2,18 +2,18 @@
 title: Importar/exportar do Azure a utilizar para exportar os dados dos Blobs do Azure | Documentos da Microsoft
 description: Aprenda a criar tarefas de exportação no portal do Azure para transferir os dados dos Blobs do Azure.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969270"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113763"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure em segurança exportar grandes quantidades de dados do armazenamento de Blobs do Azure. O serviço exige que envie discos vazios para o datacenter do Azure. O serviço exporta os dados da sua conta de armazenamento para as unidades e, em seguida, é fornecido as unidades de volta.
@@ -25,6 +25,13 @@ Antes de criar uma tarefa de exportação para transferir dados para fora do arm
 - Ter uma subscrição do Azure Active Directory que pode ser utilizada para o serviço de importação/exportação.
 - Ter, pelo menos, uma conta de armazenamento do Azure. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks).
+- Ter uma conta de FedEx/DHL.  
+    - A conta tem de ser válida, deve ter o saldo e tem de ter capacidades de envio de devolução.
+    - Gere um número de controlo para a tarefa de exportação.
+    - Cada tarefa deve ter um número de controlo separado. Várias tarefas com o mesmo número de controlo não são suportadas. 
+    - Se não tiver uma conta da transportadora, aceda a:
+        - [Criar uma conta de FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Passo 1: Criar uma tarefa de exportação
 
@@ -52,7 +59,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     
 3. Na **detalhes da tarefa**:
 
-    - Selecione a conta de armazenamento onde residem os dados sejam exportados. 
+    - Selecione a conta de armazenamento onde residem os dados sejam exportados. Utilize uma conta de armazenamento perto de onde estão localizados.
     - A localização da entrega é preenchida automaticamente com base na região da conta de armazenamento selecionada. 
     - Especifique os dados de BLOBs que pretende exportar a partir de sua conta de armazenamento à sua unidade em branco ou unidades. 
     - Optar por **exportar todas** dados na conta de armazenamento de Blobs.
@@ -78,11 +85,18 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     - Selecione a operadora na lista pendente.
     - Introduza um número de conta de operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades-se ao assim que a tarefa de importação estiver concluída. 
     - Forneça um nome de contato completo e válido, telefone, e-mail, rua, cidade, zip, estado/província e país/região.
+
+        > [!TIP] 
+        > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe as notificações, mesmo que sai de um administrador.
    
 5. Na **resumo**:
 
     - Reveja os detalhes da tarefa.
-    - Tenha em atenção o endereço de envio do Centro de dados do Azure fornecida e nome de tarefa para entregar discos para o Azure. 
+    - Tome nota do nome da tarefa e datacenter do Azure fornecido envio endereço para envio de discos para o Azure. 
+
+        > [!NOTE] 
+        > Envie sempre os discos para o Centro de dados indicado no portal do Azure. Se os discos são enviados para o datacenter errado, a tarefa não será processada.
+
     - Clique em **OK** para concluir a criação da tarefa de exportação.
 
 ## <a name="step-2-ship-the-drives"></a>Passo 2: Envie os discos

@@ -1,6 +1,6 @@
 ---
-title: O serviço de reconhecimento de voz REST APIs | Microsoft Docs
-description: Referência de REST APIs para o serviço de reconhecimento de voz.
+title: REST APIs do serviço de voz | Documentos da Microsoft
+description: Referência para as APIs REST para o serviço de voz.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -9,33 +9,33 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 53560fd4f8240c4446898f58992a9319e5177435
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085376"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112878"
 ---
-# <a name="speech-service-rest-apis"></a>Serviço de reconhecimento de voz REST APIs
+# <a name="speech-service-rest-apis"></a>REST APIs do serviço de voz
 
-As APIs REST do serviço de reconhecimento de voz unificado são semelhantes às APIs fornecidas pelo [API de reconhecimento de voz](https://docs.microsoft.com/azure/cognitive-services/Speech) (anteriormente conhecido como o serviço de reconhecimento de voz do Bing). Os pontos finais diferem dos pontos finais utilizados pelo serviço de reconhecimento de voz anterior.
+As APIs REST do serviço de voz unificado são semelhantes às APIs fornecidas pelos [API de voz](https://docs.microsoft.com/azure/cognitive-services/Speech) (anteriormente conhecido como o serviço de voz do Bing). Os pontos de extremidade diferem dos pontos de extremidade utilizados pelo serviço de voz anterior.
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-No reconhecimento de voz a API de texto, apenas os pontos finais utilizados diferirem do serviço de reconhecimento de voz anterior API de reconhecimento de voz. Os pontos finais novos são apresentados na tabela abaixo. Utilize um que corresponda à sua região de subscrição.
+Conversão de voz para a API de texto, apenas os pontos finais utilizados são diferentes do serviço de voz anterior API de reconhecimento de voz. Os novos pontos de extremidade são mostrados na tabela abaixo. Utilize um que corresponde à sua região de subscrição.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
-Caso contrário, é semelhante de reconhecimento de voz a API de texto a [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de reconhecimento de voz anterior.
+A conversão de voz em texto API caso contrário, é semelhante para o [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de voz anterior.
 
-O reconhecimento de voz para a API de REST de texto suporta apenas utterances curtos. Pedidos podem conter até 10 segundos de áudio e um máximo de segundos 14 gerais da última. A API REST apenas devolve resultados finais, parciais ou provisórias resultados.
+A conversão de voz em texto REST API suporta apenas os discursos curtos. Os pedidos podem conter até 10 segundos de áudio e um máximo de 14 segundos geral da última. A API REST devolve apenas resultados finais, não resultados parciais ou provisórias.
 
 > [!NOTE]
-> Se tiver personalizado o modelo acústica ou modelo de linguagem ou pronunciação, utilize o ponto final personalizado em vez disso.
+> Se personalizou o modelo acústico ou modelo de idioma ou pronúncia, em vez disso, a utilizar o seu ponto final personalizado.
 
 ## <a name="text-to-speech"></a>Conversão de Texto em Voz
 
-O novo texto para reconhecimento de voz API suporta a saída de áudio 24 KHz. O `X-Microsoft-OutputFormat` cabeçalho agora pode conter os seguintes valores.
+O novo texto em voz API suporta a saída de áudio de 24 KHz. O `X-Microsoft-OutputFormat` cabeçalho agora pode conter os seguintes valores.
 
 |||
 |-|-|
@@ -46,32 +46,32 @@ O novo texto para reconhecimento de voz API suporta a saída de áudio 24 KHz. O
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-O serviço de reconhecimento de voz fornece agora dois 24 KHz voices:
+O serviço de voz fornece agora dois 24 KHz vozes:
 
 Região | Idioma   | Género | Mapeamento de nome de serviço
 -------|------------|--------|------------
-pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto voz de reconhecimento de voz (en-US, Jessa24kRUS)" 
-pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto voz de reconhecimento de voz (en-US, Guy24kRUS)"
+pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" 
+pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)"
 
-Seguem-se a pontos finais REST para o unificada serviço texto em voz API. Utilize o ponto final que corresponda à sua região de subscrição.
+Seguem-se os pontos de extremidade REST para o unificada serviço texto em voz API. Utilize o ponto final que corresponde à sua região de subscrição.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-Manter estas diferenças em mente como tem de referenciar o [documentação da REST API](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de reconhecimento de voz anterior.
+Manter essas diferenças em mente que consulte a [documentação da REST API](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de voz anterior.
 
 ## <a name="authentication"></a>Autenticação
 
-Enviar um pedido para a API de REST do serviço de reconhecimento de voz necessita de um token de acesso. Obter um token ao fornecer a chave de subscrição a um serviço de reconhecimento de voz regional `issueToken` ponto final, mostrado na tabela abaixo. Utilize o ponto final que corresponda à sua região de subscrição.
+Enviar um pedido para a API de REST do serviço de voz exige um token de acesso. Obter um token ao fornecer a chave de subscrição para um serviço de voz regional `issueToken` ponto final, mostrada na tabela abaixo. Utilize o ponto final que corresponde à sua região de subscrição.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Cada token de acesso é válido durante 10 minutos. Pode obter um novo token em qualquer altura — incluindo, se assim o desejar, apenas antes de cada pedido de API de REST de reconhecimento de voz. Para minimizar o tráfego de rede e a latência, no entanto, recomendamos que utilize o mesmo token para nove minutos.
+Cada token de acesso é válido durante 10 minutos. Para obter um novo token em qualquer altura, se desejar, incluindo, imediatamente antes de cada pedido de API de REST de voz. Para minimizar o tráfego de rede e a latência, no entanto, recomendamos que utilize o mesmo token para nove minutos.
 
-As secções seguintes mostram como obter um token e como utilizá-la num pedido.
+As secções seguintes mostram como obter um token e como usá-lo num pedido.
 
 ### <a name="getting-a-token-http"></a>Obter um token: HTTP
 
-Segue-se um exemplo de pedido HTTP para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de reconhecimento de voz. Se a sua subscrição não está a ser a região EUA oeste, substitua o `Host` cabeçalho com o nome de anfitrião da sua região.
+Segue-se um pedido HTTP de exemplo para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, substitua o `Host` cabeçalho com o nome de anfitrião de sua região.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -81,11 +81,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-O corpo da resposta a este pedido é o token de acesso no formato de Java Web tokens (JWT).
+O corpo da resposta a essa solicitação é o token de acesso no formato de Java Web Token (JWT).
 
 ### <a name="getting-a-token-powershell"></a>Obter um token: PowerShell
 
-O script do Windows PowerShell abaixo ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de reconhecimento de voz. Se a sua subscrição não está a ser a região EUA oeste, altere o nome de anfitrião do URI fornecido em conformidade.
+O script do Windows PowerShell abaixo ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do URI determinado em conformidade.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -104,10 +104,10 @@ $OAuthToken
 
 ### <a name="getting-a-token-curl"></a>Obter um token: cURL
 
-cURL é uma ferramenta da linha de comandos disponível no Linux (e no subsistema Windows para Linux). O comando cURL abaixo ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de reconhecimento de voz. Se a sua subscrição não está a ser a região EUA oeste, altere o nome de anfitrião do URI fornecido em conformidade.
+cURL é uma ferramenta da linha de comandos disponível no Linux (e no subsistema Windows para Linux). O comando cURL abaixo ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` com a sua chave de subscrição do serviço de voz. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião do URI determinado em conformidade.
 
 > [!NOTE]
-> O comando é apresentado em várias linhas para legibilidade, mas deve ser introduzido numa única linha numa linha de shell.
+> O comando é mostrado em várias linhas para facilitar a leitura, mas deve ser inserido numa única linha no prompt do shell.
 
 ```
 curl -v -X POST 
@@ -119,7 +119,7 @@ curl -v -X POST
 
 ### <a name="getting-a-token-c"></a>Obter um token: c#
 
-O c# classe abaixo ilustra como obter um token de acesso. Transferir a chave de subscrição do serviço de reconhecimento de voz quando instanciar a classe. Se a sua subscrição não está a ser a região EUA oeste, altere o nome do anfitrião de `FetchTokenUri` adequadamente.
+A classe c# abaixo ilustra como obter um token de acesso. Passe a chave de subscrição do serviço de voz ao instanciar a classe. Se a sua subscrição não está na região E.U.A. oeste, altere o nome de anfitrião de `FetchTokenUri` adequadamente.
 
 ```cs
     /*
@@ -158,9 +158,9 @@ O c# classe abaixo ilustra como obter um token de acesso. Transferir a chave de 
     }
 ```
 
-### <a name="using-a-token"></a>Utilizando um token
+### <a name="using-a-token"></a>Através de um token
 
-Para utilizar um token num pedido de REST API, forneça-na `Authorization` cabeçalho, seguindo o word `Bearer`. Aqui, por exemplo, é um exemplo de texto que contém um token de pedido de REST de reconhecimento de voz. Substitua o token real para `YOUR_ACCESS_TOKEN` e utilizar o nome de anfitrião correto no `Host` cabeçalho.
+Para utilizar um token num pedido de REST API, forneça-na `Authorization` cabeçalho, seguindo a palavra `Bearer`. Aqui, por exemplo, é um exemplo de texto para solicitação de REST de voz que contém um token. Substituir o token real para `YOUR_ACCESS_TOKEN` e utilize o nome de anfitrião correto no `Host` cabeçalho.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -176,16 +176,16 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renewing-authorization"></a>A renovação de autorização
+### <a name="renewing-authorization"></a>Renovar autorização
 
-O token de autorização expira após 10 minutos. Renovar a sua autorização ao obter um novo token antes de expirar — por exemplo, após nove minutos. 
+O token de autorização expira após 10 minutos. Renovar a sua autorização, obtendo um novo token antes de expirar — por exemplo, depois de nove minutos. 
 
-O seguinte código c# é uma substituição de drop-in para a classe apresentada anteriormente. O `Authentication` classe obtém automaticamente um novo token de acesso a cada minutos nove utilizando um temporizador. Esta abordagem garante que um token válido está sempre disponível enquanto o programa está em execução.
+O seguinte código c# é uma substituição completa para a classe apresentada anteriormente. O `Authentication` classe obtém automaticamente um novo token de acesso em nove minutos através de um temporizador. Esta abordagem garante que um token válido está sempre disponível enquanto seu programa está em execução.
 
 > [!NOTE]
-> Em vez de utilizar um temporizador, pode armazenar um carimbo de quando o token atual foi obtido, em seguida, pedir um novo apenas se o token de atual é encontra prestes a expirar. Esta abordagem evita solicitar novos tokens desnecessariamente e pode ser mais adequada para programas que efetuam pedidos de reconhecimento de voz pouco frequentes.
+> Em vez de usar um timer, pode armazenar um carimbo de quando o token atual foi obtido, em seguida, solicitar um novo, apenas se o token atual for encontra prestes a expirar. Esta abordagem evita solicitar novos tokens desnecessariamente e pode ser mais adequada para programas que efetuam pedidos de voz raros.
 
-Como anteriormente, certifique-se de que o `FetchTokenUri` valor corresponde à sua região de subscrição. Transferir a chave de subscrição ao instanciar a classe.
+Como antes, certifique-se de que o `FetchTokenUri` valor corresponde à sua região de subscrição. Passe a chave de subscrição ao instanciar a classe.
 
 ```cs
     /*
@@ -265,7 +265,7 @@ Como anteriormente, certifique-se de que o `FetchTokenUri` valor corresponde à 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter a sua subscrição de avaliação de reconhecimento de voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Personalizar modelos acústica](how-to-customize-acoustic-models.md)
-- [Personalizar os modelos de idioma](how-to-customize-language-model.md)
+- [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
+- [Personalizar modelos de linguagem](how-to-customize-language-model.md)
 

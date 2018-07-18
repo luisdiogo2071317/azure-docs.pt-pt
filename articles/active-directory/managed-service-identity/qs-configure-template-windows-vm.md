@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 000a8e2a9a4907387db8cb7b0f4416eee66642f8
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036715"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114884"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar uma identidade de serviço gerido da VM com um modelo
 
@@ -32,7 +32,7 @@ Neste artigo, aprenderá a efetuar as seguintes operações de identidade do ser
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -174,6 +174,10 @@ Nesta secção, atribua uma identidade de utilizador atribuída a uma VM do Azur
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Atribuir um utilizador atribuído a identidade para uma VM do Azure
 
 1. Sob o `resources` elemento, adicione a seguinte entrada para atribuir uma identidade de utilizador atribuída à sua VM.  Certifique-se de que substitua `<USERASSIGNEDIDENTITY>` com o nome da identidade atribuída ao utilizador que criou.
+   
+   > [!Important]
+   > O `<USERASSIGNEDIDENTITYNAME>` valor mostrado no exemplo a seguir deve ser armazenado numa variável.  Além disso, para a implementação suportada atualmente de atribuição de identidades de utilizador atribuída a uma máquina virtual num modelo do Resource Manager, a versão de api deve corresponder à versão no exemplo a seguir.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eea7e2779a169fa9a64cc7a5695e91999f219277
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968937"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112836"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -24,12 +24,20 @@ Este artigo fornece instruções passo a passo sobre como utilizar o serviço im
 Antes de criar uma tarefa de importação para transferir dados para o armazenamento de Blobs do Azure, com cuidado reveja e conclua a lista seguinte de pré-requisitos para este serviço. Tem de:
 
 - Ter uma subscrição do Azure Active Directory que pode ser utilizada para o serviço de importação/exportação.
-- Ter pelo menos uma conta de armazenamento do Azure com um contentor de armazenamento. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). Para obter informações sobre o contentor de armazenamento, aceda a [criar um contentor de armazenamento](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- Ter pelo menos uma conta de armazenamento do Azure com um contentor de armazenamento. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). 
+    - Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account). 
+    - Para obter informações sobre o contentor de armazenamento, aceda a [criar um contentor de armazenamento](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows em execução uma [versão do SO suportado](storage-import-export-requirements.md#supported-operating-systems). 
 - Ative o BitLocker no sistema Windows. Ver [como ativar o BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Baixe o versão 1 do WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) no sistema Windows. Deszipe o para a pasta predefinida `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
-
+- Ter uma conta de FedEx/DHL.  
+    - A conta tem de ser válida, deve ter o saldo e tem de ter capacidades de envio de devolução.
+    - Gere um número de controlo para a tarefa de exportação.
+    - Cada tarefa deve ter um número de controlo separado. Várias tarefas com o mesmo número de controlo não são suportadas.
+    - Se não tiver uma conta da transportadora, aceda a:
+        - [Criar uma conta de FedEX](https://www.fedex.com/en-us/create-account.html), ou 
+        - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Passo 1: Preparar as unidades
 
@@ -107,7 +115,10 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
     - Selecione a operadora na lista pendente.
     - Introduza um número de conta de operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades-se ao assim que a tarefa de importação estiver concluída. Se não tiver um número de conta, crie uma [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/) conta da transportadora.
-    - Forneça um nome de contato completo e válido, telefone, e-mail, rua, cidade, zip, estado/província e país/região.
+    - Forneça um nome de contato completo e válido, telefone, e-mail, rua, cidade, zip, estado/província e país/região. 
+        
+        > [!TIP] 
+        > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe as notificações, mesmo que sai de um administrador.
 
     ![Criar tarefa de importação - passo 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -116,7 +127,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
     - Reveja as informações de tarefa fornecidas no resumo. Anote o nome da tarefa e o endereço para envio discos novamente para o Azure de envio do datacenter do Azure. Estas informações são utilizadas mais tarde na etiqueta de envio.
     - Clique em **OK** para criar a tarefa de importação.
 
-    ![Criar tarefa de importação - passo 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![Criar tarefa de importação - passo 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Passo 3: Enviar as unidades 
 
@@ -127,6 +138,9 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>Passo 5: Verificar o carregamento de dados para o Azure
+
+Controle a tarefa até à conclusão. Quando a tarefa estiver concluída, certifique-se de que os seus dados tem carregado para o Azure. Elimine os dados no local apenas após ter verificado que o carregamento foi concluída com êxito.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

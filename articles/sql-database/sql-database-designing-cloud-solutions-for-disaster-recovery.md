@@ -1,163 +1,163 @@
 ---
-title: Design serviço altamente disponível a utilizar a SQL Database do Azure | Microsoft Docs
-description: Saiba mais sobre a estrutura de aplicação para os serviços de elevada disponibilidade utilizando a SQL Database do Azure.
-keywords: nuvem de recuperação após desastre, as soluções de recuperação após desastre, cópia de segurança de dados de aplicação, replicação geográfica, planeamento de continuidade de negócio
+title: Criar serviço de elevada disponibilidade com o SQL Database do Azure | Documentos da Microsoft
+description: Saiba mais sobre o design do aplicativo para serviços de elevada disponibilidade com a base de dados do Azure SQL.
+keywords: cloud de recuperação após desastre, as soluções de recuperação após desastre, cópia de segurança de dados de aplicação, a georreplicação, planejamento da continuidade dos negócios
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ebe6d2b4d3210ad7c02ec2d26a311645660aeab8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647073"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092618"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Conceber serviços de elevada disponibilidade utilizando a SQL Database do Azure
+# <a name="designing-highly-available-services-using-azure-sql-database"></a>Criação de serviços de elevada disponibilidade com a base de dados do Azure SQL
 
-Ao criar e implementar os serviços de elevada disponibilidade no SQL Database do Azure, utilize [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md) para fornecer maior resiliência às falhas regionais e de falhas catastrófica. Também permite uma recuperação rápida para as bases de dados secundárias. Este artigo foca-se nos padrões comuns da aplicação e descreve as vantagens e os compromissos de cada opção. Para obter informações sobre a georreplicação ativa com conjuntos elásticos, consulte [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-
-> [!NOTE]
-> Se estiver a utilizar o Premium ou bases de dados críticos de negócio (pré-visualização) e conjuntos elásticos, pode torná-los falhas sejam resilientes a regionais, convertendo-las à configuração de implementação redundante de zona (atualmente em pré-visualização). Consulte [basesdedadoszona redundante](sql-database-high-availability.md).  
-
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Utilizar duas regiões do Azure para a continuidade do negócio com o período de indisponibilidade mínimo
-Neste cenário, as aplicações têm as seguintes características: 
-*   Aplicação está ativa uma região do Azure
-*   Todas as sessões de base de dados requerem o acesso de escrita (RW) para dados e de leitura
-*   Camada Web e a camada de dados tem de ser colocalizados para reduzir o custo de latência e de tráfego 
-*   Fundamentalmente, o período de indisponibilidade é um risco mais elevado do negócio para estas aplicações a perda de dados
-
-Neste caso, a topologia de implementação de aplicação está otimizada para processar perante desastres regionais quando todos os componentes da aplicação têm de ativação pós-falha em conjunto. O diagrama abaixo mostra esta topologia. Para a redundância geográfica, os recursos da aplicação são implementados nos região A e B. No entanto, os recursos na região B não são utilizados até que a região A falha. Um grupo de ativação pós-falha está configurado entre as duas regiões para gerir a conectividade da base de dados, a replicação e ativação pós-falha. O serviço web em ambas as regiões está configurado para aceder à base de dados através do serviço de escuta de leitura e escrita  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** (1). Gestor de tráfego é configurado para utilizar [método de encaminhamento de prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Quando compilarem e implementarem serviços altamente disponíveis na base de dados do Azure SQL, utilize [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md) para fornecer maior resiliência às falhas regionais e de falhas catastróficas. Também permite a recuperação rápida para as bases de dados secundários. Este artigo concentra-se em padrões comuns de aplicação e descreve as vantagens e desvantagens de cada opção. Para obter informações sobre a georreplicação ativa com os conjuntos elásticos, veja [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) é utilizado em toda este artigo para fins de ilustração. Pode utilizar qualquer solução de balanceamento de carga que suporta o método de encaminhamento de prioridade.    
+> Se estiver a utilizar conjuntos elásticos e bases de dados Premium ou críticas para a empresa, pode torná-los resiliente a falhas regionais convertendo-os em configuração de implementação com redundância de zona. Ver [basesdedadosredundância de zona](sql-database-high-availability.md).  
+
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Utilizar duas regiões do Azure para a continuidade do negócio com o tempo de inatividade mínimo
+Neste cenário, os aplicativos têm as seguintes características: 
+*   Aplicação está ativa numa única região do Azure
+*   Todas as sessões de base de dados requerem acesso de escrita (RW) para dados de leitura e
+*   Camada Web e camada de dados devem ser colocalizados para reduzir o custo de latência e de tráfego 
+*   Fundamentalmente, o tempo de inatividade é um risco mais alto do negócio para estas aplicações de perda de dados
+
+Neste caso, a topologia de implementação de aplicações está otimizada para manipular a desastres regionais quando precisam de todos os componentes da aplicação para ativação pós-falha em conjunto. O diagrama abaixo mostra esta topologia. Para a redundância geográfica, os recursos do aplicativo são implementados para a região A e B. No entanto, os recursos na região B não serão utilizados até que a região A falha. Um grupo de ativação pós-falha está configurado entre as duas regiões para gerir a conectividade da base de dados, replicação e ativação pós-falha. O serviço web em ambas as regiões está configurado para acessar o banco de dados através do serviço de escuta de leitura / escrita  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** (1). O Gestor de tráfego está configurado para utilizar [método de encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+
+> [!NOTE]
+> [O Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) ao longo deste artigo, é utilizado apenas para fins ilustrativos. Pode usar qualquer solução de balanceamento de carga de mensagens em fila que suporta o método de encaminhamento de prioridade.    
 >
 
 O diagrama seguinte mostra esta configuração antes de uma falha:
 
-![Cenário 1. Configuração antes da interrupção.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
+![Cenário 1. Configuração antes da falha.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
-Após uma falha na região primária, o serviço de base de dados SQL Deteta que a base de dados primária não está acessível e aciona uma ativação pós-falha para a região secundária com base nos parâmetros da política de ativação pós-falha automática (1). Consoante o SLA de aplicação, pode configurar um período de tolerância que controla o tempo entre a deteção da interrupção e a ativação pós-falha de si próprio. É possível que esse gestor de tráfego inicia a ativação pós-falha de ponto final antes do grupo de ativação pós-falha aciona a ativação pós-falha da base de dados. Nesse caso a aplicação web não é possível imediatamente restabeleça a ligação à base de dados. Mas os reconnections serão automaticamente bem-sucedidas, assim que concluir a ativação pós-falha da base de dados. Quando a região de falha é restaurada e novamente online, o principal anterior automaticamente a ligação como um novo secundário. O diagrama abaixo mostra a configuração após a ativação pós-falha.
+Após uma falha na região primária, o serviço de base de dados SQL Deteta que a base de dados primária não está acessível e aciona a ativação pós-falha para a região secundária com base nos parâmetros da política de ativação pós-falha automática (1). Consoante o SLA de aplicativo, pode configurar um período de tolerância que controla o tempo entre a detecção da falha e a ativação pós-falha em si. É possível que o Gestor de tráfego inicia a ativação pós-falha do ponto final antes do grupo de ativação pós-falha aciona a ativação pós-falha da base de dados. Nesse caso a aplicação web não é imediatamente voltar a ligar à base de dados. Mas os reconnections serão automaticamente bem-sucedidas assim que concluir a ativação pós-falha de base de dados. Quando a região com falha é restaurado e voltar a ficar online, o principal anterior volta ligar automaticamente como um secundário novo. O diagrama abaixo ilustra a configuração após a ativação pós-falha.
  
 > [!NOTE]
-> Todas as transações consolidadas após a ativação pós-falha são perdidas durante o restabelecimento. Uma vez concluída a ativação pós-falha, a aplicação na região B é capaz de voltar a ligar e reinicie a processar os pedidos de utilizador. A aplicação web e a base de dados primária estão agora numa região B e permanecem localizadas conjuntamente. n>
+> Todas as transações consolidadas após a ativação pós-falha são perdidas durante o restabelecimento. Depois de concluída a ativação pós-falha, a aplicação na região B é capaz de voltar a ligar e reinicie o processamento de pedidos de utilizador. A aplicação web e a base de dados primária estão agora na região B e permanecem localizadas conjuntamente. n>
 
 ![Cenário 1. Configuração após a ativação pós-falha](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
-Se ocorre uma falha na região B, o processo de replicação entre a primária e a base de dados secundária obtém suspenso, mas a ligação entre os dois permanece intacta (1). Tráfego gerido Deteta que a conectividade à região B está quebrada e marca a aplicação web de ponto final 2 como Degraded (2). Desempenho da aplicação não é afetado neste caso, mas a base de dados fica exposto e, por conseguinte, em maior risco de perda de dados em caso de região A falha sucessivamente.
+Se ocorrer uma falha na região B, o processo de replicação entre a primária e a base de dados secundário obtém suspenso, mas a ligação entre os dois permanece intacta (1). Tráfego gerido Deteta que a conectividade para o B de região está interrompida e marca a aplicação web de ponto final 2 como Degraded (2). Desempenho do aplicativo não é afetado neste caso, mas a base de dados torna-se exposto e, por isso em maior risco de perda de dados em caso de região A falha em sucessão.
 
 > [!NOTE]
-> Recuperação de desastres, recomendamos que a configuração com a implementação de aplicação limitada a duas regiões. Isto acontece porque a maioria as localizações geográficas do Azure tem apenas duas regiões. Esta configuração protege a aplicação contra uma falha catastrófica simultânea de ambas as regiões. Numa improvável eventualidade de uma falha de tal, pode recuperar as bases de dados numa terceira região através de [georrestauro operação](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Para recuperação após desastre, recomendamos a configuração com a implementação de aplicação limitada em duas regiões. Isto acontece porque a maioria das áreas geográficas indicadas a do Azure tem apenas duas regiões. Esta configuração não protegem o aplicativo contra uma falha catastrófica simultânea de ambas as regiões. No caso pouco provável de uma falha deste tipo, pode recuperar as bases de dados numa terceira região com [operação de restauro geográfico](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
- Assim que a interrupção é atenuada, a base de dados secundária resynchronizes automaticamente com o site primário. Durante a sincronização, o desempenho dos principais pode ser afetado. O impacto específico depende da quantidade de dados a nova principal adquirido desde a ativação pós-falha. O diagrama seguinte ilustra uma falha na região secundária:
+ Assim que a falha é minimizada, a base de dados secundária resynchronizes-se automaticamente com o principal. Durante a sincronização, o desempenho dos principais pode ser afetado. O impacto específico depende da quantidade de dados a nova principal adquirida desde a ativação pós-falha. O diagrama seguinte ilustra uma falha na região secundária:
 
 ![Cenário 1. Configuração após uma falha na região secundária.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
-A chave **vantagens** deste padrão de conceção são:
+A chave **vantagens** deste padrão de design são:
 
-* A mesma aplicação web está implementada para ambas as regiões sem qualquer configuração específico da região e não requer uma lógica adicional para gerir a ativação pós-falha. 
-* Desempenho da aplicação não é afetado por ativação pós-falha da aplicação web e são sempre a base de dados localizadas conjuntamente.
+* O mesmo aplicativo web é implementado para ambas as regiões sem qualquer configuração específico da região e não requer lógica adicional para gerir a ativação pós-falha. 
+* Desempenho da aplicação não é afetado por ativação pós-falha do aplicativo web e a base de dados sempre são localizadas conjuntamente.
 
-O principal **compromisso** é que os recursos de aplicação na região B são subutilizados na maioria das vezes.
+Os principais **compensação** é que os recursos de aplicação na região B estão subutilizados a maior parte do tempo.
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: Regiões do Azure para a continuidade do negócio com a preservação de dados
-Esta opção é mais adequada para as aplicações com as seguintes características:
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: Regiões do Azure para a continuidade do negócio com preservação máxima de dados
+Esta opção é mais adequada para aplicações com as seguintes características:
 
-* Perda de dados é o risco de negócio elevada. A ativação pós-falha da base de dados só pode ser utilizada como último recurso, se a interrupção é causada por uma falha catastrófica.
-* A aplicação suporta modos só de leitura e de leitura-escrita de operações e pode operar no "modo só de leitura" para um período de tempo.
+* Qualquer perda de dados é o risco de negócios elevada. A ativação pós-falha de base de dados só pode ser utilizada como um último recurso, se a falha for provocada por uma falha catastrófica.
+* O aplicativo oferece suporte a modos de só de leitura e escrita de leitura das operações e pode funcionar no "modo só de leitura" por um período de tempo.
 
-Neste padrão, a aplicação muda para o modo só de leitura quando as ligações de leitura e escrita comece a obter erros de tempo limite. A aplicação Web está implementado para ambas as regiões e incluem uma ligação ao ponto final do serviço de escuta de leitura / escrita e noutra ligação ao ponto final do serviço de escuta de só de leitura (1). Deve utilizar o perfil do Gestor de tráfego [prioridade encaminhamento](../traffic-manager/traffic-manager-configure-priority-routing-method.md). [Monitorização do ponto final](../traffic-manager/traffic-manager-monitoring.md) devem ser ativados para o ponto final da aplicação em cada região (2).
+Neste padrão, a aplicação muda para o modo só de leitura quando as conexões de leitura / escrita começar a obter erros de tempo limite. O aplicativo Web é implementada para ambas as regiões e incluem uma ligação para o ponto de extremidade do serviço de escuta de leitura / escrita e de ligação diferente para o ponto de extremidade do serviço de escuta só de leitura (1). Deve utilizar o perfil do Gestor de tráfego [prioridade encaminhamento](../traffic-manager/traffic-manager-configure-priority-routing-method.md). [Monitorização do ponto final](../traffic-manager/traffic-manager-monitoring.md) deve estar ativado para o ponto final da aplicação em cada região (2).
 
 O diagrama seguinte ilustra esta configuração antes de uma falha:
 
-![Cenário 2. Configuração antes da interrupção.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
+![Cenário 2. Configuração antes da falha.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
 
-Quando o Gestor de tráfego Deteta uma falha de conectividade à região A, automaticamente muda o tráfego do utilizador para a instância da aplicação na região B. Com este padrão, é importante que defina o período de tolerância a perdas de dados para um valor suficientemente elevado, por exemplo 24 horas. Garante que a perda de dados é impedida se a interrupção mitigada nesse período de tempo. Quando a aplicação Web na região B é ativada as operações de leitura e escrita começam a falhar. Nessa altura, deve mudar para o modo só de leitura (1). Neste modo os pedidos automaticamente são encaminhados para a base de dados secundária. Se a interrupção é causada por uma falha catastrófica, provavelmente, não pode ser atenuado dentro do período de tolerância. Quando expirar os acionadores de grupo de ativação pós-falha de ativação pós-falha. Depois de que o serviço de escuta de leitura e escrita torna-se disponíveis e as ligações ao mesmo parar falhar (2). O diagrama seguinte ilustra as duas fases do processo de recuperação.
+Quando o Gestor de tráfego Deteta uma falha de conectividade para a região A, ele muda automaticamente o tráfego de utilizador para a instância da aplicação na região B. Com esse padrão, é importante que defina o período de tolerância de perda de dados para um valor suficientemente elevado, por exemplo 24 horas. Ele garante que a perda de dados é impedida se a falha é atenuada nesse período de tempo. Quando a aplicação Web na região B é ativada as operações de leitura / escrita começam a falhar. Nesse ponto, ele deve mudar para o modo só de leitura (1). Neste modo as solicitações são automaticamente encaminhadas para a base de dados secundário. Se a falha for provocada por uma falha catastrófica, provavelmente ele não pode ser atenuado dentro do período de tolerância. Quando expirar os acionadores de grupo de ativação pós-falha a ativação pós-falha. Depois que o serviço de escuta de leitura / escrita torna-se disponíveis e as ligações ao mesmo parar (2) a falhar. O diagrama seguinte ilustra as duas fases do processo de recuperação.
 
 > [!NOTE]
-> Se a interrupção na região primária é atenuada dentro do período de tolerância, o Gestor de tráfego Deteta o restauro de conectividade na região primária e muda o tráfego de utilizador para a instância da aplicação na região A. Essa instância de aplicação retoma e funciona no modo de leitura e escrita com a base de dados primária na região A conforme ilustrado o diagrama anterior.
+> Se a falha na região primária é atenuada dentro do período de tolerância, Gestor de tráfego Deteta o restauro de conectividade na região primária e muda o tráfego de utilizador para a instância de aplicação na região A. Essa instância de aplicação retoma e funciona em modo de leitura / escrita com a base de dados primária na região A conforme ilustrado o diagrama anterior.
 >
 
 ![Cenário 2. Fases de recuperação após desastre.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
-Se uma falha acontecer na região B, o Gestor de tráfego Deteta a falha de ponto final web-app-2 na região B e marca se degradado (1). Entretanto, o grupo de ativação pós-falha muda o modo só de leitura serviço de escuta à região A (2). Esta falha não afeta a experiência de utilizador final, mas a base de dados primária está exposta durante a interrupção. O diagrama seguinte ilustra uma falha na região secundária:
+Se ocorrer uma falha na região B, o Gestor de tráfego detetar a falha de ponto final web-app-2 na região B e marcas de ele degradado (1). Entretanto, o grupo de ativação pós-falha muda a escuta só de leitura para a região A (2). Este período de inatividade não afeta a experiência do utilizador final, mas a base de dados primária está exposta durante o período de inatividade. O diagrama seguinte ilustra uma falha na região secundária:
 
 ![Cenário 2. Falha da região secundária.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
 
-Assim que a interrupção é atenuada, a base de dados secundária imediatamente está sincronizado com o site primário e o serviço de escuta de só de leitura é mudado novamente para a base de dados secundária na região B. Durante a sincronização desempenho dos principais pode ser afetado ligeiramente dependendo da quantidade de dados que devem ser sincronizadas.
+Assim que a falha é minimizada, a base de dados secundária imediatamente está sincronizado com o principal e o serviço de escuta só de leitura é alternado de volta para a base de dados secundária numa região B. Durante a sincronização de desempenho dos principais pode ser afetado ligeiramente dependendo da quantidade de dados que precisam de ser sincronizados.
 
-Neste padrão de conceção tem vários **vantagens**:
+Este padrão de design possui vários **vantagens**:
 
-* Evita a perda de dados durante as falhas temporárias.
-* Período de indisponibilidade depende apenas rapidez do traffic manager Deteta a falha de conectividade, o que é configurável.
+* Ele evita a perda de dados durante as falhas temporárias.
+* Tempo de inatividade depende apenas com o Gestor de tráfego detetar a falha de conectividade, o que é configurável.
 
-O **compromisso** é que a aplicação tem de ser capaz de funcionar no modo só de leitura.
+O **compensação** é que o aplicativo deve ser capaz de operar em modo só de leitura.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Cenário 3: Reposicionamento de aplicação para um geografia diferentes sem perda de dados e perto períodos de indisponibilidade 
-Neste cenário, a aplicação tem as seguintes características: 
-* Os utilizadores finais aceder à aplicação a partir de diversas localizações geográficas
-* A aplicação inclui as cargas de trabalho só de leitura que não dependam de sincronização completa com as atualizações mais recentes
-* Acesso de escrita de dados devem ser suportado na mesma geografia para a maioria dos utilizadores 
-* Latência de leitura é essencial para a experiência de utilizador final 
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Cenário 3: Reposicionamento de aplicação para uma geografia diferente sem perda de dados e quase nenhum tempo de inatividade 
+Neste cenário, o aplicativo tem as seguintes características: 
+* Os usuários finais aceder à aplicação a partir de diferentes geografias
+* O aplicativo inclui as cargas de trabalho só de leitura que não dependem de uma sincronização completa com as atualizações mais recentes
+* Acesso de escrita aos dados deve ser suportado na mesma área geográfica para a maioria dos utilizadores 
+* Latência de leitura é essencial para a experiência do utilizador final 
 
 
-Para cumprir estes requisitos que tem de garantir que o dispositivo do utilizador **sempre** estabelece ligação à aplicação implementada no mesma de geografia para as operações só de leitura, tais como os dados de navegação, análise, etc. Enquanto, as operações de OLTP são processadas na mesma geografia **maioria do tempo**. Por exemplo, durante a hora do dia operações OLTP são processadas na mesma geografia, mas durante as horas desligadas foi processadas numa geografia diferentes. Se a atividade do utilizador final principalmente ocorre durante as horas de trabalho, pode garantir o desempenho ideal para a maior parte dos utilizadores maioria do tempo. O diagrama seguinte mostra esta topologia. 
+Para atender a esses requisitos terá de garantir que o dispositivo de usuário **sempre** liga-se para a aplicação implementada na mesma área geográfica para as operações só de leitura, por exemplo, dados de navegação, análise, etc. Ao passo que as operações de OLTP são processadas na mesma geografia **maior parte do tempo**. Por exemplo, durante a hora do dia, operações de OLTP são processadas na mesma região, mas durante as horas off foi processar de uma localização geográfica de diferente. Se a atividade do utilizador final principalmente acontece durante o horário de trabalho, pode garantir o desempenho ideal para a maioria dos usuários maior parte do tempo. O diagrama seguinte mostra esta topologia. 
  
-Recursos da aplicação devem ser implementados em cada geografia em que tenha a pedido de utilização considerável. Por exemplo, se a aplicação é utilizada ativamente nos Estados Unidos, União Europeia e Sudeste asiático a aplicação devem ser implementadas todas estas localizações geográficas. A base de dados principal deve ser dinamicamente mudou de um geografia para o seguinte no fim do horário de trabalho. Este método é denominado "seguir o sun". A carga de trabalho OLTP sempre estabelece ligação à base de dados através do serviço de escuta de leitura e escrita  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** (1). A carga de trabalho só de leitura estabelece ligação à base de dados local diretamente com o ponto final de servidor de bases de dados  **&lt;nome do servidor&gt;. database.windows.net** (2). Gestor de tráfego está configurado com o [método de encaminhamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Assegura que o dispositivo do utilizador final está ligado ao serviço web na região mais próxima. Gestor de tráfego deve ser configurado com a monitorização do ponto final ativado para cada ponto de final de serviço web (3).
+Os recursos do aplicativo devem ser implementados em cada geografia em que tem a pedido de uma utilização significativa. Por exemplo, se a sua aplicação é utilizada ativamente nos Estados Unidos, União Europeia e Sudeste asiático, o aplicativo devem ser implementados para todas essas áreas geográficas. A base de dados principal deve ser alternado dinamicamente de uma geografia para a próxima no fim do horário de trabalho. Este método é chamado "seguir o sol". A carga de trabalho OLTP liga-se sempre à base de dados através do serviço de escuta de leitura / escrita  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** (1). A carga de trabalho só de leitura se liga a base de dados local diretamente com o ponto de final do servidor de bases de dados  **&lt;nome do servidor&gt;. database.windows.net** (2). O Gestor de tráfego está configurado com o [método de encaminhamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ele garante que o dispositivo do utilizador final está ligado ao serviço web na região mais próxima. O Gestor de tráfego deve ser configurado com a monitorização do ponto final ativado para cada ponto de final de serviço web (3).
 
 > [!NOTE]
-> A configuração do grupo de ativação pós-falha define a que região é utilizado para ativação pós-falha. Porque a nova principal está a ser uma geografia diferentes os resultados de ativação pós-falha de latência tempo OLTP e cargas de trabalho só de leitura até que a região afetada esteja novamente online.
+> A configuração do grupo de ativação pós-falha define qual a região é utilizada para a ativação pós-falha. Uma vez que a nova principal é de uma localização geográfica de diferente os resultados de ativação pós-falha de latência de mais tempo para OLTP e cargas de trabalho só de leitura até que a região afetada esteja novamente online.
 >
 
-![Cenário 3. Configuração com o site primário nos EUA Leste.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
+![Cenário 3. Configuração com principal na região E.U.A. Leste.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-No fim do dia (por exemplo, na hora local do 23: 00), as bases de dados do Active Directory devem ser mudados para a região seguinte (Europa do Norte). Esta tarefa pode ser automatizada totalmente utilizando [do Azure de serviço de agendamento](../scheduler/scheduler-intro.md).  A tarefa envolve os seguintes passos:
-* Mudar o servidor primário do grupo de ativação pós-falha para a Europa do Norte amigável ativação pós-falha (1) a utilizar
-* Remova o grupo de ativação pós-falha entre EUA leste e Europa do Norte
+No final do dia (por exemplo, na hora local do 23 horas), bases de dados do Active Directory devem ser mudados para a próxima região (Europa do Norte). Esta tarefa pode ser totalmente automatizada através de [do Azure de serviço de agendamento](../scheduler/scheduler-intro.md).  A tarefa envolve os seguintes passos:
+* Mudar o servidor primário no grupo de ativação pós-falha para Europa do Norte usando a ativação pós-falha amigável (1)
+* Remover o grupo de ativação pós-falha entre os E.U.A. leste e Europa do Norte
 * Crie um novo grupo de ativação pós-falha com o mesmo nome mas entre Europa do Norte e Ásia Oriental (2). 
-* Adicione o site primário na Europa do Norte e secundários na Ásia Oriental a este grupo de ativação pós-falha (3).
+* Adicione principal na Europa do Norte e na Ásia Oriental secundário a este grupo de ativação pós-falha (3).
 
 
 O diagrama seguinte ilustra a nova configuração após a ativação pós-falha planeada:
 
-![Cenário 3. Mudar o principal para a Europa do Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+![Cenário 3. Transição da primária para a Europa do Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Se uma falha acontecer na Europa do Norte por exemplo, a ativação pós-falha automática da base de dados é iniciada pelo grupo de ativação pós-falha, o que resulta de forma eficaz mover a aplicação para a região seguinte à frente das agenda (1).  Nesse caso e.u. a leste é a região secundária restantes apenas até Europa do Norte estiver novamente online. As restantes duas regiões servem os clientes em localizações três geográficas todos os pela mudança funções. O agendador do Azure tem de ser ajustado em conformidade. Porque as regiões restantes obter tráfego de utilizador adicionais da Europa, o desempenho da aplicação é afetado não só pela latência adicional, mas também por um aumento do número de ligações de utilizador final. Assim que a interrupção mitigada na Europa do Norte, a base de dados secundária não existe imediatamente está sincronizado com o principal atual. O diagrama seguinte ilustra uma falha na Europa do Norte:
+Se um período de indisponibilidade ocorre na Europa do Norte por exemplo, a ativação pós-falha automática da base de dados é iniciada pelo grupo de ativação pós-falha, o que resulta efetivamente em mover o aplicativo para a região seguinte à frente do cronograma (1).  Nesse caso o E.U. a leste é a região secundária restante até que a Europa do Norte esteja novamente online. As duas regiões restantes servem os clientes em todas as três geografias alternando funções. O Azure scheduler tem de ser ajustado em conformidade. Uma vez que as regiões restantes receber tráfego de utilizador adicionais da Europa, do desempenho do aplicativo é afetado não apenas pela latência adicional, mas também por um número maior de ligações de utilizador final. Assim que a indisponibilidade for minimizada na Europa do Norte, a base de dados secundária lá imediatamente é sincronizada com o principal atual. O diagrama seguinte ilustra uma falha na Europa do Norte:
 
 ![Cenário 3. Falha na Europa do Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Pode reduzir o tempo quando a experiência do utilizador final na Europa está degradada à latência de comprimento. Para que deve proativamente implemente uma cópia de aplicação e crie bases de dados secundárias noutra região local (Europa Ocidental) como uma substituição da instância da aplicação offline na Europa do Norte. Quando a última opção é novamente online pode decidir se deve continuar a utilizar Europa ocidental ou remova a cópia da aplicação não existe e voltar ao utilizar Europa do Norte,
+> Pode reduzir o tempo quando a experiência do utilizador final na Europa está degradada pela latência longo. Para fazer isso, deve proativamente implementar uma cópia do aplicativo e criar bases de dados secundárias noutra região local (Europa Ocidental) como uma substituição da instância da aplicação offline na Europa do Norte. Quando a última opção é voltar a ficar online pode decidir se pretende continuar a utilizar a Europa ocidental ou remova a cópia da aplicação lá e mudar para o Norte da Europa,
 >
 
-A chave **vantagens** do design desta são:
-* A carga de trabalho de aplicações só de leitura acede a dados na região closets permanente. 
-* A carga de trabalho de leitura-escrita de aplicações acede aos dados na região mais próxima durante o período da atividade em cada geografia mais elevado
-* Porque a aplicação é implementada em várias regiões, pode sobreviver uma perda de uma das regiões sem qualquer período de indisponibilidade significativo. 
+A chave **benefícios** deste design são:
+* A carga de trabalho de aplicação só de leitura acessa dados na região armários durante todo o tempo. 
+* A carga de trabalho de aplicação de leitura / escrita aceda aos dados na região mais próxima durante o período da atividade mais elevado de cada localização geográfica
+* Uma vez que a aplicação é implementada em várias regiões, pode sobreviver uma perda de uma das regiões sem qualquer período de indisponibilidade significativo. 
 
-Mas existem algumas **fala**:
-* Uma falha regional resulta numa geografia para ser afetado por latência superior. Cargas de trabalho de leitura / escrita e só de leitura é fornecido pela aplicação na geografia diferente. 
-* As cargas de trabalho só de leitura devem ligar a um ponto final diferente em cada região. 
+No entanto, existem algumas **compensações**:
+* Uma falha regional resulta na geografia a ser afetado pela latência de mais tempo. Cargas de trabalho de leitura / escrita e só de leitura são servidos pela aplicação de uma localização geográfica de diferente. 
+* As cargas de trabalho só de leitura tem de ligar para um ponto de extremidade diferente em cada região. 
 
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planeamento de continuidade do negócio: Escolha uma estrutura de aplicação para recuperação após desastre de nuvem
-A estratégia de recuperação de desastres nuvem específica pode combinar ou expandir estes padrões de conceção para melhor satisfazer as necessidades da sua aplicação.  Conforme mencionado anteriormente, a estratégia de que escolher é com base no SLA que pretende para oferecer os seus clientes e a topologia de implementação de aplicação. Para o orientar a sua decisão, a tabela seguinte compara as escolhas com base no objetivo de ponto de recuperação (RPO) e a hora da recuperação estimado (ERT).
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planejamento da continuidade dos negócios: escolher um design do aplicativo para recuperação de desastre na nuvem
+Sua estratégia de recuperação de desastres de cloud específico pode combinar ou expandir estes padrões de design para melhor satisfazer as necessidades da sua aplicação.  Como mencionado anteriormente, a estratégia que escolher baseia-se no SLA que pretende para oferecer aos seus clientes e a topologia de implementação de aplicação. Para ajudar a orientar a sua decisão, a tabela seguinte compara as opções com base no objetivo de ponto de recuperação (RPO) e a hora da recuperação estimada (ERT).
 
 | Padrão | RPO | ERT |
 |:--- |:--- |:--- |
-| Implementação de ativo-passivo para recuperação após desastre com acesso de base de dados localizadas conjuntamente |Acesso de leitura e escrita < 5 seg |Hora da deteção de falha + TTL do DNS |
-| Implementação de ativo-ativo para o balanceamento de carga da aplicação |Acesso de leitura e escrita < 5 seg |Hora da deteção de falha + TTL do DNS |
-| Implementação de ativo-passivo para preservação de dados |Acesso só de leitura < 5 seg | Acesso só de leitura = 0 |
-||Acesso de leitura e escrita = zero | Acesso de leitura e escrita = hora da deteção de falha + período de tolerância a perdas de dados |
+| Implementação ativa-passiva para recuperação após desastre com acesso de base de dados localizadas conjuntamente |Acesso de leitura-escrita < 5 s |Hora da deteção de falha + TTL de DNS |
+| Implementação de ativo-ativo para o balanceamento de carga do aplicativo |Acesso de leitura-escrita < 5 s |Hora da deteção de falha + TTL de DNS |
+| Implementação ativa-passiva para preservação de dados |Acesso só de leitura < 5 s | Acesso só de leitura = 0 |
+||Acesso de leitura-escrita = zero | Acesso de leitura-escrita = hora da deteção de falha + período de tolerância de perda de dados |
 |||
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para cenários e uma descrição geral de continuidade de negócio, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md)
-* Para saber mais sobre os grupos de replicação geográfica e ativação pós-falha, consulte [georreplicação ativa](sql-database-geo-replication-overview.md)  
-* Para obter informações sobre a georreplicação ativa com conjuntos elásticos, consulte [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md)
+* Para saber mais sobre grupos de georreplicação e ativação pós-falha, consulte o artigo [georreplicação ativa](sql-database-geo-replication-overview.md)  
+* Para obter informações sobre a georreplicação ativa com os conjuntos elásticos, veja [estratégias de recuperação de desastre do conjunto elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

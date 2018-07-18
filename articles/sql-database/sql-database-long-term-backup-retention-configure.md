@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 24d453dc705eb2d0ee7cb77f2ec247845247d0a8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969192"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113636"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
 Pode configurar a base de dados SQL do Azure com um [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) política (LTR) para manter automaticamente cópias de segurança no armazenamento de Blobs do Azure para até 10 anos. Em seguida, pode recuperar uma base de dados com estas cópias de segurança com o portal do Azure ou o PowerShell.
-
-> [!NOTE]
-> Como parte da versão inicial da pré-visualização desta funcionalidade em Outubro de 2016, as cópias de segurança foram armazenadas no Cofre de serviços de recuperação do Azure. Esta atualização remove esta dependência, mas para compatibilidade com versões anteriores, a API original é suportada até 31 de Maio de 2018. Se precisar de interagir com as cópias de segurança no Cofre de recuperação de serviços do Azure, veja [retenção de cópia de segurança de longa duração com o Cofre de serviços de recuperação do Azure](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o portal do Azure para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
 
@@ -32,29 +29,21 @@ As secções seguintes mostram como utilizar o portal do Azure para configurar a
 
 Pode configurar a base de dados SQL [reter cópias de segurança automáticas](sql-database-long-term-retention.md) durante um período maior do que o período de retenção para a camada de serviço. 
 
-1. No portal do Azure, selecione o seu servidor SQL e, em seguida, clique em **retenção de cópia de segurança de longo prazo**.
+1. No portal do Azure, selecione o seu servidor SQL e, em seguida, clique em **gerir cópias de segurança**. Sobre o **configurar políticas de** separador, selecione a base de dados no qual pretende definir ou modificar as políticas de retenção de cópia de segurança de longo prazo.
 
-   ![ligação de retenção de longa duração de cópia de segurança](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
+   ![gerir cópias de segurança de ligação](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. Sobre o **configurar políticas de** separador, selecione a base de dados no qual pretende definir ou modificar as políticas de retenção de cópia de segurança de longo prazo.
-
-   ![Selecione a base de dados](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
-
-3. Na **configurar políticas de** painel, selecione se pretende manter semanalmente, mensalmente ou anualmente cópias de segurança e especifique o período de retenção para cada um. 
+2. Na **configurar políticas de** painel, selecione se pretende manter semanalmente, mensalmente ou anualmente cópias de segurança e especifique o período de retenção para cada um. 
 
    ![configurar políticas](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-4. Quando terminar, clique em **aplicar**.
+3. Quando terminar, clique em **aplicar**.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Ver cópias de segurança e restaurar a partir de uma cópia de segurança através do portal do Azure
 
 Ver as cópias de segurança que são mantidas para um banco de dados específico com uma política LTR e o restauro a partir dessas cópias de segurança. 
 
-1. No portal do Azure, selecione o seu servidor SQL e, em seguida, clique em **retenção de cópia de segurança de longo prazo**.
-
-   ![ligação de retenção de longa duração de cópia de segurança](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
-
-2. Sobre o **cópias de segurança disponíveis** separador, selecione a base de dados para o qual pretende ver cópias de segurança disponíveis.
+1. No portal do Azure, selecione o seu servidor SQL e, em seguida, clique em **gerir cópias de segurança**. Sobre o **cópias de segurança disponíveis** separador, selecione a base de dados para o qual pretende ver cópias de segurança disponíveis.
 
    ![Selecione a base de dados](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 

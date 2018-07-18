@@ -1,5 +1,5 @@
 ---
-title: Arquitetura do Azure HDInsight associados a um domínio | Microsoft Docs
+title: Arquitetura de Azure HDInsight associado a um domínio | Documentos da Microsoft
 description: Saiba como planear o HDInsight associado a um domínio.
 services: hdinsight
 documentationcenter: ''
@@ -14,45 +14,63 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1f51a1fbb38bc27d15b7a45ca4783508d863fee5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110460"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112632"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planear clusters do Hadoop associados a um domínio do Azure no HDInsight
 
-O cluster do HDInsight standard é um cluster de utilizador único. É adequado à maioria das empresas em que as cargas de trabalho de dados de grande dimensão são criadas por pequenas equipas de aplicações. Cada utilizador pode ter outro cluster dedicado a próprio a pedido e destrui-lo quando não é necessária já. No entanto, muitas empresas começou a mover para um modelo no qual clusters sejam geridos pelas equipas de TI e aplicação de várias equipas de clusters de partilha. Assim, multiuser para o cluster for necessário acesso no Azure HDInsight para estes maiores empresas.
+O cluster standard do Azure HDInsight é um cluster de utilizador único. É adequado para a maioria das empresas que têm mais pequenas equipas de aplicações cargas de trabalho de dados grandes. Cada utilizador pode criar um cluster dedicado a pedido e destruí-lo quando não é mais necessária. 
 
-HDInsight baseia-se no fornecedor de identidade mais popular – do Active Directory (AD) de uma forma gerido. Ao integrar o HDInsight com [do Azure Active Directory Domain Services (AAD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), podem aceder os clusters com as suas credenciais de domínio. As VMs no HDInsight estão associados a um domínio para o domínio fornecido, pelo que todos os serviços em execução no HDInsight (Ambari, thrift de Spark do servidor, Ranger, de ramo de registo do servidor e outros) funcionam perfeitamente para o utilizador autenticado. Os administradores podem, em seguida, criar políticas de autorização segura com Apache Ranger para fornecer controlo de acesso baseado em funções para recursos no cluster.
+Muitas empresas terem sido movidos para um modelo no qual os clusters são geridos pelas equipas de TI e aplicação de várias equipas partilham esses clusters. Estas empresas maiores tem acesso multiusuário, a cada cluster no Azure HDInsight.
+
+HDInsight depende de um fornecedor de identidade populares--Active Directory – de forma gerida. Ao integrar o HDInsight com [do Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), pode acessar os clusters com as suas credenciais de domínio. 
+
+As máquinas virtuais (VMs) no HDInsight são associados ao seu domínio fornecido a um domínio. Para isso, todos os serviços em execução no HDInsight (Ambari, do Hive thrift de Spark do servidor, Ranger, servidor e outros) funcionam de forma totalmente integrada para o usuário autenticado. Os administradores podem, em seguida, criar políticas de autorização segura com o Apache Ranger para fornecer controlo de acesso baseado em funções para recursos no cluster.
 
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrar o HDInsight no Active Directory
 
-Hadoop open source depende do Kerberos para fornecer autenticação e segurança. Por conseguinte, nós de cluster do HDInsight estão associados a um domínio a um domínio gerido pelo AAD DS. Segurança de Kerberos está configurada para os componentes do Hadoop no cluster. Para cada um dos componentes do Hadoop, é criado automaticamente um principal de serviço. Máquina correspondente principal também é criada para cada máquina que está associada ao domínio. Para armazenar destes principais de serviços e máquinas, é necessário para fornecer uma unidade organizacional (UO) no controlador de domínio (AAD DS), onde são colocados destes principais. 
+Código aberto Hadoop depende de Kerberos para autenticação e segurança. Portanto, nós de cluster do HDInsight são associados a um domínio a um domínio gerido pelo Azure AD DS. Segurança do Kerberos está configurada para os componentes do Hadoop no cluster. 
+
+Para cada componente do Hadoop, é criado automaticamente um principal de serviço. Uma máquina correspondente principal também é criada para cada máquina que está associada ao domínio. Para armazenar estes serviços e entidades de segurança do computador, tem de fornecer uma unidade organizacional (UO) no controlador de domínio (Azure AD DS), onde essas entidades são colocadas. 
 
 Para resumir, terá de configurar um ambiente com:
 
-- Um domínio do Active Directory (gerido pelo AAD-DS)
-- Proteja o LDAP (LDAPS) ativada no AAD DS.
-- Rede PROPER conectividade a partir do HDInsight VNET a VNET AAD DS, caso opte separar as VNETs para os mesmos. Uma VM dentro da VNET HDI deve ter uma visão de linha para o AAD DS utilizando o VNET peering. Se HDI e AAD DS são implementados na mesma VNET, a conectividade é fornecida automaticamente e é necessária nenhuma ação adicional.
-- Uma unidade organizacional (UO) [criado no AAD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)
+- Um domínio do Active Directory (gerenciado pelo Azure AD DS).
+- Secure LDAP (LDAPS) ativado no Azure AD DS.
+- Funcionamento em rede conectividade apropriada da rede virtual do HDInsight para a rede virtual do Azure AD DS, se escolher as redes virtuais separadas para os mesmos. Uma VM dentro da rede virtual do HDInsight deve ter uma linha Visual para o Azure AD DS através do peering da rede virtual. Se o HDInsight e Azure AD DS é implementado na mesma rede virtual, a conectividade é fornecida automaticamente e é necessária nenhuma ação adicional.
+- Uma unidade Organizacional [criado no Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 - Uma conta de serviço que tem permissões para:
     - Crie principais de serviço na UO.
-    - Associar computadores ao domínio e crie princípios de máquina na UO.
+    - Associar máquinas ao domínio e criar principais de máquina na UO.
 
-A seguinte captura de ecrã mostra um UO criado em contoso.com. Algumas das principais de serviço e principais máquina são apresentadas, bem como a captura de ecrã.
+Captura de ecrã seguinte mostra uma UO criada em contoso.com. Também mostra alguns dos principais de serviço e entidades de segurança da máquina.
 
-![UO de clusters do HDInsight de associados a um domínio](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![Unidade de organização para os clusters do HDInsight associados a um domínio](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="different-domain-controllers-setup"></a>Configuração de controladores de domínio diferentes:
-HDInsight atualmente suporta apenas AAD DS como controlador de domínio principal que o cluster irá comunicar com Kerberise o cluster. No entanto, também são possíveis outras setups AD complexas, desde leva a ativar AAD DS para acesso HDI.
+## <a name="set-up-different-domain-controllers"></a>Configurar controladores de domínio diferente
+Atualmente, o HDInsight suporta apenas o Azure AD DS como controlador de domínio principal que o cluster utiliza para a comunicação de Kerberos. Mas outras configurações complexas do Active Directory são possíveis, desde que essa configuração leva a ativar o Azure AD DS para o acesso do HDInsight.
 
-- **[Azure Active Directory Domain Services (AAD DS)](../../active-directory-domain-services/active-directory-ds-overview.md)**: este serviço fornece um domínio gerido, que é totalmente compatível com o Windows Server Active Directory. Microsoft encarrega-se de gestão, a aplicação de patches e o domínio de uma configuração altamente Available(HA) de monitorização. Pode implementar o cluster sem se preocupar manter os controladores de domínio. Os utilizadores, grupos e as palavras-passe são sincronizadas entre os utilizadores de ativação de [unidirecional sincronização do AAD para o AAD DS], Directory(AAD) Active Directory do Azure para iniciar sessão para o cluster utilizando as mesmas credenciais empresariais. Para obter mais informações, consulte [como configurar associados a um domínio HDInsight clusters com o AAD DS](./apache-domain-joined-configure-using-azure-adds.md).
-- **No local AD ou AD em VMs do IaaS**: Se tiver um local AD ou outro AD mais complexa setups para o seu domínio, pode sincronizar essas identidades para o AAD utilizando AD Connect e, em seguida, ativar inquilino do AAD-DS em que o AD. Uma vez que o Kerberos depende de hashes de palavra-passe, terá de [ativar a sincronização de hash de palavra-passe no AAD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se estiver a utilizar federação com a Federação do AD serviços (ADFS), opcionalmente, pode configurar sincronização de hash de palavra-passe como uma cópia de segurança no caso de falha da sua infraestrutura de AD FS. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o AAD Connect sincronização](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). Utilizar no local AD ou AD em VMs de IaaS autónoma, sem AAD e AAD DS não é uma configuração suportada para o cluster HDI domínio a associar.
+### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
+[O Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) fornece um domínio gerido, que é totalmente compatível com o Windows Server Active Directory. Microsoft se encarrega de gerir, a aplicação de patches e a monitorizar o domínio numa configuração de elevada disponibilidade (HA). Pode implementar o cluster sem se preocupar em manter os controladores de domínio. 
+
+Os utilizadores, grupos e as palavras-passe são sincronizadas a partir do Azure Active Directory (Azure AD). A sincronização unidirecional da sua instância do Azure AD para o Azure AD DS permite aos utilizadores iniciar sessão para o cluster, utilizando as mesmas credenciais empresariais. 
+
+Para obter mais informações, consulte [clusters do HDInsight associados a um domínio de configurar com o Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
+
+### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>No local do Active Directory ou Active Directory em VMs de IaaS
+
+Se tiver uma instância do Active Directory no local ou configurações mais complexas do Active Directory para o seu domínio, pode sincronizar essas identidades para o Azure AD com o Azure AD Connect. Em seguida, pode ativar o Azure AD DS no inquilino do Active Directory. 
+
+Uma vez que Kerberos se baseia nos hashes de palavra-passe, terá [ativar a sincronização de hash de palavra-passe no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se estiver a utilizar o federação com os serviços de Federação do Active Directory (AD FS), pode, opcionalmente, configurar sincronização de hash de palavra-passe como uma cópia de segurança no caso de falha de infraestrutura do AD FS. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). 
+
+Utilização no local do Active Directory ou do Active Directory em VMs de IaaS sozinho, sem o Azure AD e o Azure AD DS, não é uma configuração suportada para clusters do HDInsight associados a um domínio.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Configurar clusters do HDInsight associados a um domínio](apache-domain-joined-configure-using-azure-adds.md).
-* [Configurar políticas de ramo de registo associados a um domínio para clusters do HDInsight](apache-domain-joined-run-hive.md).
-* [Gerir clusters do HDInsight associados a um domínio](apache-domain-joined-manage.md). 
+* [Configurar clusters do HDInsight associados a um domínio](apache-domain-joined-configure-using-azure-adds.md)
+* [Configurar políticas do Hive para clusters do HDInsight associados a um domínio](apache-domain-joined-run-hive.md)
+* [Gerir clusters do HDInsight associados a um domínio](apache-domain-joined-manage.md) 

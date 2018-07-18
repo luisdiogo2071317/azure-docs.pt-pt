@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: be94a508a10fdbbed194fb71e28fd7c3b72a080c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989483"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115182"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -84,22 +84,13 @@ Esta secção mostra o resumo das informações.
 |privacyMode|Sua análise detalhada pode ter um dos seguintes modos: **privada**, **público**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailUrl|Miniatura do vídeo total URL. Por exemplo, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Tenha em atenção que, se o vídeo é privado, o URL contém um token de acesso de uma hora. Depois de uma hora, o URL já não será válido e terá de obter a divisão novamente com um novo url no mesmo ou chamar GetAccessToken para obter um novo token de acesso e construir o url completo manualmente ("https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
-|rostos|Pode conter um ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
-|Tópicos|Pode conter um ou mais tópicos. Para obter mais informações, consulte [tópicos](#topics).|
-|sentimentos|Pode conter um ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
-|audioEffects| Pode conter um ou mais audioEffects. Para obter mais informações, consulte [audioEffects](#audioeffects).|
+|rostos|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
+|palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
+|sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
+|audioEffects| Pode conter zero ou mais audioEffects. Para obter mais informações, consulte [audioEffects](#audioeffects).|
+|etiquetas| Pode conter zero ou mais etiquetas. Para obter mais informações, consulte [etiquetas](#labels).|
 |marcas| Pode conter zero ou mais marcas. Para obter mais informações, consulte [marcas](#brands).|
 |Estatísticas | Para obter mais informações, consulte [estatísticas](#statistics).|
-
-### <a name="statistics"></a>Estatísticas
-
-|Nome|Descrição|
-|---|---|
-|CorrespondenceCount|Número de correspondências no vídeo.|
-|WordCount|O número de palavras por orador.|
-|SpeakerNumberOfFragments|A quantidade de fragmentos o orador tem um vídeo.|
-|SpeakerLongestMonolog|Monolog de mais longo do orador. Se o orador tiver silences dentro o monolog está incluído. Silence, no início e fim do monolog é removido.| 
-|SpeakerTalkToListenRatio|O cálculo baseia-se o tempo gasto em monolog do orador (sem o silence entre) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
 
 ## <a name="videos"></a>vídeos
 
@@ -116,7 +107,7 @@ Esta secção mostra o resumo das informações.
 |URL externo|Url externo o vídeo (se especificado pelo utilizador).|
 |do IdP|Os metadados do vídeo externo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi revisado e identificado como um vídeo para adultos manualmente.|
-|informações|O objeto de informações.|
+|informações|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
 |thumbnailUrl|Miniatura do vídeo total URL. Por exemplo, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Tenha em atenção que, se o vídeo é privado, o URL contém um token de acesso de uma hora. Depois de uma hora, o URL já não será válido e terá de obter a divisão novamente com um novo url no mesmo ou chamar GetAccessToken para obter um novo token de acesso e construir o url completo manualmente ("https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
 |publishedUrl|Um url para transmitir o vídeo.|
 |publishedUrlProxy|Um url para transmitir o vídeo de (para dispositivos da Apple).|
@@ -166,7 +157,7 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista da
 |transcrição|O [transcrição](#transcript) dimensão.|
 |OCR|O [ocr](#ocr) dimensão.|
 |palavras-chave|O [palavras-chave](#keywords) dimensão.|
-| blocos|Pode conter um ou mais [blocos](#blocks)|
+|blocos|Pode conter um ou mais [blocos](#blocks)|
 |rostos|O [rostos](#faces) dimensão.|
 |etiquetas|O [etiquetas](#labels) dimensão.|
 |capturas de|O [capturas](#shots) dimensão.|
@@ -201,16 +192,8 @@ Exemplo:
 
 Atributo | Descrição
 ---|---
-ID|ID do bloco.
-linhas|Pode conter um ou mais [linhas](#lines)
-sentimentIds|O **sentimentIds** atributo está reservado para utilização futura.
-thumbnailIds|O **thumbnailIds** atributo está reservado para utilização futura.
-sentimento|O sentimento no bloco de (0-1, negativo para positivo).
-rostos|Pode conter um ou mais [rostos](#faces).
-ocrs|Pode conter um ou mais [ocrs](#ocrs).
-audioEffectInstances|Pode conter um ou mais [audioEffectInstances](#audioEffectInstances).
-nos bastidores|Pode conter um ou mais [plano](#scenes).
-anotações|Pode conter zero ou mais [anotações](#annotations).
+ID|ID do bloco.|
+instâncias|Uma lista de intervalos de tempo deste bloco.|
 
 #### <a name="transcript"></a>transcrição
 
@@ -563,6 +546,16 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 ]
 ```
 
+#### <a name="statistics"></a>Estatísticas
+
+|Nome|Descrição|
+|---|---|
+|CorrespondenceCount|Número de correspondências no vídeo.|
+|WordCount|O número de palavras por orador.|
+|SpeakerNumberOfFragments|A quantidade de fragmentos o orador tem um vídeo.|
+|SpeakerLongestMonolog|Monolog de mais longo do orador. Se o orador tiver silences dentro o monolog está incluído. Silence, no início e fim do monolog é removido.| 
+|SpeakerTalkToListenRatio|O cálculo baseia-se o tempo gasto em monolog do orador (sem o silence entre) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
+
 #### <a name="audioeffects"></a>audioEffects
 
 |Nome|Descrição|
@@ -599,12 +592,14 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 |ID|O ID de sentimentos.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
 |instâncias|Uma lista de intervalos de tempo em que esse sentimento apareceu.|
+|sentimentType |O tipo pode ser "Neutral", 'Positivo' ou 'Negativo'.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
     "averageScore": 0.87,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:23",
@@ -614,6 +609,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 }, {
     "id": 1,
     "averageScore": 0.11,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:13",

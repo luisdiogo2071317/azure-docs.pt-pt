@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5eb0839cb973ba2f8bc56dc240fc60817b24b3b6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 5e278d622557626068618d03eba221b9609d4969
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068867"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115753"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
@@ -25,7 +25,7 @@ O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII o
 
 Os pontos de extremidade regional texto em voz são mostrados aqui. Utilize o que é adequado à sua subscrição.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Especifique uma voz
 

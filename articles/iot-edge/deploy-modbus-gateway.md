@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c0ef019536d527775e4f5b959a155db3eacebbf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006103"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115726"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ligar dispositivos Modbus TCP através de um gateway de dispositivo do IoT Edge
 
@@ -35,7 +35,7 @@ Este artigo pressupõe que está a utilizar o protocolo Modbus TCP. Para obter m
 Se quiser testar a funcionalidade do gateway do Modbus, a Microsoft disponibiliza-lhe um módulo de exemplo. Para utilizar o módulo de exemplo, aceda à secção [Executar a solução](#run-the-solution) e introduza o seguinte como o URI da Imagem: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:1.0-preview
+microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
 ```
 
 Se quiser criar o seu próprio módulo e personalizá-lo para o seu ambiente, existe um projeto de código aberto no GitHub, o [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) (Módulo do Modbus do Azure IoT Edge). Siga as orientações desse projeto para criar a sua própria imagem de contentor. Se criar a sua imagem, veja [Develop and deploy a C# IoT Edge module](tutorial-csharp-module.md) (Desenvolver e implementar um módulo do IoT Edge C#) para obter instruções sobre a publicação de imagens de contentores num registo e a implementação de módulos personalizados no seu dispositivo. 
@@ -48,7 +48,7 @@ Se quiser criar o seu próprio módulo e personalizá-lo para o seu ambiente, ex
 4. Adicione o módulo do Modbus:
    1. Clique em **Add** e selecione **módulo do IoT Edge**.
    2. No campo **Nome**, introduza "modbus".
-   3. No campo **Imagem**, introduza o URI da imagem do contentor de exemplo: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
+   3. No campo **Imagem**, introduza o URI da imagem do contentor de exemplo: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
    4. Selecione a caixa **Ativar** para atualizar as propriedades pretendidas do duplo do módulo.
    5. Copie o JSON seguinte para a caixa de texto. Altere o valor de **SlaveConnection** para o endereço IPv4 do seu dispositivo Modbus.
 

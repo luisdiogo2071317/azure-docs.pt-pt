@@ -1,422 +1,376 @@
 ---
-title: Resolver problemas de sincronização de dados SQL do Azure | Microsoft Docs
-description: Saiba como resolver problemas comuns com a sincronização de dados SQL do Azure.
+title: Resolver problemas da sincronização de dados SQL do Azure | Documentos da Microsoft
+description: Saiba como resolver problemas comuns com sincronização de dados SQL do Azure.
 services: sql-database
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: daa4ecd3ddf0e770049a81c771a8da52bac5be7f
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 2be6d0321db41772116078d5308824fe8e1b64fd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021396"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113904"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados do SQL Server
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados SQL
 
-Este artigo descreve como resolver problemas conhecidos com a sincronização de dados SQL do Azure. Se existir uma resolução para um problema, é fornecido aqui.
+Este artigo descreve como resolver problemas conhecidos com sincronização de dados SQL do Azure. Se existir uma resolução para um problema, ele é fornecido aqui.
 
-Para obter uma descrição geral da sincronização de dados do SQL Server, consulte [sincronizar os dados em várias bases de dados na nuvem e no local com sincronização de dados SQL do Azure](sql-database-sync-data.md).
+Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Problemas de sincronização
 
-### <a name="sync-fails-in-the-portal-ui-for-on-premises-databases-that-are-associated-with-the-client-agent"></a>Falha de sincronização no portal de IU para bases de dados no local que estão associados com o agente do cliente
+- [Falha de sincronização no portal da interface do Usuário para bases de dados no local que estão associados com o agente do cliente](#sync-fails)
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+- [Meu grupo de sincronização está bloqueado no estado de processamento](#sync-stuck)
 
-Sincronização falha em sincronização de dados do SQL Server IU do portal para bases de dados no local que estão associados com o agente. No computador local que está a executar o agente, consulte os erros de System.IO.IOException no registo de eventos. Os erros indicar que o disco tem espaço suficiente.
+- [Vejo incorretas que tenham dados nas minhas tabelas](#sync-baddata)
 
-#### <a name="resolution"></a>Resolução
+- [Posso ver os dados de chave primários inconsistentes após uma sincronização com êxito](#sync-pkdata)
 
-Crie mais espaço na unidade em que está localizado o diretório % TEMP %.
+- [Vejo uma degradação significativa do desempenho](#sync-perf)
 
-### <a name="my-sync-group-is-stuck-in-the-processing-state"></a>O meu grupo de sincronização está bloqueado no estado de processamento
+- [Posso ver esta mensagem: "não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo?](#sync-nulls)
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+- [Como a sincronização de dados com referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?](#sync-circ)
 
-Um grupo de sincronização na sincronização de dados do SQL Server está a ser o estado de processamento durante muito tempo. Não responder a **parar** comando e os registos de mostram não novas entradas.
+### <a name="sync-fails"></a> Falha de sincronização no portal da interface do Usuário para bases de dados no local que estão associados com o agente do cliente
 
-#### <a name="cause"></a>Causa
+Sincronização falha no portal do SQL Data Sync da interface do Usuário para bases de dados no local que estão associados com o agente do cliente. No computador local que está a executar o agente, consulte os erros de System.IO.IOException no registo de eventos. Os erros de dizem que o disco tem espaço suficiente.
 
-Qualquer uma das seguintes condições poderá resultar num grupo de sincronização que está a ser bloqueado no estado de processamento de:
+- **Causa**. A unidade não tem espaço suficiente.
 
--   **O agente do cliente está offline**. Certifique-se de que o agente do cliente está online e, em seguida, tente novamente.
+- **Resolução**. Crie mais espaço na unidade em que está localizado no diretório % TEMP %.
 
--   **O agente do cliente está em falta ou desinstalada**. Se o agente de cliente desinstalada ou de outra forma de em falta:
+### <a name="sync-stuck"></a> Meu grupo de sincronização está bloqueado no estado de processamento
 
-    1. Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server, se o ficheiro existe.
-    2. Instale o agente num computador local (pode ser o mesmo ou outro computador). Em seguida, submeta a chave do agente que é gerada no portal para o agente que está a ser mostrado como offline.
+Um grupo de sincronização na sincronização de dados SQL está o estado de processamento por muito tempo. Ele não responder para o **parar** comando e os registos não mostram nenhuma nova entrada.
 
--   **O serviço de sincronização de dados do SQL Server está parado**.
+Qualquer uma das seguintes condições poderá resultar num grupo de sincronização a ser bloqueado no estado de processamento:
 
-    1. No **iniciar** menu, procure **serviços**.
+- **Causa**. O agente do cliente está offline
+
+- **Resolução**. Certifique-se de que o agente do cliente está online e, em seguida, tente novamente.
+
+- **Causa**. O agente do cliente é desinstalada ou em falta.
+
+- **Resolução**. Se o agente do cliente é desinstalada ou de outra forma de em falta:
+
+    1. Remova o ficheiro XML do agente da pasta de instalação de sincronização de dados SQL, se o ficheiro existe.
+    2. Instale o agente num computador no local (pode ser a mesma ou num computador diferente). Em seguida, envie a chave de agente que é gerada no portal para o agente que está a aparecer como offline.
+
+- **Causa**. O serviço de sincronização de dados SQL está parado.
+
+- **Resolução**. Reinicie o serviço de sincronização de dados SQL.
+
+    1. Na **começar** menu, procure **serviços**.
     2. Nos resultados da pesquisa, selecione **serviços**.
-    3. Localizar o **sincronização de dados do SQL Server** serviço.
-    4. Se o estado do serviço **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
+    3. Encontrar o **sincronização de dados SQL** serviço.
+    4. Se o estado do serviço for **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
 
-#### <a name="resolution"></a>Resolução
+> [!NOTE]
+> Se as informações anteriores não mover o seu grupo de sincronização para fora do Estado de processamento, Support da Microsoft pode repor o estado do seu grupo de sincronização. Ter o estado do grupo de sincronização repor, além da [fórum de base de dados do Azure SQL](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), criar uma publicação. A postagem, incluem o seu ID de subscrição e o ID de grupo de sincronização para o grupo que tem de ser reposto. Um engenheiro de Support da Microsoft irá responder à sua postagem e irá informá-lo quando o estado foi reposto.
 
-Se as informações não mover o grupo de sincronização fora do Estado de processamento, Support da Microsoft pode repor o estado do seu grupo de sincronização. Ter o estado do grupo de sincronização repor, além de [fórum da SQL Database do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), criar um pedido post. No post, incluem o ID de subscrição e o ID do grupo de sincronização para o grupo que tem de ser reposto. Um engenheiro de Microsoft Support responderá ao seu post e irá informá-lo quando o estado foi reposto.
+### <a name="sync-baddata"></a> Vejo incorretas que tenham dados nas minhas tabelas
 
-### <a name="i-see-erroneous-data-in-my-tables"></a>Posso ver dados errados nas minhas tabelas
+Se tabelas que têm o mesmo nome, mas que são de esquemas de banco de dados diferentes estão incluídas numa sincronização, verá incorretas que tenham dados nas tabelas após a sincronização.
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+- **Causa**. O processo de aprovisionamento do SQL Data Sync utiliza as mesmo tabelas de controlo para tabelas que têm o mesmo nome, mas que estão em esquemas diferentes. Por este motivo, as alterações de ambas as tabelas são refletidas na mesma tabela de controle. Isso faz com que as alterações de dados de errado durante a sincronização.
 
-No caso de tabelas que têm o mesmo nome mas que são de esquemas de base de dados diferente uma sincronização, consulte errados dados nas tabelas após a sincronização.
+- **Resolução**. Certifique-se de que os nomes das tabelas envolvidas numa sincronização são diferentes, mesmo que as tabelas pertencem a diferentes esquemas numa base de dados.
 
-#### <a name="cause"></a>Causa
+### <a name="sync-pkdata"></a> Posso ver os dados de chave primários inconsistentes após uma sincronização com êxito
 
-A sincronização de dados SQL, processo de aprovisionamento utiliza as mesmo tabelas de controlo para tabelas que têm o mesmo nome mas que estão em esquemas diferentes. Por este motivo, as alterações de ambas as tabelas são refletidas na mesma tabela de controlo. Isto faz com que as alterações de dados errada durante a sincronização.
+Uma sincronização é comunicada como concluída com êxito e o registo mostra sem linhas com falhas ou ignoradas, mas observar que os dados de chave primários são inconsistentes entre as bases de dados no grupo de sincronização.
 
-#### <a name="resolution"></a>Resolução
+- **Causa**. Este resultado é propositado. As alterações em qualquer coluna de chave primária resultaram em dados inconsistentes nas linhas em que a chave primária foi alterada.
 
-Certifique-se de que os nomes das tabelas envolvidos numa sincronização são diferentes, mesmo se as tabelas pertencem a diferentes esquemas numa base de dados.
+- **Resolução**. Para evitar este problema, certifique-se de que não existem dados numa coluna de chave primária são alterados. Para corrigir este problema após ela ter ocorrido, elimine a linha com dados inconsistentes de todos os pontos finais no grupo de sincronização. Em seguida, reinserir a linha.
 
-### <a name="i-see-inconsistent-primary-key-data-after-a-successful-sync"></a>Posso ver dados de chaves primários inconsistentes após uma sincronização com êxito
+### <a name="sync-perf"></a> Vejo uma degradação significativa do desempenho
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+O desempenho degrada significativamente, possivelmente ao ponto em que ainda não é possível abrir a interface do Usuário da sincronização de dados.
 
-Uma sincronização é reportada como concluída com êxito e o registo mostra sem linhas ignoradas ou falhadas, mas observar a que dados de chaves principal são consistente entre as bases de dados no grupo de sincronização.
+- **Causa**. A causa mais provável é um loop de sincronização. Um loop de sincronização ocorre quando um grupo de sincronização ao sincronizar A aciona um grupo de sincronização por sincronização B, que dispara uma grupo de sincronização ao sincronizar A. A situação real pode ser mais complexa, e pode envolver a mais de dois grupos de sincronização no loop. O problema é que existe um acionar circular de sincronização que é causado por grupos de sincronização sobreposição entre si.
 
-#### <a name="cause"></a>Causa
+- **Resolução**. A melhor correção é prevenção. Certifique-se de que não tem referências circulares nos seus grupos de sincronização. Não não possível sincronizar todas as linhas que são sincronizadas por um grupo de sincronização por outro grupo de sincronização.
 
-Este resultado é propositado. Alterações em qualquer resultado de coluna de chave primária em dados inconsistentes nas linhas em que a chave primária foi alterada.
-
-#### <a name="resolution"></a>Resolução
-
-Para evitar este problema, certifique-se de que não existem dados na coluna chave primária são alterados.
-
-Para corrigir este problema após tiver ocorrido, elimine a linha que tenha dados inconsistentes de todos os pontos finais no grupo de sincronização. Em seguida, reinsert a linha.
-
-### <a name="i-see-a-significant-degradation-in-performance"></a>Vejo uma degradação significativa do desempenho
-
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
-
-O desempenho degrada significativamente, possivelmente para o ponto em que ainda não é possível abrir a IU de sincronização de dados.
-
-#### <a name="cause"></a>Causa
-
-A causa mais provável é um ciclo de sincronização. Um ciclo de sincronização ocorre quando um grupo de sincronização ao sincronizar A aciona um grupo de sincronização ao sincronizar B, que, em seguida, aciona uma grupo de sincronização ao sincronizar A. A situação real pode estar mais complexa, que poderão envolver mais de dois grupos de sincronização no ciclo. O problema é que há um acionar circular de sincronização que é causado por grupos de sincronização sobreposição entre si.
-
-#### <a name="resolution"></a>Resolução
-
-A correção melhor é prevenção. Certifique-se de que não tem referências circulares nos seus grupos de sincronização. Não é possível sincronizar a qualquer linha que está sincronizada por um grupo de sincronização por outro grupo de sincronização.
-
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>Posso ver esta mensagem: "não é possível inserir o valor NULL na coluna \<coluna\>. Coluna não permite nulls." O que significa e como pode corrigir? 
-Esta mensagem de erro indica que tenha ocorrido um dos dois seguintes problemas:
--  Uma tabela não tem uma chave primária. Para corrigir este problema, adicione uma chave primária para todas as tabelas que estiver a sincronizar.
--  Não há uma cláusula WHERE da instrução CREATE INDEX. Sincronização de dados não processa esta condição. Para corrigir este problema, remova a cláusula WHERE ou manualmente, efetue as alterações a todas as bases de dados. 
+### <a name="sync-nulls"></a> Posso ver esta mensagem: "não é possível inserir o valor NULL na coluna <column>. Coluna não permite valores NULL." O que significa isto e como posso corrigi-lo? 
+Esta mensagem de erro indica que tenha ocorrido um dos dois problemas seguintes:
+-  Uma tabela não tem uma chave primária. Para corrigir este problema, adicione uma chave primária para todas as tabelas que se estiver a sincronizar.
+-  Há uma cláusula WHERE na instrução CREATE INDEX. Sincronização de dados não lida com esta condição. Para corrigir este problema, remova a cláusula WHERE ou manualmente, faça as alterações a todas as bases de dados. 
  
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Como a sincronização de dados processar referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?
-Sincronização de dados não processa as referências circulares. Lembre-se de que os evitar. 
+### <a name="sync-circ"></a> Como a sincronização de dados com referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização e mantém a alteração assim?
+Sincronização de dados não lida com referências circulares. Certifique-se de que evitá-las. 
 
 ## <a name="client-agent-issues"></a>Problemas de agente do cliente
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a>O agente do cliente instalar, desinstalar ou repare a falha
+- [O agente do cliente de instalar, desinstalar ou repare a falha](#agent-install)
 
-#### <a name="cause"></a>Causa
+- [O agente do cliente não funciona depois de cancelar a desinstalação](#agent-uninstall)
 
-Muitos cenários poderão causar esta falha. Para determinar a causa desta falha específica, consulte os registos.
+- [Meu banco de dados não está listado na lista de agente](#agent-list)
 
-#### <a name="resolution"></a>Resolução
+- [Agente de cliente não começa (erro 1069)](#agent-start)
 
-Para determinar a causa da falha específica, gerar e consulte os registos do Windows Installer. Pode ativar o registo de uma linha de comandos. Por exemplo, se o ficheiro transferido do AgentServiceSetup.msi LocalAgentHost.msi, gerar e examinar os ficheiros de registo utilizando as seguintes linhas de comando:
+- [Não consigo submeter a chave de agente](#agent-key)
 
--   Para instalações: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
--   Para desinstala: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+- [Não é possível eliminar o agente do cliente no portal se é possível contactar o seu banco de dados associadas no local](#agent-delete)
 
-Também pode ativar o registo para todas as instalações de que são efetuadas pelo Windows Installer. O artigo da Base de dados de Conhecimento Microsoft [como ativar o registo do Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fornece uma solução de um clique para ativar o registo para o Windows Installer. Também fornece a localização dos registos.
+- [Aplicação local do agente de sincronização não é possível ligar ao serviço de sincronização local](#agent-connect)
 
-### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>Agente do cliente não funciona após cancelar a desinstalação
+### <a name="agent-install"></a> O agente do cliente de instalar, desinstalar ou repare a falha
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+- **Causa**. Muitos cenários poderão causar esta falha. Para determinar a causa específica para esta falha, consulte os registos.
 
-O agente do cliente não funciona, mesmo depois de cancelar a respetiva desinstalação.
+- **Resolução**. Para encontrar a causa específica da falha, gerar e ver os registos do instalador do Windows. Pode ativar o registo no prompt de comando. Por exemplo, se o ficheiro transferido do AgentServiceSetup.msi LocalAgentHost.msi, gerar e examinar os ficheiros de registo utilizando as seguintes linhas de comando:
 
-#### <a name="cause"></a>Causa
+    -   Para instalações: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   Para desinstala: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
-Isto ocorre porque o agente de cliente de sincronização de dados do SQL Server não armazena as credenciais.
+    Também pode ativar o registo para todas as instalações que são executadas pelo Windows Installer. O artigo da Base de dados de conhecimento da Microsoft [como ativar o registo do Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fornece uma solução de um clique para ativar o registo para o Windows Installer. Ele também fornece a localização dos registos.
 
-#### <a name="resolution"></a>Resolução
+### <a name="agent-uninstall"></a> O agente do cliente não funciona depois de cancelar a desinstalação
 
-Pode tentar estas duas soluções:
+O agente do cliente não funciona, mesmo depois de cancelar a sua desinstalação.
 
--   Utilize o services.msc para reintroduzir as credenciais para o agente de cliente.
--   Desinstalar este agente de cliente e, em seguida, instale um novo. Transfira e instale o agente de cliente mais recente do [Centro de transferências](http://go.microsoft.com/fwlink/?linkid=221479).
+- **Causa**. Isto ocorre porque o agente de cliente de sincronização de dados SQL não armazena as credenciais.
 
-### <a name="my-database-isnt-listed-in-the-agent-list"></a>A minha base de dados não está listado na lista de agente
+- **Resolução**. Pode experimentar essas duas soluções:
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+    -   Utilize o Services. msc para reintroduzir as credenciais para o agente do cliente.
+    -   Desinstalar este agente de cliente e, em seguida, instale um novo. Transfira e instale o agente de cliente mais recente do [Centro de transferências](http://go.microsoft.com/fwlink/?linkid=221479).
 
-Quando tentar adicionar uma base de dados existente do SQL Server a um grupo de sincronização, a base de dados não aparece na lista de agentes.
+### <a name="agent-list"></a> Meu banco de dados não está listado na lista de agente
 
-#### <a name="cause"></a>Causa
+Quando tentar adicionar uma base de dados do SQL Server existente para um grupo de sincronização, a base de dados não aparece na lista de agentes.
 
-Estes cenários poderão causar este problema:
+Estes cenários podem fazer com que este problema:
 
--   O grupo de agente e sincronização de cliente estiverem em datacenters diferentes.
--   Lista do agente de cliente das bases de dados não é atual.
+- **Causa**. O grupo de agente e sincronização de cliente estiverem em datacenters diferentes.
 
-#### <a name="resolution"></a>Resolução
+- **Resolução**. O agente do cliente e o grupo de sincronização tem de estar no mesmo datacenter. Para configurar estas definições, tem duas opções:
 
-A resolução depende a causa.
+    -   Crie um novo agente no Centro de dados onde está localizado o grupo de sincronização. Em seguida, registe-se a base de dados com que o agente.
+    -   Elimine o grupo de sincronização atual. Em seguida, voltar a criar o grupo de sincronização no Centro de dados onde o agente está localizado.
 
-- **O grupo de agente e sincronização de cliente estiverem em datacenters diferentes**
+- **Causa**. Lista do agente de cliente de bases de dados não é atual.
 
-    O agente do cliente e o grupo de sincronização devem estar no mesmo centro de dados. Para configurar esta opção, tem duas opções:
+- **Resolução**. Pare e reinicie o serviço de agente do cliente.
 
-    -   Crie um novo agente no Centro de dados onde está localizado o grupo de sincronização. Em seguida, registe a base de dados com que o agente.
-    -   Elimine o grupo de sincronização atual. Em seguida, recrie o grupo de sincronização no Centro de dados onde o agente está localizado.
+    O agente local transfere a lista de bases de dados associadas apenas no primeiro envio da chave de agente. Ele não é transferido a lista de bases de dados associadas em submissões de chave de agente subsequentes. Bases de dados que são registrados durante uma transferência do agente não aparecem na instância original do agente.
 
-- **Lista do agente de cliente das bases de dados não é atual**
+### <a name="agent-start"></a> Agente de cliente não começa (erro 1069)
 
-    Pare e reinicie o serviço de agente do cliente.
-
-    O agente local transfere a lista de bases de dados associadas apenas na submissão primeiro da chave do agente. -Não é transferido a lista de bases de dados associadas em submissões de chave de agente subsequentes. Bases de dados que estão registados durante uma mudança de agente não apareçam na instância original do agente.
-
-### <a name="client-agent-doesnt-start-error-1069"></a>Agente de cliente não comece (erro 1069)
-
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
-
-Detetar a que o agente não está em execução num computador que aloja o SQL Server. Ao tentar iniciar manualmente o agente, verá uma caixa de diálogo que é apresentada a mensagem "erro 1069: O serviço não foram iniciados devido a uma falha de início de sessão."
+Descobre que o agente não está em execução num computador que aloja o SQL Server. Quando tenta iniciar manualmente o agente, verá uma caixa de diálogo que apresenta a mensagem "erro 1069: O serviço não foram iniciados devido a uma falha de início de sessão."
 
 ![Caixa de diálogo de erro 1069 de sincronização de dados](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
-#### <a name="cause"></a>Causa
+- **Causa**. Uma causa provável deste erro é que a palavra-passe no servidor local foi alterado, uma vez que criar o agente e a palavra-passe do agente.
 
-Uma causa provável deste erro é que a palavra-passe no servidor local foi alterado desde que o agente e a palavra-passe do agente.
+- **Resolução**. Atualize palavra-passe o agente para a sua palavra-passe atual do servidor:
 
-#### <a name="resolution"></a>Resolução
-
-Atualize palavra-passe o agente para a sua palavra-passe atual do servidor:
-
-1. Localize o serviço de agente do cliente de sincronização de dados do SQL Server.  
+  1. Localize o serviço de agente de cliente de sincronização de dados SQL.  
     a. Selecione **iniciar**.  
-    b. Na caixa de pesquisa, introduza **services.msc**.  
+    b. Na caixa de pesquisa, introduza **Services. msc**.  
     c. Nos resultados da pesquisa, selecione **serviços**.  
-    d. No **serviços** janela, desloque-se para a entrada para **agente de sincronização de dados do SQL Server**.  
-2. Clique com botão direito **agente de sincronização de dados do SQL Server**e, em seguida, selecione **parar**.
-3. Clique com botão direito **agente de sincronização de dados do SQL Server**e, em seguida, selecione **propriedades**.
-4. No **das propriedades do agente de sincronização de dados do SQL Server**, selecione o **início de sessão** separador.
-5. No **palavra-passe** box, introduza a palavra-passe.
-6. No **Confirmar palavra-passe** caixa, reintroduza a palavra-passe.
-7. Selecione **Apply** (Aplicar) e **OK**.
-8. No **serviços** janela, clique com botão direito a **agente de sincronização de dados do SQL Server** de serviço e, em seguida, clique em **iniciar**.
-9. Fechar o **serviços** janela.
+    d. Na **serviços** janela, desloque-se para a entrada para **agente de sincronização de dados SQL**.  
+  2. Com o botão direito **agente de sincronização de dados SQL**e, em seguida, selecione **parar**.
+  3. Com o botão direito **agente de sincronização de dados SQL**e, em seguida, selecione **propriedades**.
+  4. No **das propriedades do agente de sincronização de dados do SQL**, selecione a **iniciar sessão** separador.
+  5. Na **palavra-passe** , introduza a palavra-passe.
+  6. Na **Confirmar palavra-passe** caixa, reintroduza a palavra-passe.
+  7. Selecione **Apply** (Aplicar) e **OK**.
+  8. Na **serviços** janela, com o botão direito a **agente de sincronização de dados SQL** serviço e, em seguida, clique em **iniciar**.
+  9. Fechar o **serviços** janela.
 
-### <a name="i-cant-submit-the-agent-key"></a>Posso não é possível enviar a chave do agente
+### <a name="agent-key"></a> Não consigo submeter a chave de agente
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+Depois de criar ou voltar a criar uma chave para um agente, tentar enviar a chave do SqlAzureDataSyncAgent de aplicação. O envio de mensagens em fila não consegue concluir.
 
-Depois de criar ou voltar a criar uma chave para um agente, tentar submeter a chave através da aplicação SqlAzureDataSyncAgent. A submissão não consegue concluir.
+![Sincronizar a caixa de diálogo de erro - não é possível enviar a chave de agente](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
-![Sincronizar a caixa de diálogo de erro - não é possível submeter a chave do agente](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
+- **Pré-requisitos**. Antes de prosseguir, verifique os pré-requisitos seguintes:
 
-Antes de continuar, verifique as seguintes condições:
+  - O serviço Windows de sincronização de dados SQL está em execução.
 
--   O serviço do Windows de sincronização de dados do SQL Server está em execução.  
--   A conta de serviço do serviço do Windows de sincronização de dados do SQL Server tem acesso à rede.    
--   A porta 1433 saída está aberta na sua regra de local firewall.
--   O ip local é adicionado para o servidor ou a regra de firewall de base de dados para a base de dados de metadados de sincronização.
+  - A conta de serviço do serviço Windows de sincronização de dados SQL tem acesso à rede.
 
-#### <a name="cause"></a>Causa
+  - A saída através da porta 1433 é aberto na sua regra de local firewall.
 
-A chave do agente identifica exclusivamente cada agente local. A chave tem de cumprir duas condições:
+  - O ip local é adicionado para o servidor ou a regra de firewall de base de dados para a base de dados de metadados de sincronização.
 
--   A chave do agente de cliente no servidor de sincronização de dados do SQL Server e no computador local deve ser idêntica.
--   A chave do agente de cliente pode ser utilizada apenas uma vez.
+- **Causa**. A chave de agente identifica exclusivamente cada agente local. A chave tem de cumprir duas condições:
 
-#### <a name="resolution"></a>Resolução
+  -   A chave de agente de cliente no servidor de sincronização de dados SQL e o computador local tem de ser idêntica.
+  -   A chave de agente do cliente pode ser utilizada apenas uma vez.
 
-Se o agente não está a funcionar, é porque uma ou ambas estas condições não são cumpridas. Para obter o agente para funcionar novamente:
+- **Resolução**. Se o agente não está a funcionar, é porque uma ou ambas estas condições não forem cumpridas. Para obter o seu agente para funcionar novamente:
 
-1. Gere uma nova chave.
-2. Aplica a nova chave para o agente.
+  1. Gere uma nova chave.
+  2. Aplicam-se a nova chave para o agente.
 
-Para aplicar a nova chave para o agente:
+  Para aplicar a nova chave para o agente:
 
-1. No Explorador de ficheiros, aceda ao seu diretório de instalação do agente. O diretório de instalação predefinida é c:\\os ficheiros de programa (x86)\\sincronização de dados do Microsoft SQL Server.
-2. Faça duplo clique o subdiretório bin.
-3. Abra a aplicação de SqlAzureDataSyncAgent.
-4. Selecione **submeter chave do agente**.
-5. No espaço fornecido, cole a chave da área de transferência.
-6. Selecione **OK**.
-7. Feche o programa.
+  1. No Explorador de ficheiros, aceda ao seu diretório de instalação do agente. O diretório de instalação predefinido é c:\\Program Files (x86)\\sincronização de dados do Microsoft SQL.
+  2. Faça duplo clique no subdiretório bin.
+  3. Abra a aplicação de SqlAzureDataSyncAgent.
+  4. Selecione **submeter a chave de agente**.
+  5. No espaço fornecido, cole a chave da área de transferência.
+  6. Selecione **OK**.
+  7. Feche o programa.
 
-### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a>Não é possível eliminar o agente do cliente no portal se a sua base de dados associado no local está inacessível
+### <a name="agent-delete"></a> Não é possível eliminar o agente do cliente no portal se é possível contactar o seu banco de dados associadas no local
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+Se um ponto final local (ou seja, uma base de dados) que está registado com um agente de cliente de sincronização de dados SQL ficar inacessível, não é possível eliminar o agente do cliente.
 
-Se um ponto final local (ou seja, uma base de dados) que está registado com um agente de cliente de sincronização de dados do SQL Server torna-se inacessível, não é possível eliminar o agente do cliente.
+- **Causa**. Não é possível eliminar o agente local porque a base de dados inacessível ainda está registado com o agente. Ao tentar eliminar o agente, o processo de eliminação tenta aceder a base de dados, o que ocorre uma falha.
 
-#### <a name="cause"></a>Causa
-
-Não é possível eliminar o agente local porque a base de dados inacessível ainda está registado com o agente. Ao tentar eliminar o agente, o processo de eliminação tenta contactar a base de dados, falha.
-
-#### <a name="resolution"></a>Resolução
-
-Utilize "forçar a eliminação" para eliminar a base de dados inacessível.
+- **Resolução**. Utilize "forçar a eliminação" para eliminar a base de dados inacessível.
 
 > [!NOTE]
-> Se as tabelas de metadados de sincronização permanecerem depois de uma "eliminação forçar", utilize deprovisioningutil.exe para limpá-los.
+> Se tabelas de metadados de sincronização permanecerem depois de uma "eliminação de forçar," utilização `deprovisioningutil.exe` limpá-los.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a>Aplicação local do agente de sincronização não é possível ligar ao serviço de sincronização local
+### <a name="agent-connect"></a> Aplicação local do agente de sincronização não é possível ligar ao serviço de sincronização local
 
-#### <a name="resolution"></a>Resolução
+- **Resolução**. Experimente os passos seguintes:
 
-Experimente os passos seguintes:
-
-1. Sair da aplicação.  
-2. Abra o painel de serviços de componentes.  
-    a. Na caixa de pesquisa na barra de tarefas, introduza **services.msc**.  
+  1. Sair da aplicação.  
+  2. Abra o painel de serviços de componente.  
+    a. Na caixa de pesquisa na barra de tarefas, introduza **Services. msc**.  
     b. Nos resultados da pesquisa, faça duplo clique em **serviços**.  
-3. Parar o **sincronização de dados do SQL Server** serviço.
-4. Reinicie o **sincronização de dados do SQL Server** serviço.  
-5. Reabra a aplicação.
+  3. Parar o **sincronização de dados SQL** serviço.
+  4. Reinicie o **sincronização de dados SQL** serviço.  
+  5. Reabra a aplicação.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuração e manutenção
 
-### <a name="i-get-a-disk-out-of-space-message"></a>É apresentada uma mensagem de "disco ficou sem espaço em"
+- [Receber uma mensagem de "disco sem espaço"](#setup-space)
 
-#### <a name="cause"></a>Causa
+- [Não consigo eliminar o meu grupo de sincronização](#setup-delete)
 
-A mensagem de "disco ficou sem espaço em" poderá aparecer se representada ficheiros têm de ser eliminado. Isto pode ser causado por software antivírus ou ficheiros abertos quando eliminar operações são tentadas.
+- [Eu não é possível anular o registo de uma base de dados do SQL Server no local](#setup-unreg)
 
-#### <a name="resolution"></a>Resolução
+- [Eu não tem privilégios suficientes para iniciar serviços do sistema](#setup-perms)
 
-Elimine manualmente os ficheiros de sincronização que estão na pasta % temp % (`del \*sync\* /s`). Em seguida, elimine os subdiretórios na pasta % temp %.
+- [Uma base de dados tem o estado "Desatualizado"](#setup-date)
+
+- [Um grupo de sincronização tem o estado "Desatualizado"](#setup-date2)
+
+- [Um grupo de sincronização não é possível eliminar dentro de desinstalação ou parar o agente de três minutos](#setup-delete2)
+
+- [O que acontece quando restaurar uma base de dados perdido ou danificado?](#setup-restore)
+
+### <a name="setup-space"></a> Receber uma mensagem de "disco sem espaço"
+
+- **Causa**. A mensagem de "disco sem espaço" pode aparecer se ficheiros restantes têm de ser eliminadas. Isto pode ser causado por um software antivírus ou estiverem abertos ficheiros quando são tentadas operações de eliminação.
+
+- **Resolução**. Elimine manualmente os ficheiros de sincronização que estão na pasta % temp % (`del \*sync\* /s`). Em seguida, elimine os subdiretórios na pasta % temp %.
 
 > [!IMPORTANT]
-> Não elimine quaisquer ficheiros com sincronização em curso.
+> Não elimine quaisquer ficheiros enquanto a sincronização está em curso.
 
-### <a name="i-cant-delete-my-sync-group"></a>Não é possível eliminar o meu grupo de sincronização
+### <a name="setup-delete"></a> Não consigo eliminar o meu grupo de sincronização
 
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
+A tentativa de eliminar um grupo de sincronização falha. Qualquer um dos seguintes cenários podem resultar numa falha ao eliminar um grupo de sincronização:
 
-A tentativa de eliminar um grupo de sincronização irá falhar.
+- **Causa**. O agente do cliente está offline.
 
-#### <a name="causes"></a>Causas
+- **Resolução**. Certifique-se de que o agente do cliente está online e, em seguida, tente novamente.
 
-Qualquer um dos seguintes cenários poderá resultar numa falha ao eliminar um grupo de sincronização:
+- **Causa**. O agente do cliente é desinstalada ou em falta.
 
--   O agente do cliente está offline.
--   O agente de cliente é desinstalada ou em falta. 
--   Uma base de dados está offline. 
--   Grupo de sincronização de aprovisionamento ou a sincronizar. 
+- **Resolução**. Se o agente do cliente é desinstalada ou de outra forma de em falta:  
+    a. Remova o ficheiro XML do agente da pasta de instalação de sincronização de dados SQL, se o ficheiro existe.  
+    b. Instale o agente num computador no local (pode ser a mesma ou num computador diferente). Em seguida, envie a chave de agente que é gerada no portal para o agente que está a aparecer como offline.
 
-#### <a name="resolution"></a>Resolução
+- **Causa**. Uma base de dados está offline.
 
-Para resolver a falha para eliminar um grupo de sincronização:
+- **Resolução**. Certifique-se de que estão online todas as suas bases de dados SQL e bancos de dados do SQL Server.
 
--   Certifique-se de que o agente do cliente está online e, em seguida, tente novamente.
--   Se o agente de cliente desinstalada ou de outra forma de em falta:  
-    a. Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server, se o ficheiro existe.  
-    b. Instale o agente num computador local (pode ser o mesmo ou outro computador). Em seguida, submeta a chave do agente que é gerada no portal para o agente que está a ser mostrado como offline.
--   Certifique-se de que o serviço de sincronização de dados do SQL Server está em execução:  
-    a. No **iniciar** menu, procure **serviços**.  
-    b. Nos resultados da pesquisa, selecione **serviços**.  
-    c. Localizar o **sincronização de dados do SQL Server** serviço.  
-    d. Se o estado do serviço **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
--   Certifique-se de que o SQL Server e bases de dados do SQL Server estão todos os online.
--   Aguarde pela conclusão do processo de aprovisionamento ou sincronização e, em seguida, repita a eliminar o grupo de sincronização.
+- **Causa**. O grupo de sincronização é o aprovisionamento ou a sincronizar.
 
-### <a name="i-cant-unregister-an-on-premises-sql-server-database"></a>Posso não é possível anular o registo de uma base de dados do SQL Server no local
+- **Resolução**. Aguarde até que o processo de sincronização ou de aprovisionamento estar concluído e, em seguida, repita a eliminação do grupo de sincronização.
 
-#### <a name="cause"></a>Causa
+### <a name="setup-unreg"></a> Eu não é possível anular o registo de uma base de dados do SQL Server no local
 
-Provavelmente, está a tentar anular o registo da base de dados que já tenha sido eliminada.
+- **Causa**. Provavelmente, está a tentar anular o registo de uma base de dados que já tenha sido eliminada.
 
-#### <a name="resolution"></a>Resolução
+- **Resolução**. Para anular o registo de uma base de dados do SQL Server no local, selecione a base de dados e, em seguida, selecione **forçar a eliminação**.
 
-Ao anular o registo de uma base de dados do SQL Server no local, selecione a base de dados e, em seguida, selecione **Force eliminar**.
+  Se esta operação não consegue remover a base de dados do grupo de sincronização:
 
-Se esta operação não consegue remover a base de dados do grupo de sincronização:
-
-1. Pare e reinicie o serviço de anfitrião de agente do cliente:  
+  1. Pare e reinicie o serviço de anfitrião de agente do cliente:  
     a. Selecione o **iniciar** menu.  
-    b. Na caixa de pesquisa, introduza **services.msc**.  
-    c. No **programas** secção da pesquisa resulta painel, faça duplo clique em **serviços**.  
-    d. Clique com botão direito do **sincronização de dados do SQL Server** serviço.  
-    e. Se o serviço está em execução, pare-o.  
-    f. O serviço com o botão direito e, em seguida, selecione **iniciar**.  
-    g. Verifique se a base de dados ainda está registado. Se já não estiver registado, terminar. Caso contrário, continuar com o passo seguinte.
-2. Abra a aplicação de agente do cliente (SqlAzureDataSyncAgent).
-3. Selecione **editar credenciais de**e, em seguida, introduza as credenciais para a base de dados.
-4. Continuar com a anulação do registo.
+    b. Na caixa de pesquisa, introduza **Services. msc**.  
+    c. Na **programas** secção da pesquisa resulta painel, faça duplo clique em **serviços**.  
+    d. Com o botão direito a **sincronização de dados SQL** serviço.  
+    e. Se o serviço está em execução, impedi-lo.  
+    f. Com o botão direito do serviço e, em seguida, selecione **iniciar**.  
+    g. Verifique se a base de dados ainda está registado. Se já não estiver registado, já está. Caso contrário, continue com a próxima etapa.
+  2. Abra a aplicação de agente do cliente (SqlAzureDataSyncAgent).
+  3. Selecione **editar credenciais**e, em seguida, introduza as credenciais para a base de dados.
+  4. Continue com a anulação do registo.
 
-### <a name="i-dont-have-sufficient-privileges-to-start-system-services"></a>Eu não tiver privilégios suficientes para iniciar serviços do sistema
+### <a name="setup-perms"></a> Eu não tem privilégios suficientes para iniciar serviços do sistema
 
-#### <a name="cause"></a>Causa
+- **Causa**. Este erro ocorre em duas situações:
+  -   O nome de utilizador e/ou a palavra-passe está incorreta.
+  -   A conta de utilizador especificado não tem privilégios suficientes para iniciar sessão como um serviço.
 
-Este erro ocorre em duas situações:
--   O nome de utilizador e/ou a palavra-passe está incorreta.
--   A conta de utilizador especificado não tem privilégios suficientes para iniciar sessão como um serviço.
+- **Resolução**. Conceder as credenciais do registo-no-como-serviço para a conta de utilizador:
 
-#### <a name="resolution"></a>Resolução
+  1. Aceda a **começar** > **painel de controlo** > **ferramentas administrativas** > **política de segurança Local**  >  **Política local** > **gestão de direitos de utilizador**.
+  2. Selecione **iniciar sessão como um serviço**.
+  3. Na **propriedades** diálogo caixa, adicione a conta de utilizador.
+  4. Selecione **Apply** (Aplicar) e **OK**.
+  5. Feche todas as janelas.
 
-Conceda credenciais de registo-em-como-um-serviço para a conta de utilizador:
+### <a name="setup-date"></a> Uma base de dados tem o estado "Desatualizado"
 
-1. Aceda a **iniciar** > **painel de controlo** > **ferramentas administrativas** > **política de segurança Local**  >  **Política local** > **gestão de direitos de utilizador**.
-2. Selecione **iniciar sessão como um serviço**.
-3. No **propriedades** diálogo caixa, adicione a conta de utilizador.
-4. Selecione **Apply** (Aplicar) e **OK**.
-5. Feche todas as janelas.
+- **Causa**. Sincronização de dados SQL remove as bases de dados que tenham sido offline do serviço de 45 dias ou mais (como contados desde o momento em que a base de dados ficou offline). Se uma base de dados está offline para 45 dias ou mais e, em seguida, fica online novamente, o respetivo estado é **desatualizados**.
 
-### <a name="a-database-has-an-out-of-date-status"></a>Uma base de dados tem um Estado "Desatualizado"
+- **Resolução**. Pode evitar uma **desatualizados** Estado, garantindo que nenhuma das suas bases de dados ficam offline para 45 dias ou mais.
 
-#### <a name="cause"></a>Causa
+  Se o estado de uma base de dados for **desatualizados**:
 
-Sincronização de dados do SQL Server remove as bases de dados que foram offline do serviço de 45 dias ou mais (como contados desde o momento que a base de dados ficou offline). Se uma base de dados está offline para 45 dias ou mais e, em seguida, volta a ficar online, o respetivo estado é **Desatualizadas**.
+  1. Remover a base de dados que tem um **desatualizados** estado do grupo de sincronização.
+  2. Adicionar a base de dados de volta para o grupo de sincronização.
 
-#### <a name="resolution"></a>Resolução
+  > [!WARNING]
+  > Perderá todas as alterações efetuadas a esta base de dados enquanto ela estava offline.
 
-Pode evitar um **Desatualizadas** Estado, garantindo que nenhuma das suas bases de dados fique offline de 45 dias ou mais.
+### <a name="setup-date2"></a> Um grupo de sincronização tem o estado "Desatualizado"
 
-Se o estado de uma base de dados é **Desatualizadas**:
+- **Causa**. Se uma ou mais alterações não se aplicam durante o período de retenção inteira de 45 dias, um grupo de sincronização pode tornar-se desatualizados.
 
-1. Remover a base de dados que tenha um **Desatualizadas** estado do grupo de sincronização.
-2. Adicionar a base de dados de volta para o grupo de sincronização.
+- **Resolução**. Para evitar uma **desatualizados** estado para um grupo de sincronização, examinar os resultados das suas tarefas de sincronização no Visualizador do histórico em intervalos regulares. Investigar e resolver quaisquer alterações que não se aplicam.
 
-> [!WARNING]
-> Perderá todas as alterações efetuadas a esta base de dados enquanto estava offline.
+  Se o estado de um grupo de sincronização é **desatualizados**, elimine o grupo de sincronização e, em seguida, voltar a criá-lo.
 
-### <a name="a-sync-group-has-an-out-of-date-status"></a>Um grupo de sincronização tem um Estado "Desatualizado"
+### <a name="setup-delete2"></a> Um grupo de sincronização não é possível eliminar dentro de desinstalação ou parar o agente de três minutos
 
-#### <a name="cause"></a>Causa
+Não é possível eliminar um grupo de sincronização dentro de três minutos de desinstalação ou parar o agente de cliente de sincronização de dados SQL associado.
 
-Se falharem um ou mais alterações aplicar durante o período de retenção todo de 45 dias, um grupo de sincronização pode tornar-se desatualizados.
+- **Resolução**.
 
-#### <a name="resolution"></a>Resolução
-
-Para evitar um **Desatualizadas** estado para um grupo de sincronização, examine os resultados das suas tarefas de sincronização no Visualizador do histórico regularmente. Investigar e resolver quaisquer alterações que não obedeçam a aplicar.
-
-Se o estado de um grupo de sincronização é **Desatualizadas**, elimine o grupo de sincronização e, em seguida, volte a criá-la.
-
-### <a name="a-sync-group-cant-be-deleted-within-three-minutes-of-uninstalling-or-stopping-the-agent"></a>Não é possível eliminar um grupo de sincronização dentro de desinstalar ou parar o agente de três minutos
-
-#### <a name="description-and-symptoms"></a>A descrição e sintomas
-
-Não é possível eliminar um grupo de sincronização dentro de três minutos de desinstalar ou parar o agente de cliente de sincronização de dados do SQL Server associado.
-
-#### <a name="resolution"></a>Resolução
-
-1. Remover um grupo de sincronização, enquanto que os agentes de sincronização associados são online (recomendado).
-2. Se o agente estiver offline, mas está instalado, colocá-la online no computador local. Aguarde que o estado do agente a aparecer como **Online** no portal de sincronização de dados do SQL Server. Em seguida, remova o grupo de sincronização.
-3. Se o agente estiver offline, porque foi desinstalado:  
-    a.  Remova o ficheiro XML de agente a pasta de instalação de sincronização de dados do SQL Server, se o ficheiro existe.  
-    b.  Instale o agente num computador local (pode ser o mesmo ou outro computador). Em seguida, submeta a chave do agente que é gerada no portal para o agente que está a ser mostrado como offline.  
+  1. Remover um grupo de sincronização, enquanto os agentes de sincronização associado estão online (recomendado).
+  2. Se o agente está offline, mas está instalado, colocá-la online no computador no local. Aguarde que o estado do agente a aparecer como **Online** no portal de sincronização de dados SQL. Em seguida, remova o grupo de sincronização.
+  3. Se o agente estiver offline, porque foi desinstalado:  
+    a.  Remova o ficheiro XML do agente da pasta de instalação de sincronização de dados SQL, se o ficheiro existe.  
+    b.  Instale o agente num computador no local (pode ser a mesma ou num computador diferente). Em seguida, envie a chave de agente que é gerada no portal para o agente que está a aparecer como offline.  
     c. Tente eliminar o grupo de sincronização.
 
-### <a name="what-happens-when-i-restore-a-lost-or-corrupted-database"></a>O que acontece quando restaurar a uma base de dados danificado ou perdido?
+### <a name="setup-restore"></a> O que acontece quando restaurar uma base de dados perdido ou danificado?
 
-Se restaurar uma base de dados perdido ou danificado a partir de uma cópia de segurança, poderá haver um nonconvergence dos dados nos grupos de sincronização a que pertence a base de dados.
+Se restaurar uma base de dados perdido ou danificado a partir de uma cópia de segurança, poderá haver uma não-convergência dos dados nos grupos de sincronização a que pertence a base de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a sincronização de dados do SQL Server, consulte:
+Para obter mais informações sobre a sincronização de dados SQL, consulte:
 
 -   [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)  
 -   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)  

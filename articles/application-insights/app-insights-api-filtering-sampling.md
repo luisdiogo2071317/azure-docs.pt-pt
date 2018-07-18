@@ -1,6 +1,6 @@
 ---
-title: Filtragem e pré-processamentos no Application Insights SDK do Azure | Microsoft Docs
-description: Escreva processadores de telemetria e inicializadores de telemetria para o SDK para filtrar ou adicionar propriedades para os dados antes do envio de telemetria ao portal do Application Insights.
+title: Filtragem e processamento prévio no que o Azure Application Insights SDK | Documentos da Microsoft
+description: Escreva telemetria processadores e inicializadores de telemetria para o SDK para filtrar ou adicionar propriedades para os dados antes da telemetria é enviada para o portal do Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: a8905f4f14b5f4f78e9f3113ec5a655b12599609
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d46ff5563df1423e3c01ba945b328b748b5979b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294101"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091576"
 ---
-# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtragem e pré-processamentos telemetria no Application Insights SDK
+# <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtragem e processamento prévio de telemetria no Application Insights SDK
 
 
-Pode escrever e configurar o plug-ins para o Application Insights SDK personalizar a forma como a telemetria é capturada e processada antes de ser enviada para o serviço do Application Insights.
+Pode escrever e configurar o plug-ins para o Application Insights SDK personalizar como a telemetria é capturada e processada antes que ele é enviado para o serviço Application Insights.
 
-* [Amostragem](app-insights-sampling.md) reduz o volume de telemetria sem afetar as estatísticas. Em conjunto mantém relacionadas com pontos de dados, de modo a que possa navegar entre os mesmos quando diagnosticar um problema. No portal, o número total é multiplicado para compensar a amostragem.
-* Filtragem com processadores de telemetria [para ASP.NET](#filtering) ou [Java](app-insights-java-filter-telemetry.md) permite-lhe selecionar ou modificar a telemetria no SDK antes de ser enviada para o servidor. Por exemplo, poderia reduzir o volume de telemetria excluindo pedidos da robots. Mas filtragem é uma abordagem mais básica para reduzir o tráfego de amostragem. Permite-lhe mais controlo sobre o que é transmitido, mas tem de ter conhecimento de que afetará as estatísticas - por exemplo, se filtrar todos os pedidos com êxito.
-* [Os inicializadores de telemetria adicionar propriedades](#add-properties) a qualquer telemetria enviada a partir da sua aplicação, incluindo a telemetria dos módulos padrão. Por exemplo, pode adicionar valores calculados; ou números de versão através do qual filtrar os dados no portal.
-* [A API do SDK](app-insights-api-custom-events-metrics.md) é utilizada para enviar métricas e eventos personalizados.
+* [Amostragem](app-insights-sampling.md) reduz o volume de telemetria sem afetar as estatísticas. Ela mantém em conjunto relacionado de pontos de dados para que pode navegar entre elas ao diagnosticar o problema. No portal, as contagens de total são multiplicadas para compensar a amostragem.
+* Filtragem com processadores de telemetria [para o ASP.NET](#filtering) ou [Java](app-insights-java-filter-telemetry.md) permite selecionar ou modificar a telemetria no SDK antes de ser enviada para o servidor. Por exemplo, poderia reduzir o volume de telemetria ao excluir os pedidos de robôs. Mas a filtragem é uma abordagem mais básica para reduzir o tráfego de amostragem. Permite-lhe mais controlo sobre o que é transmitido, mas precisa estar ciente de que ele afeta as estatísticas - por exemplo, se filtrar todos os pedidos com êxito.
+* [Inicializadores de telemetria adicionar propriedades](#add-properties) para qualquer telemetria enviada pela sua aplicação, incluindo telemetria a partir de módulos padrão. Por exemplo, poderia adicionar valores calculados; ou números de versão através do qual pretende filtrar os dados no portal.
+* [A API do SDK](app-insights-api-custom-events-metrics.md) é utilizada para enviar eventos personalizados e métricas.
 
 Antes de começar:
 
@@ -37,24 +37,24 @@ Antes de começar:
 <a name="filtering"></a>
 
 ## <a name="filtering-itelemetryprocessor"></a>Filtragem: ITelemetryProcessor
-Esta técnica dá-lhe controlo direto mais sobre o que é incluído ou excluído do fluxo de telemetria. Pode utilizá-la em conjunto com a amostragem, ou em separado.
+Essa técnica oferece controle mais direto sobre o que é incluído ou excluído do fluxo de telemetria. Pode usá-lo em conjunto com amostragem, ou em separado.
 
-Para filtrar telemetria, escrever um processador de telemetria e registá-lo com o SDK. Toda a telemetria atravessa o processador e pode optar por removê-la a partir do fluxo ou adicionar propriedades. Isto inclui a telemetria dos módulos padrão, tais como o recoletor de pedido HTTP e o recoletor de dependência, bem como telemetria que ter escrito por si. Por exemplo, pode filtrar telemetria sobre pedidos de robots ou chamadas de dependência com êxito.
+Para filtrar a telemetria, escrever um processador de telemetria e registá-lo com o SDK. Toda a telemetria passa pelo seu processador e pode optar por soltá-la a partir do fluxo ou adicionar propriedades. Isto inclui a telemetria a partir de módulos padrão, como o coletor de pedido HTTP e o recoletor de dependência, bem como telemetria que ter escrito por. Pode, por exemplo, filtrar telemetria sobre pedidos de robôs ou chamadas de dependência com êxito.
 
 > [!WARNING]
-> Filtragem a telemetria enviada do SDK com processadores pode prejudicar que vir no portal as estatísticas e dificultar a seguir itens relacionados.
+> Filtrar a telemetria enviada do SDK usar processadores pode distorcer as estatísticas que vê no portal do e dificultar a seguir itens relacionados.
 >
-> Em vez disso, considere utilizar [amostragem](app-insights-sampling.md).
+> Em vez disso, considere a utilização [amostragem](app-insights-sampling.md).
 >
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>Criar um processador de telemetria (c#)
-1. Certifique-se de que o Application Insights SDK no projeto versão 2.0.0 ou posterior. O projeto no Explorador de soluções do Visual Studio com o botão direito e selecione gerir pacotes NuGet. No Gestor de pacotes NuGet, verifique applicationinsights.
-2. Para criar um filtro, implementa ITelemetryProcessor. Este é outro ponto de extensibilidade, como o módulo de telemetria, o inicializador de telemetria e o canal de telemetria.
+1. Certifique-se de que o SDK do Application Insights no seu projeto é a versão 2.0.0 ou posterior. Com o botão direito do rato no Explorador de soluções do Visual Studio e selecione gerir pacotes NuGet. No Gestor de pacotes do NuGet, verifique o applicationinsights.
+2. Para criar um filtro, implemente ITelemetryProcessor. Este é outro ponto de extensibilidade, como o módulo de telemetria, o inicializador de telemetria e o canal de telemetria.
 
-    Tenha em atenção que os processadores de telemetria construir uma cadeia de processamento. Quando instanciar um processador de telemetria, passa uma ligação para o processador seguinte da cadeia. Quando um ponto de dados de telemetria é passado para o método de processo, não o trabalho e, em seguida, chama o processador de telemetria seguinte da cadeia.
+    Tenha em atenção que os processadores de telemetria construir uma cadeia de processamento. Quando criar uma instância de um processador de telemetria, passa um link para o processador seguinte na cadeia. Quando um ponto de dados de telemetria é passado para o método Process, ele executa o seu trabalho e, em seguida, chama o seguinte processador de telemetria na cadeia.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -99,9 +99,9 @@ Para filtrar telemetria, escrever um processador de telemetria e registá-lo com
     }
 
     ```
-1. Insira-o no Applicationinsights:
+1. Insira-o no applicationinsights. config:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -112,16 +112,16 @@ Para filtrar telemetria, escrever um processador de telemetria e registá-lo com
 
 ```
 
-(Esta é a mesma secção onde a inicializar um filtro de amostragem.)
+(Esta é a mesma seção onde inicializar um filtro de amostragem.)
 
-Pode passar valores de cadeia do ficheiro. config, fornecendo propriedades com nome públicas na sua classe.
+Pode passar valores de cadeia de caracteres do arquivo. config, fornecendo propriedades nomeadas públicas em sua classe.
 
 > [!WARNING]
-> Asseguramos para corresponder a quaisquer nomes de propriedade no ficheiro. config para os nomes de classe e a propriedade com o código e o nome do tipo. Se o ficheiro. config referencia um tipo de inexistente ou uma propriedade, o SDK silenciosamente pode falhar ao enviar a qualquer telemetria.
+> Tenha cuidado de acordo com o nome do tipo e nenhum nome de propriedade no arquivo. config para os nomes de classe e propriedade no código. Se o arquivo. config fizer referência a um tipo não existente ou uma propriedade, o SDK pode falhar silenciosamente a enviar telemetria.
 >
 >
 
-**Em alternativa,** pode inicializar o filtro no código. Classe de inicialização adequado - por exemplo AppStart no Global.asax.cs - inserir o processador de cadeia:
+**Em alternativa,** pode inicializar o filtro no código. Numa classe de inicialização adequado - por exemplo AppStart em Global.asax.cs - Insira seu processador na cadeia de:
 
 ```csharp
 
@@ -135,13 +135,13 @@ Pode passar valores de cadeia do ficheiro. config, fornecendo propriedades com n
 
 ```
 
-TelemetryClients criadas após este ponto irá utilizar o fabricante.
+TelemetryClients criado a partir deste momento irá utilizar os processadores.
 
 ### <a name="example-filters"></a>Filtros de exemplo
 #### <a name="synthetic-requests"></a>Pedidos sintéticos
-Filtre testes bots e web. Embora o Explorador de métricas dá-lhe a opção para filtrar sintéticas origens, esta opção reduz o tráfego filtrando-los no SDK.
+Filtre os testes de bots e web. Embora o Explorador de métricas lhe dá a opção para filtrar os sintéticas origens, esta opção reduz o tráfego ao filtrá-los com o SDK.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -153,7 +153,7 @@ Filtre testes bots e web. Embora o Explorador de métricas dá-lhe a opção par
 
 ```
 
-#### <a name="failed-authentication"></a>Falha na autenticação
+#### <a name="failed-authentication"></a>Falha de autenticação
 Filtre pedidos com uma resposta "401".
 
 ```csharp
@@ -174,15 +174,15 @@ public void Process(ITelemetry item)
 
 ```
 
-#### <a name="filter-out-fast-remote-dependency-calls"></a>Filtrar chamadas de dependência rápido remoto
-Se pretender apenas diagnosticar chamadas lentas, filtre as fast.
+#### <a name="filter-out-fast-remote-dependency-calls"></a>Filtrar chamadas de dependência rápida remoto
+Se pretender apenas diagnosticar chamadas forem lentas, filtre aqueles fast.
 
 > [!NOTE]
-> Isto irá desfasamento as estatísticas que vir no portal. O gráfico de dependência procurará como se as chamadas de dependência são todas as falhas.
+> Isso será distorcer as estatísticas que vê no portal. O gráfico de dependência parecerá como se as chamadas de dependência são todas as falhas.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -198,19 +198,19 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="diagnose-dependency-issues"></a>Diagnosticar problemas de dependência
-[Este blogue](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) descreve um projeto para diagnosticar problemas de dependência enviando automaticamente pings regulares para dependências.
+[Este blogue](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) descreve um projeto para diagnosticar problemas de dependência ao enviar automaticamente regulares pings para as dependências.
 
 
 <a name="add-properties"></a>
 
 ## <a name="add-properties-itelemetryinitializer"></a>Adicionar propriedades: ITelemetryInitializer
-Inicializadores de telemetria de utilização para definir propriedades globais que são enviadas com toda a telemetria; e substituir selecionado comportamento dos módulos de telemetria padrão.
+Inicializadores de telemetria de utilização para definir propriedades globais que são enviadas com toda a telemetria; e para substituir o comportamento selecionado dos módulos de telemetria standard.
 
-Por exemplo, o Application Insights para o pacote do Web recolhe telemetria sobre pedidos de HTTP. Por predefinição, sinalizadores como falhada qualquer pedido com um código de resposta > = 400. Mas se pretender processar 400 como concluído com êxito, pode fornecer um inicializador de telemetria que define a propriedade de êxito.
+Por exemplo, o Application Insights para o pacote Web recolhe telemetria sobre pedidos de HTTP. Por padrão, ele sinaliza como falhado qualquer pedido com um código de resposta > = 400. Mas se deseja tratar 400 como um êxito, pode fornecer um inicializador de telemetria que define a propriedade de sucesso.
 
-Se fornecer um inicializador de telemetria, é chamado sempre que qualquer um dos métodos Track*() são denominados. Isto inclui métodos chamados por módulos de telemetria padrão. Por convenção, estes módulos não defina qualquer propriedade que já foi definida por um inicializador de elementos.
+Se fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track*() são chamados. Isto inclui métodos chamados por módulos de telemetria standard. Por convenção, estes módulos não defina qualquer propriedade que já foi definida por um inicializador.
 
-**Definir o inicializador**
+**Definir seu inicializador**
 
 *C#*
 
@@ -251,10 +251,11 @@ Se fornecer um inicializador de telemetria, é chamado sempre que qualquer um do
     }
 ```
 
-**O inicializador de carga**
+**Carregar seu inicializador**
 
 In ApplicationInsights.config:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -262,8 +263,9 @@ In ApplicationInsights.config:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
-*Em alternativa,* pode instanciar o inicializador no código, por exemplo no Global.aspx.cs:
+*Em alternativa,* pode instanciar o inicializador no código, por exemplo, no Global.aspx.cs:
 
 ```csharp
     protected void Application_Start()
@@ -282,7 +284,7 @@ In ApplicationInsights.config:
 ### <a name="javascript-telemetry-initializers"></a>Inicializadores de telemetria de JavaScript
 *JavaScript*
 
-Inserir um inicializador de telemetria imediatamente após o código de inicialização que recebeu do portal:
+Insira um inicializador de telemetria imediatamente depois do código de inicialização que recebeu do portal:
 
 ```JS
 
@@ -324,32 +326,32 @@ Inserir um inicializador de telemetria imediatamente após o código de iniciali
     </script>
 ```
 
-Para obter um resumo das propriedades personalizadas não disponíveis no telemetryItem, consulte [modelo de dados exportar do Application Insights](app-insights-export-data-model.md).
+Para obter um resumo das propriedades disponíveis sobre o telemetryItem não personalizado, consulte [modelo de dados exportação do Application Insights](app-insights-export-data-model.md).
 
-Pode adicionar tantos inicializadores conforme pretender.
+Pode adicionar inicializadores de tantas quanto quiser.
 
 ## <a name="itelemetryprocessor-and-itelemetryinitializer"></a>ITelemetryProcessor e ITelemetryInitializer
 O que é a diferença entre os processadores de telemetria e inicializadores de telemetria?
 
-* Existem algumas sobreposições no que pode fazer com as mesmas: podem ser utilizados para adicionar propriedades a telemetria.
-* TelemetryInitializers sempre executar antes de TelemetryProcessors.
-* TelemetryProcessors permitem-lhe completamente substituir ou eliminar um item de telemetria.
+* Existem alguns sobreposições em que pode fazer com eles: podem ser utilizados para adicionar propriedades a telemetria.
+* TelemetryInitializers sempre executado antes de TelemetryProcessors.
+* TelemetryProcessors permitem-lhe substituir completamente ou eliminar um item de telemetria.
 * TelemetryProcessors não processar a telemetria de contador de desempenho.
 
-## <a name="troubleshooting-applicationinsightsconfig"></a>Resolução de problemas Applicationinsights
-* Certifique-se de que o nome de tipo totalmente qualificado e o nome da assemblagem estão corretos.
-* Certifique-se de que o ficheiro applicationinsights está no seu diretório de saída e contém as alterações recentes.
+## <a name="troubleshooting-applicationinsightsconfig"></a>Resolução de problemas de applicationinsights. config
+* Confirme que o nome do tipo completamente qualificado e o nome da assemblagem estão corretos.
+* Confirme que o ficheiro applicationinsights. config está no seu diretório de saída e contém alterações recentes.
 
 ## <a name="reference-docs"></a>Documentos de referência
 * [Descrição Geral da API](app-insights-api-custom-events-metrics.md)
-* [Referência ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Referência do ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>Código do SDK
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [SDK do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [SDK DO ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Passos seguintes
-* [Eventos de pesquisa e registos](app-insights-diagnostic-search.md)
+* [Pesquisar eventos e registos](app-insights-diagnostic-search.md)
 * [Amostragem](app-insights-sampling.md)
 * [Resolução de problemas](app-insights-troubleshoot-faq.md)

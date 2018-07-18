@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: da78d388c8e9fc9684942342f48902c2a248e3b1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072304"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115800"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuração de rede no Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ Nós num cluster do AKS configurada para utilização de rede básica a [kubenet
 
 ## <a name="advanced-networking"></a>Sistema de rede avançado
 
-**Advanced** redes coloca os seus pods uma rede Virtual do Azure (VNet) que configurar, fornecendo conectividade automática aos recursos da VNet e a integração com o avançado conjunto de recursos, essa oferta de VNets.
-Sistema de rede avançado está disponível quando implementar o AKS clusters com o [portal do Azure][portal], CLI do Azure, ou com um modelo do Resource Manager.
+**Advanced** redes coloca os seus pods uma rede Virtual do Azure (VNet) que configurar, fornecendo conectividade automática aos recursos da VNet e a integração com o avançado conjunto de recursos, essa oferta de VNets. Sistema de rede avançado está disponível quando implementar o AKS clusters com o [portal do Azure][portal], CLI do Azure, ou com um modelo do Resource Manager.
 
 Nós num cluster do AKS configurada para utilização de rede avançada a [Interface de rede contentor do Azure (CNI)] [ cni-networking] Plug-in do Kubernetes.
 
@@ -45,9 +44,6 @@ Sistema de rede avançado fornece as seguintes vantagens:
 * Podem ligar com segurança pods numa sub-rede que têm pontos finais de serviço ativados os serviços do Azure, por exemplo, armazenamento do Azure e SQL DB.
 * Utilize utilizador rotas definidas pelo (UDR) para encaminhar o tráfego de pods para uma aplicação Virtual de rede.
 * Pods podem aceder a recursos na Internet pública. Também é uma funcionalidade do sistema de rede básica.
-
-> [!IMPORTANT]
-> Cada nó num cluster do AKS configurado para o sistema de rede avançado pode alojar um máximo de **30 pods** quando configurado com o portal do Azure.  Pode alterar o valor máximo apenas ao modificar a propriedade maxPods ao implementar um cluster com um modelo do Resource Manager. Cada VNet aprovisionada para utilização com o plug-in do Azure CNI é limitada a **4096 configurar os endereços IP**.
 
 ## <a name="advanced-networking-prerequisites"></a>Advanced pré-requisitos do sistema de rede
 
@@ -67,19 +63,36 @@ O plano de endereço IP para um cluster do AKS é composta por uma VNet, pelo me
 
 | Intervalo de endereços / Azure recursos | Limites e dimensionamento |
 | --------- | ------------- |
-| Rede virtual | VNet do Azure pode ser tão grande quanto /8, mas pode apenas 4096 configurar os endereços IP. |
-| Subrede | Tem de ser suficientemente grande para acomodar os nós e os Pods. Para calcular o tamanho mínimo da sub-rede: (número de nós) + (número de nós * Pods por nó). Para um cluster de 50 nó: (50) + (50 * 30) = 1,550, sua sub-rede precisariam ser um /21 ou superior. |
+| Rede virtual | VNet do Azure pode ser tão grande quanto /8, mas pode apenas 16.000 configurar os endereços IP. |
+| Subrede | Tem de ser suficientemente grande para acomodar os nós, pods e recursos de todos os Kubernetes e do Azure que podem ser aprovisionados no seu cluster. Por exemplo, se implementar um balanceador de carga interno do Azure, o IPs de front-end são alocadas a partir da sub-rede de cluster, IPs públicos não. <p/>Para calcular *mínima* tamanho da sub-rede: `(number of nodes) + (number of nodes * pods per node)` <p/>Exemplo para um cluster de 50 nó: `(50) + (50 * 30) = 1,550` (/ 21 ou superior) |
 | Intervalo de endereços de serviço do Kubernetes | Não deve ser utilizado pelo qualquer elemento de rede no ou ligado a esta VNet neste intervalo. Endereço do serviço CIDR tem de ser menor do que /12. |
 | Endereço IP do serviço de DNS do Kubernetes | Intervalo de endereços que será utilizado pela deteção de serviço de cluster (kube-dns) do serviço de endereço IP dentro do Kubernetes. |
 | Endereço de bridge do docker | Endereço IP (em notação CIDR) utilizado como a ponte de Docker endereço IP em nós. Predefinição de 172.17.0.1/16. |
 
-Como mencionado anteriormente, cada VNet aprovisionada para utilização com o plug-in do Azure CNI é limitada a **4096 configurar os endereços IP**. Cada nó num cluster configurado para o sistema de rede avançado pode alojar um máximo de **30 pods**.
+Cada VNet aprovisionada para utilização com o plug-in do Azure CNI é limitada a **16.000 configurar os endereços IP**.
+
+## <a name="maximum-pods-per-node"></a>Pods máximas por nó
+
+O número máximo de padrão de pods por nó num cluster do AKS varia entre redes básicas e avançadas e o método de implementação de cluster.
+
+### <a name="default-maximum"></a>Predefinição máxima
+
+* Rede básica: **110 pods por nó**
+* Advanced networking **30 pods por nó**
+
+### <a name="configure-maximum"></a>Configurar máximo
+
+Dependendo de seu método de implementação, poderá modificar o número máximo de pods por nó num cluster do AKS.
+
+* **CLI do Azure**: Especifique o `--max-pods` argumento ao implementar um cluster com o [criar az aks] [ az-aks-create] comando.
+* **Modelo do Resource Manager**: Especifique o `maxPods` propriedade na [ManagedClusterAgentPoolProfile] objeto quando implementar um cluster com um modelo do Resource Manager.
+* **Portal do Azure**: não é possível modificar o número máximo de pods por nó, ao implementar um cluster com o portal do Azure. Clusters de rede avançadas estão limitados a 30 pods por nó quando implementado no portal do Azure.
 
 ## <a name="deployment-parameters"></a>Parâmetros de implementação
 
 Quando cria um cluster do AKS, os seguintes parâmetros são configuráveis para funcionamento em rede avançado:
 
-**Rede virtual**: A VNet para o qual pretende implementar o cluster de Kubernetes. Se quiser criar uma nova VNet para o seu cluster, selecione *criar novo* e siga os passos a *criar rede virtual* secção.
+**Rede virtual**: A VNet para o qual pretende implementar o cluster de Kubernetes. Se quiser criar uma nova VNet para o seu cluster, selecione *criar novo* e siga os passos a *criar rede virtual* secção. A VNet está limitada a 16 000 endereços IP configurados.
 
 **Sub-rede**: A sub-rede dentro da VNet onde pretende implementar o cluster. Se quiser criar uma nova sub-rede na VNet para o seu cluster, selecione *criar novo* e siga os passos a *criar a sub-rede* secção.
 
@@ -135,7 +148,7 @@ As perguntas e respostas seguintes aplicam-se para o **avançadas** configuraç�
 
 * *É o número máximo de pods implementável para um nó configurável?*
 
-  Por predefinição, cada nó pode alojar um máximo de 30 pods. Pode alterar o valor máximo apenas ao modificar o `maxPods` propriedade ao implementar um cluster com um modelo do Resource Manager.
+  Sim, quando implementar um cluster com a CLI do Azure ou um modelo do Resource Manager. Ver [pods máximo por nó](#maximum-pods-per-node).
 
 * *Como posso configurar propriedades adicionais para a sub-rede que criei durante a criação de cluster do AKS? Por exemplo, pontos finais de serviço.*
 
@@ -173,3 +186,4 @@ Clusters de Kubernetes criados com o motor de ACS de suportar o [kubenet] [ kube
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

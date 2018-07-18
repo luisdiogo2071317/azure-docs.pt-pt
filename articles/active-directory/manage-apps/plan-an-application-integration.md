@@ -1,6 +1,6 @@
 ---
-title: Começar a integração do Azure AD com aplicações | Microsoft Docs
-description: Este artigo é um guia de introdução para integrar o Azure Active Directory (AD) com aplicações no local e aplicações em nuvem.
+title: Introdução ao integrar o Azure AD com as aplicações | Documentos da Microsoft
+description: Este artigo é um guia de introdução para a integração do Azure Active Directory (AD) com aplicações no local e aplicações na cloud.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -12,84 +12,84 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 97404421a48d15339fdecf23a951a64d975da577
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088642"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090358"
 ---
-# <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integrar o Azure Active Directory com aplicações de introdução
+# <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integração do Azure Active Directory com aplicativos de introdução
 ## <a name="overview"></a>Descrição geral
-Este tópico destina-se para lhe fornecer um plano para integrar aplicações com o Azure Active Directory (AD). Cada uma das secções abaixo contém um breve resumo de um tópico mais detalhado para que possa identificar as partes deste guia de introdução são relevantes para si.  Siga as ligações para uma descrição mais aprofundada sobre cada assunto.
+Este tópico destina-se para que tenha um plano para integrar aplicações com o Azure Active Directory (AD). Cada uma das secções abaixo contêm um breve resumo sobre um tópico mais detalhado para que possa identificar quais partes deste guia de introdução são relevantes para si.  Siga os links para um aprofundamento sobre cada assunto.
 
-## <a name="before-you-begin-take-inventory"></a>Antes de começar, fazer o inventário
-Antes de tipo jump para integrar aplicações com o Azure AD, é importante saber onde estão e onde pretende aceder.  As perguntas seguintes destinam-se para o ajudar a pensar sobre o projeto de integração de aplicações do Azure AD.
+## <a name="before-you-begin-take-inventory"></a>Antes de começar, faça o inventário
+Antes de avançar para a integração de aplicativos com o Azure AD, é importante saber onde está e onde pretende ir.  As perguntas seguintes destinam-se para o ajudar a pensar sobre o seu projeto de integração de aplicações do Azure AD.
 
-### <a name="application-inventory"></a>Inventário de aplicações
-* Onde estão todas as aplicações? Quem é o proprietário-las?
-* Que tipo de autenticação precisam as suas aplicações?
-* Quem tem acesso a quais as aplicações?
-* Pretende implementar uma nova aplicação?
-  * Irá criar internas e implementá-la numa instância de computação do Azure?
-  * Irá utilizar uma que esteja disponível na Galeria de aplicações do Azure?
+### <a name="application-inventory"></a>Inventário de aplicativos
+* Onde estão todas as suas aplicações? Quem é o proprietário-los?
+* Que tipo de autenticação precisam seus aplicativos?
+* Quem precisa de acesso a quais aplicativos?
+* Deseja implantar uma nova aplicação?
+  * Será criado internamente e implementá-la numa instância de computação do Azure?
+  * Irá utilizar um que está disponível na Galeria de aplicações do Azure?
 
 ### <a name="user-and-group-inventory"></a>Inventário de utilizador e grupo
-* Onde residir as contas de utilizador?
+* Onde residem as suas contas de utilizador?
   * Active Directory no local
   * Azure AD
-  * Dentro de uma base de dados de aplicação separado que é proprietário
-  * Nas aplicações não aprovadas
-  * Todos os anteriores
-* As atribuições de funções e permissões a utilizadores individuais atualmente dispõe? Tem de rever o respetivo acesso ou tem a certeza de que as atribuições de acesso e a função de utilizador são adequadas agora?
-* São grupos já existentes no Active Directory no local?
+  * Dentro de uma base de dados de aplicativo separado que é proprietário
+  * Em aplicações não aprovadas
+  * Todas as opções acima
+* Quais permissões e as atribuições de funções de utilizadores individuais têm atualmente? Precisa para rever o acesso ou tem a certeza de que as atribuições de acesso e a função de utilizador são adequadas agora?
+* Grupos já estabelecidos no Active Directory no local?
   * Como os seus grupos estão organizados?
   * Quem são os membros do grupo?
-  * As atribuições de permissões/função os grupos atualmente dispõe?
-* Vai precisar de limpar bases de dados de utilizador/grupo antes da integração?  (Esta é uma pergunta pretty importante. Libertação da memória no lixo out.)
+  * As atribuições de permissões/funções os grupos têm atualmente?
+* Será necessário limpar as bases de dados de utilizador/grupo antes de integração?  (Esta é uma pergunta muito importante. Lixo no lixo out).
 
 ### <a name="access-management-inventory"></a>Inventário de gestão de acesso
-* Como atualmente gerir acesso de utilizador para as aplicações? A que precisa de alterar?  Ter é considerado outras formas de gerir o acesso, tal como com [RBAC](../../role-based-access-control/role-assignments-portal.md) por exemplo?
-* Quem tem acesso à que?
+* Como atualmente gerir o acesso de utilizador a aplicações? É necessário alterar?  Consideraram outras formas de gerir o acesso, por exemplo, com [RBAC](../../role-based-access-control/role-assignments-portal.md) por exemplo?
+* Quem precisa de acesso para qual?
 
-Talvez não tiver as respostas para todas estas perguntas adiantado mas que okay.  Este guia possa ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.
+Talvez não tenha as respostas a essas perguntas com antecedência, mas isso é muito bem.  Este guia pode ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma subscrição do Azure e um diretório do Azure Active Directory.  Se ainda não tiver uma subscrição do Azure, pode experimentar o Azure gratuitamente durante 30 dias. [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Integração de aplicações com o Azure AD
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Aplicações de nuvem não sancionada a localizar com a Cloud Discovery
-Tal como mencionado acima, poderão existir aplicações que ainda não foram geridas pela sua organização até agora.  Como parte do processo de inventário, é possível localizar aplicações na nuvem não sancionadas. Consulte [configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Não aprovada a localizar aplicações da cloud com a Cloud Discovery
+Conforme mencionado acima, pode haver aplicativos que ainda não foram geridos pela sua organização até agora.  Como parte do processo de inventário, é possível localizar aplicações na cloud não aprovadas. Ver [configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ### <a name="authentication-types"></a>Tipos de autenticação
-Cada uma das suas aplicações pode ter requisitos de autenticação diferente. Com o Azure AD, podem ser utilizados certificados de assinatura com as aplicações que utilizam SAML 2.0, WS-Federation, ou OpenID Connect protocolos, bem como palavra-passe de início de sessão único. Para obter mais informações sobre a aplicação veja os tipos de autenticação para utilização com o Azure AD [gestão de certificados para federado Single Sign-On no Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [palavra-passe de início de sessão único com base no](what-is-single-sign-on.md).
+Cada uma das suas aplicações pode ter requisitos de autenticação diferente. Com o Azure AD, podem ser utilizado certificados de assinatura com aplicações que utilizam SAML 2.0, WS-Federation, ou OpenID Connect protocolos bem como de palavra-passe de início de sessão único. Para obter mais informações sobre a aplicação veja os tipos de autenticação para utilização com o Azure AD [gestão de certificados para federado início de sessão único no Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [palavra-passe de início de sessão único com base em](what-is-single-sign-on.md).
 
-### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Ativar a SSO com o Proxy de aplicações do Azure AD
-Com o Proxy de aplicações do Microsoft Azure AD, pode fornecer acesso a aplicações localizadas no interior da rede privada em segurança, em qualquer lugar e em qualquer dispositivo. Depois de instalar um conector do proxy da aplicação no seu ambiente, pode ser configurado de facilmente com o Azure AD.
+### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Ativar o SSO com o Proxy de aplicações do Azure AD
+Com o Proxy de aplicações do Microsoft Azure AD, pode fornecer acesso às aplicações localizadas no interior da rede privada com segurança, de qualquer lugar e em qualquer dispositivo. Depois de instalar um conector de proxy de aplicações no seu ambiente, ele pode ser facilmente configurado com o Azure AD.
 
 ### <a name="integrating-applications-with-azure-ad"></a>Integrar aplicações com o Azure AD
-Os seguintes artigos abordam as diferentes formas de aplicações integram com o Azure AD e fornecem algumas orientações.
+Os seguintes artigos descrevem as diferentes formas de aplicativos integram com o Azure AD e fornece algumas orientações.
 
-* [Determinar que do Active Directory a utilizar](../fundamentals/active-directory-administer.md)
-* [Utilizar as aplicações na Galeria de aplicações do Azure](what-is-single-sign-on.md)
-* [Integrar a lista de tutoriais de aplicações SaaS](../saas-apps/tutorial-list.md)
+* [Determinar qual do Active Directory para utilizar](../fundamentals/active-directory-administer.md)
+* [Utilizar aplicações na Galeria de aplicações do Azure](what-is-single-sign-on.md)
+* [Integrar a lista de tutoriais de aplicações de SaaS](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Gerir o acesso a aplicações
-Os artigos seguintes descrevem formas pode gerir o acesso a aplicações depois de ter sido integrados com o Azure AD através do Azure AD conectores e o Azure AD.
+Os seguintes artigos descrevem formas que pode gerir o acesso a aplicações assim que tiver sido integrados com o Azure AD através do Azure AD conectores e o Azure AD.
 
-* [Gerir o acesso a aplicações ao utilizar o Azure AD](what-is-access-management.md)
+* [Gerir o acesso a aplicações com o Azure AD](what-is-access-management.md)
 * [Automatizar com conectores do Azure AD](../active-directory-saas-app-provisioning.md)
 * [Atribuir utilizadores a uma aplicação](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Atribuir grupos a uma aplicação](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Partilha de contas](../active-directory-sharing-accounts.md)
+* [Partilhar contas](../active-directory-sharing-accounts.md)
 
-## <a name="integrating-custom-applications"></a>Integrar aplicações personalizadas
-Se estiver a escrever uma nova aplicação e pretender para ajudar os programadores tirar partido do poder do Azure AD, consulte [Guiding programadores](../active-directory-applications-guiding-developers-for-lob-applications.md).
+## <a name="integrating-custom-applications"></a>Integração de aplicativos personalizados
+Se estiver escrevendo um aplicativo novo e quiser para ajudar os desenvolvedores a tirar partido do poder do Azure AD, consulte [Guiding desenvolvedores](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicações do Azure, consulte o artigo ["Traga a sua própria aplicação" com a configuração SAML do Self-Service do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicações do Azure, veja ["Traga a sua própria aplicação" com a configuração SAML do Self-Service do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
 ## <a name="see-also"></a>Consulte também
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](../active-directory-apps-index.md)

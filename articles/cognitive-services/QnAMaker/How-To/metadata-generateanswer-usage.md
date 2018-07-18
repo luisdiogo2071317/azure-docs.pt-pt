@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 8ad51edde1fc90329e908f8150aadcbf4f401126
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448225"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113356"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Usando a API de GenerateAnswer e metadados
 
@@ -82,6 +82,7 @@ Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mos
     - **respostas** -uma lista de respostas para a consulta de utilizador, ordenados por ordem decrescente de classificação de pontuação.
         - **pontuação**: uma pontuação de classificação de entre 0 e 100.
         - **perguntas**: as perguntas fornecidas pelo usuário.
+        - **resposta**: A resposta à pergunta.
         - **origem**: O nome da origem do qual a resposta foi extraída ou guardada na base de dados de conhecimento.
         - **Metadados**: os metadados associados a resposta.
             - nome: nome de metadados. (string, comprimento máximo: 100, necessária)

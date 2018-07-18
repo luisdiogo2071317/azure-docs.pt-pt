@@ -1,7 +1,7 @@
 ---
 title: Dimensionar os serviços num aplicativo de malha do Azure Service Fabric | Documentos da Microsoft
 description: Saiba como dimensionar serviços dentro de um aplicativo em execução no serviço de recursos de infraestrutura malha com a CLI do Azure de forma independente.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/26/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0350b767b65aee0c4611bb8fa6f635a651d33dc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a4260fd808643971036ad87c01bd2fdec299ccc6
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076307"
+ms.locfileid: "39089748"
 ---
 # <a name="scale-services-within-an-application-running-on-service-fabric-mesh"></a>Serviços de dimensionamento dentro de um aplicativo em execução no Service Fabric em malha
 
@@ -55,16 +55,16 @@ Criar a aplicação no grupo de recursos utilizando o `deployment create` comand
 az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-O comando anterior implementa um através do Linux [mesh_rp.base.linux.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). Se pretender implementar uma aplicação do Windows, utilize [mesh_rp.base.windows.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Imagens de contentor do Windows são maiores do que as imagens de contentor do Linux e podem demorar mais tempo para implementar.
+O comando anterior implementa uma aplicação do Linux utilizar [mesh_rp.base.linux.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). Se pretender implementar uma aplicação do Windows, utilize [mesh_rp.base.windows.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Imagens de contentor do Windows são maiores do que as imagens de contentor do Linux e podem demorar mais tempo para implementar.
 
 Dentro de alguns minutos, o comando deverá devolver com:
 
 `visualObjectsApp has been deployed successfully on visualObjectsNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Abra a aplicação
-Assim que a aplicação é implementada com êxito, obtenha o endereço IP público para o ponto final de serviço e abra-o num browser. Ele deve exibir uma página da web com um triângulo movendo o espaço.
+Assim que a aplicação é implementada com êxito, obtenha o endereço IP público para o ponto final de serviço e abra-o num browser. Apresenta uma página da web com um triângulo movendo o espaço.
 
-O comando de implementação devolve o endereço IP público do ponto de extremidade de serviço. Também pode consultar o recurso de rede para encontrar o endereço IP público do ponto de extremidade de serviço.
+O comando de implementação devolve o endereço IP público do ponto de extremidade de serviço. Opcionalmente, também pode consultar o recurso de rede para encontrar o endereço IP público do ponto de extremidade de serviço. 
  
 O nome de recurso de rede para esta aplicação está `visualObjectsNetwork`, obter informações sobre ele usando o seguinte comando. 
 

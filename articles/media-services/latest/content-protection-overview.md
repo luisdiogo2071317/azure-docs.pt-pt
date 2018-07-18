@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: fb8730e9074624ba1b0f0162ebf9156b758b59c2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068789"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115235"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -45,8 +45,11 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
   > [!NOTE]
   > Pode criptografar cada ativo com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Ver [transmissão em fluxo protocolos e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
   
-  O seguinte artigo mostram os passos para encriptar conteúdo com AES: [proteger com encriptação AES](protect-with-aes128.md)
- 
+  Os artigos seguintes mostram os passos para encriptar os conteúdos com AES e/ou DRM: 
+  
+  * [Proteger com encriptação AES](protect-with-aes128.md)
+  * [Proteger com o DRM](protect-with-drm.md)
+
 2. Jogador com AES ou DRM cliente. Uma aplicação de leitor de vídeo com base num player SDK (nativo ou baseada no browser) tem de cumprir os seguintes requisitos:
   * O SDK player suporta os clientes DRM necessários
   * O SDK player suporta os protocolos de transmissão em fluxo necessários: uniforme, DASH e/ou HLS
@@ -125,7 +128,10 @@ Ao configurar a política de token restrito, tem de especificar a chave de verif
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Como proteger com a encriptação AES de serviços de multimédia v3](protect-with-aes128.md)
+Veja os artigos seguintes:
+
+  * [Proteger com encriptação AES](protect-with-aes128.md)
+  * [Proteger com o DRM](protect-with-drm.md)
 
 Informações adicionais podem ser encontradas no [design e implementação de referência de DRM](../previous/media-services-cenc-with-multidrm-access-control.md)
 

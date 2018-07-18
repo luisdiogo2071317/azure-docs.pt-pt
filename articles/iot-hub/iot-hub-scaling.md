@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1ad2dc9d826ec42dfca8547a73117a6c967a8ae7
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901046"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113653"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -59,9 +59,9 @@ A diferença em capacidades suportadas entre os escalões básicos e standard do
 | Obter módulo | Sim | Sim |
 | [Obter estatísticas de registo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Sim | Sim |
 | [Obter estatísticas de serviços](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Sim | Sim |
-| [Colocar o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sim | Sim |
+| [Criar ou atualizar o dispositivo](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Sim | Sim |
 | Colocar o módulo | Sim | Sim |
-| [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sim | Sim |
+| [Consultar o IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Sim | Sim |
 | Módulos de consulta | Sim | Sim |
 | [Criar URI de SAS de carregamento de ficheiros](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Sim | Sim |
 | [Receber a notificação de dispositivo ligado](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Sim | Sim |

@@ -1,116 +1,116 @@
 ---
-title: Monitorizar a integração tempo de execução no Azure Data Factory | Microsoft Docs
-description: Saiba como monitorizar tipos diferentes de tempo de execução de integração no Azure Data Factory.
+title: Monitorizar o runtime de integração no Azure Data Factory | Documentos da Microsoft
+description: Saiba como monitorizar tipos diferentes de runtime de integração no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045250"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113262"
 ---
-# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um tempo de execução de integração no Azure Data Factory  
-**Tempo de execução de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer as diversas capacidades de integração de dados entre ambientes de rede diferentes. Existem três tipos de tempos de execução de integração oferecidos pelo Data Factory:
+# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
+**Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
 
 - Runtime de integração do Azure
 - Runtime de integração autoalojado
 - Runtime de integração de SSIS do Azure
 
-Para obter o estado de uma instância do tempo de execução de integração (IR), execute o seguinte comando do PowerShell: 
+Para obter o estado de uma instância do integration runtime (IR), execute o seguinte comando do PowerShell: 
 
 ```powershell
 Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
-O cmdlet devolve informações diferentes para diferentes tipos de tempo de execução de integração. Este artigo explica as propriedades e Estados para cada tipo de tempo de execução de integração.  
+O cmdlet retorna informações diferentes para diferentes tipos de runtime de integração. Este artigo explica as propriedades e os Estados para cada tipo de runtime de integração.  
 
 ## <a name="azure-integration-runtime"></a>Runtime de integração do Azure
-O recurso de computação de um tempo de execução de integração do Azure é totalmente gerido aprovisionadas no Azure. A tabela seguinte fornece descrições para as propriedades devolvidas pelo **Get-AzureRmDataFactoryV2IntegrationRuntime** comando:
+O recurso de computação para um runtime de integração do Azure totalmente gerido elástica no Azure. A tabela seguinte fornece descrições das propriedades retornadas pela **Get-AzureRmDataFactoryV2IntegrationRuntime** comando:
 
 ### <a name="properties"></a>Propriedades
-A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet para um tempo de execução de integração do Azure:
+A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet para um runtime de integração do Azure:
 
 | Propriedade | Descrição |
 -------- | ------------- | 
-| Nome | Nome do tempo de execução de integração do Azure. |  
-| Estado | Estado do tempo de execução de integração do Azure. | 
-| Localização | Localização do tempo de execução de integração do Azure. Para obter detalhes sobre a localização de um tempo de execução de integração do Azure, consulte [introdução à integração runtime](concepts-integration-runtime.md). |
-| DataFactoryName | Nome da fábrica de dados que pertence o tempo de execução de integração do Azure. | 
-| ResourceGroupName | Nome do grupo de recursos que pertence a fábrica de dados.  |
-| Descrição | Descrição do tempo de execução de integração.  |
+| Nome | Nome do runtime de integração do Azure. |  
+| Estado | Estado do runtime de integração do Azure. | 
+| Localização | Localização do runtime de integração do Azure. Para obter detalhes sobre a localização de um runtime de integração do Azure, consulte [introdução ao runtime de integração](concepts-integration-runtime.md). |
+| DataFactoryName | Nome da fábrica de dados que pertence o runtime de integração do Azure. | 
+| ResourceGroupName | Nome do grupo de recursos que a fábrica de dados pertence.  |
+| Descrição | Descrição do integration runtime.  |
 
 ### <a name="status"></a>Estado
-A tabela seguinte fornece os possíveis Estados de um tempo de execução de integração do Azure:
+A tabela seguinte fornece os Estados possíveis de um runtime de integração do Azure:
 
 | Estado | Comentários/cenários | 
 | ------ | ------------------ |
-| Online | O tempo de execução de integração do Azure está online e pronto a ser utilizado. | 
-| Offline | O tempo de execução de integração do Azure está offline devido a um erro interno. |
+| Online | O runtime de integração do Azure está online e pronta para ser utilizada. | 
+| Offline | O runtime de integração do Azure está offline devido a um erro interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime de integração autoalojado
-Esta secção fornece descrições para as propriedades devolvidas pelo cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime. 
+Esta secção fornece descrições para propriedades devolvidas pelo cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
-> O estado e as propriedades devolvidas contêm informações sobre o tempo de execução automática alojada na integração geral e cada nó no tempo de execução.  
+> O estado e propriedades devolvidas contêm informações sobre o runtime de integração autoalojado geral e cada nó no tempo de execução.  
 
 ### <a name="properties"></a>Propriedades
 
-A tabela seguinte fornece descrições de monitorização de propriedades para **cada nó**:
+A tabela seguinte fornece descrições das propriedades de monitorização **cada nó**:
 
 | Propriedade | Descrição | 
 | -------- | ----------- | 
-| Nome | Nome do tempo de execução automática alojada integração e nós associados à mesma. O nó é uma máquina no local do Windows que tenha o tempo de execução automática alojada integração instalado no mesmo. |  
-| Estado | O estado do tempo de execução automática alojada na integração geral e cada nó. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte a secção seguinte. | 
-| Versão | A versão do tempo de execução automática alojada integração e cada nó. A versão do tempo de execução automática alojada integração é determinada com base na versão de maioria de nós no grupo. Se existirem nós com versões diferentes do programa de configuração de tempo de execução da integração personalizada alojada, apenas os nós com o mesmo número de versão como lógico autoalojado função de integração de tempo de execução corretamente. Outras pessoas estão no modo de limitado e tem de ser atualizados manualmente (apenas no caso de falha de atualização automática). | 
-| Memória disponível | Memória disponível num nó de tempo de execução automática alojada integração. Este valor é um instantâneo em tempo real near. | 
-| Utilização da CPU | Utilização da CPU de um nó de tempo de execução automática alojada integração. Este valor é um instantâneo em tempo real near. |
-| Funcionamento em rede (na/saída) | Utilização de um nó de tempo de execução automática alojada integração de rede. Este valor é um instantâneo em tempo real near. | 
-| Tarefas simultâneas (em execução / limitar) | Número de tarefas ou tarefas em execução em cada nó. Este valor é um instantâneo em tempo real near. Limite representa as máximas tarefas simultâneas para cada nó. Este valor é definido com base no tamanho da máquina. Pode aumentar o limite de aumentar verticalmente a execução da tarefa em simultâneo em cenários avançados, onde CPU/memória/rede é em utilizados, mas as atividades são exceder o tempo limite. Esta capacidade também está disponível com um tempo de execução de integração personalizada alojada de nó único. |
-| Função | Existem dois tipos de funções no tempo de execução do integração personalizada alojada com vários nós – emissor e de trabalho. Todos os nós são trabalhadores, o que significa que podem todos ser utilizados para executar tarefas. Não há apenas um nó de emissor, o que é utilizado para extrair as tarefas/tarefas dos serviços cloud e emiti-los a nós de trabalho diferentes. O nó de emissor também é um nó de trabalho. |
+| Nome | Nome do integration runtime autoalojado e nós associados a ele. Nó é uma máquina com Windows no local que tenha o runtime de integração autoalojado instalado no mesmo. |  
+| Estado | O estado de cada nó e o runtime de integração autoalojado geral. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte a secção seguinte. | 
+| Versão | A versão do integration runtime autoalojado e cada nó. A versão do runtime de integração autoalojado é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração do runtime de integração autoalojado, apenas os nós com o mesmo número de versão e a lógica autoalojado função do runtime de integração corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). | 
+| Memória disponível | Memória disponível num nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
+| Utilização da CPU | Utilização da CPU de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. |
+| Funcionamento em rede (entrada/saída) | Utilização da rede de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
+| Tarefas simultâneas (em execução / limite) | Número de tarefas ou tarefas em execução em cada nó. Este valor é um instantâneo de quase em tempo real. Limite significa o máximo de tarefas simultâneas para cada nó. Este valor é definido com base no tamanho de máquina. Pode aumentar o limite para aumentar verticalmente a execução da tarefa em simultâneo em cenários avançados, em que a CPU/memória/rede é subutilizados, mas atividades são exceder o tempo limite. Esta capacidade também está disponível com um runtime de integração autoalojado de nó único. |
+| Função | Existem dois tipos de funções num runtime de integração autoalojado de vários nós – dispatcher e de trabalho. Todos os nós são funções de trabalho, o que significa que eles podem todos ser usados para executar tarefas. Há apenas um nó de dispatcher, que é utilizado para extrair tarefas/tarefas dos serviços cloud e expedi-los para nós de trabalho diferentes. O nó de dispatcher é também um nó de trabalho. |
 
-Algumas definições das propriedades de fazem sentido mais quando existem dois ou mais nós (cenário de escalamento horizontal) em tempo de execução automática alojada integração. 
+Algumas definições das propriedades fazem mais sentido quando existirem dois ou mais nós (cenário de escalamento horizontal) no runtime de integração autoalojado. 
   
 ### <a name="status-per-node"></a>Estado (por nó)
-A tabela seguinte fornece os possíveis Estados de um nó de tempo de execução automática alojada integração:
+A tabela seguinte fornece os Estados possíveis de um nó do runtime de integração autoalojado:
 
 | Estado | Descrição |
 | ------ | ------------------ | 
-| Online | O serviço Data Factory está ligado o nó. |
-| Offline | Nó está offline. |
+| Online | Nó for ligado ao serviço Data Factory. |
+| Offline | O nó está offline. |
 | A atualizar | O nó está a ser atualizados automaticamente. |
-| Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de 8050 da porta HTTP, problema de conectividade do barramento de serviço ou um problema de sincronização de credenciais. |
-| Inativa | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria. |
+| Limitado | Devido a um problema de conectividade. Pode ser devido a problema de 8050 porta HTTP, problema de conectividade de barramento de serviço ou um problema de sincronização de credenciais. |
+| Inativa | O nó está numa configuração diferente da configuração dos outros nós da maioria. |
 
-Um nó pode ficar inativo quando não é possível ligar a outros nós.
+Um nó pode ficar inativo, quando ele não é possível ligar a outros nós.
 
-### <a name="status-overall-self-hosted-integration-runtime"></a>Estado (tempo de execução automática alojada na integração geral)
-A tabela seguinte fornece os possíveis Estados de um tempo de execução de integração personalizada alojada. Este estado depende de Estados de todos os nós que pertencem ao tempo de execução. 
+### <a name="status-overall-self-hosted-integration-runtime"></a>Estado (runtime de integração autoalojado geral)
+A tabela seguinte fornece os Estados possíveis de um runtime de integração autoalojado. Este estado depende de Estados de todos os nós que pertencem ao tempo de execução. 
 
 | Estado | Descrição |
 | ------ | ----------- | 
-| Tem de registo | Nenhum nó está registada para este tempo de execução automática alojada integração ainda. |
+| Tem de registo | Nenhum nó ainda está registada para este integration runtime autoalojado. |
 | Online | Todos os nós estão online. |
 | Offline | Nenhum nó está online. |
-| Limitado | Nem todos os nós no tempo de execução integração personalizada alojada estão em bom estado de funcionamento. Este estado é um aviso que algumas nós podem estar inativa. Este estado pode ser devido a um problema de sincronização de credenciais no nó emissor/trabalho. |
+| Limitado | Nem todos os nós neste Runtime de integração autoalojado estão em bom estado de funcionamento. Este estado é um aviso de que alguns nós podem estar inativa. Este estado pode ser devido a um problema de sincronização de credenciais no nó de distribuidor/trabalhador. |
 
-Utilize o **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet para obter o payload JSON que contém a secção detalhada autoalojado propriedades do tempo de execução de integração e os respetivos instantâneo valores durante a hora de execução do cmdlet.
+Utilize o **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** propriedades de runtime de integração de autoalojado de cmdlet para obter o payload JSON que contém o detalhadas e seus instantâneo valores durante o tempo de execução dos cmdlet.
 
 ```powershell
 Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
-Saída de exemplo (parte do princípio de que existem dois nós associados a este tempo de execução automática alojada integração):
+Saída de exemplo (parte do princípio de que existem dois nós associados a este runtime de integração autoalojado):
 
 ```json
 {
@@ -145,33 +145,33 @@ Saída de exemplo (parte do princípio de que existem dois nós associados a est
 
 
 ## <a name="azure-ssis-integration-runtime"></a>Runtime de integração de SSIS do Azure
-Tempo de execução de integração de SSIS do Azure é um cluster completamente gerido do Azure máquinas virtuais (ou nós) dedicado para executar os pacotes SSIS. Não é executado quaisquer outras atividades do Azure Data Factory. Assim que aprovisionado, pode consultar as respetivas propriedades e monitorizar os respetivos Estados de nó/geral-específicos.
+Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máquinas virtuais (ou nós) dedicadas à execução dos pacotes do SSIS. Não é executado qualquer outras atividades do Azure Data Factory. Depois de aprovisionada, pode consultar as respetivas propriedades e monitorizar seus Estados geral/específicas de nós.
 
 ### <a name="properties"></a>Propriedades
 
 | Propriedade/Estado | Descrição |
 | --------------- | ----------- |
-| CreateTime | A hora UTC quando o tempo de execução de integração do Azure SSIS foi criado. |
-| Nós | Os nós alocado/disponíveis do seu tempo de execução de integração de SSIS do Azure com os Estados de nó específicas (Iniciar/disponíveis/Reciclagem/indisponível) e erros acionáveis. |
-| OtherErrors | Erros específicos de nó não acionáveis no seu tempo de execução de integração de SSIS do Azure. |
-| LastOperation | O resultado da última operação de início/paragem no seu tempo de execução de integração de SSIS do Azure com erros acionáveis se esta falhou. |
-| Estado | O estado geral (inicial/iniciar/iniciar/parar/parado) do seu tempo de execução de integração de SSIS do Azure. |
-| Localização | A localização do seu tempo de execução de integração de SSIS do Azure. |
-| NodeSize | O tamanho de cada nó do seu tempo de execução de integração de SSIS do Azure. |
-| NodeCount | O número de nós no seu tempo de execução de integração de SSIS do Azure. |
-| MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no seu tempo de execução de integração de SSIS do Azure. |
-| CatalogServerEndpoint | O ponto final do seu servidor de instância de base de dados/gerida do SQL do Azure (pré-visualização) existente para o anfitrião SSISDB. |
-| CatalogAdminUserName | O nome de utilizador de administrador do seu servidor de instância de base de dados/gerida do SQL do Azure (pré-visualização) existente. Serviço de fábrica de dados utiliza estas informações para preparar e gerir SSISDB em seu nome. |
-| CatalogAdminPassword | A palavra-passe do administrador do seu servidor de instância de base de dados/gerida do SQL do Azure (pré-visualização) existente. |
-| CatalogPricingTier | O escalão de preço para SSISDB alojada pelo seu servidor de SQL Database do Azure existente.  Não é aplicável a Azure geridos instância de SQL (pré-visualização) aloja SSISDB. |
-| VNetId | O recurso ID de rede virtual para o tempo de execução de integração do Azure SSIS para associar. |
-| Subrede | O nome de sub-rede para o tempo de execução de integração do Azure-SSIS associar. |
-| ID | O ID de recurso do seu tempo de execução de integração de SSIS do Azure. |
-| Tipo | O tipo (gerida/Self-Hosted) do seu tempo de execução de integração de SSIS do Azure. |
-| ResourceGroupName | O nome do grupo de recursos do Azure, na qual a fábrica de dados e o tempo de execução de integração de SSIS do Azure foram criados. |
-| DataFactoryName | O nome da fábrica de dados do Azure. |
-| Nome | O nome do seu tempo de execução de integração de SSIS do Azure. |
-| Descrição | A descrição do seu tempo de execução de integração de SSIS do Azure. |
+| CreateTime | A hora UTC quando foi criado o runtime de integração Azure-SSIS. |
+| Nós | Os nós alocados/disponíveis do Azure-SSIS integration runtime com Estados de nó específico (Iniciar/disponíveis/Reciclagem/indisponível) e erros acionáveis. |
+| OtherErrors | Os erros acionáveis não nó específico no seu Azure-SSIS integration runtime. |
+| LastOperation | O resultado da última operação de iniciar/parar no seu Azure-SSIS integration runtime com erros acionáveis caso de falha. |
+| Estado | O estado geral (inicial/iniciar/iniciada/parar/interrompida) do Azure-SSIS integration runtime. |
+| Localização | A localização do Azure-SSIS integration runtime. |
+| NodeSize | O tamanho de cada nó do integration runtime Azure-SSIS. |
+| NodeCount | O número de nós no seu runtime de integração Azure-SSIS. |
+| MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no seu runtime de integração Azure-SSIS. |
+| CatalogServerEndpoint | O ponto final do seu servidor existente do Azure SQL da base de dados/instância gerida (pré-visualização) para alojar o SSISDB. |
+| CatalogAdminUserName | O nome de utilizador de administrador do seu servidor existente do Azure SQL da base de dados/instância gerida (pré-visualização). Serviço do Data Factory utiliza estas informações para preparar e gerir o SSISDB em seu nome. |
+| CatalogAdminPassword | A palavra-passe do administrador do seu servidor existente do Azure SQL da base de dados/instância gerida (pré-visualização). |
+| CatalogPricingTier | O escalão de preço de SSISDB alojado pelo seu servidor de base de dados do Azure SQL existente.  Não é aplicável à instância SQL do Azure gerido (pré-visualização) a alojar o SSISDB. |
+| VNetId | O rede virtual ID de recurso para o runtime de integração Azure-SSIS para associar. |
+| Subrede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
+| ID | O ID de recurso do Azure-SSIS integration runtime. |
+| Tipo | O tipo (gerida/Self-Hosted) do Azure-SSIS integration runtime. |
+| ResourceGroupName | O nome do seu grupo de recursos do Azure, em que foram criados sua fábrica de dados e o runtime de integração Azure-SSIS. |
+| DataFactoryName | O nome da sua fábrica de dados do Azure. |
+| Nome | O nome do Azure-SSIS integration runtime. |
+| Descrição | A descrição do Azure-SSIS integration runtime. |
 
   
 ### <a name="status-per-node"></a>Estado (por nó)
@@ -181,28 +181,46 @@ Tempo de execução de integração de SSIS do Azure é um cluster completamente
 | A iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
 | Reciclagem | Este nó está a ser reparado/reiniciar. |
-| Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que lhe foi possível resolver. |
+| Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
 
-### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (global do Azure-SSIS integração tempo de execução)
+### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (runtime de integração Azure-SSIS geral)
 
 | Estado geral | Descrição | 
 | -------------- | ----------- | 
-| Inicial | Os nós do seu tempo de execução de integração do Azure SSIS não foram atribuídos/preparado. | 
-| A iniciar | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser atribuída/preparado e faturação foi iniciado. |
-| Iniciado | Os nós do seu tempo de execução de integração do Azure SSIS foram alocados/preparado e estas estão prontas para que possa implementar/executar pacotes SSIS. |
-| A parar  | Os nós do seu tempo de execução de integração do Azure SSIS estão a ser libertados. |
-| Parada | Os nós do seu tempo de execução de integração do Azure SSIS foram lançados e faturação foi parado. |
+| Inicial | Os nós do Azure-SSIS integration runtime não foram alocados/preparado. | 
+| A iniciar | Os nós do Azure-SSIS integration runtime estão a ser atribuída/preparado e faturação foi iniciado. |
+| Iniciado | Os nós do Azure-SSIS integration runtime foram alocados/preparado e eles estão prontos para que possa implementar/executar pacotes do SSIS. |
+| A parar  | Os nós do Azure-SSIS integration runtime estão a ser lançados. |
+| Parada | Os nós do Azure-SSIS integration runtime foram lançados e faturação parou. |
 
-Consulte os artigos seguintes para saber mais sobre o tempo de execução do Azure-SSIS integração:
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorizar o runtime de integração de SSIS do Azure no portal do Azure
 
-- [Tempo de execução do Azure-SSIS integração](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações concetuais sobre tempos de execução de integração em geral, incluindo o IR. SSIS do Azure 
+As capturas de ecrã seguintes mostram como selecionar o IR Azure-SSIS para monitorizar e fornecer um exemplo das informações que são apresentados.
+
+![Selecione o runtime de integração de SSIS do Azure para monitorizar](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Ver informações sobre o runtime de integração Azure-SSIS](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Monitorizar o runtime de integração Azure-SSIS com o PowerShell
+
+Utilizar um script semelhante ao seguinte exemplo para verificar o estado do ir Azure-SSIS.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Obter mais informações sobre o runtime de integração Azure-SSIS
+
+Consulte os seguintes artigos para saber mais sobre o runtime de integração Azure-SSIS:
+
+- [Runtime de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre runtimes de integração em geral, incluindo o ir Azure-SSIS. 
 - [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
 - [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Como criar um runtime de integração do Azure-SSIS). Este artigo é uma continuação do tutorial e mostra instruções sobre como utilizar a Instância Gerida do SQL do Azure (Pré-visualização) e associar o IR a uma rede virtual. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
-- [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também fornece passos para utilizar o portal do Azure para configurar a rede virtual, de modo a que a resposta a incidentes Azure SSIS juntar-se a rede virtual. 
+- [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também descreve os passos para utilizar o portal do Azure para configurar a rede virtual para que o IR Azure-SSIS pode aderir a rede virtual. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte os artigos seguintes para monitorizar os pipelines de formas diferentes: 
+Veja os artigos seguintes para monitorizar pipelines de formas diferentes: 
 
 - [Início rápido: criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md).
-- [Utilize o Monitor do Azure para monitorizar os pipelines de fábrica de dados](monitor-using-azure-monitor.md)
+- [Utilizar o Azure Monitor para monitorizar os pipelines do Data Factory](monitor-using-azure-monitor.md)

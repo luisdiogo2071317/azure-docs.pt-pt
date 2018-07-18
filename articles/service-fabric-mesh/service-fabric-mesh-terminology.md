@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: db7a89ffa4ff1a2eb271869c93b7beb088fd13b3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 672e27bf53679c52dab8d42a52378aa90eba33cb
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076315"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114315"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia de malha do Service Fabric
 
@@ -57,14 +57,14 @@ Service Fabric é uma tecnologia de plataforma de código aberto baseados em vá
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matriz de suporte de ambiente, o framework e o modelo de implementação
 Ambientes diferentes tem vários níveis de suporte de estruturas e modelos de implementação. A tabela seguinte descreve a estrutura de suporte e combinações de modelo de implementação.
 
-|Modelo de Frameworks\Deployment |Modelo de recursos |Modelo de manifesto | Compor|
+|Modelo de Frameworks\Deployment |Modelo de recursos |Modelo nativo | Compor|
 |---|---|---|---|
 |Reliable Actors e de serviços fiáveis |Não suportado |Suportadas |Não suportado |
 |Qualquer estrutura ou linguagem |Suportado em contentores |Suportado como processos e em contentores |Suportado em contentores |
 
 A tabela seguinte descreve o ambiente com suporte e combinações de modelo de implementação.
 
-|Modelo de Environment\Deployment |Modelo de recursos |Modelo de manifesto |Compor |
+|Modelo de Environment\Deployment |Modelo de recursos |Modelo nativo |Compor |
 |---|---|---|---|
 |Malha de recursos de infraestrutura do serviço do Azure |Suportadas |Não suportado|Não suportado |
 |Todos os outros ambientes |Suportado (pré-requisitos para funcionar num ambiente de ter alguns recursos) |Suportadas |Suporte limitado |

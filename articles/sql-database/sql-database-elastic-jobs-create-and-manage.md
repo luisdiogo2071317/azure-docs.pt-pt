@@ -1,45 +1,48 @@
 ---
-title: Gerir grupos de bases de dados SQL do Azure | Microsoft Docs
-description: Percorrer a criação e gestão de uma tarefa elástica.
+title: Gerir grupos de bases de dados SQL do Azure | Documentos da Microsoft
+description: Instruções sobre a criação e gestão de uma tarefa elástica.
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4a25543fd9cbcd0928f06419c6ddb9b5ed2e2488
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: b367ddafc659db4dc4b8d658ac9dc007c4671b8c
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645288"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093140"
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Criar e gerir expandido terminar as bases de dados de SQL do Azure utilizando as tarefas elásticas (pré-visualização)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Criar e gerir aumentados horizontalmente as bases de dados de SQL do Azure com tarefas elásticas (pré-visualização)
 
 
-**As tarefas de base de dados elásticas** simplificar a gestão de grupos de bases de dados ao executar operações administrativas como alterações de esquema, gestão de credenciais, as atualizações de dados de referência, recolha de dados de desempenho ou telemetria de inquilino (cliente) coleção. As tarefas de base de dados elásticas está atualmente disponível através do portal do Azure e os cmdlets do PowerShell. No entanto, a Azure analisa portal reduzido funcionalidade limitada para execução em todas as bases de dados num [conjunto elástico (pré-visualização)](sql-database-elastic-pool.md). Para aceder às funcionalidades adicionais e a execução de scripts entre um grupo de bases de dados, incluindo uma coleção personalizado ou um ID de partição horizontal defina (criado utilizando [biblioteca de clientes de base de dados elástica](sql-database-elastic-scale-introduction.md)), consulte [criar e gerir as tarefas através do PowerShell](sql-database-elastic-jobs-powershell.md). Para obter mais informações sobre tarefas, consulte [descrição geral de tarefas de bases de dados elásticas](sql-database-elastic-jobs-overview.md). 
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+**Tarefas de base de dados elásticas** simplificar a gestão de grupos de bases de dados ao executar operações administrativas, como as alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou telemetria do inquilino (cliente) coleção. Tarefas elásticas da base de dados está atualmente disponível através do portal do Azure e cmdlets do PowerShell. No entanto, as superfícies de portais do Azure reduzido funcionalidade limitada para execução em todas as bases de dados num [conjunto elástico](sql-database-elastic-pool.md). Para acessar recursos adicionais e execução de scripts num grupo de bases de dados incluindo um conjunto personalizado ou de uma partição horizontal defina (criado usando [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-scale-introduction.md)), consulte [criando e gerenciando as tarefas com o PowerShell](sql-database-elastic-jobs-powershell.md). Para obter mais informações sobre as tarefas, consulte [descrição geral das tarefas de bases de dados elásticas](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma subscrição do Azure. Para uma versão de avaliação gratuita, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Um conjunto elástico. Consulte [sobre conjuntos elásticos](sql-database-elastic-pool.md).
-* Instalação de componentes do serviço de tarefa de bases de dados elásticas. Consulte [instalar o serviço de tarefa da base de dados elástica](sql-database-elastic-jobs-service-installation.md).
+* Uma subscrição do Azure. Para uma avaliação gratuita, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Um conjunto elástico. Ver [sobre os conjuntos elásticos](sql-database-elastic-pool.md).
+* Instalação de componentes do serviço de tarefa de bases de dados elásticas. Ver [instalar o serviço de tarefa de bases de dados elásticas](sql-database-elastic-jobs-service-installation.md).
 
 ## <a name="creating-jobs"></a>Criar tarefas
-1. Utilizar o [portal do Azure](https://portal.azure.com), de um conjunto de trabalho de bases de dados elásticas existente, clique em **criar tarefa**.
+1. Utilizar o [portal do Azure](https://portal.azure.com), a partir de um conjunto de trabalho de bases de dados elásticas existente, clique em **criar tarefa**.
 2. Escreva o nome de utilizador e palavra-passe do administrador da base de dados (criado durante a instalação de tarefas) para a base de dados de controlo de tarefas (armazenamento de metadados para as tarefas).
    
-    ![A tarefa de nome, escreva ou cole no código e clique em executar][1]
-3. No **criar tarefa** painel, escreva um nome para a tarefa.
-4. Escreva o nome de utilizador e palavra-passe para ligar às bases de dados de destino com permissões suficientes para a execução do script tenha êxito.
-5. Colar ou escreva o script T-SQL.
-6. Clique em **guardar** e, em seguida, clique em **executar**.
+    ![Nome da tarefa, escreva ou cole no código e clique em executar][1]
+3. Na **criar tarefa** painel, escreva um nome para a tarefa.
+4. Escreva o nome de utilizador e palavra-passe para ligar a bases de dados de destino com permissões suficientes para a execução do script com êxito.
+5. Cole ou introduza o script T-SQL.
+6. Clique em **salvar** e, em seguida, clique em **executar**.
    
     ![Criar tarefas e executar][5]
 
-## <a name="run-idempotent-jobs"></a>Executar tarefas de idempotent
-Quando executar um script face a um conjunto de bases de dados, tem de ser se de que o script idempotent. Ou seja, o script tem de ser capaz de executar várias vezes, mesmo que não conseguiu antes de um estado incompleto. Por exemplo, um script falha, a tarefa será automaticamente repetida até ter êxito (dentro dos limites, como a repetir lógica eventualmente deixarão da repetir a operação). A forma de fazê-lo é utilizar a uma cláusula "Se existe" e eliminar qualquer instância encontrada antes de criar um novo objeto. Um exemplo é mostrado aqui:
+## <a name="run-idempotent-jobs"></a>Executar tarefas de idempotentes
+Quando executa um script com um conjunto de bases de dados, tem de ser-se de que o script é idempotent. Ou seja, o script tem de ser capaz de executar várias vezes, mesmo se tiver falhado antes num estado incompleto. Por exemplo, um script falha, a tarefa será automaticamente repetida até ter êxito (dentro dos limites, como a repetição lógica, eventualmente, deixará da repetir). A maneira de fazer isso é usar a uma cláusula "IF existe" e eliminar qualquer instância encontrada antes de criar um novo objeto. Um exemplo é mostrado aqui:
 
     IF EXISTS (SELECT name FROM sys.indexes
             WHERE name = N'IX_ProductVendor_VendorID')
@@ -77,20 +80,20 @@ Este script, em seguida, atualiza a tabela criada anteriormente.
     GO
 
 
-## <a name="checking-job-status"></a>A verificar o estado da tarefa
-Depois de uma tarefa foi iniciada, poder verificar o progresso da mesma.
+## <a name="checking-job-status"></a>A verificar o estado de tarefa
+Depois de uma tarefa foi iniciada, pode verificar seu andamento.
 
-1. Na página do conjunto elástico, clique em **gerir tarefas**.
+1. Na página conjunto elástico, clique em **gerir tarefas**.
    
-    ![Clique em "Gerir tarefas"][2]
-2. Clique no nome (a) de uma tarefa. O **estado** pode ser "Concluída" ou "Falha". Detalhes da tarefa aparecem (b) com a data e hora de criação e em execução. A lista (c) abaixo o que mostra o progresso do script em relação a cada base de dados no agrupamento, fornecer os detalhes de data e hora.
+    ![Clique em "Gerir trabalhos"][2]
+2. Clique no nome (a) de uma tarefa. O **estado** pode ser "Concluído" ou "Falha". Detalhes da tarefa aparecem (b) com a data e hora da criação e execução. A lista (c) abaixo o que mostra o progresso do script em cada banco de dados no agrupamento, fornecendo os detalhes de data e hora.
    
     ![A verificação de uma tarefa concluída][3]
 
-## <a name="checking-failed-jobs"></a>A verificação de tarefas com falha
-Se uma tarefa falhar, pode encontrar um registo sua execução. Clique no nome da tarefa falhada para ver os respetivos detalhes.
+## <a name="checking-failed-jobs"></a>A verificação de tarefas falhadas
+Se uma tarefa falhar, pode encontrar um registo de sua execução. Clique no nome da tarefa falhada para ver os respetivos detalhes.
 
-![Uma tarefa de verificação][4]
+![Consulte uma tarefa falhada][4]
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

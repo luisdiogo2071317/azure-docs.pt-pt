@@ -1,7 +1,7 @@
 ---
 title: Implementar a aplicação de um registo privado para o modo de malha do Azure Service Fabric | Documentos da Microsoft
 description: Saiba como implementar uma aplicação que utiliza o registo de contentor privado para a malha de recursos de infraestrutura de serviço com a CLI do Azure.
-services: service-fabric
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: jeconnoc
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/16/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0a70cd1bd8cd7df099250ca59b3f00b1cab29e5c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: af92d3c6ea881d00ec687a5560bf4db35aa431c5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076300"
+ms.locfileid: "39089491"
 ---
 # <a name="deploy-a-service-fabric-mesh-app-from-a-private-container-image-registry"></a>Implementar uma aplicação Mesh do Service Fabric a partir de um registo de imagem de contentor privado
 
@@ -39,7 +39,7 @@ Instale o Docker para suportar as aplicações do Service Fabric em contentores 
 
 Transfira e instale a versão mais recente do [Docker Community Edition para Windows][download-docker]. 
 
-Durante a instalação, selecione **contentores do Windows de utilização, em vez de contentores do Linux** quando lhe for pedido. Precisará, em seguida, termine sessão e inicie sessão novamente. Depois de voltar a iniciar sessão, se não tiver ativado anteriormente Hyper-V, pode ser solicitado para ativar o Hyper-V. Tem de ativar o Hyper-V e, em seguida, reinicie o computador.
+Durante a instalação, selecione **contentores do Windows de utilização, em vez de contentores do Linux** quando lhe for pedido. Precisará, em seguida, termine sessão e inicie sessão novamente. Depois de voltar a iniciar sessão, se não tiver ativado anteriormente Hyper-V, pode ser solicitado para ativar o Hyper-V. Ativar o Hyper-V e, em seguida, reinicie o computador.
 
 Depois de reiniciar o computador, Docker irá solicitar-lhe para ativar a **contentores** de recursos, ativá-la e reiniciar o computador.
 
@@ -116,8 +116,7 @@ Result
 --------
 1.1-alpine
 ```
-
-Isto mostra que `azure-mesh-helloworld:1.1-alpine` imagem está presente no registo de contentor privado.
+Saída do anterior confirma a presença de `azure-mesh-helloworld:1.1-alpine` no registo de contentor privado.
 
 ## <a name="retrieve-credentials-for-the-registry"></a>Obter as credenciais para o registo
 
@@ -135,7 +134,8 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Os valores fornecidos, preceda comandos é referenciada como `<acrLoginServer>`, `<acrUserName>`, e `<acrPassword>` no comando seguinte.
+Os valores fornecidos, preceda os comandos são referenciados como `<acrLoginServer>`, `<acrUserName>`, e `<acrPassword>` no comando seguinte.
+
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -144,7 +144,7 @@ Crie a aplicação e os recursos relacionados com o seguinte comando e forneça 
 O `registry-password` parâmetro no modelo é um `securestring`. Não será apresentado o estado de implementação e `az mesh service show` comandos. Certifique-se de que ele está corretamente especificado no comando seguinte.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
 ```
 
 Dentro de alguns minutos, o comando deverá devolver com:
@@ -152,9 +152,9 @@ Dentro de alguns minutos, o comando deverá devolver com:
 `helloWorldPrivateRegistryApp has been deployed successfully on helloWorldPrivateRegistryNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Abra a aplicação
-Assim que a aplicação é implementada com êxito, obtenha o endereço IP público para o ponto final de serviço e abra-o num browser. Ele deve exibir uma página da web com o logótipo de malha do Service Fabric.
+Assim que a aplicação é implementada com êxito, obtenha o endereço IP público para o ponto final de serviço e abra-o num browser. Apresenta uma página da web com o logótipo de malha do Service Fabric.
 
-O comando de implementação devolve o endereço IP público do ponto de extremidade de serviço. Também pode consultar o recurso de rede para encontrar o endereço IP público do ponto de extremidade de serviço.
+O comando de implementação devolve o endereço IP público do ponto de extremidade de serviço. Opcionalmente, também pode consultar o recurso de rede para encontrar o endereço IP público do ponto de extremidade de serviço. 
  
 O nome de recurso de rede para esta aplicação está `helloWorldPrivateRegistryNetwork`, obter informações sobre ele usando o seguinte comando. 
 

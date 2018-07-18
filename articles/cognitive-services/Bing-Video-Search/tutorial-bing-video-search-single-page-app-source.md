@@ -1,6 +1,6 @@
 ---
-title: Aplicação de Web de página única de pesquisa de vídeo do Bing (código de origem) | Microsoft Docs
-description: Código de origem para o tutorial que mostra como utilizar a API de pesquisa do Bing vídeo numa aplicação Web de página única.
+title: Aplicação de Web de página única de pesquisa de vídeos do Bing (código de origem) | Documentos da Microsoft
+description: Código-fonte para o tutorial que mostra como utilizar a API de pesquisa de vídeos do Bing num aplicativo da Web de página única.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -9,18 +9,18 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-gedod
-ms.openlocfilehash: c0842e53cbc297c1980a9d08733d838def073835
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351674"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112465"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicação de pesquisa de vídeo de página única
+# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicação de página única de pesquisa de vídeos
 
-Este é o código de origem completo abordado o [tutorial da aplicação de página única](tutorial-bing-video-search-single-page-app.md) para pesquisa de vídeo do Bing. Para executar a aplicação, copie o código de origem para o bloco de notas ou noutro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
+Este é o código-fonte completo discutido a [tutorial de aplicação de página única](tutorial-bing-video-search-single-page-app.md) para pesquisa de vídeos do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro navegador popular.
 
-````html
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0014)about:internet -->
 <!-- the above Mark of the Web lets IE run this page in the Internet security zone,
@@ -615,3 +615,4 @@ function doPrevSearchPage() {
 
 </body>
 </html>
+```

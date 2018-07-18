@@ -1,6 +1,6 @@
 ---
-title: Ponto final da chamada utilizando Python - pesquisa de personalizados do Bing - Microsoft os serviços cognitivos
-description: Este guia de introdução mostra como pedir os resultados da pesquisa da sua instância de pesquisa personalizada com o Python para chamar o ponto final de pesquisa personalizados do Bing.
+title: Chamar o ponto final ao utilizar o Python - pesquisa personalizada do Bing - serviços cognitivos da Microsoft
+description: Este início rápido mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o Python para chamar o ponto final de pesquisa personalizada do Bing.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -10,38 +10,38 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35355735"
 ---
-# <a name="call-bing-custom-search-endpoint-python"></a>Chamada de pesquisa do Bing personalizada ponto final (Python)
+# <a name="call-bing-custom-search-endpoint-python"></a>Chamar o ponto final de pesquisa personalizada do Bing (Python)
 
-Este guia de introdução mostra como pedir os resultados da pesquisa da sua instância de pesquisa personalizada com o Python para chamar o ponto final de pesquisa personalizados do Bing. 
+Este início rápido mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o Python para chamar o ponto final de pesquisa personalizada do Bing. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido, necessita de:
 
-- Uma instância de pesquisa personalizada. Consulte [criar a primeira instância de pesquisa do Bing personalizada](quick-start.md).
+- Uma instância de pesquisa personalizada. Ver [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).
 
 -  [Python](https://www.python.org/) instalado.
 
-- A [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure. 
+- R [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode usar uma chave de subscrição paga do dashboard do Azure. 
 
 ## <a name="run-the-code"></a>Executar o código
 
-Para chamar o ponto final de pesquisa do Bing personalizada, siga estes passos:
+Para chamar o ponto de extremidade de pesquisa personalizada do Bing, siga estes passos:
 
 1. Crie uma pasta para o seu código.
-2. Uma linha de comandos de administrador ou o terminal, navegue para a pasta que acabou de criar.
+2. A partir de uma linha de comandos de administrador ou um terminal, navegue para a pasta que acabou de criar.
 3. Instalar o **pedidos** módulo python:
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
 7. Criar o ficheiro BingCustomSearch.py e copie o seguinte código ao mesmo.
-8. Substitua **sua-SUBSCRIPTION-KEY** e **sua-personalizada-CONFIG-ID** com o seu ID de chave e a configuração (ver passo 1).
+8. Substitua **seu-SUBSCRIPTION-KEY** e **seu-personalizada-CONFIG-ID** com o seu ID de chave e a configuração (consulte o passo 1).
 
     ``` Python
     import json
@@ -55,12 +55,12 @@ Para chamar o ponto final de pesquisa do Bing personalizada, siga estes passos:
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
     ```
-9. Execute o código utilizando o seguinte comando.
+9. Execute o código com o seguinte comando.
     ```
     python BingCustomSearch.py
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
-- [Utilizar marcadores decoration para realçar texto](./hit-highlighting.md)
-- [Páginas de página Web](./page-webpages.md)
+- [Configurar a sua experiência de interface do Usuário alojada](./hosted-ui.md)
+- [Utilizar marcadores decoration para realçar o texto](./hit-highlighting.md)
+- [Páginas Web de página](./page-webpages.md)

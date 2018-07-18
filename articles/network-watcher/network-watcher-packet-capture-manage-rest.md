@@ -1,6 +1,6 @@
 ---
-title: Gerir capturas de pacotes com observador de rede do Azure - REST API | Microsoft Docs
-description: Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede utilizando a API REST do Azure
+title: Gerir capturas de pacotes com o observador de rede do Azure - REST API | Documentos da Microsoft
+description: Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede com a API de REST do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,55 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ba0cd9c8aaa797e850827484c76103d1b829d6b4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a429bfae001cad044da9ef729c021c8128cbfefe
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23863385"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090015"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerir capturas de pacotes com observador de rede do Azure utilizando a API REST do Azure
+# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerir capturas de pacotes com o observador de rede do Azure com a API de REST do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
-> - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
+> - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
+> - [API de REST do Azure](network-watcher-packet-capture-manage-rest.md)
 
-Captura de pacotes do observador de rede permite-lhe criar sessões de captura para controlar o tráfego de e para uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que apenas o tráfego que pretende capturar. Captura de pacotes ajuda-o para diagnosticar anomalias de rede de forma reativa e de forma pró-ativa. Outras utilizações incluem a recolha de estatísticas de rede, obtenha informações sobre intrusions de rede, para depurar as comunicações cliente-servidor e muito mais. Sendo possível para acionar remotamente capturas de pacotes, esta capacidade facilita o fardo de executar uma captura de pacotes manualmente e na máquina pretendida, que poupa tempo importante.
+Captura de pacotes do observador de rede permite-lhe criar sessões de captura para controlar o tráfego de e para uma máquina virtual. Filtros são fornecidos para a sessão de captura garantir que capturar apenas o tráfego que pretende. Captura de pacotes ajuda a diagnosticar anomalias de rede, de forma reativa e de forma pró-ativa. Outras utilizações incluem a recolha de estatísticas de rede, obter informações sobre a invasões de rede, para depurar as comunicações cliente-servidor e muito mais. Por poder para acionar remotamente capturas de pacotes, esta capacidade alivie o trabalho de executar uma captura de pacotes manualmente e a máquina desejado, que economiza um valioso tempo.
 
-Este artigo orienta-as tarefas de gestão diferentes que estão atualmente disponíveis para captura de pacotes.
+Este artigo orienta-o por tarefas de gestão diferentes que estão atualmente disponíveis para captura de pacotes.
 
 - [**Obtenha uma captura de pacotes**](#get-a-packet-capture)
-- [**Lista todas as capturas de pacotes**](#list-all-packet-captures)
+- [**Listar todas as capturas de pacotes**](#list-all-packet-captures)
 - [**Consultar o estado de uma captura de pacotes**](#query-packet-capture-status)
-- [**Inicie uma captura de pacotes**](#start-packet-capture)
+- [**Iniciar uma captura de pacotes**](#start-packet-capture)
 - [**Parar uma captura de pacotes**](#stop-packet-capture)
 - [**Eliminar uma captura de pacotes**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Neste cenário, tem de chamar a API de Rest do observador de rede para executar o fluxo Certifique-se de IP. ARMclient é utilizada para chamar a API de REST utilizando o PowerShell. ARMClient for encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+Neste cenário, chama a API de Rest do observador de rede para executar o fluxo Certifique-se de IP. ARMclient é utilizada para chamar a API de REST com o PowerShell. ARMClient encontra-se no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
-> Captura de pacotes requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> Captura de pacotes requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa VM do Windows, visite [extensão de máquina virtual de agente do observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para visite de VM do Linux [extensão da máquina virtual de agente do observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="log-in-with-armclient"></a>Iniciar sessão com ARMClient
+## <a name="log-in-with-armclient"></a>Inicie sessão com ARMClient
 
 ```PowerShell
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a>Obter uma máquina virtual
+## <a name="retrieve-a-virtual-machine"></a>Recuperar uma máquina virtual
 
-Execute o seguinte script para devolver uma máquina virtual. Estas informações são necessárias para iniciar uma captura de pacotes.
+Execute o seguinte script para retornar uma máquina virtual. Estas informações são necessárias para iniciar uma captura de pacotes.
 
-O seguinte código tem de variáveis:
+O código a seguir precisa variáveis:
 
-- **subscriptionId** -também é possível obter o id de subscrição com o **Get-AzureRMSubscription** cmdlet.
-- **resourceGroupName** -o nome de um grupo de recursos que contém máquinas virtuais.
+- **subscriptionId** -o id de subscrição também pode ser obtido com o **Get-AzureRMSubscription** cmdlet.
+- **resourceGroupName** -o nome do grupo de recursos que contém as máquinas virtuais.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -71,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-O resultado seguinte, o id da máquina virtual é utilizado no exemplo seguinte.
+A partir da saída seguinte, o id da máquina virtual é utilizado no exemplo seguinte.
 
 ```json
 ...
@@ -89,7 +88,7 @@ O resultado seguinte, o id da máquina virtual é utilizado no exemplo seguinte.
 
 ## <a name="get-a-packet-capture"></a>Obtenha uma captura de pacotes
 
-O exemplo seguinte obtém o estado de uma captura de pacote único
+O exemplo seguinte obtém o estado de uma captura de pacotes único
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -98,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-As respostas seguintes são exemplos de uma resposta típico devolvido ao consultar o estado de uma captura de pacotes.
+As respostas seguintes são exemplos de uma resposta típica devolvido ao consultar o estado de uma captura de pacotes.
 
 ```json
 {
@@ -121,7 +120,7 @@ As respostas seguintes são exemplos de uma resposta típico devolvido ao consul
 }
 ```
 
-## <a name="list-all-packet-captures"></a>Lista todas as capturas de pacotes
+## <a name="list-all-packet-captures"></a>Listar todas as capturas de pacotes
 
 O exemplo seguinte obtém todas as sessões de captura de pacotes numa região.
 
@@ -132,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-A seguinte resposta é um exemplo de uma resposta típico devolvido ao obter todos os pacotes de captura
+A seguinte resposta é um exemplo de uma resposta típica devolvido ao obter todos os pacotes de captura
 
 ```json
 {
@@ -207,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-A seguinte resposta é um exemplo de uma resposta típico devolvido ao consultar o estado de uma captura de pacotes.
+A seguinte resposta é um exemplo de uma resposta típica devolvido ao consultar o estado de uma captura de pacotes.
 
 ```json
 {
@@ -219,7 +218,7 @@ A seguinte resposta é um exemplo de uma resposta típico devolvido ao consultar
 }
 ```
 
-## <a name="start-packet-capture"></a>Captura de pacotes de início
+## <a name="start-packet-capture"></a>Iniciar captura de pacotes
 
 O exemplo seguinte cria uma captura de pacotes numa máquina virtual.  O exemplo é parametrizado para permitir flexibilidade na criação de um exemplo.
 
@@ -271,9 +270,9 @@ $requestBody = @"
 armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}?api-version=2016-07-01" $requestbody
 ```
 
-## <a name="stop-packet-capture"></a>Pare a captura de pacotes
+## <a name="stop-packet-capture"></a>Parar a captura de pacotes
 
-O exemplo seguinte deixa uma captura de pacotes numa máquina virtual.  O exemplo é parametrizado para permitir flexibilidade na criação de um exemplo.
+O seguinte exemplo para uma captura de pacotes numa máquina virtual.  O exemplo é parametrizado para permitir flexibilidade na criação de um exemplo.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -283,7 +282,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/stop?api-version=2016-12-01"
 ```
 
-## <a name="delete-packet-capture"></a>Eliminar a captura de pacotes
+## <a name="delete-packet-capture"></a>Eliminar captura de pacotes
 
 O exemplo seguinte elimina uma captura de pacotes numa máquina virtual.  O exemplo é parametrizado para permitir flexibilidade na criação de um exemplo.
 
@@ -301,9 +300,9 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter instruções sobre como transferir ficheiros entre contas de armazenamento do azure, consulte [introdução ao Blob storage do Azure através do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser utilizada é Explorador de armazenamento. Obter mais informações sobre o Explorador de armazenamento podem ser encontradas aqui na seguinte hiperligação: [Explorador de armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre o download de arquivos de contas de armazenamento do azure, consulte [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser utilizada é o Explorador de armazenamento. Obter mais informações sobre o Explorador de armazenamento podem ser encontradas aqui na seguinte hiperligação: [Explorador de armazenamento](http://storageexplorer.com/)
 
-Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba como automatizar as capturas de pacotes com alertas de Máquina Virtual, visualizando [criar uma captura de pacotes acionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 
 
 

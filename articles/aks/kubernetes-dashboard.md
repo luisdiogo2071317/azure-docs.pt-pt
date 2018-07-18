@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e197a251df3f34e5416bafacfd54a3fc7f51d503
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928221"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091143"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Aceder ao dashboard do Kubernetes com o Azure Kubernetes Service (AKS)
 
@@ -38,41 +38,18 @@ Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kuberne
 
 ### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados em RBAC
 
-Se o seu cluster do AKS utiliza o RBAC, um *ClusterRoleBinding* tem de ser criado antes de poder aceder o dashboard. Sem um enlace de função, a CLI do Azure devolve um erro semelhante ao seguinte exemplo:
+Se o seu cluster do AKS utiliza o RBAC, um *ClusterRoleBinding* tem de ser criado antes de poder aceder corretamente o dashboard. Para criar uma ligação, utilize o [kubectl criar clusterrolebinding] [ kubectl-create-clusterrolebinding] comando conforme mostrado no exemplo a seguir. 
 
-```
-error: unable to forward port because pod is not running. Current status=Pending
-```
+> [!WARNING]
+> Este enlace de exemplo não se aplica a quaisquer componentes de autenticação adicional e pode levar a utilização insegura. O dashboard do Kubernetes é aberto para qualquer pessoa com acesso ao URL. Não expõem o dashboard do Kubernetes publicamente.
+>
+> Pode utilizar mecanismos, como os tokens de portador ou uma nome de utilizador/palavra-passe para controlar quem pode acessar o dashboard e o que permissões que têm. Isso permite uma utilização mais segura do dashboard. Para obter mais informações sobre como utilizar os métodos de autenticação diferentes, consulte wiki de dashboard do Kubernetes no [controlos de acesso][dashboard-authentication].
 
-Para criar uma ligação, crie um ficheiro denominado *dashboard admin.yaml* e cole o seguinte exemplo. Este enlace de exemplo não é aplicável a quaisquer componentes de autenticação adicional. Pode utilizar mecanismos, como os tokens de portador ou uma nome de utilizador/palavra-passe para controlar quem pode acessar o dashboard e o que permissões que têm. Para obter mais informações sobre métodos de autenticação, consulte o wiki de dashboard do Kubernetes no [controlos de acesso][dashboard-authentication].
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: kubernetes-dashboard
-  labels:
-    k8s-app: kubernetes-dashboard
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kubernetes-dashboard
-  namespace: kube-system
-```
-
-Aplicar o vínculo com o [kubectl aplicam-se] [ kubectl-apply] e especifique seus *dashboard admin.yaml*, conforme mostrado no exemplo a seguir:
-
-```
-$ kubectl apply -f dashboard-admin.yaml
-
-clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
 Agora pode aceder ao dashboard do Kubernetes no seu cluster habilitados no RBAC. Para iniciar o dashboard do Kubernetes, utilize o [procurar az aks] [ az-aks-browse] comando conforme detalhado no passo anterior.
-
 
 ## <a name="run-an-application"></a>Executar uma aplicação
 
@@ -120,6 +97,7 @@ Para obter mais informações sobre o dashboard do Kubernetes, consulte a docume
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->

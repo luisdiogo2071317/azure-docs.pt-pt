@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 44d68d69a7034e80846fb44f3ae26c0d73c61f28
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc04a9334b63656719a7633a8dd7154ed6cd6993
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648314"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092584"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorizar o desempenho de base de dados na Base de Dados SQL do Azure
-A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. Monitorização ajuda-o a determinar se a base de dados tem excesso de capacidade ou está a ter problemas porque os recursos são ser excessivamente utilizados saída e, em seguida, decidir se está na altura de ajustar o nível de desempenho e serviço camadas da base de dados no [baseado em DTU modelo de compra](sql-database-service-tiers-dtu.md) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md). Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
+A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. A monitorização ajuda-o a determinar se a sua base de dados tem excesso de capacidade ou está a ter problemas porque os recursos são maximizados e, em seguida, decidir se está na altura de ajustar o nível de desempenho e camadas de sua base de dados de serviço a [baseado em DTU modelo de compra](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
 
 > [!TIP]
-> Utilize [Azure SQL inteligente Insights](sql-database-intelligent-insights.md) para automático de monitorização do desempenho da sua base de dados. Quando é detetado um problema de desempenho, é gerado um registo de diagnóstico com os detalhes e análise de causa raiz (RCA) do problema. Recomendação de melhoramento de desempenho é fornecida quando possível.
+> Uso [informações inteligentes do SQL Azure](sql-database-intelligent-insights.md) para a monitorização automática de desempenho da sua base de dados. Depois de um problema de desempenho é detetado, é gerado um registo de diagnóstico com detalhes e análise de causa raiz (RCA) do problema. Recomendação de melhoria do desempenho é fornecida sempre que possível.
 >
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorizar bases de dados com o portal do Azure
@@ -32,7 +32,7 @@ No [portal do Azure](https://portal.azure.com/), pode monitorizar a utilização
 * Percentagem de ES de Dados
 * Percentagem de tamanho da Base de Dados
 
-Depois de adicionar estas métricas, pode continuar a visualizá-las no **monitorização** gráfico com mais informações sobre o **métrica** janela. As quatro métricas mostram a percentagem de utilização média relativa à **DTU** da base de dados. Consulte o [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md) artigos para obter mais informações sobre os escalões de serviço.  
+Depois de adicionar estas métricas, pode continuar a visualizá-los no **monitorização** do gráfico com mais informações sobre o **métrica** janela. As quatro métricas mostram a percentagem de utilização média relativa à **DTU** da base de dados. Consulte a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) artigos para obter mais informações sobre escalões de serviço.  
 
 ![Monitorização da camada de serviços do desempenho da base de dados.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
@@ -52,17 +52,17 @@ As mesmas métricas que estão expostas no portal também estão disponíveis na
 
 ### <a name="monitor-resource-use"></a>Monitorizar a utilização de recursos
 
-Pode monitorizar a utilização de utilização de recursos [SQL da base de dados Query Performance Insight](sql-database-query-performance.md) e [arquivo de consultas](https://msdn.microsoft.com/library/dn817826.aspx).
+Pode monitorizar a utilização de recursos usando [SQL Database Query Performance Insight](sql-database-query-performance.md) e [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
-Também pode monitorizar a utilização utilizando estas duas vistas:
+Também pode monitorizar a utilização com as duas exibições:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 #### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
-Pode utilizar o [sys.dm db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vista em cada base de dados do SQL Server. O **sys.dm db_resource_stats** vista apresenta dados de utilização de recursos recentes relativamente à camada de serviço. Percentagens médias para memória, escritas de registo, dados e/s e CPU são gravadas a cada 15 segundos e são mantidas durante 1 hora.
+Pode utilizar o [DM db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vista em cada base de dados SQL. O **DM db_resource_stats** vista mostra os dados de utilização de recursos recentes em relação a camada de serviços. Percentagens de média de CPU, de e/s de dados, de escritas de registo e de memória são gravadas a cada 15 segundos e são mantidas durante uma hora.
 
-Uma vez que esta vista fornece mais granular Ver utilização de recursos, utilize **sys.dm db_resource_stats** primeiro para qualquer análise do estado atual ou a resolução de problemas. Por exemplo, esta consulta apresenta a utilização de recursos máxima e média da base de dados atual através da hora nos últimos:
+Uma vez que esta vista fornece uma visão mais granular no uso de recursos, utilize **DM db_resource_stats** primeiro para qualquer análise do estado atual ou resolução de problemas. Por exemplo, esta consulta mostra a utilização de recursos de média e máxima para a base de dados atual durante a última hora:
 
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
@@ -75,23 +75,23 @@ Uma vez que esta vista fornece mais granular Ver utilização de recursos, utili
         MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
     FROM sys.dm_db_resource_stats;  
 
-Para outras consultas, consulte os exemplos [sys.dm db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Para outras consultas, consulte os exemplos [DM db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 #### <a name="sysresourcestats"></a>sys.resource_stats
-O [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ver no **mestre** base de dados tem informações adicionais que podem ajudar a monitorizar o desempenho da base de dados SQL no seu nível de desempenho e o escalão de serviço específicos. Os dados são recolhidos a cada 5 minutos e são mantidos para cerca de 14 dias. Esta vista é útil para uma análise histórica duração mais longa do como a base de dados do SQL Server utiliza recursos.
+O [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ver no **mestre** base de dados tem informações adicionais que podem ajudá-lo a monitorizar o desempenho de base de dados SQL em seu nível de desempenho e a camada de serviço específico. Os dados são recolhidos a cada 5 minutos e são mantidos para cerca de 14 dias. Esta vista é útil para uma análise de histórica de longo prazo de como a base de dados SQL utiliza recursos.
 
-O gráfico seguinte mostra a utilização de recursos da CPU para uma base de dados Premium com o nível de desempenho P2 para cada hora numa semana. Este gráfico é iniciado numa segunda, mostra 5 dias úteis e, em seguida, mostra um fim de semana, quando muito menos acontece na aplicação.
+O gráfico seguinte mostra a utilização de recursos da CPU para um banco de dados Premium com o nível de desempenho P2 por cada hora numa semana. Este gráfico começa na segunda-feira, mostra as 5 dias de trabalho e, em seguida, mostra um fim de semana, quando muito menos acontece no aplicativo.
 
-![Utilização de recursos de base de dados do SQL Server](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
+![Utilização de recursos de base de dados SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-Os dados, esta base de dados tem atualmente um pico de carga da CPU apenas de mais de 50% utilização de CPU relativo para o nível de desempenho P2 (dia na Terça-feira). Se a CPU é o fator dominante no perfil de recursos da aplicação, em seguida, poderá decidir que P2 é o nível de desempenho à direita para garantir que a carga de trabalho sempre se adequa a. Se espera que uma aplicação para aumentar ao longo do tempo, é uma boa ideia ter uma memória intermédia recursos adicionais para que a aplicação não nunca atingirá o limite de nível de desempenho. Se aumentar o nível de desempenho, pode ajudar a evitar erros visíveis para o cliente que podem ocorrer quando uma base de dados não tem suficiente capacidade para processar pedidos de forma eficaz, especialmente em ambientes de sensíveis à latência. Um exemplo é uma base de dados que suporta uma aplicação que desenha páginas Web com base nos resultados de chamadas de base de dados.
+Dos dados, esta base de dados tem atualmente um pico de carga de CPU de pouco mais de 50% utilização da CPU em relação ao nível de desempenho P2 (midday na Terça-feira). Se a CPU é o fator dominante no perfil de recurso do aplicativo, em seguida, poderá decidir que P2 é o nível de desempenho certo para garantir que a carga de trabalho sempre se encaixa. Se necessitar de uma aplicação a crescer ao longo do tempo, é uma boa idéia ter um buffer de recurso adicional para que a aplicação já não atinge o limite de nível de desempenho. Se aumentar o nível de desempenho, pode ajudar a evitar erros visíveis para o cliente que podem ocorrer quando uma base de dados não tem energia suficiente para processar pedidos de forma eficaz, especialmente em ambientes sensíveis à latência. Um exemplo é uma base de dados que oferece suporte a um aplicativo que pinta páginas da Web com base nos resultados das chamadas de base de dados.
 
-Outros tipos de aplicação podem interpretar mesmo gráfico de forma diferente. Por exemplo, se uma aplicação tenta processar os dados de folha de pagamentos por dia e tem o mesmo gráfico, este tipo de modelo "tarefa de lote" poderá fazê-lo ajustar a um nível de desempenho P1. O nível de desempenho P1 tem 100 DTUs em comparação com 200 DTUs a nível de desempenho de P2. O nível de desempenho P1 fornece meio o desempenho de nível de desempenho P2. Por isso, 50 por cento de utilização de CPU no P2 é igual a utilização de CPU de 100 por cento num P1. Se a aplicação não tiver tempos limite, poderá não interessa se uma tarefa demora 2 horas ou 2,5 horas a concluir, se este obtém feito hoje. Uma aplicação nesta categoria, provavelmente, pode utilizar um nível de desempenho P1. Pode tirar partido do facto de que existem períodos de tempo durante o dia quando a utilização de recursos é mais baixo, para que qualquer "grande das horas de ponta" poderão transbordam através de dos troughs mais tarde no dia. O nível de desempenho P1 poderá ser ideal para esse tipo de aplicação (e poupar dinheiro), desde que podem concluir as tarefas na hora por dia.
+Outros tipos de aplicação podem interpretar o mesmo gráfico de forma diferente. Por exemplo, se um aplicativo tenta processar dados de folha de pagamento por dia e tem o mesmo gráfico, esse tipo de modelo de "tarefa do batch" pode fazer bem num nível de desempenho P1. O nível de desempenho P1 tem 100 DTUs em comparação com 200 DTUs no nível de desempenho P2. O nível de desempenho P1 fornece metade o desempenho de nível de desempenho P2. Então, 50 por cento de utilização de CPU em P2 é igual a utilização de CPU de 100 por cento do P1. Se o aplicativo não tiver tempos limite, poderá não importa se uma tarefa demora duas horas ou 2,5 horas a concluir, se isso é feito hoje mesmo. Provavelmente, uma aplicação nesta categoria pode utilizar um nível de desempenho P1. Pode aproveitar o fato de haver períodos de tempo durante o dia quando uso de recursos é mais baixo, para que qualquer "pico grande" poderá vazam ao longo para um dos vales mais tarde no dia. O nível de desempenho P1 pode ser bom para esse tipo de aplicativo (e poupar dinheiro), enquanto as tarefas podem concluído dentro do prazo por dia.
 
-Expõe de base de dados SQL do Azure consumido informações de recursos para cada base de dados ativa no **resource_stats** ver do **mestre** base de dados em cada servidor. Os dados na tabela são agregados para intervalos de 5 minutos. Com os escalões de serviço básico, Standard e Premium, os dados podem demorar mais de 5 minutos a aparecer na tabela, pelo que estes dados são mais útil para análise histórico em vez de análise de quase em tempo real. Consulta o **resource_stats** visualizar para ver o histórico recente de uma base de dados e para validar se a reserva escolheu entregar o desempenho que pretende quando necessário.
+Expõe de base de dados SQL do Azure consumidos informações de recursos para cada base de dados no Active Directory a **resource_stats** ver da **mestre** em cada servidor da base de dados. Os dados na tabela são agregados para intervalos de 5 minutos. Com os escalões de serviço básico, Standard e Premium, os dados podem demorar mais de 5 minutos a aparecer na tabela, para que estes dados são mais úteis para análise histórica, em vez de análise quase em tempo real. Consulta a **resource_stats** visualizados para ver o histórico recente de uma base de dados e para validar a reserva decidir entregar o desempenho, mesmo quando necessário.
 
 > [!NOTE]
-> Tem de estar ligado para o **mestre** base de dados do seu servidor lógico de base de dados do SQL para consulta **resource_stats** nos exemplos seguintes.
+> Tem de estar ligado para o **mestre** base de dados do seu servidor lógico para a base de dados SQL para consultar **resource_stats** nos exemplos a seguir.
 > 
 > 
 
@@ -104,16 +104,16 @@ Este exemplo mostra como os dados nesta vista são expostos:
 
 ![A vista de catálogo resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_stats** vista para obter informações sobre como a base de dados do SQL Server utiliza recursos do catálogo:
+O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_stats** vista para obter informações sobre como a base de dados SQL utiliza recursos do catálogo:
 
-1. Para observar os recursos da semana passada utilizar para a base de dados userdb1, pode executar esta consulta:
+1. Para examinar o recurso da semana passada utilizar para o userdb1 de base de dados, pode executar esta consulta:
    
         SELECT *
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND
               start_time > DATEADD(day, -7, GETDATE())
         ORDER BY start_time DESC;
-2. Para avaliar a carga de trabalho quão bem o nível de desempenho, terá de abrir subdiretórios de cada aspeto das métricas de recurso: CPU, de leituras, escritas, número de funcionários e número de sessões. Eis um revisto consultar utilizando **resource_stats** para os valores médios e máximos destas métricas de recurso de relatório:
+2. Para avaliar a eficiência com que sua carga de trabalho se encaixa o nível de desempenho, terá de fazer uma busca detalhada em cada aspecto das métricas de recursos: CPU, leituras, gravações, o número de workers e número de sessões. Aqui está um revisado consultar com o **resource_stats** para comunicar os valores de médios e máximo destas métricas de recurso:
    
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
@@ -128,11 +128,11 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
             max(max_worker_percent) AS 'Maximum % of workers'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-3. Com estas informações sobre os valores médios e máximos de cada métrica de recursos, pode avaliar a carga de trabalho quão bem para o nível de desempenho que escolheu. Normalmente, tempo médio de valores de **resource_stats** dão-lhe uma linha de base boa utilizar contra o tamanho de destino. Deve ser a pen medida primário. Por exemplo, pode estar a utilizar a camada de serviço Standard com nível de desempenho de S2. A média utilizar percentagens de leituras de CPU e/s e escreve são abaixo 40 por cento, o número médio de trabalhadores é inferior a 50 e o número médio de sessões é inferior a 200. A carga de trabalho pode ajustar o nível de desempenho S1. É fácil ver se a base de dados se encaixa nos limites de trabalho e a sessão. Para ver se uma base de dados se ajusta a um nível de desempenho inferior relativamente a CPU, leituras e escritas, dividir o número DTU de nível de desempenho inferior pelo número DTU do seu nível de desempenho atual e, em seguida, multiplique o resultado por 100:
+3. Com essas informações sobre os valores de médios e máxima de cada métrica de recurso, pode avaliar a eficiência com que sua carga de trabalho se encaixa o nível de desempenho que escolheu. Normalmente, médio de valores da **resource_stats** dão-lhe uma linha de base boa para utilizar com o tamanho de destino. Deve ser o pen Drive primários medida. Por exemplo, poderá estar a utilizar o escalão de serviço Standard com nível de desempenho S2. A média utilizar percentagens para leituras de e/s e CPU e gravações são abaixo 40 por cento, o número médio de funções de trabalho está abaixo de 50 e o número médio de sessões é inferior a 200. A carga de trabalho pode se encaixa o nível de desempenho S1. É fácil ver se a base de dados se encaixa os limites de trabalho e de sessão. Para ver se uma base de dados se encaixa num nível de desempenho inferior com respeito a CPU, leituras e escritas, divida o número DTU de nível de desempenho inferior pelo número DTU de seu nível de desempenho atual e, em seguida, multiplique o resultado em 100:
    
     **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
-    O resultado é a diferença de desempenho relativo entre os níveis de desempenho de dois em percentagem. Se a utilização de recursos não exceder este valor, a carga de trabalho pode ajustar o nível de desempenho inferior. No entanto, tem de observar todos os intervalos de valores de utilização de recursos e determinar, por percentagem, com que frequência a carga de trabalho de base de dados deverá ajustar o nível de desempenho inferior. A seguinte consulta produz a percentagem adequada por dimensão de recursos, com base no limiar de 40 por cento são calculados neste exemplo:
+    O resultado é a diferença de desempenho relativo entre os níveis de desempenho de dois em percentagem. Se a utilização de recursos não exceder este montante, a sua carga de trabalho pode pertencer a nível de desempenho inferior. No entanto, precisa examinar todos os intervalos de valores de utilização de recursos e determinar, por porcentagem, a frequência com que sua carga de trabalho de base de dados caberia no nível de desempenho inferior. A seguinte consulta devolve a percentagem de ajuste por dimensão de recursos, com base num limiar de 40% que Calculamos neste exemplo:
    
         SELECT
             (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
@@ -141,15 +141,15 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    
-    Com base no seu objetivo de nível de serviço de base de dados (SLO), pode decidir se a carga de trabalho que ajusta o nível de desempenho inferior. Se a carga de trabalho de base de dados SLO é a percentagem de 99,9 e a consulta anterior devolve valores maior percentagem de 99,9 para todas as dimensões de três recursos, a carga de trabalho provável ajusta o nível de desempenho inferior.
+    Com base no seu objetivo de nível de serviço de base de dados (SLO), pode decidir se a sua carga de trabalho se encaixa no nível de desempenho inferior. Se a carga de trabalho de base de dados SLO é de 99,9% e a consulta anterior devolve valores superiores a 99,9% para todas as dimensões de três recursos, a carga de trabalho provavelmente se encaixa no nível de desempenho inferior.
    
-    Observar a percentagem adequada também dá-lhe informações sobre se deve mover para o próximo nível de desempenho superior para satisfazer os seus SLO. Por exemplo, userdb1 mostra a utilização de CPU seguinte para da última semana:
+    Observando a percentagem de ajuste também fornece uma idéia se deve avançar para o próximo nível de desempenho superior para atender às suas SLO. Por exemplo, userdb1 mostra a utilização de CPU seguinte para a última semana:
    
    | Percentagem de CPU média | Percentagem de CPU máxima |
    | --- | --- |
    | 24.5 |100.00 |
    
-    A CPU média trata de um trimestre do limite do nível de desempenho, deverá ajustar corretamente o nível de desempenho da base de dados. No entanto, o valor máximo mostra que a base de dados atinge o limite do nível de desempenho. Necessita de mover para o próximo nível de desempenho superior? Observe como demasiadas vezes atingir a carga de trabalho 100 por cento e, em seguida, compare-as com a carga de trabalho de base de dados SLO.
+    É a CPU média sobre um quarto do limite de nível de desempenho, que se encaixa bem para o nível de desempenho da base de dados. No entanto, o valor máximo mostra que a base de dados atinge o limite do nível de desempenho. Precisa mover para o próximo nível de desempenho mais elevado? Veja como número de vezes que sua carga de trabalho de atingir 100 por cento e, em seguida, compare-o para a sua carga de trabalho de base de dados SLO.
    
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
@@ -158,44 +158,44 @@ O exemplo seguinte mostra-lhe diferentes formas que pode utilizar o **resource_s
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    
-    Se esta consulta devolve um valor inferior a 99,9 por cento para qualquer uma das dimensões três recursos, considere a mover para o próximo nível de desempenho superior ou utilize técnicas de otimização de aplicação para reduzir a carga na base de dados do SQL Server.
-4. Neste exercício considera também o aumento de carga de trabalho prevista no futuro.
+    Se essa consulta retorna um valor inferior a 99,9% para qualquer uma das dimensões três recursos, considere a mover para o próximo nível de desempenho superior ou usar técnicas de otimização de aplicações para reduzir a carga na base de dados SQL.
+4. Neste exercício também considera o aumento de carga de trabalho previsto no futuro.
 
 Para conjuntos elásticos, pode monitorizar bases de dados individuais no conjunto, com as técnicas descritas nesta secção. Mas também é possível monitorizar o conjunto como um todo. Para informações, consulte [Monitorizar e gerir um conjunto elástico](sql-database-elastic-pool-manage-portal.md).
 
 
-### <a name="maximum-concurrent-requests"></a>Máximo de pedidos simultâneo
-Para ver o número de pedidos simultâneos, execute esta consulta de Transact-SQL na base de dados SQL:
+### <a name="maximum-concurrent-requests"></a>Pedidos em simultâneo máximos
+Para ver o número de pedidos simultâneos, execute esta consulta Transact-SQL na base de dados SQL:
 
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R
 
-Para analisar a carga de trabalho de uma base de dados do SQL Server no local, para modificar esta consulta para filtrar na base de dados específico que pretende analisar. Por exemplo, se tiver uma base de dados no local com o nome MyDatabase, esta consulta de Transact-SQL devolve a contagem de pedidos simultâneos essa base de dados:
+Para analisar a carga de trabalho de uma base de dados do SQL Server no local, modificar esta consulta para filtrar na base de dados específico que pretende analisar. Por exemplo, se tiver uma base de dados no local com o nome MyDatabase, esta consulta de Transact-SQL retorna a contagem de pedidos simultâneos nessa base de dados:
 
     SELECT COUNT(*) AS [Concurrent_Requests]
     FROM sys.dm_exec_requests R
     INNER JOIN sys.databases D ON D.database_id = R.database_id
     AND D.name = 'MyDatabase'
 
-Isto é apenas um instantâneo num único ponto no tempo. Para obter uma melhor compreensão da sua carga de trabalho e os requisitos do pedido simultâneo, terá de recolher muitos exemplos ao longo do tempo.
+Este é apenas um instantâneo num único ponto no tempo. Para obter uma melhor compreensão da sua carga de trabalho e os requisitos de pedido simultâneo, terá de recolher muitos exemplos ao longo do tempo.
 
-### <a name="maximum-concurrent-logins"></a>Inícios de sessão em simultâneo máximos
-Pode analisar os seus padrões de utilizador e a aplicação para obter uma ideia da frequência de inícios de sessão. Também pode executar cargas de mundo real num ambiente de teste para se certificar de que não está a atingir este ou outros limites, que vamos discutir neste artigo. Não é uma consulta simples ou uma vista de gestão dinâmica (DMV) que pode apresentar-lhe simultâneas contagens de início de sessão ou do histórico.
+### <a name="maximum-concurrent-logins"></a>Inícios de sessão simultâneos máximos
+Pode analisar os padrões de utilizador e da aplicação para ter uma idéia da frequência de inícios de sessão. Também pode executar cargas reais num ambiente de teste para se certificar de que não estiver a obter isso ou outros limites que discutimos neste artigo. Não há uma única consulta ou a vista de gestão dinâmica (DMV) que pode apresentar-lhe em simultâneo a conta de início de sessão ou o histórico.
 
-Se vários clientes utilizarem a mesma cadeia de ligação, o serviço autentica cada início de sessão. Se 10 utilizadores em simultâneo ligam a uma base de dados com o mesmo nome de utilizador e palavra-passe, seria possível 10 inícios de sessão em simultâneo. Este limite aplica-se apenas a duração do início de sessão e a autenticação. Se o mesmos 10 utilizadores ligam à base de dados sequencialmente, o número de inícios de sessão em simultâneo nunca deverá ser superior a 1.
+Se vários clientes utilizarem a mesma cadeia de ligação, o serviço autentica cada início de sessão. Se 10 utilizadores em simultâneo ligar a uma base de dados com o mesmo nome de utilizador e palavra-passe, haveria 10 inícios de sessão simultâneos. Este limite aplica-se apenas para a duração do início de sessão e a autenticação. Se os mesmos 10 utilizadores se ligarem à base de dados sequencialmente, o número de inícios de sessão simultâneos nunca seria maior que 1.
 
 > [!NOTE]
-> Atualmente, este limite não é aplicável às bases de dados em conjuntos elásticos.
+> Atualmente, este limite não é aplicável às bases de dados nos conjuntos elásticos.
 > 
 > 
 
 ### <a name="maximum-sessions"></a>Máximo de sessões
-Para ver o número de sessões ativas atuais, execute esta consulta de Transact-SQL na base de dados SQL:
+Para ver o número de sessões ativas atuais, execute esta consulta Transact-SQL na base de dados SQL:
 
     SELECT COUNT(*) AS [Sessions]
     FROM sys.dm_exec_connections
 
-Se estiver a analisar uma carga de trabalho do SQL Server no local, modifique a consulta focar-se numa base de dados específica. Esta consulta ajuda a determinar necessidades de sessão possíveis para a base de dados se estiver a considerar movê-lo para a SQL Database do Azure.
+Se está a analisar uma carga de trabalho do SQL Server no local, modifique a consulta para se concentrar num banco de dados específico. Esta consulta ajuda a determinar as necessidades de sessão possíveis para a base de dados se estiver a considerar movê-lo para a base de dados do Azure SQL.
 
     SELECT COUNT(*)  AS [Sessions]
     FROM sys.dm_exec_connections C
@@ -203,11 +203,11 @@ Se estiver a analisar uma carga de trabalho do SQL Server no local, modifique a 
     INNER JOIN sys.databases D ON (D.database_id = S.database_id)
     WHERE D.name = 'MyDatabase'
 
-Novamente, estas consultas devolvem uma contagem de ponto no tempo. Se recolher várias amostras ao longo do tempo, terá de compreender melhor da sessão, utilize.
+Novamente, estas consultas devolvem uma contagem de ponto no tempo. Se recolher vários exemplos ao longo do tempo, terá a melhor compreensão da sua sessão de utilizar.
 
-Para análise de base de dados SQL, pode obter estatísticas históricas sessões consultando o [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vista e rever o **active_session_count** coluna. 
+Para análise de base de dados SQL, pode obter estatísticas históricas sessões consultando o [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vista e ao rever o **active_session_count** coluna. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Otimizar os índices de base de dados e consultar planos de execução utilizando automaticamente [otimização automática da base de dados do Azure SQL](sql-database-automatic-tuning.md).
-- Monitorizar o desempenho de base de dados automaticamente utilizando [Azure SQL inteligente Insights](sql-database-intelligent-insights.md). Esta funcionalidade fornece informações de diagnóstico e análise de problemas de desempenho da causa raiz.
+- Otimizar índices de base de dados e consultar planos de execução usando automaticamente [otimização automática da base de dados do Azure SQL](sql-database-automatic-tuning.md).
+- Monitorizar o desempenho de base de dados automaticamente usando [informações inteligentes do SQL Azure](sql-database-intelligent-insights.md). Esta funcionalidade fornece informações de diagnóstico e análise de problemas de desempenho de causa raiz.

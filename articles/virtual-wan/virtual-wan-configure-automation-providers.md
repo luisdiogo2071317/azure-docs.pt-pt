@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: fc978c6ad9776271c790796f26912c63f9edcf74
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009386"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114349"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Configurar a automatização de Virtual WAN - para parceiros Virtual WAN (pré-visualização)
 
-Este artigo ajuda-o a compreender como configurar o envorionment de automatização para se ligar e configurar um dispositivo de ramificação (um dispositivo VPN do cliente no local ou SDWAN) para o WAN Virtual do Azure. Se for um fornecedor que fornece a dispositivos de ramificação que podem acomodar a conectividade VPN através de IPsec/IKEv2, este artigo é para.
+Este artigo ajuda-o a compreender como configurar o ambiente de automatização para se ligar e configurar um dispositivo de ramificação (um dispositivo VPN do cliente no local ou SDWAN) para o WAN Virtual do Azure. Se for um fornecedor que fornece a dispositivos de ramificação que podem acomodar a conectividade VPN através de IPsec/IKEv2, este artigo é para.
 
 Soluções de conectividade definida pelo software utilizam normalmente um controlador ou de um centro de aprovisionamento de dispositivos para gerir os respetivos dispositivos de ramificação. O controlador pode usar APIs do Azure para automatizar a conectividade WAN Virtual do Azure. Este tipo de ligação requer um SDWAN ou VPN dispositivos localizados no local que tenha um endereço IP público com acesso exterior atribuído a ele.
 

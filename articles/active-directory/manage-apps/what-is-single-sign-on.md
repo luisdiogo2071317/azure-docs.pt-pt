@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 9f9ae52c5dbdf655190caaceeaa03c444526e4f2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044626"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091838"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?
 Início de sessão único significa ser capaz de aceder a todas as aplicações e recursos de que precisa para fazer negócios, ao iniciar sessão apenas uma vez com uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todos os aplicativos que necessita sem ter que está a ser necessária para autenticar (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -45,8 +45,7 @@ Quando os utilizadores iniciam sessão a uma aplicação, vão através de um pr
 O Azure AD suporta três formas diferentes de iniciar sessão nas aplicações:
 
 * **Único início de sessão federado** permite que os aplicativos redirecionar para o Azure AD para autenticação de utilizador em vez de solicitar a sua própria palavra-passe. Início de sessão único federado é suportada para aplicações que suporte protocolos, tais como SAML 2.0, WS-Federation e OpenID Connect e é o modo mais sofisticado de início de sessão único.
-* **Com base em palavra-passe de início de sessão único** permite proteger o armazenamento de palavra-passe de aplicação e utilizar uma extensão de browser ou aplicação móvel de repetição. Com base em palavra-passe de início de sessão único usa o existente 
-*  processo fornecidas pelo aplicativo, mas permite que um administrador gerir as palavras-passe e não exige que o usuário saber a palavra-passe.
+* **Com base em palavra-passe de início de sessão único** permite proteger o armazenamento de palavra-passe de aplicação e utilizar uma extensão de browser ou aplicação móvel de repetição. Com base em palavra-passe de início de sessão único usa o processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe e não exige que o usuário saber a palavra-passe.
 * **Existente início de sessão único** permite ao Azure AD tirar partido de qualquer existente início de sessão único que tenha sido configurado para o aplicativo, mas permite que esses aplicativos a ser ligado aos portais de painel de acesso do Office 365 ou do Azure AD e também ativa adicionais relatórios no Azure AD quando as aplicações são iniciadas lá.
 
 Assim que um usuário foi autenticado com uma aplicação, também têm de ter um registo de conta aprovisionado no aplicativo que informa ao aplicativo, onde as permissões e o nível de acesso estão dentro do aplicativo. O aprovisionamento deste registo de conta pode optar por ocorrer automaticamente, ou pode ocorrer manualmente por um administrador antes do utilizador é fornecido o acesso de início de sessão único.
@@ -194,7 +193,7 @@ Estas ligações utilizam os mesmos mecanismos de controlo de acesso, como o pai
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](../active-directory-apps-index.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurar a Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Configurar a Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introdução à gestão de acesso a aplicações](what-is-access-management.md)
 * [Comparar capacidades para o gerenciamento de identidades externas no Azure AD](../active-directory-b2b-compare-b2c.md)
 

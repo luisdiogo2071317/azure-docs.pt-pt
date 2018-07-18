@@ -8,14 +8,14 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: 71a5edfbe388f2d4bfb48255b901cb0037665252
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50a8c183bd7f2711847ce6d0acade4cb498ef2fc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069435"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116100"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -42,12 +42,22 @@ ms.locfileid: "39069435"
 
 * Eventos de reconhecimento: tipo de evento NoMatch é intercalado com o evento de erro.
 * SpeechOutputFormat na linguagem c# foi mudado para OutputFormat manter alinhado com o C++.
+* O tipo de retorno de alguns métodos do `AudioInputStream` interface ligeiramente alterada:
+   * No Java, o `read` método agora devolve `long` em vez de `int`.
+   * No c#, o `Read` método agora devolve `uint` em vez de `int`.
+   * No C++, o `Read` e `GetFormat` métodos agora retorno `size_t` em vez de `int`.
+* C++: instâncias de fluxos de entrada de áudio podem agora apenas ser passadas como um `shared_ptr`.
 
 **Correções de erros**
 
 * Fixo de valores de retorno incorreto no resultado quando `RecognizeAsync()` exceder o tempo limite.
 * A dependência de bibliotecas de base de dados no Windows é removida. O SDK agora está a utilizar APIs de áudio de núcleo.
 * Correção da documentação: adicionar uma página de região para descrever o que são as regiões suportadas.
+
+**Problemas conhecidos**
+
+* O SDK de voz para Android não reporta os resultados de síntese de fala para a tradução.
+  Isso será corrigido na próxima versão.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de voz dos serviços cognitivos 0.4.0: versão de Junho de 2018
 
