@@ -551,7 +551,7 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Aumentar horizontalmente através de programação
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Aumentar verticalmente VMs do tipo de nó principal
+                - name: Dimensione ou atualize as VMs do tipo de nó principal
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Atualizar
               href: service-fabric-cluster-upgrade.md
@@ -569,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Ligar remotamente ao nó de cluster de VM
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: Atualizar/migrar SKU do VMSS
-              href: service-fabric-update-vmss-sku.md
         - name: Clusters autónomos
           items:
             - name: Criar
