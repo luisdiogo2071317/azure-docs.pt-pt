@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: v-geberr
-ms.openlocfilehash: b695783c6d68876d39482ed5abec24f45087603d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c146182c07c49cb73349df69c649601276a6e837
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054867"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126478"
 ---
 # <a name="improve-app-with-batch-test"></a>Melhorar a aplicação com o teste de batch
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 * Crie um ficheiro de teste do batch 
 * Executar um teste de batch
 * Rever os resultados de teste
-* Corrija os erros para intenções
+* Corrigir erros 
 * Testar novamente o batch
 
 Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
@@ -38,48 +38,25 @@ Se não tiver a aplicação de recursos humanos do [rever expressões de ponto f
 
 Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `batchtest`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
+Prepare a aplicação.
+
 ## <a name="purpose-of-batch-testing"></a>Objetivo do teste de batch de
-Teste de batch permite-lhe validar o estado de um modelo com um conjunto conhecido de expressões de teste e rotulado como entidades. No ficheiro batch formatada em JSON, adicionar as expressões e definir as etiquetas de entidade que tem de prever dentro da expressão. 
+Teste de batch permite-lhe validar ativo, formação estado do modelo com um conjunto conhecido de expressões etiquetados com e entidades. No ficheiro batch formatada em JSON, adicionar as expressões e definir as etiquetas de entidade que tem de prever dentro da expressão. 
 
-A estratégia de teste recomendados para LUIS utiliza três conjuntos separados de dados: discursos de exemplo fornecidos para o modelo, expressões de teste do batch e expressões de ponto final. Para este tutorial, certifique-se de que não estiver a utilizar o expressões a partir de qualquer uma das expressões de exemplo (adicionados numa intenção), ou expressões de ponto final. 
-
-Para verificar sua expressões de teste de batch com a expressão de exemplo e expressões de ponto final, [exportar](luis-how-to-start-new-app.md#export-app) a aplicação e [transferir](luis-how-to-start-new-app.md#export-endpoint-logs) o log de consulta. Compare da expressão de exemplo de aplicação e as expressões de log de consulta para as expressões de teste do batch. 
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Ao utilizar uma aplicação que não seja neste tutorial, certifique-se de que é *não* usando as expressões de exemplo já adicionadas a um objetivo. Para verificar sua expressões de teste de lote contra as expressões de exemplo [exportar](luis-how-to-start-new-app.md#export-app) a aplicação. Compare a aplicação exemplo expressão para as expressões de teste do batch. 
 
 Requisitos do teste de batch:
 
-* expressões de 1000 por teste. 
+* Máximo de 1000 discursos por teste. 
 * Não contém duplicados. 
-* Tipos de entidade permitidos: simples e compostos.
+* Tipos de entidade permitidos: apenas as entidades gigantesca máquina acastanhada aprendidas simples, hierárquica (só de principal) e compostos. Teste de batch apenas é útil para gigantesca máquina acastanhada aprendidas intenções e entidades.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Criar um arquivo em lotes com expressões com
 1. Crie `HumanResources-jobs-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/). 
 
 2. No ficheiro batch formatada em JSON, adicionar expressões com o **intenção** desejar prevista no teste. 
 
-    ```JSON
-    [
-        {
-        "text": "Are there any janitorial jobs currently open?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "I would like a fullstack typescript programming with azure job",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Is there a database position open in Los Colinas?",
-        "intent": "GetJobInformation",
-        "entities": []
-        },
-        {
-        "text": "Can I apply for any database jobs with this resume?",
-        "intent": "GetJobInformation",
-        "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>A executar o batch
 
@@ -112,35 +89,33 @@ Requisitos do teste de batch:
     [ ![Aplicação de captura de ecrã do LUIS com resultados de teste do batch](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Rever os resultados de batch
-O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e apenas simples, hierárquica (só de principal) e entidades compostas. Quando seleciona uma seção de gráfico ou um ponto no gráfico, exibir o utterance(s) associado abaixo do gráfico. 
+O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e apenas simples, hierárquica (só de principal) e entidades compostas. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
 
 Ao passar o rato sobre o gráfico, a roda do rato pode aumentar ou reduzir a apresentar no gráfico. Isto é útil quando há muitos pontos no gráfico rigidamente agrupado. 
 
 O gráfico está em quatro quadrantes, com duas das seções apresentadas a vermelho. **Estas são as secções concentrar-se no**. 
 
-### <a name="applyforjob-test-results"></a>Resultados do teste ApplyForJob
-O **ApplyForJob** resultados de teste apresentados no filtro de mostram de que 1 das predições a quatro foi concluída com êxito. Selecione o nome **positivo falso** acima Quadrante de superior direito para ver as expressões abaixo do gráfico. 
+### <a name="getjobinformation-test-results"></a>Resultados do teste GetJobInformation
+O **GetJobInformation** resultados de teste apresentados no filtro de mostrarem que 2 das predições a quatro foram bem-sucedidas. Selecione o nome **positivo falso** acima Quadrante de superior direito para ver as expressões abaixo do gráfico. 
 
 ![Expressões de teste de batch de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-As três expressões tinham uma intenção superior **ApplyForJob**. A intenção indicada no ficheiro batch tinha uma pontuação inferior. Por que isso aconteceu? Dos dois objetivos estão intimamente em termos de escolha do word e a disposição do word. Além disso, há quase três vezes como muitos exemplos para **ApplyForJob** que **GetJobInformation**. Este irregularidade de expressões de exemplo avalia **ApplyForJob** favor da intenção. 
+Por que razão são duas das expressões previstas como **ApplyForJob**, em vez da intenção correta **GetJobInformation**? Dos dois objetivos estão intimamente em termos de escolha do word e a disposição do word. Além disso, há quase três vezes como muitos exemplos para **ApplyForJob** que **GetJobInformation**. Este irregularidade de expressões de exemplo avalia **ApplyForJob** favor da intenção. 
 
-Tenha em atenção que ambos os objetivos tem a mesma contagem de erros: 
+Tenha em atenção que ambos os objetivos tem a mesma contagem de erros. Uma previsão incorreta na um intenção afeta a outra intenção também. Ambos têm erros, porque as expressões foram previstas incorretamente para um objetivo e também não previstas incorretamente para outro objetivo. 
 
 ![Erros de filtro de teste de lote de LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-A expressão correspondente o ponto superior no **falso positivo** secção é `Can I apply for any database jobs with this resume?`. A palavra `resume` só foi utilizado na **ApplyForJob**. 
-
-Os outros dois pontos no gráfico tinham muito inferiores pontuações para a intenção de errado, que significa que eles estão mais próximos da intenção correta. 
+As expressões correspondente a parte superior do ponto na **falso positivo** secção são `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Para a primeira expressão, a palavra `resume` só foi utilizado na **ApplyForJob**. Para a segunda expressão, a palavra `apply` só foi utilizado na **ApplyForJob** intenção.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Corrigir a aplicação com base nos resultados de batch
-O objetivo desta seção é fazer com que as três expressões que foram previstas incorretamente para **ApplyForJob** a ser corretamente prevista para **GetJobInformation**, depois da aplicação é resolvida. 
+O objetivo desta seção é fazer com que todas as expressões previstas corretamente para **GetJobInformation** corrigindo a aplicação. 
 
 Uma correção rápida aparentemente seria adicionar estas expressões de ficheiro de batch para a intenção correta. Isso é que não o que deseja fazer, no entanto. Pretende que o LUIS para prever corretamente estas expressões sem adicionar-os como exemplos. 
 
 Também deve estar imaginando sobre a remoção de expressões a partir **ApplyForJob** até que a quantidade de expressão é igual a **GetJobInformation**. Isso pode corrigir os resultados do teste, mas seria atrapalham LUIS dessa intenção prever com precisão próxima vez. 
 
-A primeira correção é adicionar expressões com mais **GetJobInformation**. A segunda correção é reduzir o peso da palavra `resume` para o **ApplyForJob** intenção. 
+A primeira correção é adicionar expressões com mais **GetJobInformation**. A segunda correção é reduzir o peso de palavras, como `resume` e `apply` em direção a **ApplyForJob** intenção. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Adicionar expressões com mais **GetJobInformation**
 1. Fechar o painel de teste do batch, selecionando o **testar** botão no painel de navegação superior. 
@@ -151,25 +126,27 @@ A primeira correção é adicionar expressões com mais **GetJobInformation**. A
 
     [ ![Captura de ecrã do LUIS, com o botão de teste realçado](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-3. Adicionar mais expressões que são diversificados de comprimento, a escolha do word e a disposição do word, certificar-se de que incluem os termos `resume` e `c.v.`:
+3. Adicionar mais expressões que são diversificados de comprimento, a escolha do word e a disposição do word, certificar-se de que incluem os termos `resume`, `c.v.`, e `apply`:
 
-    ```JSON
-    Is there a new job in the warehouse for a stocker?
-    Where are the roofing jobs today?
-    I heard there was a medical coding job that requires a resume.
-    I would like a job helping college kids write their c.v.s. 
-    Here is my resume, looking for a new post at the community college using computers.
-    What positions are available in child and home care?
-    Is there an intern desk at the newspaper?
-    My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?
-    Where are the earth drilling jobs right now?
-    I've worked 8 years as an EMS driver. Any new jobs?
-    New food handling jobs?
-    How many new yard work jobs are available?
-    Is there a new HR post for labor relations and negotiations?
-    I have a masters in library and archive management. Any new positions?
-    Are there any babysitting jobs for 13 year olds in the city today?
-    ```
+    |Expressões com de exemplo para **GetJobInformation** intenção|
+    |--|
+    |A nova tarefa de armazém de para um stocker exige que eu aplicam-se com um currículo?|
+    |Onde estão as tarefas de roofing hoje em dia?|
+    |Ouvi foi uma tarefa de codificação médica que necessita de um currículo.|
+    |Eu gostaria de uma tarefa, ajudando a crianças de faculdade escrever seus c.v.s. |
+    |Aqui está meu currículo, à procura de uma nova mensagem na faculdade de Comunidade através de computadores.|
+    |As posições estão disponíveis no cuidado filho e em casa?|
+    |Existe uma mesa de colaborador no Jornal?|
+    |Meu C.v. mostra que sou bom em análise de aprovisionamento, orçamentos e perder dinheiro. Existe algo para este tipo de trabalho?|
+    |Onde está a terra desagregação tarefas neste momento?|
+    |Trabalhei oito anos como um driver de EMS. As tarefas novas?|
+    |Novas tarefas de processamento de comida requerem aplicação?|
+    |Quantas novas tarefas de trabalho de jardim estão disponíveis?|
+    |Existe uma nova mensagem de RH para relações de trabalho e negociações?|
+    |Tenho um principais na gestão de biblioteca e de arquivo. Quaisquer novas funções?|
+    |Existem todas as tarefas babysitting para 13 ano olds na cidade hoje em dia?|
+
+    Não etiquetar os **tarefa** entidade nas expressões. Esta secção do tutorial concentra-se na intenção predição apenas.
 
 4. Preparar a aplicação, selecionando **Train** na barra de navegação direita superior.
 
@@ -182,11 +159,70 @@ Para verificar que as expressões no teste de batch estão previstas corretament
 
 3. Selecione **ver resultados**. Os objetivos devem todos ter ícones verde à esquerda dos nomes de intenção. 
 
-    [ ![Captura de ecrã do LUIS, com o botão de resultados de batch realçado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
+    ![Captura de ecrã do LUIS, com o botão de resultados de batch realçado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
+## <a name="create-batch-file-with-entities"></a>Criar o arquivo em lotes com entidades 
+Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. Apenas as entidades aprendidas por máquina são utilizadas: simples, hierárquica (só de principal) e entidades compostas. Não adicione entidades não aprendidas máquina porque elas sempre são encontradas por meio de expressões regulares ou corresponde a texto explícito.
+
+A variação de entidades para o total word ([token](luis-glossary.md#token)) contagem pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos para a intenção com expressões etiquetados com incluem uma variedade de tamanhos de entidade. 
+
+Quando o primeiro escrever e testar arquivos em lote, é melhor começar com algumas expressões e entidades que sabe que funcionar, bem como alguns que imagine pode ser previsto incorretamente. Esta ajuda que nos concentrar em áreas problemáticas rapidamente. Após testar os **GetJobInformation** e **ApplyForJob** intenções usando vários tarefa nomes diferentes, que não foram previstos, este arquivo de lote de teste foi desenvolvido para ver se existe um problema de predição com determinados valores para **tarefa** entidade. 
+
+O valor de um **tarefa** entidade, fornecida nas expressões de teste, é normalmente uma ou duas palavras, com alguns exemplos que está a ser mais palavras. Se _suas próprias_ aplicação de recursos humanos normalmente tem os nomes das tarefas de várias palavras, as expressões de exemplo com o nome com **tarefa** entidade nesta aplicação não funcionaria bem.
+
+1. Crie `HumanResources-entities-batch.json` num editor de texto, como [VSCode](https://code.visualstudio.com/). Ou transfira [o ficheiro](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) partir do repositório Github de exemplos do LUIS.
+
+
+2. No ficheiro batch formatada em JSON, adicione uma matriz de objetos que incluem expressões com o **intenção** desejar prevista no teste, bem como localizações de qualquer entidades na expressão. Uma vez que uma entidade é baseada em tokens, certifique-se iniciar e parar a cada entidade num caractere. Não começar ou terminar a expressão num espaço. Isso faz com que um erro durante a importação de ficheiros do batch.  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## <a name="run-the-batch-with-entities"></a>Executar o batch com entidades
+
+1. Selecione **teste** na barra de navegação superior. 
+
+2. Selecione **painel de teste do Batch** no painel do lado direito. 
+
+3. Selecione **conjunto de dados de importação**.
+
+4. Escolha a localização de sistema de ficheiros do `HumanResources-entities-batch.json` ficheiro.
+
+5. Nome do conjunto de dados `entities` e selecione **feito**.
+
+6. Selecionar o botão **Executar**. Aguarde até que o teste é concluído.
+
+    [ ![Aplicação de captura de ecrã do LUIS Run realçado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
+
+7. Selecione **ver resultados**.
+
+## <a name="review-entity-batch-results"></a>Reveja os resultados de entidade de batch
+O gráfico é aberto com todos os objetivos previstos corretamente. Role para baixo no filtro da direita para localizar o; são gerados erros previsões de entidade. 
+
+1. Selecione o **tarefa** entidade no filtro.
+
+    ![Previsões de entidade; são gerados erros no filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+
+    As alterações de gráfico para apresentar as previsões de entidade. 
+
+2. Selecione **falsos negativos** na parte inferior, esquerda quadrante do gráfico. Em seguida, utilize o controlo de combinação de teclado + E alternar para a vista de token. 
+
+    [ ![Vista de token de previsões de entidade](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    Rever as expressões abaixo do gráfico revela um erro de consistente quando o nome da tarefa inclui `SQL`. Rever as expressões de exemplo e a lista de frase de tarefa, SQL é apenas utilizado uma vez e apenas como parte de um nome de trabalho maior, `sql/oracle database administrator`.
+
+## <a name="fix-the-app-based-on-entity-batch-results"></a>Corrigir a aplicação com base nos resultados de lote da entidade
+Corrigir a aplicação requer o LUIS determinar corretamente as variações de trabalhos do SQL. Existem várias opções para essa correção. 
+
+* Mais expressões de exemplo, o que utilizam o SQL e etiquetar essas palavras como uma entidade de tarefa de adicionar explicitamente. 
+* Adicionar explicitamente mais tarefas SQL para a lista de frase
+
+Estas tarefas deixarei para fazer.
+
+Adicionar uma [padrão](luis-concept-patterns.md) antes da entidade está prevista corretamente não vai corrigir o problema. Isto acontece porque o padrão não corresponder ao até que todas as entidades no padrão são detetadas. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>O que conseguiu neste tutorial?
-Essa precisão de previsão de aplicação aumentou, encontrando erros no lote e corrigir o modelo ao adicionar mais expressões de exemplo para a intenção correta e o treinamento. 
+A precisão de previsão de aplicação aumentou, encontrando erros no lote e corrigir o modelo. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências **...**  à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.

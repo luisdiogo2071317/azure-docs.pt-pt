@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972236"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126056"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, planeamento de capacidade é um passo importante. Aqui estão alguns dos itens que deve considerar como parte desse processo.
@@ -165,6 +165,7 @@ Para cargas de trabalho de produção:
 - É recomendado para dedicar os seus clusters NodeType primário para serviços do sistema e restrições de posicionamento de utilização para implementar a aplicação NodeTypes secundário.
 - O SKU de VM recomendados é D3 padrão ou D3_V2 padrão ou equivalente com um mínimo de 14 GB de local SSD.
 - O uso de suporte mínimo SKU de VM é Standard D1 ou D1_V2 padrão ou equivalente com um mínimo de 14 GB de local SSD. 
+- 14 GB local SSD é um requisito mínimo. Nossa recomendação é um mínimo de 50 GB. Para cargas de trabalho, especialmente ao executar contentores do Windows, discos maiores são necessários. 
 - Principais parcial SKUs de VM, como Standard A0 não são suportadas para cargas de trabalho de produção.
 - O SKU Standard A1 não é suportado para cargas de trabalho de produção por motivos de desempenho.
 

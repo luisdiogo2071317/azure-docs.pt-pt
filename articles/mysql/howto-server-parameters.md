@@ -1,6 +1,6 @@
 ---
-title: Como configurar parâmetros de servidor na base de dados do Azure para MySQL
-description: Este artigo descreve como configurar parâmetros de servidor MySQL na base de dados do Azure para MySQL no portal do Azure.
+title: Como configurar parâmetros do servidor na base de dados do Azure para MySQL
+description: Este artigo descreve como configurar parâmetros do servidor MySQL na base de dados do Azure para MySQL com o portal do Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,38 +8,39 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 32414cb034bf6ee95a284021111759959054c00e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 07/18/2018
+ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267310"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136456"
 ---
-# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor na base de dados do Azure para MySQL utilizando o portal do Azure
+# <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor na base de dados do Azure para MySQL com o portal do Azure
 
-Base de dados do Azure para MySQL suporta a configuração do alguns parâmetros de servidor. Este artigo descreve como configurar estes parâmetros através do portal do Azure. Nem todos os parâmetros de servidor podem ser ajustados. 
+Base de dados do Azure para MySQL suporta a configuração de alguns parâmetros de servidor. Este artigo descreve como configurar esses parâmetros com o portal do Azure. Nem todos os parâmetros do servidor podem ser ajustados.
 
-## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue para parâmetros de servidor no portal do Azure
-1. Inicie sessão no portal do Azure, em seguida, localize a base de dados do Azure para o servidor de MySQL.
-2. Sob o **definições** secção, clique em **parâmetros do** para abrir a página de parâmetros de servidor da base de dados do Azure para MySQL.
-![Página de parâmetros de servidor do portal do Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
-3. Localize quaisquer definições, que terá de ajustar. Reveja o **Descrição** coluna para compreender a finalidade e os valores permitidos. 
-![Enumerar a lista pendente](./media/howto-server-parameters/3-toggle_parameter.png)
+## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue para os parâmetros do servidor no portal do Azure
+
+1. Inicie sessão no portal do Azure, em seguida, localize a base de dados do Azure para o servidor MySQL.
+2. Sob o **configurações** secção, clique em **parâmetros do servidor** para abrir a página de parâmetros do servidor da base de dados do Azure para o servidor MySQL.
+![Página de parâmetros do servidor do portal do Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Localize quaisquer definições que precisa de ajustar. Reveja os **Descrição** coluna para compreender a finalidade e os valores permitidos.
+![Enumerar para baixo](./media/howto-server-parameters/3-toggle_parameter.png)
 4. Clique em **guardar** para guardar as alterações.
 ![Guardar ou alterações de rejeição](./media/howto-server-parameters/4-save_parameters.png)
-5. Se guardar os novos valores para os parâmetros, pode sempre reverter tudo para os valores predefinidos, selecionando **repor todas as predefinido**.
-![Repor todas as predefinida](./media/howto-server-parameters/5-reset_parameters.png)
+5. Se guardar novos valores para os parâmetros, poderá sempre reverter tudo volta para os valores predefinidos, selecionando **repor tudo para predefinição**.
+![Repor tudo para predefinição](./media/howto-server-parameters/5-reset_parameters.png)
 
+## <a name="list-of-configurable-server-parameters"></a>Lista de parâmetros do servidor configurável
 
-## <a name="list-of-configurable-server-parameters"></a>Lista de parâmetros de servidor configurável
+A lista de parâmetros de servidor com suporte está constantemente a crescer. Utilize o separador de parâmetros de servidor no portal do Azure para obter a definição e configurar os parâmetros do servidor com base nos requisitos da sua aplicação.
 
-A lista de parâmetros de servidor suportado está constantemente a crescer. Utilize o separador de parâmetros de servidor no portal do Azure para obter a definição e configure os parâmetros de servidor com base nos seus requisitos de aplicação. 
+## <a name="non-configurable-server-parameters"></a>Parâmetros do servidor não configuráveis
 
-## <a name="nonconfigurable-server-parameters"></a>Parâmetros de servidor Nonconfigurable
-O conjunto de memória intermédia InnoDB e máx. ligações não são configuráveis e associada ao seu [escalão de preço](concepts-service-tiers.md). 
+Conjunto de memória intermédia de InnoDB e máx. ligações não são configuráveis e empatados para sua [escalão de preço](concepts-service-tiers.md).
 
-|**Escalão de Preço**| **Geração de computação**|**vCore(s)**|**Conjunto de memória intermédia de InnoDB (MB)**| **Máx. ligações**|
+|**Escalão de Preço**| **Geração de computação**|**vCore(s)**|**Pool de buffers de InnoDB (MB)**| **Máx. ligações**|
 |---|---|---|---|--|
 |Básica| Geração 4| 1| 1024| 50|
 |Básica| Geração 4| 2| 2560| 100|
@@ -60,16 +61,52 @@ O conjunto de memória intermédia InnoDB e máx. ligações não são configur�
 |Memória Otimizada| Geração 5| 8| 30720| 2500|
 |Memória Otimizada| Geração 5| 16| 62464| 5000|
 
-Estes parâmetros de servidor adicionais não são configuráveis no sistema:
+Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 
 |**Parâmetro**|**Valor fixo**|
 | :------------------------ | :-------- |
-|innodb_file_per_table na camada básica|OFF|
+|innodb_file_per_table no escalão básico|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|
 
-Outros parâmetros de servidor que não estão listados aqui estão definidos para os valores de out-of-box predefinido MySQL para versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Outros parâmetros de servidor que não estão listados aqui são definidos nos valores predefinidos de out-of-box MySQL para versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+
+## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
+
+### <a name="populating-the-time-zone-tables"></a>Preencher as tabelas de fuso horário
+
+As tabelas de fuso horário no seu servidor podem ser preenchidas chamando o `az_load_timezone` procedimento armazenado a partir de uma ferramenta como a linha de comandos MySQL ou o MySQL Workbench.
+
+> [!NOTE]
+> Se estiver a executar o `az_load_timezone` comando a partir do MySQL Workbench, poderá ter de desativar o modo de atualização segura primeiro usando `SET SQL_SAFE_UPDATES=0;`.
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+Para ver os valores de fuso horário disponível, execute o seguinte comando:
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### <a name="setting-the-global-level-time-zone"></a>Definir o fuso de horário de nível global
+
+O fuso de horário de nível global pode ser definido entre o **parâmetros do servidor** página no portal do Azure. A seguir define o fuso horário global para o valor "E.U.A. / Pacífico".
+
+![Parâmetro de fuso horário do conjunto](./media/howto-server-parameters/timezone.png)
+
+### <a name="setting-the-session-level-time-zone"></a>Definir o fuso de horário de nível de sessão
+
+A sessão de nível de tempo de zona pode ser definida ao executar o `SET time_zone` comando a partir de uma ferramenta como a linha de comandos MySQL ou o MySQL Workbench. O exemplo abaixo define o fuso horário o **E.U.A. / Pacífico** fuso horário.
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+Consulte a documentação do MySQL para [funções de tempo de data e](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - [Bibliotecas de ligação para base de dados do Azure para MySQL](concepts-connection-libraries.md).

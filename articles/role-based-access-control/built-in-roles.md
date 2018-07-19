@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8152a9934d6a280abfc75fdc74e0864053d82f45
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116083"
+ms.locfileid: "39136847"
 ---
 # <a name="built-in-roles-in-azure"></a>Funções incorporadas no Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -78,6 +78,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Operador de aplicação lógica](#logic-app-operator) | Permite-lhe ler, ativar e desativar a aplicação lógica. |
 | [Contribuidor de identidade gerido](#managed-identity-contributor) | Criar, Ler, Atualizar e Eliminar a Identidade Atribuída ao Utilizador |
 | [Operador de identidade gerido](#managed-identity-operator) | Ler e Atribuir a Identidade Atribuída ao Utilizador |
+| [Contribuinte do grupo de gestão](#management-group-contributor) | Função de Contribuinte do Grupo de Gestão |
+| [Leitor do grupo de gestão](#management-group-reader) | Função de Leitor de Grupo de Gestão |
 | [Contribuidor de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Leitor de monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Contribuidor de Rede](#network-contributor) | Permite-lhe gerir redes, mas não aceder-lhes. |
@@ -617,7 +619,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | Associa à rede virtual. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | Obtém a rede virtual. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | Devolve o disco de conta de armazenamento. |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | Devolve a imagem de conta de armazenamento. |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | Devolve a imagem de conta de armazenamento. (Preterido. Utilize "Microsoft.ClassicStorage/storageAccounts/vmImages") |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso para as contas de armazenamento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devolve a conta de armazenamento com a conta fornecida. |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta de Insights |
@@ -826,6 +828,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crie um laboratório numa conta do laboratório. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho sob uma conta de laboratório |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
@@ -916,7 +919,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Web/customApis/*/read | Leia a API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades num plano do serviço de aplicações |
 
-## <a name="managed-identity-contributor"></a>Contribuidor de Identidade Gerido
+## <a name="managed-identity-contributor"></a>Contribuidor de Identidade Gerida
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -932,7 +935,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-## <a name="managed-identity-operator"></a>Operador de Identidade Gerido
+## <a name="managed-identity-operator"></a>Operador de Identidade Gerida
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -947,6 +950,28 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
+## <a name="management-group-contributor"></a>Contribuidor do Grupo de Gestão
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Função de Contribuinte do Grupo de Gestão |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **Ações** |  |
+> | Microsoft.Management/managementGroups/delete | Elimine grupo de gestão. |
+> | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
+> | Microsoft.Management/managementGroups/subscriptions/delete | Associa anular a subscrição do grupo de gestão. |
+> | Microsoft.Management/managementGroups/subscriptions/write | Associa existente subscrição com o grupo de gestão. |
+> | Microsoft.Management/managementGroups/write | Criar ou atualizar um grupo de gestão. |
+
+## <a name="management-group-reader"></a>Leitor de Grupo de Gestão
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Função de Leitor de Grupo de Gestão |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **Ações** |  |
+> | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
+
 ## <a name="monitoring-contributor"></a>Contribuidor de Monitorização
 > [!div class="mx-tableFixed"]
 > | | |
@@ -957,18 +982,18 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/AlertRules/* | Regras de alerta de leitura/escrita/eliminar. |
 > | Microsoft.Insights/components/* | Componentes do Application Insights de leitura/escrita/eliminar. |
 > | Microsoft.Insights/DiagnosticSettings/* | Definições de diagnóstico de leitura/escrita/eliminar. |
 > | Microsoft.Insights/eventtypes/* | Lista de eventos de registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável ao portal e programático acesso ao registo de atividades. |
 > | Microsoft.Insights/LogDefinitions/* | Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de Atividades através do portal. Lista as categorias de registo no registo de atividades. |
+> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso). |
 > | Microsoft.Insights/Metrics/* | Ler métricas para um recurso. |
-> | Microsoft.Insights/Register/Action | Registar o fornecedor do microsoft insights |
-> | Microsoft.Insights/webtests/* | Testes web do Application Insights de leitura/escrita/eliminar. |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/metricalerts/* |  |
+> | Microsoft.Insights/Register/Action | Registar o fornecedor de Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | Testes web do Application Insights de leitura/escrita/eliminar. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Pacotes de soluções do Log Analytics de leitura/escrita/eliminar. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Análise de registo de leitura/escrita/eliminar procuras guardadas. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
@@ -976,6 +1001,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leitura/escrita/eliminar configurações de informações de armazenamento do Log Analytics. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-reader"></a>Leitor de Monitorização
 > [!div class="mx-tableFixed"]

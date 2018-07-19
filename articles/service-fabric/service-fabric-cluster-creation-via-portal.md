@@ -1,6 +1,6 @@
 ---
-title: Criar cluster do Service Fabric no portal do Azure | Microsoft Docs
-description: Este artigo descreve como configurar um cluster do Service Fabric seguro no Azure utilizando o portal do Azure e o Cofre de chaves do Azure.
+title: Criar cluster do Service Fabric no portal do Azure | Documentos da Microsoft
+description: Este artigo descreve como configurar um cluster do Service Fabric seguro no Azure com o portal do Azure e o Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,76 +14,74 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: aljo
-ms.openlocfilehash: fbe3dde48fa1be79356ff1cb9e47c46832d8cdaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8f1d2634fd2efd624d1000f2fbc0400af4af11
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212760"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136813"
 ---
-# <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure através do portal do Azure
+# <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure com o portal do Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
-Este é um guia passo a passo que explica os passos de configuração de um cluster do Service Fabric (Linux ou Windows) no Azure utilizando o portal do Azure. Este guia explica os passos seguintes:
+Este é um guia passo a passo que o orienta pelas etapas de configuração de um cluster do Service Fabric (Linux ou Windows) no Azure com o portal do Azure. Este guia explica os passos seguintes:
 
 * Crie um cluster no Azure através do portal do Azure.
-* Autentica os administradores a utilização de certificados.
+* Autenticar os administradores a utilização de certificados.
 
 > [!NOTE]
-> Para opções de segurança mais avançadas, como a autenticação de utilizador no Azure Active Directory e como configurar certificados para a segurança da aplicação, [criar o cluster com o Azure Resource Manager][create-cluster-arm].
+> Para opções de segurança mais avançadas, como a autenticação de utilizador com o Azure Active Directory e como configurar certificados para segurança de aplicação, [criar o cluster com o Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
 ## <a name="cluster-security"></a>Segurança do cluster 
-Os certificados são utilizados no Service Fabric para fornecer autenticação e encriptação para proteger diferentes aspetos de um cluster e as respetivas aplicações. Para obter mais informações sobre como os certificados são utilizados no Service Fabric, consulte [cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security].
+Os certificados são utilizados no Service Fabric para fornecer autenticação e encriptação para proteger diferentes aspetos de um cluster e as respetivas aplicações. Para obter mais informações sobre como os certificados são utilizados no Service Fabric, veja [cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security].
 
-Se esta for a primeira vez está a criar um cluster do service fabric ou estiver a implementar um cluster para cargas de trabalho de teste, pode avançar para a secção seguinte (**Criar cluster no Portal do Azure**) e tem o sistema gerar os certificados necessários para os clusters que executam cargas de trabalho de teste. Se estiver a configurar um cluster para cargas de trabalho de produção, em seguida, continue a ler.
+Se esta for a primeira vez que está a criar um cluster do service fabric ou estiver a implementar um cluster para cargas de trabalho de teste, pode avançar para a secção seguinte (**criar um cluster no Portal do Azure**) e o sistema gerar os certificados necessários para os clusters que executam cargas de trabalho de teste. Se estiver a configurar um cluster para cargas de trabalho de produção, em seguida, continue a ler.
 
-#### <a name="cluster-and-server-certificate-required"></a>Cluster e servidor de certificado (obrigatório)
-Este certificado é necessário para proteger um cluster e impedir o acesso não autorizado ao mesmo. Fornece segurança de cluster de algumas formas:
+#### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e servidor (obrigatório)
+Este certificado é necessário para proteger um cluster e evitar o acesso não autorizado ao mesmo. Ele fornece a segurança do cluster de duas formas:
 
-* **Autenticação do cluster:** autentica o nó de nó de comunicação para a Federação de cluster. Apenas nós que podem provar a sua identidade com este certificado podem aderirem ao cluster.
-* **Autenticação de servidor:** autentica pontos finais de gestão de cluster para um cliente de gestão, para que o cliente de gestão sabe o que é falar com o cluster real. Este certificado fornece também SSL para a API de gestão HTTPS e para o Service Fabric Explorer através de HTTPS.
+* **Autenticação do cluster:** autentica a comunicação de nó para nó para a Federação de cluster. Apenas nós que podem provar a sua identidade com este certificado podem associar o cluster.
+* **Autenticação de servidor:** autentica os pontos finais de gestão de cluster para um cliente de gestão, para que o cliente de gestão saiba que ele está falando ao real cluster. Este certificado fornece também SSL para a API de gestão HTTPS e para o Service Fabric Explorer através de HTTPS.
 
-Para efetuar estes fins, o certificado tem de cumprir os seguintes requisitos:
+Para os seguintes objetivos, o certificado tem de cumprir os seguintes requisitos:
 
 * O certificado tem de conter uma chave privada.
-* O certificado tem de ser criado para a troca de chaves, exportável para um ficheiro Personal Information Exchange (. pfx).
-* O certificado **nome do requerente tem de corresponder ao domínio** utilizado para aceder ao cluster do Service Fabric. Isto é necessário para fornecer o SSL para o cluster pontos finais de gestão HTTPS e Service Fabric Explorer. Não é possível obter um certificado SSL de uma autoridade de certificação (AC) para o `.cloudapp.azure.com` domínio. Adquirir um nome de domínio personalizado para o cluster. Quando solicitar um certificado a partir de uma AC nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para o cluster.
+* O certificado tem de ser criado para troca de chaves, exportável para um ficheiro Personal Information Exchange (. pfx).
+* O certificado **nome do requerente tem de corresponder ao domínio** utilizado para aceder ao cluster do Service Fabric. Isto é necessário para fornecer o SSL para pontos finais de gestão HTTPS do cluster e o Service Fabric Explorer. Não é possível obter um certificado SSL de uma autoridade de certificação (AC) para o `.cloudapp.azure.com` domínio. Adquira um nome de domínio personalizado para o seu cluster. Quando pedir um certificado a partir de uma AC nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para o seu cluster.
 
 #### <a name="client-authentication-certificates"></a>Certificados de autenticação de cliente
-Certificados de cliente adicionais autenticar os administradores para tarefas de gestão do cluster. Serviço de recursos de infraestrutura tem dois níveis de acesso: **admin** e **utilizador só de leitura**. No mínimo, um único certificado para acesso administrativo deve ser utilizado. Para acesso de nível de utilizador adicionais, tem de ser fornecido um certificado diferente. Para obter mais informações sobre funções de acesso, consulte [controlo de acesso baseado em funções para clientes de Service Fabric][service-fabric-cluster-security-roles].
+Certificados de cliente adicionais autenticar os administradores para tarefas de gestão do cluster. Service Fabric tem dois níveis de acesso: **administrador** e **utilizador só de leitura**. No mínimo, deve ser utilizado um único certificado para acesso administrativo. Para acesso de nível de usuário adicional, deve ser fornecido um certificado diferente. Para obter mais informações sobre as funções de acesso, consulte [controlo de acesso baseado em funções para clientes do Service Fabric][service-fabric-cluster-security-roles].
 
-Não é necessário carregar certificados de autenticação de cliente para o Cofre de chaves para trabalhar com o Service Fabric. Estes certificados só tem de ser fornecida para os utilizadores que têm autorização para gestão de clusters. 
+Não é necessário carregar certificados de autenticação de cliente para o Cofre de chaves para trabalhar com o Service Fabric. Estes certificados só tem de ser fornecido aos usuários que estão autorizados a gestão de clusters. 
 
 > [!NOTE]
-> Azure Active Directory é a forma recomendada para autenticar clientes para operações de gestão do cluster. Para utilizar o Azure Active Directory, terá [criar um cluster com o Azure Resource Manager][create-cluster-arm].
+> O Azure Active Directory é a forma recomendada para autenticar clientes para operações de gestão do cluster. Para utilizar o Azure Active Directory, terá [criar um cluster com o Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
 #### <a name="application-certificates-optional"></a>Certificados de aplicação (opcionais)
-Qualquer número de certificados adicionais pode ser instalado num cluster por motivos de segurança da aplicação. Antes de criar o cluster, considere os cenários de segurança de aplicações que necessitam de um certificado para ser instalada em nós, tais como:
+Qualquer número de certificados adicionais pode ser instalado num cluster por motivos de segurança do aplicativo. Antes de criar o cluster, considere os cenários de segurança de aplicações que necessitam de um certificado para ser instalado em nós, tal como:
 
-* Encriptação e desencriptação de valores de configuração de aplicação
-* Encriptação dos dados em nós durante a replicação 
+* Encriptação e desencriptação de valores de configuração de aplicações
+* Encriptação de dados entre os nós durante a replicação 
 
-Certificados de aplicação não podem ser configurados quando criar um cluster através do portal do Azure. Para configurar certificados de aplicação no momento da configuração de cluster, terá [criar um cluster com o Azure Resource Manager][create-cluster-arm]. Também pode adicionar certificados de aplicação para o cluster, depois de terem sido criadas.
+Certificados de aplicação não podem ser configurado quando [criar um cluster através do portal do Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Para configurar certificados de aplicação no momento da configuração de cluster, deve [criar um cluster com o Azure Resource Manager][create-cluster-arm]. Também pode adicionar certificados de aplicação para o cluster depois de este ter sido criado.
 
-</a "create-cluster-portal" ></a>
+## <a name="create-cluster-in-the-azure-portal"></a>Criar o cluster no portal do Azure
 
-## <a name="create-cluster-in-the-azure-portal"></a>Criar cluster no portal do Azure
+Criar um cluster de produção para atender às necessidades da sua aplicação envolve algum planejamento, para ajudar com isso, recomenda-se vivamente que leia e compreenda [considerações de planeamento de Cluster do Service Fabric] [ service-fabric-cluster-capacity] documento. 
 
-Criar um cluster de produção para satisfazer as necessidades da sua aplicação envolve algum planeamento, para o ajudar com que, recomenda-se vivamente que leia e compreenda [considerações de planeamento de Cluster do Service Fabric] [ service-fabric-cluster-capacity] documento. 
-
-### <a name="search-for-the-service-fabric-cluster-resource"></a>Pesquisa para o recurso de cluster do Service Fabric
-![pesquisa para o modelo de cluster do Service Fabric no portal do Azure.][SearchforServiceFabricClusterTemplate]
+### <a name="search-for-the-service-fabric-cluster-resource"></a>Procure o recurso de cluster do Service Fabric
+![Procure o modelo de cluster do Service Fabric no portal do Azure.][SearchforServiceFabricClusterTemplate]
 
 1. Inicie sessão no [Portal do Azure][azure-portal].
-2. Clique em **crie um recurso** para adicionar um novo modelo de recursos. Pesquisa para o modelo de Cluster do Service Fabric no **Marketplace** em **tudo**.
+2. Clique em **criar um recurso** para adicionar um novo modelo de recurso. Pesquisa para o modelo de Cluster do Service Fabric na **Marketplace** sob **tudo**.
 3. Selecione **Cluster do Service Fabric** da lista.
 4. Navegue para o **Cluster do Service Fabric** painel, clique em **criar**,
 5. O **cluster do Service Fabric criar** painel tem os seguintes quatro passos:
@@ -91,128 +89,128 @@ Criar um cluster de produção para satisfazer as necessidades da sua aplicaçã
 #### <a name="1-basics"></a>1. Noções básicas
 ![Captura de ecrã da criação de um novo grupo de recursos.][CreateRG]
 
-No painel Noções básicas, tem de fornecer os detalhes básicos para o cluster.
+No painel Noções básicas, terá de fornecer os detalhes básicos para o seu cluster.
 
 1. Introduza o nome do cluster.
 2. Introduza um **nome de utilizador** e **palavra-passe** para ambiente de trabalho remoto para as VMs.
-3. Certifique-se de que seleciona o **subscrição** que pretende que o cluster ser implementado, especialmente se tiver várias subscrições.
-4. Criar um **novo grupo de recursos**. É melhor atribuir-lhe o mesmo nome que o cluster, uma vez que o ajuda a localizar mais tarde, especialmente quando estiver a tentar efetuar alterações à sua implementação ou eliminar o cluster.
+3. Certifique-se de selecionar o **subscrição** que pretende que o cluster devem ser implantados, especialmente se tiver várias subscrições.
+4. Criar uma **novo grupo de recursos**. É melhor dar a ele o mesmo nome que o cluster, uma vez que o ajuda a encontrar mais tarde, especialmente quando está tentando fazer alterações à sua implementação ou eliminar o cluster.
    
    > [!NOTE]
-   > Embora pode optar por utilizar um grupo de recursos existente, é recomendável criar um novo grupo de recursos. Isto torna mais fácil eliminar clusters e todos os recursos que utiliza.
+   > Embora pode optar por utilizar um grupo de recursos existente, é uma boa prática para criar um novo grupo de recursos. Isto torna mais fácil eliminar clusters e todos os recursos de que utiliza.
    > 
    > 
-5. Selecione o **região** no qual pretende criar o cluster. Se estiver a planear utilizar um certificado existente que já tenha carregado para um cofre de chaves, tem de utilizar a mesma região que consta do seu Cofre de chaves. 
+5. Selecione o **região** no qual pretende criar o cluster. Se estiver a planear utilizar um certificado existente que já tenha carregado para um cofre de chaves, tem de utilizar a mesma região que o Cofre de chaves está na. 
 
 #### <a name="2-cluster-configuration"></a>2. Configuração de cluster
 ![Criar um tipo de nó][CreateNodeType]
 
-Configure os nós do cluster. Tipos de nó definem os tamanhos VM, o número de VMs e as respetivas propriedades. O cluster pode ter mais do que um tipo de nó, mas o tipo de nó principal (aquele primeiro por si no portal) tem de ter, pelo menos, cinco VMs, que é o tipo de nó em que os serviços de sistema do Service Fabric são colocados. Não configure **as propriedades de colocação** porque uma propriedade de posicionamento predefinido de "NodeTypeName" é adicionada automaticamente.
+Configure os nós do cluster. Tipos de nó definem os tamanhos VM, o número de VMs e as respetivas propriedades. O cluster pode ter mais de um tipo de nó, mas o tipo de nó principal (aquele primeiro que definir no portal) tem de ter, pelo menos, cinco VMs, como este é o tipo de nó em que os serviços de sistema do Service Fabric são colocados. Não configure **as propriedades de colocação** porque uma propriedade de posicionamento de padrão de "NodeTypeName" é adicionada automaticamente.
 
 > [!NOTE]
-> Um cenário comum para vários tipos de nó é uma aplicação que contém um serviço front-end e um serviço de back-end. Pretende colocar o serviço de front-end em VMs mais pequenas (tamanhos de VM, como D2_V2) com portas abertas à Internet e colocar o serviço de back-end em VMs maior (com tamanhos de VM, como D3_V2, D6_V2, D15_V2 e assim sucessivamente) com não abrir as portas para a Internet.
+> Um cenário comum para vários tipos de nó é uma aplicação que contém um serviço de front-end e um serviço de back-end. Que pretende colocar o serviço de front-end em VMs menores (tamanhos de VM, como D2_V2) com portas abertas para a Internet e colocar o serviço de back-end em VMs maiores (com tamanhos de VM, como D3_V2, D6_V2, D15_V2 e assim por diante) com nenhuma porta de acesso à Internet aberta.
 > 
 > 
 
-1. Escolha um nome para o seu tipo de nó (1 a 12 carateres apenas letras e números).
-2. O mínimo **tamanho** de VMs para o nó principal tipo é conduzido pelos **durabilidade** camada que escolher para o cluster. A predefinição para o escalão de durabilidade é bronze. Para obter mais informações sobre a durabilidade, consulte [como escolher a durabilidade de cluster do Service Fabric][service-fabric-cluster-durability].
-3. Selecione o tamanho da VM. VMs de série D tem unidades SSD e são altamente recomendadas para aplicações com monitorização de estado. Não utilizar qualquer SKU de VM que tenha núcleos parciais ou ter menos de 10 GB de capacidade de disco disponível. Consulte [documento de considerações de planeamento de cluster do service fabric] [ service-fabric-cluster-capacity] para obter ajuda na seleção do tamanho da VM.
-4. Escolha o número de VMs para o tipo de nó. Pode aumentar ou reduzir verticalmente o número de VMs num tipo de nó mais tarde, mas o tipo de nó principal, o mínimo for igual a cinco para cargas de trabalho de produção. Outros tipos de nó podem ter um mínimo de uma VM. O mínimo **número** de VMs para as unidades do tipo de nó principal do **fiabilidade** do cluster.  
-5. **Único cluster de nós e três clusters de nó** -estes se destinam teste apenas para utilização. Não são suportadas para as cargas de trabalho de produção em execução.
-6. Configure pontos finais personalizados. Este campo permite-lhe introduzir uma lista separada por vírgulas de portas que pretende expor através do Balanceador de carga do Azure para a Internet pública para as suas aplicações. Por exemplo, se planeia implementar uma aplicação web para o cluster, introduza "80" aqui para permitir tráfego na porta 80 para o cluster. Para obter mais informações sobre os pontos finais, consulte [comunicar com aplicações][service-fabric-connect-and-communicate-with-services]
-7. Configurar o cluster **diagnóstico**. Por predefinição, o diagnóstico está ativado no seu cluster para ajudar na resolução de problemas. Se pretender desativar a alteração de diagnóstico a **estado** alternar para **desativar**. Desativar diagnostics é **não** recomendado. Se já tiver projeto Application Insights criado, em seguida, dê o respetivo chave, para que os rastreios de aplicação são encaminhados para a mesma.
-8. Selecione o modo de atualização de recursos de infraestrutura que quiser como o seu cluster. Selecione **automática**, se pretender que o sistema para automaticamente processará a versão mais recente e tente atualizar o seu cluster ao mesmo. Definir o modo como **Manual**, se pretende escolher uma versão suportada. Para obter mais detalhes sobre os recursos de infraestrutura atualizar consulte de modo a [documento de serviço--cluster-atualização do fabric.][service-fabric-cluster-upgrade]
+1. Escolha um nome para o seu tipo de nó (1 e 12 carateres contendo apenas letras e números).
+2. O mínimo **tamanho** de VMs para o nó primário, tipo é orientado pela **durabilidade** escalão que escolhe para o cluster. A predefinição para o escalão de durabilidade é bronze. Para obter mais informações sobre a durabilidade, veja [como escolher a durabilidade de cluster do Service Fabric][service-fabric-cluster-durability].
+3. Selecione o tamanho da VM. VMs de série D possuem unidades SSD e são altamente recomendadas para aplicações com monitorização de estado. Não utilizar qualquer SKU de VM que tenha núcleos parciais ou de ter menos de 10 GB de capacidade de disco disponível. Consulte a [documento de considerações de planeamento de cluster do service fabric] [ service-fabric-cluster-capacity] para obter ajuda na seleção do tamanho VM.
+4. Escolha o número de VMs para o tipo de nó. Pode aumentar ou reduzir verticalmente o número de VMs num tipo de nó mais tarde, mas o tipo de nó primário, o mínimo é cinco para cargas de trabalho de produção. Outros tipos de nó podem ter um mínimo de uma VM. O mínimo **número** de VMs para as unidades do tipo de nó principal do **confiabilidade** do seu cluster.  
+5. **Único cluster de nó e três clusters de nós** -estes destinam-se para apenas a utilização de teste. Não são suportadas para quaisquer cargas de trabalho de produção em execução.
+6. Configure pontos finais personalizados. Este campo permite-lhe introduzir uma lista separada por vírgulas de portas que pretende expor através do Balanceador de carga do Azure para a Internet pública para as suas aplicações. Por exemplo, se planeia implementar uma aplicação web no seu cluster, introduza "80" aqui para permitir o tráfego na porta 80 no seu cluster. Para obter mais informações sobre pontos finais, consulte [ao comunicar com aplicações][service-fabric-connect-and-communicate-with-services]
+7. Configurar cluster **diagnóstico**. Por predefinição, os diagnósticos estão ativados no seu cluster para ajudar na resolução de problemas. Se pretender desativar a alteração de diagnóstico a **Status** alternar para **desativar**. Desativação do diagnóstico está **não** recomendado. Se já tiver o projeto do Application Insights criado, então dê a sua chave, para que os rastreios de aplicações são encaminhados para o mesmo.
+8. Selecione o modo de atualização de recursos de infraestrutura que pretende definir o seu cluster como. Selecione **automática**, se pretender que o sistema para escolher a versão mais recente disponível e tente atualizar o seu cluster para o mesmo automaticamente. Definir o modo como **Manual**, se pretender escolher uma versão suportada. Para obter mais detalhes sobre o modo de atualização de recursos de infraestrutura, consulte o [service-fabric-cluster-atualização do documento.] [service-fabric-cluster-atualização]
 
 > [!NOTE]
-> Suportamos apenas os clusters que executam versões suportadas do serviço de recursos de infraestrutura. Ao selecionar o **Manual** modo, que está a efetuar da responsabilidade para atualizar o cluster para uma versão suportada. > 
+> Damos suporte a apenas os clusters que executem versões suportadas do service Fabric. Ao selecionar o **Manual** modo, que está a efetuar a responsabilidade para atualizar o cluster para uma versão suportada. > 
 > 
 
 #### <a name="3-security"></a>3. Segurança
 ![Captura de ecrã das configurações de segurança no portal do Azure.][BasicSecurityConfigs]
 
-Para configurar um cluster de teste seguro que mais fácil para si, fornecemos-o **básico** opção. Se já tiver um certificado e tiver carregado-lo para o keyvault (e ativado o Cofre de chaves para a implementação), em seguida, utilize o **personalizada** opção
+Para facilitar como configurar um cluster de teste seguro para, nós fornecemos os **básica** opção. Se já tiver um certificado e ter atualizei-o no seu Cofre de chaves (e ativado o Cofre de chaves para a implementação), em seguida, utilize o **personalizado** opção
 
-##### <a name="basic-option"></a>Opção básica
-Siga os ecrãs para adicionar ou reutilizar um keyvault existente e adicionar um certificado. A adição do certificado é um processo síncrono e, por isso, terá de aguardar que o certificado a ser criado.
+##### <a name="basic-option"></a>Opção básico
+Siga os ecrãs para adicionar ou reutilizar um cofre de chaves existente e adicionar um certificado. A adição do certificado é um processo síncrono e por isso, terá que aguardar que o certificado a ser criada.
 
 
-Resist temptation de navegar na direção oposta ao ecrã até o processo anterior está concluído.
+Resista à tentação de navegar para fora do ecrã até que o processo anterior seja concluído.
 
 ![CreateKeyVault]
 
-Agora que o certificado é adicionado à sua keyvault, verá o ecrã seguinte, que lhe pede para editar as políticas de acesso para o Keyvault. Clique em de **políticas de acesso de edição.** Editar...
+Agora que o certificado é adicionado ao seu Cofre de chaves, poderá ver o ecrã seguinte, que lhe pede para editar as políticas de acesso para o seu Cofre de chaves. Clique no **políticas de acesso de edição para.** Editar...
 
 ![CreateKeyVault2]
 
-Clique nas políticas de acesso avançado e ativar o acesso às máquinas virtuais para a implementação. Recomenda-se que ative, bem como a implementação do modelo. Depois de efetuar as seleções, não se esqueça de clique o **guardar** botão e fechar fora do **políticas de acesso** painel.
+Clique nas políticas de acesso avançado e ativar o acesso às máquinas virtuais para a implementação. Recomenda-se que ative a implementação do modelo também. Depois de efetuar as seleções, não se esqueça de clicar o **salvar** botão e fechar da **políticas de acesso** painel.
 
 ![CreateKeyVault3]
 
-Agora está pronto para continuar para os resto do processo de criação do cluster.
+Agora está pronto para avançar para o resto do processo de cluster de criar.
 
 ![CreateKeyVault4]
 
 ##### <a name="custom-option"></a>Opção personalizada
-Ignorar esta secção, se já tiver efetuado os passos a **básico** opção.
+Ignore esta secção, se já tiver executado os passos a **básica** opção.
 
 ![SecurityCustomOption]
 
-Terá do CertificateThumbprint, SourceVault e as informações de CertificateURL para concluir a página de segurança. Se não tiver à mão, abrir outra janela do browser e efetue o seguinte
+Terá do CertificateThumbprint SourceVault e as informações de CertificateURL para concluir a página de segurança. Se não tiver em mãos, abrir outra janela do browser e faça o seguinte
 
 
-1. Navegue até à sua keyvault, selecione o certificado. 
-2. Selecione o separador "Propriedades" e copie o 'ID de recurso"para"Cofre de chaves de origem"na outra janela do browser 
+1. Navegue para o seu Cofre de chaves, selecione o certificado. 
+2. Selecione o separador "Propriedades" e copie o "ID de recurso" para "Cofre de chaves de origem" em outra janela do browser 
 
     ![CertInfo0]
 
 3. Agora, selecione o separador de "Certificados".
-4. Clique em thumbprint de certificado, o que leva-o para a página de versões.
-5. Clique nos Guids que vê por baixo da versão atual.
+4. Clique na thumbprint do certificado, o que leva-o para a página de versões.
+5. Clique em Guids abaixo a versão atual.
 
     ![CertInfo1]
 
-6. Agora deve estar no ecrã de como abaixo. Copie o Thumbprint para "Thumbprint do certificado" na outra janela do browser
-7. Copie as informações de 'Segredo identificador' para o "URL de certificado" na outra janela do browser.
+6. Agora deve estar no ecrã, como abaixo. Copie o Thumbprint para "Thumbprint do certificado" na outra janela do browser
+7. Copie as informações de 'Identificador de segredo' para o "URL de certificado" na outra janela do browser.
 
 
 ![CertInfo2]
 
 
-Verifique o **configurar as definições avançada** caixa para introduzir os certificados de cliente para **admin cliente** e **clientes apenas de leitura**. Nestes campos, introduza o thumbprint do certificado de cliente a administração e o thumbprint do certificado de cliente do utilizador só de leitura, se aplicável. Quando os administradores tentam ligar ao cluster, são concedidos acesso apenas se tiverem um certificado com um thumbprint que correspondem aos valores thumbprint introduzido aqui.  
+Verifique os **configurar definições avançadas** caixa introduzir certificados de cliente para **cliente administrativo** e **cliente só de leitura**. Nestes campos, introduza o thumbprint do seu certificado de cliente de administrador e o thumbprint do seu certificado de cliente de utilizador só de leitura, se aplicável. Quando os administradores tentam ligar ao cluster, é-lhes concedida acesso apenas se tiverem um certificado com um thumbprint que corresponda os valores de thumbprint introduzido aqui.  
 
 #### <a name="4-summary"></a>4. Resumo
 
-Agora, está pronto para implementar o cluster. Antes de o fazer, transfira o certificado, procure dentro da caixa informativa azul grande para a ligação. Certifique-se de que mantém o certificado num local seguro. é necessário para ligar ao cluster. Uma vez que o certificado que transferiu não tiver uma palavra-passe, recomenda-se adicionar um.
+Agora, está pronto para implementar o cluster. Antes de o fazer, transfira o certificado, procure dentro da caixa de informativa azul grande para a ligação. Certifique-se manter o certificado num local seguro. terá de se ligar ao seu cluster. Uma vez que o certificado que transferiu não tiver uma palavra-passe, recomenda-se adicionar um.
 
-Para concluir a criação do cluster, clique em **criar**. Opcionalmente, pode transferir o modelo. 
+Para concluir a criação de cluster, clique em **criar**. Opcionalmente, pode transferir o modelo. 
 
 ![Resumo]
 
 Pode ver o progresso da criação nas notificações. (Clique no ícone de "Sino", junto a barra de estado no canto superior direito do ecrã.) Se clicou em **Afixar ao Startboard** ao criar o cluster, verá **Implementar o Cluster do Service Fabric** afixado ao painel de **Início**.
 
-Para efetuar operações de gestão no seu cluster utilizando o Powershell ou o CLI, terá de ligar ao cluster, leia mais sobre como em [ligar ao seu cluster](service-fabric-connect-to-secure-cluster.md).
+Para efetuar operações de gestão no seu cluster com o Powershell ou CLI, terá de ligar ao cluster, leia mais sobre como na [ligar ao seu cluster](service-fabric-connect-to-secure-cluster.md).
 
-### <a name="view-your-cluster-status"></a>Ver o estado do cluster
-![Captura de ecrã dos detalhes de cluster no dashboard.][ClusterDashboard]
+### <a name="view-your-cluster-status"></a>Ver o seu estado de cluster
+![Captura de ecrã de detalhes do cluster no dashboard.][ClusterDashboard]
 
-Depois do cluster foi criado, pode inspecionar o seu cluster no portal:
+Depois do cluster é criado, pode inspecionar o seu cluster no portal do:
 
-1. Aceda a **procurar** e clique em **Clusters de recursos de infraestrutura de serviço**.
-2. Localize o seu cluster e clique no mesmo.
+1. Aceda a **navegue** e clique em **Clusters do Service Fabric**.
+2. Localize o cluster e clique no mesmo.
 3. Agora pode ver os detalhes do seu cluster no dashboard, incluindo o ponto final público do cluster e uma ligação para o Service Fabric Explorer.
 
-O **Monitor nó** secção no painel de dashboard do cluster indica o número de VMs que fazem o bom estado de funcionamento e não em bom estado. Pode encontrar mais detalhes sobre o estado de funcionamento do cluster em [introdução de modelo de estado de funcionamento do Service Fabric][service-fabric-health-introduction].
+O **Monitor de nó** secção no painel de dashboard do cluster indica o número de VMs que estão em bom estado e estado de funcionamento incorreto. Pode encontrar mais detalhes sobre a integridade do cluster [introdução de modelo de estado de funcionamento do Service Fabric][service-fabric-health-introduction].
 
 > [!NOTE]
-> Clusters de Service Fabric necessitam de um determinado número de nós se sempre manter a disponibilidade e preservar o estado - referido como "manutenção quórum". Por conseguinte, normalmente, não é seguro encerrar todas as máquinas do cluster, exceto se tiver efetuado primeiro um [cópia de segurança completa do seu estado][service-fabric-reliable-services-backup-restore].
+> Clusters do Service Fabric necessitam de um determinado número de nós para ficar operacional sempre manter a disponibilidade e preservar o estado - referido como "manter o quórum". Portanto, normalmente, não é seguro encerrar todas as máquinas no cluster, a menos que o utilizador tiver sido executado pela primeira vez um [cópia de segurança completa do seu estado][service-fabric-reliable-services-backup-restore].
 > 
 > 
 
-## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Remoto ligar a uma instância de conjunto de dimensionamento da Máquina Virtual ou um nó de cluster
-Cada um dos NodeTypes especificou nos resultados de cluster num conjunto de dimensionamento de Máquina Virtual ao obter a configuração. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
+## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Ligar remotamente a uma instância de conjunto de dimensionamento de Máquina Virtual ou um nó de cluster
+Cada um o NodeTypes especifique os resultados num conjunto de dimensionamento de Máquina Virtual ao obter a configuração do cluster. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste momento, tiver um cluster seguro que utilizar certificados para autenticação de gestão. Em seguida, [ligar ao cluster](service-fabric-connect-to-secure-cluster.md) e saber como [gerir segredos de aplicação](service-fabric-application-secret-management.md).  Além disso, saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md).
+Neste ponto, tem um cluster seguro utilizar certificados para autenticação de gestão. Em seguida, [ligar ao cluster](service-fabric-connect-to-secure-cluster.md) e saiba como [gerir segredos da aplicação](service-fabric-application-secret-management.md).  Além disso, saiba mais sobre [opções de suporte do Service Fabric](service-fabric-support.md).
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -227,9 +225,7 @@ Neste momento, tiver um cluster seguro que utilizar certificados para autentica�
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node -->
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
-[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
+<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-atualização]: service-fabric-cluster-upgrade.mdd
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971456"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125764"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -67,7 +67,7 @@ As metas, tarefas e artefactos de documentação para cada fase do ciclo de vida
 
 O diagrama seguinte fornece uma exibição de grade das tarefas (a azul) e artefatos (em verde) associados a cada fase do ciclo de vida (no eixo horizontal) para estas funções (no eixo vertical). 
 
-![TDSP-funções-e-tarefas](./media/overview/tdsp-tasks-by-roles.png)
+[ ![TDSP-funções-e-tarefas](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Estrutura do projeto padronizado
 
@@ -81,7 +81,7 @@ Fornecemos modelos para a estrutura de pastas e os documentos necessários em lo
 - métricas de desempenho de modelo como curvas ROC ou MSE
 
 
-![Diretórios de TDSP](./media/overview/tdsp-dir-structure.png)
+[ ![Diretórios de TDSP](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
 A estrutura de diretório pode ser clonada partir [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -98,7 +98,7 @@ TDSP fornece recomendações para a gestão de análise partilhado e a infraestr
 
 Eis um exemplo de uma equipe de trabalhar em vários projetos e partilha vários componentes de infraestrutura de análise na cloud.
 
-![Infraestrutura de TDSP](./media/overview/tdsp-analytics-infra.png)
+[ ![Infraestrutura de TDSP](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto

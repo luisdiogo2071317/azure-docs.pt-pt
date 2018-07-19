@@ -9,12 +9,12 @@ editor: cgronlun
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.openlocfilehash: d38148181aa18404e45f6efc029117573570e6bc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 45cb9590e6dd0d8260f6e63b80caeca894f0fd44
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115430"
+ms.locfileid: "39126039"
 ---
 # <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight associados a um domínio com o Azure Active Directory Domain Services
 
@@ -52,7 +52,7 @@ A próxima etapa é criar o cluster do HDInsight com o Azure AD DS e a conta de 
 Quando cria um cluster do HDInsight associados a um domínio, tem de fornecer os seguintes parâmetros:
 
 - **Nome de domínio**: O nome de domínio que está associada com o Azure AD DS. Um exemplo é contoso.onmicrosoft.com.
-- **Nome de utilizador de domínio**: A conta de serviço no domínio gerido que criou na secção anterior. Um exemplo é hdiadmin@contoso.onmicrosoft.com. Este utilizador de domínio será o administrador deste cluster do HDInsight.
+- **Nome de utilizador de domínio**: A conta de serviço no controlador de domínio do Azure adiciona gerida domínio que criou na secção anterior. Um exemplo é hdiadmin@contoso.onmicrosoft.com. Este utilizador de domínio será o administrador deste cluster do HDInsight.
 - **Palavra-passe do domínio**: A palavra-passe da conta de serviço.
 - **Unidade organizacional**: O nome único da UO que pretende utilizar com o cluster do HDInsight. Um exemplo é UO = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Se essa UO não existir, o cluster de HDInsight tenta criar a UO com os privilégios que tenha da conta de serviço. Por exemplo, se a conta de serviço está no grupo de administradores do Azure AD DS, tem as permissões adequadas para criar uma UO. Caso contrário, precisará de criar a UO pela primeira vez e dar o controle de total de conta de serviço sobre nessa UO. Para obter mais informações, consulte [criar uma UO num domínio gerido do Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 

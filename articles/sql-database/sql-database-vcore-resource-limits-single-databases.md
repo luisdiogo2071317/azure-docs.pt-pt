@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: df7633028b9bafee8f9938432c86c7d7a24e2699
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092635"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126413"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -40,7 +40,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|
 |Tamanho máximo do registo|307|307|461|922|1229|1229|
-|TempDB size(DB)|32|64|128|256|384|384|
+|(GB) de TempDB|32|64|128|256|384|384|
 |Destino IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -62,7 +62,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Tamanho máximo do registo|307|307|461|614|1229|1229|1229|1229|
-|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|(GB) de TempDB|64|128|256|384|384|384|384|384|
 |Destino IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -85,7 +85,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo|307|307|307|307|307|307|
-|TempDB size(DB)|32|64|128|256|384|384|
+|(GB) de TempDB|32|64|128|256|384|384|
 |Destino IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|3200|4800|
@@ -108,7 +108,7 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Tamanho máximo do registo|307|307|307|307|614|1229|1229|1229|
-|TempDB size(DB)|64|128|256|384|384|384|384|384|
+|(GB) de TempDB|64|128|256|384|384|384|384|384|
 |Destino IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|

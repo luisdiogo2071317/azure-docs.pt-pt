@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856421"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136660"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -86,7 +86,7 @@ Depois de finalizar o documento Termos de utilização, utilize o procedimento q
 
     ![Adicionar Termos de Utilização](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Ver os utilizadores que aceitaram e recusaram
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Ver relatório de quem tem aceitaram e recusaram
 O painel Termos de utilização mostra uma contagem dos utilizadores que aceitaram e recusaram. Estas contagens e os utilizadores que aceitaram/recusaram são armazenados durante a vigência dos Termos de utilização.
 
 1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
@@ -97,10 +97,10 @@ O painel Termos de utilização mostra uma contagem dos utilizadores que aceitar
 
     ![Evento de Auditoria](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Ver registos de auditoria
+## <a name="view-azure-ad-audit-logs"></a>Registos de auditoria de vista do Azure AD
 Se pretender ver atividade adicional, os Termos de utilização do Azure AD incluem registos de auditoria. Cada consentimento do usuário dispara um evento nos registos de auditoria que é armazenado durante 30 dias. Pode ver estes registos no portal ou transferi-los como um ficheiro. csv.
 
-Para dar início aos registos de auditoria, utilize o seguinte procedimento:
+Para começar a utilizar com o Azure AD registos de auditoria, utilize o seguinte procedimento:
 
 1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
 
@@ -167,10 +167,19 @@ As políticas de acesso condicional entram imediatamente em vigor. Quando isto a
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Como posso ver se e quando um utilizador aceitou os Termos de utilização?**</br>
-R: em termos do painel de utilização, clique no número em **aceite**. Também pode ver ou procurar a atividade de aceitar os registos de auditoria. Para obter mais informações, consulte [ver quem tem aceitaram e recusaram](#view-who-has-accepted-and-declined) e [ver registos de auditoria](#view-audit-logs).
+R: em termos do painel de utilização, clique no número em **aceite**. Também pode ver ou procurar a atividade de aceitar no Azure AD registos de auditoria. Para obter mais informações, consulte [Ver relatório de quem tem aceitaram e recusaram](#view-who-has-accepted-and-declined) e [registos de auditoria de vista do Azure AD](#view-azure-ad-audit-logs).
+ 
+**P: Por quanto tempo as informações são armazenadas?**</br>
+R: o utilizador conta em termos de relatório de utilização e que aceite/recusado é armazenado durante o ciclo de vida dos termos de utilização. A auditoria do Azure AD, os registos são armazenados durante 30 dias.
+
+**P: por que vejo um número diferente de consentimentos em termos de relatório de utilização vs. o Azure AD, registos de auditoria?**</br>
+R: os termos de relatório de utilização são armazenados durante a vida útil do que termos de utilização, ao mesmo tempo a auditoria do Azure AD, os registos são armazenados durante 30 dias. Além disso, os termos de relatório de utilização só apresenta o estado de consentimento atual de utilizadores. Por exemplo, se um utilizador recusa e, em seguida, aceita, os termos de utilização relatório mostrará apenas esse utilizador aceite. Se precisar de ver o histórico, pode utilizar o Azure AD registos de auditoria.
 
 **P: Se alterar os termos de utilização, é necessário que os utilizadores aceitar novamente?**</br>
 R: Sim, um administrador pode alterar os termos de utilização e requer que os utilizadores voltem os novos termos.
+
+**P: se hiperlinks são em termos de utilizar o documentos PDF, os utilizadores finais será capazes de clicar nas mesmas?**</br>
+R: o PDF é processado por predefinição como um JPEG, pelo que não são clicáveis hiperlinks. Os utilizadores têm a opção de selecionar **com problemas em visualizar? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks são suportados.
 
 **P: Os Termos de utilização podem suportar vários idiomas?**</br>
 R: Sim.  Atualmente, existem 18 idiomas diferentes que um administrador pode configurar para um único documento Termos de utilização. 
@@ -189,6 +198,7 @@ R: O acesso do utilizador à aplicação é bloqueado. O utilizador terá de ini
  
 **P: é possível unaccept termos de utilização que foram anteriormente aceites?**</br>
 R: pode [revisão ainda aceitado os termos de utilização](#how-users-can-review-their-terms-of-use), mas atualmente não há uma forma de unaccept.
- 
-**P: Por quanto tempo as informações são armazenadas?**</br>
-R: As contagens de utilizador e quem aceitou/recusou são armazenadas durante a vigência dos Termos de utilização. Os registos de auditoria são armazenados durante 30 dias.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- [Melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md)

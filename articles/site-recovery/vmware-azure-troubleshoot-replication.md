@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951653"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126022"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação de VMs de VMware e servidores físicos
 
@@ -74,25 +74,7 @@ Se não for possível estabelecer ligação, em seguida, verifique se o problema
 
 * **Verifique se firewall baseado em URL no servidor de processos não está a bloquear o acesso**: Se estiver a utilizar regras de firewall baseado em URL no servidor, certifique-se os seguintes URLs são adicionados à configuração da firewall.
 
-  `*.accesscontrol.windows.net:` Utilizado para controlo de acesso e gestão de identidades
-
-  `*.backup.windowsazure.com:` Utilizado para transferência de dados de replicação e orquestração
-
-  `*.blob.core.windows.net:` Utilizado para acesso à conta de armazenamento que armazena dados replicados
-
-  `*.hypervrecoverymanager.windowsazure.com:` Utilizado para operações e gestão de replicação e orquestração
-
-  `time.nist.gov` e `time.windows.com`: utilizado para verificar a sincronização da hora entre o sistema e a hora global.
-
-URLs para **Cloud do Azure Government**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Verifique se as definições de Proxy no servidor de processos não estão a bloquear o acesso**.  Se estiver a utilizar um servidor Proxy, certifique-se de que o nome do servidor proxy está a resolver pelo servidor DNS.
 Para verificar o que fornecidos no momento da configuração do servidor de configuração. Vá para a chave de registo

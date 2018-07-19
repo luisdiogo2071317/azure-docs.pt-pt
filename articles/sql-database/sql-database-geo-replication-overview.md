@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 2c744866bdec3ebc3ebb336d42c2b837fc888149
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b889c77bbbcff31aa84cb0df5d06de487ba91d8e
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093129"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136558"
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Descrição geral: Grupos de ativação pós-falha e georreplicação ativa
 Georreplicação ativa permite-lhe configurar até quatro legíveis bases de dados secundárias nos locais de centro de dados iguais ou diferentes (regiões). Bases de dados secundárias estão disponíveis para consulta e ativação pós-falha, se ocorrer uma indisponibilidade do Centro de dados ou a incapacidade de ligar à base de dados primária. A ativação pós-falha tem de ser iniciada manualmente pela aplicação do utilizador. Após a ativação pós-falha, a nova principal tem um ponto de final de ligação diferente. 
@@ -89,8 +89,9 @@ Funcionalidade de grupos de ativação pós-falha automática fornece uma abstra
    >
 
 * **Serviço de escuta de leitura / escrita de grupo de ativação pós-falha**: registo CNAME no DNS um formado como  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** que aponta para o URL do servidor primário atual. Ele permite que os aplicativos de SQL de leitura / escrita de forma transparente voltar a ligar à base de dados primária quando primário é alterado após a ativação pós-falha. 
-* **Escuta de só de leitura do grupo de ativação pós-falha**: registo CNAME no DNS um formado como  **&lt;nome do grupo de ativação pós-falha&gt;. secondary.database.windows.net** que aponta para o URL do servidor secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para a base de dados secundária com as regras de balanceamento de carga especificadas. Opcionalmente, pode especificar se pretende que o tráfego de só de leitura para ser redirecionado automaticamente para o servidor primário quando o servidor secundário não está disponível.
+* **Escuta de só de leitura do grupo de ativação pós-falha**: registo CNAME no DNS um formado como  **&lt;nome do grupo de ativação pós-falha&gt;. secondary.database.windows.net** que aponta para o URL do servidor secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para a base de dados secundária com as regras de balanceamento de carga especificadas. 
 * **Política de ativação pós-falha automática**: por predefinição, o grupo de ativação pós-falha é configurado com uma política de ativação pós-falha automática. O sistema aciona ativação pós-falha, assim que a falha é detectada. Se pretender controlar o fluxo de trabalho de ativação pós-falha da aplicação, pode desativar a ativação pós-falha automática. 
+* **Política de ativação pós-falha só de leitura**: por predefinição, a ativação pós-falha do serviço de escuta só de leitura está desativada. Ele garante que o desempenho dos principais não é afetado quando secundário está offline. No entanto, isso também significa que as sessões de só de leitura não será possível se conectar até que o elemento secundário for recuperado. Se não pode tolerar o período de indisponibilidade para as sessões de só de leitura e OK para usar temporariamente a principal para tráfego de só de leitura e leitura / escrita às custas da degradação do desempenho potencial dos principais, pode ativar a ativação pós-falha para o serviço de escuta só de leitura. Nesse caso o tráfego de só de leitura será automaticamente redirecionado para o servidor primário se o servidor secundário não está disponível.  
 * **Ativação pós-falha manual**: pode iniciar ativação pós-falha manualmente a qualquer momento, independentemente da configuração de ativação pós-falha automática. Se não estiver configurada a política de ativação pós-falha automática, a ativação pós-falha manual é necessário para recuperar bases de dados no grupo de ativação pós-falha. Pode iniciar a ativação pós-falha forçada ou amigável (com a sincronização de dados completa). A última opção pode ser utilizada para reposicionar o servidor Active Directory para a região primária. Quando concluir a ativação pós-falha, os registos DNS são automaticamente atualizados para garantir a conectividade ao servidor correto.
 * **Período de tolerância de perda de dados**: uma vez que as bases de dados primárias e secundárias são sincronizadas com a replicação assíncrona, a ativação pós-falha pode resultar em perda de dados. Pode personalizar a política de ativação pós-falha automática para refletir a tolerância de seu aplicativo à perda de dados. Configurando **GracePeriodWithDataLossHours**, pode controlar o tempo que o sistema aguarda antes de iniciar a ativação pós-falha que é provável que a perda de dados de resultado. 
 

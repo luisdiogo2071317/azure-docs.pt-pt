@@ -1,7 +1,7 @@
 ---
-title: Atualizar a sua subscrição gratuita do Azure para pay as you go | Microsoft Docs
-description: Descreve como pode fazer uma aceda do pay as you para atualizar de uma subscrição gratuita e os requisitos
-keywords: atualização de pay as you go
+title: Atualizar a sua subscrição do Azure gratuita para pay as you go | Documentos da Microsoft
+description: Descreve como pode fazer uma opção pay as you go atualização a partir de uma subscrição gratuita e os requisitos
+keywords: atualização de crédito pré-pago
 services: ''
 documentationcenter: ''
 author: jlian
@@ -17,23 +17,28 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769176"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124988"
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar a subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Atualizar a sua subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go
 
-Atualizar o [avaliação gratuita](https://azure.microsoft.com/free/) ou [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) subscrição [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) no Centro de contas do Azure.
+Atualizar seus [avaliação gratuita](https://azure.microsoft.com/free/) ou [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) subscrição [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) no Centro de contas do Azure.
 
-1. Iniciar sessão para o [Centro de contas do Azure](https://account.windowsazure.com/subscriptions).
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/subscriptions).
 2. Na secção de estado de subscrição, selecione o **atualizar agora** faixa.
    
-    ![Captura de ecrã que mostra onde clique para atualizar da versão de avaliação gratuita para pay as you go](./media/billing-upgrade-azure-subscription/billpage.png)
-3. Confirme a atualização.
+    ![Captura de ecrã que mostra onde clicar para atualizar da versão de avaliação gratuita para pay as you go](./media/billing-upgrade-azure-subscription/billpage.png)
+3. Certifique-se a atualização.
    
-    ![Captura de ecrã que mostra o que selecionar para confirmar que pretende atualizar a subscrição](./media/billing-upgrade-azure-subscription/Upgrade.png)
+    ![Captura de ecrã que mostra o que selecionar para confirmar que pretende atualizar a sua subscrição](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- Quando atualizar a partir de uma subscrição de avaliação gratuita, mantenha o crédito restante para os totais de 30 dias depois de criada a subscrição. Também tem acesso a fim de libertar serviços durante 12 meses.
+ Ao atualizar de uma subscrição de avaliação gratuita, mantém o seu crédito restante para todos os 30 dias depois de criado a subscrição. Também tem acesso a serviços durante 12 meses gratuitos.
+ 
+ Se quiser [transferir a subscrição](billing-subscription-transfer.md) após a atualização, tem de aguardar até que a oferta de subscrição é alterado para ID **MS-AZR - 003P**. O ID de oferta é alterado quando
+
+* Consumir o crédito restante, ou
+* passar de 30 dias desde o início da versão de avaliação gratuita

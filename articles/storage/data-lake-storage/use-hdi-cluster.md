@@ -8,7 +8,7 @@ tags: azure-portal
 author: jamesbak
 manager: jahogg
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e9fd28ac21ce843655697c5d58849d940e305fce
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344959"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136694"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 
@@ -207,7 +207,7 @@ Ao criar um cluster do HDInsight, especifica a conta de armazenamento do Azure q
 > [!WARNING]
 > Não é suportado utilizar uma conta de armazenamento adicional numa localização diferente do cluster do HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a utilizar o armazenamento do Azure compatível com HDFS através do HDInsight. Esta abordagem permite-lhe criar soluções de aquisição de dados dimensionáveis e de longo prazo, arquivamento e utilizar o HDInsight para aceder às informações contidas armazenado estruturados e dados não estruturados.
 
