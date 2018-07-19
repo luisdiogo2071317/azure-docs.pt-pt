@@ -2,24 +2,24 @@
 title: Configuração de cluster de Hadoop, Spark, Kafka, HBase ou R Server - Azure HDInsight
 description: Configure o Hadoop, Kafka, Spark, HBase, R Server ou Storm clusters para HDInsight de um navegador, a CLI do Azure, Azure PowerShell, REST ou SDK.
 keywords: configuração de cluster do hadoop, instalação, configuração de cluster do spark, o que é o cluster do hadoop de cluster do kafka
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346591"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136643"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início rápido: Configurar clusters no HDInsight
 
@@ -255,10 +255,10 @@ Para obter um exemplo do uso de dois tipos de cluster dentro de uma rede virtual
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Driver de sistema de ficheiros do ABFS Hadoop para a geração 2 de armazenamento do Azure Data Lake](abfs-driver.md)
-- [Tutorial: Extrair, transformar e carregar dados com o Apache Hive no HDInsight do Azure](tutorial-extract-transform-load-hive.md)
+- [Tutorial: Extrair, transformar e carregar dados com o Apache Hive no Azure HDInsight](tutorial-extract-transform-load-hive.md)
 - [O que são o HDInsight, o ecossistema do Hadoop, e clusters do Hadoop?](../../hdinsight/hadoop/apache-hadoop-introduction.md)
 - [Introdução à utilização do Hadoop no HDInsight](../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Trabalhar no Hadoop no HDInsight a partir de um PC do Windows](../../hdinsight/hdinsight-hadoop-windows-tools.md)

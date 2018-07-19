@@ -1,6 +1,6 @@
 ---
-title: Início rápido c# para os serviços do Azure cognitivos, análise de texto API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de análise de texto no Microsoft serviços cognitivos no Azure.
+title: Início rápido em C#, para os serviços cognitivos do Azure, API de análise de texto | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de análise de texto nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 documentationcenter: ''
 author: luiscabrer
@@ -9,46 +9,46 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266299"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125130"
 ---
-# <a name="quickstart-for-text-analytics-api-with-c"></a>Início rápido para análise de texto API com c# 
+# <a name="quickstart-for-text-analytics-api-with-c"></a>Início rápido para API com o C # de análise de texto 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como detetar idioma, analisar o sentimento e extrair expressões chaves, utilizando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com c#. O código foi escrito para trabalhar aplicação principal, com o mínimo referências a bibliotecas externas, pelo que também pode executá-la no Linux ou MacOS um .net.
+Este artigo mostra-lhe como detetar idioma, analisar sentimentos e extrair expressões-chave a utilizar o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com c#. O código foi escrito para trabalhar num .net, aplicativo principal, com um mínimo referências a bibliotecas externas, portanto, também pode executá-lo no Linux ou MacOS.
 
-Consulte o [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) documentação técnica para as APIs.
+Consulte a [as definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para documentação técnica para as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de análise de texto**. Pode utilizar o **escalão gratuito para transações/mês 5000** para concluir este guia de introdução.
+Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de análise de texto**. Pode utilizar o **escalão gratuito para 5000 transações/mês** para concluir este início rápido.
 
-Também tem de ter o [chave de acesso e de ponto final](../How-tos/text-analytics-how-to-access-key.md) que foi gerado durante a sessão cópias de segurança. 
+Também tem de ter o [chave de acesso e de ponto final](../How-tos/text-analytics-how-to-access-key.md) que foi gerado para durante o início de sessão cópia de segurança. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>Instalar o pacote Nuget SDK
+## <a name="install-the-nuget-sdk-package"></a>Instalar o pacote de Nuget SDK
 1. Crie uma nova solução de consola no Visual Studio.
-1. Clique em de solução e clique em **gerir pacotes NuGet para solução**
-1. Marca o **incluir pré-lançamento** caixa de verificação.
-1. Selecione o **procurar** separador e procure **Microsoft.Azure.CognitiveServices.Language**
+1. Clique com o botão direito do rato na solução e clique em **gerir pacotes NuGet para solução**
+1. Mark a **Include Prerelease** caixa de verificação.
+1. Selecione o **navegue** separador e procure **Microsoft.Azure.CognitiveServices.Language**
 1. Selecione o pacote Nuget e instalá-lo.
 
 > [!Tip]
->  Enquanto pode chamar o [pontos finais de HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) diretamente do c#, o SDK Microsoft.Azure.CognitiveServices.Language torna muito mais fácil chamar o serviço sem ter de se preocupar com a serializar e anular a serialização do JSON.
+>  Enquanto poderia chamar o [pontos de extremidade HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) diretamente da linguagem c#, o SDK de Microsoft.Azure.CognitiveServices.Language torna muito mais fácil chamar o serviço sem ter de se preocupar sobre serializando e desserializando o JSON.
 >
-> Algumas hiperligações úteis:
-> - [Página Nuget do SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> Alguns links úteis:
+> - [Página de SDK Nuget](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [Código do SDK ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-using-the-sdk"></a>Chamar a API de análise de texto utilizando o SDK
-1. Substitua Program.cs com o código fornecido abaixo. Este programa demonstra as capacidades da API de análise de texto em 3 secções (extração de idioma, extração de expressão de chave e análise de dados de sentimento).
-1. Substitua o `Ocp-Apim-Subscription-Key` valor do cabeçalho com uma chave de acesso válido para a sua subscrição.
-1. Substituir a localização na `client.AzureRegion` (atualmente `AzureRegions.Westus`) para a região que inscreveu no.
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>Chamar a API de análise de texto com o SDK
+1. Substitua Program.cs com o código fornecido abaixo. Este programa demonstra as capacidades de API de análise de texto em 3 secções (extração de idioma, extração de frases-chave e análise de sentimentos).
+1. Substitua o `Ocp-Apim-Subscription-Key` valor de cabeçalho com uma chave de acesso válido para a sua subscrição.
+1. Substituir a localização na `client.BaseUri` para o ponto final que inscreveu. Pode encontrar o ponto final no recurso do Portal do Azure. O ponto de extremidade normalmente é semelhante a "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0".
 1. Execute o programa.
 
 ```csharp
@@ -81,8 +81,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

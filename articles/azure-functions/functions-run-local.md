@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 44485d04dad3ff9dfc6067a3737989c5d273541f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116185"
+ms.locfileid: "39126219"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -121,7 +121,7 @@ Os passos seguintes utilizam [APT](https://wiki.debian.org/Apt) para instalar as
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
-Um diretório de projeto de funções contém os ficheiros [Host. JSON](functions-host-json.md) e [Settings](#local-settings-file), ao longo de subpastas que contêm o código para funções individuais. Este diretório é o equivalente a uma aplicação de funções no Azure. Para saber mais sobre a estrutura de pastas de funções, consulte a [guia de programadores do funções do Azure](functions-reference.md#folder-structure).
+Um diretório de projeto de funções contém os ficheiros [Host. JSON](functions-host-json.md) e [Settings](#local-settings-file), juntamente com as subpastas que contêm o código para funções individuais. Este diretório é o equivalente a uma aplicação de funções no Azure. Para saber mais sobre a estrutura de pastas de funções, consulte a [guia de programadores do funções do Azure](functions-reference.md#folder-structure).
 
 Versão 2.x exige que selecione um idioma padrão do seu projeto, quando é inicializado, e todas as funções adicionadas a modelos de linguagem de padrão de utilização. Na versão 1.x, especificar o idioma de cada vez que criar uma função.
 
@@ -137,6 +137,7 @@ Na versão 2.x, quando executar o comando tem de escolher um tempo de execução
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Utilizar a cópia de segurança/para baixo de teclas de seta para selecionar um idioma, em seguida, prima Enter. O resultado tem um aspeto semelhante ao seguinte exemplo para um projeto do JavaScript:
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Para criar o projeto sem um repositório de Git local, utilize o `--no-source-control [-n]` opção.
+
+> [!IMPORTANT]
+> Por predefinição, versão 2.x das ferramentas de núcleo cria função os projetos de aplicativos para o tempo de execução do .NET como [projetos de classe c#](functions-dotnet-class-library.md) (arquivo. csproj). Esses projetos do c#, que podem ser utilizados com o Visual Studio 2017 ou Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se pretender em vez disso, criar e trabalhar com o mesmo script c# (. csx) ficheiros criados na versão 1.x e no portal, tem de incluir o `--csx` parâmetro ao criar e implementar as funções.
 
 ## <a name="register-extensions"></a>Registe-se as extensões
 
@@ -177,7 +181,7 @@ O ficheiro Settings armazena as definições da aplicação, as cadeias de liga�
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ O ficheiro Settings armazena as definições da aplicação, as cadeias de liga�
 | **Anfitrião** | As definições nesta secção personalizar o processo de host de funções ao executar localmente. |
 | **LocalHttpPort** | Define a porta predefinida utilizada ao executar o anfitrião local de funções (`func host start` e `func run`). O `--port` opção da linha de comandos tem precedência sobre este valor. |
 | **CORS** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista separada por vírgulas, sem espaços. O valor de caráter universal (\*) é suportado, que permite que os pedidos a partir de qualquer origem. |
-| **ConnectionStrings** | Não utilize esta coleção para as cadeias de ligação utilizadas pelo seu enlaces de funções. Esta coleção só é utilizada por estruturas que tem de obter cadeias de ligação do **ConnectionStrings** secção de uma configuração de ficheiro, tal como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Cadeias de ligação desse objeto são adicionadas ao ambiente com o tipo de fornecedor de [SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Itens dessa coleção não são publicadas no Azure com outras definições de aplicação. Tem de adicionar explicitamente esses valores para o **cadeias de ligação** secção a **as definições da aplicação** para a sua aplicação de função. |
+| **ConnectionStrings** | Não utilize esta coleção para as cadeias de ligação utilizadas pelo seu enlaces de funções. Esta coleção só é utilizada por estruturas que normalmente obtém cadeias de ligação do **ConnectionStrings** secção de uma configuração de ficheiro, tal como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Cadeias de ligação desse objeto são adicionadas ao ambiente com o tipo de fornecedor de [SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Itens dessa coleção não são publicadas no Azure com outras definições de aplicação. Tem de adicionar explicitamente esses valores para o **cadeias de ligação** coleção das definições de aplicação de função. Se estiver a criar uma [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) no código da função, deve armazenar o valor da cadeia de ligação **configurações de aplicativo** com as outras ligações. |
 
 Os valores de definições de aplicação de função também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte a secção de variáveis de ambiente destes tópicos de referência de idioma específico:
 
@@ -271,8 +275,9 @@ Também pode especificar estas opções no comando utilizando os argumentos a se
 | Argumento     | Descrição                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| O modelo de programação de linguagem, como c#, F # ou JavaScript. Esta opção é necessária na versão 1.x. Na versão 2.x, não utilize esta opção ou escolha o idioma padrão do seu projeto. |
-| **`--template -t`** | O nome do modelo, que pode ser um dos valores:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | Utilize o `func templates list` comando para ver a lista completa dos modelos disponíveis para cada idioma suportado.   |
 | **`--name -n`** | O nome da função. |
+| **`--csx`** | (Versão 2.x) Gera os mesmos c# script (. csx) modelos usados na versão 1.x e no portal. |
 
 Por exemplo, para criar um acionador de HTTP de JavaScript num único comando, execute:
 

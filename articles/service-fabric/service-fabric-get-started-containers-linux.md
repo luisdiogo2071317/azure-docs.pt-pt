@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 657e4b212b79fec40299e639c3818fd97a339579
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213129"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126733"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -171,11 +171,11 @@ Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, n
 
 Especifique uma contagem de instâncias de "1".
 
-Especificar o mapeamento de portas no formato adequado. Para este artigo, tem de fornecer ```80:4000``` como mapeamento de porta. Ao fazê-configurou que quaisquer pedidos recebidos para a porta 4000 no computador anfitrião são redirecionados para a porta 80 no contentor.
+Especifica o mapeamento de portas no formato apropriado. Neste artigo, tem de fornecer ```80:4000``` como o mapeamento de portas. Ao fazê-lo se que tiver configurado que qualquer porta 4000 a chegar na máquina host os pedidos recebidos são redirecionados para a porta 80 no contentor.
 
 ![Gerador Yeoman do Service Fabric para contentores][sf-yeoman]
 
-## <a name="configure-container-repository-authentication"></a>Configurar a autenticação do repositório de contentor
+## <a name="configure-container-repository-authentication"></a>Configurar a autenticação de repositório de contentor
  Se precisar que a autenticação do contentor seja realizada com um repositório privado, adicione `RepositoryCredentials`. Neste artigo, adicione o nome e a palavra-passe da conta do registo de contentores myregistry.azurecr.io. Certifique-se de que a política é adicionada sob a etiqueta "ServiceManifestImport" que corresponde ao pacote de serviço correto.
 
 ```xml
@@ -189,6 +189,39 @@ Especificar o mapeamento de portas no formato adequado. Para este artigo, tem de
     </Policies>
    </ServiceManifestImport>
 ``` 
+
+
+## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
+Com o lançamento de tempo de 6.3 execução, o isolamento da VM é suportado para contentores do Linux, assim que suporta dois modos de isolamento para contentores: processo e Hyper-v. Com o modo de isolamento de Hyper-v, os kernels estão isolados entre cada contentor e o anfitrião do contentor. O isolamento de Hyper-v é implementado usando [contentores clara](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). O modo de isolamento é especificado para clusters do Linux no `ServicePackageContainerPolicy` elemento no arquivo de manifesto do aplicativo. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. A predefinição é o modo de isolamento do processo. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0"/>
+      <Policies>
+        <ServicePackageContainerPolicy Hostname="votefront" Isolation="hyperv">
+          <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ServicePackageContainerPolicy>
+    </Policies>
+  </ServiceManifestImport>
+```
+
+
+## <a name="configure-resource-governance"></a>Configurar a governação de recursos
+A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Pode definir limites de recursos para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
+
+```xml
+<ServiceManifestImport>
+  <ServiceManifestRef ServiceManifestName="MyServicePKg" ServiceManifestVersion="1.0.0" />
+  <Policies>
+    <ServicePackageResourceGovernancePolicy CpuCores="1"/>
+    <ResourceGovernancePolicy CodePackageRef="Code" MemoryInMB="1024"  />
+  </Policies>
+</ServiceManifestImport>
+```
+
+
+
+
 ## <a name="configure-docker-healthcheck"></a>Configurar docker HEALTHCHECK 
 A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no dockerfile utilizado ao gerar a imagem de contentor. 
 
