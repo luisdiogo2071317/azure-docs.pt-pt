@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902627"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001937"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Tutorial: utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao SQL do Azure
 
@@ -53,17 +53,17 @@ Neste tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o MSI n
 5.  Para selecionar um novo **Grupo de Recursos** no qual irá criar a sua máquina virtual, selecione **Criar Novo**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Na página Definições, mantenha as predefinições e clique em **OK**.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Ativar o MSI na sua VM 
+## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM 
 
 Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem ter de colocar as credenciais no código. A ativação do MSI informa o Azure para criar uma identidade gerida para a sua VM. Nos bastidores, ativar o MSI faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
 
-1.  Selecione a **Máquina Virtual** na qual pretende ativar o MSI.  
+1.  Selecione a **Máquina Virtual** na qual pretende ativar a MSI.  
 2.  Na barra de navegação esquerda, clique em **Configuração**. 
 3.  Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não. 
 4.  Certifique-se de que clica em **Guardar** para guardar a configuração.  
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceder à sua VM acesso a uma base de dados num SQL Server do Azure
 
