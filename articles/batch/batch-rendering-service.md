@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128593"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114546"
 ---
 # <a name="get-started-with-batch-rendering"></a>Comece a Composição do Batch 
 
@@ -123,7 +123,7 @@ Com o 3ds Max, pode utilizar:
 
 Os modelos do Batch Labs do 3ds Max permitem-lhe utilizar o Batch Rendering para compor cenas do VRay e do Arnold. Existem duas variações do modelo para o VRay e o Arnold, uma para cenas padrão e outra para cenas mais complexas que requerem um ficheiro de caminho do 3ds Max para elementos e texturas (ficheiro .mxp). Para obter mais informações sobre os modelos do Batch Labs do 3ds Max, veja o repositório [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) no GitHub.
 
-Além disso, pode utilizar o [SDK do Batch para Python](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar composição no seu pipeline já existente.
+Além disso, pode utilizar o [SDK do Batch para Python](/python/api/overview/azure/batch) para integrar composição no seu pipeline já existente.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Utilizar o plug-in do Batch para Maya submeter um trabalho de composição

@@ -3,7 +3,7 @@ title: Controlos de aplicações adaptativos no Centro de Segurança do Azure | 
 description: Este documento ajuda-o a utilizar os controlos de aplicações adaptativos no Centro de Segurança do Azure para adicionar as aplicações em execução em VMs do Azure à lista de permissões.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/15/2018
-ms.author: yurid
-ms.openlocfilehash: 841dbbf97a7fa25aa001636ba92cc2a966be4908
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777208"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989970"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controlos de aplicações adaptativos no Centro de Segurança do Azure (Pré-visualização)
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 81509108060b636e47154a8c375f5569cac73648
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aed990c01e781ae766f421c1dd34ad64f13985cf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902739"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048743"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Key Vault 
 
@@ -56,7 +56,7 @@ Neste tutorial, vamos criar uma nova VM do Windows. Também pode ativar o MSI nu
 5.  Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, selecione **Criar Novo**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e clique em **OK**.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM 
 
@@ -67,7 +67,7 @@ Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, s
 3.  Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não. 
 4.  Certifique-se de que clica em **Guardar** para guardar a configuração.  
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso da VM a um segredo armazenado num Key Vault 
  
@@ -84,7 +84,7 @@ Primeiro, é necessário criar um Key Vault e conceder o acesso de identidade da
 7. Clique em **OK** para concluir a adição da nova política de acesso e em **OK** para concluir a seleção da política de acesso. 
 8. Clique em **Criar** para concluir a criação do Key Vault. 
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
 Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o segredo com o código em execução na sua VM: 

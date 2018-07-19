@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 02cc3f861864d3bfa878be6501b8563715f88dac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 79f1b299417acbfa2d9e565f0ec9aebede2508e1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971324"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002660"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivos e serviços Java e inscrições em grupos no Serviço Aprovisionamento de Dispositivos no Hub IoT
 
@@ -32,7 +32,7 @@ Antes de avançar, certifique-se de que executa os passos descritos em [Configur
 
 1. Verifique se `git` está instalado no computador e que é adicionado às variáveis de ambiente às quais a janela de comandos pode aceder. Veja as [ferramentas de cliente Git da Software Freedom Conservancy](https://git-scm.com/download/) relativamente à mais recente versão das ferramentas de `git` a instalar, que incluem o **Git Bash**, a aplicação de linha de comandos que pode utilizar para interagir com o seu repositório Git local. 
 
-1. Utilize a [Certificate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Descrição Geral de Certificados) para criar os certificados de teste. Para obter uma visão mais detalhada da criação de certificados, veja [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) (Scripts do PowerShell para gerir certificados de cliente X.509 assinados por CA).
+1. Utilize a [Certificate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Descrição Geral de Certificados) para criar os certificados de teste.
 
     > [!NOTE]
     > Este passo requer o [OpenSSL](https://www.openssl.org/), que pode ser criado e instalado de origem ou transferido e instalado a partir de [terceiros](https://wiki.openssl.org/index.php/Binaries), como [este](https://sourceforge.net/projects/openssl/). Se já tiver criado os certificados de _raiz_, _intermédios_ e de _dispositivo_, pode ignorar este passo.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3e14c51d644a29985e759da7c8a29927680d3891
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866988"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048956"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -86,8 +86,8 @@ Deve [preencher os dados de autenticação dos seus utilizadores](howto-sspr-aut
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Repor ou alterar a palavra-passe](../active-directory-passwords-update-your-own-password.md)
-* [Registar-se na reposição personalizada de palavra-passe](../active-directory-passwords-reset-register.md)
+* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Quais são as opções de política da SSPR?](concept-sspr-policy.md)

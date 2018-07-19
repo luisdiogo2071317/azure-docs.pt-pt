@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/02/2018
 ms.author: maheshu
-ms.openlocfilehash: 701fe17869d6e7744751d80330422ea47361b411
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff2659ed7dbdb21bccb8b5858d946b47951e40cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216145"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048938"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de hash de palavras-passe com o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de palavras-passe necessária para a autenticação NT LAN Manager (NTLM) e Kerberos com os Serviços de Domínio do Azure AD. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -78,7 +78,7 @@ Seguem-se as instruções que tem de fornecer aos utilizadores, para que possam 
 Uns minutos depois de ter alterado a palavra-passe, a nova palavra-passe pode ser utilizada no Azure Active Directory Domain Services. Após cerca de 20 minutos, pode iniciar sessão em computadores associados ao domínio gerido com a palavra-passe recentemente alterada.
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Como atualizar a sua própria palavra-passe](../active-directory/active-directory-passwords-update-your-own-password.md)
+* [Como atualizar a sua própria palavra-passe](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Introdução à Gestão de Palavras-passe no Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Ativar a sincronização de hashes de palavras-passe com o Azure Active Directory Domain Services de um inquilino do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Administrar um domínio gerido pelo Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)

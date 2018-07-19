@@ -3,7 +3,7 @@ title: Introdução ao Cloud Services do Azure e ao ASP.NET | Microsoft Docs
 description: Saiba como criar uma aplicação de várias camadas com o MVC do ASP.NET e o Azure. A aplicação é executada num serviço em nuvem, com a função da Web e a função de trabalho. Utiliza as filas e os blobs do Entity Framework, da SQL Database e do Storage do Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860025"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003118"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 

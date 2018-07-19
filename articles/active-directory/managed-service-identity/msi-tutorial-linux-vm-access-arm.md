@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904395"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007711"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: utilizar uma identidade atribuída ao utilizador numa VM do Linux, para aceder ao Azure Resource Manager
 
@@ -33,16 +33,16 @@ As Identidades de Serviço Geridas são geridas automaticamente pelo Azure. Perm
 Saiba como:
 
 > [!div class="checklist"]
-> * Criar uma identidade atribuída ao utilizador
+> * Criar uma identidade atribuída pelo utilizador
 > * Atribuir a identidade atribuída ao utilizador a uma VM do Linux 
 > * Conceder o acesso de identidade atribuída ao utilizador a um Grupo de Recursos no Azure Resource Manager 
-> * Obter um token de acesso com a identidade atribuída ao utilizador e utilizá-lo para chamar o Azure Resource Manager 
+> * Obter um token de acesso com a identidade atribuída pelo utilizador e utilizá-lo para chamar o Azure Resource Manager 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se está a familiarizado com a Identidade de Serviço Gerida, consulte a secção [Descrição Geral](overview.md). **Certifique-se de que revê as [diferenças entre as identidades atribuídas ao sistema e ao utilizador](overview.md#how-does-it-work)**.
+- Se está a familiarizado com a Identidade de Serviço Gerida, consulte a secção [Descrição Geral](overview.md). **Certifique-se de que revê as [diferenças entre as identidades atribuídas pelo sistema e pelo utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de “Proprietário” no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, veja [Utilizar o Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos de subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
+- Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, veja [Utilizar o Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos de subscrição do Azure](/azure/role-based-access-control/role-assignments-portal).
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
@@ -58,13 +58,13 @@ Neste tutorial, vamos criar primeiro uma nova VM do Linux. Também pode optar po
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
 
-    ![Criar VM do Linux](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Criar VM do Linux](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Escolha uma **Subscrição** para a máquina virtual na lista pendente.
 5. Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
 6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro Tipo de disco suportado. No painel de definições, mantenha as predefinições e clique em **OK**.
 
-## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída ao utilizador
+## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo utilizador
 
 1. Se estiver a utilizar a consola CLI (em vez de uma sessão do Azure Cloud Shell), comece por iniciar sessão no Azure. Utilize uma conta que esteja associada à subscrição do Azure na qual pretende criar a identidade atribuída ao utilizador:
 
@@ -100,7 +100,7 @@ A resposta contém detalhes para a identidade atribuída ao utilizador criada, s
 
 ## <a name="assign-a-user-assigned-identity-to-your-linux-vm"></a>Atribuir uma identidade atribuída a um utilizador à sua VM do Linux
 
-Uma identidade atribuída ao utilizador pode ser utilizada pelos clientes em vários recursos do Azure. Utilize os seguintes comandos para atribuir a identidade atribuída ao utilizador a uma única VM. Utilize a propriedade `Id` devolvida no passo anterior para o parâmetro `-IdentityID`.
+Uma identidade atribuída ao utilizador pode ser utilizada pelos clientes em vários recursos do Azure. Utilize os seguintes comandos para atribuir a identidade atribuída pelo utilizador a uma única VM. Utilize a propriedade `Id` devolvida no passo anterior para o parâmetro `-IdentityID`.
 
 Atribuir a MSI atribuída ao utilizador à VM do Linux, com [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. Utilize a propriedade `id` devolvida no passo anterior para o valor de parâmetro `--identities`.
 

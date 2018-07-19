@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 7254e8d1b5a525c3ab06230837bd368e17911dbe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ff5227ab61145ab372fdc6e28f1b97ec31e47023
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100284"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049148"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
 
@@ -30,7 +30,7 @@ Dependendo do seu ambiente, poderá implementar o portal de utilizador no mesmo 
 ![Portal de utilizador do MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> O portal de utilizador apenas está disponível com o Servidor Multi-Factor Authentication. Se utilizar o Multi-Factor Authentication na cloud, refira o artigo [Set-up your account for two-step verification](end-user/current/multi-factor-authentication-end-user-first-time.md) (Configurar a conta para verificação de dois passos) ou [Manage your settings for two-step verification](end-user/current/multi-factor-authentication-end-user-manage-settings.md) (Gerir as definições de verificação em dois passos) aos seus utilizadores.
+> O portal de utilizador apenas está disponível com o Servidor Multi-Factor Authentication. Se utilizar o Multi-Factor Authentication na cloud, refira o artigo [Set-up your account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md) (Configurar a conta para verificação de dois passos) ou [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md) (Gerir as definições de verificação em dois passos) aos seus utilizadores.
 
 ## <a name="install-the-web-service-sdk"></a>Instalar o SDK do serviço Web
 

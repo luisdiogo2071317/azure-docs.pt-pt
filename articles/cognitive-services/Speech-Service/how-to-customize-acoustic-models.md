@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 3e247b6f81a9306cbad630d42c3a41d8ce3045a5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 32dc9015f5e1a58d02571eb84e6ceeb0e9e8582d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345129"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069044"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -30,7 +30,7 @@ Se não tiver uma conta dos Serviços Cognitivos, crie uma [conta gratuita](http
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que a conta dos Serviços Cognitivos está associada a uma subscrição ao abrir a página [Subscrições de Serviços Cognitivos](https://customspeech.ai/Subscriptions).
+Certifique-se de que a conta dos Serviços Cognitivos está associada a uma subscrição, abrindo a página [Subscrições de Serviços Cognitivos](https://customspeech.ai/Subscriptions).
 
 Pode ligar a uma subscrição do Serviço de Voz criada no portal do Azure ao clicar no botão **Ligar subscrição existente**.
 
@@ -144,5 +144,5 @@ Verá agora uma nova entrada na tabela de modelos acústicos correspondente a es
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Como reconhecer voz em C#](quickstart-csharp-windows.md)
+- [Como reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)
 - [Dados de Exemplo do Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

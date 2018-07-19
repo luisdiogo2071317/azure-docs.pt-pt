@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: cde1af63fe609170c65bc469fa57573d7bc48490
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: eee0787518a17826d6256cb9b7dad8f4547f5663
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901515"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048849"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: utilizar uma Identidade de Serviço Gerida de VM do Linux para aceder ao Armazenamento do Azure através de chave de acesso
 
@@ -50,9 +50,9 @@ Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
-4. Escolha uma **Subscrição** para a máquina virtual na lista pendente.
+4. Selecione uma **Subscrição** para a máquina virtual na lista pendente.
 5. Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
 6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro Tipo de disco suportado. No painel de definições, mantenha as predefinições e clique em **OK**.
 
@@ -61,11 +61,11 @@ Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa
 Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.  
 
 1. Navegue para o grupo de recursos da sua nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
-2. Nas “Definições” da VM à esquerda, clique em **Configuração**.
+2. Nas "Definições" da VM à esquerda, clique em **Configuração**.
 3. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não.
 4. Certifique-se de que clica em **Guardar** para guardar a configuração.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -78,7 +78,7 @@ Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também p
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
 6. Clique em **Criar**.
 
-    ![Criar nova conta de armazenamento](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Criar nova conta de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Criar um contentor de blobs na conta de armazenamento
 
@@ -87,9 +87,9 @@ Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armaze
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Contentores** à esquerda, em "Serviço Blob".
 3. Clique em **+ Contentor**, na parte superior da página, e surge um painel "Novo contentor".
-4. Dê um nome ao contentor, selecione um nível de acesso, e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
+4. Dê um nome ao contentor, selecione um nível de acesso e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
 
-    ![Criar contentor de armazenamento](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Criar contentor de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Conceder acesso à MSI da VM para utilizar chaves de acesso da conta de armazenamento
 
@@ -100,10 +100,10 @@ O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD. 
 3. Clique em **+ Adicionar** na parte superior da página para adicionar uma nova atribuição de função à sua VM
 4. Defina a **Função** como “Função do Serviço de Operador de Chave da Conta de Armazenamento”, no lado direito da página. 
 5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
-6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** para "Todos os grupos de recursos".  
-7. Por fim, em **Selecionar** escolha a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**. 
+6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** como "Todos os grupos de recursos".  
+7. Por fim, em **Selecionar**, selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**. 
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso com a identidade da VM e utilizá-lo para chamar o Azure Resource Manager
 

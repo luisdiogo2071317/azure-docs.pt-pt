@@ -165,7 +165,7 @@
     - name: Centro de Programadores do Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Mapa do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Azure IoT Edge para VS Code
       href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
     - name: Toolkit do Azure IoT para VS Code

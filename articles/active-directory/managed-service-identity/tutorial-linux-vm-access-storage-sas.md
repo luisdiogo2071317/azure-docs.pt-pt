@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: cbb56ce6befaaa6a5d38cc6afbad0ba6db259711
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: adf3df6dd9163ef40b4f953c07fce6a18b5ab30f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901607"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044279"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida de VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS
 
@@ -53,7 +53,7 @@ Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Selecione uma **Subscrição** para a máquina virtual na lista pendente.
 5. Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
@@ -68,11 +68,11 @@ Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, s
 3. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não.
 4. Certifique-se de que clica em **Guardar** para guardar a configuração.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
-Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder o acesso de MSI da VM para as chaves de uma conta de armazenamento existente. 
+Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder acesso à MSI da VM às chaves de uma conta de armazenamento existente. 
 
 1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
 2. Clique em **Armazenamento**, em seguida, em **Conta de Armazenamento**, e um novo painel "Criar a conta de armazenamento" será apresentado.
@@ -81,7 +81,7 @@ Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também p
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
 6. Clique em **Criar**.
 
-    ![Criar nova conta de armazenamento](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Criar nova conta de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Criar um contentor de blobs na conta de armazenamento
 
@@ -92,7 +92,7 @@ Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armaze
 3. Clique em **+ Contentor**, na parte superior da página e surge um painel "Novo contentor".
 4. Dê um nome ao contentor, selecione um nível de acesso e clique em **OK**. O nome que especificou será utilizado mais tarde no tutorial. 
 
-    ![Criar contentor de armazenamento](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Criar contentor de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Conceder o acesso de MSI da VM para utilizar um SAS de armazenamento 
 
@@ -106,7 +106,7 @@ O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD. 
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** como "Todos os grupos de recursos".  
 7. Por fim, em **Selecionar**, selecione a sua Máquina Virtual do Linux na lista pendente e clique em **Guardar**.  
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso com a identidade da VM e utilizá-lo para chamar o Azure Resource Manager
 
@@ -126,7 +126,7 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
     ```
     
     > [!NOTE]
-    > No pedido anterior, o valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure Active Directory. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra à direita no URI.
+    > No pedido anterior, o valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure AD. Ao utilizar o ID de recurso do Azure Resource Manager, tem de incluir a barra à direita no URI.
     > Na resposta seguinte, o elemento access_token foi abreviado para não ser tão extenso.
     
     ```bash

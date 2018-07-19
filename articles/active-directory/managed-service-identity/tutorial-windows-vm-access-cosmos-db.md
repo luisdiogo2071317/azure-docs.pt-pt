@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904276"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005650"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Tutorial: utilizar uma MSI de VM do Windows para aceder ao Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Neste tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o MSI n
 5. Para selecionar um novo **Grupo de Recursos** no qual irá criar a sua máquina virtual, selecione **Criar Novo**. Quando terminar, clique em **OK**.
 6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. Na página Definições, mantenha as predefinições e clique em **OK**.
 
-   ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Texto alternativo da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM 
 
@@ -66,7 +66,7 @@ Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, s
 2. Na barra de navegação esquerda, clique em **Configuração**. 
 3. Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não. 
 4. Certifique-se de que clica em **Guardar** para guardar a configuração.  
-   ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB 
 

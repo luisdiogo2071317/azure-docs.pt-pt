@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 10/04/2017
-ms.author: cfowler
+ms.date: 07/03/2018
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e868f07a8c24948655d81c7db1859d819b01c062
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 929598f9b2d7c3bd4b7c96158486c019d6afc281
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306369"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988777"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Criar uma aplicação de funções para execução de código sem servidor
 
@@ -55,6 +55,6 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
 Pode ver exemplos do script da CLI das Funções do Azure adicionais na [Documentação das Funções do Azure](../functions-cli-samples.md).

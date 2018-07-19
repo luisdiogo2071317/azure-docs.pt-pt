@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903962"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056179"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Tutorial: Utilizar uma Identidade Gerida de VM do Windows para aceder ao Armazenamento do Azure
 
@@ -35,7 +35,7 @@ Este tutorial mostra como ativar a Identidade Gerida para uma Máquina Virtual d
 > * Obter um token de acesso e utilizá-lo para chamar o Armazenamento do Azure 
 
 > [!NOTE]
-> A autenticação do Active Directory do Azure para o Armazenamento do Azure está em pré-visualização pública.
+> A autenticação do Azure Active Directory para o Armazenamento do Azure está em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,11 +58,11 @@ Nesta secção, vai criar uma VM do Windows à qual será concedida mais tarde u
 5.  Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, selecione **Criar Novo**. Quando terminar, clique em **OK**.
 6.  Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e clique em **OK**.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-managed-identity-on-your-vm"></a>Ativar a Identidade Gerida na sua VM
 
-Uma Identidade Gerida de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem ter de colocar as credenciais no código. Nos bastidores, ativar a Identidade Gerida numa Máquina Virtual através do portal do Azure faz duas coisas: regista a sua VM no Azure AD para criar uma identidade gerida e configura a identidade na VM. 
+Uma Identidade Gerida de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Nos bastidores, ativar a Identidade Gerida numa Máquina Virtual através do portal do Azure faz duas coisas: regista a sua VM no Azure AD para criar uma identidade gerida e configura a identidade na VM. 
 
 1. Navegue para o grupo de recursos da sua nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
 2. Na categoria **Definições**, clique em **Configuração**.
@@ -73,14 +73,14 @@ Uma Identidade Gerida de Máquina Virtual permite-lhe obter os tokens de acesso 
 
 Nesta secção, vai criar uma conta de armazenamento. 
 
-1. Clique no botão **+ Criar um recurso**, no canto superior esquerdo do portal do Azure.
+1. Clique no botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 2. Selecione **Armazenamento** e, em seguida, **Conta de armazenamento – blob, ficheiro, tabela, fila**.
 3. Em **Nome**, introduza um nome para a conta de armazenamento.  
 4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como **Gestor de recursos** e **Armazenamento (fins gerais v1)**. 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
 6. Clique em **Criar**.
 
-    ![Criar nova conta de armazenamento](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Criar nova conta de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Criar um contentor de blobs e carregar um ficheiro para a conta de armazenamento
 
@@ -91,12 +91,12 @@ Os ficheiros requerem armazenamento de blobs, por isso tem de criar um contentor
 3. Clique em **+ Contentor** na parte superior da página.
 4. Em **Novo contentor**, introduza um nome para o contentor e, em **Nível de acesso público**, mantenha o valor predefinido.
 
-    ![Criar contentor de armazenamento](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Criar contentor de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Com um editor à sua escolha, crie um ficheiro intitulado *hello world.txt* no seu computador local.  Abra o ficheiro e adicione o texto (sem as aspas) "Hello world! :) "e, em seguida, guarde-o. 
+5. Com um editor à sua escolha, crie um ficheiro com o nome *hello world.txt* no seu computador local.  Abra o ficheiro e adicione o texto (sem as aspas) "Hello world! :) "e, em seguida, guarde-o. 
 6. Carregue o ficheiro para o contentor recentemente criado ao clicar no nome do contentor e, em seguida, em **Carregar**
 7. No painel **Carregar blob**, em **Ficheiros**, clique no ícone de pasta e procure o ficheiro **hello_world.txt** no seu computador local, selecione o ficheiro e, em seguida, clique em **Carregar**.
-    ![Carregar ficheiro de texto](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Carregar ficheiro de texto](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder o acesso da VM a um contentor do Armazenamento do Microsoft Azure 
 

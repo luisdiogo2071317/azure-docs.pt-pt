@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901481"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044055"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida (MSI) de VM do Linux para aceder ao Azure Key Vault 
 
@@ -51,7 +51,7 @@ Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
 3. Introduza as informações da máquina virtual. Em **Tipo de autenticação**, selecione **Chave SSH pública** ou **Palavra-passe**. As credenciais criadas permitem-lhe iniciar sessão na VM.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Selecione uma **Subscrição** para a máquina virtual na lista pendente.
 5. Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
@@ -66,13 +66,13 @@ Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, s
 3. Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não.
 4. Certifique-se de que clica em **Guardar** para guardar a configuração.
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso da VM a um segredo armazenado num Key Vault  
 
 Com a MSI, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure Active Directory. No entanto, nem todos os serviços do Azure suportam a autenticação do Azure AD. Para utilizar a MSI com esses serviços, armazene as credenciais do serviço no Azure Key Vault e utilize a MSI para aceder ao Key Vault para obter as credenciais. 
 
-Primeiro, é necessário criar um Key Vault e conceder acesso de identidade à VM ao Key Vault.   
+Primeiro, é necessário criar um Key Vault e conceder o acesso de identidade da VM ao Key Vault.   
 
 1. Na parte superior da barra de navegação esquerda, selecione **Criar um recurso** > **Segurança + Identidade** > **Key Vault**.  
 2. Indique um **Nome** para o novo Key Vault. 
@@ -83,7 +83,7 @@ Primeiro, é necessário criar um Key Vault e conceder acesso de identidade à V
 7. Clique em **OK** para concluir a adição da nova política de acesso e em **OK** para concluir a seleção da política de acesso. 
 8. Clique em **Criar** para concluir a criação do Key Vault. 
 
-    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Texto alternativo da imagem](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o segredo com o código em execução na sua VM: 
 

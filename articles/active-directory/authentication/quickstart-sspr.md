@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870027"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057366"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementação rápida da reposição personalizada de palavras-passe do Azure AD
 
 > [!IMPORTANT]
-> **Está aqui porque está a ter problemas em iniciar sessão?** Se sim, veja [Help, I forgot my Azure AD password](../active-directory-passwords-update-your-own-password.md) (Ajudem-me, esqueci-me da minha palavra passe do Azure AD).
+> **Está aqui porque está a ter problemas em iniciar sessão?** Se sim, veja [Help, I forgot my Azure AD password](../user-help/active-directory-passwords-update-your-own-password.md) (Ajudem-me, esqueci-me da minha palavra passe do Azure AD).
 
 A reposição de palavras-passe self-service (Self-service Password Reste, SSPR) oferece aos administradores de TI uma forma simples de capacitarem os utilizadores a repor ou desbloquear as palavras-passe ou as contas deles. O sistema inclui relatórios detalhados que controlam quando os utilizadores acedem ao sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
 
-Este guia pressupõe que já tem uma versão de avaliação ou um inquilino licenciado do Azure Active Directory (Azure AD) em funcionamento. Se precisar de ajuda para configurar o Azure AD, veja [Getting started with Azure AD](../get-started-azure-ad.md) (Introdução ao Azure AD).
+Este guia pressupõe que já tem uma versão de avaliação ou um inquilino licenciado do Azure Active Directory (Azure AD) em funcionamento. Se precisar de ajuda para configurar o Azure AD, veja [Getting started with Azure AD](../fundamentals/get-started-azure-ad.md) (Introdução ao Azure AD).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Ativar a SSPR para o seu inquilino do Azure AD
 
@@ -62,7 +62,7 @@ Este guia pressupõe que já tem uma versão de avaliação ou um inquilino lice
    * Notificar os utilizadores sobre reposições de palavras-passe.
    * Notificar todos os administradores quando outros administradores repõem as palavras-passe deles.
 
-Neste momento, já tem configurado o SSPR no seu inquilino do Azure AD. Os utilizadores podem agora utilizar as instruções nos artigos [Registar-se na reposição personalizada de palavras-passe](../active-directory-passwords-reset-register.md) e [Repor ou alterar a palavra-passe](../active-directory-passwords-update-your-own-password.md) para atualizarem a palavra-passe sem a intervenção do administrador. Se só precisar desta funcionalidade para a cloud, pode parar aqui. Ou pode avançar para a secção seguinte para configurar a sincronização de palavras-passe com domínios do Active Directory no local.
+Neste momento, já tem configurado o SSPR no seu inquilino do Azure AD. Os utilizadores podem agora utilizar as instruções nos artigos [Registar-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md) e [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md) para atualizarem a palavra-passe sem a intervenção do administrador. Se só precisar desta funcionalidade para a cloud, pode parar aqui. Ou pode avançar para a secção seguinte para configurar a sincronização de palavras-passe com domínios do Active Directory no local.
 
 > [!TIP]
 > Teste o SSPR com um utilizador e não com um administrador, pois a Microsoft aplica requisitos de autenticação fortes às contas de administrador do Azure. Para obter mais informações sobre a política de palavras-passe de administrador, veja o nosso artigo sobre a [política de palavras-passe](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -95,8 +95,8 @@ Esta definição de segurança determina o período de tempo, em dias, durante o
 Os artigos seguintes disponibilizam informações adicionais relativamente à reposição de palavras-passe através do Azure AD:
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Repor ou alterar a palavra-passe](../active-directory-passwords-update-your-own-password.md)
-* [Registar-se na reposição personalizada de palavra-passe](../active-directory-passwords-reset-register.md)
+* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)

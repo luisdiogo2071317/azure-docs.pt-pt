@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: c608c1b40c7b4cdaedb2b7e7a609ad65c6357584
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 85e67be406b3d9723476821adfb09fc4db8dc1d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344221"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068578"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -76,13 +76,13 @@ Quando estiver pronto para importar o seu conjunto de dados de linguagem, inicie
 
 Para importar um novo conjunto de dados, clique no botão "Import" (Importar) na linha "Language Datasets" (Conjuntos de dados de linguagem) e o site apresenta uma página para carregar um novo conjunto de dados. Introduza um Nome e uma Descrição para ajudar a identificar o conjunto de dados no futuro e escolha o local. Em seguida, utilize o botão "Choose File" (Escolher ficheiro) para localizar o ficheiro de texto dos dados de linguagem. Depois disso, clique em "Import" (Importar) e o conjunto de dados será carregado. Dependendo do tamanho do conjunto de dados, a importação pode demorar vários minutos.
 
-![try](media/stt/speech-language-datasets-import.png)
+![experimente](media/stt/speech-language-datasets-import.png)
 
 Quando a importação estiver concluída, voltará à tabela de dados de linguagem e verá uma entrada que corresponde ao seu conjunto de dados de linguagem. Tenha em atenção que foi atribuído um ID exclusivo (GUID) ao conjunto de dados. Os dados também terão um estado que reflete o estado atual dos mesmos. O estado será "Waiting" (A aguardar) enquanto estiverem a ser colocados em fila para processamento, "Processing" (A processar) enquanto estiverem a ser submetidos a validação e "Complete" (Concluído) quando os dados estiverem prontos para utilização. A validação de dados realiza uma série de verificações no texto no ficheiro e alguma normalização de texto dos dados.
 
 Quando o estado for "Complete" (Concluído), pode clicar em "View Report" (Ver Relatório) para ver o relatório de verificação de dados de linguagem. O número de expressões que passaram e falharam na verificação é apresentado, juntamente com os detalhes sobre as expressões que falharam. No exemplo abaixo, dois exemplos falharam a verificação devido a carateres incorretos (neste conjunto de dados, a primeira linha tinha dois carateres de tabulação, a segunda tinha vários carateres fora do conjunto de carateres imprimíveis ASCII e a terceira linha estava em branco).
 
-![try](media/stt/speech-language-datasets-report.png)
+![experimente](media/stt/speech-language-datasets-report.png)
 
 Quando o estado do conjunto de dados de linguagem for "Complete" (Concluído), pode ser utilizado para criar um modelo de linguagem personalizado.
 
@@ -115,5 +115,5 @@ Se, em determinado momento, quiser alterar o Nome e a Descrição do modelo, pod
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Como reconhecer voz em C#](quickstart-csharp-windows.md)
+- [Como reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)
 - [Dados de Exemplo do Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

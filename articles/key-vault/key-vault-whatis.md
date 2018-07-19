@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/26/2017
 ms.author: barclayn
-ms.openlocfilehash: d1c7a61522770d5bf590637629ec48ee35151623
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28924953"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089310"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
-O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).
-
-## <a name="introduction"></a>Introdução
 O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Ao utilizar o cofre de chaves do Azure, pode encriptar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .PFX e palavras-passe) através das teclas que estão protegidas por módulos de segurança de hardware (HSM). Para maior segurança, pode importar ou gerar chaves nos HSMs. Se optar por fazê-lo, a Microsoft processa as suas chaves nos HSMs validados por FIPS 140-2 de Nível 2 (hardware e firmware).  
 
 A chave de cofre simplifica o processo de gestão de chaves e permite-lhe manter o controlo de teclas que acede e encripta os seus dados. Os programadores podem criar as chaves de desenvolvimento e teste em minutos e migrá-las totalmente para as chaves de produção. Os administradores de segurança podem conceder (e revogar) a permissão para as chaves, conforme necessário.
@@ -60,3 +57,4 @@ Para obter mais informações sobre a utilização de chaves e segredos com o Co
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
+O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).

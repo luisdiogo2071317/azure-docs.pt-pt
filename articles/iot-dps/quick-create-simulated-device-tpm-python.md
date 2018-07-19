@@ -1,8 +1,8 @@
 ---
 title: Aprovisionar um dispositivo TPM simulado no Hub IoT do Azure através do Python | Microsoft Docs
 description: Manual de Início Rápido do Azure - Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo Java com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 05/21/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 52b94482e545418c36cfc2bc5c9a5e4ad7d22538
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d711222e3ecade0923573a16c074144a7d74f137
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630746"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091310"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo TPM simulado através do SDK de dispositivo Python com o Serviço Aprovisionamento de Dispositivos no Hub IoT
 
