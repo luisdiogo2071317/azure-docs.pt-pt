@@ -12,14 +12,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  ms.date: 04/01/2018
+  ms.date: 07/07/2018
   ms.author: carlrab
-  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
-  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+  ms.openlocfilehash: eae18cf5956582f3b66eb2ed837412815efbd4cf
+  ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/09/2018
-  ms.locfileid: "37916154"
+  ms.lasthandoff: 07/18/2018
+  ms.locfileid: "39112506"
 abstract:
   description: A Base de Dados SQL do Azure é um serviço relacional de base de dados como serviço (DBaaS) baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. A Base de Dados SQL é uma base de dados de elevado desempenho, fiável e segura que pode utilizar para criar aplicações e sites com base em dados na linguagem de programação da sua preferência, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.
   aside:
@@ -39,35 +39,50 @@ sections:
     columns: 3
     items:
     - href: /azure/sql-database/sql-database-technical-overview
-      html: <p>Base de dados PaaS de <a href="/azure/sql-database/sql-database-high-availability">elevada disponibilidade</a> que está sempre em execução na versão estável mais recente do Motor de Base de Dados do SQL Server e no SO com patches com <a href="/azure/sql-database/sql-database-automated-backups">cópias de segurança automática da base de dados</a>.</p>
+      html: <p>Base de dados PaaS que está sempre em execução na versão estável mais recente do Motor de Base de Dados do SQL Server e no SO com patches com 99,99% de disponibilidade.</p>
       image:
         src: media/index/i_managed.svg
       title: Totalmente gerido
     - href: /azure/sql-database/sql-database-service-tiers
-      html: <p>Adapte a relação preço/desempenho às suas necessidades com <a href="/azure/sql-database/sql-database-service-tiers">escalões de desempenho flexíveis</a> que podem custar uns poucos dispendiosos 5$/mês para poderosas bases de dados de 80 núcleos.</p>
+      html: <p>Adapte a relação preço/desempenho às suas necessidades com escalões de desempenho flexíveis que podem custar uns poucos dispendiosos 5$/mês para poderosas bases de dados de 80 núcleos.</p>
       image:
         src: media/index/i_perftier.svg
       title: Escalões de preço/desempenho
     - href: /azure/sql-database/sql-database-scale-resources
-      html: <p><a href="/azure/sql-database/sql-database-single-database-scale">Aumente verticalmente</a>, <a href="/azure/sql-database/sql-database-read-scale-out">aumente horizontalmente</a> ou fragmente facilmente as suas bases de dados consoante as suas necessidades para melhorar o desempenho da sua aplicação.</p>
+      html: <p>Aumente verticalmente, aumente horizontalmente ou fragmente facilmente as suas bases de dados consoante as suas necessidades para melhorar o desempenho da sua aplicação.</p>
       image:
         src: media/index/i_scale.svg
-      title: Escalabilidade e elasticidade
-    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-      html: <p>Permita que a inteligência incorporada no serviço <a href="/azure/sql-database/sql-database-automatic-tuning">otimize automaticamente o desempenho da sua base de dados</a> e <a href="/azure/sql-database/sql-advanced-threat-protection">identifique ameaças</a> e <a href="/azure/sql-database/sql-vulnerability-assessment">vulnerabilidades</a> nas suas de dados.</p>
-      image:
-        src: media/index/i_intelligence.svg
-      title: Inteligência incorporada
+      title: Escalabilidade
     - href: /azure/sql-database/sql-database-servers-databases
-      html: <p>Utilize a <a href="/azure/sql-database/sql-database-managed-instance">base de dados individual alojada em servidores lógicos</a> para as suas <a href="/azure/sql-database/saas-tenancy-app-design-patterns">aplicações SaaS</a> e microsserviços que precisem de uma base de dados individual com os desempenhos previsíveis.</p>
+      html: <p>Utilize a base de dados individual alojada em servidores lógicos para as suas aplicações SaaS e microsserviços que precisem de uma base de dados individual com os desempenhos previsíveis.</p>
       image:
         src: media/index/i_db.svg
       title: Base de Dados Individual
+    - href: /azure/sql-database/sql-database-elastic-pool
+      html: <p>Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis.</p>
+      image:
+        src: media/index/i_elasticpool.svg
+      title: Conjuntos elásticos
     - href: /azure/sql-database/sql-database-managed-instance
-      html: <p>Utilize a <a href="/azure/sql-database/sql-database-managed-instance">Instância Gerida</a> para facilmente <a href="azure/sql-database/sql-database-managed-instance-migrate">migrar bases de dados no local</a> para o PaaS do Azure com poucas ou até sem alterações de código de base de dados.</p>
+      html: <p>Utilize a Instância Gerida para migrar facilmente bases de dados no local para o PaaS do Azure com poucas ou nenhumas alterações de código à base de dados.</p>
       image:
         src: media/index/i_mi.svg
       title: Instância Gerida
+    - href: /azure/sql-database/sql-database-business-continuity
+      html: <p>Elevada disponibilidade incorporada, cópias de segurança automáticas e a georreplicação vão impedir que as operações de manutenção, falhas de infraestrutura ou de hardware parem o seu negócio.</p>
+      image:
+        src: media/index/gear.svg
+      title: Continuidade do negócio
+    - href: /azure/sql-database/sql-database-security-overview
+      html: <p>Proteja a sua base de dados com a autenticação do Azure AD, Redes Virtuais, Firewalls, conexões Always Encrypted. Identifique ameaças e vulnerabilidades com a segurança incorporada.</p>
+      image:
+        src: media/index/i_security.svg
+      title: Segurança avançada
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
+      html: <p>Pode tirar partido da inteligência incorporada que o ajuda a reduzir significativamente os custos de execução e gestão de bases de dados e que maximiza, tanto o desempenho, como a segurança, da sua aplicação.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: Inteligência incorporada
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
@@ -174,6 +189,6 @@ sections:
     - title: REST
       html: <p><a href="/rest/api/sql/">Referência da API REST</a></p>
     - title: Ferramentas do SQL Server
-      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Ferramentas do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacote de Biblioteca de Gestão de Base de Dados SQL</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Ferramentas do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://docs.microsoft.com/sql/tools/sqlpackage">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacote de Biblioteca de Gestão de Base de Dados SQL</a></p>
     - title: Controladores do SQL Server
       html: <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">Controladores do SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

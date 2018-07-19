@@ -41,6 +41,8 @@
           href: automation-update-management.md
         - name: Gerir atualizações de várias VMs
           href: manage-update-multi.md
+        - name: Migrar de implementações de atualizações do OMS para o Azure
+          href: migrate-oms-update-deployments.md
         - name: Integrar o SCCM com a Gestão de Atualizações
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Monitorização de Alterações

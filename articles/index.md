@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: ea6241c98cd65af14242301be4681e613d867fbc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7ee5d5a3f177352c2ae2ba9692e795e4dae7b357
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071186"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136830"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -275,6 +275,11 @@ Visual Studio Team Services </a>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
 Aprender DevOps com o Azure </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/devops-project/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Projeto de DevOps do Azure </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1189,6 +1194,12 @@ Aprender DevOps com o Azure </a>
                                             <a href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Projeto de DevOps do Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4569,6 +4580,25 @@ Aprender DevOps com o Azure </a>
                                                 <div class="cardText">
                                                     <h3>HockeyApp</h3>
                                                     <p>Implemente aplicações móveis, recolha comentários e relatórios de falhas, e monitorize a utilização</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/devops-project">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Projeto de DevOps do Azure</h3>
+                                                    <p>Implementar rapidamente qualquer linguagem em qualquer plataforma para o Azure</p>
                                                 </div>
                                             </div>
                                         </div>

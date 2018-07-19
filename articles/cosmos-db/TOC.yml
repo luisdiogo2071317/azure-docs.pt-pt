@@ -412,38 +412,50 @@ items:
                 href: cassandra-import-data.md
   - name: Guias de Procedimentos
     items:
-      - name: Chaves e consistência
-        href: manage-account.md
-      - name: Débito
-        href: set-throughput.md
-      - name: Suporte de firewall
-        href: firewall-support.md
-      - name: Configurar ponto final do serviço de rede virtual
-        href: vnet-service-endpoint.md
-      - name: Métricas
-        href: use-metrics.md
-      - name: SLA do monitor
-        href: monitor-accounts.md
-      - name: Criar cópias de segurança e restauro
-        href: online-backup-and-restore.md
-      - name: Ativação pós-falha regional
-        href: regional-failover.md
-      - name: Registo de diagnósticos
-        href: logging.md
-      - name: 'Procedimentos armazenados, acionadores e UDFs'
-        href: programming.md
-      - name: Descrição geral do BulkExecutor
+      - name: Gerir
+        items:
+          - name: Gerir com o PowerShell
+            href: manage-account-with-powershell.md
+          - name: Gerir o Explorador do Armazenamento
+            href: storage-explorer.md
+          - name: Gerir com o explorador de dados
+            href: data-explorer.md
+          - name: Gerir as chaves e níveis de consistência
+            href: manage-account.md
+          - name: Débito
+            href: set-throughput.md
+          - name: Expirar dados automaticamente
+            href: time-to-live.md
+          - name: Registo de diagnósticos
+            href: logging.md
+      - name: Proteger dados
+        items:
+          - name: Suporte de firewall
+            href: firewall-support.md
+          - name: Configurar ponto final do serviço de rede virtual
+            href: vnet-service-endpoint.md
+      - name: Monitorizar
+        items:
+          - name: Monitorizar com métricas
+            href: use-metrics.md
+          - name: SLA do monitor
+            href: monitor-accounts.md
+      - name: Cópia de segurança e restauro
+        items:
+          - name: Cópia de segurança e restauro online
+            href: online-backup-and-restore.md
+          - name: Ativação pós-falha regional
+            href: regional-failover.md
+      - name: Automatizar
+        items:
+          - name: 'Procedimentos armazenados, acionadores e UDFs'
+            href: programming.md
+          - name: Configuração com múltiplos principais
+            href: multi-master-workaround.md
+      - name: Biblioteca de executor em massa
         href: bulk-executor-overview.md
       - name: Leituras e escritas rentáveis
         href: key-value-store-cost.md
-      - name: Expirar dados automaticamente
-        href: time-to-live.md
-      - name: Gerir com o PowerShell
-        href: manage-account-with-powershell.md
-      - name: Gerir o Explorador do Armazenamento
-        href: storage-explorer.md
-      - name: Configuração com múltiplos principais
-        href: multi-master-workaround.md
   - name: Recursos
     items:
       - name: Truques e dicas de consulta

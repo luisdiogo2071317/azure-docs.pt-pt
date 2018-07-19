@@ -24,7 +24,8 @@
 ## [Descrição geral da cópia de segurança do SAP HANA](sap-hana-backup-guide.md)
 ## [Cópia de segurança ao nível do ficheiro do SAP HANA](sap-hana-backup-file-level.md)
 ## [Cópias de segurança de instantâneos de armazenamento do SAP HANA](sap-hana-backup-storage-snapshots.md)
-# SAP NetWeaver nas Máquinas Virtuais do Azure
+# SAP NetWeaver e Business One em Máquinas Virtuais do Azure
+## [SAP Business One em Máquinas Virtuais do Azure](business-one-azure.md)
 ## [Guia de implementação de SAP IDES em SAP CAL no Windows/SQL Server](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver nas VMs de Linux do Azure](suse-quickstart.md)
 ## [Planear e implementar o SAP NetWeaver no Azure](planning-guide.md)

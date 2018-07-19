@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: Executar uma tarefa de transmissão
       href: apache-spark-eventhub-streaming.md
-    - name: Criar uma área de trabalho do machine learning
+    - name: Criar uma aplicação de aprendizagem automática
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Criar uma aplicação de Spark com o IntelliJ
+    - name: Criar uma aplicação do Spark no IntelliJ
       href: apache-spark-create-standalone-application.md
 - name: Procedimento
   items:
