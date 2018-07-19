@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 480bbd543ddef60dc8dd84d4b454ef5a8c742636
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008397"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136762"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -35,7 +35,33 @@ O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os
 
 Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente.
 
+---
+
 ## <a name="july-2018"></a>Julho de 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Notificações por e-mail melhorias ao Azure Active Directory
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** outros  
+**Capacidade de produto:** gerenciamento de ciclo de vida de identidade
+ 
+Com o **final de Julho de 2018**, mensagens de e-mail do Azure Active Directory (Azure AD) serão apresentam um design atualizado, bem como as alterações para o endereço de e-mail do remetente e o remetente nome, a apresentar quando enviados a partir os seguintes serviços:
+ 
+- Revisões de acesso do Azure AD
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Azure AD Privileged Identity Management
+- Notificações de certificado do prestes a expirar de aplicações da empresa
+- Notificações serviço de aprovisionamento da aplicação do Enterprise
+ 
+As notificações de e-mail serão enviadas o seguinte endereço de e-mail e nome a apresentar:
+
+- Endereço de e-mail: azure-noreply@microsoft.com
+- Nome a apresentar: Microsoft Azure
+ 
+Para obter um exemplo de alguns dos novos designs de email e obter mais informações, consulte [notificações no Azure AD PIM por E-Mail](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
 
 ### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Ver autenticações legadas através dos registos de atividade de Inícios de sessão
 
@@ -49,7 +75,7 @@ Com a introdução do **aplicação de cliente** registos de campo da atividade 
 
 ## <a name="june-2018"></a>junho de 2018
 
-### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Alterar o aviso: a correção de segurança para o fluxo de autorização delegada para aplicações que utilizam a API de registos de atividade do Azure AD
+### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: correção de segurança para o fluxo de autorização delegada para aplicações que utilizem a API de Registos de Atividade do Azure AD
 
 **Tipo:** plano de alteração  
 **Categoria de serviço:** relatórios  
@@ -73,7 +99,7 @@ Para obter mais informações, consulte a [conceder permissões](https://docs.mi
 
 ---
 
-### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configurar as definições de TLS para ligar aos serviços do Azure AD para conformidade PCI DSS
+### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configurar definições de TLS para ligar aos serviços do Azure AD para conformidade PCI DSS
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** n/d  
@@ -113,7 +139,7 @@ Browsers desatualizados podem não suportar versões mais recentes do TLS, por e
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Junho de 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - junho de 2018
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicações empresariais  
@@ -127,7 +153,7 @@ Para obter mais informações sobre as aplicações, consulte [integração de a
 
 ---
 
-### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>A proteção de palavra-passe do Azure AD está disponível em pré-visualização pública
+### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>A Proteção de Palavras-passe do Azure AD está disponível em pré-visualização pública
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** Identity Protection  
@@ -145,7 +171,7 @@ Para obter mais informações sobre a proteção de palavra-passe do Azure AD, c
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Novo "todos os convidados" acesso condicional modelo de política criado durante a criação de termos de utilização (ToU)
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Novo modelo de política de acesso condicional "todos os convidados" criado durante a criação de Termos de Utilização (TdU)
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** termos de utilização  
@@ -157,7 +183,7 @@ Para obter mais informações, consulte [do Azure Active Directory termos da fun
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Novo modelo de política de acesso condicional "personalizado" criado durante a criação de termos de utilização (ToU)
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Novo modelo de política de acesso condicional "personalizado" criado durante a criação dos Termos de Utilização (ToU)
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** termos de utilização  
@@ -169,7 +195,7 @@ Para obter mais informações, consulte [do Azure Active Directory termos da fun
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Novo e abrangente orientações sobre como implementar o Azure multi-factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Orientação nova e abrangente sobre a implementação da Autenticação Multifator do Azure
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** outros  
@@ -181,7 +207,7 @@ Para ver o guia de implementação do MFA, vá para o [guias de implantação de
 
 ---
 
-### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Gestão de aplicações, funções estão em pré-visualização pública de delegado do Azure AD
+### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>As funções de gestão de aplicações delegadas estão em pré-visualização pública
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicações empresariais  
@@ -209,7 +235,7 @@ Para obter mais informações sobre a pré-visualização pública, consulte o [
 
 ## <a name="may-2018"></a>Maio de 2018
 
-### <a name="expressroute-support-changes"></a>Alterações de suporte do ExpressRoute
+### <a name="expressroute-support-changes"></a>Alterações ao suporte do ExpressRoute
 
 **Tipo:** plano de alteração  
 **Categoria de serviço:** autenticações (inícios de sessão)  
@@ -227,7 +253,7 @@ Se deve continuar a utilizar circuitos dedicados, terá de comunicar com a equip
  
 ---
 
-### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph APIs para cenários administrativos para termos de utilização
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>APIs do Microsoft Graph para cenários administrativos para TdU
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** termos de utilização  
@@ -285,7 +311,7 @@ Para obter uma lista de todas as aplicações que suportam o aprovisionamento de
 
 ---
  
-### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>Revisões de acesso do Azure AD de grupos e acesso de aplicação fornece agora revisões periódicas
+### <a name="azure-ad-access-reviews-of-groups-and-app-access-now-provides-recurring-reviews"></a>Agora, o acesso a revisões de grupos e acesso a aplicações do Azure AD fornece revisões periódicas
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** revisões de acesso  
@@ -319,7 +345,7 @@ Registos de atividade do AD do Azure, nomeadamente, inícios de sessão e regist
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Maio de 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2018"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - Maio de 2018
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicações empresariais  
@@ -357,13 +383,13 @@ Encontrar as suas aplicações / principais de serviço? Adicionámos a capacida
 
 ---
  
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>Maio lançamento do AADConnect contém uma pré-visualização pública da integração com o PingFederate, atualizações de segurança importante, muitas correções de erros e ótimo novo novo solucionar problemas de ferramentas. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>A versão de maio do AADConnect contém uma pré-visualização pública da integração com o PingFederate, atualizações de segurança importantes, muitas correções de erros e novas excelentes ferramentas de resolução de problemas. 
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** AD Connect  
 **Capacidade de produto:** gerenciamento de ciclo de vida de identidade
  
-Maio lançamento do AADConnect contém uma pré-visualização pública da integração com o PingFederate, atualizações de segurança importante, muitas correções de erros e ótimo novo novo solucionar problemas de ferramentas. Pode encontrar as notas de versão [aqui](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+A versão de maio do AADConnect contém uma pré-visualização pública da integração com o PingFederate, atualizações de segurança importantes, muitas correções de erros e novas excelentes ferramentas de resolução de problemas. Pode encontrar as notas de versão [aqui](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
 
@@ -575,7 +601,7 @@ Para obter mais informações, consulte:
  
 ---
  
-### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Os fornecedores de identidade do Twitter e GitHub no Azure AD B2C
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Fornecedores de identidade de twitter e do GitHub no Azure AD B2C
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** B2C - gestão de identidades de consumidor  
@@ -587,7 +613,7 @@ Para obter mais informações, consulte [o que é a colaboração B2B do Azure A
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Restringir o acesso ao browser com o Intune Managed Browser com acesso condicional de baseado em aplicações do Azure AD para iOS e Android
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Restringir o acesso ao browser com o Intune Managed Browser para iOS e Android com acesso condicional com base na aplicação do Azure AD
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** acesso condicional  
@@ -621,7 +647,7 @@ Para obter mais informações, consulte [AzureAD](https://docs.microsoft.com/pow
  
 ---
  
-### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Os clientes nativos do Office 365 são agora suportados pelo Seamless SSO com um protocolo não interativo
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Clientes nativos do Office 365 são suportados pelo SSO totalmente integrado com um protocolo não interativa
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** autenticações (inícios de sessão)  
@@ -645,7 +671,7 @@ Para obter mais informações, consulte [do Azure Active Directory totalmente in
 
 ---
  
-### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>É necessário adicionar apenas um URL do Azure AD, em vez de dois URLs como anteriormente, para as definições de zona de Intranet dos utilizadores para estender o SSO Totalmente Integrado
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Tem de adicionar apenas um URL do Azure AD, em vez de dois URLs como anteriormente, para as definições de zona de Intranet dos utilizadores para implementar o SSO totalmente integrado
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** autenticações (inícios de sessão)  

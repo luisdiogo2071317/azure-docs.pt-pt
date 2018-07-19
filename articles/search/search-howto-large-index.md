@@ -1,6 +1,6 @@
 ---
-title: Reconstruir um conteúdo do pesquisável como índice ou a atualização da Azure Search | Microsoft Docs
-description: Adicionar novos elementos, atualizar elementos existentes ou documentos ou eliminar documentos obsoletos uma reconstrução completa ou parcial indexação incremental para atualizar um índice da Azure Search.
+title: Reconstruir um conteúdo do pesquisável como índice ou a atualização da Azure Search | Documentos da Microsoft
+description: Adicionar novos elementos, atualizar elementos existentes ou documentos ou eliminar documentos obsoletos numa recriação completa ou a indexação incremental parcial para atualizar o índice da Azure Search.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -8,75 +8,75 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: cb99096c1217fca1527b17946dc12390ddf3f62c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0dd7a5d5159144c6b1a050ff4c0443b181976738
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655711"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124959"
 ---
-# <a name="how-to-scale-out-indexing-in-azure-seearch"></a>Como a indexação de escalamento horizontal no Azure Seearch
+# <a name="how-to-scale-out-indexing-in-azure-search"></a>Como a indexação de escalamento horizontal no Azure Search
 
-Como aumentam volumes de dados ou processamento tem de alteração, poderá achar que simples [Reconstrói e reindexing tarefas](search-howto-reindex.md) não são suficientes. 
+À medida que os volumes de dados aumentam ou necessidades de processamento, pode achar que simples [recompilações e reindexação tarefas](search-howto-reindex.md) não são o suficiente. 
 
-Como primeiro passo para a aumentos dos pedidos de reunião, recomendamos que aumente o [escala e a capacidade](search-capacity-planning.md) dentro dos limites do seu serviço existente. 
+Como um primeiro passo na direção de atendendo à demanda aumentada, recomendamos que aumente a [dimensionamento e a capacidade](search-capacity-planning.md) dentro dos limites do seu serviço existente. 
 
-Um segundo passo, se pode utilizar [indexadores](search-indexer-overview.md), adiciona mecanismos para indexação scaleable. Indexadores vêm com um agendador incorporado que lhe permite parcel saída indexação em intervalos regulares ou expandem o processamento fora da janela de 24 horas. Além disso, quando emparelhado com definições de origem de dados, indexadores permitem-lhe obter uma forma de paralelismo a criação de partições de dados e utilizando agendas para executar em paralelo.
+Uma segunda etapa, se puder usar [indexadores](search-indexer-overview.md), adiciona mecanismos para indexação escalável. Indexadores vir com um agendador interno que permite que dividir indexação em intervalos regulares ou expandir o processamento além do período de 24 horas. Além disso, quando combinado com definições de origem de dados, indexadores ajudá-lo a alcançar um formulário de paralelismo através da criação de partições de dados e utilização de agendas para executar em paralelo.
 
-### <a name="scheduled-indexing-for-large-data-sets"></a>Agendar a indexação para grandes conjuntos de dados
+### <a name="scheduled-indexing-for-large-data-sets"></a>Agendado a indexação de grandes conjuntos de dados
 
-Agendamento é um mecanismo importante para o processamento de grandes conjuntos de dados e estatísticas de execução lenta, como a análise de imagem num pipeline pesquisa cognitivos. Processamento de indexador funciona numa janela de 24 horas. Se não for concluída dentro de 24 horas de processamento, os comportamentos de agendamento do indexador podem trabalhar em sua partido. 
+Agendar é um importante mecanismo para processar grandes conjuntos de dados e análises de execução lenta, como a análise de imagem num pipeline de pesquisa cognitiva. Processamento de indexador opera durante um período de 24 horas. Se não for concluída dentro de 24 horas de processamento, os comportamentos de agendamento do indexador podem trabalhar em seu favor. 
 
-Por predefinição, agendada indexação começa em intervalos específicos, com uma tarefa normalmente concluir antes da retomar a num intervalo agendado seguinte. No entanto, se o processamento não for concluída dentro do intervalo, o indexador deixa (porque foi esgotada tempo). No próximo intervalo, retoma do processamento onde pela última vez foi deixada, com a manutenção do sistema controlar de onde que ocorre. 
+Por design, agendada indexação começa em intervalos específicos, com uma tarefa normalmente concluir antes de continuar no próximo intervalo agendado. No entanto, se o processamento não for concluída dentro do intervalo, o indexador será interrompido (porque ele ficou sem tempo). No intervalo seguinte, onde pela última vez parou, com a manutenção do sistema de retoma de processamento de controle de onde o que ocorre. 
 
-Em termos práticos, para cargas de índice expansão de vários dias, pode colocar o indexador com base numa agenda de 24 horas. Quando a indexação retoma para o seguinte stint de 24 horas, reinicia na última documento boa conhecido. Desta forma, um indexador pode trabalhar a forma através de um registo de segurança de documentos através de uma série de dias até que todos os documentos não processados são processados. Para obter mais informações sobre esta abordagem, consulte [indexação grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+Em termos práticos, para cargas de índice que abrangem vários dias, pode colocar o indexador com base numa agenda de 24 horas. Durante a indexação CVS para o próximo Incursão de 24 horas, ele será reiniciada no último documento bom conhecido. Dessa forma, um indexador pode trabalhar sua maneira por meio de uma lista de pendências do documento em relação a uma série de dias até que todos os documentos não processados são processados. Para obter mais informações sobre esta abordagem, consulte [indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 
 <a name="parallel-indexing"></a>
 
-## <a name="parallel-indexing"></a>A indexação paralela
+## <a name="parallel-indexing"></a>Indexação paralela
 
-Uma segunda opção consiste em definir um estratégia de indexação de paralelo. Para não-rotina, viáveis que consomem muita indexação requisitos, tais como OCR em documentos digitalizados num pipeline pesquisa cognitivos, um estratégia de indexação de paralelo poderá ser a abordagem de direita para esse objetivo específico. Num pipeline sem causa pesquisa cognitivos, análise de imagem e processamento de linguagem natural são execução longos. A indexação Parallel num serviço que não está em simultâneo a processar os pedidos de consulta pode ser uma opção viável para trabalhar com um grande corpo de conteúdo de processamento lenta. 
+Uma segunda opção consiste em configurar um paralelo estratégia de indexação. Para não-rotina, computacionalmente intensivas, a indexação de requisitos, tais como OCR em documentos digitalizados num pipeline de pesquisa cognitiva, um estratégia de indexação de paralelo poderá ser a abordagem correta para esse objetivo específico. Num pipeline de enriquecimento da pesquisa cognitiva, análise de imagem e processamento de linguagem natural são de longa. Indexação paralela num serviço que não está em simultâneo a processar pedidos de consulta pode ser uma opção viável para trabalhar com uma grande quantidade de conteúdo de processamento lento. 
 
-Uma estratégia para processamento paralelo tem estes elementos:
+Uma estratégia para processamento paralelo tem esses elementos:
 
-+ Divida a origem de dados entre vários contentores ou várias pastas virtuais no interior do contentor do mesmo. 
-+ Mapear cada mini conjunto de dados para um [origem data](https://docs.microsoft.com/rest/api/searchservice/create-data-source), emparelhada para os seus próprios [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
-+ Para efetuar uma pesquisa cognitivos, referenciar a mesma [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) em cada definição do indexador.
++ Divida a origem de dados entre vários contentores ou várias pastas virtuais dentro do mesmo contêiner. 
++ Mapear cada mini conjunto de dados para um [origem data](https://docs.microsoft.com/rest/api/searchservice/create-data-source), juntamente a sua própria [indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Para a pesquisa cognitiva, referenciar o mesmo [conjunto de capacidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset) em cada definição de indexador.
 + Escreva para o mesmo índice de pesquisa de destino. 
-+ Agende a todos os indexadores para executar em simultâneo.
++ Agende todos os indexadores para executar ao mesmo tempo.
 
 > [!Note]
-> A pesquisa do Azure não suporta a dedicação de réplicas ou partições para cargas de trabalho específicas. O risco de indexação simultâneas pesada é overburdening sistema para o detrimento de desempenho de consulta. Se tiver um ambiente de teste, implemente paralelas indexação existe primeiro compreender fala.
+> O Azure Search não suporta dedicar réplicas ou partições para cargas de trabalho específicas. O risco de indexação simultâneas pesado é overburdening seu sistema para o dano de desempenho de consulta. Se tiver um ambiente de teste, implemente paralela indexação lá em primeiro lugar para entender as compensações.
 
 ## <a name="configure-parallel-indexing"></a>Configurar a indexação paralela
 
-Para indexadores, capacidade de processar aproximadamente ligado baseia um subsistema de indexador para cada unidade de serviço (SU) utilizada pelo seu serviço de pesquisa. Vários indexadores simultâneos são possíveis nos serviços de pesquisa do Azure aprovisionados na escalões básico ou padrão de ter, pelo menos, duas réplicas. 
+Para indexadores, capacidade de processamento é menos baseada num subsistema de indexador para cada unidade de serviço (SU) utilizada pelo seu serviço de pesquisa. Vários indexadores simultâneos são possíveis em serviços Azure Search aprovisionados nos escalões básico ou Standard de ter, pelo menos, duas réplicas. 
 
-1. No [portal do Azure](https://portal.azure.com), no seu dashboard do serviço de pesquisa **descrição geral** página, verifique o **escalão de preço** para confirmar pode acomodar a indexação paralela. Escalões básico e padrão oferecem várias réplicas.
+1. Na [portal do Azure](https://portal.azure.com), no seu dashboard de serviço de pesquisa **descrição geral** página, verifique o **escalão de preço** para confirmar que pode acomodar a indexação paralela. Escalões básico e Standard oferecem várias réplicas.
 
-2. No **definições** > **escala**, [aumentar réplicas](search-capacity-planning.md) para processamento paralelo: uma réplica adicional para cada carga de trabalho do indexador. Deixe um número suficiente para o volume de consulta existente. Sacrificar as cargas de trabalho de consulta para indexação não é um boa compromisso.
+2. Na **configurações** > **dimensionamento**, [aumentar réplicas](search-capacity-planning.md) para processamento paralelo: uma réplica adicional para cada carga de trabalho do indexador. Deixe um número suficiente de volume de consulta existente. Sacrificar cargas de trabalho de consulta para indexação não é uma boa troca.
 
-3. Distribua dados em vários contentores com um nível de indexadores de pesquisa do Azure podem aceder. Isto pode ser várias tabelas na base de dados do Azure SQL, vários contentores no armazenamento de Blobs do Azure ou várias coleções. Defina um objeto de origem de dados para cada tabela ou o contentor.
+3. Distribua os dados em vários contentores num nível que podem atingir indexadores do Azure Search. Isto pode ser várias tabelas na base de dados do Azure SQL, vários contentores no armazenamento de Blobs do Azure ou várias coleções. Defina um objeto de origem de dados para cada tabela ou o contentor.
 
-4. Crie e agendar vários indexadores para executar em paralelo:
+4. Criar e agendar vários indexadores para executar em paralelo:
 
-   + Partem do princípio de um serviço com seis réplicas. Configure seis indexadores, cada um deles mapeado para uma origem de dados que contém uma-sexto do conjunto de dados para uma divisão de 6 forma do conjunto completo de dados. 
+   + Suponha que um serviço com seis réplicas. Configure seis indexadores, cada um deles mapeado para uma origem de dados que contém um sexto do conjunto de dados para uma divisão de 6-vias de todo o conjunto de dados. 
 
-   + Ponto de cada indexador para o mesmo índice. Para cargas de trabalho de pesquisa cognitivos apontam cada indexador para o mesmo skillset.
+   + Aponte cada indexador para o mesmo índice. Para cargas de trabalho de pesquisa cognitiva, aponte cada indexador para o mesmo conjunto de capacidades.
 
-   + Dentro de cada definição de indexador, agende o mesmo padrão de execução do tempo de execução. Por exemplo, `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` cria uma agenda no 2018-05-15 em todos os indexadores, em execução em intervalos de oito horas.
+   + Dentro de cada definição de indexador, agende o mesmo padrão de tempo de execução. Por exemplo, `"schedule" : { "interval" : "PT8H", "startTime" : "2018-05-15T00:00:00Z" }` cria uma agenda em 2018-05-15 em todos os indexadores, em execução em intervalos de oito horas.
 
-Na hora agendada, todos os indexadores iniciar a execução, carregar dados, a aplicar enrichments (se tiver configurado um pipeline de pesquisa cognitivos) e a escrita para o índice. A pesquisa do Azure não bloquear o índice de atualizações. Escritas em simultâneo são geridas com a repetição se uma operação de escrita específica não funcionar na primeira tentativa.
+Na hora agendada, todos os indexadores inicia a execução, carregamento de dados, aplicar possível (se tiver configurado um pipeline de pesquisa cognitiva) e escrever para o índice. O Azure Search não bloquear o índice para atualizações. Escritas simultâneas são geridas, com a repetição se uma gravação particular não tiver êxito na primeira tentativa.
 
 > [!Note]
-> Quando aumento as réplicas, considere aumentar a contagem da partição se o tamanho do índice é projetado para aumentar significativamente. Partições armazenam setores de conteúdo indexado; as mais partições que tem, o menor o setor cada um deles tem de armazenar.
+> Ao aumentar as réplicas, considere aumentar o número de partições, se o tamanho do índice, está projetado para aumentar significativamente. Partições armazenam setores de conteúdo indexado; as partições mais tiver, menor será o setor de cada um deles tem de armazenar.
 
 ## <a name="see-also"></a>Consulte também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
-+ [A indexação no portal](search-import-data-portal.md)
-+ [Indexador de base de dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Indexação no portal](search-import-data-portal.md)
++ [Indexador da base de dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Indexador da BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 + [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 + [Indexador do Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
-+ [Segurança na pesquisa do Azure](search-security-overview.md)
++ [Segurança no Azure Search](search-security-overview.md)
