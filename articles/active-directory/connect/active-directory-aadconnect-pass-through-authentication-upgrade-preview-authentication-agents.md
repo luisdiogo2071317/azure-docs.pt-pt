@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f2480fb1068096bf77a3677ad62c886bc4774bb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917732"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160159"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Do Azure Active Directory autenticação pass-through: Agentes de autenticação de pré-visualização de atualização
 
@@ -51,7 +51,7 @@ Para verificar as versões dos seus agentes de autenticação, em cada servidor 
 
 1. Aceda a **painel de controlo -> programas -> programas e funcionalidades** no servidor no local.
 2. Se houver uma entrada para "**agente do Microsoft Azure AD Connect autenticação**", não precisa de tomar nenhuma ação neste servidor.
-3. Se houver uma entrada para "**conector de Proxy de aplicações do Microsoft Azure AD**", versões 1.5.132.0 ou anterior, tem de atualizar manualmente neste servidor.
+3. Se houver uma entrada para "**conector de Proxy de aplicações do Microsoft Azure AD**", terá de atualizar manualmente neste servidor.
 
 ![Versão de pré-visualização do agente de autenticação](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 

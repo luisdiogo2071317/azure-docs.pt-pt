@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ddc9941792b0c5d8fbf29bfdc698b16a999a3858
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c239f2b04d8aad621adb4d31146cdc105b439889
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971045"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159813"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -175,8 +175,11 @@ Se a sua aplicação envia uma grande quantidade de dados e estiver a utilizar o
 
 Pode desativá-lo, mas isso não é recomendável. Amostragem foi concebida para que a telemetria relacionada corretamente é transmitida, para fins de diagnóstico. 
 
+## <a name="client-ip-address-is-0000"></a>Endereço IP do cliente for 0.0.0.0 
+Fevereiro de 2018, vamos [anunciado](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) que Removemos o registo do endereço IP de cliente. Isso não afeta a localização geográfica.
+
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dados geográficos errados na telemetria do utilizador
-A cidade, região e dimensões de país são derivadas de endereços IP e nem sempre são precisas.
+A cidade, região e dimensões de país são derivadas de endereços IP e nem sempre são precisas. Estes endereços IP são processados pela primeira vez para a localização e, em seguida, alterados para 0.0.0.0 sejam armazenados.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exceção “método não encontrado” ao executar nos Serviços Cloud do Azure
 Compilou para .NET 4.6? O 4.6 não é suportado automaticamente nas funções dos Serviços Cloud do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar a aplicação.

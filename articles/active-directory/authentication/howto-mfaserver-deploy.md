@@ -4,18 +4,18 @@ description: Introdução passo-a-passo com o Servidor MFA do Azure local
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: b882f8d8ffc818de5ec459f504965015f55897a3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031694"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159731"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor Multi-Factor Authentication do Azure
 
@@ -186,7 +186,7 @@ O novo servidor está agora a funcionar com os dados de utilizador e a configura
 
 Depois de ter atualizado ou instalado a versão do Servidor MFA 8.x ou superior, é recomendado desativar ou remover os conjuntos de cifras mais antigos e mais fracos, se for exigido pela sua organização. Pode encontrar informações sobre como concluir esta tarefa no artigo [Gerir Protocolos SSL/TLS e Conjuntos de Cifras para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Defina e configure o [Portal do Utilizador](howto-mfaserver-deploy-userportal.md) para personalização por utilizadores.
 - Configure e defina o Servidor MFA do Azure com o [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), a [Autenticação RADIUS](howto-mfaserver-dir-radius.md) ou a [Autenticação LDAP](howto-mfaserver-dir-ldap.md).

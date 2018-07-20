@@ -4,18 +4,18 @@ description: Começar a utilizar o Servidor de MFA do Azure e quando atualizar a
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/06/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: e3e0855d2ac54643a6dc6128eea974d952bb56d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: f9e67a34ec1237eab0d1c567720cf905acda5def
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335633"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160805"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Atualizar o PhoneFactor Agent para o Servidor Multi-Factor Authentication do Azure
 
@@ -69,7 +69,7 @@ O caminho de instalação é escolhido a partir do registo da instalação do Ph
 > [!NOTE]
 > Ao atualizar de uma versão do Servidor MFA do Azure anterior à 8.0 até à 8.0+ que o serviço Web da aplicação móvel pode ser desinstalado após a atualização
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Instale o portal de utilizadores](howto-mfaserver-deploy-userportal.md) do Servidor Multi-Factor Authentication do Azure.
 

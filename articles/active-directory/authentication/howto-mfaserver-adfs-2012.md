@@ -4,17 +4,18 @@ description: Este artigo descreve como começar a utilizar o Multi-Factor Authen
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 4ed4db6fa2c712c0fd858815d89dd0094dd5cfbd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160217"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS no Windows Server
 
@@ -78,7 +79,7 @@ Neste momento, o Servidor Multi-Factor Authentication está configurado para ser
 Siga estes passos para editar o ficheiro MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Defina o nó **UseWebServiceSdk** como **true**.  
-2. Defina o valor de **WebServiceSdkUrl** para o URL do SDK do Serviço Web do Multi-Factor Authentication. Por exemplo: *https://contoso.com/&lt;nomedocertificado&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, em que *nomedocertificado* é o nome do seu certificado.  
+2. Defina o valor de **WebServiceSdkUrl** para o URL do SDK do Serviço Web do Multi-Factor Authentication. Por exemplo:  *https://contoso.com/&lt; certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, onde *certificatename* é o nome do seu certificado.  
 3. Edite o ficheiro Register-MultiFactorAuthenticationAdfsAdapter.ps1 ao adicionar `-ConfigurationFilePath &lt;path&gt;` ao final do `Register-AdfsAuthenticationProvider` comando, em que *&lt;path&gt;* é o caminho completo para o ficheiro MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurar o SDK do Serviço Web com um nome de utilizador e uma palavra-passe

@@ -4,18 +4,18 @@ description: A implementar a autenticação Windows e Servidor Multi-Factor Auth
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 06/06/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: a72a045efe916c2aa89822984898bac5e43ea1cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: b61ecf1019442b29a4cf8120dbdd7ce9c1b4a51a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866033"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160091"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação do Windows e Servidor Multi-Factor Authentication do Azure
 
@@ -42,7 +42,7 @@ Utilize a secção Autenticação do Windows do Servidor Multi-Factor Authentica
 10. Selecione **Sub-rede** se pretende especificar um intervalo de IPs utilizando a notação de sub-rede. Introduza o IP inicial da sub-rede e escolha a máscara de rede adequada na lista pendente.
 11. Clique em **OK**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar aplicações de VPN de terceiros para o Servidor de MFA do Azure](howto-mfaserver-nps-vpn.md)
 

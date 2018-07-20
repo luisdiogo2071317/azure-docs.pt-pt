@@ -3,7 +3,7 @@ title: Recolha de dados no Centro de segurança do Azure | Documentos da Microso
 description: " Saiba como ativar a recolha de dados no Centro de segurança do Azure. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
-ms.author: terrylan
-ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: d70eb1a329b2d1ba560aecbbb4132d2a8e2b7df1
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619114"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160132"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
-Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
+Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: tipo de sistema operativo e versão, os registos de sistema (registos de eventos Windows), processos em execução, nome da máquina, endereços IP, operativo com sessão iniciada no utilizador, eventos do AppLocker e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Ativar o aprovisionamento automático do Microsoft Monitoring Agent     
 Aprovisionamento automático está desativada por predefinição. Quando o aprovisionamento automático está ativado, o Centro de segurança Aprovisiona o Microsoft Monitoring Agent em todos os suportadas VMs do Azure e novas que são criadas. Aprovisionamento Automático é vivamente recomendado mas instalação manual de agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
-> Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos. Para obter mais informações, consulte [desativar aprovisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Instantâneos de disco da VM e uma coleção de artefacto estão ativadas, mesmo que o aprovisionamento automático está desativado.
->
+> - Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos. Para obter mais informações, consulte [desativar aprovisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Instantâneos de disco da VM e uma coleção de artefacto estão ativadas, mesmo que o aprovisionamento automático está desativado.
+> - Para ativar a recolha de dados para [controlos de aplicações adaptativos](security-center-adaptive-application.md), Centro de segurança configura uma política de AppLocker local no modo de auditoria para permitir que todos os aplicativos. Isso fará com que o AppLocker gerar eventos que, em seguida, são recolhidos e utilizados pelo centro de segurança. É importante observar que esta política não irá ser configurada em quaisquer máquinas em que já existe uma política de AppLocker configurada. 
 >
 
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
@@ -123,8 +123,8 @@ Aqui está uma divisão completa a segurança e do App Locker de IDs de evento p
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> Se estiver a utilizar o objeto de política de grupo (GPO), recomenda-se que ative as políticas de auditoria 4688 de evento do processo de criação e o *CommandLine* campo dentro 4688 de evento. Para obter mais informações sobre a 4688 de eventos de criação de processo, consulte o Centro de segurança [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). Para obter mais informações sobre estas políticas de auditoria, veja [recomendações de políticas de auditoria](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
->
+> - Se estiver a utilizar o objeto de política de grupo (GPO), recomenda-se que ative as políticas de auditoria 4688 de evento do processo de criação e o *CommandLine* campo dentro 4688 de evento. Para obter mais informações sobre a 4688 de eventos de criação de processo, consulte o Centro de segurança [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). Para obter mais informações sobre estas políticas de auditoria, veja [recomendações de políticas de auditoria](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> -  Para ativar a recolha de dados para [controlos de aplicações adaptativos](security-center-adaptive-application.md), Centro de segurança configura uma política de AppLocker local no modo de auditoria para permitir que todos os aplicativos. Isso fará com que o AppLocker gerar eventos que, em seguida, são recolhidos e utilizados pelo centro de segurança. É importante observar que esta política não irá ser configurada em quaisquer máquinas em que já existe uma política de AppLocker configurada. 
 >
 
 Para escolher a política de filtragem:

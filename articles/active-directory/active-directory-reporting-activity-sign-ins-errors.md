@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971079"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160251"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory
 
@@ -59,6 +59,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 
 |Erro|Descrição|
 |---|---|
+|16000|Este é um detalhe de implementação interna e não uma condição de erro. Pode ignorar com segurança essa referência.|
 |20001|Há um problema com o seu Fornecedor de Identidade federado. Contacte o seu IDP para resolver este problema.|
 |20012|Há um problema com o seu Fornecedor de Identidade federado. Contacte o seu IDP para resolver este problema.|
 |20033|Há um problema com o seu Fornecedor de Identidade federado. Contacte o seu IDP para resolver este problema.|
@@ -174,6 +175,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |81001|A permissão do Kerberos do utilizador é demasiado grande. Isto pode acontecer se o utilizador estiver em demasiados grupos e, por conseguinte, a permissão do Kerberos contém demasiadas adesões a grupos. Reduza as adesões a grupos do utilizador e tente novamente.|
 |81005|O Pacote de autenticação não é suportado.|
 |81007|O inquilino não está ativado para SSO Totalmente Integrado|
+|81012|Não se trata de uma condição de erro. Ele indica que o utilizador tentar iniciar sessão com o Azure AD é diferente do utilizador com sessão iniciado no dispositivo. Pode ignorar este código nos registos.|
 |90010|O pedido não é suportado por vários motivos. Por exemplo, a solicitação é feita usando um método de pedido não suportado (o único método de mensagem é suportado) ou o algoritmo de assinatura de token que foi pedido não é suportado. Contacte o programador da aplicação.|
 |90014| Um campo obrigatório de uma mensagem de protocolo estava em falta, contacte o proprietário da aplicação. Se for o proprietário da aplicação, certifique-se de que tem todos os parâmetros necessários para o pedido de início de sessão. |
 |90072| A conta tem de ser adicionado como um utilizador externo no inquilino pela primeira vez. Fim de sessão e inicie sessão novamente com um diferente do Azure AD conta.|

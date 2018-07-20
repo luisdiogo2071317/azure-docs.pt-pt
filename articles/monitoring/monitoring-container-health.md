@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/16/2018
+ms.date: 07/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6658eeb70e31593da5f3612ccac8685ecbb976b9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069156"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161593"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) contentor (pré-visualização)
 
@@ -78,7 +78,7 @@ Execute os seguintes passos para ativar a monitorização do seu contentor do AK
 4. Na **inclusão de registos e de estado de funcionamento do contentor** página, se tiver um existentes do Log Analytics a área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  A lista preselects área de trabalho predefinida e localização do contentor do AKS é implementada na subscrição.<br><br> ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
 >[!NOTE]
->Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização do cluster, siga os passos em [Cretae uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md) e certifique-se de que criar a área de trabalho na mesma subscrição que é o contentor do AKS implementado.  
+>Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização do cluster, siga os passos em [criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md) e certifique-se de que criar a área de trabalho na mesma subscrição que é o contentor do AKS implementado.  
 >
  
 Depois de monitorização estiver ativada, pode demorar cerca de 15 minutos antes de poder ver dados operacionais para o cluster. 
@@ -371,7 +371,7 @@ Os ícones no campo status indicam o estado online dos contentores:
 | ![Ícone de estado em execução pronto](./media/monitoring-container-health/container-health-ready-icon.png) | Em execução (pronto)|
 | ![Ícone de estado aguardando ou em pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | Aguardando ou em pausa|
 | ![Reportou pela última vez com o ícone de estado](./media/monitoring-container-health/container-health-grey-icon.png) | Por fim comunicados em execução, mas ainda não responderam a mais de 30 minutos|
-| ![Ícone de estado terminada](./media/monitoring-container-health/container-health-green-icon.png) | Parado ou falha ao parar com êxito|
+| ![Ícone de estado com êxito](./media/monitoring-container-health/container-health-green-icon.png) | Parado ou falha ao parar com êxito|
 
 O ícone de estado mostra uma contagem com base no que fornece o pod. Mostra os piores dois Estados, e quando paira o rato sobre o status, mostra uma agregação de estado de todos os pods no contentor.  Se não existir um estado estável, o valor de estado irá mostrar um **(0)**.  
 
@@ -489,9 +489,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
           "addonProfiles": {
             "omsagent": {
               "enabled": false,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": null
-              }
+              "config": null
             }
            }
          }

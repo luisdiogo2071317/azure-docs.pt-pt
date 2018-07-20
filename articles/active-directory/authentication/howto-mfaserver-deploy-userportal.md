@@ -4,18 +4,18 @@ description: Introdução ao Azure MFA e ao portal de utilizador.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ff5227ab61145ab372fdc6e28f1b97ec31e47023
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.reviewer: michmcla
+ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049148"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161558"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
 
@@ -175,6 +175,6 @@ Se os administradores tiverem configurado o Servidor Multi-Factor Authentication
 
 A autoinscrição do utilizador está agora concluída e o utilizador tem sessão iniciada no portal de utilizador. Os utilizadores podem voltar a iniciar sessão no portal de utilizador em qualquer altura no futuro para alterar os números de telefone, PINs, métodos de autenticação e perguntas de segurança, se for permitido alterar os seus métodos pelos administradores deles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Implemente o Serviço Web de Aplicações Móveis do Servidor Multi-Factor Authentication do Azure](howto-mfaserver-deploy-mobileapp.md)

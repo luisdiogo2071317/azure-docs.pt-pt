@@ -1,74 +1,74 @@
 ---
-title: Dinamicamente banned palavras-passe no Azure AD
-description: Banir fracas palavras-passe do seu ambiente com palavras-passe do Azure AD dinamicamente banned
+title: Palavras-passe banidas dinamicamente no Azure AD
+description: Banir senhas fracas do seu ambiente com palavras-passe do Azure AD banida dinamicamente
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 89cbe386d87c6ccb81df7fabd86b197bb69e41e1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295611"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162019"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
 
 |     |
 | --- |
-| Proteção de palavra-passe do Azure AD e a lista de palavras-passe banned personalizadas são funcionalidades de pré-visualização pública do Azure Active Directory. Para mais informações sobre pré-visualizações, consulte [suplementares os termos de utilização para a pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Proteção de palavra-passe do Azure AD e a lista de palavras-passe banidas personalizadas são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Líderes do setor indicam para não utilizar a mesma palavra-passe em vários locais, certifique-se complexa e não tornam mais fácil como Password123. Como podem organizações garantir que os seus utilizadores estão a seguir orientações? Como podem, certifique-se os utilizadores não estiverem a utilizar palavras-passe ou palavras-passe que são conhecidas por ser incluído em falhas recentes de dados comuns?
+Líderes da indústria a informá-lo para não utilizar a mesma palavra-passe em vários locais, para que seja complexo e não torná-lo simples como Password123. Como as organizações a garantir que seus usuários estão seguindo orientação? Como eles tornar-se de que os utilizadores não estiverem a utilizar as palavras-passe ou palavras-passe que são conhecidas a serem incluídos na recente violações de dados comuns?
 
-## <a name="global-banned-password-list"></a>Lista de palavra-passe de banned global
+## <a name="global-banned-password-list"></a>Lista de palavra-passe banidas global
 
-Microsoft sempre está a trabalhar para se manter um passo à frente das criminals informático. Assim a equipa do Azure AD Identity Protection continuamente procura palavras-passe normalmente utilizadas e comprometidas. Em seguida, bloqueiam as palavras-passe que são consideradas demasiado comum, em que chama-se a lista de palavra-passe de banned global. Informático criminals também utilizam estratégias semelhantes no respetivos ataques, por conseguinte Microsoft não publicar o conteúdo desta lista publicamente. Estas palavras-passe vulnerável está bloqueadas antes de ficarem uma ameaça real para os clientes da Microsoft. Para obter mais informações sobre os esforços de segurança atual, consulte o [Microsoft segurança Intelligence relatório](https://www.microsoft.com/security/intelligence-report).
+Microsoft sempre está trabalhando para estar um passo à frente dos cibercriminosos. Portanto a equipa do Azure AD Identity Protection continuamente procure palavras-passe comprometidas e comumente utilizadas. Eles bloqueiam, em seguida, essas palavras-passe que são consideradas muito comuns em que é chamado a lista de palavra-passe banidas global. Os cibercriminosos também utilizam estratégias semelhantes em seus ataques, portanto Microsoft não publica o conteúdo desta lista publicamente. Estas palavras-passe vulneráveis é bloqueados antes de se tornarem uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços de segurança atual, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Pré-visualização: Personalizada banned lista de palavra-passe
+## <a name="preview-custom-banned-password-list"></a>Pré-visualização: Personalizado banida lista de palavra-passe
 
-Algumas organizações poderão querer passo de segurança um ainda mais ao adicionar as seus próprios personalizações sobre a lista de palavra-passe de banned global que Microsoft chama a lista de palavras-passe banned personalizadas. Clientes empresariais, como Contoso, em seguida, pode optar por bloquear variantes dos respetivos nomes de marca, termos de licenciamento específico da empresa ou outros itens.
+Algumas organizações poderão querer tirar ainda mais a etapa de segurança um adicionando suas próprias personalizações na parte superior da lista de palavra-passe banidas global em que a Microsoft chama a lista de palavras-passe banidas personalizado. Clientes empresariais, como a Contoso, em seguida, pode optar por bloquear variantes de seus nomes de marca, termos específicos da empresa ou outros itens.
 
-Personalizado banned lista de palavra-passe e a capacidade de permitir do Active Directory no local integração é gerida através do portal do Azure.
+O personalizado banido a lista de palavra-passe e a capacidade de ativar no local do Active Directory, integração é gerida no portal do Azure.
 
-![Modifique a lista de palavras-passe banned personalizadas em métodos de autenticação no portal do Azure](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modificar a lista de palavras-passe banidas personalizadas em métodos de autenticação no portal do Azure](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
-## <a name="on-premises-hybrid-scenarios"></a>Cenários de híbrida no local
+## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos no local
 
-Proteger contas apenas na nuvem é útil mas, muitas organizações mantêm cenários híbridos, incluindo local no Windows Server Active Directory. É possível instalar a proteção de palavra-passe do Azure AD para o Windows Server Active Directory (pré-visualização) agentes no local expandir as listas de palavra-passe banned à sua infraestrutura existente. Agora, os utilizadores e administradores que alterar, definir ou repor palavras-passe no local têm de estar em conformidade com a mesma política de palavra-passe como os utilizadores apenas na nuvem.
+Proteger contas apenas na cloud é útil, mas muitas organizações mantêm cenários híbridos, incluindo no local Windows Server Active Directory. É possível instalar a proteção de palavra-passe do Azure AD para o Windows Server Active Directory (pré-visualização) agentes no local expandir as listas de palavra-passe banidas à sua infraestrutura existente. Agora, os utilizadores e administradores que alterar, definir ou repor palavras-passe no local é necessário para estar em conformidade com a mesma política de palavra-passe como os utilizadores apenas na cloud.
 
-## <a name="how-does-the-banned-password-list-work"></a>Como funciona a lista de palavra-passe banned
+## <a name="how-does-the-banned-password-list-work"></a>Como funciona a lista de palavra-passe banidas
 
-A lista de palavra-passe banned corresponde palavras-passe na lista, a cadeia a converter em minúsculas e compara para as palavras-passe banned conhecidas dentro de uma distância de edição de 1 com correspondência por semelhantes.
+A lista de palavra-passe banidas corresponde à palavras-passe na lista convertendo a cadeia de caracteres em minúsculas e comparando para as palavras-passe banidas conhecidas dentro de uma distância de edição de 1 com correspondência difusa.
 
-Exemplo: A palavra-passe do word está bloqueada para uma organização
-   - Um utilizador tentar definir a palavra-passe "P@ssword" que é convertido "password" e está bloqueada, porque é uma variante de palavra-passe.
+Exemplo: A palavra-passe do word é bloqueada para uma organização
+   - Um usuário tentar definir a palavra-passe como "P@ssword" que é convertido em "palavra-passe" e porque é uma variante de palavra-passe é bloqueado.
    - Um administrador tenta definir uma palavra-passe de utilizadores para "Password123!" que convertido em "password123!" e porque é uma variante de palavra-passe está bloqueada.
 
-Sempre que um utilizador repõe ou alterações de palavra-passe do Azure AD fluem através deste processo para confirmar que não está na lista banned palavra-passe. Esta verificação é incluída no híbrida repor cenários utilizando a palavra-passe self-service, a sincronização de hash de palavra-passe e a autenticação pass-through.
+Sempre que um utilizador repõe ou altera a palavra-passe do Azure AD, flui por meio desse processo para confirmar que não está na lista de palavra-passe banidas. Esta verificação está incluída no híbrida repor cenários usando a palavra-passe self-service, sincronização de hash de palavra-passe e autenticação pass-through.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 
-As vantagens da lista de palavra-passe de banned global aplicam-se a todos os utilizadores do Azure Active Directory (Azure AD).
+Os benefícios da lista de palavra-passe banidas global aplicam-se a todos os utilizadores do Azure Active Directory (Azure AD).
 
-A lista de palavras-passe banned personalizadas requer licenças básico do Azure AD.
+A lista de palavras-passe banidas personalizado requer licenças do Azure AD básico.
 
 Proteção de palavra-passe do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium. 
 
-Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas no [Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
+Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas no [do Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 
-Quando um utilizador tenta repor uma palavra-passe para algo que deverá ser banned, verá a seguinte mensagem de erro:
+Quando um utilizador tenta repor uma palavra-passe para algo que deve ser excluído, verão a seguinte mensagem de erro:
 
-Infelizmente, a palavra-passe contém uma palavra, expressão ou padrão que torna guessable facilmente a sua palavra-passe. Tente novamente com uma palavra-passe diferente.
+Infelizmente, a sua palavra-passe contém uma palavra, frase ou padrão que faz com que a palavra-passe guessable facilmente. Tente novamente com uma palavra-passe diferente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar a lista de palavras-passe banned personalizadas](howto-password-ban-bad.md)
+* [Configurar a lista de palavras-passe banidas personalizado](howto-password-ban-bad.md)
 * [Ativar o Azure AD palavra-passe proteção agentes no local](howto-password-ban-bad-on-premises.md)

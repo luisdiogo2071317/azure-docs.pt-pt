@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 499c7182fba9d8efeebfb22e22a692d431dcb7ac
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 6bc979e277c71610ebc0f7a603915689b0b0605b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888658"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160380"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e a política de atualização de recursos de infraestrutura
 Este documento informa como personalizar as várias configurações de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o seu cluster do Service Fabric. Pode personalizá-las através da [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -59,7 +59,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="applicationgatewayhttp"></a>Gateway de aplicação/Http
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é L "None"|Estático| ApplicationCertificateValidationPolicy: Nenhum: não validar o certificado de servidor; concluída com êxito o pedido. ServiceCertificateThumbprints: Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. ServiceCommonNameAndIssuer: Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. |
+|ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| ApplicationCertificateValidationPolicy: Nenhum: não validar o certificado de servidor; concluída com êxito o pedido. ServiceCertificateThumbprints: Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. ServiceCommonNameAndIssuer: Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. |
 |BodyChunkSize |Uint, a predefinição é 16384 |Dinâmica| Fornece o tamanho para o segmento em bytes, usado para ler o corpo. |
 |CrlCheckingFlag|uint, a predefinição é 0x40000000 |Dinâmica| Sinalizadores de validação da cadeia de certificado de aplicação/serviço; Por exemplo, 0x10000000 de verificação de CRL CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY definição como 0 dwFlags de CertGetCertificateChain é documentada desativa CRL verificação lista, completa, de valores suportados: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos.  Fornece o tempo de limite de solicitação padrão para os pedidos de http a ser processados no gateway de aplicação de http. |
@@ -73,10 +73,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |IgnoreCrlOfflineError|bool, a predefinição é TRUE|Dinâmica|Se ignorar erro offline de CRL para a verificação de certificado de aplicação/serviço. |
 |IsEnabled |Bool, a predefinição é falso |Estático| Ativa/desativa o HttpApplicationGateway. HttpApplicationGateway está desativada por predefinição e esta configuração precisa ser definida para ativá-la. |
 |NumberOfParallelOperations | Uint, a predefinição é 5000 |Estático|Número de leituras por oposição a publicar na fila de servidor http. Esse item controla o número de pedidos simultâneos que podem ser concluídas ao HttpGateway. |
-|RemoveServiceResponseHeaders|cadeia de caracteres, predefinido é L "data; Servidor"|Estático|Dois pontos de volumes / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo ao cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. ou seja Não substituir a data e o servidor |
+|RemoveServiceResponseHeaders|cadeia de caracteres, predefinido é "data; Servidor"|Estático|Dois pontos de volumes / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo ao cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. ou seja Não substituir a data e o servidor |
 |ResolveServiceBackoffInterval |Tempo em segundos, a predefinição é 5 |Dinâmica|Especifique o período de tempo em segundos.  Fornece a resolver o intervalo de término do padrão antes de repetir uma falha na operação de serviço. |
 |SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: true: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy reverso pode reencaminhar pedidos de pontos de extremidade seguro/não segura.  |
-|ServiceCertificateThumbprints|cadeia de caracteres, predefinido é L""|Dinâmica| |
+|ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica| |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Gateway de aplicação/Http/ServiceCommonNameAndIssuer
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -87,9 +87,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, a predefinição é 0|Estático|MinReplicaSetSize para BackupRestoreService |
-|PlacementConstraints|wstring, a predefinição é L""|Estático| PlacementConstraints para o serviço de BackupRestore |
-|SecretEncryptionCertThumbprint|wstring, a predefinição é L""|Dinâmica|Thumbprint do certificado X509 de criptografia Secret |
-|SecretEncryptionCertX509StoreName|wstring, a predefinição é L "Meu"|  Dinâmica|    Isto indica que o certificado a utilizar para encriptação e desencriptação de arquivo de certificados de nome de X.509 de credenciais é utilizado para encriptar a desencriptar credenciais de armazenamento utilizadas pelo serviço de restaurar a cópia de segurança |
+|PlacementConstraints|cadeia de caracteres, a predefinição é ""|Estático|  PlacementConstraints para o serviço de BackupRestore |
+|SecretEncryptionCertThumbprint|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprint do certificado X509 de criptografia Secret |
+|SecretEncryptionCertX509StoreName|cadeia de caracteres, a predefinição é "Meu"|   Dinâmica|    Isto indica que o certificado a utilizar para encriptação e desencriptação de arquivo de certificados de nome de X.509 de credenciais é utilizado para encriptar a desencriptar credenciais de armazenamento utilizadas pelo serviço de restaurar a cópia de segurança |
 |TargetReplicaSetSize|int, a predefinição é 0|Estático| TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
@@ -157,8 +157,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|IsEnabled|bool, a predefinição é falso|Estático| |
 |InstanceCount|int, a predefinição é de -1|Estático|  |
+|IsEnabled|bool, a predefinição é falso|Estático| |
+|PartitionPrefix|cadeia de caracteres, a predefinição é "-"|Estático|Define a cadeia de prefixo de partição em nomes DNS para serviços particionados: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<destino-Partition-Name\> \< PartitionSuffix\>.\< Restantes-particionada-Service-DNSName\>.|
+|PartitionSuffix|cadeia de caracteres, a predefinição é ""|Estático|Define a cadeia de caracteres de sufixo de partição em nomes DNS para serviços particionados: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<destino-Partition-Name\> \< PartitionSuffix\>.\< Restantes-particionada-Service-DNSName\>. |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -220,14 +222,14 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ExpectedNodeFabricUpgradeDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para um nó a ser atualizado durante a atualização do Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para todas as réplicas ser actualizado num nó durante a atualização da aplicação. |
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, a predefinição é TRUE|Dinâmica|Se definido como true; réplicas com um tamanho de conjunto de réplicas de destino de 1 terão permissão para mover durante a atualização. |
-|MinReplicaSetSize|int, a predefinição é 3|Não Permitido|Este é o tamanho de conjunto mínimo de réplicas para o FM. Se o número de réplicas do Active Directory FM descer abaixo este valor; o FM irão rejeitar as alterações para o cluster até que pelo menos o número mínimo de réplicas é recuperado |
-|PlacementConstraints|cadeia de caracteres, predefinido é L""|Não Permitido|Quaisquer restrições de posicionamento para as réplicas do Gestor de ativação pós-falha |
+|MinReplicaSetSize|Int, a predefinição é 3|Não Permitido|Este é o tamanho de conjunto mínimo de réplicas para o FM. Se o número de réplicas do Active Directory FM descer abaixo este valor; o FM irão rejeitar as alterações para o cluster até que pelo menos o número mínimo de réplicas é recuperado |
+|PlacementConstraints|cadeia de caracteres, a predefinição é ""|Não Permitido|Quaisquer restrições de posicionamento para as réplicas do Gestor de ativação pós-falha |
 |PlacementTimeLimit|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(600)|Dinâmica|Especifique o período de tempo em segundos. O limite de tempo para atingir a contagem de réplicas de destino; após o qual será iniciado um relatório de estado de funcionamento de aviso |
 |QuorumLossWaitDuration |Tempo em segundos, a predefinição é MaxValue |Dinâmica|Especifique o período de tempo em segundos. Esta é a duração máxima para o qual podemos permitir uma partição para estar num Estado de perda de quórum. Se a partição está ainda em perda de quórum após esta duração; a partição é recuperada da perda de quórum Considerando as réplicas baixo como perdido. Tenha em atenção que isto pode potencialmente incorrer perda de dados. |
 |ReconfigurationTimeLimit|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(300)|Dinâmica|Especifique o período de tempo em segundos. O limite de tempo para reconfiguração; após o qual será iniciado um relatório de estado de funcionamento de aviso |
 |ReplicaRestartWaitDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Não Permitido|Especifique o período de tempo em segundos. Este é o ReplicaRestartWaitDuration para o FMService |
 |StandByReplicaKeepDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Não Permitido|Especifique o período de tempo em segundos. Este é o StandByReplicaKeepDuration para o FMService |
-|TargetReplicaSetSize|int, a predefinição é de 7|Não Permitido|Este é o número de destino das réplicas de FM que irá manter recursos de infraestrutura do Windows. Um número mais alto resulta em maior fiabilidade dos dados FM; com uma compensação de desempenho pequeno. |
+|TargetReplicaSetSize|Int, o padrão é 7|Não Permitido|Este é o número de destino das réplicas de FM que irá manter recursos de infraestrutura do Windows. Um número mais alto resulta em maior fiabilidade dos dados FM; com uma compensação de desempenho pequeno. |
 |UserMaxStandByReplicaCount |Int, a predefinição é 1 |Dinâmica|O número máximo predefinido de réplicas de modo de espera que o sistema mantém-se para os serviços de utilizador. |
 |UserReplicaRestartWaitDuration |Tempo em segundos, a predefinição é 60.0 * 30 |Dinâmica|Especifique o período de tempo em segundos. Quando uma réplica persistente fica inativo; Recursos de infraestrutura do Windows é aguarda por esta duração para a réplica seja aberto antes de criar novos réplicas de substituição (o que exigiriam uma cópia do Estado). |
 |UserStandByReplicaKeepDuration |Tempo em segundos, o padrão é 3600.0 * 24 * 7 |Dinâmica|Especifique o período de tempo em segundos. Quando uma réplica persistente voltar atrás de um Estado para baixo; Pode já ter foi substituído. Este temporizador determina quanto o FM irá manter a réplica em modo de espera antes de descartá-la. |
@@ -257,14 +259,15 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="filestoreservice"></a>FileStoreService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
+|AcceptChunkUpload|bool, a predefinição é TRUE|Dinâmica|Configuração para determinar se o serviço de armazenamento de ficheiros aceita o carregamento de ficheiros de segmentos com base ou não durante o pacote de aplicação de cópia. |
 |AnonymousAccessEnabled | Bool, a predefinição é verdadeiro |Estático|Ativar/desativar o acesso anónimo a partilhas de FileStoreService. |
-|CommonName1Ntlmx509CommonName|cadeia de caracteres, predefinido é L""|Estático| O nome comum do X509 certificado utilizado para gerar HMAC no CommonName1NtlmPasswordSecret ao utilizar a autenticação NTLM |
-|CommonName1Ntlmx509StoreLocation|cadeia de caracteres, predefinido é L "LocalMachine"|Estático|A localização do arquivo de X509 certificado utilizado para gerar HMAC no CommonName1NtlmPasswordSecret ao utilizar a autenticação NTLM |
-|CommonName1Ntlmx509StoreName|cadeia de caracteres, predefinido é L "MY"| Estático|O nome de arquivo de X509 certificado utilizado para gerar HMAC no CommonName1NtlmPasswordSecret ao utilizar a autenticação NTLM |
-|CommonName2Ntlmx509CommonName|cadeia de caracteres, predefinido é L""|Estático|O nome comum do X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret ao utilizar a autenticação NTLM |
-|CommonName2Ntlmx509StoreLocation|cadeia de caracteres, predefinido é L "LocalMachine"| Estático|A localização do arquivo de X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret ao utilizar a autenticação NTLM |
-|CommonName2Ntlmx509StoreName|cadeia de caracteres, predefinido é L "MY"|Estático| O nome de arquivo de X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret ao utilizar a autenticação NTLM |
-|CommonNameNtlmPasswordSecret|SecureString, a predefinição é Common::SecureString(L"")| Estático|O segredo de palavra-passe que utilizado como base para a mesma palavra-passe gerada ao utilizar a autenticação NTLM |
+|CommonName1Ntlmx509CommonName|cadeia de caracteres, a predefinição é ""|Estático| O nome comum do X509 certificado utilizado para gerar HMAC no CommonName1NtlmPasswordSecret ao utilizar a autenticação NTLM |
+|CommonName1Ntlmx509StoreLocation|cadeia de caracteres, predefinido é "LocalMachine"|Estático|A localização do arquivo de X509 certificado utilizado para gerar HMAC no CommonName1NtlmPasswordSecret ao utilizar a autenticação NTLM |
+|CommonName1Ntlmx509StoreName|cadeia de caracteres, predefinido é "MY"| Estático|O nome de arquivo de X509 certificado utilizado para gerar HMAC no CommonName1NtlmPasswordSecret ao utilizar a autenticação NTLM |
+|CommonName2Ntlmx509CommonName|cadeia de caracteres, a predefinição é ""|Estático|O nome comum do X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret ao utilizar a autenticação NTLM |
+|CommonName2Ntlmx509StoreLocation|cadeia de caracteres, predefinido é "LocalMachine"| Estático|A localização do arquivo de X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret ao utilizar a autenticação NTLM |
+|CommonName2Ntlmx509StoreName|cadeia de caracteres, predefinido é "MY"|Estático| O nome de arquivo de X509 certificado utilizado para gerar HMAC no CommonName2NtlmPasswordSecret ao utilizar a autenticação NTLM |
+|CommonNameNtlmPasswordSecret|SecureString, a predefinição é Common::SecureString("")| Estático|O segredo de palavra-passe que utilizado como base para a mesma palavra-passe gerada ao utilizar a autenticação NTLM |
 |GenerateV1CommonNameAccount| bool, a predefinição é TRUE|Estático|Especifica se pretende gerar uma conta com o algoritmo de geração de V1 de nome de utilizador. A partir do Service Fabric versão 6.1; sempre é criada uma conta com a geração da v2. A conta V1 é necessária para atualizações de/para versões que não suportam a geração de V2 (antes da 6.1).|
 |MaxCopyOperationThreads | Uint, o padrão é 0 |Dinâmica| O número máximo de ficheiros paralelos ou secundários pode copiar do primário. '0' = = número de núcleos. |
 |MaxFileOperationThreads | Uint, a predefinição é 100 |Estático| O número máximo de threads paralelos autorizados a executar FileOperations (copiar/mover) no principal. '0' = = número de núcleos. |
@@ -303,7 +306,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|MaxPercentDeltaUnhealthyNodes|int, a predefinição é 10|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima de nós delta de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento |
+|MaxPercentDeltaUnhealthyNodes|Int, a predefinição é 10|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima de nós delta de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, a predefinição é 15|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima do delta de mau estado de funcionamento nós num domínio de atualização permitidos para o cluster seja bom estado de funcionamento |
 
 ## <a name="hosting"></a>Hospedagem
@@ -315,9 +318,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ActivationTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(180)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para ativação de aplicativo; a desativação e a atualização. |
 |ApplicationHostCloseTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. Quando a saída de recursos de infraestrutura é detetada num self ativado processos; FabricRuntime fecha todas as réplicas no processo de anfitrião (applicationhost) do utilizador. Este é o tempo limite para a operação de fecho. |
 |ApplicationUpgradeTimeout| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(360)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para a atualização da aplicação. Se o tempo limite é menor do que o implementador de "ActivationTimeout" irá falhar. |
-|ContainerServiceArguments|wstring, a predefinição é L "-H localhost:2375 -H npipe: / /"|Estático|Service Fabric (SF) gere o daemon do docker (exceto em máquinas de cliente do windows, como o Win10). Esta configuração permite que o usuário especificar argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-los. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do Docker, exceto "– pidfile' argumento. Por conseguinte, os utilizadores não devem especificar "– pidfile' argumento como parte de seus argumentos de cliente. Além disso, os argumentos personalizados devem garantir que o docker daemon escuta no pipe de nome predefinido no Windows (ou o socket de domínio Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
+|ContainerServiceArguments|cadeia de caracteres, a predefinição é "-H localhost:2375 -H npipe: / /"|Estático|Service Fabric (SF) gere o daemon do docker (exceto em máquinas de cliente do windows, como o Win10). Esta configuração permite que o usuário especificar argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-los. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do Docker, exceto "– pidfile' argumento. Por conseguinte, os utilizadores não devem especificar "– pidfile' argumento como parte de seus argumentos de cliente. Além disso, os argumentos personalizados devem garantir que o docker daemon escuta no pipe de nome predefinido no Windows (ou o socket de domínio Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
 |CreateFabricRuntimeTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a sincronização FabricCreateRuntime chamada |
-|DeploymentMaxFailureCount|int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para tempos de DeploymentMaxFailureCount antes da falha a implementação desse aplicativo no nó.| 
+|DefaultContainerRepositoryAccountName|cadeia de caracteres, a predefinição é ""|Estático|Credenciais predefinidas utilizadas em vez das credenciais especificadas em applicationmanifest. XML |
+|DefaultContainerRepositoryPassword|cadeia de caracteres, a predefinição é ""|Estático||
+|DeploymentMaxFailureCount|Int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para tempos de DeploymentMaxFailureCount antes da falha a implementação desse aplicativo no nó.| 
 |DeploymentMaxRetryInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique o período de tempo em segundos. Intervalo de repetição máximo para a implementação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (DeploymentMaxRetryInterval; Número de falhas contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(10)|Dinâmica|Especifique o período de tempo em segundos. Intervalo de término da falha de implementação. Em cada caso de falha de implementação contínua, o sistema tentará novamente a implementação da até o MaxDeploymentFailureCount. O intervalo entre tentativas é um produto de falha de implementação contínua e o intervalo de término da implantação. |
 |EnableActivateNoWindow| bool, a predefinição é falso|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
@@ -328,9 +333,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |FirewallPolicyEnabled|bool, a predefinição é falso|Estático| Permite a abertura de portas de firewall para recursos de ponto final com portas explícitas especificadas no ServiceManifest |
 |GetCodePackageActivationContextTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique o período de tempo em segundos. O valor de tempo limite para as chamadas de CodePackageActivationContext. Não se aplica aos serviços do ad-hoc. |
 |IPProviderEnabled|bool, a predefinição é falso|Estático|Ativa a gestão de endereços IP. |
-|LinuxExternalExecutablePath|wstring, a predefinição é L "/ usr/bin /" |Estático|O diretório principal de comandos executáveis externos no nó.|
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, a predefinição é falso|Estático||
+|LinuxExternalExecutablePath|cadeia de caracteres, a predefinição é "/ usr/bin /" |Estático|O diretório principal de comandos executáveis externos no nó.|
 |NTLMAuthenticationEnabled|bool, a predefinição é falso|Estático| Ativa o suporte para utilizando o NTLM, os pacotes de código que estão em execução com outras utilizadores para que os processos em máquinas possam comunicar de forma segura. |
-|NTLMAuthenticationPasswordSecret|SecureString, a predefinição é Common::SecureString(L"")|Estático|É que tem um encriptada que é utilizado para gerar a palavra-passe para utilizadores NTLM. Tem de ser definida se NTLMAuthenticationEnabled for verdadeira. Validado pelo deployer. |
+|NTLMAuthenticationPasswordSecret|SecureString, a predefinição é Common::SecureString("")|Estático|É que tem um encriptada que é utilizado para gerar a palavra-passe para utilizadores NTLM. Tem de ser definida se NTLMAuthenticationEnabled for verdadeira. Validado pelo deployer. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(3)|Dinâmica|Especifique o período de tempo em segundos. Definições específicas do ambiente o intervalo periódico no qual alojamento verifica a existência de novos certificados para ser utilizado para a configuração de FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(4)|Dinâmica| Especifique o período de tempo em segundos. O tempo limite para configurar utilizadores NTLM através de nomes comum do certificado. Os utilizadores NTLM são necessárias para partilhas de FileStoreService. |
 |RegisterCodePackageHostTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a chamada de sincronização FabricRegisterCodePackageHost. Isto é aplicável para apenas várias código pacote hosts de aplicativos, como FWP |
@@ -385,7 +391,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AzureStorageMaxConnections | Int, a predefinição é 5000 |Dinâmica|O número máximo de ligações simultâneas para o armazenamento do azure. |
-|AzureStorageMaxWorkerThreads | Int, a predefinição é 25 |Dinâmica|O número máximo de threads de trabalho em paralelo. |
+|AzureStorageMaxWorkerThreads | int, a predefinição é 25 |Dinâmica|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, a predefinição é de 6000 |Dinâmica|Especifique o período de tempo em segundos. Tempo limite para a conclusão da operação xstore. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, a predefinição é falso |Dinâmica|Esta configuração ativa ou desativa a limpeza automática de pacote de aplicação fornecimento com êxito. |
 |DisableChecksumValidation | Bool, a predefinição é falso |Estático| Esta configuração permite-nos ativar ou desativar a validação de soma de verificação durante o aprovisionamento de aplicação. |
@@ -475,9 +481,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ConstraintFixPartialDelayAfterNodeDown | Tempo em segundos, a predefinição é 120 |Dinâmica| Especifique o período de tempo em segundos. Fazer não as violações de restrição FaultDomain corrigir e UpgradeDomain durante este período após um nó de evento para baixo. |
 |ConstraintViolationHealthReportLimit | Int, a predefinição é 50 |Dinâmica| Define o número de vezes a réplica de violação de restrição tem de ser persistentemente não corrigidos antes de diagnóstico é conduzido e os relatórios de estado são emitidos. |
 |DetailedConstraintViolationHealthReportLimit | Int, a predefinição é 200 |Dinâmica| Define o número de vezes a réplica de violação de restrição tem de ser persistentemente não corrigidos antes de diagnóstico é conduzido e detalhadas são emitidos relatórios de estado de funcionamento. |
-|DetailedDiagnosticsInfoListLimit | Int, a predefinição é 15 |Dinâmica| Define o número de entradas de diagnóstico (com informações detalhadas) por restrição para incluir antes da truncagem no diagnóstico.|
-|DetailedNodeListLimit | Int, a predefinição é 15 |Dinâmica| Define o número de nós por restrição para incluir antes da truncagem nos relatórios de réplica Unplaced. |
-|DetailedPartitionListLimit | Int, a predefinição é 15 |Dinâmica| Define o número de partições por entrada de diagnóstico para uma restrição incluir antes da truncagem no diagnóstico. |
+|DetailedDiagnosticsInfoListLimit | int, a predefinição é 15 |Dinâmica| Define o número de entradas de diagnóstico (com informações detalhadas) por restrição para incluir antes da truncagem no diagnóstico.|
+|DetailedNodeListLimit | int, a predefinição é 15 |Dinâmica| Define o número de nós por restrição para incluir antes da truncagem nos relatórios de réplica Unplaced. |
+|DetailedPartitionListLimit | int, a predefinição é 15 |Dinâmica| Define o número de partições por entrada de diagnóstico para uma restrição incluir antes da truncagem no diagnóstico. |
 |DetailedVerboseHealthReportLimit | Int, a predefinição é 200 | Dinâmica|Define o número de vezes que uma réplica unplaced tem de ser persistentemente unplaced antes de relatórios de estado de funcionamento detalhadas são emitidos. |
 |FaultDomainConstraintPriority | Int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de domínio de falhas: 0: difícil; 1: software; negativo: Ignorar. |
 |GlobalMovementThrottleCountingInterval | Tempo em segundos, a predefinição é de 600 |Estático| Especifique o período de tempo em segundos. Indica o comprimento do intervalo passado para o qual pretende controlar por Movimentos de réplica de domínio (utilizados juntamente com GlobalMovementThrottleThreshold). Pode ser definido como 0 para ignorar completamente a limitação global. |
@@ -524,7 +530,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |GracefulReplicaShutdownMaxDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique o período de tempo em segundos. A duração para o qual o sistema esperará antes de terminar os hosts de serviço com réplicas que empacamos em Fechar. Se este valor é definido como 0, as réplicas não serão instruídas a fechar.|
 |NodeDeactivationMaxReplicaCloseDuration | Tempo em segundos, a predefinição é de 900 |Dinâmica|Especifique o período de tempo em segundos. Feche a duração para o qual o sistema esperará antes de terminar os hosts de serviço com réplicas que está bloqueada no durante a desativação de nó. |
 |PeriodicApiSlowTraceInterval | Tempo em segundos, a predefinição é 5 minutos |Dinâmica| Especifique o período de tempo em segundos. PeriodicApiSlowTraceInterval define o intervalo durante o qual irão ser retraced chamadas de API lentas pelo monitor de API. |
-|ReplicaChangeRoleFailureRestartThreshold|int, a predefinição é 10|Dinâmica| Número inteiro. Especifique o número de falhas da API durante a promoção primária após o qual será aplicada a ação de atenuação automática (réplica reiniciar). |
+|ReplicaChangeRoleFailureRestartThreshold|Int, a predefinição é 10|Dinâmica| Número inteiro. Especifique o número de falhas da API durante a promoção primária após o qual será aplicada a ação de atenuação automática (réplica reiniciar). |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, a predefinição é 2147483647|Dinâmica| Número inteiro. Especifique o número de falhas da API durante a promoção primária após o qual o relatório de estado de funcionamento de aviso será gerado.|
 |ServiceApiHealthDuration | Tempo em segundos, a predefinição é 30 minutos |Dinâmica| Especifique o período de tempo em segundos. ServiceApiHealthDuration define o tempo em que podemos esperar para uma API de serviço a ser executada antes de que relatamos-mau estado de funcionamento. |
 |ServiceReconfigurationApiHealthDuration | Tempo em segundos, a predefinição é 30 |Dinâmica| Especifique o período de tempo em segundos. ServiceReconfigurationApiHealthDuration define o tempo em que podemos esperar para uma API de serviço a ser executada antes elaboramos relatórios de mau estado de funcionamento. Isto aplica-se para chamadas API que afetam a disponibilidade.|
@@ -534,17 +540,17 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|Período de tempo, a predefinição é Common::TimeSpan::FromMilliseconds(15)|Estático|Especifique o período de tempo em segundos. Determina a quantidade de tempo que o replicator aguarda a após o recebimento de uma operação antes de enviar uma confirmação de volta. Outras operações recebidas durante este período de tempo terão suas confirmações enviadas novamente numa única mensagem -> reduzindo o tráfego de rede, mas potencialmente reduzindo a produtividade do replicador.|
 |MaxCopyQueueSize|uint, a predefinição é de 1024|Estático|Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se durante o tempo de execução, a fila aumenta para esta operação de tamanho ficará limitada entre os replicators primários e secundários.|
-|MaxPrimaryReplicationQueueMemorySize|uint, a predefinição é 0|Estático|Este é o valor máximo da fila de replicação primária em bytes.|
+|MaxPrimaryReplicationQueueMemorySize|Uint, o padrão é 0|Estático|Este é o valor máximo da fila de replicação primária em bytes.|
 |MaxPrimaryReplicationQueueSize|uint, a predefinição é de 1024|Estático|Este é o número máximo de operações que pode existir na fila de replicação primária. Tenha em atenção que tem de ser uma potência de 2.|
 |MaxReplicationMessageSize|uint, a predefinição é 52428800|Estático|Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB.|
-|MaxSecondaryReplicationQueueMemorySize|uint, a predefinição é 0|Estático|Este é o valor máximo da fila de replicação secundário em bytes.|
+|MaxSecondaryReplicationQueueMemorySize|Uint, o padrão é 0|Estático|Este é o valor máximo da fila de replicação secundário em bytes.|
 |MaxSecondaryReplicationQueueSize|uint, a predefinição é de 2048|Estático|Este é o número máximo de operações que pode existir na fila de replicação secundário. Tenha em atenção que tem de ser uma potência de 2.|
 |QueueHealthMonitoringInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(30)|Estático|Especifique o período de tempo em segundos. Este valor determina o período de tempo utilizado pelo replicador para monitorar qualquer eventos de estado de funcionamento de aviso/erro nas filas de operação de replicação. Um valor "0" desativa a monitorização de estado de funcionamento |
 |QueueHealthWarningAtUsagePercent|uint, predefinida é 80|Estático|Este valor determina a utilização da fila de replicação (em percentagem) após o qual relatamos aviso sobre a utilização elevada da fila. Podemos fazê-lo após um intervalo de tolerância de QueueHealthMonitoringInterval. Se a utilização de fila cair abaixo essa porcentagem no intervalo de tolerância|
-|ReplicatorAddress|cadeia de caracteres, predefinido é L "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para estabelecer ligações com outras réplicas para operações de envio/receção.|
-|ReplicatorListenAddress|cadeia de caracteres, predefinido é L "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para receber operações de outras réplicas.|
-|ReplicatorPublishAddress|cadeia de caracteres, predefinido é L "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para enviar operações para outras réplicas.|
-|RetryInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique o período de tempo em segundos. Quando uma operação é perdida ou rejeitada este temporizador determina a frequência com que o replicator voltará a tentar enviar a operação.|
+|ReplicatorAddress|cadeia de caracteres, predefinido é "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para estabelecer ligações com outras réplicas para operações de envio/receção.|
+|ReplicatorListenAddress|cadeia de caracteres, predefinido é "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para receber operações de outras réplicas.|
+|ReplicatorPublishAddress|cadeia de caracteres, predefinido é "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para enviar operações para outras réplicas.|
+|retryInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique o período de tempo em segundos. Quando uma operação é perdida ou rejeitada este temporizador determina a frequência com que o replicator voltará a tentar enviar a operação.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou descrição breve** |
@@ -582,35 +588,35 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="security"></a>Segurança
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|AADClientApplication|cadeia de caracteres, predefinido é L""|Estático|Nome da aplicação cliente nativo ou ID que representam os clientes de recursos de infraestrutura |
-|AADClusterApplication|cadeia de caracteres, predefinido é L""|Estático|Nome da aplicação Web API ou o ID que representa o cluster |
-|AADTenantId|cadeia de caracteres, predefinido é L""|Estático|ID do inquilino (GUID) |
-|AdminClientCertThumbprints|cadeia de caracteres, predefinido é L""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes na função de administrador. É uma lista de nomes separados por vírgulas. |
-|AdminClientClaims|cadeia de caracteres, predefinido é L""|Dinâmica|Todos os possíveis declarações esperadas de clientes da administração; o mesmo formato que ClientClaims; Esta lista internamente é adicionada à ClientClaims; portanto, não é necessário também adicionar as entradas do mesmo a ClientClaims. |
-|AdminClientIdentities|cadeia de caracteres, predefinido é L""|Dinâmica|Identidades do Windows de clientes de recursos de infraestrutura na função de administrador utilizado para autorizar as operações de recursos de infraestrutura com privilégios. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe é atribuída automaticamente a função de administrador portanto, é agrupar ServiceFabricAdministrators. |
+|AADClientApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação cliente nativo ou ID que representam os clientes de recursos de infraestrutura |
+|AADClusterApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação Web API ou o ID que representa o cluster |
+|AADTenantId|cadeia de caracteres, a predefinição é ""|Estático|ID do inquilino (GUID) |
+|AdminClientCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes na função de administrador. É uma lista de nomes separados por vírgulas. |
+|AdminClientClaims|cadeia de caracteres, a predefinição é ""|Dinâmica|Todos os possíveis declarações esperadas de clientes da administração; o mesmo formato que ClientClaims; Esta lista internamente é adicionada à ClientClaims; portanto, não é necessário também adicionar as entradas do mesmo a ClientClaims. |
+|AdminClientIdentities|cadeia de caracteres, a predefinição é ""|Dinâmica|Identidades do Windows de clientes de recursos de infraestrutura na função de administrador utilizado para autorizar as operações de recursos de infraestrutura com privilégios. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe é atribuída automaticamente a função de administrador portanto, é agrupar ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(43200)|Estático|Especifique o período de tempo em segundos. Margem de segurança para a expiração do certificado; Estado de relatório de estado de funcionamento do certificado é alterado de OK para aviso quando a expiração é mais parecido com que isso. A predefinição é 30 dias. |
 |CertificateHealthReportingInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600 * 8)|Estático|Especifique o período de tempo em segundos. Especifique o intervalo de relatórios de estado de funcionamento de certificado; predefinida para 8 horas; definição como 0 desativa a relatórios de estado de funcionamento do certificado |
-|ClientCertThumbprints|cadeia de caracteres, predefinido é L""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes para comunicar com o cluster; utiliza-o cluster de autorizar a ligação de entrada. É uma lista de nomes separados por vírgulas. |
+|ClientCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints dos certificados utilizados pelos clientes para comunicar com o cluster; utiliza-o cluster de autorizar a ligação de entrada. É uma lista de nomes separados por vírgulas. |
 |ClientClaimAuthEnabled|bool, a predefinição é falso|Estático|Indica se a autenticação baseada em afirmações está ativada nos clientes; definir este implicitamente verdadeiro define ClientRoleEnabled. |
-|ClientClaims|cadeia de caracteres, predefinido é L""|Dinâmica|Todos os possíveis declarações esperadas de clientes para ligar ao gateway. Esta é uma lista de 'Ou': ClaimsEntry \| \| ClaimsEntry \| \| ClaimsEntry... cada ClaimsEntry é uma lista de "E": ClaimType = ClaimValue & & ClaimType = ClaimValue & & ClaimType = ClaimValue... |
-|ClientIdentities|cadeia de caracteres, predefinido é L""|Dinâmica|Identidades do Windows do FabricClient; nomenclatura de gateway utiliza-o para autorizar as ligações de entrada. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe automaticamente é permitida. então, são grupo ServiceFabricAllowedUsers e ServiceFabricAdministrators. |
+|ClientClaims|cadeia de caracteres, a predefinição é ""|Dinâmica|Todos os possíveis declarações esperadas de clientes para ligar ao gateway. Esta é uma lista de 'Ou': ClaimsEntry \| \| ClaimsEntry \| \| ClaimsEntry... cada ClaimsEntry é uma lista de "E": ClaimType = ClaimValue & & ClaimType = ClaimValue & & ClaimType = ClaimValue... |
+|ClientIdentities|cadeia de caracteres, a predefinição é ""|Dinâmica|Identidades do Windows do FabricClient; nomenclatura de gateway utiliza-o para autorizar as ligações de entrada. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo. Para sua comodidade; a conta que executa fabric.exe automaticamente é permitida. então, são grupo ServiceFabricAllowedUsers e ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, a predefinição é falso|Estático|Indica se a função de cliente está ativada; Quando definido como true; os clientes são atribuídos a funções com base nas suas identidades. Para V2; Ativar isso significa que o cliente não está no AdminClientCommonNames/AdminClientIdentities só pode executar operações só de leitura. |
-|ClusterCertThumbprints|cadeia de caracteres, predefinido é L""|Dinâmica|Thumbprints de certificados podem ser associados ao cluster; uma lista de nomes separados por vírgulas. |
-|ClusterCredentialType|cadeia de caracteres, predefinido é L "None"|Não Permitido|Indica o tipo de credenciais de segurança à sua disposição para proteger o cluster. Os valores válidos são "Nenhum/X509/Windows" |
-|ClusterIdentities|cadeia de caracteres, predefinido é L""|Dinâmica|Identidades do Windows de nós de cluster; utilizado para autorização de associação do cluster. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo |
-|ClusterSpn|cadeia de caracteres, predefinido é L""|Não Permitido|Nome principal de serviço do cluster; Quando os recursos de infraestrutura é executado como um utilizador de domínio único (conta de utilizador de domínio/gMSA). É o SPN de serviços de escuta de concessão e serviços de escuta no fabric.exe: serviços de escuta de Federação; Serviços de escuta de replicação interna; serviço de escuta de serviço de tempo de execução e o serviço de escuta de gateway nomenclatura. Isso deve ser deixado em branco quando recursos de infraestrutura é executado como contas de computador; ligar caso em que o serviço de escuta de computação de lado o SPN do serviço de escuta de transporte endereço. |
+|ClusterCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints de certificados podem ser associados ao cluster; uma lista de nomes separados por vírgulas. |
+|ClusterCredentialType|cadeia de caracteres, predefinido é "None"|Não Permitido|Indica o tipo de credenciais de segurança à sua disposição para proteger o cluster. Os valores válidos são "Nenhum/X509/Windows" |
+|ClusterIdentities|cadeia de caracteres, a predefinição é ""|Dinâmica|Identidades do Windows de nós de cluster; utilizado para autorização de associação do cluster. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou o nome do grupo |
+|ClusterSpn|cadeia de caracteres, a predefinição é ""|Não Permitido|Nome principal de serviço do cluster; Quando os recursos de infraestrutura é executado como um utilizador de domínio único (conta de utilizador de domínio/gMSA). É o SPN de serviços de escuta de concessão e serviços de escuta no fabric.exe: serviços de escuta de Federação; Serviços de escuta de replicação interna; serviço de escuta de serviço de tempo de execução e o serviço de escuta de gateway nomenclatura. Isso deve ser deixado em branco quando recursos de infraestrutura é executado como contas de computador; ligar caso em que o serviço de escuta de computação de lado o SPN do serviço de escuta de transporte endereço. |
 |CrlCheckingFlag|uint, a predefinição é 0x40000000|Dinâmica|Sinalizador de validação de cadeia de certificado predefinido; pode ser substituído pelo sinalizador de componente específicas; Por exemplo, Federação/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ DwFlags de CertGetCertificateChain é documentada definição apenas para 0 desativa CRL verificação lista completa de valores suportados: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |CrlDisablePeriod|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(15)|Dinâmica|Especifique o período de tempo em segundos. O tempo que a verificação CRL está desativada para um determinado certificado depois de encontrar o erro offline; Se o erro CRL offline pode ser ignorado. |
 |CrlOfflineHealthReportTtl|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(1440)|Dinâmica|Especifique o período de tempo em segundos. |
 |DisableFirewallRuleForDomainProfile| bool, a predefinição é TRUE |Estático| Indica se a regra de firewall não deve ser ativada para o perfil de domínio |
 |DisableFirewallRuleForPrivateProfile| bool, a predefinição é TRUE |Estático| Indica se a regra de firewall não deve ser ativada para o perfil privado | 
 |DisableFirewallRuleForPublicProfile| bool, a predefinição é TRUE | Estático|Indica se a regra de firewall não deve ser ativada para o perfil público |
-|FabricHostSpn| cadeia de caracteres, predefinido é L"" |Estático| Nome principal de serviço do FabricHost; Quando os recursos de infraestrutura é executada como um utilizador de domínio único (conta de utilizador de domínio/gMSA) e FabricHost é executado na conta de computador. É o serviço de escuta de SPN do IPC para FabricHost; que, por padrão deve ser deixado em branco, uma vez que FabricHost é executado na conta de computador |
+|FabricHostSpn| cadeia de caracteres, a predefinição é "" |Estático| Nome principal de serviço do FabricHost; Quando os recursos de infraestrutura é executada como um utilizador de domínio único (conta de utilizador de domínio/gMSA) e FabricHost é executado na conta de computador. É o serviço de escuta de SPN do IPC para FabricHost; que, por padrão deve ser deixado em branco, uma vez que FabricHost é executado na conta de computador |
 |IgnoreCrlOfflineError|bool, a predefinição é falso|Dinâmica|Se pretende ignorar o erro CRL offline quando o servidor verifica certificados de cliente recebidos |
 |IgnoreSvrCrlOfflineError|bool, a predefinição é TRUE|Dinâmica|Se pretende ignorar o erro CRL offline quando do lado do cliente verifica a entrada certificados de servidor; predefinido como true. Necessitam de ataques com certificados de servidor revogados comprometer DNS; mais difícil do que com certificados de cliente revogados. |
-|ServerAuthCredentialType|cadeia de caracteres, predefinido é L "None"|Estático|Indica o tipo de credenciais de segurança à sua disposição para proteger a comunicação entre FabricClient e o Cluster. Os valores válidos são "Nenhum/X509/Windows" |
-|ServerCertThumbprints|cadeia de caracteres, predefinido é L""|Dinâmica|Thumbprints dos certificados de servidor utilizados pelo cluster para comunicar com clientes; os clientes utilizam esta para autenticar o cluster. É uma lista de nomes separados por vírgulas. |
-|SettingsX509StoreName| cadeia de caracteres, predefinido é L "MY"| Dinâmica|Arquivo utilizado por recursos de infraestrutura para proteção da configuração de certificado X509 |
+|ServerAuthCredentialType|cadeia de caracteres, predefinido é "None"|Estático|Indica o tipo de credenciais de segurança à sua disposição para proteger a comunicação entre FabricClient e o Cluster. Os valores válidos são "Nenhum/X509/Windows" |
+|ServerCertThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Thumbprints dos certificados de servidor utilizados pelo cluster para comunicar com clientes; os clientes utilizam esta para autenticar o cluster. É uma lista de nomes separados por vírgulas. |
+|SettingsX509StoreName| cadeia de caracteres, predefinido é "MY"| Dinâmica|Arquivo utilizado por recursos de infraestrutura para proteção da configuração de certificado X509 |
 |UseClusterCertForIpcServerTlsSecurity|bool, a predefinição é falso|Estático|Se pretende utilizar o certificado de cluster para proteger o IPC Server TLS a unidade de transporte |
 |X509Folder|cadeia de caracteres, predefinido é /var/lib/waagent|Estático|Pasta onde X509 certificados e chaves privadas estão localizadas |
 
@@ -626,17 +632,19 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |CancelTestCommand |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Cancela uma TestCommand específica - se estiver em trânsito. |
 |CodePackageControl |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para o reinício de pacotes do código. |
 |CreateApplication |cadeia de caracteres, predefinido for "Admin" | Dinâmica|Configuração de segurança para a criação do aplicativo. |
-|CreateComposeDeployment|cadeia de caracteres, predefinido é L "Admin"| Dinâmica|Cria uma implementação de composição descrita por ficheiros de composição |
+|CreateComposeDeployment|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Cria uma implementação de composição descrita por ficheiros de composição |
 |CreateName |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a criação do URI de nomenclatura. |
 |CreateService |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para a criação do serviço. |
 |CreateServiceFromTemplate |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a criação do serviço do modelo. |
+|CreateVolume|cadeia de caracteres, predefinido for "Admin"|Dinâmica|Cria um volume |
 |DeactivateNode |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para desativar um nó. |
 |DeactivateNodesBatch |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para o desativar vários nós. |
 |Eliminar |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configurações de segurança para a imagem de armazenam a operação de eliminação de cliente. |
 |DeleteApplication |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para a eliminação de aplicação. |
-|DeleteComposeDeployment|cadeia de caracteres, predefinido é L "Admin"| Dinâmica|Elimina a implementação de composição |
+|DeleteComposeDeployment|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Elimina a implementação de composição |
 |DeleteName |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a eliminação de URI de nomenclatura. |
 |DeleteService |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para a eliminação de serviço. |
+|DeleteVolume|cadeia de caracteres, predefinido for "Admin"|Dinâmica|Elimina um volume.| 
 |EnumerateProperties |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para atribuir nomes a enumeração de propriedades. |
 |EnumerateSubnames |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Configuração de segurança para a enumeração de URI de nomenclatura. |
 |FileContent |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Transferência de ficheiros de cliente (externo ao cluster) do arquivo de configuração de segurança para a imagem. |
@@ -654,11 +662,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |GetServiceDescription |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Configuração de segurança para notificações do serviço de pesquisa de longa e ler as descrições de serviço. |
 |GetStagingLocation |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Cliente de obtenção de localização de transição do arquivo de configuração de segurança para a imagem. |
 |GetStoreLocation |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Obtenção de localização de armazenamento do cliente do arquivo de configuração de segurança para a imagem. |
-|GetUpgradeOrchestrationServiceState|cadeia de caracteres, predefinido é L "Admin"| Dinâmica|Induces GetUpgradeOrchestrationServiceState numa partição |
+|GetUpgradeOrchestrationServiceState|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Induces GetUpgradeOrchestrationServiceState numa partição |
 |GetUpgradesPendingApproval |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Induces GetUpgradesPendingApproval numa partição. |
 |GetUpgradeStatus |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Configuração de segurança para consultar o estado de atualização de aplicação. |
 |InternalList |cadeia de caracteres, predefinido for "Admin" | Dinâmica|Operação de lista de ficheiros de cliente (interna) do arquivo de configuração de segurança para a imagem. |
-|InvokeContainerApi|wstring, a predefinição é L "Admin"|Dinâmica|Invocar a API de contentor |
+|InvokeContainerApi|cadeia de caracteres, predefinido for "Admin"|Dinâmica|Invocar a API de contentor |
 |InvokeInfrastructureCommand |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para comandos de gestão de tarefas de infraestrutura. |
 |InvokeInfrastructureQuery |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para consultar tarefas de infraestrutura. |
 |Lista |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Operação de lista de ficheiros de cliente do arquivo de configuração de segurança para a imagem. |
@@ -689,11 +697,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ResolveNameOwner |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para a resolução de proprietário de URI de nomenclatura. |
 |ResolvePartition |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para a resolução de serviços do sistema. |
 |ResolveService |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Configuração de segurança para a resolução de serviço com base em conformidade. |
-|ResolveSystemService|cadeia de caracteres, predefinido é L "Admin\|\|utilizador"|Dinâmica| Configuração de segurança para a resolução de serviços do sistema |
+|ResolveSystemService|cadeia de caracteres, a predefinição é "administrador\|\|utilizador"|Dinâmica| Configuração de segurança para a resolução de serviços do sistema |
 |RollbackApplicationUpgrade |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para reverter as atualizações de aplicações. |
 |RollbackFabricUpgrade |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para reverter as atualizações de cluster. |
 |ServiceNotifications |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" |Dinâmica| Configuração de segurança para notificações de serviço baseado em evento. |
-|SetUpgradeOrchestrationServiceState|cadeia de caracteres, predefinido é L "Admin"| Dinâmica|Induces SetUpgradeOrchestrationServiceState numa partição |
+|SetUpgradeOrchestrationServiceState|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Induces SetUpgradeOrchestrationServiceState numa partição |
 |StartApprovedUpgrades |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Induces StartApprovedUpgrades numa partição. |
 |StartChaos |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Inicia o Chaos - se não ainda tiver iniciado. |
 |StartClusterConfigurationUpgrade |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Induces StartClusterConfigurationUpgrade numa partição. |
@@ -709,7 +717,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |UnreliableTransportControl |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Transporte não fiável para adicionar e remover comportamentos. |
 |UpdateService |cadeia de caracteres, predefinido for "Admin" |Dinâmica|Configuração de segurança para atualizações de serviço. |
 |UpgradeApplication |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para iniciar ou interromper as atualizações de aplicações. |
-|UpgradeComposeDeployment|cadeia de caracteres, predefinido é L "Admin"| Dinâmica|Atualiza a implementação de composição |
+|UpgradeComposeDeployment|cadeia de caracteres, predefinido for "Admin"| Dinâmica|Atualiza a implementação de composição |
 |UpgradeFabric |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para iniciar as atualizações de cluster. |
 |Carregar |cadeia de caracteres, predefinido for "Admin" | Dinâmica|A operação de carregamento do cliente do arquivo de configuração de segurança para a imagem. |
 
@@ -746,7 +754,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="setup"></a>Configurar
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|ContainerNetworkName|cadeia de caracteres, predefinido é L""| Estático |O nome de rede a utilizar quando configurar uma rede de contentor.|
+|ContainerNetworkName|cadeia de caracteres, a predefinição é ""| Estático |O nome de rede a utilizar quando configurar uma rede de contentor.|
 |ContainerNetworkSetup|bool, a predefinição é falso| Estático |Se configurar uma rede de contentor.|
 |FabricDataRoot |Cadeia | Não Permitido |Diretório de raiz de dados do Service Fabric. Predefinido para o Azure está d:\svcfab |
 |FabricLogRoot |Cadeia | Não Permitido |Diretório de raiz do registo de recursos de infraestrutura do serviço. Trata-se em que são colocados os registos de SF e rastreios. |
@@ -772,7 +780,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |MaxCopyQueueSize |Uint, a predefinição é 16384 | Estático |Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se durante o tempo de execução, a fila aumenta para esta operação de tamanho ficará limitada entre os replicators primários e secundários. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, o padrão é 0 | Estático |Este é o valor máximo da fila de replicação primária em bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, a predefinição é 8192 | Estático |Este é o número máximo de operações que pode existir na fila de replicação primária. Tenha em atenção que tem de ser uma potência de 2. |
-|MaxReplicationMessageSize |Uint, a predefinição é 52428800 | Estático | Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB. |
+|MaxReplicationMessageSize |uint, a predefinição é 52428800 | Estático | Tamanho da mensagem máximo de operações de replicação. A predefinição é 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, o padrão é 0 | Estático |Este é o valor máximo da fila de replicação secundário em bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, a predefinição é 16384 | Estático |Este é o número máximo de operações que pode existir na fila de replicação secundário. Tenha em atenção que tem de ser uma potência de 2. |
 |ReplicatorAddress |cadeia de caracteres, predefinido é "localhost:0" | Estático | O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para estabelecer ligações com outras réplicas para operações de envio/receção. |
@@ -781,7 +789,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores permitidos** |**Política de atualização** |**Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60)|Estático|Especifique o período de tempo em segundos. Tempo limite para a configuração de ligação no lado de entrada e de aceitar (incluindo a negociação de segurança em modo seguro) |
-|ResolveOption|cadeia de caracteres, a predefinição é L "unspecified"|Estático|Determina a forma como o FQDN for resolvido.  Valores válidos são "unspecified/ipv4/ipv6". |
+|FrameHeaderErrorCheckingEnabled|bool, a predefinição é TRUE|Estático|Predefinição para a verificação no cabeçalho de quadro no modo de não segura; de erros definição de componente substitui isso. |
+|MessageErrorCheckingEnabled|bool, a predefinição é falso|Estático|Predefinição para a verificação no cabeçalho da mensagem e o corpo no modo de não segura; de erros definição de componente substitui isso. |
+|ResolveOption|cadeia de caracteres, a predefinição é "não especificada"|Estático|Determina a forma como o FQDN for resolvido.  Valores válidos são "unspecified/ipv4/ipv6". |
+|SendTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(300)|Dinâmica|Especifique o período de tempo em segundos. Tempo limite para a detecção de ligação paralisada de envio. Relatórios de falhas TCP não são confiáveis num ambiente. Isto poderá ter de ser ajustado, de acordo com largura de banda disponível e o tamanho dos dados de saída (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |

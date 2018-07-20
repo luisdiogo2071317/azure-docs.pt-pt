@@ -4,24 +4,25 @@ description: Perguntas mais frequentes e respostas relacionadas ao Azure multi-f
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049416"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159846"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
 Encontre respostas para perguntas comuns sobre o multi-factor Authentication do Azure e utilizar o serviço de multi-factor Authentication. Ele é dividido em perguntas sobre o serviço em geral, modelos, experiências do usuário, de faturação e resolução de problemas.
 
 ## <a name="general"></a>Geral
+
 **P: como é que o servidor de autenticação do multi-factor do Azure processa dados de utilizador?**
 
 Com o servidor do multi-factor Authentication, os dados de utilizador são armazenados apenas nos servidores no local. Nenhuns dados de utilizador persistentes são armazenados na nuvem. Quando o utilizador efetua a verificação de dois passos, o servidor multi-factor Authentication envia dados para o serviço de nuvem do Azure multi-factor Authentication para autenticação. A comunicação entre o servidor multi-factor Authentication e o serviço de nuvem do multi-factor Authentication utiliza o Secure Sockets Layer (SSL) ou Transport Layer Security (TLS) através da porta 443 de saída.
@@ -60,6 +61,7 @@ No Canadá Microsoft utiliza os seguintes códigos de curtos de SMS:
 A Microsoft não garante consistente SMS ou voz com base no multi-factor Authentication prompt entrega pelo mesmo número. Com o intuito de nossos usuários, a Microsoft poderá adicionar ou remover curtos códigos em qualquer altura, à medida que faz ajustes de rota para melhorar a capacidade de entrega SMS. A Microsoft não suporta códigos curtos para países além dos Estados Unidos e Canadá
 
 ## <a name="billing"></a>Faturação
+
 A maioria das questões de faturas podem ser respondidas ao referir-se a qualquer uma de [página de preços do multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou a documentação sobre [como obter o Azure multi-factor Authentication](concept-mfa-licensing.md).
 
 **P: é a minha organização cobrada para enviar as chamadas telefónicas e mensagens de texto que são utilizadas para autenticação?**
@@ -119,7 +121,6 @@ O Azure Active Directory é necessário para o modelo de licença porque licenç
 Espero que todos os seus utilizadores configurado mais do que um método de verificação. Diga-lhes que selecionem um método de verificação diferente na página de início de sessão e que tentem iniciar sessão novamente.
 
 Pode indicar a seus usuários para o [guia de resolução de problemas do utilizador final](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
-
 
 **P: o que devo fazer se um dos meus utilizadores não é possível obter sua conta?**
 
@@ -196,8 +197,8 @@ Há vários motivos que poderiam ser pedido aos utilizadores para registar as su
 - A organização tem criado e ativado uma política de registo na MFA que foi aplicada ao usuário.
 - O utilizador registado para MFA anteriormente, mas escolhi um método de verificação que uma vez que um administrador desativou. O utilizador, por conseguinte, deve passar por registo na MFA novamente para selecionar um novo método de verificação padrão.
 
-
 ## <a name="errors"></a>Erros
+
 **P: o que devem fazer os utilizadores se veem uma mensagem de erro "o pedido de autenticação não é para uma conta ativada" ao utilizar notificações da aplicação móvel?**
 
 Peça-lhes para seguir este procedimento para remover a conta a partir da aplicação móvel, em seguida, adicioná-lo novamente:
@@ -214,6 +215,7 @@ O erro 0x800434D4L ocorre quando tenta iniciar sessão para um aplicativo fora d
 Uma solução alternativa para este erro é fazer com que o utilizador em separado totaliza relacionados com a administração e operações de não-administrador. Mais tarde, pode ligar as caixas de correio entre a sua conta de administrador e a conta não administrativa, de modo a que pode iniciar sessão Outlook ao utilizar a sua conta não administrativa. Para obter mais detalhes sobre esta solução, saiba como [dar um administrador a possibilidade de abrir e ver o conteúdo da caixa de correio de um utilizador](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Se a sua pergunta não respondida aqui,. Deixe-nos comentários na parte inferior da página. Em alternativa, aqui estão algumas opções adicionais para obter ajuda:
 
 * Pesquisa o [Base de dados de conhecimento de suporte Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) para soluções para problemas técnicos comuns.

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917997"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159234"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>O Azure Active Directory pass-through Authentication detalhada da segurança
 
@@ -156,7 +156,7 @@ Para garantir que a autenticação pass-through permanece operacionalmente segur
 
 Para renovar a confiança de um agente de autenticação com o Azure AD:
 
-1. O agente de autenticação periodicamente faz o ping do Azure AD intervalos de poucas horas para verificar se está na altura de renovar o seu certificado. 
+1. O agente de autenticação periodicamente faz o ping do Azure AD intervalos de poucas horas para verificar se está na altura de renovar o seu certificado. O certificado é renovado 30 dias antes do vencimento.
     - Esta verificação é feita através de um canal HTTPS mutuamente autenticado e utiliza o mesmo certificado que foi emitido durante o registo.
 2. Se o serviço indica que está na altura de renovar, o agente de autenticação gera um novo par de chaves: uma chave pública e uma chave privada.
     - Estas chaves são geradas através da encriptação de RSA 2048 bits padrão.

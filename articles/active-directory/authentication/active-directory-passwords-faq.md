@@ -4,18 +4,18 @@ description: Perguntas mais frequentes sobre a palavra-passe self-service do Azu
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054816"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160747"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas mais frequentes de gestão de palavras-passe
 
@@ -115,7 +115,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
   >
 * **P: como posso instruir os meus utilizadores sobre onde ir para repor as palavras-passe?**
 
-  > **R:** experimente algumas das sugestões na nossa [implementação SSPR](howto-sspr-deployment.md#email-based-rollout) artigo.
+  > **R:** experimente algumas das sugestões na nossa [implementação SSPR](howto-sspr-deployment.md#sample-communication) artigo.
   >
   >
 * **P: Posso utilizar esta página de um dispositivo móvel?**
@@ -170,7 +170,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
   >
 * **P: configurei meu política para exigir que os utilizadores a utilizar perguntas de segurança para reposição, mas os administradores do Azure parecem ser configuradas de forma diferente.**
 
-  > **R:** este é o comportamento esperado. A Microsoft impõe uma política de reposição de palavra-passe de porta de dois predefinidas fortes para qualquer função de administrador do Azure. Isto impede que os administradores utilizar perguntas de segurança. Pode encontrar mais informações sobre esta política no [políticas de palavra-passe e restrições no Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences) artigo.
+  > **R:** este é o comportamento esperado. A Microsoft impõe uma política de reposição de palavra-passe de porta de dois predefinidas fortes para qualquer função de administrador do Azure. Isto impede que os administradores utilizar perguntas de segurança. Pode encontrar mais informações sobre esta política no [políticas de palavra-passe e restrições no Azure Active Directory](concept-sspr-policy.md) artigo.
   >
   >
 * **P: se um utilizador registou mais do que o número máximo de perguntas necessárias para a reposição, como são as perguntas de segurança selecionadas durante a reposição?**
@@ -274,7 +274,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
   >
 * **P: é a repetição de escrita de palavra-passe segura?  Como posso ser-se de que eu não invadido?**
 
-  > **R:** Sim, a repetição de escrita de palavra-passe é segura. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de repetição de escrita de palavra-passe, consulte a [modelo de segurança de repetição de escrita de palavra-passe](howto-sspr-writeback.md#password-writeback-security-model) secção a [descrição geral de repetição de escrita de palavra-passe](howto-sspr-writeback.md) artigo.
+  > **R:** Sim, a repetição de escrita de palavra-passe é segura. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de repetição de escrita de palavra-passe, consulte a [segurança de repetição de escrita de palavra-passe](concept-sspr-writeback.md#password-writeback-security) secção a [descrição geral de repetição de escrita de palavra-passe](howto-sspr-writeback.md) artigo.
   >
   >
 

@@ -1,31 +1,31 @@
 ---
-title: Políticas - Azure Active Directory de reposição de palavra-passe self-service
-description: Opções de política de reposição do Azure AD self-service palavra-passe
+title: Políticas de reposição de palavra-passe de Self-Service do AD do Azure
+description: Configurar opções de política de reposição de palavra-passe self-service do Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054765"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162053"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
 Este artigo descreve as políticas de palavra-passe e os requisitos de complexidade associados a contas de utilizador armazenadas no seu inquilino do Azure Active Directory (Azure AD).
 
-## <a name="administrator-password-policy-differences"></a>Diferenças de política de palavra-passe de administrador
+## <a name="administrator-reset-policy-differences"></a>Diferenças de política de reposição de administrador
 
-A Microsoft impõe uma predefinidas fortes *dois-gate* política para qualquer função de administrador do Azure de reposição de palavra-passe. 
+**Microsoft impõe uma *dois-gate* política para qualquer função de administrador do Azure de reposição de palavra-passe** este polciy pode ser diferente da que definiu para os seus utilizadores e não pode ser alterado. Sempre deve testar a funcionalidade de reposição de palavra-passe como um utilizador sem quaisquer funções de administrador do Azure atribuídas.
 
-Com uma política de porta de dois, os administradores não têm a capacidade de utilizar perguntas de segurança.
+Com uma política de porta de dois **os administradores não têm a capacidade de utilizar perguntas de segurança**.
 
  Uma política de porta de dois requer dois tipos de dados de autenticação, como um endereço de e-mail *e* um número de telefone. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
 
@@ -49,7 +49,7 @@ Com uma política de porta de dois, os administradores não têm a capacidade de
   * Administrador de serviço de proxy de aplicações
   * Administrador de serviço CRM
   * Administrador de serviço do Power BI
-  
+
 * Se a 30 dias decorridos numa subscrição de avaliação
 
   ou
@@ -61,18 +61,18 @@ Com uma política de porta de dois, os administradores não têm a capacidade de
 * O Azure AD Connect está a sincronizar identidades do seu diretório no local
 
 ### <a name="exceptions"></a>Exceções
+
 Uma política de uma porta requer um conjunto de dados de autenticação, como um endereço de e-mail *ou* número de telefone. Uma porta de uma política aplica-se nas seguintes circunstâncias:
 
 * É nos primeiros 30 dias de uma subscrição de avaliação
 
   ou
 
-* Um domínio personalizado não estiver presente (*. onmicrosoft.com) 
+* Um domínio personalizado não estiver presente (*. onmicrosoft.com)
 
-  e 
+  e
 
   O Azure AD Connect não está a sincronizar identidades
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas de UserPrincipalName que se aplicam a todas as contas de utilizador
 
@@ -109,13 +109,13 @@ Esta orientação aplica-se para outros fornecedores, como o Intune e Office 365
 > [!NOTE]
 > Apenas palavras-passe para contas de utilizador que não estão sincronizadas através da sincronização de diretório podem ser configuradas para não expirar. Para obter mais informações sobre a sincronização de diretórios, consulte [Connect AD com o Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verifique as políticas de palavra-passe com o PowerShell
 
 Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Depois de ter instalado, pode utilizar os seguintes passos para configurar cada campo.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Como verificar a política de expiração para uma palavra-passe
+### <a name="check-the-expiration-policy-for-a-password"></a>Verifique a política de expiração para uma palavra-passe
+
 1. Ligar ao Windows PowerShell com suas credenciais de administrador da empresa.
 2. Execute um dos seguintes comandos:
 

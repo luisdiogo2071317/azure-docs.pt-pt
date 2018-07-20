@@ -1,45 +1,47 @@
 ---
-title: Reposição de palavra-passe self-service de licença - Azure Active Directory
+title: Licença do Azure Active Directory palavras-passe personalizada
 description: Requisitos de licenciamento de redefinição de senha de autoatendimento de AD do Azure
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049089"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159003"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
 
-Palavra-passe do Azure Active Directory (Azure AD) Repor para a função, para que *tem de ter pelo menos uma licença atribuída na sua organização* para esse utilizador. É necessária uma licença adequada se um utilizador beneficiar direta ou indiretamente de qualquer funcionalidade abrangida por essa licença.
+Azure Active Directory (Azure AD) é fornecido em quatro edições: gratuito, básico, Premium P1 e Premium P2. Existem vários recursos diferentes que tornam a reposição de palavra-passe self-service, incluindo a alteração, repor, desbloquear e repetição de escrita, que estão disponíveis nas edições diferentes do Azure AD. Este artigo tenta explicar as diferenças. Podem encontrar mais detalhes dos recursos incluídos em cada edição do Azure AD na [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
 
-* **Os utilizadores apenas na cloud**: do Office 365 quaisquer pagas do SKU ou do Azure AD básico
-* **Cloud** ou **os utilizadores no local**: Azure AD Premium P1 ou P2, Enterprise Mobility + Security (EMS) ou Microsoft 365
+## <a name="compare-editions-and-features"></a>Compare as edições e funcionalidades
 
-## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavra-passe
+O Azure AD self-service palavra-passe reposição é licenciada por usuário, para manter a conformidade, as organizações são obrigadas a atribuir a licença adequada aos seus utilizadores.
 
-**Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local é uma funcionalidade premium do Azure AD**. Para obter mais informações sobre o licenciamento, consulte a [do Azure Active Directory preços site](https://azure.microsoft.com/pricing/details/active-directory/).
+* Alteração Personalizada de Palavra-passe para utilizadores em cloud
+   * Sou um **utilizador apenas na cloud** e saiba minha senha.
+      * Eu gostaria **alterar** minha palavra-passe para algo novo.
+   * Esta funcionalidade está incluída em todas as edições do Azure AD.
 
-Para utilizar a repetição de escrita de palavra-passe, tem de ter uma das seguintes licenças atribuídas no seu inquilino:
+* Reposição Personalizada de Palavra-passe para utilizadores em cloud
+   * Sou um **utilizador apenas na cloud** e ter esquecido a minha palavra-passe.
+      * Eu gostaria **repor** minha palavra-passe para algo que sei.
+   * Esta funcionalidade está incluída nas edições do Azure AD básico, Premium P1 ou Premium P2.
 
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 ou A3
-* Enterprise Mobility + Security E5 ou A5
-* O Microsoft 365 E3 ou A3
-* O Microsoft 365 E5 ou A5
-* O Microsoft 365 F1
+* Self-Service palavra-passe reposição/alteração/desbloqueio **com repetição de escrita no local**
+   * Sou um **utilizador híbrido** minha conta de utilizador do Active Directory no local está sincronizada com a minha conta do Azure AD com o Azure AD Connect. Eu gostaria de alterar a minha palavra-passe, tenha esquecido a minha palavra-passe ou foi bloqueada.
+      * Eu gostaria de alterar a minha palavra-passe ou redefini-lo para algo que sei ou desbloquear a minha conta **e** ter que alterar sincronizada de volta no local do Active Directory.
+   * Esta funcionalidade está incluída no Azure AD Premium P1 ou Premium P2 edições.
 
 > [!WARNING]
-> Autónomo Office 365, planos de licenciamento *não suportam a repetição de escrita de palavra-passe* e exige que possua um dos planos anteriores para esta funcionalidade funcione.
+> Autónomo Office 365, planos de licenciamento **não suportam a repetição de escrita de palavra-passe** e necessitam do Azure AD Premium P1 ou Premium P2 edições para esta funcionalidade para trabalhar.
 >
 
 Informações de licenciamento adicionais, incluindo os custos, podem ser encontradas nas seguintes páginas:

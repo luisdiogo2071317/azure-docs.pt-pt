@@ -1,5 +1,5 @@
 ---
-title: Implementar o Azure File Sync (pré-visualização) | Documentos da Microsoft
+title: Implementar Azure File Sync | Documentos da Microsoft
 description: Saiba como implementar o Azure File Sync, do início ao fim.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b3837da26868dcf3c14fab230b4dad4aa6f531b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867074"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161401"
 ---
-# <a name="deploy-azure-file-sync-preview"></a>Implementar o Azure File Sync (pré-visualização)
-Utilize o Azure File Sync (pré-visualização) para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
+# <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
+Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
 
 Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azure](storage-files-planning.md) e [planear uma implementação do Azure File Sync](storage-sync-files-planning.md) antes de concluir os passos descritos neste artigo.
 
@@ -135,7 +135,7 @@ A implementação do Azure File Sync começa com a colocação de um **serviço 
 > O serviço de sincronização de armazenamento herdadas as permissões de acesso da subscrição e grupo de recursos que tiver sido implementada no. Recomendamos que verifique quem tem acesso a ele. Entidades com acesso de escrita podem começar a sincronizar novos conjuntos de ficheiros a partir de servidores registados para este armazenamento serviço de sincronização e fazer com que dados a ser enviados para o armazenamento do Azure que seja acessível aos mesmos.
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-Para implementar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *New* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **do Azure File Sync (pré-visualização)** e, em seguida, selecione **Create** para abrir o **implementar sincronização de armazenamento** separador.
+Para implementar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *New* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **do Azure File Sync**e, em seguida, selecione **Create** para abrir o **implementar sincronização de armazenamento** separador.
 
 No painel que se abre, introduza as seguintes informações:
 

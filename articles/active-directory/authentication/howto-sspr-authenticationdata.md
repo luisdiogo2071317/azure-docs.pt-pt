@@ -4,18 +4,18 @@ description: Requisitos de dados para a palavra-passe self-service do Azure AD c
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044180"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159571"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem a necessidade de registo do utilizador final de reposição de palavra-passe
 
@@ -47,20 +47,19 @@ Um Administrador Global pode definir manualmente as informações de contacto de
 
 ![Contact][Contact]
 
-Se o campo de telefone é preenchido e celular está ativado na política de SSPR, o utilizador irá ver que o número na página de registo de reposição de palavra-passe e durante a palavra-passe reposta fluxo de trabalho. 
+Se o campo de telefone é preenchido e celular está ativado na política de SSPR, o utilizador irá ver que o número na página de registo de reposição de palavra-passe e durante a palavra-passe reposta fluxo de trabalho.
 
 O campo de telefone alternativo não é utilizado para a reposição de palavra-passe.
 
 Se o campo de E-Mail é preenchido e E-mail está ativado na política de SSPR, o utilizador irá ver que envie um e-mail na página de registo de reposição de palavra-passe durante a palavra-passe de reposição de fluxo de trabalho.
 
-Se o campo de correio eletrónico alternativo é preenchido e E-mail está ativado na política de SSPR, o utilizador irá **não** ver que a página de registo de reposição de e-mail na palavra-passe, mas irão vê-lo durante a palavra-passe de reposição de fluxo de trabalho. 
-
+Se o campo de correio eletrónico alternativo é preenchido e E-mail está ativado na política de SSPR, o utilizador irá **não** ver que a página de registo de reposição de e-mail na palavra-passe, mas irão vê-lo durante a palavra-passe de reposição de fluxo de trabalho.
 
 ## <a name="security-questions-and-answers"></a>Perguntas de segurança e respostas
 
-As perguntas de segurança e respostas são armazenadas em segurança no seu inquilino do Azure AD e só podem ser acedidas por utilizadores através da [portal de registo SSPR](https://aka.ms/ssprsetup). Os administradores não é possível ver ou modificar o conteúdo de perguntas e respostas dos utilizadores de outra.
+As perguntas de segurança e respostas são armazenadas em segurança no seu inquilino do Azure AD e só podem ser acedidas por utilizadores através da [portal de registo SSPR](https://aka.ms/ssprsetup). Os administradores não é possível ver, definir ou modificar o conteúdo de perguntas e respostas dos utilizadores de outra.
 
-### <a name="what-happens-when-a-user-registers"></a>O que acontece quando um utilizador se regista
+## <a name="what-happens-when-a-user-registers"></a>O que acontece quando um utilizador se regista
 
 Quando um utilizador se regista, a página de registo define os seguintes campos:
 

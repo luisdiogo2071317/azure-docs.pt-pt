@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/19/2018
 ms.author: fauhse
-ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 39888772a257e9dc00e5a93736d8676ac6891a16
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342731"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161746"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.
@@ -27,7 +27,7 @@ O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ati
 Este artigo fornece informações sobre os requisitos específicos e as opções disponíveis para a ligação com êxito e segura de seu servidor para o Azure File Sync.
 
 > [!Important]
-> O Azure File Sync ainda não suporta firewalls e redes virtuais para uma conta de armazenamento. 
+> O Azure File Sync ainda não suporta firewalls e redes virtuais para uma conta de armazenamento.
 
 ## <a name="overview"></a>Descrição geral
 O Azure File Sync atua como um serviço de orquestração entre o Windows Server, a partilha de ficheiros e vários outros serviços do Azure para sincronizar os dados, tal como descrito no seu grupo de sincronização. Para o Azure File Sync funcione corretamente, terá de configurar os servidores para comunicar com os serviços do Azure seguintes:
@@ -39,7 +39,6 @@ O Azure File Sync atua como um serviço de orquestração entre o Windows Server
 
 > [!Note]  
 > O agente de sincronização de ficheiros do Azure no Windows Server inicia todos os pedidos para a cloud services que resulta em apenas ter a ter em consideração o tráfego de saída de uma perspectiva de firewall. <br /> Nenhum serviço do Azure inicia uma ligação ao agente do Azure File Sync.
-
 
 ## <a name="ports"></a>Portas
 O Azure File Sync move dados de ficheiros e metadados exclusivamente através de HTTPS e requer a porta 443 para ser abrir saída.
@@ -79,26 +78,27 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 > [!Important]
 > Quando a permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos serviços da Microsoft mais disponíveis em subdomínios.
 
-Se &ast;. one.microsoft.com é demasiado abrangente, pode limitar a comunicação do servidor ao permitir que apenas explícitas instâncias regionais do serviço Azure File Sync. Qual instância (s) para escolher depende da região do serviço de sincronização de armazenamento para o qual ter implementado e o servidor registado. Essa é a região que é necessário permitir que para o servidor. Em breve haverá mais URLs para permitir que novas funcionalidades de continuidade de negócio. 
+Se &ast;. one.microsoft.com é demasiado abrangente, pode limitar a comunicação do servidor ao permitir que a comunicação com instâncias de regionais apenas explícitas do serviço Azure File Sync. Qual instância (s) para escolher depende da região do serviço de sincronização de armazenamento ter implementado e o servidor registado. Essa região é chamada "URL do ponto final primário" na tabela abaixo.
 
-| Região | URL de ponto de final regionais do Azure File Sync |
-|--------|---------------------------------------|
-| Leste da Austrália | https://kailani-aue.one.microsoft.com |
-| Canadá Central | https://kailani-cac.one.microsoft.com |
-| EUA Leste | https://kailani1.one.microsoft.com |
-| Sudeste Asiático | https://kailani10.one.microsoft.com |
-| Reino Unido Sul | https://kailani-uks.one.microsoft.com |
-| Europa Ocidental | https://kailani6.one.microsoft.com |
-| EUA Oeste | https://kailani.one.microsoft.com |
+Por motivos de (BCDR) de recuperação de desastres e continuidade do negócio pode ter especificado que os ficheiros do Azure partilham numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, em seguida, as partilhas de ficheiros do Azure irão efetuar a ativação pós-falha para a região emparelhada em caso de uma falha regional duradouras. O Azure File Sync utiliza os mesmo emparelhamentos regionais como armazenamento. Portanto, se utilizar contas de armazenamento GRS, tem de ativar a URLs adicionais permitir que o seu servidor para comunicar com a região emparelhada para o Azure File Sync. A tabela a seguir chama nesta região"Paired". Além disso, existe um URL de perfil do Gestor de tráfego que tem de ser ativada também. Isto irá garantir que pode ser perfeitamente reencaminhado para a região emparelhada em caso de uma ativação pós-falha de tráfego de rede e é chamado "Deteção URL" na tabela abaixo.
 
-> [!Important]
-> Se definir essas regras de firewall detalhadas, verifique este documento, muitas vezes e atualizar as regras de firewall para evitar interrupções do serviço devido a listagens de URL Desatualizadas ou incompletas nas definições do firewall.
+| Região | URL de ponto final primário | Região emparelhada | URL de deteção | |---|---| | --------|| ---------------------------------------| | Leste da Austrália | https://kailani-aue.one.microsoft.com | Austrália Souteast | https://kailani-aue.one.microsoft.com | | Sudeste da Austrália | https://kailani-aus.one.microsoft.com | Leste da Austrália | https://tm-kailani-aus.one.microsoft.com | | Centro do Canadá | https://kailani-cac.one.microsoft.com | Leste do Canadá | https://tm-kailani-cac.one.microsoft.com | | Leste do Canadá | https://kailani-cae.one.microsoft.com | Centro do Canadá | https://tm-kailani.cae.one.microsoft.com | | E.U.A. central | https://kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https://tm-kailani-cus.one.microsoft.com | | Ásia Oriental | https://kailani11.one.microsoft.com | Sudeste asiático | https://tm-kailani11.one.microsoft.com | | E.U.A. leste | https://kailani1.one.microsoft.com | Oeste dos E.U.A. | https://tm-kailani1.one.microsoft.com | | E.U.A. Leste 2 | https://kailani-ess.one.microsoft.com | E.U.A. central | https://tm-kailani-ess.one.microsoft.com | | Europa do Norte | https://kailani7.one.microsoft.com | Europa Ocidental | https://tm-kailani7.one.microsoft.com | | Sudeste asiático | https://kailani10.one.microsoft.com | Ásia Oriental | https://tm-kailani10.one.microsoft.com | | Sul do Reino Unido | https://kailani-uks.one.microsoft.com | Oeste do Reino Unido | https://tm-kailani-uks.one.microsoft.com | | Oeste do Reino Unido | https://kailani-ukw.one.microsoft.com | Sul do Reino Unido | https://tm-kailani-ukw.one.microsoft.com | | Europa Ocidental | https://kailani6.one.microsoft.com | Europa do Norte | https://tm-kailani6.one.microsoft.com | | Oeste dos E.U.A. | https://kailani.one.microsoft.com | E.U.A. leste | https://tm-kailani.one.microsoft.com |
+
+- Se usar localmente redundante (LRS) ou contas de armazenamento (ZRS) com redundância de zona, só precisa de ativar o URL listado em "URL do ponto final primário".
+
+- Se utilizar contas de armazenamento globalmente redundantes (GRS), ative três URLs.
+
+**Exemplo:** implementa um serviço de sincronização de armazenamento no `"West US"` e registar o servidor com o mesmo. Os URLs para permitir que o servidor comunicar com o neste caso, são:
+
+> - https://kailani.one.microsoft.com (ponto final primário: oeste dos E.U.A.)
+> - https://kailani1.one.microsoft.com (região emparelhada de ativação pós-falha: E.U.A. Leste)
+> - https://tm-kailani.one.microsoft.com (URL de deteção da região primária)
 
 ## <a name="summary-and-risk-limitation"></a>Resumo e o risco de limitação
-As listas anteriormente este documento contém os URLs do Azure File Sync atualmente se comunica com. Firewalls tem de ser capazes de permitir o tráfego de saída para esses domínios, bem como as respostas dos mesmos. A Microsoft está empenhada manter esta lista atualizada.
+As listas anteriormente este documento contém os URLs do Azure File Sync atualmente se comunica com. Firewalls tem de ser capazes de permitir o tráfego de saída para esses domínios. A Microsoft está empenhada manter esta lista atualizada.
 
-Configuração de domínio, restringindo as regras de firewall pode ser uma medida para melhorar a segurança. Se forem utilizadas estas configurações de firewall, é necessário ter em mente que URLs serão adicionados e alterados ao longo do tempo. Por isso é uma medida prudente para verificar as tabelas neste documento como parte de um processo de gestão de alteração de uma versão de agente de sincronização de ficheiros do Azure para outra numa implementação de teste do agente mais recente. Desta forma, pode garantir que a firewall está configurada para permitir o tráfego para domínios o agente mais recente requer.
+Configuração de domínio, restringindo as regras de firewall pode ser uma medida para melhorar a segurança. Se forem utilizadas estas configurações de firewall, é necessário ter em mente que URLs serão adicionados e poderão até mesmo alterar ao longo do tempo. Consulte este artigo periodicamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-- [Implementar o Azure File Sync (pré-visualização)](storage-sync-files-deployment-guide.md)
+- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)

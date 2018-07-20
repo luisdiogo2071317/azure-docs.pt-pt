@@ -14,65 +14,66 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51a614a2411cf60bf88d384119c26bc9d406e66f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635146"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158986"
 ---
-# <a name="billing-options"></a>Opções de faturação  
+# <a name="billing-options-in-the-azure-marketplace"></a>Opções de faturação no Azure Marketplace
 
-## <a name="commercial-considerations-on-the-marketplace"></a>Considerações sobre comercial no marketplace  
-O marketplace não partilha receita para os seguintes tipos de listagem.  
-*   Lista  
-*   Avaliação  
+Este artigo descreve as opções de faturação que estão disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com).
+
+## <a name="commercial-considerations-in-the-marketplace"></a>Considerações sobre comercial no Marketplace
+O Marketplace não compartilha a receita para os seguintes tipos de listagem: 
+*   Lista
+*   Avaliação
 *   Transact usando o modelo de faturação de traga a sua própria licença (BYOL)
 
-Não são faturados encargos adicionais por participar no lojas no marketplace.  
-*   Para obter mais informações, visite as políticas de participação do Azure Marketplace página localizada em [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
+Não são faturados encargos adicionais por participar no lojas no Marketplace.
 
-## <a name="pay-as-you-go-and-bring-your-own-license-billing-options"></a>Pay as you go e traga seu próprio opções de faturação de licença  
-Quando utiliza um modelo de faturação pay as you go como uma opção de publicação, o seu software baseada na utilização de licenciamento a receita é partilhado 80/20 entre e a Microsoft. Uma única oferta pode é cobrada com modelos de faturação pay as you go e BYOL. Os dois modelos de faturas coexistam ao nível da oferta, como SKUs separados. Configure os modelos de faturação na sua oferta no Portal de parceiros da Cloud. 
+Para obter mais informações, consulte [políticas de participação do Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
-Considere os seguintes exemplos.  
-*   Se ativar a opção pay as you go, em seguida, tem o seguinte resultado.  
-    | A custo da licença | US $1,00 por hora |  
-    |:--- |:--- |  
-    | Custo de utilização do Azure (D1/1 núcleo) | US $0,14 por hora |  
-    | *Ser-lhe cobrado pela Microsoft* | *US $1.14 por hora* |  
+## <a name="pay-as-you-go-and-byol-billing-options"></a>Pay as you go e BYOL opções de faturação
+Quando utiliza um modelo de faturação pay as you go como uma opção de publicação, sua receita de licenciamento de software baseada na utilização é compartilhado num 80% / 20% divididos entre o utilizador e a Microsoft. Pode colocar o preço única oferta a ambos os com pay as you go e BYOL modelos de faturação. Os dois modelos de faturas coexistam ao nível da oferta, como SKUs separados. Configure os modelos de faturação na sua oferta no Portal de parceiros de nuvem. 
 
-    Neste cenário, a Microsoft cobra 1.14 us $ por hora pela utilização da sua imagem de VM publicada.  
-    | Listas de Microsoft | US $1.14 por hora |  
-    |:--- |:--- |  
-    | Microsoft presta 80% dos gastos de licenciamento | US $0.80 por hora |  
-    | Microsoft fica com 20% dos gastos de licenciamento | US $0.20 por hora |  
-    | Microsoft mantém o custo de utilização do Azure | US $0,14 por hora |  
+Considere os seguintes exemplos:
+*   Se ativar a opção pay as you go, tem o seguinte resultado:
+    | A custo da licença | US $1,00 por hora |
+    |:--- |:--- |
+    | Custo de utilização do Azure (D1/1 núcleo) | US $0,14 por hora |
+    | *Ser-lhe cobrado pela Microsoft* | *US $1.14 por hora* |
 
-*   Se ativar a opção de BYOL, em seguida, tem o seguinte resultado.  
-    | A custo da licença | Valor da licença negociado e são faturadas por si |  
-    |:--- |:--- |  
-    | Custo de utilização do Azure (D1/1 núcleo) | US $0,14 por hora |  
-    | *Ser-lhe cobrado pela Microsoft* | *US $0,14 por hora* |  
+    Neste cenário, a Microsoft cobra 1.14 us $ por hora pela utilização da sua imagem de VM publicada:
+    | Listas de Microsoft | US $1.14 por hora |
+    |:--- |:--- |
+    | Microsoft presta 80% dos gastos de licenciamento | US $0.80 por hora |
+    | Microsoft fica com 20% dos gastos de licenciamento | US $0.20 por hora |
+    | Microsoft mantém o custo de utilização do Azure | US $0,14 por hora |
 
-    Neste cenário, a Microsoft cobra 0,14 us $ por hora pela utilização da sua imagem de VM publicada.  
-    | Listas de Microsoft | US $0,14 por hora |  
-    |:--- |:--- |  
-    | Microsoft mantém o custo de utilização do Azure | US $0,14 por hora |  
-    | Microsoft mantém 0% dos gastos de licenciamento | 0,00 us $ por hora |  
+*   Se ativar a opção de BYOL, tem o seguinte resultado:
+    | A custo da licença | Valor da licença negociado e são faturadas por si |
+    |:--- |:--- |
+    | Custo de utilização do Azure (D1/1 núcleo) | US $0,14 por hora |
+    | *Ser-lhe cobrado pela Microsoft* | *US $0,14 por hora* |
 
-## <a name="single-billing-and-payment-methods"></a>Faturação única e métodos de pagamento  
-Uma vantagem importante do uso de Transact listagem opção é que os custos de licenciamento e a utilização do Azure são faturados único diretamente para o seu cliente.  
+    Neste cenário, a Microsoft cobra 0,14 us $ por hora pela utilização da sua imagem de VM publicada: 
+    | Listas de Microsoft | US $0,14 por hora |
+    |:--- |:--- |
+    | Microsoft mantém o custo de utilização do Azure | US $0,14 por hora |
+    | Microsoft mantém 0% dos gastos de licenciamento | 0,00 us $ por hora |
 
-No cenário, a Microsoft cobra e recolhe em seu nome. A faturação do Microsoft elimina a necessidade de criar seu próprio relação de aprovisionamento com o seu cliente. Faturação única pode economizar tempo e recursos. Faturação única pode ajudar se concentre na venda de destino, em vez de recolher fatura. 
+## <a name="single-billing-and-payment-methods"></a>Métodos únicos de faturação e pagamento
+Uma vantagem importante do uso de Transact opção de publicação no Marketplace é que os custos de licenciamento e a utilização do Azure são faturados único diretamente para o seu cliente.
+
+Neste cenário, a Microsoft cobra e recolhe em seu nome. A faturação do Microsoft elimina a necessidade de criar seu próprio relação de aprovisionamento com o seu cliente. Faturação única pode economizar tempo e recursos. Ele também pode ajudá-lo a se concentrar em como a venda, em vez de na recolha de fatura de destino. 
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement  
-Se for um cliente Enterprise Agreement (EA) com a Microsoft, pode utilizar os termos do EA para pagar para produtos da Microsoft. Poderá ser cobrada a produtos, incluindo a sua utilização do Azure. Usando o EA para pagar foi concebida para organizações que desejam licenciamento do software e serviços cloud durante três ou mais anos. Espalhado pagamentos em vez de um fazer o pagamento inicial. Se usar o pay as you go transact o tipo de lista, em seguida, a faturação para o seu software, os custos de licenciamento segue trimestral EA excedido ciclo de faturação.  
+Se for um cliente do contrato Enterprise da Microsoft, pode utilizar o seu contrato Enterprise para pagar para produtos da Microsoft. Pode ser cobrada a produtos, incluindo para a sua utilização do Azure. Usando o seu contrato Enterprise para pagar foi concebida para organizações que desejam licenciamento do software e serviços cloud durante três ou mais anos. Espalhado pagamentos em vez de fazer um. pagamento adiantado. Se utilizar uma opção de publicação pay as you go, a faturação para os custos de licenciamento de software segue trimestral Enterprise Agreement excedido ciclo de faturação.  
 
-### <a name="monetary-commitment"></a>Alocação Monetária  
-Se for um cliente EA, pode adicionar o Azure ao seu contrato. Adicionar o Azure ao seu contrato ao estabelecer um compromisso monetário adiantado para o Azure. Seu compromisso monetário é consumido ao longo do ano. Seu compromisso inclui qualquer combinação de utilização da vasta gama de serviços no Azure.  
+### <a name="monetary-commitment"></a>Alocação monetária
+Se for um cliente Enterprise Agreement, pode adicionar o Azure ao seu contrato. Adicionar o Azure ao seu contrato ao estabelecer um compromisso monetário adiantado para o Azure. Seu compromisso monetário é consumido ao longo do ano. Seu compromisso inclui qualquer combinação de utilização dos serviços do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-*   Visite o [Azure Marketplace e guia de publicador do AppSource](./marketplace-publishers-guide.md) página.  
- 
----  
+Reveja os [guia de publicação do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/6/2018
+ms.date: 7/19/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 249f473d7318051e0ce27bcc47a9fde080c4c8f6
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302828"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160320"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Criar cópias de segurança da base de dados do SQL Server no Azure
 
@@ -784,6 +784,10 @@ Não. Quando configurar a proteção para um SQL server, se selecionar a caixa d
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Ao alterar o modelo de recuperação como reiniciar proteção
 
 Se alterar o modelo de recuperação, acionar uma cópia de segurança completa e backups de log serão iniciada conforme esperado.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Pode proteger SQL grupos de Disponibilidade AlwaysOn em que a réplica primária for no local
+
+Não. O Azure Backup protege os SQL Servers em execução no Azure. Se um grupo de disponibilidade (AG) é distribuído por entre as máquinas do Azure e no local, o AG pode ser protegido apenas se a réplica primária está em execução no Azure. Além disso, o Azure Backup protege apenas os nós em execução na mesma região do Azure que o Cofre dos serviços de recuperação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

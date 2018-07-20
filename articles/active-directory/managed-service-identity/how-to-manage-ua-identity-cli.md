@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 23567c985f4f9df46ee7d80051c15dc5910a1ea8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1989017361c148f9a6c8fcb73537be78555fd650
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904067"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160595"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Criar, lista ou eliminar um utilizador atribuído a identidade com a CLI do Azure
 
@@ -32,7 +32,7 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade atribuída ao u
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 - Para executar os exemplos de script da CLI, tem três opções:
 
@@ -44,7 +44,7 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade atribuída ao u
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar um utilizador atribuído a identidade gerida 
 
-Para criar uma identidade atribuída ao utilizador, utilize o [identidade az criar](/cli/azure/identity#az-identity-create) comando. O `-g` parâmetro especifica o grupo de recursos onde criar a identidade atribuída ao utilizador e o `-n` parâmetro especifica o respetivo nome. Substitua a `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` valores de parâmetros com seus próprios valores:
+Para criar uma identidade atribuída ao utilizador, utilize o [identidade az criar](/cli/azure/identity#az-identity-create) comando. O `-g` parâmetro especifica o grupo de recursos onde criar a identidade atribuída ao utilizador e o `-n` parâmetro especifica o respetivo nome. No mínimo, a conta tem de ser atribuído a [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador. Substitua a `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` valores de parâmetros com seus próprios valores:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -53,7 +53,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-identities"></a>Utilizador de lista identidades atribuído
 
-Para listar as identidades atribuídas por utilizadores, utilize o [lista de identidade az](/cli/azure/identity#az-identity-list) comando.  O `-g` parâmetro especifica o grupo de recursos em que a identidade atribuída ao utilizador foi criado.  Substitua o `<RESOURCE GROUP>` com seu próprio valor:
+Para listar as identidades atribuídas por utilizadores, utilize o [lista de identidade az](/cli/azure/identity#az-identity-list) comando.  O `-g` parâmetro especifica o grupo de recursos em que a identidade atribuída ao utilizador foi criado. No mínimo, a conta tem de ser atribuído a [operador de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para listar as propriedades de uma identidade atribuída ao utilizador.  Substitua o `<RESOURCE GROUP>` com seu próprio valor:
 
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
@@ -64,7 +64,7 @@ Na resposta json, tem identidades de utilizador `"Microsoft.ManagedIdentity/user
 
 ## <a name="delete-a-user-assigned-identity"></a>Eliminar um identidade atribuída ao utilizador
 
-Para eliminar uma identidade atribuída ao utilizador, utilize o [identidade az eliminar](/cli/azure/identity#az-identity-delete) comando.  O parâmetro - n Especifica o nome e o parâmetro -g Especifica o grupo de recursos em que a identidade atribuída ao utilizador foi criado.  Substitua a `<USER ASSIGNED IDENTITY NAME>` e `<RESOURCE GROUP>` valores de parâmetros com seus próprios valores:
+Para eliminar uma identidade atribuída ao utilizador, utilize o [identidade az eliminar](/cli/azure/identity#az-identity-delete) comando.  O parâmetro - n Especifica o nome e o parâmetro -g Especifica o grupo de recursos em que a identidade atribuída ao utilizador foi criado.  No mínimo, a conta tem de ser atribuído a [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para eliminar uma identidade atribuída ao utilizador. Substitua a `<USER ASSIGNED IDENTITY NAME>` e `<RESOURCE GROUP>` valores de parâmetros com seus próprios valores:
 
  ```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>

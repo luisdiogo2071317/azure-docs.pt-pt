@@ -11,17 +11,17 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: d11ddb0bc15798187ccea22fe1a80a9c86162dcd
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866475"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160234"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
-[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync (pré-visualização) para acesso rápido perto de onde os dados são utilizados.
+[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
 
 Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e funcionalidades, incluindo a utilização do Azure File Sync com ficheiros do Azure. Se não vir a resposta à sua pergunta, pode contactar-nos através dos canais seguintes (em ordem de cada vez maiores):
 
@@ -90,8 +90,8 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
-**Que regiões são suportadas para o Azure File Sync (pré-visualização)?**  
-    Atualmente, o Azure File Sync está disponível no Leste da Austrália, Sudeste da Austrália, Canadá Central, leste do Canadá, E.U.A. Central, Ásia Oriental, E.U.A. leste, e.u.a. Leste 2, Europa do Norte, Sudeste asiático, do Reino Unido Sul, oeste do Reino Unido, Europa Ocidental e E.U.A. oeste. Suporte a mais regiões será adicionado pois estamos a trabalhar no sentido de disponibilidade geral. Para obter mais informações, consulte [disponibilidade das regiões](storage-sync-files-planning.md#region-availability).
+**Que regiões são suportadas para o Azure File Sync?**  
+    A lista de regiões disponíveis pode ser encontrada na [disponibilidade das regiões](storage-sync-files-planning.md#region-availability) orientar a secção do planejamento de sincronização de ficheiros do Azure. Continuamente será adicionado suporte para regiões adicionais, incluindo as regiões de não públicas.
 
 * <a id="cross-domain-sync"></a>
 **Pode ter servidores associados a um domínio e não associados ao domínio no mesmo grupo de sincronização?**  
@@ -367,4 +367,4 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 ## <a name="see-also"></a>Consulte também
 * [Resolver problemas de ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolver problemas de ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Resolver problemas do Azure File Sync (pré-visualização)](storage-sync-files-troubleshoot.md)
+* [Resolver problemas da sincronização de ficheiros do Azure](storage-sync-files-troubleshoot.md)

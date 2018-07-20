@@ -1,6 +1,6 @@
 ---
-title: Criar a sua página de destino | Azure
-description: Destino de página para o Azure Marketplace e AppSource são para publicadores de aplicações e serviço
+title: Criar a sua página de destino no Azure Marketplace | Azure
+description: Saiba como criar uma página de aterrissagem no Microsoft AppSource e do Azure Marketplace para editores de aplicações e serviços.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,48 +14,50 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc2e1e735f4d3dd97fdb291154da656b9a2c71c7
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825225"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160863"
 ---
-# <a name="build-your-landing-page"></a>Criar a sua página de destino  
-Uma página de destino no seu Web site da empresa é um gateway das atividades de geração de procura para a listagem no marketplace.  
+# <a name="build-your-landing-page"></a>Criar a sua página de destino
 
-Comece por identificar os seus objetivos. Para as suas soluções, escolha o seu cliente de destino e a ação para o seu cliente seja.  A solução pode incluir as seguintes ações.  
-*   Testar a solução  
-*   Obter uma solução agora  
-*   e muito mais...  
+Uma página de aterrissagem no seu site da empresa é um gateway a partir de suas atividades de geração de procura para a listagem na [do Azure Marketplace](https://azuremarketplace.microsoft.com).
 
-Pode referenciar a página de destino através de várias táticas de TI de marketing. Pode utilizar as marketing táticas de TI.  
-*   Eventos  
-*   Webcasts  
-*   Comunicação social  
-*   Documentação técnica  
-*   Sessões de formação técnica  
-*   Imprensa  
+Comece por identificar os seus objetivos. Para as suas soluções, escolha o seu cliente de destino e a ação que seu cliente irá demorar. Sua solução pode incluir as seguintes ações:
+*   Testar a solução
+*   Obtenha uma solução agora mesmo
 
-Mais consistente estiver no seu serviço de mensagens e a chamada-para-ação, mais fácil para os seus clientes localizar a sua solução.  
+Pode fazer referência a página de destino em várias táticas de marketing. Poderá utilizar as táticas de marketing seguintes: 
+*   Eventos
+*   Webcasts
+*   Comunicação social
+*   Documentação técnica
+*   Sessões de treinamento técnico
+*   Prima versões
 
-Quando tiver um pronto do plano de campanha, crie a sua página de destino. Reveja a tabela seguinte para maximizar a eficácia da sua página de destino.  
+Quanto mais consistente está em sua mensagem e em seu plano de ação, mais fácil é para os seus clientes encontrar a sua solução.
 
-| Melhores práticas | O que evitar |  
-|:--- |:--- |  
-| ***Comunicar o problema de cliente resolve da sua solução e, como Azure torna acontecer*** |  Não comunicar as formas em que a sua solução funciona com o Azure. |  
-| ***Criar um URL de curto, fácil de lembrar*** | Utilizar URLs longos. URLs longos não são memorable e são difíceis de localizar. |  
-| ***Adicionar conteúdo visual relevante, como um vídeo de testimonial de cliente ou uma arquitetura de solução*** | Utilizar demasiada texto faz com que os seus clientes ignorar o conteúdo e parar a explorar. |  
-| ***Criar uma chamada encriptada para a acção para direcionar os visitantes à sua página de catálogo do Marketplace*** | Na página a ter demasiadas ligações ou ações. |  
-| ***Colocar a chamada para ação num cabeçalho ou uma secção claramente delineated*** |  Ao incorporar as ligações para a listagem no marketplace num parágrafo de texto. |  
-| ***Pesquisar as palavras-chave melhores e otimizar a página de pesquisa*** | Partindo do princípio de que o seu nome de produto gera as classificações de pesquisa superiores. |  
-| ***Utilizar palavras-chave do seu campanhas publicitárias*** |  Utilizar muitas palavras-chave de diferentes entre as propriedades web dilutes os seus investimentos de publicidade. |  
-| ***Colocar os nomes de produtos relevantes e as palavras-chave `above the fold`*** | Efetuar utilizadores deslocar para ver o produto ou uma solução que estão a mostrar. |  
-| ***Utilize imagery marca para validar a sua solução de acordo com a Microsoft imagem corporativa diretrizes,<br />como o certificado do Azure*** | Utilizar imagery de marca da Microsoft que não está aprovada. |  
+## <a name="recommendations"></a>Recomendações
 
-*   Para obter mais informações sobre destaque certificadas do Azure, visite as diretrizes de certificados do Microsoft Azure página localizada em [azure.microsoft.com/support/legal/marketplace/certified-guidelines](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).  
-*   Para obter recursos adicionais para a imagem corporativa, visite o Central marca página localizada em [microsoft.sharepoint.com/teams/brandcentral](https://microsoft.sharepoint.com/teams/brandcentral).  
-*   Para obter mais informações sobre a ferramenta de construtor de logótipo, visite o construtor de logótipo página localizada em [logobuilder.partner.microsoft.com](https://logobuilder.partner.microsoft.com).  
-*   Para obter mais informações, visite a forma como funciona página localizada em [partner.microsoft.com/membership/how-it-works](https://partner.microsoft.com/membership/how-it-works).  
+Quando tiver preparado para o plano um campanha, crie a sua página de destino no Marketplace. A tabela seguinte descreve formas como pode ajudar a maximizar a eficiência da sua página de destino: 
 
----  
+| Melhor prática | Evitar |
+|:--- |:--- |
+| **Comunicar o problema do cliente resolve a sua solução e como utilizar o Azure para que isso aconteça** | Não comunicar as formas em que a sua solução funciona com o Azure. |
+| **Criar um URL curto, fácil de memorizar** | Usando os URLs longos. URLs longos não são fácil de memorizar e são difíceis de localizar. |
+| **Adicionar conteúdo visual relevante, como um vídeo de testemunho de cliente ou de uma arquitetura de solução** | Usar o excesso de texto, faz com que seus clientes ignorar o conteúdo e parar a explorar.|
+| **Criar um plano claro de ação para direcionar os visitantes à sua página de catálogo do Marketplace** | Ter demasiadas ligações ou ações na página. |
+| **Colocar o seu plano de ação num cabeçalho ou uma secção claramente delineada** | Incorporar os links para sua listagem no Marketplace num parágrafo de texto. |
+| **Pesquisar as palavras-chave melhor e a otimizar a página de pesquisa** | Partindo do princípio de que o seu nome de produto gera classificações de pesquisa superior. |
+| **Utilize palavras-chave do suas campanhas de publicidade** | Utilizar muitas outras palavras-chave entre suas propriedades web dilutes seus investimentos de publicidade. |
+| **Coloque os nomes de produto relevante e palavras-chave "acima dobra"** | Fazendo os usuários deslocar para ver o produto ou uma solução que lhe está a utilizar que apresenta. |
+| **Utilizar imagens de marca para validar a sua solução de acordo com as diretrizes, como o Azure Certified de imagem corporativa do Microsoft** | Utilizar imagens de marca Microsoft que não seja aprovada. |
+
+## <a name="next-steps"></a>Passos Seguintes
+
+*   Para obter mais informações sobre o destaque Azure Certified, consulte [diretrizes do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines).
+*   Para mais recursos sobre a identidade visual, consulte [Brand Central](https://microsoft.sharepoint.com/teams/brandcentral).
+*   Para obter mais informações sobre a ferramenta construtor de logótipo, consulte [logótipo Builder](https://logobuilder.partner.microsoft.com).
+*   Revisão [como o Microsoft Partner program funciona melhor para si](https://partner.microsoft.com/membership/how-it-works).
