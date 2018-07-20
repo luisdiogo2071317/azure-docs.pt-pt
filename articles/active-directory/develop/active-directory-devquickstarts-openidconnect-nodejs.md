@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7aa48b65423db2a3af032ed64d9d571fa603668d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969083"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144759"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure node. js do AD, introdução
 Aqui usamos Passport para:
@@ -62,7 +62,10 @@ A aplicação concluída é fornecida no final deste tutorial também.
 
 6. Depois de registar, do Azure AD atribui a aplicação um ID de aplicação único. Este valor é necessário nas secções seguintes, por isso, copie-o partir da página de aplicativo.
 7. Partir do **definições** -> **propriedades** página para a sua aplicação, atualize o URI de ID de aplicação. O **URI de ID de aplicação** é um identificador exclusivo para a sua aplicação. A Convenção é utilizar o formato `https://<tenant-domain>/<app-name>`, por exemplo: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Para criar uma chave secreta, siga o passo 4 [para adicionar credenciais de aplicativo ou permissões para aceder a web APIs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Partir do **definições** -> **URLs de resposta** página para a sua aplicação, adicione o URL, adicionado no URL de início de sessão do passo 5 e clique em Guardar.
+
+9. Para criar uma chave secreta, siga o passo 4 [para adicionar credenciais de aplicativo ou permissões para aceder a web APIs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copie o valor da chave de aplicação. Este é o valor para o `clientSecret`, que precisará para **passo 3** abaixo. 
@@ -91,7 +94,7 @@ Aqui, podemos configurar o Express para utilizar o protocolo de autenticação O
 
   * O `clientID` é o **Id da aplicação** que é atribuído à sua aplicação no portal de registo.
 
-  * O `returnURL` é o **Uri de redirecionamento** que introduziu no portal.
+  * O `returnURL` é o **URL de resposta** que introduziu no portal.
 
   * O `clientSecret` é o segredo que gerou no portal.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115930"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145245"
 ---
 # <a name="grow-your-business-on-marketplace"></a>Expanda o seu negócio no marketplace 
 Depois de ter publicado sua oferta no Azure Marketplace ou no AppSource, pode utilizar a sua listagem como um ponto de partida para atividades conjuntas de (GTM) de go-to-market com a Microsoft. Impulsionar o tráfego para a sua oferta do marketplace e estimulante oportunidades potenciais do marketplace, por exemplo, são ótimas formas de acelerar o crescimento da sua empresa. Neste artigo, compartilhamos muitos marketing melhores práticas para expandir seu negócio no marketplace.
@@ -215,7 +215,7 @@ Para promover a sua aplicação ou uma oferta, utilize a tabela seguinte para ob
 | Tornar-se de venda conjunta preparado para o IP | Pode estar qualificado para o programa de venda conjunta de IP pronto, que permite que colabore diretamente com vendedores da Microsoft e outros parceiros em oportunidades de clientes de destino e o planejamento de contas. Sua solução se torna visível aos vendedores da Microsoft no catálogo de solução do vendedor. Vendedores da Microsoft são recompensados de colaboração e a ganhar com.<br /> Para obter mais informações sobre a preparação de venda conjunta, incluindo os requisitos de elegibilidade, visite [promover seu negócio](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Atribuição de receita de parceiros do Azure
+## <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
 Como um parceiro de software para o Azure suas soluções necessitam de componentes do Azure ou é implementada diretamente na infraestrutura do Azure.  Hoje em dia, quando uma solução de parceiro é implementada pelo cliente e utiliza recursos do Azure aprovisionados pelo cliente, é difícil para o parceiro para ganhar visibilidade para o estado dessas implementações e difícil obter óptica no impacto para o crescimento do Azure para o alinhamento com a equipa de vendas da Microsoft e o crédito para programas de parceria da Microsoft.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >Isso precisa ser feito para cada cliente, não existe nenhuma configuração estática global (pode optar por fazer uma fábrica de cliente para Certifique-se de que cada cliente está a fazer isso. 
 >[Informações de referência adicionais](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>Registar um GUID: 
 
 Como Etiquetar uma implementação com o Azure PowerShell ou a CLI do Azure: Se implementar recursos através de AzurePowerShell pode acrescentar o GUID usando o seguinte método:
 
@@ -398,11 +396,14 @@ Quando implementar o nosso software Microsoft será capaz de identificar a insta
 
 Para obter assistência, siga os passos abaixo:
  1. Visite a página de suporte localizada em [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Para problemas com a associação de utilização – selecione o tipo de problema: **integração do Marketplace** e a categoria: **outros** e, em seguida, clique em **iniciar pedido.**
-
-Para problemas em aceder ao Portal de parceiro de Cloud no Azure Marketplace - selecione o tipo de problema: **integração do Marketplace** e a categoria: **problema de acesso** e, em seguida, clique em **iniciar pedido.**
+ 2. Para problemas com a associação de utilização – selecione o tipo de problema: **integração do Marketplace** e a categoria: **outros** e, em seguida, clique em **iniciar pedido.** 
+>[!Note]
+>Para problemas em aceder ao Portal de parceiro de Cloud no Azure Marketplace - selecione o tipo de problema: **integração do Marketplace** e a categoria: **problema de acesso** e, em seguida, clique em **iniciar pedido.**
  3. Preencha os campos obrigatórios na próxima página e clique em **continuar.**
  4. Preencha os campos de texto livre na página seguinte.  
+ 
+
+
  
 >[!Important] 
 >Preencha o título do incidente com **"Controlo de utilização de ISV"** e descreva o seu problema em detalhe no campo de texto livre grande depois.  Conclua o resto do formulário e clique em **submeter**.

@@ -1,21 +1,21 @@
 ---
-title: Personalização - Azure Active Directory de reposição de palavra-passe self-service
+title: Personalizar do Azure AD self-service palavra-passe reposta
 description: Reposição de palavra-passe self-service do Azure AD, as opções de personalização
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 70f36447270199545ac27cf27f87f971e34ef424
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054595"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162131"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -24,8 +24,9 @@ Os profissionais de TI que pretendem implementar a reposição de palavra-passe 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizar a ligação "Contacte o administrador"
 
 Mesmo se não estiver ativada a SSPR, os usuários ainda têm uma ligação "Contacte o administrador" sobre a palavra-passe, portal de reposição. Se um usuário selecionar esse link, ele de qualquer:
-   * Os administradores de e-mails e pede-los para obter assistência na alteração de palavra-passe do utilizador. 
-   * Envia os seus utilizadores para uma URL que especificar para obter assistência. 
+
+   * Os administradores de e-mails e pede-los para obter assistência na alteração de palavra-passe do utilizador.
+   * Envia os seus utilizadores para uma URL que especificar para obter assistência.
 
 Recomendamos que defina esta contacto para algo como um endereço de e-mail ou site que os utilizadores já utilizam para questões de suporte.
 
@@ -45,9 +46,7 @@ Para obter mais informações sobre as funções de administrador diferentes e c
 
 Se não pretender que sua organização notificar os administradores sobre a palavra-passe de solicitações de redefinição, pode ativar a seguinte configuração:
 
-* Ative senhas de auto-atendimento repor para todos os utilizadores finais. Esta opção está sob **reposição de palavra-passe** > **propriedades**.
-  
-  Se não pretender que os utilizadores reponham as respetivas palavras-passe, pode definir o âmbito de acesso a um grupo vazio. *Não recomendamos esta opção.*
+* Ative senhas de auto-atendimento repor para todos os utilizadores finais. Esta opção está sob **reposição de palavra-passe** > **propriedades**. Se não pretender que os utilizadores reponham as respetivas palavras-passe, pode definir o âmbito de acesso a um grupo vazio. *Não recomendamos esta opção.*
 * Personalizar a ligação de suporte técnico para fornecer um URL de web ou mailto: endereço que os utilizadores podem utilizar para obter assistência. Esta opção está sob **reposição de palavra-passe** > **personalização** > **URL ou e-mail de suporte técnico personalizado**.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Personalizar a página de início de sessão do AD FS para SSPR

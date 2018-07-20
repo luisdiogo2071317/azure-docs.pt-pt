@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045443"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -60,14 +60,14 @@ Para configurar a integração do Salesforce para o Azure AD, terá de adicionar
 
 **Para adicionar Salesforce a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
-    
+
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
@@ -103,26 +103,26 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar a ligação de início de sessão única][4]
 
 2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Sobre o **Salesforce domínio e URLs** secção, execute os seguintes passos:
 
     ![URLs de domínio do Salesforce e únicas início de sessão em informações](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. Na **URL de início de sessão** caixa de texto, digite o valor usando o seguinte padrão:
-    
+
     Conta de empresa: `https://<subdomain>.my.salesforce.com`
 
     Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. Na **identificador** caixa de texto, digite o valor usando o seguinte padrão:
-    
+
     Conta de empresa: `https://<subdomain>.my.salesforce.com`
 
     Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente do Salesforce](https://help.salesforce.com/support) obter esses valores.
 
 4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado** e, em seguida, guarde o ficheiro de certificado no seu computador.
@@ -170,14 +170,14 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **emissor** campo, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
     c. Na **caixa de texto do Id de entidade**, escreva o seu nome de domínio do Salesforce com o seguinte padrão:
-      
+
       * Conta de empresa: `https://<subdomain>.my.salesforce.com`
       * Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Para carregar os **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado que transferiu a partir do portal do Azure.
 
     e. Como **tipo de identidade de SAML**, escolha uma das seguintes opções:
-    
+
       * Selecione **asserção contém o nome do usuário Salesforce**, se o nome de utilizador do utilizador Salesforce está sendo passado na asserção de SAML
 
       * Selecione **asserção contém o ID de Federação do objeto de utilizador**, se o ID de Federação do objeto de utilizador que está sendo passado na asserção de SAML
@@ -189,7 +189,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     g. Para **fornecedor iniciada solicitar vínculo de serviço**, selecione **redirecionamento de HTTP**.
 
     h. Na **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure
-    
+
     i. Por fim, clique em **guardar** para aplicar a suas SAML únicas início de sessão em definições.
 
 14. No painel de navegação esquerdo no Salesforce, clique em **definições da empresa** para expandir a secção relacionada e, em seguida, clique em **meu domínio**.
@@ -200,7 +200,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. Na **configuração da autenticação** secção, verifique o **página de início de sessão** como **serviço de autenticação** de sua configuração SAML SSO e clique em  **Guardar**.
+16. Na **configuração da autenticação** secção, verifique o **AzureSSO** como **serviço de autenticação** de sua configuração SAML SSO e clique em **guardar** .
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-auth-config.png)
 
