@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 14617b57f59c068aa015c9bfea9b4d18520b4152
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34d3a5dbccf2cad7873bf6166e406c7c4817ac09
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473687"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158714"
 ---
 # <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Criar volumes persistentes com discos do Azure para o Azure Kubernetes Service (AKS)
 
@@ -62,6 +62,9 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+> [!TIP]
+> Para criar um disco que utiliza o armazenamento standard, utilize `storageClassName: default` em vez *premium geridos*.
 
 Criar a afirmação de volume persistente com o [kubectl aplicam-se] [ kubectl-apply] de comandos e especificar seu *azure-premium.yaml* ficheiro:
 

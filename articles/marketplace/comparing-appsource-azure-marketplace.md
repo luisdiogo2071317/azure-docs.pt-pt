@@ -1,6 +1,6 @@
 ---
-title: Comparar AppSource e do Azure Marketplace | Azure
-description: Este artigo descreve os storefronts AppSource e Azure Marketplace.
+title: Comparação entre o Azure Marketplace e o AppSource | Azure
+description: Este artigo descreve as lojas no Microsoft AppSource e no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,42 +14,41 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b0ed71efd99d55315b217686e978048712a7b7c4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: be7c7e5ad66d6a3412b358c95f74a7d2d653a190
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825222"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158782"
 ---
-# <a name="comparing-appsource-and-azure-marketplace"></a>Comparar AppSource e do Azure Marketplace  
-Os storefronts servem os requisitos de cliente exclusivo. Os storefronts ativar alvos pela função. Pode oferecer a solução certa ou o serviço com base no seu cliente.  
+# <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparação entre o Azure Marketplace e o AppSource
+Lojas no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) atender a requisitos de cliente exclusivo. Utilize lojas para os clientes de destino através da função. Pode oferecer a solução ou serviço certo com base no seu cliente.
 
-## <a name="understanding-the-differences-between-the-storefronts"></a>Compreender as diferenças entre os storefronts  
-Escolher um storefront começa com identificar o público-alvo para a sua oferta. Se a filtragem de ambos os público, em seguida, pode publicar uma vez para vender em ambos os storefronts.  
+## <a name="understanding-the-differences-between-storefronts"></a>Compreender as diferenças entre lojas
+Para escolher uma loja, comece por identificar o público-alvo para a sua oferta. Se estiver se concentrando audiências em várias lojas, pode publicar uma vez para vender em várias lojas.
  
-Considere as vantagens adicionais para os storefronts.   
+As tabelas seguintes descrevem as vantagens da utilização de uma loja:
 
-### <a name="appsource"></a>AppSource  
+### <a name="appsource"></a>AppSource
 
-| Benefícios | Detalhes | 
+| Vantagem | Detalhes | 
 |:--- |:--- | 
-| ***Flexibilidade de faturação*** | Aprovisiona uma experiência de avaliação. Não oferece uma opção de publicação ativadas de comércio atualmente. Pode utilizar a ordenação atual e a infraestrutura de faturação sem qualquer investimento adicional ou as alterações. | 
-| ***Facilitação de ligações com outros parceiros*** | Fornecedores independentes de software de ligações, integradores de sistemas e fornecedores de serviço gerida para cenários de implementação específicos. Em equipa pode propor para clientes novos. | 
-| ***Automatização*** | Fornecedores independentes de software de ligações, integradores de sistemas e fornecedores de serviço gerida para cenários de implementação específicos. Em equipa pode propor para clientes novos. |  
-| ***Vários tipos de cloud*** | Não suporta atualmente pilha do Azure, Azure Government ou nuvens regionais. | 
-| ***No contexto apresentação para clientes*** | Alcançar mais clientes através de experiência na aplicação para produtos da Microsoft, tais como Dynamics 365, o Power BI e o Office 365. |  
+| **Flexibilidade de faturação** | Aprovisiona uma experiência de avaliação. Atualmente, não oferece uma opção de publicação habilitados no comércio. Pode utilizar a sua infraestrutura de faturação e de ordenação atual sem qualquer investimento adicional ou alterações. | 
+| **Ligações com outros parceiros** | Fornecedores independentes de software de links, integradores de sistemas e fornecedores de serviços geridos para cenários de implementação específica. Pode vender em colaboração a novos clientes. | 
+| **Automatização** | Fornecedores independentes de software de links, integradores de sistemas e fornecedores de serviços geridos para cenários de implementação específica. Pode vender em colaboração a novos clientes. |
+| **Vários tipos de cloud** | Atualmente, não suporta Azure Stack, Azure Government ou nuvens regionais. | 
+| **No contexto apresentação para clientes** | Alcançar mais clientes através da experiência na aplicação para produtos da Microsoft, como o Dynamics 365, o Power BI e o Office 365. |
 
-### <a name="azure-marketplace"></a>Azure Marketplace  
+### <a name="azure-marketplace"></a>Azure Marketplace
 
-| Benefícios | Detalhes | 
+| Vantagem | Detalhes | 
 |:--- |:--- | 
-| ***Flexibilidade de faturação*** | Para VMs, opções de faturação pay as you go utilizam contratos Enterprise da Microsoft (EAs) ou modelos de vendas direta web. As opções de preços incluem uma subscrição do escalão gratuito onde uma oferta é perpetually livre. Opções de preços incluem também uma subscrição Tente agora. Uma subscrição Tente agora é promotionally gratuita por um período limitado; após o qual a VM é convertida numa subscrição paga. A ativação de BYOL também é uma opção para suportar a.<br />Para opções de faturação e as seguintes ofertas VM, todos os recursos aprovisionados do Azure são cobrados diretamente ao cliente.<ul> <li>As aplicações do Azure: aplicação gerida</li> <li>As aplicações do Azure: modelo de solução</li> </ul> | 
-| ***Facilitação de ligações com outros parceiros*** | Não são atualmente capaz de ligar um parceiros de fornecedor ou entrega do serviço para a oferta. Esta funcionalidade está a iniciar na 2018. | 
-| ***Automatização*** | Não são atualmente capaz de ligar um parceiros de fornecedor ou entrega do serviço para a oferta. Tire partido de SaaS automatizada com o aprovisionamento de suplemento. Utilizar aplicações do Azure: modelo de solução para automatizar a cenários de implementação e de coleção de dados baseados em SaaS. |  
-| ***Vários tipos de cloud*** | Publica na nuvem pública e soluções no local utilizando os seguintes tipos.<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>nuvens regionais, incluindo China e na Alemanha</li> </ul> | 
-| ***No contexto apresentação para clientes*** | Disponibilizar solução a experiência no portal do Azure para a pesquisa contextual com máquinas virtuais e as aplicações do Azure: modelo de solução. |  
+| **Flexibilidade de faturação** | Para as VMs, opções de faturação pay as you go utilizam o Microsoft Enterprise Agreements (EAs) ou modelos de vendas diretas de web. Opções de preços incluem uma subscrição do escalão gratuito, em que uma oferta é perpetuamente gratuita. Opções de preços também incluem uma subscrição experimentar agora. Uma subscrição Experimente agora é promocionalmente gratuita durante um período limitado. Quando terminar o período, a VM é convertida numa subscrição paga. Traga a sua própria licença (BYOL) ativação também é uma opção que pode utilizar para os clientes.<br /><br/>Para opções de faturação e as seguintes ofertas VM, todos os recursos aprovisionados do Azure são faturados diretamente para o cliente:<ul> <li>As aplicações do Azure: aplicação gerida</li> <li>As aplicações do Azure: modelo de solução</li> </ul> | 
+|**Ligações com outros parceiros** | Atualmente, não é possível ligar um parceiro de fornecedor ou a entrega do serviço para a sua oferta. | 
+| **Automatização** | Atualmente, não é possível ligar um parceiro de fornecedor ou a entrega do serviço para a sua oferta. Tire partido de automatizadas de software como serviço (SaaS) com o suplemento de aprovisionamento. Utilize as aplicações do Azure: opção para cenários de coleção e a implantação de dados baseada em SaaS de automatizar a publicação de modelo de solução. |
+| **Vários tipos de cloud** | Publique soluções para a cloud pública e no local, utilizando os seguintes tipos:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nuvens regionais, incluindo a China e Alemanha</li></ul> | 
+| **No contexto apresentação para clientes** | Tornar sua solução disponível na experiência no portal do Azure para a pesquisa contextual. Utilize as aplicações de Máquina Virtual e o Azure: modelo de solução, as opções de publicação. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-*   Visite o [Azure Marketplace e AppSource publicador guia](./marketplace-publishers-guide.md) página.  
-*   
----  
+*   Reveja os [guia de publicação do Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+

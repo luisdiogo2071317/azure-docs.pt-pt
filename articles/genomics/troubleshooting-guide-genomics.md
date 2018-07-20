@@ -11,13 +11,13 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 04/13/2018
-ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 07/18/2018
+ms.openlocfilehash: 9bd1690003fd37b6c2edd0f0421cf8d0e74f8cb5
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34627369"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144181"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 Esta descrição geral descreve estratégias para resolver problemas comuns ao utilizar o serviço Microsoft Genomics. Para perguntas freqüentes gerais sobre, consulte [perguntas comuns](frequently-asked-questions-genomics.md). 
@@ -65,7 +65,7 @@ Para resolver este problema, reveja se os ficheiros fastq submetidos para o flux
 
 
 ### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Erro ao carregar o ficheiro do ficheiro. BAM. Blob de saída já existe e se a opção de substituição foi definida como False.
-Se vir a mensagem de erro seguinte, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já contém um ficheiro de saída com o mesmo nome.  A eliminar o ficheiro de saída existentes ou ative a opção de substituição no ficheiro de configuração. Em seguida, volte a submeter o fluxo de trabalho.
+Se vir a seguinte mensagem de erro, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já contém um ficheiro de saída com o mesmo nome.  A eliminar o ficheiro de saída existentes ou ative a opção de substituição no ficheiro de configuração. Em seguida, volte a submeter o fluxo de trabalho.
 
 ### <a name="when-to-contact-microsoft-genomics-support"></a>Quando contactar o suporte do Microsoft Genomics
 Se vir as seguintes mensagens de erro, Ocorreu um erro interno. 

@@ -1,29 +1,28 @@
 ---
-title: "Origens de dados suportadas no catálogo de dados do Azure | Microsoft Docs"
-description: "Este artigo apresenta uma lista de especificações de origens de dados atualmente suportadas."
+title: Origens de dados suportadas no catálogo de dados do Azure | Documentos da Microsoft
+description: Este artigo apresenta uma lista de especificações das origens de dados suportado atualmente.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: jstevens
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f8d24b896e6cdb39262f2c8a7f93c86f5e79fd33
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146210"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
 
-Pode publicar metadados utilizando uma API pública ou de um clique-registo uma vez por introduzir manualmente as informações diretamente para o catálogo de dados do Azure web portal ou da ferramenta. A tabela seguinte resume todas as origens de dados que são suportadas pelo hoje o catálogo e as capacidades de publicação para cada. Também incluídos estão as ferramentas de dados externos que cada origem de dados pode iniciar da nossa experiência portal "open-in". A segunda tabela contém uma especificação de mais técnica de cada propriedade de ligação da origem de dados.
+Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta ou ao introduzir manualmente as informações diretamente para o catálogo de dados do Azure portal web. A tabela seguinte resume todas as origens de dados que são suportadas pela hoje o catálogo e as capacidades de publicação para cada um. Também encontram-se as ferramentas de dados externos que cada origem de dados pode iniciar a nossa experiência de portal "open-in". A segunda tabela contém uma especificação de mais técnica de cada propriedade de ligação de origem de dados.
 
 
 ## <a name="list-of-supported-data-sources"></a>Lista de origens de dados suportadas
@@ -32,9 +31,9 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
     <tr>
        <td><b>Objeto de origem de dados</b></td>
        <td><b>API</b></td>
-       <td><b>Entrada manual</b></td>
+       <td><b>Introdução manual</b></td>
        <td><b>Ferramenta de registo</b></td>
-       <td><b>Ferramentas Open-in</b></td>
+       <td><b>Ferramentas Open in</b></td>
        <td><b>Notas</b></td>
     </tr>
     <tr>
@@ -58,7 +57,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ambiente de trabalho do Power BI</td>
+      <td>O ambiente de trabalho do Power BI</td>
       <td></td>
     </tr>
     <tr>
@@ -66,7 +65,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ambiente de trabalho do Power BI</td>
+      <td>O ambiente de trabalho do Power BI</td>
       <td></td>
     </tr>
     <tr>
@@ -114,39 +113,39 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de MySQL</td>
+      <td>Tabela MySQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
-      <td>Vista de MySQL</td>
+      <td>Vista MySQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de base de dados Oracle</td>
+      <td>Tabela de banco de dados Oracle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
-      <td>Vista de base de dados Oracle</td>
+      <td>Vista da base de dados Oracle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
-      <td>Outros (asset genérico)</td>
+      <td>Outro (asset genérico)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
@@ -174,15 +173,15 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services KPI</td>
+      <td>KPI do SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
@@ -190,15 +189,15 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de SQL Server Analysis Services</td>
+      <td>Tabela do SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, o ambiente de trabalho do Power BI</td>
+      <td>Excel, Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
@@ -207,7 +206,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Apenas a servidores de modo nativo. Modo de tabela não é suportado.</td>
+      <td>Apenas a servidores de modo nativo. Modo do SharePoint não é suportado.</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server</td>
@@ -242,11 +241,11 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Vista de SAP HANA</td>
+      <td>Vista do SAP HANA</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Ambiente de trabalho do Power BI</td>
+      <td>O ambiente de trabalho do Power BI</td>
       <td></td>
     </tr>
     <tr>
@@ -338,7 +337,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>PostgreSQL view</td>
+      <td>Vista de PostgreSQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -346,7 +345,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Vista de SAP HANA</td>
+      <td>Vista do SAP HANA</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -370,7 +369,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Coleção de Cosmos BD do Azure</td>
+      <td>Coleção do Azure Cosmos DB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -399,15 +398,15 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicar como um recurso ODBC genérico</td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
-      <td>Vista de Cassandra</td>
+      <td>Vista do Cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicar como um recurso ODBC genérico</td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Tabela de Sybase</td>
@@ -426,12 +425,12 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de MongoDB</td>
+      <td>Tabela do MongoDB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicar como um recurso ODBC genérico</td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Vista do MongoDB</td>
@@ -439,16 +438,16 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicar como um recurso ODBC genérico</td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
 </table>
 
-Se pretender ver uma origem de dados específicos suportada, sugerimos (ou o suporte de voz, se já tiver sido sugerido) acedendo ao [catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog).
+Se quiser ver uma origem de dados específicos suportada, sugeri-lo (ou o suporte de voz, se já tiver sido sugerido) ao aceder a [catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
-## <a name="data-source-reference-specification"></a>Especificação de referência da origem de dados
+## <a name="data-source-reference-specification"></a>Especificação da origem de dados de referência
 > [!NOTE]
-> O **estrutura DSL** coluna na tabela seguinte apresenta apenas as propriedades de ligação para a matriz de propriedades "address" que são utilizadas pelo catálogo de dados do Azure. Ou seja, a matriz de propriedades "address" pode conter outras propriedades de ligação da origem de dados que o catálogo de dados do Azure persistir, mas não utiliza.
+> O **estrutura DSL** coluna na tabela seguinte apresenta apenas as propriedades de ligação para a matriz de propriedades de "address" que são utilizadas pelo catálogo de dados do Azure. Ou seja, a matriz de propriedades de "address" pode conter outras propriedades de ligação da origem de dados que o catálogo de dados do Azure persistir, mas não utiliza.
 
 <table>
     <tr>
@@ -1396,8 +1395,8 @@ Se pretender ver uma origem de dados específicos suportada, sugerimos (ou o sup
     </tr>
     <tr>
       <td>Other (none of the above)</td>
-      <td>\*</td>
-      <td>\*</td>
+      <td>&#10033;</td>
+      <td>&#10033;</td>
       <td>
         
             Protocol: generic-asset

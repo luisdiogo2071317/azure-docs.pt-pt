@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: abf7d571097aefd47c90cbd0ce4aab941c4e24c4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b89ab77b1cd97fd501a754dbf41d1aa74ef118d9
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126665"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144997"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Restrições de inquilino de utilização para gerir o acesso ao SaaS na nuvem
 
@@ -97,7 +97,7 @@ Um utilizador de exemplo é na rede da Contoso, mas está a tentar aceder à ins
 
 Enquanto a configuração de restrições de inquilino é feita na infraestrutura de proxy empresarial, os administradores podem acessar os relatórios de restrições de inquilino no portal do Azure diretamente. Para ver os relatórios, vá para a página de descrição geral de diretório Active Directory do Azure, em seguida, procure em 'Outras capacidades'.
 
-ID de administrador para o inquilino especificado como o inquilino do contexto de acesso de restrito pode utilizar este relatório para ver todos os inícios de sessão bloqueados devido à política de restrições de inquilino, incluindo a identidade utilizada e o diretório de destino.
+ID de administrador para o inquilino especificado como o inquilino do contexto de acesso de restrito pode utilizar este relatório para ver os inícios de sessão bloqueados devido à política de restrições de inquilino, incluindo a identidade utilizada e o diretório de destino. Inícios de sessão estão incluídos, se a definição de restrição de inquilino é o inquilino do utilizador ou um inquilino de recursos para o início de sessão.
 
 ![Utilizar o portal do Azure para ver a tentativas de início de sessão restritas](./media/tenant-restrictions/portal-report.png)
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: eb3487a304ec2e4045ff76253c456dc4b6ee19b5
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 083169b300cc2714da3921c3abeee68d52444b9b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888627"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145711"
 ---
 # <a name="keys-in-luis"></a>Chaves de LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -56,8 +56,10 @@ O ponto de extremidade do LUIS aceita dois estilos de consulta, ambos utilizam m
 
 |Verbo|Localização de url e a chave de exemplo|
 |--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn as luzes<br><br>valor de cadeia de caracteres de consulta para `subscription-key`<br><br>Alterar o valor de consulta de ponto final para o `subscription-key` da chave de criação (iniciante), para a nova chave de ponto de extremidade para usar a taxa de quota de chave de ponto final do LUIS. Se criar a chave e atribuir a chave, mas não altere o valor de consulta de ponto final para a chave de subscrição ", a quota de chave de ponto final não estiver a utilizar.|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a<br><br> valor de cabeçalho para `Ocp-Apim-Subscription-Key`<br><br>Alterar o valor de consulta de ponto final para o `Ocp-Apim-Subscription-Key` da chave de criação (iniciante), para a nova chave de ponto de extremidade para usar a taxa de quota de chave de ponto final do LUIS. Se criar a chave e atribuir a chave, mas não altere o valor de consulta de ponto final para `Ocp-Apim-Subscription-Key`, sua quota de chave de ponto final não estiver a utilizar.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valor de cadeia de caracteres de consulta para `subscription-key`<br><br>Alterar o valor de consulta de ponto final para o `subscription-key` da chave de criação (iniciante), para a nova chave de ponto de extremidade para usar a taxa de quota de chave de ponto final do LUIS. Se criar a chave e atribuir a chave, mas não altere o valor de consulta de ponto final para a chave de subscrição ", a quota de chave de ponto final não estiver a utilizar.|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valor de cabeçalho para `Ocp-Apim-Subscription-Key`<br><br>Alterar o valor de consulta de ponto final para o `Ocp-Apim-Subscription-Key` da chave de criação (iniciante), para a nova chave de ponto de extremidade para usar a taxa de quota de chave de ponto final do LUIS. Se criar a chave e atribuir a chave, mas não altere o valor de consulta de ponto final para `Ocp-Apim-Subscription-Key`, sua quota de chave de ponto final não estiver a utilizar.|
+
+O ID da aplicação utilizado nos URLs anteriores, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, é a aplicação de IoT pública utilizada para o [demonstração interativa](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Utilização da API de Ocp-Apim-Subscription-Key
 As APIs de LUIS utilizam o cabeçalho, `Ocp-Apim-Subscription-Key`. O nome de cabeçalho não é alterada com base no qual chave e o conjunto de APIs que está a utilizar. Defina o cabeçalho para a chave de criação para criação de APIs. Se estiver a utilizar o ponto final, defina o cabeçalho para a chave de ponto final. 

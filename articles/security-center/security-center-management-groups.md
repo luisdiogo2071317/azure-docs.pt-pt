@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441513"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144572"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade ao nível do inquilino para o Centro de segurança do Azure
 Este artigo ajuda-o a começar a utilizar ao fazer várias ações que maximizar os benefícios de que Centro de segurança do Azure oferece. Realizar essas ações permite-lhe obter visibilidade em todas as subscrições do Azure que estejam ligadas ao seu inquilino do Azure Active Directory e eficaz de gerir a postura de segurança da sua organização em escala ao aplicar políticas de segurança em vários assinaturas de forma aggregative.
 
 ## <a name="management-groups"></a>Grupos de gestão
-Grupos de gestão do Azure oferecem a capacidade de gerenciar com eficiência o acesso, políticas e relatórios sobre os grupos de subscrições, bem como gerir eficazmente o estado do Azure de todo o executar ações sobre o grupo de gestão de raiz. Cada inquilino do Azure AD é atribuído um grupo de gestão único de nível superior denominado o grupo de gestão de raiz. Este grupo de gestão de raiz baseia-se para a hierarquia para que todos os grupos de gestão e as subscrições dobrar a cópia de segurança ao mesmo. Este grupo permite políticas globais e atribuições de RBAC a ser aplicado ao nível do diretório. 
+Grupos de gestão do Azure oferecem a capacidade de gerenciar com eficiência o acesso, políticas e relatórios sobre os grupos de subscrições, bem como gerir eficazmente o estado do Azure de todo o executar ações sobre o grupo de gestão de raiz. Cada inquilino do Azure AD é atribuído um grupo de gestão único de nível superior denominado o grupo de gestão de raiz. Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo permite políticas globais e atribuições de RBAC a ser aplicado ao nível do diretório. 
 
 O grupo de gestão de raiz é criado automaticamente quando o fizer qualquer uma das seguintes ações: 
 1. Opte por utilizar grupos de gestão do Azure ao navegar até **grupos de gestão** no [portal do Azure](https://portal.azure.com).
@@ -35,7 +35,7 @@ O grupo de gestão de raiz é criado automaticamente quando o fizer qualquer uma
 Para obter uma descrição detalhada dos grupos de gestão, consulte a [organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md) artigo.
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Criar um grupo de gestão no portal do Azure
-Pode organizar subscrições para grupos de gestão e aplicar as políticas de governação para os grupos de gestão. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Enquanto os grupos de gestão não é obrigados a carregar o Centro de segurança, é altamente recomendado que crie, pelo menos, um grupo de gestão para que o grupo de gestão de raiz é criado. Depois de criar o grupo, todas as subscrições no inquilino do Azure AD serão ligadas à mesma. Para obter instruções do PowerShell e obter mais informações, consulte [criar grupos de gestão para a gestão de recursos e a organização](../azure-resource-manager/management-groups-create.md).
+Pode organizar subscrições para grupos de gestão e aplicar as políticas de governação para os grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Enquanto os grupos de gestão não é obrigados a carregar o Centro de segurança, é altamente recomendado que crie, pelo menos, um grupo de gestão para que o grupo de gestão de raiz é criado. Depois de criar o grupo, todas as subscrições no inquilino do Azure AD serão ligadas à mesma. Para obter instruções do PowerShell e obter mais informações, consulte [criar grupos de gestão para a gestão de recursos e a organização](../azure-resource-manager/management-groups-create.md).
 
  
 1. Inicie sessão no [portal do Azure](http://portal.azure.com).
@@ -85,8 +85,20 @@ Um administrador de inquilino do Azure Active Directory não tem acesso direto �
 
 5. Fazer as tarefas que precisam para fazer com o acesso elevado. Quando tiver terminado, defina o comutador para **não**.
 
+### <a name="open-or-refresh-security-center"></a>Abrir ou atualizar o Centro de segurança
+Uma vez que elevou o acesso, abra ou Atualize o Centro de segurança do Azure para verificar que tem visibilidade para todas as subscrições no inquilino do Azure AD. 
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+2. Certifique-se de que seleciona todas as subscrições no Seletor de subscrição que gostaria de ver no Centro de segurança.
+    ![Captura de ecrã de Seletor de subscrição](./media/security-center-management-groups/subscription-selector.png)
+1. Selecione **todos os serviços** no menu principal do Azure, em seguida, selecione **Centro de segurança**.
+2. Na **descrição geral**, está um gráfico de cobertura de subscrição. 
+    ![Captura de ecrã de gráfico de cobertura de subscrição](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Clique em **cobertura** para ver a lista de subscrições abordados. 
+    ![Captura de ecrã de lista de cobertura de subscrição](./media/security-center-management-groups/security-center-coverage.png)
+
 ### <a name="assign-rbac-roles-to-users"></a>Atribua funções RBAC a utilizadores
-Assim que um administrador inquilino tem elevados acesso, podem atribuir uma função RBAC a utilizadores relevantes no nível do grupo de gestão de raiz. A função recomendada para atribuir é [ **leitor**](../role-based-access-control/built-in-roles.md#reader). Esta função é necessária para fornecer visibilidade de nível de inquilino. A função atribuída será propagada automaticamente a todos os grupos de gestão e subscrições no grupo de gestão de raiz. Para obter mais informações sobre as funções do RBAC, veja [funções disponíveis](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
+Assim que um administrador inquilino tem elevados acesso, podem atribuir uma função RBAC a utilizadores relevantes no nível do grupo de gestão de raiz. A função recomendada para atribuir é [ **leitor**](../role-based-access-control/built-in-roles.md#reader). Esta função é necessária para fornecer visibilidade de nível de inquilino. A função atribuída será propagada automaticamente a todos os grupos de gestão e subscrições no grupo de gestão de raiz. Para obter mais informações sobre as funções do RBAC, veja [funções disponíveis](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
 
 1. Instale o [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Execute os seguintes comandos: 
@@ -141,15 +153,7 @@ Assim que foram atribuídas as funções do RBAC para os utilizadores, o adminis
 
 4. Clique em **guardar** para salvar sua configuração.
 
-### <a name="open-or-refresh-security-center"></a>Abrir ou atualizar o Centro de segurança
-Assim que tiver atribuído as funções RBAC, abrir ou atualizar o Centro de segurança do Azure para verificar que tem visibilidade para todas as subscrições no inquilino do Azure AD. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Selecione **todos os serviços** no menu principal do Azure, em seguida, selecione **Centro de segurança**.
-3. Na **descrição geral**, está um gráfico de cobertura de subscrição. 
-    ![Captura de ecrã de gráfico de cobertura de subscrição](./media/security-center-management-groups/security-center-subscription-coverage.png)
-4. Clique em **cobertura** para ver a lista de subscrições abordados. 
-    ![Captura de ecrã de lista de cobertura de subscrição](./media/security-center-management-groups/security-center-coverage.png)
 
 ## <a name="adding-subscriptions-to-a-management-groups"></a>Adicionar subscrições a grupos de gestão
 Pode adicionar assinaturas para o grupo de gestão que criou. Estes passos não são obrigatórios para ganhar visibilidade ao nível do inquilino e a política global e a gestão de acesso.

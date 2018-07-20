@@ -1,24 +1,24 @@
 ---
-title: Atualizar um cluster do serviço de Kubernetes do Azure (AKS)
-description: Atualizar um cluster do serviço de Kubernetes do Azure (AKS)
+title: Atualizar um cluster do Azure Kubernetes Service (AKS)
+description: Atualizar um cluster do Azure Kubernetes Service (AKS)
 services: container-service
 author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933279"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144589"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do serviço de Kubernetes do Azure (AKS)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
-Serviço de Kubernetes do Azure (AKS) torna mais fácil efetuar tarefas de gestão comuns, incluindo Kubernetes clusters a atualizar.
+O Azure Kubernetes Service (AKS) facilita executar tarefas de gestão comuns, incluindo a atualização de clusters do Kubernetes.
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster do AKS
 
@@ -36,10 +36,10 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Temos três versões disponíveis para atualização: 1.9.1, 1.9.2 e 1.9.6. Podemos utilizar o comando `az aks upgrade` para atualizar para a versão mais recente disponível.  Durante o processo de atualização, nós são cuidadosamente [cordoned e drained] [ kubernetes-drain] para minimizar perturbações para as aplicações em execução.  Antes de iniciar uma atualização dos clusters, certifique-se de que tem capacidade de computação adicional suficiente para processar a carga de trabalho à medida que são adicionados e removidos nós de cluster.
+Existem três versões disponíveis para atualização: 1.9.1, 1.9.2 e 1.9.6. Podemos utilizar o comando `az aks upgrade` para atualizar para a versão mais recente disponível.  Durante o processo de atualização AKS irá adicionar um novo nó ao cluster, em seguida, cuidadosamente [cordão e drenagem] [ kubernetes-drain] um nó por vez para minimizar a interrupção de aplicações em execução.
 
 > [!NOTE]
-> Ao atualizar um cluster AKS, versões de secundárias Kubernetes não podem ser ignoradas. Por exemplo, atualiza entre 1.7.x > 1.8.x ou 1.8.x > 1.9.x são permitidos, no entanto 1.7 > 1.9 não é.
+> Ao atualizar um cluster do AKS, Kubernetes a versões secundárias não podem ser ignorada. Por exemplo, as atualizações entre 1.8.x -> 1.9.x ou 1.9.x -> 1.10.x são permitidos, no entanto, o 1.8 -> 1.10 não é.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

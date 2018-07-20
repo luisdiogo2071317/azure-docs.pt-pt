@@ -1,6 +1,6 @@
 ---
-title: Integrar LUIS com um bot utilizando o SDK de construtor Bot para Node.js no Azure | Microsoft Docs
-description: Crie um bot integrado com uma aplicação de LUIS utilizando a estrutura de Bot.
+title: Integrar o LUIS com um bot utilizando o SDK do construtor de Bot para node. js no Azure | Documentos da Microsoft
+description: Crie um bot integrado com um aplicativo de LUIS com o Bot Framework.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,107 +9,107 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264978"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144397"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrar LUIS com um bot utilizando o SDK de construtor Bot para Node.js
+# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrar o LUIS com um bot utilizando o SDK do construtor de Bot para node. js
 
-Este tutorial explica-lhe criar um bot com o [Bot Framework] [ BotFramework] que está integrado com uma aplicação LUIS.
+Este tutorial explica como criar um bot com o [Bot Framework] [ BotFramework] que está integrado com uma aplicação do LUIS.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Antes de criar o bot, siga os passos no [criar uma aplicação](./luis-get-started-create-app.md) para criar a aplicação de LUIS que utiliza.
+Antes de criar o bot, siga os passos em [criar uma aplicação](./luis-get-started-create-app.md) para criar a aplicação do LUIS que utiliza.
 
-O bot responde ao pendentes do domínio HomeAutomation que estão na aplicação LUIS. Para cada um destes pendentes, a aplicação de LUIS fornece objetivo que mapeia para o mesmo. O bot fornece uma caixa de diálogo que processa a intenção LUIS Deteta.
+O bot responde aos objetivos do domínio HomeAutomation que estão na aplicação do LUIS. Para cada um desses objetivos, a aplicação do LUIS, fornece uma intenção que mapeia para o mesmo. O bot fornece uma caixa de diálogo que lida com a intenção que Deteta o LUIS.
 
-| Objetivo | Utterance de exemplo | Funcionalidade de bot |
+| Intenção | Expressão de exemplo | Funcionalidade de bot |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | Ative os lights. | O bot invoca o `TurnOnDialog` quando o `HomeAutomation.TurnOn` é detetado. Esta caixa de diálogo é onde seria invocar um serviço de IoT para ativar um dispositivo e indicar ao utilizador que o dispositivo foi ativado. |
-| HomeAutomation.TurnOff | Desative os lights bedroom. | O bot invoca o `TurnOffDialog` quando o `HomeAutomation.TurnOff` é detetado. Esta caixa de diálogo onde seria invocar um serviço de IoT para desativar um dispositivo e indicar ao utilizador que o dispositivo foi desativado. |
+| HomeAutomation.TurnOn | Ligar as luzes. | O bot invoca o `TurnOnDialog` quando o `HomeAutomation.TurnOn` é detetado. Esta caixa de diálogo é onde invocará um serviço de IoT para ativar um dispositivo e informar ao usuário que o dispositivo foi ativado. |
+| HomeAutomation.TurnOff | Desative as luzes Carvalho. | O bot invoca o `TurnOffDialog` quando o `HomeAutomation.TurnOff` é detetado. Esta caixa de diálogo onde seria invocar um serviço de IoT para desativar um dispositivo e informar ao usuário que o dispositivo foi desativado. |
 
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Criar um bot de compreensão de idiomas com o serviço de Bot
 
-1. No [portal do Azure](https://portal.azure.com), selecione **criar novo recurso** no painel de menu e selecione **ver todos os**.
+1. Na [portal do Azure](https://portal.azure.com), selecione **criar novo recurso** no painel de menu e selecione **ver tudo**.
 
     ![Criar novo recurso](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
-2. Na caixa de pesquisa, procure **Bot de aplicação Web**. 
+2. Na caixa de pesquisa, procure **Web App Bot**. 
 
     ![Criar novo recurso](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. No **Bot serviço** painel, forneça as informações necessárias e selecione **criar**. Isto cria e implementa o serviço de bot e LUIS aplicação no Azure. Se pretender utilizar [priming de reconhecimento de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), reveja [requisitos de região](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar a sua bot. 
-    * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio quando o bot é implementado para a nuvem (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Selecione a subscrição, [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), plano do App service, e [localização](https://azure.microsoft.com/regions/).
-    * Selecione o **compreensão de idiomas (Node.js)** modelo para o **modelo Bot** campo.
+3. Na **Bot Service** painel, forneça as informações necessárias e selecione **criar**. Esta ação cria e implementa o serviço de bot e aplicação LUIS para o Azure. Se quiser usar [priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), reveja [requisitos de região](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar o seu bot. 
+    * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio ao seu bot é implementado na cloud (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+    * Selecione a subscrição [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano de serviço de aplicações, e [localização](https://azure.microsoft.com/regions/).
+    * Selecione o **compreensão de idiomas (node. js)** modelo para o **modelo do Bot** campo.
     * Selecione o **localização da aplicação LUIS**. Este é o processo de criação [região] [ LUIS] a aplicação é criada no.
-    * Selecione a caixa de verificação de confirmação para o aviso legal. Os termos do aviso legal encontram-se abaixo a caixa de verificação.
+    * Selecione a caixa de verificação confirmação para o aviso legal. São os termos do aviso legal a caixa de verificação abaixo.
 
-    ![Painel de serviço bot](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+    ![Painel do serviço de bot](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
-4. Certifique-se de que o serviço de bot foi implementado.
-    * Selecione as notificações (o ícone de campainha encontra-se ao longo de limite superior do portal do Azure). A notificação deixará de **implementação iniciada** para **implementação concluída com êxito**.
-    * Após a notificação de alterações **implementação concluída com êxito**, selecione **aceda a recursos** nessa notificação.
+4. Confirme que o serviço de bot foi implementado.
+    * Selecione as notificações (o ícone de sino que esteja localizado ao longo da margem superior do portal do Azure). A notificação será alterado de **implementação iniciada** ao **implementação concluída com êxito**.
+    * Depois da notificação muda para **implementação concluída com êxito**, selecione **Ir para recurso** em que a notificação.
 
-## <a name="try-the-default-bot"></a>Repita o bot predefinido
+## <a name="try-the-default-bot"></a>Experimente o bot de predefinição
 
-Confirme que o bot tiver sido implementada, verificando o **notificações**. As notificações deixará de **implementação em curso...**  para **implementação concluída com êxito**. Selecione **aceda a recursos** botão para abrir o painel de recursos do bot.
+Confirmar que foi implementado o bot, verificando a **notificações**. As notificações serão alterados de **implementação em curso...**  para **implementação concluída com êxito**. Selecione **Ir para recurso** botão para abrir o painel de recursos do bot.
 
 <!-- this step isn't supposed to be necessary -->
-## <a name="install-npm-resources"></a>Instalar recursos NPM
+## <a name="install-npm-resources"></a>Instalar os recursos NPM
 Instale pacotes NPM com os seguintes passos:
 
-1. Selecione **criar** do **Bot gestão** secção Bot de aplicação Web. 
+1. Selecione **crie** da **gestão de Bot** secção do Bot de aplicação Web. 
 
-2. A segunda nova, abre-se de janela de browser. Selecione **editor de código online abra**.
+2. Um novo, segundo a é apresentada a janela de browser. Selecione **editor de código online aberto**.
 
-3. Na barra de navegação superior, selecione o nome de bot de aplicação web `homeautomationluisbot`. 
+3. Na barra de navegação superior, selecione o nome do web app bot `homeautomationluisbot`. 
 
-4. Na lista pendente, **abrir a consola do Kudu**.
+4. Na lista pendente, selecione **abra a consola Kudu**.
 
-5. Abre uma nova janela do browser. Na consola, introduza o seguinte comando:
+5. É aberta uma nova janela do browser. Na consola, introduza o seguinte comando:
 
     ```
     cd site\wwwroot && npm install
     ```
 
-    Aguarde que o processo de instalação concluir. Devolver a primeira janela de browser. 
+    Aguarde o conclusão do processo de instalação. Regresse à janela de browser da primeira. 
 
-## <a name="test-in-web-chat"></a>Teste no Chat na Web
-Depois do bot estiver registado, selecione **teste na Web Chat** para abrir o painel de Chat de Web. Escreva "Olá" no Web Chat.
+## <a name="test-in-web-chat"></a>Teste na Web Chat
+Depois do bot é registrado, selecione **teste na Web Chat** para abrir o painel de Web Chat. Escreva "Olá" na Web Chat.
 
-  ![Testar o bot Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
+  ![Testar o bot em Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
-O bot responde ao indicar "atingiu a saudação. Que consiga aceder tal: Olá ". Isto confirma que o bot recebeu a mensagem e transmitido-la a uma predefinição LUIS aplicação que tenha criado. Esta predefinição LUIS aplicação detetada uma intenção de saudação. No próximo passo, vai ligar a bot para a aplicação de LUIS que criou anteriormente, em vez do predefinido LUIS aplicação.
+O bot responde, dizendo "atingiu uma saudação. Disse: hello ". Isto confirma que o bot tem recebido sua mensagem e passou-lo a uma aplicação do LUIS que ele criou a predefinição. Este padrão de aplicação LUIS detetou uma intenção de saudação. No próximo passo, vai ligar o bot para a aplicação do LUIS que criou anteriormente em vez do padrão de aplicação LUIS.
 
-## <a name="connect-your-luis-app-to-the-bot"></a>Ligar a aplicação de LUIS para o bot
+## <a name="connect-your-luis-app-to-the-bot"></a>Ligar a sua aplicação LUIS para o bot
 
-Abra **definições da aplicação** na primeira janela do browser e editar o **LuisAppId** campo para conter o ID da sua aplicação LUIS.
+Open **as configurações do aplicativo** na janela de browser da primeira e editar a **LuisAppId** campo para conter o ID da sua aplicação LUIS.
 
   ![Atualizar o ID da aplicação LUIS no Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-Se não tiver o ID da aplicação LUIS, inicie sessão para o [LUIS](luis-reference-regions.md) Web site com a mesma conta que utiliza para iniciar sessão no Azure. Selecione em **as minhas aplicações**. 
+Se não tiver o ID de aplicação do LUIS, inicie sessão para o [LUIS](luis-reference-regions.md) Web site com a mesma conta que utiliza para iniciar sessão no Azure. Selecione no **as minhas aplicações**. 
 
-1. Localize a aplicação LUIS que criou anteriormente, que contém as entidades do domínio HomeAutomation e pendentes.
+1. Localize a aplicação do LUIS que criou anteriormente, que contém as intenções e entidades do domínio HomeAutomation.
 
-2. No **definições** página para a aplicação de LUIS, localizar e copie o ID de aplicação.
+2. Na **definições** página da aplicação do LUIS, localize e copie o ID da aplicação.
 
-3. Se ainda não preparado a aplicação, selecione o **preparar** botão no canto superior direito para preparar a sua aplicação.
+3. Se ainda não tiver preparado a aplicação, selecione o **treinar** botão no canto superior direito para preparar a sua aplicação.
 
-4. Se não tiver publicado a aplicação, selecione **publicar** na barra de navegação superior para abrir o **publicar** página. Selecione a ranhura de produção e o **publicar** botão.
+4. Se ainda não tiver publicado a aplicação, selecione **PUBLISH** na barra de navegação superior para abrir o **Publish** página. Selecione o bloco Production (Produção) e o botão **Publish** (Publicar).
 
 ## <a name="modify-the-bot-code"></a>Modificar o código de bot
 
-Ir para a janela de browser segundo esteja ainda abrir ou na primeira janela de browser, selecione **criar** e, em seguida, selecione **editor de código online abra**.
+Vá para a segunda janela de browser, se estiver ainda abrir ou na primeira janela de browser, selecione **crie** e, em seguida, selecione **editor de código online aberto**.
 
-   ![Editor de código aberto de online](./media/luis-tutorial-node-bot/bot-service-build.png)
+   ![Editor de código online aberto](./media/luis-tutorial-node-bot/bot-service-build.png)
 
-No editor de código, abra `app.js`. Contém o seguinte código:
+No editor de código, abra `app.js`. Contém o código a seguir:
 
 ```javascript
 /*-----------------------------------------------------------------------------
@@ -196,11 +196,11 @@ bot.dialog('CancelDialog',
 })
 ```
 
-Os pendentes existentes no app.js são ignorados. Pode deixá-los. 
+Os objetivos existentes no App. js são ignorados. Pode deixá-los. 
 
-## <a name="add-a-dialog-that-matches-homeautomationturnon"></a>Adicionar uma caixa de diálogo que corresponda ao HomeAutomation.TurnOn
+## <a name="add-a-dialog-that-matches-homeautomationturnon"></a>Adicionar uma caixa de diálogo que corresponde ao HomeAutomation.TurnOn
 
-Copie o seguinte código e adicione-o a `app.js`.
+Copie o código seguinte e adicione-o a `app.js`.
 
 ```javascript
 bot.dialog('TurnOn',
@@ -213,11 +213,11 @@ bot.dialog('TurnOn',
 })
 ```
 
-O [corresponde ao] [ matches] opção o [triggerAction] [ triggerAction] ligado para a caixa de diálogo Especifica o nome da intenção de. O reconhecedor é executada sempre que o bot recebe um utterance do utilizador. Se corresponder a intenção de classificação mais elevada que Deteta um `triggerAction` vinculada a uma caixa de diálogo, o bot invoca essa caixa de diálogo.
+O [corresponde ao] [ matches] opção o [triggerAction] [ triggerAction] anexados a caixa de diálogo Especifica o nome da intenção. O reconhecedor é executado sempre que o bot recebe uma expressão do usuário. Se corresponder a intenção de classificação mais elevada que Deteta um `triggerAction` ligado a uma caixa de diálogo, o bot invoca essa caixa de diálogo.
 
-## <a name="add-a-dialog-that-matches-homeautomationturnoff"></a>Adicionar uma caixa de diálogo que corresponda ao HomeAutomation.TurnOff
+## <a name="add-a-dialog-that-matches-homeautomationturnoff"></a>Adicionar uma caixa de diálogo que corresponde ao HomeAutomation.TurnOff
 
-Copie o seguinte código e adicione-o a `app.js`.
+Copie o código seguinte e adicione-o a `app.js`.
 
 ```javascript
 bot.dialog('TurnOff',
@@ -231,26 +231,26 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>Testar o bot
 
-No Portal do Azure, selecione em **testar na Web Chat** para testar o bot. Tente mensagens do tipo like "ativar os lights" e "desligar a meu heater" invocar pendentes que adicionou ao mesmo.
-   ![Testar HomeAutomation bot Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
+No Portal do Azure, selecione no **teste na Web Chat** para testar o bot. Experimente as mensagens do tipo like "ligar as luzes" e "desativar a minha heater" invocar dos objetivos que adicionou à mesma.
+   ![Testar HomeAutomation bot em Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS, concedendo-la mais utterances de exemplo para prepará-lo. Pode a reparametrização dos aplicação LUIS sem qualquer modificação ao código da sua bot. Consulte [adicionar utterances exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [dar formação e testar a aplicação de LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS ao dar a ele mais expressões de exemplo formá-lo. Pode voltar a preparar a aplicação do LUIS sem quaisquer modificações ao código de seu bot. Ver [adicionar expressões de exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [treinar e testar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
-## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre a arquitetura de Bot
-Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e [3](https://github.com/Microsoft/BotBuilder) e [4. x](https://github.com/Microsoft/botbuilder-js) SDKs.
+## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre arquitetura de Bot
+Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e o [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-js) SDKs.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Pode tentar adicionar outros pendentes, como obter ajuda, Cancelar e a saudação inicial, para a aplicação de LUIS. Em seguida, adicionar as caixas de diálogo para os novo pendentes e teste-los utilizando o bot. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Pode tentar adicionar outras intenções, como o ajuda, Cancelar e saudação, para a aplicação do LUIS. Em seguida, adicione caixas de diálogo para as novo intenções e testá-los com o bot. 
 
 <!-- 
 > [!NOTE] 
 > The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. -->
 
 > [!div class="nextstepaction"]
-> [Adicionar pendentes](./luis-how-to-add-intents.md)
-> [priming de reconhecimento de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+> [Adicionar intenções](./luis-how-to-add-intents.md)
+> [priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 
 
 [intentDialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html

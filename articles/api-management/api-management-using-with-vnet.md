@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 11af7a7a8acde263ad278239546e145245343581
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 067404193507f9787c994e82267679737ebe4832
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437200"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145422"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -111,7 +111,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente para gestão de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e Powershell |Interno |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Dependência do armazenamento do Azure**, Service bus do Azure e Azure Active Directory (quando aplicável).|Externo e interno |
-| * / 1433 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso a pontos finais do SQL do Azure** |Externo e interno |
+| * / 1433 |Saída |TCP |VIRTUAL_NETWORK / SQL|**Acesso a pontos finais do SQL do Azure** |Externo e interno |
 | * / 5672 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência para o registo de política do Hub de eventos e o agente de monitorização |Externo e interno |
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência na partilha de ficheiros do Azure para o GIT |Externo e interno |
 | * / 1886 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Necessário para publicar o estado de funcionamento para Estado de funcionamento do recurso |Externo e interno |

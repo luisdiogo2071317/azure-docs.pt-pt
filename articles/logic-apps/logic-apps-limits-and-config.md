@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8baca0fc46489a22d587ba6e742615b1da79c19a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7726d7eae2d9b3a37ffc141e4a4cbdc9a1af459c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970232"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145042"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -79,9 +79,9 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Iterações until | 5.000 | | 
-| Itens ForEach | 100,000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme necessário. | 
+| Itens ForEach | 100.000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme necessário. | 
 | Paralelismo ForEach | 50 | A predefinição é 20. <p>Para alterar esse nível de predefinição num loop ForEach, defina o `runtimeConfiguration` propriedade o `foreach` ação. <p>Para executar sequencialmente um loop ForEach, defina o `operationOptions` propriedade como "Sequencial" no `foreach` ação. | 
-| Itens SplitOn | 100,000 | | 
+| Itens SplitOn | 100.000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -92,7 +92,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 | Nome | Limite | Notas | 
 | ----- | ----- | ----- | 
-| Execuções de ações por 5 minutos | 100,000 | Para aumentar o limite para 300.000, pode executar uma aplicação lógica no `High Throughput` modo. Para configurar em modo de alto débito, o `runtimeConfiguration` de recurso do fluxo de trabalho, defina o `operationOptions` propriedade para `OptimizedForHighThroughput`. <p>**Tenha em atenção**: modo de alto débito está em pré-visualização. Além disso, pode distribuir uma carga de trabalho em mais do que uma aplicação conforme necessário. | 
+| Execuções de ações por 5 minutos | 100.000 | Para aumentar o limite para 300.000, pode executar uma aplicação lógica no `High Throughput` modo. Para configurar em modo de alto débito, o `runtimeConfiguration` de recurso do fluxo de trabalho, defina o `operationOptions` propriedade para `OptimizedForHighThroughput`. <p>**Tenha em atenção**: modo de alto débito está em pré-visualização. Além disso, pode distribuir uma carga de trabalho em mais do que uma aplicação conforme necessário. | 
 | Chamadas de saída simultâneas de ações | ~2,500 | Reduza o número de pedidos simultâneos ou reduza a duração, conforme necessário. | 
 | Ponto final de tempo de execução: chamadas simultâneas de entrada | ~1,000 | Reduza o número de pedidos simultâneos ou reduza a duração, conforme necessário. | 
 | Ponto final de tempo de execução: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
@@ -302,8 +302,8 @@ Para suportar as chamadas que [conectores](../connectors/apis-list.md) make, con
 | Leste da Austrália | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
 | Sudeste da Austrália | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
 | Sul do Brasil | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
-| Canadá Central | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
-| Leste do Canadá | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Canadá Central | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13, 52.233.26.83 | 
+| Leste do Canadá | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52, 52.229.120.131 | 
 | Índia Central | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
 | EUA Central | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
 | Ásia Oriental | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
@@ -316,13 +316,13 @@ Para suportar as chamadas que [conectores](../connectors/apis-list.md) make, con
 | EUA Centro-Sul | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
 | Sul da Índia | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
 | Sudeste Asiático | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
-| EUA Centro-Oeste | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| EUA Centro-Oeste | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
 | Europa Ocidental | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
 | Índia Ocidental | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
 | EUA Oeste | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
-| EUA Oeste 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
-| Reino Unido Sul | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
-| Reino Unido Oeste | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
+| EUA Oeste 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
+| Reino Unido Sul | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 
+| Reino Unido Oeste | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Passos Seguintes  

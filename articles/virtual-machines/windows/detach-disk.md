@@ -1,6 +1,6 @@
 ---
-title: Desligar um disco de dados de uma VM do Windows - Azure | Microsoft Docs
-description: Saiba como desligar um disco de dados de uma máquina virtual no Azure utilizando o modelo de implementação Resource Manager.
+title: Desanexar um disco de dados de uma VM do Windows - Azure | Documentos da Microsoft
+description: Desanexe um disco de dados de uma máquina virtual no Azure com o modelo de implementação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,54 +13,54 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 07/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e56e9ce22cc9e2bad75c944c20bff812d8720d18
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7a8221ff624e774901b02672cd95230f40727639
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913506"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144259"
 ---
-# <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desligar um disco de dados de máquina virtual do Windows
-Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Remove o disco da máquina virtual, mas não o remover do armazenamento.
+# <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Windows
+
+Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Isso remove o disco da máquina virtual, mas não o remove do armazenamento.
 
 > [!WARNING]
-> Se desanexar um disco que não é eliminado automaticamente. Se tiver subscrito para o Premium storage, continuará a implicar custos de armazenamento para o disco. Para obter mais informações, consulte [preços e faturação quando utilizar o Premium Storage](premium-storage.md#pricing-and-billing).
+> Se desligar um disco que não é eliminado automaticamente. Se tiver inscrito para o armazenamento Premium, continuará a incorrer em custos de armazenamento para o disco. Para obter mais informações, consulte [preços e faturação quando utiliza o armazenamento Premium](premium-storage.md#pricing-and-billing).
 >
 >
 
 Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma máquina virtual ou a outra.
 
-## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados com o portal
 
-1. No menu à esquerda, selecione **máquinas virtuais**.
-2. Selecione a máquina virtual que tenha o disco de dados que pretende desanexar e clique em **parar** ao anular atribuição de VM.
-3. No painel de máquina virtual, selecione **discos**.
-4. Na parte superior do **discos** painel, selecione **editar**.
-5. No **discos** painel, na extremidade direita do disco de dados que pretende desanexar, clique em de ![imagem do botão de anulação de exposições](./media/detach-disk/detach.png) exposição do botão.
-5. Depois do disco foi removido, clique em **guardar** no topo do painel.
-6. No painel da máquina virtual, clique em **descrição geral** e, em seguida, clique em de **iniciar** botão na parte superior do painel para reiniciar a VM.
+## <a name="detach-a-data-disk-using-powershell"></a>Desanexar um disco de dados com o PowerShell
 
+Pode *frequente* remover um disco de dados com o PowerShell, mas certifique-se de que nada é ativamente a utilizar o disco antes de desligá-lo a partir da VM.
 
+Neste exemplo, podemos remover o disco com o nome **myDisk** da VM **myVM** no **myResourceGroup** grupo de recursos. Primeiro de remover o disco com o [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet. Em seguida, atualize o estado da máquina virtual, utilizando o [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet, para concluir o processo de remover o disco de dados.
+
+```azurepowershell-interactive
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+```
 
 O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
-## <a name="detach-a-data-disk-using-powershell"></a>Desligar um disco de dados com o PowerShell
-Neste exemplo, o primeiro comando obtém a máquina virtual com o nome **MyVM07** no **RG11** grupo de recursos utilizando o [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet e armazena-na **$VirtualMachine** variável.
 
-A segunda linha remove o disco de dados com o nome DataDisk3 da máquina virtual utilizando o [remover AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet.
+## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados com o portal
 
-A terceira linha atualiza o estado da máquina virtual, utilizando o [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet, para concluir o processo de remover o disco de dados.
+1. No menu da esquerda, selecione **máquinas virtuais**.
+2. Selecione a máquina virtual que tem o disco de dados que pretende desanexar e clique em **parar** ao desalocar a VM.
+3. No painel da máquina virtual, selecione **discos**.
+4. Na parte superior a **discos** painel, selecione **editar**.
+5. Na **discos** painel, na extrema direita do disco de dados que pretende desanexar, clique nas ![imagem do botão de anulação de exposições](./media/detach-disk/detach.png) desanexar o botão.
+5. Depois do disco tiver sido removido, clique em **guardar** na parte superior do painel.
+6. No painel da máquina virtual, clique em **descrição geral** e, em seguida, clique nas **iniciar** botão na parte superior do painel para reiniciar a VM.
 
-```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
-```
-
-Para obter mais informações, consulte [remover AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
+O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se pretender reutilizar o disco de dados, pode apenas [anexe-o para outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Se quiser reutilizar o disco de dados, simplesmente [anexá-lo a outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757232"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144939"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual
 
@@ -40,38 +40,40 @@ Os passos que se seguem partem do princípio de que tem uma VM existente para ve
 2. Na parte superior do portal do Azure, introduza o nome da VM na caixa de pesquisa. Quando o nome da VM for apresentada nos resultados da pesquisa, selecione-o.
 3. Sob **configurações**, selecione **Networking**, conforme mostrado na imagem seguinte:
 
-    ![Ver regras de segurança](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Ver regras de segurança](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    As regras que vê listadas na imagem anterior são para uma interface de rede com o nome **myVMVMNic**. Ver o que há **regras de porta de entrada** para a interface de rede de dois grupos de segurança de rede diferente:- **mySubnetNSG**: associado à sub-rede que está a interface de rede.
-        - **myVMNSG**: associado à interface de rede na VM com o nome **myVMVMNic**.
+   As regras que vê listadas na imagem anterior são para uma interface de rede com o nome **myVMVMNic**. Ver o que há **regras de porta de entrada** para a interface de rede de dois grupos de segurança de rede diferente:
+   
+   - **mySubnetNSG**: associado à sub-rede que está a interface de rede.
+   - **myVMNSG**: associado à interface de rede na VM com o nome **myVMVMNic**.
 
-    A regra com o nome **DenyAllInBound** é o que está a impedir comunicação de entrada para a VM através da porta 80, a internet, conforme descrito no [cenário](#scenario). As listas de regra *0.0.0.0/0* para **origem**, que inclui a internet. Nenhuma outra regra com prioridade mais alta (número mais baixo) permite que a porta 80 entrada. Para permitir que a porta 80 para a VM de entrada da internet, consulte [resolver um problema](#resolve-a-problem). Para saber mais sobre as regras de segurança e como o Azure aplica-as, veja [grupos de segurança de rede](security-overview.md).
+   A regra com o nome **DenyAllInBound** é o que está a impedir comunicação de entrada para a VM através da porta 80, a internet, conforme descrito no [cenário](#scenario). As listas de regra *0.0.0.0/0* para **origem**, que inclui a internet. Nenhuma outra regra com prioridade mais alta (número mais baixo) permite que a porta 80 entrada. Para permitir que a porta 80 para a VM de entrada da internet, consulte [resolver um problema](#resolve-a-problem). Para saber mais sobre as regras de segurança e como o Azure aplica-as, veja [grupos de segurança de rede](security-overview.md).
 
-    Na parte inferior da imagem, verá também **regras de porta de saída**. Em que são as regras de porta de saída para a interface de rede. Embora a figura mostra apenas quatro regras de entrada para cada NSG, seus NSGs podem ter muitas regras mais de quatro. Na imagem, veja **VirtualNetwork** sob **origem** e **destino** e **AzureLoadBalancer** em  **ORIGEM**. **VirtualNetwork** e **AzureLoadBalancer** são [etiquetas de serviço](security-overview.md#service-tags). Etiquetas de serviço representam um grupo de prefixos de endereços IP para o ajudar a minimizar a complexidade para a criação de regra de segurança.
+   Na parte inferior da imagem, verá também **regras de porta de saída**. Em que são as regras de porta de saída para a interface de rede. Embora a figura mostra apenas quatro regras de entrada para cada NSG, seus NSGs podem ter muitas regras mais de quatro. Na imagem, veja **VirtualNetwork** sob **origem** e **destino** e **AzureLoadBalancer** em  **ORIGEM**. **VirtualNetwork** e **AzureLoadBalancer** são [etiquetas de serviço](security-overview.md#service-tags). Etiquetas de serviço representam um grupo de prefixos de endereços IP para o ajudar a minimizar a complexidade para a criação de regra de segurança.
 
 4. Certifique-se de que a VM está em execução, estadual e, em seguida, selecione **regras de segurança efetivas**, conforme mostrado na imagem anterior, para ver as regras de segurança efetivas, mostradas na imagem seguinte:
 
-    ![Ver regras de segurança efetivas](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Ver regras de segurança efetivas](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    As regras listadas são que as mesmas conforme vimos na passo 3, embora haja guias diferentes para o NSG associado à interface de rede e a sub-rede. Como pode ver na imagem, são apresentadas apenas as 50 primeiras regras. Para transferir um ficheiro. csv que contém todas as regras, selecione **transferir**.
+   As regras listadas são que as mesmas conforme vimos na passo 3, embora haja guias diferentes para o NSG associado à interface de rede e a sub-rede. Como pode ver na imagem, são apresentadas apenas as 50 primeiras regras. Para transferir um ficheiro. csv que contém todas as regras, selecione **transferir**.
 
-    Para ver os prefixos que cada etiqueta de serviço representa, selecione uma regra, tal como a regra com o nome **AllowAzureLoadBalancerInbound**. A imagem seguinte mostra os prefixos para o **AzureLoadBalancer** etiqueta de serviço:
+   Para ver os prefixos que cada etiqueta de serviço representa, selecione uma regra, tal como a regra com o nome **AllowAzureLoadBalancerInbound**. A imagem seguinte mostra os prefixos para o **AzureLoadBalancer** etiqueta de serviço:
 
-    ![Ver regras de segurança efetivas](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Ver regras de segurança efetivas](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    Embora o **AzureLoadBalancer** etiquetas de serviço apenas representam um prefixo, outras etiquetas de serviço representam vários prefixos.
+   Embora o **AzureLoadBalancer** etiquetas de serviço apenas representam um prefixo, outras etiquetas de serviço representam vários prefixos.
 
-4. Os passos anteriores mostraram as regras de segurança para uma interface de rede com o nome **myVMVMNic**, mas também viu uma interface de rede com o nome **myVMVMNic2** em algumas das imagens anteriores. A VM neste exemplo tem duas interfaces de rede ligados ao mesmo. As regras de segurança efetivas podem ser diferentes para cada interface de rede.
+5. Os passos anteriores mostraram as regras de segurança para uma interface de rede com o nome **myVMVMNic**, mas também viu uma interface de rede com o nome **myVMVMNic2** em algumas das imagens anteriores. A VM neste exemplo tem duas interfaces de rede ligados ao mesmo. As regras de segurança efetivas podem ser diferentes para cada interface de rede.
 
-    Para ver as regras para o **myVMVMNic2** interface de rede, selecione-o. Como mostrado na imagem que se segue, a interface de rede tem as mesmas regras associadas à sua sub-rede como a **myVMVMNic** interface, de rede, uma vez que ambas as interfaces de rede estão na mesma sub-rede. Quando associa um NSG a uma sub-rede, as suas regras são aplicadas a todas as interfaces de rede na sub-rede.
+   Para ver as regras para o **myVMVMNic2** interface de rede, selecione-o. Como mostrado na imagem que se segue, a interface de rede tem as mesmas regras associadas à sua sub-rede como a **myVMVMNic** interface, de rede, uma vez que ambas as interfaces de rede estão na mesma sub-rede. Quando associa um NSG a uma sub-rede, as suas regras são aplicadas a todas as interfaces de rede na sub-rede.
 
-    ![Ver regras de segurança](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Ver regras de segurança](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    Ao contrário do **myVMVMNic** interface de rede, o **myVMVMNic2** interface de rede não tem um grupo de segurança de rede associado à mesma. Cada interface de rede e sub-rede podem ter zero ou um NSG associado a si. O NSG associado a cada interface de rede ou sub-rede pode ser o mesmo, ou em diferentes. Pode associar o mesmo grupo de segurança de rede a tantas interfaces de rede e sub-redes que escolher.
+   Ao contrário do **myVMVMNic** interface de rede, o **myVMVMNic2** interface de rede não tem um grupo de segurança de rede associado à mesma. Cada interface de rede e sub-rede podem ter zero ou um NSG associado a si. O NSG associado a cada interface de rede ou sub-rede pode ser o mesmo, ou em diferentes. Pode associar o mesmo grupo de segurança de rede a tantas interfaces de rede e sub-redes que escolher.
 
-Apesar de regras de segurança efetivas foram visualizadas através da VM, também pode ver as regras de segurança efetivas por meio de um:
-- **Interface de rede individuais**: Saiba como [exibir uma interface de rede](virtual-network-network-interface.md#view-network-interface-settings).
-- **Individual NSG**: Saiba como [ver um NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+Apesar de regras de segurança efetivas foram visualizadas através da VM, também pode ver as regras de segurança efetivas por meio de um indivíduo:
+- **Interface de rede**: Saiba como [exibir uma interface de rede](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG**: Saiba como [ver um NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnosticar a utilizar o PowerShell
 
