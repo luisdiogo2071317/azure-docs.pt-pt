@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 677f0e0f17191feb560ac5e9bb72a058e385084d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309918"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185835"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub com .NET
 
@@ -25,7 +25,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dis
 - Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
 - Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
 
-O [introdução ao IoT Hub](iot-hub-csharp-csharp-getstarted.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens de processo dispositivo-para-Cloud](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
+O [introdução ao IoT Hub](quickstart-send-telemetry-dotnet.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens de processo dispositivo-para-Cloud](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contêm imagens
 * Vídeos

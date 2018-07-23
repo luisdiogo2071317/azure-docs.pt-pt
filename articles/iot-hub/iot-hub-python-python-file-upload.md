@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb5e7ce608f434bd880baae4d6780dd5038099f8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299149"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187221"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
@@ -25,7 +25,7 @@ Este tutorial segue como utilizar o [carregamento de recursos do IoT Hub do fich
 - Fornece com segurança a um contentor de armazenamento para carregar um ficheiro.
 - Utilize o cliente Python para carregar um ficheiro através do IoT hub.
 
-O [introdução ao IoT Hub](iot-hub-node-node-getstarted.md) tutorial demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Quando precisar de upland arquivos de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
+O [introdução ao IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Quando precisar de upland arquivos de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
 
 > [!NOTE]
 > SDK de Python do Hub IoT atualmente suporta apenas como a carregar arquivos baseados em caracteres **. txt** ficheiros.

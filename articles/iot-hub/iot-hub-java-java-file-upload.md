@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 165c6ed53b611ba6b4f56260f20069661cf22da7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619408"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186564"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
@@ -25,7 +25,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dis
 - Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
 - Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
 
-O [introdução ao IoT Hub](iot-hub-java-java-getstarted.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens de processo dispositivo-para-Cloud](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
+O [introdução ao IoT Hub](quickstart-send-telemetry-java.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [mensagens de processo dispositivo-para-Cloud](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contêm imagens
 * Vídeos
