@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968960"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185895"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualizar dados de monitorização remotos com o Time Series Insights
 
@@ -23,7 +23,7 @@ Um operador pode desejar estender ainda mais o fora dos dados de caixa de visual
 
 Para concluir este procedimentos, terá o seguinte:
 
-* [Implementar a solução pré-configurada de monitorização remota](iot-accelerators-remote-monitoring-deploy.md)
+* [Implementar a solução pré-configurada de monitorização remota](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 

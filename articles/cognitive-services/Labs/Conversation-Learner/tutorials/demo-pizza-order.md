@@ -1,7 +1,7 @@
 ---
-title: Demonstração de aplicação de conversação Learner ordem pizza - serviços cognitivos Microsoft | Microsoft Docs
+title: Modelo de aprendiz de conversação de demonstração, a ordem de pizza - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como criar uma aplicação de conversação Learner de demonstração.
+description: Saiba como criar um modelo de aprendiz de conversação de demonstração.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,97 +10,101 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99cd89c4f4430f2d65ed0963e3092d51a83842d7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354122"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171389"
 ---
 # <a name="demo-pizza-order"></a>Demonstração: Ordem de Pizza
-Esta demonstração ilustra uma pizza ordenação bot. Suporta a ordenação de um único pizza com esta funcionalidade:
+Essa demonstração ilustra uma bot de pedido de pizza. Ele oferece suporte a ordenação de uma única pizza com esta funcionalidade:
 
-- reconhecer toppings pizza no utterances de utilizador
-- a verificar se pizza toppings são no gráfico de cotações ou fora do gráfico de cotações e adequadamente a responder
-- memorizar toppings pizza de uma ordem anterior e ao - iniciar uma nova ordem com os mesmos toppings da oferta
+- RECONHECENDO sabores de pizza em expressões de utilizador
+- a verificar se sabores de pizza são em estoque ou fora de estoque e responder adequadamente
+- memorizar sabores de pizza de um pedido anterior e oferta para - iniciar uma nova encomenda com os mesmo sabores
+
+## <a name="video"></a>Vídeo
+
+[![Pré-visualização de Pizza de demonstração](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial, necessita que o bot de ordem pizza está em execução
+Este tutorial requer que o bot de ordem de pizza está em execução
 
     npm run demo-pizza
 
 ### <a name="open-the-demo"></a>Abra a demonstração
 
-Na lista de aplicações a IU da web, clique em TutorialDemo Pizza ordem. 
+Na lista de modelo da IU da web, clique no pedido de Pizza TutorialDemo. 
 
 ## <a name="entities"></a>Entidades
 
-Foi criado três entidades.
+Criou três entidades.
 
-- Toppings: serão acumuladas toppings pedido ao utilizador para. Inclui os toppings válidos que se encontrem no gráfico de cotações. Verifica se um topping está dentro ou fora do gráfico de cotações.
-- OutofStock: Isto é utilizado para comunicar novamente para o utilizador que os respetivos topping selecionado não se encontra no gráfico de cotações.
-- LastToppings: depois de uma ordem é colocada, esta entidade é utilizada para oferecer ao utilizador a lista de toppings na respetiva ordem.
+- Sabores: esta entidade serão acumuladas sabores pedida ao utilizador. Ele inclui os sabores válidos que estão em estoque. Ele verifica se um sabor é em ou fora de estoque.
+- OutofStock: esta entidade é utilizada para comunicar ao usuário que os ingredientes selecionado não está em estoque.
+- LastToppings: quando uma ordem seja feita, esta entidade é usada para oferecer ao usuário a lista de sabores em sua ordem.
 
 ![](../media/tutorial_pizza_entities.PNG)
 
 ### <a name="actions"></a>Ações
 
-Foi criado um conjunto de ações pedir ao utilizador que pretende no seu pizza, informar sobre o que que tenha adicionado até ao momento, etc.
+Criou um conjunto de ações, incluindo a pedir ao utilizador, o que eles querem em seus pizza, informar sobre o que eles adicionaram até aqui, e assim por diante.
 
-Também existem dois chamadas de API:
+Há também duas chamadas de API:
 
-- FinalizeOrder: colocar a ordem para a pizza
-- UseLastToppings: migrar os toppings de ordem anterior 
+- FinalizeOrder: para fazer o pedido para a pizza
+- UseLastToppings: migrar os sabores de ordem anterior 
 
 ![](../media/tutorial_pizza_actions.PNG)
 
-### <a name="training-dialogs"></a>Caixas de diálogo de formação
-Definiu alguns a caixas de diálogo de formação. 
+### <a name="training-dialogs"></a>Caixas de diálogo de treinamento
+Definiu um punhado de caixas de diálogo de treinamento. 
 
 ![](../media/tutorial_pizza_dialogs.PNG)
 
 Por exemplo, vamos tentar uma sessão de ensino.
 
-1. Clique em caixas de diálogo de formação, caixa de diálogo de formação, em seguida, novo.
-1. Introduza um pizza de ordem.
+1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
+1. Introduza 'order uma pizza'.
 2. Clique em ação de pontuação.
-3. Clique para selecionar "que gostaria no seu pizza?"
-4. Introduza 'mushrooms e cheese'.
-    - Tenha em atenção LUIS tem etiquetadas ambos como Toppings. Se não estava correto, que foi clique para realçar e corrigi-lo.
-    - O sinal '+' junto a entidade significa que está a ser adicionado ao conjunto de toppings.
+3. Clique para selecionar "o que deseja no seu pizza?"
+4. Introduza 'cresce e aprecia o queijo'.
+    - Observe que o LUIS tem o nome ambas como sabores. Se não tiver sido correto, que poderia clique para realçar e corrigi-lo.
+    - O sinal "+" junto a entidade significa que está a ser adicionado ao conjunto de sabores.
 5. Clique em ações de pontuação.
-    - Tenha em atenção mushrooms e cheese não estão na memória para Toppings.
-3. Clique para seleccionar 'tiver $Toppings no seu pizza'
-    - Tenha em atenção de que este é uma ação não espera, pelo que o bot pedirá para a ação seguinte.
-6. Selecione "Gostaria há mais alguma coisa?"
-7. Introduza 'Remover mushrooms e adicionar peppers'.
-    - Tenha em atenção **mushroom** tem um '-' sessão junto ao mesmo para o mesmo seja removida. E peppers tem '+' para o adicionar ao toppings.
+    - Tenha em atenção `mushrooms` e `cheese` não estão na memória para sabores.
+3. Clique para selecionar 'tiver $Toppings no seu pizza'
+    - Observe que se trata de uma ação de não-espera, para que o bot irá pedir para a próxima ação.
+6. Selecione "Gostaria que qualquer outra coisa?"
+7. Introduza "Remover cresce e adicionar peppers".
+    - Tenha em atenção `mushroom` tem um "-" início de sessão, junto ao mesmo, para que ele seja removido. E `peppers` tem um sinal "+" junto ao mesmo, adicioná-lo para os sabores.
 2. Clique em ação de pontuação.
-    - Tenha em atenção **peppers** está agora em negrito dado que há de novo. E **mushrooms** foi ultrapassado.
-8. Clique para seleccionar 'tiver $Toppings no seu pizza'
-6. Selecione "Gostaria há mais alguma coisa?"
-7. Introduza 'Adicionar peas'.
-    - Peas são um exemplo de um topping que está fora do gráfico de cotações. Tenha em atenção de que ainda é denominado como um topping.
+    - Tenha em atenção `peppers` está agora em negrito, pois há de novo. E `mushrooms` foi ultrapassado.
+8. Clique para selecionar 'tiver $Toppings no seu pizza'
+6. Selecione "Gostaria que qualquer outra coisa?"
+7. Introduza "Adicionar peas".
+    - `Peas` é um exemplo de um sabor que está fora de estoque. Ele ainda tem o nome como um sabor.
 2. Clique em ação de pontuação.
-    - Peas aparecem como OutOfStock.
-    - Para ver como isto aconteceu, vamos abrir o código no c:\<\installedpath > \src\demos\demoPizzaOrder.ts. E anote o método EntityDetectionCallback. Este método é denominado após cada topping para ver se está no gráfico de cotações. Caso contrário, é limpa-lo do conjunto de toppings e adiciona à entidade OutOfStock. A variável inStock está definida acima esse método de que tem a lista de toppings no gráfico de cotações.
+    - `Peas` aparece como OutOfStock.
+    - Para ver como isso aconteceu, abra o código em `C:\<\installedpath>\src\demos\demoPizzaOrder.ts`. Ver o método EntityDetectionCallback. Este método é chamado após cada sabor para ver se está em estoque. Caso contrário, ele limpa-lo a partir do conjunto de sabores e adiciona à entidade OutOfStock. A variável inStock é definida acima desse método que tem a lista de sabores de estoque.
 6. Selecione 'Não temos $OutOfStock'.
-7. Selecione "Gostaria há mais alguma coisa?"
-8. Introduza 'Nenhum'.
+7. Selecione "Gostaria que qualquer outra coisa?"
+8. Introduza "não".
 9. Clique em ação de pontuação.
-10. Selecione a chamada de 'FinalizeOrder' API. 
-    - Isto irá chamar a função de 'FinalizeOrder' definida no código. Isto limpa toppings e devolve 'a ordem é o caminho'. 
-2. Introduza 'order outro'. Iremos estiver a iniciar uma nova ordem.
+10. Selecione a chamada de "FinalizeOrder" API. 
+    - Isso chamará a função de 'FinalizeOrder' definida no código. Isto limpa sabores e retorna 'seu pedido está a caminho'. 
+2. Introduza 'order outro'. Estamos a começar um novo pedido.
 9. Clique em ação de pontuação.
-    - Tenha em atenção cheese e peppers são na memória do que toppings da última ordem.
-1. Selecione 'Gostaria $LastToppings'.
-2. Introduza 'yes'
+    - 'queijo' e 'peppers' estão na memória como sabores da ordem de última.
+1. Selecione 'Gostaria que $LastToppings'.
+2. Introduza "Sim"
 3. Clique em ação de pontuação.
-    - O bot pretende executar a ação de UseLastToppings. Este é o segundo os dois métodos de chamada de retorno. Este irá copiar toppings a ordem último para toppings e limpar toppings último. Esta é uma forma de memorizar a último ordem e se o utilizador indica que pretendem pizza outro, fornecer esses toppings como opções.
-2. Clique para seleccionar 'tiver $Toppings no seu pizza'.
-3. Selecione "Gostaria há mais alguma coisa?"
-8. Introduza 'Nenhum'.
-4. Clique em concluído de ensino.
+    - O bot quer tome as medidas de UseLastToppings. Esta é a segunda dos dois métodos de retorno de chamada. Ele irá copiar sabores a última ordem para sabores e limpar sabores último. Essa é uma maneira de memorizar a última ordem e, se o usuário disser que desejam pizza outro, fornecendo esses sabores como opções.
+2. Clique para selecionar 'tiver $Toppings no seu pizza'.
+3. Selecione "Gostaria que qualquer outra coisa?"
+8. Introduza "não".
+4. Clique em concluído ensino.
 
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
@@ -109,4 +113,4 @@ Por exemplo, vamos tentar uma sessão de ensino.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Demonstração - iniciador da aplicação VR](./demo-vr-app-launcher.md)
+> [Demonstração - iniciador de aplicações VR](./demo-vr-app-launcher.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d3c0cad8743869c904db38e089cbaa28b237ed56
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114884"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185817"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar uma identidade de serviço gerido da VM com um modelo
 
@@ -33,6 +33,10 @@ Neste artigo, aprenderá a efetuar as seguintes operações de identidade do ser
 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar uma VM e ativar e remover sistema atribuído a identidade gerida a partir de uma VM do Azure.
+    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador.
+    - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para atribuir e remover uma identidade de utilizador atribuída de e para uma VM.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -51,7 +55,7 @@ Nesta secção, irá ativar e desativar um sistema de identidade com um modelo A
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Ativar o sistema de identidade atribuído durante a criação de uma VM do Azure ou numa VM existente
 
-1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se também que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM (por exemplo, a função de "Contribuinte de Máquina Virtual").
+1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM.
 
 2. Depois de carregar o modelo num editor, localize a `Microsoft.Compute/virtualMachines` recursos de interesse no `resources` secção. Sua poderá parecer ligeiramente diferente da captura de ecrã seguinte, consoante o editor que estiver a utilizar e se estiver a editar um modelo para uma implementação novo ou existente.
 
@@ -105,7 +109,7 @@ Nesta secção, irá ativar e desativar um sistema de identidade com um modelo A
 
 Depois de ativar uma identidade de sistema atribuída na sua VM, poderá ser útil para o conceder uma função como **leitor** acesso ao grupo de recursos no qual foi criado.
 
-1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM. Além disso, certifique-se de que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM (por exemplo, a função de "Contribuinte de Máquina Virtual").
+1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM.
  
 2. Carregar o modelo para um [editor](#azure-resource-manager-templates) e adicione as seguintes informações para dar a sua VM **leitor** acesso ao grupo de recursos no qual foi criado.  A estrutura do modelo pode variar consoante o editor e o modelo de implementação que escolher.
    
@@ -149,7 +153,7 @@ Depois de ativar uma identidade de sistema atribuída na sua VM, poderá ser út
 
 Se tiver uma VM que não precisa mais de uma identidade de serviço gerido:
 
-1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se também que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM (por exemplo, a função de "Contribuinte de Máquina Virtual").
+1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM.
 
 2. Carregar o modelo para um [editor](#azure-resource-manager-templates) e localize a `Microsoft.Compute/virtualMachines` recursos de interesse no `resources` secção. Se tiver uma VM que tem apenas uma identidade de sistema atribuído, pode desativá-lo ao alterar o tipo de identidade para `None`.  Se a VM tem o sistema e as identidades de atribuída ao utilizador, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com o `identityIds` matriz das identidades de utilizador atribuída.  O exemplo seguinte mostra como remover um sistema de identidade atribuído a partir de uma VM com nenhum utilizador identidades atribuída:
    

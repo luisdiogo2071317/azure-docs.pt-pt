@@ -1,6 +1,6 @@
 ---
-title: Utilize tarefas de várias instâncias para executar aplicações MPI - Azure Batch | Microsoft Docs
-description: Saiba como executar aplicações de Interface de passagem de mensagens (MPI) utilizando o tipo de tarefa de várias instâncias no Azure Batch.
+title: Utilizar tarefas de várias instâncias para executar aplicações MPI - Azure Batch | Documentos da Microsoft
+description: Saiba como executar aplicações Message Passing Interface (MPI) com o tipo de tarefa de várias instâncias no Azure Batch.
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -11,59 +11,59 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
-ms.date: 5/22/2017
+ms.date: 06/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a443dd7ed4f95b3e283603fa8938a08c2c177827
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30160761"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174424"
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilize tarefas de várias instâncias para executar aplicações de Interface de passagem de mensagens (MPI) no Batch
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilizar tarefas de várias instâncias para executar aplicações Message Passing Interface (MPI) no Batch
 
-Tarefas de várias instâncias permitem-lhe executar uma tarefa do Batch em vários nós de computação em simultâneo. Estas tarefas ativar cenários, como aplicações de Interface de passagem de mensagens (MPI) no Batch de computação de elevado desempenho. Neste artigo, irá aprender a executar tarefas de várias instâncias utilizando o [.NET do Batch] [ api_net] biblioteca.
+Tarefas de várias instâncias permitem-lhe executar uma tarefa do Batch em vários nós de computação em simultâneo. Estas tarefas ativar cenários como a aplicações Message Passing Interface (MPI) no Batch de computação de alto desempenho. Neste artigo, irá aprender a executar tarefas de várias instâncias com o [.NET do Batch] [ api_net] biblioteca.
 
 > [!NOTE]
-> Apesar dos exemplos neste artigo focar-se no .NET do Batch, MS-MPI e nós de computação do Windows, os conceitos de tarefas de várias instâncias abordados aqui são aplicáveis outras plataformas e tecnologias (Python e MPI Intel em nós do Linux, por exemplo).
+> Embora os exemplos neste artigo se concentrar em .NET do Batch, MS-MPI, e nós de computação do Windows, os conceitos de tarefa de várias instâncias discutidos aqui são aplicáveis a outras plataformas e tecnologias (Python e Intel MPI em nós do Linux, por exemplo).
 >
 >
 
-## <a name="multi-instance-task-overview"></a>Descrição geral de tarefas de várias instâncias
-No Batch, cada tarefa está normalmente executado num único nó de computação – submeter várias tarefas a um trabalho, bem como o serviço Batch agendas cada tarefa para execução num nó. No entanto, ao configurar uma tarefa **definições de várias instâncias**, informe o lote em vez disso, criar uma tarefa principal e vários subtarefas que, em seguida, são executadas em vários nós.
+## <a name="multi-instance-task-overview"></a>Visão geral da tarefa de várias instâncias
+No lote, cada tarefa normalmente é executado num único nó de computação – enviar várias tarefas para uma tarefa e o serviço Batch agenda cada tarefa para execução num nó. No entanto, ao configurar uma tarefa **definições de várias instâncias**, informe o Batch em vez disso, criar uma tarefa principal e várias subtarefas que, em seguida, são executadas em vários nós.
 
-![Descrição geral de tarefas de várias instâncias][1]
+![Visão geral da tarefa de várias instâncias][1]
 
-Quando submete uma tarefa com definições de várias instâncias para uma tarefa, o Batch executa vários passos exclusivos para tarefas de várias instâncias:
+Ao submeter uma tarefa com definições de várias instâncias para uma tarefa, o Batch executa vários passos exclusivos para tarefas de várias instâncias:
 
-1. O serviço Batch cria um **primário** e vários **subtarefas** com base nas definições de várias instâncias. O número total de tarefas (primários juntamente com todos os subtarefas) corresponde ao número de **instâncias** (nós de computação) que especificar nas definições de várias instâncias.
-2. Batch designa um de nós de computação, como o **principal**e a agenda da tarefa para execução no mestre de primária. Esta agenda subtarefas para executar o resto de nós de computação alocados para a tarefa de várias instâncias, uma subtarefa por nó.
-3. O principal e todas as subtarefas transferir nenhum **ficheiros de recursos comuns** que especificar nas definições de várias instâncias.
-4. Depois do recurso comum os ficheiros foram transferidos, o site primário e executar subtarefas o **comando coordenação** que especificar nas definições de várias instâncias. O comando de coordenação é normalmente utilizado para preparar nós para executar a tarefa. Isto pode incluir a partir de serviços em segundo plano (tais como [Microsoft MPI][msmpi_msdn]do `smpd.exe`) e a verificar se os nós estão prontos para processar mensagens do nó entre.
-5. A tarefa primária executa o **comando aplicação** no nó principal *depois* o comando de coordenação foi concluído com êxito pelo principal e todas as subtarefas. O comando de aplicação da linha de comandos da tarefa de várias instâncias próprio e é executado apenas pela tarefa principal. Num [MS-MPI][msmpi_msdn]-solução, baseada na trata onde executar a sua aplicação com capacidade de MPI utilizando `mpiexec.exe`.
+1. O serviço Batch cria um **primário** e várias **subtarefas** com base nas configurações de várias instâncias. O número total de tarefas (principais além de todas as subtarefas) corresponde ao número de **instâncias** (nós de computação) especificados nas definições de várias instâncias.
+2. Batch designa um de nós de computação como o **mestre**e agenda a principal tarefa a ser executadas a mestre. Ele agenda as subtarefas para executar o restante de nós de computação alocados para a tarefa de várias instâncias, uma subtarefa por nó.
+3. O principal e todas as subtarefas transferir qualquer **ficheiros de recursos comuns** especificados nas definições de várias instâncias.
+4. Depois do recurso comum os ficheiros foram transferidos, o principal e subtarefas de executar o **comandos de coordenação** especificados nas definições de várias instâncias. O comando de coordenação é normalmente utilizado para preparar nós para executar a tarefa. Isto pode incluir a partir de serviços em segundo plano (como [Microsoft MPI][msmpi_msdn]do `smpd.exe`) e verificar que estão prontos para processar mensagens do nó entre os nós.
+5. A principal tarefa executa o **comando de aplicação** no nó principal *depois* o comando de coordenação foi concluído com êxito ao principal e todas as subtarefas. O comando de aplicativo é a linha de comando da tarefa de várias instâncias em si e é executado apenas pela tarefa principal. Num [MS-MPI][msmpi_msdn]-com base em solução, isso é onde executa a sua aplicação com capacidade de MPI com `mpiexec.exe`.
 
 > [!NOTE]
-> Embora seja funcionalmente distinto, "tarefa de várias instâncias" não é um tipo de tarefa exclusivos, como o [StartTask] [ net_starttask] ou [JobPreparationTask] [ net_jobprep]. A tarefa de várias instâncias é simplesmente uma tarefa de lote standard ([CloudTask] [ net_task] no .NET do Batch) foram configuradas cujas definições de várias instâncias. Neste artigo, vamos referir-se a isto como o **tarefa de várias instâncias**.
+> Embora isso seja funcionalmente distinto, "tarefa de várias instâncias" não é um tipo de tarefa exclusiva, como o [StartTask] [ net_starttask] ou [JobPreparationTask] [ net_jobprep]. A tarefa de várias instâncias é simplesmente uma tarefa de lote standard ([CloudTask] [ net_task] no .NET do Batch) foram configuradas cujas definições de várias instâncias. Neste artigo, nos Referimos a isso como o **tarefas de várias instâncias**.
 >
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisitos para tarefas de várias instâncias
-Tarefas de várias instâncias necessitam de um agrupamento com **comunicação entre nós ativada**e com **desativada a execução da tarefa em simultâneo**. Para desativar a execução da tarefa em simultâneo, defina o [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) propriedade para 1.
+Um conjunto de com para realizar tarefas de várias instâncias **ativada a comunicação entre nós**e com **desativada a execução da tarefa em simultâneo**. Para desativar a execução da tarefa em simultâneo, defina o [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) propriedade como 1.
 
 > [!NOTE]
-> Batch [limites](batch-quota-limit.md#other-limits) o tamanho de um conjunto que tenha a comunicação entre nós ativada.
+> Batch [limites](batch-quota-limit.md#other-limits) o tamanho de um conjunto que tenha ativada a comunicação entre nós.
 
 
-Este fragmento de código mostra como criar um conjunto para tarefas de várias instâncias utilizando a biblioteca .NET do Batch.
+Este fragmento de código mostra como criar um conjunto para tarefas de várias instâncias com a biblioteca .NET do Batch.
 
 ```csharp
 CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -72,14 +72,11 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
 > [!NOTE]
-> Se tentar executar uma tarefa de várias instâncias num conjunto, a comunicação internós desativado ou com um *maxTasksPerNode* valor superior a 1, a tarefa é agendada nunca – indefinidamente permanece no estado "Active Directory". 
->
-> Tarefas de várias instâncias podem executar apenas em nós nos conjuntos criados após 14 de Dezembro de 2015.
->
->
+> Se tentar executar uma tarefa de várias instâncias num conjunto com a comunicação internós desativada, ou com um *maxTasksPerNode* valor superior a 1, a tarefa não está agendada – indefinidamente permanece no estado "ativo". 
 
-### <a name="use-a-starttask-to-install-mpi"></a>Utilizar um StartTask para instalar MPI
-Para executar aplicações MPI com uma tarefa de várias instâncias, terá primeiro de instalar uma implementação de MPI (MS-MPI ou MPI Intel, por exemplo) em nós de computação no conjunto. Esta é uma boa altura para utilizar um [StartTask][net_starttask], que executa sempre que um nó se associa um conjunto ou for reiniciado. Este fragmento de código cria um StartTask que especifica o pacote de configuração do MS-MPI como um [ficheiro de recursos][net_resourcefile]. Linha de comandos da tarefa de início é executada após o ficheiro de recursos é transferido para o nó. Neste caso, a linha de comandos executa uma instalação autónoma de MS MPI.
+
+### <a name="use-a-starttask-to-install-mpi"></a>Utilizar um StartTask para instalar o MPI
+Para executar aplicações MPI com uma tarefa de várias instâncias, tem primeiro de instalar uma implementação de MPI (MS-MPI ou do Intel MPI, por exemplo) em nós de computação no conjunto. Este é um bom momento para utilizar um [StartTask][net_starttask], que é executado sempre que um nó é adicionado um conjunto ou reiniciado. Este fragmento de código cria um StartTask que especifica o pacote de configuração do MS-MPI como um [arquivo de recursos][net_resourcefile]. Linha de comandos da tarefa de início é executada após o arquivo de recurso é transferido para o nó. Neste caso, a linha de comandos executa uma instalação autónoma do MS-MPI.
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -99,24 +96,24 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>Acesso remoto direto à memória (RDMA)
-Quando escolhe uma [tamanho com capacidade RDMA](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como A9 de nós de computação no seu conjunto do Batch, a aplicação de MPI pode tirar partido da rede de acesso (RDMA) de elevado desempenho, baixa latência memória direta remoto do Azure.
+Ao escolher uma [tamanho com capacidade RDMA](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como A9 para os nós de computação do conjunto do Batch, seu aplicativo de MPI pode tirar partido da rede de acesso (RDMA) de alto desempenho e de baixa latência memória direta remoto do Azure.
 
 Procure os tamanhos especificados como "Com capacidade RDMA" nos seguintes artigos:
 
-* **CloudServiceConfiguration** agrupamentos
+* **CloudServiceConfiguration** conjuntos
 
-  * [Os tamanhos de serviços em nuvem](../cloud-services/cloud-services-sizes-specs.md) (apenas Windows)
-* **VirtualMachineConfiguration** agrupamentos
+  * [Tamanhos de serviços Cloud](../cloud-services/cloud-services-sizes-specs.md) (apenas Windows)
+* **VirtualMachineConfiguration** conjuntos
 
-  * [Os tamanhos de máquinas virtuais no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  * [Os tamanhos de máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  * [Tamanhos de máquinas virtuais no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Tamanhos de máquinas virtuais no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Para tirar partido de RDMA [nós de computação do Linux](batch-linux-nodes.md), tem de utilizar **Intel MPI** em nós. 
 >
 
-## <a name="create-a-multi-instance-task-with-batch-net"></a>Criar uma tarefa de várias instâncias com .NET do Batch
-Agora que iremos tiver abrangidos os requisitos de agrupamento e a instalação do pacote MPI, vamos criar a tarefa de várias instâncias. Este fragmento, criamos um padrão [CloudTask][net_task], em seguida, configure o [MultiInstanceSettings] [ net_multiinstance_prop] propriedade. Conforme mencionado anteriormente, a tarefa de várias instâncias não é um tipo de tarefa distinto, mas uma tarefa de lote padrão configurada com definições de várias instâncias.
+## <a name="create-a-multi-instance-task-with-batch-net"></a>Crie uma tarefa de várias instâncias com .NET do Batch
+Agora que já abordamos os requisitos de agrupamento e a instalação do pacote MPI, vamos criar a tarefa de várias instâncias. Neste fragmento, criamos uma norma [CloudTask][net_task], em seguida, configure seu [MultiInstanceSettings] [ net_multiinstance_prop] propriedade. Como mencionado anteriormente, a tarefa de várias instâncias não é um tipo de tarefa distinto, mas uma tarefa de lote padrão configurado com definições de várias instâncias.
 
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
@@ -141,10 +138,10 @@ myMultiInstanceTask.MultiInstanceSettings =
 await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 ```
 
-## <a name="primary-task-and-subtasks"></a>Tarefa principal e subtarefas
-Quando criar as definições de várias instâncias de uma tarefa, especifique o número de nós de computação que está a executar a tarefa. Ao submeter a tarefa a um trabalho, o serviço Batch cria um **primário** tarefas e suficiente **subtarefas** que em conjunto corresponde ao número de nós que especificou.
+## <a name="primary-task-and-subtasks"></a>Principais tarefas e subtarefas
+Quando cria as definições de várias instâncias de uma tarefa, especifica o número de nós de computação que está a executar a tarefa. Quando submete a tarefa a uma tarefa, o serviço Batch cria um **primário** tarefa e suficiente **subtarefas** que em conjunto corresponde ao número de nós que especificou.
 
-Estas tarefas são atribuídas um id de número inteiro no intervalo de 0 para *numberOfInstances* - 1. A tarefa com o id de 0 a tarefa principal e todos os outros ids subtarefas. Por exemplo, se criar as seguintes definições de várias instâncias de uma tarefa, a tarefa principal teria um id de 0 e as subtarefas teria ids de 1 a 9.
+Estas tarefas são atribuídas um id de número inteiro no intervalo de 0 para *numberOfInstances* - 1. A tarefa com o id de 0 é a principal tarefa e todos os outros ids são subtarefas. Por exemplo, se criar as seguintes definições de várias instâncias para uma tarefa, a principal tarefa seria ter um id de 0, e as subtarefas teria ids de 1 a 9.
 
 ```csharp
 int numberOfNodes = 10;
@@ -152,35 +149,35 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 ```
 
 ### <a name="master-node"></a>Nó principal
-Quando submete uma tarefa de várias instâncias, o serviço Batch designa um de nós de computação que o nó "original" bem como agendas a tarefa principal a executar no nó principal. As subtarefas são agendadas para serem executadas no resto de nós alocado para a tarefa de várias instâncias.
+Quando submete uma tarefa de várias instâncias, o serviço Batch designa um de nós de computação como o nó "principal" bem como agendas a principal tarefa para executar no nó principal. As subtarefas são agendadas para serem executadas no restante de nós alocadas para a tarefa de várias instâncias.
 
-## <a name="coordination-command"></a>Comando de coordenação de problemas
-O **comando coordenação** executado por ambos os principais e subtasks.
+## <a name="coordination-command"></a>Comandos de coordenação
+O **comandos de coordenação** é executado pelo primário e subtasks.
 
-A invocação do comando coordenação está a bloquear – lote não é executado o comando de aplicação, até que o comando de coordenação devolveu com êxito para todas as subtarefas. O comando de coordenação, por conseguinte, deve começar todos os serviços necessários em segundo plano, certifique-se de que estas estão prontas para utilização e, em seguida, a sair. Por exemplo, este comando de coordenação de uma solução utilizando a versão de MS MPI 7 inicia o serviço SMPD no nó, em seguida, sai:
+A invocação do comando coordenação está a bloquear – Batch não é executado o comando de aplicativo até que o comando de coordenação devolveu com êxito para todas as subtarefas. O comando de coordenação, portanto, deve começar todos os serviços em segundo plano necessária, certifique-se de que estão prontos para uso e, em seguida, saia. Por exemplo, este comando de coordenação para uma solução com a versão de MS-MPI 7 inicia o serviço SMPD no nó e, em seguida, é encerrado:
 
 ```
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 ```
 
-Tenha em atenção a utilização de `start` neste comando de coordenação de problemas. Isto é necessário porque o `smpd.exe` aplicação devolve imediatamente após a execução. Sem a utilização de [iniciar] [ cmd_start] comando, este comando de coordenação não devolvam e bloqueariam, por conseguinte, o comando de aplicação de execução.
+Observe o uso de `start` neste comando de coordenação. Isto é necessário porque o `smpd.exe` aplicativo não retorna imediatamente após a execução. Sem o uso do [começar] [ cmd_start] de comando, este comando de coordenação não retornaria e, portanto, bloquearia o comando de aplicativo a execução.
 
 ## <a name="application-command"></a>Comando de aplicação
-Depois da tarefa principal e todas as subtarefas terminar de executar o comando de coordenação de problemas, a linha de comandos da tarefa de várias instâncias é executada pela tarefa principal *apenas*. Chamamos a isto o **comando aplicação** distinguir do comando de coordenação de problemas.
+Assim que a principal tarefa e todas as subtarefas terminar de executar o comando de coordenação, linha de comandos da tarefa de várias instâncias é executada pela tarefa primária *apenas*. Vamos chamá-lo a **comando aplicação** para distingui-la a partir do comando de coordenação.
 
-Para aplicações de MS MPI, utilize o comando de aplicação para executar a sua aplicação com capacidade para MPI com `mpiexec.exe`. Por exemplo, eis um comando de aplicação para uma solução de utilizar a versão 7 de MPI MS:
+Para aplicativos de MS-MPI, utilize o comando de aplicativo para executar a aplicação com capacidade de MPI com `mpiexec.exe`. Por exemplo, eis um comando de aplicação para uma solução com o MS-MPI versão 7:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
 > [!NOTE]
-> Porque MS-MPI `mpiexec.exe` utiliza o `CCP_NODES` variável por predefinição (consulte [variáveis de ambiente](#environment-variables)) da linha de comandos da aplicação de exemplo acima exclui-lo.
+> Porque MS-MPI `mpiexec.exe` utiliza o `CCP_NODES` variável por padrão (consulte [variáveis de ambiente](#environment-variables)) da linha de comandos da aplicação de exemplo acima exclui-lo.
 >
 >
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
-Batch cria vários [variáveis de ambiente] [ msdn_env_var] específicas para tarefas de várias instâncias em nós de computação atribuídos a uma tarefa de várias instâncias. As linhas de comandos coordenação e a aplicação pode referenciar estas variáveis de ambiente, como podem os scripts e programas que são executados.
+O batch cria vários [variáveis de ambiente] [ msdn_env_var] específicas para tarefas de várias instâncias em nós de computação alocados para uma tarefa de várias instâncias. As linhas de comandos de coordenação e a aplicação pode referenciar estas variáveis de ambiente, como podem os scripts e programas que elas são executadas.
 
 As seguintes variáveis de ambiente são criadas pelo serviço Batch para utilização por tarefas de várias instâncias:
 
@@ -191,45 +188,45 @@ As seguintes variáveis de ambiente são criadas pelo serviço Batch para utiliz
 * `AZ_BATCH_TASK_SHARED_DIR`
 * `AZ_BATCH_IS_CURRENT_NODE_MASTER`
 
-Para obter detalhes completos sobre estas e outro Batch de computação variáveis de ambiente de nó, incluindo os conteúdos e visibilidade, consulte [variáveis de ambiente de nó de computação][msdn_env_var].
+Para obter os detalhes completos sobre esses e outro lote de computação variáveis de ambiente de nó, incluindo os respetivos conteúdos e a visibilidade, consulte [variáveis de ambiente de nó de computação][msdn_env_var].
 
 > [!TIP]
-> O exemplo de código do Batch Linux MPI contém um exemplo de como várias destas variáveis de ambiente podem ser utilizadas. O [coordenação cmd] [ coord_cmd_example] scripts de Bash transfere comum e entrada ficheiros do armazenamento do Azure, permite a uma partilha de ficheiros NFS (Network System) no nó principal e configura os outros nós atribuído à tarefa de várias instâncias como os clientes NFS.
+> O exemplo de código do Batch Linux MPI contém um exemplo de como várias destas variáveis de ambiente podem ser utilizadas. O [coordenação cmd] [ coord_cmd_example] aplicação comum de downloads do script de Bash e entrada de ficheiros do armazenamento do Azure, permite que uma partilha de sistema de ficheiros de rede (NFS) no nó principal e configura os outros nós alocado para a tarefa de várias instâncias, como os clientes NFS.
 >
 >
 
 ## <a name="resource-files"></a>Ficheiros de recursos
-Existem dois conjuntos de ficheiros de recursos a considerar para tarefas de várias instâncias: **ficheiros de recursos comuns** que *todos os* tarefas transferem (ambos os principais e subtarefas) e o **deficheirosderecursos** especificado para várias instâncias de tarefas, que *apenas primário* transferências de tarefas.
+Existem dois conjuntos de ficheiros de recursos a serem considerados para tarefas de várias instâncias: **ficheiros de recursos comuns** que *todos os* tarefas transferir (ambos os principal e subtarefas de) e o **dearquivosderecursos** especificado para várias instâncias de tarefas por si só, quais *apenas primário* downloads de tarefas.
 
-Pode especificar um ou mais **ficheiros de recursos comuns** nas definições de várias instâncias de uma tarefa. Estes ficheiros de recursos comuns são transferidos do [Storage do Azure](../storage/common/storage-introduction.md) em cada nó **diretório partilhado tarefas** pelo principal e todas as subtarefas. Pode aceder diretório partilhado da tarefa a partir de aplicações e coordenação linhas de comandos utilizando a `AZ_BATCH_TASK_SHARED_DIR` variável de ambiente. O `AZ_BATCH_TASK_SHARED_DIR` caminho é idêntico em cada nó atribuído a tarefa de várias instâncias, assim, pode partilhar um comando único coordenação entre a primária e todas as subtarefas. Lote não "partilhar" o diretório numa noção do acesso remoto, mas pode utilizá-la como uma montagem ou partilhar ponto, tal como mencionado anteriormente na sugestão em variáveis de ambiente.
+Pode especificar um ou mais **ficheiros de recursos comuns** nas definições de várias instâncias para uma tarefa. Estes ficheiros de recursos comuns são transferidos a partir [armazenamento do Azure](../storage/common/storage-introduction.md) em cada nó **diretório partilhado de tarefa** pelo principal e todas as subtarefas. Pode aceder o diretório partilhado de tarefas da aplicação e a coordenação de linhas de comandos utilizando a `AZ_BATCH_TASK_SHARED_DIR` variável de ambiente. O `AZ_BATCH_TASK_SHARED_DIR` caminho é idêntico em cada nó alocada para a tarefa de várias instâncias, portanto, pode partilhar um comando único coordenação entre a primária e todas as subtarefas. Batch não "partilha" o diretório num sentido de acesso remoto, mas pode utilizá-la como uma montagem ou partilhar ponto a como mencionado anteriormente na dica de variáveis de ambiente.
 
-Ficheiros de recursos que especificar para a tarefa de várias instâncias propriamente dita são transferidos para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR`, por predefinição. Conforme mencionado, contrariamente comuns dos ficheiros de recursos, apenas a tarefa principal transfere ficheiros de recurso especificados para a tarefa de várias instâncias propriamente dita.
+Arquivos de recursos que especificar para a tarefa de várias instâncias em si são transferidos para o diretório de trabalho da tarefa, `AZ_BATCH_TASK_WORKING_DIR`, por predefinição. Conforme mencionado, em contraste com arquivos de recursos comuns, a principal tarefa transfere os ficheiros de recursos especificados para a tarefa de várias instâncias propriamente dita.
 
 > [!IMPORTANT]
-> Utilize sempre as variáveis de ambiente `AZ_BATCH_TASK_SHARED_DIR` e `AZ_BATCH_TASK_WORKING_DIR` para fazer referência aos diretórios na sua linhas de comandos. Não tente construir os caminhos manualmente.
+> Utilize sempre as variáveis de ambiente `AZ_BATCH_TASK_SHARED_DIR` e `AZ_BATCH_TASK_WORKING_DIR` para fazer referência a esses diretórios em suas linhas de comando. Não tente construir os caminhos manualmente.
 >
 >
 
 ## <a name="task-lifetime"></a>Duração de tarefa
-A duração da tarefa principal controla a duração da tarefa de várias instâncias completo. Quando sai primário, todas as subtarefas estão terminadas. O código de saída dos principais é o código de saída da tarefa e, por conseguinte, é utilizado para determinar o êxito ou falha da tarefa para fins de repetição.
+O tempo de vida da tarefa principal controla a duração da tarefa todo várias instâncias. Quando o principal é fechado, todas as subtarefas são terminadas. O código de saída do primário é o código de saída da tarefa e, portanto, é utilizado para determinar o êxito ou falha da tarefa para fins de repetição.
 
-Se algum das subtarefas falhar, a sair com um código de retorno de diferente de zero, por exemplo, a tarefa de várias instâncias todo falha. A tarefa de várias instâncias, em seguida, é terminada e repetida até o respetivo limite de repetição.
+Se alguma das subtarefas falhar, a sair com um código de retorno diferente de zero, por exemplo, a tarefa de toda instância multi falha. A tarefa de várias instâncias, em seguida, é encerrada e repetida, até o limite de tentativas.
 
-Quando elimina uma tarefa de várias instâncias, o principal e todas as subtarefas também são eliminadas pelo serviço Batch. Subtarefa todos os diretórios e os respetivos ficheiros são eliminados de nós de computação, tal como uma tarefa padrão.
+Quando elimina uma tarefa de várias instâncias, o principal e todas as subtarefas também são eliminadas pelo serviço Batch. Todos os diretórios da subtarefa e respetivos ficheiros são eliminados dos nós de computação, tal como sucede com uma tarefa padrão.
 
-[TaskConstraints] [ net_taskconstraints] para uma tarefa de várias instâncias, tais como o [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime] [ net_taskconstraint_maxwallclock], e [RetentionTime] [ net_taskconstraint_retention] propriedades, são cumpridas conforme forem para uma tarefa padrão e aplicam-se a principal e todas as subtarefas. No entanto, se alterar o [RetentionTime] [ net_taskconstraint_retention] propriedade depois de adicionar a tarefa de várias instâncias para a tarefa, esta alteração é aplicada apenas para a tarefa principal. Todas as subtarefas continuam a utilizar original [RetentionTime][net_taskconstraint_retention].
+[TaskConstraints] [ net_taskconstraints] para uma tarefa de várias instâncias, tais como a [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime] [ net_taskconstraint_maxwallclock], e [RetentionTime] [ net_taskconstraint_retention] propriedades, são honradas que são para uma tarefa padrão, e aplicam-se para a primária e todas as subtarefas. No entanto, se alterar o [RetentionTime] [ net_taskconstraint_retention] propriedade depois de adicionar a tarefa de várias instâncias do trabalho, esta alteração é aplicada apenas a principal tarefa. Todas as subtarefas continuam a utilizar o original [RetentionTime][net_taskconstraint_retention].
 
-Lista de tarefas recentes de um nó de computação reflete o id da subtarefa se a tarefa recente fazia parte de uma tarefa de várias instâncias.
+Lista de tarefas recentes de um nó de computação reflete o id de uma subtarefa se a tarefa recente fazia parte de uma tarefa de várias instâncias.
 
-## <a name="obtain-information-about-subtasks"></a>Obter informações sobre subtarefas
-Para obter informações sobre subtarefas, utilizando a biblioteca .NET do Batch, chamar o [CloudTask.ListSubtasks] [ net_task_listsubtasks] método. Este método devolve informações sobre todas as subtarefas e informações sobre o nó de computação que executar as tarefas. Partir destas informações pode determinar o diretório de raiz de cada subtarefa, o id do conjunto, o estado atual, código de saída e muito mais. Pode utilizar estas informações em combinação com o [PoolOperations.GetNodeFile] [ poolops_getnodefile] método para obter ficheiros de subtarefa. Tenha em atenção que este método não devolver informações para a tarefa principal (id de 0).
+## <a name="obtain-information-about-subtasks"></a>Obter informações sobre as subtarefas
+Para obter informações sobre as subtarefas através da biblioteca .NET do Batch, chamar o [CloudTask.ListSubtasks] [ net_task_listsubtasks] método. Este método devolve informações sobre todas as subtarefas e as informações acerca do nó de computação que as tarefas executadas. Com essas informações, pode determinar o diretório de raiz de cada subtarefa, o id do conjunto, seu estado atual, código de saída e muito mais. Pode usar essas informações em combinação com o [PoolOperations.GetNodeFile] [ poolops_getnodefile] método para obter os ficheiros da subtarefa. Tenha em atenção que este método não devolve informações para a tarefa primária (id de 0).
 
 > [!NOTE]
-> Salvo indicação em contrário, métodos de .NET do Batch operar em várias instâncias [CloudTask] [ net_task] próprio aplicar *apenas* para a tarefa principal. Por exemplo, quando chamar o [CloudTask.ListNodeFiles] [ net_task_listnodefiles] apenas os ficheiros da tarefa principal do método de uma tarefa de várias instâncias, são devolvidos.
+> A menos que indicado de outra forma, métodos de .NET do Batch que operam em várias instâncias [CloudTask] [ net_task] próprio aplicar *apenas* para a tarefa principal. Por exemplo, quando chama o [CloudTask.ListNodeFiles] [ net_task_listnodefiles] apenas os ficheiros da tarefa principal do método numa tarefa de várias instâncias, são devolvidos.
 >
 >
 
-O fragmento de código seguinte mostra como obter informações de subtarefa, bem como conteúdos do ficheiro de pedido de nós em que executar.
+O fragmento de código seguinte mostra como obter informações de subtarefa, bem como solicitar o conteúdo do ficheiro de nós em que eles executados.
 
 ```csharp
 // Obtain the job and the multi-instance task from the Batch service
@@ -269,34 +266,34 @@ await subtasks.ForEachAsync(async (subtask) =>
 ```
 
 ## <a name="code-sample"></a>Exemplo de código
-O [MultiInstanceTasks] [ github_mpi] exemplo de código no GitHub demonstra como utilizar uma tarefa de várias instâncias para executar um [MS-MPI] [ msmpi_msdn] aplicação em Nós de computação do batch. Siga os passos no [preparação](#preparation) e [execução](#execution) para executar o exemplo.
+O [MultiInstanceTasks] [ github_mpi] código de exemplo no GitHub demonstra como utilizar uma tarefa de várias instâncias para executar uma [MS-MPI] [ msmpi_msdn] aplicação em Nós de computação do batch. Siga os passos em [preparação](#preparation) e [execução](#execution) para executar o exemplo.
 
 ### <a name="preparation"></a>Preparação
-1. Siga os primeiros dois passos no [como compilar e executar um programa de MS MPI simple][msmpi_howto]. Isto satisfaça os pré-requisitos para o passo seguinte.
-2. Criar um *versão* versão do [MPIHelloWorld] [ helloworld_proj] programa MPI de exemplo. Este é o programa será executado em nós de computação pela tarefa de várias instâncias.
-3. Criar um ficheiro zip que contém `MPIHelloWorld.exe` (que é criado o passo 2) e `MSMpiSetup.exe` (que transferiu o passo 1). Deverá carregar este ficheiro zip como um pacote de aplicação no próximo passo.
-4. Utilize o [portal do Azure] [ portal] para criar um lote [aplicação](batch-application-packages.md) chamado "MPIHelloWorld" e especifique o ficheiro zip que criou no passo anterior como versão "1.0" do pacote de aplicação. Consulte [carregar e gerir aplicações](batch-application-packages.md#upload-and-manage-applications) para obter mais informações.
+1. Siga os duas primeiras passos [como compilar e executar um programa simples do MS-MPI][msmpi_howto]. Isso satisfaz os pré-requisitos para o passo seguinte.
+2. Criar uma *lançamento* versão dos [MPIHelloWorld] [ helloworld_proj] programa de MPI de exemplo. Este é o programa que será executado em nós de computação pela tarefa de várias instâncias.
+3. Criar um ficheiro zip que contém `MPIHelloWorld.exe` (que criou o passo 2) e `MSMpiSetup.exe` (que transferiu passo 1). Deverá carregar este ficheiro zip como um pacote de aplicação no próximo passo.
+4. Utilize o [portal do Azure] [ portal] para criar um lote [aplicação](batch-application-packages.md) chamado "MPIHelloWorld" e especifique o ficheiro zip que criou no passo anterior como "1.0" de versão dos pacote de aplicações. Ver [carregar e gerir aplicações](batch-application-packages.md#upload-and-manage-applications) para obter mais informações.
 
 > [!TIP]
-> Criar um *versão* versão do `MPIHelloWorld.exe` para que não tem de incluir quaisquer dependências adicionais (por exemplo, `msvcp140d.dll` ou `vcruntime140d.dll`) no seu pacote de aplicação.
+> Criar uma *lançamento* versão do `MPIHelloWorld.exe` para que não precisa incluir quaisquer dependências adicionais (por exemplo, `msvcp140d.dll` ou `vcruntime140d.dll`) no seu pacote de aplicação.
 >
 >
 
 ### <a name="execution"></a>Execução
-1. Transferir o [azure-batch-samples] [ github_samples_zip] a partir do GitHub.
-2. Abra o MultiInstanceTasks **solução** no Visual Studio 2015 ou mais recente. O `MultiInstanceTasks.sln` solução ficheiro está localizado em:
+1. Transfira o [azure-batch-samples] [ github_samples_zip] do GitHub.
+2. Abra o MultiInstanceTasks **solução** no Visual Studio 2017. O `MultiInstanceTasks.sln` arquivo da solução está localizado em:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
-3. Introduza as suas credenciais de conta do Batch e armazenamento no `AccountSettings.settings` no **Microsoft** projeto.
-4. **Compilar e executar** a solução de MultiInstanceTasks para executar o MPI exemplo aplicações em nós de computação de um conjunto do Batch.
-5. *Opcional*: Utilize o [portal do Azure] [ portal] ou [BatchLabs] [ batch_labs] para examinar o conjunto de exemplo, o trabalho e tarefas (" MultiInstanceSamplePool","MultiInstanceSampleJob","MultiInstanceSampleTask") antes de eliminar os recursos.
+3. Introduza as suas credenciais de conta do Batch e armazenamento no `AccountSettings.settings` no **Samples** projeto.
+4. **Criar e executar** a solução de MultiInstanceTasks para executar a MPI exemplo de aplicação em nós de computação no conjunto do Batch.
+5. *Opcional*: Utilize o [portal do Azure] [ portal] ou [Explorador do Batch] [ batch_labs] para examinar o conjunto de exemplo, trabalhos e tarefas (" MultiInstanceSamplePool","MultiInstanceSampleJob","MultiInstanceSampleTask") antes de eliminar os recursos.
 
 > [!TIP]
-> Pode transferir [Visual Studio Community] [ visual_studio] gratuitamente se não tiver o Visual Studio.
+> Pode baixar [Visual Studio Community] [ visual_studio] gratuitamente se não tiver o Visual Studio.
 >
 >
 
-O resultado da `MultiInstanceTasks.exe` é semelhante ao seguinte:
+Saída de `MultiInstanceTasks.exe` é semelhante ao seguinte:
 
 ```
 Creating pool [MultiInstanceSamplePool]...
@@ -332,14 +329,14 @@ Sample complete, hit ENTER to exit...
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Blogue do Microsoft HPC & equipa do Azure Batch aborda [MPI suporte para Linux no Azure Batch][blog_mpi_linux]e inclui informações sobre como utilizar [OpenFOAM] [ openfoam] com o Batch. Pode encontrar exemplos de código do Python para o [OpenFOAM exemplo no GitHub][github_mpi].
-* Saiba como [criar conjuntos de nós de computação do Linux](batch-linux-nodes.md) para utilização nas suas soluções de MPI de lote do Azure.
+* Blog do Microsoft HPC e a equipa do Azure Batch aborda [MPI suporte para Linux no Azure Batch][blog_mpi_linux]e inclui informações sobre como utilizar [OpenFOAM] [ openfoam] com o Batch. Pode encontrar exemplos de código do Python para o [OpenFOAM exemplo no GitHub][github_mpi].
+* Saiba como [criar conjuntos de nós de computação do Linux](batch-linux-nodes.md) para utilização nas suas soluções do Azure Batch MPI.
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd

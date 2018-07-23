@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: e7bf447dafecf090f610f670539ca4673827953a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 8d86bf3974cd11b644f59799e3d6140b46899244
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343983"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173831"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Palavras com erros ortográficos corretas com verificação de ortografia do Bing
 
@@ -57,7 +57,7 @@ Se a sua chave gratuita expirou, crie uma chave de ponto final.
 10. Copie a primeira chave. Só precisa de uma das duas chaves. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Utilizando a chave no painel de teste de LUIS
-Existem dois locais no LUIS para utilizar a chave. A primeira é no [painel de teste](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é guardada no LUIS, mas em vez disso, é uma variável de sessão. Tem de definir a chave sempre que desejar que o painel de teste para aplicar o serviço da API de verificação ortográfica do Bing v7 para a expressão. Ver [instruções](interactive-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para definir a chave.
+Existem dois locais no LUIS para utilizar a chave. A primeira é no [painel de teste](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é guardada no LUIS, mas em vez disso, é uma variável de sessão. Tem de definir a chave sempre que desejar que o painel de teste para aplicar o serviço da API de verificação ortográfica do Bing v7 para a expressão. Ver [instruções](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para definir a chave.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Adicionar a chave para o URL de ponto final
 A consulta de ponto final tem da chave transmitida os parâmetros de cadeia de caracteres de consulta para cada consulta que pretende aplicar a correção ortográfica. Pode ter um chatbot que chama o LUIS ou pode chamar o ponto de extremidade do LUIS API diretamente. Independentemente de como o ponto final é chamado, cada chamada tem de incluir as informações necessárias para correção ortográfica será funcione corretamente.

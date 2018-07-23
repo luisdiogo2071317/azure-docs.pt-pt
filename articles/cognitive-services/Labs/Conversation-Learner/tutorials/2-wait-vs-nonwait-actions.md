@@ -1,7 +1,7 @@
 ---
-title: Como utilizar espera e não espera ações com uma aplicação de conversação Learner - serviços cognitivos Microsoft | Microsoft Docs
+title: Como utilizar wait e ações de não-espera com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como utilizar espera e não espera ações com uma aplicação de conversação Learner.
+description: Saiba como utilizar wait e ações de não-espera com um modelo de aprendiz de conversação.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,72 +10,77 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb2cbd55b6c8be51213095926bb592169613d1fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353947"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173089"
 ---
 # <a name="wait-and-non-wait-actions"></a>Aguarde e não espera ações
 
-Este tutorial mostra a diferença entre as ações de espera e não espera ações no Learner a conversação.
+Este tutorial mostra a diferença entre as ações de espera e as ações de não-espera no Aprendiz de conversação.
+
+## <a name="video"></a>Vídeo
+
+[![Pré-visualização do tutorial 2](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial, necessita que o bot tutorial geral está em execução
+Este tutorial requer que o bot tutorial geral está em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-- Aguarde que a ação: depois do sistema executa uma ação de "espera", irá parar efetuando ações e aguardar a intervenção do utilizador.
-- Não espera ação: depois do sistema executa uma ação de "não espera", irá escolher imediatamente outra ação (sem aguardar pela primeira vez o utilizador inpu).
+- Aguarde a ação: depois do sistema demora uma ação "wait", irá realizar ações de parar e aguardar pela intervenção do utilizador.
+- Ação de não-espera: depois do sistema executa uma ação de "não espera", ele irá escolher imediatamente outra ação (sem aguardar pela primeira vez o utilizador inpu).
 
 ## <a name="steps"></a>Passos
 
-### <a name="create-a-new-app"></a>Criar uma nova aplicação
+### <a name="create-a-new-model"></a>Criar um novo modelo
 
-1. Na IU da Web, clique em nova aplicação
-2. No nome, introduza WaitNonWait. Em seguida, clique em criar.
+1. Na IU da Web, clique em novo modelo
+2. No nome, digite WaitNonWait. Em seguida, clique em criar.
 
 ### <a name="create-the-first-wait-action"></a>Criar a primeira ação de espera
 
-1. Clique em ações, em seguida, ação de novo.
-2. Em resposta, introduza 'que preferido pretende?'.
-    - Esta é uma ação de espera, por isso deixe a aguardar a resposta caixa selecionada.
-3. Clique em concluído.
+1. Clique em ações, em seguida, nova ação.
+2. Em resposta, introduza "qual animal deseja?".
+    - Esta é uma ação de espera, portanto, deixe o tempo de espera para a caixa de resposta selecionada.
+3. Clique em Criar.
 
-### <a name="create-a-non-wait-action"></a>Criar uma ação não espera
+### <a name="create-a-non-wait-action"></a>Criar uma ação de não-Wait
 
 1. Clique em nova ação
-2. Em resposta, escreva 'Cows diga moo'.
-3. Verificação de anular a espera para a caixa de verificação de resposta.
+2. Em resposta, escreva 'Cows dizer moo'.
+3. Desmarque a espera para a caixa de verificação de resposta.
 4. Clique em Criar
 
-### <a name="create-a-second-non-wait-action"></a>Criar uma segunda ação não espera
+### <a name="create-a-second-non-wait-action"></a>Criar uma segunda ação de não-Wait
 
 1. Clique em nova ação
-2. Em resposta, escreva 'Ducks diga quack'.
-3. Verificação de anular a espera para a caixa de verificação de resposta.
+2. Em resposta, escreva 'Patos dizem quack'.
+3. Desmarque a espera para a caixa de verificação de resposta.
 4. Clique em Criar
 
 ![](../media/tutorial2_actions.PNG)
 
 ### <a name="train-the-bot"></a>Preparar o bot
 
-1. Clique em caixas de diálogo de formação, caixa de diálogo de formação, em seguida, novo.
+1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
 2. Tipo "Olá"
-3. Clique em ações de pontuação e selecione 'que preferido pretende?'.
-4. Introduza 'cow'
-5. Clique em ações de pontuação e selecione 'Cows diga moo'.
-    - Tenha em atenção que o bot serão não aguardam uma entrada do e irá demorar a próxima ação.
-2. Selecione 'que preferido pretende?'.
-3. Introduza 'duck'
-5. Clique em ações de pontuação e selecione 'Ducks diga quack'.
+3. Clique em ações de pontuação e selecione "qual animal deseja?".
+4. Introduza "vaca"
+5. Clique em ações de pontuação e selecione 'Cows dizer moo'.
+    - O bot será não aguardam uma entrada do e levará a próxima ação.
+2. Selecione "qual animal deseja?".
+3. Introduza "pato"
+5. Clique em ações de pontuação e selecione 'Patos dizem quack'.
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Tenha em atenção a sequência das respostas bot relativamente a ações de não espera e de espera.
+> [!NOTE]
+> A seqüência das respostas bot com respeito a espera e as ações de não-espera.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

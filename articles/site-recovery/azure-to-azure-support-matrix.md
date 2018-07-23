@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070893"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173055"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -27,34 +27,21 @@ Este artigo resume as configurações suportadas e componentes ao replicar e rec
 **Interface do usuário** |  **Suportado / não suportado**
 --- | ---
 **Portal do Azure** | Suportadas
-**Portal clássico** | Não suportado
 **PowerShell** | [Replicação do Azure para o Azure com o PowerShell](azure-to-azure-powershell.md)
 **API REST** | Não são atualmente suportados
 **CLI** | Não são atualmente suportados
 
 
-## <a name="resource-move-support"></a>Suporte de movimentação do recurso
+## <a name="resource-support"></a>Suporte de recursos
 
-**Tipo de movimentação do recurso** | **Suportado / não suportado** | **Observações**  
+**Tipo de movimentação do recurso** | **Detalhes** 
 --- | --- | ---
-**Mover o Cofre entre grupos de recursos** | Não suportado |Não é possível mover o Cofre dos serviços de recuperação entre grupos de recursos.
-**Mover a computação, armazenamento e rede entre grupos de recursos** | Não suportado |Se mover uma máquina virtual (ou seus componentes associados, como o armazenamento e rede) depois de ativar a replicação, terá de desativar a replicação e ative novamente a replicação para a máquina virtual.
+**Mover o Cofre entre grupos de recursos** | Não suportado<br/><br/> Não é possível mover um cofre dos serviços de recuperação entre grupos de recursos.
+**Mover os recursos de armazenamento/computação/rede entre grupos de recursos** | Não suportado.<br/><br/> Se mover uma VM ou componentes associados, como o armazenamento/rede depois que está a replicar, terá de desativar a replicação e reativar a replicação para a VM.
+**Replicar VMs do Azure a partir de uma subscrição para outro para recuperação após desastre** | Não suportado.
+**Migrar VMs entre subscrições** | Não suportado.
+**Migrar VMs na mesma região** | Não suportado.
 
-
-
-## <a name="support-for-deployment-models"></a>Suporte para modelos de implementação
-
-**Deployment model** (Modelo de implementação) | **Suportado / não suportado** | **Observações**  
---- | --- | ---
-**Clássico** | Suportadas | Apenas pode replicar uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Não é possível recuperá-la como uma máquina virtual do Resource Manager. Se implementar uma VM clássica sem uma rede virtual e diretamente para uma região do Azure, não é suportada.
-**Resource Manager** | Suportadas |
-
->[!NOTE]
->
-> 1. Replicar máquinas virtuais do Azure a partir de uma subscrição para outro para cenários de recuperação após desastre não é suportada.
-> 2. Azure migrar máquinas virtuais em várias subscrições não é suportada.
-> 3. Azure migrar máquinas virtuais na mesma região não é suportada.
-> 4. Migrar máquinas virtuais do Azure do modelo de implementação clássica para Resource manager modelo de implementação não é suportado.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões de SO da máquina replicada
 
@@ -145,6 +132,13 @@ China | Leste da China, Norte da China
 >[!NOTE]
 >
 > Para a região sul do Brasil, pode apenas replicar e efetuar a ativação pós-falha para um dos Centro-Sul, e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2 e regiões Centro-Norte e a reativação pós-falha.
+
+## <a name="support-for-vmdisk-management"></a>Suporte para a gestão de VM/disco
+
+**Ação** | **Detalhes**
+-- | ---
+Redimensionar disco numa VM replicada | Suportadas
+Adicionar disco à VM replicada | Não suportado. Precisa para desativar a replicação para a VM, adicione o disco e, em seguida, ative novamente a replicação.
 
 
 ## <a name="support-for-compute-configuration"></a>Suporte para a configuração de computação

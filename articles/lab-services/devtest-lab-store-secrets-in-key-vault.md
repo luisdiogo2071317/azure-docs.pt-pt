@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0397c520dd0135df56e7eb7e8cd6ed7ffa46156e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009393"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186837"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Store segredos num cofre de chaves no Azure DevTest Labs
 Poderá ter de introduzir um segredo complexo, ao utilizar o Azure DevTest Labs: palavra-passe para a sua VM do Windows, chave pública de SSH para a sua VM do Linux ou token de acesso pessoal clonar o repositório do Git através de um artefacto. Segredos são normalmente longos e tem carateres aleatórios. Por conseguinte, a introduzir pode ser difícil e inconveniente, especialmente se usar o mesmo segredo várias vezes.
 
-Para resolver o problema e também manter seus segredos num local seguro, DevTest Labs dá suporte a armazenar segredos numa [do Azure key vault](../key-vault/key-vault-overview.md). Quando um utilizador armazena um segredo pela primeira vez, o serviço de DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no Cofre de chaves. 
+Para resolver o problema e também manter seus segredos num local seguro, DevTest Labs dá suporte a armazenar segredos numa [do Azure key vault](../key-vault/key-vault-overview.md). Quando um utilizador guarda um segredo pela primeira vez, o serviço de DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no Cofre de chaves. DevTest Labs cria um cofre de chaves separado para cada utilizador. 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Guardar um segredo no Cofre de chaves do Azure
 Para guardar o seu segredo no Cofre de chaves do Azure, siga os passos abaixo:

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 77bfaad4909927d277d856a6b79f9f4c871b4f35
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a104578b0c010ea7ded99e6bf24e4daa30526318
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159757"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187333"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure de Marketplace e AppSource
 
@@ -71,10 +71,9 @@ Depois de [submeter a sua solução](https://azuremarketplace.microsoft.com/sell
 Para obter mais informações sobre os benefícios de Microsoft Go-To-Market e formas de fazer crescer o seu negócio no Marketplace, consulte [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ## <a name="storefronts"></a>Storefronts
-Numa loja, pode listar ofertas, ative as versões de avaliação e negociar diretamente com os clientes da Microsoft. A Microsoft fornece lojas distintas do Marketplace e AppSource. Para obter detalhes e uma comparação das lojas, veja os artigos seguintes:
-*   [Comparação entre o Azure Marketplace e o AppSource](./comparing-appsource-azure-Marketplace.md)
-*   [Desenvolva a sua atividade com o AppSource](./grow-your-business-with-appsource.md)
-*   [Expanda o seu negócio com o Azure Marketplace](./grow-your-business-with-azure-Marketplace.md)
+Numa loja, pode listar ofertas, ative as versões de avaliação e negociar diretamente com os clientes da Microsoft. A Microsoft fornece lojas distintas do Marketplace e AppSource. Para os benefícios de detalhes de cada lojas, veja a seguinte hiperligação:
+* [Comparar o AppSource e o Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+* [Expanda o seu negócio no Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-with-azure-marketplace)
 
 Lojas ajudam os clientes a encontrar, experimentar e comprar aplicações e serviços que aceleram a transformação digital do cliente. Vitrines na ajudar a expandir seus negócios ao aumentar o acesso aos clientes da Microsoft e parceiros.
  
@@ -88,13 +87,12 @@ Cada loja fornece opções especializadas para o ajudar a maximizar o investimen
 | Tipo de oferta | <ul><li>Serviços de consultoria</li><li>Contactar-me</li><li>Avaliação gratuita</li><li>Obtenha agora mesmo</li><li>Versão de teste</li></ul> | <ul><li>As aplicações do Azure: aplicação gerida</li><li>As aplicações do Azure: modelo de solução</li><li>Serviços de consultoria</li><li>Contactar-me</li><li>Avaliação</li><li>Máquina virtual</li></ul> |
 | Experiência de aplicação para dar aos utilizadores acesso a aplicações e serviços no contexto da sua aplicação | <ul><li>Dynamics 365</li><li>Office 365</li><li>Aplicações de cliente do Office</li><li>Power BI</li></ul> | <ul><li>Portal do Azure</li><li>Azure Resource Manager</li><li>CLI do Azure</li></ul> |
 
-## <a name="publish-in-a-storefront-in-the-marketplace"></a>Publicar numa loja no Marketplace
+## <a name="publish-in-the-marketplace"></a>Publicar no Marketplace
 Os artigos seguintes podem ajudá-lo a saber mais sobre as opções de publicação no AppSource e do Azure Marketplace.
 
 Se tornar um publicador numa loja no mercado em três simples passos:
-1. [Determinar a publicação para a sua solução](./determine-your-listing-type.md)
-2. [Se tornar um publicador em lojas de Marketplace](./become-publisher.md)
-3. [Compreender os requisitos de listando tipo](./listing-type-requirements.md) 
+1. [Determinar a opção de publicação](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
+2. [Se tornar um publicador em lojas de Marketplace](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
 
 ## <a name="publishing-checklists"></a>Listas de verificação de publicação
 *   [Lista de verificação de publicação para o AppSource](publishing-checklist-appsource.md)

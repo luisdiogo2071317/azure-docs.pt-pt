@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b516dd165bfc22ad3966ffe51e99591379f9e680
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144334"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172318"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -65,7 +65,7 @@ Um de contas da Microsoft, por exemplo, *@outlook.com ou @live.com*, é utilizad
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Submeter o formulário de Registro do marketplace  
 | 15 minutos |  
-Preencha este formulário de breve Registro para se tornar um publicador de marketplace. As informações submetidas neste formulário serão utilizadas para criar uma conta de editor no Portal de parceiros na Cloud que permite-lhe criar, publicar e gerir as ofertas do marketplace.
+Conclua este breve [formulário de Registro](https://azuremarketplace.microsoft.com/en-us/sell/signup) para se tornar um publicador de marketplace. As informações submetidas neste formulário serão utilizadas para criar uma conta de editor no Portal de parceiros na Cloud que permite-lhe criar, publicar e gerir as ofertas do marketplace.
 
 Será solicitado para incluir as seguintes informações:
 *   Detalhes sobre a sua organização, incluindo o ID do Microsoft Partner Network (que lhe permite procurar em qualquer um [Centro de parceiros](https://partnercenter.microsoft.com/partner/home) ou [Centro de parceiros da associação](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))

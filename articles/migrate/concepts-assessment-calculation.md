@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/20/2018
 ms.author: raynew
-ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 890614133649762788418c538bd22bb6ffc425bf
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920930"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173763"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -106,10 +106,9 @@ Para o dimensionamento baseado no desempenho, do Azure Migrate começa com os di
 Se o critério de dimensionamento for *no local dimensionamento*, do Azure Migrate não considera o histórico de desempenho das VMs e discos e aloca um SKU de VM no Azure com base no tamanho atribuído no local. Da mesma forma para o dimensionamento do disco, ele examina o tipo de armazenamento especificado nas propriedades de avaliação (Standard/Premium) e recomenda o tipo de disco em conformidade. Tipo de armazenamento predefinido é de discos Premium.
 
 ### <a name="confidence-rating"></a>Classificação de confiança
+Cada avaliação com base em desempenho no Azure Migrate é associada uma classificação de confiança que varia de 1 a 5 estrelas (1 estrela corresponde a ser a mais baixa e 5 a mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate. Classificação de confiança não é aplicável ao como no local avaliações.
 
-Cada avaliação no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate.
-
-A classificação de confiança de uma avaliação é mais útil para as avaliações de critério de dimensionamento como dimensionamento com base em desempenho. Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
+Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
 
    **Disponibilidade de pontos de dados** | **Classificação de confiança**
    --- | ---

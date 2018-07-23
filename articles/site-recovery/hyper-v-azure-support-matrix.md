@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921529"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171988"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V para o Azure
 
@@ -48,7 +48,12 @@ Configuração da VM | As VMs que são replicados para o Azure tem de cumprir [r
 Sistema operativo convidado | Qualquer convidado SO suportado pelo Azure.<br/><br/> Windows Server 2016 Nano Server não é suportado.
 
 
+## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
+**Ação** | **Detalhes**
+--- | ---
+Redimensionar o disco na VM de Hyper-V replicada | Não suportado. Desative a replicação, efetuar a alteração e, em seguida, reativar a replicação para a VM.
+Adicionar o disco na VM de Hyper-V replicada | Não suportado. Desative a replicação, efetuar a alteração e, em seguida, reativar a replicação para a VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede Hyper-V
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971942"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173678"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -94,6 +94,8 @@ Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da
 O servidor está marcado como só de leitura quando a quantidade de armazenamento livre atingir inferior a 5 GB ou 5% do armazenamento de aprovisionamento, o que for menor. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 250 MB.  
 
 Embora o serviço tenta tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e transações ativas existentes continuarão a executar. Quando o servidor está definido como só de leitura, todas as operações de gravação subseqüentes de transação consolida a ativação. Consultas de leitura irão continuar a funcionar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor estará pronto para aceitar transações de escrita novamente.
+
+Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Cópia de segurança
 

@@ -1,9 +1,9 @@
 ---
-title: Gerir zonas DNS no DNS do Azure - portal do Azure | Microsoft Docs
-description: Pode gerir zonas DNS através do portal do Azure. Este artigo descreve como atualizar, eliminar e criar zonas DNS no DNS do Azure
+title: Gerir zonas DNS no DNS do Azure - portal do Azure | Documentos da Microsoft
+description: Pode gerir zonas DNS com o portal do Azure. Este artigo descreve como atualizar, excluir e criar zonas DNS no DNS do Azure
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: kumud
-ms.openlocfilehash: 3fbf59010e690ac022e4363eddebe1cfbba53d13
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779044"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171243"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Como gerir zonas DNS no portal do Azure
 
@@ -27,12 +27,12 @@ ms.locfileid: "32779044"
 > * [CLI do Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
-Este artigo mostra como gerir as zonas DNS através do portal do Azure. Também pode gerir as zonas DNS com a plataforma [CLI do Azure](dns-operations-dnszones-cli.md) ou do Azure [PowerShell](dns-operations-dnszones.md).
+Este artigo mostra-lhe como gerir as suas zonas DNS com o portal do Azure. Também pode gerir as suas zonas DNS com a Multiplataforma [CLI do Azure](dns-operations-dnszones-cli.md) ou do Azure [PowerShell](dns-operations-dnszones.md).
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Iniciar sessão no portal do Azure
-2. No Hub menu, clique em e clique em **crie um recurso > rede >** e, em seguida, clique em **zona DNS** para abrir o painel de zona DNS de criar.
+2. No Hub menu, clique e clique em **criar um recurso > redes >** e, em seguida, clique em **zona DNS** para abrir o painel criar zona DNS.
 
     ![Zona DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,14 +51,14 @@ Este artigo mostra como gerir as zonas DNS através do portal do Azure. Também 
 
 ## <a name="list-dns-zones"></a>Listar zonas DNS
 
-No portal do Azure, navegue para **mais serviços** > **redes** > **zonas DNS**. Cada zona DNS é é seus próprios recursos, informações como o número de conjuntos de registos e servidores de nomes são visíveis desta vista. A coluna **servidores de nomes** não se encontra na vista predefinida, adicioná-lo clique **colunas**, selecione **nome servidores** e clique em **feito**.
+No portal do Azure, navegue até **mais serviços** > **rede** > **zonas DNS**. Cada zona DNS é é próprios recursos, informações como o número de conjuntos de registos e servidores de nomes são visíveis a partir desta vista. A coluna **servidores de nomes** não está na vista predefinida, adicioná-lo clique **colunas**, selecione **servidores de nomes** e clique em **feito**.
 
 ![listar zonas DNS](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Eliminar uma zona DNS
 
-Navegue para uma zona DNS no portal. No **zona DNS** painel, clique em **eliminar zona**. Lhe for pedido para confirmar que está a intenção eliminar a zona DNS. Também eliminar uma zona DNS elimina todos os registos estão contidos na zona.
+Navegue para uma zona DNS no portal. Sobre o **zona DNS** painel, clique em **eliminar zona**. São-lhe pedido para confirmar que pretende eliminar a zona DNS. Eliminar uma zona DNS também elimina a todos os registos que estão contidos na zona.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como trabalhar com a sua zona DNS e os registos, visitando [introdução ao DNS do Azure no portal do Azure](dns-getstarted-portal.md).
+Saiba como trabalhar com a sua zona DNS e registos ao visitar [introdução ao DNS do Azure com o portal do Azure](dns-getstarted-portal.md).

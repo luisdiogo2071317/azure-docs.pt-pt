@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342994"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171777"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
@@ -55,8 +55,9 @@ O sistema do Azure requer cinco ligações para monitorizar a base de dados do A
 ### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
 - Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
-### <a name="point-in-time-restore-pitr"></a>Ponto de restauro anterior no tempo-(PITR)
-- Quando utilizar a funcionalidade PITR, é criado o novo servidor com as mesmas configurações que o servidor que baseia-se.
+### <a name="restoring-a-server"></a>Restaurar um servidor
+- Quando utilizar a funcionalidade PITR, é criado o novo servidor com as mesmas configurações de escalão de preço que o servidor que baseia-se.
+- O novo servidor criado durante um restauro não tem as regras de firewall que existiam no servidor original. Regras de firewall tem de ser configurado separadamente para este servidor novo.
 - Não é suportado restaurar um servidor foi eliminado.
 
 ## <a name="next-steps"></a>Passos Seguintes

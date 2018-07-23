@@ -1,6 +1,6 @@
 ---
-title: Descrição geral do Balanceador de carga Standard do Azure | Microsoft Docs
-description: Descrição geral das funcionalidades de Balanceador de carga do Azure Standard
+title: Descrição geral do Balanceador de carga Standard do Azure | Documentos da Microsoft
+description: Descrição geral das funcionalidades do Balanceador de carga Standard do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,233 +12,234 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 58e98baa2bc628e92fd54c389376818e6fdb43a0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261938"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187966"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
+# <a name="azure-load-balancer-standard-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
-Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar a elevada disponibilidade para os serviços. Balanceador de carga e pode ser utilizado para cenários de entrada como saídos proporciona baixa latência, débito elevado e dimensiona até milhões de fluxos de todas as aplicações de TCP e UDP. 
+O Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
 
-Este artigo concentra-se no balanceador de carga padrão.  Para obter uma descrição mais geral para o Balanceador de carga do Azure, reveja [descrição geral do Balanceador de carga](load-balancer-overview.md) bem.
+Este artigo se concentra no balanceador de carga Standard.  Para obter uma descrição geral mais geral para o Balanceador de carga do Azure, reveja [descrição geral do Balanceador de carga](load-balancer-overview.md) também.
 
-## <a name="what-is-standard-load-balancer"></a>O que é padrão Balanceador de carga?
+## <a name="what-is-standard-load-balancer"></a>O que é o Balanceador de carga Standard?
 
-Padrão de Balanceador de carga é um produto de Balanceador de carga novo para todos os TCP e UDP aplicações com uma funcionalidade expandida e mais granular definido através de Balanceador de carga básico.  Apesar de existirem diversas semelhanças, é importante para se familiarizar com as diferenças conforme descrito neste artigo.
+Balanceador de carga Standard é um novo produto de Balanceador de carga para aplicativos de todos os TCP e UDP com um conjunto ao longo do Balanceador de carga básico de recursos expandidos e mais granulares.  Embora existam muitas semelhanças, é importante familiarizar-se com as diferenças, conforme descrito neste artigo.
 
-Pode utilizar o padrão de Balanceador de carga como um balanceador de carga público ou interno. E pode ser ligada uma máquina virtual para um público e um recurso de Balanceador de carga interno.
+Pode utilizar o Balanceador de carga Standard como um balanceador de carga interno ou público. E uma máquina virtual pode estar conectada a um público e um recurso de Balanceador de carga interno.
 
-Funções do recurso de Balanceador de carga são sempre expresso como um front-end, uma regra, uma pesquisa de estado de funcionamento e uma definição de conjunto de back-end.  Um recurso pode conter várias regras. Pode colocar as máquinas virtuais para o conjunto de back-end, especificando o conjunto de back-end do recurso de NIC da máquina virtual.  Este parâmetro é transmitido através do perfil de rede e expandido quando utilizar conjuntos de dimensionamento de máquina virtual.
+Funções do recurso de Balanceador de carga sempre são expressos como um front-end, uma regra, uma sonda de estado de funcionamento e uma definição de conjunto de back-end.  Um recurso pode conter várias regras. Pode colocar as máquinas virtuais para o pool de back-end, especificando o conjunto de back-end do recurso NIC da máquina virtual.  Este parâmetro é transmitido o perfil de rede e expandido ao utilizar conjuntos de dimensionamento de máquina virtual.
 
-Um aspeto chave é o âmbito da rede virtual para o recurso.  Enquanto básico Balanceador de carga existe no âmbito do conjunto de disponibilidade, um balanceador de carga Standard está totalmente integrado com o âmbito de uma rede virtual e aplicam a todos os conceitos de rede virtual.
+Um aspecto-chave é o âmbito da rede virtual para o recurso.  Embora o Balanceador de carga básico existir dentro do escopo de um conjunto de disponibilidade, um balanceador de carga Standard está totalmente integrado com o âmbito de uma rede virtual e todos os conceitos de rede virtual aplicam-se.
 
-Recursos de Balanceador de carga são objetos dentro do qual pode express como o Azure deve programa respetiva infraestrutura de multi-inquilino para alcançar o cenário de que pretende criar.  Não há nenhuma relação direta entre os recursos de Balanceador de carga e a infraestrutura real; criar um balanceador de carga não criar uma instância, capacidade está sempre disponível e existem não arranque ou dimensionamento atrasos a ter em consideração. 
+Recursos do Balanceador de carga são objetos nos quais pode expressar como o Azure deve programar a sua infraestrutura de multi-inquilino para alcançar o cenário que deseja criar.  Não existe nenhuma relação direta entre recursos do Balanceador de carga e a infraestrutura real; criar um balanceador de carga não cria uma instância, capacidade está sempre disponível e existem não arranque ou dimensionamento atrasos a serem considerados. 
 
 >[!NOTE]
-> O Azure oferece um conjunto de soluções para os seus cenários de balanceamento de carga completamente gerido.  Se estiver à procura para a terminação de TLS ("descarga de SSL") ou pelo processamento de camada de aplicação de pedidos HTTP/HTTPS, reveja [Gateway de aplicação](../application-gateway/application-gateway-introduction.md).  Se estiver à procura de global DNS balanceamento de carga, reveja [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).  Os cenários de ponto a ponto podem tirar partido do combinar estas soluções conforme necessário.
+> O Azure fornece um conjunto de soluções para os seus cenários de balanceamento de carga totalmente gerido.  Se estiver à procura de encerramento de TLS ("descarga de SSL") ou por processamento de camada de aplicativo de pedidos HTTP/HTTPS, reveja [Gateway de aplicação](../application-gateway/application-gateway-introduction.md).  Se estiver à procura de global DNS balanceamento de carga, reveja [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md).  Seus cenários de ponto a ponto podem beneficiar de combinar essas soluções, conforme necessário.
 
-## <a name="why-use-standard-load-balancer"></a>Porquê utilizar o padrão de Balanceador de carga?
+## <a name="why-use-standard-load-balancer"></a>Porquê utilizar o Balanceador de carga Standard?
 
 O Balanceador de Carga Standard permite-lhe dimensionar as suas aplicações e criar uma elevada disponibilidade para implementações de pequena escala em arquiteturas com várias zonas grandes e complexas.
 
-Reveja a tabela abaixo para obter uma descrição geral das diferenças entre padrão Balanceador de carga e básico Balanceador de carga:
+Reveja a tabela abaixo para uma visão geral das diferenças entre o Balanceador de carga Standard e o Balanceador de carga básico:
 
 >[!NOTE]
-> Novos designs de devem considerar a utilização do padrão de Balanceador de carga. 
+> Novos designs devem adotar o Balanceador de carga Standard. 
 
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
 | Tamanho do conjunto de back-end | até 1000 instâncias | até 100 instâncias |
-| Pontos finais de conjunto de back-end | Qualquer máquina virtual numa única rede virtual, incluindo blend de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | máquinas virtuais pertencentes uma escala de máquina virtual ou conjunto de disponibilidade único conjunto |
-| Zonas de Disponibilidade | Com redundância de zona e zonal frontends de entrada e de mapeamentos de fluxos de saída, saída continuam a vigorar após falha de zona, cross-zona balanceamento de carga | / |
-| Diagnóstico | Monitor do Azure, métricas multidimensionais, incluindo byte e contadores de pacotes, estado de funcionamento da sonda de estado, as tentativas de ligação (SIN de TCP), estado de funcionamento da ligação de saída (realizar o SNAT com êxito ou falhados fluxos), medidas plane de dados do Active Directory | Análise de registos do Azure, contagem de estado de funcionamento do conjunto de back-end de Balanceador de carga público só, alerta de esgotamento de realizar o SNAT |
+| Pontos finais de conjunto de back-end | qualquer máquina virtual numa única rede virtual, incluindo blend de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | conjunto de máquinas virtuais numa escala de máquina virtual ou conjunto de disponibilidade única |
+| Zonas de Disponibilidade | com redundância de zona e zonais front-ends para entrada e mapeamentos de fluxos de saída, saída resistir a falhas de zona, balanceamento de carga entre zonas | / |
+| Diagnóstico | Monitor do Azure, incluindo bytes e contadores de pacotes, estado de funcionamento de métricas multidimensionais sonda de estado, as tentativas de ligação (TCP SYN), estado de funcionamento da ligação de saída (SNAT com êxito ou falhados fluxos), medidas de plano de dados do Active Directory | O Azure Log Analytics para o Balanceador de carga público só, o alerta de esgotamento de SNAT, contagem de estado de funcionamento do conjunto de back-end |
 | HA portas | Balanceador de carga interno | / |
-| Seguro por predefinição | predefinição fechada para pontos finais públicos de Balanceador de carga e de IP e um grupo de segurança de rede deve ser utilizado para explicitamente lista branca para o tráfego flua | predefinição aberto, grupo de segurança opcional |
-| Ligações de saída | Vários frontends com por regra ativamente. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  [Pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acedidos sem conectividade de saída e não contam para processamento de dados.  Todos os endereços IP públicos, incluindo serviços do Azure PaaS não está disponíveis como pontos finais do serviço de VNet, devem ser atingidos através de conectividade de saída e a contagem para processamento de dados. Quando uma máquina virtual está a funcionar apenas um balanceador de carga interno, ligações de saída através de predefinição realizar o SNAT não estão disponíveis. Programação de realizar o SNAT saída é o protocolo de transporte específicos com base no protocolo de entrada de balanceamento de carga regra. | Único front-end, selecionado aleatória, quando várias frontends estão presentes.  Quando apenas Balanceador de carga interno está a servir uma máquina virtual, é utilizada a predefinição realizar o SNAT. |
-| Vários front-ends | Entrada e saída | Apenas de entrada |
-| Operações de gestão | A maioria dos segundos de < 30 de operações | 60-90 segundos típica |
-| SLA | 99,99% de caminho de dados com duas máquinas virtuais em bom estado | Implícita no SLA de VM | 
-| Preços | -Lhe cobrados com base no número de regras, processados de dados de entrada ou saída associados a recursos  | Sem qualquer encargo |
+| Seguro por padrão | predefinição fechada para pontos finais públicos do Balanceador de carga e de IP e um grupo de segurança de rede deve ser usado para explicitamente lista de permissões para o tráfego flua | padrão aberto, grupo de segurança opcional |
+| [Ligações de saída](load-balancer-outbound-connections.md) | Vários front-ends com por sair em regra de balanceamento de carga. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  [Pontos finais de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) pode ser contatado sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços IP públicos, incluindo serviços de PaaS do Azure não está disponíveis como pontos finais de serviço de VNet, tem de ser contatados por meio de conectividade de saída e contagem para dados processados. Quando apenas um balanceador de carga interno está a servir uma máquina virtual, as ligações de saída através do padrão SNAT não estão disponíveis. Programação de SNAT de saída é o protocolo de transporte específico com base no protocolo de regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estão presentes.  Quando uma máquina virtual está a servir apenas Balanceador de carga interno, é utilizada a predefinição SNAT. |
+| [Vários front-ends](load-balancer-multivip-overview.md) | Entrada e [saída](load-balancer-outbound-connections.md) | Apenas de entrada |
+| [Sonda de estado de funcionamento para baixo de comportamento](load-balancer-custom-probe-overview.md) | Ligações de TCP permanecem ativas na instância de pesquisa para baixo __e__ em todas as sondas para baixo | Ligações de TCP permanecem ativas na instância de pesquisa para baixo. Todas as conexões TCP terminam em todas as sondas para baixo |
+| Operações de gestão | A maioria dos segundos de < a 30 de operações | 60-90 segundos típico |
+| SLA | 99,99% para o caminho de dados com duas máquinas virtuais em bom estado | Implícitas no SLA de VM | 
+| Preços | Cobrado com base no número de regras, dados processados de entrada ou saída associados a recursos  | sem custos |
 
-Reveja [os limites de serviço para o Balanceador de carga](https://aka.ms/lblimits), bem como [preços](https://aka.ms/lbpricing), e [SLA](https://aka.ms/lbsla).
+Revisão [limites de serviço para o Balanceador de carga](https://aka.ms/lblimits), bem como [preços](https://aka.ms/lbpricing), e [SLA](https://aka.ms/lbsla).
 
 
 ### <a name="backend"></a>Conjunto back-end
 
-Conjuntos de back-end de Balanceador de carga padrão expande a qualquer recurso de máquina virtual numa rede virtual.  Pode conter até 1000 instâncias de back-end.  Uma instância de back-end é uma configuração de IP, o que é uma propriedade de um recurso NIC.
+Conjuntos de back-end de Balanceador de carga Standard expande-se a qualquer recurso de máquina virtual numa rede virtual.  Pode conter até 1000 instâncias de back-end.  Uma instância de back-end é uma configuração de IP, o que é uma propriedade de um recurso NIC.
 
-O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de disponibilidade ou conjuntos de dimensionamento de máquina virtual.  Também pode misturar recursos no conjunto de back-end. Pode combinar até 150 recursos no conjunto back-end por recurso de Balanceador de carga.
+O conjunto de back-end pode conter máquinas virtuais autónomas, conjuntos de disponibilidade ou conjuntos de dimensionamento de máquina virtual.  Também pode misturar os recursos no conjunto de back-end. Pode combinar até 150 recursos no conjunto de back-end por recurso de Balanceador de carga.
 
-Ao considerar como estruturar o conjunto de back-end, pode conceber para o menor número de recursos de conjunto de back-end individuais para otimizar ainda mais a duração das operações de gestão.  Não há qualquer diferença no desempenho de plane de dados ou a escala.
+Ao considerar como estruturar o seu conjunto de back-end, pode criar para o menor número de recursos do agrupamento de back-end individuais para otimizar ainda mais a duração das operações de gestão.  Não existe nenhuma diferença no desempenho do plano de dados ou a escala.
 
-## <a name="az"></a>Zonas de disponibilidade
+## <a name="az"></a>As zonas de disponibilidade
 
-Balanceador de carga Standard suporta capacidades adicionais em regiões onde zonas de disponibilidade estão disponíveis.  Estas funcionalidades são incrementais para todos os Balanceador de carga padrão fornece.  Configurações de zonas de disponibilidade estão disponíveis para o Balanceador de carga de padrão público e interno.
+Balanceador de carga Standard suporta capacidades adicionais nas regiões onde as zonas de disponibilidade estão disponíveis.  Estas funcionalidades são incrementais para todos os Balanceador de carga Standard oferece.  Configurações de zonas de disponibilidade estão disponíveis para o Balanceador de carga Standard público e internos.
 
-Não zonal frontends tornar-se com redundância de zona por predefinição, quando implementado numa região com zonas de disponibilidade.   Um front-end com redundância de zona survives falha de zona e é fornecido pela infraestrutura dedicada em todas as zonas em simultâneo. 
+Front-ends não zonal tornam-se com redundância de zona por predefinição, quando implementado numa região com zonas de disponibilidade.   Um front-end com redundância de zona sobrevive a falha de zona e é atendido por infraestrutura dedicada em todas as zonas em simultâneo. 
 
-Além disso, pode garantir o front-end para uma zona específica. Um front-end zonal partilha fate com o respetivo horário e é fornecido apenas por infraestrutura dedicada numa única zona.
+Além disso, pode garantir um front-end para uma zona específica. Um front-end zonal partilha de destino com a zona respectiva e é servido apenas pela infraestrutura dedicada numa única zona.
 
-Balanceamento de carga entre zona está disponível para o conjunto de back-end e qualquer recurso de máquina virtual numa vnet pode fazer parte de um conjunto de back-end.
+Balanceamento de carga entre zonas está disponível para o conjunto de back-end e qualquer recurso de máquina virtual numa vnet pode fazer parte de um conjunto de back-end.
 
-Reveja [debate detalhado das zonas de disponibilidade relacionadas com capacidades](load-balancer-standard-availability-zones.md).
+Revisão [análise detalhada das zonas de disponibilidade relacionados com capacidades](load-balancer-standard-availability-zones.md).
 
 ### <a name="diagnostics"></a> Diagnóstico
 
-Balanceador de carga padrão fornece métricas multidimensionais por meio do Monitor do Azure.  Estas métricas podem ser filtradas, agrupadas e divididas para uma dimensão especificada.  Fornecem históricos e atuais informações sobre desempenho e estado de funcionamento do seu serviço.  Estado de funcionamento de recursos também é suportado.  Segue-se uma breve descrição geral de diagnóstico suportado:
+Balanceador de carga Standard fornece métricas multidimensionais através do Azure Monitor.  Estas métricas podem ser filtradas, agrupadas e divididas para uma dimensão especificada.  Eles fornecem informações atual e históricos sobre desempenho e estado de funcionamento do seu serviço.  Estado de funcionamento do recurso também é suportado.  Segue-se uma breve descrição geral de diagnóstico suportado:
 
 | Métrica | Descrição |
 | --- | --- |
-| Disponibilidade de VIP | Padrão de Balanceador de carga continuamente exercises o caminho de dados de dentro de uma região para o Balanceador de carga front-end para a pilha SDN que suporte o VM. Bom estado de funcionamento instâncias permanecerem, desde que a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que é utilizado pelos seus clientes também está a ser validado. A medida é invisível à sua aplicação e não interfere com outras operações.|
-| Disponibilidade do DIP | Padrão de Balanceador de carga utiliza um serviço que monitoriza o estado de funcionamento do ponto final da aplicação, de acordo com as definições de configuração de pesquisa de estado de funcionamento distribuído. Esta métrica fornece um agregado ou por ponto final-vista filtrada de cada ponto final de instância individual no balanceador de carga do agrupamento.  Pode ver como o Balanceador de carga visualiza o estado de funcionamento da sua aplicação, como indicado pela sua configuração de pesquisa do Estado de funcionamento.
-| Pacotes de SIN | Padrão de Balanceador de carga não terminar ligações TCP ou interagir com fluxos de pacotes TCP ou UDP. Fluxos e os respetivos handshakes são sempre entre a origem e a instância VM. Para resolver melhor os cenários de protocolo TCP, pode efetuar a utilização de SIN contadores de pacotes para compreender quantos ligação de TCP são realizadas tentativas. A métrica reporta o número de pacotes de TCP SIN que foram recebidos.|
-| Ligações de realizar o SNAT | Padrão de Balanceador de carga reporta o número de fluxos de saída que são masqueraded para o endereço IP público front-end. Portas de realizar o SNAT são um recurso exhaustible. Esta métrica pode dar uma indicação de como descontos elevados a aplicação é depender de realizar o SNAT para saída fluxos teve origem.  Contadores para fluxos de realizar o SNAT de saída com êxito e são reportados e podem ser utilizados para resolver problemas e compreender o estado de funcionamento dos seus fluxos de saída.|
-| Contadores de bytes | Padrão de Balanceador de carga relatórios os dados processados por front-end.|
-| Contadores de pacote | Padrão de Balanceador de carga relatórios pacotes processados por front-end.|
+| Disponibilidade de VIP | Balanceador de carga Standard continuamente exercita o caminho de dados de dentro de uma região para o Balanceador de carga front-end para a pilha SDN, que oferece suporte a sua VM. Enquanto permanecerem instâncias de bom estado de funcionamento, a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que é utilizado pelos clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.|
+| Disponibilidade do DIP | Balanceador de carga Standard-utiliza um serviço que monitoriza o estado de funcionamento do seu aplicativo do ponto de extremidade, de acordo com as definições de configuração de pesquisa de estado de funcionamento distribuído. Esta métrica fornece um agregado ou por ponto final-vista filtrada de cada ponto de extremidade de instância individual no balanceador de carga do agrupamento.  Pode ver como o Balanceador de carga visualiza o estado de funcionamento da sua aplicação, conforme indicado pela sua configuração de sonda de estado de funcionamento.
+| Pacotes SYN | Balanceador de carga Standard não terminar ligações de TCP ou interagir com fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes são sempre entre a origem e a instância VM. Para resolver melhor seus cenários de protocolo TCP, pode fazer uso de SYN contadores de pacotes para compreender quantos ligação de TCP são feitas tentativas. A métrica relata o número de pacotes de TCP SYN que foram recebidos.|
+| Ligações SNAT | Balanceador de carga Standard-relata o número de fluxos de saída que são masqueraded para o endereço IP público front-end. Portas SNAT são um recurso exhaustible. Esta métrica pode dar uma indicação de quanto seu aplicativo depende SNAT para os fluxos de originados de saída.  Contadores para fluxos de SNAT de saída com êxito e falhados são reportadas e podem ser usados para solucionar problemas e compreender o estado de funcionamento dos seus fluxos de saída.|
+| Contadores de byte | Balanceador de carga Standard-relatórios os dados processados por front-end.|
+| Contadores de pacotes | Balanceador de carga Standard-relatórios pacotes processados por front-end.|
 
-Reveja [debate do diagnóstico de Balanceador de carga padrão de detalhado](load-balancer-standard-diagnostics.md).
+Revisão [detalhadas a discussão de diagnóstico de Balanceador de carga Standard](load-balancer-standard-diagnostics.md).
 
 ### <a name="haports"></a>HA portas
 
-Balanceador de carga Standard suporta um novo tipo de regra.  
+Balanceador de carga Standard oferece suporte a um novo tipo de regra.  
 
-Pode configurar regras para efetuar o dimensionamento de aplicações e altamente fiáveis de balanceamento de carga. Ao utilizar uma regra de Balanceador de carga padrão de balanceamento de carga HA portas irá fornecer por balanceamento em todas as portas efémeras do endereço IP de front-end de um interno padrão de carga do Balanceador de carga de fluxo.  A funcionalidade é útil para outros cenários onde é impractical ou indesejáveis para especificar portas individuais.
+Pode configurar regras para fazer o dimensionamento do aplicativo e altamente confiáveis de balanceamento de carga. Quando utiliza uma regra de Balanceador de carga Standard de balanceamento de carga de portas HA fornecerá por cada porta efêmera do endereço IP de front-end de um interno Balanceador de carga Standard de balanceamento de carga de fluxo.  A funcionalidade é útil para outros cenários onde é impraticável ou indesejado para especificar portas individuais.
 
-Uma regra de balanceamento de carga de portas HA permite-lhe criar ativa-passiva ou ativo-ativo n + 1 cenários para dispositivos de rede Virtual e de qualquer aplicação que necessita de grandes intervalos de portas de entrada.  Uma sonda do Estado de funcionamento pode ser utilizada para determinar quais back-ends devem receber novos fluxos.  Pode utilizar um grupo de segurança de rede para emular um cenário de intervalo de portas.
+Uma regra de balanceamento de carga de portas HA permite-lhe criar ativa-passiva ou ativa-ativa n + 1 cenários para dispositivos de rede Virtual e de qualquer aplicativo, o que requer grandes intervalos de portas de entrada.  Uma sonda de estado de funcionamento pode ser utilizada para determinar quais back-ends devem receber novos fluxos.  Pode utilizar um grupo de segurança de rede para emular um cenário de intervalo de porta.
 
 >[!IMPORTANT]
-> Se estiver a planear utilizar uma aplicação Virtual de rede, consulte o fornecedor para obter orientações sobre se os seus produtos foi testado com portas HA e siga as orientações específicas para implementação. 
+> Se estiver a planear utilizar uma aplicação de rede Virtual, contacte o seu fornecedor para obter orientações sobre se o seu produto foi testado com portas HA e siga suas orientações específicas para implementação. 
 
-Reveja [detalhadas debate do HA portas](load-balancer-ha-ports-overview.md).
+Revisão [detalhadas a discussão das portas HA](load-balancer-ha-ports-overview.md).
 
-### <a name="securebydefault"></a>Seguro por predefinição
+### <a name="securebydefault"></a>Seguro por padrão
 
-Balanceador de carga padrão é totalmente integrado à rede virtual.  A rede virtual está numa rede privada, fechada.  Porque padrão balanceadores de carga e os endereços IP públicos padrão foram concebidos para permitir esta rede virtual ser acedido a partir de fora da rede virtual, estes recursos agora a predefinição fechada, a menos que abre-los. Isto significa que os grupos de segurança de rede (NSGs) agora são utilizados para permitir explicitamente e lista branca de tráfego permitido.  Pode criar o seu centro de dados virtual completo e decidir através do NSG que e quando devem estar disponível.  Se não tiver um NSG numa sub-rede ou NIC de recurso de máquina virtual, o tráfego não é permitido para aceder a este recurso.
+Balanceador de carga Standard é totalmente integrado para a rede virtual.  A rede virtual é uma rede privada, fechada.  Uma vez que os balanceadores de carga Standard e endereços IP públicos Standard foram concebidos para permitir que esta rede virtual ser acessado de fora da rede virtual, esses recursos agora padrão fechado, a menos que abri-los. Isso significa que os grupos de segurança de rede (NSGs) agora são utilizados para conceder explicitamente e tráfego permitido de lista de permissões.  Pode criar o seu Datacenter virtual inteiro e decidir através do NSG, o que e quando devem estar disponível.  Se não tiver um NSG numa sub-rede ou NIC do seu recurso de máquina virtual, o tráfego não tem permissão para aceder este recurso.
 
 Para saber mais sobre NSGs e como aplicá-las para o seu cenário, consulte [grupos de segurança de rede](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Ligações de saída
 
-Balanceador de carga suporta cenários de entrada e saídos.  Balanceador de carga padrão é significativamente diferente básico Balanceador de carga no que respeita à ligações de saída.
+Load Balancer suporta cenários de entrada e saídos.  Balanceador de carga Standard é significativamente diferente para o Balanceador de carga básico em relação a ligações de saída.
 
-Origem de rede endereço tradução (realizar o SNAT) é utilizado para mapear internos, privados endereços IP na sua rede virtual para endereços IP públicos no frontends de Balanceador de carga.
+Tradução de endereços de rede de origem (SNAT) é utilizado para mapear internos, privados endereços IP na sua rede virtual para endereços IP públicos no front-ends do Balanceador de carga.
 
-Balanceador de carga padrão introduz um novo algoritmo para um [mais robusto, escalável e previsível algoritmo de realizar o SNAT](load-balancer-outbound-connections.md#snat) e capacidades de novo ativa, remove ambiguidade e configurações de explícita força em vez de lado efeitos. Estas alterações são necessárias para permitir novas funcionalidades surgir. 
+Balanceador de carga Standard apresenta um novo algoritmo para um [algoritmo SNAT mais robusto, escalável e previsível](load-balancer-outbound-connections.md#snat) e capacidade de novas ativa, remove ambiguidade e configurações explícitas de forças lado, em vez disso, efeitos. Estas alterações são necessárias para permitir novas funcionalidades a surgir. 
 
-Estas são as chaves tenets lembrar-se ao trabalhar com o padrão de Balanceador de carga:
+Estes são os princípios importantes a lembrar ao trabalhar com o Balanceador de carga Standard:
 
-- após a conclusão de uma regra de unidades o recurso de Balanceador de carga.  todos os programação do Azure deriva de configuração.
-- Quando estiverem disponíveis vários frontends, todos os frontends são utilizados e cada front-end multiplica o número de portas de realizar o SNAT disponíveis
-- Pode escolher e controlar se não desejar para um determinado front-end a utilizar para ligações de saída.
+- a conclusão de uma regra impulsiona o recurso do Balanceador de carga.  toda a programação do Azure é derivada da respetiva configuração.
+- Quando vários front-ends estão disponíveis, todos os de front-ends são utilizados e cada front-end multiplica o número de portas SNAT disponíveis
+- Pode escolher e controlar se não pretender para um front-end específico a ser utilizado para ligações de saída.
 - cenários de saída são explícitos e conectividade de saída não existir até que foi especificado.
-- regras de balanceamento de carga inferir como realizar o SNAT está programado. Regras de balanceamento de carga são específico do protocolo. Realizar o SNAT é específico do protocolo e a configuração deve refletir isto em vez de criar um efeito.
+- regras de balanceamento de carga inferir como SNAT programado. Regras de balanceamento de carga são específico de protocolo. SNAT é específica de protocolo e a configuração deverá refletir isso em vez de criar um efeito colateral.
 
 #### <a name="multiple-frontends"></a>Vários front-ends
-Se pretender mais portas de realizar o SNAT porque está à espera ou são já estão a ocorrer um excesso para ligações de saída, também pode adicionar inventário de porta de realizar o SNAT incremental configurando frontends adicionais, regras e conjuntos de back-end para a mesma máquina virtual recursos.
+Se quiser mais portas SNAT porque está esperando ou está já a experienciar uma procura elevada de ligações de saída, também pode adicionar inventário de porta SNAT incremental através da configuração de front-ends adicionais, regras e conjuntos de back-end para a mesma máquina virtual recursos.
 
-#### <a name="control-which-frontend-is-used-for-outbound"></a>Controlo que front-end é utilizada para a saída
-Se pretender restringir as ligações de saída para apenas provenientes de um endereço IP de front-end específico, opcionalmente, pode desativar a saída realizar o SNAT na regra que expresse precisa o mapeamento de saída.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>Controle qual front-end é utilizado para a saída
+Se quiser restringir ligações de saída para apenas ser originado de um endereço IP de front-end específicas, opcionalmente, pode desativar SNAT de saída na regra que expresse o mapeamento de saída.
 
-#### <a name="control-outbound-connectivity"></a>Conectividade de saída de controlo
-Padrão de Balanceador de carga existe no contexto da rede virtual.  Uma rede virtual é uma rede privada isolada.  A menos que existe uma associação com um endereço IP público, conectividade pública não é permitida.  Pode aceder [pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) porque estão dentro do e local à sua rede virtual.  Se pretender estabelecer conectividade de saída para um destino fora da rede virtual, tem duas opções:
-- atribuir um endereço IP público do Standard SKU como um endereço IP público de nível de instância para o recurso de máquina virtual ou
-- Coloque o recurso de máquina virtual no conjunto back-end de Balanceador de carga público padrão.
+#### <a name="control-outbound-connectivity"></a>Conectividade de saída do controle
+Balanceador de carga Standard existe dentro do contexto da rede virtual.  Uma rede virtual é uma rede privada isolada.  A menos que exista uma associação com um endereço IP público, pública conectividade não é permitida.  Pode entrar [pontos finais de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) porque se encontra dentro do e local à sua rede virtual.  Se quiser estabelecer conectividade de saída para um destino fora da sua rede virtual, tem duas opções:
+- atribuir um endereço IP público de SKU padrão como um endereço IP público de nível de instância para o recurso de máquina virtual ou
+- coloca o recurso de máquina virtual no conjunto de back-end de um balanceador de carga Standard público.
 
-Ambos permitirá a conectividade de saída da rede virtual para fora da rede virtual. 
+Ambos permitirá que a conectividade de saída da rede virtual para fora da rede virtual. 
 
-Se lhe _apenas_ tem um balanceador de carga de padrão interno, associados ao conjunto de back-end em que o recurso de máquina virtual se encontra, a máquina virtual só pode aceder a recursos de rede virtual e [serviço VNet Pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md).  Pode seguir os passos descritos no parágrafo anterior para criar a conectividade de saída.
+Se _apenas_ tem um balanceador de carga de padrão interno, associado com o conjunto de back-end em que o recurso de máquina virtual se encontra, sua máquina virtual só pode aceder a recursos de rede virtual e [serviço de VNet Pontos de extremidade](../virtual-network/virtual-network-service-endpoints-overview.md).  Pode seguir os passos descritos no parágrafo anterior para criar a conectividade de saída.
 
-Conectividade de saída de um recurso de máquina virtual não associado a permanece SKUs padrão como antes.
+Conectividade de saída de um recurso de máquina virtual não associado a SKUs padrão permanece como antes.
 
-Reveja [detalhadas debate de ligações de saída](load-balancer-outbound-connections.md).
+Revisão [detalhadas discussão sobre as ligações de saída](load-balancer-outbound-connections.md).
 
-### <a name="multife"></a>Vários frontends
-Balanceador de carga suporta várias regras com vários frontends.  Balanceador de carga padrão expande este para cenários de saída.  Cenários de saída são essencialmente o inverso de uma regra de balanceamento de carga na entrada.  O entrada também a regra de balanceamento de carga cria um associar para ligações de saída. Standard Load Balancer utiliza todos os frontends associados a um recurso de máquina virtual através de uma regra de balanceamento de carga.  Além disso, um parâmetro no balanceamento de carga da regra e permite-lhe suprimir uma balanceamento de carga regra para fins de conectividade de saída, que permite a seleção de frontends específico, incluindo none.
+### <a name="multife"></a>Vários front-ends
+Load Balancer suporta várias regras com vários front-ends.  Balanceador de carga Standard expande isso para cenários de saída.  Cenários de saída são essencialmente o inverso de uma regra de balanceamento de carga na entrada.  Também a regra de balanceamento de carga de entrada cria associado para ligações de saída. Balanceador de carga Standard utiliza front-ends todos os associados a um recurso de máquina virtual através de uma regra de balanceamento de carga.  Além disso, um parâmetro sobre o balanceamento de carga da regra e permite-lhe suprimir uma balanceamento de carga regra para fins de conectividade de saída, que permite a seleção de front-ends específica incluindo none.
 
-Para comparação, básico Balanceador de carga seleciona um front-end único aleatória, e não há nenhuma capacidade para controlar o que foi selecionado.
+Para comparação, Balanceador de carga básico seleciona um front-end único aleatoriamente e está disponível nenhuma capacidade para controlar qual deles tiver sido selecionada.
 
-Reveja [detalhadas debate de ligações de saída](load-balancer-outbound-connections.md).
+Revisão [detalhadas discussão sobre as ligações de saída](load-balancer-outbound-connections.md).
 
 ### <a name="operations"></a> Operações de gestão
 
-Recursos padrão do Balanceador de carga existem numa plataforma completamente nova infraestrutura.  Isto permite operações de gestão significativamente mais rápidas para SKUs padrão e os tempos de conclusão são, normalmente, menos de 30 segundos por recurso de Standard SKU.  Tenha em atenção que como conjuntos back-end aumentam de tamanho, a duração necessária para o back-end conjunto alterado também aumento.
+Recursos do Balanceador de carga padrão existem numa inteiramente nova plataforma de infraestrutura.  Isto permite operações de gestão significativamente mais rápidas para SKUs padrão e tempos de conclusão são, normalmente, menos de 30 segundos por recurso de SKU padrão.  Observe que como conjuntos de back-end aumentam de tamanho, a duração necessária para o back-end conjunto de alterações também aumento.
 
-Pode modificar o Balanceador de carga padrão de recursos e mover um endereço IP público padrão de uma máquina virtual para outro muito mais rápido.
+Pode modificar os recursos do Balanceador de carga Standard e mover um endereço IP público Standard de uma máquina virtual para outro a muito mais rápido.
 
-## <a name="migration-between-skus"></a>Migração entre os SKUs
+## <a name="migration-between-skus"></a>Migração entre SKUs
 
-SKUs não são mutável. Siga os passos nesta secção para mover de um recurso SKU para outro.
+SKUs não são mutáveis. Siga os passos nesta secção para mover de um recurso de SKU para outro.
 
 >[!IMPORTANT]
->Reveja este documento na íntegra para compreender as diferenças entre os SKUs e ter examinadas cuidadosamente o seu cenário.  Terá de fazer alterações adicionais para alinhar com o seu cenário.
+>Reveja este documento em sua totalidade para compreender as diferenças entre SKUs e examinei cuidadosamente seu cenário.  Terá de fazer alterações adicionais para alinhar o seu cenário.
 
-### <a name="migrate-from-basic-to-standard-sku"></a>Migrar de básica para o Standard SKU
+### <a name="migrate-from-basic-to-standard-sku"></a>Migrar do básico para o Standard SKU
 
-1. Crie um novo padrão recurso (Balanceador de carga e IPs públicos, conforme necessário). Recriar as regras e definições de pesquisa.
+1. Crie um novo recurso padrão (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa.
 
-2. Criar um novo ou atualizar o NSG existente no NIC ou uma sub-rede para o tráfego com balanceamento de carga de lista branca, pesquisa, bem como qualquer outro tráfego de que pretende permitir.
+2. Criar um novo ou Atualize o NSG existente no NIC ou uma sub-rede para o tráfego com balanceamento de carga de lista branca, pesquisa, bem como qualquer outro tráfego que pretende permitir.
 
-3. Remova os recursos de SKU básico (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Lembre-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
+3. Remova os recursos de SKU básico (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Certifique-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
 
-4. Anexe todas as instâncias VM para os novos recursos de Standard SKU.
+4. Anexe todas as instâncias VM para os novos recursos de SKU padrão.
 
-### <a name="migrate-from-standard-to-basic-sku"></a>Migrar de padrão para o SKU básico
+### <a name="migrate-from-standard-to-basic-sku"></a>Migrar do plano padrão para o SKU básico
 
-1. Crie um novo recurso básico (Balanceador de carga e IPs públicos, conforme necessário). Recriar as regras e definições de pesquisa. 
+1. Crie um novo recurso básico (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa. 
 
-2. Remova os recursos de Standard SKU (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Lembre-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
+2. Remova os recursos de Standard SKU (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Certifique-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
 
 3. Anexe todas as instâncias VM para os novos recursos de SKU básico.
 
 >[!IMPORTANT]
 >
->Existem limitações à utilização do básico e padrão SKUs.
+>Existem limitações relativamente à utilização dos SKUs básico e Standard.
 >
->HA portas e ao diagnóstico do Standard SKU só está disponível no Standard SKU. Não é possível migrar a partir do SKU Standard para o SKU básico e também retêm estas funcionalidades.
+>HA portas e os diagnósticos do Standard SKU só estão disponíveis na Standard SKU. Não é possível migrar de Standard SKU para o SKU básico e também manter esses recursos.
 >
->Básico e padrão SKU têm um número de diferenças, conforme descrito neste artigo.  Certifique-se compreender e preparar para os mesmos.
+>SKU padrão e básico têm um número de diferenças, conforme descrito neste artigo.  Certifique-se de compreender e preparar para os mesmos.
 >
->SKUs de correspondência tem de ser utilizado para recursos de Balanceador de carga e um IP público. Não é possível ter uma mistura de recursos de SKU básico e recursos de Standard SKU. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
+>Correspondência das SKUs tem de ser utilizada para os recursos do Balanceador de carga e o IP público. Não pode ter uma mistura de recursos de SKU básico e recursos de SKU padrão. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-Padrão de Balanceador de carga está atualmente disponível em todas as regiões de nuvem pública.
+Balanceador de carga Standard está atualmente disponível em todas as regiões de cloud pública.
 
 ## <a name="sla"></a>SLA
 
-Estão disponíveis com um SLA de 99,99% padrão balanceadores de carga.  Reveja o [padrão SLA de Balanceador de carga](https://aka.ms/lbsla) para obter mais detalhes.
+Balanceadores de carga Standard estão disponíveis com um SLA de 99,99%.  Reveja os [SLA de Balanceador de carga Standard](https://aka.ms/lbsla) para obter detalhes.
 
 ## <a name="pricing"></a>Preços
 
-Padrão de Balanceador de carga é um produto cobrado com base no número de regras configuradas e todos os dados de entrada e saídos processados de balanceamento de carga. Para obter informações sobre preços padrão Balanceador de carga, visite o [preços do Balanceador de carga](https://aka.ms/lbpricing) página.
+Balanceador de carga Standard é um produto cobrado com base no número de regras configuradas e todos os dados de entrada e saídos processados de balanceamento de carga. Para obter informações sobre preços um balanceador de carga Standard, visite o [preços do Balanceador de carga](https://aka.ms/lbpricing) página.
 
 ## <a name="limitations"></a>Limitações
 
-- SKUs não são mutável. Não pode alterar o SKU de um recurso existente.
-- Conjunto de disponibilidade de um recurso de máquina virtual autónoma, recurso ou recurso de conjunto de dimensionamento de máquina virtual pode referenciar um SKU nunca ambos.
-- Uma regra de Balanceador de carga não pode abranger duas redes virtuais.  Frontends e as respetivas instâncias de back-end relacionados tem de estar localizadas na mesma rede virtual.  
-- Frontends de Balanceador de carga não estão acessíveis através de peering de rede virtual global.
-- [Move operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos padrão LB de SKU e PIP.
-- As funções de trabalho Web sem uma VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando é utilizado apenas um padrão Balanceador de carga interno devido a um efeito de como os serviços de pre-VNet e outra plataforma dos serviços de função. Não precisará da tal como o respetivo serviço próprio ou subjacentes plataforma pode alterações sem aviso prévio. Têm de assumir sempre tem de criar [conectividade de saída](load-balancer-outbound-connections.md) explicitamente se assim o desejar quando utiliza um padrão Balanceador de carga interno apenas.
-- Balanceador de carga é um produto TCP ou UDP para balanceamento de carga e reencaminhamento de porta para estes protocolos IP específicos.  Regras de balanceamento de carga e regras NAT de entrada são suportadas para TCP e UDP e não suportadas para outros protocolos IP, incluindo ICMP. Balanceador de carga não terminar, responder ou, caso contrário, interagir com a carga de um fluxo UDP ou TCP. Não se trata de um proxy. Validação com êxito de conectividade para um front-end tem de colocar em banda do local com o mesmo protocolo utilizado uma balanceamento ou entrada regra NAT de carga (TCP ou UDP) _e_ pelo menos uma das suas máquinas virtuais tem de gerar uma resposta para um cliente Para ver uma resposta de um front-end.  Não receber uma resposta em banda do front-end de Balanceador de carga indica que nenhuma máquina virtual foram podem responder.  Não é possível interagir com um balanceador de carga front-end sem uma máquina virtual podem responder.  Isto também se aplica a ligações de saída onde [representação porta realizar o SNAT](load-balancer-outbound-connections.md#snat) é apenas suportado para TCP e UDP; quaisquer outros protocolos IP, incluindo ICMP também irão falhar.  Atribua um endereço de IP público de nível de instância de correção para atenuar.
-- Ao contrário dos balanceadores de carga público, que fornecem [ligações de saída](load-balancer-outbound-connections.md) quando transição de endereços IP privados dentro da rede virtual para endereços IP públicos, balanceadores de carga interno não traduzir saída teve origem as ligações para o front-end de um balanceador de carga interno como ambos estão no espaço de endereços IP privados.  Isto evita a possibilidade de esgotamento de realizar o SNAT dentro único espaço de endereços IP interno onde a tradução não é necessária.  O efeito é que, se um fluxo de saída de uma VM no conjunto de back-end tenta um fluxo de front-end de Balanceador de carga interno no qual agrupamento onde reside, está a _e_ está mapeada para si próprio, ambos os legs do fluxo não correspondem e o fluxo irá falhar .  Se o fluxo não mapeado para a mesma VM no conjunto de back-end que tiver criado o fluxo para o front-end, o fluxo será bem sucedida.   Quando o fluxo mapeia para si próprio o fluxo de saída parece provenientes da VM para o front-end e o fluxo de entrada correspondente parece provenientes da VM para si próprio. Ponto de vista o SO convidado das partes de entrada e saídas do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não irá reconhece estes meios do mesmo fluxo como parte do mesmo fluxo como origem e de destino não correspondem.  Quando o fluxo está mapeado para qualquer outra VM no conjunto de back-end, corresponderá meios do fluxo e a VM pode responder com êxito para o fluxo.  Sintoma para este cenário é tempos limite de ligação intermitente. Existem várias soluções comuns para alcançar fiável neste cenário (originadas fluxos a partir de um conjunto de back-end para o back-end conjuntos de Balanceador de carga interno respetivos front-end) que incluem a inserção de um proxy de terceiros por trás de carga interno Balanceador ou [utilizando regras de estilo DSR](load-balancer-multivip-overview.md).  Enquanto pode utilizar um balanceador de carga público para mitigar, o cenário resultante é suscetível a [esgotamento de realizar o SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitada, a menos que cuidadosamente geridos.
+- SKUs não são mutáveis. Não pode alterar o SKU de um recurso existente.
+- Conjunto de disponibilidade de um recurso de máquina virtual autónoma, recursos ou recurso de conjunto de dimensionamento de máquina virtual pode fazer referência a um SKU, não ambos.
+- Uma regra de Balanceador de carga não pode abranger duas redes virtuais.  Front-ends e suas instâncias de back-end relacionada tem de estar localizadas na mesma rede virtual.  
+- Front-ends de Balanceador de carga não estão acessíveis através de peering de redes virtuais global.
+- [Mover as operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos de LB de SKU padrão e o PIP.
+- Funções de trabalho de Web sem uma VNet e a outros serviços de plataforma da Microsoft pode ser acessíveis quando apenas um Standard Balanceador de carga interno é utilizado devido a um efeito colateral de como os serviços de pré-VNet e outra plataforma dos serviços de função. Tem não contar com isso como respetivos do serviço em si ou subjacentes plataforma pode alteradas sem aviso prévio. Deve sempre partem do princípio de que precisa para criar [conectividade de saída](load-balancer-outbound-connections.md) explicitamente se assim o desejar quando utilizar um Standard Balanceador de carga interno apenas.
+- Balanceador de carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de porta para estes protocolos IP específicos.  Regras de balanceamento de carga e regras NAT de entrada são suportadas para TCP e UDP e não são suportadas para outros protocolos IP, incluindo o ICMP. Balanceador de carga não encerra, responder ou, caso contrário, interagir com a carga de um fluxo UDP ou TCP. Não é um proxy. Validação com êxito de conectividade para um front-end tem de efetuar lugar em banda com o mesmo protocolo usado numa entrada ou balanceamento regra NAT de carga (TCP ou UDP) _e_ , pelo menos, uma das suas máquinas virtuais tem de gerar uma resposta para um cliente Para ver uma resposta de um front-end.  Não receber uma resposta em banda do front-end de Balanceador de carga indica que nenhuma máquina virtual foram capaz de responder.  Não é possível interagir com um balanceador de carga front-end sem uma máquina virtual capaz de responder.  Isso também se aplica a ligações de saída onde [masquerade de porta SNAT](load-balancer-outbound-connections.md#snat) é apenas suportado para TCP e UDP; outros protocolos IP incluindo ICMP também irão falhar.  Atribua um endereço de IP público de nível de instância para atenuar.
+- Ao contrário dos balanceadores de carga público que fornecem [ligações de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, balanceadores de carga interno não traduzir saída teve origem ligações para o front-end de um balanceador de carga interno como ambos estão no espaço de endereços IP privados.  Isso evita a possibilidade de esgotamento de SNAT dentro exclusivo espaço de endereços IP interno onde a tradução não é necessária.  O efeito é que, se um fluxo de saída de uma VM no conjunto de back-end tenta um fluxo para o front-end de Balanceador de carga interno no qual conjunto reside _e_ é mapeado para ele mesmo, as duas primeiras partes do fluxo não coincidem e o fluxo irá falhar .  Se o fluxo não mapeado para a mesma VM no conjunto de back-end que criou o fluxo para o front-end, o fluxo será concluída com êxito.   Quando o fluxo é mapeado para ele mesmo o fluxo de saída é apresentada se originar de VM para o front-end e o fluxo de entrada correspondente é exibido originar da VM para si próprio. Do ponto de vista para o sistema operacional convidado, as partes de entrada e saídas do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não irá reconhecer estas metades do mesmo fluxo como parte do mesmo fluxo de origem e de destino não coincidir com.  Quando o fluxo é mapeado para a qualquer outra VM no conjunto de back-end, corresponderão ao metades do fluxo e a VM pode responder com êxito para o fluxo.  O sintoma para este cenário é o tempo limite das conexões intermitentes. Existem várias soluções comuns para obtenção de forma fiável neste cenário (com origem fluxos a partir de um conjunto de back-end para back-end conjuntos de Balanceador de carga interno respectivos front-end) que incluem a inserção de um proxy de terceiros por trás de carga interno Balanceador ou [usando regras de estilo DSR](load-balancer-multivip-overview.md).  Embora pudesse usar um balanceador de carga público para atenuar, o cenário de resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitada, a menos que gerenciada com cautela.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como utilizar [padrão Balanceador de carga e zonas de disponibilidade](load-balancer-standard-availability-zones.md)
-- Saiba mais sobre [disponibilidade zonas](../availability-zones/az-overview.md).
-- Saiba mais sobre [diagnósticos de Balanceador de carga padrão](load-balancer-standard-diagnostics.md).
+- Aprenda a usar [Balanceador de carga Standard e zonas de disponibilidade](load-balancer-standard-availability-zones.md)
+- Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md).
+- Saiba mais sobre [diagnósticos do Balanceador de carga Standard](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre [suportado métricas multidimensionais](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para obter um diagnóstico no [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Saiba como utilizar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md)
-- Saiba mais sobre [padrão Balanceador de carga com regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md)
-- Saiba como utilizar [Balanceador de carga com várias Frontends](load-balancer-multivip-overview.md)
+- Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md)
+- Saiba mais sobre [Balanceador de carga Standard com regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md)
+- Aprenda a usar [Balanceador de carga com vários front-ends](load-balancer-multivip-overview.md)
 - Saiba mais sobre [redes virtuais](../virtual-network/virtual-networks-overview.md).
 - Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
-- Saiba mais sobre [pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md)
-- Saiba mais sobre algumas da outra chave [capacidades de rede](../networking/networking-overview.md) no Azure.
+- Saiba mais sobre [pontos finais de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) no Azure.
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).

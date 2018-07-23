@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/06/2018
+ms.date: 07/20/2018
 ms.author: babanisa
-ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902236"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186116"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
 
@@ -83,7 +83,7 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |
@@ -94,6 +94,7 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 Para saber mais sobre as propriedades no objeto de dados, veja a origem do evento:
 
 * [Subscrições do Azure (operações de gestão)](event-schema-subscriptions.md)
+* [Container Registry](event-schema-container-registry.md)
 * [Armazenamento de blobs](event-schema-blob-storage.md)
 * [Hubs de Eventos](event-schema-event-hubs.md)
 * [Hub IoT](event-schema-iot-hub.md)

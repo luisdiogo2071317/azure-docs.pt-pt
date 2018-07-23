@@ -1,7 +1,7 @@
 ---
-title: Como utilizar o controlo de versões e etiquetagem com uma aplicação de conversação Learner - serviços cognitivos Microsoft | Microsoft Docs
+title: Como utilizar o controlo de versões e a etiquetagem com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como utilizar o controlo de versões e etiquetagem com uma aplicação de conversação Learner.
+description: Saiba como utilizar o controlo de versões e a etiquetagem com um modelo de aprendiz de conversação.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,48 +10,48 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ea013db078ff33f8597b0e15a8fc951e8ae320e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7f23d989cbfa0ece9e404a0fe0feb68cf5fddb2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354043"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170550"
 ---
 # <a name="how-to-use-versioning-and-tagging"></a>Como utilizar o controlo de versões e etiquetagem
 
-Este tutorial ilustra como tag versões da sua aplicação de conversação Learner e definir versão é "dinâmicos".  
+Este tutorial ilustra como marcar as versões do seu modelo de aprendiz de conversação e definir qual versão é "dinâmicos".  
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer utilizando o emulador de bot criar caixas de diálogo de registo, não a IU da Web do registo de caixa de diálogo.  
+Este tutorial requer a utilizar o emulador de bot para criar caixas de diálogo de registo, não a IU da Web do registo de caixa de diálogo.  
 
-Este tutorial, necessita que o bot tutorial geral está em execução:
+Este tutorial requer que o bot tutorial geral está em execução:
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
 
-Ao editar, que está sempre a editar a etiqueta chamada "original" – pode criar versões marcadas do mestre (que essencialmente tirar um instantâneo do mestre de), mas não é possível editar versões marcadas.
+Durante a edição, o que está a editar sempre marca chamada "mestre"- - pode criar versões marcadas do principal (que, essencialmente, tire um instantâneo do mestre), mas não é possível editar versões marcadas.
 
 ## <a name="steps"></a>Passos
 
-### <a name="install-the-bot-framework-emulator"></a>Instale o emulador de framework Bot
+### <a name="install-the-bot-framework-emulator"></a>Instale o emulador do Bot framework
 
 - Vá para [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
-- Transfira e instale o emulador.
+- Baixe e instale o emulador.
 
-### <a name="create-an-app"></a>Criar uma aplicação
+### <a name="create-an-model"></a>Criar um modelo
 
-1. Clique em nova aplicação
-2. No campo do nome, introduza o Tutorial 16-controlo de versões
+1. Clique em novo modelo
+2. No campo de nome, introduza o Tutorial-16-controle de versão
 3. Clique em Criar 
 4. Clique em definições
-5. Copie o ID da aplicação
+5. Copie o ID de modelo
 
 ### <a name="configure-the-emulator"></a>Configurar o emulador
 
-- Na pasta raiz de conversação Learner, abra o ficheiro .env.
-- Colar o ID da aplicação como o valor de CONVERSATION_LEARNER_APP_ID
-- Reinicie o serviço de conversação Learner por sair da linha de comandos e execute novamente:
+- Na pasta de raiz Aprendiz de conversação, abra o ficheiro. env.
+- Cole o ID de modelo como o valor do CONVERSATION_LEARNER_MODEL_ID
+- Reinicie o serviço de aprendiz de conversação, sair da linha de comandos e execute novamente:
  
     npm executar geral do tutorial 
 
@@ -59,8 +59,8 @@ Ao editar, que está sempre a editar a etiqueta chamada "original" – pode cria
 
 Vamos criar uma ação:
 
-1. Mudar para a IU da Web.
-1. Clique em ações, em seguida, ação de novo.
+1. Mude para a IU da Web.
+1. Clique em ações, em seguida, nova ação.
 2. Em resposta, introduza "Olá daí (versão 1)".
 3. Clique em Guardar.
 
@@ -70,48 +70,49 @@ Vamos criar uma ação:
 Crie uma nova etiqueta:
 
 3. Clique em "definições" e criar uma nova "etiqueta".
-    - Chamar esta "versão 1"
-4. Defina a "versão 1" seja "dinâmicos".  
-    - O efeito da definição na etiqueta em direto para "versão 1" é que os canais utilizando este bot irão utilizar o "1" tag de versão.
-    - Marcado versões das aplicações não são afetadas por edições (alterar ações, as entidades, adicionar as caixas de diálogo de formação).  
-    - As edições de uma aplicação (alterar ações, entidades, adicionar as caixas de diálogo de formação) sempre que são efetuadas na tag "original".  Por outras palavras, "original" está a etiqueta única que pode alterar; outras etiquetas de corrigidas instantâneos.
-    - Inicie sessão caixas de diálogo na IU de Learner conversação sempre o mestre de utilização (não a tag em direto).
+    - Chamá-lo de "versão 1"
+4. Defina a "versão 1" para ser "dinâmicos".  
+    - O efeito de definir a etiqueta em direto para "versão 1" é que os canais com este bot irão utilizar o "1" a etiqueta de versão.
+    - As versões marcadas dos modelos não são afetadas pela edições (alterando as ações de entidades, adicionando caixas de diálogo train).  
+    - Edições de um modelo (alterar ações, entidades, adicionando caixas de diálogo train) são sempre feitas na marca "principal".  Em outras palavras, "mestre" é a única marca que pode ser alterado; outras marcas são fixos instantâneos.
+    - Inicie sessão caixas de diálogo na interface de Usuário de aprendiz de conversação sempre use master (não a marca em direto).
 
 ![](../media/tutorial16_v1_create.PNG)
 
-Tenha em atenção de que a versão foi criada nas definições:
+A versão foi criada nas definições:
 
 ![](../media/tutorial16_settings.PNG)
 
 Vamos adicionar uma segunda ação:
 
-1. Clique em ações, em seguida, ação de novo.
-2. Em resposta, introduza "bye (versão 2) do bye".
+1. Clique em ações, em seguida, nova ação.
+2. Em resposta, introduza "xau xau (versão 2)".
 
 Edite a primeira ação:
 
 1. Clique em ações.
 2. Em ações, clique em "Olá daí (versão 1)".
-3. Alterar a resposta a "Olá daí (versão 2)".
+3. Alterar a resposta "Olá daí (versão 2)".
 
 ![](../media/tutorial16_hi_there_v2.PNG)
 
-### <a name="switch-to-the-bot-emulator"></a>Mudar para o emulador de bot
+### <a name="switch-to-the-bot-emulator"></a>Mude para o emulador de bot
 
-1. Na IU do bot, introduza "goodbye".
-2. Tenha em atenção o bot responde com "Olá daí (versão 1)".
-    - Isto mostra que a versão 1 é "dinâmicos". 
+1. Na interface do Usuário o bot, introduza "goodbye".
+2. O bot responde com "Olá daí (versão 1)".
+    - Isso mostra que a versão 1 é "dinâmicos". 
 
 ![](../media/tutorial16_bf_response.PNG)
 
-### <a name="switch-to-the-web-ui"></a>Mudar para a IU da Web
+### <a name="switch-to-the-web-ui"></a>Mude para a IU da Web
 
-1. Clique no registo de caixas de diálogo (se não vir quaisquer caixas de diálogo, atualize a aplicação).
+1. Clique no registo de caixas de diálogo (se não vir quaisquer caixas de diálogo, clique no botão Atualizar).
 2. Clique em "Olá daí (versão 2)"
 
-Tenha em atenção que podemos efetuar correções seleccionando todas as ações disponíveis atualmente. Estas edições serão efetuadas ao principal.
+> [!NOTE]
+> Podemos fazer correções escolhendo em todas as ações disponíveis atualmente. Estas edições serão feitas a mestre.
 
-Constatou agora como funciona o controlo de versões e como pode interagir com bot utilizando o emulador do framework Bot.
+Agora viu como funciona o controle de versão e como pode interagir com o bot a utilizar o emulador do Bot framework.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

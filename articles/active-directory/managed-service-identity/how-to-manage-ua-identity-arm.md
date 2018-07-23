@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ced2a8354e63288ad9957b6a177b43c97b58698c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160540"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188136"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Criar, listar e eliminar uma identidade atribuída ao utilizador com o Azure Resource Manager
 
@@ -37,8 +37,8 @@ Não é possível listar e eliminar um utilizador atribuído a identidade com um
 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-
-Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se também que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM (por exemplo, a função de "Contribuinte de Máquina Virtual").
+- Para realizar as operações neste artigo, a conta tem da atribuição de função seguinte:
+    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade atribuída ao utilizador.
 
 ## <a name="template-creation-and-editing"></a>Criação de modelos e a edição
 
@@ -51,7 +51,7 @@ Como com o Azure portal e criação de scripts, os modelos Azure Resource Manage
 
 ## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo utilizador 
 
-Para criar um identidade atribuída ao utilizador, utilize o modelo seguinte. No mínimo, a conta tem de ser atribuído a [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador. Substitua o `<USER ASSIGNED IDENTITY NAME>` valor pelos seus próprios valores:
+Para criar um identidade atribuída ao utilizador, utilize o modelo seguinte. Substitua o `<USER ASSIGNED IDENTITY NAME>` valor pelos seus próprios valores:
 
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

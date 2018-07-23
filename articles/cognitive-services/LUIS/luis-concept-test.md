@@ -9,18 +9,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: d6cbba2a5bf9ff44439c6e98debde5cd47d4bfc3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 46aa23ee359fd1f2f5a1cf8a05854d5c4cc7c739
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950394"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170621"
 ---
 # <a name="testing-in-luis"></a>Teste de LUIS
 
 O teste é o processo de fornecimento de expressões de exemplo para LUIS e obter uma resposta de LUIS reconhecidas intenções e entidades. 
 
-Pode [testar](interactive-test.md) LUIS interativamente, uma expressão de cada vez, ou fornecer um [batch](luis-concept-batch-test.md) de expressões. Com os testes, comparar o atual [Active Directory](luis-concept-version.md#active-version) modelos para o modelo publicado. 
+Pode [testar](luis-interactive-test.md) LUIS interativamente, uma expressão de cada vez, ou fornecer um [batch](luis-concept-batch-test.md) de expressões. Com os testes, comparar o atual [Active Directory](luis-concept-version.md#active-version) modelos para o modelo publicado. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -57,4 +57,4 @@ Saiba mais [melhores práticas](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [teste](interactive-test.md) seus discursos.
+* Saiba mais sobre [teste](luis-interactive-test.md) seus discursos.

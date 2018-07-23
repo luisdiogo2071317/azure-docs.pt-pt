@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7e60bc217562d91aa5ed3c653458a46251a45c8d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bcdd4b681992b015b817e1245681c41c09b78210
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347441"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173695"
 ---
 # <a name="manage-entities"></a>Gerir entidades
 Depois de identificar seu aplicativo [intenções](luis-concept-intent.md), terá de [expressões de exemplo de etiqueta](luis-concept-utterance.md) com [entidades](luis-concept-entity-types.md). Entidades são partes importantes de um comando ou uma pergunta e podem ser essenciais para a sua aplicação de cliente executar a tarefa. 
@@ -149,7 +149,7 @@ A sintaxe para uma função é **{nome da função: nome de entidade}** onde o n
 
 1. Na sua aplicação, do **crie** secção e, em seguida, selecione **entidades** no painel esquerdo.
 
-2. Selecione **criar nova entidade**. Introduza o nome do `Location`. Selecione o tipo **simples** e selecione **concluído**
+2. Selecione **Criar nova entidade**. Introduza o nome do `Location`. Selecione o tipo **simples** e selecione **concluído**
 
 3. Selecione **entidades** do painel esquerdo, em seguida, selecione a nova entidade **localização** criada no passo 2.
 
@@ -259,6 +259,6 @@ Pode pesquisar e filtrar expressões com o ícone de lupa na barra de ferramenta
 ## <a name="train-your-app-after-changing-model-with-entities"></a>Preparar a sua aplicação depois de alterar o modelo de entidades
 Depois de adicionar, editar ou remover entidades, [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação. 
 
-## <a name="next-steps"></a>Passos seguintes
-Agora que adicionou intenções, expressões e entidades, terá uma aplicação básica do LUIS. Saiba como [treinar](luis-how-to-train.md), [testar](interactive-test.md), e [publicar](luis-how-to-publish-app.md) seu aplicativo.
+## <a name="next-steps"></a>Passos Seguintes
+Agora que adicionou intenções, expressões e entidades, terá uma aplicação básica do LUIS. Saiba como [treinar](luis-how-to-train.md), [testar](luis-interactive-test.md), e [publicar](luis-how-to-publish-app.md) seu aplicativo.
  

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
-ms.openlocfilehash: 1aa834330035b7537de02388031af357ca28eeab
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: ad82cde2dc6048c5a87766b21bd38ed3fbc6bd39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160303"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173286"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -748,22 +748,22 @@ As secções seguintes indicam como resolver problemas de disposição em camada
 <a id="monitor-tiering-activity"></a>**Como monitorizar a atividade de disposição em camadas num servidor**  
 Para monitorizar a atividade de disposição em camadas num servidor, utilize 9002 de ID de evento, 9003, 9016 e 9029 no registo de eventos de telemetria (localizado em Applications and Services\Microsoft\FileSync\Agent no Visualizador de eventos).
 
-ID de evento 9002 fornece estatísticas de à conversão em fantasma para um ponto final do servidor. Por exemplo, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+- ID de evento 9002 fornece estatísticas de à conversão em fantasma para um ponto final do servidor. Por exemplo, TotalGhostedFileCount, SpaceReclaimedMB, etc.
 
-ID de evento 9003 fornece distribuição de erros para um ponto final do servidor. Por exemplo, Contagem Total de erros, código de erro, etc. Tenha em atenção de que um evento é registado por código de erro.
+- ID de evento 9003 fornece distribuição de erros para um ponto final do servidor. Por exemplo, Contagem Total de erros, código de erro, etc. Tenha em atenção de que um evento é registado por código de erro.
 
-ID de evento 9016 fornece resultados à conversão em fantasma para um volume. Por exemplo, o espaço livre é de %, número de ficheiros fantasma na sessão, o número de ficheiros não conseguiu ghost, etc.
+- ID de evento 9016 fornece resultados à conversão em fantasma para um volume. Por exemplo, o espaço livre é de %, número de ficheiros fantasma na sessão, o número de ficheiros não conseguiu ghost, etc.
 
-ID de evento 9029 fornece informações de sessão à conversão em fantasma. Por exemplo, o número de ficheiros tentada a sessão, o número de ficheiros em camadas na sessão, número de ficheiros já em camadas, etc.
+- ID de evento 9029 fornece informações de sessão à conversão em fantasma. Por exemplo, o número de ficheiros tentada a sessão, o número de ficheiros em camadas na sessão, número de ficheiros já em camadas, etc.
 
 <a id="monitor-recall-activity"></a>**Como monitorizar a atividade de recolhimento num servidor**  
 Para monitorizar a atividade de recolhimento num servidor, utilize 9005 de ID de evento, 9006, 9007 no registo de eventos de telemetria (localizado em Applications and Services\Microsoft\FileSync\Agent no Visualizador de eventos). Tenha em atenção que estes eventos são registados por hora.
 
-ID de evento 9005 fornece confiabilidade de recolhimento de um ponto de final do servidor. Por exemplo, Total de ficheiros exclusivos acedidos, Total de ficheiros exclusivo com acesso falhadas, etc.
+- ID de evento 9005 fornece confiabilidade de recolhimento de um ponto de final do servidor. Por exemplo, Total de ficheiros exclusivos acedidos, Total de ficheiros exclusivo com acesso falhadas, etc.
 
-ID de evento 9006 fornece distribuição de erros de recolhimento de um ponto de final do servidor. Por exemplo, Total de pedidos falhados, código de erro, etc. Tenha em atenção de que um evento é registado por código de erro.
+- ID de evento 9006 fornece distribuição de erros de recolhimento de um ponto de final do servidor. Por exemplo, Total de pedidos falhados, código de erro, etc. Tenha em atenção de que um evento é registado por código de erro.
 
-ID de evento 9007 fornece desempenho de recolhimento de um ponto de final do servidor. Por exemplo, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- ID de evento 9007 fornece desempenho de recolhimento de um ponto de final do servidor. Por exemplo, TotalRecallIOSize, TotalRecallTimeTaken, etc.
 
 <a id="files-fail-tiering"></a>**Resolver problemas de ficheiros que não obedeçam a uma camada**  
 Se falharem ficheiros a uma camada para ficheiros do Azure:

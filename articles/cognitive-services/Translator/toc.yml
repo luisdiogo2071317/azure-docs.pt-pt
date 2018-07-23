@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: Obter comprimentos de frases no texto
           href: quickstart-ruby-sentences.md
+- name: Tutoriais
+  items:
+    - name: Criar uma aplicação do WPF para a Tradução de Texto
+      href: tutorial-wpf-translation-csharp.md
 - name: Conceitos
   items:
     - name: Linguagens suportadas
@@ -125,8 +129,6 @@
       href: word-alignment.md
     - name: Utilizar a funcionalidade de dicionário dinâmico
       href: dynamic-dictionary.md
-    - name: Criar uma aplicação de Texto do Microsoft Translator com o WPF
-      href: tutorial-wpf-translation-csharp.md
 - name: Referência
   items:
     - name: Referência da API de Texto do Microsoft Translator v3

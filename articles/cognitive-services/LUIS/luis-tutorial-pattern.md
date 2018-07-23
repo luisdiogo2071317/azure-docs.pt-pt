@@ -1,6 +1,6 @@
 ---
 title: Tutorial sobre como utilizar padrões para melhorar as previsões de LUIS – Azure | Documentos da Microsoft
-titleSuffix: Azure
+titleSuffix: Cognitive Services
 description: Neste tutorial, utilize o padrão para objetivos para melhorar as previsões de intenção e entidade do LUIS.
 services: cognitive-services
 author: v-geberr
@@ -8,62 +8,37 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/20/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 12105829f62b988760d3bbf18000466fd27b9aff
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5d486272f7f713c5d4e6f7b598073c5c09875d43
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888336"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172471"
 ---
-# <a name="tutorial-use-patterns-to-improve-predictions"></a>Tutorial: Utilizar padrões para melhorar as previsões de indisponibilidade
+# <a name="tutorial-improve-app-with-patterns"></a>Tutorial: Melhorar a aplicação com padrões
 
 Neste tutorial, utilize padrões para aumentar a predição de intenção e entidade.  
 
 > [!div class="checklist"]
 * Como identificar que um padrão ajudaria a sua aplicação
 * Como criar um padrão 
-* Como utilizar entidades pré-criados e personalizadas num padrão 
 * Como verificar as melhorias de predição do padrão
-* Como adicionar uma função a uma entidade para encontrar contextualmente baseada em entidades
-* Como adicionar um Pattern.any para encontrar as entidades de forma livre
 
 Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md) gratuita para criar a sua aplicação LUIS.
 
-## <a name="import-humanresources-app"></a>Aplicação de RecursosHumanos de importação
-Este tutorial importa uma aplicação de RecursosHumanos. A aplicação tem três objetivos: nenhum, GetEmployeeOrgChart, GetEmployeeBenefits. A aplicação tem duas entidades: número pré-criados e funcionários. A entidade Employee é uma entidade para extrair o nome de um funcionário. 
+## <a name="before-you-begin"></a>Antes de começar
+Se não tiver a aplicação de recursos humanos do [teste de lote](luis-tutorial-batch-testing.md) tutorial, [importar](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no [LUIS](luis-reference-regions.md#luis-website) Web site. A aplicação para importar se encontra no [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) repositório do GitHub.
 
-1. Crie um novo ficheiro de aplicação do LUIS e nomeie- `HumanResources.json`. 
-
-2. Copie a seguinte definição de aplicação para o ficheiro:
-
-   [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
-
-3. Sobre o LUIS **aplicações** página, selecione **importar a nova aplicação**. 
-
-4. Na **importar a nova aplicação** caixa de diálogo, selecione o `HumanResources.json` ficheiro que criou no passo 1.
-
-5. Selecione o **GetEmployeeOrgChart** intenção, em seguida, a alteração da **vista de entidades** para **Tokens vista**. São listadas várias expressões de exemplo. Cada expressão contém um nome, o que é uma entidade Employee. Tenha em atenção que cada nome é diferente e que a organização do texto é diferente para cada ocorrência de pronunciação. Essa diversidade ajuda LUIS saiba uma vasta gama de expressões.
-
-    ![Página de captura de ecrã da intenção com a vista de entidades ativado/desativada](media/luis-tutorial-pattern/utterances-token-view.png)
-
-6. Selecione **treinar** na barra de navegação superior para preparar a aplicação. Aguarde que a barra de êxito verde.
-
-7. Selecione **teste** no painel superior. Introduza `Who does Patti Owens report to?` , em seguida, selecione introduzir. Selecione **Inspect** sob a expressão para obter mais informações sobre o teste.
-    
-    O nome do funcionário, Patti Owens, não foi utilizado numa expressão de exemplo ainda. Este é um teste para ver quão bem LUIS aprendidas esta expressão se destina a `GetEmployeeOrgChart` devem ser a intenção e a entidade Employee `Patti Owens`. O resultado deve ser inferior a 50% (. 50) para o `GetEmployeeOrgChart` intenção. Embora a intenção é correta, a pontuação é baixa. A entidade Employee também corretamente é identificada como `Patti Owens`. Padrões de aumentam esta pontuação de predição inicial. 
-
-    ![Painel de captura de ecrã de teste](media/luis-tutorial-pattern/original-test.png)
-
-8. Fechar o painel de teste, selecionando o **testar** botão no painel de navegação superior. 
+Se quiser manter a aplicação de Recursos Humanos original, clone a versão na página [Definições](luis-how-to-manage-versions.md#clone-a-version) e dê-lhe o nome `patterns`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. 
 
 ## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Padrões de ensinam LUIS expressões comuns com menos de exemplos
 Devido à natureza do domínio de recursos humanos, existem algumas formas comuns de perguntar sobre relações de funcionário em organizações. Por exemplo:
 
 ```
-Who does Mike Jones report to?
-Who reports to Mike Jones? 
+Who does Jill Jones report to?
+Who reports to Jill Jones? 
 ```
 
 Estas expressões são demasiado fechar para determinar a exclusividade contextual de cada sem fornecer muitos exemplos de expressão. Ao adicionar um padrão para um objetivo, o LUIS aprende os padrões de expressão comuns para um objetivo sem fornecer muitos exemplos de expressão. 
@@ -75,174 +50,314 @@ Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-O padrão é uma combinação de correspondência de expressões regulares e de machine learning. Em seguida, fornece algum modelo exemplos de expressão para o LUIS saber o padrão. Estes exemplos, juntamente com as expressões de intenção, dar LUIS uma melhor compreensão de quais expressões com ajustar a intenção e onde, dentro da expressão, a entidade existe. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar as entidades e ignorable texto. Um padrão é uma combinação de correspondência de expressões regulares e de machine learning.  O exemplo de expressão de modelo, juntamente com as expressões de intenção, dê uma melhor compreensão de quais expressões com ajustar a intenção de LUIS.
+
+Para um padrão para corresponder a uma expressão, as entidades dentro da expressão tem de acordo com as entidades na expressão de modelo pela primeira vez. No entanto, o modelo não ajuda a prever as entidades, apenas os objetivos. 
+
+**Embora os padrões permitem que forneça menos expressões de exemplo, se as entidades não são detetadas, o padrão não corresponde.**
+
+Lembre-se de que os funcionários foram criados no [tutorial de entidade de lista](luis-quickstart-intent-and-list-entity.md).
+
+## <a name="create-new-intents-and-their-utterances"></a>Criar novo intenções e suas expressões de com
+Adicionar dois intenções novo: `OrgChart-Manager` e `OrgChart-Reports`. Uma vez o LUIS devolve uma predição para a aplicação de cliente, o nome de intenção pode ser utilizada como um nome de função na aplicação cliente e que a entidade Employee poderia ser usada como um parâmetro para essa função.
+
+```
+OrgChart-Manager(employee){
+    ///
+}
+```
+
+1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
+
+2. Na página **Intents** (Intenções), selecione **Create new intent** (Criar nova intenção). 
+
+3. Introduza `OrgChart-Manager` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
+
+    ![Criar nova janela de pop-up de mensagem](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
+
+4. Adicione expressões de exemplo à intenção.
+
+    |Expressões de exemplo|
+    |--|
+    |John W. Smith quem é o subordinado?|
+    |Que John W. Smith reportar a?|
+    |Quem é o Gestor de John W. Smith?|
+    |Quem Jill Jones diretamente informa ao?|
+    |Quem é o supervisor de Jill Jones?|
+
+    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de ecrã do LUIS adicionar expressões novo com a intenção")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+
+    Não se preocupe se a entidade de keyPhrase tem o nome nas expressões da intenção em vez da entidade employee. Ambos são previstas corretamente no painel de teste e no ponto final. 
+
+5. Selecione **Intenções** no painel de navegação esquerdo.
+
+6. Selecione **Create new intent** (Criar nova intenção). 
+
+7. Introduza `OrgChart-Reports` na caixa de diálogo de pop-up e, em seguida, selecione **Concluído**.
+
+8. Adicione expressões de exemplo à intenção.
+
+    |Expressões de exemplo|
+    |--|
+    |Quem são os subordinados de John W. Smith?|
+    |Que reporta a John W. Smith?|
+    |Que faça a gestão de John W. Smith?|
+    |Quem são os relatórios diretos de Jill Jones?|
+    |Quem supervisionar Jill Jones?|
+
+## <a name="caution-about-example-utterance-quantity"></a>Cuidado sobre a quantidade de expressão de exemplo
+A quantidade de expressões de exemplo nestes objetivos não é suficiente para preparar o LUIS corretamente. Num aplicativo do mundo real, cada intenção deve ter um mínimo de 15 expressões com uma variedade de comprimento de opção e a expressão do word. Estas expressões com alguns são selecionados especificamente para realçar os padrões. 
+
+## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
+A intenção de novo e expressões com necessitam de treinamento. 
+
+1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar).
+
+    ![Imagem do botão de preparação](./media/luis-tutorial-pattern/hr-train-button.png)
+
+2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+
+    ![Imagem da barra de notificação de êxito](./media/luis-tutorial-pattern/hr-trained-inline.png)
+
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
+Para obter uma predição do LUIS num chatbot ou noutra aplicação, tem de publicar a aplicação. 
+
+1. No lado direito superior do site do LUIS, selecione o botão **Publish** (Publicar). 
+
+2. Selecione o bloco Production (Produção) e o botão **Publish** (Publicar).
+
+    [ ![Captura de ecrã de publicar página com a funcionalidade Publicar para botão de ranhura de produção realçado](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
+
+3. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto final com uma expressão diferente
+1. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
+
+    [ ![Página de captura de ecrã de publicação de mensagens em fila com o URL de ponto final realçado](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
+
+
+2. Vá para o final do URL no endereço e introduza `Who is the boss of Jill Jones?`. O último parâmetro querystring é `q`, a expressão **query**. 
+
+    ```JSON
+    {
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.353984952
+        },
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.353984952
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 0.214128986
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 0.08434003
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 0.019131
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 0.004819009
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 0.0043958663
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 0.00312064588
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 0.002265454
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 0.00133465114
+            },
+            {
+                "intent": "None",
+                "score": 0.0011388344
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 0.00111166481
+            },
+            {
+                "intent": "FindForm",
+                "score": 0.0008900076
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 0.0007836131
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                }
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
+    ```
+
+Esta consulta foi bem-sucedida? Para este ciclo de treinamento foi bem-sucedida. As pontuações dos dois objetivos principais estão próximos. Uma vez que LUIS formação não é exatamente o mesmo cada vez, é um pouco da variação, nestas duas classificações foi possível inverter no próximo ciclo de treinamento. O resultado é que a intenção de errado pode ser retornada. 
+
+Utilize padrões para tornar significativamente maior de pontuação a intenção correto, medida como percentagem e mais distantes a pontuação mais alta seguinte. 
 
 ## <a name="add-the-template-utterances"></a>Adicionar as expressões de modelo
 
-1. No painel de navegação esquerdo, sob **melhorar o desempenho da aplicação**, selecione **padrões** no painel de navegação esquerda.
+1. Selecione **criar** no menu superior.
 
-2. Selecione o **GetEmployeeOrgChart** intenção, em seguida, introduza as seguintes expressões de modelo, um de cada vez, selecione introduzir após cada ocorrência de pronunciação de modelo:
+2. No painel de navegação esquerdo, sob **melhorar o desempenho da aplicação**, selecione **padrões** no painel de navegação esquerda.
 
-    ```
-    Does {Employee} have {number} subordinates?
-    Does {Employee} have {number} direct reports?
-    Who does {Employee} report to?
-    Who reports to {Employee}?
-    Who is {Employee}'s manager?
-    Who are {Employee}'s subordinates?
-    ```
+3. Selecione o **OrgChart Manager** intenção, em seguida, introduza as seguintes expressões de modelo, um de cada vez, selecione introduzir após cada ocorrência de pronunciação de modelo:
+
+    |Expressão de modelo|
+    |:--|
+    |Quem é {funcionário} o subordinado [?]|
+    |Quem faz {funcionário} reportar a [?]|
+    |Quem é o Gestor de {funcionário} [da] [?]|
+    |Quem faz {funcionário} relatório diretamente para [?]|
+    |Quem é o supervisor de {funcionário} [da] [?]|
+    |Quem é o chefe de {funcionário} [?]|
 
     O `{Employee}` sintaxe marca a localização de entidade dentro da expressão de modelo como bem como a entidade é. 
+    
+    Entidades com as funções utilizam sintaxe que inclui o nome de função e são abordados num [tutorial separada para funções](luis-tutorial-pattern-roles.md). 
 
-    ![Captura de ecrã da introdução de expressões de modelo de intenção](./media/luis-tutorial-pattern/enter-pattern.png)
+    A sintaxe opcional, `[]`, marca palavras ou pontuação que são opcionais. LUIS corresponde à expressão, ignorando o texto opcional dentro dos parênteses Retos.
 
-3. Selecione **Train** na barra de navegação superior. Aguarde que a barra de êxito verde.
+    Se digitar a expressão de modelo, a ajuda de LUIS preencher a entidade ao introduzir o parênteses Reto de abertura chave, `{`.
 
-4. Selecione **teste** no painel superior. Introduza `Who does Patti Owens report to?` na caixa de texto. Selecione introduzir. Esta é a mesma expressão testado na secção anterior. O resultado deve ser superior para o `GetEmployeeOrgChart` intenção. 
+    [ ![Captura de ecrã da introdução de expressões de modelo de intenção](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-    A classificação agora é muito melhor. LUIS aprendeu o padrão relevante para a intenção sem fornecer muitos exemplos.
 
-    ![Resultado do painel de captura de ecrã de teste com score elevada](./media/luis-tutorial-pattern/high-score.png)
 
-    A entidade é encontrada em primeiro lugar, em seguida, o padrão for encontrado, o que indica a intenção. Se tiver um resultado de teste onde a entidade não é detetada e, portanto, o padrão não for encontrado, terá de adicionar mais de exemplo de expressões na intenção (não o padrão). 
+4. Selecione o **OrgChart relatórios** intenção, em seguida, introduza as seguintes expressões de modelo, um de cada vez, selecione introduzir após cada ocorrência de pronunciação de modelo:
 
-5. Fechar o painel de teste, selecionando o **testar** botão no painel de navegação superior.
+    |Expressão de modelo|
+    |:--|
+    |Quem são {funcionário} [da] subordinada [?]|
+    |Que reporta a {funcionário} [?]|
+    |Quem faz {funcionário} gerir [?]|
+    |Quem são os relatórios diretos de {funcionário} [?]|
+    |Quem faz {funcionário} supervisionar [?]|
+    |Quem faz {funcionário} chefe [?]|
 
-## <a name="use-an-entity-with-a-role-in-a-pattern"></a>Utilizar uma entidade com uma função num padrão
-A aplicação do LUIS é utilizada para o ajudar a mover os funcionários de uma localização para outra. Uma expressão de exemplo é `Move Bob Jones from Seattle to Los Colinas`. Cada local em que a expressão tem um significado diferente. Seattle é a localização de origem e Colinas de Los é a localização de destino para a mudança. Para diferenciar nessas localizações no padrão, nas seções a seguir é criar uma entidade para a localização com duas funções: origem e de destino. 
+## <a name="query-endpoint-when-patterns-are-used"></a>Ponto final de consulta quando são utilizados padrões
 
-### <a name="create-a-new-intent-for-moving-people-and-assets"></a>Criar uma intenção de novo para mover as pessoas e ativos
-Crie uma intenção de novo para qualquer expressões com que está prestes a mover recursos ou pessoas.
+1. Formar e publicar a aplicação novamente.
 
-1. Selecione **intenções** no painel de navegação à esquerda
-2. Selecione **criar intenção de novo**
-3. Nome a intenção de novo `MoveAssetsOrPeople`
-4. Adicione expressões de exemplo:
+2. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
 
+3. Vá para o final do URL o endereço e introduza `Who is the boss of Jill Jones?` como a expressão. O último parâmetro querystring é `q`, a expressão **query**. 
+
+    ```JSON
+    {
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.9999989
+        },
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.9999989
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 7.616303E-05
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 7.84204349E-06
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 1.20674213E-06
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 7.91245157E-07
+            },
+            {
+                "intent": "None",
+                "score": 3.875E-09
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 1.49E-09
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 1.225E-09
+            },
+            {
+                "intent": "FindForm",
+                "score": 1.123077E-09
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 5.625E-10
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                },
+                "role": ""
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
     ```
-    Move Bob Jones from Seattle to Los Colinas
-    Move Dave Cooper from Redmond to Seattle
-    Move Jim Smith from Toronto to Vancouver
-    Move Jill Benson from Boston to London
-    Move Travis Hinton from Portland to Orlando
-    ```
-    ![Captura de ecrã da expressão de exemplo para MoveAssetsOrPeople intenção](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    As expressões de exemplo o objetivo é dar suficiente exemplos. Se, mais tarde no teste, a entidade de localização não é detetada e, consequentemente, o padrão não é detetado, regresse a este passo e adicionar mais exemplos. Em seguida, dar formação e teste novamente. 
-
-5. Marca as entidades nas expressões de exemplo com a entidade Employee ao selecionar o nome próprio, em seguida, o apelido numa expressão, em seguida, selecionando a entidade Employee na lista.
-
-    ![Captura de ecrã de expressões no MoveAssetsOrPeople marcados com a entidade Employee](./media/luis-tutorial-pattern/intent-moveasserts-employee.png)
-
-6. Selecione o texto `portland` em que a expressão `move travis hinton from portland to orlando`. Na caixa de diálogo pop-up, introduza o novo nome de entidade `Location`e selecione **criar nova entidade**. Escolha o **simples** tipo de entidade e selecione **feito**.
-
-    ![Captura de ecrã da criação de nova entidade de localização](./media/luis-tutorial-pattern/create-new-location-entity.png)
-
-    Marca o resto dos nomes de localização em que as expressões. 
-
-    ![Captura de ecrã de todas as entidades marcadas](./media/luis-tutorial-pattern/moveasset-all-entities-labeled.png)
-
-    O padrão de escolha do word e a ordem é óbvio na imagem anterior. Se fosse **não** usando padrões, e as expressões na intenção tem um padrão de óbvio, que é uma boa indicação que deve usar padrões. 
-
-    Se esperar uma grande variedade de expressões, em vez de um padrão, estes seriam as expressões de exemplo errado. Nesse caso, desejaria expressões com todos os vários no termo ou escolha do word, comprimento da expressão e posicionamento de entidade. 
-
-<!--TBD: what guidance to move from hier entities to patterns with roles -->
-<!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
--->
-### <a name="add-role-to-location-entity"></a>Adicionar função a entidade de localização 
-Funções só podem ser utilizadas para padrões. Adicione as funções de origem e destino para a entidade de localização. 
-
-1. Selecione **entidades** no painel de navegação esquerdo, em seguida, **localização** na lista de entidades.
-
-2. Adicione `Origin` e `Destination` funções para a entidade.
-
-    ![Captura de ecrã da nova entidade com as funções](./media/luis-tutorial-pattern/location-entity.png)
-
-    As funções não são marcadas na página de intenção MoveAssetsOrPeople porque funções não existem em expressões de intenção. Eles apenas existem em expressões de modelo padrão. 
-
-### <a name="add-template-utterances-that-uses-location-and-destination-roles"></a>Adicionar expressões de modelo que utiliza funções de localização e de destino
-Adicione expressões de modelo que utilizam a nova entidade.
-
-1. Selecione **padrões** no painel de navegação esquerda.
-
-2. Selecione o **MoveAssetsOrPeople** intenção.
-
-3. Introduza uma expressão de modelo de novo utilizando a nova entidade `Move {Employee} from {Location:Origin} to {Location:Destination}`. A sintaxe para uma entidade e a função dentro de uma expressão de modelo é `{entity:role}`.
-
-    ![Captura de ecrã da nova entidade com as funções](./media/luis-tutorial-pattern/pattern-moveassets.png)
-
-4. Prepare a aplicação para o novo objetivo, a entidade e o padrão.
-
-### <a name="test-the-new-pattern-for-role-data-extraction"></a>Testar o novo padrão para extração de dados de função
-Valide o novo padrão com um teste.
-
-1. Selecione **teste** no painel superior. 
-2. Introduza a expressão `Move Tammi Carlson from Bellingham to Winthrop`.
-3. Selecione **Inspect** sob o resultado para ver os resultados de teste para a entidade e propósito.
-
-    ![Captura de ecrã da nova entidade com as funções](./media/luis-tutorial-pattern/test-with-roles.png)
-
-    As entidades são encontradas em primeiro lugar, em seguida, o padrão for encontrado, o que indica a intenção. Se tiver um resultado de teste em que as entidades não são detetadas e, portanto, o padrão não for encontrado, terá de adicionar mais de exemplo de expressões na intenção (não o padrão). 
-
-4. Fechar o painel de teste, selecionando o **testar** botão no painel de navegação superior.
-
-## <a name="use-a-patternany-entity-to-find-free-form-entities-in-a-pattern"></a>Utilizar uma entidade de Pattern.any para localizar as entidades de forma livre num padrão
-Esta aplicação RecursosHumanos também ajuda os funcionários a encontrar formulários de empresa. Muitos dos formulários tem títulos são variados de comprimento. O comprimento variado inclui expressões que podem confundir o LUIS sobre onde termina o nome do formulário. Utilizar um **Pattern.any** entidade num padrão permite-lhe especificar o início e fim do nome do formulário, para que o LUIS corretamente extrai o nome do formulário. 
-
-### <a name="create-a-new-intent-for-the-form"></a>Criar uma intenção de novo para o formulário
-Crie uma intenção de novo para expressões que estiver à procura de formulários.
-
-1. Selecione **intenções** no painel de navegação esquerda.
-
-2. Selecione **Criar nova intenção**.
-
-3. Nomeie o novo objetivo `FindForm`.
-
-4. Adicione uma expressão de exemplo.
-
-    ```
-    `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
-    ```
-
-    ![Captura de ecrã da nova entidade com as funções](./media/luis-tutorial-pattern/intent-findform.png)
-
-    O título do formulário é `What to do when a fire breaks out in the Lab`. A expressão é pedir para a localização do formulário e também está perguntando quem precisa de iniciar sessão-lo a validar o funcionário lê-lo. Sem uma entidade de Pattern.any, seria difícil de entender onde o título do formulário termina e extrair o título do formulário como uma entidade da expressão.
-
-### <a name="create-a-patternany-entity-for-the-form-title"></a>Criar uma entidade de Pattern.any para o título do formulário
-Permite que a entidade de Pattern.any para entidades de comprimento variável. Ela só funciona num padrão porque o padrão de marca de início e no fim da entidade. Se achar que seu padrão, quando ele inclui um Pattern.any, incorretamente, utilizam entidades extrai uma [lista explícita](luis-concept-patterns.md#explicit-lists) para corrigir este problema. 
-
-1. Selecione **entidades** na navegação à esquerda.
-
-2. Selecione **Criar nova entidade**. 
-
-3. Nome da entidade `FormName` com o tipo **Pattern.any**. Para este tutorial específico, não é necessário adicionar quaisquer funções à entidade.
-
-    ![Imagem da caixa de diálogo para o nome da entidade e tipo de entidade](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
-
-### <a name="add-a-pattern-that-uses-the-patternany"></a>Adicionar um padrão que utiliza o Pattern.any
-
-1. Selecione **padrões** no painel de navegação esquerda.
-
-2. Selecione o **FindForm** intenção.
-
-3. Introduza uma expressão de modelo com a nova entidade `Where is the form {FormName} and who needs to sign it after I read it?`
-
-    ![Captura de ecrã da expressão de modelo usando pattern.any entidade](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
-
-4. Prepare a aplicação para o novo objetivo, a entidade e o padrão.
-
-### <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testar o novo padrão para extração de dados de forma livre
-1. Selecione **testar** a partir da barra superior para abrir o painel de teste. 
-
-2. Introduza a expressão `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
-
-3. Selecione **Inspect** sob o resultado para ver os resultados de teste para a entidade e propósito.
-
-    ![Captura de ecrã da expressão de modelo usando pattern.any entidade](./media/luis-tutorial-pattern/test-pattern.any-results.png)
-
-    A entidade é encontrada em primeiro lugar, em seguida, o padrão for encontrado, o que indica a intenção. Se tiver um resultado de teste em que as entidades não são detetadas e, portanto, o padrão não for encontrado, terá de adicionar mais de exemplo de expressões na intenção (não o padrão).
-
-4. Fechar o painel de teste, selecionando o **testar** botão no painel de navegação superior.
+A predição de intenção agora é significativamente maior. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione as reticências (***...*** ) à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
@@ -250,4 +365,4 @@ Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione as ret
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Aprenda as melhores práticas para aplicações de LUIS](luis-concept-best-practices.md)
+> [Saiba como utilizar funções com um padrão](luis-tutorial-pattern-roles.md)

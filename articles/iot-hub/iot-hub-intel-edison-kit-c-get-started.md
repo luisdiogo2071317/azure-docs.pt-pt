@@ -10,18 +10,18 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2efea8054320323df0e0eb603a20a5773d03cad8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2e0f8b46f2020db0bb657a8e099158c349af6a89
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676627"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187670"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Ligar a Intel Edison a IoT Hub (C) do Azure
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Neste tutorial, começará aprender as noções básicas do trabalho com o Intel Edison. Em seguida, saiba como ligar forma totalmente integrada os seus dispositivos para a cloud, utilizando [IoT Hub do Azure](iot-hub-what-is-iot-hub.md).
+Neste tutorial, começará aprender as noções básicas do trabalho com o Intel Edison. Em seguida, saiba como ligar forma totalmente integrada os seus dispositivos para a cloud, utilizando [IoT Hub do Azure](about-iot-hub.md).
 
 Não tem ainda um kit? Iniciar [aqui](https://azure.microsoft.com/develop/iot/starter-kits)
 

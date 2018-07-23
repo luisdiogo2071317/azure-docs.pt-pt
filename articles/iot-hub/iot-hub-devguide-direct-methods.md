@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 881262816fc8bd634b7f577fd05aa0c8c062e4ca
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0b84d7b0e7bbd2021ea4d3e3e804c739be59b48a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126529"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186884"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 IoT Hub dá-lhe a capacidade de invocar métodos diretos em dispositivos a partir da cloud. Os métodos diretos representam uma interação de solicitação-resposta com um dispositivo semelhante a uma chamada HTTP em que forem bem-sucedidos ou falharem imediatamente (após um tempo limite especificado pelo utilizador). Essa abordagem é útil para cenários em que o método de ação imediata é diferente, dependendo se o dispositivo foi capaz de responder.
@@ -177,6 +177,6 @@ Se quiser experimentar alguns dos conceitos descritos neste artigo, poderá esta
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

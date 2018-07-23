@@ -1,6 +1,6 @@
 ---
-title: Compreender as tarefas do IoT Hub do Azure | Microsoft Docs
-description: Guia para programadores - agendamento de trabalhos para executar em vários dispositivos ligados ao seu IoT hub. As tarefas podem atualizar as etiquetas e propriedades pretendidas e invocar métodos diretos em vários dispositivos.
+title: Compreender as tarefas do IoT Hub do Azure | Documentos da Microsoft
+description: Guia do desenvolvedor – agendamento de trabalhos para execução em vários dispositivos ligados ao seu hub IoT. Tarefas podem atualizar as etiquetas e propriedades pretendidas e invocar métodos diretos em vários dispositivos.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,33 +8,33 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 47d321788251462f2b34e1eb60231454dd6a72cf
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633949"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185936"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
-IoT Hub do Azure permite que um número de blocos modulares, como [etiquetas e propriedades do dispositivo duplo] [ lnk-twin-devguide] e [direcionar métodos][lnk-dev-methods].  Normalmente, as aplicações de back-end ativam operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e a uma hora agendada.  As tarefas executar atualizações ao dispositivo duplo e métodos diretos face a um conjunto de dispositivos a uma hora agendada.  Por exemplo, um operador teria de utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na compilação 43 e piso 3 cada vez que não pretende ser incómoda para as operações de criar.
+O IoT Hub do Azure permite que um número de blocos de construção como [etiquetas e propriedades dos dispositivos duplos] [ lnk-twin-devguide] e [métodos diretos][lnk-dev-methods].  Normalmente, as aplicações de back-end permitem operadores e administradores de dispositivos atualizar e interagir com dispositivos de IoT em massa e num horário agendado.  Tarefas de atualizações de dispositivo duplo e métodos diretos em relação a um conjunto de dispositivos de execução num horário agendado.  Por exemplo, um operador utilizar uma aplicação de back-end que inicia e regista uma tarefa para reiniciar um conjunto de dispositivos na criação de 43 e andar 3 cada vez que não seria perturbador para as operações de compilação.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Considere a utilização de tarefas quando necessitar de agendar e controlar o progresso qualquer uma das seguintes atividades num conjunto de dispositivos:
+Considere a utilização de tarefas quando precisa para agendar e controlar o progresso qualquer uma das seguintes atividades num conjunto de dispositivos:
 
 * Atualizar as propriedades pretendidas
 * Etiquetas de atualização
 * Invocar métodos diretos
 
-## <a name="job-lifecycle"></a>Ciclo de vida da tarefa
-As tarefas são iniciadas pela solução de back-end e mantidas pelo IoT Hub.  Pode iniciar uma tarefa através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e a consulta para progresso uma tarefa em execução através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Para atualizar o estado de tarefas em execução depois de uma tarefa é iniciada, execute uma consulta da tarefa.
+## <a name="job-lifecycle"></a>Ciclo de vida de tarefa
+Tarefas são iniciadas pela solução de back-end e mantidas pelo IoT Hub.  Pode iniciar uma tarefa através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e a consulta para o progresso numa tarefa de execução através de um URI de serviço com acesso à (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Para atualizar o estado de tarefas em execução depois de uma tarefa é iniciada, execute uma consulta da tarefa.
 
 > [!NOTE]
-> Quando inicia uma tarefa, valores e nomes de propriedade podem apenas conter imprimível US-ASCII alfanuméricos, exceto qualquer no conjunto de seguinte: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
+> Quando seleciona uma tarefa, os nomes das propriedades e valores podem apenas conter US-ASCII imprimível alfanumérico, exceto as no conjunto de seguinte: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`.
 
-## <a name="jobs-to-execute-direct-methods"></a>Tarefas a executar métodos diretos
-O fragmento seguinte mostra os detalhes do pedido de HTTPS 1.1 para executar um [método direto] [ lnk-dev-methods] num conjunto de dispositivos através de uma tarefa:
+## <a name="jobs-to-execute-direct-methods"></a>Tarefas para executar métodos diretos
+O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para a execução de um [método direto] [ lnk-dev-methods] num conjunto de dispositivos através de uma tarefa:
 
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
@@ -56,17 +56,17 @@ O fragmento seguinte mostra os detalhes do pedido de HTTPS 1.1 para executar um 
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
 
-A condição de consulta também pode ser um ID de dispositivo único ou uma lista de dispositivos IDs conforme mostrado nos exemplos seguintes:
+A condição de consulta também pode ser um ID de dispositivo único ou numa lista de identificações, conforme mostrado nos exemplos seguintes de dispositivo:
 
 ```
 queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
 queryCondition = "deviceId IN ['MyDevice1']
 ```
-[Idioma de consulta do IoT Hub] [ lnk-query] abrange o idioma de consulta do IoT Hub no detalhes adicionais.
+[Linguagem de consulta do Hub IoT] [ lnk-query] aborda a linguagem de consulta do IoT Hub em detalhes adicionais.
 
-## <a name="jobs-to-update-device-twin-properties"></a>Tarefas para atualizar as propriedades do dispositivo duplo
-O fragmento seguinte mostra os detalhes do pedido HTTPS 1.1 para propriedades do dispositivo duplo utilizando uma tarefa de atualização:
+## <a name="jobs-to-update-device-twin-properties"></a>Tarefas para atualizar as propriedades dos dispositivos duplos
+O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para atualizar as propriedades dos dispositivos duplos usar um trabalho de:
 
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
@@ -84,7 +84,7 @@ O fragmento seguinte mostra os detalhes do pedido HTTPS 1.1 para propriedades do
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>Consultar o progresso das tarefas de
-O fragmento seguinte mostra os detalhes do pedido de HTTPS 1.1 para [consultar tarefas][lnk-query]:
+O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para [consultar tarefas][lnk-query]:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -93,47 +93,47 @@ O fragmento seguinte mostra os detalhes do pedido de HTTPS 1.1 para [consultar t
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
 
-É fornecido o continuationToken da resposta.  
+O continuationToken é fornecido da resposta.  
 
 ## <a name="jobs-properties"></a>Propriedades de tarefas
-A lista seguinte mostra as propriedades e descrições correspondentes, que podem ser utilizadas ao consultar as tarefas ou resultados das tarefas.
+A lista seguinte mostra as propriedades e as descrições correspondentes, que podem ser utilizadas ao consultar para tarefas ou resultados das tarefas.
 
 | Propriedade | Descrição |
 | --- | --- |
-| **jobId** |Aplicação fornecido ID da tarefa. |
-| **startTime** |Aplicação fornecido a hora de início (ISO-8601) para a tarefa. |
-| **endTime** |IoT Hub fornecido data (ISO-8601) para quando a tarefa foi concluída. Válido apenas depois da tarefa de atinge o estado 'Concluído'. |
+| **jobId** |Aplicação fornecida ID para a tarefa. |
+| **startTime** |Aplicação fornecida a hora de início (ISO-8601) para a tarefa. |
+| **endTime** |IoT Hub fornecidos data (ISO-8601) para quando a tarefa é concluída. Válido apenas depois que a tarefa de atinge o estado "concluído". |
 | **tipo** |Tipos de tarefas: |
 | | **scheduledUpdateTwin**: uma tarefa utilizada para atualizar um conjunto de propriedades pretendidas ou etiquetas. |
 | | **scheduledDeviceMethod**: uma tarefa utilizada para invocar um método de dispositivo num conjunto de dispositivos duplos. |
-| **status** |Estado atual da tarefa. Valores possíveis para o estado: |
-| | **pendente**: agendadas e a aguardar para ser selecionadas pelo serviço de tarefa. |
-| | **agendada**: agendada para uma hora no futuro. |
+| **status** |Estado atual da tarefa. Valores possíveis para obter o estado: |
+| | **pendente**: agendada e a aguardar a ser escolhidas pelo serviço de tarefa. |
+| | **agendada**: agendada para um momento no futuro. |
 | | **executar**: tarefa atualmente ativa. |
 | | **Cancelado**: tarefa foi cancelada. |
-| | **Não foi possível**: Falha na tarefa. |
-| | **concluir**: tarefa foi concluída. |
+| | **Falha ao**: Falha na tarefa. |
+| | **concluído**: tarefa for concluída. |
 | **deviceJobStatistics** |Estatísticas sobre a execução da tarefa. |
 | | **deviceJobStatistics** propriedades: |
-| | **deviceJobStatistics.deviceCount**: número de dispositivos na tarefa. |
+| | **deviceJobStatistics.deviceCount**: número de dispositivos no trabalho. |
 | | **deviceJobStatistics.failedCount**: número de dispositivos em que a tarefa falhou. |
 | | **deviceJobStatistics.succeededCount**: número de dispositivos em que a tarefa foi concluída com êxito. |
-| | **deviceJobStatistics.runningCount**: número de dispositivos que atualmente estão a ser executada a tarefa. |
+| | **deviceJobStatistics.runningCount**: número de dispositivos que estão atualmente a executar a tarefa. |
 | | **deviceJobStatistics.pendingCount**: número de dispositivos que estão pendentes para executar a tarefa. |
 
 ### <a name="additional-reference-material"></a>Material de referência adicionais
-Outros tópicos de referência no guia de programadores do IoT Hub incluem:
+Outros tópicos de referência no Guia do programador do IoT Hub incluem:
 
-* [Pontos finais de IoT Hub] [ lnk-endpoints] descreve os vários pontos finais que cada IoT hub expõe para operações de gestão e de tempo de execução.
-* [Limitação e quotas] [ lnk-quotas] descreve as quotas que se aplicam para o serviço de IoT Hub e o comportamento de limitação pode esperar quando utilizar o serviço.
-* [Azure SDKs IoT do serviço e dispositivo] [ lnk-sdks] indica o idioma de vários SDKs que pode utilizar ao desenvolver aplicações de serviço e dispositivo que interagem com o IoT Hub.
-* [Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens] [ lnk-query] descreve o idioma de consulta do IoT Hub. Utilize a linguagem de consulta para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
-* [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
+* [Pontos finais do IoT Hub] [ lnk-endpoints] descreve vários pontos de extremidade que cada hub IoT expõe para operações de tempo de execução e gestão.
+* [Quotas e limitação] [ lnk-quotas] descreve as quotas que se aplicam ao serviço IoT Hub e o comportamento da limitação esperar ao utilizar o serviço.
+* [Azure SDKs de dispositivo e de serviços de IoT] [ lnk-sdks] indica o idioma de vários SDKs, pode utilizar ao desenvolver aplicações de dispositivos e de serviços que interagem com o IoT Hub.
+* [Linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens] [ lnk-query] descreve a linguagem de consulta do IoT Hub. Utilize essa linguagem de consulta para obter informações a partir do IoT Hub sobre os seus dispositivos duplos e trabalhos.
+* [Suporte para MQTT do IoT Hub] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial do IoT Hub seguinte:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutorial seguinte do IoT Hub:
 
-* [Tarefas de agenda e difusão][lnk-jobs-tutorial]
+* [Agendar e difundir tarefas][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -143,7 +143,7 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte o tutori
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2018
 ms.author: aljo
-ms.openlocfilehash: 6bc979e277c71610ebc0f7a603915689b0b0605b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a6351971ceb502297193bf0f2c3a452f30cade5d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160380"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187405"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e a política de atualização de recursos de infraestrutura
 Este documento informa como personalizar as várias configurações de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o seu cluster do Service Fabric. Pode personalizá-las através da [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -59,11 +59,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="applicationgatewayhttp"></a>Gateway de aplicação/Http
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| ApplicationCertificateValidationPolicy: Nenhum: não validar o certificado de servidor; concluída com êxito o pedido. ServiceCertificateThumbprints: Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. ServiceCommonNameAndIssuer: Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. |
+|ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| Isso não valida o certificado de servidor; concluída com êxito o pedido. Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. |
 |BodyChunkSize |Uint, a predefinição é 16384 |Dinâmica| Fornece o tamanho para o segmento em bytes, usado para ler o corpo. |
 |CrlCheckingFlag|uint, a predefinição é 0x40000000 |Dinâmica| Sinalizadores de validação da cadeia de certificado de aplicação/serviço; Por exemplo, 0x10000000 de verificação de CRL CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY definição como 0 dwFlags de CertGetCertificateChain é documentada desativa CRL verificação lista, completa, de valores suportados: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos.  Fornece o tempo de limite de solicitação padrão para os pedidos de http a ser processados no gateway de aplicação de http. |
-|ForwardClientCertificate|bool, a predefinição é falso|Dinâmica| |
+|ForwardClientCertificate|bool, a predefinição é falso|Dinâmica|Quando definido como false, inverta proxy não irá pedir para o certificado de cliente. Quando definido como true, inversa proxy irá pedir para o certificado de cliente durante o handshake SSL e reencaminhar o codificada em base64 a cadeia de formato PEM para o serviço num cabeçalho X-Client-Certificate.The serviço com o nome pode falhar o pedido com o código de estado apropriado Depois inspecionar os dados do certificado. Se isso é verdadeiro e o cliente não apresenta um certificado, o proxy inverso reencaminhar um cabeçalho vazio e permitir que o serviço de administrar o caso. Proxy inverso irão funcionar como uma camada transparente.|
 |GatewayAuthCredentialType |cadeia de caracteres, predefinido é "None" |Estático| Indica o tipo de credenciais de segurança para utilizar os http aplicação gateway ponto final valores válidos são "nenhum / X 509. |
 |GatewayX509CertificateFindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica| Indica como procurar o certificado no arquivo especificado pelo valor GatewayX509CertificateStoreName suportados: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia de caracteres, a predefinição é "" |Dinâmica| Valor de filtro de pesquisa utilizado para localizar o certificado de gateway de aplicação de http. Este certificado é configurado no ponto final https e também pode ser utilizado para verificar a identidade da aplicação, se necessário, os serviços. FindValue é verificado primeiro; e se não existir; FindValueSecondary é pesquisado. |
@@ -76,12 +76,12 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |RemoveServiceResponseHeaders|cadeia de caracteres, predefinido é "data; Servidor"|Estático|Dois pontos de volumes / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo ao cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. ou seja Não substituir a data e o servidor |
 |ResolveServiceBackoffInterval |Tempo em segundos, a predefinição é 5 |Dinâmica|Especifique o período de tempo em segundos.  Fornece a resolver o intervalo de término do padrão antes de repetir uma falha na operação de serviço. |
 |SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: true: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy reverso pode reencaminhar pedidos de pontos de extremidade seguro/não segura.  |
-|ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica| |
+|ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso.  |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Gateway de aplicação/Http/ServiceCommonNameAndIssuer
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|  |
+|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| Sujeita thumbprint de nome e o emissor dos certificados remotos que pode confiar o proxy inverso.|
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -157,10 +157,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|InstanceCount|int, a predefinição é de -1|Estático|  |
-|IsEnabled|bool, a predefinição é falso|Estático| |
-|PartitionPrefix|cadeia de caracteres, a predefinição é "-"|Estático|Define a cadeia de prefixo de partição em nomes DNS para serviços particionados: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<destino-Partition-Name\> \< PartitionSuffix\>.\< Restantes-particionada-Service-DNSName\>.|
-|PartitionSuffix|cadeia de caracteres, a predefinição é ""|Estático|Define a cadeia de caracteres de sufixo de partição em nomes DNS para serviços particionados: \<First-Label-Of-Partitioned-Service-DNSName\>\<PartitionPrefix\>\<destino-Partition-Name\> \< PartitionSuffix\>.\< Restantes-particionada-Service-DNSName\>. |
+|InstanceCount|int, a predefinição é de -1|Estático|valor predefinido é -1, que significa que DnsService está em execução em cada nó. OneBox precisa para ser definido como 1, uma vez que DnsService utiliza a porta conhecida 53, para que ele não pode ter várias instâncias no mesmo computador.|
+|IsEnabled|bool, a predefinição é falso|Estático|Ativa/desativa DnsService. DnsService está desativada por predefinição e esta configuração precisa ser definida para ativá-la. |
+|PartitionPrefix|cadeia de caracteres, a predefinição é "-"|Estático|Controla o valor de cadeia de caracteres de prefixo de partição nas consultas DNS para serviços particionadas. Para obter mais informações, consulte esta ligação:[serviço DNS do Service Fabric.](service-fabric-dnsservice.md)|
+|PartitionSuffix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de sufixo de partição nas consultas DNS para serviços particionadas. Para obter mais informações, consulte esta ligação:[serviço DNS do Service Fabric.](service-fabric-dnsservice.md) |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -253,6 +253,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="federation"></a>de Federação
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
+|GlobalTicketLeaseDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(300)|Estático|Especifique o período de tempo em segundos. Nós do cluster tem de manter uma concessão global com os eleitores. Os eleitores submeter seus concessões global para serem propagadas no cluster para esta duração. Se a duração expirar; em seguida, a concessão é perdida. Perda de quórum de concessões faz com que um nó abandonar o cluster; por um problema na receber a comunicação com um quórum de nós neste período de tempo.  Este valor tem de ser ajustado com base no tamanho do cluster. |
 |LeaseDuration |Tempo em segundos, a predefinição é 30 |Dinâmica|Duração que dura de uma concessão entre um nó e de seus vizinhos. |
 |LeaseDurationAcrossFaultDomain |Tempo em segundos, a predefinição é 30 |Dinâmica|Duração que dura de uma concessão entre um nó e de seus vizinhos entre domínios de falha. |
 
@@ -321,7 +322,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ContainerServiceArguments|cadeia de caracteres, a predefinição é "-H localhost:2375 -H npipe: / /"|Estático|Service Fabric (SF) gere o daemon do docker (exceto em máquinas de cliente do windows, como o Win10). Esta configuração permite que o usuário especificar argumentos personalizados que devem ser passados para o daemon do docker ao iniciá-los. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do Docker, exceto "– pidfile' argumento. Por conseguinte, os utilizadores não devem especificar "– pidfile' argumento como parte de seus argumentos de cliente. Além disso, os argumentos personalizados devem garantir que o docker daemon escuta no pipe de nome predefinido no Windows (ou o socket de domínio Unix no Linux) para o Service Fabric conseguir comunicar com o mesmo.|
 |CreateFabricRuntimeTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica| Especifique o período de tempo em segundos. O valor de tempo limite para a sincronização FabricCreateRuntime chamada |
 |DefaultContainerRepositoryAccountName|cadeia de caracteres, a predefinição é ""|Estático|Credenciais predefinidas utilizadas em vez das credenciais especificadas em applicationmanifest. XML |
-|DefaultContainerRepositoryPassword|cadeia de caracteres, a predefinição é ""|Estático||
+|DefaultContainerRepositoryPassword|cadeia de caracteres, a predefinição é ""|Estático|Credenciais de palavra-passe padrão usadas em vez das credenciais especificadas em applicationmanifest. XML|
 |DeploymentMaxFailureCount|Int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para tempos de DeploymentMaxFailureCount antes da falha a implementação desse aplicativo no nó.| 
 |DeploymentMaxRetryInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique o período de tempo em segundos. Intervalo de repetição máximo para a implementação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (DeploymentMaxRetryInterval; Número de falhas contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(10)|Dinâmica|Especifique o período de tempo em segundos. Intervalo de término da falha de implementação. Em cada caso de falha de implementação contínua, o sistema tentará novamente a implementação da até o MaxDeploymentFailureCount. O intervalo entre tentativas é um produto de falha de implementação contínua e o intervalo de término da implantação. |
@@ -333,7 +334,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |FirewallPolicyEnabled|bool, a predefinição é falso|Estático| Permite a abertura de portas de firewall para recursos de ponto final com portas explícitas especificadas no ServiceManifest |
 |GetCodePackageActivationContextTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique o período de tempo em segundos. O valor de tempo limite para as chamadas de CodePackageActivationContext. Não se aplica aos serviços do ad-hoc. |
 |IPProviderEnabled|bool, a predefinição é falso|Estático|Ativa a gestão de endereços IP. |
-|IsDefaultContainerRepositoryPasswordEncrypted|bool, a predefinição é falso|Estático||
+|IsDefaultContainerRepositoryPasswordEncrypted|bool, a predefinição é falso|Estático|Se o DefaultContainerRepositoryPassword está ou não ser encriptada.|
 |LinuxExternalExecutablePath|cadeia de caracteres, a predefinição é "/ usr/bin /" |Estático|O diretório principal de comandos executáveis externos no nó.|
 |NTLMAuthenticationEnabled|bool, a predefinição é falso|Estático| Ativa o suporte para utilizando o NTLM, os pacotes de código que estão em execução com outras utilizadores para que os processos em máquinas possam comunicar de forma segura. |
 |NTLMAuthenticationPasswordSecret|SecureString, a predefinição é Common::SecureString("")|Estático|É que tem um encriptada que é utilizado para gerar a palavra-passe para utilizadores NTLM. Tem de ser definida se NTLMAuthenticationEnabled for verdadeira. Validado pelo deployer. |

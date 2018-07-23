@@ -140,33 +140,13 @@
 #### [Amostras de início de sessão](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Com certificados](active-directory-reporting-api-with-certificates.md)
 
-## Gerir palavras-passe
-### [Descrição geral de palavras-passe](authentication/active-directory-passwords-overview.md)
+## Gerir palavras-passe (active-directory/authentication/concept-sspr-howitworks.md)
 ### Documentos do utilizador
 #### [Repor ou alterar a palavra-passe](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Melhores práticas de palavra-passe](active-directory-secure-passwords.md)
 #### [Registar-se na reposição personalizada de palavra-passe](user-help/active-directory-passwords-reset-register.md)
-### [SSPR - Como funciona](authentication/concept-sspr-howitworks.md)
-### [SSPR - Guia de implementação](authentication/howto-sspr-deployment.md)
-### [SSPR e o Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR - Políticas](authentication/concept-sspr-policy.md)
-### [SSPR - Personalização](authentication/concept-sspr-customization.md)
-### [SSPR - Requisitos de dados](authentication/howto-sspr-authenticationdata.md)
-### [SSPR - Relatórios](authentication/howto-sspr-reporting.md)
-### [Bloqueio inteligente](authentication/howto-password-smart-lockout.md)
-### [Eliminar palavras-passe fracas](authentication/concept-password-ban-bad.md)
-### [Configurar a lista de palavras-passe banidas](authentication/howto-password-ban-bad.md)
-### [Integração no local](authentication/concept-password-ban-bad-on-premises.md)
-### [Implementar proteção de palavras-passe do Azure AD](authentication/howto-password-ban-bad-on-premises.md)
-### [Configurar proteção de palavras-passe do Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Monitorizar proteção de palavras-passe do Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Administradores de TI: repor palavras-passe
 #### [Portal do Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Licenciar a SSPR](authentication/concept-sspr-licensing.md)
-### [Repetição de escrita de palavras-passe](authentication/howto-sspr-writeback.md)
-### [Resolução de problemas](authentication/active-directory-passwords-troubleshoot.md)
-### [FAQ](authentication/active-directory-passwords-faq.md)
-
 
 ## Gerir dispositivos
 ### [Introdução](device-management-introduction.md)

@@ -1,6 +1,6 @@
 ---
 title: Funcionalidades de segurança da base de dados SQL do Azure
-description: Este artigo fornece que uma descrição geral da SQL Database do Azure protege os dados de cliente no Azure.
+description: Este artigo fornece uma descrição geral de como o SQL Database do Azure protege os dados do cliente no Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,95 +14,95 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cca8febb004029b13b0df09a047da701c4528e8e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102581"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170859"
 ---
-# <a name="microsoft-azure-sql-database-security-features"></a>Funcionalidades de segurança da base de dados de SQL do Microsoft Azure    
-Base de dados de SQL do Microsoft Azure fornece um serviço de base de dados relacional no Azure. Para proteger os dados de cliente e fornecer funcionalidades de segurança forte que os clientes se espera de um serviço de base de dados relacional, base de dados SQL tem os suas próprias conjuntos de funcionalidades de segurança. Estas capacidades baseiam-se os controlos que são herdados do Azure.
+# <a name="azure-sql-database-security-features"></a>Funcionalidades de segurança da base de dados SQL do Azure    
+Base de dados SQL do Azure fornece um serviço de base de dados relacionais no Azure. Para proteger os dados dos clientes e fornecer funcionalidades de segurança forte que clientes esperar de um serviço de base de dados relacional, a base de dados SQL tem seus próprios conjuntos de recursos de segurança. Esses recursos são criados após os controlos que são herdados do Azure.
 
 ## <a name="security-capabilities"></a>Capacidades de segurança
 
-### <a name="usage-of-tabular-data-stream-tds-protocol"></a>Utilização do protocolo de fluxo de dados em tabela (recebido)
-Base de dados do Microsoft Azure SQL Server só suporta o protocolo TDS, que requer a base de dados esteja acessível apenas através de predefinição porta de TCP/1433.
+### <a name="usage-of-the-tds-protocol"></a>Utilização do protocolo TDS
+Base de dados SQL do Azure suporta apenas o tabular data stream (TDS) protocolo, que requer a base de dados estar acessíveis através de apenas a predefinição porta de TCP/1433.
 
-### <a name="microsoft-azure-sql-database-firewall"></a>Firewall de base de dados SQL do Microsoft Azure
-Para ajudar a proteger os dados dos clientes, a base de dados do Microsoft Azure SQL inclui uma funcionalidade de firewall, que, por predefinição, impede que todo o acesso ao servidor de base de dados SQL, conforme mostrado abaixo.
+### <a name="azure-sql-database-firewall"></a>Firewall de base de dados SQL do Azure
+Para ajudar a proteger os dados dos clientes, a base de dados SQL do Azure inclui uma funcionalidade de firewall, o que, por predefinição, impede todo o acesso ao servidor de base de dados SQL, conforme mostrado abaixo.
 
 ![Firewall de base de dados SQL do Azure][1]
 
-A firewall do gateway fornece a capacidade de limitar endereços permitindo para um controlo granular aos clientes para especificar os intervalos de endereços IP aceitáveis. A firewall concede acesso com base no endereço IP de origem de cada pedido.
+O firewall do gateway pode limitar endereços, que permite aos clientes um controle granular especificar os intervalos de endereços IP aceitáveis. A firewall concede acesso com base no endereço IP de origem de cada pedido.
 
-Configuração da firewall pode ser conseguida utilizando um Portal de gestão ou através de programação utilizando a API de REST de gestão de base de dados do Microsoft Azure SQL. A firewall do Gateway de base de dados SQL do Microsoft Azure por predefinição impede que todos os acessos TDS do cliente para bases de dados do Microsoft Azure SQL. Acesso tem de ser configurado utilizando ACLs para permitir ligações de base de dados do Microsoft Azure SQL por origem e os endereços de Internet de destino, protocolos e números de porta.
+Os clientes podem obter a configuração de firewall ao utilizar um portal de gestão ou programaticamente usando a API de REST de gestão do Azure SQL da base de dados. A firewall do gateway de base de dados do Azure SQL por predefinição impede que todos os clientes de acesso recebido para instâncias de base de dados SQL do Azure. Os clientes tem de configurar acesso através de listas de controlo de acesso (ACLs) para permitir ligações de base de dados do Azure SQL, origem e endereços de internet de destino, protocolos e números de porta.
 
 ### <a name="dosguard"></a>DoSGuard
-Ataques do denial of service (DoS) são reduzidas por um serviço de Gateway de base de dados do SQL Server denominado DoSGuard. DoSGuard controla ativamente inícios de sessão falhados a partir de endereços IP. Se existirem vários inícios de sessão falhados de um endereço IP específico durante um período de tempo, o endereço IP é impedido de aceder a quaisquer recursos do serviço para um período de tempo predefinido.
+Ataques denial of service (DoS) são reduzidos por um serviço de gateway de base de dados SQL denominado DoSGuard. DoSGuard controla ativamente inícios de sessão falhados a partir de endereços IP. Se existirem vários inícios de sessão falhados de um endereço IP específico dentro de um período de tempo, o endereço IP está bloqueado de aceder a quaisquer recursos no serviço para um período de tempo predefinido.
 
-Para além dos acima, o gateway de base de dados do Microsoft Azure SQL também efetua a:
+Além disso, o gateway de base de dados do Azure SQL executa:
 
-- Negociações de capacidade de canal seguro para implementar a certificação FIPS 140-2 TDS validada ligações encriptadas ao estabelecer ligação com os servidores de base de dados.
-- Inspeção de pacotes TDS com monitorização de estado ao aceitar ligações de clientes. O gateway valida as informações de ligação e passa nos pacotes recebido para o servidor físico adequado com base no nome da base de dados especificado na cadeia de ligação.
+- Negociações de capacidade de canal seguro para implementar o TDS FIPS 140-2 validado ligações encriptadas para estabelecer a ligação para os servidores de base de dados.
+- Inspeção de pacotes com monitoração de estado recebido enquanto aceita ligações de clientes. O gateway valida as informações de ligação e passa nos pacotes recebido para o servidor físico adequado com base no nome da base de dados especificado na cadeia de ligação.
 
-O princípio abrangente para segurança de rede de oferta de base de dados do Microsoft Azure SQL é apenas permitir a ligação e a comunicação que é necessária permitir que o serviço de funcionar. Todas as outras portas, protocolos e as ligações estão bloqueadas por predefinição. VLANs e as ACLs são utilizadas para restringir comunicações de rede por origem e redes de destino, protocolos e números de porta.
+O princípio abrangente para segurança de rede da oferta de base de dados do Azure SQL é permitir que apenas a ligação e a comunicação que é necessária para permitir que o serviço a funcionar. Todas as outras portas, protocolos e as ligações estão bloqueadas por predefinição. Redes de área local virtual (VLANs) e ACLs são usadas para restringir comunicações de rede, redes de origem e destino, protocolos e números de porta.
 
-Mecanismos aprovados para implementar as ACLs baseadas na rede incluem: ACLs de routers e Balanceadores de carga. Estes são geridos pelo redes do Azure, a firewall da VM do convidado e regras de firewall gateway de base de dados do Microsoft Azure SQL, que são configuradas pelo cliente.
+Mecanismos que são aprovados para implementar as ACLs baseadas em rede incluem as ACLs em routers e Balanceadores de carga. Estes mecanismos são geridos pelo sistema de rede do Azure, firewall de VM do convidado e regras de firewall do Azure SQL Database gateway, que são configuradas pelo cliente.
 
-## <a name="data-segregation-and-customer-isolation"></a>Isolamento de segregação e o cliente de dados
-A rede de produção do Azure está estruturada, de modo a que os componentes de sistema acessível publicamente são separados de recursos internos. Existem limites físicos e lógicos entre servidores web fornecer acesso para o portal do Azure destinados ao público e do Azure virtual infraestrutura subjacente, onde residem os instâncias da aplicação de cliente e dados de cliente.
+## <a name="data-segregation-and-customer-isolation"></a>Isolamento de cliente e segregação de dados
+A rede de produção do Azure é estruturada de forma a que os componentes de sistema acessível publicamente são separados recursos internos. Existem limites físicos e lógicos entre servidores web que fornecem acesso ao portal do Azure destinados ao público e a infraestrutura do Azure subjacente virtual, onde residem os instâncias da aplicação de cliente e dados do cliente.
 
-Todas as informações de acessíveis publicamente são geridas dentro da rede de produção do Azure. A rede de produção sujeitos a autenticação de dois fatores e mecanismos de proteção de limite, utiliza a funcionalidade de segurança e de firewall definir descrita na secção anterior e utiliza as funções de isolamento de dados conforme indicado abaixo.
+Todas as informações de publicamente acessíveis são gerenciadas dentro da rede de produção do Azure. A rede de produção está sujeito a autenticação de dois fatores e o limite de mecanismos de proteção, utiliza o conjunto de recursos de segurança e de firewall que é descrito na secção anterior e utiliza as funções de isolamento de dados conforme indicado nas próximas seções.
 
-### <a name="unauthorized-systems-and-isolation-of-fc"></a>Sistemas não autorizados e isolamento de FC
-Uma vez que o FC o orchestrator central dos recursos de infraestrutura do Microsoft Azure, são significativos controlos implementados para mitigar ameaças, especialmente FAs potencialmente comprometidos dentro de aplicações de cliente. FC não reconhece qualquer hardware cujas informações de dispositivo (por exemplo, endereço MAC) não foi previamente carregadas dentro de FC. Os servidores DHCP na FC configurou apresenta uma lista de endereços MAC de nós que estão dispostos a efetuar o arranque. Mesmo se estiverem ligados a sistemas não autorizados, eles não são incorporados no inventário de recursos de infraestrutura e, por conseguinte, não ligados ou autorizados a comunicar com qualquer sistema dentro do inventário de recursos de infraestrutura. Isto reduz o risco de sistemas não autorizados a comunicar com o FC e obter acesso a VLAN e o Azure.
+### <a name="unauthorized-systems-and-isolation-of-the-fc"></a>Sistemas não autorizados e isolar o FC
+Uma vez que o controlador de malha (FC) é orquestradores centrais de recursos de infraestrutura do Azure, controles significativos foram in-loco para atenuar as ameaças, especialmente de FAs potencialmente comprometidos em aplicativos do cliente. O FC não reconhece qualquer hardware cujas informações de dispositivo (por exemplo, o endereço de MAC) não está previamente carregadas dentro do FC. Os servidores DHCP no FC configurou as listas de endereços MAC de nós são dispostos a efetuar o arranque. Mesmo que estejam ligados de sistemas não autorizados, eles não são incorporados ao inventário de recursos de infraestrutura e, portanto, não ligados ou autorizados a comunicar com qualquer sistema dentro do inventário de recursos de infraestrutura. Isso reduz o risco de não autorizados sistemas se comunicar com o FC e obter acesso à VLAN e do Azure.
 
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
-A rede de produção do Azure logicamente é segregada para três VLANs primárias:
+A rede de produção do Azure logicamente é segregada para três VLANs primários:
 
-- A VLAN principal – interconnects nós não fidedignos do cliente
-- A VLAN de FC – contém fidedigna FCs e sistemas de suporte
-- O dispositivo VLAN – contém rede fidedigna e outros dispositivos de infraestrutura
+- A principal VLAN: interconexões de nós de cliente não fidedigno.
+- A VLAN de FC: Contém fidedigna FCs e sistemas de suporte.
+- O dispositivo VLAN: contém a redes fidedignas e outros dispositivos de infraestrutura.
 
 ### <a name="packet-filtering"></a>Filtragem de pacotes
-O IPFilter e as firewalls do software implementadas no SO de raiz e SO convidado de nós de impor restrições de conectividade e impedir que o tráfego entre VMs não autorizado.
+O IPFilter e as firewalls de software que são implementadas no sistema operacional raiz e sistema operacional convidado de nós de impor restrições de conectividade e impedir que o tráfego entre VMs não autorizado.
 
-### <a name="hypervisor-root-os-and-guest-vms"></a>Hipervisor, SO de raiz e as VMs de convidado
-O isolamento do SO raiz das VMs de convidado e as VMs de convidado umas é gerido pelo hipervisor e o SO de raiz.
+### <a name="hypervisor-root-os-and-guest-vms"></a>Hipervisor, sistema operacional raiz e máquinas virtuais convidadas
+O isolamento de sistema operacional raiz de máquinas virtuais convidadas e das máquinas virtuais convidadas umas das outras é gerido pelo hipervisor e o sistema operacional raiz.
 
-### <a name="types-of-rules-on-firewalls"></a>Tipos de regras de Firewalls
-Uma regra está definida como:
+### <a name="types-of-rules-on-firewalls"></a>Tipos de regras em firewalls
+Uma regra é definida como:
 
-{Security Response Center (Src), porta Src, destino IP, porta de destino, destino protocolo de endereço IP, entrada/saída, tempo limite de fluxo com monitorização de estado/sem monitorização de estado, com monitorização de estado}.
+{Security Response Center (Src), porta de Src, destino IP, porta de destino, destino protocolo IP, de entrada/saída, tempo limite de fluxo com monitoração de estado/sem monitoração de estado, com monitoração de estado}.
 
-Pacotes de SIN sejam permitidos entrada ou saída apenas se permite que qualquer uma das regras. Para TCP, o Microsoft Azure utiliza regras sem monitorização de Estado onde o princípio é que só permite que todos os pacotes não-SIN ou a sair da VM. A premissa de segurança está pilha qualquer anfitrião resiliente de ignorar um não-SIN se não vistos um pacote de SIN anteriormente. O próprio protocolo TCP é com monitorização de estado e, em combinação com o SYNbased sem monitorização de estado regra distribui um comportamento geral de uma implementação com monitorização de estado.
+Pacotes de caráter síncrona de inativa (SYN) são permitidos dentro ou para fora, apenas se qualquer uma das regras permite que o faça. Para TCP, o Azure utiliza regras sem monitoração de estado em que o princípio é que ela permite que apenas todos os pacotes não-SYN para dentro ou fora da VM. A premissa de segurança é que qualquer pilha de host é resiliente de ignorar um SYN-não se ele é não visto como um pacote SYN anteriormente. O próprio protocolo TCP é com monitoração de estado e, em combinação com a regra com base em SYN sem monitoração de estado atinge um comportamento geral de uma implementação com monitoração de estado.
 
-Para o protocolo UDP (User Datagram), o Microsoft Azure utiliza uma regra com monitorização de estado. Sempre que um pacote UDP corresponde a uma regra, um fluxo inverso é criado na outra direção. Este fluxo tem um limite de tempo incorporada.
+Para o protocolo de datagrama de utilizador (UDP), o Azure utiliza uma regra com monitorização de estado. Sempre que um pacote UDP corresponde a uma regra, um fluxo inverso é criado na outra direção. Este fluxo tem um tempo limite interno.
 
-Os clientes são responsáveis por configurar as seus próprios firewalls por cima do Microsoft Azure oferece. Aqui os clientes conseguem definem as regras para o tráfego de entrada e saída.
+Os clientes são responsáveis pela configuração de suas próprias firewalls sobre o que o Azure oferece. Aqui os clientes podem definir as regras para tráfego de entrada e saída.
 
 ### <a name="production-configuration-management"></a>Gestão de configuração de produção
-Configurações de segurança padrão são mantidas por equipas respetivas operações no Azure e a base de dados do Microsoft Azure SQL. Todas as alterações de configuração para sistemas de produção estão documentadas e acompanhadas através de um sistema de controlo central. As alterações de software e hardware são registadas através do sistema de controlo central. As alterações de rede relacionado com a ACL são registadas utilizando o serviço de gestão de ACL (AMS).
+As configurações padrão de seguras são mantidas por equipes de respectivas operações no Azure e base de dados do Azure SQL. Todas as alterações de configuração em sistemas de produção são documentadas e controladas por meio de um sistema de controle central. Alterações de software e hardware são controladas através do sistema de controle central. Alterações de rede que estão relacionadas com a ACL são controladas usando um serviço de gestão de ACL.
 
-Todas as alterações de configuração para o Microsoft Azure são desenvolvidas e testadas no ambiente de teste; e após implementado no ambiente de produção. Compilações de software são revistas como parte do teste. Verificações de segurança e privacidade são revistas como parte dos critérios de lista de verificação de entrada. As alterações são implementadas em intervalos agendados pela equipa de implementação correspondentes. Versões são revistas e assinadas pela equipa da equipa a respetiva implementação antes de que são implementados em produção.
+Todas as alterações de configuração para o Azure são desenvolvidas e testadas no ambiente de teste e, posteriormente, são implementadas no ambiente de produção. Compilações de software são revisadas como parte do teste. Verificações de segurança e privacidade são revisadas como parte dos critérios de lista de verificação de entrada. As alterações são implementadas em intervalos agendados pela equipe de implantação correspondentes. Versões são analisadas e aprovadas pela equipa da Equipe a respetiva implementação antes de eles serem implementados em produção.
 
-As alterações são monitorizadas para êxito. No cenário de falha, a alteração é back revertida para o estado anterior ou for implementada uma correção para resolver a falha com aprovação dos empregados designados. Depósito de origem, o Git, do TFS, MDS, Runners, monitorização de segurança do Azure (ASM), o FC e a plataforma de WinFabric são utilizadas para gerir centralmente, aplicam-se e verifique as definições de configuração do ambiente virtual do Azure.
+As alterações são monitorizadas para o sucesso. Num cenário de falha, a alteração é revertida para o estado anterior ou uma correção é implementada para resolver a falha com a aprovação, o pessoal designado. Depósito de origem, o Git, TFS, Master Data Services (MDS), concorrentes, monitorização de segurança do Azure, o FC e a plataforma do WinFabric são utilizados para gerir centralmente, aplicam-se e verifique se as definições de configuração do ambiente virtual do Azure.
 
-Da mesma forma, as alterações de hardware e de rede estabelecer passos de validação para avaliar a respetiva conformidade com os requisitos de compilação. As versões são revistas e autorizadas através de uma coordenada alteração Advisory quadro (CAB) dos respetivos grupos em toda a pilha.
+Da mesma forma, as alterações de hardware e de rede tem estabelecido as etapas de validação para avaliar seus aderência aos requisitos de compilação. As versões são revistas e autorizadas por meio de um Conselho Consultivo de alterações de coordenada (CAB), dos respetivos grupos em toda a pilha.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o que faz Microsoft para proteger a infraestrutura do Azure, consulte:
+Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Azure, veja:
 
-- [Instalações do Azure, no local e a segurança física](azure-physical-security.md)
+- [Recursos do Azure, no local e a segurança física](azure-physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](azure-infrastructure-availability.md)
 - [Componentes de sistema de informações do Azure e limites](azure-infrastructure-components.md)
 - [Arquitetura de rede do Azure](azure-infrastructure-network.md)
 - [Rede de produção do Azure](azure-production-network.md)
-- [Gestão e operações de produção do Azure](azure-infrastructure-operations.md)
-- [Monitorização da infraestrutura do Azure](azure-infrastructure-monitoring.md)
-- [Integridade da infraestrutura do Azure](azure-infrastructure-integrity.md)
-- [Proteção de dados de cliente no Azure](azure-protection-of-customer-data.md)
+- [Gerenciamento e operações de produção do Azure](azure-infrastructure-operations.md)
+- [Monitorização de infraestrutura do Azure](azure-infrastructure-monitoring.md)
+- [Integridade de infraestrutura do Azure](azure-infrastructure-integrity.md)
+- [Proteção de dados do cliente do Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-infrastructure-sql/sql-database-firewall.png

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c52a97bce1b18e16cb5109049f36e146165dff4
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920040"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172134"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -95,8 +95,12 @@ Sim, pode excluir discos da replicação.
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Pode replicar VMs com discos dinâmicos?
 Discos dinâmicos podem ser replicados. O disco do sistema operativo tem de ser um disco básico.
 
-### <a name="can-i-add-a-new-vm-to-an-existing-replication-group"></a>Pode adicionar uma nova VM a um grupo de replicação existente?
-Sim.
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se utilizar grupos de replicação consistência multi-VM, posso adicionar uma nova VM a um grupo de replicação existente?
+Sim, pode adicionar novas VMs a um grupo de replicação existente quando ativa a replicação para eles. Não é possível adicionar uma VM a um grupo de replicação existente, depois de replicação é iniciada e não é possível criar um grupo de replicação de VMs existentes.
+
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Pode modificar as VMs que estão a replicar com a adição ou redimensionar discos?
+
+Para a replicação de VMware para o Azure pode modificar o tamanho do disco. Se pretender adicionar novos discos, que terá de adicionar o disco e reativar a proteção da VM.
 
 ## <a name="configuration-server"></a>Servidor de configuração
 

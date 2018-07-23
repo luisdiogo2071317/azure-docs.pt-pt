@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: cahann
 ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f7abf6d8a9f0fe18017fe5c54801ac0d3b6c379e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347429"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170788"
 ---
 # <a name="prebuilt-entities"></a>Entidades pré-concebidas
 
@@ -37,7 +37,7 @@ LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento 
 ## <a name="use-a-prebuilt-number-entity"></a>Utilizar uma entidade de número pré-criados
 Quando uma entidade pré-criados é incluída na sua aplicação, respetivas previsões são incluídos em seu aplicativo publicado. O comportamento das entidades pré-concebidas é com formação prévia e **não é possível** ser modificado. Siga estes passos para ver como funciona uma entidade predefinida:
 
-1. Adicionar uma **número** entidade à sua aplicação, em seguida, [Train](interactive-test.md) e [publicar](luis-how-to-publish-app.md) a aplicação.
+1. Adicionar uma **número** entidade à sua aplicação, em seguida, [Train](luis-interactive-test.md) e [publicar](luis-how-to-publish-app.md) a aplicação.
 2. Clique no URL do ponto final no **publicar aplicação** página para abrir o ponto de extremidade do LUIS num navegador da web. 
 3. Acrescente uma expressão para o URL que contém uma expressão numérica. Por exemplo, pode digitar `buy two plane ticktets`e vê que identifica o LUIS `two` como um `builtin.number` entidade e identifica `2` ao respetivo valo no `resolution` campo. O `resolution` campo ajuda-o a resolver números e datas para um formato canónico, que é mais fácil para a sua aplicação de cliente utilizar. 
 
@@ -70,7 +70,7 @@ O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>Utilizar uma entidade de datetimeV2 pré-criados
 O **datetimeV2** entidade pré-criados reconhece as datas, horas, intervalos de datas e horas de duração. Siga estes passos para ver como o `datetimeV2` pré-criados de entidade funciona:
 
-1. Adicionar uma **datetimeV2** entidade à sua aplicação, em seguida, [Train](interactive-test.md) e [publicar](luis-how-to-publish-app.md) a aplicação.
+1. Adicionar uma **datetimeV2** entidade à sua aplicação, em seguida, [Train](luis-interactive-test.md) e [publicar](luis-how-to-publish-app.md) a aplicação.
 2. Clique no URL do ponto final no **publicar aplicação** página para abrir o ponto de extremidade do LUIS num navegador da web. 
 3. Acrescente uma expressão para o URL que contém um intervalo de datas. Por exemplo, pode digitar `book a flight tomorrow`e vê que identifica o LUIS `tomorrow` como um `builtin.datetimeV2.date` entidade e identifica a data de amanhã ao respetivo valo no `resolution` campo. 
 
@@ -103,6 +103,6 @@ O exemplo seguinte mostra a resposta JSON do LUIS possível aparência se a data
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Referência de entidade predefinidos](./luis-reference-prebuilt-entities.md)

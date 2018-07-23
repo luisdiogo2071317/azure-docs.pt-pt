@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 43a26f9e81b788c2a110c24bf2e02c56c0714f1e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d579ba8913eeb6ce22e277dab454ba7e3b628703
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988841"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171937"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 Quando concluir a criação e teste a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicação mostra todas as associadas HTTP [pontos de extremidade](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e, por [chave](luis-how-to-manage-keys.md), em seguida, são integradas em qualquer aplicação cliente, chatbot ou back-end. 
 
-Pode sempre [testar](interactive-test.md) seu aplicativo antes de o publicar. 
+Pode sempre [testar](luis-interactive-test.md) seu aplicativo antes de o publicar. 
 
 ## <a name="production-and-staging-slots"></a>Produção e blocos de teste
 Pode publicar a sua aplicação para o **bloco de teste** ou o **bloco de produção**. Ao utilizar duas ranhuras de publicação, isto permite-lhe ter duas versões diferentes com pontos de extremidade publicados ou a mesma versão em dois pontos de extremidade diferentes. 
@@ -154,4 +154,4 @@ Testar o ponto de final publicado ao selecionar o URL na **ponto final** coluna.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Ver [gerir chaves](./luis-how-to-manage-keys.md) adicionar chaves à sua aplicação do LUIS, e saber mais sobre como chaves de mapeiam para as regiões.
-* Ver [treinar e testar a aplicação](interactive-test.md) para obter instruções sobre como testar a aplicação publicada na consola de teste.
+* Ver [treinar e testar a aplicação](luis-interactive-test.md) para obter instruções sobre como testar a aplicação publicada na consola de teste.

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: af5079e8c448a0df6b1109f5f23e3e3a2871a167
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: f666b59db978774cd299cb91eccdfac99e66ae76
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887271"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172056"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot de aplicação Web com o modelo do LUIS para c#
 
@@ -80,7 +80,7 @@ Open **as configurações do aplicativo** e editar os **LuisAppId** campo para c
 > Se não tiver o ID da aplicação LUIS do [aplicação de home page de automatização](luis-get-started-create-app.md), inicie sessão no [LUIS](luis-reference-regions.md) Web site com a mesma conta que utiliza para iniciar sessão no Azure. 
 > 1. Clique em **as minhas aplicações**. 
 > 2. Localize a aplicação do LUIS que criou anteriormente, que contém as intenções e entidades do domínio HomeAutomation.
-> 3. Na **definições** página da aplicação do LUIS, localize e copie o ID da aplicação. Certifique-se de que é [treinado](interactive-test.md) e [publicado](luis-how-to-publish-app.md). 
+> 3. Na **definições** página da aplicação do LUIS, localize e copie o ID da aplicação. Certifique-se de que é [treinado](luis-interactive-test.md) e [publicado](luis-how-to-publish-app.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ No portal do Azure, clique em **teste na Web Chat** para testar o bot. Escreva m
    ![Testar HomeAutomation bot em Web Chat](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Pode voltar a preparar a aplicação do LUIS sem quaisquer modificações ao código de seu bot. Ver [adicionar expressões de exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [treinar e testar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
+> Pode voltar a preparar a aplicação do LUIS sem quaisquer modificações ao código de seu bot. Ver [adicionar expressões de exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [treinar e testar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Transferir o bot para depurar
 Se o seu bot não está a funcionar, transfira o projeto no seu computador local e continuar [depuração](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 

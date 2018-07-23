@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de0d6ee32380367bfba4a27958c9c1e739b5dba3
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635073"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173431"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL com a CLI do Azure
 
@@ -84,6 +84,8 @@ A localização e valores de escalão de preço para o servidor restaurado perma
 
 Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
 
+O novo servidor criado durante um restauro não tem as regras de firewall que existiam no servidor original. Regras de firewall tem de ser configurado separadamente para este servidor novo.
+
 ## <a name="geo-restore"></a>Restauro geográfico
 Se tiver configurado o seu servidor para cópias de segurança georredundante, um novo servidor de pode ser criado da cópia de segurança desse servidor existente. Este novo servidor de pode ser criado em qualquer região que a base de dados do Azure para PostgreSQL está disponível.  
 
@@ -121,6 +123,8 @@ O `az postgres server georestore` requies os seguintes parâmetros de comando:
 >Ao criar um novo servidor por um restauro geográfico, ele herda o mesmo tamanho de armazenamento e o escalão de preço que o servidor de origem. Não não possível alterar estes valores durante a criação. Depois de criar o novo servidor, o tamanho de armazenamento pode ser aumentado.
 
 Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
+
+O novo servidor criado durante um restauro não tem as regras de firewall que existiam no servidor original. Regras de firewall tem de ser configurado separadamente para este servidor novo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).

@@ -1,9 +1,9 @@
 ---
-title: Gerir zonas DNS no DNS do Azure - Azure CLI 2.0 | Microsoft Docs
-description: Pode gerir zonas DNS a utilizar o Azure CLI 2.0. Este artigo mostra como atualizar, eliminar e criar zonas DNS no DNS do Azure.
+title: Gerir zonas DNS no DNS do Azure - CLI 2.0 do Azure | Documentos da Microsoft
+description: Pode gerir zonas DNS com a CLI 2.0 do Azure. Este artigo mostra como atualizar, eliminar e criar zonas DNS no DNS do Azure.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: kumud
-ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: victorh
+ms.openlocfilehash: c81d8add7ae37e03a98da0ad86deaa1d9d7ec8e0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166172"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172624"
 ---
-# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerir zonas DNS no DNS do Azure utilizando o 2.0 CLI do Azure
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerir zonas DNS no DNS do Azure com a CLI 2.0 do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
@@ -28,9 +28,9 @@ ms.locfileid: "32166172"
 > * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
 
-Este guia mostra como gerir as zonas DNS, utilizando a CLI do Azure de várias plataformas, que está disponível para o Windows, Mac e Linux. Também pode gerir as zonas DNS utilizando [Azure PowerShell](dns-operations-dnszones.md) ou o portal do Azure.
+Este guia mostra como gerir as suas zonas DNS ao utilizar a CLI do Azure para várias plataformas, que está disponível para Windows, Mac e Linux. Também pode gerir as suas zonas DNS usando [do Azure PowerShell](dns-operations-dnszones.md) ou o portal do Azure.
 
-Este guia especificamente lida com zonas DNS público. Para obter informações sobre como utilizar a CLI do Azure para gerir privada zonas no DNS do Azure, consulte [introdução ao Azure zonas de DNS privada a utilizar o Azure CLI 2.0](private-dns-getstarted-cli.md).
+Este guia especificamente lida com zonas de DNS público. Para obter informações sobre como utilizar a CLI do Azure para gerir as zonas privadas no DNS do Azure, consulte [comece com as zonas privadas do DNS do Azure com a CLI 2.0 do Azure](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Introdução
 
@@ -44,7 +44,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 * Uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* Instale a versão mais recente do 2.0 de CLI do Azure, disponível para Windows, Linux ou Mac. Existem mais informações disponíveis em [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Instale a versão mais recente da CLI 2.0 do Azure, disponível para Windows, Linux ou Mac. Existem mais informações disponíveis em [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
@@ -68,7 +68,7 @@ Escolha qual das subscrições do Azure utilizar.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcional: para instalar/utilização zonas de DNS privado do Azure da funcionalidade (pré-visualização pública)
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcional: Para instalar/utilizar zonas privadas do DNS do Azure de recursos (pré-visualização pública)
 A funcionalidade de Zona Privada do DNS do Azure foi lançada em Pré-visualização Pública através de uma extensão para a CLI do Azure. Instalar a extensão “dns” da CLI do Azure 
 ```
 az extension add --name dns
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obter ajuda
 
-Todos os comandos de CLI 2.0 referentes ao DNS do Azure começar a utilizar `az network dns`. Ajuda está disponível para cada comando utilizando a `--help` opção (formato curto `-h`).  Por exemplo:
+Todos os comandos da CLI 2.0 relacionados ao DNS do Azure, comece com `az network dns`. A ajuda está disponível para cada comando com o `--help` opção (krátká forma `-h`).  Por exemplo:
 
 ```azurecli
 az network dns --help
@@ -106,7 +106,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com
 
 ### <a name="to-create-a-dns-zone-with-tags"></a>Para criar uma zona DNS com etiquetas
 
-O exemplo seguinte mostra como criar uma zona DNS com dois [etiquetas do Azure Resource Manager](dns-zones-records.md#tags), *projeto = demonstração* e *env = test*, utilizando o `--tags` (parâmetro formato curto `-t`):
+O exemplo seguinte mostra como criar uma zona DNS com duas [etiquetas do Azure Resource Manager](dns-zones-records.md#tags), *project = demo* e *env = test*, utilizando o `--tags` (parâmetro krátká forma `-t`):
 
 ```azurecli
 az network dns zone create --resource-group MyResourceGroup --name contoso.com --tags "project=demo" "env=test"
@@ -167,7 +167,7 @@ az network dns zone list
 
 É possível efetuar alterações a um recurso de zona DNS com `az network dns zone update`. Para obter ajuda, consulte `az network dns zone update --help`.
 
-Este comando não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Como gerir recursos DNS](dns-operations-recordsets-cli.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. Estas propriedades são actualmente limitadas à [do Azure Resource Manager 'etiquetas'](dns-zones-records.md#tags) para o recurso de zona.
+Este comando não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Como gerir recursos DNS](dns-operations-recordsets-cli.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. Estas propriedades estão atualmente limitadas para o [do Azure Resource Manager "etiquetas"](dns-zones-records.md#tags) para o recurso de zona.
 
 O exemplo seguinte mostra como atualizar as etiquetas numa zona DNS. As etiquetas existentes são substituídas pelo valor especificado.
 

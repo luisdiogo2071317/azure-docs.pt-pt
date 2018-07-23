@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: add61dbbdaa90ae23e200163f1fa962adc2b3b8e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e8714086a334576db120f82a1f2470a1de6ea6a1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902100"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186021"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurar uma VM Managed Service Identity (MSI) com o PowerShell
 
@@ -33,7 +33,11 @@ Identidade de serviço gerida fornece serviços do Azure com uma identidade geri
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar uma VM e ativar e remover sistema atribuído a identidade gerida a partir de uma VM do Azure.
+    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador.
+    - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para atribuir e remover uma identidade de utilizador atribuída de e para uma VM.
 - Instale [a versão mais recente do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) se ainda não o fez.
 
 ## <a name="system-assigned-identity"></a>Sistema de identidade atribuído
@@ -68,7 +72,7 @@ Para criar uma VM do Azure com o sistema de identidade ativada atribuído:
 
 Se precisar de ativar uma identidade de sistema atribuído numa máquina Virtual existente:
 
-1. Inicie sessão no Azure com `Login-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM. Além disso, certifique-se de que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM, por exemplo, "Contribuinte de Máquina Virtual":
+1. Inicie sessão no Azure com `Login-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM.
 
    ```powershell
    Login-AzureRmAccount
@@ -97,7 +101,7 @@ Se precisar de ativar uma identidade de sistema atribuído numa máquina Virtual
 
 Se tiver uma Máquina Virtual que já não tem o sistema de identidade atribuído, mas ainda precisa de identidades de atribuída ao utilizador, utilize o seguinte cmdlet:
 
-1. Inicie sessão no Azure com `Login-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM. Além disso, certifique-se de que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM, por exemplo, "Contribuinte de Máquina Virtual":
+1. Inicie sessão no Azure com `Login-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM.
 
    ```powershell
    Login-AzureRmAccount
@@ -145,7 +149,7 @@ Para atribuir uma identidade de utilizador atribuída a uma VM do Azure ao criar
 
 Para atribuir um identidade atribuída a uma VM do Azure existente ao utilizador:
 
-1. Inicie sessão no Azure com `Connect-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM. Além disso, certifique-se de que a sua conta pertencer a uma função que dá-lhe permissões de escrita na VM, por exemplo, "Contribuinte de Máquina Virtual":
+1. Inicie sessão no Azure com `Connect-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM.
 
    ```powershell
    Connect-AzureRmAccount
@@ -153,13 +157,12 @@ Para atribuir um identidade atribuída a uma VM do Azure existente ao utilizador
 
 2. Criar um utilizador atribuído a identidade a utilizar o [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) cmdlet.  Tenha em atenção o `Id` na saída porque irá precisar no próximo passo.
 
-    > [!IMPORTANT]
-    > Criar identidades atribuídas por utilizadores só suporta alfanuméricos e hífen (0 a 9 ou a-z ou A-Z ou -) carateres. Além disso, o nome deve ser limitado a 24 carateres para a atribuição de VM/VMSS funcione corretamente. Verifique novamente a existência de atualizações. Para obter mais informações consulte [FAQ e problemas conhecidos](known-issues.md)
+   > [!IMPORTANT]
+   > Criar identidades atribuídas por utilizadores só suporta alfanuméricos e hífen (0 a 9 ou a-z ou A-Z ou -) carateres. Além disso, o nome deve ser limitado a 24 carateres para a atribuição de VM/VMSS funcione corretamente. Volte mais tarde para obter atualizações. Para obter mais informações consulte [FAQ e problemas conhecidos](known-issues.md)
 
-
-  ```powershell
-  New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
-  ```
+   ```powershell
+   New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
+   ```
 3. Obter as propriedades da VM com o `Get-AzureRmVM` cmdlet. Em seguida, para atribuir uma identidade de utilizador atribuído à VM do Azure, utilize o `-IdentityType` e `-IdentityID` alternar o [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  O valor para o`-IdentityId` parâmetro é o `Id` que anotou no passo anterior.  Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores.
 
    ```powershell
@@ -177,9 +180,9 @@ Para atribuir um identidade atribuída a uma VM do Azure existente ao utilizador
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover um utilizador atribuído identidade gerida a partir de uma VM do Azure
 
 > [!NOTE]
->  Remover todas as identidades de utilizador atribuída uma Máquina Virtual atualmente não é suportada, a menos que tenha um sistema de identidade atribuído. Verifique novamente a existência de atualizações.
+>  Remover todas as identidades de utilizador atribuída uma Máquina Virtual atualmente não é suportada, a menos que tenha um sistema de identidade atribuído. Volte mais tarde para obter atualizações.
 
-Se a VM tiver múltiplas identidades de utilizador atribuído, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitua a `<RESOURCE GROUP>` e `<VM NAME>` valores de parâmetros com seus próprios valores. O `<MSI NAME>` é propriedade de nome da identidade de utilizador atribuído, que deve permanecer na VM. Estas informações podem ser encontradas na secção da identidade da VM usando `az vm show`:
+Se a VM tiver múltiplas identidades de utilizador atribuído, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<MSI NAME>` é propriedade de nome da identidade de utilizador atribuído, que deve permanecer na VM. Estas informações podem ser encontradas na secção da identidade da VM usando `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm

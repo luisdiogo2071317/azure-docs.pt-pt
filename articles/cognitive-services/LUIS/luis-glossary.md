@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: c7a57ad13bbab66f0c100ed0a5bdb3fb20064806
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: aa971da964a2a5b7a81c882a346ac10fcda971a5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887679"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173215"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -92,15 +92,15 @@ Um ponto de extremidade de exemplo é semelhante a:
 
 ## <a name="f-measure"></a>Medida de F
 
-Na [testes de batch](interactive-test.md#batch-testing), uma medida de precisão do teste.
+Na [testes de batch](luis-interactive-test.md#batch-testing), uma medida de precisão do teste.
 
 ## <a name="false-negative"></a>Falso negativo (TN)
 
-Na [testes de batch](interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto incorretamente a ausência da intenção/entidade de destino.
+Na [testes de batch](luis-interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto incorretamente a ausência da intenção/entidade de destino.
 
 ## <a name="false-positive"></a>Falso positivo (TP)
 
-Na [testes de batch](interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto incorretamente a existência da intenção/entidade de destino.
+Na [testes de batch](luis-interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto incorretamente a existência da intenção/entidade de destino.
 
 ## <a name="features"></a>Funcionalidades
 
@@ -138,7 +138,7 @@ R [domínio pré-criado](luis-how-to-use-prebuilt-domains.md) é uma aplicação
 R [criados previamente entidade](luis-prebuilt-entities.md) é uma entidade, LUIS, fornece para tipos comuns de informações como número, o URL e o e-mail. Optar por adicionar uma entidade pré-criados à sua aplicação. 
 
 ## <a name="precision"></a>Precisão
-Na [testes de batch](interactive-test.md#batch-testing), precisão (também chamado de valor de previsão positivo) é a fração de expressões com relevantes entre as expressões obtidas.
+Na [testes de batch](luis-interactive-test.md#batch-testing), precisão (também chamado de valor de previsão positivo) é a fração de expressões com relevantes entre as expressões obtidas.
 
 ## <a name="programmatic-key"></a>Chave programática
 
@@ -153,7 +153,7 @@ Publicar significa fazer um LUIS [versão active](#active-version) disponível n
 Quota de LUIS é a limitação do [escalão de subscrição do Azure](https://aka.ms/luis-price-tier). A quota de LUIS pode ser limitada por ambos os pedidos por segundo (estado de HTTP 429) e o total de pedidos por mês (estado de HTTP 403). 
 
 ## <a name="recall"></a>Lembre-se
-Na [testes de batch](interactive-test.md#batch-testing), lembre-se (também conhecido como sensibilidade), que é a capacidade de LUIS generalizar. 
+Na [testes de batch](luis-interactive-test.md#batch-testing), lembre-se (também conhecido como sensibilidade), que é a capacidade de LUIS generalizar. 
 
 ## <a name="semantic-dictionary"></a>Dicionário semântico
 Um dicionário semântico é fornecido a página de lista de entidades, bem como a página de lista de frase. O dicionário semântico fornece sugestões de palavras com base no âmbito atual.
@@ -179,7 +179,7 @@ A chave de subscrição é o **ponto final** chave associado ao serviço de LUIS
 
 ## <a name="test"></a>Teste
 
-[Teste](interactive-test.md#test-your-app) aplicação LUIS significa passar uma expressão para LUIS e ver o JSON de resultados.
+[Teste](luis-interactive-test.md#test-your-app) aplicação LUIS significa passar uma expressão para LUIS e ver o JSON de resultados.
 
 ## <a name="timezoneoffset"></a>Desvio de fuso horário
 
@@ -196,11 +196,11 @@ Treinamento é o processo de ensinar o LUIS sobre quaisquer alterações feitas 
 
 ## <a name="true-negative"></a>Verdadeiro negativo (TN)
 
-Na [testes de batch](interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto corretamente a ausência da intenção/entidade de destino.
+Na [testes de batch](luis-interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto corretamente a ausência da intenção/entidade de destino.
 
 ## <a name="true-positive"></a>Positivo verdadeiro (TP)
 
-Na [testes de batch](interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto corretamente a existência da intenção/entidade de destino.
+Na [testes de batch](luis-interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto corretamente a existência da intenção/entidade de destino.
 
 ## <a name="utterance"></a>Expressão
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 629659a3a5090bae987be77637a574fcbe0abe98
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164015"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186718"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Dimensionamento automático de cluster no Azure Kubernetes Service (AKS) - pré-visualização
 
@@ -32,7 +32,19 @@ Este documento parte do princípio de que tem um cluster do AKS habilitados no R
 
 ## <a name="gather-information"></a>Recolher informações
 
-A tabela seguinte lista todas as informações que tem de fornecer na definição do dimensionamento automático.
+A lista seguinte mostra todas as informações que tem de fornecer na definição do dimensionamento automático.
+
+- *ID de subscrição*: ID correspondente à subscrição utilizada para este cluster
+- *Nome do grupo de recursos* : nome do grupo de recursos do cluster pertence a 
+- *Nome do cluster*: nome do cluster
+- *ID de cliente*: ID da aplicação concedidas pela permissão gerar passo
+- *Segredo do cliente*: segredo da aplicação concedido pela permissão gerar passo
+- *ID do inquilino*: ID do inquilino (proprietário da conta)
+- *Grupo de recursos de nó*: nome do grupo de recursos que contém os nós de agente no cluster
+- *Nome do conjunto de nó*: nome do nó do agrupamento que gostaria de dimensionamento
+- *Número mínimo de nós*: número mínimo de nós de existir no cluster
+- *Número máximo de nós*: número máximo de nós de existir no cluster
+- *Tipo de VM*: serviço utilizado para gerar o cluster de Kubernetes
 
 Obtenha o seu ID de subscrição com: 
 
@@ -92,18 +104,7 @@ QUtTCg==
 ```
 
 ## <a name="create-secret"></a>Criar segredo
-Utilizando estes dados, crie um segredo para a implementação utilizando os valores encontrados nos passos anteriores, tais como:
-
-- ID de cliente: `<base64-encoded-client-id>`
-- ClientSecret: `<base64-encoded-client-secret>`
-- ResourceGroup: `<base64-encoded-resource-group>` (utilizar minúsculas)
-- SubscriptionID: `<base64-encode-subscription-id>`
-- TenantID: `<base64-encoded-tenant-id>`
-- VMType: `<base64-encoded-vm-type>`
-- ClusterName: `<base64-encoded-clustername>`
-- NodeResourceGroup: `<base64-encoded-node-resource-group>` (utilizar o valor da etiqueta textual. Caso confidencial)
-
-no seguinte formato:
+Utilizando estes dados, crie um segredo para a implementação utilizando os valores encontrados nos passos anteriores no seguinte formato:
 
 ```yaml
 ---

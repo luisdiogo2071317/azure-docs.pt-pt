@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 067404193507f9787c994e82267679737ebe4832
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145422"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187388"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -150,6 +150,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 * **Inicial configuração**: quando a implementação inicial do serviço de gestão de API numa sub-rede não tiver êxito, recomenda-se primeiro implantem uma máquina virtual na mesma sub-rede. Seguinte ambiente de trabalho remoto à máquina virtual e confirme que existe conectividade a uma de cada recurso abaixo na sua subscrição do azure
     * BLOBs de armazenamento do Azure
     * Base de Dados SQL do Azure
+    * Tabela de armazenamento do Azure
 
  > [!IMPORTANT]
  > Depois de validar a conectividade, certifique-se remover todos os recursos implementados na sub-rede, antes de implementar a gestão de API para a sub-rede.

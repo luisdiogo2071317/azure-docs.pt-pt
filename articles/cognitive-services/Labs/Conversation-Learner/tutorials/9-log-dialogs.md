@@ -1,7 +1,7 @@
 ---
-title: Como iniciar sessão caixas de diálogo numa aplicação conversação Learner - serviços cognitivos Microsoft | Microsoft Docs
+title: Como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como caixas de diálogo de registo numa aplicação Learner conversação.
+description: Saiba como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,49 +10,53 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354115"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171440"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Como iniciar sessão caixas de diálogo numa aplicação conversação Learner
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como iniciar sessão caixas de diálogo num modelo de aprendiz de conversação
 
-Este tutorial mostra como fazer o utilizador final testar na interface de conversação Learner; como são registadas caixas de diálogo; e como tornar as correções para registadas caixas de diálogo para melhorar o seu modelo.
+Este tutorial mostra como fazer o utilizador final de teste dentro da interface do Aprendiz de conversação; como caixas de diálogo são registadas; e como fazer correções a sessão iniciada caixas de diálogo para melhorar o seu modelo.
+
+## <a name="video"></a>Vídeo
+
+[![Pré-visualização do tutorial 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial, necessita que o bot tutorial geral está em execução
+Este tutorial requer que o bot tutorial geral está em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
-Pode utilizar as caixas de diálogo de registo para rever e efetuar correções para caixas de diálogo efetuadas com os utilizadores finais.  Especificamente, pode corrigir as etiquetas de entidade e as seleções de ação para melhorar o desempenho do modelo treinado e geral do sistema. 
+Pode usar as caixas de diálogo de registo para rever e efetuar as correções para as caixas de diálogo realizadas com os utilizadores finais.  Especificamente, pode corrigir as etiquetas de entidade e seleções de ação para melhorar o desempenho do modelo preparado e geral do sistema. 
 
 ## <a name="steps"></a>Passos
 
-### <a name="create-the-application"></a>Criar a aplicação
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na IU da Web, clique em nova aplicação
-2. No nome, introduza LogDialogs. Em seguida, clique em criar.
+1. Na IU da Web, clique em novo modelo
+2. No nome, digite LogDialogs. Em seguida, clique em criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
 
 1. Clique em entidades, em seguida, nova entidade.
-2. No nome da entidade, introduza cidade.
+2. Introduza nome da entidade, cidade.
 3. Clique em Criar.
 
 ### <a name="create-two-actions"></a>Criar duas ações
 
 1. Clique em ações, em seguida, nova ação
-2. Em resposta, escreva 'Que cidade?'.
-3. Na Disqualifying entidades, introduza $city.
+2. Em resposta, escreva "Qual cidade?".
+3. Nas entidades Disqualifying, introduza $city.
 3. Clique em Criar
 
 Em seguida, crie a segunda ação:
 
-1. Clique em ações, em seguida, ação de novo.
-3. Em resposta, escreva 'Meteorologia no $city é provavelmente sunny'.
+1. Clique em ações, em seguida, nova ação.
+3. Em resposta, escreva "o clima em $city é provavelmente ensolarado".
 4. Entidades necessárias, introduza $city.
 4. Clique em Criar.
 
@@ -60,79 +64,79 @@ Tem agora duas ações.
 
 ### <a name="train-the-bot"></a>Preparar o bot
 
-1. Clique em caixas de diálogo de formação, caixa de diálogo de formação, em seguida, novo.
+1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
 2. Escreva 'o que é a meteorologia'.
-3. Clique em ações de pontuação e selecione 'Que cidade'?
-2. Introduza 'Seattle'.
-3. Faça duplo clique em "Seattle" e selecione cidade.
-    - Isto marca-a como uma entidade de cidade.
+3. Clique em ações de pontuação e selecione "Qual cidade?"
+2. Introduza "Lisboa".
+3. Faça duplo clique em "Seattle" e selecione a cidade.
+    - Isto marca-o como uma entidade de cidade.
 5. Clique em ações de pontuação
-6. Selecione 'Meteorologia no $city é provavelmente sunny'.
-7. Clique em concluído de ensino.
+6. Selecione "o clima em $city é provavelmente ensolarado".
+7. Clique em concluído ensino.
 
-Outro exemplo caixa de diálogo adicione:
+Adicione outra caixa de diálogo de exemplo:
 
-1. Clique em nova ação, em seguida, caixa de diálogo de formação novo.
-2. Escreva 'o que é a meteorologia em Seattle?'. Tenha em atenção de que Seattle está marcado como uma entidade.
+1. Clique em nova ação, em seguida, nova caixa de diálogo de comboio.
+2. Escreva "o que é o clima em Seattle?". Observe que Seattle é identificado como uma entidade.
 5. Clique em ações de pontuação 
-6. Selecione 'Meteorologia no $city é provavelmente sunny'.
-7. Clique em concluído de ensino.
+6. Selecione "o clima em $city é provavelmente ensolarado".
+7. Clique em concluído ensino.
 
-### <a name="try-the-bot-as-the-user"></a>Repita o bot como o utilizador
+### <a name="try-the-bot-as-the-user"></a>Experimente o bot como o utilizador
 Vamos imaginar que Implementámos este bot aos utilizadores.
 
-1. Clique no registo caixas de diálogo.
-2. Clique em nova sessão de Chat.
-    - Isto apresenta o bot, como o faria experiência de utilizador-lo no controlo de chat web no lado esquerdo da IU. Pode ignorar a área de espaço em branco à direita.
-3. Escreva "Olá".
-4. Resposta de bot: 'que cidade'?
-4. Tipo de 'Boston'.
-5. Resposta de bot: 'que cidade'?
-    - Este não parece estar correto. Por isso, vamos guardar esta caixa de diálogo.
-2. Clique em testar efectuada.
+1. Clique em caixas de diálogo de registo.
+2. Clique em nova sessão de bate-papo.
+    - Isso apresenta o bot, conforme o usuário teria Experimente-o no controle de bate-papo da web do lado esquerdo da interface do Usuário. Pode ignorar a área de espaço em branco à direita.
+3. Escreva "hello".
+4. Resposta de bot: "qual cidade?"
+4. Tipo de "Boston".
+5. Resposta de bot: "qual cidade?"
+    - Isso não parece correto. Então, vamos guardar essa caixa de diálogo.
+2. Clique em teste concluído.
 
 Vamos começar uma nova sessão:
 
-2. Clique em nova sessão de Chat.
-3. Tipo 'previsão para Boston'.
-4. Resposta de bot: 'que cidade'?
-2. Clique em concluído de ensino.
+2. Clique em nova sessão de bate-papo.
+3. Tipo de "previsão de Boston".
+4. Resposta de bot: "qual cidade?"
+2. Clique em concluído ensino.
 
-Agora vamos certificar-nas correções para a caixa de diálogo segundo:
+Agora vamos fazer correções para a segunda caixa de diálogo:
 
-1. Clique em "previsão da população para Boston' em diálogos de registo.
-    - Esta ação abre a conversação.
-    - Se clicar no lado do utilizador da conversação (aqui em 'previsão para Boston'), pode alterar as etiquetas de entidade.
-    - Se clicar no lado do sistema (aqui em 'em que cidade'), pode alterar a ação está selecionada.
-5. Clique em 'previsão para Boston'. 
-    - A causa raiz aqui é que Boston não foi marcado como uma entidade. É necessário alterar que.
-    - Faça duplo clique no 'Boston', em seguida, selecione cidade.
-    - Clique em submeter as alterações e clique em Guardar. Isto irá criar uma caixa de diálogo de formação, com base nas alterações que efetuou e drop é para caixas de diálogo de formação at the point of a alteração que efetuou.
-6. Selecione 'Meteorologia no $city é provavelmente sunny'.
-7. Clique em concluído de ensino. Se passar para formação diálogos agora, verá que é adicionada a ação de novo.
+1. Clique em "previsão para Boston" em caixas de diálogo de registo.
+    - Esta ação abre a conversa.
+    - Se clicar no lado do usuário da conversa (aqui, no "previsão para Boston"), pode alterar as etiquetas de entidade.
+    - Se clicar no lado do sistema (aqui, no "qual cidade"), pode alterar a ação está selecionada.
+5. Clique em "previsão para Boston". 
+    - A causa principal aqui é que o Boston não foi marcado como uma entidade. Precisamos alterar isso.
+    - Faça duplo clique em "Boston" e, em seguida, selecione a cidade.
+    - Clique em submeter as alterações e clique em Guardar. Isto irá criar uma caixa de diálogo de treinamento com base nas alterações que efetuou e soltar em caixas de diálogo de treinamento no ponto da alteração que fez.
+6. Selecione "o clima em $city é provavelmente ensolarado".
+7. Clique em concluído ensino. Se for para caixas de diálogo Train agora, verá que é adicionada a nova ação.
 
 ![](../media/tutorial9_logdiag1.PNG)
 
-Agora vamos certificar-nas correções para outra caixa de diálogo:
+Agora vamos fazer correções para a outra caixa de diálogo:
 
-1. Clique em "Olá" em registo diálogos.
-    - Esta ação abre a conversação.
-3. Tenha em atenção a resposta a 'Olá' 'em que cidade'. Mas, pretendemos alterar que para algo que faz mais sentido. Uma resposta melhor seria algo como 'Olá, estou a bot Meteorologia'. Mas não existe nenhuma ação que o faz que, pelo que temos de criar um.
-4. Clique na ação.
-    - Na resposta, escreva ' estou a bot Meteorologia. Posso pode ajudar a previsões.'
-6. Verificação de anular a espera para a caixa de verificação de resposta para tornar uma ação não espera.
+1. Clique em "hello" em caixas de diálogo de registo.
+    - Esta ação abre a conversa.
+3. A resposta "Olá" é "qual cidade". Mas, queremos alterar isso para algo que faz mais sentido. Uma resposta melhor seria algo como 'Olá! eu sou o bot de Meteorologia'. Mas não existe nenhuma ação que faz isso, portanto, temos de criar uma.
+4. Clique em ação.
+    - Em resposta, escreva "eu sou o bot de Meteorologia. Posso pode ajudar com as previsões. "
+6. Desmarque a espera para a caixa de verificação de resposta para torná-lo uma ação de não-espera.
 7. Clique em Criar.
 8. Em seguida, clique para selecionar esta ação de novo. Em seguida, clique em Guardar.
-    - Isto proporciona volta a esse ponto na sessão formação.
-6. Clique para selecionar 'que cidade'?
-7. Tipo de 'Boston'. Faça duplo clique à etiqueta Boston como uma entidade se não estiver já.
+    - Isso nos leva de volta a esse ponto da sessão de treinamento.
+6. Clique para selecionar "qual cidade?"
+7. Tipo de "Boston". Faça duplo clique à marca Boston como uma entidade se não o tiver feito.
 8. Clique em ações de pontuação.
-9. Clique para seleccionar 'Meteorologia no $city é provavelmente sunny'.
-10. Clique em concluído de ensino.
+9. Clique para selecionar "o clima em $city é provavelmente ensolarado".
+10. Clique em concluído ensino.
 
 ![](../media/tutorial9_addnewaction.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Chamada de retorno de deteção de entidade](./10-entity-detection-callback.md)
+> [Retorno de chamada de detecção de entidade](./10-entity-detection-callback.md)

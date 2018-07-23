@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: e8094c582af6ea03f5ffcc4f61914488891cb556
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920894"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172243"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utilize o Azure Site Recovery para proteger o Active Directory e DNS
 
@@ -31,13 +31,10 @@ Este artigo explica como criar uma solução de recuperação após desastre par
 
 ## <a name="replicate-the-domain-controller"></a>Replicar o controlador de domínio
 
-Tem de configurar [replicação de Site Recovery](#enable-protection-using-site-recovery), pelo menos uma VM que aloja um controlador de domínio ou DNS. Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no seu ambiente, também tem de configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicional pode ser no Azure ou num datacenter secundário no local.
-
-### <a name="single-domain-controller"></a>Controlador de domínio único
-Se tiver apenas alguns aplicativos e um controlador de domínio, pode querer fazer a ativação pós-falha de todo o site em conjunto. Neste caso, recomendamos utilizar o Site Recovery para replicar o controlador de domínio para o site de destino (seja no Azure ou num datacenter secundário no local). Pode utilizar o mesmo controlador de domínio replicados ou a máquina virtual DNS para [ativação pós-falha de teste](#test-failover-considerations).
-
-### <a name="multiple-domain-controllers"></a>Vários controladores de domínio
-Se tiver muitos aplicativos e mais do que um controlador de domínio no seu ambiente ou, se planeja fazer a ativação pós-falha alguns aplicativos cada vez, além para replicar a máquina de virtual do controlador de domínio com o Site Recovery, recomendamos que configure uma [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (seja no Azure ou num datacenter secundário no local). Para [ativação pós-falha de teste](#test-failover-considerations), pode usar o controlador de domínio que é replicado pelo Site Recovery. Para ativação pós-falha, pode utilizar o controlador de domínio adicionais no site de destino.
+- Tem de configurar [replicação de Site Recovery](#enable-protection-using-site-recovery), pelo menos uma VM que aloja um controlador de domínio ou DNS.
+- Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no seu ambiente, também tem de configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicional pode ser no Azure ou num datacenter secundário no local.
+- Se tiver apenas alguns aplicativos e um controlador de domínio, pode querer fazer a ativação pós-falha de todo o site em conjunto. Neste caso, recomendamos utilizar o Site Recovery para replicar o controlador de domínio para o site de destino (seja no Azure ou num datacenter secundário no local). Pode utilizar o mesmo controlador de domínio replicados ou a máquina virtual DNS para [ativação pós-falha de teste](#test-failover-considerations).
+- - Se tiver muitos aplicativos e mais do que um controlador de domínio no seu ambiente ou, se planeja fazer a ativação pós-falha alguns aplicativos cada vez, além para replicar a máquina de virtual do controlador de domínio com o Site Recovery, recomendamos que configure uma [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (seja no Azure ou num datacenter secundário no local). Para [ativação pós-falha de teste](#test-failover-considerations), pode usar o controlador de domínio que é replicado pelo Site Recovery. Para ativação pós-falha, pode utilizar o controlador de domínio adicionais no site de destino.
 
 ## <a name="enable-protection-with-site-recovery"></a>Ativar a proteção com o Site Recovery
 
@@ -186,9 +183,11 @@ Se forem satisfeitas as condições anteriores, é provável que o controlador d
     Para obter mais informações, consulte [desabilitar o requisito de que um servidor de catálogo global estejam disponíveis para validar os inícios de sessão do utilizador](http://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controlador de domínio em máquinas diferentes
-Se o DNS não estiver na mesma máquina virtual como controlador de domínio, tem de criar uma máquina virtual DNS para a ativação pós-falha de teste. Se o DNS e o controlador de domínio não estão na mesma máquina virtual, pode ignorar esta secção.
 
-Pode utilizar um servidor DNS de raiz e criar todas as zonas. Por exemplo, se o domínio do Active Directory for contoso.com, pode criar uma zona DNS com o nome contoso.com. As entradas que correspondem ao Active Directory têm de ser atualizadas no DNS da seguinte forma:
+Se estiver a executar o controlador de domínio e o DNs na mesma VM, pode ignorar este procedimento.
+
+
+Se o DNS não estiver na mesma VM como o controlador de domínio, tem de criar uma VM de DNS para a ativação pós-falha de teste. Pode utilizar um servidor DNS de raiz e criar todas as zonas. Por exemplo, se o domínio do Active Directory for contoso.com, pode criar uma zona DNS com o nome contoso.com. As entradas que correspondem ao Active Directory têm de ser atualizadas no DNS da seguinte forma:
 
 1. Certifique-se de que estas definições são cumpridos antes de iniciar qualquer outra máquina virtual no plano de recuperação:
    * A zona tem de ser o nome depois do nome de raiz de floresta.

@@ -23,9 +23,9 @@
   items:
     - name: Implementar aplicações no Azure e no Azure Stack
       href: azure-stack-solution-pipeline.md
-    - name: Configurar a identidade de nuvem híbrida
+    - name: Configurar a identidade de cloud híbrida
       href: azure-stack-solution-hybrid-identity.md
-    - name: Configurar a conectividade de nuvem híbrida
+    - name: Configurar a conectividade de cloud híbrida
       href: azure-stack-solution-hybrid-connectivity.md
     - name: Subscrever uma oferta
       href: azure-stack-subscribe-services.md
@@ -35,7 +35,7 @@
   items:
     - name: Utilizar o Portal do Azure Stack
       href: azure-stack-use-portal.md
-    - name: Utilize a API de pilha do Azure
+    - name: Utilizar a API do Azure Stack
       href: azure-stack-rest-api-use.md
     - name: Security & Compliance
       items:
@@ -55,7 +55,7 @@
               href: azure-stack-vm-considerations.md
             - name: Tamanhos de VM
               href: azure-stack-vm-sizes.md
-            - name: Gerir discos VM
+            - name: Gerir discos de VM
               href: azure-stack-manage-vm-disks.md
             - name: Proteger VMs
               href: azure-stack-manage-vm-protect.md
@@ -101,7 +101,7 @@
           items:
             - name: Implementar um cluster do Service Fabric
               href: azure-stack-solution-template-service-fabric-cluster.md
-            - name: Implementar um cluster de Kubernetes
+            - name: Implementar um cluster do Kubernetes
               href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Criar aplicações
       items:
@@ -110,8 +110,9 @@
         - name: Configurar o ambiente de desenvolvimento
           items:
             - name: Instalar o PowerShell para o Azure Stack
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Descarregar as ferramentas de pilha do Azure
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
+            - name: Baixe as ferramentas do Azure Stack
               href: azure-stack-powershell-download.md
             - name: Configurar o PowerShell - Utilizador
               href: azure-stack-powershell-configure-user.md
@@ -124,15 +125,15 @@
                   href: azure-stack-version-profiles-powershell.md
                 - name: CLI 2.0 do Azure
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: ACEDA
+                - name: GO
                   href: azure-stack-version-profiles-go.md
                 - name: Ruby
                   href: azure-stack-version-profiles-ruby.md
                 - name: Python
                   href: azure-stack-version-profiles-python.md
-                - name: Suportado por perfis APIs do fornecedor de recursos
+                - name: APIs suportadas pelos perfis de fornecedor de recursos
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Utilizar o módulo de política de pilha do Azure
+        - name: Utilizar o módulo de política do Azure Stack
           href: azure-stack-policy-module.md
         - name: Utilizar modelos
           items:
@@ -148,7 +149,7 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Implementar com o Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
-    - name: Ativar um fornecedor de serviços Cloud
+    - name: Ativar fornecedor de serviços Cloud
       href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Referência
   items:
@@ -164,11 +165,11 @@
       href: /azure/azure-stack/asdk/
 - name: Recursos
   items:
-    - name: Plano de pilha do Azure
+    - name: Mapa de pilha do Azure
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Fórum MSDN de pilha do Azure
+    - name: Fórum de MSDN de pilha do Azure
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Comentários de documentação de pilha do Azure
+    - name: Comentários sobre a documentação de pilha do Azure
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informações de preços
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

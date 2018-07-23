@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 144669e52b8883f4dcebde02a487da865e198e5b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 62a5c69eb03733133856ec9ec88ba46d7cf7bec0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452605"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185759"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligar o Raspberry Pi ao Hub IoT do Azure (node. js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Neste tutorial, começará aprender as noções básicas do trabalho com o Raspberry Pi com Raspbian. Em seguida, saiba como ligar forma totalmente integrada os seus dispositivos para a cloud, utilizando [IoT Hub do Azure](iot-hub-what-is-iot-hub.md). Para exemplos do Windows 10 IoT Core, vá para o [Windows Dev Center](http://www.windowsondevices.com/).
+Neste tutorial, começará aprender as noções básicas do trabalho com o Raspberry Pi com Raspbian. Em seguida, saiba como ligar forma totalmente integrada os seus dispositivos para a cloud, utilizando [IoT Hub do Azure](about-iot-hub.md). Para exemplos do Windows 10 IoT Core, vá para o [Windows Dev Center](http://www.windowsondevices.com/).
 
 Não tem ainda um kit? Tente [simulador online de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). Ou comprar um novo kit [aqui](https://azure.microsoft.com/develop/iot/starter-kits).
 

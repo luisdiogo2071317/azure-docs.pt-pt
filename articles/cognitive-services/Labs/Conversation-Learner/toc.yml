@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Controlo de versões e etiquetagem
       href: tutorials/16-versioning-and-tagging.md
+    - name: Bots Híbridos
+      href: tutorials/17-hybrid-bots.md
     - name: Demonstração - reposição de palavra-passe
       href: tutorials/demo-password-reset.md
     - name: Demonstração - encomenda de piza

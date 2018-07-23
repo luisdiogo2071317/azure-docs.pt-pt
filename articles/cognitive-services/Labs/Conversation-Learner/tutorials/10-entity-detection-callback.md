@@ -1,7 +1,7 @@
 ---
-title: Como utilizar a chamada de retorno de deteção de entidade com uma aplicação de conversação Learner - serviços cognitivos Microsoft | Microsoft Docs
+title: Como utilizar o retorno de chamada de detecção de entidade com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como utilizar a chamada de retorno de deteção de entidade com uma aplicação de conversação Learner.
+description: Saiba como utilizar o retorno de chamada de detecção de entidade com um modelo de aprendiz de conversação.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,104 +10,108 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e41ea5930ff0c8395d0c93aa42e224ebfc894ba8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354020"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171108"
 ---
-# <a name="how-to-use-entity-detection-callback"></a>Como utilizar a chamada de retorno de deteção de entidade
+# <a name="how-to-use-entity-detection-callback"></a>Como utilizar o retorno de chamada de detecção de entidade
 
-Este tutorial mostra a chamada de retorno de deteção de entidade e ilustra um padrão comum para resolução de entidades.
+Este tutorial mostra o retorno de chamada de detecção de entidade e ilustra um padrão comum para a resolução de entidades.
+
+## <a name="video"></a>Vídeo
+
+[![Pré-visualização do tutorial 10](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial, necessita que o bot "tutorialEntityDetectionCallback" está em execução.
+Este tutorial requer que o `tutorialEntityDetectionCallback` bot está em execução.
 
     npm run tutorial-entity-detection
 
 ## <a name="details"></a>Detalhes
-Chamada de retorno de deteção de entidade permite utilizando código personalizado para processar regras de negócio relacionadas com a entidades. Esta demonstração, utilizaremos as chamadas de retorno e entidades programática para resolver o nome de cidade introduzido pelo utilizador para um nome canónico – por exemplo, "a grande apple" para "Nova Iorque" a resolver.
+Retorno de chamada de detecção de entidade permite o uso do código personalizado para lidar com regras de negócios relacionados com entidades. Esta demonstração usa retornos de chamada e entidades programática para resolver o nome de cidade inserido pelo usuário para um nome canônico – por exemplo, resolver "a grande apple" para "new york".
 
 ### <a name="open-the-demo"></a>Abra a demonstração
 
-Na lista de aplicações, clique no Tutorial-10-EntityDetenctionCallback. 
+Na lista de modelos, clique em 10-Tutorial-EntityDetectionCallback. 
 
 ### <a name="entities"></a>Entidades
 
-Definiu três entidades na aplicação.
+Três entidades são definidas no modelo.
 
 ![](../media/tutorial10_entities.PNG)
 
 1. Cidade é uma entidade personalizada que o utilizador irá fornecer como entrada de texto.
-2. CityUnknown é uma entidade programática. Isto irá obter preenchido pelo sistema. A autorização copiará a intervenção do utilizador se o sistema não souber qual cidade é.
-3. CityResolved é a cidade conhecer o sistema. Este será o nome canónico da cidade por exemplo resolverá 'a apple grande' para 'Nova Iorque'.
+2. CityUnknown é uma entidade programática. Esta entidade irá obter preenchida pelo sistema. Ele copiará a entrada do usuário se o sistema não sabe qual cidade é.
+3. CityResolved é cidade em que o sistema sabe sobre. Esta entidade será o nome canônico da cidade por exemplo "o grande apple" será resolvido para "Lisboa".
 
 ### <a name="actions"></a>Ações
 
-Foi criado três ações. 
+Três ações são definidas no modelo.
 
 ![](../media/tutorial10_actions.PNG)
 
-1. A primeira ação for "que cidade pretende?"
-2. A segunda ' posso não souber este cidade, $CityUknown. Que cidade pretende? "
-3. O terceiro é 'disse $City e posso resolver que $CityResolved.'
+1. A primeira ação for "que cidade deseja?"
+2. O segundo é "não sei que esse cidade, $CityUknown. Cidade do qual deseja? "
+3. O terceiro é "disse $City e resolvi que para $CityResolved."
 
-### <a name="callback-code"></a>Código de chamada de retorno
+### <a name="callback-code"></a>Código de retorno de chamada
 
-Vamos ver o código. Pode encontrar o método EntityDetectionCallback na unidade c:\<installedpath > \src\demos\tutorialSessionCallbacks.ts ficheiro.
+Vamos examinar o código. Pode encontrar o método EntityDetectionCallback na unidade c:\<installedpath > ficheiro \src\demos\tutorialSessionCallbacks.ts.
 
 ![](../media/tutorial10_callbackcode.PNG)
 
-Esta função é chamada após a resolução de entidades.
+Esta função é chamada após a ocorrência de resolução de entidades.
  
-- A primeira coisa que executará é $CityUknown encriptado. $CityUknown só irá manter para uma única vez como-la sempre obtém limpo no início.
-- Em seguida, vamos obter a lista de cidades ter foi reconhecido. Tirar o primeiro e tente resolvê-lo.
-- A função que resolve-(resolveCity) está definida mais acima no código. Tem uma lista de nomes de cidade canónico. Encontrar o nome de cidade na lista, devolve a mesma. Caso contrário, procura no 'cityMap' e devolve o nome mapeado. Se este não é possível localizar uma cidade, devolverá um nulo.
-- Por fim, se a cidade tem resolvido para um nome, armazenamos-$CityKnown entidade. Caso contrário, limpe o que o utilizador tem consiga aceder tal e preencher $CityUknown entidade.
+- A primeira coisa que ele fará é $CityUknown clara. $CityUknown persistirá somente durante uma única vez, ele sempre obtém limpo no início.
+- Em seguida, obter a lista de cidades que ter sido reconhecido. Tire o primeiro e tentar resolvê-lo.
+- A função que resolve-(resolveCity) está definida mais acima no código. Ele tem uma lista de nomes de cidade canônico. Encontrar o nome de cidade na lista, ele retorna-lo. Caso contrário, ele procura na 'cityMap' e devolve o nome mapeado. Se não for possível encontrar uma cidade, ele retorna nulo.
+- Por fim, se a cidade resolveu para um nome, armazenamos na entidade $CityKnown. Caso contrário, desmarque o que o usuário disse e preencher $CityUknown entidade.
 
-### <a name="train-dialogs"></a>Caixas de diálogo de formação
+### <a name="train-dialogs"></a>Preparar as caixas de diálogo
 
-1. Clique em caixas de diálogo de formação, caixa de diálogo de formação, em seguida, novo.
-2. Escreva "Olá".
-3. Clique em ações de pontuação e selecione 'que cidade pretende?'
-2. Introduza 'Nova Iorque'.
-    - Tenha em atenção que obtém reconhecida como uma entidade de cidade.
+1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
+2. Escreva "hello".
+3. Clique em ações de pontuação e selecione "que cidade deseja?"
+2. Introduza "new york".
+    - O texto é reconhecido como uma entidade de cidade.
 5. Clique em ações de pontuação
-    - Tenha em atenção que cidade e CityResolved foram preenchidas.
-6. Selecione 'disse $City e o que posso resolvido para $CityResolved'.
-7. Clique em concluído de ensino.
+    - `City` e `CityResolved` foram preenchidas.
+6. Selecione "disse $City e resolvi que para $CityResolved".
+7. Clique em concluído ensino.
 
-Outro exemplo caixa de diálogo adicione:
+Adicione outra caixa de diálogo de exemplo:
 
-1. Clique em nova caixa de diálogo de formação.
-2. Escreva "Olá".
-3. Clique em ações de pontuação e selecione 'que cidade pretende?'
-2. Introduza 'apple grande'.
-    - Tenha em atenção que obtém reconhecida como uma entidade de cidade.
+1. Clique em nova caixa de diálogo de comboio.
+2. Escreva "hello".
+3. Clique em ações de pontuação e selecione "que cidade deseja?"
+2. Introduza "apple grande".
+    - O texto é reconhecido como uma entidade de cidade.
 5. Clique em ações de pontuação
-    - Tenha em atenção que CityResolved mostra o efeito de código em execução.
-6. Selecione 'disse $City e o que posso resolvido para $CityResolved'.
-7. Clique em concluído de ensino.
+    - `CityResolved` Mostra o efeito de código em execução.
+6. Selecione "disse $City e resolvi que para $CityResolved".
+7. Clique em concluído ensino.
 
-Outro exemplo caixa de diálogo adicione:
+Adicione outra caixa de diálogo de exemplo:
 
-1. Clique em nova caixa de diálogo de formação.
-2. Escreva "Olá".
-3. Clique em ações de pontuação e selecione 'que cidade pretende?'
+1. Clique em nova caixa de diálogo de comboio.
+2. Escreva "hello".
+3. Clique em ações de pontuação e selecione "que cidade deseja?"
 2. Introduza "foo".
-    - Este é um exemplo de uma cidade que não souber o sistema. 
+    - Este é um exemplo de uma cidade, que o sistema não sabe. 
 5. Clique em ações de pontuação
-6. Selecione "não sei este cidade, $CityUknown. Que cidade pretende?'.
-7. Introduza 'Nova Iorque'.
+6. Selecione "não sei que esse cidade, $CityUknown. Cidade do qual deseja? ".
+7. Introduza "new york".
 8. Clique em ações de pontuação.
-    - Tenha em atenção que CityUknown foi limpo e CityResolved é preenchido.
-6. Selecione 'disse $City e o que posso resolvido para $CityResolved'.
-7. Clique em concluído de ensino.
+    - `CityUknown` foi limpo, e `CityResolved` é preenchido.
+6. Selecione "disse $City e resolvi que para $CityResolved".
+7. Clique em concluído ensino.
 
 ![](../media/tutorial10_bigapple.PNG)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Chamadas de retorno de sessão](./11-session-callbacks.md)
+> [Retornos de chamada de sessão](./11-session-callbacks.md)

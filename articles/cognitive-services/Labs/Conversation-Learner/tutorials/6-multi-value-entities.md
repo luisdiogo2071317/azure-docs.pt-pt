@@ -1,7 +1,7 @@
 ---
-title: Como utilizar valores múltiplos entidades com uma aplicação de conversação Learner - serviços cognitivos Microsoft | Microsoft Docs
+title: Como utilizar entidades com múltiplos valores com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
-description: Saiba como utilizar valores múltiplos entidades com uma aplicação de conversação Learner.
+description: Saiba como utilizar entidades com múltiplos valores com um modelo de aprendiz de conversação.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,41 +10,45 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354008"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173106"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>Como utilizar valores múltiplos entidades com uma aplicação de conversação Learner
-Este tutorial mostra a propriedade "valor múltiplos" de entidades.
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Como utilizar entidades com múltiplos valores com um modelo de aprendiz de conversação
+Este tutorial mostra a propriedade "value multi" de entidades.
+
+## <a name="video"></a>Vídeo
+
+[![Pré-visualização do tutorial 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
 ##<a name="requirements"></a>Requisitos
-Este tutorial, necessita que o bot tutorial geral está em execução
+Este tutorial requer que o bot tutorial geral está em execução
 
     npm run tutorial-general
 
 ## <a name="details"></a>Detalhes
-Uma entidade "valor múltiplos" acumula valores uma lista, em vez de armazenar um valor único.  Isto é útil para entidades em que o utilizador pode especificar mais do que um valor, como toppings num pizza.
+Uma entidade que é "com múltiplos valor" acumula os valores numa lista, em vez de armazenar um valor único.  Isto é útil para entidades em que o utilizador pode especificar mais do que um valor, como sabores numa pizza.
 
-Concretely, se uma entidade está marcada como "valores múltiplos", em seguida, cada reconhecer a instância da entidade será anexada a uma lista no bot memória (em vez de substituir um valor de entidade única).
+Concretamente, se uma entidade é marcada como "com múltiplos valores", em seguida, cada reconhecido instância da entidade será anexada a uma lista no bot memória (em vez de substituir um valor de entidade única).
 
 ## <a name="steps"></a>Passos
 
-### <a name="create-the-application"></a>Criar a aplicação
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na IU da Web, clique em nova aplicação
-2. No nome, introduza MultiValueEntities. Em seguida, clique em criar.
+1. Na IU da Web, clique em novo modelo
+2. No nome, digite MultiValueEntities. Em seguida, clique em criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
 
 1. Clique em entidades, em seguida, nova entidade.
-2. No nome da entidade, introduza Toppings.
+2. No nome da entidade, digite sabores.
 3. Verificação com múltiplos valor.
-    - Entidades de valores múltiplos acumularem um ou mais valores na entidade.
+    - Entidades de valores múltiplos acumular-se um ou mais valores na entidade.
 2. Verificação Negatable.  
-    - Isto permitirá ao utilizador remover a respetiva lista de toppings pizza acumulado toppings.
+    - Isso permitirá que o utilizador remover sabores de sua lista de sabores de pizza acumulado.
 3. Clique em Criar.
 
 ![](../media/tutorial6_entities.PNG)
@@ -52,57 +56,57 @@ Concretely, se uma entidade está marcada como "valores múltiplos", em seguida,
 ### <a name="create-two-actions"></a>Criar duas ações
 
 1. Clique em ações, em seguida, nova ação
-2. Em resposta, escreva 'que toppings pretende?'.
-3. Na Disqualifying entidades, introduza Toppings.
+2. Em resposta, escreva "quais sabores deseja?".
+3. Nas entidades Disqualifying, introduza sabores.
 3. Clique em Criar
 
 Em seguida, crie a segunda ação.
 
 1. Clique em ações, em seguida, nova ação para criar uma segunda ação.
-3. Em resposta, escreva ' seguem-se a sua toppings: $Toppings'.
+3. Em resposta, escreva "aqui estão os sabores: $Toppings'.
 4. Clique em Criar
 
-Tem agora duas ações.
+Agora tem duas ações.
 
 ![](../media/tutorial6_actions.PNG)
 
 ### <a name="train-the-bot"></a>Preparar o bot
 
-1. Clique em caixas de diálogo de formação, caixa de diálogo de formação, em seguida, novo.
-2. Escreva "Olá".
-3. Clique em ações de pontuação e selecione 'que toppings pretende?'
-2. Introduza 'mushrooms e cheese'. 
+1. Clique em caixas de diálogo do Train, em seguida, nova caixa de diálogo de comboio.
+2. Escreva "hello".
+3. Clique em ações de pontuação e selecione "quais sabores deseja?"
+2. Introduza 'cresce e aprecia o queijo'. 
     - Pode Etiquetar zero, um ou mais do que uma das entidades.
-3. Clique em 'mushrooms' e selecione Toppings.
-4. Clique em 'cheese' e selecione Toppings.
+3. Clique em "cresce" e selecione sabores.
+4. Clique em "queijo" e selecione sabores.
 5. Clique em ações de pontuação
-    - Tenha em atenção que os dois valores agora estão presentes na entidade Toppings. 
-6. Selecione ' seguem-se a sua toppings: $Toppings'.
+    - Os dois valores agora estão presentes na entidade sabores. 
+6. Selecione ' aqui estão os sabores: $Toppings'.
 
-Iremos pode adicionar mais a isto:
+Podemos adicionar mais a este:
 
-7. Introduza 'Adicionar peppers'.
-    - Clique em peppers em deteção de entidade e selecione Toppings.
+7. Introduza "Adicionar peppers".
+    - Clique em peppers em deteção de entidade e selecione sabores.
 3. Clique em ações de pontuação.
-    - Tenha em atenção que peppers agora apresentado como um valor no Toppings adicional.
-6. Selecione ' seguem-se a sua toppings: $Toppings'.
+    - "peppers" aparece agora como um valor adicional na sabores.
+6. Selecione ' aqui estão os sabores: $Toppings'.
 
-Vamos remover um topping e adicione uma:
+Vamos remover um sabor e adicionar um:
 
-2. Escreva 'Remover peppers e adicionar sausage'.
-1. Clique em 'peppers' e clique no x vermelho para removê-lo.
-2. Clique em 'peppers' e selecione '-Toppings'.
+2. Escreva "Remover peppers e adicionar sausage".
+1. Clique em "peppers" e clique no x vermelho para removê-lo.
+2. Clique em "peppers" e selecione '-dos sabores.
 3. Clique em ações de pontuação.
-    - Tenha em atenção que foi eliminada 'peppers' e 'sausage' foi adicionado.
-6. Selecione ' seguem-se a sua toppings: $Toppings'.
+    - foi eliminados 'peppers' e "sausage" foi adicionado.
+6. Selecione ' aqui estão os sabores: $Toppings'.
 
 Agora vamos tentar remover tudo:
 
-6. Introduza 'Remover mushrooms, remova cheese e remover sausage'.
-7. Clique em cada um dos três e selecione '-Toppings'.
+6. Introduza 'Remover cresce, remova o queijo e remover sausage'.
+7. Clique em cada um dos três e selecione '-dos sabores.
 7. Clique em ações de pontuação.
-    - Tenha em atenção de que todos os toppings são eliminados.
-2. Selecione "que toppings pretende?"
+    - Todos os sabores são limpos.
+2. Selecione "quais sabores deseja?"
 3. Clique em concluído ensino
 
 ![](../media/tutorial6_dialogs.PNG)

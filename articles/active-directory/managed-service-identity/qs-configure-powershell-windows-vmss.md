@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d5071a55c49a0749d91ec9617558ced76ebb007e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903884"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188102"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurar um VMSS Managed Service Identity (MSI) com o PowerShell
 
@@ -34,7 +34,11 @@ Neste artigo, irá aprender a realizar as operações de identidade do serviço 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e ativar e remover sistema atribuído a identidade gerida a partir de um conjunto de dimensionamento de máquina virtual.
+    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador.
+    - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para atribuir e remover uma identidade de utilizador atribuída de e para um conjunto de dimensionamento de máquina virtual.
 - Instale [a versão mais recente do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) se ainda não o fez. 
 
 ## <a name="system-assigned-managed-identity"></a>Sistema atribuído a identidade gerida
@@ -108,7 +112,7 @@ Nesta secção, saiba como adicionar e remover um utilizador atribuído a identi
 
 ### <a name="assign-a-user-assigned-identity-during-creation-of-an-azure-vmss"></a>Atribuir um utilizador a identidade atribuído durante a criação de um VMSS do Azure
 
-Criar um novo VMSS com um identidade atribuída ao utilizador atualmente não é suportada através do PowerShell. Consulte a secção seguinte sobre como adicionar uma identidade de utilizador atribuída a um VMSS existente. Verifique novamente a existência de atualizações.
+Criar um novo VMSS com um identidade atribuída ao utilizador atualmente não é suportada através do PowerShell. Consulte a secção seguinte sobre como adicionar uma identidade de utilizador atribuída a um VMSS existente. Volte mais tarde para obter atualizações.
 
 ### <a name="assign-a-user-identity-to-an-existing-azure-vmss"></a>Atribuir uma identidade de utilizador a um VMSS do Azure existente
 
@@ -133,9 +137,9 @@ Para atribuir um utilizador atribuído a identidade a um VMSS do Azure existente
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Remover um utilizador atribuído a identidade do VMSS do Azure
 
 > [!NOTE]
-> Remover todas as identidades de utilizador atribuído de um conjunto de dimensionamento de máquinas virtuais atualmente não é suportada, a menos que tenha um sistema de identidade atribuído. Verifique novamente a existência de atualizações.
+> Remover todas as identidades de utilizador atribuído de um conjunto de dimensionamento de máquinas virtuais atualmente não é suportada, a menos que tenha um sistema de identidade atribuído. Volte mais tarde para obter atualizações.
 
-Se sua VMSS tem várias identidades de utilizador atribuído, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitua a `<RESOURCE GROUP>` e `<VMSS NAME>` valores de parâmetros com seus próprios valores. O `<MSI NAME>` é propriedade de nome da identidade de utilizador atribuído, que deve permanecer no VMSS. Estas informações podem ser encontradas na secção da identidade do VMSS `az vmss show`:
+Se sua VMSS tem várias identidades de utilizador atribuído, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<MSI NAME>` é propriedade de nome da identidade de utilizador atribuído, que deve permanecer no VMSS. Estas informações podem ser encontradas na secção da identidade do VMSS `az vmss show`:
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss

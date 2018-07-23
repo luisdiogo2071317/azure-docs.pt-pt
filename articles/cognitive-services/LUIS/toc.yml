@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: Com padrões
           href: luis-tutorial-pattern.md
+        - name: Com as funções
+          href: luis-tutorial-pattern-roles.md
+        - name: Com a entidade Pattern.any
+          href: luis-tutorial-pattern-any.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -194,7 +198,7 @@
     - name: Teste
       items:
         - name: Testes interativos
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: Testes em lote
           href: luis-how-to-batch-test.md
     - name: Publicar aplicação
@@ -226,7 +230,7 @@
             - name: Propagar a quota de pontos finais nas chaves com o Gestor de Tráfego
               href: luis-traffic-manager.md
     - name: Migrar para a API V2
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: Localizar a região através de programação
       items:
         - name: 'Utilizar C#'

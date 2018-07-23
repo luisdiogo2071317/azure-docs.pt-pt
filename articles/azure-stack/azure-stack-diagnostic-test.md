@@ -1,6 +1,6 @@
 ---
-title: Execute um teste de validação na pilha do Azure | Microsoft Docs
-description: Como recolher ficheiros de registo para obter um diagnóstico na pilha do Azure
+title: Executar um teste de validação no Azure Stack | Documentos da Microsoft
+description: Como recolher ficheiros de registo para obter um diagnóstico no Azure Stack.
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -9,49 +9,50 @@ ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 07/19/2018
 ms.author: mabrigg
-ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: hectorl
+ms.openlocfilehash: a70c736489b25f6e8fd0d838c4c7b4b4db96a4f2
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31394395"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188800"
 ---
-# <a name="run-a-validation-test-for-azure-stack"></a>Execute um teste de validação de pilha do Azure
+# <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
  
-Pode validar o estado da pilha do Azure. Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsoft. Suporte pede-lhe para executar o teste AzureStack a partir do nó de gestão. O teste de validação isola a falha. Suporte, em seguida, pode analisar os registos de detalhado, focar-se na área de onde ocorreu o erro e trabalhar com a resolver o problema.
+Pode validar o estado do seu Azure Stack. Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsoft. Suporte lhe pedir para executar **AzureStack teste** a partir do seu nó de gestão. O teste de validação isola a falha. Suporte, em seguida, pode analisar os registos detalhados, concentrar-se na área onde ocorreu o erro e trabalhar consigo resolver o problema.
 
 ## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
-Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsoft e, em seguida, execute **executar teste-AzureStack**.
+Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsoft e, em seguida, execute **AzureStack de teste executar**.
 
 1. Tem um problema.
-2. Contacto técnico da Microsoft dos serviços de suporte.
-3. Executar **teste AzureStack** do ponto final com privilégios.
-    1. O ponto final com privilégios de acesso. Para obter instruções, consulte [utilizando o ponto final com privilégios na pilha de Azure](azure-stack-privileged-endpoint.md). 
+2. Contacto de Microsoft de cliente dos serviços de suporte.
+3. Execute **AzureStack teste** do ponto final com privilégios.
+    1. O ponto final com privilégios de acesso. Para obter instruções, consulte [utilizando o ponto final com privilégios no Azure Stack](azure-stack-privileged-endpoint.md). 
     2. No ASDK, inicie sessão para o anfitrião de gestão como **AzureStack\CloudAdmin**.  
-    Num sistema integrado, terá de utilizar o endereço IP para com privilégios--ponto final para a gestão fornecida pelo seu fornecedor de hardware do OEM.
+    Num sistema integrado, terá de utilizar o endereço IP para com privilégios--ponto final para o gerenciamento fornecido a pelo seu fornecedor de hardware de OEM.
     3. Abra o PowerShell como um Administrador.
-    4. Execute: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    4. Execute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
-4. Se os testes de relatório falhar, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet recolhe os registos de AzureStack de teste. Para mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure pilha](azure-stack-diagnostics.md).
-5. Enviar o **SeedRing** registos para o suporte ao cliente de serviços da Microsoft. Suporte ao cliente de serviços da Microsoft funciona com a resolver o problema.
+4. Se qualquer teste de relatório falhar, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet reúne os registos de teste AzureStack. Para obter mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md).
+5. Enviar a **SeedRing** registos ao suporte ao cliente de serviços da Microsoft. Suporte ao cliente de serviços da Microsoft trabalha para resolver o problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referência para o teste AzureStack
 
-Esta secção contém uma descrição geral para o cmdlet de teste AzureStack e um resumo do relatório de validação.
+Esta secção contém uma descrição geral para o cmdlet Test-AzureStack e um resumo do relatório de validação.
 
 ### <a name="test-azurestack"></a>Test-AzureStack
 
-Valida o estado da pilha do Azure. O cmdlet reporta o estado do software e hardware de pilha do Azure. Equipa de suporte pode utilizar este relatório para reduzir o tempo para resolver casos do suporte de pilha do Azure.
+Valida o estado do Azure Stack. O cmdlet comunica o estado do seu software e hardware do Azure Stack. Equipa de suporte técnico pode utilizar este relatório para reduzir o tempo para resolver incidentes de suporte do Azure Stack.
 
 > [!Note]  
-> Teste AzureStack pode detetar falhas que não são resultando em falhas de nuvem, como falha de um único disco ou uma falha de nó único anfitrião físico.
+> **Teste AzureStack** pode detetar falhas que não são resultando em falhas de cloud, como uma única falha de disco ou uma falha de nó único host físico.
 
 #### <a name="syntax"></a>Sintaxe
 
@@ -65,68 +66,70 @@ Valida o estado da pilha do Azure. O cmdlet reporta o estado do software e hardw
 | ---                     | ---             | ---      | ---     |
 | ServiceAdminCredentials | PSCredential    | Não       | FALSO   |
 | DoNotDeployTenantVm     | SwitchParameter | Não       | FALSO   |
-| AdminCredential         | PSCredential    | Não       | N/D      |
-<!-- | StorageConnectionString | Cadeia          | Não       | N/D      | Não é suportada no 1802-->
+| AdminCredential         | PSCredential    | Não       | ND      |
 | Lista                    | SwitchParameter | Não       | FALSO   |
-| Ignorar                  | Cadeia          | Não       | N/D      |
-| Incluir                 | Cadeia          | Não       | N/D      |
+| Ignorar                  | Cadeia          | Não       | ND      |
+| Incluir                 | Cadeia          | Não       | ND      |
+| BackupSharePath         | Cadeia          | Não       | ND      |
+| BackupShareCredential   | PSCredential    | Não       | ND      |
 
-O cmdlet de teste AzureStack suporta os parâmetros comuns: verboso, depuração, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns de](http://go.microsoft.com/fwlink/?LinkID=113216). 
+
+O cmdlet Test-AzureStack suporta os parâmetros comuns: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### <a name="examples-of-test-azurestack"></a>Exemplos de teste AzureStack
 
-Os exemplos seguintes partem do princípio de que iniciou sessão como **CloudAdmin** e aceder ao ponto final com privilégios (PEP). Para obter instruções, consulte [utilizando o ponto final com privilégios na pilha de Azure](azure-stack-privileged-endpoint.md). 
+Os exemplos seguintes partem do princípio de que tem sessão iniciada como **CloudAdmin** e acessar o ponto de extremidade com privilégios (PEP). Para obter instruções, consulte [utilizando o ponto final com privilégios no Azure Stack](azure-stack-privileged-endpoint.md). 
 
-#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Executar o teste AzureStack interativamente sem cenários de nuvem
+#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>Executar teste AzureStack interativamente sem cenários de nuvem
 
 Numa sessão PEP, execute:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-      Test-AzureStack
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack
 ````
 
-#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Execute o teste AzureStack com cenários de nuvem
+#### <a name="run-test-azurestack-with-cloud-scenarios"></a>Executar teste AzureStack com cenários de nuvem
 
-Pode utilizar AzureStack de teste para executar os cenários de nuvem no seu pilha do Azure. Os cenários incluem:
+Pode usar **AzureStack teste** executar cenários de nuvem do Azure Stack. Os cenários incluem:
 
  - Criar grupos de recursos
- - Criar planos
- - Criar ofertas
- - Criar contas de armazenamento
+ - Criação de planos
+ - Criação de ofertas
+ - A criação de contas de armazenamento
  - Criar uma máquina virtual
- - Efetuar operações de Blobs com a conta de armazenamento criada no cenário de teste
- - Efetuar operações de fila utilizando a conta de armazenamento criada no cenário de teste
- - Efetuar operações de tabela com a conta de armazenamento criada no cenário de teste
+ - Efetuar operações de Blobs com a conta de armazenamento criada no cenário do teste
+ - Efetuar operações de fila com a conta de armazenamento criada no cenário do teste
+ - Efetuar operações de tabela com a conta de armazenamento criada no cenário do teste
 
-Os cenários de nuvem necessitam de credenciais de administrador da nuvem. 
+Os cenários de nuvem necessitam de credenciais de administrador da cloud. 
 > [!Note]  
-> Não é possível executar os cenários de nuvem com as credenciais de serviços de federado do Active Directory (ADFS). O **teste AzureStack** cmdlet só é acessível através de PEP. No entanto, o PEP não suporta credenciais ADFS.
+> Não é possível executar os cenários de nuvem com as credenciais do Active Directory Federated Services (AD FS). O **AzureStack teste** cmdlet só é acessível via a PEP. No entanto, o PEP não suporta credenciais de AD FS.
 
-Escreva o nome de utilizador de administrador de nuvem no formato UPN serviceadmin@contoso.onmicrosoft.com (AAD). Quando lhe for pedido, escreva a palavra-passe para a conta de administrador da nuvem.
+Escreva o nome de utilizador de administrador de nuvem no formato UPN serviceadmin@contoso.onmicrosoft.com (Azure AD). Quando lhe for pedido, escreva a palavra-passe para a conta de administrador na cloud.
 
 Numa sessão PEP, execute:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
 ````
 
-#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Executar o teste AzureStack sem cenários de nuvem
+#### <a name="run-test-azurestack-without-cloud-scenarios"></a>Executar teste AzureStack sem cenários de nuvem
 
 Numa sessão PEP, execute:
 
 ````PowerShell
-  $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
 ````
 
-#### <a name="list-available-test-scenarios"></a>Listar os cenários de teste disponíveis:
+#### <a name="list-available-test-scenarios"></a>Liste os cenários de teste disponíveis:
 
 Numa sessão PEP, execute:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -List
 ````
 
@@ -135,41 +138,66 @@ Numa sessão PEP, execute:
 Numa sessão PEP, execute:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
 ````
 
 Para excluir os testes específicos:
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-  Test-AzureStack -Ignore AzsInfraPerformance
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Ignore AzsInfraPerformance
+````
+
+### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>Executar AzureStack de teste para testar as definições de cópia de segurança de infra-estrutura
+
+Antes de configurar a cópia de segurança da infraestrutura, pode testar o caminho da partilha de cópia de segurança e de credenciais com o **AzsBackupShareAccessibility** testar.
+
+Numa sessão PEP, execute:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+````
+Depois de configurar a cópia de segurança, pode executar AzsBackupShareAccessibility para validar a partilha está acessível a partir do ERCS, a partir de uma sessão PEP executar:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility
+````
+
+Para testar novas credenciais com a partilha de cópia de segurança configurada, a partir de uma sessão PEP execute:
+
+````PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
 ````
 
 ### <a name="validation-test"></a>Teste de validação
 
-A tabela seguinte resume os testes de validação executados por AzureStack de teste.
+A tabela seguinte resume os testes de validação executados pelo **AzureStack teste**.
 
 | Nome                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Resumo de infraestrutura de alojamento de nuvem de pilha do Azure                                                                                  |
-| Resumo de serviços de armazenamento de pilha do Azure                                                                                              |
-| Resumo de instância de função de infraestrutura de pilha do Azure                                                                                  |
-| Utilização da infraestrutura de alojamento de nuvem de pilha do Azure                                                                              |
-| Capacidade de infraestrutura de pilha do Azure                                                                                               |
-| Portal de pilha do Azure e o resumo de API                                                                                                |
-| Resumo de certificado do Gestor de recursos do Azure da pilha de Azure                                                                                               |
-| Controlador de gestão de infraestrutura, controlador de rede, serviços de armazenamento e ponto final com privilégios funções de infraestrutura          |
+| Resumo de infraestrutura de alojamento de na Cloud do Azure Stack                                                                                  |
+| Resumo de serviços de armazenamento do Azure Stack                                                                                              |
+| Resumo de instância de função de infraestrutura do Azure Stack                                                                                  |
+| Utilização da infraestrutura de alojamento de na Cloud do Azure Stack                                                                              |
+| Capacidade de infraestrutura do Azure Stack                                                                                               |
+| Portal do Azure Stack e o resumo de API                                                                                                |
+| Resumo de certificados do Gestor de recursos do Azure de pilha do Azure                                                                                               |
+| Controlador de gestão de infraestrutura, controlador de rede, serviços de armazenamento e funções de infraestrutura de ponto de extremidade com privilégios          |
 | Controlador de gestão de infraestrutura, controlador de rede, serviços de armazenamento e ponto final com privilégios instâncias de função de infraestrutura |
-| Resumo de função de infraestrutura de pilha do Azure                                                                                           |
-| Serviços de recursos de infraestrutura de serviço de Cloud de pilha do Azure                                                                                         |
-| Desempenho de instância da função de infraestrutura de pilha do Azure                                                                              |
-| Resumo de desempenho de anfitrião de nuvem de pilha do Azure                                                                                        |
-| Resumo de consumo de recursos de serviço de pilha do Azure                                                                                  |
-| Azure pilha escala unidade eventos críticos (última 8 horas)                                                                             |
-| Resumo de discos físicos de serviços de armazenamento de pilha do Azure                                                                               |
+| Resumo da função de infraestrutura de pilha do Azure                                                                                           |
+| Serviços de recursos de infraestrutura de serviço de Cloud do Azure Stack                                                                                         |
+| Desempenho de instâncias de função de infraestrutura do Azure Stack                                                                              |
+| Resumo de desempenho de anfitrião de nuvem do Azure Stack                                                                                        |
+| Resumo de consumo de recursos de serviço do Azure Stack                                                                                  |
+| O Azure Stack dimensionamento unidade eventos críticos (últimas 8 horas)                                                                             |
+| Resumo de discos físicos de serviços de armazenamento do Azure Stack                                                                               |
+|Resumo de acessibilidade de partilha de cópia de segurança do Azure Stack                                                                                     |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
- - Para saber mais sobre as ferramentas de diagnóstico de pilha do Azure e o registo de problema, consulte o artigo [ ferramentas de diagnóstico do Azure pilha](azure-stack-diagnostics.md).
- - Para obter mais informações sobre resolução de problemas, consulte [resolução de problemas de pilha do Microsoft Azure](azure-stack-troubleshooting.md)
+ - Para saber mais sobre ferramentas de diagnóstico do Azure Stack e o registo de problema, consulte [ ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md).
+ - Para saber mais sobre a resolução de problemas, consulte [resolução de problemas do Microsoft Azure Stack](azure-stack-troubleshooting.md)

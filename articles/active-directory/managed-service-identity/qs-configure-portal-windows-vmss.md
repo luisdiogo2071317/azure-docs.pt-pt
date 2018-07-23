@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 34911c6133a6a2549a98db426f979b0c3c85dbd7
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035246"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185302"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma máquina virtual Managed Service Identity (MSI) com o portal do Azure do conjunto de dimensionamento
 
@@ -30,13 +30,14 @@ Identidade de serviço gerida fornece serviços do Azure com uma identidade geri
 Neste artigo, aprenderá a ativar e desativar o sistema de identidade para um conjunto de dimensionamento de máquina virtual atribuído com o portal do Azure. Atribuir e remover identidades atribuídas por utilizadores de um conjunto de dimensionamento de máquina virtual do Azure não é suportado atualmente pelo portal do Azure.
 
 > [!NOTE]
-> Atualmente, o utilizador atribuído a operações de identidade não são suportadas no portal do Azure. Verifique novamente a existência de atualizações.
+> Atualmente, o utilizador atribuído a operações de identidade não são suportadas no portal do Azure. Volte mais tarde para obter atualizações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md).
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para efetuar as operações de gestão neste artigo, a conta tem da atribuição de função seguinte:
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover a identidade do serviço gerido de um conjunto de dimensionamento de máquina virtual.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Identidade de serviço gerida durante a criação de um conjunto de dimensionamento de máquina virtual do Azure
 

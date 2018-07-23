@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5babe089575d03db1f6bc0dd3f01bd3b6a5475fe
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: acf328b706a992df03de837ba8837c5810593ae5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951904"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173746"
 ---
 # <a name="utterances-in-luis"></a>Expressões com no LUIS
 
@@ -47,7 +47,7 @@ O termo principal aqui, o "computador", não é diversificados. Eles poderiam di
 Cada intenção tem de ter expressões de exemplo, pelo menos de 10 a 15. Se tiver um objetivo que não tem quaisquer expressões de exemplo, não será capaz de preparar o LUIS. Se tiver um objetivo com um ou muito poucas expressões de exemplo, LUIS não prever com precisão a intenção. 
 
 ## <a name="add-small-groups-of-10-15-utterances-for-each-authoring-iteration"></a>Adicionar grupos pequenos de expressões de 10 a 15 para cada iteração de criação
-Em cada iteração do modelo, não adicione uma grande quantidade de expressões. Adicione expressões em quantidades de dezenas. [Train](luis-how-to-train.md), [publicar](luis-how-to-publish-app.md), e [testar](interactive-test.md) novamente.  
+Em cada iteração do modelo, não adicione uma grande quantidade de expressões. Adicione expressões em quantidades de dezenas. [Train](luis-how-to-train.md), [publicar](luis-how-to-publish-app.md), e [testar](luis-interactive-test.md) novamente.  
 
 LUIS baseia-se em vigor modelos com expressões com cuidadosamente selecionadas. Adicionar expressões com demasiados não é importante porque introduz confusão.  
 

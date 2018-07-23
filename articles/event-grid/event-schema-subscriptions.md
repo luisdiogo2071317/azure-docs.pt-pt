@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 07/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6bf2f358a24d1f36d0b5e10f3556e7037cad2
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159037"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173814"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos do Azure Event Grid para subscrições
 
@@ -181,10 +181,10 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Autorização | cadeia | O pedido de autorização para a operação. |
-| afirmações | cadeia | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| Autorização | objeto | O pedido de autorização para a operação. |
+| afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | cadeia | Um ID de operação para resolução de problemas. |
-| httpRequest | cadeia | Os detalhes da operação. |
+| httpRequest | objeto | Os detalhes da operação. |
 | ResourceProvider | cadeia | O fornecedor de recursos, executar a operação. |
 | resourceUri | cadeia | O URI do recurso na operação. |
 | operationName | cadeia | A operação que foi executada. |

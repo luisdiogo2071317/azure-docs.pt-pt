@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 23809b40026955f0c864764781d7a151e5ab2756
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b685dd65954da7a898875b67faa798fb2a1e33f9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144397"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172260"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Integrar o LUIS com um bot utilizando o SDK do construtor de Bot para node. js
 
@@ -235,7 +235,7 @@ No Portal do Azure, selecione no **teste na Web Chat** para testar o bot. Experi
    ![Testar HomeAutomation bot em Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS ao dar a ele mais expressões de exemplo formá-lo. Pode voltar a preparar a aplicação do LUIS sem quaisquer modificações ao código de seu bot. Ver [adicionar expressões de exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [treinar e testar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+> Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS ao dar a ele mais expressões de exemplo formá-lo. Pode voltar a preparar a aplicação do LUIS sem quaisquer modificações ao código de seu bot. Ver [adicionar expressões de exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [treinar e testar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre arquitetura de Bot
 Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e o [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-js) SDKs.

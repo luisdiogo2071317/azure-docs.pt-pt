@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr
-ms.openlocfilehash: ab70839b4fa8f2064a3ff929034a6ffcb8fc7788
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1f6f05376240b90aa82c25172349d716fb49234a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887747"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170665"
 ---
 # <a name="data-alterations"></a>Alterações de dados
 LUIS fornece maneiras de manipular a expressão antes ou durante a predição. 
@@ -22,7 +22,7 @@ LUIS fornece maneiras de manipular a expressão antes ou durante a predição.
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros ortográficos na expressão
 Utiliza o LUIS [Bing ortográfica verificar a API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corrigir erros ortográficos na expressão. LUIS tem a chave associada esse serviço. Criar a chave, em seguida, adicione a chave como um parâmetro de cadeia de consulta no [ponto final](https://aka.ms/luis-endpoint-apis). 
 
-Também pode corrigir erros ortográficos na **teste** painel por [inserir a chave](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave é mantida como uma variável de sessão no browser para o painel de teste. Adicione a chave para o painel de teste em cada sessão de browser que pretende que a ortografia corrigida. 
+Também pode corrigir erros ortográficos na **teste** painel por [inserir a chave](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave é mantida como uma variável de sessão no browser para o painel de teste. Adicione a chave para o painel de teste em cada sessão de browser que pretende que a ortografia corrigida. 
 
 Utilização da chave no painel de teste e a contagem de ponto final para o [utilização de chave](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) quota. LUIS implementa a verificação de ortografia do Bing limites para o comprimento do texto. 
 

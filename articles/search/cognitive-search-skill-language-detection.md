@@ -1,6 +1,6 @@
 ---
-title: Skill de cognitivos pesquisa de deteção de idioma (Azure Search) | Microsoft Docs
-description: Avalia o texto não estruturado e para cada registo devolve um identificador de linguagem com uma pontuação que indica a força da análise no pipeline de sem causa pesquisa do Azure.
+title: Habilidade de pesquisa cognitiva de deteção de idioma (Azure Search) | Documentos da Microsoft
+description: Avalia a texto não estruturado e para cada registo, devolve um identificador de idioma com uma pontuação indicando a força da análise num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,40 +10,40 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 338d89b47ea451efcf8300d4ac016a6946a95259
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 443ac895085053b7c4c876c3deecaa1943c9f506
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791057"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171063"
 ---
-#   <a name="language-detection-cognitive-skill"></a>Skill cognitivos de deteção de idioma
+#   <a name="language-detection-cognitive-skill"></a>Habilidade de cognitiva de deteção de idioma
 
-Para até 120 idiomas, o **idioma deteção** skill Deteta o idioma de texto de entrada e reporta um código de idioma individual para cada documento submetido no pedido. O código de idioma se encontra emparelhado com uma pontuação que indica a força da análise.
+Para até 120 idiomas, o **deteção de idioma** habilidade Deteta o idioma de texto de entrada e comunica um código de idioma único para cada documento enviado no pedido. O código de idioma é emparelhado com uma pontuação indicando a força da análise.
 
-Esta capacidade é especialmente útil quando tem de fornecer o idioma do texto como entrada para outras competências (por exemplo, o [sentimento Snalysis skill](cognitive-search-skill-sentiment.md) ou [skill de texto divididos](cognitive-search-skill-textsplit.md)).
+Esta capacidade é especialmente útil quando tem de indicar o idioma do texto como entrada para outras habilidades (por exemplo, o [habilidade de análise de sentimentos](cognitive-search-skill-sentiment.md) ou [habilidade de divisão de texto](cognitive-search-skill-textsplit.md)).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registo deve ser 50.000 carateres, medido pela `String.Length`. Se precisar de dividir os dados antes de a enviar para o analisador de sentimento, pode utilizar o [skill de texto divididos](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registo deve ser 50.000 carateres conforme medido pela `String.Length`. Se tiver de dividir os dados antes de os enviar para o analisador de sentimentos, pode utilizar o [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-inputs"></a>Entradas de skill
+## <a name="skill-inputs"></a>Entradas de habilidades
 
-Os parâmetros são maiúsculas e minúsculas.
+Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Entradas     | Descrição |
 |--------------------|-------------|
-| Texto | O texto a ser analisada.|
+| texto | O texto a ser analisados.|
 
-## <a name="skill-outputs"></a>Saídas skill
+## <a name="skill-outputs"></a>Saídas de habilidades
 
 | Nome de saída    | Descrição |
 |--------------------|-------------|
 | languageCode | O código de idioma ISO 6391 para o idioma identificado. Por exemplo, "pt". |
 | LanguageName | O nome de idioma. Por exemplo, "inglês". |
-| Modelo de pontuação | Um valor entre 0 e 1. A probabilidade de que o idioma corretamente é identificado. A classificação pode ser inferior a 1 se o frase tem misto idiomas.  |
+| pontuação | Um valor entre 0 e 1. A probabilidade de que o idioma é identificado corretamente. A classificação pode ser inferior a 1, se a frase tem misto de idiomas.  |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 
@@ -125,10 +125,10 @@ Os parâmetros são maiúsculas e minúsculas.
 ```
 
 
-## <a name="error-cases"></a>Nos casos de erro
-Se o texto é expresso um idioma não suportados, é gerado um erro e não é devolvido nenhum identificador de linguagem.
+## <a name="error-cases"></a>Casos de erro
+Se o texto é expressa num idioma não suportado, é gerado um erro e não é devolvido nenhum identificador de idioma.
 
 ## <a name="see-also"></a>Consulte também
 
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um skillset](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)

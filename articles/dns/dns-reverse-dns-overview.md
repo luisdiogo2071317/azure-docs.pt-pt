@@ -1,9 +1,9 @@
 ---
-title: Descrição geral do DNS inverso no Azure | Microsoft Docs
-description: Saiba como inversa de DNS de funciona e como pode ser utilizado no Azure
+title: Descrição geral do DNS inverso no Azure | Documentos da Microsoft
+description: Saiba como inversa DNS funciona e como ele pode ser usado no Azure
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.devlang: na
@@ -11,56 +11,56 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
-ms.openlocfilehash: 1ce14360d0f62a01172a8003e1d78a45885166f6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: fa3798a35804998936e0ac166fceff02b01231a0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772403"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171515"
 ---
-# <a name="overview-of-reverse-dns-and-support-in-azure"></a>Descrição geral do DNS inversa e de suporte no Azure
+# <a name="overview-of-reverse-dns-and-support-in-azure"></a>Descrição geral do DNS inverso e de suporte no Azure
 
-Este artigo fornece uma descrição geral de como inversa de DNS de funciona e os cenários DNS inversas suportados no Azure.
+Este artigo fornece uma visão geral de como inversa DNS funciona e os cenários DNS reversos suportados no Azure.
 
 ## <a name="what-is-reverse-dns"></a>O que é inversa de DNS?
 
-Registos DNS convencionais ativar um mapeamento a partir de um nome DNS (por exemplo, "www.contoso.com") para um endereço IP (por exemplo, 64.4.6.100).  O DNS inverso permite a conversão de um endereço IP (64.4.6.100) para um nome ("www.contoso.com").
+Registos DNS convencionais ativar um mapeamento a partir de um nome DNS (por exemplo, "www.contoso.com") para um endereço IP (por exemplo, 64.4.6.100).  DNS inverso permite a tradução de um endereço IP (64.4.6.100) para um nome ("www.contoso.com").
 
-Registos DNS inversas são utilizados numa variedade de situações. Por exemplo, registos DNS inversas são usados em combating spam de e-mail, verificando o remetente de uma mensagem de correio eletrónico.  Servidor de receção de correio obtém o registo DNS inverso do endereço IP do servidor de envio e verifica se o anfitrião tem autorização para enviar correio eletrónico a partir do domínio de origem. 
+Registos DNS inversos são utilizados em várias situações. Por exemplo, os registos DNS inversos são amplamente utilizados no combate ao spam de e-mail ao verificar o remetente de uma mensagem de email.  O servidor de correio de recebimento obtém o registo DNS inverso do endereço IP do servidor de envio e verifica se esse anfitrião está autorizado a enviar e-mails a partir do domínio de origem. 
 
 ## <a name="how-reverse-dns-works"></a>Funciona como inversa de DNS
 
-Registos inversas de DNS estão alojados em especiais zonas DNS, conhecidas como zonas 'ARPA'.  Estes zonas formam uma hierarquia DNS separada em paralelo com a hierarquia normal de alojamento de domínios como "contoso.com".
+Registos DNS inversos estão alojados em zonas DNS especiais, conhecidas como zonas 'ARPA'.  Estas zonas formam uma hierarquia DNS separada em paralelo com a hierarquia normal, o alojamento dos domínios como "contoso.com".
 
-Por exemplo, o DNS registos "www.contoso.com" é implementado com um registo DNS "A" com o nome "www" na zona "contoso.com".  Este registo aponta para o endereço IP correspondente, neste caso 64.4.6.100.  A pesquisa inversa se encontra implementada separadamente, utilizando um registo de 'PTR' com o nome '100' na zona '6.4.64.in-addr.arpa' (tenha em atenção que os endereços IP são invertidos em zonas ARPA.)  Este registo PTR, se tiver sido configurada corretamente, aponta para o nome "www.contoso.com".
+Por exemplo, o DNS registos "www.contoso.com" está implementado com um registo DNS "A" com o nome "www" na zona "contoso.com".  Este registo aponta para o endereço IP correspondente, neste caso 64.4.6.100.  A pesquisa inversa é implementada em separado, com um registo de 'PTR' com o nome "100" na zona '6.4.64.in-addr.arpa' (Observe que os endereços IP são revertidos em zonas ARPA.)  Este registo PTR, se tiver sido configurada corretamente, pontos para o nome "www.contoso.com".
 
-Quando uma organização é atribuída um bloco de endereços IP, também adquirir o direito de gerir a zona ARPA correspondente. As zonas ARPA correspondente para os blocos de endereços IP utilizados pelo Azure alojadas e geridas pela Microsoft. O ISP pode alojar a zona ARPA para os seus próprios endereços IP por si ou poderá permitir-lhe alojar a zona ARPA num serviço DNS à sua escolha, tal como o DNS do Azure.
+Quando uma organização é atribuída um bloco de endereços IP, eles também a adquirir o direito de gerir a zona ARPA correspondente. As zonas ARPA correspondente para os blocos de endereços IP utilizados pelo Azure estão alojadas e geridas pela Microsoft. Seu ISP pode alojar a zona ARPA para seus próprios endereços IP para, ou poderá permitir-lhe alojar a zona ARPA num serviço DNS da sua preferência, como o DNS do Azure.
 
 > [!NOTE]
-> Pesquisas de DNS direta e inversas de DNS de pesquisas são implementadas em hierarquias DNS separadas, paralelas. A pesquisa inversa de "www.contoso.com" está **não** alojada na zona "contoso.com", em vez está alojado na zona ARPA para o bloco de endereços IP correspondente. Zonas separadas são utilizadas para blocos de endereços IPv4 e IPv6.
+> Pesquisas de DNS direta e inversas de DNS de pesquisas são implementadas em hierarquias DNS separadas, paralelas. A pesquisa inversa para "www.contoso.com" está **não** alojado na zona "contoso.com", em vez disso, ele está hospedado na zona ARPA para o bloco de endereços IP correspondente. Zonas separadas são utilizadas para blocos de endereços IPv4 e IPv6.
 
 ### <a name="ipv4"></a>IPv4
 
 O nome de uma zona de pesquisa inversa IPv4 deve estar no seguinte formato: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
 
-Por exemplo, ao criar uma zona inversa para registos de anfitrião para anfitriões com IPs que se encontrem no prefixo de 192.0.2.0/24, o nome da zona seria possível criar por isolar o prefixo de rede do endereço (192.0.2) e, em seguida, para inverter a ordem (2.0.192) e adicionar o sufixo `.in-addr.arpa`.
+Por exemplo, ao criar uma zona inversa para registos de anfitrião para anfitriões com IPs que estejam no prefixo de 192.0.2.0/24, o nome da zona seria possível criar isolar o prefixo de rede do endereço (192.0.2) e, em seguida, para inverter a ordem (2.0.192) e adicionar o sufixo `.in-addr.arpa`.
 
-|Classe de sub-rede|Prefixo de rede  |Prefixo de rede invertidos  |Sufixo padrão  |Nome da zona inversa |
+|Classe de sub-rede|Prefixo de rede  |Prefixo de rede invertido  |Sufixo padrão  |Nome de zona inversa |
 |-------|----------------|------------|-----------------|---------------------------|
-|Classe A|203.0.0.0/8     | 203        | .in arpa   | `203.in-addr.arpa`        |
-|Classe B|198.51.0.0/16   | 51.198     | .in arpa   | `51.198.in-addr.arpa`     |
-|Classe C|192.0.2.0/24    | 2.0.192    | .in arpa   | `2.0.192.in-addr.arpa`    |
+|Classe A|203.0.0.0/8     | 203        | addr. in   | `203.in-addr.arpa`        |
+|Classe B|198.51.0.0/16   | 51.198     | addr. in   | `51.198.in-addr.arpa`     |
+|Classe C|192.0.2.0/24    | 2.0.192    | addr. in   | `2.0.192.in-addr.arpa`    |
 
-### <a name="classless-ipv4-delegation"></a>Delegação de IPv4 Classless Inter-
+### <a name="classless-ipv4-delegation"></a>Classless delegação de IPv4
 
-Em alguns casos, o intervalo IP atribuído a uma organização é menor do que uma classe C (/ 24) intervalo. Neste caso, o intervalo de IP não se encontra num limite de zona dentro de `.in-addr.arpa` hierarquia de zona e, por conseguinte, não pode ser delegada como uma zona subordinada.
+Em alguns casos, o intervalo IP atribuído a uma organização é menor do que uma classe C (/ 24) intervalo. Neste caso, o intervalo de IP não se encontra num limite de zona dentro do `.in-addr.arpa` hierarquia da zona e, por conseguinte, não pode ser delegada como uma zona subordinada.
 
-Em vez disso, é utilizado o mecanismo de diferentes para transferir o controlo de registos de pesquisa inversa individuais (PTR) para uma zona DNS dedicada. Este mecanismo delega uma zona subordinada para cada intervalo de IP, em seguida, mapeia cada endereço IP no intervalo individualmente para essa zona subordinada através de registos CNAME.
+Em vez disso, um mecanismo diferente é utilizado para transferir o controle de registos de pesquisa inversa individuais (PTR) para uma zona DNS dedicada. Esse mecanismo delega uma zona subordinada para cada intervalo de IP, em seguida, mapeia cada endereço IP no intervalo individualmente para essa zona subordinada com os registos CNAME.
 
-Por exemplo, suponha que uma organização é concedida o IP intervalo 192.0.2.128/26 pelo seu ISP. Isto representa 64 endereços IP, 192.0.2.128 para 192.0.2.191. Inversa de DNS para este intervalo é implementado da seguinte forma:
-- A organização cria uma zona de pesquisa inversa chamada 26.2.0.192.in-arpa de 128. O prefixo ' 128-26' representa o segmento de rede atribuído à organização dentro de classe C (/ 24) intervalo.
-- O ISP cria registos NS para configurar a delegação de DNS para a zona acima da zona de principal de classe C. Também cria registos CNAME na zona de pesquisa inversa principal (classe C), o mapeamento de cada endereço IP no intervalo de IP para a nova zona criada pela organização:
+Por exemplo, suponha que uma organização é concedida o IP intervalo 192.0.2.128/26 pelo seu ISP. Isso representa 64 endereços IP, de 192.0.2.128 para 192.0.2.191. DNS inverso para este intervalo é implementado da seguinte forma:
+- A organização cria uma zona de pesquisa inversa denominada 26.2.0.192.in-128-addr. O prefixo ' 128-26' representa o segmento de rede atribuído à organização dentro da classe C (/ 24) intervalo.
+- O ISP cria registos NS para configurar a delegação de DNS para a zona acima da zona de principal da classe C. Ele também cria registos CNAME na zona de pesquisa inversa principal (classe C), o mapeamento de cada endereço IP no intervalo de IP para a nova zona criada pela organização:
 
 ```
 $ORIGIN 2.0.192.in-addr.arpa
@@ -73,7 +73,7 @@ $ORIGIN 2.0.192.in-addr.arpa
 131       CNAME    131.128-26.2.0.192.in-addr.arpa
 ; etc
 ```
-- Em seguida, a organização gere os registos PTR individuais dentro da sua zona subordinada.
+- Em seguida, a organização gere os registos PTR individuais dentro de sua zona subordinada.
 
 ```
 $ORIGIN 128-26.2.0.192.in-addr.arpa
@@ -83,35 +83,35 @@ $ORIGIN 128-26.2.0.192.in-addr.arpa
 131      PTR    partners.contoso.com
 ; etc
 ```
-Uma pesquisa inversa para consultas de '192.0.2.129' de endereço IP para um registo PTR com o nome '129.2.0.192.in-addr.arpa'. Esta consulta é resolvido através de CNAME na zona principal para o registo PTR na zona subordinada.
+Uma pesquisa inversa para as consultas de "192.0.2.129" do endereço IP para um registo PTR com o nome '129.2.0.192.in-addr.arpa'. Esta consulta é resolvido através de CNAME na zona principal para o registo PTR na zona subordinada.
 
 ### <a name="ipv6"></a>IPv6
 
-O nome de uma zona de pesquisa inversa IPv6 deve estar no seguinte formato: `<IPv6 network prefix in reverse order>.ip6.arpa`
+O nome de uma zona de pesquisa inversa IPv6 deve ter o seguinte formato: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Por exemplo. Se criar uma zona inversa para registos de anfitrião para anfitriões com IPs que estiverem no 2001:db8:1000:abdc:: / 64 prefixo, seria possível criar o nome da zona ao isolar o prefixo do endereço de rede (2001:db8:abdc::). Em seguida expanda o prefixo de rede IPv6 para remover [zero compressão](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), que foi utilizado para abreviar o prefixo do endereço IPv6 (2001:0db8:abdc:0000::). Inverter a ordem, com um período como delimitador entre cada número hexadecimal no prefixo, para criar o prefixo de rede invertidos (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicione o sufixo `.ip6.arpa`.
+Por exemplo. Se criar uma zona inversa para registos de anfitrião para anfitriões com IPs que estiverem no 2001:db8:1000:abdc:: / prefixo 64, seria possível criar o nome da zona ao isolar o prefixo do endereço de rede (2001:db8:abdc::). Em seguida expanda o prefixo de rede IPv6 para remover [zero compressão](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), se ele foi usado para reduzir o prefixo de endereço IPv6 (2001:0db8:abdc:0000::). Inverter a ordem, com um período como delimitador entre cada número hexadecimal no prefixo, para criar o prefixo de rede invertidos (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicione o sufixo `.ip6.arpa`.
 
 
-|Prefixo de rede  |Prefixo de rede expandido e invertidos |Sufixo padrão |Nome da zona inversa  |
+|Prefixo de rede  |Prefixo de rede expandida e invertido |Sufixo padrão |Nome de zona inversa  |
 |---------|---------|---------|---------|
-|2001:DB8:abdc:::/ 64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | . ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
-|2001:DB8:1000:9102:::/ 64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | . ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
+|2001:DB8:abdc:: / 64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | . ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
+|2001:DB8:1000:9102:: / 64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | . ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
 
 
-## <a name="azure-support-for-reverse-dns"></a>Suporte do Azure para o DNS inversa
+## <a name="azure-support-for-reverse-dns"></a>Suporte do Azure para DNS inverso
 
-Azure suporta dois cenários separados, relacionado com a inversa de DNS:
+O Azure suporta dois cenários separados relacionados ao DNS inverso:
 
-**Que alojam a zona de pesquisa inversa correspondente para o bloco de endereços IP.**
-O DNS do Azure pode ser utilizado para [alojar zonas de pesquisa inversa e gerir os registos PTR para cada pesquisa inversa de DNS](dns-reverse-dns-hosting.md), para IPv4 e IPv6.  O processo de criar a zona de pesquisa inversa (ARPA), configurar a delegação e configurar os registos PTR é igual para regulares zonas DNS.  São as diferenças apenas que a delegação tem de ser configurada através do seu ISP, em vez da sua entidade de registo DNS e deve ser utilizado apenas o tipo de registo PTR.
+**Que alojam a zona de pesquisa inversa correspondente ao seu bloco de endereços IP.**
+O DNS do Azure podem ser utilizado para [alojar zonas de pesquisa inversa e gerir os registos PTR para cada pesquisa reversa de DNS](dns-reverse-dns-hosting.md), para IPv4 e IPv6.  O processo de criar a zona de pesquisa inversa (ARPA), configurar a delegação e configurar os registos PTR é igual de zonas DNS normais.  As únicas diferenças estão que a delegação de deve ser configurada por meio de seu ISP, em vez de sua entidade de registo DNS, e deve ser utilizado apenas o tipo de registo PTR.
 
-**Configure o registo DNS inverso para o endereço IP atribuído ao seu serviço do Azure.** Azure permite-lhe [configurar a pesquisa inversa de endereços IP alocados ao seu serviço do Azure](dns-reverse-dns-for-azure-services.md).  Esta pesquisa inversa é configurada pelo Azure como um registo PTR na zona ARPA correspondente.  Estes zonas ARPA, correspondente a todos os intervalos IP utilizados pelo Azure, estão alojadas pela Microsoft
+**Configure o registo DNS inverso para o endereço IP atribuído ao seu serviço do Azure.** O Azure permite-lhe [configurar a pesquisa inversa para os endereços IP alocados ao seu serviço do Azure](dns-reverse-dns-for-azure-services.md).  Esta pesquisa inversa é configurada pelo Azure como um registro PTR na zona ARPA correspondente.  Estas zonas ARPA, correspondente a todos os intervalos IP utilizados pelo Azure, estão alojadas pela Microsoft
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre inversa DNS, consulte [pesquisa inversa de DNS em Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para obter mais informações sobre DNS inverso, consulte [pesquisa reversa de DNS na Wikipédia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Saiba como [alojam a zona de pesquisa inversa para o intervalo de IP ISP atribuído no DNS do Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [alojam a zona de pesquisa inversa para o seu intervalo IP atribuído por ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
 <br>
-Saiba como [gerir registos inversas de DNS para os serviços do Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [gerir registos DNS inversos para seus serviços do Azure](dns-reverse-dns-for-azure-services.md).
 
