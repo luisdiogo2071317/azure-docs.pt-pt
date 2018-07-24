@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3fbf47eca2c623e55ff5e70095c04f16a1a1b3e6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868440"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215167"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar híbrida do Azure Active Directory associados a um dispositivos
 
@@ -97,7 +97,7 @@ Se sua organização está a planear utilizar o SSO totalmente integrado, em seg
 
 Se a organização utilizar a configuração (não federadas) gerida com o AD no local e não utiliza o ADFS para federar com o Azure AD, em seguida, a associação do Azure AD híbrido no Windows 10 depende dos objetos de computador no AD para ser sync'ed para o Azure AD. Certifique-se de que qualquer unidades organizacionais (UO) que contêm os objetos de computador que precisam para serem híbridos associados ao Azure AD estão ativadas para sincronização na configuração de sincronização do Azure AD Connect.
 
-Se sua organização necessita de acesso à Internet através de um proxy de saída, tem de implementar o Proxy Auto-Discovery WPAD (Web) para permitir que os computadores Windows 10 para se registrar para o Azure AD.
+Para dispositivos Windows 10 versão 1703 ou anterior, se sua organização necessita de acesso à Internet através de um proxy de saída, tem de implementar descoberta automática WPAD (Web Proxy) para permitir que os computadores Windows 10 para se registrar para o Azure AD. 
 
 ## <a name="configuration-steps"></a>Passos de configuração
 

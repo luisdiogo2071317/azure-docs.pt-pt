@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059446"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205379"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Azure Active Directory com Base de habilidades
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente da Base de habilidades](mailto:support@skills-base.com) para obter o valor.
+    > Pode obter o URL de início de sessão da aplicação de Base de habilidades. . Início de sessão como administrador e para ir para o administrador -> Definições -> instância detalhes -> ligação de atalho. Copie o URL de início de sessão e cole-a no acima da caixa de texto.
 
 4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -141,7 +141,6 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Clique em **Guardar**.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
@@ -179,7 +178,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na Base de habilidades. Base de habilidades suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante a tentativa de aceder à Base de habilidades, se não existir ainda.
 
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente da Base de habilidades](mailto:support@skills-base.com).
+>Se precisar de criar manualmente um utilizador, siga as instruções [aqui](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

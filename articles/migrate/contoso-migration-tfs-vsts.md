@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003242"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215004"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Migração de Contoso: Refatorizar uma implantação do Team Foundation Server para Visual Studio Team Services (VSTS)
 
@@ -242,7 +242,7 @@ Antes de este começar, Contoso agenda de tempo de inatividade com a equipe de d
 2. **Gerar uma cópia de segurança**: A próxima etapa do processo de migração é gerar uma cópia de segurança que pode ser importada para o VSTS. Camada de dados aplicação componente pacotes (DACPAC), é uma funcionalidade do SQL Server que permite que as alterações de base de dados ser empacotados num único arquivo e implantados com outras instâncias do SQL. Ele também pode ser restaurado diretamente para o VSTS e, portanto, é utilizado como o método de empacotamento para obtenção de dados de coleção para a cloud. Contoso usará a ferramenta de SqlPackage.exe para gerar o DACPAC. Essa ferramenta está incluída no SQL Server Data Tools.
 3. **Carregar para o armazenamento**: após DACPAC é criado, eles carregá-lo ao armazenamento do Azure. Depois de serem carregado, eles recebem uma assinatura de acesso partilhado (SAS), para permitir o acesso de ferramenta de migração do TFS para o armazenamento.
 4. **Preencha a importação**: Contoso, em seguida, pode preencher campos em falta no ficheiro de importação, incluindo a definição de DACPAC. Para começar, vai especificar que quer fazer uma **DryRun** importação, para verificar que tudo o que está a funcionar corretamente antes da migração completa.
-5. **Fazer uma execução completa**: execução imports ajudar a testar a migração de coleção. Execuções de dry limitaram a vida e são eliminadas antes de uma execução de uma migração de produção. Sendo excluído automaticamente após um determinado período de tempo. Uma observação sobre o quando a execução será eliminada está incluída no e-mail de êxito recebido depois de concluída a importação. Tome nota e planeie em conformidade.
+5. **Fazer uma execução completa**: execução imports ajudar a testar a migração de coleção. Execuções de dry limitaram a vida e são eliminadas antes de executa uma migração de produção. Sendo excluído automaticamente após um determinado período de tempo. Uma observação sobre o quando a execução será eliminada está incluída no e-mail de êxito recebido depois de concluída a importação. Tome nota e planeie em conformidade.
 6. **Concluir a migração de produção**: com a migração de execução foi concluída, o Contoso faz a migração final ao atualizar o import.json e executar novamente a importação.
 
 
