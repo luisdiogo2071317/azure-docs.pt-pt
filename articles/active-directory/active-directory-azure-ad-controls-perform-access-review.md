@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 52d832de10de93c5bd4b91df821f96845b3b21be
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e0a522f6125a9e34a37c50f547e725072ec65b4
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446644"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205008"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Rever o acesso com o Azure AD as revisões de acesso
 
@@ -27,7 +27,11 @@ Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a
 
 ## <a name="open-an-access-review"></a>Abra uma revisão de acesso
 
-Para ver as revisões de acesso pendente, selecione a ligação no e-mail. Se não tiver o e-mail, pode localizar as revisões de acesso ao seguir estes passos:
+Para ver as revisões de acesso pendente, clique na ligação de acesso de revisão no e-mail. A partir de Agosto de 2018, as notificações de e-mail para funções do Azure AD tem um design atualizado. O código a seguir mostra uma mensagem de e-mail de exemplo que é enviada quando um utilizador é convidado para ser um revisor. 
+
+![E-mail de acesso de revisão](./media/active-directory-azure-ad-controls-perform-access-review/new-ar-email.png)
+
+Se não tiver o e-mail, pode localizar as revisões de acesso ao seguir estes passos:
 
 1. Inicie sessão no [painel de acesso do Azure AD](https://myapps.microsoft.com).
 
@@ -39,7 +43,7 @@ Para ver as revisões de acesso pendente, selecione a ligação no e-mail. Se n�
 
 Quando selecionar uma revisão de acesso na lista, verá os nomes de utilizadores que precisam ser examinadas. Poderá ver apenas um nome, seus próprios – se o pedido foi rever o seu próprio acesso.
 
-Para cada linha na lista, pode decidir se quer aprovar ou negar o acesso do utilizador. Selecione a linha e escolha se pretende aprovar ou negar. (Se não souber o usuário, pode indicar que, também.)
+Para cada linha na lista, pode decidir se quer aprovar ou negar o acesso do utilizador. Selecione a linha e escolha se pretende aprovar ou negar. (Se não souber o usuário, pode indicar que demasiado.)
 
 O revisor pode exigir que forneça uma justificativa para aprovação de acesso contínuo ou associação de grupo.
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918259"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213355"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Do Azure Active Directory totalmente integrada início de sessão único: análise detalhada bastante técnica
 
@@ -36,8 +36,8 @@ Esta secção tem três partes a ele:
 ### <a name="how-does-set-up-work"></a>Como configurar o trabalho?
 
 SSO totalmente integrado é ativada através do Azure AD Connect, conforme mostrado [aqui](active-directory-aadconnect-sso-quick-start.md). Ao ativar a funcionalidade, ocorrem os seguintes passos:
-- Uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) é criado na sua no local do Active Directory (AD).
-- Chave de desencriptação do Kerberos da conta de computador é compartilhado de forma segura com o Azure AD.
+- Uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) é criada no seu local do Active Directory (AD) em cada floresta do AD.
+- Chave de desencriptação do Kerberos da conta de computador é compartilhado de forma segura com o Azure AD. Se existirem várias florestas do AD, cada um terá sua própria chave de desencriptação do Kerberos.
 - Além disso, os dois Kerberos principal nomes de serviço (SPNs) são criados para representar dois URLs que são utilizadas durante o início de sessão no Azure AD.
 
 >[!NOTE]

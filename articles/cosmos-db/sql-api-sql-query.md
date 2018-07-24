@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056822"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205974"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para o Azure Cosmos DB
 
@@ -522,7 +522,7 @@ Para outros operadores de comparação, tais como >, > =,! =, < e < =, as seguin
 
 Se o resultado da expressão escalar no filtro é indefinido, o documento correspondente seria não incluído no resultado, uma vez que indefinido não são logicamente equivalentes como "true".
 
-### <a name="between-keyword"></a>ENTRE a palavra-chave
+## <a name="between-keyword"></a>ENTRE a palavra-chave
 Também pode utilizar a palavra-chave BETWEEN para expressar consultas em intervalos de valores, como em ANSI SQL. ENTRE pode ser utilizado em relação a cadeias de caracteres ou números.
 
 Por exemplo, esta consulta devolve todos os documentos de famílias em que nível o primeiro subordinado é entre 1 a 5 (ambos, inclusive). 
@@ -561,7 +561,7 @@ Operadores lógicos operam em valores booleanos. As tabelas de verdade lógicas 
 | Falso |Verdadeiro |
 | Não definido |Não definido |
 
-### <a name="in-keyword"></a>Palavra-chave
+## <a name="in-keyword"></a>Palavra-chave
 A palavra-chave IN pode ser utilizado para verificar se um valor especificado corresponde a um valor numa lista. Por exemplo, esta consulta devolve todos os documentos de famílias em que o id é um dos "WakefieldFamily" ou "AndersenFamily". 
 
     SELECT *
@@ -574,7 +574,7 @@ Este exemplo retorna todos os documentos em que o estado é qualquer um dos valo
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Ternária (?) e os operadores de Coalesce (?)
+## <a name="ternary--and-coalesce--operators"></a>Ternária (?) e os operadores de Coalesce (?)
 Os operadores ternária e Coalesce podem ser utilizados para criar expressões condicionais, semelhantes a linguagens de programação populares, como c# e JavaScript. 
 
 O operador Ternário (?) pode ser muito útil durante a criação de novas propriedades JSON em tempo real. Por exemplo, agora pode escrever consultas para classificar os níveis de classe num formato legível humano, como para iniciantes/intermédio/avançadas, como mostrado abaixo.
@@ -594,7 +594,7 @@ O operador de Coalesce (?) pode ser usado para verificar com eficiência a prese
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Acessador de propriedade com aspas
+## <a id="EscapingReservedKeywords"></a>Acessador de propriedade com aspas
 Também pode acessar propriedades usando o operador de propriedade delimitados por aspas `[]`. Por exemplo, `SELECT c.grade` e `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando precisa usar uma propriedade que contém espaços, carateres especiais, ou acontece partilhar o mesmo nome que uma palavra-chave SQL ou uma palavra reservada.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Vamos examinar a função de `$1` aqui. O `SELECT` cláusula tem de criar um obj
     }]
 
 
-### <a name="aliasing"></a>Aliasing
+## <a name="aliasing"></a>Aliasing
 Agora vamos ampliar o exemplo acima, com o aliasing explícita de valores. Tal como está a palavra-chave utilizada para aliasing. É opcional, conforme mostrado e projeta o segundo valor como `NameInfo`. 
 
 No caso de uma consulta tem duas propriedades com o mesmo nome, o aliasing deve ser utilizado para mudar o nome de uma ou ambas as propriedades para que eles são a ambigüidade removidos no resultado previsto.
@@ -708,7 +708,7 @@ No caso de uma consulta tem duas propriedades com o mesmo nome, o aliasing deve 
     }]
 
 
-### <a name="scalar-expressions"></a>Expressões escalares
+## <a name="scalar-expressions"></a>Expressões escalares
 Além das referências de propriedade, a cláusula SELECT também oferece suporte a expressões escalares como constantes, expressões aritméticas, expressões lógicas, etc. Por exemplo, eis uma consulta de "Hello World" simples.
 
 **Consulta**
@@ -754,7 +754,7 @@ No exemplo a seguir, o resultado da expressão escalar é um booleano.
     ]
 
 
-### <a name="object-and-array-creation"></a>Criação do objeto e matriz
+## <a name="object-and-array-creation"></a>Criação do objeto e matriz
 Outro recurso importante da API de SQL é a criação de matriz/objeto. No exemplo anterior, tenha em atenção que criamos um novo objeto JSON. Da mesma forma, um pode também criar matrizes conforme mostrado nos exemplos a seguir:
 
 **Consulta**
@@ -779,7 +779,7 @@ Outro recurso importante da API de SQL é a criação de matriz/objeto. No exemp
       }
     ]
 
-### <a id="ValueKeyword"></a>Palavra-chave de valor
+## <a id="ValueKeyword"></a>Palavra-chave de valor
 O **valor** palavra-chave fornece uma maneira de retornar o valor JSON. Por exemplo, a consulta mostrada abaixo retorna o valor de escalar `"Hello World"` em vez de `{$1: "Hello World"}`.
 
 **Consulta**
@@ -830,7 +830,7 @@ O exemplo seguinte expande para mostrar como devolver valores primitivos de JSON
     ]
 
 
-### <a name="-operator"></a>* Operador
+## <a name="-operator"></a>* Operador
 O operador especial (*) é suportado para projetar o documento como-é. Quando utilizado, tem de ser o único campo previsto. Embora uma consulta como `SELECT * FROM Families f` for válido, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` não são válidos.
 
 **Consulta**
@@ -859,7 +859,7 @@ O operador especial (*) é suportado para projetar o documento como-é. Quando u
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>Operador TOP
+## <a id="TopKeyword"></a>Operador TOP
 A palavra-chave superior pode ser utilizada para limitar o número de valores de uma consulta. Quando a parte superior é utilizado em conjunto com a cláusula ORDER BY, o conjunto de resultados é limitado para o primeiro número de N de valores ordenados; caso contrário, devolve o primeiro número de N dos resultados numa ordem indefinida. Como melhor prática, numa instrução SELECT, utilize sempre uma cláusula ORDER BY com a cláusula TOP. Esta é a única forma de forma previsível indicar que linhas são afetadas pela parte superior. 
 
 **Consulta**
@@ -889,7 +889,7 @@ A palavra-chave superior pode ser utilizada para limitar o número de valores de
 
 Parte superior, pode ser utilizado com um valor constante (conforme mostrado acima) ou com um valor de variável usando consultas parametrizadas. Para obter mais detalhes, consulte as consultas parametrizadas abaixo.
 
-### <a id="Aggregates"></a>Funções de agregação
+## <a id="Aggregates"></a>Funções de agregação
 Também pode efetuar agregações no `SELECT` cláusula. As funções de agregação executam um cálculo num conjunto de valores e devolvem um valor único. Por exemplo, a consulta seguinte devolve a contagem de documentos famílias dentro da coleção.
 
 **Consulta**

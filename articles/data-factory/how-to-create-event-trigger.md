@@ -10,20 +10,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005837"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216277"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
 Este artigo descreve os acionadores baseados em eventos que podem ser criados em seus pipelines do Data Factory.
 
 Arquitetura condicionada por eventos (EDA) é um padrão de integração de dados comum, que envolve a produção, de deteção, de consumo e de reação a eventos. Cenários de integração de dados requerem muitas vezes, os clientes do Data Factory acionar pipelines com base em eventos. Fábrica de dados está agora integrada [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), que permite acionar pipelines num evento.
+
+Para obter uma introdução de dez minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
+
 
 > [!NOTE]
 > A integração descrita neste artigo depende [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Certifique-se de que a sua subscrição está registada com o fornecedor de recursos do Event Grid. Para mais informações, veja [fornecedores de recursos e os tipos de](../azure-resource-manager/resource-manager-supported-services.md#portal).

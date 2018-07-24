@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 81aa8153198f69abd1722f97462927a0c242d4e7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186164"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213270"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Configurar uma VM identidade do serviço gerido com o portal do Azure
 
@@ -37,7 +37,7 @@ Neste artigo, aprenderá a ativar e desativar o sistema de identidade atribuído
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md).
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem da atribuição de função seguinte:
-    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover a identidade do serviço gerido da VM do Azure.
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover a identidade de sistema atribuída de uma VM do Azure.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Identidade de serviço gerida durante a criação de uma VM do Azure
 

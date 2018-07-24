@@ -1,5 +1,5 @@
 ---
-title: Define o dispositivo de utilização na sua aplicação do Azure IoT Central | Microsoft Docs
+title: Conjuntos de dispositivos de utilização na sua aplicação do Azure IoT Central | Documentos da Microsoft
 description: Como um operador, como utilizar o dispositivo define na sua aplicação do Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
@@ -8,94 +8,94 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261683"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206076"
 ---
-# <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilizar conjuntos de dispositivo na sua aplicação do Azure IoT Central
+# <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
 Este artigo descreve como, como um operador, para utilizar o dispositivo conjuntos na sua aplicação do Microsoft Azure IoT Central.
 
-Um conjunto de dispositivos é uma lista de dispositivos que estão agrupados porque corresponderem algumas critérios especificados. Dispositivo define ajuda a gerir, visualizar e analisar dispositivos de escala ao agrupar dispositivos para grupos mais pequenos e lógicos. Por exemplo, pode criar uma lista de todos os dispositivos de ar condicionado para edifícios em Seattle para ativar o técnico de Seattle localizar todos os dispositivos para que ela é responsável. Este artigo mostra como criar e configurar conjuntos de dispositivo.
+Um conjunto de dispositivos é uma lista de dispositivos que são agrupados em conjunto, porque todos eles correspondem a critérios especificados. Dispositivo define ajuda que gere, visualizar, analisar e dispositivos à escala através do agrupamento de dispositivos em grupos mais pequenos e lógicos. Por exemplo, crie uma lista de todos os dispositivos de ar-condicionado em Seattle para permitir que o técnico de Seattle localizar todos os dispositivos para a qual ela é responsável. Este artigo mostra-lhe como criar e configurar conjuntos de dispositivo.
 
 ## <a name="create-a-device-set"></a>Criar um conjunto de dispositivos
 
 Para criar um conjunto de dispositivos:
 
-1. Escolha **conjuntos de dispositivo** no menu de navegação esquerdo.
+1. Escolher **conjuntos de dispositivo** no menu de navegação esquerdo.
 
 1. Clique em **+ Novo**.
 
     ![Novo conjunto de dispositivos](media/howto-use-device-sets/image1.png)
 
-1. Dê um nome que seja exclusivo em toda a aplicação completa do conjunto de dispositivos. Também pode adicionar uma descrição. Um conjunto de dispositivo só pode conter os dispositivos a partir de um modelo de único dispositivo. Escolha o modelo de dispositivo a utilizar para este conjunto.
+1. Dê um nome que seja exclusivo em toda a aplicação ao seu conjunto de dispositivos. Também pode adicionar uma descrição. Um conjunto de dispositivos só pode conter os dispositivos a partir de um modelo de único dispositivo. Escolha o modelo de dispositivo a utilizar para este conjunto.
 
-1. Crie a consulta para identificar os dispositivos para o dispositivo definida ao selecionar uma propriedade, um operador de comparação e um valor. Pode adicionar várias consultas e dispositivos que cumprem **todos os** os critérios são colocados no conjunto de dispositivos. O conjunto de dispositivo que criou está acessível a qualquer pessoa que tenha acesso à aplicação, pelo que qualquer pessoa pode ver, modificar ou eliminar o conjunto de dispositivos.
+1. Crie a consulta para identificar os dispositivos para o dispositivo definida ao selecionar uma propriedade, um operador de comparação e um valor. Pode adicionar várias consultas e dispositivos que cumprem **todos os** os critérios são colocados no conjunto de dispositivos. O conjunto de dispositivo que criou está acessível a qualquer pessoa que tenha acesso à aplicação, para que qualquer pessoa pode ver, modificar ou eliminar o conjunto de dispositivos.
 
     ![Consulta de conjunto de dispositivos](media/howto-use-device-sets/image2.png)
 
     > [!NOTE]
-    > O conjunto de dispositivos é uma consulta dinâmica. Sempre que ver a lista de dispositivos, pode haver dispositivos diferentes na lista. A lista depende quais os dispositivos atualmente cumprem os critérios da consulta.
+    > O conjunto de dispositivos é uma consulta dinâmica. Sempre que exibir a lista de dispositivos, pode haver diferentes dispositivos na lista. A lista depende de quais os dispositivos atualmente cumprem os critérios da consulta.
 
 1. Escolha **Guardar**.
 
-## <a name="configure-the-dashboard-for-your-device-set"></a>Configurar o Dashboard para o conjunto de dispositivos
+## <a name="configure-the-dashboard-for-your-device-set"></a>Configurar o Dashboard para o seu conjunto de dispositivos
 
-Depois de criar o conjunto de dispositivos, pode configurar o respetivo **Dashboard**. O **Dashboard** é home page, onde pode colocar imagens e ligações. Também pode adicionar grelhas que listam os dispositivos no conjunto de dispositivos.
+Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. O **Dashboard** é a página inicial de onde pode colocar imagens e links. Também pode adicionar grades que listam os dispositivos no conjunto de dispositivos.
 
-1. Escolha **conjuntos de dispositivo** no menu de navegação esquerdo.
+1. Escolher **conjuntos de dispositivo** no menu de navegação esquerdo.
 
 1. Escolha o **Dashboard** separador.
 
-1. Ativar **modo de desenho**.
+1. Ative **modo de Design**.
 
-    ![Modo de estrutura no](media/howto-use-device-sets/image3.png)
+    ![Modo de design no](media/howto-use-device-sets/image3.png)
 
-1. Para obter informações sobre como adicionar uma imagem, consulte [preparar e carregar imagens para a aplicação do Azure IoT Central](howto-prepare-images.md).
+1. Para obter informações sobre como adicionar uma imagem, veja [preparar e carregar imagens para a sua aplicação do Azure IoT Central](howto-prepare-images.md).
 
 1. Adicione um mosaico de ligação:
-    1. Escolha **ligação** no painel direito.
+    1. Escolher **Link** no painel direito.
 
         ![Escolha a ligação](media/howto-use-device-sets/image6.png)
 
-    1. Permitir a ligação um **título**.
+    1. Dar a sua ligação de um **Title**.
     1. Escolha um URL para seja aberta quando a ligação é clicada.
-    1. Forneça a ligação uma descrição que mostra abaixo o **título**.
+    1. Forneça uma descrição que mostra abaixo da ligação a **Title**.
     1. Escolha **Guardar**.
 
         ![Guardar a ligação](media/howto-use-device-sets/image7.png)
 
-    1. Pode mover e redimensiona o mosaico de ligação no **Dashboard**.
+    1. Pode mover e redimensionar o mosaico de ligação no **Dashboard**.
 
-1. Adicione uma grelha. Uma grelha é uma tabela de dispositivos num dispositivo com as colunas que escolher.
-    1. Escolha **grelha** no painel direito.
+1. Adicione uma grade. Uma grade é uma tabela de dispositivos em dispositivos conjunto com as colunas que escolher.
+    1. Escolher **Grid** no painel direito.
 
         ![Escolha a grelha](media/howto-use-device-sets/image8.png)
 
-    1. Atribua a grelha um **título**.
-    1. Selecione as colunas a apresentar escolhendo o botão de definições. No painel que aparece, selecione a coluna que pretende apresentar e escolher a seta para a direita para selecioná-lo.
+    1. Dê sua grelha de um **Title**.
+    1. Selecione as colunas a serem apresentados ao escolher o botão de definições. No painel que aparece, escolha a coluna que apresentar e selecione a seta para a direita para selecioná-lo.
     1. Escolha **OK**.
     1. Escolha **Guardar**.
 
-        ![Guardar grelha](media/howto-use-device-sets/image9.png)
+        ![Guardar a grelha](media/howto-use-device-sets/image9.png)
 
-    1. Arrastar e largar grelha para colocá-lo no **Dashboard**.
+    1. Arraste e largue a grade colocá-lo na **Dashboard**.
 
     > [!NOTE]
-    > Pode adicionar várias imagens, ligações e grelhas.
+    > Pode adicionar várias imagens, ligações e grades.
   
-    1. Desativar **modo de estrutura**.
+    1. Desativar **modo de Design**.
 
-    ![Modo de desenho desativado](media/howto-use-device-sets/image10.png)
+    ![Modo de design desativado](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard 
 Pode adicionar um mapa de localização para visualizar a localização dos seus dispositivos define num mapa. 
 
-Para poder adicionar um mapa de localização para o dispositivo define o dashboard tem de ter propriedade de localização configurado no seu modelo do dispositivo, consulte [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md).
+Para adicionar um mapa de localização para o dispositivo define dashboard tem de ter a propriedade de localização configurada no seu modelo de dispositivo, consulte [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md).
 
 
 1. No Dashboard de conjuntos de dispositivo, selecione o mapa da biblioteca. 
@@ -103,49 +103,49 @@ Para poder adicionar um mapa de localização para o dispositivo define o dashbo
     ![Dispositivo define os mapas de Dashboard](media/howto-use-device-sets/LocationMaps1.png)
 
 
-2. Dê um título e escolha a propriedade de localização que configurou anteriormente como parte da sua propriedade do dispositivo.
+2. Atribua um título e escolha a propriedade de localização que tenha configurado anteriormente como parte de sua propriedade do dispositivo.
 
     ![Configurar os mapeamentos de Dashboard](media/howto-use-device-sets/LocationMaps2.png)
 
-3. Guardar e irá ver o mapa de mosaico apresenta a localização dos seus dispositivos no conjunto de dispositivos.
+3. Guardar e verá o mapa de mosaico a apresentar a localização dos seus dispositivos no conjunto de dispositivos.
 
-    ![Guardar o Maps de Dashboard](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. Agora, quando um operador vistas do dashboard de conjuntos de dispositivo, ela consegue ver todos os mosaicos configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante!
-
-    ![Vista do dashboard de operador de Maps](media/howto-use-device-sets/LocationMaps4.png)
-
-    Será possível redimensionar o mapa para o seu tamanho pretendido.
+    ![Guardar Dashboard Maps](media/howto-use-device-sets/LocationMaps3.png)
 
 
+5. Agora, quando um operador visualiza o dashboard de conjuntos de dispositivo, ela pode ver todos os mosaicos que configurou incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante! 
+
+    ![Vista de dashboard de operador de mapas](media/howto-use-device-sets/LocationMaps4.png)
+
+    Será capaz de redimensionar o mapa para seu tamanho desejado.
+
+    Clicar num pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode clicar em pop-up para ir para a página de propriedades do dispositivo.  
 
 
-## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o conjunto de dispositivos
+## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o seu conjunto de dispositivos
 
-Depois de criar o conjunto de dispositivos, pode configurar o **lista**. O **lista** mostra todos os dispositivos no dispositivo definidos numa tabela com as colunas que escolher.
+Depois de criar o conjunto de dispositivos, pode configurar o **lista**. O **lista** mostra todos os dispositivos com o dispositivo definidos numa tabela com as colunas que escolher.
 
-1. Escolha **conjuntos de dispositivo** no menu de navegação esquerdo.
+1. Escolher **conjuntos de dispositivo** no menu de navegação esquerdo.
 
 1. Escolha o **lista** separador.
 
-1. Escolha **opções de coluna**.
+1. Escolher **opções de coluna**.
 
     ![Opções de coluna](media/howto-use-device-sets/image11.png)
 
-1. Escolha as colunas a apresentar ao selecionar a coluna que pretende mostrar e escolher a seta para a direita para selecioná-lo.
+1. Escolha as colunas a serem apresentados ao selecionar a coluna que pretende mostrar e selecionar a seta para a direita para selecioná-lo.
 
-    ![Escolher colunas](media/howto-use-device-sets/image12.png)
+    ![Escolher coluna](media/howto-use-device-sets/image12.png)
 
 1. Escolha **OK**.
 
 ## <a name="analytics"></a>Análise
 
-A análise em conjuntos de dispositivo é o mesmo que o separador de análise principal no menu de navegação esquerdo. Pode saber mais sobre a análise no artigo no [como criar análise](howto-create-analytics.md).
+A análise em conjuntos de dispositivo é o mesmo que o principal do separador análise no menu de navegação esquerdo. Pode saber mais sobre a análise no artigo na [como criar análises](howto-create-analytics.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como utilizar os conjuntos de dispositivo na sua aplicação do Azure IoT Central, eis o passo seguinte sugerido:
+Agora que aprendeu como utilizar conjuntos de dispositivos na sua aplicação do Azure IoT Central, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
 > [Como criar regras de telemetria](howto-create-telemetry-rules.md)

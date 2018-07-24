@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: d5071a55c49a0749d91ec9617558ced76ebb007e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6033269ab1dd35721aff17b1732d1f02cc452b31
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188102"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216161"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurar um VMSS Managed Service Identity (MSI) com o PowerShell
 
@@ -36,7 +36,7 @@ Neste artigo, irá aprender a realizar as operações de identidade do serviço 
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
-    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e ativar e remover sistema atribuído a identidade gerida a partir de um conjunto de dimensionamento de máquina virtual.
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) criar um conjunto de dimensionamento de máquinas virtuais e ativar e remover sistema atribuído geridos e/ou definir a identidade de utilizador de um dimensionamento de máquina virtual.
     - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador.
     - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para atribuir e remover uma identidade de utilizador atribuída de e para um conjunto de dimensionamento de máquina virtual.
 - Instale [a versão mais recente do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) se ainda não o fez. 

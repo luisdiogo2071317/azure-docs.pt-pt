@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 89fb805ac64be358ed4f52865d2e89ab16fe2b17
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ffd0f272d182e3362a82e137e902d433ca750b46
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005803"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216296"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -129,7 +129,7 @@ O desempenho de carregamento/transferência de grandes quantidades de dados para
 7. Na **Scripts de exemplo** pasta, há dois scripts do PowerShell de exemplo fornecidos para demonstrar em massa paralela importa de dados para tabelas do SQL Server.
    
    * **BCP\_paralela\_generic.ps1** é um script genérico para dados de importação em massa paralela numa tabela. Modificar esse script para definir as variáveis de entrada e de destino, conforme indicado nas linhas de comentário no script.
-   * **BCP\_paralela\_nyctaxi.ps1** é uma versão pré-configurada do script genérico e pode ser usado para carregar as duas tabelas para os dados de viagens de táxis de NYC.  
+   * **BCP\_paralela\_nyctaxi.ps1** é uma versão pré-configurada do script genérico e pode ser usado para carregar a ambas as tabelas para os dados de viagens de táxis de NYC.  
 8. Com o botão direito a **bcp\_paralela\_nyctaxi.ps1** nome do script e clique em **editar** para abri-lo no PowerShell. Reveja as variáveis predefinidas e modificar de acordo com seu nome de base de dados selecionada, a pasta de dados de entrada, a pasta de registo de destino e a caminhos para os ficheiros de formato de exemplo **nyctaxi_trip.xml** e **nyctaxi\_fare.xml** (fornecidas a **Scripts de exemplo** pasta).
    
     ![Dados de importação em massa][16]

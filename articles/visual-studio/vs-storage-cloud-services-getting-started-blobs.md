@@ -1,6 +1,6 @@
 ---
-title: Introdução ao blob storage e o Visual Studio ligado services (Serviços de cloud) | Microsoft Docs
-description: Como começar a utilizar o Blob storage do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligada a serviços
+title: Introdução ao blob storage e o Visual Studio ligado services (serviços cloud) | Documentos da Microsoft
+description: Serviços ligados de como começar a utilizar o armazenamento de Blobs do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio
 services: storage
 author: ghogen
 manager: douge
@@ -11,39 +11,39 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 2df69d9f180303f6c14433140d862c017b97148d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 30f64bacd5d8622420dced84007404098e7eba75
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796895"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213127"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao Blob Storage do Azure e o Visual Studio ligado serviços (projetos de serviços de nuvem)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de Blobs do Azure e o Visual Studio serviços ligados (projetos de serviços cloud)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este artigo descreve como começar com o Blob Storage do Azure após a criação ou referenciada uma conta de armazenamento do Azure utilizando o Visual Studio **adicionar serviços ligados** projeto dos serviços de caixa de diálogo numa nuvem Visual Studio. Vamos mostrar-lhe como aceder e criar contentores de BLOBs e como realizar tarefas comuns, como carregar, listar e transferir os blobs. Os exemplos são escritos no C\# e utilizar o [biblioteca do cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Este artigo descreve como começar com o armazenamento de Blobs do Azure depois de criado ou referenciados uma conta de armazenamento do Azure utilizando o Visual Studio **adicionar serviços ligados** projeto dos serviços de caixa de diálogo numa nuvem do Visual Studio. Mostraremos como aceder e criar contentores de BLOBs e como executar tarefas comuns, como carregamento, a listagem e transferir blobs. Os exemplos são escritos em C\# e utilizar o [biblioteca do cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, que podem ser acedidos de qualquer local no mundo através de HTTP ou HTTPS. Um blob único pode ser qualquer dimensão. Os BLOBs podem ser coisas como imagens, ficheiros de áudio e vídeos, dados não processados e ficheiros do documento.
+Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, que podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Um blob único pode ser qualquer tamanho. BLOBs podem ser coisas como imagens, arquivos de áudio e vídeo, dados não processados e arquivos do documento.
 
-Tal como em direto de ficheiros em pastas, blobs de armazenamento em direto nos contentores. Depois de ter criado um armazenamento, crie um ou mais contentores no armazenamento. Por exemplo, um armazenamento chamado "Scrapbook", pode criar contentores no armazenamento chamado "imagens" para armazenar imagens e outra denominada "áudio" para armazenar ficheiros de áudio. Depois de criar os contentores, pode carregar ficheiros BLOBs individuais aos mesmos.
+Assim como ficheiros residam em pastas, os blobs de armazenamento em direto em contentores. Depois de criar um armazenamento, criar um ou mais contentores no armazenamento. Por exemplo, num armazenamento chamado "Scrapbook", pode criar contentores no armazenamento chamado "imagens" para armazenar imagens e outro chamado "áudio" para armazenar os arquivos de áudio. Depois de criar os contentores, pode carregar ficheiros de blob individuais aos mesmos.
 
-* Para obter mais informações sobre manipular programaticamente os blobs, consulte [introdução ao Blob storage do Azure através do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
-* Para obter informações gerais sobre o Storage do Azure, consulte [documentação do Storage](https://azure.microsoft.com/documentation/services/storage/).
-* Para obter informações gerais sobre os Cloud Services do Azure, consulte [documentação dos serviços de nuvem](https://azure.microsoft.com/documentation/services/cloud-services/).
-* Para obter mais informações sobre a programação de aplicações ASP.NET, consulte [ASP.NET](http://www.asp.net).
+* Para obter mais informações sobre a manipulação programática de blobs, veja [introdução ao armazenamento de Blobs do Azure com o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* Para obter informações gerais sobre o armazenamento do Azure, consulte [documentação do armazenamento](https://azure.microsoft.com/documentation/services/storage/).
+* Para obter informações gerais sobre o Azure Cloud Services, consulte [documentação de serviços Cloud](https://azure.microsoft.com/documentation/services/cloud-services/).
+* Para obter mais informações sobre a programação de aplicativos do ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Contentores de BLOBs de acesso no código
-Através de programação para aceder a blobs em projetos de serviço em nuvem, tem de adicionar os seguintes itens, se não estiverem já presentes.
+Para acessar programaticamente os blobs em projetos de serviço cloud, terá de adicionar os seguintes itens, se não ainda estiverem presentes.
 
-1. Adicione as seguintes declarações de espaço de nomes de código na parte superior de qualquer ficheiro c# no qual pretende aceder programaticamente ao Storage do Azure.
+1. Adicione as seguintes declarações de espaço de nomes de código na parte superior de qualquer arquivo do c# no qual pretende aceder programaticamente ao armazenamento do Azure.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. Obter um **CloudStorageAccount** objeto que representa as informações da conta de armazenamento. Utilize o seguinte código para obter a sua cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
+2. Obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a sua cadeia de ligação de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
@@ -57,23 +57,23 @@ Através de programação para aceder a blobs em projetos de serviço em nuvem, 
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 > [!NOTE]
-> Utilize todo o código mostrado no procedimento anterior à frente do código mostrado nas seguintes secções de.
+> Utilize todo o código mostrado no procedimento anterior à frente o código mostrado nas seções a seguir.
 > 
 > 
 
 ## <a name="create-a-container-in-code"></a>Criar um contentor no código
 > [!NOTE]
-> Algumas APIs que efetuar chamadas enviados para o Storage do Azure no ASP.NET são assíncronas. Consulte [programação assíncrona com Async-Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código no exemplo seguinte parte do princípio de que está a utilizar métodos assíncronos de programação.
+> Algumas APIs que realizam chamadas horizontalmente ao armazenamento do Azure no ASP.NET são assíncronas. Ver [programação assíncrona com Async e Await](http://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código no exemplo a seguir pressupõe que está a utilizar métodos de programação assíncrona.
 > 
 > 
 
-Para criar um contentor na sua conta de armazenamento, tudo o que precisa de fazer é adicionar uma chamada para **CreateIfNotExistsAsync** como no seguinte código:
+Para criar um contentor na conta de armazenamento, tudo o que precisa fazer é adicionar uma chamada para **CreateIfNotExistsAsync** como no seguinte código:
 
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
-Para disponibilizar os ficheiros dentro do contentor para todos os utilizadores, pode definir o contentor como público utilizando o seguinte código.
+Para disponibilizar a todos os ficheiros dentro do contêiner, pode definir o contentor como público utilizando o código a seguir.
 
     await container.SetPermissionsAsync(new BlobContainerPermissions
     {
@@ -81,10 +81,10 @@ Para disponibilizar os ficheiros dentro do contentor para todos os utilizadores,
     });
 
 
-Qualquer pessoa na Internet pode ver os blobs num contentor público, mas pode modificar ou eliminá-los apenas se tiver a chave de acesso adequados.
+Qualquer pessoa na Internet pode ver os blobs num contentor público, mas pode modificar ou eliminá-los apenas se tiver a chave de acesso adequada.
 
 ## <a name="upload-a-blob-into-a-container"></a>Carregar um blob para um contentor
-Storage do Azure suporta blobs de blocos e blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a utilizar.
+O armazenamento do Azure suporta blobs de blocos e blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a utilizar.
 
 Para carregar um ficheiro para um blob de blocos, obtenha uma referência de contentor e utilize-a para obter uma referência de blob de blocos. Quando tiver uma referência de blob, pode carregar qualquer fluxo de dados para a mesma ao chamar o método **UploadFromStream**. Esta operação cria o blob caso não exista, ou substitui se existir. O exemplo seguinte mostra como carregar um blob para um contentor e parte do princípio de que o contentor já foi criado.
 
@@ -125,7 +125,7 @@ Para listar os blobs num contentor, obtenha primeiro uma referência de contento
         }
     }
 
-Conforme mostrado no exemplo de código anterior, o serviço blob tem o conceito de diretórios contentores, bem. Isto é, de modo a que pode organizar os blobs numa estrutura mais semelhantes a pasta. Por exemplo, considere o seguinte conjunto de blobs de blocos num contentor com o nome **photos**:
+Conforme mostrado no exemplo de código anterior, o serviço de BLOBs tem o conceito de diretórios dentro de contentores, também. Isto é, de modo que pode organizar os blobs numa estrutura mais semelhantes a pasta. Por exemplo, considere o seguinte conjunto de blobs de blocos num contentor com o nome **photos**:
 
     photo1.jpg
     2010/architecture/description.txt
@@ -136,14 +136,14 @@ Conforme mostrado no exemplo de código anterior, o serviço blob tem o conceito
     2011/architecture/description.txt
     2011/photo7.jpg
 
-Quando chamar **ListBlobs** no contentor (tal como no exemplo anterior), contém a coleção devolvida **CloudBlobDirectory** e **CloudBlockBlob** objetos que representam os diretórios e os blobs contidos no nível superior. Segue-se a saída resultante:
+Quando chama **ListBlobs** no contentor (como no exemplo anterior), contém a coleção retornada **CloudBlobDirectory** e **CloudBlockBlob** objetos que representam os diretórios e blobs contidos no nível superior. Eis a saída resultante:
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Opcionalmente, pode definir o parâmetro **UseFlatBlobListing** do método**ListBlobs** como **true**. Isto resulta em todos os BLOBs que está a ser devolvido como uma **CloudBlockBlob**, independentemente do diretório. Segue-se a chamada para **ListBlobs**:
+Opcionalmente, pode definir o parâmetro **UseFlatBlobListing** do método**ListBlobs** como **true**. Isso resulta em todos os BLOBs que está a ser retornado como um **CloudBlockBlob**, independentemente do diretório. Segue-se a chamada para **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -151,7 +151,7 @@ Opcionalmente, pode definir o parâmetro **UseFlatBlobListing** do método**List
        ...
     }
 
-e Eis os resultados:
+e aqui estão os resultados:
 
     Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
     Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg

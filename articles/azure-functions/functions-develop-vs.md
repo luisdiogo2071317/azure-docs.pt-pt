@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: bc280e9b4ade8a4fb8107ec2dcc1c33f538472e1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 318a39e244f0fca3a1b2d8531dd9197a15400e02
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602980"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205362"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -132,7 +132,7 @@ Nas funções compiladas previamente, as ligações usadas pela função são de
         }
     }
     ````
-    Um atributo específico do enlace é aplicado a cada parâmetro de ligação fornecido para o método de ponto de entrada. O atributo utiliza as informações de associação como parâmetros. No exemplo anterior, o primeiro parâmetro tem um **QueueTrigger** atributo aplicado, que indica a função acionada por fila. O nome da fila e o nome de definição da cadeia de ligação são passados como parâmetros para o **QueueTrigger** atributo.
+    Um atributo específico do enlace é aplicado a cada parâmetro de ligação fornecido para o método de ponto de entrada. O atributo utiliza as informações de associação como parâmetros. No exemplo anterior, o primeiro parâmetro tem um **QueueTrigger** atributo aplicado, que indica a função acionada por fila. O nome da fila e o nome de definição da cadeia de ligação são passados como parâmetros para o **QueueTrigger** atributo. Para obter mais informações, consulte [enlaces de armazenamento de filas do Azure para as funções do Azure](functions-bindings-storage-queue.md#trigger---c-example).
     
 Pode utilizar o procedimento acima para adicionar mais funções ao seu projeto de aplicação de função. Cada função no projeto pode ter um acionador diferente, mas uma função tem de ter exatamente um acionador. Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](functions-triggers-bindings.md).
 

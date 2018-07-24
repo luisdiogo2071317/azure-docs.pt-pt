@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ddf44ef933270c08b42f67387866cd7a3b34719
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004084"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215021"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM a um laboratório no Azure DevTest Labs
 Se já tiver [criado a sua primeira VM](devtest-lab-create-first-vm.md), provavelmente fez isso de um pré-carregados [imagem do marketplace](devtest-lab-configure-marketplace-images.md). Agora, se pretender adicionar VMs subsequentes para seu laboratório, pode também escolher uma *base* ou seja, um um [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial explica-lhe utilizar o portal do Azure para adicionar uma VM a um laboratório no DevTest Labs.
@@ -35,17 +35,21 @@ Este artigo também mostra como gerir os artefactos para uma VM no seu laborató
     ![Adicionar botão VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
 1. Sobre o **Vyberte bázi** painel, selecione uma base para a VM.
-1. Sobre o **Máquina Virtual** painel, introduza um nome para a nova máquina virtual no **nome da Máquina Virtual** caixa de texto.
+1. Sobre o **Máquina Virtual** painel, **nome da máquina virtual** previamente preenchida para si com um nome exclusivo gerado automaticamente. O nome corresponde ao nome de usuário dentro do seu endereço de e-mail, seguido por uma série de 3 dígitos exclusiva. Esse recurso poupa tempo para pensar num nome de máquina e escrevê-lo sempre que criar uma máquina. Se desejar, pode substituir este campo preenchido automaticamente com um nome à sua escolha. Para substituir o nome preenchido automaticamente para a VM, introduza um nome na **nome da Máquina Virtual** caixa de texto. 
 
     ![Painel da VM de laboratório](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Introduza um **nome de utilizador** que é concedido privilégios de administrador na máquina virtual.  
-1. Se pretender utilizar uma palavra-passe armazenada numa [do Azure key vault](devtest-lab-store-secrets-in-key-vault.md), selecione **utilizar um segredo guardado**e especifique um valor de chave que corresponda ao seu segredo (palavra-passe). Caso contrário, introduza uma palavra-passe no campo texto da etiqueta **escreva um valor**. Para saber mais sobre a guardar segredos num cofre de chaves e utilizá-las durante a criação de recursos do laboratório, consulte [Store segredos no Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-1. O **tipo de disco da Máquina Virtual** determina o tipo de disco de armazenamento é permitido para as máquinas virtuais no laboratório.
-2. Selecione **tamanho da Máquina Virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho de RAM e o tamanho de disco rígido da VM para criar.
-3. Selecione **artefactos** - e, na lista de artefactos - selecionar e configurar os artefatos que pretende adicionar à imagem de base.
+1. O **nome de utilizador** para a máquina é previamente preenchida com um nome exclusivo gerado automaticamente. O nome corresponde ao nome de usuário dentro do seu endereço de e-mail. Esse recurso poupa o tempo para decidir qual a um nome de utilizador sempre que criar uma nova máquina. Novamente, pode substituir este campo preenchido automaticamente com um nome de utilizador da sua preferência, se desejar. Para substituir o valor preenchido automaticamente para o nome de utilizador, introduza um valor na **nome de utilizador** caixa de texto. Este utilizador é concedido **administrador** privilégios na máquina virtual.     
+1. Para o **palavra-passe**:
+    
+    Se estiver a criar primeira VM no laboratório, introduza uma palavra-passe no **escreva um valor** caixa de texto. Para guardar esta palavra-passe como uma palavra-passe predefinida no Cofre de chaves do Azure associada com o laboratório, selecione **guardar como palavra-passe predefinida**. A palavra-passe predefinida é guardado no Cofre de chaves com o nome: **VmPassword**. Quando tenta criar VMs subsequentes no laboratório, **VmPassword** é selecionado automaticamente para o **palavra-passe**. Para substituir o valor, desmarque a **utilizar um segredo guardado** caixa de verificação e introduza uma palavra-passe. 
+
+    Pode também guardar segredos no Cofre de chaves em primeiro lugar e, em seguida, utilizá-lo ao criar uma VM no laboratório. Para obter mais informações, consulte [Store segredos num cofre de chaves](devtest-lab-store-secrets-in-key-vault.md). Para utilizar a palavra-passe armazenada no Cofre de chaves, selecione **utilizar um segredo guardado**e especifique um valor de chave que corresponda ao seu segredo (palavra-passe). 
+3. O **tipo de disco da Máquina Virtual** determina o tipo de disco de armazenamento é permitido para as máquinas virtuais no laboratório.
+4. Selecione **tamanho da Máquina Virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho de RAM e o tamanho de disco rígido da VM para criar.
+5. Selecione **artefactos** - e, na lista de artefactos - selecionar e configurar os artefatos que pretende adicionar à imagem de base.
     **Nota:** se estiver familiarizado com o DevTest Labs ou configurar artefactos, consulte a [adicionar um artefato existente a uma VM](#add-an-existing-artifact-to-a-vm) secção e, em seguida, volte aqui quando terminar.
-4. Selecione **definições avançadas** para configurar opções de rede e opções de expiração da VM. 
+6. Selecione **definições avançadas** para configurar opções de rede e opções de expiração da VM. 
 
    Para definir uma opção de expiração, selecione o ícone de calendário para especificar uma data em que a VM será automaticamente eliminada.  Por predefinição, a VM nunca irá expirar. 
 1. Se quiser exibir ou copiar o modelo Azure Resource Manager, consulte a [modelo Azure Resource Manager guardar](#save-azure-resource-manager-template) secção e voltar aqui quando terminar.
@@ -102,7 +106,7 @@ Os passos seguintes mostram como ver ou modificar os parâmetros de um artefato:
 Um modelo Azure Resource Manager fornece uma forma declarativa de definir uma implementação repetível. Os passos seguintes explicam como pode guardar o modelo Azure Resource Manager para a VM que está sendo criada.
 Depois de guardar, pode utilizar o modelo Azure Resource Manager para [implementar novas VMs com o Azure PowerShell](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
-1. Sobre o **Máquina Virtual** painel, selecione **ver o modelo de ARM**.
+1. Sobre o **Máquina Virtual** painel, selecione **ver modelo do Azure Resource Manager**.
 2. Sobre o **modelo de exibição do Azure Resource Manager** painel, selecione o texto de modelo.
 3. Copie o texto selecionado para a área de transferência.
 4. Selecione **OK** para fechar a **painel de visualização do Azure Resource Manager modelo**.

@@ -1,6 +1,6 @@
 ---
-title: Objeto de deteção com o Python e a API de visão personalizada - serviços cognitivos do Azure | Microsoft Docs
-description: Explore uma aplicação básica do Windows que utiliza a API de visão personalizado nos serviços cognitivos da Microsoft. Criar um projeto, adicione etiquetas, carregar imagens, preparar o seu projeto e efetuar uma predição utilizando o ponto final predefinido.
+title: Objeto de deteção com o Python e a API de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
+description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada personalizado nos serviços cognitivos da Microsoft. Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e fazer uma predição ao utilizar o ponto final predefinido.
 services: cognitive-services
 author: areddish
 manager: chbuehle
@@ -9,48 +9,48 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: b946265b431a7dcb16bf99e3bf78e09f2d0a7de3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301017"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213586"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Utilizar a API de visão personalizada para criar um projeto de deteção de objeto com o Python
+# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Utilize a API de visão personalizada para criar um projeto de deteção de objeto com Python
 
-Explore um script de Python básico que utiliza a API de visão do computador para criar um projeto de deteção de objeto. Depois de criado, pode adicionar regiões marcadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição de predefinição do projeto e utilizar o ponto final para testar através de programação de uma imagem. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação, utilizando a API de visão personalizada.
+Explore um script de Python básico que utiliza a API de imagem digitalizada para criar um projeto de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição de padrão do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação com a API de visão personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar o tutorial, precisa de fazer o seguinte:
+Para utilizar o tutorial, terá de fazer o seguinte:
 
 - Instale o Python 2.7 + ou Python 3.5 +.
 - Instale o pip.
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
-Neste exemplo tem foi desenvolvido para Python.
+Este exemplo foi desenvolvido para Python.
 
-### <a name="get-the-custom-vision-sdk"></a>Obter a visão personalizada SDK
+### <a name="get-the-custom-vision-sdk"></a>Obtenha a SDK de visão personalizada
 
-Para criar este exemplo, terá de instalar o SDK Python para a API de visão personalizada:
+Para criar este exemplo, precisa instalar o SDK de Python para a API de visão personalizada:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-Pode transferir as imagens com o [amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+Pode baixar as imagens com o [amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>Passo 1: Obter as chaves de formação e previsão
+## <a name="step-1-get-the-training-and-prediction-keys"></a>Passo 1: Obter as chaves de formação e predição
 
-Para obter as chaves utilizadas neste exemplo, visite o [site visão personalizada](https://customvision.ai) e selecione o __engrenagem ícone__ no canto superior direito. No __contas__ secção, copie os valores do __formação chave__ e __predição chave__ campos.
+Para obter as chaves utilizadas neste exemplo, visite o [site de visão personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na __contas__ secção, copie os valores da __chave de treinamento__ e __predição chave__ campos.
 
-![Imagem das chaves da IU](./media/python-tutorial/training-prediction-keys.png)
+![Imagem das chaves da interface do Usuário](./media/python-tutorial/training-prediction-keys.png)
 
-Este exemplo utiliza as imagens de [nesta localização](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
+Este exemplo utiliza as imagens a partir [nesta localização](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>Passo 2: Criar um projeto do serviço de visão personalizada
+## <a name="step-2-create-a-custom-vision-service-project"></a>Passo 2: Criar um projeto de serviço de visão personalizada
 
-Para criar um novo projeto de serviço de visão personalizada, crie um ficheiro de script sample.py e adicione o seguinte conteúdo. Tenha em atenção a diferença entre a criação de uma deteção de objeto e o projeto de classificação de imagem é o domínio que está especificado para a chamada de create_project.
+Para criar um novo projeto de serviço de visão personalizada, crie um ficheiro de script sample.py e adicione o seguinte conteúdo. Tenha em atenção a diferença entre a criação de uma deteção de objetos e projeto de classificação de imagem é o domínio especificado para a chamada de create_project.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -82,9 +82,9 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 ## <a name="step-4-upload-images-to-the-project"></a>Passo 4: Carregar imagens para o projeto
 
-Para o projeto de deteção de objeto tem de carregar a imagem, regiões e etiquetas. A região no coordiantes normalizado e especifica a localização do objeto marcado.
+Para o projeto de deteção de objeto tem de carregar a imagem, regiões e marcas. A região está normalizado coordiantes e especifica a localização do objeto marcado.
 
-Para adicionar as imagens, região e etiquetas para o projeto, insira o seguinte código após a criação da etiqueta. Tenha em atenção que, para este tutorial, as regiões são codificado inline com o código. As regiões de especificar a caixa delimitadora em coordenadas normalizadas.
+Para adicionar as imagens, região e etiquetas ao projeto, insira o seguinte código após a criação de marca. Observe que, para este tutorial, as regiões são inseridos no código inline com o código. As regiões de especificar a caixa delimitadora em coordenadas normalizadas.
 
 ```Python
 
@@ -158,10 +158,10 @@ trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 
 ## <a name="step-5-train-the-project"></a>Passo 5: Preparar o projeto
 
-Agora que já adicionou as etiquetas e imagens para o projeto, pode prepará-lo: 
+Agora que adicionar etiquetas e imagens para o projeto, pode treiná-lo: 
 
-1. Insira o seguinte código. Esta ação cria a primeiro iteração no projeto. 
-2. Marcar esta iteração como a iteração predefinido.
+1. Insira o seguinte código. Esta ação cria a primeira iteração no projeto. 
+2. Marca esta iteração como a iteração de predefinição.
 
 ```Python
 import time
@@ -180,10 +180,10 @@ print ("Done!")
 
 ## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Passo 6: Obter e utilizar o ponto final de predição de predefinido
 
-Agora, está pronto a utilizar o modelo para a predição de: 
+Agora, está pronto para usar o modelo de predição: 
 
-1. Obtenha o ponto final associado a iteração predefinido. 
-2. Envie uma imagem de teste para o projeto utilizando esse ponto final.
+1. Obter o ponto final associado com a iteração de predefinição. 
+2. Envie uma imagem de teste para o projeto usando o ponto de extremidade.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -194,7 +194,7 @@ from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
 # Open the sample image and get back the prediction results.
-with open("images/test/test_image.jpg", mode="rb") as test_data:
+with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.

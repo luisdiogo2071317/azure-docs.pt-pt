@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921030"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213559"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de Hyper-V para replicação do Azure e de ativação pós-falha
 
@@ -131,11 +131,11 @@ Um instantâneo consistente com a aplicação é um instantâneo de ponto no tem
 2. Para gerar instantâneos do VSS para a VM, verifique que os serviços de integração do Hyper-V estão instalados na VM e que o serviço de integração de cópia de segurança (VSS) está ativado.
     - Certifique-se de que o serviço de VSS de serviços de integração/daemons estão em execução no convidado e estão numa **OK** estado.
     - Pode verificar isto partir de uma sessão de PowerShell elevada no anfitrião Hyper-V com o comando **et-VMIntegrationService - VMName<VMName>-nome VSS** também pode obter estas informações ao iniciar sessão na VM do convidado. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Certifique-se de que os serviços de integração de cópia de segurança/VSS na VM em execução e em bom estado de funcionamento. Se não estiver, reinicie esses serviços, e e o serviço do requerente de cópia de sombra de volumes do Hyper-V no servidor de anfitrião do Hyper-V.
+    - Certifique-se de que os serviços de integração de cópia de segurança/VSS na VM em execução e em bom estado de funcionamento. Caso contrário, reinicie esses serviços e o serviço de solicitante de cópia de sombra de volumes do Hyper-V no servidor de anfitrião do Hyper-V.
 
 ### <a name="common-errors"></a>Erros comuns
 
-**Código de erro** | **Mensagem** | **Detalhes**
+**Código de erro** | **mensagem** | **Detalhes**
 --- | --- | ---
 **0x800700EA** | "Não conseguiu gerar o conjunto de instantâneos do VSS para a máquina virtual de Hyper-V: estão disponíveis mais dados. (0x800700EA). Geração de conjunto de instantâneos do VSS pode falhar se a operação de cópia de segurança está em curso.<br/><br/> Operação de replicação para a máquina virtual falhou: estão disponíveis mais dados. " | Verifique se a VM tem o disco dinâmico ativado. Tal não é suportado.
 **0x80070032** | "Não conseguiu ligar à máquina virtual de solicitante de cópia de sombra de Volume de Hyper-V <. / VMname > porque a versão não corresponde a versão esperada pelo Hyper-V | Verifique se as atualizações mais recentes do Windows estão instaladas.<br/><br/> [Atualizar](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md#keep-integration-services-up-to-date) para a versão mais recente do Integration Services.

@@ -1,5 +1,5 @@
 ---
-title: Gerir contas de laboratório nos serviços de laboratório do Azure | Microsoft Docs
+title: Gerir contas de laboratório no Azure Lab Services | Documentos da Microsoft
 description: Saiba como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório numa subscrição do Azure.
 services: lab-services
 documentationcenter: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 6039ea482b0968d48fc21ff3dfec82a2ff0db43d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715331"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213406"
 ---
-# <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório nos serviços de laboratório do Azure 
-Nos serviços de laboratório do Azure, uma conta de laboratório é um contentor para laboratórios geridos, tais como laboratórios sala de aula. Um administrador configura uma conta de laboratório com serviços de laboratório do Azure e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório.
+# <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório no Azure Lab Services 
+No Azure Lab Services, uma conta de laboratório é um contentor para laboratórios geridos, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório com o Azure Lab Services e fornece acesso a proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório.
 
 ## <a name="create-a-lab-account"></a>Criar uma conta de laboratório
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -45,7 +45,7 @@ Nos serviços de laboratório do Azure, uma conta de laboratório é um contento
     ![Página da conta de laboratório](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Adicionar um utilizador à função de Criador do Laboratório
-Para dar permissão aos educadores para criarem laboratórios para as classes deles, adicione-os à função de Criador do Laboratório:
+Para configurar um laboratório de sala de aula numa conta de laboratório, o utilizador tem de ser um membro do **criador do laboratório** função na conta de laboratório. A conta que utilizou para criar a conta de laboratório é automaticamente adicionada a esta função. Se estiver a planear utilizar a mesma conta de utilizador para criar um laboratório de sala de aula, pode ignorar este passo. Para utilizar outra conta de utilizador para criar um laboratório de sala de aula, siga os passos abaixo: 
 
 1. Na página **Conta de Laboratório**, selecione **Controlo de acesso (IAM)** e clique em **+ Adicionar** na barra de ferramentas. 
 
@@ -55,16 +55,16 @@ Para dar permissão aos educadores para criarem laboratórios para as classes de
     ![Adicionar utilizador à função de Criador do Laboratório](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 
-## <a name="view-lab-accounts"></a>Contas de laboratório de vista
+## <a name="view-lab-accounts"></a>Contas de laboratório do Vista
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** no menu. 
-3. Selecione **laboratório serviços** para o **tipo**. 
-    Também pode filtrar por subscrição, o grupo de recursos, localizações e as etiquetas. 
+3. Selecione **Lab Services** para o **tipo**. 
+    Também pode filtrar por subscrição, grupo de recursos, localizações e as etiquetas. 
 
 ## <a name="delete-a-lab-account"></a>Eliminar uma conta de laboratório
-Siga as instruções da secção anterior, que apresenta as contas de laboratório numa lista. Utilize as seguintes instruções para eliminar uma conta de laboratório: 
+Siga as instruções da secção anterior, que apresenta as contas de laboratório numa lista. Utilize as instruções seguintes para eliminar uma conta de laboratório: 
 
-1. Selecione o **conta laboratório** que pretende eliminar. 
+1. Selecione o **conta de laboratório** que pretende eliminar. 
 2. Selecione **eliminar** da barra de ferramentas. 
 3. Tipo **Sim** confirmação.
 4. Selecione **Eliminar**. 

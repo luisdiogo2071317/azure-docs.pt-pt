@@ -1,6 +1,6 @@
 ---
-title: Início rápido c# para os serviços do Azure cognitivos, Microsoft tradutor voz API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de reconhecimento de voz do Microsoft tradutor nos serviços cognitivos Microsoft no Azure.
+title: Início rápido em C#, para os serviços cognitivos do Azure, API de voz de Microsoft Translator | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de voz do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,31 +9,31 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6489a0be72cedffdfa4f7021f889b2d39c1c358f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352196"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205107"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Início rápido para reconhecimento de voz do Microsoft tradutor API com c# 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Início rápido para API com o C # de voz de Microsoft Translator 
 <a name="HOLTop"></a>
 
-Este artigo mostra como utilizar a API de reconhecimento de voz do Microsoft tradutor traduzir palavras ditas um ficheiro WAV.
+Este artigo mostra-lhe como utilizar a API de voz do Microsoft Translator para traduzir palavras faladas num arquivo. wav.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A edição da Comunidade gratuito irá funcionar.)
+Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A edição de Comunidade gratuito irá funcionar.)
 
-Irá necessitar de um ficheiro WAV com o nome "speak.wav" na mesma pasta que o executável que compilar a partir do código abaixo. Deve ter este ficheiro WAV PCM padrão, formato mono de 16 bits, 16kHz. Pode obter esses ficheiros WAV do [tradutor texto enunciar API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+Precisará de um arquivo. wav com o nome "speak.wav" na mesma pasta que o executável que é compilar o código abaixo. Este arquivo. wav deve estar no PCM padrão, o formato de 16 bits, 16kHz, mono. Pode obter esse arquivo. wav do [texto em voz, API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de reconhecimento de voz do Microsoft tradutor**. Precisa de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de voz do Microsoft Translator**. Precisará de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
-## <a name="translate-speech"></a>Converter o reconhecimento de voz
+## <a name="translate-speech"></a>Traduzir voz
 
-O seguinte código traduz reconhecimento de voz de um idioma para outro.
+O código a seguir converte voz de um idioma para outro.
 
-1. Crie um novo projeto c# no seu IDE favorito.
+1. Crie um novo projeto c# no seu IDE preferido.
 2. Adicione o código fornecido abaixo.
 3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -142,18 +142,18 @@ namespace TranslateSpeechQuickStart
 }
 ```
 
-**Converter a resposta de reconhecimento de voz**
+**Traduzir a resposta de voz**
 
-Um resultado com êxito é a criação de um ficheiro com o nome "speak2.wav". O ficheiro contém a conversão de palavras ditas "speak.wav".
+Um resultado bem-sucedido é a criação de um arquivo chamado "speak2.wav". O ficheiro contém a tradução das palavras ditas "speak.wav".
 
 [Voltar ao início](#HOLTop)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de reconhecimento de voz tradutor](../tutorial-translator-speech-csharp.md)
+> [Tutorial de fala do Microsoft Translator](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de reconhecimento de voz tradutor](../overview.md)
+[Descrição geral de voz do Translator](../overview.md)
 [referência da API](http://docs.microsofttranslator.com/speech-translate.html)

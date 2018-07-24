@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 77ccfccc0a575cb64272b634b11e80f9e07280f1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160040"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214888"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -29,7 +29,7 @@ Este artigo descreve considerações importantes para uma implementação do Azu
 ## <a name="azure-file-sync-terminology"></a>Terminologia de sincronização de ficheiros do Azure
 Antes de entrar em detalhes sobre como planear uma implementação de sincronização de ficheiros do Azure, é importante compreender a terminologia.
 
-### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
+### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
 O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para o Azure File Sync. O recurso de serviço de sincronização de armazenamento é um elemento de rede do recurso de conta de armazenamento e da mesma forma pode ser implementado em grupos de recursos do Azure. Recursos de nível superior distintos do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento podem criar relacionamentos de sincronização com várias contas de armazenamento através de vários grupos de sincronização. Uma subscrição pode ter vários recursos de serviço de sincronização de armazenamento implementados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
@@ -149,7 +149,7 @@ Para obter mais informações, consulte [descrição geral da replicação de DF
 Com o sysprep num servidor que tem instalado o agente de sincronização de ficheiros do Azure não é suportado e pode levar a resultados inesperados. Registo de servidor e a instalação do agente deve ocorrer depois de implementar a imagem do servidor e concluir a mini-configuração de sysprep.
 
 ### <a name="windows-search"></a>Windows Search
-Se cloud em camadas estiver ativada um ponto de final de servidor, os ficheiros que são cansados ignorados e não indexados por Windows Search. Ficheiros em camadas não são indexados corretamente.
+Se cloud disposição em camadas estiver ativada um ponto de final de servidor, os ficheiros que são dispostos em camadas ignorados e não indexados por Windows Search. Ficheiros em camadas não são indexados corretamente.
 
 ### <a name="antivirus-solutions"></a>Soluções antivírus
 Como o antivírus funciona através da análise de ficheiros para o código malicioso conhecido, um produto antivírus pode causar a remoção de ficheiros em camadas. Porque os ficheiros em camadas ter o atributo "offline" definido, é recomendável consultar o fornecedor de software para saber como configurar a sua solução para ignorar a leitura de ficheiros offline. 
@@ -180,7 +180,7 @@ O Azure File Sync é conhecido não para trabalhar com:
 
 - NTFS encriptados sistema de ficheiros (EFS)
 
-Em geral, Azure File Sync deve suportar a interoperabilidade com soluções de encriptação que estejam abaixo de sistema de arquivos, como o BitLocker e com soluções que são implementadas no formato de ficheiro, como o BitLocker. Não foi efetuada nenhuma interoperabilidade especial para soluções que estejam acima do sistema de arquivos (como o EFS de NTFS).
+Em geral, Azure File Sync deve suportar a interoperabilidade com soluções de encriptação que estejam abaixo de sistema de arquivos, como o BitLocker e com soluções que são implementadas no formato de ficheiro, como o Azure Information Protection. Não foi efetuada nenhuma interoperabilidade especial para soluções que estejam acima do sistema de arquivos (como o EFS de NTFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de gestão de armazenamento hierárquico (HSM)
 Não existem outras soluções HSM devem ser utilizadas com o Azure File Sync.

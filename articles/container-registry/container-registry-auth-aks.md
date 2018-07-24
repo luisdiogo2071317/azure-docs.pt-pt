@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: marsma
-ms.openlocfilehash: ca05e5091d5c96a1a0c2373404e8a6dff5802ffb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968408"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205396"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure
 
@@ -45,7 +45,7 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Acesso com o segredo do Kubernetes
 
-Em alguns casos, poderá não conseguir atribuir a função necessária para o principal de serviço AKS gerado automaticamente-conceder acesso para o ACR. Por exemplo, devido ao modelo de segurança da sua organização, poderá não ter permissão suficiente no diretório do Azure AD para atribuir uma função ao principal do serviço gerado pelo AKS. Nesse caso, pode criar um novo principal de serviço e depois conceder acesso para o registo de contentores com um segredo de solicitação de imagem do Kubernetes.
+Em alguns casos, poderá não conseguir atribuir a função necessária para o principal de serviço AKS gerado automaticamente-conceder acesso para o ACR. Por exemplo, devido ao modelo de segurança da sua organização, poderá não ter permissão suficiente no diretório do Azure AD para atribuir uma função ao principal de serviço gerado pelo AKS. Nesse caso, pode criar um novo principal de serviço e depois conceder acesso para o registo de contentores com um segredo de solicitação de imagem do Kubernetes.
 
 Utilize o seguinte script para criar um novo principal de serviço (que irá utilizar as respetivas credenciais para o segredo de solicitação de imagem de Kubernetes). Modificar o `ACR_NAME` variável para o seu ambiente antes de executar o script.
 
@@ -59,10 +59,10 @@ SERVICE_PRINCIPAL_NAME=acr-service-principal
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a contributor role assignment with a scope of the ACR resource.
+# Create a 'Reader' role assignment with a scope of the ACR resource.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
-# Get the service principle client id.
+# Get the service principal client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)
 
 # Output used when creating Kubernetes secret.

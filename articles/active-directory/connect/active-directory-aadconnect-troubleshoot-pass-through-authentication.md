@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917375"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214180"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas de autenticação de pass-through do Azure Active Directory
 
@@ -97,7 +97,7 @@ Certifique-se de que utiliza uma conta de Administrador Global apenas na cloud p
 
 Se tiver a autenticação pass-through ativada no seu inquilino e tentar desinstalar o Azure AD Connect, mostra-lhe a seguinte mensagem de aviso: "os utilizadores não serão capazes de início de sessão para o Azure AD a menos que tenha outros agentes de autenticação pass-through instalados no outros servidores."
 
-Certifique-se de que a configuração está [elevada disponível](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) antes de desinstalar o Azure AD Connect para evitar a quebra de sessão do utilizador.
+Certifique-se de que a configuração está [elevada disponível](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) antes de desinstalar o Azure AD Connect para evitar a quebra de sessão do utilizador.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problemas relacionados com a habilitação do recurso
 
@@ -112,18 +112,6 @@ Certifique-se de que o servidor no qual está instalado o Azure AD Connect conse
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>A habilitação do recurso falhou devido a erros de autorização do token ou uma conta
 
 Certifique-se de que utilize uma conta de Administrador Global apenas na cloud quando a habilitação do recurso. Existe um problema conhecido com a autenticação multifator (MFA)-ativado as contas de Administrador Global; Desative temporariamente MFA (apenas para concluir a operação) como uma solução alternativa.
-
-## <a name="exchange-activesync-configuration-issues"></a>Problemas de configuração do Exchange ActiveSync
-
-Estes são os problemas comuns quando configurar o suporte do Exchange ActiveSync para a autenticação pass-through.
-
-### <a name="exchange-powershell-issue"></a>Problema do PowerShell do Exchange
-
-Se vir a "**não é possível encontrar um parâmetro que corresponda ao nome do parâmetro 'PerTenantSwitchToESTSEnabled'\.**" Erro ao executar o `Set-OrganizationConfig` Exchange PowerShell comando este problema, contacte o Support da Microsoft.
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync não está a funcionar
-
-A configuração demora algum tempo a entrar em vigor – o período de tempo depende do seu ambiente. Se a situação persistir durante muito tempo, contacte Support da Microsoft.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Recolher registos do agente de autenticação pass-through
 

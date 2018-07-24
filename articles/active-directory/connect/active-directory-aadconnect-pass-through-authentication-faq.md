@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048973"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215072"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>O Azure Active Directory autenticação pass-through: Perguntas mais frequentes
 
@@ -28,7 +28,7 @@ Este artigo aborda perguntas mais frequentes sobre a autenticação de pass-thro
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Que os métodos para iniciar sessão Azure AD, autenticação pass-through, palavra-passe de hash sincronização e serviços de Federação do Active Directory (AD FS), devo escolher?
 
-Depende de seu ambiente no local e os requisitos da organização. Reveja os [do Azure AD Connect início de sessão opções do utilizador](active-directory-aadconnect-user-signin.md) artigo para obter uma comparação dos vários Azure AD início de sessão métodos.
+Revisão [este guia](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) para uma comparação entre os vários Azure AD início de sessão métodos e como escolher o método certo início de sessão para a sua organização.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>É uma funcionalidade gratuita de autenticação pass-through?
 
@@ -48,7 +48,7 @@ Sim. Suporta a autenticação pass-through `Alternate ID` como o nome de utiliza
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Sincronização de hash de palavra-passe atuar como contingência para autenticação pass-through?
 
-Não. Autenticação pass-through _não_ automaticamente a ativação pós-falha para a sincronização de hash de palavra-passe. Ele atua como contingência para apenas [cenários de autenticação pass-through não suporta atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de início de sessão de utilizador, deve configurar a autenticação pass-through para [elevada disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Não. Autenticação pass-through _não_ automaticamente a ativação pós-falha para a sincronização de hash de palavra-passe. Ele atua como contingência para apenas [cenários de autenticação pass-through não suporta atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de início de sessão de utilizador, deve configurar a autenticação pass-through para [elevada disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Pode instalar um [Proxy de aplicações do Azure AD](../manage-apps/application-proxy.md) conector no mesmo servidor como um agente de autenticação pass-through?
 
@@ -82,7 +82,7 @@ Sim. Se a deteção automática de Proxy da Web (WPAD) estiver ativada no seu am
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Pode instalar dois ou mais agentes de autenticação pass-through no mesmo servidor?
 
-Não, só pode instalar um agente de autenticação pass-through num único servidor. Se quiser configurar a autenticação pass-through para elevada disponibilidade, siga as instruções em [autenticação de pass-through do Azure Active Directory: Introdução](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Não, só pode instalar um agente de autenticação pass-through num único servidor. Se quiser configurar a autenticação pass-through para elevada disponibilidade, siga as instruções em [autenticação de pass-through do Azure Active Directory: Introdução](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como posso remover um agente de autenticação pass-through?
 
@@ -92,12 +92,7 @@ Se verificar o painel de autenticação pass-through a [Centro de administraçã
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já posso utilizar o AD FS para iniciar sessão com o Azure AD. Como posso alterná-lo para a autenticação pass-through?
 
-Se tiver configurado o AD FS como o seu método para iniciar sessão através do Assistente do Azure AD Connect, altere o método que o utilizador utiliza para iniciar sessão para a autenticação pass-through. Esta alteração permite a autenticação pass-through no inquilino e converte _todos os_ seus domínios federados em domínios geridos. Autenticação pass-through processa todas as solicitações subseqüentes para iniciar sessão no seu inquilino. Atualmente, não é possível suportado no Azure AD Connect para utilizar uma combinação de AD FS e autenticação pass-through em diferentes domínios.
-
-Se o AD FS foi configurado como o método para iniciar sessão _fora_ o Assistente do Azure AD Connect, o método de alteração, o utilizador inicie sessão para a autenticação pass-through. Pode efetuar esta alteração do **não configure** opção. Esta alteração permite que a autenticação pass-through no inquilino, mas todos os domínios federados vão continuar a utilizar o AD FS para o início de sessão. Utilize o PowerShell para converter manualmente alguns ou todos esses domínios federados para domínios geridos. Depois de fazer essa alteração *apenas* autenticação pass-through processa todos os pedidos para iniciar sessão para os domínios geridos.
-
->[!IMPORTANT]
->Autenticação pass-through não lida com início de sessão para o Azure apenas na cloud os utilizadores do AD.
+Se estiver a migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through, recomendamos vivamente que siga o nosso guia de implementação detalhados publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Pode utilizar autenticação pass-through no ambiente de várias florestas do Active Directory?
 
@@ -105,7 +100,7 @@ Sim. Ambientes de várias florestas são suportadas se existem relações de con
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quantos agentes de autenticação pass-through é necessário instalar?
 
-Instalar agentes de autenticação pass-through vários garante [elevada disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). No entanto, ele não fornece determinística balanceamento de carga entre os agentes de autenticação.
+Instalar agentes de autenticação pass-through vários garante [elevada disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability). No entanto, ele não fornece determinística balanceamento de carga entre os agentes de autenticação.
 
 Considere as horas de pico e a carga média de pedidos de início de sessão que pretende ver no seu inquilino. Como um parâmetro de comparação, um único agente de autenticação pode processar autenticações de 300 a 400 por segundo numa CPU de 4 núcleos padrão, servidor de RAM de 16 GB.
 
@@ -133,6 +128,7 @@ Se desinstalar um agente de autenticação pass-through a partir de um servidor,
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Saiba quais cenários são suportados e quais não são.
 - [Guia de introdução](active-directory-aadconnect-pass-through-authentication-quick-start.md): comece a utilizar na autenticação pass-through do Azure AD.
+- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Análise técnica aprofundada](active-directory-aadconnect-pass-through-authentication-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.
 - [Resolver problemas de](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.

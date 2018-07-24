@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723862"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205804"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerir recursos com o Azure PowerShell
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Normalmente, pode repetir o processo para o **Contribuidor de Rede** e o **Contribuidor de Conta de Armazenamento** para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
-## <a name="azure-policies"></a>Políticas do Azure
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Aplicar políticas
-
-A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize:
+[O Azure Policy](../azure-policy/azure-policy-introduction.md) ajuda a tirar-se de que todos os recursos na subscrição cumpre os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -186,17 +182,17 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Ver custos por valores de etiqueta
 
-Depois de aplicar etiquetas a recursos, pode ver os custos para recursos com essas marcas. Demora algum tempo para análise de custo Mostrar a utilização de mais recente, pelo que poderá não ver os custos ainda. Quando os custos estão disponíveis, pode ver os custos de recursos entre grupos de recursos na sua subscrição. Os utilizadores devem ter [acesso de nível de subscrição para informações de faturação](../billing/billing-manage-access.md) para ver os custos.
+Depois de aplicar etiquetas a recursos, pode ver os custos dos recursos com essas etiquetas. Demora algum tempo para a análise de custos mostrar a utilização mais recente, pelo que poderá ainda não ver os custos. Quando os custos estão disponíveis, pode ver os custos dos recursos entre os grupos de recursos na sua subscrição. Os utilizadores devem ter [acesso ao nível de subscrição das informações de faturação](../billing/billing-manage-access.md) para ver os custos.
 
-Para ver os custos por etiqueta no portal, selecione a sua subscrição e selecione **análise de custo**.
+Para ver os custos por etiqueta no portal, selecione a sua subscrição e selecione **Análise de Custos**.
 
-![Análise de custo](./media/powershell-azure-resource-manager/select-cost-analysis.png)
+![Análise de custos](./media/powershell-azure-resource-manager/select-cost-analysis.png)
 
-Em seguida, o valor da etiqueta de filtro e selecione **aplicar**.
+Em seguida, filtre por valor da etiqueta e selecione **Aplicar**.
 
-![Custo de exibição por etiqueta](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+![Ver custo por etiqueta](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
 
-Também pode utilizar o [APIs de faturação do Azure](../billing/billing-usage-rate-card-overview.md) para ver os custos por meio de programação.
+Também pode utilizar as [APIs de Faturação do Azure](../billing/billing-usage-rate-card-overview.md) para ver os custos programaticamente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

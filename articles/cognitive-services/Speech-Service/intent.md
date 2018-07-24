@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4cf3bbfa24e102c544b0e3215a20b73d323f15df
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3e9afc990d6bfa73eb045e7ed76dfd194df309c6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070965"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213209"
 ---
 # <a name="sample-for-intent-recognition"></a>Exemplo para o reconhecimento da intenção do
 
@@ -53,7 +53,7 @@ O fragmento de código abaixo mostra como reconhecer intenções da entrada do m
 
 ## <a name="intent-recognition-from-a-file-using-events"></a>Reconhecimento da intenção de um arquivo, usando eventos
 
-O fragmento de código mostra como reconhecer intenções no idioma padrão (`en-US`) de forma contínua. Esse código permite o acesso a informações adicionais, como os resultados intermediários. Entrada é retirada de um arquivo de áudio, o formato suportado é (mono) de canal único WAV / PCM com uma taxa de amostragem de 16 KHz.
+O fragmento de código mostra como reconhecer intenções no idioma padrão (`en-US`) de forma contínua. Esse código permite o acesso a informações adicionais, como os resultados intermediários. Entrada é obtida a partir de um arquivo de áudio, o formato suportado é (mono) de canal único WAV / PCM com uma taxa de amostragem de 16 KHz.
 
 [!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

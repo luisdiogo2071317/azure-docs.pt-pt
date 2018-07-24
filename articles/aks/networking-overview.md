@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/23/2018
 ms.author: marsma
-ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115800"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216109"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuração de rede no Azure Kubernetes Service (AKS)
 
@@ -49,9 +49,10 @@ Sistema de rede avançado fornece as seguintes vantagens:
 
 * VNet para o cluster do AKS têm de permitir conectividade de internet de saída.
 * Não crie mais de um cluster do AKS na mesma sub-rede.
-* Sistema de rede avançado para o AKS não suporta a VNets que utilizam as zonas privadas do DNS do Azure.
 * Não podem utilizar clusters do AKS `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16` intervalo de endereços do serviço para o Kubernetes.
-* O principal de serviço utilizado para o cluster do AKS tem de ter `Contributor` permissões para o grupo de recursos que contém a VNet existente.
+* O principal de serviço utilizado pelo cluster do AKS tem de ter, pelo menos, [contribuinte de rede](../role-based-access-control/built-in-roles.md#network-contributor) permissões na sub-rede na sua VNet. Se pretender definir um [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planear o endereçamento IP para o seu cluster
 

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5cd49145f1109fb99fd999e8ac0b1e17141fe5b5
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d96fbac6ae09e8b6611ff615ba1f95fc1a084f89
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186922"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205736"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e o Log Analytics
 O [do Azure Application Insights](app-insights-overview.md) serviço usa um número de endereços IP. Poderá ter de conhecer estes endereços se a aplicação que está a monitorizar é alojada por trás de uma firewall.
@@ -34,7 +34,7 @@ Tem de abrir algumas portas de envio na firewall do servidor para permitir que o
 | Objetivo | do IdP | IP | Portas |
 | --- | --- | --- | --- |
 | Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
-| Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Stream de métricas em direto |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Monitor de estado
 Configuração do Monitor de estado - necessária apenas quando efetuar alterações.

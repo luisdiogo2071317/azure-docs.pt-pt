@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917215"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213638"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replique uma implementação de Citrix XenApp e XenDesktop em várias camada com o Azure Site Recovery
 
@@ -182,7 +182,7 @@ O plano de recuperação personalizados é semelhante a abaixo:
 
 
    >[!NOTE]
-   >Pode utilizar scripts no [localização](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) para atualizar o DNS com os novos IPs da sobre > máquinas virtuais ou para anexar um balanceador de carga ao longo da máquina virtual, se necessário.
+   >Pode utilizar scripts no [localização](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) para atualizar o DNS com os novos IPs da sobre > máquinas virtuais ou para anexar um balanceador de carga ao longo da máquina virtual, se necessário.
 
 
 ## <a name="doing-a-test-failover"></a>Efetuar uma ativação pós-falha de teste

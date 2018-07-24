@@ -1,6 +1,6 @@
 ---
-title: Connnect um Raspberry Pi à sua aplicação do Azure IoT Central (c#) | Microsoft Docs
-description: Como um programador de dispositivo, como ligar um Raspberry Pi a sua aplicação Central de IoT do Azure com c#.
+title: Connnect um Raspberry Pi a sua aplicação do Azure IoT Central (c#) | Documentos da Microsoft
+description: Como um desenvolvedor de dispositivo, como ligar um Raspberry Pi a sua aplicação do Azure IoT Central usando a linguagem c#.
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/22/2018
@@ -8,83 +8,54 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628594"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205141"
 ---
-# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi à sua aplicação do Azure IoT Central (c#)
+# <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (c#)
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
-Este artigo descreve como, como um programador de dispositivo, para ligar um Raspberry Pi a sua aplicação do Microsoft Azure IoT Central com a c# linguagem de programação.
+Este artigo descreve como, como um desenvolvedor de dispositivo, para ligar um Raspberry Pi a sua aplicação do Microsoft Azure IoT Central, utilizando a linguagem de programação c#.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-* [.NET core 2](https://www.microsoft.com/net) instalado no computador de desenvolvimento. Também deverá ter um editor de código adequado, tais como [Visual Studio Code](https://code.visualstudio.com/).
-* Uma aplicação do Azure IoT Central criada a partir de **exemplo Devkits** modelo de aplicação. Para obter mais informações, consulte [criar a sua aplicação Central do Azure IoT](howto-create-application.md).
+* [.NET core 2](https://www.microsoft.com/net) instalado no computador de desenvolvimento. Também deverá ter como um editor de código adequado [Visual Studio Code](https://code.visualstudio.com/).
+* Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, consulte [criar seu aplicativo de Central de IoT do Azure](howto-create-application.md).
 * Um dispositivo de Raspberry Pi com o sistema de operativo Raspbian.
 
-Uma aplicação criada a partir de **Devkits de exemplo** modelo de aplicação inclui um **Raspberry Pi** modelo de dispositivo com as seguintes características:
 
-### <a name="telemetry-measurements"></a>Medidas de telemetria
+## <a name="sample-devkits-application"></a>**Exemplo Devkits** aplicação
 
-| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidade       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | grupo de gestão     | -2000   | 2000    | 0              |
-| accelerometerY | grupo de gestão     | -2000   | 2000    | 0              |
-| accelerometerZ | grupo de gestão     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplicativo um **Raspberry Pi** modelo de dispositivo com as seguintes características: 
 
-### <a name="settings"></a>Definições
+- Telemetria que contém as medidas para o dispositivo **humidade**, **temperatura**, **pressão**, **Magnometer** (medida ao longo de X Y, o eixo Z), **Accelorometer** (medido ao longo de X, Y, eixo Z) e **Gyroscope** (medido ao longo de X, Y, eixo Z).
+- As definições que mostra **tensão**, **atual**,**ventoinha velocidade** e uma **IR** Ativar/desativar.
+- Propriedades que contém a propriedade do dispositivo **morrem número** e **localização** propriedade da cloud.
 
-Definições de um valor numérico
 
-| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Tensão      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Atual      | setCurrent | AMPS  | 0              | 0       | 100     | 0       |
-| Ventoinha velocidade    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+Para obter detalhes completos sobre a configuração do modelo de dispositivo, consulte [detalhes do modelo de dispositivo do Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
-Definições de ativar/desativar
 
-| Nome a apresentar | Nome do campo | No texto | Desativar texto | Inicial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| RESPOSTA A INCIDENTES           | activateIR | ON      | OFF      | Desativado     |
+## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-### <a name="properties"></a>Propriedades
+Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir da **Raspberry Pi** modelo do dispositivo e tome nota da cadeia de ligação do dispositivo. Para obter mais informações, consulte [adicionar um dispositivo real à sua aplicação do Azure IoT Central](tutorial-add-device.md).
 
-| Tipo            | Nome a apresentar | Nome do campo | Tipo de dados |
-| --------------- | ------------ | ---------- | --------- |
-| Propriedade do dispositivo | Die número   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/A       |
+### <a name="create-your-net-application"></a>Criar a sua aplicação .NET
 
-### <a name="add-a-real-device"></a>Adicionar um dispositivo real
+Criar e testar a aplicação de dispositivo no seu computador desktop.
 
-Na aplicação do Azure IoT Central, adicionar um dispositivo real do **Raspberry Pi** modelo do dispositivo e tome nota da cadeia de ligação de dispositivo. Para obter mais informações, consulte [adicionar um dispositivo real à sua aplicação do Azure IoT Central](tutorial-add-device.md).
-
-## <a name="create-your-net-application"></a>Criar a sua aplicação .NET
-
-Pode criar e testar a aplicação de dispositivo no seu computador de secretária.
-
-Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obter mais informações, consulte [trabalhar com c#](https://code.visualstudio.com/docs/languages/csharp).
+Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obter mais informações, consulte [trabalhando com c#](https://code.visualstudio.com/docs/languages/csharp).
 
 > [!NOTE]
-> Se preferir, pode concluir os seguintes passos com um editor de código diferentes.
+> Se preferir, pode concluir os passos seguintes com um editor de código diferente.
 
-1. Para inicializar o projeto de .NET e adicionar os pacotes de NuGet necessários, execute os seguintes comandos:
+1. Para inicializar o seu projeto do .NET e adicione os pacotes de NuGet necessários, execute os seguintes comandos:
 
   ```cmd/sh
   mkdir pisample
@@ -94,7 +65,7 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
   dotnet restore
   ```
 
-1. Abra o `pisample` pasta no Visual Studio Code. Em seguida, abra o **pisample.csproj** ficheiro de projeto. Adicionar o `<RuntimeIdentifiers>` tag mostrado no seguinte fragmento:
+1. Abra o `pisample` pasta no Visual Studio Code. Em seguida, abra a **pisample.csproj** arquivo de projeto. Adicionar o `<RuntimeIdentifiers>` marca mostrada no seguinte fragmento:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -110,11 +81,11 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
     ```
 
     > [!NOTE]
-    > O **Microsoft.Azure.Devices.Client** o número de versão do pacote pode ser superior ao mostradas.
+    > Sua **Microsoft.Azure.Devices.Client** número de versão de pacote pode ser maior do que aquele mostrado.
 
-1. Guardar **pisample.csproj**. Se o Visual Studio Code pede-lhe para executar o comando restore, escolha **restaurar**.
+1. Guarde **pisample.csproj**. Se o Visual Studio Code pede-lhe para executar o comando restore, escolha **restaurar**.
 
-1. Abra **Program.cs** e substitua o conteúdo com o seguinte código:
+1. Open **Program.cs** e substitua os conteúdos com o código a seguir:
 
     ```csharp
     using System;
@@ -290,7 +261,7 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
 
 ## <a name="run-your-net-application"></a>Execute a sua aplicação .NET
 
-Adicione a cadeia de ligação específica do dispositivo para o código para o dispositivo autenticar com o Azure IoT Central. Apontou da cadeia de ligação quando adicionou o seu dispositivo real à sua aplicação do Azure IoT Central.
+Adicione a cadeia de ligação específicos do dispositivo para o código para o dispositivo autenticar com o Azure IoT Central. Tomou nota desta cadeia de ligação quando adicionou o seu dispositivo real à sua aplicação do Azure IoT Central.
 
 1. Substitua `{your device connection string}` no **Program.cs** ficheiro com a cadeia de ligação que apontou anteriormente.
 
@@ -307,7 +278,7 @@ Adicione a cadeia de ligação específica do dispositivo para o código para o 
     scp -r publish pi@192.168.0.40:publish
     ```
 
-    Para obter mais informações, consulte [acesso remoto Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/).
+    Para obter mais informações, consulte [acesso remoto de Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/).
 
 1. Inicie sessão no seu dispositivo Raspberry Pi e execute os seguintes comandos numa shell:
 
@@ -324,20 +295,65 @@ Adicione a cadeia de ligação específica do dispositivo para o código para o 
     ./pisample
     ```
 
-    ![Início do programa](./media/howto-connect-raspberry-pi-csharp/device_begin.png)
+    ![Programa começa](./media/howto-connect-raspberry-pi-csharp/device_begin.png)
 
-1. Na aplicação do Azure IoT Central, pode ver como o código em execução no Raspberry Pi interage com a aplicação:
+1. Na aplicação do Azure IoT Central, pode ver como o código que executa o Raspberry Pi interage com o aplicativo:
 
-    * No **medidas** página para o seu dispositivo real, pode ver a telemetria.
-    * No **propriedades** página, pode ver o valor a que relatados **Die número** propriedade.
-    * No **definições** página, pode alterar várias definições no Raspberry Pi, tais como velocidade tensão e ventoinha.
+    * Sobre o **medidas** página para o seu dispositivo real, pode ver a telemetria.
+    * Sobre o **propriedades** página, pode ver o valor do comunicado **morrem número** propriedade.
+    * Sobre o **definições** página, pode alterar várias definições no Raspberry Pi, por exemplo, a velocidade de tensão e fan.
 
-    A seguinte captura de ecrã mostra o Raspberry Pi receber a alteração da definição:
+    Captura de ecrã seguinte mostra o Raspberry Pi a receber a alteração da definição:
 
-    ![Alteração da definição de recebe raspberry Pi](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+    ![Raspberry Pi recebe a alteração da definição](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## <a name="raspberry-pi-device-template-details"></a>Detalhes do modelo do raspberry PI dispositivo
+
+Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplicativo um **Raspberry Pi** modelo de dispositivo com as seguintes características:
+
+### <a name="telemetry-measurements"></a>Medições de telemetria
+
+| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidade       | %      | 0       | 100     | 0              |
+| Temp           | ° C     | -40,Year),temperature     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | grupo de gestão     | -2000   | 2000    | 0              |
+| accelerometerY | grupo de gestão     | -2000   | 2000    | 0              |
+| accelerometerZ | grupo de gestão     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>Definições
+
+Definições de numérico
+
+| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Tensão      | setVoltage | Volts | 0              | 0       | 240     | 0       |
+| Atual      | setCurrent | AMPS  | 0              | 0       | 100     | 0       |
+| Ventoinha velocidade    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Ativar/desativar definições
+
+| Nome a apresentar | Nome do campo | No texto | Desativar o texto | Inicial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| RUNTIME DE INTEGRAÇÃO           | activateIR | ON      | OFF      | Desativado     |
+
+### <a name="properties"></a>Propriedades
+
+| Tipo            | Nome a apresentar | Nome do campo | Tipo de dados |
+| --------------- | ------------ | ---------- | --------- |
+| Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
+| Texto            | Localização     | localização   | N/A       |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como ligar um Raspberry Pi a sua aplicação do Azure IoT Central, Eis os passos sugeridos:
+Agora que sabe como ligar um Raspberry Pi a sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
 
-* [Ligar uma aplicação de cliente do Node.js genérica para o Azure IoT Central](howto-connect-nodejs.md)
+* [Ligar uma aplicação de cliente genérica do node. js para o Azure IoT Central](howto-connect-nodejs.md)

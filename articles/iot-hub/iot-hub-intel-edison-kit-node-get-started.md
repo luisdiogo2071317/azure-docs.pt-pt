@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 7e4057db6c7e42755bbaf8d05f68809cca0bc257
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 5adb6e6119856879e52836a8d3a797a7b40c6fe8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185742"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214435"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Ligar a Intel Edison ao Hub IoT do Azure (node. js)
 
@@ -27,7 +27,7 @@ Não tem ainda um kit? Iniciar [aqui](https://azure.microsoft.com/develop/iot/st
 
 ## <a name="what-you-do"></a>O que fazer
 
-* Configurar o Intel Edison e e Grove módulos.
+* Intel Edison e Grove módulos de configuração.
 * Crie um hub IoT.
 * Inscreva-se um dispositivo Edison do seu hub IoT.
 * Execute um aplicativo de exemplo no Edison para enviar dados de sensor ao seu hub IoT.

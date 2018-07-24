@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: b3837da26868dcf3c14fab230b4dad4aa6f531b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161401"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215150"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -246,7 +246,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Criar um grupo de sincronização e um ponto final da cloud
-Um grupo de sincronização define a topologia de sincronização para um conjunto de arquivos. Pontos finais dentro de um grupo de sincronização são mantidos em sincronia entre si. Um grupo de sincronização tem de conter pelo menos uma nuvem ponto final, que representa uma partilha de ficheiros do Azure e um ou mais pontos finais do servidor. Um ponto de final de servidor representa um caminho de servidor registado. Um servidor pode ter pontos finais do servidor em vários grupos de sincronização. Pode criar os grupos de sincronização como precisa de descrever adequadamente a topologia de sincronização pretendido.
+Um grupo de sincronização define a topologia de sincronização para um conjunto de arquivos. Pontos finais dentro de um grupo de sincronização são mantidos em sincronia entre si. Um grupo de sincronização tem de conter pelo menos uma nuvem ponto final, que representa uma partilha de ficheiros do Azure e um ou mais pontos finais do servidor. Um ponto de final de servidor representa um caminho de servidor registado. Um servidor pode ter pontos finais do servidor em vários grupos de sincronização. Pode criar os grupos de sincronização, conforme necessário descrever adequadamente a topologia de sincronização pretendido.
 
 Um ponto final da cloud é um ponteiro para uma partilha de ficheiros do Azure. Todos os pontos finais de servidor irão sincronizar com um ponto final da cloud, tornando o ponto final da cloud do hub. A conta de armazenamento da partilha de ficheiros do Azure tem de estar localizada na mesma região que o serviço de sincronização de armazenamento. A totalidade da partilha de ficheiros do Azure será sincronizada, com uma exceção: uma pasta especial, comparável para a pasta "Informações de Volume do sistema" oculta num NTFS volume, será aprovisionada. Este diretório é chamado ". SystemShareInformation". Contém metadados de sincronização importantes que não irão sincronizar com os outros pontos de extremidade. Não utilize ou eliminá-lo!
 

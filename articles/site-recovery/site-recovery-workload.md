@@ -2,24 +2,17 @@
 title: Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery? | Microsoft Docs
 description: Descreve as cargas de trabalho que podem ser protegidas com a recuperação após desastre, com o serviço do Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920114"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205957"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery?
 
@@ -61,9 +54,8 @@ A Recuperação de Sites pode replicar qualquer aplicação em execução numa m
 | Ambiente de Trabalho Remoto/VDI |S |S |S |S |S|
 | Linux (sistema operativo e aplicações) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft)|
 | Dynamics AX |S |S |S |S |S|
-| Oracle |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft)|
 | Servidor de Ficheiros do Windows |S |S |S |S |S|
-| Citrix XenApp e XenDesktop |S|N/D |S |N/D |S |
+| Citrix XenApp e XenDesktop |S|N/A |S |N/A |S |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicar o Active Directory e o DNS
 As infraestruturas de DNS e Active Directory são essenciais para a maioria das aplicações da empresa. Durante a recuperação após desastre terá de proteger e recuperar estes componentes da infraestrutura antes de recuperar as cargas de trabalho e aplicações.
@@ -162,6 +154,6 @@ Utilize o Site Recovery para proteger as suas implementações do Citrix XenApp 
 
 [Saiba mais](site-recovery-citrix-xenapp-and-xendesktop.md) sobre como proteger implementações do Citrix XenApp e do XenDesktop. Como alternativa, pode fazer referência ao [documento técnico da Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) com os mesmos detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Introdução](azure-to-azure-quickstart.md) à replicação de VMs do Azure.

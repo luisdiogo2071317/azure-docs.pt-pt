@@ -2,19 +2,17 @@
 title: Configurar o ambiente de origem (servidores físicos no Azure) | Documentos da Microsoft
 description: Este artigo descreve como configurar o seu ambiente no local para começar a replicar servidores físicos que executem Windows ou Linux no Azure.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 00b09db97e597521de5c73eeefab77b0dfa1304d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671027"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213491"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurar o ambiente de origem (servidor físico para o Azure)
 
@@ -23,8 +21,9 @@ Este artigo descreve como configurar o seu ambiente no local para começar a rep
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O artigo pressupõe que já tem:
-1. O Cofre dos serviços de recuperação no [portal do Azure](http://portal.azure.com "portal do Azure").
-3. Um computador físico em que pretende instalar o servidor de configuração.
+- O Cofre dos serviços de recuperação no [portal do Azure](http://portal.azure.com "portal do Azure").
+- Um computador físico em que pretende instalar o servidor de configuração.
+- Se tiver desativado o TLS 1.0 no computador no qual está a instalar o servidor de configuração, certifique-se de que o TLs 1.2 está ativado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia segura desabilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos do servidor de configuração
 A tabela seguinte lista os mínimos de hardware, software e requisitos de rede para um servidor de configuração.
@@ -63,7 +62,7 @@ A tabela seguinte lista os mínimos de hardware, software e requisitos de rede p
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> O servidor de configuração pode ser instalado através de uma linha de comando. Para obter mais informações, consulte [instalando o servidor de configuração com as ferramentas da linha de comandos](http://aka.ms/installconfigsrv).
+> O servidor de configuração pode ser instalado através de uma linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>Problemas comuns

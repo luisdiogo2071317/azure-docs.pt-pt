@@ -1,6 +1,6 @@
 ---
-title: Guia de introdução do node.js para os serviços do Azure cognitivos, Microsoft tradutor voz API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de reconhecimento de voz do Microsoft tradutor nos serviços cognitivos Microsoft no Azure.
+title: Guia de introdução do node. js para os serviços cognitivos do Azure, API de voz de Microsoft Translator | Documentos da Microsoft
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de voz do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -9,33 +9,33 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d469fa008ba8acaf505fa09596dd739d5cc7744c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0c0f3120811bba164a07783bc7ce3b7af389fd2b
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352273"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205219"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Início rápido para reconhecimento de voz do Microsoft tradutor API com o Node.js 
+# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Início rápido para API com node. js de voz de Microsoft Translator 
 <a name="HOLTop"></a>
 
-Este artigo mostra como utilizar a API de reconhecimento de voz do Microsoft tradutor traduzir palavras ditas um ficheiro WAV.
+Este artigo mostra-lhe como utilizar a API de voz do Microsoft Translator para traduzir palavras faladas num arquivo. wav.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Node.js 6](https://nodejs.org/en/download/) para executar este código.
+Precisa [node. js 6](https://nodejs.org/en/download/) executar esse código.
 
-Tem de instalar o [Websocket pacote](https://www.npmjs.com/package/websocket) para Node.js.
+Tem de instalar o [Websocket pacote](https://www.npmjs.com/package/websocket) para node. js.
 
-É necessário um ficheiro WAV com o nome "speak.wav" na mesma pasta que o executável que compilar a partir do código abaixo. Deve ter este ficheiro WAV PCM padrão, formato mono de 16 bits, 16 kHz. Pode obter esses ficheiros WAV do [tradutor texto enunciar API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+Precisa de um arquivo. wav com o nome "speak.wav" na mesma pasta que o executável que é compilar o código abaixo. Este arquivo. wav deve estar no PCM padrão, o formato de 16 bits, 16 kHz, mono. Pode obter esse arquivo. wav do [texto em voz, API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de reconhecimento de voz do Microsoft tradutor**. Precisa de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de voz do Microsoft Translator**. Precisa de uma chave de subscrição paga do seu [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
-## <a name="translate-speech"></a>Converter o reconhecimento de voz
+## <a name="translate-speech"></a>Traduzir voz
 
-O seguinte código traduz reconhecimento de voz de um idioma para outro.
+O código a seguir converte voz de um idioma para outro.
 
-1. Crie um novo projeto de Node.js no seu IDE favorito.
+1. Crie um novo projeto de node. js no seu IDE preferido.
 2. Adicione o código fornecido abaixo.
 3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -64,8 +64,8 @@ let params = '?api-version=1.0&from=en-US&to=it-IT&features=texttospeech&voice=i
 let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
-You can obtain such a .wav file using the Translator Text Speak API. See:
-http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak
+You can obtain such a .wav file using the Text to Speech API. See:
+https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 
@@ -110,7 +110,8 @@ function send(connection, filename) {
     });
 
 /* Make sure the audio file is followed by silence.
-This lets the service know that the audio input is finished. */
+This lets the service know that the audio file is finished.
+At 32 bytes per millisecond, this is 100 seconds of silence. */
     myReadableStreamBuffer.put(fs.readFileSync(filename));
     myReadableStreamBuffer.put(new Buffer(3200000));
     myReadableStreamBuffer.stop();
@@ -154,18 +155,18 @@ function connect() {
 connect();
 ```
 
-**Converter a resposta de reconhecimento de voz**
+**Traduzir a resposta de voz**
 
-Um resultado com êxito é a criação de um ficheiro com o nome "speak2.wav". O ficheiro contém a conversão de palavras ditas "speak.wav".
+Um resultado bem-sucedido é a criação de um arquivo chamado "speak2.wav". O ficheiro contém a tradução das palavras ditas "speak.wav".
 
 [Voltar ao início](#HOLTop)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de reconhecimento de voz tradutor](../tutorial-translator-speech-csharp.md)
+> [Tutorial de fala do Microsoft Translator](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de reconhecimento de voz tradutor](../overview.md)
+[Descrição geral de voz do Translator](../overview.md)
 [referência da API](http://docs.microsofttranslator.com/speech-translate.html)

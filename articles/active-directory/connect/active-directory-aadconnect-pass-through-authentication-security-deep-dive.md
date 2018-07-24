@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 48710bc10a57854fcbd4ffbe44bc426333baddc0
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159234"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215089"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>O Azure Active Directory pass-through Authentication detalhada da segurança
 
@@ -37,14 +37,14 @@ Os tópicos abordados incluem:
 Estes são os aspectos de segurança chave desta funcionalidade:
 - Baseia-se numa arquitetura de vários inquilinos segura que fornece o isolamento de pedidos de início de sessão entre inquilinos.
 - Palavras-passe no local nunca são armazenadas na cloud de nenhuma forma.
-- Agentes de autenticação no local que escutar e responder a pedidos de validação da palavra-passe fazer apenas ligações de saída a partir de dentro da sua rede. Não existe nenhum requisito para instalar estes agentes de autenticação numa rede de perímetro (DMZ).
+- Agentes de autenticação no local que escutar e responder a pedidos de validação da palavra-passe fazer apenas ligações de saída a partir de dentro da sua rede. Não existe nenhum requisito para instalar estes agentes de autenticação numa rede de perímetro (DMZ). Como melhor prática, tratar todos os servidores com agentes de autenticação, como sistemas de 0 (consulte [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Apenas portas não padrão (80 e 443) são utilizadas para comunicação de saída dos agentes de autenticação para o Azure AD. Não precisa de abrir portas na firewall. 
   - Porta 443 é utilizada para todas as comunicações de saída autenticada.
   - Porta 80 é utilizada apenas para baixar as listas de revogação de certificados (CRL) para garantir que nenhum dos certificados utilizados por esse recurso foram revogadas.
   - Para obter a lista completa dos requisitos de rede, consulte [autenticação de pass-through do Azure Active Directory: Introdução](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Palavras-passe que os utilizadores de fornecer durante o início de sessão são encriptadas na cloud antes dos agentes de autenticação no local aceitá-los para a validação relativamente ao Active Directory.
 - O canal HTTPS entre o Azure AD e o agente de autenticação no local é protegido ao utilizar a autenticação mútua.
-- A funcionalidade de forma totalmente integrada se integra com capacidades de proteção da cloud do Azure AD, como políticas de acesso condicional (incluindo o Azure multi-factor Authentication), identity protection e o bloqueio inteligente.
+- Protege as contas de utilizador ao trabalhar de forma totalmente integrada com [políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo multi-factor Authentication (MFA), [antigos de autenticação de bloqueio](../active-directory-conditional-access-conditions.md) e por [ filtrar os ataques de palavra-passe de força bruta](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Componentes envolvidos
 
@@ -209,6 +209,7 @@ A atualização automática de um agente de autenticação:
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Saiba quais cenários são suportados e quais não são.
 - [Guia de introdução](active-directory-aadconnect-pass-through-authentication-quick-start.md): comece a utilizar na autenticação pass-through do Azure AD.
+- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Como funciona](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Aprenda as noções básicas de como funciona a autenticação pass-through do Azure AD.
 - [Perguntas mais frequentes sobre](active-directory-aadconnect-pass-through-authentication-faq.md): encontre respostas para perguntas mais frequentes.

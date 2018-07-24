@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919867"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215184"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -36,7 +36,7 @@ O Azure Migrate necessita de acesso aos servidores VMware para detetar automatic
 
 Se estiver a implementar num ambiente de inquilino, eis uma forma de configurar estas definições:
 
-1.  Criar um utilizador por inquilino e e usando [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribuir permissões só de leitura a pertencentes da VM para um inquilino específico. Em seguida, utilize as credenciais para a deteção. RBAC garante que o utilizador correspondente do vCenter terão acesso apenas de inquilinos específica da VM.
+1.  Criar um utilizador por inquilino e utilizar [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribuir permissões só de leitura a pertencentes da VM para um inquilino específico. Em seguida, utilize as credenciais para a deteção. RBAC garante que o utilizador correspondente do vCenter terão acesso apenas de inquilinos específica da VM.
 2. Configurar o RBAC para os utilizadores de inquilino diferente conforme descrito no exemplo a seguir para 1 utilizador e o utilizador n. º 2:
 
     - Na **nome de utilizador** e **palavra-passe**, especifique as credenciais de conta só de leitura que o recoletor utilizará para detetar VMs no
@@ -126,7 +126,7 @@ Verifique que o ficheiro OVA é seguro antes de a implementar:
 
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
 
-    Para a versão ova 1.0.9.12
+    Para a versão OVA 1.0.9.12
 
     **Algoritmo** | **Valor de hash**
     --- | ---

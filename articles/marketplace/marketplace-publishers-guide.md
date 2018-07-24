@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a104578b0c010ea7ded99e6bf24e4daa30526318
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c06811afbf575b36dd1cf185a4554427ce2cd9e3
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187333"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205236"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure de Marketplace e AppSource
 
@@ -91,8 +91,8 @@ Cada loja fornece opções especializadas para o ajudar a maximizar o investimen
 Os artigos seguintes podem ajudá-lo a saber mais sobre as opções de publicação no AppSource e do Azure Marketplace.
 
 Se tornar um publicador numa loja no mercado em três simples passos:
-1. [Determinar a opção de publicação](https://review.docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type?branch=pr-en-us-47093)
-2. [Se tornar um publicador em lojas de Marketplace](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-47093)
+1. [Determinar a opção de publicação](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type) 
+2. [Se tornar um publicador em lojas de Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) 
 
 ## <a name="publishing-checklists"></a>Listas de verificação de publicação
 *   [Lista de verificação de publicação para o AppSource](publishing-checklist-appsource.md)

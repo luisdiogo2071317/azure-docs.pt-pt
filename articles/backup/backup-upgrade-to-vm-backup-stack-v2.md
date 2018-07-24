@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137381"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205345"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança do Azure VM V2
 
@@ -48,7 +48,7 @@ Por predefinição, os instantâneos são mantidos durante sete dias. Esta funci
 
 * Os instantâneos são armazenados localmente para aumentar a criação do ponto de recuperação e também para acelerar as operações de restauro. Como resultado, verá os custos de armazenamento que correspondem aos instantâneos tirados durante o período de sete dias.
 
-* Instantâneos incrementais são armazenados como blobs de páginas. Todos os clientes que utilizam discos não geridos são cobrados durante os sete dias, que os instantâneos são armazenados na conta de armazenamento local do cliente. De acordo com o modelo de preços atual, não existe nenhum custo para clientes em discos geridos.
+* Instantâneos incrementais são armazenados como blobs de páginas. Todos os clientes que utilizam discos não geridos são cobrados durante os sete dias, que os instantâneos são armazenados na conta de armazenamento local do cliente. Uma vez que as coleções de ponto de restauro utilizadas pelas cópias de segurança de VM geridos utilizam instantâneos de blob ao nível do armazenamento subjacente, para discos geridos, verá os custos correspondentes aos [preços de instantâneo de blob](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges) e são incrementais. 
 
 * Se restaurar uma VM do premium a partir de um ponto de recuperação de instantâneo, uma localização de armazenamento temporário é utilizada enquanto a VM é criada.
 
@@ -56,7 +56,7 @@ Por predefinição, os instantâneos são mantidos durante sete dias. Esta funci
 
 ## <a name="upgrade"></a>Atualizar
 ### <a name="the-azure-portal"></a>O portal do Azure
-Se utilizar o portal do Azure, verá uma notificação no dashboard do cofre. Esta notificação se relaciona com suporte de disco grande e melhorias de velocidade de cópia de segurança e restauro.
+Se utilizar o portal do Azure, verá uma notificação no dashboard do cofre. Esta notificação se relaciona com suporte de disco grande e melhorias de velocidade de cópia de segurança e restauro. Como alternativa, pode aceder à página de propriedades do cofre para obter a opção de atualização.
 
 ![Tarefa de cópia de segurança no modelo de implementação de Gestor de recursos de pilha de cópia de segurança de VM – notificação de suporte](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ Execute os seguintes cmdlets a partir de um PowerShell elevado terminal:
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Selecione a subscrição que pretende registar para pré-visualização:
+2.  Selecione a subscrição que pretende registar:
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Registe-se nesta subscrição para a pré-visualização privada:
+3.  Registe esta subscrição:
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ As seguintes perguntas e respostas tenham sido recolhidas a partir de fóruns e 
 
 Se atualizar para o V2, não há nenhum impacto sobre a seus backups atuais e sem a necessidade de reconfigurar o seu ambiente. Atualização e o ambiente de cópia de segurança continua a funcionar porque esta tem.
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>O que custa para atualizar para a v2 de pilha de cópia de segurança do Azure?
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>O que custa para atualizar para a v2 de pilha de cópia de segurança do Azure VM?
 
-Não existe nenhum custo para atualizar para a v2 de pilha de cópia de segurança do Azure. Os instantâneos são armazenados localmente para acelerar a criação do ponto de recuperação e operações de restauro. Como resultado, verá os custos de armazenamento que correspondem aos instantâneos realizados durante o período de sete dias.
+Não existe nenhum custo para atualizar a pilha para v2. Os instantâneos são armazenados localmente para acelerar a criação do ponto de recuperação e operações de restauro. Como resultado, verá os custos de armazenamento que correspondem aos instantâneos realizados durante o período de sete dias.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Atualizar para a v2 de pilha aumentar o limite de instantâneos de conta de armazenamento premium, 10 TB?
 
-Não.
+Instantâneos tirados como parte da contagem de pilha v2 para limite de instantâneo de 10 TB de uma conta de armazenamento premium para discos não geridos. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Nas contas de armazenamento Premium, instantâneos tirados de ponto de recuperação instantânea ocupam o limite de 10 TB de instantâneo?
 
@@ -117,14 +117,6 @@ Sim, para contas de armazenamento premium, os instantâneos tirados de ponto de 
 
 Por dia é obtido um instantâneo de novo. Existem sete instantâneos individuais. O serviço faz **não** fazer uma cópia no primeiro dia e adicionar as alterações para os próximos seis dias.
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>O que acontece se o grupo de recursos padrão for eliminado acidentalmente?
-
-Se o grupo de recursos for eliminado, a recuperação instantânea aponta para todas as VMs protegidas nessa região, serão perdidas. Quando a próxima cópia de segurança ocorre, o grupo de recursos é criado novamente e as cópias de segurança continuarão conforme esperado. Esta funcionalidade não é exclusiva dos pontos de recuperação instantânea.
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>Pode eliminar o grupo de recursos predefinido criado para pontos de recuperação instantânea?
-
-O serviço de cópia de segurança do Azure cria o grupo de recursos gerido. Atualmente, não é possível alterar ou modificar o grupo de recursos. Além disso, não deve bloquear o grupo de recursos. Esta orientação não é apenas para a pilha de V2.
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Um instantâneo incremental ou um instantâneo completo, é um instantâneo do v2?
 
-Instantâneos incrementais são utilizados para discos não geridos. Para discos geridos, o instantâneo é um instantâneo.
+Instantâneos incrementais são utilizados para discos não geridos. Para discos geridos, coleção criada por cópia de segurança do Azure utiliza instantâneos de blob e, por conseguinte, são incremental de ponto de restauro. 

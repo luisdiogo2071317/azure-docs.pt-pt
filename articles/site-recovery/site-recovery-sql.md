@@ -2,24 +2,16 @@
 title: Replicar aplicações com o SQL Server e o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como replicar o SQL Server com o Azure Site Recovery para capacidades de desastres do SQL Server.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920836"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216364"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteger o SQL Server com a recuperação de desastres do SQL Server e o Azure Site Recovery
 
@@ -78,7 +70,7 @@ A tabela seguinte resume as nossas recomendações para a integração de tecnol
 
 | **Versão** | **Edição** | **Implementação** | **Do local para local** | **No local para o Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 ou 2012 |Enterprise |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
+| SQL Server 2012, 2014 ou 2016 |Enterprise |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
 || Enterprise |Always On grupos de disponibilidade para elevada disponibilidade |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On | |
 || Standard |Instância de cluster de ativação pós-falha (FCI) |Replicação do site Recovery com espelhamento local |Replicação do site Recovery com espelhamento local | |
 || Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery | |

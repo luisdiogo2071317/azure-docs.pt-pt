@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c01a63867ca3df85b4e7203c93855b43e9cd04c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044854"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214640"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -145,7 +145,7 @@ Isso serve para proteger o serviço de runbooks em execução indefinidamente se
 
 Se o runbook tiver sem pontos de verificação ou a tarefa não tinha alcançado o primeiro ponto de verificação antes de a ser descarregado, em seguida, reinicia desde o início.
 
-Para execução prolongada tarefas, é recomendado utilizar um [Runbook Worker híbrido](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados pelo justa e não ter tem uma limitação quanto um runbook pode executar.
+Para execução prolongada tarefas, é recomendado utilizar um [Runbook Worker híbrido](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados pelo justa e não tem uma limitação quanto um runbook pode executar.
 
 Se estiver a utilizar um runbook de fluxo de trabalho do PowerShell no Azure, ao criar um runbook, deve garantir que o tempo para executar todas as atividades entre dois pontos de verificação não exceda três horas. Poderá ter de adicionar pontos de verificação ao runbook para se certificar de que não atingir este limite de três horas ou divida de longa execução de operações. Por exemplo, o runbook pode executar um reindex num banco de dados SQL. Se esta operação única não for concluída dentro do limite de cota razoável, a tarefa é descarregada e reiniciada desde o início. Neste caso, deve dividir a operação de reindex em várias etapas, como a reindexação uma tabela por vez e, em seguida, inserir um ponto de verificação após cada operação para que a tarefa foi retomada após a última operação seja concluída.
 

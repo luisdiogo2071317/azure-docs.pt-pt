@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ac43637adc91c22aaab78f04732a613c74706d9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f583e962023603dbd7428c32bde52b9040246814
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446132"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205124"
 ---
 # <a name="review-your-access"></a>Rever o seu acesso
 
@@ -26,7 +26,11 @@ Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a
 
 ## <a name="open-an-access-review"></a>Abra uma revisão de acesso
 
-Para ver as revisões de acesso pendente, selecione a ligação no e-mail. Se não tiver o e-mail, pode localizar as revisões de acesso ao seguir estes passos:
+Para ver as revisões de acesso pendente, clique na ligação de acesso de revisão no e-mail. A partir de Agosto de 2018, as notificações de e-mail para funções do Azure AD tem um design atualizado. O código a seguir mostra uma mensagem de e-mail de exemplo que é enviada quando um utilizador é convidado para ser um revisor.
+
+![E-mail de acesso de revisão](./media/active-directory-azure-ad-controls-how-to-review-your-access/new-ar-email.png)
+
+Se não tiver o e-mail, pode localizar as revisões de acesso ao seguir estes passos:
 
 1. Inicie sessão no [painel de acesso do Azure AD](https://myapps.microsoft.com).
 

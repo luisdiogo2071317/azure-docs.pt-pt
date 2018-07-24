@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c759ca51fde6c3ead782d48b709c5a40b321c166
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a6be34d96ec833005ff191fe7477b117ec045a04
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916137"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213747"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do VMM para o Azure
 
@@ -111,7 +111,7 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
 2. Em **Criar e associar política**, especifique um nome para a política, **ContosoReplicationPolicy**.
 3. Mantenha as predefinições e clique em **OK**.
     - **Copiar frequência** indica que os dados delta (após a replicação inicial) serão replicados a cada cinco minutos.
-    - **Retenção do ponto de recuperação** indica que as janelas de retenção de cada ponto de recuperação serão de duas horas.
+    - **A retenção do ponto de recuperação** indica que as janelas de retenção de cada ponto de recuperação serão de duas horas.
     - **Frequência de instantâneos consistentes com a aplicação** indica que os pontos de recuperação que contêm instantâneos consistentes com a aplicação serão criados a cada hora.
     - **Hora de início da replicação inicial** indica que a replicação inicial será imediatamente iniciada.
     - **Encriptar dados armazenados no Azure** -a predefinição **desativar** definição indica que Inativos dados no Azure não estão encriptados.

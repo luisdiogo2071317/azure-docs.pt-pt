@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 064c2dfe625435d3faddae45c413d6b91eac8346
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 5d91e543f370d65337c0298fb6421d5ffa85eda0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188034"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216228"
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Configurar a identidade de serviço gerida (MSI) na VM do Azure com a CLI do Azure
 
@@ -36,7 +36,7 @@ Neste artigo, aprenderá a efetuar as seguintes operações de identidade do ser
 - Se não estiver familiarizado com a identidade do serviço gerido, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema atribuído e a identidade atribuída ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
-    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar uma VM e ativar e remover sistema atribuído a identidade gerida a partir de uma VM do Azure.
+    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) criar uma VM e ativar e remover o sistema e/ou de utilizador atribuída identidade gerida a partir de uma VM do Azure.
     - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar uma identidade atribuída ao utilizador.
     - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para atribuir e remover uma identidade de utilizador atribuída de e para uma VM.
 - Para executar os exemplos de script da CLI, tem três opções:

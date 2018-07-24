@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: DevOps com o portal do Azure | Microsoft Docs'
+title: 'Tutorial: DevOps com o portal do Azure | Documentos da Microsoft'
 description: Conheça os vários fluxos de trabalho do DevOps no Portal do Azure.
 services: azure-portal
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164844"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216347"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps com o portal do Azure
-A plataforma do Azure está cheia de fluxos de trabalho flexíveis do DevOps. Neste tutorial, irá aprender a tirar partido das capacidades do portal do Azure para desenvolver, testar, implementar, resolver problemas, monitorizar e gerir aplicações em execução. Este tutorial concentra-se no seguinte:
+A plataforma do Azure está cheia de fluxos de trabalho flexíveis do DevOps. Neste tutorial, irá aprender a alavancar as capacidades do portal do Azure para desenvolver, testar, implementar, resolver problemas, monitorizar e gerir aplicações em execução. Este tutorial concentra-se no seguinte:
 
 1. Criar uma aplicação Web e ativar a implementação contínua
 2. Desenvolver e testar uma aplicação
@@ -30,12 +30,12 @@ A plataforma do Azure está cheia de fluxos de trabalho flexíveis do DevOps. Ne
 4. Tarefas de gestão de aplicações gerais
 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Criar uma aplicação Web e ativar a implementação contínua
-Criar uma aplicação Web com o [Serviço de Aplicações do Azure](https://azure.microsoft.com/services/app-service/), que irá utilizar o resto deste tutorial. Inicialmente, irá ativar a implementação contínua do seu repositório de código de origem para o seu ambiente do Azure em execução.
+Criar uma aplicação Web com o [Serviço de Aplicações do Azure](https://azure.microsoft.com/services/app-service/), que irá utilizar o resto deste tutorial. Inicialmente, irá ativar a implementação contínua a partir do seu repositório de código de origem para o seu ambiente do Azure em execução.
 
 1. Inicie sessão no portal do Azure
 2. Selecione **Serviços Aplicacionais** &gt; **ícone Adicionar** e introduza um nome, escolha a sua subscrição e crie um novo grupo de recursos para servir como contentor para o serviço.
    
-   Grupos de recursos permitem-lhe gerir vários aspetos da solução como a faturação, implementações e a monitorização de tudo como um único grupo através de [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Grupos de recursos permitem-lhe gerir vários aspetos da solução como a faturação, implementações e monitorização de tudo como um único grupo através de [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![image1][image1]
 3. Após alguns instantes, o seu serviço de aplicações é criado. Dispense alguns minutos para explorar as várias opções de menu para o serviço no portal.
@@ -72,7 +72,7 @@ Criar uma aplicação Web com o [Serviço de Aplicações do Azure](https://azur
 12. Após efetuar alterações ao seu repositório, verá uma nova implementação iniciar na área de notificações do portal. Clique em Sincronizar se não vir rapidamente as alterações efetuadas no seu repositório.
     
     ![image12][image12]
-13. Neste momento, se tentar carregar a página para o serviço de aplicações, poderá receber um erro 403. Neste exemplo, é porque não existe nenhuma configuração de documento predefinida típica para a página, como um ficheiro index.htm ou default.html. Pode resolver isto rapidamente com a ferramentas no portal do Azure.  No portal do Azure escolha definições &gt; definições da aplicação.
+13. Neste momento, se tentar carregar a página para o serviço de aplicações, poderá receber um erro 403. Neste exemplo, é porque não existe nenhuma configuração de documento predefinida típica para a página, como um ficheiro index.htm ou default.html. Pode resolver isto rapidamente com as ferramentas no portal do Azure.  No portal do Azure, escolha definições &gt; as definições da aplicação.
     
      ![image13][image13]
 14. É aberto um painel para as definições da aplicação. Introduza o nome da página "SamplePage.html" e clique em Guardar. Dispense uns minutos para explorar as outras definições.
@@ -85,7 +85,7 @@ Criar uma aplicação Web com o [Serviço de Aplicações do Azure](https://azur
     Ativar a implementação contínua com o portal do Azure é uma experiência simples. Também pode criar pipelines de versão mais complexos e utilizar muitas outras técnicas com controlo de origem existente e sistemas de integração contínua para implementar para o Azure, tal como tirar partido da criação automatizada e sistemas de gestão de versões.
 
 ## <a name="develop-and-test-an-app"></a>Desenvolver e testar uma aplicação
-Em seguida, faça algumas alterações ao código de base e implemente rapidamente essas alterações. Irá também configurar cópias de segurança alguns testes de desempenho para a aplicação Web.
+Em seguida, faça algumas alterações ao código de base e implemente rapidamente essas alterações. Irá também configurar alguns testes de desempenho para a aplicação Web.
 
 1. No portal do Azure escolha serviços aplicacionais no painel de navegação e localize o serviço de aplicações.
    
@@ -93,7 +93,7 @@ Em seguida, faça algumas alterações ao código de base e implemente rapidamen
 2. Clique em Ferramentas
    
    ![image17][image17]
-3. Repare na categoria de desenvolvimento em Ferramentas. Existem várias ferramentas úteis aqui que nos permitem trabalhar com aplicações, sem sair do portal do Azure. Clique em Consola.
+3. Repare na categoria de desenvolvimento em Ferramentas. Existem várias ferramentas úteis aqui que permitem que trabalhemos com aplicações sem sair do portal do Azure. Clique em Consola.
    
    ![image18][image18]
 4. Na janela da consola, pode emitir comandos em tempo real para a sua aplicação. Escreva o comando dir e clique em enter. Tenha em atenção que os comandos que precisam de privilégios elevados não funcionam.
@@ -142,7 +142,7 @@ Em seguida, faça algumas alterações ao código de base e implemente rapidamen
     Assim que o teste estiver concluído, clique no resultado para obter mais detalhes.
     
     ![image33][image33]
-16. Neste exemplo, criou um pequeno teste, pelo que existem dados limitados para analisar, mas pode ver várias métricas, bem como voltar a executar o teste a partir desta vista. O Azure portal faz com que criar, executar e analisar o desempenho da web testa um processo fácil. As capturas de ecrã abaixo apresentam os dados de desempenho.
+16. Neste exemplo, criou um pequeno teste, pelo que existem dados limitados para analisar, mas pode ver várias métricas, bem como voltar a executar o teste a partir desta vista. A Azure torna portal a criação, execução e a análise de desempenho da web testa um processo simples. As capturas de ecrã abaixo apresentam os dados de desempenho.
     
     ![image34][image34]
     
@@ -197,7 +197,7 @@ O Azure oferece muitas funcionalidades de monitorização e resolução de probl
 12. Regresse à secção de ferramentas no portal do Azure para a aplicação. Desloque-se para a secção Ferramentas e escolha o Explorador de Processos.
     
     ![image50][image50]
-13. Ao escolher o Explorador de Processos, pode ver os detalhes sobre os processos em execução. Observe abaixo que pode explorar os processos e até mesmo eliminá-los, tudo a partir do portal do Azure.
+13. Ao escolher o Explorador de Processos, pode ver os detalhes sobre os processos em execução. Observe abaixo que pode explorar os processos e até mesmo, interrompe processos tudo a partir do portal do Azure.
     
     ![image51][image51]
     
@@ -211,7 +211,7 @@ O Azure oferece muitas funcionalidades de monitorização e resolução de probl
     
     ![image55][image55]
     
-    O portal do Azure ajuda a fornecer experiências para ajudar a monitorizar e resolver problemas relacionados com as suas aplicações em execução de fantásticas e familiares. Também pode agir rapidamente ao realizar tarefas, como reciclar processos, ativar e desativar várias coleções de dados e até mesmo integrar com o suporte profissional da Microsoft.
+    O portal do Azure ajuda a fornecer experiências para ajudar a monitorizar e resolver problemas de seus aplicativos em execução de ferramentas fantásticas e familiares. Também pode agir rapidamente ao realizar tarefas, como reciclar processos, ativar e desativar várias coleções de dados e até mesmo integrar com o suporte profissional da Microsoft.
 
 ## <a name="general-application-management"></a>Gestão de Aplicações Gerais
 Ao gerir aplicações, muitas vezes, terá de realizar uma grande variedade de atividades, como a configuração de estratégias de cópia de segurança, a implementação e gestão de fornecedores de identidades e a configuração do controlo de acesso baseado em Funções. Tal como acontece com outras experiências de DevOps, a plataforma do Azure integra estas tarefas diretamente no portal.
@@ -231,7 +231,7 @@ Ao gerir aplicações, muitas vezes, terá de realizar uma grande variedade de a
 5. Agora crie e selecione um contentor de armazenamento para guardar as cópias de segurança. Clique em criar na parte inferior do painel. Em seguida, selecione o contentor.
    
    ![image60][image60]
-6. Depois de escolher o contentor, pode configurar as agendas, bem como configurar cópias de segurança para as bases de dados. Para este cenário, clique no ícone de guardar.
+6. Depois de escolher o contentor, pode configurar agendamentos, bem como configurar cópias de segurança para seus bancos de dados. Para este cenário, clique no ícone de guardar.
    
     ![image61][image61]
 7. Depois de guardar, desloque-se para o painel da esquerda para Cópias de Segurança. Clique em Efetuar Cópia de Segurança Agora para criar a aplicação de segurança da aplicação.

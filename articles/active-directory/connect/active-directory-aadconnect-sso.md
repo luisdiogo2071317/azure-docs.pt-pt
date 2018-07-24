@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916171"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213236"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
@@ -55,7 +55,7 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 - Se um aplicativo (por exemplo, https://myapps.microsoft.com/contoso.com) encaminha uma `domain_hint` (OpenID Connect) ou `whr` parâmetro (SAML) - identificar o seu inquilino, ou `login_hint` parâmetro - a identificação do usuário, no seu Azure AD início de sessão pedido, os usuários são Inicie automaticamente sem eles introduzir nomes de utilizador ou palavras-passe.
 - Os utilizadores também obtém uma experiência de início de sessão silenciosa se um aplicativo (por exemplo, https://contoso.sharepoint.com) envia pedidos de início de sessão para pontos finais de inquilinos do Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>.
 - Fim de sessão é suportada. Isto permite aos utilizadores escolher outra conta do Azure AD para iniciar sessão, em vez de automaticamente a ser iniciado sessão com o SSO totalmente integrado automaticamente.
-- Os clientes do Office 365 (16.0.8730.xxxx e acima) são suportadas com um fluxo não interativo.
+- Clientes do Office 365 Win32 (Outlook, Word, Excel e outras pessoas) com as versões 16.0.8730.xxxx e superior são suportados com um fluxo não interativo. Para o OneDrive, terá de ativar a [funcionalidade de configuração automática do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de início de sessão silenciosa.
 - Pode ser ativada através do Azure AD Connect.
 - É uma funcionalidade gratuita e não é necessário qualquer nas edições pagas do Azure AD para utilizá-lo.
 - É suportada em clientes baseados em navegador da web e clientes do Office que suportam [autenticação moderna](https://aka.ms/modernauthga) nas plataformas e browsers com capacidade de autenticação do Kerberos:
