@@ -4,5 +4,5 @@ Os planos do Serviço de Aplicações definem:
 
 * Região (por exemplo: Norte da Europa, Leste dos EUA, Sudeste da Ásia)
 * Tamanho da instância (pequena, média, grande)
-* Contagem de escalas (instâncias de 1 a 10)
-* SKU (básico, Standard)
+* Contagem do dimensionamento (1 a 10 instâncias)
+* SKU (Básico, Standard)

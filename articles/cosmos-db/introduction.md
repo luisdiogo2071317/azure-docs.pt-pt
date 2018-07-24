@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dcc384fad0479c66211fe31e547ad7076150b58e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 256c951b5bf193f5ee5bfe5f70c3549ef17a4d9b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611233"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071983"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
     * O motor de base de dados do Azure Cosmos DB é totalmente sem esquema. Indexa automaticamente todos os dados que ingere sem necessidade de qualquer esquema ou índice e serve consultas muito rápidas. 
 
 * **Baixo custo de propriedade**
-    * Cinco a dez vezes [mais económica](https://aka.ms/cosmos-db-tco-paper) que uma solução não gerida ou uma solução NoSQL no local.
+    * Cinco a dez vezes mais económica que uma solução não gerida ou uma solução NoSQL no local.
     * Três vezes mais barata que o AWS DynamoDB ou o Google Spanner.
 
 ## <a name="capability-comparison"></a>Comparação das capacidades

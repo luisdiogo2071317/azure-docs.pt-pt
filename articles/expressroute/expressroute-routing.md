@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930533"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072151"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -221,7 +221,7 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Suporte da Comunidade BGP nas Clouds Nationais (Pré-visualização)
+### <a name="bgp-community-support-in-national-clouds"></a>Suporte da Comunidade BGP nas Clouds National
 
 | **Região do Azure de Clouds Nacionais**| **Valor da comunidade BGP** |
 | --- | --- |

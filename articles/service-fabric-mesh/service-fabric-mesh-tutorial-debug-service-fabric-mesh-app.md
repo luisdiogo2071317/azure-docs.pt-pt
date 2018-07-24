@@ -1,0 +1,100 @@
+---
+title: Tutorial - Depurar uma aplicação Web do Azure Service Fabric Mesh | Microsoft Docs
+description: Neste tutorial, vai depurar uma aplicação do Azure Service Fabric Mesh em execução no seu cluster local.
+services: service-fabric-mesh
+documentationcenter: .net
+author: TylerMSFT
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
+ms.service: service-fabric-mesh
+ms.devlang: dotNet
+ms.topic: tutorial
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/17/2018
+ms.author: twhitney
+ms.custom: mvc, devcenter
+ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125658"
+---
+# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Tutorial: Depurar uma aplicação Web do Service Fabric Mesh
+
+Este tutorial é a segunda parte de uma série e mostra-lhe como depurar uma aplicação Web do Azure Service Fabric Mesh no seu cluster de implementação local.
+
+Neste tutorial, vai aprender:
+
+> [!div class="checklist"]
+> * O que acontece quando cria uma aplicação do Azure Service Fabric Mesh
+> * Como definir um ponto de interrupção para observar uma chamada serviço a serviço
+
+Nesta série de tutoriais, ficará a saber como:
+> [!div class="checklist"]
+> * [Criar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Depurar a aplicação localmente
+> * [Publicar a aplicação no Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de começar este tutorial:
+
+* Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+* Certifique-se de que [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), que inclui a instalação do runtime do Service Fabric, o SDK, o Docker e o Visual Studio 2017.
+
+## <a name="download-the-to-do-sample-application"></a>Transferir a aplicação de tarefas de exemplo
+
+Se não conseguiu criar a aplicação de tarefas de exemplo na [primeira parte desta série de tutoriais](service-fabric-mesh-tutorial-create-dotnetcore.md), pode transferi-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+
+```
+git clone https://github.com/azure-samples/service-fabric-mesh
+```
+
+A aplicação está no diretório `src\todolistapp`.
+
+## <a name="build-and-debug-on-your-local-cluster"></a>Criar e depurar no seu cluster local
+
+É automaticamente criada e implementada uma imagem do Docker no seu cluster local, assim que o projeto é carregado. Este processo pode demorar algum tempo. Para monitorizar o progresso no painel **Output** (Saída) do Visual Studio, defina o menu pendente **Show output from:** (Mostrar saída de) como **Service Fabric Tools** (Ferramentas do Service Fabric).
+
+Prima **F5** para compilar e executar o serviço localmente. Quando o projeto é executado e depurado localmente, o Visual Studio irá:
+
+* Garantir que o Docker para Windows está em execução e definir como utilizar o Windows como sistema operativo do contentor.
+* Transferir quaisquer imagens base do Docker em falta. Esta parte pode demorar algum tempo
+* Criar (ou recriar) a imagem do Docker utilizada para alojar o seu projeto de código.
+* Implementar e executar o contentor no cluster de desenvolvimento local do Service Fabric.
+* Executar os seus serviços e atingir os pontos de interrupção definidos.
+
+Depois de a implementação local estar concluída e o Visual Studio estar a executar a aplicação, será aberta uma janela do browser numa página Web de exemplo predefinida.
+
+**Sugestões de depuração**
+
+* Se receber o erro **Nenhum cluster local do Service Fabric em execução**, certifique-se de que o Service Local Custer Manager (SLCM) está em execução, clique com o botão direito do rato no ícone do SLCM na barra de tarefas e, em seguida, clique em **Iniciar Cluster Local**. Depois de ser iniciado, regresse ao Visual Studio e prima **F5**.
+* Se receber um erro **404** quando a aplicação for iniciada, provavelmente significa que as variáveis de ambiente em **service.yaml** estão incorretas. Certifique-se de que `AppName`, `ApiHostPort` e `ServiceName` estão definidos corretamente de acordo com as instruções em [Definir variáveis de ambiente](#set-environment-variables).
+* Se ocorrerem erros de compilação em **service.yaml**, certifique-se de que são utilizados espaços, não separadores, para avançar as linhas.
+
+### <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
+
+Ao depurar uma aplicação do Service Fabric Mesh no Visual Studio, vai utilizar um cluster de desenvolvimento local do Service Fabric. Para ver como os itens de tarefas são obtidos do serviço de back-end, faça a depuração para o método OnGet().
+1. No projeto **WebFrontEnd**, abra **Pages** > **Index.cshtml** > **Index.cshtml.cs** e defina um ponto de interrupção no método **Get** (linha 17).
+2. No projeto **ToDoService**, abra **TodoController.cs** e defina um ponto de interrupção no método **OnGet** (linha 15).
+3. Regresse ao seu browser e atualize a página. Atingiu o ponto de interrupção no método de front-end da Web `OnGet()`. Pode inspecionar a variável `backendUrl` para ver como as variáveis de ambiente que definiu no ficheiro **service.yaml** são combinadas para o URL utilizado para contactar o serviço de back-end.
+4. Ignore (F10) a chamada `client.GetAsync(backendUrl).GetAwaiter().GetResult())` e irá atingir o ponto de interrupção do controlador `Get()`. Neste método, pode ver como é obtida a lista de itens de tarefas a partir da lista na memória.
+5. Quando tiver terminado, pare a depuração do projeto no Visual Studio ao premir **SHIFT+F5**.
+ 
+## <a name="next-steps"></a>Passos seguintes
+
+Nesta parte do tutorial, ficou a saber como:
+
+> [!div class="checklist"]
+> * O que acontece quando cria uma aplicação do Azure Service Fabric Mesh
+> * Como definir um ponto de interrupção para observar uma chamada serviço a serviço
+
+Avance para o tutorial seguinte:
+> [!div class="nextstepaction"]
+> [Publicar uma aplicação Web do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

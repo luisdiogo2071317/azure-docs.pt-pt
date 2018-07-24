@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930482"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003752"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre os serviços do Azure que entregam mensagens
 
@@ -82,7 +82,8 @@ Tem as seguintes características:
 
 * entrega de mensagens assíncrona fiável (mensagens empresariais como serviço) que requer consulta
 * funcionalidades de mensagens avançadas, como FIFO, processamento por lotes/sessões, transações, mensagens não entregues, controlo temporal, encaminhamento e filtragem e deteção de duplicados
-* entrega exatamente uma vez
+* pelo menos uma entrega
+* entrega ordenada opcional
 
 ## <a name="use-the-services-together"></a>Utilizar os serviços em conjunto
 

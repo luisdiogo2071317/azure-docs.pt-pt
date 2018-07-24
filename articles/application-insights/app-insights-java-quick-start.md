@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798445"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991703"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -89,25 +89,25 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Agora, pode reabrir a página **Descrição geral** do Application Insights no portal do Azure, onde obteve a sua chave de instrumentação, para ver detalhes sobre a aplicação que se encontra em execução.
 
-   ![Menu de Descrição Geral do Application Insights](./media/app-insights-java-quick-start/0008-j.png)
+   ![Menu de Descrição Geral do Application Insights](./media/app-insights-java-quick-start/overview-001.png)
 
-2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
+2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-   ![Mapeamento de Aplicações](./media/app-insights-java-quick-start/005-j.png)
+   ![Mapeamento de Aplicações](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. Clique no ícone do **App Analytics** ![Ícone do Mapa da Aplicação](./media/app-insights-java-quick-start/006.png). Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/app-insights-java-quick-start/0010-j.png)
 
-4. Volte à página de **Descrição geral** e examine a **Linha cronológica de Descrição Geral do Estado de Funcionamento**.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram.
+4. Volte à página de **Descrição geral** e examine os gráficos de KPI.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram.
 
-   ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/app-insights-java-quick-start/0009-j.png)
+   ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/app-insights-java-quick-start/overview-perf.png)
 
    Para ativar o gráfico **Duração de Carregamento da Vista de Página** para preencher com **dados telemétricos do lado do cliente**, adicione este script a cada página que queira controlar:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

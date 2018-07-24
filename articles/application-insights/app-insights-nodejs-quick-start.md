@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386542"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991694"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Node.js
 
@@ -30,7 +30,7 @@ Para concluir este guia de início rápido:
 - Irá precisar de uma Subscrição do Azure e de uma aplicação Web Node.js existente.
 
 Se não tiver uma aplicação Web Node.js, pode criar uma ao seguir o [Início Rápido de Criação de uma aplicação Web Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
- 
+
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -60,7 +60,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Selecione **Descrição geral** > **Essentials** > Copie a **Chave de Instrumentação** da sua aplicação.
 
-   ![Formulário de recurso novo do App Insights](./media/app-insights-nodejs-quick-start/003-Black.png)
+   ![Formulário de recurso novo do App Insights](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
 
 2. Adicionar o SDK do Application Insights para Node.js à sua aplicação. A partir da pasta raiz da sua aplicação, execute:
 
@@ -84,25 +84,25 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Agora, pode reabrir a página **Descrição geral** do Application Insights no portal do Azure, onde obteve a sua chave de instrumentação, para ver detalhes sobre a aplicação que se encontra em execução.
 
-   ![Menu de Descrição Geral do Application Insights](./media/app-insights-nodejs-quick-start/004-Black.png)
+   ![Menu de Descrição Geral do Application Insights](./media/app-insights-nodejs-quick-start/overview-001.png)
 
 2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-   ![Mapeamento de Aplicações](./media/app-insights-nodejs-quick-start/005-Black.png)
+   ![Mapeamento de Aplicações](./media/app-insights-nodejs-quick-start/application-map.png)
 
 3. Clique no ícone do **App Analytics** ![Ícone do Mapa da Aplicação](./media/app-insights-nodejs-quick-start/006.png).  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/app-insights-nodejs-quick-start/007-Black.png)
 
-4. Volte à página de **Descrição geral** e examine a **Linha cronológica de Descrição Geral do Estado de Funcionamento**.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. 
+4. Volte à página de **Descrição geral** e examine os gráficos de KPI.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. 
 
-   ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/app-insights-nodejs-quick-start/008-Black.png)
+   ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/app-insights-nodejs-quick-start/overview-perf.png)
 
    Para ativar o gráfico **Duração de Carregamento da Vista de Página** para preencher com **dados telemétricos do lado do cliente**, adicione este script a cada página que queira controlar:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics tools about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 
