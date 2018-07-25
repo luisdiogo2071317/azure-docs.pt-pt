@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261275"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036892"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto final da Rede de Entrega de Conteúdos (CDN) do Azure. Se utilizar um ponto final da CDN para entregar conteúdos e se quiser que o seu próprio nome de domínio seja visível no URL da CDN, é necessário um domínio personalizado. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa. 
@@ -54,7 +54,7 @@ Os domínios personalizados e respetivos subdomínios só podem ser associados a
 
 Quando mapear um domínio existente que esteja em produção, existem considerações especiais. Enquanto estiver a registar o domínio personalizado no Portal do Azure, o domínio pode sofrer um breve período de inatividade. Para evitar a interrupção do tráfego da Web, comece por mapear o domínio personalizado para o nome de anfitrião do ponto final da CDN com o subdomínio Azure cdnverify, para criar um mapeamento CNAME temporário. Com este método, os utilizadores podem aceder ao seu domínio sem interrupção enquanto o mapeamento de DNS decorre. 
 
-Caso contrário, se estiver a utilizar o domínio personalizado pela primeira vez e não esteja a ser executado nenhum tráfego de produção no mesmo, pode mapeá-lo diretamente para o ponto final da CDN. Avance para [Mapear domínio personalizado permanente](#map-permanent-custom-domain).
+Caso contrário, se estiver a utilizar o domínio personalizado pela primeira vez e não esteja a ser executado nenhum tráfego de produção no mesmo, pode mapeá-lo diretamente para o ponto final da CDN. Avance para [Mapear domínio personalizado permanente](#map-the-permanent-custom-domain).
 
 Para criar um registo CNAME com o subdomínio cdnverify:
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919126"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070682"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -40,7 +40,10 @@ Antes de começar, é útil rever as arquiteturas do [VMware](vmware-azure-archi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os dispositivos exportados por controladores paravirtualizados não são suportados.
+- Os dispositivos exportados por controladores paravirtualizados não são suportados.
+ 
+> [!WARNING]
+> É possível migrar VMs noutras plataformas de virtualização (sem ser o VMware ou Hyper-V), como é o caso do XenServer, ao tratar as VMs como servidores físicos. No entanto, esta abordagem não foi testada e validada pela Microsoft, e pode ou não funcionar. Por exemplo, as VMs executadas na plataforma XenServer podem não ser executadas no Azure, a menos que as ferramentas do XenServer e o armazenamento paravirtualizado e controladores de rede sejam desinstalados da VM antes de iniciar a migração.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
@@ -109,7 +112,7 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 1. Em **Definições** > **Itens replicados**, clique no computador > **Ativação Pós-falha**.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Selecione o ponto de recuperação mais recente.
 3. A definição da chave de encriptação não é relevante para este cenário.
-4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tentará fazer um encerramento das máquinas virtuais de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
+4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tentará fazer um encerramento das máquinas virtuais antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 5. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
 6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Desta forma, o processo de migração é concluído, a replicação para a VM é parada e a faturação do Site Recovery para a VM também é parada.
 
@@ -124,7 +127,7 @@ Em alguns cenários, a ativação pós-falha requer processamento adicional, que
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, migrou VMs no local para VMs do Azure. Agora pode configurar a recuperação após desastre para as VMs do Azure.
-
-> [!div class="nextstepaction"]
-> [Configure a recuperação após desastre](azure-to-azure-replicate-after-migration.md) para as VMs do Azure após a migração a partir de um site no local.
+Neste tutorial, migrou VMs no local para VMs do Azure. Agora que migrou as VMs:
+- [Configure a recuperação após desastre](azure-to-azure-replicate-after-migration.md) para as VMs migradas.
+- Tire partido das capacidades de [cloud segura e bem gerida](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) para gerir as suas VMs no Azure.
+  

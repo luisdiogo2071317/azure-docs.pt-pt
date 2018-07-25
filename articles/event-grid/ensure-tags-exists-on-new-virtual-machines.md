@@ -1,7 +1,7 @@
 ---
-title: Integração da automatização do Azure com grelha de eventos | Microsoft Docs
-description: Saiba como adicionar automaticamente uma etiqueta quando é criada uma nova VM e enviar uma notificação para Teams da Microsoft.
-keywords: automatização runbook, as equipas, grelha de eventos, a máquina virtual, VM
+title: Integrar a Automatização do Azure no Event Grid | Microsoft Docs
+description: Saiba como adicionar automaticamente uma etiqueta quando é criada uma nova VM e enviar uma notificação para o Microsoft Teams.
+keywords: automatização, runbook, teams, event grid, máquina virtual, VM
 services: automation
 documentationcenter: ''
 author: eamonoreilly
@@ -14,112 +14,120 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349075"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049869"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integração da automatização do Azure com grelha de eventos e equipas da Microsoft
+# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Importe um runbook de exemplo da grelha de eventos.
-> * Crie um webhook de Microsoft Teams opcional.
-> * Crie um webhook para o runbook.
-> * Crie uma subscrição de evento grelha.
-> * Crie uma VM que aciona o runbook.
+> * Importar um runbook de exemplo do Event Grid.
+> * Criar um webhook opcional do Microsoft Teams.
+> * Criar um webhook para o runbook.
+> * Crie uma subscrição do Event Grid.
+> * Criar uma VM que acione o runbook.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, um [conta de automatização do Azure](../automation/automation-offering-get-started.md) é necessário para manter o runbook que é acionado da subscrição do Azure eventos grelha.
+Para concluir este tutorial, é necessária uma [conta de Automatização do Azure](../automation/automation-offering-get-started.md) para manter o runbook acionado a partir da subscrição do Azure Event Grid.
 
-## <a name="import-an-event-grid-sample-runbook"></a>Importar um runbook de exemplo da grelha de eventos
-1. Selecione a sua conta de automatização e selecione o **Runbooks** página.
+* O módulo `AzureRM.Tags` tem de ser carregado na sua Conta de Automatização. Veja [Como importar módulos na Automatização do Azure](../automation/automation-update-azure-modules.md) para saber como importar módulos para a Automatização do Azure.
 
-   ![Selecione os runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
+## <a name="import-an-event-grid-sample-runbook"></a>Importar um runbook de exemplo do Event Grid
 
-2. Selecione o **procurar galeria** botão.
+1. Selecione a sua Conta de Automatização e selecione a página **Runbooks**.
 
-3. Procurar **eventos grelha**e selecione **integração da automatização do Azure com a grelha de evento**. 
+   ![Selecionar runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
-    ![Importar runbook da Galeria](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+2. Selecione o botão **Procurar galeria**.
 
-4. Selecione **importação** e dê-lhe nome **veja VMWrite**.
+3. Procure **Event Grid** e selecione **Integrar a Automatização do Azure no Event Grid**.
 
-5. Depois de ter importado, selecione **editar** para ver a origem de runbook. Selecione o botão **Publicar**.
+    ![Importar o runbook da galeria](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
-## <a name="create-an-optional-microsoft-teams-webhook"></a>Criar um webhook de Microsoft Teams opcional
-1. Na Microsoft Teams, selecione **mais opções** seguinte para o nome do canal e, em seguida, selecione **conectores**.
+4. Selecione **Importar** e atribua o nome **Watch-VMWrite**.
 
-    ![Ligações de Teams da Microsoft](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
+5. Após a importação, selecione **Editar** para ver a origem do runbook. Selecione o botão **Publicar**.
 
-2. Desloque-se através da lista de conectores para **Webhook entrada**e selecione **adicionar**.
+> [!NOTE]
+> A linha 74 no script precisa de ser alterada para `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. O parâmetro `-Tags` é agora `-Tag`.
 
-3. Introduza **AzureAutomationIntegration** para o nome e selecione **criar**.
+## <a name="create-an-optional-microsoft-teams-webhook"></a>Criar um webhook opcional do Microsoft Teams
 
-4. Copie o webhook para a área de transferência e guardá-lo. O URL do webhook é utilizado para enviar informações para Teams da Microsoft.
+1. No Microsoft Teams, selecione **Mais Opções** junto ao nome do canal e, em seguida, selecione **Conectores**.
 
-5. Selecione **feito** para guardar o webhook.
+    ![Ligações do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
+
+2. Desloque-se na lista de conectores até **Webhook de Entrada** e selecione **Adicionar**.
+
+3. Introduza **AzureAutomationIntegration** para o nome e selecione **Criar**.
+
+4. Copie o webhook para a área de transferência e guarde-o. O URL do webhook é utilizado para enviar informações para o Microsoft Teams.
+
+5. Selecione **Concluído** para guardar o webhook.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Criar um webhook para o runbook
-1. Abra o runbook veja VMWrite.
 
-2. Selecione **Webhooks**e selecione o **adicionar Webhook** botão.
+1. Abra o runbook Watch-VMWrite.
 
-3. Introduza **WatchVMEventGrid** para o nome. Copie o URL para a área de transferência e guardá-lo.
+2. Selecione **Webhooks** e selecione o botão **Adicionar Webhook**.
 
-    ![Configurar o nome de webhook](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
+3. Introduza **WatchVMEventGrid** para o nome. Copie o URL para a área de transferência e guarde-o.
 
-4. Selecione **configurar parâmetros e definições de execução**e introduza o URL do webhook Teams da Microsoft para **CHANNELURL**. Deixe **WEBHOOKDATA** em branco.
+    ![Configurar o nome do webhook](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
 
-    ![Configurar parâmetros do webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+4. Selecione **Configurar parâmetros e definições de execução** e introduza o URL do webhook do Microsoft Teams para **CHANNELURL**. Deixe **WEBHOOKDATA** em branco.
 
-5. Selecione **OK** para criar o webhook de runbook de automatização.
+    ![Configurar os parâmetros do webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+
+5. Selecione **OK** para criar o webhook do runbook de Automatização.
 
 
-## <a name="create-an-event-grid-subscription"></a>Criar uma subscrição de evento grelha
-1. No **conta de automatização** página Descrição geral, selecione **grelha de evento**.
+## <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
+1. Na página de descrição geral **Conta de Automatização**, selecione **Event Grid**.
 
-    ![Selecione a grelha de eventos](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
+    ![Selecionar Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Selecione o **+ de subscrição de evento** botão.
+2. Selecione o botão **+ Subscrição de Eventos**.
 
 3. Configure a subscrição com as seguintes informações:
 
     *   Introduza **AzureAutomation** para o nome.
-    *   No **tipo de tópico**, selecione **subscrições do Azure**.
-    *   Limpar o **subscrever todos os tipos de evento** caixa de verificação.
-    *   No **tipos de evento**, selecione **recursos escrever êxito**.
-    *   No **ponto final de subscritor**, introduza o URL do webhook para o runbook veja VMWrite.
-    *   No **prefixo filtro**, introduza a subscrição e criado de grupo de recursos em que pretende procurar novas VMs. Este deve ter o seguinte aspeto:`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+    *   Em **Tipo de Tópico**, selecione **Subscrições do Azure**.
+    *   Limpe a caixa de verificação **Subscrever todos os tipos de eventos**.
+    *   Em **Tipos de Eventos**, selecione **Escrita do Recurso com Êxito**.
+    *   Em **Ponto Final do Subscritor**, introduza o URL do webhook do runbook Watch-VMWrite.
+    *   Em **Filtro de Prefixo**, introduza a subscrição e o grupo de recursos em que quer procurar as novas VMs criadas. Deve ter o seguinte aspeto: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
-4. Selecione **criar** ao guardar a subscrição de evento grelha.
+4. Selecione **Criar** para guardar a subscrição do Event Grid.
 
-## <a name="create-a-vm-that-triggers-the-runbook"></a>Criar uma VM que aciona o runbook
-1. Crie uma nova VM no grupo de recursos que especificou no caso de filtro do prefixo da subscrição de grelha.
+## <a name="create-a-vm-that-triggers-the-runbook"></a>Criar uma VM que acione o runbook
+1. Crie uma nova VM no grupo de recursos que especificou no filtro de prefixo da subscrição do Event Grid.
 
-2. Deve ser chamado para o runbook VMWrite veja e adicionar uma nova etiqueta para a VM.
+2. O runbook Watch-VMWrite deve ser chamado e uma nova etiqueta adicionada à VM.
 
-    ![Etiqueta VM](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
+    ![Etiqueta da VM](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
 
-3. Uma nova mensagem é enviada para o canal Teams da Microsoft.
+3. É enviada uma nova mensagem para o canal do Microsoft Teams.
 
-    ![Notificação de Teams da Microsoft](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
+    ![Notificação do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, configurar a integração entre a grelha de eventos e automatização. Aprendeu a:
+Neste tutorial, configurou a integração entre o Event Grid e a Automatização. Aprendeu a:
 
 > [!div class="checklist"]
-> * Importe um runbook de exemplo da grelha de eventos.
-> * Crie um webhook de Microsoft Teams opcional.
-> * Crie um webhook para o runbook.
-> * Crie uma subscrição de evento grelha.
-> * Crie uma VM que aciona o runbook.
+> * Importar um runbook de exemplo do Event Grid.
+> * Criar um webhook opcional do Microsoft Teams.
+> * Criar um webhook para o runbook.
+> * Crie uma subscrição do Event Grid.
+> * Criar uma VM que acione o runbook.
 
 > [!div class="nextstepaction"]
-> [Criar e eventos personalizados com grelha de eventos de rotas](../event-grid/custom-event-quickstart.md)
+> [Criar e encaminhar eventos personalizados com o Event Grid](../event-grid/custom-event-quickstart.md)

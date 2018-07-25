@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540236"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115590"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o primeiro módulo IoT Edge do portal do Azure para um dispositivo Windows – pré-visualização
 
@@ -54,6 +54,8 @@ Tenha os seguintes pré-requisitos prontos no computador que está a utilizar pa
 Comece o início rápido ao criar o seu Hub IoT no portal do Azure.
 ![Criar Hub IoT][3]
 
+Crie o seu Hub IoT num grupo de recursos que pode utilizar para manter e gerir todos os recursos que criou neste início rápido. Atribua-lhe um nome que seja fácil de recordar, como **IoTEdgeResources**. Ao colocar todos os recursos dos inícios rápidos e dos tutoriais num grupo, pode geri-los em conjunto e removê-los facilmente quando concluir os testes. 
+
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
 ## <a name="register-an-iot-edge-device"></a>Registar um dispositivo do IoT Edge
@@ -81,14 +83,15 @@ As instruções nesta secção configuram o runtime do IoT Edge com contentores 
 
 2. Transfira o pacote do serviço IoT Edge.
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. Instale o vcruntime.
 
@@ -160,7 +163,7 @@ Configure o runtime com a cadeia de ligação do dispositivo IoT Edge que copiou
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. No ficheiro `config.yaml`, localize a secção **Definições de ligação**. Atualize os valores **management_uri** e **workload_uri** com o endereço IP e as portas que abriu na secção anterior. Substitua **\<GATEWAY_ADDRESS\>** pelo seu endereço IP. 
+6. No ficheiro `config.yaml`, localize a secção **Definições de ligação**. Atualize os valores **management_uri** e **workload_uri** com o endereço IP e as portas que abriu na secção anterior. Substitua **\<GATEWAY_ADDRESS\>** pelo endereço IP de DockerNAT que copiou.
 
    ```yaml
    connect: 
@@ -249,14 +252,55 @@ Também pode ver as mensagens recebidas pelo hub IoT através da ferramenta [Exp
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode utilizar o dispositivo simulado que configurou neste início rápido para testar os tutoriais do IoT Edge. Se quiser impedir o módulo tempSensor de enviar dados para o seu hub IoT, utilize o comando seguinte para parar o serviço IoT Edge e eliminar os contentores que foram criados no seu dispositivo. Quando quiser voltar a utilizar o seu computador como um dispositivo IoT Edge, lembre-se de iniciar o serviço. 
+Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos do Azure que criou e remover o runtime do IoT Edge do seu dispositivo. 
+
+### <a name="delete-azure-resources"></a>Eliminar recursos do Azure
+
+Se tiver criado a sua máquina virtual e o hub IoT num novo grupo de recursos, pode eliminar esse grupo e todos os recursos associados. Se tiver alguma coisa nesse grupo de recursos que pretende manter, então basta eliminar os recursos individuais que quer limpar. 
+
+Para remover um grupo de recursos, siga estes passos: 
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
+2. Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos que contém o seu Hub IoT. 
+3. À direita do seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+4. É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos novamente para confirmar e, em seguida, clique em **Eliminar**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
+
+### <a name="remove-the-iot-edge-runtime"></a>Remover o runtime do IoT Edge
+
+Se planeia utilizar o dispositivo do IoT Edge para testes futuros, mas pretende impedir o módulo tempSensor de enviar dados para o seu hub IoT enquanto não está a ser utilizado, utilize o comando seguinte para parar o serviço IoT Edge. 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-Quando já não precisar do Hub IoT que criou, pode utilizar o portal do Azure para remover o recurso e todos os dispositivos associados ao mesmo. Navegue para a página de descrição geral do hub IoT e selecione **Eliminar**. 
+Pode reiniciar o serviço quando estiver preparado para começar novamente os testes
+
+   ```powershell
+   Start-Service iotedge
+   ```
+
+Se quiser remover as instalações do seu dispositivo, utilize os comandos seguintes.  
+
+Remova o runtime do IoT Edge.
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+Quando o runtime do IoT Edge é removido, os contentores que ele criou são parados, mas continuam no seu dispositivo. Veja todos os contentores.
+
+   ```powershell
+   docker ps -a
+   ```
+
+Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. Altere o nome do contentor tempSensor, se o tiver chamado de outra forma. 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
 
 ## <a name="next-steps"></a>Passos seguintes
 

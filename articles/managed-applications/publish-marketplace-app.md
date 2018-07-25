@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 03/15/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304536"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989791"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -43,8 +43,8 @@ Para se tornar um editor no Azure Marketplace, tem de:
 
 1. Criar um ID da Microsoft - Crie a sua conta Microsoft com um endereço de e-mail que pertença ao domínio da sua empresa, mas não a um único indivíduo. Este endereço de e-mail é utilizado para o Centro para Programadores da Microsoft e o Cloud Partner Portal. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 1. Submeter o [Formulário de Nomeação do Azure Marketplace](https://aka.ms/ampnomination) - Para **Que solução quer publicar?**, selecione **Aplicação Gerida**. Depois de o formulário ser submetido, a equipa de inclusão do Marketplace revê a candidatura e valida o pedido. O processo de aprovação pode demorar entre um a três dias. Quando a nomeação for aprovada, receberá um código promocional para renunciar a taxa de registo do centro para programadores. Se **não** preencher o Formulário de Nomeação do Marketplace, é-lhe solicitado que pague uma taxa de registo de $99.
-1. Registar-se no [Centro para Programadores](http://dev.windows.com/registration?accountprogram=azure) - A Microsoft valida que a sua organização é uma entidade legal válida com um ID fiscal válido para o país onde está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
-1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) - No perfil do editor, associe a sua conta do Centro para Programadores com o Perfil de Editor do Marketplace. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
+1. Registar-se no [Centro para Programadores](http://dev.windows.com/registration?accountprogram=azure) – A Microsoft valida que a sua organização é uma entidade legal válida com um NIF válido para o país no qual está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
+1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) – No perfil do editor, associe a sua conta do Centro para Programadores ao Perfil de Editor do Marketplace. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicação do Azure
 
@@ -101,10 +101,11 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
 
    Preencha os seguintes campos:
 
-   * **Versão Atual**: introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
-   * **Selecione um ficheiro de pacote**: este pacote contém dois ficheiros necessários comprimidos num pacote .zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+   * **Versão**: Introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
+   * **Ficheiro de pacote(.zip)**: Este pacote contém dois ficheiros necessários comprimidos num pacote .zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
    * **PrincipalId**: esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, grupo de utilizadores ou aplicação com acesso concedido aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
    * **Definição de Função**: esta propriedade é uma lista de todas as funções de Controlo de Acesso Baseado em Funções (RBAC) incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
+   * **Definições de Política**: Aplicar uma [Azure Policy](../azure-policy/azure-policy-introduction.md) à sua aplicação gerida para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../azure-policy/json-samples.md).
 
 Pode adicionar várias autorizações. Recomendamos que crie um grupo de utilizadores do AD e especifique o respetivo ID em **PrincipalId**. Desta forma, pode adicionar mais utilizadores ao grupo de utilizadores sem a necessidade de atualizar o SKU.
 

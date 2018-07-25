@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809874"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112968"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registar instância de contentor com o Azure Log Analytics
 
@@ -43,9 +43,26 @@ Para obter o ID da área de trabalho do Log Analytics e uma chave primária:
 
 ## <a name="create-container-group"></a>Criar grupo de contentores
 
-Agora que tem o ID da área de trabalho do Log Analytics e a chave primária, está pronto para criar um grupo de contentores com registo ativado. O exemplo seguinte cria um grupo de contentores com um único contentor [fluentd] [ fluentd]. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
+Agora que tem o ID da área de trabalho do Log Analytics e a chave primária, está pronto para criar um grupo de contentores com registo ativado.
 
-Em primeiro lugar, copie o YAML seguinte, que define um grupo de contentores com um único contentor, para um novo ficheiro. Substitua `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` pelos valores que obteve no passo anterior e, em seguida, guarde o ficheiro como **implementar aci.yaml**.
+Os seguintes exemplos demonstram duas formas de criar um grupo de contentores com um único contentor [fluentd][fluentd]: CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
+
+### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+
+Para implementar com a CLI do Azure, especifique os parâmetros `--log-analytics-workspace` e `--log-analytics-workspace-key` no comando [az container create][az-container-create]. Substitua os dois valores de área de trabalho pelos valores que obteve no passo anterior (e atualize o nome de grupo de recursos) antes de executar o seguinte comando.
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>Implementar com o YAML
+
+Utilize este método de preferir implementar grupos de contentores com o YAML. O seguinte YAML define um grupo de contentores com um único contentor. Copie o ficheiro YAML para um novo ficheiro e substitua `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` pelos valores que obteve no passo anterior. Guarde o ficheiro como **deploy-aci.yaml**.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Em seguida, execute o comando seguinte para implementar o grupo de contentores; substitua `myResourceGroup` por um grupo de recursos da sua subscrição (ou crie primeiro um grupo de recursos denominado "myResourceGroup"):
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 Deverá receber uma resposta do Azure com detalhes de implementação poucos instantes após a emissão do comando.
@@ -135,3 +152,4 @@ Para obter informações sobre a monitorização da CPU do Container Instances e
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

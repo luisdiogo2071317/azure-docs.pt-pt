@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 6d2940712f8a76173de47badd45d7c7f0f0be05c
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825481"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37967852"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster do Kubernetes ativado para os Espaços de Programador do Azure
 
@@ -25,10 +25,10 @@ ms.locfileid: "34825481"
    Conclua os passos seguintes, descritos abaixo de cada um dos títulos do formulário para criar o cluster de AKS.
 
     - **DETALHES DO PROJETO**: selecione uma subscrição do Azure e um grupo de recursos, novo ou existente, do Azure.
-    - **DETALHES DO CLUSTER**: introduza um nome, região (atualmente, tem de escolher EastUS, WestEurope ou CanadaEast), versão e o prefixo de nome de DNS para o cluster do AKS.
+    - **DETALHES DO CLUSTER**: introduza um nome, região (atualmente, tem de escolher EUALeste, EUACentral, EuropaOcidental, EUAOcidental2, CanadaCentral ou CanadaLeste), a versão e o prefixo de nome de DNS para o cluster do AKS.
     - **DIMENSIONAMENTO**: selecione um tamanho da VM para os nós de agente do AKS e o número de nós. Se está a começar de utilizar os Espaços de Programador do Azure, basta um nó para explorar todas as funcionalidades. A contagem de nós pode ser facilmente ajustada em qualquer altura depois de o cluster ser implementado. Note que o tamanho da VM não pode ser alterado após a criação de um cluster de AKS. No entanto, depois de um cluster de AKS ser implementado, pode criar facilmente um novo cluster de AKS com VMs maiores e utilizar Espaços de Programador para voltar a implementar para esse cluster maior, se precisar de aumentar verticalmente.
 
-   Certifique-se de que escolhe a versão 1.9.6 ou posterior do Kubernetes.
+   Certifique-se de que escolhe a versão 1.10.3 ou posterior do Kubernetes.
 
    ![Definições de configuração do Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
@@ -40,5 +40,9 @@ ms.locfileid: "34825481"
 
     > [!IMPORTANT]
     > Tem de ter a certeza de que pretende ativar o Encaminhamento de Aplicações Http quando criar o cluster de AKS. Não pode alterar esta definição mais tarde.
+
+1. Escolha a definição pretendida para controlo de acesso baseado em funções (RBAC). Os espaços de desenvolvimento do Azure suportam clusters com RBAC ativado ou desativado.
+
+    ![Definição de RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Selecione **Rever + criar** e, em seguida, selecione **Criar** quando terminar.

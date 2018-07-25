@@ -1,21 +1,21 @@
 ---
-title: Pesquisar dados semiestruturados no armazenamento na cloud do Azure
-description: Pesquise dados de blobs semiestruturados com o Azure Search.
-author: roygara
+title: Tutorial para pesquisar dados semiestruturados do armazenamento na cloud do Azure no Azure Search | Microsoft Docs
+description: Neste tutorial, aprenda a pesquisar dados semiestruturados e dados de Blob do Azure com o Azure Search.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795046"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005082"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Pesquisar dados semiestruturados no armazenamento na cloud
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutorial: Pesquisar dados semiestruturados no armazenamento na cloud do Azure
 
 Numa série de tutoriais de duas partes, vai aprender a pesquisar dados semiestruturados e não estruturados com o Azure Search. A [Parte 1](../storage/blobs/storage-unstructured-search.md) explicou a pesquisa de dados não estruturados, mas também incluiu pré-requisitos importantes para este tutorial, como criar a conta de armazenamento. 
 
@@ -28,14 +28,16 @@ Na Parte 2, saiba como:
 > * Criar e preencher um índice do Azure Search e o indexador para pesquisar o contentor e extrair conteúdo pesquisável
 > * Pesquisar o índice que acabou de criar
 
-> [!NOTE]
-> Este tutorial baseia-se no suporte de matriz JSON, que é atualmente uma funcionalidade de pré-visualização no Azure Search. Não está disponível no portal. Por este motivo, estamos a utilizar a API REST de pré-visualização, que fornece esta funcionalidade, e uma ferramenta de cliente REST para chamar a API.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão do [tutorial anterior](../storage/blobs/storage-unstructured-search.md) que fornece a conta de armazenamento e o serviço de pesquisa criado no tutorial anterior.
 
 * Instalação de um cliente REST e compreender como se constrói um pedido de HTTP. Para este tutorial, utilizamos o [Postman](https://www.getpostman.com/). Pode utilizar outro cliente REST se já estiver familiarizado com um cliente específico.
+
+> [!NOTE]
+> Este tutorial baseia-se no suporte de matriz JSON, que é atualmente uma funcionalidade de pré-visualização no Azure Search. Não está disponível no portal. Por este motivo, estamos a utilizar a API REST de pré-visualização, que fornece esta funcionalidade, e uma ferramenta de cliente REST para chamar a API.
 
 ## <a name="set-up-postman"></a>Configurar o Postman
 
@@ -55,9 +57,9 @@ Um conjunto de dados de exemplo foi preparado para si. **Transfira [clinical-tri
 
 A amostra contém ficheiros JSON de exemplo, que eram originalmente ficheiros de texto obtidos a partir de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Convertemo-los para JSON para sua comodidade.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](http://portal.azure.com).
+Inicie sessão no [portal do Azure](http://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Carregar os dados de exemplo
 
@@ -277,15 +279,13 @@ Se quiser experimentar e tentar fazer sozinho mais algumas consultas, pode fazê
 
 O parâmetro `$filter` só funciona com os metadados que foram marcados como «filtrável» na criação do seu índice.
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Descrição Geral do serviço Azure Search.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a pesquisar dados semiestruturados com o Azure Search, como por exemplo, a:
-
-> [!div class="checklist"]
-> * Criar um Azure Search Service com a API REST
-> * Utilizar o Azure Search Service para pesquisar o seu contentor
-
-Siga esta hiperligação para saber mais sobre a pesquisa.
+Pode anexar algoritmos com tecnologia de IA a um pipeline de indexador. Como próximo passo, avance para o tutorial seguinte.
 
 > [!div class="nextstepaction"]
 > [Indexar Documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)

@@ -1,22 +1,22 @@
 ---
 title: Tutorial sobre como indexar bases de dados SQL do Azure no Azure Search | Microsoft Docs
-description: Pesquise as bases de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice de Pesquisa do Azure.
+description: Neste tutorial, pesquise as bases de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799520"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988800"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Como pesquisar bases de dados SQL do Azure com indexadores do Azure Search
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Pesquisar uma base de dados SQL do Azure através dos indexadores do Azure Search
 
 Este tutorial mostra-lhe como configurar um indexador para extrair dados pesquisáveis a partir de uma base de dados SQL do Azure de exemplo. Os [indexadores](search-indexer-overview.md) são um componente do Azure Search que pesquisam origens de dados externas e preenchem um [índice de pesquisa](search-what-is-an-index.md) com conteúdos. O indexador da base de dados SQL do Azure é o mais utilizado de todos. 
 
@@ -33,9 +33,9 @@ Neste tutorial, vai utilizar as [bibliotecas de cliente .NET do Azure Search](ht
 > * Pesquisar o índice
 > * Ver a configuração do indexador no portal
 
-## <a name="prerequisites"></a>Pré-requisitos
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um serviço do Azure Search. Para obter ajuda para configurar um serviço, veja [Create a search service](search-create-service-portal.md) (Criar um serviço de pesquisa).
 
@@ -269,21 +269,14 @@ Todos os indexadores, incluindo o que acabou de criar programaticamente, são ap
 
   ![Mosaicos de indexador e origem de dados](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não quiser continuar a utilizar estes serviços, siga os passos abaixo para eliminar todos os recursos criados neste tutorial no portal do Azure. 
-
-1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou. 
-2. Na página do grupo de recursos, clique em **Eliminar grupo de recursos**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
+A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Descrição Geral do serviço Azure Search.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações e tarefas específicas para outras origens de dados suportadas, veja os artigos seguintes:
+Pode anexar algoritmos com tecnologia de IA a um pipeline de indexador. Como próximo passo, avance para o tutorial seguinte.
 
-* [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
-* [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Indexar blobs CSV com o indexador Blob do Azure Search](search-howto-index-csv-blobs.md)
-* [Indexar blobs JSON com o indexador Blob do Azure Search](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Indexar Documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)

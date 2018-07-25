@@ -11,27 +11,27 @@ ms.date: 05/11/2018
 ms.topic: include
 manager: douge
 ms.openlocfilehash: d44f33b0e9f71c1d8d6e2c9878b08f9fa0e1f8a1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938177"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991042"
 ---
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar o código para o desenvolvimento de Docker e Kubernetes
-Até ao momento, terá uma aplicação web básica que pode ser executados localmente. Agora irá containerize através da criação de ativos que definem contentor da aplicação e a forma como irá implementar para Kubernetes. Esta tarefa é fácil fazer com os espaços de programador do Azure: 
+## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar o código para implementação do Docker e Kubernetes
+Neste momento, tem uma aplicação Web básica que pode ser executada localmente. Agora, irá colocá-la em contentor ao criar recursos que definem o contentor da aplicação e como esta será implementada no Kubernetes. É fácil executar esta tarefa com o Azure Dev Spaces: 
 
-1. Iniciar o VS Code e abra o `webfrontend` pasta. (Pode ignorar quaisquer avisos de predefinido para adicionar recursos de depuração ou restaurar o projeto).
-1. Abra o Terminal integrada no VS Code (utilizando o **vista > Terminal integrada** menu).
-1. Execute este comando (ser Certifique-se que **webfrontend** é a pasta atual):
+1. Inicie o VS Code e abra a pasta `webfrontend`. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
+1. Abra o Terminal Integrado no VS Code (através do menu **Ver > Terminal Integrado**).
+1. Execute este comando (certifique-se de que **webfrontend** é a sua pasta atual):
 
     ```cmd
     azds prep --public
     ```
 
-A CLI do Azure `azds prep` comandos gera Docker e Kubernetes ativos com as predefinições:
-* `./Dockerfile` Descreve a aplicação a imagem de contentor, e como o código de origem é criado e é executado dentro do contentor.
-* A [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor Kubernetes.
+O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com as predefinições:
+* `./Dockerfile` descreve a imagem de contentor da aplicação e como o código-fonte é construído e executado no contentor.
+* Um [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
 
-Por agora, não é necessário compreender o conteúdo completo destes ficheiros. É importante, mas a apontar, no entanto, que **o mesmo Kubernetes e Docker ativos de configuração como código podem ser utilizados de desenvolvimento através para produção, assim que fornece uma melhor consistência entre ambientes diferentes.**
+Por enquanto, não é necessário entender o conteúdo completo desses ficheiros. No entanto, importa realçar que **os mesmos recursos de configuração como código do Kubernetes e do Docker podem ser utilizados do desenvolvimento à produção, dando maior consistência em diferentes ambientes.**
  
-Um ficheiro denominado `./azds.yaml` também é gerado pelo `prep` comando, que é o ficheiro de configuração para os espaços de programador do Azure. -Complementa os artefactos Docker e Kubernetes sem configuração adicional que permite uma experiência de desenvolvimento iterativo no Azure.
+É também geral um ficheiro com o nome `./azds.yaml` pelo comando `prep`, que é o ficheiro de configuração do Azure Dev Spaces. Este complementa os artefactos do Docker e do Kubernetes com uma configuração adicional que permite uma experiência de desenvolvimento iterativa no Azure.

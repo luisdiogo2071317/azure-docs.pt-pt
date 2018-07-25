@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 2/13/2018
+ms.date: 7/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447256"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048921"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: Configurar o início de sessão para uma aplicação de uma página através do Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Neste início rápido, vai utilizar um exemplo de aplicação de página única 
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento ASP.NET e Web**.
 * Instalar o [Node. js](https://nodejs.org/en/download/)
-* Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
+* Uma conta do Facebook.
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -63,21 +63,17 @@ Navegue até ao URL da aplicação `http://localhost:6420` num browser.
 
 Clique no botão **Iniciar sessão** para iniciar o fluxo de trabalho **Inscrever-se ou Iniciar Sessão** do Azure AD B2C, com base numa política do Azure AD B2C. 
 
-O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Neste início rápido, utilize uma conta de fornecedor de identidade de redes sociais do Facebook, Google, Microsoft ou Twitter. 
+O exemplo destina-se a suportar várias opções de inscrição, incluindo através da criação de uma conta local com um endereço de e-mail. Para este início rápido, utilize uma conta do Facebook. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Inscrever-se através de um fornecedor de identidade de redes sociais
 
 O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia com o nome Wingtip Toys para a aplicação Web de exemplo. 
 
-1. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
-
-    ![Fornecedor de Início de Sessão ou Inscrição](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Para se inscrever através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade do Facebook.
 
     Efetue a autenticação (início de sessão) com as suas credenciais da rede social e autorize a aplicação a ler as informações da sua conta da rede social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
 
-2. Conclua o processo de início de sessão para o fornecedor de identidade. Por exemplo, se tiver escolhido o Twitter, introduza as suas credenciais do Twitter e clique em **Iniciar sessão**.
-
-    ![Autenticar e autorizar através de uma conta de redes sociais](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+2. Conclua o processo de início de sessão para o fornecedor de identidade com a introdução das suas credenciais.
 
     Os detalhes do perfil da nova conta são pré-preenchidos com as informações da sua conta da rede social. 
 

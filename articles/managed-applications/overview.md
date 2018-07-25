@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639212"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990519"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -41,7 +41,7 @@ Pode publicar a sua aplicação gerida externa ou internamente.
 
 ### <a name="service-catalog"></a>Catálogo de serviços
 
-O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Pode utilizar o catálogo para garantir a conformidade com determinados padrões da organização enquanto oferecem soluções à organização. Os funcionários utilizam o catálogo para descobrir facilmente o rico conjunto de aplicações que são recomendadas e aprovadas pelos respetivos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
+O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Pode utilizar o catálogo para garantir a conformidade com determinados padrões da organização enquanto oferecem soluções à organização. Os funcionários utilizam o catálogo para descobrir facilmente aplicações que são recomendadas e aprovadas pelos respetivos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
 
 Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
 
@@ -70,6 +70,10 @@ O consumidor tem acesso total ao grupo de recursos e utiliza-o para gerir o cicl
 Este grupo de recursos contém todos os recursos de que a aplicação gerida precisa. Por exemplo, este grupo de recursos contém as máquinas virtuais, as contas de armazenamento e as redes virtuais da solução. O consumidor tem acesso limitado a este grupo de recursos porque não gere os recursos individuais da aplicação gerida. O acesso do editor a este grupo de recursos corresponde à função especificada na definição da aplicação gerida. Por exemplo, o editor pode pedir a função Proprietário ou Contribuidor para este grupo de recursos.
 
 Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido também é eliminado.
+
+## <a name="azure-policy"></a>Azure Policy
+
+Pode aplicar uma [Azure Policy](../azure-policy/azure-policy-introduction.md) à sua aplicação gerida. Aplique políticas para garantir que as instâncias implementadas da sua aplicação gerida estão em cumprimento com os requisitos de dados e segurança. Se a sua aplicação interage com dados sensíveis, certifique de que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados do Office 365, aplique uma política para garantir que a encriptação de dados está ativada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

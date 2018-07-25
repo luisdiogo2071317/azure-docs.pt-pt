@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970249"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070013"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Funcionalidade de Armazenamento Imutável do armazenamento de Blobs do Azure (Pré-visualização)
 
@@ -178,11 +178,11 @@ Pode utilizar a funcionalidade de Armazenamento Imutável com as contas GPv2 exi
 
 **O que acontece se tentar eliminar um contentor com uma política de retenção baseada no tempo ou de retenção legal *bloqueada*?**
 
-A operação Eliminar Contentor irá falhar se for, pelo menos, um blob com uma política de retenção baseada no tempo ou uma retenção legal bloqueada. A operação Eliminar Contentor terá êxito se não houver nenhum blob com um intervalo de retenção ativo e nenhumas retenções legais. Tem de eliminar primeiro os blobs antes de poder eliminar o contentor.
+A operação Eliminar Contentor vai falhar se for, pelo menos, um blob com uma política de retenção com base no tempo bloqueada ou uma suspensão judicial. Será verdadeiro, mesmo que os dados sejam [eliminados de forma recuperável](storage-blob-soft-delete.md).A operação Eliminar Contentor terá êxito se não houver nenhum blob com um intervalo de retenção ativo e se não existirem quaisquer suspensões judiciais. Tem de eliminar primeiro os blobs antes de poder eliminar o contentor. 
 
 **O que acontece se tentar eliminar uma conta de armazenamento com um contentor WORM que tenha uma política de retenção baseada no tempo ou de retenção legal *bloqueada*?**
 
-A eliminação da conta de armazenamento falhará se existir, pelo menos, um contentor WORM com uma retenção legal ou um blob com um intervalo de retenção ativo.  Todos os contentores WORM têm de ser eliminados antes de poder eliminar a conta de armazenamento.  Veja a pergunta n.º 2 para obter informações sobre a eliminação de contentores.
+A eliminação da conta de armazenamento falhará se existir, pelo menos, um contentor WORM com uma retenção legal ou um blob com um intervalo de retenção ativo.  Todos os contentores WORM têm de ser eliminados antes de poder eliminar a conta de armazenamento.  Veja a pergunta anterior para obter informações sobre a eliminação de contentores.
 
 **Posso mover os dados entre camadas de blob diferentes (frequente, esporádico, progressivo) quando o blob está no estado imutável?**
 

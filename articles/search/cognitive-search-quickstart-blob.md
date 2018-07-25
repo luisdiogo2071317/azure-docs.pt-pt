@@ -3,16 +3,17 @@ title: 'Início Rápido: criar um pipeline de pesquisa cognitiva no Azure Search
 description: Exemplo de extração de dados, linguagem natural e competências de processamento de imagens no portal do Azure com dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640266"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003701"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: criar um pipeline de pesquisa cognitiva com competências e dados de exemplo
 
@@ -60,7 +61,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   O serviço Gratuito está limitado a 3 índices, um tamanho de blob máximo de 16 MB e 2 minutos de indexação, o que é insuficiente para executar todas as funcionalidades da pesquisa cognitiva. Para rever os limites dos diferentes escalões, veja [Limites do Serviço](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > A Pesquisa Cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
+  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
@@ -72,7 +73,7 @@ O pipeline de melhoramento solicita as origens de dados do Azure suportadas pelo
 
 1. A [transferência de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) é constituída por um pequeno conjunto de ficheiros de diferentes tipos. 
 
-1. Inscreva-se no armazenamento de Blobs do Azure, inicie sessão no Explorador de Armazenamento do Azure e crie um contentor. Veja [Início Rápido do Explorador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para obter instruções sobre todos os passos.
+1. Inscreva-se no armazenamento de Blobs do Azure, crie uma conta de armazenamento, inicie sessão no Explorador de Armazenamento e crie um contentor. Veja [Início Rápido do Explorador de Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) para obter instruções sobre todos os passos.
 
 1. Com o Explorador de Armazenamento do Azure, no contentor que criou, clique em **Carregar** para carregar os ficheiros de exemplo.
 
@@ -123,7 +124,7 @@ Uma vez que definiu um conjunto de competências, o assistente parte do princíp
 
 Em **Personalizar índice**, analise os atributos nos campos para ver como são utilizados num índice. Pesquisável indica que um campo pode ser pesquisado. Recuperável significa que pode ser devolvido nos resultados. 
 
-Considere limpar Recuperável no campo `content`. Nos blobs, este campo pode ser executado em milhares de linhas, tornando-se difícil de ler numa ferramenta como o **Explorador de Procura**.
+Considere limpar Recuperável no campo `content`. Nos blobs, este campo pode ser executado em milhares de linhas, tornando-se difícil de ler numa ferramenta como o **Explorador de procura**.
 
 Clique em **OK** para aceitar a definição do índice.
 
@@ -146,11 +147,11 @@ Clique em **OK** para importar, melhorar e indexar os dados.
 
 A indexação e o melhoramento podem demorar algum tempo, motivo pelo qual os conjuntos de dados mais pequenos são recomendados para uma exploração antecipada. Pode monitorizar a indexação na página Notificações do portal do Azure. 
 
-## <a name="query-in-search-explorer"></a>Consultar no Explorador de Procura
+## <a name="query-in-search-explorer"></a>Consultar no Explorador de procura
 
-Depois de criar um índice, pode submeter consultas para devolver documentos do índice. No portal, utilize **Explorador de Procura** para executar consultas e ver resultados. 
+Depois de criar um índice, pode submeter consultas para devolver documentos do índice. No portal, utilize **Explorador de procura** para executar consultas e ver resultados. 
 
-1. Na página do dashboard do serviço de procura, clique em **Explorador de Procura** na barra de comandos.
+1. Na página do dashboard do serviço de procura, clique em **Explorador de procura** na barra de comandos.
 
 1. Selecione **Alterar Índice**, na parte superior, para selecionar o índice que criou.
 

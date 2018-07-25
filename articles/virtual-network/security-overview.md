@@ -1,6 +1,6 @@
 ---
-title: Descrição geral da segurança de rede do Azure | Microsoft Docs
-description: Saiba mais sobre as opções de segurança para controlar o fluxo do tráfego de rede entre recursos do Azure.
+title: Descrição geral dos grupos de segurança do Azure | Microsoft Docs
+description: Saiba mais sobre os grupos de segurança de aplicações e rede. Os grupos de segurança ajudam-no a filtrar o tráfego de rede entre recursos do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657592"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092676"
 ---
-# <a name="network-security"></a>Segurança da rede
+# <a name="network-and-application-security-groups"></a>Grupos de segurança de aplicações e rede
 
-Pode utilizar um grupo de segurança de rede para limitar o tráfego de rede para os recursos numa rede virtual. Os grupos de segurança de rede contêm uma lista das regras de segurança que permitem ou recusam o tráfego de rede de entrada ou saída com base no endereço IP de destino, na porta e no protocolo. 
+Pode utilizar os grupos de segurança de rede e aplicações para limitar o tráfego de rede para os recursos numa rede virtual. Os grupos de segurança de rede contêm uma lista das regras de segurança que permitem ou recusam o tráfego de rede de entrada ou saída com base no endereço IP de destino, na porta e no protocolo. Os grupos de segurança de aplicações permitem-lhe agrupar máquinas virtuais com funções semelhantes, como servidores Web. Pode especificar um grupo de segurança de aplicações como origem ou destino numa regra de grupos de segurança de rede.
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Cada interface de rede tem zero ou um grupo de segurança de rede associado. Cada interface da rede existe numa sub-rede da [rede virtual](virtual-networks-overview.md). As sub-redes também podem ter zero ou um grupo de segurança de rede associado. 
+Cada interface de rede tem zero ou um grupo de segurança de rede associado. Cada interface da rede existe numa sub-rede da [rede virtual](virtual-networks-overview.md). As sub-redes também podem ter zero ou um grupo de segurança de rede associado.
 
 Quando aplicadas a uma sub-rede, as regras de segurança são aplicadas a todos os recursos na mesma. Para além das interfaces de rede, poderá ter instâncias de outros serviços do Azure, como o HDInsight, os Conjuntos de Dimensionamento de Máquinas Virtuais e Ambientes do Serviço de Aplicações, implementados na sub-rede.
 
@@ -167,10 +167,10 @@ Os grupos de segurança de aplicação têm as seguintes restrições:
 
      - **Contrato Enterprise**: a comunicação de saída através da porta 25 é permitida. Pode enviar e-mails de saída diretamente a partir de máquinas virtuais para fornecedores de e-mail externos, sem restrições impostas pela plataforma do Azure. 
      - **Pay as you go:** a comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Se tiver de enviar e-mails a partir de uma máquina virtual diretamente para fornecedores de e-mail externos (sem utilizar um reencaminhamento de SMTP autenticado), pode fazer um pedido para remover a restrição. Os pedidos são analisados e aprovados à discrição da Microsoft, apenas sendo concedidos após as verificações contra fraudes. Para fazer um pedido, abra um processo de suporte com o tipo de problema *Técnico*, *Conectividade da Rede Virtual*, *Não é possível enviar e-mails (SMTP/Porta 25)*. No processo de suporte, inclua detalhes sobre o motivo pelo qual a subscrição tem de enviar e-mails diretamente para fornecedores de e-mail, em vez de utilizar um reencaminhamento de SMTP autenticado. Se a sua subscrição for isenta, apenas as máquinas virtuais criadas após a data de isenção conseguem realizar comunicações de saída através da porta 25.
-     - **Fornecedor de serviços cloud (CSP), MSDN, Azure Pass, Azure no Open, Education, BizSpark e Avaliação gratuita**: a comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Não pode fazer pedidos para remover a restrição, porque os pedidos não são concedidos. Se tiver obrigatoriamente de enviar e-mails a partir da sua máquina virtual, tem de utilizar um serviço de reencaminhamento de SMTP.
+     - **MSDN, Azure Pass, Azure no Open, Education, BizSpark e Avaliação gratuita**: a comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Não pode fazer pedidos para remover a restrição, porque os pedidos não são concedidos. Se tiver obrigatoriamente de enviar e-mails a partir da sua máquina virtual, tem de utilizar um serviço de reencaminhamento de SMTP.
+     - **Fornecedor de serviços cloud**: Os clientes que consomem recursos do Azure através de um fornecedor de serviços cloud podem criar um pedido de suporte no respetivo fornecedor de serviços cloud e pedir que o fornecedor crie um pedido de desbloqueio em seu nome, se não for possível utilizar uma transmissão SMTP segura.
 
-  Se o Azure lhe permitir enviar e-mails através da porta 25, a Microsoft não pode garantir que os fornecedores de e-mail aceitarão e-mails enviados a partir da sua máquina virtual. Se um fornecedor específico rejeitar e-mails da sua máquina virtual, tem de trabalhar diretamente com o fornecedor para resolver quaisquer problemas relacionados com a entrega de mensagens ou com a filtragem de spam, ou tem de utilizar um serviço de reencaminhamento de SMTP autenticado. 
-
+  Se o Azure lhe permitir enviar e-mails através da porta 25, a Microsoft não pode garantir que os fornecedores de e-mail aceitarão e-mails enviados a partir da sua máquina virtual. Se um fornecedor específico rejeitar e-mails da sua máquina virtual, tem de trabalhar diretamente com o fornecedor para resolver quaisquer problemas relacionados com a entrega de mensagens ou com a filtragem de spam, ou tem de utilizar um serviço de reencaminhamento de SMTP autenticado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

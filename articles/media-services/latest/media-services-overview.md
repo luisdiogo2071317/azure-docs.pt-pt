@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/14/2018
+ms.date: 07/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ad3b8755615332249ac00f43a2d0cc5fa13a7233
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971912"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113289"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -69,6 +69,52 @@ Os nomes de recursos dos Serviços de Multimédia não podem incluir: "<", ">", 
 
 Para obter mais informações sobre a nomenclatura do Azure Resource Manager, veja: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
+## <a name="media-services-v3-api-design-principles"></a>Princípios de design da API Serviços de Multimédia v3
+
+Um dos principais princípios de design da API v3 é tornar a API mais segura. As APIs v3 não devolvem segredos ou credenciais sobre uma operação **Get** ou **List**. As chaves são sempre nulas, vazias ou saneadas da resposta. Tem de chamar um método de ação separado para obter segredos ou credenciais. As ações separadas permitem-lhe definir diferentes permissões de segurança RBAC no caso de algumas APIs obterem/mostrarem segredos e outras não. Para obter informações sobre como gerir o acesso através do RBAC, consulte [Utilizar o RBAC para gerir acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+
+Alguns exemplos incluem 
+
+* não devolver valores ContentKey no Get do StreamingLocator, 
+* não devolver as chaves de restrição no get do ContentKeyPolicy, 
+* não devolver a parte da cadeia de consulta do URL (para remover a assinatura) dos URLs de Entrada de Tarefas.
+
+O seguinte exemplo .NET mostra como obter uma chave de assinatura da política existente. Precisa de utilizar **GetPolicyPropertiesWithSecretsAsync** para chegar à chave.
+
+```csharp
+private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string contentKeyPolicyName)
+{
+    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
+
+    if (policy == null)
+    {
+        // Configure and create a new policy.
+        
+        . . . 
+        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
+    }
+    else
+    {
+        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
+        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
+        if (restriction != null)
+        {
+            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
+            if (signingKey != null)
+            {
+                TokenSigningKey = signingKey.KeyValue;
+            }
+        }
+    }
+
+    return policy;
+}
+```
+
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3?
 
 Como programador, pode utilizar a [API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) dos Serviços de Multimédia ou as bibliotecas de cliente que lhe permitem interagir com a API REST, para facilmente criar, gerir e manter os fluxos de trabalho de multimédia personalizados. Pode encontrar o exemplo de REST Postman [aqui](https://github.com/Azure-Samples/media-services-v3-rest-postman). Também pode utilizar a [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates).
@@ -77,10 +123,10 @@ A Microsoft gera e suporta as seguintes bibliotecas de cliente:
 
 |Biblioteca de cliente|Amostras|
 |---|---|
-|[SDK da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Exemplos da CLI do Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[SDK da CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Exemplos da CLI do Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
 |[SDK do .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[Exemplos .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
 |[SDK do .NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Escolha o separador **.NET CLI**)|[Exemplos do .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[SDK Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[SDK Java](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
 |[SDK Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Amostras de Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
 |[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
 |[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||

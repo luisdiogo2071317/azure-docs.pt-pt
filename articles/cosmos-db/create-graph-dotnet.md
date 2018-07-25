@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453421"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113050"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: criar uma aplicação .NET Framework ou Core com a Graph API
 
@@ -153,21 +153,25 @@ Os seguintes fragmentos são retirados do ficheiro Program.cs.
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **Chaves**. 
+1. A partir do [portal do Azure](http://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
+ 
+   **.NET SDK URI** – Este valor é utilizado quando se liga a conta de gráficos através da biblioteca de Microsoft.Azure.Graphs. 
 
-    Copie a primeira parte do valor do URI.
+   **Ponto final do Gremlin** – Este valor é utilizado quando se liga à conta de gráficos através da biblioteca de Gremlin.Net.
 
-    ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-dotnet/keys.png)
+    ![Copiar o ponto final](./media/create-graph-dotnet/endpoint.png)
+
+   Para executar este exemplo, copie o valor do **Ponto final do Gremlin**, elimine o número da porta no final, que é o URI e passa a ser `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`
 
 2. Em Program.cs, cole o valor sobre `your-endpoint` na variável `hostname` na linha 19. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     O valor de ponto final deverá agora ter o seguinte aspeto:
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Copie o valor **CHAVE PRIMÁRIA** do portal e cole-o na variável `authkey`, substituindo o marcador de posição `"your-authentication-key"` na linha 21. 
+3. A seguir, navegue para o separador **Chaves** e copie o valor **CHAVE PRIMÁRIA** do portal e cole-o na variável `authkey`, substituindo o marcador de posição `"your-authentication-key"` na linha 21. 
 
     `private static string authKey = "your-authentication-key";`
 

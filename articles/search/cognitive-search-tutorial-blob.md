@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Chamar APIs de pesquisa cognitiva no Azure Search | Microsoft Docs'
-description: Exemplo de extração de dados, linguagem natural e processamento de IA de imagem na indexação do Azure Search para extração e transformação de dados.
+title: Tutorial para chamar API de pesquisa cognitiva no Azure Search | Microsoft Docs
+description: Neste tutorial, acompanhe um exemplo de extração de dados, linguagem natural e processamento de imagem por IA na indexação do Azure Search para extração e transformação de dados.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757575"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991978"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de pesquisa cognitiva (Pré-visualização)
 
@@ -23,8 +23,8 @@ Neste tutorial, vai aprender os mecanismos da programação do melhoramento de d
 Neste tutorial, vai fazer chamadas à API REST para realizar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um pipeline de indexação para melhorar os dados de origem na rota para um índice
-> * Utilizar competências incorporadas nos dados de exemplo: reconhecimento de entidades, deteção de idioma, manipulação de texto e extração de expressões-chave
+> * Criar um pipeline de indexação para melhorar os dados de exemplo na rota para um índice
+> * Aplicar competências incorporadas: reconhecimento de entidades, deteção de idioma, manipulação de texto e extração de expressões-chave
 > * Saber como encadear competências em conjunto através do mapeamento de entradas para saídas num conjunto de competências
 > * Executar pedidos e rever resultados
 > * Repor o índice e os indexadores para desenvolvimento adicional
@@ -60,7 +60,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   O serviço Gratuito está limitado a 3 índices, um tamanho de blob máximo de 16 MB e 2 minutos de indexação, o que é insuficiente para executar todas as funcionalidades da pesquisa cognitiva. Para rever os limites dos diferentes escalões, veja [Limites do Serviço](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > A Pesquisa Cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
+  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 

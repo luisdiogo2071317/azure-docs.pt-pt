@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 63acf0297a694ff442d56e67d52fd9b4e49f812d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36288071"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008591"
 ---
 O primeiro passo consiste em utilizar o portal do Azure para criar um hub IoT na sua subscrição. O Hub IoT permite-lhe ingerir elevados volumes de telemetria na cloud a partir de vários dispositivos. Depois, o hub ativa um ou mais serviços de back-end em execução na cloud, para ler e processar essa telemetria.
 
@@ -26,12 +26,9 @@ O primeiro passo consiste em utilizar o portal do Azure para criar um hub IoT na
 1. No painel **Hub IoT**, introduza as seguintes informações para o hub IoT:
 
    * **Subscrição**: escolha a subscrição que quer utilizar para criar este hub IoT.
-
-   * **Grupo de recursos**: crie um grupo de recursos para utilizar o hub IoT ou utilize um já existente. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure][lnk-resource-groups].
-
-   * **Região**: selecione a localização mais próxima de si.
-
-   * **Nome**: crie um nome para o seu hub IoT. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
+   * **Grupo de recursos**: Crie um grupo de recursos para conter o Hub IoT ou utilize um já existente. Ao colocar todos os recursos relacionados num grupo, como **TestResources**, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure][lnk-resource-groups].
+   * **Região**: Selecione a localização mais próxima dos seus dispositivos.
+   * **Nome**: Crie um nome exclusivo para o seu Hub IoT. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
