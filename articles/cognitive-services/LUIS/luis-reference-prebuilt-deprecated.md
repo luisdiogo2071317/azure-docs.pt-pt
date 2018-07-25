@@ -1,35 +1,35 @@
 ---
-title: LUIS Prebuilt preteridas a referência de entidades - Azure | Microsoft Docs
+title: LUIS pré-criados preteridas a referência de entidades - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém informações de entidade prebuilt preterido na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidade pré-criados preterido na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ff260adf437eb8b390d5cfb708d2a98f989bdcb
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 8fbd2e7ea0998a6a3dc141b97d64341c8140fa61
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321877"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237065"
 ---
 # <a name="deprecated-entities"></a>Entidades preteridas
-As seguintes entidades prebuilt foram preteridas e não não possível adicionar novas aplicações LUIS.
+As seguintes entidades pré-criados foram preteridas e não não possível adicionar novas aplicações de LUIS.
 
-* **DateTime**: LUIS existente aplicações que utilizam **datetime** devem ser migradas para **datetimeV2**, embora a entidade de datetime continua a funcionar em aplicações preexistentes que a utilizam.
-* **Geografia**: LUIS existente aplicações que utilizam **geografia** é suportado até de 2018 Dezembro.
-* **Enciclopédia**: LUIS existente aplicações que utilizam **enciclopédia** é suportado até de 2018 Dezembro.
+* **DateTime**: as aplicações de LUIS existentes que utilizam **datetime** devem ser migradas para **datetimeV2**, apesar da entidade de datetime continua a funcionar em aplicações já existentes que a utilizam.
+* **Geografia**: as aplicações de LUIS existentes que utilizam **geografia** é suportada até Dezembro de 2018.
+* **Enciclopédia**: as aplicações de LUIS existentes que utilizam **enciclopédia** é suportada até Dezembro de 2018.
 
-## <a name="geography-culture"></a>Idioma de geografia
-**Geografia** está disponível apenas nos `en-us` região.
+## <a name="geography-culture"></a>Cultura de geografia
+**Geografia** só está disponível no `en-us` localidade.
 
 #### <a name="3-geography-subtypes"></a>3 subtipos de geografia
 
-Entidade prebuilt   |   Utterance de exemplo   |   JSON
+Entidade pré-criados   |   Expressão de exemplo   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -39,10 +39,10 @@ Entidade prebuilt   |   Utterance de exemplo   |   JSON
 ```builtin.geography.pointOfInterest```   |   ```sahara desert```|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
 ## <a name="encyclopedia-culture"></a>Cultura enciclopédia
-**Enciclopédia** está disponível apenas nos `en-US` região.
+**Enciclopédia** só está disponível no `en-US` localidade.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos enciclopédia
-Entidade incorporada enciclopédia inclui mais de 100 tipos secundárias na seguinte tabela: Além disso, as entidades de enciclopédia são, muitas vezes, mapeiam para vários tipos. Por exemplo, a consulta Ronald Reagan gera: 
+Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias na seguinte tabela: Além disso, as entidades de enciclopédia são, muitas vezes, mapeiam para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em: 
 
 ```JSON
 {
@@ -64,7 +64,7 @@ Entidade incorporada enciclopédia inclui mais de 100 tipos secundárias na segu
  ```
 
 
-Entidade prebuilt   |   Entidade prebuilt (tipos de secundárias)   |   Utterance de exemplo
+Entidade pré-criados   |   Entidade pré-criados (secundárias tipos)   |   Expressão de exemplo
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

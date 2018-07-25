@@ -3,19 +3,19 @@ title: Gerir as chaves de ponto final no LUIS | Documentos da Microsoft
 description: Utilize a compreensão de idiomas (LUIS) para gerir a sua API programática, o ponto final e a chaves externas.
 titleSuffix: Azure
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: 288c1456979ff9214b2f333768da65bd3da1a734
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: diberry
+ms.openlocfilehash: 127c09a022f5efb95ab6a5ec2db0de633b437a54
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917800"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223043"
 ---
 # <a name="manage-your-luis-endpoint-keys"></a>Gerir as chaves de ponto final do LUIS
 Uma chave permite-lhe criar e publicar a sua aplicação do LUIS ou consultar o ponto final. 

@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 07/24/2018
 ms.author: raynew
-ms.openlocfilehash: 890614133649762788418c538bd22bb6ffc425bf
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173763"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223689"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -40,7 +40,7 @@ O Azure Migrate analisa as seguintes propriedades da VM no local para identifica
 --- | --- | ---
 **Tipo de arranque** | O Azure suporta VMs com o tipo de arranque como o BIOS e UEFI não. | Condicionalmente preparado para o Azure, se for de tipo de arranque UEFI.
 **Núcleos** | O número de núcleos nas máquinas tem de ser igual ou inferior ao número máximo de núcleos (32) suportado para uma VM do Azure.<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera os núcleos utilizados para comparação. Se for um fator de conforto é especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver nenhum histórico de desempenho, o Azure Migrate utiliza núcleos alocados, sem aplicar o fator de conforto. | Não pronto se o número de núcleos é superior a 32.
-**Memória** | O tamanho de memória da máquina tem de ser igual ou menor que a memória máxima permitida para uma VM do Azure (448 GB). <br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera a memória utilizada para comparação. Se não for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico é utilizada a memória alocada, sem aplicar o fator de conforto.<br/><br/> | Não pronto se o tamanho de memória é superior a 448 GB.
+**Memória** | O tamanho de memória da máquina tem de ser igual ou menor que o máximo de memória (GB 3892 na série de M de Azure Standard_M128m&nbsp;<sup>2</sup>) permitido para uma VM do Azure. [Saiba mais](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Se o histórico de desempenho está disponível, o Azure Migrate considera a memória utilizada para comparação. Se não for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico é utilizada a memória alocada, sem aplicar o fator de conforto.<br/><br/> | Não pronto se o tamanho de memória é superior a 448 GB.
 **Disco de armazenamento** | Tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina tem de ser 65 ou menos, incluindo o disco do SO. | Não pronto se qualquer disco tem um tamanho superior a 4 TB ou se existirem mais de 65 discos ligados à máquina.
 **Redes** | Uma máquina tem de 32 ou menos NICs ligadas à mesma. | Não pronto se a máquina tem mais do que 32 NICs
 

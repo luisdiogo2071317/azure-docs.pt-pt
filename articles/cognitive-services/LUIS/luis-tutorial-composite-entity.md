@@ -2,19 +2,19 @@
 title: Tutorial de criação de uma entidade composta para extrair dados complexos - Azure | Documentos da Microsoft
 description: Saiba como criar uma entidade composta na sua aplicação LUIS para extrair os diferentes tipos de dados de entidade.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: v-geberr
-ms.openlocfilehash: d73dc9b9f204e334a75c9de5e19c6b11e3a95b12
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929190"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238102"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Tutorial: 6. Adicionar entidade composta 
 Neste tutorial, adicione uma entidade composta para reunir dados extraídos para uma entidade contentora.
@@ -312,7 +312,7 @@ Agora, seu chatbot tem informações suficientes para determinar a ação princi
 O LUIS concluiu este pedido. A aplicação de chamada, como um chatbot, pode utilizar o resultado topScoringIntent e os dados da entidade para executar o passo seguinte. O LUIS não faz esse trabalho programático para o bot ou a aplicação de chamada. O LUIS apenas determina qual é a intenção do utilizador. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Selecione **as minhas aplicações** no menu à esquerda superior. Selecione as reticências (***...*** ) botão à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+Quando já não precisar, elimine a aplicação LUIS. Selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências (***...*** ) botão à direita do nome da aplicação na lista de aplicações, selecione **eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 

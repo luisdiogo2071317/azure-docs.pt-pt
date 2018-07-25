@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 68baab14e2adf7f43bb1e0e0f47c414555a28659
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213406"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225307"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contentor para laboratórios geridos, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório com o Azure Lab Services e fornece acesso a proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório.
@@ -54,6 +54,22 @@ Para configurar um laboratório de sala de aula numa conta de laboratório, o ut
 
     ![Adicionar utilizador à função de Criador do Laboratório](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
+## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especifique as imagens do Marketplace disponíveis para os proprietários de laboratório
+Nesta secção, vai especificar imagens do Marketplace que os proprietários de laboratório podem utilizar para criar laboratórios de sala de aula. 
+
+1. Selecione **imagens do Marketplace** no menu à esquerda. Por predefinição, verá a lista completa de imagens (ativada e desativada). Pode filtrar a lista para ver apenas as imagens de ativado/desativado, selecionando o **ativado apenas**/**desativado apenas** opção na lista pendente na parte superior. 
+
+    ![Página de imagens do Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+2. Para **desativar** uma imagem do Marketplace que tiver sido ativada, realize uma das seguintes ações: 
+    1. Selecione **... (reticências)**  na coluna última e selecione **desativar imagem**. 
+
+        ![Desativar uma imagem](../media/tutorial-setup-lab-account/disable-one-image.png) 
+    2. Selecione uma ou mais imagens a partir da lista selecionando as caixas de verificação antes dos nomes de imagem na lista e selecione **desativar imagens selecionadas**. 
+
+        ![Desativar várias imagens](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
+1. Da mesma forma, para **ativar** uma imagem do Marketplace, escolha uma das seguintes ações: 
+    1. Selecione **... (reticências)**  na coluna última e selecione **imagem preparada**. 
+    2. Selecione uma ou mais imagens a partir da lista selecionando as caixas de verificação antes dos nomes de imagem na lista e selecione **ativar imagens selecionadas**. 
 
 ## <a name="view-lab-accounts"></a>Contas de laboratório do Vista
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).

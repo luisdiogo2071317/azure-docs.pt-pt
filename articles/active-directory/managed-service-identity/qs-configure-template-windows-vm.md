@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: ea51252de4877cdeee093c4f21f68f59a061cdc9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213518"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237252"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar uma identidade de serviço gerido da VM com um modelo
 
@@ -222,8 +222,30 @@ Nesta secção, atribua uma identidade de utilizador atribuída a uma VM do Azur
 
       ![Captura de ecrã da identidade atribuída ao utilizador](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Remover a identidade atribuída ao utilizador de uma VM do Azure
+
+Se tiver uma VM que não precisa mais de uma identidade de serviço gerido:
+
+1. Se iniciar sessão localmente no Azure ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém a VM.
+
+2. Carregar o modelo para um [editor](#azure-resource-manager-templates) e localize a `Microsoft.Compute/virtualMachines` recursos de interesse no `resources` secção. Se tiver uma VM que tenha apenas a identidade atribuída ao utilizador, pode desativá-lo ao alterar o tipo de identidade para `None`.  Se a VM tem o sistema e o utilizador identidades atribuídas e gostaria de manter uma identidade de sistema atribuído, remova `UserAssigned` do tipo de identidade, juntamente com o `identityIds` matriz das identidades de utilizador atribuída.
+    
+   Para remover um uma identidade de utilizador único atribuído a partir de uma VM, remova-a do `identityIds` matriz.
+   
+   O exemplo seguinte mostra como remover o utilizador de todas as identidades atribuídas a partir de uma VM sem nenhum sistema de identidades atribuído:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-- Para obter uma perspectiva mais ampla sobre o MSI, leia os [descrição geral de identidade do serviço gerido](overview.md).
+- Para obter uma perspectiva mais ampla sobre a identidade do serviço gerido, leia os [descrição geral de identidade do serviço gerido](overview.md).
 

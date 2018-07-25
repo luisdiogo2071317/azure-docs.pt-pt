@@ -1,30 +1,30 @@
 ---
-title: Referência de url de entidades de LUIS Prebuilt - Azure | Microsoft Docs
+title: Referência de url de entidades de LUIS pré-criados - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém um url informações de entidade prebuilt na compreensão de idiomas (LUIS).
+description: Este artigo contém o url de informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4eacf564a295a568a3e2c8d2f44ad0af3fbbe258
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 86989abab1dcf64384b8b26b9484bc508f2ce31f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321961"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236793"
 ---
 # <a name="url-entity"></a>Entidade de URL
-Entidade de URL extrai os URLs com nomes de domínio ou endereços IP. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém os URLs para a aplicação. Entidade de URL é suportada no `en-us` idioma apenas. 
+Entidade de URL extrai URLs com nomes de domínio ou endereços IP. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém os URLs para a aplicação. Entidade de URL é suportada no `en-us` apenas a cultura. 
 
 ## <a name="types-of-urls"></a>Tipos de URLs
-Gerido do URL de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) repositório do Github
+URL é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) repositório do Github
 
-## <a name="resolution-for-prebuilt-url-entity"></a>Resolução de entidades de URL prebuilt
-O exemplo seguinte mostra a resolução de **builtin.url** entidade.
+## <a name="resolution-for-prebuilt-url-entity"></a>Resolução de entidade pré-criados do URL
+O exemplo seguinte mostra a resolução do **builtin.url** entidade.
 
 ```JSON
 {

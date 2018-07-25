@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de RBAC no Azure | Documentos da Microsoft
+title: Resolver problemas relacionados com o RBAC no Azure | Documentos da Microsoft
 description: Resolva problemas com o controlo de acesso baseado em função do Azure (RBAC).
 services: azure-portal
 documentationcenter: na
@@ -11,29 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437371"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223301"
 ---
-# <a name="troubleshooting-rbac-in-azure"></a>Resolução de problemas de RBAC no Azure
+# <a name="troubleshoot-rbac-in-azure"></a>Resolver problemas relacionados com o RBAC no Azure
 
-Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em funções (RBAC), para que saiba o que esperar ao utilizar as funções no portal do Azure e pode resolver problemas de acesso. Estas três funções abrangem todos os tipos de recursos:
+Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em funções (RBAC), para que saiba o que esperar ao utilizar as funções no portal do Azure e pode resolver problemas de acesso.
 
-* Proprietário  
-* Contribuinte  
-* Leitor  
+## <a name="web-app-features-that-require-write-access"></a>Funcionalidades da aplicação Web que necessitam de acesso de escrita
 
-Os proprietários e contribuintes têm acesso total para a experiência de gestão, mas um Contribuidor não é possível conceder acesso a outros utilizadores ou grupos. As coisas ficam um pouco mais interessantes com a função de leitor, pelo que é onde vamos gastar algum tempo. Para obter informações sobre como conceder acesso, seee [gerir o acesso com RBAC e o portal do Azure](role-assignments-portal.md).
-
-## <a name="app-service"></a>Serviço de Aplicações
-### <a name="write-access-capabilities"></a>Capacidades de acesso de escrita
 Se conceder um acesso de só de leitura do utilizador para uma aplicação web individual, algumas funcionalidades estão desativadas que não pode estar esperando. As seguintes capacidades de gestão requerem **escrever** aceder a uma aplicação web (Contribuidor ou proprietário) e não estão disponíveis em qualquer cenário de só de leitura.
 
 * Comandos (como iniciar, parar, etc.)
@@ -49,8 +43,9 @@ Se conceder um acesso de só de leitura do utilizador para uma aplicação web i
 
 Se não é possível aceder a qualquer um destes mosaicos, terá de solicitar o administrador de acesso de contribuinte para a aplicação web.
 
-### <a name="dealing-with-related-resources"></a>Lidar com os recursos relacionados
-Aplicações Web são complicadas pela presença de alguns recursos diferentes que interação. Este é um grupo de recursos típicos com os Web sites alguns:
+## <a name="web-app-resources-that-require-write-access"></a>Recursos da aplicação Web que necessitam de acesso de escrita
+
+Aplicações Web são complicadas pela presença de alguns recursos diferentes que interação. Este é um grupo de recursos típico com alguns dos Web sites:
 
 ![Grupo de recursos de aplicação Web](./media/troubleshooting/website-resource-model.png)
 
@@ -70,15 +65,9 @@ Esses itens requerem **escrever** acesso a todo **grupo de recursos** que conté
 * Componentes de informações de aplicação  
 * Testes Web  
 
-## <a name="azure-functions"></a>Funções do Azure
-Algumas funcionalidades do [as funções do Azure](../azure-functions/functions-overview.md) necessitam de acesso de escrita. Por exemplo, se um utilizador tem atribuído a função de leitor, não poderão ver as funções dentro de uma aplicação de funções. O portal apresentará **(sem acesso)**.
+## <a name="virtual-machine-features-that-require-write-access"></a>Funcionalidades das máquinas virtuais que necessitam de acesso de escrita
 
-![Aplicações de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
-
-Um leitor pode clicar a **funcionalidades de plataforma** separador e, em seguida, clique em **todas as definições** ver algumas definições relacionadas com uma aplicação de funções (semelhante a uma aplicação web), mas não podem modificar qualquer uma destas definições.
-
-## <a name="virtual-machine"></a>Máquina virtual
-Bem como com as aplicações web, algumas funcionalidades no painel da máquina virtual exigem acesso de escrita para a máquina virtual ou para outros recursos no grupo de recursos.
+Assim como aplicações web, algumas funcionalidades no painel da máquina virtual requerem acesso de escrita para a máquina virtual ou para outros recursos no grupo de recursos.
 
 Máquinas virtuais estão relacionadas com nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
@@ -97,7 +86,19 @@ Eles exigem **escrever** acesso a ambos os **Máquina Virtual**e o **grupo de re
 
 Se não é possível aceder a qualquer um destes mosaicos, peça ao administrador de acesso de Contribuidor ao grupo de recursos.
 
+## <a name="azure-functions-and-write-access"></a>As funções do Azure e o acesso de escrita
+
+Algumas funcionalidades do [as funções do Azure](../azure-functions/functions-overview.md) necessitam de acesso de escrita. Por exemplo, se um utilizador tem atribuído a função de leitor, não poderão ver as funções dentro de uma aplicação de funções. O portal apresentará **(sem acesso)**.
+
+![Aplicações de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
+
+Um leitor pode clicar a **funcionalidades de plataforma** separador e, em seguida, clique em **todas as definições** ver algumas definições relacionadas com uma aplicação de funções (semelhante a uma aplicação web), mas não podem modificar qualquer uma destas definições.
+
+## <a name="rbac-changes-are-not-being-detected"></a>Alterações RBAC não estão a ser detetadas
+
+O Gestor de recursos do Azure armazena em cache, às vezes, configurações e dados para melhorar o desempenho. Quando criar ou eliminar as atribuições de funções, pode demorar até 30 minutos para que as alterações entrem em vigor. Se estiver a utilizar o portal do Azure, o Azure PowerShell ou a CLI do Azure, pode forçar uma atualização das suas alterações de atribuição de função ao terminar a sessão e iniciar sessão. Se estiver a efetuar alterações à atribuição de função com chamadas de REST API, pode forçar uma atualização ao atualizar o token de acesso.
+
 ## <a name="next-steps"></a>Passos Seguintes
-* [Gerir o acesso com RBAC e o portal do Azure](role-assignments-portal.md)
+* [Gerir o acesso através do RBAC e do portal do Azure](role-assignments-portal.md)
 * [Ver registos de atividade para alterações RBAC](change-history-report.md)
 

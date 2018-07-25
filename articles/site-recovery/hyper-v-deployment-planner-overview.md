@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921217"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226565"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner de Hyper-V para o Azure
 
@@ -94,13 +94,13 @@ A ferramenta tem três fases principais para Hyper-V: obter a lista de VMs, cria
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Passos para adicionar servidores à Lista TrustedHosts
 1.  A VM a partir da qual a ferramenta vai ser implementada deve ter todos os anfitriões a criar perfis na respetiva lista TrustedHosts. Para adicionar o cliente à lista Trustedhosts, execute o seguinte comando a partir de um PowerShell elevado na VM. A VM pode ser um Windows Server 2012 R2 ou Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Cada Anfitrião Hyper-V para o qual têm de ser criados perfis devem ter:
 
     a. A VM na qual a ferramenta vai ser executada na respetiva lista TrustedHosts. Execute o seguinte comando a partir de um PowerShell elevado no anfitrião Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Comunicação remota do PowerShell ativada.
 

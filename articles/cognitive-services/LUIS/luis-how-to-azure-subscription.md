@@ -2,19 +2,19 @@
 title: Gerir a subscrição de ponto final do Azure | Documentos da Microsoft
 description: Neste artigo, vai criar uma chave de ponto final com tráfego limitado para a sua conta do LUIS fornecer o tráfego ilimitado para o ponto final de seguir um plano de pagamento.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.author: diberry
+ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340778"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223284"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gerir chaves de subscrição de ponto final do Azure
 

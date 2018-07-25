@@ -1,6 +1,6 @@
 ---
-title: Pilha do Azure de política de manutenção | Microsoft Docs
-description: Saiba mais sobre a pilha do Azure de manutenção política, como manter um sistema integrado num estado suportado.
+title: O Azure Stack a política de manutenção | Documentos da Microsoft
+description: Saiba mais sobre o Azure Stack de manutenção política e como manter um sistema integrado num estado suportado.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,56 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/24/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796431"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242925"
 ---
-# <a name="azure-stack-servicing-policy"></a>Pilha do Azure de política de manutenção
-Este artigo descreve a política de manutenção para sistemas de pilha do Azure integrada e que terá de efetuar para manter o seu sistema num estado suportado. 
+# <a name="azure-stack-servicing-policy"></a>O Azure Stack a política de manutenção
+Este artigo descreve a política de manutenção para sistemas integrados do Azure Stack e o que deve fazer para manter seu sistema num estado suportado. 
 
 ## <a name="update-package-types"></a>Tipos de pacote de atualização
 
-Existem dois tipos de pacotes de atualização para sistemas integrados: 
+Existem dois tipos de pacotes de atualização para os sistemas integrados: 
 
-- **As atualizações de software da Microsoft**. Microsoft é responsável pelo ciclo de vida manutenção de ponto a ponto para os pacotes de atualização de software da Microsoft. Estes pacotes podem incluir as mais recentes atualizações de segurança do Windows Server, não-atualizações de segurança e atualizações de funcionalidade da pilha do Azure. Pode transferir os pacotes de atualização de presumem diretamente a partir de Microsoft.
+- **Atualizações de software da Microsoft**. A Microsoft é responsável pelo ciclo de vida manutenção de ponto-a-ponto para os pacotes de atualização de software Microsoft. Esses pacotes podem incluir as mais recentes atualizações de segurança do Windows Server, não-atualizações de segurança e as atualizações de funcionalidades do Azure Stack. Pode baixar pacotes de atualização de theses diretamente da Microsoft.
 
-- **Atualizações de fornecido de fornecedor de hardware do OEM**. Parceiros de hardware de pilha do Azure são responsáveis pelo ponto-a-ponto manutenção ciclo de vida (incluindo orientações) para o firmware relacionados com o hardware e pacotes de atualização de controladores. Além disso, os parceiros de hardware de pilha do Azure proprietários e manter a documentação de orientação para todo o software e hardware no anfitrião de ciclo de vida de hardware. O fornecedor de hardware do OEM aloja estes pacotes num site suas próprias transferências de atualização.
+- **Atualizações de fornecidos pelo fornecedor de hardware de OEM**. Parceiros de hardware do Azure Stack são responsáveis pelo ponto-a-ponto manutenção ciclo de vida (incluindo documentação de orientação) para o firmware relacionado ao hardware e os pacotes de atualização de driver. Além disso, os parceiros de hardware do Azure Stack proprietário e manter a documentação de orientação para todo o software e hardware do anfitrião de ciclo de vida do hardware. O fornecedor de hardware de OEM aloja estes pacotes em seu próprio site de download de atualização.
 
 
-## <a name="update-package-release-cadence"></a>Cadência de versão do pacote de atualização
-A Microsoft espera libertar os pacotes de atualização de software uma cadência mensal. No entanto, é possível ter várias ou não existem versões de atualização num mês. As atualizações em conta as necessidades de versão de fornecedores de hardware do OEM. 
+## <a name="update-package-release-cadence"></a>Cadência de lançamento do pacote de atualização
+A Microsoft espera libertar os pacotes de atualização de software a uma cadência mensal. No entanto, é possível ter várias ou nenhuma versões de atualização num mês. Fornecedores de hardware de OEM da versão suas atualizações de forma conforme necessário. 
 
-Encontrar documentação sobre como planear e gerir as atualizações e como determinar a sua versão atual na [gerir atualizações de descrição geral](azure-stack-updates.md). Para obter informações sobre uma atualização específica, incluindo como transferi-lo, consulte as notas de versão de atualização para que: 
-- [Atualização de pilha 1805 do Azure](azure-stack-update-1805.md)
-- [Atualização de pilha 1804 do Azure](azure-stack-update-1804.md)
-- [Atualização de pilha 1803 do Azure](azure-stack-update-1803.md)
-
+Encontrar documentação sobre como planear e gerir atualizações e como determinar sua versão atual na [descrição geral de atualizações de gerir](azure-stack-updates.md). Para obter informações sobre uma atualização específica, incluindo como transferi-lo, consulte as notas de versão para que atualizar: 
+- [Atualização de 1805 de pilha do Azure](azure-stack-update-1805.md)
+- [Atualização de 1804 de pilha do Azure](azure-stack-update-1804.md)
 
 ## <a name="hotfixes"></a>Correções
-Ocasionalmente, a Microsoft disponibiliza correções para o Azure pilha esse endereço de um problema específico que é frequentemente preventivas ou sensíveis ao tempo.  Cada correção é fornecida com um artigo de Base de dados de Conhecimento Microsoft correspondente que fornece detalhes sobre o problema, a causa e a resolução. 
+Ocasionalmente, a Microsoft fornece correções para o Azure Stack esse endereço de um problema específico que é muitas vezes preventiva ou sensíveis ao tempo.  Cada correção é fornecida com um artigo correspondente na Base de dados de conhecimento da Microsoft que explica em detalhe o problema, a causa e a resolução. 
 
-Correções são transferidas e instaladas, tal como os pacotes de atualização completa regular para pilha do Azure. No entanto, ao contrário de uma atualização completa, podem instalar correções em minutos. Recomendamos que os operadores do Azure pilha definir janelas de manutenção ao instalar as correções. Correções atualizar a versão da sua nuvem de pilha do Azure, pelo que pode facilmente determinar se a correção foi aplicada. É fornecida uma correção separada para cada versão de pilha do Azure que ainda está a ser suporte. Cada correção para uma iteração específica é cumulativa e inclui as atualizações anteriores para essa mesma versão. Pode ler mais sobre a aplicabilidade de uma correção específicos num correções correspondente a Base de dados de conhecimento artigo.  
+Correções são transferidas e instaladas como os pacotes de atualização completa para regular para o Azure Stack. No entanto, ao contrário de uma atualização completa, podem instalar correções em minutos. Recomendamos que operadores do Azure Stack definir janelas de manutenção ao instalar as correções. Correções atualizem a versão de cloud do Azure Stack para que possa determinar facilmente se a correção foi aplicada. Uma correção separada é fornecida para cada versão do Azure Stack que ainda está em suporte. Cada correção para uma iteração específica é cumulativa e inclui as atualizações anteriores para essa mesma versão. Pode ler mais sobre a aplicabilidade de uma correção específicos num correções correspondentes a Base de dados de conhecimento artigo.  
 
 
-## <a name="keep-your-system-under-support"></a>Manter o seu sistema de suporte
-Para continuar a receber suporte, tem de manter a implementação de pilha do Azure atual. A política de diferimento por atualizações é: para a implementação de pilha do Azure que deverá permanecer disponível no suporte, tem de executar a versão de atualização mais recentemente lançada ou executar qualquer uma das duas versões de atualização anterior. Correções não são consideradas versões de atualização principal. Se a nuvem de pilha do Azure se encontrar atrás por *mais de duas atualizações*, que é considerado em conformidade e tem de atualizar para, pelo menos, a versão mínima suportada para receber suporte. 
+## <a name="keep-your-system-under-support"></a>Manter seu sistema em suporte
+Para continuar a receber suporte, deve manter a implementação do Azure Stack atual. A política de diferimento de atualizações é: para a sua implementação do Azure Stack permanecer no suporte, tem de executar a versão de atualização lançada recentemente ou executar qualquer uma das duas versões de atualização anterior. Correções não são consideradas versões de atualização importante. Se a cloud do Azure Stack está por trás por *mais de duas atualizações*, ele é considerado em conformidade e tem de atualizar para, pelo menos, a versão mínima suportada para receber suporte. 
 
-Por exemplo, se a versão de atualização mais recentemente disponível é 1805 e dois pacotes de atualização anteriores foram versões 1804 e 1803, 1803 e 1804 permanecem no suporte. No entanto, 1802 está fora do suporte. A política se aplica quando não existe nenhuma versão de um mês ou dois. Por exemplo, se a versão atual é 1805 e não ocorreu nenhuma versão 1804, os pacotes de atualização de dois anterior de 1803 e 1802 permanecem suporte.
+Por exemplo, se a versão de atualização mais recentemente disponível é 1805 e dois pacotes de atualização anteriores foram versões 1804 e versão 1803, versão 1803 e 1804 permanecem no suporte. No entanto, 1802 está fora do suporte. A política se aplica quando não existe nenhuma versão de um mês ou dois. Por exemplo, se a versão atual é 1805 e não havia nenhuma versão 1804, os anterior dois pacotes de atualização de versão 1803 e 1802 permanecem no suporte.
 
-Pacotes de atualização de software Microsoft são não cumulativa e necessitam que o pacote de atualização anteriores como pré-requisito. Se decidir diferir atualizações de um ou mais, considere o tempo de execução global, se pretender obter a versão mais recente. 
+Pacotes de atualização de software Microsoft são não cumulativas e necessitam que o pacote de atualização anterior como pré-requisito. Se decidir diferir atualizações de um ou mais, considere o tempo de execução geral caso queira obter para a versão mais recente. 
 
 ## <a name="get-support"></a>Obter suporte
-Pilha do Azure segue o mesmo processo de suporte do Azure. Os clientes empresariais podem seguir o processo descrito no [como criar um pedido de suporte do Azure](/azure/azure-supportability/how-to-create-azure-support-request). Se for um cliente de um fornecedor de serviço em nuvem (CSP), contacte o seu CSP para obter suporte.  Para obter mais informações, consulte o [perguntas frequentes do suporte do Azure](https://azure.microsoft.com/support/faq/). 
+O Azure Stack segue o mesmo processo de suporte do Azure. Os clientes empresariais podem seguir o processo descrito em [como criar um pedido de suporte do Azure](/azure/azure-supportability/how-to-create-azure-support-request). Se for um cliente de um fornecedor de serviços Cloud (CSP), contacte o seu CSP para obter suporte.  Para obter mais informações, consulte a [FAQ do suporte do Azure](https://azure.microsoft.com/support/faq/). 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Gerir as atualizações na pilha do Azure](azure-stack-updates.md)
+- [Gerir atualizações no Azure Stack](azure-stack-updates.md)
 
 

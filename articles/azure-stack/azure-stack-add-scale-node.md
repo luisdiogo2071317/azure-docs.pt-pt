@@ -1,0 +1,138 @@
+---
+title: Dimensionar nós de adicionar o Azure Stack | Documentos da Microsoft
+description: Adicione nós para unidades de escala no Azure Stack.
+services: azure-stack
+documentationcenter: ''
+author: brenduns
+manager: femila
+editor: ''
+ms.assetid: ''
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2018
+ms.author: brenduns
+ms.reviewer: thoroet
+ms.openlocfilehash: 15c46bb0fee4689b614636d8c9e01e36f7f0be3d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228173"
+---
+# <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Adicionar nós de unidade de escala adicionais no Azure Stack
+
+Operadores do Azure Stack podem aumentar a capacidade geral de uma unidade de dimensionamento existente através da adição de um computador físico adicional. O computador físico é também referido como um nó de unidade de escala. Cada novo nó de unidade de escala que é adicionar tem de ser homogéneo no tipo da CPU, memória e o número de disco e tamanho para os nós que já estão presentes na unidade de escala.  
+
+> [!NOTE]  
+Tem de executar escala adicional do Azure Stack 1807 ou posterior para adicionar nós de unidade.
+
+Para adicionar um nó de unidade de escala, atuar no Azure Stack e executar as ferramentas do fabricante de equipamento de hardware (OEM). As ferramentas de OEM é executado no anfitrião de ciclo de vida de hardware (HLH) para se certificar de que o novo computador físico corresponde ao mesmo nível de firmware que nós existentes.
+
+O diagrama de fluxo que se segue mostra o processo geral para adicionar um nó de unidade de escala.
+
+![Adicionar fluxo de unidade de escala](media/azure-stack-add-scale-node/add-node-flow.png) &#42; *se o seu fornecedor de hardware de OEM enacts a colocação de rack do servidor físico e atualiza o firmware variam com base no seu contrato de suporte.*
+
+A operação para adicionar um novo nó pode demorar várias horas ou dias para ser concluído.
+
+## <a name="add-scale-unit-nodes"></a>Adicionar nós de unidade de escala 
+Os seguintes passos são uma visão geral de como adicionar um nó. Não siga estes passos sem consultar primeiro a documentação de expansão de capacidade fornecida pelo OEM.
+
+1. Colocar o novo servidor físico em bastidor e instalar os cabos-lo adequadamente. 
+2. Configurar o endereço IP correto no controlador de gestão da placa base (BMC) e aplicar todas as definições de BIOS pela documentação fornecida pelo OEM.
+3. Aplicam-se a linha de base do firmware atual para todos os componentes usando as ferramentas que são fornecidas pelo fabricante do hardware com o HLH.
+4. Execute a operação de nó de adição no portal de administração do Azure Stack.
+5. Valide que a operação de nó de add for concluída com êxito. Para fazer isso, verifique os [ **Status** da unidade de escala](#monitor-add-node-operations). 
+
+## <a name="add-the-node"></a>Adicionar o nó 
+Pode utilizar a consola de administração ou o PowerShell para adicionar novos nós. A operação de nó de adicionar primeiro adiciona o novo nó de unidade de escala como a capacidade de computação disponíveis e, em seguida, aumenta automaticamente a capacidade de armazenamento. A capacidade se expande automaticamente porque o Azure Stack é um sistema hiperconvergido onde *computação* e *armazenamento* dimensionados em conjunto.
+
+### <a name="use-the-admin-console"></a>Utilizar a consola de administração
+1. Inicie sessão no portal de administração do Azure Stack como um operador do Azure Stack.
+2. Navegue para **gestão da região** > **unidades de escala**e, em seguida, selecione a unidade de escala que pretende expandir a capacidade dos.  
+   ![Selecione a unidade de escala](media/azure-stack-add-scale-node/select-node1.png)
+
+   ![Ver detalhes de unidade de escala](media/azure-stack-add-scale-node/select-node2.png)
+ 
+3. Os parâmetros seguintes são necessários:  
+   - **ENDEREÇO de IP de BMC** para cada nó de unidade de escala que adicionar. (Um endereço IP por linha.) ![Adicionar nó](media/azure-stack-add-scale-node/add-node.png)
+
+### <a name="use-powershell"></a>Utilizar o PowerShell
+
+Utilize o **New-AzsScaleUnitNodeObject** cmdlet para adicionar um ou mais nós.  
+
+Antes de utilizar qualquer um dos scripts do PowerShell de exemplo abaixo, substitua os valores *nomes de nó* e *endereços IP* com valores do seu ambiente do Azure Stack.
+
+**Para um único nó:**
+  ```powershell
+  ## Add a single Node 
+  $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
+ 
+  Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
+**Adicione vários nós:**
+  ```powershell
+  ## Add multiple nodes 
+  $NewNode1=New-AzsScaleUnitNodeObject -computername "<name_of_new_node01>"  -BMCIPv4Address "<BMCIP_address_of_new_node01>" 
+ 
+  $NewNode2=New-AzsScaleUnitNodeObject -computername "<name_of_new_node02>" -BMCIPv4Address “<BMCIP_address_of_new_node02>”$ 
+ 
+  Add-AzsScaleUnitNode -NodeList @($NewNode1,$NewNode2) -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```
+
+## <a name="monitor-add-node-operations"></a>Monitorizar as operações de adicionar nó 
+Pode utilizar o portal de administração ou o PowerShell para obter o estado da operação de nó de adicionar. Adicione operações de nó podem demorar várias horas a dias para concluir.
+
+### <a name="use-the-admin-console"></a>Utilizar a consola de administração 
+Para monitorizar a adição de um novo nó, no portal de administração, reveja a unidade de escala ou objetos de nó de unidade de dimensionamento. Para tal, aceda a **gestão da região** > **unidades de escala**. Em seguida, selecione a unidade de escala ou o nó de unidade de escala que pretende rever. 
+
+### <a name="use-powershell"></a>Utilizar o PowerShell
+O estado de unidade de escala e nós de unidade de escala pode ser obtido através do PowerShell da seguinte forma:
+  ```powershell
+  #Retrieve Status for the Scale Unit
+  Get-AzsScaleUnit|select name,state
+ 
+  #Retrieve Status for each Scale Unit Node
+  Get-AzsScaleUnitNode |Select Name, ScaleUnitNodeStatus
+```
+
+### <a name="status-for-the-add-node-operation"></a>Estado para a operação de nó de adição 
+**Para uma unidade de escala:**
+|Estado               |Descrição  |
+|---------------------|---------|
+|A executar              |Todos os nós estão a participar ativamente na unidade de escala.|
+|Parada              |O nó de unidade de escala é baixo ou inacessível.|
+|Expandir            |Atualmente estão a ser adicionados um ou mais nós de unidade de escala, como a capacidade de computação.|
+|Configurar o armazenamento  |A capacidade de computação foi expandida e a configuração de armazenamento está em execução.|
+|Requer remediação |Foi detetado um erro que exige um ou mais nós de unidade de escala ser reparado.|
+
+
+**Para um nó de unidade de escala:**
+|Estado                |Descrição  |
+|----------------------|---------|
+|A executar               |O nó está a participar ativamente na unidade de escala.|
+|Parada               |O nó não está disponível.|
+|A adicionar                |O nó está ativamente a ser adicionado para a unidade de escala.|
+|A reparar             |O nó está ativamente a ser reparado.|
+|Manutenção           |O nó está em pausa e nenhuma carga de trabalho de utilizador do Active Directory está em execução. |
+|Requer remediação  |Foi detetado um erro que exige que o nó ser reparado.|
+
+
+## <a name="troubleshooting"></a>Resolução de problemas
+Seguem-se problemas comuns detetados quando adicionar um nó. 
+
+**Cenário 1:** a operação de nó de unidade de escala de adicionar falhar, mas um ou mais nós são listadas com o estado parado.  
+- Remediação: Utilize a operação de reparação para reparar um ou mais nós. Apenas uma operação de reparação único pode ser executados em simultâneo.
+
+**Cenário 2:** adicionou um ou mais nós de unidade de escala, mas falha na expansão do armazenamento. Neste cenário, o objeto de nó de unidade de escala comunica um Estado de execução, mas a tarefa de configuração de armazenamento não é iniciada.  
+- Remediação: Utilize o ponto final com privilégios para rever o estado de funcionamento do armazenamento ao executar o seguinte cmdlet do PowerShell:
+ 
+**Cenário 3:** recebeu um alerta que indica a tarefa de escalamento horizontal de armazenamento falhou.  
+- Remediação: neste caso, a tarefa de configuração de armazenamento falhou. Esse problema tem de contactar o suporte.
+
+
+## <a name="next-steps"></a>Próximos Passos 
+Revisão [ações de nó](azure-stack-node-actions.md) 

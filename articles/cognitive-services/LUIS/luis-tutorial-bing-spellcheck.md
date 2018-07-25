@@ -3,19 +3,19 @@ title: Adicionar a API de verificação ortográfica do Bing v7 a consultas de L
 titleSuffix: Azure
 description: Palavras com erros ortográficos corretas em expressões com adicionando Bing ortográfica verificar a API V7 às consultas de ponto final do LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8d86bf3974cd11b644f59799e3d6140b46899244
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173831"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239156"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Palavras com erros ortográficos corretas com verificação de ortografia do Bing
 

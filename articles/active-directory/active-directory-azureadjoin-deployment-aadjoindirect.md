@@ -1,51 +1,52 @@
 ---
-title: Cenários de utilização e considerações de implementação para associação do Azure AD | Microsoft Docs
-description: Explica como os administradores podem configurar associação do Azure AD para os respetivos utilizadores finais (empregados, estudantes, outros utilizadores). Também descreve os cenários no mundo real diferentes para utilizar a associação do Azure AD.
+title: Cenários de utilização e considerações de implementação para associação do Azure AD | Documentos da Microsoft
+description: Explica como os administradores podem configurar associação do Azure AD para os utilizadores finais (funcionários, estudantes, outros utilizadores). Ele também aborda os diferentes cenários de mundo real para utilizar a associação do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: mtillman
 editor: ''
 tags: azure-classic-portal
+ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29480390e6854dcedeaf8f06c078ed2e4ed2b94d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26602436"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223012"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Cenários de utilização e considerações de implementação para associação do Azure AD
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Cenários de utilização de associação do Azure AD
-### <a name="scenario-1-businesses-largely-in-the-cloud"></a>Cenário 1: Empresas grande parte na nuvem
-Azure associação do Active Directory (associação do Azure AD) podem beneficiar-se atualmente operar e gerir identidades para a sua empresa na nuvem ou estiver a mover para a nuvem em breve. Pode utilizar uma conta que tenha criado no Azure AD para iniciar sessão no Windows 10. Através de [processo (FRX) de experiência de primeira execução](active-directory-azureadjoin-user-frx.md), ou por associação do Azure AD de [menu definições](active-directory-azureadjoin-user-upgrade.md), os utilizadores podem associar as respetivas máquinas para o Azure AD.  Os utilizadores também possam desfrutar único início de sessão (SSO) para recursos de nuvem, como o Office 365, nos seus browsers ou nas aplicações do Office.
+### <a name="scenario-1-businesses-largely-in-the-cloud"></a>Cenário 1: Empresas em grande parte na cloud
+O Azure Active Directory Join (associação do Azure AD) podem beneficiá-lo se atualmente operar e gerir identidades para o seu negócio na cloud ou estiver a mover para a cloud em breve. Pode utilizar uma conta que tenha criado no Azure AD para iniciar sessão no Windows 10. Por meio [processo (FRX) de experiência de primeira execução](active-directory-azureadjoin-user-frx.md), ou por associação do Azure AD a partir de [o menu de definições](active-directory-azureadjoin-user-upgrade.md), os utilizadores podem associar seus computadores ao Azure AD.  Os utilizadores também podem desfrutar único início de sessão (SSO) acesso a recursos na cloud, como o Office 365, em seus navegadores ou em aplicativos do Office.
 
-### <a name="scenario-2-educational-institutions"></a>Cenário 2: Instituições Educational
-Normalmente, instituições Educational têm dois tipos de utilizador: corpo docente e alunos. Os membros do corpo docente são considerados duração mais longa membros da organização. A criação de contas no local para os mesmos é desejável. Mas estudantes são shorter-term membros da organização e das respetivas contas podem ser geridas no Azure AD. Isto significa que a escala de diretório pode ser enviada para a nuvem em vez de ser armazenada no local. Também significa que os estudantes que estejam conseguirá iniciar sessão no Windows com as respetivas contas do Azure AD e obter acesso aos recursos do Office 365 em aplicações do Office.
+### <a name="scenario-2-educational-institutions"></a>Cenário 2: Instituições de ensino
+Instituições de ensino normalmente têm dois tipos de utilizador: corpo docente e estudantes. Membros do corpo docente são considerados membros de longo prazo da organização. A criação de contas no local para os mesmos é desejável. Mas os estudantes são shorter-term membros da organização e das respetivas contas podem ser geridas no Azure AD. Isso significa que o dimensionamento de diretório pode ser enviado para a cloud em vez de serem armazenados no local. Também significa que os alunos serão capazes de iniciar sessão no Windows com as suas contas do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office.
 
-### <a name="scenario-3-retail-businesses"></a>Cenário 3: As empresas de revenda
-As empresas de revenda tem trabalhadores sazonais e funcionários de longo prazo. Normalmente, criar contas no local e utilizar máquinas associados a um domínio para empregados a tempo inteiro duração mais longa. Mas trabalhadores sazonais são shorter-term membros da organização e é necessário para gerir as respetivas contas onde licenças de utilizador podem ser mais facilmente movidas à volta. Quando criar as contas de utilizador na nuvem com o Office 365 licenças, estes utilizadores obtêm as vantagens de iniciar sessão no Windows e o Office aplicações com uma conta do Azure AD, enquanto mantém uma maior flexibilidade com as respetivas licenças depois de serem saírem.
+### <a name="scenario-3-retail-businesses"></a>Cenário 3: As empresas de varejo
+As empresas de varejo têm trabalhadores sazonais e funcionários de longo prazo. Normalmente, criar contas no local e utilizar máquinas associadas a domínios para os funcionários a tempo inteiro longo prazo. Mas trabalhadores sazonais são shorter-term membros da organização e é desejável para gerenciar essas contas em que licenças de utilizador podem ser mais facilmente movidas. Quando cria as contas de utilizador na cloud com licenças do Office 365, estes utilizadores obtém os benefícios do início de sessão para Windows e Office aplicativos com uma conta do Azure AD, enquanto mantém o maior flexibilidade com suas licenças após eles os deixam.
 
-### <a name="scenario-4-additional-scenarios"></a>Cenário 4: Cenários adicionais
-Juntamente com as vantagens abordadas anteriormente, poderá beneficiar de ter os seus utilizadores a adesão dos respetivos dispositivos para o Azure AD devido a uma experiência associar simplificada, gestão de dispositivos eficiente, inscrição da gestão de dispositivos móveis automática e início de sessão único para o Azure AD e recursos no local.  
+### <a name="scenario-4-additional-scenarios"></a>Cenário de 4: Cenários adicionais
+Assim como os benefícios discutidos anteriormente, se beneficiar da que os seus utilizadores se associem os seus dispositivos com o Azure AD devido a uma experiência simplificada de junção, gestão de dispositivos eficiente, inscrição da gestão de dispositivos móveis automática e início de sessão único para o Azure AD e recursos no local.  
 
 ## <a name="deployment-considerations-for-azure-ad-join"></a>Considerações de implementação para associação do Azure AD
 ### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>Permitir que os utilizadores associar um dispositivo da empresa diretamente ao Azure AD
-As empresas podem fornecer contas apenas na nuvem para empresas e organizações. Destes parceiros podem, em seguida, aceder facilmente às aplicações da empresa e de recursos com o início de sessão único. Este cenário é aplicável a utilizadores que acedem a recursos principalmente na nuvem, como aplicações do Office 365 ou SaaS que dependem do Azure AD para autenticação.
+As empresas podem fornecer contas apenas na cloud para empresas associadas e as organizações. Estes parceiros, em seguida, podem aceder facilmente aplicações da empresa e de recursos com o início de sessão único. Este cenário se aplica a utilizadores que acedem a recursos principalmente na cloud, como as aplicações do Office 365 ou SaaS que dependem do Azure AD para autenticação.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-**A nível empresarial (administrador)**
+**No nível empresarial (administrador)**
 
 * Subscrição do Azure com o Azure Active Directory  
 
-**Ao nível do utilizador**
+**No nível do usuário**
 
 * Windows 10 (edições Professional e Enterprise)
 
@@ -53,19 +54,19 @@ As empresas podem fornecer contas apenas na nuvem para empresas e organizações
 * [Configurar o registo do dispositivo](active-directory-azureadjoin-setup.md)
 
 ### <a name="user-tasks"></a>Tarefas de utilizador
-* [Configurar um novo dispositivo de Windows 10 com o Azure AD durante a configuração](active-directory-azureadjoin-user-frx.md)
-* [Configurar um dispositivo Windows 10 com o Azure AD no menu de definições](active-directory-azureadjoin-user-upgrade.md)
-* [Associar um dispositivo Windows 10 pessoal à sua organização](active-directory-azureadjoin-personal-device.md)
+* [Configurar um novo dispositivo Windows 10 com o Azure AD durante a configuração](active-directory-azureadjoin-user-frx.md)
+* [Configurar um dispositivo Windows 10 com o Azure AD no menu Definições](active-directory-azureadjoin-user-upgrade.md)
+* [Junte-se um dispositivo pessoal do Windows 10 para a sua organização](active-directory-azureadjoin-personal-device.md)
 
 ## <a name="enable-byod-in-your-organization-for-windows-10"></a>Ativar o BYOD na sua organização para o Windows 10
-Pode configurar os utilizadores e os funcionários utilizar os respetivos dispositivos Windows pessoais (BYOD) para aceder a aplicações da empresa e recursos. Os utilizadores podem adicionar as contas do Azure AD (contas profissionais ou escolares) para um dispositivo pessoal do Windows para aceder a recursos de forma segura e compatível.
+Pode configurar seus funcionários e de utilizadores para utilizar os seus dispositivos Windows pessoais (BYOD) para aceder a aplicações da empresa e os recursos. Os utilizadores podem adicionar as suas contas do Azure AD (contas profissionais ou escolares) para um dispositivo pessoal do Windows para aceder aos recursos de forma segura e em conformidade.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-**A nível empresarial (administrador)**
+**No nível empresarial (administrador)**
 
 * Subscrição do Azure AD
 
-**Ao nível do utilizador**
+**No nível do usuário**
 
 * Windows 10 (edições Professional e Enterprise)
 
@@ -73,7 +74,7 @@ Pode configurar os utilizadores e os funcionários utilizar os respetivos dispos
 * [Configurar o registo do dispositivo](active-directory-azureadjoin-setup.md)
 
 ### <a name="user-tasks"></a>Tarefas de utilizador
-* [Associar um dispositivo Windows 10 pessoal à sua organização](active-directory-azureadjoin-personal-device.md)
+* [Junte-se um dispositivo pessoal do Windows 10 para a sua organização](active-directory-azureadjoin-personal-device.md)
 
 ## <a name="additional-information"></a>Informações adicionais
 * [Windows 10 para a empresa: formas de utilizar os dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)

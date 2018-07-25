@@ -9,14 +9,14 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: ad4b31fa7b4f4b062f01935c34f7cacf82f99106
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072131"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223892"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Perguntas mais frequentes sobre o serviço de voz personalizada
+# <a name="speech-to-text-frequently-asked-questions"></a>Conversão de voz em texto perguntas mais frequentes
 
 Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente perguntar à Comunidade de serviço de voz personalizada no [Stack Overflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) e [UserVoice](https://cognitive.uservoice.com/)
 
@@ -36,7 +36,7 @@ Se não conseguir encontrar respostas para suas perguntas neste FAQ, experimente
 
 **Pergunta**: como posso saber quando o processamento de meu conjunto de dados ou o modelo for concluído?
 
-**Resposta**: atualmente, o estado do modelo ou do conjunto de dados na tabela é o só quer saber.
+**Resposta**: atualmente, o estado do modelo ou do conjunto de dados na tabela é a única forma de saber.
 Quando o processamento estiver concluído, o estado irá ser "com êxito".
 
 **Pergunta**: pode criar mais de um modelo?
@@ -49,7 +49,7 @@ Quando o processamento estiver concluído, o estado irá ser "com êxito".
 
 **Pergunta**: qual é a diferença entre a pesquisa e modelos de ditado e os modelos de conversação?
 
-**Resposta**: há mais do que um modelos de linha de base à sua escolha no serviço de voz. O modelo de conversação é adequado para reconhecimento de Voz falada num estilo de conversação. Esse modelo seria o ideal para chamadas de trnascribing durante a pesquisa e ditado é ideal para aplicações de acionadas por voz. Universal é um novo modelo que pretende resolver ambos os cenários.
+**Resposta**: há mais do que um modelos de linha de base à sua escolha no serviço de voz. O modelo de conversação é adequado para reconhecimento de Voz falada num estilo de conversação. Esse modelo seria o ideal para fotografar chamadas durante a pesquisa e ditado é ideal para aplicações de acionadas por voz. Universal é um novo modelo que pretende resolver ambos os cenários.
 
 **Pergunta**: posso atualizar o meu modelo existente (empilhamento de modelo)?
 
@@ -133,7 +133,7 @@ Tente atacar o modelo de linha de base para fazer a personalização que vale a 
 
 **Pergunta**: quantos dados de texto é necessário carregar?
 
-**Resposta**: depende de como diferente o vocabulário e expressões usados em seu aplicativo são provenientes os modelos de linguagem de partida. Para todas as novas palavras, é útil fornecer exemplos tantos possível da utilização dessas palavras. Para expressões comuns que são utilizados na sua aplicação, incluindo expressões nos dados de idioma também é útil à medida que informa ao sistema para escutar também estes termos. É comum ter pelo menos um hudrend e, normalmente, várias centenas expressões com o conjunto de dados de idioma ou mais. Também se determinados tipos de consultas devem ser mais comuns do que outras pessoas, pode inserir várias cópias das consultas comuns no conjunto de dados.
+**Resposta**: depende de como diferente o vocabulário e expressões usados em seu aplicativo são provenientes os modelos de linguagem de partida. Para todas as novas palavras, é útil fornecer exemplos tantos possível da utilização dessas palavras. Para expressões comuns que são utilizados na sua aplicação, incluindo expressões nos dados de idioma também é útil à medida que informa ao sistema para escutar também estes termos. É comum ter, pelo menos, uma centena e, normalmente, várias centenas expressões com o conjunto de dados de idioma ou mais. Também se determinados tipos de consultas devem ser mais comuns do que outras pessoas, pode inserir várias cópias das consultas comuns no conjunto de dados.
 
 **Pergunta**: Posso apenas carregar uma lista de palavras?
 

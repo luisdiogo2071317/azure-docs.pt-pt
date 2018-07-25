@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7726d7eae2d9b3a37ffc141e4a4cbdc9a1af459c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145042"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238316"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -96,8 +96,9 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 | Chamadas de saída simultâneas de ações | ~2,500 | Reduza o número de pedidos simultâneos ou reduza a duração, conforme necessário. | 
 | Ponto final de tempo de execução: chamadas simultâneas de entrada | ~1,000 | Reduza o número de pedidos simultâneos ou reduza a duração, conforme necessário. | 
 | Ponto final de tempo de execução: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
-| Ponto final de tempo de execução: invocar chamadas por 5 minutos| 45,000 | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
-|||| 
+| Ponto final de tempo de execução: invocar chamadas por 5 minutos| 45,000 | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. |
+| Taxa de transferência de conteúdo por 5 minutos | 600 MB | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. |  
+||||| 
 
 Para passar destes limites no processamento normal ou executar o teste de carga que pode passar destes limites, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 

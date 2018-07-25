@@ -2,19 +2,19 @@
 title: Reveja as expressões com ponto final utilizar a aprendizagem ativa na compreensão de idiomas (LUIS) - Azure | Documentos da Microsoft
 description: Utilizar a funcionalidade de aprendizagem ativa com o nome 'Rever expressões de ponto final' para melhorar as previsões de desempenho mais rápido.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 4144db7474f20f464d14722431d5d4a2546a8c5a
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949854"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222618"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Ativar a aprendizagem ativa, revendo os discursos de ponto final
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. 

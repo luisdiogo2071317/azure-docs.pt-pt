@@ -1,30 +1,30 @@
 ---
-title: Referência de temperatura de entidades de LUIS Prebuilt - Azure | Microsoft Docs
+title: Referência de temperatura de entidades de LUIS pré-criados - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém temperatura informações de entidade prebuilt na compreensão de idiomas (LUIS).
+description: Este artigo contém temperatura informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3cc16e7ec87775407c4261655d8f680cc0903e81
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 6436a7ee8d7b796595813fa613c442824aeae8f3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321842"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237466"
 ---
 # <a name="temperature-entity"></a>Entidade de temperatura
-Temperatura extrai uma variedade de tipos de temperatura. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém a temperatura à aplicação. Entidade de temperatura é suportada no [culturas muitos](luis-reference-prebuilt-entities.md). 
+Temperatura extrai uma variedade de tipos de temperatura. Uma vez que esta entidade já está preparada, não é necessário adicionar expressões de exemplo que contém a temperatura à aplicação. Entidade de temperatura é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-temperature"></a>Tipos de temperatura
-Temperatura é gerida a partir de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) repositório do Github
+Temperatura é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) repositório do Github
 
-## <a name="resolution-for-prebuilt-temperature-entity"></a>Resolução de entidades de temperatura prebuilt
-O exemplo seguinte mostra a resolução de **builtin.temperature** entidade.
+## <a name="resolution-for-prebuilt-temperature-entity"></a>Resolução de entidades de temperatura pré-criados
+O exemplo seguinte mostra a resolução do **builtin.temperature** entidade.
 
 ```JSON
 {

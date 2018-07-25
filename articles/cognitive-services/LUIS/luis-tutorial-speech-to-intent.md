@@ -3,19 +3,19 @@ title: Utilize a voz c# SDK com os LUIS - Azure | Documentos da Microsoft
 titleSuffix: Azure
 description: Utilize o exemplo de c# SDK de voz para falar no microfone e obter previsões de intenção e entidades do LUIS devolvidos.
 services: cognitive-services
-author: v-geberr
+author: diberry
 manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 3b225a012abe4796172327d8a723338e8de67749
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry;
+ms.openlocfilehash: 4249b908cc64eb229281cff60ddaa0394f946433
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930023"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238918"
 ---
 # <a name="integrate-speech-service"></a>Integre o serviço de voz
 O [serviço de voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar uma única solicitação receber áudio e retornar a predição de LUIS objetos JSON.
@@ -42,7 +42,7 @@ Do I have any paid time off?
 ## <a name="add-keyphrase-prebuilt-entity"></a>Adicionar KeyPhrase pré-criados de entidade
 Depois de importar a aplicação, selecione **entidades**, em seguida, **gerir entidades pré-concebidas**. Adicionar a **KeyPhrase** entidade. A entidade de KeyPhrase extrai a chave de assunto da expressão.
 
-## <a name="train-and-publish-the-app"></a>Formar e publicar a aplicação
+## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 1. Na barra de navegação superior, certo, selecione o **treinar** botão para preparar a aplicação do LUIS.
 
 2. Selecione **publicar** para ir para página de publicação. 

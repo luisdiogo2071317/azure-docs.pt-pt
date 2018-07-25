@@ -3,19 +3,19 @@ title: Usar o teste de batch para melhorar as previsões de LUIS | Documentos da
 titleSuffix: Azure
 description: Lote de teste de carga, reveja os resultados e melhorar as previsões de LUIS com alterações.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/16/2018
-ms.author: v-geberr
-ms.openlocfilehash: c146182c07c49cb73349df69c649601276a6e837
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.author: diberry
+ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126478"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237813"
 ---
 # <a name="improve-app-with-batch-test"></a>Melhorar a aplicação com o teste de batch
 

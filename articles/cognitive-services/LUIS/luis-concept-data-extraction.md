@@ -2,19 +2,19 @@
 title: Compreender os conceitos de extração de dados do LUIS - Azure | Documentos da Microsoft
 description: Saiba de que tipo de dados pode ser extraído de compreensão de idiomas (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 4341233e56ef62486b935457f606e54e54af84f4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952594"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225687"
 ---
 # <a name="data-extraction"></a>Extração de dados
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, uma aplicação ou um chatbot para tomar medidas.
@@ -139,7 +139,7 @@ Todas as entidades são retornadas no **entidades** matriz da resposta do ponto 
 ]
 ```
 
-## <a name="tokenized-entity-returned"></a>Entidade com token devolvida
+## <a name="tokenized-entity-returned"></a>entidade com token devolvida
 Várias [culturas](luis-supported-languages.md#tokenization) devolve o objeto de entidade com o `entity` valor [com token](luis-glossary.md#token). O startIndex e endIndex devolvido pelo LUIS no objeto de entidade não mapeiam para o valor novo, com token, mas sim à consulta original para que extrair a entidade não processada por meio de programação. 
 
 Por exemplo, em alemão, a palavra `das Bauernbrot` é com token em `das bauern brot`. O valor de tokenized `das bauern brot`, é devolvido e o valor original pode ser determinado através de programação do startIndex e endIndex da consulta original, dando-lhe `das Bauernbrot`.

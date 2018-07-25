@@ -3,19 +3,19 @@ title: Regiões do Language Understanding (LUIS) | Documentos da Microsoft
 titleSuffix: Azure
 description: Este artigo contém listas de regiões do LUIS, para o Web site LUIS, as subscrições do Azure e regiões do mundo.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
-ms.author: v-geberr
-ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: 1f6090bf1ac588585a16f93d2ac091e8950ca45f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346460"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238935"
 ---
 # <a name="regions-and-keys"></a>Regiões e as chaves
 
@@ -60,7 +60,7 @@ Para publicar as regiões da Europa, crie LUIS aplicações à https://eu.luis.a
 
 Para publicar as regiões australianas, crie LUIS aplicações em https://au.luis.ai apenas. Se tentar publicar em qualquer lugar que outra com uma chave na região australiano, LUIS exibe uma mensagem de aviso. Em alternativa, utilize https://au.luis.ai. Aplicações de LUIS criadas às [ https://au.luis.ai ] [ au.luis.ai] não migram para outras regiões. Exportar e, em seguida, importe a aplicação do LUIS para migrá-la.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência de entidades pré-concebidas](./luis-reference-prebuilt-entities.md)

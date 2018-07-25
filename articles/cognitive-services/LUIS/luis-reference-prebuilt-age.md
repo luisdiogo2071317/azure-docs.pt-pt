@@ -1,30 +1,30 @@
 ---
-title: Entidades LUIS Prebuilt idade referência - Azure | Microsoft Docs
+title: Entidades previamente concebidas LUIS idade referência - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém idade informações de entidade prebuilt na compreensão de idiomas (LUIS).
+description: Este artigo contém idade informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 59732469cf0d1e55643f3977958ec34a887130d3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: f93acb8bece8c66c3ed7197f1c4530011aec3f29
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321989"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237405"
 ---
-# <a name="age-entity"></a>Entidade de antiguidade
-A entidade de idade prebuilt captura o valor de duração tanto numerically e em termos de dias, semanas, meses ou anos. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém a idade para pendentes a aplicação. Entidade de idade é suportada no [culturas muitos](luis-reference-prebuilt-entities.md). 
+# <a name="age-entity"></a>Entidade de idade
+A entidade de idade pré-criados captura o valor de idade tanto numericamente e em termos de dias, semanas, meses e anos. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a idade para os objetivos do aplicativo. Entidade de idade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
-## <a name="types-of-age"></a>Tipos de antiguidade
-Idade é gerida a partir de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) repositório do Github
+## <a name="types-of-age"></a>Tipos de idade
+Idade é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) repositório do Github
 
-## <a name="resolution-for-prebuilt-age-entity"></a>Resolução de entidades de idade prebuilt
-O exemplo seguinte mostra a resolução de **builtin.age** entidade.
+## <a name="resolution-for-prebuilt-age-entity"></a>Resolução de entidades de idade pré-criados
+O exemplo seguinte mostra a resolução do **builtin.age** entidade.
 
 ```JSON
 {

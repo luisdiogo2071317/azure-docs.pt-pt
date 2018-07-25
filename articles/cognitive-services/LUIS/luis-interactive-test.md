@@ -2,19 +2,19 @@
 title: Treinar e testar a sua aplicação LUIS – Azure | Documentos da Microsoft
 description: Utilize a compreensão de idiomas (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 933704f40d7ca1d35f321abbbcc028d91585590f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174580"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223655"
 ---
 # <a name="test-your-luis-app"></a>Teste a sua aplicação LUIS
 <a name="train-your-app"></a>

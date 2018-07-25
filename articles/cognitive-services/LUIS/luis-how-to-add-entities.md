@@ -3,19 +3,19 @@ title: Adicionar entidades nas aplicações de LUIS | Documentos da Microsoft
 titleSuffix: Azure
 description: Adicione entidades (dados de chave no domínio de seu aplicativo) em aplicações de compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: bcdd4b681992b015b817e1245681c41c09b78210
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173695"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224131"
 ---
 # <a name="manage-entities"></a>Gerir entidades
 Depois de identificar seu aplicativo [intenções](luis-concept-intent.md), terá de [expressões de exemplo de etiqueta](luis-concept-utterance.md) com [entidades](luis-concept-entity-types.md). Entidades são partes importantes de um comando ou uma pergunta e podem ser essenciais para a sua aplicação de cliente executar a tarefa. 

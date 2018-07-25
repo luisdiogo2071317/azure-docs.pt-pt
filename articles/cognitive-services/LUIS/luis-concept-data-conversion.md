@@ -1,43 +1,43 @@
 ---
-title: Compreender os conceitos de conversão de dados do LUIS - Azure | Microsoft Docs
-description: Saiba como utterances podem ser alteradas antes predições na compreensão de idiomas (LUIS)
+title: Compreender os conceitos de conversão de dados do LUIS - Azure | Documentos da Microsoft
+description: Saiba como expressões podem ser alterados antes de previsões de indisponibilidade na compreensão de idiomas (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 16b0df4b81220885e2c3747470272cee9536e10c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063566"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223706"
 ---
-# <a name="data-conversion-concepts-in-luis"></a>Conceitos de conversão de dados no LUIS
-LUIS fornece uma forma para converter utterances de utterances ditas utterances texto antes de predição. 
+# <a name="data-conversion-concepts-in-luis"></a>Conceitos de conversão de dados do LUIS
+LUIS, fornece uma forma para converter expressões com expressões faladas em expressões de texto antes de predição. 
 
-## <a name="speech-to-intent-conversion-concepts"></a>Reconhecimento de voz para conceitos de intenção de conversão
-A conversão de reconhecimento de voz para texto LUIS permite-lhe enviar utterances ditas para um ponto final e receber uma resposta de predição LUIS. O processo é uma integração do [voz](https://docs.microsoft.com/azure/cognitive-services/Speech) serviço com LUIS. 
+## <a name="speech-to-intent-conversion-concepts"></a>Conversão de voz em conceitos de conversão de intenção
+Conversão de voz para texto em LUIS permite-lhe enviar expressões faladas com um ponto de extremidade e receber uma resposta de predição do LUIS. O processo é uma integração entre o [voz](https://docs.microsoft.com/azure/cognitive-services/Speech) serviço com os LUIS. 
 
-### <a name="key-requirements"></a>Requisitos de chaves
-Não é necessário criar um **API de reconhecimento de voz do Bing** chaves para esta integração. A **compreensão de idiomas** chave criada no portal do Azure funciona para esta integração. Não utilize a chave de arranque LUIS, não irá funcionar para esta integração.
+### <a name="key-requirements"></a>Requisitos de chave
+Não é necessário criar uma **API de voz do Bing** chave para essa integração. R **compreensão de idiomas** chave criada no portal do Azure funciona para essa integração. Não utilize a chave de arranque do LUIS, ele não funcionará para essa integração.
 
 ### <a name="new-endpoint"></a>Novo ponto final 
-Esta integração cria um novo ponto final e [preços](luis-boundaries.md#key-limits) modelo. O ponto final, através de [SDK de reconhecimento de voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk), pode receber ambos autenticação ditas e utterances de texto, permitindo-lhe para utilizá-lo como um único ponto final. 
+Esta integração acarreta um novo ponto final e [preços](luis-boundaries.md#key-limits) modelo. O ponto final, através do [SDK de voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk), é capaz de receber ambos falado e expressões de texto, permitindo que utilizá-lo como um único ponto final. 
 
 ### <a name="quota-usage"></a>Utilização da quota
-Consulte [chave limites](luis-boundaries.md#key-limits) para obter informações. 
+Ver [limites de chaves](luis-boundaries.md#key-limits) para obter informações. 
 
 ### <a name="data-retention"></a>Retenção de dados
-Os dados enviados para o ponto final, através do SDK de reconhecimento de voz, independentemente se se tratar de reconhecimento de voz ou de texto, só são utilizados para melhorar o seu modelo de reconhecimento de voz. Não é utilizado para além do seu modelo para melhorar o reconhecimento de voz ou LUIS uma capacidade geral. Quando a aplicação de LUIS é eliminada, os dados retidos também são eliminados.
+Os dados enviados para o ponto final, através do SDK de voz, independentemente se for voz ou de texto, só são utilizados para melhorar o seu modelo de voz. Não é utilizado para além de seu modelo para melhorar a conversão de voz ou LUIS numa capacidade geral. Quando a aplicação do LUIS é eliminada, os dados mantidos também são eliminados.
 
 <!-- TBD: Machine translation conversion concepts -->
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Utilize o reconhecimento de voz para texto](luis-tutorial-speech-to-intent.md)
+> [Utilize a voz para texto](luis-tutorial-speech-to-intent.md)
 

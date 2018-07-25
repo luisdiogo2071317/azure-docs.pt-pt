@@ -2,19 +2,19 @@
 title: Adicionar intenções em aplicativos de LUIS | Documentos da Microsoft
 description: Utilize a compreensão de idiomas (LUIS) para adicionar intenções para ajudar a compreender os pedidos de utilizador e reagir a eles corretamente de aplicações.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 479fa450b86d19032e75ef6aa511a7bdca608d75
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869052"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225891"
 ---
 # <a name="manage-intents"></a>Gerir os objetivos 
 Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para identificar os grupos de perguntas ou comandos que têm as mesmo intenções. 

@@ -3,19 +3,19 @@ title: Referência de domínio pré-criado - Azure | Documentos da Microsoft
 titleSuffix: Azure
 description: Referência para os domínios criados previamente, que são coleções pré-criados de objetivos e entidades do Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 45289b712a127e70636e225778d7a36578b34fa5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931633"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238901"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -30,7 +30,7 @@ LUIS oferece 20 domínios pré-concebidos.
 | Calendário | O domínio de calendário fornece intenções e entidades para adicionar, eliminar, ou editar um compromisso, a verificar a disponibilidade de participantes e encontrar informações sobre um evento de calendário.| pt-PT<br/> zh-CN |
 | Câmara | O domínio de câmera fornece intenções e entidades para tirar fotografias, vídeos de gravação e vídeo de difusão para uma aplicação.| pt-PT |
 | Comunicação | Envio de mensagens e efetuar chamadas telefónicas.| pt-PT <br/> zh-CN |
-| Entretenimento  | Processamento de consultas relacionadas com de músicas, filmes e TV.| pt-PT |
+| entretenimento  | Processamento de consultas relacionadas com de músicas, filmes e TV.| pt-PT |
 | Eventos | Reserva de bilhetes para concertos, festivals, jogos de desportos e comédia mostra.| pt-PT |
 | Adequação | Processamento de pedidos relacionados com atividades de adequação de controlo.| pt-PT |
 | Jogos | Processamento de pedidos relacionados com a parte de jogo num jogo multijogador.| pt-PT |
@@ -105,9 +105,9 @@ O domínio de comunicação fornece intenções e entidades relacionadas ao e-ma
 | Confirmar| Certifique-se uma ação.|Sim<br/>Okay<br/>Tudo bem<br/>Confirmo que eu queira envie este e-mail.<br/>|
 | Acesso telefónico| Fazer uma chamada telefónica.|Jim de chamada<br/>Marque o 311<br/>|
 | FindContact| Localize informações de contacto por nome.|Localizar o número de Carol<br/>Mostre-me o número de Carol<br/>|
-| FindSpeedDial| Guardar ou iniciar sessão atuais de peso do utilizador.|Guardar a minha atuais de peso<br/>Inicie agora minha peso<br/>armazenar meus atuais de peso corpo|
-| ActivityType| O tipo de atividade para controlar.|Movimentação<br/>Retomar<br/>|
-| Um tipo de alimento para controlar num aplicativo de adequação.| Banana|Voltar ao twitter<br/>Volte uma etapa<br/>Voltar atrás|
+| FindSpeedDial| Determinar o número de speedial que um número de telefone está definido para e vice-versa.|O que é o meu número de acesso telefónico 5?<br/>É necessário aumentar o conjunto de velocidade?<br/>O que é o número de marcação para 941-5555-333?|
+| GetForwardingsStatus| Obter o estado atual de encaminhamento de chamada.|Meu encaminhamento de chamada é ativado?<br/>Diga-me se o meu estado de chamada está ativada ou desativada<br/>|
+| GoBack| Volte ao passo anterior.|Voltar ao twitter<br/>Volte uma etapa<br/>Voltar atrás|
 | Ignorar| Ignore uma chamada de entrada.|Não responder<br/>Ignorar chamada|
 | IgnoreWithMessage| Ignorar uma chamada de entrada e responder com texto em vez disso.|Não responder a essa chamada, mas em vez disso, a enviar uma mensagem.<br/>Ignorar e enviar uma mensagem de texto novamente.|
 | PressKey| Pressione um botão ou um número no teclado.|Estrela de marcação.<br/>Prima 1 2 3.|
@@ -140,7 +140,7 @@ O domínio de comunicação fornece intenções e entidades relacionadas ao e-ma
 | OrderReference | A posição ordinal ou relativa numa lista, identificando um item a obter. Por exemplo, "last" ou "recentes" em "Qual foi a última mensagem enviei?"| Último<br/>Recente|
 | SenderName | O nome do remetente.| Patti Owens|
 
-## <a name="entertainment"></a>Entretenimento  
+## <a name="entertainment"></a>entretenimento  
 Mostra o domínio fornece intenções e entidades relacionadas com a pesquisa de filmes, músicas, jogos e TV de entretenimento.
 
 ### <a name="intents"></a>Intenções
@@ -373,8 +373,8 @@ Can you make the screen brighter?
 | AppName | Nome de uma aplicação no dispositivo.|SoundCloud<br/>YouTube|
 | BrightnessLevel | Defina o nível de luminosidade no dispositivo.|Percentagem de cem<br/>Cinquenta<br/>40%|
 | ContactName | O nome de um contacto no dispositivo.|Paul<br/>Máx. de Marlen|
-| DeviceType | O tipo de dispositivo. |Telefone<br/>Kindle<br/>Computador portátil|
-| MediaType | O tipo de suporte de dados processado pelo dispositivo.|Música<br/>Filmes<br/>Programas de TV|
+| deviceType | O tipo de dispositivo. |Telefone<br/>Kindle<br/>Computador portátil|
+| mediaType | O tipo de suporte de dados processado pelo dispositivo.|Música<br/>Filmes<br/>Programas de TV|
 | SettingType | Um tipo de definição ou no painel de definições que o usuário quer editar.|Wi-Fi<br/>Rede sem fios<br/>Esquema de cores<br/>Centro de notificações|
 
 ## <a name="places"></a>Locais  
@@ -431,10 +431,10 @@ restart|
 | Cuisine | O cuisine de um local. |Mediterrâneo<br/>Italiano<br/>Rupia|
 | DestinationAddress| Uma localização de destino ou endereço.|Da Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| O nome de um destino que é uma empresa, restaurante, attraction público ou instituição.|Central park<br/>safeway<br/>walmart|
-| DestinationPlaceType | O tipo de um destino que é um comercial, restaurante, attraction público ou instituição. |Restaurante<br/>Opera<br/>Cinema|
+| DestinationPlaceType | O tipo de um destino que é um comercial, restaurante, attraction público ou instituição. |Restaurante<br/>Opera<br/>cinema|
 | Distância | A distância para um local.|15 quilómetros<br/>5 quilómetros<br/>10 quilómetros de distância|
-| MealType | Tipo de refeição como café da manhã ou almoço. |café da manhã<br/>jantar<br/>almoço<br/>supper|
-| OpenStatus | Indica se um lugar é aberto ou fechado.|Aberto<br/>fechado<br/>abrir|
+| MealType | Tipo de refeição como café da manhã ou almoço. |Café da manhã<br/>Jantar<br/>Almoço<br/>Supper|
+| OpenStatus | Indica se um lugar é aberto ou fechado.|Aberto<br/>Fechado<br/>abrir|
 | PlaceName | O nome de um local.|Fábrica de bolos|
 | PlaceType | O tipo de um local.|Cafe<br/>Theater<br/>Biblioteca|
 | PreferredRoute | A rota preferida especificada pelo utilizador. | 101 <br/>202 <br/>Rota 401|
@@ -492,7 +492,7 @@ Table for 3 in Palo Alto at 7
 | AppName | O nome de um aplicativo para fazer as reservas.|OpenTable<br/>Yelp<br/>TripAdvisor|
 | Atmosfera | Uma descrição da atmosfera de um restaurante ou noutro local.|romantic<br/>casual<br/>bom para grupos|
 | Cuisine | Um tipo de comida, cuisine ou cuisine nationality. |Chinês<br/>Italiano<br/>Peso|
-| MealType | Um tipo de refeição associado a uma reserva.|café da manhã<br/>jantar<br/>almoço<br/>supper|
+| MealType | Um tipo de refeição associado a uma reserva.|Café da manhã<br/>Jantar<br/>Almoço<br/>Supper|
 | PlaceName | O nome de um comercial, restaurante, da atração pública ou instituição.|IHOP<br/>Fábrica de bolos<br/>Louvre|
 | PlaceType | O tipo de um comercial, restaurante, da atração pública ou instituição.|restaurante<br/>opera<br/>cinema|
 | Classificação | A classificação de um local ou um restaurante.|5 estrelas<br/>3 estrelas<br/>4 estrelas|
@@ -521,9 +521,9 @@ Cancel my Uber
 | Endereço| O endereço associado a reserva um táxi. |Da Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationAddress| Uma localização de destino ou endereço. |Da Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName | O nome de um destino que é um comercial, restaurante, attraction público ou instituição. |Central Park<br/>Safeway<br/>Walmart|
-| DestinationPlaceType | O tipo de um destino que é um comercial, restaurante, attraction público ou instituição. |Restaurante<br/>Opera<br/>Cinema|
+| DestinationPlaceType | O tipo de um destino que é um comercial, restaurante, attraction público ou instituição. |Restaurante<br/>Opera<br/>cinema|
 | PlaceName | Nome do comercial, restaurante, da atração pública ou instituição. |Central Park<br/>Safeway<br/>Walmart|
-| PlaceType| O tipo de local numa solicitação para reservar um táxi.|Restaurante<br/>Opera<br/>Cinema|
+| PlaceType| O tipo de local numa solicitação para reservar um táxi.|Restaurante<br/>Opera<br/>cinema|
 | TransportationCompany | O nome de um provedor de transporte.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | O tipo de transporte.|Barramento<br/>Preparar<br/>Driving|
 

@@ -2,19 +2,19 @@
 title: Colaborar com outros contribuidores no LUIS aplicações no Azure | Documentos da Microsoft
 description: Saiba como colabore com outros contribuintes em aplicativos de compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 55c50f5276e2cf97ac98d75b8fc2bd56f1c5d644
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.author: diberry
+ms.openlocfilehash: 9ea0269439b3d00bf36186cf2fd5c73311526bec
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340418"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225606"
 ---
 # <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>Colaborar com outras pessoas em aplicações de compreensão de idiomas (LUIS)  
 

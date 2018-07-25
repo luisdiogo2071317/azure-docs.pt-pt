@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 38f229addd0cd1f9c4f4d0ceb976f19f06d4a293
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9a40ad66f104a33230484f24e20a5f3bd9ed6175
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214715"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237660"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurar uma VM Managed Service Identity (MSI) com o PowerShell
 
@@ -96,9 +96,6 @@ Se precisar de ativar uma identidade de sistema atribuído numa máquina Virtual
 
 ## <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Desativar o sistema de identidade atribuído a partir de uma VM do Azure
 
-> [!NOTE]
->  A desativar a identidade de serviço gerida de uma Máquina Virtual não é atualmente suportada. Entretanto, pode alternar entre a utilização do sistema atribuído e identidades de utilizador atribuída.
-
 Se tiver uma Máquina Virtual que já não tem o sistema de identidade atribuído, mas ainda precisa de identidades de atribuída ao utilizador, utilize o seguinte cmdlet:
 
 1. Inicie sessão no Azure com `Login-AzureRmAccount`. Utilize uma conta que está associada à subscrição do Azure que contém a VM.
@@ -107,10 +104,20 @@ Se tiver uma Máquina Virtual que já não tem o sistema de identidade atribuíd
    Login-AzureRmAccount
    ```
 
-2. Execute o seguinte cmdlet: 
-    ```powershell       
-    Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -IdentityType "UserAssigned"
-    ```
+2. Obter as propriedades da VM com o `Get-AzureRmVM` cmdlet e defina a `-IdentityType` parâmetro para `UserAssigned`:
+
+   ```powershell   
+   $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM    
+   Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType "UserAssigned"
+   ```
+
+Se tiver uma máquina virtual que já não necessita de sistema de identidade atribuído e não tem nenhum utilizador identidades atribuída, utilize os seguintes comandos:
+
+```powershell
+$vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+
 Para remover a extensão de VM de MSI, utilizador-comutador de nome com o [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, especificando o mesmo nome que utilizou quando adicionou a extensão:
 
    ```powershell
@@ -179,23 +186,23 @@ Para atribuir um identidade atribuída a uma VM do Azure existente ao utilizador
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover um utilizador atribuído identidade gerida a partir de uma VM do Azure
 
-> [!NOTE]
->  Remover todas as identidades de utilizador atribuída uma Máquina Virtual atualmente não é suportada, a menos que tenha um sistema de identidade atribuído. Volte mais tarde para obter atualizações.
-
 Se a VM tiver múltiplas identidades de utilizador atribuído, pode remover todas, exceto a última está com os comandos seguintes. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<MSI NAME>` é propriedade de nome da identidade de utilizador atribuído, que deve permanecer na VM. Estas informações podem ser encontradas na secção da identidade da VM usando `az vm show`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = "<MSI NAME>"
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType UserAssigned -IdentityID "<MSI NAME>"
 ```
+Se a VM não tem um sistema de identidade atribuído e que pretende remover o utilizador de todas as identidades atribuídas da mesma, utilize o seguinte comando:
 
-Se a VM tem o sistema atribuída e as identidades de atribuída ao utilizador, pode remover todos os utilizadores identidades atribuídos ao mudar para utilizar apenas o sistema atribuído. Utilize o seguinte comando:
+```powershell
+$vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
+```
+Se a VM tem o sistema atribuída e as identidades de atribuída ao utilizador, pode remover todos os utilizadores identidades atribuídos ao mudar para utilizar apenas o sistema atribuído.
 
 ```powershell 
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm
-$vm.Identity.IdentityIds = $null
-Update-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm -VirtualMachine $vm -IdentityType "SystemAssigned"
+Update-AzureRmVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType "SystemAssigned"
 ```
 
 ## <a name="related-content"></a>Conteúdo relacionado

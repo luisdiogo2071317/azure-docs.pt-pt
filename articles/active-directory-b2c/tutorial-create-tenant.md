@@ -9,12 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
-ms.openlocfilehash: 20865fc3adf8610b5a4ce111e3db91aef714fdd6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.component: B2C
+ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448310"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236898"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -46,7 +47,7 @@ Para começar a gerir o seu inquilino novo, clique na palavra **aqui** em que se
 
 ## <a name="link-your-tenant-to-your-subscription"></a>Ligar o seu inquilino para a sua subscrição
 
-Precisa de associar o inquilino do Azure AD B2C à sua subscrição do Azure para ativar todas as funcionalidades e paga os custos de utilização. Se não ligar o seu inquilino para a sua subscrição, seus aplicativos não funcionará corretamente.
+É preciso associar o seu inquilino do Azure AD B2C à sua subscrição do Azure para ativar todas as funcionalidades e pagar os custos de utilização. Se não ligar o seu inquilino para a sua subscrição, seus aplicativos não funcionará corretamente.
 
 1. Certifique-se de que está a utilizar o diretório que contém a subscrição que pretende associar ao novo inquilino, mudando o diretório no canto superior direito do portal do Azure.
 

@@ -1,30 +1,30 @@
 ---
-title: LUIS Prebuilt entidades ordinal referência - Azure | Microsoft Docs
+title: LUIS pré-criados entidades ordinal referência - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém informações de entidade prebuilt ordinal na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidade pré-criados ordinal na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 2ff9b083e6cabe455baea3ed777dd6cc00b6fbfe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 216114ec521e2065cb13cd39b4086f50ec81ba56
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321968"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236759"
 ---
 # <a name="ordinal-entity"></a>Entidade ordinal
-Número de ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém ordinal para pendentes a aplicação. Entidade ordinal é suportada no [culturas muitos](luis-reference-prebuilt-entities.md). 
+Número de ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém ordinal para os objetivos do aplicativo. Entidade ordinal é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinal
-Gerido do ordinal de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) repositório do Github
+Ordinal é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) repositório do Github
 
-## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidades ordinal prebuilt
-O exemplo seguinte mostra a resolução de **builtin.ordinal** entidade.
+## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidade ordinal pré-criados
+O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.
 
 ```JSON
 {

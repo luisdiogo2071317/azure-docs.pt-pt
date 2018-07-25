@@ -3,19 +3,19 @@ title: Adicionar modelos padrão em aplicativos de LUIS | Documentos da Microsof
 titleSuffix: Azure
 description: Saiba como adicionar modelos padrão em aplicativos de compreensão de idiomas (LUIS) para melhorar a exatidão da previsão.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 26fb9c6349b46e0c920506c39ba53b26f215d330
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867193"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222601"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão
 Depois de uma aplicação do LUIS recebe expressões de ponto de extremidade, utilize o [conceito](luis-concept-patterns.md) de padrões para melhorar a exatidão da previsão para expressões que revelam um padrão na ordem das palavras e a escolha do word. Padrões de utilização [entidades](luis-concept-entity-types.md) e as respetivas funções para extrair dados usando a sintaxe padrão específico. 

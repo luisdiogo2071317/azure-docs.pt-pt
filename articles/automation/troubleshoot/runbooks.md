@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044871"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237602"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -79,7 +79,7 @@ Para determinar se corretamente autenticado para o Azure e ter acesso à subscri
 
 #### <a name="issue"></a>Problema
 
-Receberá o seguinte erro durante a autenticação do Azure com o seu nome de utilizador do Azure e a palavra-passe:
+Receber o erro seguinte durante a autenticação do Azure com o seu nome de utilizador do Azure e a palavra-passe:
 
 ```
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required

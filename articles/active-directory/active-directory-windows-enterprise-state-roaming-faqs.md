@@ -1,130 +1,132 @@
 ---
-title: As definições e dados em roaming FAQ | Microsoft Docs
-description: Fornece respostas a algumas questões, os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
+title: As definições e dados em roaming perguntas frequentes | Documentos da Microsoft
+description: Fornece respostas a algumas perguntas que os administradores de TI podem ter sobre as definições e sincronização de dados de aplicações.
 services: active-directory
-keywords: Enterprise Estado as definições de roaming, nuvem do windows, perguntas mais frequentes em roaming de estado empresarial
+keywords: Enterprise de estado as configurações de roaming, cloud do windows, perguntas mais frequentes sobre o roaming de estado empresarial
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224335"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
-Este artigo responde a algumas perguntas os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
+Este artigo responde a algumas perguntas que os administradores de TI podem ter sobre as definições e sincronização de dados de aplicações.
 
-## <a name="what-data-roams"></a>Se os dados?
-**Definições do Windows**: as definições do PC que são incorporadas no sistema operativo Windows. Geralmente, estas são as definições que personalizar o seu PC e incluem as seguintes categorias amplas:
+## <a name="what-data-roams"></a>Os dados que ocorre?
+**Definições do Windows**: as definições do PC que são criadas no sistema operacional Windows. Em geral, estas são as definições que personalizar o seu PC, e eles incluem as seguintes categorias amplas:
 
-* *Tema*, que inclui funcionalidades, tais como o ambiente de trabalho definições tema e na barra de tarefas.
-* *Definições do Internet Explorer*, incluindo separadores recentemente abertas e os favoritos.
-* *As definições do browser de contorno*, tais como favoritos e a lista de leitura.
-* *As palavras-passe*, incluindo palavras-passe de Internet, perfis Wi-Fi e outras pessoas.
-* *Preferências de idioma*, que inclui as definições de esquemas de teclado, idioma do sistema, data e hora e muito mais.
-* *Facilidade de funcionalidades de acesso*, tais como o tema de alto contraste, Narrador e Lupa.
-* *Outras definições do Windows*, tais como definições de linha de comandos e a lista de aplicações.
+* *Tema*, que inclui recursos como tema e barra de tarefas das configurações de Desktops.
+* *Definições do Internet Explorer*, incluindo separadores foram abertos recentemente e favoritos.
+* *Definições do browser de borda*, tais como favoritos e lista de leitura.
+* *As palavras-passe*, incluindo palavras-passe de Internet, perfis de Wi-Fi e outras pessoas.
+* *Preferências de idioma*, que inclui as definições de layouts de teclado, idioma do sistema, data e hora e muito mais.
+* *Facilidade de funcionalidades de acesso*, como o tema de alto contraste, o Narrador e Lupa.
+* *Outras definições do Windows*, tais como definições de linha de comandos e lista de aplicativos.
 
-**Dados de aplicação**: aplicações Universal do Windows podem escrever dados de definições para uma pasta de roaming e serão automaticamente sincronizados todos os dados escritos nesta pasta. Está a funcionar para o Programador de aplicações individuais para conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Universal do Windows que utiliza o roaming, consulte o [appdata armazenamento API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e [appdata Windows 8 em roaming blogue para programadores](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Os dados da aplicação**: Windows Universal apps podem escrever dados de definições para uma pasta de roaming e todos os dados gravados para esta pasta automaticamente serão sincronizados. Cabe-lhe para o desenvolvimento de aplicações individuais como conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Windows Universal, que utiliza o roaming, consulte a [API do armazenamento de appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [appdata do Windows 8 blog de desenvolvedores de roaming](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Que conta é utilizada para sincronização de definições?
-No Windows 8 e Windows 8.1, a sincronização de definições sempre utilizadas contas Microsoft de consumidor. Os utilizadores empresariais tinham a capacidade de ligar uma conta Microsoft à sua conta de domínio do Active Directory para obter acesso a sincronização de definições. No Windows 10, isto ligado conta Microsoft, a funcionalidade está a ser substituída com uma estrutura de conta primária/secundário.
+No Windows 8 e Windows 8.1, a sincronização de definições sempre utilizadas contas da Microsoft de consumidor. Os utilizadores empresariais tinham a capacidade de ligar uma conta Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de definições. No Windows 10, isso ligado funcionalidade está a ser substituída com uma estrutura de conta primária/secundária de conta da Microsoft.
 
-A conta primária é definida como a conta utilizada para iniciar sessão no Windows. Isto pode ser uma conta Microsoft, uma conta do Azure Active Directory (Azure AD), uma conta do Active Directory no local ou uma conta local. Para além da conta principal, os utilizadores do Windows 10 podem adicionar uma ou mais contas de nuvem secundário para o respetivo dispositivo. Uma conta secundária é, geralmente, uma conta Microsoft, uma conta do Azure AD ou alguma outra conta, tais como o Gmail ou o Facebook. Estas contas secundárias fornecem acesso a serviços adicionais, tais como o início de sessão único e a loja Windows, mas não são capazes da ligar a sincronização de definições.
+A conta principal é definida como a conta utilizada para iniciar sessão no Windows. Isso pode ser uma conta Microsoft, uma conta do Azure Active Directory (Azure AD), uma conta do Active Directory no local ou uma conta local. Além da conta principal, os utilizadores do Windows 10 podem adicionar uma ou mais contas de cloud secundário para o respetivo dispositivo. Uma conta secundária é, geralmente, uma conta Microsoft, uma conta do Azure AD ou alguma outra conta como o Gmail ou Facebook. Estas contas secundárias fornecem acesso a serviços adicionais, como início de sessão único e a Windows Store, mas eles não têm capacidade de ligar a sincronização de definições.
 
-No Windows 10, apenas a conta primária para o dispositivo pode ser utilizada para sincronização de definições (consulte [como atualizar da sincronização de definições de conta Microsoft no Windows 8 para o Azure AD sync definições no Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
+No Windows 10, apenas a conta principal para o dispositivo pode ser utilizada para sincronização de definições (consulte [como posso atualizar da sincronização de definições de conta Microsoft no Windows 8 para o Azure AD a sincronização de definições no Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
-Dados nunca for misto entre as contas de utilizador diferente no dispositivo. Existem duas regras de sincronização de definições:
+Dados nunca é misturar entre as contas de utilizador diferente no dispositivo. Há duas regras de sincronização de definições:
 
-* Windows irá sempre sejam acedidas remotamente com a conta primária.
-* Os dados da aplicação serão etiquetados com a conta utilizada para adquirir a aplicação. Irão sincronizar apenas aplicações marcadas com a conta do principal. Marcação de propriedade de aplicação é determinado quando uma aplicação side-loaded através da loja Windows ou a gestão de dispositivos móveis (MDM).
+* Definições do Windows sempre irão acompanhá-se a conta principal.
+* Dados da aplicação vão ser etiquetados com a conta utilizada para adquirir a aplicação. Apenas aplicações marcadas com a conta principal serão sincronizados. Marcação de propriedade de aplicação é determinado quando um aplicativo está sideload através da Windows Store ou gestão de dispositivos móveis (MDM).
 
-Se não seja possível identificar o proprietário de uma aplicação, será se movem com a conta primária. Se um dispositivo é atualizado a partir do Windows 8 ou Windows 8.1, Windows 10, todas as aplicações serão marcadas como adquirido pela conta Microsoft. Isto acontece porque a maioria dos utilizadores adquirir aplicações através da loja Windows e não ocorreu nenhum suporte para a loja Windows para contas do Azure AD antes do Windows 10. Se uma aplicação é instalada através de uma licença offline, a aplicação será marcada com a conta primária no dispositivo.
+Se não é possível identificar o proprietário de uma aplicação, forem se mover com a conta principal. Se um dispositivo é atualizado do Windows 8 ou Windows 8.1 para o Windows 10, todas as aplicações serão etiquetadas como adquirida pela conta Microsoft. Isto acontece porque a maioria dos usuários adquirir aplicações através da Windows Store, e não havia nenhum suporte a Windows Store para contas do Azure AD antes do Windows 10. Se uma aplicação é instalada através de uma licença offline, a aplicação será marcada utilizando a conta principal do dispositivo.
 
 > [!NOTE]
-> Dispositivos Windows 10 que são propriedade da empresa e que estão ligados ao Azure AD já não podem ligar as respetivas contas Microsoft para uma conta de domínio. A capacidade de ligar uma conta Microsoft para uma conta de domínio e ter a sincronização de dados do utilizador à conta Microsoft (ou seja, a conta Microsoft em roaming através de ligado conta Microsoft e a funcionalidade de Active Directory) é removida do Windows 10 dispositivos que estão associados a um ambiente do Active Directory ou do Azure AD ligado.
+> Dispositivos Windows 10 pertencentes à empresa e são ligados ao Azure AD já não podem ligar a contas da Microsoft para uma conta de domínio. A capacidade de ligar uma conta Microsoft a uma conta de domínio e ter a sincronização de dados do utilizador para a conta da Microsoft (ou seja, a conta Microsoft roaming através da conta do Microsoft ligada e funções do Active Directory) é removida do Windows 10 dispositivos que estão associados a um ambiente conectado do Active Directory ou do Azure AD.
 >
 >
 
-## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Como atualizar da sincronização de definições de conta Microsoft no Windows 8 para o Azure AD sync definições no Windows 10?
-Se estão associados ao domínio do Active Directory com o Windows 8 ou Windows 8.1 com uma conta Microsoft ligada, irá sincronizar definições através da sua conta Microsoft. Depois de atualizar para o Windows 10, continuará a sincronizar as definições do utilizador através da conta Microsoft, desde que um utilizador associados a um domínio e o domínio do Active Directory não estabelecer ligação com o Azure AD.
+## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Como faço a atualização da sincronização de definições de conta Microsoft no Windows 8 para o Azure AD a sincronização de definições no Windows 10?
+Se está associados ao domínio do Active Directory com o Windows 8 ou Windows 8.1 com uma conta Microsoft ligada, irá sincronizar as definições através da sua conta Microsoft. Depois de atualizar para o Windows 10, continuará a sincronizar definições de utilizador através da conta Microsoft, desde que seja um utilizador associado a um domínio e domínio do Active Directory não estabelecer ligação com o Azure AD.
 
-Se o domínio do Active Directory no local a estabelecer ligação com o Azure AD, o dispositivo irá tentar sincronizar as definições utilizando o ligado conta do Azure AD. Se o administrador do Azure AD não permitir Roaming de estado empresarial, o ligado conta do Azure AD irá parar a sincronização de definições. Se for um utilizador do Windows 10 e iniciar sessão com uma identidade do Azure AD, irá iniciar a sincronização de definições do windows, assim que o administrador ativa a sincronização de definições através do Azure AD.
+Se o domínio do Active Directory no local de se ligar com o Azure AD, o dispositivo irá tentar sincronizar as configurações usando o ligados conta do Azure AD. Se o administrador do Azure AD não ativa o Roaming de estado empresarial, sua ligados conta do Azure AD irá parar a sincronização de definições. Se for um usuário do Windows 10 e iniciar sessão com uma identidade do Azure AD, começa a sincronizar definições do windows, assim que o administrador ativa a sincronização de definições através do Azure AD.
 
-Se tiver armazenado quaisquer dados pessoais no seu dispositivo da empresa, deve ter conhecimento de que dados de aplicações e do sistema operativo Windows começará a sincronização com o Azure AD. Isto tem implicações seguintes:
+Se tiver armazenado os dados pessoais no seu dispositivo da empresa, deve estar ciente de que os dados de aplicativo e SO de Windows começará a sincronização com o Azure AD. Isso tem implicações de seguintes:
 
-* Definições da sua conta Microsoft pessoais terá que se desviam além as definições no seu trabalho ou escola contas do Azure AD. Isto acontece porque a conta Microsoft e definições do Azure AD sincronizar agora estão a utilizar contas separadas.
-* Dados pessoais tais como palavras-passe de Wi-Fi, as credenciais da web e os favoritos do Internet Explorer que anteriormente foram sincronizados através de uma conta Microsoft ligada serão sincronizados através do Azure AD.
+* Definições da sua conta Microsoft pessoas serão levados para além das definições no seu trabalho contas escolares ou profissionais do Azure AD. Isto acontece porque a conta Microsoft e as definições do Azure AD sincronizar agora está a utilizar contas separadas.
+* Os dados pessoais, como palavras-passe do Wi-Fi, credenciais de web e os favoritos do Internet Explorer que anteriormente foram sincronizados através de uma conta Microsoft ligada serão sincronizados através do Azure AD.
 
-## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Como fazer o trabalho de interoperabilidade de Roaming de estado do Azure AD Enterprise e conta Microsoft?
-As versões de Novembro versão 2015 ou posterior do Windows 10, Roaming de estado empresarial é apenas suportado para uma única conta cada vez. Se iniciar sessão no Windows utilizando um trabalho ou escola conta do Azure AD, todos os dados serão sincronizados através do Azure AD. Se iniciar sessão Windows, utilizando uma conta Microsoft pessoal, serão sincronizados todos os dados através da conta Microsoft. Universal appdata será sejam acedidas remotamente utilizando apenas a início de sessão na conta principal no dispositivo e será se movem apenas se a licença da aplicação é propriedade de conta da principal. Universal appdata para as aplicações pertencentes a quaisquer contas secundárias não será sincronizado.
+## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Como fazer a conta da Microsoft e de trabalho de interoperabilidade de Roaming de estado do Azure AD Enterprise?
+Nas versões de Novembro de 2015 ou posterior do Windows 10, Roaming de estado empresarial só é suportado para uma única conta cada vez. Se inicie sessão no Windows, através de uma conta escola ou profissional do Azure AD, serão sincronizados todos os dados através do Azure AD. Se iniciar sessão utilizando uma conta Microsoft pessoal Windows, todos os dados serão sincronizados através da conta Microsoft. Universal appdata forem se mover utilizando apenas a início de sessão conta principal do dispositivo e forem se mover apenas se a licença da aplicação é de propriedade da conta principal. Appdata universal para as aplicações pertencentes a quaisquer contas secundárias não será sincronizado.
 
-## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>As definições de sincronização para contas de anúncios do Azure a partir de múltiplos inquilinos?
-Quando contas de várias do Azure AD de diferentes inquilinos do Azure AD estão no mesmo dispositivo, tem de atualizar o registo do dispositivo para comunicar com o serviço Azure Rights Management para cada inquilino do Azure AD.  
+## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>As definições de sincronização para contas do Azure AD a partir de vários inquilinos?
+Quando contas vários Azure AD a partir de diferentes inquilinos do Azure AD estão no mesmo dispositivo, tem de atualizar o registo do dispositivo para comunicar com o serviço Azure Rights Management para cada inquilino do Azure AD.  
 
-1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. O GUID para o inquilino é na página de propriedades para o inquilino selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), identificados **ID de diretório**. 
+1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. O GUID para o inquilino está na página de propriedades para o inquilino selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), etiquetadas **ID do diretório**. 
 2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID de ID de inquilino >**.
-   Do **GUID de ID de inquilino** chave, crie um novo valor de cadeia múltipla (REG-várias-SZ) com o nome **AllowedRMSServerUrls**. Para os respetivos dados, especifique os URLs de ponto de distribuição licenciamento de outros inquilinos do Azure que acede ao dispositivo.
-3. Pode encontrar os URLs de ponto de distribuição licenciamento executando o **Get-AadrmConfiguration** cmdlet do módulo AADRM. Se os valores para o **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** são diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
+   Do **GUID de ID de inquilino** chave, crie um novo valor de cadeia de caracteres múltipla (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para obter seus dados, especifique os URLs de ponto de distribuição licenciamento dos outros inquilinos do Azure que acessa o dispositivo.
+3. Pode encontrar os URLs de ponto de distribuição licenciamento ao executar o **Get-AadrmConfiguration** cmdlet do módulo AADRM. Se os valores para o **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** são diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
 
-## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Quais são as opções de definições de roaming para aplicações de ambiente de trabalho Windows existentes?
-Roaming só funciona para aplicações Universal do Windows. Existem duas opções disponíveis para ativar uma aplicação de ambiente de trabalho existente do Windows está em roaming:
+## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Quais são as opções de definições de roaming para aplicativos de área de trabalho de Windows existentes?
+Roaming só funciona para aplicações Windows universais. Existem duas opções disponíveis para ativar o roaming num aplicativo de área de trabalho existente do Windows:
 
-* O [Bridge de ambiente de trabalho](https://aka.ms/desktopbridge) ajuda-o a colocar as aplicações de ambiente de trabalho do Windows existentes para a plataforma Universal do Windows. Aqui, alterações de código mínimas será necessárias para tirar partido de roaming de dados de aplicação do Azure AD. A Bridge de ambiente de trabalho fornece as suas aplicações com uma identidade de aplicação, o que é necessária para ativar o roaming para aplicações de ambiente de trabalho existentes de dados de aplicação.
-* [Virtualização de experiência de utilizador (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) ajuda-o a criar um modelo de definições personalizadas para aplicações de ambiente de trabalho do Windows existentes e ativar roaming para aplicações de Win32. Esta opção não necessita que o programador da aplicação alterar o código da aplicação. UE-V está limitado a Itinerância de Active Directory no local para os clientes que compraram Microsoft Desktop Optimization Pack.
+* O [Bridge de ambiente de trabalho](https://aka.ms/desktopbridge) ajuda a trazer seus aplicativos de desktop do Windows existentes para a plataforma Universal do Windows. A partir daqui, alterações de código mínimo será necessárias para tirar partido de roaming de dados de aplicação do Azure AD. A ponte de ambiente de trabalho fornece as suas aplicações com uma identidade de aplicação, o que é necessária para ativar o roaming para aplicações de ambiente de trabalho existentes de dados de aplicação.
+* [Virtualização de experiência do usuário (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) ajuda-o a criar um modelo de definições personalizadas para aplicações de ambiente de trabalho de Windows existentes e ativar o roaming para aplicações de Win32. Esta opção não necessita de programador da aplicação alterar o código da aplicação. UE-V está limitado a roaming de Active Directory no local para os clientes que compraram o Microsoft Desktop Optimization Pack.
 
-Os administradores podem configurar UE-V para se movem os dados da aplicação de ambiente de trabalho Windows alterando o roaming das definições do sistema operativo Windows e os dados de aplicação Universal através de [políticas de grupo de UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), incluindo:
+Os administradores podem configurar a UE-V para se mover dados de aplicativo de desktop do Windows, alterando o roaming das configurações de SO Windows e os dados de aplicação Universal através de [políticas de grupo da UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), incluindo:
 
-* Transferir a política de grupo de definições do Windows
-* Não sincronizar a política de grupo de aplicações do Windows
+* Se mover a diretiva de grupo de definições do Windows
+* Não sincronizar a diretiva de grupo de aplicações do Windows
 * Internet Explorer em roaming na secção de aplicações
 
-No futuro, a Microsoft pode investigar formas para tornar profundamente integrado no Windows de UE-V e expandir UE-V transferir definições através da nuvem do Azure AD.
+No futuro, a Microsoft pode investigar maneiras de tornar o UE-V profundamente integrada ao Windows e estender o UE-V para se mover as definições através da cloud do Azure AD.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Posso armazenar definições sincronizadas e os dados no local?
-Roaming de estado empresarial armazena todos os dados sincronizados na nuvem do Azure. Oferece de UE-V no local em roaming solução.
+Roaming de estado empresarial armazena todos os dados de sincronização na cloud do Azure. UE-V oferece uma local roaming de solução.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Quem tem os dados que estão a ser movidos?
-As empresas próprias movidos dados através de Roaming de estado empresarial. Os dados são armazenados num datacenter do Azure. Todos os dados de utilizador são encriptados em trânsito e inativos na nuvem utilizando o serviço Azure Rights Management do Azure Information Protection. Esta é uma melhoria em comparação comparada a sincronização de definições com base na conta Microsoft, que encripta apenas determinados dados confidenciais, tais como as credenciais do utilizador antes de sai do dispositivo.
+As empresas próprias ganhar mobilidade os dados por meio de Roaming de estado empresarial. Dados são armazenados num datacenter do Azure. Todos os dados de utilizador são encriptados em trânsito e em inatividade na cloud com o serviço Azure Rights Management do Azure Information Protection. Essa é uma melhoria em comparação comparada a sincronização de definições com base na conta da Microsoft, que criptografa apenas determinados dados confidenciais, como credenciais de utilizador, antes mesmo de sair do dispositivo.
 
-A Microsoft está empenhada em proteger as dados de cliente. Dados de definições de um utilizador enterprise automaticamente são encriptados pelo serviço do Azure Rights Management antes de que sai um dispositivo Windows 10, pelo que não existem outros utilizadores podem ler estes dados. Se a sua organização tiver uma subscrição paga para o serviço Azure Rights Management, pode utilizar outras funcionalidades de proteção, como controlar e revogar documentos, automaticamente proteger e-mails que contêm informações confidenciais e gerir as suas próprias chaves (o "bring a sua própria chave"solução, também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte [que é o Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+A Microsoft está empenhada em proteger dados do cliente. Dados de definições de um utilizador de enterprise são encriptados automaticamente pelo serviço Azure Rights Management antes mesmo de sair um dispositivo Windows 10, para que nenhum outro utilizador pode ler esses dados. Se a sua organização tiver uma subscrição paga para o serviço Azure Rights Management, pode utilizar outras funcionalidades de proteção, como controlar e revogar documentos, automaticamente proteger os e-mails que contêm informações confidenciais e gerir as suas próprias chaves (o "traga a sua própria chave"solução, também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte [o que é o Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Pode gerir a sincronização para uma aplicação específica ou a definição?
-No Windows 10, não há nenhuma definição de MDM ou política de grupo para desativar o roaming para uma aplicação individual. Os administradores inquilinos podem desativar a sincronização de appdata para todas as aplicações em dispositivos geridos, mas não existe nenhum melhorar o controlo a um nível por aplicação ou na aplicação.
+No Windows 10, não existe qualquer definição de diretiva de grupo ou de MDM para desativar o roaming para uma aplicação individual. Os administradores de inquilinos podem desativar a sincronização de appdata para todas as aplicações num dispositivo gerido, mas não existe nenhum um melhor controle a um nível por aplicação ou numa aplicação.
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>Como ativar ou desativar o roaming?
-No **definições** aplicação, aceda a **contas** > **sincronize as suas definições**. Nesta página, pode ver a conta está a ser utilizada para transferir as definições e pode ativar ou desativar a grupos individuais de definições para ser movidos.
+Na **definições** aplicação, aceda à **contas** > **sincronizar as definições**. Nesta página, pode ver que conta está a ser utilizada para as definições de roaming e pode ativar ou desativar a grupos individuais de configurações para ganhar mobilidade.
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>O que é recomendação da Microsoft para ativar o roaming no Windows 10?
-A Microsoft tem alguns diferentes definições de roaming soluções disponíveis, incluindo perfis de utilizador itinerantes, UE-V e Roaming de estado de empresa.  A Microsoft está empenhada para efetuar um investimento em Enterprise Estado Roaming nas futuras versões do Windows. Se a sua organização não está pronto ou confortável com mover dados para a nuvem, em seguida, recomendamos que utilize UE-V com a tecnologia de roaming primária. Se a sua organização necessita de suporte para aplicações de ambiente de trabalho do Windows existentes de roaming, mas é eager mover para a nuvem, recomendamos que utilize o Roaming de estado do Enterprise e UE-V. Apesar de UE-V e Roaming de estado empresarial são muito semelhantes tecnologias, não são mutuamente exclusivos. Complementa entre si para ajudar a garantir que a sua organização fornece os serviços de roaming que os utilizadores precisam.  
+A Microsoft tem algumas diferentes configurações de roaming soluções disponíveis, incluindo perfis de utilizador itinerantes, UE-V e o Roaming de estado do Enterprise.  A Microsoft está empenhada em tornar um investimento em Enterprise Roaming em futuras versões do Windows de estado. Se sua organização não estiver pronto ou à vontade com mover dados para a cloud, em seguida, recomendamos que utilize o UE-V como sua principal tecnologia de roaming. Se sua organização necessita de suporte para aplicativos de área de trabalho de Windows existentes de roaming, mas é avançar para a cloud, recomendamos que utilize o Roaming de estado do Enterprise e UE-V. Embora o UE-V e o Roaming de estado empresarial são tecnologias muito semelhantes, não são mutuamente exclusivas. Se complementam entre si para ajudar a garantir que sua organização fornece os serviços móveis que os utilizadores precisam.  
 
-Ao utilizar o Roaming de estado empresarial e de UE-V, aplicam as seguintes regras:
+Ao utilizar o Roaming de estado empresarial e o UE-V, aplicam as seguintes regras:
 
-* Roaming de estado empresarial é o agente de roaming primário no dispositivo. UE-V está a ser utilizado para completar o "intervalo de Win32".
-* Roaming para as definições do Windows e os dados da aplicação UWP modernos de UE-V deve ser desativado quando utilizar o grupo de UE-V políticas. Estes já estão abrangidas pelos Roaming de estado empresarial.
+* Roaming de estado empresarial é o principal agente roaming no dispositivo. UE-V está a ser utilizado para complementar a "lacuna de Win32".
+* Efetuar o roaming para as definições do Windows e dados de aplicação UWP modernos de UE-V deve ser desativado quando o grupo de UE-V utilizando as políticas. Elas já estão cobertas pelas Roaming de estado empresarial.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Como o Roaming de estado de Enterprise suporta a infraestrutura de ambiente de trabalho virtual (VDI)?
-Roaming de estado empresarial é suportada no Windows 10 cliente SKUs, mas não no servidor SKUs. Se um cliente VM está alojado numa máquina hipervisor e iniciam sessão remotamente em à máquina virtual, os dados serão utilizados em roaming. Se vários utilizadores partilham o mesmo sistema operativo e os utilizadores iniciam sessão remotamente em para um servidor para uma experiência de ambiente de trabalho completo, não poderá funcionar em roaming. O cenário de última baseados em sessão não é oficialmente suportado.
+Roaming de estado empresarial é suportada em SKUs de cliente do Windows 10, mas não no servidor SKUs. Se uma VM do cliente está hospedado numa máquina de hipervisor e iniciar sessão remotamente na máquina virtual, os dados forem se mover. Se vários usuários compartilham o mesmo sistema operacional e os utilizadores iniciam sessão remotamente num servidor para uma experiência de ambiente de trabalho completo, roaming poderá não funcionar. O último cenário com base em sessão não é oficialmente suportado.
 
-## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>O que acontece quando a minha organização comprar uma subscrição que inclui o Azure Rights Management depois de utilizar o roaming?
-Se já estiver a sua organização utilizar roaming no Windows 10 com a subscrição gratuita do Azure Rights Management utilização limitada, a compra de uma [subscrição paga](https://azure.microsoft.com/pricing/details/information-protection/) que inclui o serviço de proteção não terão o Azure Rights Management qualquer impacto na funcionalidade da funcionalidade de roaming e sem alterações de configuração, serão necessário pelo seu administrador de TI.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>O que acontece quando a minha organização compra uma subscrição que inclui o Azure Rights Management depois de utilizar o roaming?
+Se sua organização já utiliza o roaming no Windows 10 com a subscrição gratuita do Azure Rights Management utilização limitada, compra um [subscrição paga](https://azure.microsoft.com/pricing/details/information-protection/) que inclui o serviço de proteção não terão o Azure Rights Management qualquer impacto na funcionalidade da funcionalidade de roaming e sem alterações de configuração necessárias para o administrador de TI.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-Consulte a documentação do [resolução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) secção para obter uma lista dos problemas conhecidos. 
+Consulte a documentação sobre o [resolução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) secção para obter uma lista dos problemas conhecidos. 
 
 ## <a name="related-topics"></a>Tópicos relacionados
-* [Descrição geral de roaming de estado do Enterprise](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Visão geral o roaming de estado empresarial](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Ativar roaming no Azure Active Directory de estado empresarial](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Política de grupo e definições de MDM para sincronização de definições](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-* [Referência de definições de roaming Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Referência de configurações de roaming com o Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Resolução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)

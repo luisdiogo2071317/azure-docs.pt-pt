@@ -2,19 +2,19 @@
 title: Conceitos de Enterprise para uma aplicação do LUIS - Azure | Documentos da Microsoft
 description: Compreenda os conceitos de design para aplicações de LUIS grandes.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0c1cd175649415e811140e45225bd8441071ab19
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950843"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224865"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estratégias da empresa para uma aplicação LUIS
 Reveja essas estratégias de design para a sua aplicação empresarial.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 47d321788251462f2b34e1eb60231454dd6a72cf
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185936"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223801"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
@@ -84,7 +84,7 @@ O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para atualiza
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>Consultar o progresso das tarefas de
-O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para [consultar tarefas][lnk-query]:
+O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para consultar tarefas:
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -94,6 +94,8 @@ O fragmento seguinte mostra os detalhes da solicitação HTTPS 1.1 para [consult
     User-Agent: <sdk-name>/<sdk-version>
 
 O continuationToken é fornecido da resposta.  
+
+Pode consultar o estado de execução da tarefa em cada dispositivo a utilizar o [linguagem de consulta do IoT Hub para dispositivos duplos, tarefas e encaminhamento de mensagens][lnk-query].
 
 ## <a name="jobs-properties"></a>Propriedades de tarefas
 A lista seguinte mostra as propriedades e as descrições correspondentes, que podem ser utilizadas ao consultar para tarefas ou resultados das tarefas.

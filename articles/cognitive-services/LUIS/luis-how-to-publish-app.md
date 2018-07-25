@@ -3,19 +3,19 @@ title: Publique a sua aplicação LUIS | Documentos da Microsoft
 description: Depois de criar e testar a sua aplicação com a compreensão de idiomas (LUIS), publique-o como um serviço web no Azure.
 services: cognitive-services
 titleSuffix: Azure
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: d579ba8913eeb6ce22e277dab454ba7e3b628703
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry;
+ms.openlocfilehash: b827f157ccd2919c959385eefd0e0223a8e23607
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171937"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225545"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 Quando concluir a criação e teste a sua aplicação LUIS, publicá-lo. Depois da aplicação for publicada, a página de publicação mostra todas as associadas HTTP [pontos de extremidade](luis-glossary.md#endpoint). Estes pontos finais, por [região](luis-reference-regions.md) e, por [chave](luis-how-to-manage-keys.md), em seguida, são integradas em qualquer aplicação cliente, chatbot ou back-end. 

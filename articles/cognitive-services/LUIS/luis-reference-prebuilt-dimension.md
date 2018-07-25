@@ -1,32 +1,32 @@
 ---
-title: Entidades LUIS Prebuilt dimensão de referência - Azure | Microsoft Docs
+title: Entidades previamente concebidas LUIS dimensão de referência - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém informações de entidade prebuilt na compreensão de idiomas (LUIS) de dimensão.
+description: Este artigo contém informações de entidade pré-criados na compreensão de idiomas (LUIS) de dimensão.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3b2758f1d68ae3659f2e43cad555d327b21f8732
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 3c923e7791c58255690100b04700577eb5c3f5dd
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321982"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237269"
 ---
 # <a name="dimension-entity"></a>Entidade de dimensão
-A entidade de dimensão prebuilt Deteta vários tipos de dimensões, independentemente do idioma de aplicação LUIS. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contenha dimensões para pendentes a aplicação. Entidade de dimensão é suportada no [culturas muitos](luis-reference-prebuilt-entities.md). 
+A entidade de dimensão pré-criados detecta vários tipos de dimensões, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém as dimensões para os objetivos do aplicativo. Entidade de dimensão é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
-Dimensão é gerida a partir de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) repositório do Github
+Dimensão é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) repositório do Github
 
 
 ## <a name="resolution-for-dimension-entity"></a>Resolução de entidades de dimensão
-O exemplo seguinte mostra a resolução de **builtin.dimension** entidade.
+O exemplo seguinte mostra a resolução do **builtin.dimension** entidade.
 
 ```JSON
 {

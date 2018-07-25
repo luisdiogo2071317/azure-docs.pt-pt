@@ -1,27 +1,27 @@
 ---
-title: Entidades LUIS Prebuilt de e-mail de referência - Azure | Microsoft Docs
+title: Entidades previamente concebidas LUIS de e-mail de referência - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém e-mail informações de entidade prebuilt na compreensão de idiomas (LUIS).
+description: Este artigo contém e-mail informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 517e92202bdd5bc8d970306b9e24999fa62a8e43
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 5f2ff9ef8e06c747558d795b52423d494824a746
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321870"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236735"
 ---
 # <a name="email-entity"></a>Entidade de e-mail
-Extração de correio eletrónico inclui o endereço de e-mail completo de um utterance. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém os pendentes de aplicação do correio eletrónico. Entidade de correio eletrónico é suportada no `en-us` idioma apenas. 
+Extração de e-mail inclui o endereço de e-mail completo de uma expressão. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém o e-mail para os objetivos do aplicativo. Entidade de e-mail é suportada no `en-us` apenas a cultura. 
 
-## <a name="resolution-for-prebuilt-email"></a>Resolução de correio eletrónico prebuilt
-O exemplo seguinte mostra a resolução de **builtin.email** entidade.
+## <a name="resolution-for-prebuilt-email"></a>Resolução de correio eletrónico pré-criados
+O exemplo seguinte mostra a resolução do **builtin.email** entidade.
 
 ```JSON
 {

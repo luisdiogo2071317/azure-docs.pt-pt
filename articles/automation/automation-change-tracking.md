@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069452"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238884"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -76,7 +76,7 @@ Utilize os seguintes passos para configurar o controlo de ficheiros em computado
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados.<br>**Siga** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados.<br>**Gerir** - segue as ligações simbólicas e permite a alteração do conteúdo devolvido.     |
-|Carregar conteúdo do ficheiro para todas as definições| Folheio ou desativar o carregamento de conteúdo do ficheiro em alterações registadas. As opções disponíveis: **True** ou **falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 > [!NOTE]
 > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
@@ -95,7 +95,7 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"       |
-|Carregar conteúdo do ficheiro para todas as definições| Folheio ou desativar o carregamento de conteúdo do ficheiro em alterações registadas. As opções disponíveis: **True** ou **falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ## <a name="configure-file-content-tracking"></a>Configurar o controlo de conteúdo do ficheiro
 

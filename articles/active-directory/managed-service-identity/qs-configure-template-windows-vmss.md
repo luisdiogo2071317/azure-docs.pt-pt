@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: babeb0eb930d865cf519ddb45c651a3d77265665
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: b4fa875c71869dc3fd671f5dc4b801934c27f0ff
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215799"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237201"
 ---
-# <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurar uma identidade do serviço gerido VMSS utilizando um modelo
+# <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Configurar a identidade do serviço gerido no dimensionamento de máquinas virtuais com um modelo
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
-Neste artigo, aprenderá a efetuar as seguintes operações de identidade do serviço gerido num VMSS do Azure, utilizando o modelo de implementação Azure Resource Manager:
-- Ativar e desativar o sistema de identidade no VMSS Azure atribuído
-- Adicionar e remover um utilizador atribuído a identidade num VMSS do Azure
+Neste artigo, saiba como realizar as seguintes operações de identidade do serviço gerido num conjunto de dimensionamento de máquina virtual do Azure, utilizando o modelo de implementação Azure Resource Manager:
+- Ativar e desativar a identidade do sistema atribuído num conjunto de dimensionamento de máquina virtual do Azure
+- Adicionar e remover uma identidade de utilizador atribuída num conjunto de dimensionamento de máquina virtual do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +55,7 @@ Independentemente da opção escolhida, sintaxe do modelo é o mesmo durante a i
 
 Nesta secção, irá ativar e desativar o sistema de identidade com um modelo Azure Resource Manager atribuído.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vmss-or-an-existing-azure-vmss"></a>Ativar o sistema de identidade atribuído durante a criação de um VMSS do Azure ou um VMSS do Azure existente
+### <a name="enable-system-assigned-identity-during-creation-the-creation-of-or-an-existing-azure-virtual-machine-scale-set"></a>Ativar sistema identidade atribuída durante a criação da criação de ou um conjunto de dimensionamento de máquina virtual do Azure existente
 
 1. Carregar o modelo para um editor, localize a `Microsoft.Compute/virtualMachineScaleSets` recursos de interesse no `resources` secção. Sua poderá parecer ligeiramente diferente da captura de ecrã seguinte, consoante o editor que estiver a utilizar e se estiver a editar um modelo para uma implementação novo ou existente.
    
@@ -99,12 +99,23 @@ Nesta secção, irá ativar e desativar o sistema de identidade com um modelo Az
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Desativar uma identidade de sistema atribuída de um conjunto de dimensionamento de máquina virtual do Azure
 
-> [!NOTE]
-> A desativar a identidade de serviço gerida de uma Máquina Virtual não é atualmente suportada. Entretanto, pode alternar entre a utilização do sistema atribuído e identidades de utilizador atribuída.
+Se tiver um conjunto de dimensionamento que já não precisa de uma identidade de serviço gerido:
 
-Se tiver um conjunto de dimensionamento que já não necessita de um sistema de identidade atribuído, mas ainda precisa de utilizador identidades atribuído:
+1. Se iniciar sessão para o Azure localmente ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
 
-- Carregar o modelo para um editor e altere o tipo de identidade para `'UserAssigned'`
+2. Carregar o modelo para um [editor](#azure-resource-manager-templates) e localize a `Microsoft.Compute/virtualMachineScaleSets` recursos de interesse no `resources` secção. Se tiver um conjunto de dimensionamento de máquina virtual que tem apenas uma identidade de sistema atribuído, pode desativá-lo ao alterar o tipo de identidade para `None`.  Se o conjunto de dimensionamento de máquina virtual tem o sistema e as identidades de atribuída ao utilizador, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com o `identityIds` matriz das identidades de utilizador atribuída.  O exemplo seguinte mostra como remover um sistema de identidade atribuído de um conjunto de dimensionamento com nenhum utilizador identidades atribuída:
+   
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "None"
+        }
+
+   }
+   ```
 
 ## <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
 
@@ -134,6 +145,7 @@ Nesta secção, atribua uma identidade de utilizador atribuída a um VMSS do Azu
 
     }
     ```
+
 2. (Opcional) Adicione a entrada seguinte sob o `extensionProfile` elemento para atribuir a extensão de identidade gerida para o VMSS. Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também. Utilize a seguinte sintaxe:
    
     ```JSON
@@ -152,12 +164,37 @@ Nesta secção, atribua uma identidade de utilizador atribuída a um VMSS do Azu
                         "protectedSettings": {}
                     }
                 }
-   ```
+    ```
+
 3.  Quando tiver terminado, o modelo deve ter um aspeto semelhante ao seguinte:
    
       ![Captura de ecrã da identidade atribuída ao utilizador](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Remover a identidade atribuída ao utilizador um conjunto de dimensionamento de máquina virtual do Azure
+
+Se tiver um conjunto de dimensionamento que já não precisa de uma identidade de serviço gerido:
+
+1. Se iniciar sessão para o Azure localmente ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
+
+2. Carregar o modelo para um [editor](#azure-resource-manager-templates) e localize a `Microsoft.Compute/virtualMachineScaleSets` recursos de interesse no `resources` secção. Se tiver um conjunto de dimensionamento de máquina virtual que tenha apenas a identidade atribuída ao utilizador, pode desativá-lo ao alterar o tipo de identidade para `None`.  Se o conjunto de dimensionamento de máquina virtual tem o sistema e o utilizador identidades atribuídas e gostaria de manter uma identidade de sistema atribuído, remova `UserAssigned` do tipo de identidade, juntamente com o `identityIds` matriz das identidades de utilizador atribuída.
+    
+   Para remover um uma identidade de utilizador único atribuído a partir de um conjunto de dimensionamento de máquina virtual, remova-a do `identityIds` matriz.
+   
+   O exemplo seguinte mostra como remover utilizador de todas as identidades atribuídas a partir de um conjunto de dimensionamento sem nenhum sistema de identidades atribuído:
+   
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "None"
+        }
+
+   }
+   ```
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma perspectiva mais ampla sobre o MSI, leia os [descrição geral de identidade do serviço gerido](overview.md).
+- Para obter uma perspectiva mais ampla sobre a identidade do serviço gerido, leia os [descrição geral de identidade do serviço gerido](overview.md).
 

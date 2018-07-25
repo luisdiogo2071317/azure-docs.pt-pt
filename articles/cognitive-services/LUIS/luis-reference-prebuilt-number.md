@@ -1,31 +1,31 @@
 ---
-title: Número de entidades LUIS Prebuilt referência - Azure | Microsoft Docs
+title: Número de entidades previamente concebidas LUIS referência - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém entidade prebuilt informações sobre o número na compreensão de idiomas (LUIS).
+description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: aa0b389a0694a3b742259fd42bed08055fbbadbe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: c1a263f21ae249ea80c0798ac81818c9e9cf1319
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321863"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236810"
 ---
-# <a name="number-entity"></a>Número entidade
-Existem várias formas, na qual os valores numéricos são utilizados quantificar, rápidas e descrevem as informações. Este artigo abrange apenas alguns exemplos de possíveis. LUIS interpreta variações no utterances de utilizador e devolve os valores numéricos consistentes. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém o número e os pendentes de aplicação. 
+# <a name="number-entity"></a>Entidade de número
+Existem várias formas em que os valores numéricos são utilizados para quantificar, express além de descrever partes de informações. Este artigo abrange apenas alguns dos exemplos possíveis. LUIS interpreta as variações em expressões de utilizador e devolve valores numéricos consistentes. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém um número para os objetivos do aplicativo. 
 
 ## <a name="types-of-number"></a>Tipos de número
-Gerido do número de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) repositório do Github
+Número é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) repositório do Github
 
 ## <a name="examples-of-number-resolution"></a>Exemplos de resolução de número
 
-| utterance        | Entidade   | Resolução |
+| Expressão        | Entidade   | Resolução |
 | ------------- |:----------------:| --------------:|
 | ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
@@ -37,10 +37,10 @@ Gerido do número de [Recognizers texto](https://github.com/Microsoft/Recognizer
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-LUIS inclui o valor reconhecido um **`builtin.number`** entidade no `resolution` campo da resposta JSON devolve.
+LUIS inclui o valor reconhecido de um **`builtin.number`** entidade no `resolution` campo da resposta JSON retorna.
 
-## <a name="resolution-for-prebuilt-number"></a>Resolução de número prebuilt
-O exemplo seguinte mostra uma resposta JSON de LUIS, que inclui a resolução do valor 24, para o utterance "dúzia de dois".
+## <a name="resolution-for-prebuilt-number"></a>Resolução de número pré-criados
+O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do valor 24, para a expressão "duas dezenas".
 
 ```JSON
 {

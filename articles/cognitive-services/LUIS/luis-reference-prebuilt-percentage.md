@@ -1,30 +1,30 @@
 ---
-title: Referência de percentagem de entidades de LUIS Prebuilt - Azure | Microsoft Docs
+title: Referência de percentagem de entidades de LUIS pré-criados - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém percentagem informações de entidade prebuilt na compreensão de idiomas (LUIS).
+description: Este artigo contém a percentagem de informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4d502e93f8b6bf3af2da05a499c359faeabb51da
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: d445dbf69e3d2163b5d44b894f8795d41fbd34e3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321912"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238969"
 ---
-# <a name="percentage-entity"></a>Percentagem de entidade
-Números de percentagem podem aparecer como frações, `3 1/2`, ou como percentagem, `2%`. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo que contém a percentagem de pendentes a aplicação. Percentagem de entidade é suportada no [culturas muitos](luis-reference-prebuilt-entities.md). 
+# <a name="percentage-entity"></a>Entidade de percentagem
+Percentagem números podem aparecer como frações, `3 1/2`, ou como percentagem, `2%`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a percentagem para os objetivos do aplicativo. Percentagem de entidade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Tipos de percentagem
-Percentagem é gerida a partir de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) repositório do Github
+Percentagem é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) repositório do Github
 
-## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolução de percentagem prebuilt entidade
-O exemplo seguinte mostra a resolução de **builtin.percentage** entidade.
+## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolução de entidade de percentagem pré-criados
+O exemplo seguinte mostra a resolução do **builtin.percentage** entidade.
 
 ```JSON
 {

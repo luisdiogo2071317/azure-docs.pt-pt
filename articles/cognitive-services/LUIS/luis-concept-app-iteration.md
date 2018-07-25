@@ -2,19 +2,19 @@
 title: Compreender a aplicação de LUIS iterativa de design - Azure | Documentos da Microsoft
 description: As aplicações de LUIS necessitam iterações de design para preparar o LUIS para obter a melhor extração de dados.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr
-ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: 947350a1d0dcfb0caaca654768c3660fc1b146e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888253"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225446"
 ---
 # <a name="authoring-cycle"></a>Ciclo de criação
 LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -36,7 +36,7 @@ Instruir o LUIS para ignorar as expressões que não são relevantes para o dom�
 ## Not just yet
 Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
 -->
-## <a name="train-and-publish-the-app"></a>Formar e publicar a aplicação
+## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 Depois de ter expressões com diferentes de 10 a 15 em intenção, cada, com as entidades necessárias o nome, treinar LUIS, em seguida, publique para obter os pontos finais. Certifique-se criar a sua aplicação e publique a sua aplicação para que ele está disponível na [regiões de ponto final](luis-reference-regions.md) que precisa. 
 
 ## <a name="https-endpoint-testing"></a>Teste de ponto final HTTPS

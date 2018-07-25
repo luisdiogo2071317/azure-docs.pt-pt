@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902994"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237945"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
 O Azure Monitor proporciona um pipeline individual para obter acesso a todos os dados de monitorização do seu ambiente do Azure, permitindo-lhe configurar facilmente o parceiro SIEM e ferramentas para consumir dados de monitorização. Este artigo explica como configurar diferentes camadas de dados do seu ambiente do Azure, para serem enviados dos Hubs de eventos espaço de nomes ou event hub individual, onde podem ser coletado por uma ferramenta externa.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>Os dados que pode enviar para um hub de eventos? 
 

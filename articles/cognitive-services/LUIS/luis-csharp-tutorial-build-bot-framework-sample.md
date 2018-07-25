@@ -2,19 +2,19 @@
 title: Integrar o LUIS com um bot utilizando o SDK do construtor de Bot para c# no Azure | Documentos da Microsoft
 description: Crie um bot integrado com um aplicativo de LUIS com o Bot Framework.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: f666b59db978774cd299cb91eccdfac99e66ae76
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: diberry
+ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172056"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225963"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot de aplicação Web com o modelo do LUIS para c#
 

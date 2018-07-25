@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 5d91e543f370d65337c0298fb6421d5ffa85eda0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216228"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237619"
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Configurar a identidade de serviço gerida (MSI) na VM do Azure com a CLI do Azure
 
@@ -90,14 +90,21 @@ Se precisar de ativar a identidade do sistema atribuído numa VM existente:
 
 ### <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Desativar o sistema de identidade atribuído a partir de uma VM do Azure
 
-> [!NOTE]
-> A desativar a identidade de serviço gerida de uma Máquina Virtual não é atualmente suportada. Entretanto, pode alternar entre a utilização do sistema atribuído e identidades de utilizador atribuída.
-
 Se tiver uma Máquina Virtual que já não tem o sistema de identidade atribuído, mas ainda precisa de identidades de atribuída ao utilizador, utilize o seguinte comando:
 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
 ```
+
+Se tiver uma máquina virtual que já não necessita de sistema de identidade atribuído e não tem nenhum utilizador identidades atribuída, utilize o seguinte comando:
+
+> [!NOTE]
+> O valor `none` diferencia maiúsculas de minúsculas. Tem de estar em minúsculas. 
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none"
+```
+
 Para remover a extensão de VM de MSI, usuário `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` mudar (consoante o tipo de VM) com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
@@ -120,34 +127,33 @@ Esta secção orienta-o através da criação de uma VM com a atribuição de um
 
 2. Criar um utilizador atribuído através de identidade [identidade az criar](/cli/azure/identity#az_identity_create).  O `-g` parâmetro especifica o grupo de recursos onde o identidade atribuída ao utilizador é criado, e o `-n` parâmetro especifica o respetivo nome.    
     
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
+   ```azurecli-interactive
+   az identity create -g myResourceGroup -n myUserAssignedIdentity
+   ```
+   A resposta contém detalhes para a identidade atribuída ao utilizador que criou, semelhante ao seguinte. O valor de id de recurso atribuído para o identidade atribuída ao utilizador é utilizado no passo seguinte.
 
-```azurecli-interactive
-az identity create -g myResourceGroup -n myUserAssignedIdentity
-```
-A resposta contém detalhes para a identidade atribuída ao utilizador que criou, semelhante ao seguinte. O valor de id de recurso atribuído para o identidade atribuída ao utilizador é utilizado no passo seguinte.
-
-```json
-{
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
-}
-```
+   ```json
+   {
+       "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+       "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+       "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+       "location": "westcentralus",
+       "name": "<MSI NAME>",
+       "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+       "resourceGroup": "<RESOURCE GROUP>",
+       "tags": {},
+       "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+       "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+   }
+   ```
 
 3. Crie uma VM com [az vm create](/cli/azure/vm/#az_vm_create). O exemplo seguinte cria uma VM associada à identidade atribuída ao utilizador novo, como especificado pelo `--assign-identity` parâmetro. Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<MSI ID>` pelos seus próprios valores. Para `<MSI ID>`, utilizar o recurso a identidade de utilizador atribuída `id` propriedade criada no passo anterior: 
 
-```azurecli-interactive 
-az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
-```
+   ```azurecli-interactive 
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+   ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Atribuir um utilizador a identidade atribuído a uma VM do Azure existente
 
@@ -184,14 +190,21 @@ A resposta contém detalhes para o utilizador atribuído MSI criado, semelhante 
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Remover um utilizador atribuído a identidade de uma VM do Azure
 
-> [!NOTE]
-> Remover todas as identidades de utilizador atribuída uma Máquina Virtual atualmente não é suportada, a menos que tenha um sistema de identidade atribuído.
-
-Se a VM tiver múltiplas identidades de utilizador atribuído, pode remover tudo exceto o último que usa [remover a identidade da vm de az](/cli/azure/vm#az-vm-identity-remove). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<MSI NAME>` será a identidade de utilizador atribuída `name` propriedade, que pode ser encontrada na secção da identidade da VM usando `az vm show`:
+Para remover uma identidade de utilizador atribuída a uma utilização VM [remover a identidade da vm de az](/cli/azure/vm#az-vm-identity-remove). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<MSI NAME>` será a identidade de utilizador atribuída `name` propriedade, que pode ser encontrada na secção da identidade da VM usando `az vm identity show`:
 
 ```azurecli-interactive
 az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
 ```
+
+Se a VM não tem um sistema de identidade atribuído e que pretende remover o utilizador de todas as identidades atribuídas da mesma, utilize o seguinte comando:
+
+> [!NOTE]
+> O valor `none` diferencia maiúsculas de minúsculas. Tem de estar em minúsculas.
+
+```azurecli-interactive
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
 Se a VM tem o sistema atribuída e as identidades de atribuída ao utilizador, pode remover todos os utilizadores identidades atribuídos ao mudar para utilizar apenas o sistema atribuído. Utilize o seguinte comando:
 
 ```azurecli-interactive

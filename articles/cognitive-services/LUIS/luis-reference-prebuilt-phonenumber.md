@@ -1,30 +1,30 @@
 ---
-title: Entidades LUIS Prebuilt phone referência número - Azure | Microsoft Docs
+title: Entidades previamente concebidas LUIS phone referência número - Azure | Documentos da Microsoft
 titleSuffix: Azure
-description: Este artigo contém informações de entidade prebuilt número na compreensão de idiomas (LUIS) do telefone.
+description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS) do telefone.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0f72b807b9b0ec110a80d67babb1c45902b8c810
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 1ae14f72f0dc610b9399e675f49ef5fff51a6965
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321884"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238996"
 ---
-# <a name="phonenumber-entity"></a>PhoneNumber entidade
-O `phonenumber` entidade extrai uma variedade de números de telefone, incluindo o código de país. Porque esta entidade já está preparada, não terá de adicionar utterances de exemplo para a aplicação. O `phonenumber` entidade é suportada no `en-us` idioma apenas. 
+# <a name="phonenumber-entity"></a>Entidade Phonenumber
+O `phonenumber` entidade extrai uma variedade de números de telefone, incluindo o indicativo de país. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo para a aplicação. O `phonenumber` entidade é suportada no `en-us` apenas a cultura. 
 
 ## <a name="types-of-phonenumber"></a>Tipos de phonenumber
-PhoneNumber é gerida a partir de [Recognizers texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repositório do Github
+PhoneNumber é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repositório do Github
 
-## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Resolução de entidades prebuilt phonenumber
-O exemplo seguinte mostra a resolução de **builtin.phonenumber** entidade.
+## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Resolução de entidade phonenumber pré-criados
+O exemplo seguinte mostra a resolução do **builtin.phonenumber** entidade.
 
 ```JSON
 {
