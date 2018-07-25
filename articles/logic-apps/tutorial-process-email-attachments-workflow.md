@@ -1,28 +1,23 @@
 ---
-title: Criar fluxos de trabalho para processar e-mails e anexos - Azure Logic Apps | Microsoft Docs
-description: Este tutorial mostra como criar fluxos de trabalho automatizados para processar e-mails e anexos com o Azure Logic Apps, o Armazenamento do Azure e as Funções do Azure
-author: ecfan
-manager: jeconnoc
-editor: ''
+title: Criar fluxos de trabalho que processam e-mails e anexos - Azure Logic Apps | Microsoft Docs
+description: Este tutorial mostra como criar fluxos de trabalho automatizados para que possa processar e-mails e anexos com o Azure Logic Apps, o Armazenamento do Azure e as Funções do Azure
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 3d6d66dca06c1f34a31155a27c32bbe3e48c8aa3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 07/20/2018
+ms.reviewer: klam, LADocs
+ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300638"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126373"
 ---
-# <a name="process-emails-and-attachments-with-a-logic-app"></a>Processar e-mails e anexos com uma aplicação lógica
+# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Processar e-mails e anexos com o Azure Logic Apps
 
 O Azure Logic Apps ajuda-o a automatizar fluxos de trabalho e a integrar dados nos serviços do Azure, nos serviços Microsoft, noutras aplicações de software como serviço (Saas) e em sistemas no local. Este tutorial mostra como pode criar uma [aplicação lógica](../logic-apps/logic-apps-overview.md) que processa e-mails recebidos e anexos. Esta aplicação lógica processa esses conteúdos, guarda-os no armazenamento do Azure e envia notificações para revê-los. 
 
@@ -51,9 +46,9 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
   Esta aplicação lógica utiliza uma conta do Outlook do Office 365. 
   Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
-* Transferir e instalar o <a href="http://storageexplorer.com/" target="_blank">Explorador de Armazenamento do Microsoft Azure</a> gratuito. Esta ferramenta ajuda-o a verificar se o seu contentor de armazenamento está configurado corretamente.
+* Transferir e instalar o <a href="https://storageexplorer.com/" target="_blank">Explorador de Armazenamento do Microsoft Azure</a> gratuito. Esta ferramenta ajuda-o a verificar se o seu contentor de armazenamento está configurado corretamente.
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com as credenciais da sua conta do Azure.
 
@@ -64,66 +59,79 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
 1. Antes de criar um contentor de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) com estas definições:
 
    | Definição | Valor | Descrição | 
-   | ------- | ----- | ----------- | 
+   |---------|-------|-------------| 
    | **Nome** | attachmentstorageacct | O nome da sua conta de armazenamento. | 
    | **Deployment model** (Modelo de implementação) | Resource Manager | O [modelo de implementação](../azure-resource-manager/resource-manager-deployment-model.md) para gerir a implementação de recursos | 
    | **Account kind** (Tipo de conta) | Fins gerais | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
-   | **Performance** (Desempenho) | Standard | Esta definição especifica os tipos de dados suportados e os suportes de dados para armazenar dados. Veja [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
+   | **Localização** | EUA Oeste | A região onde pretende armazenar as informações da sua conta de armazenamento | 
    | **Replicação** | Armazenamento localmente redundante (LRS) | Esta definição especifica de que forma os seus dados são copiados, armazenados, geridos e sincronizados. Veja [Replicação](../storage/common/storage-introduction.md#replication). | 
+   | **Performance** (Desempenho) | Standard | Esta definição especifica os tipos de dados suportados e os suportes de dados para armazenar dados. Veja [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Secure transfer required** (Transferência segura necessária) | Desativado | Esta definição especifica a segurança necessária para pedidos provenientes de ligações. Veja [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Transferência segura necessária). | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
    | **Grupo de recursos** | LA-Tutorial-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar e gerir os recursos relacionados. <p>**Nota:** os grupos de recursos existem dentro de regiões específicas. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente utilizar a mesma região sempre que possível. | 
-   | **Localização** | EUA Leste 2 | A região onde pretende armazenar as informações da sua conta de armazenamento | 
    | **Configurar redes virtuais** | Desativado | Neste tutorial, mantenha a definição **Desativado**. | 
    |||| 
 
-   Também pode utilizar o [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) ou a [CLI do Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
-  
+   Para criar a sua conta de armazenamento, também pode utilizar o [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) ou a [CLI do Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
+
 2. Após o Azure implementar a sua conta de armazenamento, obtenha a chave de acesso da mesma:
 
-   1. No menu da conta de armazenamento, em **Definições**, escolha **Chaves de acesso**. 
-   2. Localize **key1** em **Chaves predefinidas** e o nome da sua conta.
+   1. No menu da conta de armazenamento, em **Definições**, selecione **Chaves de acesso**. 
+
+   2. Copie o nome da sua conta de armazenamento e a **key1**(chave1) e, em seguida, guarde esses valores num local seguros.
 
       ![Copie e cole o nome e a chave da conta de armazenamento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Também pode utilizar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
+   Para obter a chave de acesso à sua conta de armazenamento, também pode utilizar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
 
-3. Crie um contentor de armazenamento para os anexos de e-mails.
+3. Crie um contentor de armazenamento de blobs para os anexos de e-mails.
    
-   1. No menu da conta do armazenamento, no painel **Descrição Geral**, escolha **Blobs**, em **Serviços**, e escolha **+ Contentor**.
+   1. No menu da conta de armazenamento, selecione **Descrição Geral**. 
+   Em **Serviços**, selecione **Blobs**.
 
-   2. Introduza "attachments" como o nome do contentor. Em **Nível de acesso público**, selecione **Contentor (acesso de leitura anónimo para contentores e blobs)** e escolha **OK**.
+      ![Adicionar contentor do armazenamento de blobs](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
-   Também pode utilizar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
-   Quando terminar, pode encontrar o contentor de armazenamento na sua conta de armazenamento aqui no portal do Azure:
+   2. Depois de a página **Contentores** abrir, na barra de ferramentas, selecione **Contentor**. 
 
-   ![Contentor de armazenamento terminado](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
+   3. Em **Novo contentor**, Introduza "attachments" como o nome do contentor. 
+   Em **Nível de acesso público**, selecione **Contentor (acesso de leitura anónimo para contentores e blobs)** e, em seguida, escolha **OK**.
+
+      Quando terminar, pode encontrar o contentor de armazenamento na sua conta de armazenamento aqui no portal do Azure:
+
+      ![Contentor de armazenamento terminado](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
+
+   Para criar um contentor de conta de armazenamento, também pode utilizar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
 
 Depois, ligue o Explorador de Armazenamento à conta de armazenamento.
 
 ## <a name="set-up-storage-explorer"></a>Configurar o Explorador de Armazenamento
 
-Agora, ligue o Explorador de Armazenamento à conta de armazenamento, de modo a verificar que a sua aplicação lógica guarda corretamente os anexos como blobs no contentor.
+Agora, ligue o Explorador de Armazenamento à conta de armazenamento, de modo a verificar que a sua aplicação lógica consegue guardar corretamente os anexos como blobs no contentor.
 
-1. Abra o Explorador de Armazenamento do Microsoft Azure. Quando o Explorador de Armazenamento lhe pedir uma ligação ao armazenamento do Azure, escolha **Use a storage account name and key** (Utilizar o nome e a chave de uma conta de armazenamento) > **Next** (Seguinte).
-Não se aparecer nenhum pedido, escolha **Add account** (Adicionar conta) na barra de ferramentas do Explorador.
+1. Abra o Explorador de Armazenamento do Microsoft Azure. 
 
-2. Em **Attach using Name and Key** (Anexar com o Nome e a Chave), introduza o nome e a chave de acesso da conta de armazenamento que guardou anteriormente. Escolha **Next** (Seguinte)  > **Connect** (Ligar).
+   O Explorador de Armazenamento pede-lhe uma ligação à sua conta de armazenamento. 
 
-3. Verifique se a conta de armazenamento e os contentores aparecem corretamente no Explorador de Armazenamento:
+2. No painel **Ligar ao Armazenamento do Azure**, selecione **Utilizar o nome e a chave de uma conta de armazenamento** e, em seguida, escolha **Seguinte**. 
 
-   1. Em **Explorer** (Explorador), expanda **(Local and Attached)** (Locais e Anexados) > 
-    **Storage Accounts** (Contas de Armazenamento) > **attachmentstorageaccount** > 
-    **Blob Containers** (Contentores de Blobs).
+   ![Explorador de Armazenamento - Ligar a conta de armazenamento](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
-   2. Confirme que o contentor "attachments" aparece agora. 
-   Por exemplo:
+   > [!TIP]
+   > Se não se aparecer nenhum pedido, na barra de ferramentas do Explorador de Armazenamento, escolha **Adicionar conta**.
 
-      ![Explorador de Armazenamento - confirmar o contentor de armazenamento](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
+3. Em **Nome da conta**, indique o nome da sua conta de armazenamento. Em **Chave da conta**, forneça a chave de acesso que já tinha guardado. Escolha **Seguinte**.
+
+4. Confirme as informações da ligação e, em seguida, escolha **Ligar**. 
+
+   O Explorador de Armazenamento cria a ligação e mostra a sua conta de armazenamento na janela do Explorer, em **(Local e Ligado)** > **Contas de Armazenamento**. 
+
+5. Para encontrar o contentor de armazenamento de blobs, em **Contas de Armazenamento**, expanda a conta de armazenamento, que aqui é **attachmentstorageacct** e, em seguida, expanda **Contentores de blobs** onde encontrará o contentor de **anexos**, por exemplo: 
+
+   ![Explorador de Armazenamento - encontrar o contentor de armazenamento](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
 Depois, crie uma [função do Azure](../azure-functions/functions-overview.md) que remove o HTML dos e-mails recebidos.
 
-## <a name="create-a-function-to-clean-html"></a>Criar uma função para limpar o HTML
+## <a name="create-function-to-clean-html"></a>Criar uma função para limpar o HTML
 
 Agora, utilize o fragmento de código fornecido nestes passos para criar uma função do Azure que remove o HTML de cada e-mail recebido. Desta forma, o conteúdo dos e-mails fica mais limpo e é processado mais facilmente. Depois, pode chamar esta função a partir da sua aplicação lógica.
 
@@ -135,32 +143,39 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
    | **Subscrição** | <*your-Azure-subscription-name*> | A mesma subscrição do Azure que utilizou anteriormente | 
    | **Grupo de Recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente | 
    | **Plano de Alojamento** | Plano de Consumo | Esta definição determina como alocar e dimensionar os recursos, como o poder de computação, para executar a aplicação de funções. Veja [Hosting plans comparison](../azure-functions/functions-scale.md) (Comparação dos planos de alojamento). | 
-   | **Localização** | EUA Leste 2 | A mesma região que utilizou anteriormente | 
+   | **Localização** | EUA Oeste | A mesma região que utilizou anteriormente | 
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Nota:** esta conta de armazenamento contém as suas aplicações de funções e é diferente da conta de armazenamento criada anteriormente para os anexos de e-mails. | 
-   | **Application Insights** | Desativado | Ativa a monitorização de aplicações com o [Application Insights](../application-insights/app-insights-overview.md); contudo, neste tutorial, mantenha a definição **Desativado**. | 
+   | **Application Insights** | Desativado | Ativa a monitorização de aplicações com o [Application Insights](../application-insights/app-insights-overview.md); contudo, neste tutorial, escolha a definição **Desativado**. | 
    |||| 
 
-   Se a sua aplicação de funções não se abrir automaticamente após a implementação, localiz-a no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>. No menu principal do Azure, escolha **App Services** (Serviços de Aplicações) e selecione a sua aplicação de funções.
+   Se a sua aplicação de funções não se abrir automaticamente após a implementação, localiz-a no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>. No menu principal do Azure, selecione **Aplicações de Funções** e selecione a sua aplicação de funções. 
+
+   ![Selecionar aplicação de funções](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
+
+   Se **Aplicações de Funções** não aparecer no menu do Azure, aceda a **Todos os serviços**. Na caixa de pesquisa, localize e selecione **Function Apps** (Aplicações de Funções). Para obter mais informações, veja [Criar a sua função](../azure-functions/functions-create-first-azure-function.md).
+
+   Caso contrário, o Azure abre automaticamente a sua aplicação de funções, conforme mostrado aqui:
 
    ![Aplicação de funções criada](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Se **App Services** não aparecer no menu do Azure, aceda a **More services** (Mais serviços). Na caixa de pesquisa, localize e selecione **Function Apps** (Aplicações de Funções). Para obter mais informações, veja [Criar a sua função](../azure-functions/functions-create-first-azure-function.md).
+   Para criar uma aplicação de funções, também pode utilizar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou [modelos do PowerShell e Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
-   Também pode utilizar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou [modelos do PowerShell e do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
-
-2. Em **Function Apps**, expanda **CleanTextFunctionApp** e selecione **Functions** (Funções). Na barra de ferramentas das funções, escolha **+ New function** (+ Nova Função).
+2. Em **Function Apps**, expanda **CleanTextFunctionApp** e selecione **Functions** (Funções). Na barra de ferramentas das funções, selecione **Nova função**.
 
    ![Criar função nova](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-3. Em **Choose a template below or go to the quickstart** (Escolher um modelo abaixo ou aceder ao início rápido), selecione o modelo de função **HttpTrigger - C#**.
+3. Em **Escolher um modelo abaixo ou aceder ao início rápido**, abra a lista **Cenário** e selecione **Núcleo**. No modelo **Acionador de HTTP**, selecione **C#**.
 
    ![Selecionar o modelo de função](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
-4. Em **Name your function** (Dar nome à função), introduza ```RemoveHTMLFunction```. Em **HTTP trigger** (Acionador HTTP)  > **Authorization level** (Nível de autorização), mantenha o valor **Function** (Função) predefinido e escolha **Create** (Criar).
+   > [!NOTE]
+   > Este exemplo fornece o código de exemplo de C#, para que possa seguir o exemplo sem ter conhecimentos de C#.
+
+4. No painel **Nova Função**, em **Nome**, introduza ```RemoveHTMLFunction```. Mantenha o **Nível de autorização** definido como **Função**e escolha **Criar**.
 
    ![Dê um nome à sua função](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
-5. Quando o editor estiver aberto, substitua o código do modelo por este código, o que remove o HTML e devolve resultados ao chamador.
+5. Quando o editor estiver aberto, substitua o código do modelo por este código de exemplo, que remove o HTML e devolve ps resultados ao chamador:
 
    ``` CSharp
    using System.Net;
@@ -180,15 +195,14 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
       // Return cleaned text
       return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
-
    }
    ```
 
-6. Quando tiver terminado, escolha **Save** (Guardar). Para testar a sua função, escolha **Testar** no ícone de seta (**<**), no lado direito do editor. 
+6. Quando tiver terminado, escolha **Save** (Guardar). Para testar a sua função, no lado direito do editor, no ícone de seta (**<**), escolha **Teste**. 
 
    ![Abrir o painel "Test" ("Teste")](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
-7. No painel **Test** (Teste), em **Request Body** (Corpo do Pedido), introduza esta linha e escolha **Run** (Executar).
+7. No painel **Teste**, em **Corpo do pedido**, introduza esta linha e escolha **Executar**.
 
    ```json
    {"name": "<p><p>Testing my function</br></p></p>"}
@@ -196,17 +210,18 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    ![Testar a função](./media/tutorial-process-email-attachments-workflow/function-run-test.png)
 
-   A janela **Saída** mostra este resultado da função:
+   A janela **Saída** mostra o resultado da função:
 
    ```json
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
    ```
 
-Depois de confirmar que a função está a funcionar, crie a aplicação lógica. Embora este tutorial mostre como criar uma função que remove o HTML dos e-mails, o Logic Apps também tem um conector **HTML to Text** (HTML para Texto).
+Depois de confirmar que a função está a funcionar, crie a aplicação lógica. Embora este tutorial mostre como criar uma função que remove o HTML dos e-mails, o Logic Apps também fornece um conector **HTML para Texto**.
 
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
-1. No menu principal do Azure, escolha **Criar um recurso** > **Enterprise Integration** > **Aplicação Lógica**.
+1. No menu principal do Azure, selecione **Criar um recurso** > 
+**Integração** > **Aplicação Lógica**.
 
    ![Criar uma aplicação lógica](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 
@@ -219,8 +234,8 @@ Depois de confirmar que a função está a funcionar, crie a aplicação lógica
    | **Nome** | LA-ProcessAttachment | O nome para a aplicação lógica | 
    | **Subscrição** | <*your-Azure-subscription-name*> | A mesma subscrição do Azure que utilizou anteriormente | 
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente |
-   | **Localização** | EUA Leste 2 | A mesma região que utilizou anteriormente | 
-   | **Log Analytics** | Desativado | Neste tutorial, mantenha a definição **Desativado**. | 
+   | **Localização** | EUA Oeste | A mesma região que utilizou anteriormente | 
+   | **Log Analytics** | Desativado | Neste tutorial, escolha a definição **Desativado**. | 
    |||| 
 
 3. Depois de o Azure implementar a aplicação, o Estruturador de Aplicações Lógicas abre-se e mostra uma página com um vídeo de introdução e modelos de padrões de aplicações lógicas comuns. Em **Modelos**, escolha **Aplicação Lógica em Branco**.
@@ -231,7 +246,9 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 ## <a name="monitor-incoming-email"></a>Monitorizar os e-mails recebidos
 
-1. No estruturador, introduza "when email arrives" (quando chegarem e-mails) na caixa de pesquisa. Selecione este acionador para o seu fornecedor de e-mail: **<*fornecedor_de_e-mail*> - When a new email arrives**, como, por exemplo:
+1. No estruturador da caixa de pesquisa, introduza "quando é recebido um e-mail novo" como o filtro. Selecione o acionador para o seu fornecedor de e-mail: **Quando é recebido um e-mail novo - <*fornecedor de e-mail*>**
+
+   Por exemplo:
 
    ![Selecione este acionador para o fornecedor de e-mail: "When a new email arrives"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -273,51 +290,54 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 ## <a name="check-for-attachments"></a>Verificar a existência de anexos
 
-1. No acionador, escolha **+ New step** Novo passo)  > **Add a condition** (Adicionar uma condição).
+Agora, adicione uma condição que seleciona apenas os e-mails que têm anexos.
 
-   Quando a forma da condição aparecer, é apresentada, por predefinição, a lista de parâmetros ou a lista de conteúdo dinâmico, que mostra todos os parâmetros do passo anterior que podem ser incluídos como entradas do fluxo de trabalho. 
-   A largura do browser determina a lista que é apresentada.
+1. No acionador, escolha **+ Novo passo** > **Adicionar uma condição**.
+
+   !["Novo passo", "Adicionar uma condição"](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
 
 2. Mude o nome da condição com uma descrição melhor.
 
    1. Na barra de título da condição, escolha o botão **reticências** (**...** ) > **Rename** (Mudar o nome).
 
-      Por exemplo, se o browser estiver na vista estreita:
-
       ![Mudar o nome da condição](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
-
-      Se o browser estiver na vista alargada e a lista de conteúdo dinâmico bloquear o acesso ao botão de reticências, escolha **Add dynamic content** (Adicionar conteúdo dinâmico), dentro da condição, para fechar a lista. 
-      
-      ![Fechar a lista de conteúdo dinâmico](./media/tutorial-process-email-attachments-workflow/close-dynamic-content-list.png)
 
    2. Mude o nome da condição com a descrição ```If email has attachments and key subject phrase```
 
-3. Indique uma expressão para descrever a condição. 
+3. Criar uma condição que verifica se os e-mails têm anexos. 
 
-   1. Dentro da forma da condição, escolha **Edit in advanced mode** (Editar no modo avançado).
+   1. Na primeira linha, em **E**, clique dentro da caixa esquerda. 
+   Na lista de conteúdo dinâmico que aparece, selecione a propriedade **Tem anexo**.
 
-      ![Editar condição no modo avançado](./media/tutorial-process-email-attachments-workflow/edit-advanced-mode.png)
+      ![Criar condição](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
-   2. Na caixa de texto, introduza esta expressão:
+   2. Na caixa do meio, mantenha o operador **é igual a**.
 
-      ```@equals(triggerBody()?['HasAttachment'], bool('true'))```
+   3. Na caixa direita, introduza **Verdadeiro** como o valor a comparar com o valor da propriedade **Tem anexo** do acionador.
 
-      Esta expressão compara o valor da propriedade **HasAttachment** do corpo do acionador, que é o e-mail neste tutorial, com o objeto booleano ```True```. 
+      ![Criar condição](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
+
       Se ambos os valores forem iguais, o e-mail tem, pelo menos, um anexo, a condição é transmitida e o fluxo de trabalho continua.
 
-      A sua condição terá agora este aspeto:
+   Na definição da aplicação lógica subjacente, que pode ver na janela do editor de código, esta condição terá um aspeto semelhante a este exemplo:
 
-      ![Expressão da condição](./media/tutorial-process-email-attachments-workflow/condition-expression.png)
+   ```json
+   "Condition": {
+      "actions": { <actions-to-run-when-condition-passes> },
+      "expression": {
+         "and": [ {
+            "equals": [
+               "@triggerBody()?['HasAttachment']",
+                 "True"
+            ]
+         } ]
+      },
+      "runAfter": {},
+      "type": "If"
+   }
+   ```
 
-   3. Escoolha **Edit in basic mode** (Editar no modo básico). A sua expressão é agora resolvida da seguinte forma:
-
-      ![Expressão resolvida](./media/tutorial-process-email-attachments-workflow/condition-expression-resolved.png)
-
-      > [!NOTE]
-      > Para criar uma expressão manualmente, tem de trabalhar no modo básico e ter aberta a lista a dinâmica, para poder funcionar com o estruturador de expressões. Em **Expression** (Expressão), pode selecionar as funções. Em **Dynamic content** (Conteúdo dinâmico), pode selecionar os campos dos parâmetros que vão ser utilizados nessas funções.
-      > Este tutorial mostra como criar as expressões manualmente mais à frente.
-
-4. Guarde a aplicação lógica.
+4. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
 
 ### <a name="test-your-condition"></a>Testar a condição
 
@@ -349,13 +369,17 @@ Em seguida, defina as ações a realizar para o ramo **Se verdadeiro**. Para gua
 > [!NOTE]
 > A aplicação lógica não tem de fazer nada no ramo **Se falso** se os e-mails não tiverem anexos. Como exercício de bónus após concluir este tutorial, pode adicionar qualquer ação adequada que queira realizar no ramo **Se falso**.
 
-## <a name="call-the-removehtmlfunction"></a>Chamar RemoveHTMLFunction
+## <a name="call-removehtmlfunction"></a>Chamar RemoveHTMLFunction
 
-1. No menu da aplicação lógica, selecione **Logic App Designer** (Estruturador da Aplicação Lógica). No ramo **Se verdadeiro**, escolha **Add an action** (Adicionar uma ação).
+Este passo adiciona a função do Azure criada anteriormente à sua aplicação lógica e transmite o conteúdo do corpo de e-mail do acionador de e-mail à sua função.
 
-2. Procure "azure functions" e selecione a ação **Azure Functions – Choose an Azure function**
+1. No menu da aplicação lógica, selecione **Estruturador da Aplicação Lógica**. No ramo **Se verdadeiro**, escolha **Add an action** (Adicionar uma ação).
 
-   ![Selecionar a ação "Azure Functions - Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
+   ![Dentro de "Se verdadeiro", adicionar ação](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
+
+2. Na caixa de pesquisa, encontre "funções do azure" e selecione a ação: **Escolher uma função do Azure - Funções do Azure**
+
+   ![Selecionar a ação “Escolher uma função do Azure”](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
 3. Selecione a aplicação de função criada anteriormente, **CleanTextFunctionApp**
 
@@ -365,42 +389,41 @@ Em seguida, defina as ações a realizar para o ramo **Se verdadeiro**. Para gua
 
    ![Selecionar a função do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. Mude o nome da forma da função com a descrição ```Call RemoveHTMLFunction to clean email body``` 
+5. Mude o nome da forma da função com a descrição ```Call RemoveHTMLFunction to clean email body```
 
-6. Na forma da função, introduza a entrada que a função vai processar. Especifique o corpo do e-mail conforme mostrado e descrito aqui:
+6. Agora, especifique a entrada para a função processar. 
 
-   ![Especificar o corpo do pedido que a função vai esperar](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
-
-   1. Em **Request Body** (Corpo do Pedido), introduza este texto: 
+   1. Em **Corpo do Pedido**, introduza este texto com um espaço à esquerda: 
    
       ```{ "emailBody": ``` 
 
-      Enquanto não concluir esta entrada nos passos seguintes, é apresentado um erro relativo a JSON inválido.
+      Enquanto trabalha nesta entrada nos passos seguintes, obterá um erro relativo a JSON inválido até que a sua entrada esteja corretamente formatada como JSON.
       Quando testou esta função anteriormente, a entrada especificada para a mesma utilizou JavaScript Object Notation (JSON). 
-      Por isso, o corpo do pedido também tem de utilizar o mesmo formato. 
+      Por isso, o corpo do pedido também tem de utilizar o mesmo formato.
 
-   2. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione o campo **Body** em **When a new email arrives**.
-   Após o campo **Body** (Corpo), adicione a chaveta de fecho, ```}```
+      Além disso, quando o cursor está dentro da caixa **Corpo do pedido**, é apresentada uma lista de conteúdo dinâmico para que possa selecionar os valores das propriedades disponíveis de ações anteriores. 
+      
+   2. Na lista de conteúdo dinâmico, em **Quando é recebido um novo e-mail**, selecione a propriedade **Corpo**. Depois desta propriedade, não se esqueça de adicionar a chaveta de fecho: ```}```
 
-      ![Especificar o corpo do pedido que vai ser transmitido à função](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing2.png)
+      ![Especificar o corpo do pedido que vai ser transmitido à função](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
-      Na definição da aplicação lógica, esta entrada é apresentada no formato:
+   Quando estiver pronto, a entrada para a sua função terá o aspeto deste exemplo:
 
-      ```{ "emailBody": "@triggerBody()?['Body']" }```
+   ![Concluiu o corpo do pedido a transmitir à sua função](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing-2.png)
 
 7. Guarde a aplicação lógica.
 
-Em seguida, adicione uma ação que cria um blob no contentor de armazenamento para guardar o corpo do e-mail.
+Em seguida, adicione uma ação que cria um blob no contentor de armazenamento para que possa guardar o corpo do e-mail.
 
 ## <a name="create-blob-for-email-body"></a>Criar blob para o corpo do e-mail
 
-1. Na forma da função do Azure, escolha **Add an action**. 
+1. No bloco **Se verdadeiro** e na sua função do Azure, escolha **Adicionar uma ação**. 
 
-2. Em **Choose an action** (Escolher uma ação), procure por "blob e selecione a ação **Azure Blob Storage – Create blob**
+2. Na caixa de pesquisa, introduza "criar blob" como o filtro e selecione esta ação: **Criar blob - Armazenamento de Blobs do Azure**
 
    ![Adicionar ação para criar blob para o corpo do e-mail](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
-3. Se não tiver uma ligação a uma conta de armazenamento do Azure, crie-a com estas definições, conforme mostrado e descrito aqui. Quando tiver terminado, escolha **Create** (Criar).
+3. Crie uma ligação com estas definições, conforme mostrado e descrito aqui. Quando tiver terminado, escolha **Create** (Criar).
 
    ![Criar ligação à conta de armazenamento](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
@@ -412,16 +435,20 @@ Em seguida, adicione uma ação que cria um blob no contentor de armazenamento p
 
 4. Mude o nome da ação **Create blob** pela descrição ```Create blob for email body```
 
-5. Na ação **Create blob**, indique estas informações e selecione estes parâmetros para criar o blob, conforme mostrado e descrito:
+5. Na ação **Criar blob**, indique estas informações e selecione estes campos para criar o blob, conforme mostrado e descrito:
 
    ![Indicar as informações do blob para o corpo do e-mail](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Folder path** | /attachments | O caminho e o nome do contentor que criou anteriormente. Também pode procurar e selecionar um contentor. | 
-   | **Blob name** | Campo **From** | Transmita o nome do remetente do e-mail como o nome do blob. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **From** (De) em **When a new email arrives**. | 
-   | **Blob content** | Campo **Content** | Transmita o corpo do e-mail sem HTML como o conteúdo do blob. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **Body** em **Call RemoveHTMLFunction to clean email body**. |
+   | **Folder path** | /attachments | O caminho e o nome do contentor que criou anteriormente. Neste exemplo, clique no ícone de pasta e, em seguida, selecione o contentor "/attachments". | 
+   | **Blob name** | Campo **From** | Neste exemplo, utilize o nome do remetente como o nome do blob. Clique no interior desta caixa para que a lista de conteúdo dinâmico seja apresentada e, em seguida, selecione o campo **De** na ação **Quando é recebido um novo e-mail**. | 
+   | **Blob content** | Campo **Content** | Neste exemplo, utilize o corpo do e-mail sem HTML como o conteúdo do blob. Clique no interior desta caixa para que a lista de conteúdo dinâmico seja apresentada e, em seguida, selecione **Corpo** na ação **Call RemoveHTMLFunction to clean email body**. |
    |||| 
+
+   Quando estiver pronto, a ação terá o aspeto deste exemplo:
+
+   ![Concluiu a ação “Criar blob”](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 6. Guarde a aplicação lógica. 
 
@@ -466,47 +493,51 @@ Em seguida, adicione um ciclo para processar todos os anexos de e-mail.
 
 ## <a name="process-attachments"></a>Processar anexos
 
-Esta aplicação lógica utiliza um ciclo **for each** para processar cada anexo no e-ail.
+Para processar cada anexo no e-mail, adicione um ciclo **Para cada** ao fluxo de trabalho da sua aplicação lógica.
 
-1. Na forma **Create blob for email body**, escolha **… More** (Mais) e selecione o comando **Add a for each**
+1. Na forma **Criar blob para o corpo do e-mail**, selecione **Mais** > **Adicionar um para cada**.
 
    ![Adicionar ciclo "for each"](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
 2. Mude o nome do ciclo com a descrição ```For each email attachment```
 
-3. Agora, especifique os dados que o ciclo vai processar. Clique no interior da caixa **Select an output from previous steps** (Selecionar uma saída dos passos anteriores). Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **Attachments**. 
+3. Agora, especifique os dados que o ciclo vai processar. Clique no interior da caixa **Selecionar uma saída dos passos anteriores** para que a lista de conteúdo dinâmico abra e, em seguida, selecione **Anexos**. 
 
    ![Selecionar "Attachments"](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
 
-   O campo **Attachments** transmite uma matriz que contém todos os anexos incluídos num e-mail. 
+   O campo **Anexos** transmite uma matriz que contém todos os anexos incluídos num e-mail. 
    O ciclo **For each** repete as ações em cada item que é transmitido com a matriz.
 
 4. Guarde a aplicação lógica.
 
 Em seguida, adicione a ação que guarda cada anexo como um blob no seu contentor de armazenamento **attachments**.
 
-## <a name="create-blobs-for-attachments"></a>Criar blobs para anexos
+## <a name="create-blob-for-each-attachment"></a>Criar blob para cada anexo
 
-1. No ciclo **For each**, escolha **Add an action**, para poder especificar a tarefa a realizar em cada anexo encontrado.
+1. No ciclo **Para cada anexo de e-mail**, escolha **Adicionar uma ação**, para poder especificar a tarefa a realizar em cada anexo encontrado.
 
    ![Adicionar ação ao ciclo](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. Em **Choose an action**, procure por "blob" e selecione a ação **Azure Blob Storage – Create blob**
+2. Na caixa de pesquisa, introduza "criar blob" como o filtro e, em seguida, selecione esta ação: **Criar blob - Armazenamento de Blobs do Azure**
 
    ![Adicionar ação para criar blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
 3. Mude o nome da ação **Create blob 2** pela descrição ```Create blob for each email attachment```
 
-4. Na ação **Create blob for each email attachment**, indique estas informações e selecione os parâmetros para criar cada blob, conforme mostrado e descrito:
+4. Na ação **Criar blob para cada anexo de e-mail**, indique estas informações e selecione as propriedades para cada blob que pretende criar, conforme mostrado e descrito:
 
    ![Indicar as informações dos blobs](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Folder path** | /attachments | O caminho e o nome do contentor que criou anteriormente. Também pode procurar e selecionar um contentor. | 
-   | **Blob name** | Campo **Name** | Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **Name** (Nome) para transmitir o nome do anexo ao nome do blob. | 
-   | **Blob content** | Campo **Content** | Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione **Content** (Conteúdo) para transmitir o conteúdo do anexo ao conteúdo do blob. |
+   | **Folder path** | /attachments | O caminho e o nome do contentor que criou anteriormente. Neste exemplo, clique no ícone de pasta e, em seguida, selecione o contentor "/attachments". | 
+   | **Blob name** | Campo **Name** | Neste exemplo, utilize o nome do anexo como o nome do blob. Clique no interior desta caixa para que a lista de conteúdo dinâmico seja apresentada e, em seguida, selecione o campo **Nome** na ação **Quando é recebido um novo e-mail**. | 
+   | **Blob content** | Campo **Content** | Neste exemplo, utilize o campo **Conteúdo** como o conteúdo do blob. Clique no interior desta caixa para que a lista de conteúdo dinâmico seja apresentada e, em seguida, selecione **Conteúdo** na ação **Quando é recebido um novo e-mail**. |
    |||| 
+
+   Quando estiver pronto, a ação terá o aspeto deste exemplo:
+
+   ![Concluiu a ação “Criar blob”](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png)
 
 5. Guarde a aplicação lógica. 
 
@@ -545,7 +576,9 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
 
    ![Adicionar ação no ciclo "for each"](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
-2. Em **Escolher uma ação**, procure "enviar e-mail, selecione a ação "enviar e-mail" para o fornecedor de e-mail que quiser. Para filtrar a lista de ações para um serviço específico, pode selecionar primeiro o conector em **Conectores**.
+2. Na caixa de pesquisa, introduza "enviar -email" como o filtro e, em seguida, selecione a ação "enviar -email" para o seu fornecedor de e-mail. 
+
+   Para filtrar a lista de ações para um serviço específico, pode selecionar primeiro o conector.
 
    ![Selecionar a ação "send email" relativa ao seu fornecedor de e-mail](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
 
@@ -558,26 +591,23 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
 
 5. Indique as informações desta ação e selecione os campos que pretende incluir no e-mail, conforme mostrado e descrito. Para adicionar linhas em branco a uma caixa de edição, prima Shift + Enter.  
 
-   Por exemplo, se estiver a trabalhar com a lista de conteúdo dinâmico:
-
    ![Enviar notificação por e-mail](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
 
-   Se não encontrar um campo esperado na lista, selecione **See more** (Ver mais), junto a **When a new email arrives**, na lista de conteúdo dinâmico ou no final da lista de parâmetros.
+   Se não encontrar um campo esperado na lista de conteúdo dinâmico, escolha **Ver mais**, junto a **Quando é recebido um novo e-mail**. 
 
    | Definição | Valor | Notas | 
    | ------- | ----- | ----- | 
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** | 
+   | **Assunto**  | ```ASAP - Review applicant for position: ``` **Subject** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. | 
    | **Para** | <*recipient-email-address*> | Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Assunto**  | ```ASAP - Review applicant for position: ``` **Subject** | O assunto do e-mail que pretende incluir. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione o campo **Subject** (Assunto) em **When a new email arrives**. | 
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | O conteúdo do corpo do e-mail. Na lista de parâmetros ou na lista de conteúdo dinâmico, selecione os campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** | 
    |||| 
 
-   Se selecionar um campo que contém uma matriz, como **Content**, que é uma matriz que contém anexos, o estruturador adiciona automaticamente um ciclo “For each” em torno da ação que referencia esse campo. 
-   Desta forma, a sua aplicação lógica pode realizar essa ação em cada item da matriz. 
-   Para remover o ciclo, remova o campo da matriz, mova a ação de referenciação para fora do ciclo, selecione as reticências (**...** ) na barra de título do ciclo e escolha **Delete** (Eliminar).
+   > [!NOTE] 
+   > Se selecionar um campo que contém uma matriz, como o campo **Conteúdo**, que é uma matriz que contém anexos, o estruturador adiciona automaticamente um ciclo “Para cada” em torno da ação que referencia esse campo. Desta forma, a sua aplicação lógica pode realizar essa ação em cada item da matriz. Para remover o ciclo, remova o campo da matriz, mova a ação de referenciação para fora do ciclo, selecione as reticências (**...** ) na barra de título do ciclo e escolha **Delete** (Eliminar).
      
 6. Guarde a aplicação lógica. 
 
-Em seguida, teste a sua aplicação lógica, que é agora semelhante a este exemplo:
+Teste a sua aplicação lógica, que é agora semelhante a este exemplo:
 
 ![Aplicação lógica concluída](./media/tutorial-process-email-attachments-workflow/complete.png)
 
@@ -633,7 +663,7 @@ Parabéns! Criou e executou uma aplicação lógica que automatiza tarefas em di
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos que contém a aplicação lógica e os recursos relacionados. No menu principal do Azure, aceda a **Grupos de recursos** e selecione o grupo de recursos para a sua aplicação lógica. Escolha **Eliminar grupo de recursos**. Introduza o nome do grupo de recursos como confirmação e escolha **Eliminar**.
+Quando já não for necessário, elimine o grupo de recursos que contém a aplicação lógica e os recursos relacionados. No menu principal do Azure, aceda a **Grupos de recursos** e, em seguida, selecione o grupo de recursos para a sua aplicação lógica. Escolha **Eliminar grupo de recursos**. Introduza o nome do grupo de recursos como confirmação e escolha **Eliminar**.
 
 ![Eliminar grupo de recursos da aplicação lógica](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

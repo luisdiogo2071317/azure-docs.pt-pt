@@ -7,7 +7,7 @@
 ## [Criar um Cofre de Chaves - CLI](quick-create-cli.md)
 ## [Criar um Cofre de Chaves - PowerShell](quick-create-powershell.md)
 ## [Criar um Cofre de Chaves - Portal](quick-create-portal.md)
-
+## [Ler a partir de um Key Vault - .NET](quick-create-net.md)
 # Tutoriais
 ## [Ler um segredo do Key Vault ](tutorial-web-application-keyvault.md)
 ## [Introdução ao Cofre de Chaves](key-vault-get-started.md)

@@ -15,12 +15,12 @@ ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860462"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005236"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Noções básicas do licenciamento baseado no grupo no Azure Active Directory
 
@@ -30,8 +30,8 @@ Até agora, só foi possível atribuir licenças ao nível do utilizador individ
 
 Para resolver esses desafios, o Azure AD inclui agora licenciamento baseado no grupo. Pode atribuir uma ou mais licenças de produto a um grupo. O Azure AD garante que as licenças são atribuídas a todos os membros do grupo. São atribuídas as licenças adequadas a quaisquer novos membros que adiram ao grupo. Ao saírem do grupo, essas licenças são removidas. Isto elimina a necessidade de automatizar a gestão de licenças através do PowerShell para refletir as alterações na organização e na estrutura departamental por utilizador.
 
->[!NOTE]
->Esta funcionalidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover todas as alterações. A funcionalidade está disponível com qualquer plano de licença pago do Azure Active Directory (Azure AD) durante a pré-visualização pública. No entanto, quando a funcionalidade se torna disponível em geral, alguns aspetos da mesma podem exigir uma ou mais licenças do Azure Active Directory Premium.
+>[!Note]
+>O licenciamento baseado em grupo é uma funcionalidade de pré-visualização pública do Azure Active Directory (Azure AD) e está disponível com qualquer plano de licença do Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="features"></a>Funcionalidades
 

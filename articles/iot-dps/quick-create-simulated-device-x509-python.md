@@ -1,8 +1,8 @@
 ---
 title: Aprovisionar um dispositivo X.509 simulado no Hub IoT do Azure através do Python | Microsoft Docs
 description: Início rápido do Azure - criar e aprovisionar um dispositivo X.509 simulado através do SDK de dispositivo Python com o Serviço Aprovisionamento de Dispositivos no Hub IoT
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/21/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 315274129b051c0c0329f7abfab89d67820e7c66
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2bbd6282995137cc771c3be78efdd3ac72fa0ea2
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630107"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091221"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado através do SDK de dispositivo Python com o Serviço Aprovisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -56,6 +56,13 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de inscrição individual
+
+Nesta secção, vai utilizar um certificado X.509 autoassinado e é importante ter em consideração o seguinte:
+
+* Os certificados autoassinados são apenas para teste e não devem ser utilizados na produção.
+* A data de expiração predefinida para um certificado autoassinado é de 1 ano.
+
+Vai utilizar o código de exemplo do SDK C do Azure IoT para criar o certificado a ser utilizado na entrada de inscrição individual do dispositivo simulado.
 
 1. Abra a solução gerada na pasta *cmake* com o nome `azure_iot_sdks.sln` e compile-a no Visual Studio.
 

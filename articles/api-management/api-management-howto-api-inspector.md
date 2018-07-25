@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934699"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057332"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs com o rastreio de pedidos
 
@@ -44,6 +44,12 @@ Neste tutorial, ficará a saber como:
 3. Selecione a operação **GetSpeakers**.
 4. Mude para o separador **Teste**.
 5. Certifique-se de que inclui um cabeçalho de HTTP chamado **Ocp-Apim-Trace** com o valor definido para **verdadeiro**.
+
+    ![Cabeçalho de rastreamento da API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > Se Ocp-Apim-Subscription-Key não estiver preenchido automaticamente, pode obtê-lo ao ir ao Portal do Programador e expor as chaves na página de perfil.
+
 6. Clique em **"Enviar"** para efetuar uma chamada à API. 
 7. Aguarde pela conclusão da chamada. 
 8. Vá para o separador **Rastreio** na **consola API**. Pode clicar em qualquer uma das ligações seguintes para ir para as informações de rastreio de detalhado: **entrada**, **back-end**, **saída**.

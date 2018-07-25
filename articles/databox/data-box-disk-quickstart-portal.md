@@ -1,0 +1,141 @@
+---
+title: Início Rápido do Microsoft Azure Data Box Disk| Microsoft Docs
+description: Utilize este início rápido para implementar rapidamente o seu Azure Data Box Disk no portal do Azure
+services: databox
+documentationcenter: NA
+author: alkohli
+manager: twooley
+editor: ''
+ms.assetid: ''
+ms.service: databox
+ms.devlang: NA
+ms.topic: quickstart
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/12/2018
+ms.author: alkohli
+Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
+ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39009931"
+---
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implementar o Azure Data Box Disk através do portal do Azure (Pré-visualização)
+
+Este início rápido descreve como implementar o Azure Data Box Disk através do portal do Azure. Os passos incluem como criar uma encomenda, receber discos, desembalar, ligar e copiar dados para discos para serem carregados para o Azure. 
+
+Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Encomendar o Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+
+> [!IMPORTANT]
+> O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de começar:
+
+- Certifique-se de que a sua subscrição está ativada para o serviço Azure Data Box. Para ativar a sua subscrição para este serviço, [Inscreva-se no serviço](http://aka.ms/azuredataboxfromdiskdocs).
+
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
+Inicie sessão no Portal do Azure em [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+
+## <a name="order"></a>Encomenda
+
+Este passo demora cerca de 5 minutos.
+
+1. Crie um novo recurso do Azure Data Box no portal do Azure. 
+2. Selecione uma subscrição ativada para este serviço e escolha o tipo de transferência, como **Importar**. Indique o **País de origem** onde os dados residem e a **Região de destino do Azure** para a transferência de dados.
+3. Selecione **Data Box Disk**. A capacidade máxima da solução é 35 TB e pode criar várias encomendas de discos para tamanhos de dados superiores.  
+4. Introduza os detalhes da encomenda e as informações de envio. Se o serviço estiver disponível na sua região, indique os endereços de e-mail de notificação, reveja o resumo e, em seguida, crie a encomenda. 
+
+Assim que a encomenda for criada, os discos são preparados para envio. 
+
+
+## <a name="unpack"></a>Desembalar
+
+Este passo demora cerca de 5 minutos.
+
+O Data Box Disk é enviado por correio numa Caixa Expresso da UPS. Abra a caixa e verifique se tem:
+
+- 1 a 5 discos USB embrulhados em plástico bolha.
+- Um cabo de ligação por disco. 
+- Uma etiqueta de envio de devolução.
+ 
+
+## <a name="connect-and-unlock"></a>Ligar e desbloquear
+
+Este passo demora cerca de 5 minutos.
+
+1. Utilize o cabo incluído para ligar o disco a um computador Windows com uma versão suportada. Para obter mais informações sobre as versões de SO suportadas, aceda a [Requisitos de sistema do Azure Data Box Disk](data-box-disk-system-requirements.md). 
+2. Para desbloquear o disco:
+
+    1. No portal do Azure, aceda a **Geral > Detalhes do Dispositivo** e obtenha a chave de acesso.
+    2. Transfira e extraia a ferramenta de desbloqueio do Data Box Disk no computador utilizado para copiar os dados para discos. 
+    3. Execute *DataBoxDiskUnlock.exe* e forneça a chave de acesso. Repita o passo para quaisquer reinserções de discos.
+    4. A letra de unidade atribuída ao disco é apresentada pela ferramenta. Anote a letra de unidade do disco. Esta será utilizada nos passos subsequentes.
+
+
+
+## <a name="copy-data-and-verify"></a>Copiar dados e verificar
+
+O tempo de conclusão desta operação depende do tamanho dos dados. 
+
+1. A unidade contém as pastas *PageBlob*, *BlockBlob* e *AzureImportExport*. Arraste e cole para copiar os dados que têm de ser importados como blobs de blocos para a pasta *BlockBlob*. Da mesma forma, arraste e cole os dados como VHD/VHDX para a pasta *PageBlob*.
+
+    É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas *BlockBlob* e *PageBlob*. Todos os ficheiros nas pastas *BlockBlob* e *PageBlob* são copiados para um contentor predefinido `$root` na conta de armazenamento do Azure.
+
+    > [!NOTE] 
+    > - Todos os contentores e blobs devem cumprir as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se estas regras não forem seguidas, o carregamento de dados para o Azure falhará.
+    > - Certifique-se de que os ficheiros não excedem ~4,7 TiB para blobs de blocos e ~ 8 TiB para blobs de páginas.
+
+2. (Opcional) Após a conclusão da cópia, recomendamos que execute o ficheiro `AzureExpressDiskService.ps1` fornecido na pasta *AzureImportExport* para gerar somas de verificação para validação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. 
+3. Desligue a unidade. 
+
+
+## <a name="ship-to-azure"></a>Enviar para o Azure
+
+Este passo demora entre 5 a 7 minutos.
+
+1. Coloque todos os discos na embalagem original. Utilize a etiqueta de envio incluída. Se a etiqueta estiver danificada ou tiver sido perdida, transfira-a a partir do portal. Aceda a **Descrição geral** e clique em **Transferir etiqueta de envio** na barra de comandos.
+2. Deixe a embalagem selada na localização de envio.  
+
+O serviço Data Box Disk envia uma notificação por e-mail e atualiza o estado da encomenda no portal do Azure.
+
+
+## <a name="verify-your-data"></a>Verificar os dados
+
+O tempo de conclusão desta operação depende do tamanho dos dados.
+
+1. Quando o Data Box Disk está ligado à rede do datacenter do Azure, o carregamento de dados para o Azure é iniciado automaticamente. 
+2. O serviço Azure Data Box notifica-o de que a cópia de dados está concluída através do portal do Azure. 
+    
+    1. Consulte os registos de erros para verificar a existência de quaisquer falhas e executar as ações apropriadas.
+    2. Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem.
+
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este passo demora entre 2 a 3 minutos.
+
+Para limpar, pode cancelar a encomenda do Data Box e, em seguida, eliminá-la.
+
+- Pode cancelar a encomenda do Data Box no portal do Azure antes de ser processada. Assim que a encomenda estiver processada, não é possível cancelá-la. A encomenda avança até atingir a fase de conclusão. 
+
+    Para cancelar a encomenda, aceda a **Descrição geral** e clique em **Cancelar** na barra de comandos.  
+
+- Pode eliminar a encomenda assim que o estado for apresentado como **Concluído** ou **Cancelado** no portal do Azure. 
+
+    Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
+
+## <a name="next-step"></a>Passo seguinte
+
+Neste início rápido, implementou o Azure Data Box Disk para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box Disk, avance para o tutorial seguinte: 
+
+> [!div class="nextstepaction"]
+> [Utilizar o portal do Azure para administrar o Data Box Disk](data-box-portal-ui-admin.md)
+
+

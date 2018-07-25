@@ -1,25 +1,22 @@
 ---
-title: O que é o HDInsight e a pilha tecnológica do Hadoop e do Spark? - Azure | Microsoft Docs
+title: O que é o HDInsight e a pilha tecnológica do Hadoop e do Spark? - Azure
 description: Introdução ao HDInsight e à pilha tecnológica e aos componentes do Hadoop e do Spark, incluindo Kafka, Hive, Storm e HBase para análise de macrodados.
 keywords: hadoop azure, azure hadoop, introdução ao hadoop, intro ao hadoop, pilha de tecnologia do hadoop, intro do hadoop, introdução do hadoop, o que é um cluster do hadoop, o que é o cluster do hadoop, para que é utilizado o hadoop
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051387"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115346"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>O que é o Azure HDInsight e a pilha de tecnologia do Hadoop?
 
@@ -89,7 +86,7 @@ Pode utilizar o HDInsight para expandir a sua atual infraestrutura de macrodados
 ## <a name="cluster-types-in-hdinsight"></a>Tipos de clusters no HDInsight
 O HDInsight inclui tipos de clusters específicos e capacidades de personalização de clusters, como a possibilidade de adicionar componentes, utilitários e linguagens. O HDInsight oferece os seguintes tipos de cluster:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: uma arquitetura que utiliza o [HDFS](#hdfs), a gestão de recursos [YARN](#yarn) e um modelo de programação simples, o [MapReduce](#mapreduce), para processar e analisar dados de lotes em paralelo.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: uma arquitetura que utiliza o HDFS, a gestão de recursos YARN e um modelo de programação simples, o MapReduce, para processar e analisar dados de lotes em paralelo.
 
 * **[Apache Spark](http://spark.apache.org/)**: arquitetura de processamento paralelo de código aberto que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. Veja [O que é o Apache Spark no HDInsight?](../spark/apache-spark-overview.md)
 

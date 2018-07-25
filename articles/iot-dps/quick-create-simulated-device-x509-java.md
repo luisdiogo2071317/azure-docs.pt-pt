@@ -1,8 +1,8 @@
 ---
 title: Aprovisionar um dispositivo X.509 simulado no Hub IoT do Azure com Java | Microsoft Docs
 description: Manual de Início Rápido do Azure - Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo Java com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1f7f044f46dded461d00d2ec78febf02271adcfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c5eefbd6d7758ad2a7640a1fbff3435fcd1d315
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631042"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091702"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo Java com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -51,6 +51,14 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de inscrição individual
+
+Nesta secção, vai utilizar um certificado X.509 autoassinado e é importante ter em consideração o seguinte:
+
+* Os certificados autoassinados são apenas para teste e não devem ser utilizados na produção.
+* A data de expiração predefinida para um certificado autoassinado é de 1 ano.
+
+Vai utilizar o código de exemplo do [SDK do Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java.git) para criar o certificado a ser utilizado na entrada de inscrição individual do dispositivo simulado.
+
 
 1. Utilize a linha de comandos dos passos anteriores, navegue para a pasta `target` e, em seguida, execute o ficheiro jar criado no passo anterior.
 

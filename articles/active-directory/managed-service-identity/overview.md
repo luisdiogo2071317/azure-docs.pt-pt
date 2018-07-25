@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547978"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006935"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>O que é a Identidade de Serviço Gerida para os recursos do Azure?
 
@@ -40,7 +40,7 @@ Como resultado, pode utilizar uma identidade atribuída pelo sistema ou pelo uti
 
 Eis um exemplo de como as Identidades Atribuídas pelo Sistema funcionam com as Máquinas Virtuais do Azure:
 
-![Exemplo de Identidade Gerida da Máquina Virtual](overview/msi-vm-vmextension-imds-example.png)
+![Exemplo de Identidade Gerida da Máquina Virtual](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. O Azure Resource Manager recebe um pedido para ativar a identidade atribuída pelo sistema numa VM.
 2. O Azure Resource Manager cria um Principal de Serviço no Azure AD para representar a identidade da VM. O Principal de Serviço é criado no inquilino do Azure AD no qual esta subscrição confia.
@@ -101,6 +101,7 @@ Experimente um tutorial sobre a Identidade de Serviço Gerida para obter cenári
 | Funções do Azure    | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) (Utilizar a Identidade de Serviço Gerida com o Serviço de Aplicações do Azure ou as Funções do Azure) |
 | Service Bus do Azure  | [Use Managed Service Identity with Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) (Utilizar a Identidade de Serviço Gerida com o Azure Service Bus) |
 | Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) (Utilizar a Identidade de Serviço Gerida com os Hubs de Eventos do Azure) |
+| API Management do Azure | [Use Managed Service Identity with Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) (Utilizar a Identidade de Serviço Gerida com a Gestão de API do Azure) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Que serviços do Azure suportam a Identidade de Serviço Gerida?
 

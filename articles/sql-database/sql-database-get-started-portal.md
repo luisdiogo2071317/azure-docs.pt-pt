@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
-ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345428"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090535"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar uma base de dados SQL do Azure no portal do Azure
 
@@ -24,7 +24,7 @@ Este início rápido explica como criar uma base de dados SQL no Azure com o [mo
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
   >[!NOTE]
-  >Este tutorial utiliza o modelo de compra baseado em DTU, mas o [modelo de compra baseado em vCore (pré-visualização)](sql-database-service-tiers-vcore.md) também está disponível.
+  >Este tutorial utiliza o modelo de compra baseado em DTU, mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
