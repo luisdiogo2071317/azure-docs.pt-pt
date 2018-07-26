@@ -1,8 +1,8 @@
 ---
-title: Base de dados SQL do Azure gerida no DNS do instância personalizado | Microsoft Docs
-description: Este tópico descreve opções de configuração para um DNS personalizado com uma instância de gerido da base de dados do Azure SQL.
+title: Base de dados SQL do Azure gerido no DNS do instância personalizado | Documentos da Microsoft
+description: Este tópico descreve opções de configuração para um DNS personalizado com uma instância de gerida de base de dados do Azure SQL.
 services: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 05a7b600ae8672447126b79cda10ca94c6d0fb48
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5bb2f2f4b79c4b03e631fc844a712f76fc69109
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649334"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258172"
 ---
-# <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar um DNS personalizado para a base de dados SQL do Azure gerida instância
+# <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar um DNS personalizado para a base de dados SQL do Azure a instância gerida
 
-Tem de ser implementada uma instância de geridos de base de dados no Azure SQL (pré-visualização) dentro de um Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). Existem alguns cenários, os servidores ligados para outras instâncias SQL no seu ambiente na nuvem ou híbrida, que requerem nomes de anfitrião privada para ser resolvido a partir de instância geridos. Neste caso, terá de configurar um DNS personalizado no interior do Azure. Uma vez que a instância geridos utiliza o mesmo DNS para os trabalhos internos, a configuração de DNS de rede virtual tem de ser compatível com a instância geridos. 
+Uma instância de gerida de base de dados no Azure SQL (pré-visualização) deve ser implementada numa do Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). Existem alguns cenários, servidores vinculados para as outras instâncias SQL no seu ambiente na nuvem ou híbrida, que requerem nomes de anfitrião privada para ser resolvido a partir da instância gerida. Neste caso, terá de configurar um DNS personalizado no Azure. Uma vez que a instância gerida utiliza o DNS do mesmo para seus funcionamentos, a configuração de DNS de rede virtual tem de ser compatível com a instância gerida. 
 
-Para efetuar uma configuração de DNS personalizada compatível com a instância geridos, tem de concluir os seguintes passos: 
-- Configurar o DNS personalizado para reencaminhar pedidos ao DNS do Azure 
-- Configurar o DNS personalizado como principal e o DNS do Azure como secundária para a VNet 
+Para tornar uma configuração DNS personalizada compatível com a instância gerida, terá de concluir os seguintes passos: 
+- Configurar DNS personalizado para reencaminhar pedidos ao DNS do Azure 
+- Configurar o DNS personalizado como principal e o DNS do Azure como secundário para a VNet 
 - Registar o DNS personalizado como principal e o DNS do Azure como secundário
 
-## <a name="configure-custom-dns-to-forward-requests-to-azure-dns"></a>Configurar o DNS personalizado para reencaminhar pedidos ao DNS do Azure 
+## <a name="configure-custom-dns-to-forward-requests-to-azure-dns"></a>Configurar DNS personalizado para reencaminhar pedidos ao DNS do Azure 
 
 Para configurar o reencaminhamento de DNS no Windows Server 2016, utilize estes passos: 
 
-1. No **Gestor de servidor**, clique em **ferramentas**e, em seguida, clique em **DNS**. 
+1. Na **Gestor de servidores**, clique em **ferramentas**e, em seguida, clique em **DNS**. 
 
    ![DNS](./media/sql-database-managed-instance-custom-dns/dns.png) 
 
@@ -42,43 +42,43 @@ Para configurar o reencaminhamento de DNS no Windows Server 2016, utilize estes 
 
    ![Lista de reencaminhadores](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
 
-4. Introduza recursiva resoluções endereço IP do Azure, tais como 168.63.129.16.
+4. Introduza recursiva resoluções endereço IP do Azure, por exemplo, 168.63.129.16.
 
-   ![Endereço de ip de resoluções recursiva](./media/sql-database-managed-instance-custom-dns/recursive-resolvers-ip-address.png) 
+   ![Endereço de ip de resoluções recursivas](./media/sql-database-managed-instance-custom-dns/recursive-resolvers-ip-address.png) 
  
 ## <a name="set-up-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Configurar DNS personalizado como principal e o DNS do Azure como secundário 
  
-Configuração de DNS numa VNet do Azure requer que introduza os endereços IP, por isso, configurar a VM do Azure que aloja o servidor DNS com um endereço IP estático, utilizar os seguintes passos: 
+Configuração de DNS numa VNet do Azure requer que introduza os endereços IP, por isso, configure a VM do Azure que aloja o servidor DNS com um endereço IP estático usando os seguintes passos: 
 
 1. No portal do Azure, abra a interface de rede de VM de DNS personalizada.
 
    ![network-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
 
-2. Na secção de configurações de IP. Seleccione a configuração de IP 
+2. Na secção de configurações de IP. Selecione a configuração de IP 
 
    ![configuração de IP](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
 
 
-3. Definir o endereço IP privado como estático. Anote o endereço IP (10.0.1.5 nesta captura de ecrã) 
+3. Definir o endereço IP privado como estático. Anote o endereço IP (10.0.1.5N nesta captura de ecrã) 
 
    ![estático](./media/sql-database-managed-instance-custom-dns/static.png) 
 
 
-## <a name="register-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Registar DNS personalizado como principal e o DNS do Azure como secundário 
+## <a name="register-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Registar o DNS personalizado como principal e o DNS do Azure como secundário 
 
-1. No portal do Azure, encontrar a opção DNS personalizado para a sua VNet.
+1. No portal do Azure, encontre opções de DNS personalizados para a sua VNet.
 
    ![opção de dns personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
 
-2. Mude para personalizada e introduza o seu endereço IP de servidor DNS personalizado, bem como recursiva resoluções endereço IP do Azure, tais como 168.63.129.16. 
+2. Mude para personalizado e introduza o seu endereço IP do servidor DNS personalizado, bem como as recursiva resoluções endereço IP do Azure, por exemplo, 168.63.129.16. 
 
    ![opção de dns personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Lista não definir o resolvedor recursivo do Azure no DNS faz com que a instância de gerido para o estado defeituoso. Recuperar a partir de que estado poderá exigir o criar uma nova instância numa VNet com as políticas de rede compatível, criar dados de nível de instância e restaurar as bases de dados. Consulte [configuração de VNet](sql-database-managed-instance-vnet-configuration.md).
+   > Lista não definir o resolvedor recursivo do Azure no DNS faz com que a instância gerida a entrar em estado com falhas. Recuperar a partir de que o estado pode exigir a criação de nova instância numa VNet com as políticas de rede em conformidade, criar dados de nível de instância e restaurar as bases de dados. Ver [configuração da VNet](sql-database-managed-instance-vnet-configuration.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma descrição geral, consulte [o que é uma instância geridos](sql-database-managed-instance.md)
-- Para um tutorial mostrar como criar uma nova instância geridos, consulte [criação de uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md).
-- Para obter informações sobre como configurar uma VNet para uma instância geridos, consulte [configuração de VNet para as instâncias geridas](sql-database-managed-instance-vnet-configuration.md)
+- Para uma descrição geral, consulte [o que é uma instância gerida](sql-database-managed-instance.md)
+- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter informações sobre como configurar uma VNet para uma instância gerida, consulte [configuração de VNet para instâncias geridas](sql-database-managed-instance-vnet-configuration.md)
