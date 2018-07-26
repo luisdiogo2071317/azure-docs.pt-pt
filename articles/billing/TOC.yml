@@ -131,6 +131,9 @@
   items:
     - name: Cenários de Automatização de Faturação
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: Gerir os custos com os Orçamentos do Azure
+          href: billing-cost-management-budget-scenario.md
     - name: Descrição geral da API de Faturação do Azure
       href: billing-usage-rate-card-overview.md
       items:

@@ -8,16 +8,17 @@
 ## [Ferramentas e funcionalidades](features.md)
 
 # Procedimentos
-## [Armazenamento persistente](persisting-shell-storage.md)
-## [Utilizar a janela](using-the-shell-window.md)
 ## [Utilizadores do PowerShell Cloud Shell para Windows](cloud-shell-windows-users.md)
+## [Manter os ficheiros no armazenamento](persisting-shell-storage.md)
+## [Utilize a janela](using-the-shell-window.md)
+## [Utilizar MSI no Cloud Shell](msi-authorization.md)
+## [Incorporar o Cloud Shell](embed-cloud-shell.md)
 
 # Exemplos
 ## [Bash - Criar recursos com o Terraform](example-terraform-bash.md)
 ## [Bash - Executar playbooks do Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
-# [Incorporar o Cloud Shell](embed-cloud-shell.md)
-# [Utilizar MSI no Cloud Shell](msi-authorization.md)
+# [Utilize o editor de Cloud Shell](using-cloud-shell-editor.md)
 
 # [Resolução de problemas e limitações](troubleshooting.md)
 
