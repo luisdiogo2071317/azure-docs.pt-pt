@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 698b02e1bad7da3f793a35184d634eaf5c948988
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071582"
+ms.locfileid: "39091998"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância gerida (pré-visualização)?
 
@@ -68,9 +68,9 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 
 ![Início de sessão único](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>vCore com base no modelo de compra (pré-visualização)
+## <a name="vcore-based-purchasing-model"></a>modelo de compra baseado em vCore
 
-O modelo de compra baseado em vCore (pré-visualização) dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O modelo de compra baseado em vCore oferece-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware.
 - As CPUs Lógicas de Geração 4 baseiam-se nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz.
