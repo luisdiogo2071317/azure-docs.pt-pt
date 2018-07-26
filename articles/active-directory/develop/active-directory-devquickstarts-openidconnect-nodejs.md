@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7aa48b65423db2a3af032ed64d9d571fa603668d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144759"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248320"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Aplicação web do Azure node. js do AD, introdução
 Aqui usamos Passport para:
@@ -385,7 +385,7 @@ Agora `app.js` estiver concluída. Precisamos simplesmente de adicionar as rotas
     <% } %>
     ```
 
-5. Vamos tornar essa análise boa ao adicionar um layout. Criar o ' / exibição dos views/layout.ejs sob o diretório de raiz.
+5. Vamos tornar essa análise boa ao adicionar um layout. Crie a vista `/views/layout.ejs` no diretório de raiz.
 
     ```HTML
 

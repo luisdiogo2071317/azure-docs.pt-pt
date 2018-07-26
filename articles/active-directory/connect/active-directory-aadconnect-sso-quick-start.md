@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf83a98010631fc20c5fd7365a3ca081bd9c8c75
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214869"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259124"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: início rápido
 
@@ -48,6 +48,8 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos:
     * Contém utilizadores que pretende ativar o SSO totalmente integrado.
     
 * **Ativar a autenticação moderna**: tem de ativar [autenticação moderna](https://aka.ms/modernauthga) no seu inquilino para esta funcionalidade funcione.
+
+* **Utilize as versões mais recentes de clientes do Office 365**: para obter uma experiência silenciosa início de sessão com clientes do Office 365 (Outlook, Word, Excel e outras pessoas), terá de versões 16.0.8730.xxxx ou superior.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 

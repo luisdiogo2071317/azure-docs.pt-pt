@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: df3ebdcb07980c297204d6d2959cac6a759b34e2
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347430"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258369"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar os seus vídeos  
 
@@ -37,6 +37,12 @@ Utilize este parâmetro se não processadas ou externas gravações contêm o ba
 - `DefaultWithNoiseReduction` – De índice e extrair informações de áudio e vídeo, ao aplicar algoritmos de redução de ruído no fluxo de áudio
 
 Preço depende da opção de indexação selecionada.  
+
+### <a name="callbackurl"></a>callbackUrl
+
+Um URL de POST para o notificar quando a indexação é concluído. O Video Indexer adiciona dois parâmetros de cadeia de caracteres a ele de consulta: id e o estado. Por exemplo, se o url de retorno de chamada é 'https://test.com/notifyme?projectName=MyProject', a notificação será enviada com parâmetros adicionais para'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+
+Também pode adicionar mais parâmetros para o URL antes de lançar a chamada ao Video Indexer e estes parâmetros serão incluídos no retorno de chamada. Mais tarde, no seu código que pode analisar a cadeia de consulta e começar a fazer uma cópia de todos os parâmetros especificados na cadeia de consulta (dados que tinha originalmente anexado ao URL mais as informações do Video Indexer fornecido.) 
 
 ### <a name="streamingpereset"></a>streamingPereset
 
@@ -217,6 +223,6 @@ public class AccountContractSlim
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Examine a saída do indexador de vídeo do Azure produzida pela v2 API](video-indexer-output-json-v2.md)
