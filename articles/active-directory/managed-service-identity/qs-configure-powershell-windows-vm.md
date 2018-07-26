@@ -1,6 +1,6 @@
 ---
-title: Como configurar o MSI numa VM do Azure com o PowerShell
-description: Passo a passo de instruções para configurar uma identidade de serviço gerida (MSI) numa VM do Azure, com o PowerShell.
+title: Como configurar a identidade do serviço gerido na VM do Azure com o PowerShell
+description: Passo a passo as instruções para configurar uma identidade do serviço gerido na VM do Azure, com o PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 9a40ad66f104a33230484f24e20a5f3bd9ed6175
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 68c9ae7baa6b8fa1ebf672c28bf3c466b4b54860
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237660"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258397"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurar uma VM Managed Service Identity (MSI) com o PowerShell
+# <a name="configure-a-vm-managed-service-identity-using-powershell"></a>Configurar uma VM identidade do serviço gerido com o PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -59,7 +59,7 @@ Para criar uma VM do Azure com o sistema de identidade ativada atribuído:
    - [Criar uma máquina virtual do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Criar uma máquina virtual do Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Opcional) Adicionar a extensão de VM de MSI com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
+2. (Opcional) Adicionar a extensão de VM de identidade de serviço gerido com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -85,7 +85,7 @@ Se precisar de ativar uma identidade de sistema atribuído numa máquina Virtual
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Opcional) Adicionar a extensão de VM de MSI com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token. Certifique-se de que especifique o correto `-Location` parâmetro, que correspondem a localização da VM existente:
+3. (Opcional) Adicionar a extensão de VM de identidade de serviço gerido com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token. Certifique-se de que especifique o correto `-Location` parâmetro, que correspondem a localização da VM existente:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -118,7 +118,7 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-Para remover a extensão de VM de MSI, utilizador-comutador de nome com o [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, especificando o mesmo nome que utilizou quando adicionou a extensão:
+Para remover a extensão de VM de identidade de serviço gerida, utilizador-comutador de nome com o [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, especificando o mesmo nome que utilizou quando adicionou a extensão:
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
@@ -143,7 +143,7 @@ Para atribuir uma identidade de utilizador atribuída a uma VM do Azure ao criar
     - [Criar uma máquina virtual do Windows com o PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Criar uma máquina virtual do Linux com o PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Opcional) Adicionar a extensão de VM de MSI com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token. Certifique-se de que especifique o correto `-Location` parâmetro, que correspondem a localização da VM existente:
+2. (Opcional) Adicionar a extensão de VM de identidade de serviço gerido com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token. Certifique-se de que especifique o correto `-Location` parâmetro, que correspondem a localização da VM existente:
       > [!NOTE]
     > Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.
 
@@ -177,7 +177,7 @@ Para atribuir um identidade atribuída a uma VM do Azure existente ao utilizador
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Adicionar a extensão de VM de MSI com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token. Especificar a correta `-Location` parâmetro, que correspondem a localização da VM existente.
+4. Adicionar a extensão de VM de identidade de serviço gerido com o `-Type` parâmetro sobre o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de VM e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token. Especificar a correta `-Location` parâmetro, que correspondem a localização da VM existente.
 
    ```powershell
    $settings = @{ "port" = 50342 }

@@ -2,19 +2,19 @@
 title: Utilizar o Gestor de tráfego do Microsoft Azure para aumentar a quota de ponto final na compreensão de idiomas (LUIS) - Azure | Documentos da Microsoft
 description: Utilize o Gestor de tráfego do Microsoft Azure para distribuir a quota de ponto final entre várias subscrições na compreensão de idiomas (LUIS) para aumentar a quota de ponto final
 author: diberry
-manager: kaiqb
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: diberry
-ms.openlocfilehash: 77a9d4197804dcdd1e0c8b3f8a0d66100f770855
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238197"
+ms.locfileid: "39248633"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilizar o Gestor de tráfego do Microsoft Azure para gerir a quota de ponto final através de chaves
 Compreensão de idiomas (LUIS) oferece a capacidade para aumentar a quota de pedido de ponto de extremidade para além de quota de uma chave única. Isso é feito através da criação de mais chaves para LUIS e adicioná-los para a aplicação do LUIS no **Publish** página no **recursos e as chaves** secção. 

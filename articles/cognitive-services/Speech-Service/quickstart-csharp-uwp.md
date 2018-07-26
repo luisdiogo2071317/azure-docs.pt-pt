@@ -10,22 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4599c3c4c69397a1ab1f65c246e4440085b8bb91
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 751736a4333932a68775589dddeb82ef6fa6f398
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072585"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258213"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Início rápido: Reconhecer voz numa aplicação UWP utilizando o SDK de voz
 
 Neste artigo, irá aprender a criar uma aplicação plataforma Universal do Windows (UWP) usando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
-O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
+A aplicação baseia-se com o [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
 
 > [!NOTE]
-> Aplicações do UWP criadas com o SDK de voz ainda não passam o Kit de certificação de aplicações de Windows (WACK).
-> Sideload de aplicações é possível, uma aplicação para Windows Store não está a enviar.
-> Isso será corrigido numa versão futura.
+> A plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos. Aplicações com o SDK de voz ainda não passam o Kit de certificação de aplicações de Windows (WACK). É possível fazer sideload de seu aplicativo, mas pode não atualmente ser submetido para a Windows Store.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,12 +44,12 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
     ![](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
-1. Se estiver executando numa instalação do Windows de 64 bits, poderá alternar sua plataforma de compilação para `x64`:
+1. Se estiver executando numa instalação do Windows de 64 bits, poderá alternar sua plataforma de compilação para `x64`.
 
    ![Mude a plataforma de compilação para x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > Neste momento, o SDK de voz não oferece suporte para processadores ARM de destino.
+   > Neste momento, o SDK de voz suporta processadores compatíveis com o Intel, mas não ARM.
 
 1. Instalar e fazer referência a [pacote NuGet do SDK de voz](https://aka.ms/csspeech/nuget). No Solution Explorer, clique com o botão direito a solução e selecione **gerir pacotes NuGet para solução**.
 
@@ -61,11 +59,11 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
     ![Instalar o pacote de NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "pacote Nuget instalar")
 
-1. No ecrã de licença que aparece, aceite a licença:
+1. Aceite a licença na caixa de diálogo que aparece.
 
     ![Aceitar a licença](media/sdk/qs-csharp-uwp-06-nuget-license.png "aceitar a licença")
 
-1. Na consola do Gestor de pacotes, verá a seguinte linha de saída:
+1. A seguinte linha de saída é apresentada na consola do Gestor de pacotes.
 
    ```text
    Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
@@ -78,13 +76,14 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
    ![](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-1. Editar a sua aplicação da interface do Usuário ao fazer duplo clique `MainPage.xaml` no Explorador de soluções.
-   Quando no modo de exibição XAML do designer, inserir o seguinte trecho XAML para a etiqueta de grade (entre `<Grid>` e `</Grid>`):
+1. Editar a interface de utilizador do seu aplicativo clicando duas vezes `MainPage.xaml` no Explorador de soluções. 
+
+    Na vista XAML do designer, inserir o seguinte trecho XAML para a etiqueta de grade (entre `<Grid>` e `</Grid>`).
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
 1. Editar o XAML code-behind clicando duas vezes `MainPage.xaml.cs` no Explorador de soluções (ele é agrupado sob o `MainPage.xaml` item).
-   Substitua todo o código com o seguinte:
+   Substitua todo o código neste ficheiro com o seguinte.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
@@ -96,7 +95,7 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
 
-1. Crie a aplicação. Na barra de menus, selecione **crie** > **compilar solução**. O código será compilado sem erros agora:
+1. Crie a aplicação. Na barra de menus, selecione **crie** > **compilar solução**. O código será compilado sem erros agora.
 
     ![Compilação bem-sucedida](media/sdk/qs-csharp-uwp-08-build.png "compilação bem-sucedida")
 
@@ -108,8 +107,7 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
     ![Iniciar a aplicação em depuração](media/sdk/qs-csharp-uwp-10-access-prompt.png "iniciar a aplicação para depuração")
 
-1. Em seguida, clique nas **reconhecimento de voz com a entrada do microfone** e fala uma frase curta em seu microfone.
-   O resultado do reconhecimento de voz deve ser exibida na GUI.
+1. Clique nas **reconhecimento de voz com a entrada do microfone** e fala uma frase curta no microfone do dispositivo. O texto reconhecido aparece na janela.
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

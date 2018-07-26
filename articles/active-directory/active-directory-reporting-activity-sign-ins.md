@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3c3737d3a98093f752c1248460a8084436e60941
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d651f9d4fa48cec3a61f1f307f4447fe2cba63b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333603"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248956"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -41,7 +41,7 @@ Este tópico fornece-lhe uma descrição geral das atividades de início de sess
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
-* Utilizadores na função de administrador de segurança, segurança leitor, leitor de relatórios ou administrador da aplicação
+* Utilizadores no administrador de segurança, leitor de segurança, a função de leitor de relatório
 * Administradores Globais
 * Qualquer utilizador (não administrador) pode aceder aos seus próprios inícios de sessão 
 
@@ -57,20 +57,22 @@ Com as informações fornecidas pelo relatório de início de sessão de utiliza
 * Quantos utilizadores iniciaram sessão ao longo de uma semana?
 * Qual é o estado destes inícios de sessão?
 
-O primeiro ponto de entrada de todos os dados de atividades de início de sessão é **Inícios de sessão** na secção de Atividade do **Azure Active**.
+O primeiro ponto de entrada para atividades de início de sessão todos os dados são **inícios de sessão** na secção de atividade do **Azure Active Directory**.
 
 
 ![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/61.png "Atividade de início de sessão")
 
 
-Um registo de auditoria tem uma vista de lista predefinida que mostra:
+Um registo de inícios de sessão tem uma vista de listas predefinidas que mostra:
 
-- o utilizador relacionado
-- a aplicação em que o utilizador tem sessão iniciada
-- o estado de início de sessão
-- a hora de início de sessão
+- A data de início de sessão
+- O utilizador relacionado
+- A aplicação em que o utilizador iniciou sessão
+- O estado de início de sessão
+- O estado da deteção de risco
+- O estado do requisito de autenticação multifator (MFA)
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de início de sessão")
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/01.png "Atividade de início de sessão")
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
@@ -78,58 +80,104 @@ Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramen
 
 Isto permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/42.png "Atividade de início de sessão")
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/02.png "Atividade de início de sessão")
 
-Ao clicar num item na vista de lista, obtém todos os detalhes sobre o mesmo.
+Ao clicar num item na vista de lista, obtém todos os detalhes disponíveis sobre o mesmo numa vista horizontal.
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/43.png "Atividade de início de sessão")
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/03.png "Atividade de início de sessão")
+
+> [!NOTE]
+> Os clientes agora podem resolver problemas de políticas de acesso condicional através de todos os relatórios de início de sessão. Ao clicar no **acesso condicional** separador para um registo de início de sessão, os clientes podem rever o estado de acesso condicional e informações detalhadas sobre os detalhes das políticas que são aplicadas para o início de sessão e o resultado para cada política.
+> Para obter mais informações, consulte a [perguntas mais frequentes sobre as informações de AC em todos os inícios](active-directory-reporting-faq.md#conditional-access).
+
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/ConditionalAccess.png "Atividade de início de sessão")
 
 
-## <a name="filtering-sign-in-activities"></a>Filtrar atividades de início de sessão
+## <a name="filter-sign-in-activities"></a>Filtrar atividades de início de sessão
 
-Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados de inícios de sessão através dos seguintes campos:
+Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados dos inícios de sessão através dos seguintes campos predefinidos:
 
-- Intervalo de tempo
 - Utilizador
 - Aplicação
-- Cliente
 - Estado de início de sessão
+- Estado da deteção de risco
+- Date
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/44.png "Atividade de início de sessão")
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/04.png "Atividade de início de sessão")
 
+O filtro **Utilizador** permite-lhe especificar o nome ou o nome principal de utilizador (UPN) do utilizador que mais lhe interessa.
 
-O filtro **intervalo de tempo** permite-lhe definir um período de tempo para os dados devolvidos.  
-Os valores possíveis são:
+O filtro **Aplicação** permite-lhe especificar o nome da aplicação que mais lhe interessa.
 
-- 1 mês
-- 7 dias
-- 24 horas
-- Personalizado
-
-Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
-
-O filtro **utilizador** permite-lhe especificar o nome ou o nome principal de utilizador (UPN) do utilizador que mais lhe interessa.
-
-O filtro **aplicação** permite-lhe especificar o nome da aplicação que mais lhe interessa.
-
-O filtro **cliente** permite-lhe especificar informações sobre o dispositivo que mais lhe interessa.
-
-O filtro **estado do início de sessão** permite-lhe selecionar um dos seguintes filtros:
+O filtro **Estado do início de sessão** permite-lhe selecionar:
 
 - Todos
 - Êxito
 - Falha
 
+O filtro **Risco Detetado** permite-lhe selecionar:
+
+- Todos
+- Sim
+- Não
+
+O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
+Os valores possíveis são:
+
+- 1 mês
+- 7 dias
+- 24 horas
+- Intervalo de tempo personalizado
+
+Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
+
+Se adicionar mais campos à vista de inícios de sessão, estes campos são adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicação Cliente** à sua lista, também obtém outra opção de filtro que lhe permite definir os seguintes filtros:
+
+- Browser      
+- Exchange ActiveSync (suportado)               
+- Exchange ActiveSync (não suportado)
+- Outros clientes               
+    - IMAP
+    - MAPI
+    - Clientes mais antigos do Office
+    - POP
+    - SMTP
+
+
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/12.png "Atividade de início de sessão")
+
+
+## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
+
+Pode transferir os dados de atividades de início de sessão se pretender trabalhar com eles fora do portal do Azure. Ao clicar em **Transferir** cria um ficheiro CSV dos 5000 registos mais recentes.  Além de um botão de transferência, o portal do Azure também fornece uma opção para gerar um script para transferir os dados.  
+
+![Transferir](./media/active-directory-reporting-activity-sign-ins/71.png "Transferir")
+
+Se necessita de mais flexibilidade, pode utilizar a solução de script. Clicar **Script** cria um script do PowerShell que inclui todos os filtros que definiu. Transfira e execute este script numa **modo de administrador** para gerar o ficheiro CSV. 
+
+### <a name="running-the-script-on-a-windows-10-machine"></a>Executar o script num computador Windows 10
+
+Se quiser executar o script num **Windows 10** máquina, precisa executar algumas etapas adicionais primeiro. 
+
+1. Instalar o [módulo do AzureRM](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+2. Importe o módulo ao abrir uma linha de comandos do PowerShell e executar o comando **Import-Module AzureRM**.
+3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para todos**. 
+4. Agora pode executar o script do PowerShell transferido no modo de administrador para gerar o ficheiro CSV.
+
+Além da implementação técnica, o número de registos que pode transferir também é limitado pelas [políticas de retenção de relatórios do Azure Active Directory](active-directory-reporting-retention.md).  
+
 
 ## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de início de sessão
 
-Para além do Azure Active Directory, o portal do Azure fornece-lhe dois pontos de entrada adicionais para dados de atividades de início de sessão:
+Para além do Azure Active Directory, o portal do Azure fornece-lhe os pontos de entrada adicionais para início de sessão dados de atividades:
 
-- Utilizadores e grupos
+- A descrição de geral de proteção de segurança de identidade
+- Utilizadores
+- Grupos
 - Aplicações Empresariais
 
 
-### <a name="users-and-groups-sign-ins-activities"></a>Atividades de inícios de sessão de utilizadores e grupos
+### <a name="users-sign-ins-activities"></a>Atividades de inícios de sessão de utilizadores
 
 Com as informações fornecidas pelo relatório de início de sessão de utilizador, encontrará respostas a perguntas como:
 
@@ -137,33 +185,37 @@ Com as informações fornecidas pelo relatório de início de sessão de utiliza
 - Quantos utilizadores iniciaram sessão ao longo de uma semana?
 - Qual é o estado destes inícios de sessão?
 
+O ponto de entrada para estes dados é o gráfico de início de sessão de utilizador na página de descrição geral **Proteção de segurança de identidade**. O gráfico de início de sessão de utilizador mostra as agregações semanais de inícios de sessão de todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/06.png "Atividade de início de sessão")
 
-O ponto de entrada para estes dados é o gráfico de início de sessão de utilizador na secção **Descrição geral** em **Utilizadores e grupos**.
+Quando clica num dia no gráfico de início de sessão, obtém uma descrição geral das atividades de início de sessão para este dia.
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/45.png "Atividade de início de sessão")
-
-O gráfico de início de sessão de utilizador mostra as agregações semanais de inícios de sessão de todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
-
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/46.png "Atividade de início de sessão")
-
-Quando clica num dia no gráfico de início de sessão, obtém uma lista detalhada das atividades de início de sessão para este dia.
-
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de início de sessão")
-
-Cada linha na lista de atividades de início de sessão dá-lhe as informações detalhadas sobre o início de sessão selecionado, tais como:
+Cada linha na lista de atividades de início de sessão mostra:
 
 * Quem iniciou sessão?
-* Qual era o UPN relacionado?
 * Que aplicação foi o destino do início de sessão?
-* Qual é o endereço IP do início de sessão?
-* Qual era o estado do início de sessão?
+* Qual o estado do início de sessão?
+* Qual o estado MFA do início de sessão?
 
-A opção **Inícios de sessão** oferece uma descrição geral completa de todos os inícios de sessão dos utilizadores.
+Ao clicar num item, obtém mais detalhes sobre a operação de início de sessão:
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/51.png "Atividade de início de sessão")
+- ID de Utilizador
+- Utilizador
+- Nome de utilizador
+- ID da aplicação
+- Aplicação
+- Cliente
+- Localização
+- Endereço IP
+- Date
+- MFA Necessário
+- Estado de início de sessão
 
+ 
+Na página **Utilizadores**, pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade**.
 
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/08.png "Atividade de início de sessão")
 
 ## <a name="usage-of-managed-applications"></a>Utilização de aplicações geridas
 
@@ -175,7 +227,7 @@ Com uma vista centrada em aplicações dos seus dados de início de sessão, pod
 
 O ponto de entrada para estes dados são as três aplicações mais utilizadas na sua organização no relatório dos últimos 30 dias na secção **Descrição geral** em **Aplicações empresariais**.
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/64.png "Atividade de início de sessão")
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/10.png "Atividade de início de sessão")
 
 As agregações semanais de inícios de sessão do gráfico de utilização da aplicação das três aplicações mais utilizadas num determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
@@ -183,18 +235,13 @@ As agregações semanais de inícios de sessão do gráfico de utilização da a
 
 Se quiser, pode colocar o foco numa aplicação específica.
 
-
 ![Relatórios](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Relatórios")
 
 Quando clica num dia no gráfico de utilização da aplicação, obtém uma lista detalhada das atividades de início de sessão.
 
-
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/48.png "Atividade de início de sessão")
-
-
 A opção **Inícios de sessão** dá uma visão geral completa de todos os eventos de início de sessão nas suas aplicações.
 
-![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/49.png "Atividade de início de sessão")
+![Atividade de início de sessão](./media/active-directory-reporting-activity-sign-ins/11.png "Atividade de início de sessão")
 
 
 

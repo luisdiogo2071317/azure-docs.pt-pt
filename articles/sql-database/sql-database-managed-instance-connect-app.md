@@ -1,83 +1,83 @@
 ---
-title: Instância de geridos de base de dados de SQL do Azure ligar aplicação | Microsoft Docs
-description: Este artigo descreve como ligar a aplicação à base de dados geridos instância do SQL do Azure.
+title: Ligar a aplicação do Azure SQL Database Managed Instance | Documentos da Microsoft
+description: Este artigo descreve como ligar a sua aplicação para a instância gerida da base de dados SQL do Azure.
 ms.service: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647838"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258733"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
-Hoje em dia tem várias opções quando decidir como e onde alojar a aplicação. 
+Hoje em dia tem várias opções ao decidir como e onde hospedar seu aplicativo. 
  
-Pode optar por anfitrião de aplicações na nuvem utilizando o App Service do Azure ou algumas das opções de rede virtual (VNet) integrada do Azure, como o ambiente de serviço de aplicações do Azure, Máquina Virtual, conjunto de dimensionamento da Máquina Virtual. Foi também adotar abordagem de nuvem híbrida e manter as aplicações no local. 
+Pode optar alojar aplicações na cloud utilizando o serviço de aplicações do Azure ou algumas das opções de rede virtual (VNet), integrado do Azure, como o ambiente de serviço de aplicações do Azure, máquinas virtuais, conjunto de dimensionamento da Máquina Virtual. Também pode levar a abordagem de cloud híbrida e manter as suas aplicações no local. 
  
-Qualquer opção efetuada, pode ligá-la a uma instância geridos (pré-visualização).  
+Independentemente da sua escolha que criou, pode ligá-la para uma instância gerida (pré-visualização).  
 
-![Elevada disponibilidade](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+![elevada disponibilidade](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Ligar uma aplicação dentro da mesma VNet 
 
-Este cenário é a mais simples. Máquinas virtuais dentro da VNet pode ligar diretamente a si mesmo que se encontrem dentro de sub-redes diferentes. Isto significa que tudo o que precisa para ligar a aplicações dentro de um ambiente de aplicação do Azure ou a Máquina Virtual está a definir adequadamente a cadeia de ligação.  
+Este cenário é a forma mais simples. Máquinas virtuais dentro da VNet pode ligar diretamente entre si mesmo que estejam em sub-redes diferentes. Isso significa que tudo o que precisa para ligar a aplicação dentro de um ambiente de aplicação do Azure ou a Máquina Virtual é definir a cadeia de ligação corretamente.  
  
-No caso de não é possível estabelecer a ligação, verifique se tem um grupo de segurança de rede definida na sub-rede da aplicação. Neste caso, terá de abrir a ligação saída na porta 1433 do SQL Server, bem como 11000 12000 intervalo de portas para o redirecionamento. 
+No caso de não é possível estabelecer a ligação, verifique se tem um grupo de segurança de rede definida na sub-rede de aplicação. Neste caso, terá de abrir a ligação de saída na porta 1433 do SQL, bem como o intervalo de 11000 12000 de portas para o redirecionamento. 
 
-## <a name="connect-an-application-inside-a-different-vnet"></a>Ligar uma aplicação dentro de uma VNet diferentes 
+## <a name="connect-an-application-inside-a-different-vnet"></a>Ligar uma aplicação dentro de uma VNet diferente 
 
-Este cenário é um pouco mais complexo, porque a instância gerido tem o endereço IP privado na sua própria VNet. Para ligar, uma aplicação precisa de acesso para a VNet onde a instância geridos é implementada. Por isso, primeiro tem de estabelecer uma ligação entre a aplicação e a VNet de instância geridos. As VNets não têm de estar na mesma subscrição por ordem para este cenário funcionem. 
+Este cenário é um pouco mais complexo, porque a instância gerida tem o endereço IP privado na sua própria VNet. Para ligar, um aplicativo precisa de acesso para a VNet onde a instância gerida está implementada. Por isso, primeiro tem de estabelecer uma ligação entre o aplicativo e a VNet de instância gerida. As VNets não tem de estar na mesma subscrição, para que este cenário funcione. 
  
 Existem duas opções para ligar VNets: 
 - [Peering de rede Virtual do Azure](../virtual-network/virtual-network-peering-overview.md) 
-- Gateway de VPN de VNet a VNet ([portal do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
+- Gateway de VPN de VNet a VNet ([portal do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [da CLI do Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-A opção de peering é o preferível porque peering utiliza da rede principal do Microsoft por isso, a perspetiva de conectividade, não existe nenhuma diferença percetível de latência entre máquinas virtuais na VNet em modo de peering e na mesma VNet. O VNet peering é limitado para as redes na mesma região.  
+A opção de peering é aquele preferível porque o peering utiliza a rede de backbone do Microsoft assim, da perspectiva de conectividade, não existe nenhuma diferença notável numa latência entre máquinas virtuais na VNet em modo de peering e na mesma VNet. O VNet peering é limitado às redes na mesma região.  
  
 > [!IMPORTANT]
-> Cenário de peering de VNet para a instância gerida está limitado a redes na mesma região devido a [restrições do peering de rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
+> Cenário de peering de VNet para a instância gerida está limitado às redes na mesma região devido a [restrições do peering de redes virtuais Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Ligar uma aplicação no local 
 
-Instância gerida só pode ser acedida através de um endereço IP privado. Para poder aceder ao mesmo no local, tem de estabelecer uma ligação Site a Site entre a aplicação e a VNet de instância geridos. 
+Instância gerida só pode ser acedida através de um endereço IP privado. Para aceder a partir do local, terá de estabelecer uma ligação Site a Site entre o aplicativo e a VNet de instância gerida. 
  
-Existem duas opções como ligar no local a VNet do Azure: 
-- Ligação de VPN de site para Site ([portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
+Existem duas opções como ligar no local à VNet do Azure: 
+- Ligação de VPN de site a Site ([portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [da CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) ligação  
  
-Se estabeleceu no local para Azure ligação com êxito e não é possível estabelecer ligação à instância geridos, verifique se a firewall tem ligação aberta de saída na porta 1433 do SQL Server, bem como 11000 12000 intervalo de portas para redirecionamento. 
+Se criada com êxito no local para a ligação do Azure e não é possível estabelecer ligação à instância gerida, verifique se a firewall tem de abrir ligação de saída na porta 1433 do SQL, bem como o intervalo de 11000 12000 de portas para o redirecionamento. 
 
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Ligar uma aplicação de serviço de aplicações do Azure alojada 
 
-Gerido instância pode ser acedida apenas através de um endereço IP privado para poder aceder a partir do App Service do Azure terá primeiro de estabelecer uma ligação entre a aplicação e a VNet de instância geridos. Consulte [integrar a sua aplicação com uma Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
+A instância gerida pode ser acessada apenas por meio de um endereço IP privado, portanto, para poder aceder a partir do serviço de aplicações do Azure tem primeiro de estabelecer uma ligação entre o aplicativo e a VNet de instância gerida. Ver [integrar a sua aplicação com uma Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
  
-Para resolução de problemas, consulte [VNets de resolução de problemas e aplicações](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Se não é possível estabelecer uma ligação, tente [sincronizar a configuração de rede](sql-database-managed-instance-sync-network-configuration.md). 
+Para resolução de problemas, consulte [VNets de resolução de problemas e aplicativos](../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Se não for possível estabelecer uma ligação, tente [a sincronizar a configuração de rede](sql-database-managed-instance-sync-network-configuration.md). 
  
-Num caso especial do App Service do Azure para ligar à instância geridos é quando é integrado que do serviço de aplicações do Azure a uma rede em modo de peering para VNet de instância geridos. Nesse caso requer a configuração seguinte configuração: 
+Um caso especial de conexão do serviço de aplicações do Azure para a instância gerida é quando integrado o que serviço de aplicações do Azure para uma rede em modo de peering de VNet de instância gerida. Esse caso requer a seguinte configuração para configurar a: 
 
-- Gerido VNet de instância não pode ter o gateway  
-- Gerido de instância de VNet tem de ter a opção definida utilizar gateways remoto 
-- VNet em modo de peering tem de ter a opção de trânsito do gateway do permitir definida 
+- VNet de instância gerida não pode ter o gateway  
+- VNet de instância gerida precisa de conjunto de opções do utilizar gateways remotos 
+- VNet peering tem de ter a opção de trânsito de gateway de permitir definido 
  
 Este cenário é ilustrado no diagrama seguinte:
 
 ![peering de aplicação integrada](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Ligar uma aplicação na caixa de programadores 
+## <a name="connect-an-application-on-the-developers-box"></a>Ligar uma aplicação na caixa de desenvolvedores 
 
-Gerido instância pode ser acedida apenas através de um endereço IP privado, por isso, para poder aceder a partir da sua caixa de programador, primeiro tem de estabelecer uma ligação entre a sua caixa de programador e a VNet de instância geridos.  
+A instância gerida pode ser acedida apenas por meio de um endereço IP privado por isso, para poder acessá-lo de sua caixa de desenvolvedor, primeiro tem de estabelecer uma ligação entre a sua caixa de desenvolvedor e a VNet de instância gerida.  
  
-Configurar uma ligação ponto a Site para uma VNet com artigos de autenticação do certificado Azure nativo ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) apresenta em detalhe como foi feita.  
+Configurar uma ligação ponto a Site a uma VNet com artigos de autenticação de certificados nativa do Azure ([portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [da CLI do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) apresenta em detalhe como poderia ser feito.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter informações sobre a instância geridos, consulte [o que é uma instância geridos](sql-database-managed-instance.md).
-- Para um tutorial mostrar como criar uma nova instância geridos, consulte [criar uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md).
+- Para obter informações sobre a instância gerida, veja [o que é uma instância gerida](sql-database-managed-instance.md).
+- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-create-tutorial-portal.md).

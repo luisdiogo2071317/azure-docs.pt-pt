@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070948"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258852"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -29,7 +29,7 @@ Personalização de voz está disponível para inglês Americano (em inglês) e 
 
 A funcionalidade de personalização de voz de texto em voz está atualmente em pré-visualização privada. [Preencha o formulário de aplicação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para ser considerado para o acesso.
 
-Também precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar uma] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligue-se a sua subscrição para o portal de voz personalizada da seguinte forma.
+Também precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar um](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se ainda não o fez. Ligue-se a sua subscrição para o portal de voz personalizada da seguinte forma.
 
 1. Inicie sessão no [portal de voz personalizada](https://customvoice.ai) com a mesma conta Microsoft que utilizou para aplicam-se para obter acesso.
 
@@ -208,21 +208,21 @@ Depois de preencher a caixa de texto e confirmar o modo de entrada, clique em **
 
 Depois de ter criado e testado seu modelo de voz com êxito, implementá-la num ponto de extremidade de texto em voz personalizada. Em seguida, utilizar este ponto final em vez do ponto final comum quando são efetuados pedidos de texto em voz através da API REST. O ponto final personalizado pode ser chamado apenas pela subscrição que utilizou para implementar o tipo de letra.
 
-Para criar um novo ponto final personalizado, escolha **pontos de extremidade** no menu de voz personalizada na parte superior da página. A página de implementação é apresentada, com sua tabela de pontos finais de voz personalizada atual, se aplicável.
+Para criar um novo ponto final personalizado, escolha **pontos de extremidade** no menu de voz personalizada na parte superior da página. A página meus vozes implementado é apresentada, com sua tabela de pontos finais de voz personalizada atual, se houver. A Localidade atual será refletida na primeira linha da tabela. Para criar uma implementação para um idioma diferente, altere a localidade apresentada. (Tem de corresponder a voz que está a implementar).
 
-Clique nas **implementar vozes** botão para criar um novo ponto final. O ponto final de criar"página, a Localidade atual é refletida na primeira linha da tabela. Para criar uma implementação para um idioma diferente, altere a localidade apresentada. (Tem de corresponder a voz que está a implementar). Introduza o nome e descrição do seu ponto final personalizado.
+Clique nas **implementar vozes** botão para criar um novo ponto final. Introduza o nome e descrição do seu ponto final personalizado.
 
 No menu de subscrição, escolha a subscrição que pretende utilizar. Os utilizadores de subscrição gratuita podem ter apenas um modelo implementado por vez. Utilizadores de subscrição Standard podem criar até 20 pontos de extremidade, cada um com sua própria voz personalizada.
 
 ![Criar ponto final](media/custom-voice/create-endpoint.png)
 
-Depois de selecionar o modelo de implementação, clique em **criar**. A página de implementação será exibida novamente, agora com uma entrada para o ponto final de novo. Pode demorar alguns minutos para instanciar um novo ponto final. Quando o estado da implementação é concluído com êxito, o ponto final está pronto para ser utilizado.
+Depois de selecionar o modelo de implementação, clique em **criar**. A página meus vozes implementado será exibida novamente, agora com uma entrada para o ponto final de novo. Pode demorar alguns minutos para instanciar um novo ponto final. Quando o estado da implementação é concluído com êxito, o ponto final está pronto para ser utilizado.
 
 ![Meu vozes implementados](media/custom-voice/my-deployed-voices.png)
 
-Quando o estado de implementação é concluído com êxito, o ponto final do seu tipo de voz implementado é apresentado na minha tabela de vozes implementado. Pode utilizar este URI diretamente numa solicitação HTTP.
+Quando o estado de implementação é concluído com êxito, o ponto final do seu tipo de voz implementado é apresentada na tabela My vozes implementado. Pode utilizar este URI diretamente numa solicitação HTTP.
 
-Testes online do ponto de extremidade também estão disponível através do portal de voz personalizada. Para testar o ponto final, escolha **pontos finais de teste** no menu de lista pendente de voz personalizada. O ponto final de teste de página é apresentada. Escolha uma voz que tenha implementado e o texto seja falado (no texto sem formatação ou formato SSML) de entrada na caixa de texto.
+Testes online do ponto de extremidade também estão disponível através do portal de voz personalizada. Para testar o ponto final, escolha **pontos finais de teste** no menu de lista pendente de voz personalizada. O ponto final de teste de página é apresentada. Escolha uma voz personalizada implementada e introduza o texto seja falado (no texto sem formatação ou formato SSML) na caixa de texto.
 
 > [!NOTE] 
 > Quando utilizar SSML, o `<voice>` etiqueta tem de especificar o nome que deu a sua voz personalizada quando o criou.

@@ -11,20 +11,43 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: douge
-ms.openlocfilehash: c5224422c88690ccf063a27b053963ebde622a1e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172107"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247332"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
 Este guia contém informações sobre problemas comuns que poderá ter quando utilizar espaços de desenvolvimento do Azure.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erro "Falha ao criar o controlador de espaços de desenvolvimento do Azure"
+
+Poderá ver este erro quando algo dá errado com a criação do controlador. Se for um erro transitório, eliminar e recriar o controlador irão corrigi-lo.
+
+### <a name="try"></a>Experimente:
+
+Para eliminar o controlador, utilize a CLI do Azure Dev espaços. Não é possível fazê-lo no Visual Studio ou no Cloud Shell. Para instalar a CLI AZDS, primeiro de instalar a CLI do Azure e, em seguida, execute este comando:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+E, em seguida, execute este comando para eliminar o controlador:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Recriar o controlador pode ser feito na CLI ou do Visual Studio. Siga as instruções nos tutoriais como se a iniciar pela primeira vez.
+
+
 ## <a name="error-service-cannot-be-started"></a>Erro "serviço não pode ser iniciado."
 
 Pode ver este erro quando o seu código de serviço não iniciar. A causa é, muitas vezes, no código do usuário. Para obter mais informações de diagnóstico, efetue as seguintes alterações aos seus comandos e as definições:
+
+### <a name="try"></a>Experimente:
 
 Na linha de comando:
 

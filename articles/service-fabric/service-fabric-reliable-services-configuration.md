@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866183"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249024"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar a reliable services com estado
 Existem dois conjuntos de definições de configuração de serviços fiáveis. Um conjunto é global para todos os serviços fiáveis do cluster enquanto o outro conjunto é específico para um determinado serviço fiável.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Especifica um GUID exclusivo a utilizar para identificar o arquivo de log partilhados utilizado com esta réplica. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogId for especificada, em seguida, SharedLogPath deve também ser especificado. |
 | SharedLogPath |Nome do caminho completamente qualificado |"" |Especifica o caminho totalmente qualificado, onde o ficheiro de registo partilhado para esta réplica será criado. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogPath for especificada, em seguida, SharedLogId deve também ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitorização para chamadas de API geridos. Exemplo: utilizador forneceu a função de retorno de chamada de cópia de segurança. Após ter passado o intervalo, será enviado um relatório de estado de funcionamento de aviso para o Gestor de estado de funcionamento. |
+| LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável em qual log truncamento será iniciado em todas as réplicas. É utilizado para garantir que o registo ser truncado também com base no tempo, em vez de apenas tamanho do registo. Esta definição também força a remoção de entradas foi eliminadas no dicionário fiável. Por conseguinte, ele pode ser usado para se certificar de itens eliminados são removidos de forma atempada. |
 
 ### <a name="sample-configuration-via-code"></a>Exemplo de configuração por meio do código
 ```csharp

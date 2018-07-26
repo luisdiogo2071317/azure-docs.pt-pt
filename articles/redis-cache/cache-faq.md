@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232966"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259335"
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache de Redis do Azure.
@@ -139,7 +139,7 @@ Esta tabela, preste as seguintes conclusões:
 | C0 |250 MB |Partilhado |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -358,7 +358,7 @@ Os comandos seguintes fornecem um exemplo de uso redis benchmark.exe. Para obter
 ### <a name="important-details-about-threadpool-growth"></a>Detalhes importantes sobre o crescimento de ThreadPool
 O ThreadPool do CLR tem dois tipos de threads - "Trabalho" e "Porta de conclusão e/s" (também conhecido como IOCP) threads.
 
-* Threads de trabalho são utilizados quando para coisas como processamento `Task.Run(…)` ou `ThreadPool.QueueUserWorkItem(…)` métodos. Esses threads também são usados por vários componentes do CLR, quando o trabalho tem de ser efetuadas num thread em segundo plano.
+* Threads de trabalho são utilizados para ações como o processamento da `Task.Run(…)`, ou `ThreadPool.QueueUserWorkItem(…)` métodos. Esses threads também são usados por vários componentes do CLR, quando o trabalho tem de ser efetuadas num thread em segundo plano.
 * Threads IOCP são utilizados quando acontece de e/s assíncrona (por exemplo, ler a partir da rede).
 
 O pool de segmentos fornece novos threads de trabalho ou threads de conclusão de e/s sob demanda (sem qualquer limitação) até atingir a definição de "Mínimo" para cada tipo de thread. Por predefinição, o número mínimo de threads é definido como o número de processadores num sistema.

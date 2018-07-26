@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059782"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257907"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>Notificações por e-mail no Azure AD PIM
 
@@ -32,7 +32,7 @@ Quando ocorrem eventos chave no Azure AD Privileged Identity Management (PIM), n
 - Quando é atribuída uma função com privilégios
 - Quando está ativado o Azure AD PIM
 
-Começando no final de Julho de 2018, notificações por e-mail enviadas por meio do PIM terá um novo endereço de e-mail do remetente e um novo design visual. Esta atualização irá afetar os dois PIM do Azure AD e o PIM para recursos do Azure. Todos os eventos que foram acionados anteriormente uma notificação por e-mail irão continuar a enviar um e-mail. Esta atualização é apenas uma alteração visual sem alterações à funcionalidade.
+Começando no final de Julho de 2018, notificações por e-mail enviadas por meio do PIM terá um novo endereço de e-mail do remetente e um novo design visual. Esta atualização irá afetar os dois PIM do Azure AD e o PIM para recursos do Azure. Todos os eventos que foram acionados anteriormente uma notificação por e-mail irão continuar a enviar um e-mail. Conteúdo de ter atualizado por alguns emails fornecendo informações mais específicas.
 
 ## <a name="sender-email-address"></a>Endereço de e-mail do remetente
 
@@ -45,6 +45,12 @@ Notificações por e-mail tinham anteriormente, o seguinte endereço:
 
 - Endereço de e-mail:  **azureadnotifications@microsoft.com**
 - Nome a apresentar: o serviço de notificação do Microsoft Azure AD
+
+## <a name="email-subject-line"></a>Linha de assunto do e-mail
+
+Começando no final de Julho de 2018, notificações por e-mail para ambas do Azure AD e funções de recursos do Azure terão uma **PIM** prefixo na linha de assunto. Segue-se um exemplo:
+
+- PIM: Alain Charon permanentemente foi atribuída a função de leitor de cópia de segurança.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>E-mails PIM para funções do Azure AD
 

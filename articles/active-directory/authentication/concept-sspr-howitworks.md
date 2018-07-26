@@ -10,16 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6b4c709f27a0c23c4fb977f64ef45e82df378d47
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159479"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248224"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
 
 Como a palavra-passe self-service reposição trabalho (SSPR)? O que significa essa opção na interface do? Continue a ler para obter mais informações sobre a SSPR do Azure Active Directory (Azure AD).
+
+|     |
+| --- |
+| Notificação de aplicação móvel e o código de aplicação móvel como métodos de palavra-passe self-service do Azure AD reposição são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Como a palavra-passe portal de reposição?
 
@@ -54,6 +59,8 @@ Página de reposição de leitura, os seguintes passos para saber mais sobre a l
 
 Se estiver ativada a SSPR, tem de selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes ouvir essas opções referidas como "gates." É altamente recomendável que **escolher métodos de autenticação de dois ou mais** para que os utilizadores têm mais flexibilidade, caso sejam não é possível acessar um quando precisarem.
 
+* Notificação de aplicação móvel (pré-visualização)
+* Código da aplicação móvel (pré-visualização)
 * Email
 * Número de telemóvel
 * Telefone do emprego
@@ -70,6 +77,16 @@ Esta opção determina o número mínimo dos métodos de autenticação disponí
 Os utilizadores podem optar por fornecer mais métodos de autenticação, se o administrador ativa a esse método de autenticação.
 
 Se um utilizador não tem os métodos necessários mínimos registados, verão uma página de erro que os direcione para solicitar que um administrador de reposição da palavra-passe.
+
+#### <a name="mobile-app-and-sspr-preview"></a>Aplicação móvel e SSPR (pré-visualização)
+
+Quando utilizar uma aplicação móvel, como a aplicação Microsoft Authenticator, como um método para a reposição de palavra-passe utilizadores tenha em atenção o seguinte. Senha de autoatendimento repor quando apenas um método é necessário para a reposição de código de verificação é a única opção disponível para os utilizadores. Quando dois métodos são necessários os utilizadores poderão repor usando **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
+
+| Número de métodos necessários para a reposição | um | Dois |
+| :---: | :---: | :---: |
+| Funcionalidades de aplicações móveis disponíveis | Código | Código ou de notificação |
+
+Os utilizadores não terão a opção para registar a aplicação móvel quando efetuar o registo para a reposição de palavra-passe self-service. Em vez disso, os utilizadores podem registar a aplicação móvel no aka.ms/mfasetup ou a pré-visualização de registo de informações de segurança por aka.ms/setupsecurityinfo. 
 
 ### <a name="change-authentication-methods"></a>Alterar o método de autenticação
 

@@ -8,31 +8,35 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918745"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248171"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
-## <a name="what-are-azure-resource-diagnostic-logs"></a>Quais são os registos de diagnóstico de recursos do Azure
+## <a name="what-are-azure-monitor-diagnostic-logs"></a>Quais são os registos de diagnóstico do Azure Monitor
 
-**Registos de diagnóstico ao nível de recursos do Azure** registos emitidos por um recurso que fornecem dados avançados e frequentes sobre o funcionamento desse recurso. O conteúdo estes registos varia consoante o tipo de recurso. Por exemplo, contadores de regras do grupo de segurança de rede e de auditorias do Cofre de chaves são duas categorias de registos de recursos.
+**Registos de diagnóstico do Azure Monitor** registos emitidos por um serviço do Azure que fornecem dados avançados e frequentes sobre o funcionamento desse serviço. O Azure Monitor disponibiliza dois tipos de registos de diagnóstico:
+* **Registos de inquilino** -estes registos provenientes de serviços de inquilinos existentes fora de uma subscrição do Azure, como registos do Azure Active Directory.
+* **Registos de recursos** -estes registos provenientes de serviços do Azure que implementar recursos dentro de uma subscrição do Azure, tais como grupos de segurança de rede ou contas de armazenamento.
 
-Os registos de diagnóstico ao nível do recurso diferem da [registo de atividades](monitoring-overview-activity-logs.md). O registo de atividades fornece informações sobre as operações executadas nos recursos na sua subscrição com o Resource Manager, por exemplo, criar uma máquina virtual ou eliminar uma aplicação lógica. O registo de atividades é um registo ao nível da subscrição. Os registos de diagnóstico ao nível de recursos fornecem informações aprofundadas de operações executadas dentro desse recurso em si, por exemplo, obter um segredo a partir de um cofre de chave.
+    ![Registos do diagnóstico de recursos vs outros tipos de registos ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-Os registos de diagnóstico ao nível de recursos também diferem dos registos de diagnóstico de nível de sistema operacional convidado. Os registos de diagnóstico do SO convidado são esses recolhidos por um agente em execução numa máquina virtual ou outros suportado o tipo de recurso. Os registos de diagnóstico ao nível de recursos exigem sem agente e captura dados de recursos específicos da plataforma do Azure em si, enquanto os registos de diagnóstico de nível de sistema operacional convidado capturar os dados do sistema operativo e aplicações em execução numa máquina virtual.
+O conteúdo estes registos varia consoante o tipo de serviço e de recursos do Azure. Por exemplo, contadores de regras do grupo de segurança de rede e de auditorias do Cofre de chaves são dois tipos de registos de diagnóstico.
 
-Nem todos os recursos suportam o novo tipo de recurso dos registos de diagnóstico descrito aqui. Este artigo contém uma seção que lista os novos registos de diagnóstico ao nível de recursos de suporte de que tipos de recursos.
+Estes registos são diferentes do [registo de atividades](monitoring-overview-activity-logs.md). O registo de atividades fornece informações sobre as operações executadas nos recursos na sua subscrição com o Resource Manager, por exemplo, criar uma máquina virtual ou eliminar uma aplicação lógica. O registo de atividades é um registo ao nível da subscrição. Os registos de diagnóstico ao nível de recursos fornecem informações aprofundadas de operações executadas dentro desse recurso em si, por exemplo, obter um segredo a partir de um cofre de chave.
 
-![Registos do diagnóstico de recursos vs outros tipos de registos ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+Estes registos também diferem dos registos de diagnóstico de nível de sistema operacional convidado. Os registos de diagnóstico do SO convidado são esses recolhidos por um agente em execução numa máquina virtual ou outros suportado o tipo de recurso. Os registos de diagnóstico ao nível de recursos exigem sem agente e captura dados de recursos específicos da plataforma do Azure em si, enquanto os registos de diagnóstico de nível de sistema operacional convidado capturar os dados do sistema operativo e aplicações em execução numa máquina virtual.
 
-## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>O que pode fazer com os registos de diagnóstico ao nível do recurso
-Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico de recursos:
+Nem todos os serviços suportam os registos de diagnóstico descritos aqui. [Este artigo contém uma lista de secção quais os serviços que suportam registos de diagnóstico](./monitoring-diagnostic-logs-schema.md).
 
-![Colocação de lógica de registos de diagnóstico de recursos](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+## <a name="what-you-can-do-with-diagnostic-logs"></a>O que pode fazer com os registos de diagnóstico
+Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
+
+![Colocação lógica dos registos de diagnóstico](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 * Guarde-as para um [ **conta de armazenamento** ](monitoring-archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o tempo (em dias) de retenção usando **definições de diagnóstico de recursos**.
 * [Stream-lhes **os Hubs de eventos** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
@@ -44,22 +48,22 @@ Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de evento
 >  Atualmente não pode arquivar dados a um armazenamento de conta que, por trás de uma rede virtual protegida.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterados para linhas de JSON de 1 de Novembro de 2018. [Veja este artigo para obter uma descrição do impacto e como atualizar a sua ferramenta para lidar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
-## <a name="resource-diagnostic-settings"></a>Definições de diagnóstico de recursos
+## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Registos de diagnóstico de recursos para não-Compute recursos estão configurados com definições de diagnóstico de recursos. **Definições de diagnóstico de recursos** para um controlo de recursos:
+Registos de diagnóstico de recursos são configurados com definições de diagnóstico de recursos. Os registos de diagnóstico do inquilino estão configurados ao utilizar uma definição de diagnóstico do inquilino. **Definições de diagnóstico** para um controle de serviço:
 
-* Onde os registos de diagnóstico de recursos e as métricas são enviadas (conta de armazenamento, os Hubs de eventos, e/ou do Log Analytics).
+* Onde os registos de diagnóstico e métricas são enviadas (conta de armazenamento, os Hubs de eventos, e/ou do Log Analytics).
 * As categorias de registo são enviadas e se também são enviados dados métricos.
 * O tempo em que cada categoria de registo deve ser mantida numa conta de armazenamento
     - A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
     - Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativado (por exemplo, se apenas as opções de Hubs de eventos ou o Log Analytics estão selecionadas), as políticas de retenção não têm efeito.
     - Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
-Estas definições são facilmente configuradas através das definições de diagnóstico para um recurso no portal do Azure, através do Azure PowerShell e comandos da CLI ou o [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Estas definições são facilmente configuradas através das definições de diagnóstico no portal, através do Azure PowerShell e comandos da CLI ou o [API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
@@ -68,17 +72,14 @@ Estas definições são facilmente configuradas através das definições de dia
 >
 >
 
-> [!WARNING]
-> Os registos de diagnóstico e métricas da camada de SO convidado de utilização de recursos (por exemplo, VMs ou recursos de infraestrutura do serviço) de computação [um mecanismo separado para configuração e seleção de saídas](../azure-diagnostics.md).
+## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Como ativar a recolha de registos de diagnóstico
 
-## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Como ativar a recolha de registos de diagnóstico de recursos
-
-Recolha de registos de diagnóstico de recursos pode ser ativada [como parte da criação de um recurso num modelo do Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) ou depois de um recurso é criado da página desse recurso no portal. Também pode ativar a recolha em qualquer altura utilizando o Azure PowerShell ou CLI de comandos ou utilizando a API de REST do Azure Monitor.
+Recolha de registos de diagnóstico pode ser ativada [como parte da criação de um recurso num modelo do Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) ou depois de um recurso é criado da página desse recurso no portal. Também pode ativar a recolha em qualquer altura utilizando o Azure PowerShell ou CLI de comandos ou utilizando a API de REST do Azure Monitor.
 
 > [!TIP]
 > Estas instruções não poderão aplicar-se diretamente a todos os recursos. Veja as ligações de esquema na parte inferior desta página para entender as etapas especiais que podem ser aplicadas a determinados tipos de recursos.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Ativar a recolha de registos de diagnóstico de recursos no portal
+### <a name="enable-collection-of-diagnostic-logs-in-the-portal"></a>Ativar a recolha de registos de diagnóstico no portal
 
 Pode ativar a recolha de registos de diagnóstico de recursos no portal do Azure depois de ter sido criado um recurso ao aceder a um recurso específico ou ao navegar para o Azure Monitor. Para ativar esta opção através do Azure Monitor:
 
@@ -103,6 +104,10 @@ Pode ativar a recolha de registos de diagnóstico de recursos no portal do Azure
 4. Clique em **Guardar**.
 
 Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso e os registos de diagnóstico são enviados para os destinos especificados quando novos dados de evento são gerados.
+
+Definições de diagnóstico de inquilino só podem ser configuradas no painel do portal para o serviço de inquilino - estas definições não aparecem no painel de definições de diagnóstico do Azure Monitor. Por exemplo, os registos de auditoria do Azure Active Directory são configurados ao clicar no **definições de exportação de dados** no painel de registos de auditoria.
+
+![Definições de diagnóstico do AAD](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-aad.png)
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Ativar a recolha de registos de diagnóstico de recursos através do PowerShell
 
@@ -137,6 +142,8 @@ Pode obter o ID de recurso da sua área de trabalho do Log Analytics com o segui
 ```
 
 Pode combinar estes parâmetros para ativar várias opções de saída.
+
+Atualmente, não é possível configurar as definições de diagnóstico de inquilino com o Azure PowerShell.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Ativar a recolha de registos de diagnóstico de recursos através da CLI 2.0 do Azure
 
@@ -198,9 +205,13 @@ O `--resource-group` argumento só é necessária se `--workspace` não é um ID
 
 Com qualquer comando, pode adicionar categorias adicionais no registo de diagnóstico através da adição de dicionários para a matriz JSON passada como o `--logs` parâmetro. Pode combinar a `--storage-account`, `--event-hub`, e `--workspace` parâmetros para ativar várias opções de saída.
 
+Atualmente, não é possível configurar as definições de diagnóstico de inquilino com a CLI.
+
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>Ativar a recolha de registos de diagnóstico de recursos através da REST API
 
-Para alterar as definições de diagnóstico utilizando a API de REST do Azure Monitor, consulte [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Para alterar as definições de diagnóstico utilizando a API de REST do Azure Monitor, consulte [este documento](https://docs.microsoft.com/rest/api/monitor/).
+
+Atualmente, não é possível configurar as definições de diagnóstico de inquilino com a API de REST do Azure Monitor.
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Gerir definições de diagnóstico de recursos no portal
 
@@ -216,7 +227,7 @@ Aqui pode ver e filtrar todos os recursos que suportam definições de diagnóst
 
 Adicionar uma definição de diagnóstico abre a vista de definições de diagnóstico, onde pode ativar, desativar ou modificar as definições de diagnóstico para o recurso selecionado.
 
-## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Serviços suportados, categorias e esquemas para registos de diagnóstico de recursos
+## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Serviços suportados, categorias e esquemas para os registos de diagnóstico
 
 [Veja este artigo](monitoring-diagnostic-logs-schema.md) para uma lista completa dos serviços suportados e as categorias de registo e os esquemas usados por esses serviços.
 

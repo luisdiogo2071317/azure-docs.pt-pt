@@ -3,8 +3,8 @@ title: Use Data Lake Store com o Hadoop no HDInsight do Azure
 description: Saiba como consultar dados do Azure Data Lake Store e armazenar os resultados da sua análise.
 services: hdinsight,storage
 tags: azure-portal
-author: mumian
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
@@ -12,12 +12,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 8f81e04c1b80173868f068957b6ca7da6bfe19c1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 48b98e170601f80e8cd1348ccc9afa3b5fc0c4e1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222894"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258036"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Utilizar o Data Lake Store com clusters do Azure HDInsight
 
@@ -28,7 +28,7 @@ Neste artigo, ficará a saber como o Data Lake Store funciona com clusters do HD
 > [!NOTE]
 > O Data Lake Store é sempre acedido através de um canal seguro, pelo que não existe nenhum nome de esquema de sistema de ficheiros `adls`. Utiliza sempre `adl`.
 > 
-> 
+
 
 ## <a name="availability-for-hdinsight-clusters"></a>Disponibilidade para os clusters do HDInsight
 
@@ -136,8 +136,8 @@ Utilize as hiperligações seguintes para obter instruções detalhadas sobre co
 O código do PowerShell de exemplo seguinte lê um arquivo de certificados local e atualiza o seu cluster do HDInsight com o novo certificado para aceder ao Azure Data Lake Store. Fornece seu próprio nome de cluster do HDInsight, o nome do grupo de recursos, o ID de subscrição, ID de aplicação, o caminho local para o certificado. Escreva a palavra-passe quando lhe for pedido.
 
 ```powershell-interactive
-$clusterName = 'MyCluster'
-$resourceGroupName = 'MyResourceGroup'
+$clusterName = '<clustername>'
+$resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
 $generateSelfSignedCert = $false

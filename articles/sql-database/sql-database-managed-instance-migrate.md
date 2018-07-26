@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069268"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247215"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância gerida da base de dados SQL do Azure
 
@@ -24,7 +24,7 @@ Neste artigo, ficará a conhecer os métodos para migrar um SQL Server 2005 ou u
 
 A Instância Gerida da Base de Dados SQL é uma expansão do serviço de Base de Dados SQL existente, que fornece uma terceira opção de implementação juntamente com as bases de dados individuais e conjuntos elásticos.  Ele foi projetado para ativar a base de dados lift-and-shift para um PaaS totalmente gerido, sem ter de redesenhar a aplicação. A Instância Gerida da Base de Dados SQL oferece compatibilidade superior com o modelo de programação SQL Server no local e suporte disponível para a grande maioria das funcionalidades do SQL Server, bem como as ferramentas e serviços que acompanham.
 
-Em alto nível, o processo de migração de aplicativos é semelhante no diagrama seguinte:
+Num alto nível, o processo de migração do aplicativo é semelhante a:
 
 ![Processo de migração](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -105,7 +105,7 @@ A tabela seguinte fornece mais informações sobre os métodos que pode utilizar
 |Restaurar a partir de armazenamento do Azure para a instância gerida|[Restaurar de URL com a CREDENCIAL de SAS](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - Ao migrar uma base de dados protegido pelo [encriptação de dados transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para SQL instância gerida do Azure com a opção Restaurar nativo, tem de ser migradas antes do certificado correspondente do IaaS SQL Server ou no local restauro de base de dados. Para obter passos detalhados, consulte [cert TDE de migrar para a instância gerida](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Quando migrar uma base de dados protegida pela [Encriptação de Dados Transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) para a Instância Gerida do SQL do Azure com a opção de restauro nativo, o certificado correspondente do SQL Server no local ou de IaaS tem de ser migrado antes do restauro da base de dados. Para obter passos detalhados, consulte [cert TDE de migrar para a instância gerida](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Restauro de bases de dados do sistema não é suportado. Para migrar objetos do nível de instância (armazenados nas bases de dados mestra ou msdb), recomendamos que o script-os e executar scripts T-SQL na instância de destino.
 
 Para obter um tutorial completo que inclui a restaurar uma cópia de segurança da base de dados para uma instância gerida utilizando uma credencial SAS, consulte [restaurar a partir de cópia de segurança para uma instância gerida](sql-database-managed-instance-restore-from-backup-tutorial.md).

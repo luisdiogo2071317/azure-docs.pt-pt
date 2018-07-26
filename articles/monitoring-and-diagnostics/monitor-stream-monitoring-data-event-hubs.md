@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237945"
+ms.locfileid: "39248101"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -29,8 +29,9 @@ No seu ambiente do Azure, existem vários "escalões" de dados de monitorizaçã
   - Por instrumentar o seu código com um SDK, tais como o [SDK do Application Insights](../application-insights/app-insights-overview.md).
   - Executando um agente de monitorização que escuta para registos de nova aplicação na máquina de execução da sua aplicação, tais como o [o agente de diagnóstico do Windows Azure](./azure-diagnostics.md) ou [o agente de diagnóstico do Linux Azure](../virtual-machines/linux/diagnostic-extension.md).
 - **SO convidado, os dados de monitorização:** dados sobre o sistema operativo no qual a sua aplicação está em execução. Exemplos de dados de monitorização de SO convidado seria Linux syslog ou eventos de sistema do Windows. Para recolher este tipo de dados, tem de instalar um agente, como o [o agente de diagnóstico do Windows Azure](./azure-diagnostics.md) ou [o agente de diagnóstico do Linux Azure](../virtual-machines/linux/diagnostic-extension.md).
-- **Dados de monitorização de recursos do Azure:** dados sobre o funcionamento de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, existe um SO convidado e aplicações para monitorizar dentro desse serviço do Azure. Outros recursos do Azure, tais como grupos de segurança de rede, o recurso de dados de monitorização é o escalão mais elevado de dados disponíveis (uma vez que não existe nenhum SO convidado ou a aplicação em execução nesses recursos). Estes dados podem ser coletados com [definições de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **Plataforma do Azure, os dados de monitorização:** dados sobre a operação e o gerenciamento de uma subscrição do Azure ou o inquilino, bem como dados sobre o estado de funcionamento e a operação do Azure em si. O [registo de atividades](./monitoring-overview-activity-logs.md), incluindo dados de estado de funcionamento do serviço e o Active Directory, as auditorias são exemplos de plataforma de dados de monitorização. Estes dados podem ser recolhidos com definições de diagnóstico também.
+- **Dados de monitorização de recursos do Azure:** dados sobre o funcionamento de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, existe um SO convidado e aplicações para monitorizar dentro desse serviço do Azure. Outros recursos do Azure, tais como grupos de segurança de rede, o recurso de dados de monitorização é o escalão mais elevado de dados disponíveis (uma vez que não existe nenhum SO convidado ou a aplicação em execução nesses recursos). Estes dados podem ser coletados com [definições de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Subscrição do Azure, os dados de monitorização:** dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. O [registo de atividades](./monitoring-overview-activity-logs.md) contém a subscrição a maioria dos dados, tais como incidentes de estado de funcionamento do serviço e do Azure Resource Manager auditorias de monitorização. Pode recolher estes dados a utilizar um perfil de registo.
+- **A monitorização dos dados de inquilino do Azure:** dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory. Auditorias do Azure Active Directory e inícios de sessão são exemplos de dados de monitorização de inquilino. Estes dados podem ser recolhidos com uma definição de diagnóstico do inquilino.
 
 Dados a partir de qualquer camada podem ser enviados para um hub de eventos, onde pode ser extraída para uma ferramenta de parceiro. As secções seguintes descrevem como configurar dados de cada camada para ser transmitido para um hub de eventos. Os passos partem do princípio de que já tem ativos nessa camada para serem monitorizados.
 
@@ -47,11 +48,17 @@ Antes de começar, precisa [criar um hub de eventos e de espaço de nomes de Hub
 
 Consulte também os [FAQ de Hubs de eventos do Azure](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como posso configurar dados de monitorização de plataforma do Azure para ser transmitido para um hub de eventos?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como posso configurar a monitorização dos dados de inquilino do Azure para ser transmitido para um hub de eventos?
 
-Plataforma do Azure, os dados de monitorização é proveniente de duas origens principais:
-1. O [registo de atividades do Azure](./monitoring-overview-activity-logs.md), que contém o criar, atualizar e eliminar operações do Resource Manager, as alterações no [estado de funcionamento do serviço do Azure](../service-health/service-health-overview.md) que pode afetar recursos na sua subscrição, o [estado de funcionamento do recurso](../service-health/resource-health-overview.md) transições de estado e vários outros tipos de eventos de nível de assinatura. [Este artigo fornece detalhes sobre todas as categorias de eventos que aparecem no registo de atividades do Azure](./monitoring-activity-log-schema.md).
-2. [Relatórios do Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), que contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico. Ele não é possível transmitir dados do Azure Active Directory para um hub de eventos.
+A monitorização dos dados de inquilino do Azure está atualmente disponível apenas para o Azure Active Directory. Pode utilizar os dados a partir [do Azure Active Directory reporting](../active-directory/active-directory-reporting-azure-portal.md), que contém o histórico de início de sessão atividade e auditoria do registo de alterações feitas a um inquilino específico.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Stream dados do Azure Active Directory para um hub de eventos
+
+Para enviar dados de registo do Azure Active Directory num espaço de nomes de Hubs de eventos, configurou uma definição de diagnóstico do inquilino no seu inquilino do AAD. [Siga este guia](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) para configurar uma definição de diagnóstico do inquilino.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Como posso configurar a monitorização dos dados de subscrição do Azure para ser transmitido para um hub de eventos?
+
+A monitorização dos dados de subscrição do Azure está disponível na [registo de atividades do Azure](./monitoring-overview-activity-logs.md). Contém o criar, atualizar e eliminar operações do Resource Manager, as alterações nos [estado de funcionamento do serviço do Azure](../service-health/service-health-overview.md) que pode afetar recursos na sua subscrição, o [estado de funcionamento do recurso](../service-health/resource-health-overview.md) Estado transições e vários outros tipos de eventos de nível de assinatura. [Este artigo fornece detalhes sobre todas as categorias de eventos que aparecem no registo de atividades do Azure](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Dados de registo de atividades do Azure Stream para um hub de eventos
 

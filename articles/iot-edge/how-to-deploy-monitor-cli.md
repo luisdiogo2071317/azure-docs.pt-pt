@@ -1,45 +1,45 @@
 ---
-title: Implementar e monitorizar módulos para limite de IoT do Azure (CLI) | Microsoft Docs
-description: Gerir os módulos que são executadas em dispositivos de limite
+title: Implementar e monitorizar módulos para o Azure IoT Edge (CLI) | Documentos da Microsoft
+description: Gerir os módulos que são executados em dispositivos periféricos
 keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3dfb0fe0227fdd0ff1a43cb7b0a89eb9d3e066f4
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097942"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257985"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos de limite de IoT com dimensionamento, com a CLI do Azure
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos do IoT Edge em escala com a CLI do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Limite de IoT do Azure permite-lhe mover analytics para o limite e fornece uma interface de nuvem, para que possa gerir e monitorizar os dispositivos de IoT Edge sem ter de aceder fisicamente cada um deles. A capacidade para gerir remotamente os dispositivos é cada vez mais importante como soluções de Internet das coisas estão a crescer maiores e mais complexas. Limite de IoT do Azure foi concebido para suportar os objetivos de negócio, independentemente do quantos dispositivos a adicionar.
+O Azure IoT Edge permite-lhe mover analytics no Edge e fornece uma interface na cloud, para que possa gerir e monitorizar os seus dispositivos IoT Edge sem ter de aceder fisicamente aos cada um deles. A capacidade para gerir remotamente dispositivos é cada vez mais importante, como soluções de Internet das coisas estão crescendo maiores e mais complexas. O Azure IoT Edge foi concebido para suportar suas metas de negócios, não importa o número de dispositivos, adicionar.
 
-Pode gerir os dispositivos individuais e implementá-las módulos um de cada vez. No entanto, se pretender efetuar alterações nos dispositivos em grande escala, pode criar um **implementação automática de limite de IoT**, que faz parte automática da gestão de dispositivos do IoT Hub. As implementações são dinâmicos processos que permitem-lhe implementar vários módulos em vários dispositivos de uma só vez, controlar o estado e estado de funcionamento dos módulos e efetuar alterações quando for necessário. 
+Pode gerir dispositivos individuais e implementar módulos-los um de cada vez. No entanto, se desejar fazer alterações em dispositivos em grande escala, pode criar uma **implementação automática do IoT Edge**, que faz parte da gestão automática de dispositivos no IoT Hub. As implementações são processos dinâmicos que permitem-lhe implementar vários módulos para vários dispositivos, ao mesmo tempo, controlar o estado de funcionamento dos módulos e fazer alterações quando for necessário. 
 
-Neste artigo, configura a CLI 2.0 do Azure e a extensão de IoT. Em seguida, irá aprender a implementar módulos a um conjunto de dispositivos de limite de IoT e monitorizar o progresso utilizando os comandos da CLI disponíveis.
+Neste artigo, configura a CLI 2.0 do Azure e a extensão de IoT. Em seguida, irá aprender a implementar módulos para um conjunto de dispositivos do IoT Edge e monitorizar o progresso usando os comandos da CLI disponíveis.
 
-## <a name="cli-prerequisites"></a>Pré-requisitos do CLI
+## <a name="cli-prerequisites"></a>Pré-requisitos CLI
 
-* Um [IoT hub](../iot-hub/iot-hub-create-using-cli.md) na sua subscrição do Azure. 
-* [Dispositivos de limite de IoT](how-to-register-device-cli.md) com o tempo de execução de limite de IoT instalado.
+* Uma [IoT hub](../iot-hub/iot-hub-create-using-cli.md) na sua subscrição do Azure. 
+* [Dispositivos IoT Edge](how-to-register-device-cli.md) com o runtime do IoT Edge instalado.
 * [CLI 2.0 do Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. 
 * O [extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implementação
+## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-O manifesto de implementação é um documento JSON que descreve quais os módulos que para implementar, como os dados fluem entre os módulos e propriedades pretendidas de duplos o módulo. Para obter mais informações sobre como implementação manifestos trabalho e como criá-los, consulte [compreender como os módulos de IoT limite podem ser utilizados, configurados e reutilizados](module-composition.md).
+Um manifesto de implantação é um documento JSON que descreve quais os módulos para implementar, como os dados fluem entre os módulos e propriedades pretendidas do duplos de módulo. Para obter mais informações sobre como o trabalho de manifestos de implantação e como criá-los, consulte [compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
 
-Para implementar módulos com o Azure CLI 2.0, guarde o manifesto de implementação localmente como um ficheiro. txt. Irá utilizar o caminho do ficheiro na secção seguinte, quando executar o comando para aplicar a configuração para o seu dispositivo. 
+Para implementar módulos com a CLI 2.0 do Azure, guarde o manifesto de implantação localmente como um arquivo. txt. Irá utilizar o caminho do ficheiro na próxima seção ao executar o comando para aplicar a configuração para o seu dispositivo. 
 
-Eis um manifesto de implementação básica com um módulo como exemplo:
+Aqui está um manifesto de implantação básico com um módulo como exemplo:
 
    ```json
    {
@@ -113,9 +113,9 @@ Eis um manifesto de implementação básica com um módulo como exemplo:
    ```
 
 
-## <a name="identify-devices-using-tags"></a>Identificar dispositivos utilizando as etiquetas
+## <a name="identify-devices-using-tags"></a>Identificar os dispositivos utilizando etiquetas
 
-Antes de poder criar uma implementação, tem de ser capazes de especificar quais os dispositivos que pretende afetar. Limite do Azure IoT identifica dispositivos utilizando **etiquetas** no dispositivo duplo. Cada dispositivo pode ter várias etiquetas e pode defini-las qualquer forma que faz sentido para a sua solução. Por exemplo, se gerir um campus dos edifícios inteligentes, poderá adicionar as seguintes etiquetas para um dispositivo:
+Antes de poder criar uma implementação, terá de ser capazes de especificar quais os dispositivos que quer afetar. O Azure IoT Edge identifica dispositivos que utilizam **etiquetas** no dispositivo duplo. Cada dispositivo pode ter várias etiquetas e pode defini-las qualquer forma que faça sentido para a sua solução. Por exemplo, se gerencia um campus de edifícios inteligentes, poderá adicionar as seguintes etiquetas a um dispositivo:
 
 ```json
 "tags":{
@@ -132,7 +132,7 @@ Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [c
 
 ## <a name="create-a-deployment"></a>Criar uma implementação
 
-Implementar módulos nos seus dispositivos de destino através da criação de uma implementação que consiste o manifesto de implementação, bem como outros parâmetros. 
+Implementar módulos nos seus dispositivos de destino através da criação de uma implementação que consiste o manifesto de implantação, bem como outros parâmetros. 
 
 Utilize o seguinte comando para criar uma implementação:
 
@@ -140,47 +140,47 @@ Utilize o seguinte comando para criar uma implementação:
    az iot edge deployment create --deployment-id [deployment id] --labels [labels] --content [file path] --hub-name [hub name] --target-condition [target query] --priority [int]
    ```
 
-* **– id de implementação** -o nome da implementação que será criado no IoT hub. Dê um nome exclusivo que é até 128 minúsculas da implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
-* **-etiquetas** -adicionar etiquetas para ajudar a monitorizar as implementações. As etiquetas são nome, pares de valor que descrevem a sua implementação. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`
-* **-conteúdo** -Filepath à implementação de manifesto JSON. 
-* **-nome do hub** -nome do hub IoT em que a implementação será criada. O hub tem de ser na subscrição atual. Mudar para a subscrição com o comando pretendida `az account set -s [subscription name]`
-* **-condição de destino** -introduza uma condição de destino para determinar quais os dispositivos que irão ser segmentados com esta implementação. A condição é baseada em etiquetas do dispositivo duplo ou dispositivo duplo pretendido propriedades e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. 
-* **-prioridade** -um número inteiro positivo. No caso de duas ou mais implementações destinam-se no mesmo dispositivo, será aplicada a implementação com o maior valor numérico de prioridade.
+* **– id de implementação** -o nome da implementação que será criada no IoT hub. Dê um nome exclusivo que é até 128 minúsculas de sua implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
+* **– etiquetas** -adicionar etiquetas para ajudar a monitorizar as suas implementações. As etiquetas são pares de valor que descrevem a implementação, nome de. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`
+* **– conteúdo** -Filepath para a implementação de manifesto JSON. 
+* **-nome do hub** -nome do hub IoT em que a implementação será criada. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
+* **– condição de destino** -introduza uma condição de destino para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
+* **– prioridade** -um número inteiro positivo. No caso de duas ou mais implementações destinam-se no mesmo dispositivo, será aplicada a implementação com o maior valor numérico da prioridade.
 
 ## <a name="monitor-a-deployment"></a>Monitorizar uma implementação
 
-Utilize o seguinte comando para apresentar o conteúdo de uma implementação:
+Utilize o seguinte comando para exibir o conteúdo de uma implementação:
 
    ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
    ```
 * **– id de implementação** -o nome da implementação que existe no IoT hub.
-* **-nome do hub** -nome do hub IoT no qual existe a implementação. O hub tem de ser na subscrição atual. Mudar para a subscrição com o comando pretendida `az account set -s [subscription name]`
+* **-nome do hub** -nome do hub IoT na qual existe a implementação. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
 
-Inspecione a implementação na janela de comandos. O **métricas** listas de propriedades de uma contagem de cada métrica que é avaliada por cada hub:
-* **targetedCount** -uma métrica de sistema que especifica o número de dispositivos duplos no IoT Hub que correspondem à condição filtragem.
-* **appliedCount** -uma métrica de sistema Especifica o número de dispositivos que tenham a conteúdo de implementação aplicada aos respetivos duplos módulo no IoT Hub.
-* **reportedSuccessfulCount** -uma métrica de dispositivo que especifica o número de dispositivos de limite na implementação de relatórios sucesso do tempo de execução do cliente de limite de IoT.
-* **reportedFailedCount** -uma métrica de dispositivo que especifica o número de dispositivos de limite na implementação de relatórios de falha de tempo de execução do cliente do IoT Edge.
+Inspecione a implementação na janela de comando. O **métricas** listas de propriedades de uma contagem para cada métrica que é avaliada por cada hub:
+* **targetedCount** -uma métrica de sistema que especifica o número de dispositivos duplos no IoT Hub que correspondem à condição de destino.
+* **appliedCount** -uma métrica do sistema Especifica o número de dispositivos que tenha tido a conteúdo de implementação aplicada a seus duplos de módulo do IoT Hub.
+* **reportedSuccessfulCount** -uma métrica de dispositivo que especifica o número de dispositivos de ponta na implementação do relatório de sucesso do tempo de execução de cliente do IoT Edge.
+* **reportedFailedCount** -uma métrica de dispositivo que especifica o número de dispositivos de ponta na implementação de relatórios de falha de tempo de execução do cliente do IoT Edge.
 
-Pode apresentar uma lista de IDs de dispositivo ou objetos para cada uma das métricas usando o seguinte comando:
+Pode mostrar uma lista de identificações de dispositivo ou objetos para cada uma das métricas de utilizando o seguinte comando:
 
    ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] 
    ```
 
 * **– id de implementação** -o nome da implementação que existe no IoT hub.
-* **-métrica id** - o nome da métrica para o qual pretende ver a lista de dispositivos IDs, por exemplo `reportedFailedCount`
-* **-nome do hub** -nome do hub IoT no qual existe a implementação. O hub tem de ser na subscrição atual. Mudar para a subscrição com o comando pretendida `az account set -s [subscription name]`
+* **– id de métrica** – o nome da métrica para o qual pretende ver a lista de dispositivos IDs, por exemplo `reportedFailedCount`
+* **-nome do hub** -nome do hub IoT na qual existe a implementação. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
 
 ## <a name="modify-a-deployment"></a>Modificar uma implementação
 
-Quando modifica uma implementação, as alterações imediatamente são replicadas para todos os dispositivos visados. 
+Quando modifica uma implementação, as alterações são replicadas imediatamente para todos os dispositivos direcionados. 
 
 Se atualizar a condição de destino, ocorrem as seguintes atualizações:
-* Se um dispositivo não cumpre a condição de destino antigo, mas cumpre a condição de destino novo e esta implementação é a prioridade mais elevada para que o dispositivo, esta implementação é aplicada ao dispositivo. 
-* Se um dispositivo atualmente em execução nesta implementação já não satisfaz a condição de destino, desinstala esta implementação e demora na implementação de prioridade mais alta seguinte. 
-* Se um dispositivo atualmente em execução nesta implementação já não satisfaz a condição de destino e não satisfaz a condição de destino de todas as outras implementações, nenhuma alteração ocorre no dispositivo. O dispositivo continua em execução os respectivos módulos atuais no respetivo estado atual, mas não está a ser gerido como parte desta implementação já. Assim que cumpre a condição de destino de qualquer outra implementação, desinstala esta implementação e demora no novo. 
+* Se um dispositivo não cumpre a condição de destino antigo, mas atenda à nova condição de destino e esta implementação é a prioridade mais alta para esse dispositivo, em seguida, esta implementação é aplicada ao dispositivo. 
+* Se um dispositivo atualmente em execução nesta implementação já não cumpre a condição de destino, desinstala esta implementação e sobre a implementação de prioridade mais alta seguinte. 
+* Se um dispositivo atualmente em execução nesta implementação já não cumpre a condição de destino e não cumpre a condição de destino de todas as implementações, em seguida, nenhuma alteração ocorre no dispositivo. O dispositivo continua a ser executada os respectivos módulos atuais no respetivo estado atual, mas não é gerido como parte desta implementação mais. Assim que ele atenda à condição de destino de qualquer outra implementação, desinstala esta implementação e demora no novo. 
 
 Utilize o seguinte comando para atualizar uma implementação:
 
@@ -188,7 +188,7 @@ Utilize o seguinte comando para atualizar uma implementação:
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
    ```
 * **– id de implementação** -o nome da implementação que existe no IoT hub.
-* **-nome do hub** -nome do hub IoT no qual existe a implementação. O hub tem de ser na subscrição atual. Mudar para a subscrição com o comando pretendida `az account set -s [subscription name]`
+* **-nome do hub** -nome do hub IoT na qual existe a implementação. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
 * **-definir** -atualizar uma propriedade na implementação. Pode atualizar as seguintes propriedades:
     * targetCondition - por exemplo `targetCondition=tags.location.state='Oregon'`
     * etiquetas 
@@ -197,7 +197,7 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="delete-a-deployment"></a>Eliminar uma implementação
 
-Quando elimina uma implementação, todos os dispositivos de colocar as suas implementações de maior prioridade seguinte. Se os seus dispositivos não cumprem a condição de destino de qualquer outra implementação, os módulos não são removidos quando a implementação é eliminada. 
+Quando elimina uma implementação, demorar todos os dispositivos na sua implementação de prioridade mais alta seguinte. Se os dispositivos não cumprem a condição de destino de qualquer outra implementação, os módulos não são removidos quando a implementação é eliminada. 
 
 Utilize o seguinte comando para eliminar uma implementação:
 
@@ -205,11 +205,11 @@ Utilize o seguinte comando para eliminar uma implementação:
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
    ```
 * **– id de implementação** -o nome da implementação que existe no IoT hub.
-* **-nome do hub** -nome do hub IoT no qual existe a implementação. O hub tem de ser na subscrição atual. Mudar para a subscrição com o comando pretendida `az account set -s [subscription name]`
+* **-nome do hub** -nome do hub IoT na qual existe a implementação. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre [implementar módulos para dispositivos de limite][lnk-deployments].
+Saiba mais sobre [implementar módulos em dispositivos periféricos][lnk-deployments].
 
 <!-- Images -->
 [1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 48f3a77d2aa81cda62f8206709268bae8e7c8737
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164021"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248349"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -30,10 +30,17 @@ A Microsoft recomenda administradores assegura aos usuários para selecionar mai
 | Palavra-passe | MFA e o SSPR |
 | Perguntas de segurança | Apenas a SSPR |
 | Endereço de e-mail | Apenas a SSPR |
-| Aplicação Microsoft Authenticator | Apenas o MFA |
+| Aplicação Microsoft Authenticator | MFA e pré-visualização pública para SSPR |
 | SMS | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
 | Palavras-passe de aplicações | MFA apenas em determinados casos |
+
+![Métodos de autenticação em uso no ecrã de início de sessão](media/concept-authentication-methods/overview-login.png)
+
+|     |
+| --- |
+| Notificação de aplicação móvel e o código de aplicação móvel como métodos de palavra-passe self-service do Azure AD reposição são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="password"></a>Palavra-passe
 
@@ -116,13 +123,27 @@ A aplicação Microsoft Authenticator oferece um nível adicional de segurança 
 
 A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
+> [!NOTE]
+> Os utilizadores não terão a opção para registar a aplicação móvel quando efetuar o registo para a reposição de palavra-passe self-service. Em vez disso, os utilizadores podem registar a sua aplicação móvel [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) ou a pré-visualização de registo de informações de segurança por [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+>
+
 ### <a name="notification-through-mobile-app"></a>Notificação através de aplicação móvel
 
 A aplicação Microsoft Authenticator pode ajudar a impedir o acesso não autorizado a contas e parar as transações fraudulentas ao enviar uma notificação para o seu smartphone ou tablet. Os utilizadores visualizar a notificação e se esta for legítima, selecionar verificar. Caso contrário, podem selecionar negar.
 
+> [!WARNING]
+> Para senhas de auto-atendimento repor quando apenas um método é necessário para a reposição, o código de verificação é a única opção disponível para os utilizadores.
+>
+> Quando dois métodos são necessários os utilizadores poderão repor usando **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
+>
+
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 
-A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser utilizadas como um token de software para gerar um código de verificação de OAuth. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação para o ecrã de início de sessão. O código de verificação fornece uma segunda forma de autenticação.
+A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser utilizadas como um token de software para gerar um código de verificação OATH. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação para o ecrã de início de sessão. O código de verificação fornece uma segunda forma de autenticação.
+
+> [!WARNING]
+> Senha de autoatendimento repor quando apenas um método é necessário para a reposição de código de verificação é a única opção disponível para os utilizadores.
+>
 
 ## <a name="mobile-phone"></a>Número de telemóvel
 

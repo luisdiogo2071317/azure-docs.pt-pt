@@ -1,5 +1,5 @@
 ---
-title: Como configurar o MSI num VMSS do Azure com o PowerShell
+title: Como configurar a identidade do serviço gerido num VMSS do Azure com o PowerShell
 description: Instruções passo a passo instruções para configurar um sistema e um utilizador atribuído identidades num VMSS do Azure, com o PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: b82785d0f4b6a5952334e891e7adec570c624f2d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5d4539c05d05053ac2ea6cd1c5fadbd161b41173
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238136"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257747"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurar um VMSS Managed Service Identity (MSI) com o PowerShell
+# <a name="configure-a-vmss-managed-service-identity-using-powershell"></a>Configurar um VMSS identidade do serviço gerido com o PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -55,7 +55,7 @@ Para criar um VMSS com a identidade de sistema atribuído ativada:
     $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (Opcional) Adicionar a extensão de VMSS de MSI com o `-Name` e `-Type` parâmetro sobre o [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de dimensionamento de máquinas virtuais definido e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
+2. (Opcional) Adicionar a extensão de VMSS de identidade de serviço gerido com o `-Name` e `-Type` parâmetro sobre o [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de dimensionamento de máquinas virtuais definido e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
 
     > [!NOTE]
     > Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.
@@ -82,7 +82,7 @@ Se precisar de ativar uma identidade de sistema atribuído num conjunto de dimen
    Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Adicionar a extensão de VMSS de MSI com o `-Name` e `-Type` parâmetro sobre o [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de dimensionamento de máquinas virtuais definido e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
+3. Adicionar a extensão de VMSS de identidade de serviço gerido com o `-Name` e `-Type` parâmetro sobre o [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. Pode passar "ManagedIdentityExtensionForWindows" ou "ManagedIdentityExtensionForLinux", dependendo do tipo de dimensionamento de máquinas virtuais definido e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
 
    ```powershell
    $setting = @{ "port" = 50342 }

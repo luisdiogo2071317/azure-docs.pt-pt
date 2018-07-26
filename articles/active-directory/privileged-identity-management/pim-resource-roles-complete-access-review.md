@@ -14,19 +14,19 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e21d0240469a9c775e610c97f98c073b8f83ce8e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3b27e4e26899b27557bdac4371283a8095847c94
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442205"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257781"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Concluir uma revisão de acesso para recursos do Azure com o Privileged Identity Management
-Os administradores de função com privilégios, podem rever acesso privilegiado após uma [revisão de segurança foi iniciada](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos do Azure envia automaticamente um e-mail que solicita aos usuários para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de segurança](pim-resource-roles-perform-access-review.md).
+Os administradores de função com privilégios, podem rever acesso privilegiado após uma [revisão de acesso foi iniciada](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos do Azure envia automaticamente um e-mail que solicita aos usuários para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
 
-Depois do período de avaliação de segurança está acima ou depois que todos os utilizadores tiverem terminado seus Self-rever, siga os passos neste artigo para gerir a revisão e ver os resultados.
+Após o período de revisão de acesso, ou depois que todos os utilizadores tiverem terminado seus Self-rever, siga os passos neste artigo para gerir a revisão e ver os resultados.
 
-## <a name="manage-security-reviews"></a>Gerir as revisões de segurança
+## <a name="manage-access-reviews"></a>Gerir as revisões de acesso
 1. Aceda ao [Portal do Azure](https://portal.azure.com/). Em seguida, no dashboard, selecione o **recursos do Azure** aplicação.
 
 2. Selecione o recurso.

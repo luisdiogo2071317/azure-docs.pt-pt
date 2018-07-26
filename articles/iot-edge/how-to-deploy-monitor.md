@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001512"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258438"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar e monitorizar os módulos do IoT Edge em escala no portal do Azure
 
@@ -106,7 +106,7 @@ Utilize a propriedade de etiquetas dos seus dispositivos para os dispositivos es
 Uma vez que várias implementações podem direcionar o mesmo dispositivo, deve dar a cada implementação um número de prioridade. Se já houver um conflito, a implementação com a prioridade mais alta (valores mais altos indicam a prioridade mais alta) wins. Se duas implementações têm o mesmo número de prioridade, aquele que foi criado mais recentemente wins. 
 
 1. Introduza um número inteiro positivo para a implementação **prioridade**. No caso de duas ou mais implementações destinam-se no mesmo dispositivo, será aplicada a implementação com o maior valor numérico da prioridade.
-1. Introduza um **condição de destino** para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades pretendidas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. 
+1. Introduza um **condição de destino** para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Selecione **seguinte** para avançar para a etapa final.
 
 ### <a name="step-5-review-template"></a>Passo 5: Rever modelo

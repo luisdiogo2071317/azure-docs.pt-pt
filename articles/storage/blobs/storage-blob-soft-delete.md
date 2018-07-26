@@ -1,6 +1,6 @@
 ---
-title: Eliminação de forma recuperável para blobs de armazenamento do Azure (pré-visualização) | Documentos da Microsoft
-description: O armazenamento do Azure agora oferece a eliminação de forma recuperável (pré-visualização) para objetos de blob, para que mais facilmente podem recuperar seus dados quando incorretamente é modificada ou eliminada por uma aplicação ou outro utilizador da conta de armazenamento.
+title: Eliminação de forma recuperável para blobs de armazenamento do Azure | Documentos da Microsoft
+description: O armazenamento do Azure agora oferece a eliminação de forma recuperável para objetos de blob, para que mais facilmente podem recuperar seus dados quando incorretamente é modificada ou eliminada por uma aplicação ou outro utilizador da conta de armazenamento.
 services: storage
 author: MichaelHauss
 manager: vamshik
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: 408e2167e60cbdfa2b4eee136bf3ac4321ae8121
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 37ae52b34cc87a7d78524f893a3b1577a5a59f7e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091736"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248830"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure
 O armazenamento do Azure agora oferece a eliminação de forma recuperável para objetos de blob, para que mais facilmente podem recuperar seus dados quando incorretamente é modificada ou eliminada por uma aplicação ou outro utilizador da conta de armazenamento.

@@ -1,52 +1,52 @@
 ---
-title: Fluxo registos de diagnóstico do Azure para um hub de eventos
-description: Saiba como transmitir os registos de diagnóstico do Azure para um hub de eventos.
+title: Registos de diagnóstico do Azure Stream para um hub de eventos
+description: Aprenda a transmitir em fluxo registos de diagnóstico do Azure para um hub de eventos.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085094"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258189"
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Fluxo registos de diagnóstico do Azure para um hub de eventos
-**[Os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportar para os Event Hubs" incorporada no Portal ou ativar o ID da regra de autorização de Hub de eventos na definição de diagnóstico através do Azure Cmdlets do PowerShell ou do Azure CLI 2.0.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
+**[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure Cmdlets do PowerShell ou o Azure CLI 2.0.
 
-## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>O que pode fazer com os Hubs de eventos e registos de diagnóstico
-Seguem-se apenas algumas formas poderá utilizar a capacidade de transmissão em fluxo para os registos de diagnóstico:
+## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>O que pode fazer com os registos de diagnóstico e os Hubs de eventos
+Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em fluxo registos de diagnóstico:
 
-* **Transmitir os registos para sistemas 3rd de registo e telemetria de terceiros** – pode transmitir todos os seus registos de diagnóstico para um hub de eventos único para os dados de registo de pipe para uma ferramenta de análise terceiros SIEM ou de registo.
-* **Ver o estado de funcionamento do serviço através da transmissão em fluxo "path frequente" dados ao Power BI** – utilizar Event Hubs, Stream Analytics e Power BI, pode facilmente transformar os dados de diagnóstico para quase em tempo real das informações no seus serviços do Azure. [Este artigo de documentação fornece uma excelente descrição geral de como configurar os Event Hubs, processar os dados com o Stream Analytics e utilizar o Power BI como uma saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Eis algumas sugestões para obter configurado com os registos de diagnóstico:
+* **Stream registos para sistemas 3º de Registro em log e telemetria de terceiros** – pode transmitir todos os seus registos de diagnóstico para um hub de eventos único para dados de registo de pipe para uma ferramenta de análise de terceiros SIEM ou do registo.
+* **Ver o estado de funcionamento do serviço através da transmissão em fluxo de dados de "hot path" para o Power BI** – utilizar os Hubs de eventos, o Stream Analytics e o Power BI, pode transformar facilmente seus dados de diagnóstico para uma quase informações em tempo real nos seus serviços do Azure. [Este artigo de documentação fornece uma excelente descrição geral de como configurar os Hubs de eventos, processar dados com o Stream Analytics e utilizar o Power BI como uma saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para obter configurado com os registos de diagnóstico:
 
-  * Um hub de eventos para uma categoria de registos de diagnóstico é criado automaticamente ao selecionar a opção no portal ou ativá-la através do PowerShell, pelo que pretende selecionar o hub de eventos no espaço de nomes com o nome que começa com **insights -**.
-  * O seguinte código do SQL Server é um exemplo de consulta de Stream Analytics que pode utilizar para analisar todos os dados de registo na uma tabela de PowerBI:
+  * Um hub de eventos para uma categoria de registos de diagnóstico é criado automaticamente quando marcar a opção no portal ou ativá-la através do PowerShell, pelo que deve selecionar o hub de eventos no espaço de nomes com o nome que começa com **insights -**.
+  * O seguinte código SQL é uma consulta do Stream Analytics de exemplo que pode utilizar para analisar todos os dados de registo na uma tabela do Power BI:
 
     ```sql
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – the PowerBI source]
+    [OutputSourceName – the Power BI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **Criar uma plataforma de registo e telemetria personalizada** – se já tiver uma plataforma de telemetria personalizada ou são apenas de pensar sobre como criar um, altamente dimensionável de publicação-subscrição natureza dos Event Hubs permite-lhe para a ingestão de forma flexível os registos de diagnóstico. [Consulte o guia de Dan Rosanova para utilizar os Hubs de eventos numa plataforma de telemetria do dimensionamento global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+* **Criar uma plataforma de Registro em log e telemetria personalizada** – se já tiver uma plataforma de telemetria personalizados internos ou esteja pensando em criar um, altamente dimensionável apenas a natureza de publicação-subscrição de Hubs de eventos permite ingerir forma flexível os registos de diagnóstico. [Consulte o guia de Dan Rosanova para utilizar os Hubs de eventos numa plataforma de telemetria de escala global aqui](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="enable-streaming-of-diagnostic-logs"></a>Ative a transmissão em fluxo de registos de diagnóstico
+## <a name="enable-streaming-of-diagnostic-logs"></a>Ativar a transmissão em fluxo de registos de diagnóstico
 
-Pode ativar a transmissão em fluxo de registos de diagnóstico programaticamente, através do portal, ou utilizando o [as APIs REST da Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Qualquer forma, pode cria uma definição de diagnóstico no que especificou um espaço de nomes de Event Hubs e as categorias de registo e métricas que pretende enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativar. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
+Pode ativar a transmissão em fluxo de registos de diagnóstico através de programação, através do portal, ou utilizando o [APIs de REST do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). De qualquer forma, criar uma definição de diagnóstico em que especificar um espaço de nomes de Hubs de eventos e as categorias de registo e métricas que deseja enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativa. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
 
 > [!WARNING]
-> Ativar e os registos de diagnóstico a partir dos recursos de computação (por exemplo, VMs ou Service Fabric) de transmissão em fluxo [requer um conjunto diferente de passos](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> Ativar e transmissão em fluxo registos de diagnóstico a partir dos recursos de computação (por exemplo, VMs ou recursos de infraestrutura do serviço) [requer um conjunto diferente de passos](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
-O espaço de nomes de Event Hubs não tem de estar na mesma subscrição, como o recurso emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
+O espaço de nomes não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para as subscrições e ambas as subscrições do Event Hubs são parte do mesmo inquilino do AAD.
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
@@ -55,45 +55,45 @@ O espaço de nomes de Event Hubs não tem de estar na mesma subscrição, como o
 >
 >
 
-## <a name="stream-diagnostic-logs-using-the-portal"></a>Registos de diagnóstico de fluxo através do portal
+## <a name="stream-diagnostic-logs-using-the-portal"></a>Registos de diagnóstico do Stream com o portal
 
-1. No portal, navegue para o Monitor do Azure e clique em **definições de diagnóstico**
+1. No portal, navegue para o Azure Monitor e clique em **definições de diagnóstico**
 
-    ![Secção de monitorização do Monitor do Azure](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Secção de monitorização do Azure Monitor](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
 
-2. Opcionalmente filtrar a lista por tipo de recurso ou grupo de recursos, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
+2. Opcionalmente, filtrar a lista por grupo de recursos ou tipo de recurso, em seguida, clique no recurso para o qual pretende configurar uma definição de diagnóstico.
 
-3. Se não existem definições de existem no recurso que selecionou, são-lhe pedido para criar uma definição. Clique em "Ativar o diagnóstico".
+3. Se não existem definições existem no recurso que selecionou, lhe for pedido para criar uma definição. Clique em "Ativar diagnósticos."
 
    ![Adicionar definição de diagnóstico - sem definições existentes](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
 
-   Se existirem definições existentes no recurso, irá ver uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
+   Se existirem definições existentes no recurso, verá uma lista das definições já configurada neste recurso. Clique em "Adicionar definição de diagnóstico".
 
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
-3. Dê a definição de um nome e a caixa de verificação **fluxo para um hub de eventos**, em seguida, selecione um espaço de nomes de Event Hubs.
+3. Dê a sua definição de um nome e marque a caixa **Stream para um hub de eventos**, em seguida, selecione um espaço de nomes de Hubs de eventos.
 
    ![Adicionar definição de diagnóstico - existente definições](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
 
-   O espaço de nomes selecionado será onde o hub de eventos é criado (se este é os primeiro tempo transmissão em fluxo os registos de diagnóstico) ou transmissão em fluxo para (se já existem recursos que são de transmissão em fluxo dessa categoria de registo para este espaço de nomes), e a política define as permissões que o mecanismo de transmissão em fluxo tem. Hoje em dia, a transmissão em fluxo para um hub de eventos requer permissões de gerir, enviar e escuta. Pode criar ou modificar as políticas de acesso partilhado do espaço de nomes dos Event Hubs no portal do separador Configurar para o espaço de nomes. Para atualizar uma destas definições de diagnóstico, o cliente tem de ter a permissão de ListKey na regra de autorização de Event Hubs. Também, opcionalmente, pode especificar um nome de hub de eventos. Se especificar um nome de hub de eventos, os registos são encaminhados para esse hub de eventos, em vez de para um hub de eventos recentemente criado por categoria de registo.
+   O espaço de nomes selecionado será em que o hub de eventos é criado (se este é os primeiro tempo transmissão em fluxo registos de diagnóstico) ou transmitidas em fluxo para (se já existem recursos que são de transmissão em fluxo dessa categoria de registo para este espaço de nomes), e a política define as permissões que o mecanismo de transmissão em fluxo tem. Hoje em dia, a transmissão em fluxo para um hub de eventos exige permissões de gerir, envio e escutar. Pode criar ou modificar as políticas de acesso partilhado do espaço de nomes dos Hubs de eventos no portal no separador Configurar para o espaço de nomes. Para atualizar uma destas definições de diagnóstico, o cliente tem de ter a permissão de ListKey na regra de autorização de Hubs de eventos. Opcionalmente, também pode especificar um nome de hub de eventos. Se especificar um nome de hub de eventos, os registos são encaminhados para esse hub de eventos, em vez de um hub de eventos criado recentemente por categoria de registo.
 
 4. Clique em **Guardar**.
 
-Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso, e os registos de diagnóstico são transmissão em fluxo para esse hub de eventos, assim como novos dados de evento são gerados.
+Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso, e os registos de diagnóstico são transmitidas em fluxo para esse hub de eventos quando novos dados de evento são gerados.
 
-### <a name="via-powershell-cmdlets"></a>Através de Cmdlets do PowerShell
+### <a name="via-powershell-cmdlets"></a>Cmdlets do PowerShell
 
-Para ativar a transmissão em fluxo através de [Cmdlets do PowerShell do Azure](insights-powershell-samples.md), pode utilizar o `Set-AzureRmDiagnosticSetting` cmdlet com os seguintes parâmetros:
+Para ativar a transmissão em fluxo através do [Cmdlets do Azure PowerShell](insights-powershell-samples.md), pode utilizar o `Set-AzureRmDiagnosticSetting` cmdlet com estes parâmetros:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-O ID de regra de autorização de Hub de eventos é uma cadeia com este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente não é possível selecionar um nome de hub de eventos específico com o PowerShell.
+O ID de regra de autorização de Hub de eventos é uma cadeia de caracteres com este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por exemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Atualmente não é possível selecionar um nome de hub de eventos específico com o PowerShell.
 
-### <a name="via-azure-cli-20"></a>Através da CLI do Azure 2.0
+### <a name="via-azure-cli-20"></a>Através da CLI 2.0 do Azure
 
-Para ativar a transmissão em fluxo através de [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), pode utilizar o [criar definições de diagnóstico do monitor az](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando.
+Para ativar a transmissão em fluxo através de [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), pode utilizar o [az monitor diagnostic-settings criar](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -108,13 +108,13 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     ]'
 ```
 
-Pode adicionar categorias adicionais no registo de diagnóstico adicionando dicionários para a matriz JSON transmitida como o `--logs` parâmetro.
+Pode adicionar categorias adicionais no registo de diagnóstico através da adição de dicionários para a matriz JSON passada como o `--logs` parâmetro.
 
-O `--event-hub-rule` argumento utiliza o mesmo formato como o ID de regra de autorização de Hub de eventos, tal como explicado para o Cmdlet do PowerShell.
+O `--event-hub-rule` argumento utiliza o mesmo formato como o ID de regra de autorização de Hub de eventos, conforme explicado para o Cmdlet do PowerShell.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como posso consumir os dados de registo dos Event Hubs?
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como posso consomem os dados de registo dos Hubs de eventos?
 
-Segue-se dados de saída de exemplo de Hubs de eventos:
+Segue-se dados de saída de exemplo dos Hubs de eventos:
 
 ```json
 {
@@ -179,21 +179,22 @@ Segue-se dados de saída de exemplo de Hubs de eventos:
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| registos |Uma matriz de todos os eventos de registo este payload. |
-| hora |Tempo em que o evento ocorreu. |
+| registos |Uma matriz de todos os eventos de registo neste payload. |
+| hora |Tempo em que ocorreu o evento. |
 | categoria |Categoria de registo para este evento. |
 | resourceId |ID de recurso do recurso que gerou este evento. |
 | operationName |Nome da operação. |
-| nível |Opcional. Indica o nível de eventos de registo. |
+| nível |Opcional. Indica o nível de evento do registo. |
 | propriedades |Propriedades do evento. |
 
-Pode ver uma lista de todos os fornecedores de recursos que suportam a transmissão em fluxo para os Event Hubs [aqui](monitoring-overview-of-diagnostic-logs.md).
+Pode exibir uma lista de todos os fornecedores de recursos que suportam a transmissão em fluxo aos Hubs de eventos [aqui](monitoring-overview-of-diagnostic-logs.md).
 
-## <a name="stream-data-from-compute-resources"></a>Dados de sequência de recursos de computação
+## <a name="stream-data-from-compute-resources"></a>Dados de Stream de recursos de computação
 
-Também pode transmitir os registos de diagnóstico a partir dos recursos de computação com o agente do Windows Azure Diagnostics. [Consulte este artigo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para saber como configurar essa opção.
+Também pode transmitir em fluxo registos de diagnóstico a partir dos recursos de computação com o agente do Windows Azure Diagnostics. [Veja este artigo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para saber como configurar essa opção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* [Registos do Azure Active Directory Stream com o Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

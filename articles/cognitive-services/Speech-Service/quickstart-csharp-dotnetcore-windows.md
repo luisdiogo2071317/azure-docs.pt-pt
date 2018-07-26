@@ -10,17 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f00653d0c58f52c73126693422ab0a485540dd7a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072602"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259165"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em c# no .NET Core no Windows utilizando o SDK de voz
 
 Neste artigo, saiba como criar uma aplicação de consola c# para .NET Core no Windows utilizando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
-O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
+A aplicação baseia-se com o [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
+
+> [!NOTE]
+> .NET core é uma plataforma de .NET de código-fonte aberto e entre plataformas implementando o [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) especificação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,13 +48,13 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
     ![Instalar o pacote de NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "pacote Nuget instalar")
 
-1. No ecrã de licença que aparece, aceite a licença:
+1. Aceite a licença na caixa de diálogo que aparece.
 
     ![Aceitar a licença](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "aceitar a licença")
 
 ## <a name="add-the-sample-code"></a>Adicione o código de exemplo
 
-1. Na `Program.cs` de ficheiros no seu projeto do Visual Studio, substitua todo o código pelo seguinte:
+1. Abra `Program.cs` no Visual Studio do projeto e substitua todo o código neste ficheiro pelo seguinte.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
@@ -63,16 +66,15 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
 
-1. Crie a aplicação. Na barra de menus, selecione **crie** > **compilar solução**. O código será compilado sem erros agora:
+1. Crie a aplicação. Na barra de menus, escolha **crie** > **compilar solução**. O código será compilado sem erros agora.
 
     ![Compilação bem-sucedida](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "compilação bem-sucedida")
 
-1. Inicie a aplicação. Na barra de menus, selecione **depurar** > **iniciar depuração**, ou prima **F5**.
+1. Inicie a aplicação. Na barra de menus, escolha **depurar** > **iniciar depuração**, ou prima **F5**.
 
     ![Iniciar a aplicação em depuração](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "iniciar a aplicação para depuração")
 
-1. Uma janela do console será exibida, solicitando a dizer algo (em inglês).
-O resultado desse reconhecimento é apresentado no ecrã.
+1. É apresentada uma janela de console, solicitando a dizer algo (em inglês). O texto reconhecido, em seguida, é apresentada na janela da mesma.
 
     ![Saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "saída da consola após o reconhecimento bem-sucedido")
 

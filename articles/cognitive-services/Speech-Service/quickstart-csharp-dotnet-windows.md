@@ -10,17 +10,17 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 07f22345d2bf8c481091652d9faa0bdd10205fdb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072590"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259032"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em c# no .NET Framework no Windows utilizando o SDK de voz
 
 Neste artigo, saiba como criar uma aplicação de consola c# para .NET Framework no Windows utilizando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
-O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
+A aplicação baseia-se com o [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,9 +47,15 @@ O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](
 
     ![Instalar o pacote de NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "pacote Nuget instalar")
 
-1. No ecrã de licença que aparece, aceite a licença:
+1. Aceite a licença na caixa de diálogo que aparece.
 
     ![Aceitar a licença](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "aceitar a licença")
+
+1. A seguinte linha de saída é apresentada na consola do Gestor de pacotes.
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   ```
 
 ## <a name="create-a-platform-configuration-matching-your-pc-architecture"></a>Criar uma configuração de plataforma que corresponda a arquitetura de seu PC
 
@@ -69,7 +75,7 @@ Nesta secção, vai adicionar uma nova plataforma para a configuração que corr
 
 ## <a name="add-the-sample-code"></a>Adicione o código de exemplo
 
-1. Na `Program.cs` de ficheiros no seu projeto do Visual Studio, substitua todo o código pelo seguinte:
+1. Abra `Program.cs` no Visual Studio do projeto e substitua todo o código neste ficheiro pelo seguinte.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -81,7 +87,7 @@ Nesta secção, vai adicionar uma nova plataforma para a configuração que corr
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar o exemplo
 
-1. Crie a aplicação. Na barra de menus, selecione **crie** > **compilar solução**. O código será compilado sem erros agora:
+1. Crie a aplicação. Na barra de menus, selecione **crie** > **compilar solução**. O código será compilado sem erros agora.
 
     ![Compilação bem-sucedida](media/sdk/qs-csharp-dotnet-windows-08-build.png "compilação bem-sucedida")
 
@@ -89,8 +95,7 @@ Nesta secção, vai adicionar uma nova plataforma para a configuração que corr
 
     ![Iniciar a aplicação em depuração](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "iniciar a aplicação para depuração")
 
-1. Uma janela do console será exibida, solicitando a dizer algo (em inglês).
-   O resultado desse reconhecimento é apresentado no ecrã.
+1. É apresentada uma janela de console, solicitando a dizer algo (em inglês). O texto reconhecido, em seguida, é apresentada na janela da mesma.
 
     ![Saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "saída da consola após o reconhecimento bem-sucedido")
 

@@ -7,14 +7,14 @@ ms.author: zhongc
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: cf04cf92f204b89c0641a23ba38b05dbcad409b2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: a58b5c315b9f1baa3a0c3fe55917e94a47006f62
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910991"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258536"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de negociação de elevada frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções definidas pelo utilizador (UDFs) e dos agregados definidos pelo utilizador (UDAs) de JavaScript no Azure Stream Analytics permite aos utilizadores realizar análises avançadas. As análises avançadas podem incluir preparação e classificação de machine learning online, bem como simulação de processos sem estado. Este artigo descreve como realizar uma regressão linear num trabalho do Azure Stream Analytics que faz preparação e classificação contínua num cenário comercial de elevada frequência.

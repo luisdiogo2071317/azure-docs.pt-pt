@@ -1,6 +1,6 @@
 ---
-title: Configurar MSI num conjunto com um modelo de dimensionamento de máquina virtual do Azure
-description: Instruções passo a passo para configurar uma identidade de serviço gerida (MSI) num VMSS do Azure, com um modelo Azure Resource Manager.
+title: Configurar a identidade do serviço gerido num conjunto com um modelo de dimensionamento de máquina virtual do Azure
+description: Instruções passo a passo para configurar uma identidade do serviço gerido num VMSS do Azure, com um modelo Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: b4fa875c71869dc3fd671f5dc4b801934c27f0ff
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 562bf5e5239114a8dad16727089f94f378db82ff
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237201"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258869"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Configurar a identidade do serviço gerido no dimensionamento de máquinas virtuais com um modelo
 
@@ -49,7 +49,7 @@ Tal como acontece com o portal do Azure e criação de scripts, [do Azure Resour
    - Com um local [editor de JSON (por exemplo, o VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, carregar e implementar com o PowerShell ou a CLI.
    - Com o Visual Studio [projeto do grupo de recursos do Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para criar e implementar um modelo.  
 
-Independentemente da opção escolhida, sintaxe do modelo é o mesmo durante a implementação inicial e a reimplementação. Ativar o MSI numa VM nova ou existente é feito da mesma forma. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) para implementações.
+Independentemente da opção escolhida, sintaxe do modelo é o mesmo durante a implementação inicial e a reimplementação. Ativar a identidade do serviço gerido numa VM nova ou existente é feito da mesma forma. Além disso, por padrão, o Azure Resource Manager faz uma [atualização incremental](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) para implementações.
 
 ## <a name="system-assigned-identity"></a>Sistema de identidade atribuído
 
@@ -69,7 +69,7 @@ Nesta secção, irá ativar e desativar o sistema de identidade com um modelo Az
    },
    ```
 
-3. (Opcional) Adicionar conjunto de dimensionamento da máquina virtual extensão MSI como um `extensionsProfile` elemento. Este passo é opcional, como pode usar a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.  Utilize a seguinte sintaxe:
+3. (Opcional) Adicionar conjunto de dimensionamento da máquina virtual de extensão de identidade do serviço gerido como um `extensionsProfile` elemento. Este passo é opcional, como pode usar a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.  Utilize a seguinte sintaxe:
 
    >[!NOTE] 
    > O exemplo a seguir supõe a extensão do conjunto de dimensionamento de máquinas virtuais do Windows (`ManagedIdentityExtensionForWindows`) está a ser implementado. Também pode configurar para Linux, utilizando `ManagedIdentityExtensionForLinux` em vez disso, para o `"name"` e `"type"` elementos.

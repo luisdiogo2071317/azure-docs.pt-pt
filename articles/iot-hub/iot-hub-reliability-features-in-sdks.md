@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a318a1ef8b13b8fcb4f4401ac4d0e45037958d63
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127594"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247686"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Como gerir a conectividade e o sistema de mensagens confiável através de SDKs de dispositivo do IoT Hub do Azure
 
@@ -111,3 +111,8 @@ Para outros idiomas, consulte a documentação de implementação abaixo.  Exemp
 - [SDK Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Nó de SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
+## <a name="next-steps"></a>Passos Seguintes
+- [Utilizar o dispositivo e SDKs de serviço](.\iot-hub-devguide-sdks.md)
+- [Utilizar o SDK do dispositivo IoT para C](.\iot-hub-device-sdk-c-intro.md)
+- [Desenvolver para dispositivos restritos](.\iot-hub-devguide-develop-for-constrained-devices.md)
+- [Desenvolver para dispositivos móveis](.\iot-hub-how-to-develop-for-mobile-devices.md)

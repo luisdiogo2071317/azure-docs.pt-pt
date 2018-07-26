@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869096"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248894"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para associação a grupos dinâmicos no Azure Active Directory
-No Azure Active Directory (Azure AD), pode criar regras personalizadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Criar grupos dinâmicos com associação baseadas em atributos no Azure Active Directory
+
+No Azure Active Directory (Azure AD), pode criar regras baseadas em atributos complexas para ativar a filiação dinâmica para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
 
 Quando alterar a todos os atributos de um utilizador ou dispositivo, o sistema avalia todas as regras de grupos dinâmicos num diretório para ver se a alteração dispararia qualquer grupo adiciona ou remove. Se um utilizador ou dispositivo cumprir uma regra num grupo, eles são adicionados como um membro desse grupo. Se deixar de cumprir a regra, serão removidos.
 
@@ -34,8 +35,9 @@ Quando alterar a todos os atributos de um utilizador ou dispositivo, o sistema a
 > No momento, não é possível criar um grupo de dispositivos com base em atributos do utilizador proprietário. Regras de associação de dispositivo só podem referenciar imediatos atributos de objetos de dispositivo no diretório.
 
 ## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
+
 1. Inicie sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de conta de utilizador.
-2. Selecione **utilizadores e grupos**.
+2. Selecionar **Utilizadores e grupos**.
 3. Selecione **todos os grupos**e selecione **novo grupo**.
 
    ![Adicionar novo grupo](./media/groups-dynamic-membership/new-group-creation.png)
@@ -58,6 +60,7 @@ Pode ver a associação ao processamento de estado e a data da última atualiza�
 
 
 As seguintes mensagens de estado podem ser exibidas para **processamento de associação** Estado:
+
 * **Avaliar**: foi recebida a alteração do grupo e as atualizações estão a ser avaliadas.
 * **Processamento**: atualizações estão a ser processadas.
 * **Atualização concluída**: processamento foi concluído e todas as atualizações aplicáveis foram feitas.
@@ -65,6 +68,7 @@ As seguintes mensagens de estado podem ser exibidas para **processamento de asso
 * **Atualizações em pausa**: regra de associação dinâmica atualizações foram interrompidas pelo administrador. MembershipRuleProcessingState está definido como "Em pausa".
 
 As seguintes mensagens de estado podem ser exibidas para **associação atualizado pela última vez** Estado:
+
 * &lt;**Data e hora**&gt;: A última vez que a associação foi atualizada.
 * **Em curso**: atualizações estão atualmente em curso.
 * **Desconhecido**: não é possível obter a hora da última atualização. Ele pode dever-se o grupo que está a ser criado de novo.
@@ -74,6 +78,7 @@ Se ocorrer um erro ao processar a regra de associação para um grupo específic
 ![mensagem de erro de processamento](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Construir o corpo de uma regra avançada
+
 A regra avançada que pode criar para a filiação dinâmica para grupos é, essencialmente, uma expressão binária que consiste em três partes e resulta num resultado true ou false. As três partes são:
 
 * Parâmetro à esquerda
@@ -96,6 +101,7 @@ O comprimento total do corpo da sua regra avançada não pode exceder 2048 carat
 > Cadeias de caracteres que contêm aspas "deve ter escapado utilizando" caráter, por exemplo, user.department - eq \`"Vendas".
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regra de expressão suportados
+
 A tabela seguinte apresenta uma lista de todos os operadores de regra de expressão suportados e sua sintaxe a ser utilizado no corpo da regra avançada:
 
 | Operador | Sintaxe |
@@ -114,6 +120,7 @@ A tabela seguinte apresenta uma lista de todos os operadores de regra de express
 ## <a name="operator-precedence"></a>Precedência de operador
 
 Todos os operadores estão listados abaixo por precedência de inferior para superior. Operadores na mesma linha são em igual prioridade:
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Todos os operadores estão listados abaixo por precedência de inferior para sup
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Todos os operadores podem ser utilizados com ou sem o prefixo de hífen. Parênteses são necessárias apenas quando a precedência não cumpre os requisitos.
 Por exemplo:
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 é equivalente a:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Usando a opção - no e - notIn operadores
 
 Se deseja comparar o valor de um atributo de utilizador em relação a um número de valores diferentes pode utilizar a opção - na ou - notIn operadores. Eis um exemplo usando a opção - no operador:
@@ -140,6 +152,7 @@ Observe o uso do "[" e "]" no início e no final da lista de valores. Esta condi
 
 
 ## <a name="query-error-remediation"></a>Correção de erro de consulta
+
 A tabela seguinte lista erros comuns e como corrigi-las
 
 | Erro de análise de consulta | Utilização de erro | Utilização corrigida |
@@ -149,9 +162,11 @@ A tabela seguinte lista erros comuns e como corrigi-las
 | Erro: Erro de compilação de consulta. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName-corresponder a "*@domain.ext") |1. Operador em falta. Utilize o - e ou - ou dois associar predicados<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. Erro de corresponder a expressão regular utilizada com -<br/><br/>(user.userPrincipalName-corresponde ao ". *@domain.ext"), em alternativa: (user.userPrincipalName-correspondência "\@domain.ext$")|
 
 ## <a name="supported-properties"></a>Propriedades suportadas
+
 Seguem-se todas as propriedades de utilizador que pode utilizar na sua regra avançada:
 
 ### <a name="properties-of-type-boolean"></a>Propriedades de tipo Booleano
+
 Operadores permitidos
 
 * -eq
@@ -163,6 +178,7 @@ Operadores permitidos
 | dirSyncEnabled |Verdadeiro Falso |user.dirSyncEnabled - eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo string
+
 Operadores permitidos
 
 * -eq
@@ -179,9 +195,9 @@ Operadores permitidos
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
 | city |Qualquer valor de cadeia ou *nulo* |(user.city - eq "value") |
-| país |Qualquer valor de cadeia ou *nulo* |(User. Country - eq "value") |
-| companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
-| departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
+| País |Qualquer valor de cadeia ou *nulo* |(User. Country - eq "value") |
+| CompanyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
+| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
 | displayName |Qualquer valor de cadeia |(user.displayName - eq "value") |
 | employeeId |Qualquer valor de cadeia |(user.employeeId - eq "value")<br>(user.employeeId - ne *nulo*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber - eq "value") |
@@ -206,6 +222,7 @@ Operadores permitidos
 | userType |o convidado de membro *nulo* |(user.userType - eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeia de caracteres de tipo
+
 Operadores permitidos
 
 * -contém
@@ -217,6 +234,7 @@ Operadores permitidos
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-contém "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Propriedades de valores múltiplos
+
 Operadores permitidos
 
 * -qualquer (satisfeitos quando, pelo menos, um item na coleção corresponde a condição)
@@ -225,6 +243,7 @@ Operadores permitidos
 | Propriedades | Valores | Utilização |
 | --- | --- | --- |
 | assignedPlans |Cada objeto da coleção expõe as seguintes propriedades de cadeia de caracteres: capabilityStatus, serviço, servicePlanId |user.assignedPlans-qualquer (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- e assignedPlan.capabilityStatus - eq "Ativada") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-qualquer (\_ -contém "contoso")) |
 
 Com múltiplos valores propriedades são coleções de objetos do mesmo tipo. Pode utilizar - qualquer - todos os operadores e para aplicar uma condição a um ou todos os itens da coleção, respectivamente. Por exemplo:
 
@@ -234,14 +253,24 @@ o assignedPlans é uma propriedade de valor múltiplos que apresenta uma lista d
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(O identificador de Guid identifica o plano do serviço Exchange Online (plano 2).)
+(O identificador GUID identifica o plano do serviço Exchange Online (plano 2).)
 
 > [!NOTE]
 > Isto é útil se quiser identificar todos os utilizadores aos quais um Office 365 (ou outro serviço Online da Microsoft) capacidade tiver sido ativada, por exemplo, para direcioná-las com um determinado conjunto de políticas.
 
-A seguinte expressão irá selecionar todos os utilizadores com qualquer plano de serviço que está associado com o serviço do Intune (identificado pelo nome de serviço "SCO"):
+A seguinte expressão seleciona todos os utilizadores com qualquer plano de serviço que está associado com o serviço do Intune (identificado pelo nome de serviço "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Utilizar o caráter de sublinhado (\_) sintaxe
+
+O caráter de sublinhado (\_) corresponde a sintaxe de ocorrências de um valor específico em uma das propriedades de coleção com múltiplos valores de cadeia de caracteres para adicionar utilizadores ou dispositivos a um grupo dinâmico. É utilizado com a opção - qualquer ou - todos os operadores.
+
+Eis um exemplo de como utilizar o caráter de sublinhado (\_) numa regra para adicionar membros com base nos user.proxyAddress (ele funciona da mesma para user.otherMails). Esta regra adiciona qualquer utilizador com o endereço de proxy que contém "contoso" ao grupo.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Utilização de valores nulos
@@ -256,14 +285,17 @@ Atributos de extensão e os atributos personalizados são suportados nas regras 
 
 Atributos de extensão são sincronizados a partir de locais de Windows Server AD e tirar o formato de "ExtensionAttributeX", onde X é igual a 1 a 15.
 Seria um exemplo de uma regra que utiliza um atributo de extensão
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Atributos personalizados são sincronizados a partir do Windows Server do AD no local ou a partir de um aplicativo SaaS conectado e o formato de "user.extension_[GUID]\__ [atributo]", em que [GUID] é o identificador exclusivo no AAD para a aplicação que criou o atributo no AAD e [atributo] é o nome do atributo à medida que ele foi criado.
-É um exemplo de uma regra que utiliza um atributo personalizado
+
+Atributos personalizados são sincronizados a partir do Windows Server do AD no local ou a partir de um aplicativo SaaS conectado e o formato de "user.extension_[GUID]\__ [atributo]", em que [GUID] é o identificador exclusivo no AAD para a aplicação que criou o atributo no Azure AD e [atributo] é o nome do atributo à medida que ele foi criado. É um exemplo de uma regra que utiliza um atributo personalizado
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 O nome de atributo personalizada pode ser encontrado no diretório ao consultar um utilizador do atributo com o Explorador do gráfico e procurar o nome de atributo.
 
 ## <a name="direct-reports-rule"></a>Regra de "Direct Reports"
@@ -301,7 +333,7 @@ Também pode criar uma regra de que seleciona objetos de dispositivo para a asso
  deviceManufacturer | qualquer valor de cadeia | (device.deviceManufacturer - eq "Samsung")
  deviceModel | qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, empresa, desconhecido | (device.deviceOwnership - eq "Empresa")
- domainName | qualquer valor de cadeia | (device.domainName -eq "contoso.com")
+ DomainName | qualquer valor de cadeia | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nome do perfil de perfil de inscrição de dispositivos da Apple ou do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | Verdadeiro Falso | (device.isRooted - eq verdadeiro)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente de PC do Intune) | (device.managementType -eq "MDM")
@@ -408,5 +440,5 @@ Estes artigos fornecem informações adicionais sobre os grupos no Azure Active 
 * [Ver grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Criar um novo grupo e adicionar membros](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Gerir membros de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gerir regras dinâmicas para os utilizadores num grupo](groups-dynamic-membership.md)
+* [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Gerir regras dinâmicas dos utilizadores num grupo](groups-dynamic-membership.md)

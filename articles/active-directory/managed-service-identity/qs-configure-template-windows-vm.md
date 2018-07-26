@@ -1,6 +1,6 @@
 ---
-title: Como configurar o MSI numa VM do Azure ao utilizar um modelo
-description: Instruções passo a passo para configurar uma identidade de serviço gerida (MSI) na VM do Azure, com um modelo Azure Resource Manager.
+title: Como configurar a identidade do serviço gerido na VM do Azure ao utilizar um modelo
+description: Instruções passo a passo para configurar uma identidade do serviço gerido na VM do Azure, com um modelo Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 703595bbc13fb859f406e7c9fa422a9c573957ab
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237252"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258699"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar uma identidade de serviço gerido da VM com um modelo
 
@@ -73,7 +73,7 @@ Nesta secção, irá ativar e desativar um sistema de identidade com um modelo A
    },
    ```
 
-4. (Opcional) Adicione a extensão MSI de VM como um `resources` elemento. Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.  Utilize a seguinte sintaxe:
+4. (Opcional) Adicione a extensão de identidade de serviço gerido da VM como um `resources` elemento. Este passo é opcional, como pode usar o ponto de extremidade para a identidade de serviço de metadados de instância do Azure (IMDS), para obtenção de tokens também.  Utilize a seguinte sintaxe:
 
    >[!NOTE] 
    > O exemplo a seguir supõe uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está a ser implementado. Também pode configurar para Linux, utilizando `ManagedIdentityExtensionForLinux` em vez disso, para o `"name"` e `"type"` elementos.

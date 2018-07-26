@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18a2aa289c89f98e6d20ddcdbd1217785fc163d1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918419"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248083"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente as definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo vamos mostrar como pode usar uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar as definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo a registos de diagnóstico e métricas para os Hubs de eventos, arquivá-los numa conta de armazenamento, ou enviá-los para o Log Analytics, quando um recurso é criado.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterados para linhas de JSON de 1 de Novembro de 2018. [Veja este artigo para obter uma descrição do impacto e como atualizar a sua ferramenta para lidar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
 O método para ativar os registos de diagnóstico com um modelo do Resource Manager depende do tipo de recurso.
 
-* **Não-Compute** recursos (por exemplo, grupos de segurança de rede, Logic Apps, automatização) utilizam [definições de diagnóstico descrito neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **Não-Compute** recursos (por exemplo, grupos de segurança de rede, Logic Apps, automatização) utilizam [definições de diagnóstico descrito neste artigo](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 * **Computação** recursos (WAD/LAD baseado) utilizar o [ficheiro de configuração de WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 Neste artigo, descrevemos como configurar o diagnóstico utilizando um dos métodos.
@@ -265,7 +265,7 @@ Para ativar os diagnósticos num recurso de computação, por exemplo um cluster
 
 O processo inteiro, incluindo exemplos, é descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 * [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Stream registos de diagnóstico do Azure para os Hubs de eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

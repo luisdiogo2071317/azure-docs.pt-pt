@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008421"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248781"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
@@ -71,13 +71,18 @@ Num alto nível, uma tarefa de importação envolve os seguintes passos:
 1. Determine os dados sejam importados, número de unidades que precisar, localização de blob de destino para os seus dados no armazenamento do Azure.
 2. Utilize a ferramenta de WAImportExport para copiar dados para unidades de disco. Encripte os discos com o BitLocker.
 3. Crie uma tarefa de importação na sua conta de armazenamento de destino no portal do Azure. Carregue os ficheiros de diário de unidade.
-2. Forneça o endereço do remetente e o número de conta de operadora para as unidades de envio é com.
-3. Envie as unidades de disco para o endereço de envio fornecido durante a criação da tarefa.
-4. Atualize a entrega número nos detalhes da tarefa de importação de controle e submeter a tarefa de importação.
-5. Unidades sejam recebidas e processadas no Centro de dados do Azure.
-6. Unidades são fornecidas com a sua conta de operadora para o endereço do remetente fornecido na tarefa de importação.
-  
-    ![Fluxo de trabalho de 1:Import figura](./media/storage-import-export-service/importjob.png)
+4. Forneça o endereço do remetente e o número de conta de operadora para as unidades de envio é com.
+5. Envie as unidades de disco para o endereço de envio fornecido durante a criação da tarefa.
+6. Atualize a entrega número nos detalhes da tarefa de importação de controle e submeter a tarefa de importação.
+7. As unidades sejam recebidas e processadas no Centro de dados do Azure.
+8. As unidades são fornecidas com a sua conta de operadora para o endereço do remetente fornecido na tarefa de importação.
+
+> [!NOTE]
+> Para remessas em locais (no país do Centro de dados), partilhe uma conta da transportadora nacionais 
+>
+> Para remessas abroad (fora do país do Centro de dados), partilhe uma conta da transportadora internacionais
+
+ ![Fluxo de trabalho de 1:Import figura](./media/storage-import-export-service/importjob.png)
 
 Para obter instruções passo a passo nos dados de importação, aceda a:
 
@@ -101,8 +106,13 @@ Num alto nível, uma tarefa de exportação envolve os seguintes passos:
 8. As unidades sejam recebidas e processadas no Centro de dados do Azure.
 9. As unidades são encriptadas com BitLocker e as chaves estão disponíveis através do portal do Azure.  
 10. As unidades são fornecidas com a sua conta de operadora para o endereço do remetente fornecido na tarefa de importação.
+
+> [!NOTE]
+> Para remessas em locais (no país do Centro de dados), partilhe uma conta da transportadora nacionais 
+>
+> Para remessas abroad (fora do país do Centro de dados), partilhe uma conta da transportadora internacionais
   
-    ![Fluxo de trabalho de 2:Export figura](./media/storage-import-export-service/exportjob.png)
+ ![Fluxo de trabalho de 2:Export figura](./media/storage-import-export-service/exportjob.png)
 
 Para obter instruções passo a passo sobre a exportação de dados, aceda a [exportar dados de Blobs do Azure](storage-import-export-data-from-blobs.md).
 
@@ -115,13 +125,13 @@ O serviço importar/exportar do Azure suporta a cópia de dados de e para todas 
 
 |País  |País  |País  |País  |
 |---------|---------|---------|---------|
-|EUA Leste    | Europa do Norte        | Índia Central        |Gov (US) - Iowa         |
+|EUA Leste    | Europa do Norte        | Índia Central        |US Gov - Iowa         |
 |EUA Oeste     |Europa Ocidental         | Sul da Índia        | US DoD Leste        |
-|EUA Leste 2    | Ásia Oriental        |  Índia Ocidental        | US DoD Centro        |
+|EUA Leste 2    | Ásia Oriental        |  Oeste da Índia        | US DoD Centro        |
 |EUA Oeste 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |
 |EUA Central     | Leste da Austrália        | Leste do Canadá        | China Norte        |
 |EUA Centro-Norte     |  Sudeste da Austrália       | Sul do Brasil        | Reino Unido Sul        |
-|EUA Centro-Sul     | Oeste do Japão        |Coreia Central         | Alemanha Central        |
+|EUA Centro-Sul     | Oeste do Japão        |Coreia do Sul Central         | Alemanha Central        |
 |EUA Centro-Oeste     |  Leste do Japão       | Gov (US) - Virginia        | Alemanha Nordeste        |
 
 

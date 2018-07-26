@@ -1,6 +1,6 @@
 ---
-title: Como configurar habilitados no MSI VM do Azure com um SDK do Azure
-description: Passo a passo de instruções para configurar e utilizar uma identidade de serviço gerida (MSI) na VM do Azure, com um SDK do Azure.
+title: Como configurar uma identidade do serviço gerido da VM do Azure com um SDK do Azure ativada
+description: Passo a passo de instruções para configurar e utilizar uma identidade do serviço gerido na VM do Azure, com um SDK do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: dee4a3e27623150ce3fa648d73542db0cbb23e93
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 2763c78d309f5a90d68429caa46581e50f8b4303
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901447"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257665"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configurar um VM-Managed Service Identity (MSI) com um SDK do Azure
+# <a name="configure-a-vm-managed-service-identity-using-an-azure-sdk"></a>Configurar uma identidade de serviço VM-Managed com um SDK do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Identidade de serviço gerida fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory (AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
 
-Neste artigo, saiba como ativar e remover MSI de VM do Azure, com um SDK do Azure.
+Neste artigo, saiba como ativar e remover a identidade do serviço gerido para a VM do Azure, com um SDK do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="azure-sdks-with-msi-support"></a>SDKs do Azure com suporte MSI 
+## <a name="azure-sdks-with-managed-service-identity-support"></a>SDKs do Azure com suporte de identidade do serviço gerido 
 
-O Azure suporta várias plataformas de programação através de uma série de [SDKs do Azure](https://azure.microsoft.com/downloads). Várias delas foram atualizadas para suportar o MSI e fornecer exemplos de correspondentes para demonstrar a utilização. Esta lista é atualizada à medida que é adicionado suporte adicional:
+O Azure suporta várias plataformas de programação através de uma série de [SDKs do Azure](https://azure.microsoft.com/downloads). Várias delas foram atualizadas para suportar a identidade do serviço gerido e fornecer exemplos de correspondentes para demonstrar a utilização. Esta lista é atualizada à medida que é adicionado suporte adicional:
 
 | SDK | Sample |
 | --- | ------ | 
@@ -47,6 +47,6 @@ O Azure suporta várias plataformas de programação através de uma série de [
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte artigos relacionados em "Configurar MSI para uma VM do Azure", para saber como também pode utilizar os modelos de portal, PowerShell, CLI e recursos do Azure.
+- Consulte artigos relacionados em "Configurar Managed Service Identity para VM do Azure", para saber como também pode utilizar os modelos de portal, PowerShell, CLI e recursos do Azure.
 
 Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.

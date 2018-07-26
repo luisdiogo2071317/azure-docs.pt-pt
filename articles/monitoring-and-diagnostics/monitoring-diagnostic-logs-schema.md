@@ -5,19 +5,19 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/06/2018
+ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921234"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248796"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
-[Registos de diagnóstico de recursos do Azure](monitoring-overview-of-diagnostic-logs.md) registos emitidos pelos seus recursos do Azure que descrevem a operação desse recurso. Todos os registos de diagnóstico disponíveis através do Azure Monitor partilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
+[Registos de diagnóstico do Azure Monitor](monitoring-overview-of-diagnostic-logs.md) registos emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os registos de diagnóstico disponíveis através do Azure Monitor partilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos.
 
 Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e o `category` identificar exclusivamente um esquema. Este artigo descreve o esquema de nível superior para os registos de diagnóstico e links para as esquemas para cada serviço.
 
@@ -26,7 +26,8 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 | Nome | Obrigatório/opcional | Descrição |
 |---|---|---|
 | hora | Necessário | O carimbo de hora (UTC) do evento. |
-| resourceId | Necessário | O ID de recurso do recurso que o evento de emitidos. |
+| resourceId | Necessário | O ID de recurso do recurso que o evento de emitidos. Para os serviços de inquilino, esta é a de /tenants/tenant-id/providers/provider-name o formulário. |
+| TenantId | Necessário para os registos de inquilino | O ID de inquilino do que este evento está associado ao inquilino do Active Directory. Esta propriedade só é utilizada para os registos de nível de inquilino, não é apresentado nos registos ao nível do recurso. |
 | operationName | Necessário | O nome da operação representada por este evento. Se o evento representa uma operação de RBAC, este é o nome da operação de RBAC (ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Modelada normalmente na forma de uma operação do Gestor de recursos, mesmo que não sejam operações de Gestor de recursos de documentado real (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A api-version associada à operação, se o operationName foi executada com uma API (por exemplo. http://myservice.windowsazure.net/object?api-version=2016-06-01). Se não houver nenhuma API que corresponde a esta operação, a versão representa a versão dessa operação, caso as propriedades associadas a operação mudar no futuro. |
 | categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que são apresentados no blob de propriedades de um evento são os mesmos dentro de um tipo de categoria e recursos de log específico. Categorias de registo típicos são "Auditoria" "operacional" "Execução" e "Pedido." |
@@ -46,6 +47,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 
 | Serviço | Esquema e documentos |
 | --- | --- |
+| Azure Active Directory | [Descrição geral](../active-directory/reporting-azure-monitor-diagnostics-overview.md), [esquema de registo de auditoria](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md) e [esquema de inícios de sessão](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gestão de API | [Registos de diagnóstico de gestão de API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateways de Aplicação |[Registo de diagnósticos para o Gateway de aplicação](../application-gateway/application-gateway-diagnostics.md) |
@@ -57,7 +59,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | Data Lake Analytics |[Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Aceder a registos de diagnóstico para o Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | DB para o PostgreSQL |  Esquema não está disponível. |
-| Event Hubs |[Registos de diagnóstico dos Hubs de eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Hubs de Eventos |[Registos de diagnóstico dos Hubs de eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema não está disponível. |
 | IoT Hub | [Operações do IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../key-vault/key-vault-logging.md) |

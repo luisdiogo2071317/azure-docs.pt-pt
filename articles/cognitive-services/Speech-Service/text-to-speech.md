@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071135"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257951"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre o texto em voz, API
 
@@ -35,7 +35,7 @@ Os cenários em que fala síntese está a ser adotada incluem:
 
 ## <a name="voice-support"></a>Suporte de voz
 
-A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter os detalhes das vozes suportados, consulte [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
 Se desejar uma voz única para a sua aplicação, pode criar [tipos de voz personalizada](how-to-customize-voice-font.md) de seus próprios exemplos de voz.
 

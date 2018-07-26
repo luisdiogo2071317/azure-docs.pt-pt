@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 91ed8a073dd95ddf37e4a71bfd7c3ab1dcb94f09
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161366"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258801"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -54,6 +54,10 @@ A experiência do portal do Azure, melhorámos a maneira que pode ver a reposiç
 6. Para filtrar esta vista para ver apenas os eventos relacionados à reposição de palavra-passe, selecione o **filtro** botão na parte superior do painel.
 7. Do **filtro** menu, selecione a **categoria** pendente lista e altere-o para o **gestão de palavras-passe Self-Service** tipo de categoria.
 8. Opcionalmente, continuar a filtrar a lista ao escolher as específicas **atividade** que está interessado.
+
+### <a name="converged-registration-preview"></a>Registo convergido (pré-visualização)
+
+Se estão a participar na pré-visualização pública do Registro convergida, irão encontrar informações sobre a atividade do utilizador nos registos de auditoria na categoria **métodos de autenticação**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 

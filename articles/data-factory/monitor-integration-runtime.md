@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113262"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259107"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 **Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
@@ -76,10 +76,18 @@ A tabela seguinte fornece descrições das propriedades de monitorização **cad
 | Memória disponível | Memória disponível num nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
 | Utilização da CPU | Utilização da CPU de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. |
 | Funcionamento em rede (entrada/saída) | Utilização da rede de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
-| Tarefas simultâneas (em execução / limite) | Número de tarefas ou tarefas em execução em cada nó. Este valor é um instantâneo de quase em tempo real. Limite significa o máximo de tarefas simultâneas para cada nó. Este valor é definido com base no tamanho de máquina. Pode aumentar o limite para aumentar verticalmente a execução da tarefa em simultâneo em cenários avançados, em que a CPU/memória/rede é subutilizados, mas atividades são exceder o tempo limite. Esta capacidade também está disponível com um runtime de integração autoalojado de nó único. |
+| Tarefas simultâneas (em execução / limite) | **Executar**. Número de tarefas ou tarefas em execução em cada nó. Este valor é um instantâneo de quase em tempo real. <br/><br/>**Limite**. Limite significa o máximo de tarefas simultâneas para cada nó. Este valor é definido com base no tamanho de máquina. Pode aumentar o limite para a ampliação de execução da tarefa em simultâneo em cenários avançados, quando as atividades são exceder o tempo limite, mesmo quando da CPU, memória ou a rede está subutilizados. Esta capacidade também está disponível com um runtime de integração autoalojado de nó único. |
 | Função | Existem dois tipos de funções num runtime de integração autoalojado de vários nós – dispatcher e de trabalho. Todos os nós são funções de trabalho, o que significa que eles podem todos ser usados para executar tarefas. Há apenas um nó de dispatcher, que é utilizado para extrair tarefas/tarefas dos serviços cloud e expedi-los para nós de trabalho diferentes. O nó de dispatcher é também um nó de trabalho. |
 
-Algumas definições das propriedades fazem mais sentido quando existirem dois ou mais nós (cenário de escalamento horizontal) no runtime de integração autoalojado. 
+Algumas definições das propriedades fazem mais sentido quando existirem dois ou mais nós no runtime de integração autoalojado (ou seja, num cenário de dimensionamento).
+
+#### <a name="concurrent-jobs-limit"></a>Limite de tarefas simultâneas
+
+O valor predefinido de tarefas simultâneas, limite está definido com base no tamanho de máquina. Os fatores utilizados para calcular esse valor dependem da quantidade de RAM e o número de núcleos de CPU da máquina. Por isso, o maior número de núcleos e mais memória, mais alto a predefinição limite de tarefas simultâneas.
+
+Aumentar horizontalmente, aumentando o número de nós. Quando aumenta o número de nós, o limite de tarefas simultâneas é a soma dos valores de limite da tarefa em simultâneo de todos os nós disponíveis.  Por exemplo, se um nó permite-lhe executar um máximo de tarefas simultâneas doze, em seguida, adicionar três nós mais semelhantes permite-lhe executar um máximo de tarefas simultâneas 48 (ou seja, 4 x 12). Recomendamos que aumente o limite de tarefas simultâneas apenas quando o vir baixa utilização de recursos com os valores predefinidos em cada nó.
+
+É possível substituir o valor padrão calculado no portal do Azure. Selecione criar > ligações > Runtimes de integração > Edi > nós > modificar o valor de tarefa em simultâneo por nó. Também pode utilizar o PowerShell [azurermdatafactoryv2integrationruntimenode atualização](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) comando.
   
 ### <a name="status-per-node"></a>Estado (por nó)
 A tabela seguinte fornece os Estados possíveis de um nó do runtime de integração autoalojado:

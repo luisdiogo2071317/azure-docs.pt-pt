@@ -1,6 +1,6 @@
 ---
-title: Configurar MSI num conjunto com o portal do Azure de dimensionamento de máquina virtual do Azure
-description: Passo a passo de instruções para configurar uma identidade de serviço gerida (MSI) em VMSS do Azure, com o portal do Azure.
+title: Configurar a identidade do serviço gerido num conjunto com o portal do Azure de dimensionamento de máquina virtual do Azure
+description: Passo a passo as instruções para configurar uma identidade de serviço geridas no VMSS do Azure, com o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 3421d0ab9007bdfe9fab093871a8517531059008
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213178"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257764"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma máquina virtual Managed Service Identity (MSI) com o portal do Azure do conjunto de dimensionamento
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configurar uma máquina virtual do conjunto de dimensionamento da identidade do serviço gerido com o portal do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -45,7 +45,7 @@ Atualmente, a criação de VM através do portal do Azure não suporta operaçõ
 
 - [Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Em seguida, avance para a secção seguinte para obter detalhes sobre como ativar o MSI no conjunto de dimensionamento de máquina virtual.
+Em seguida, avance para a secção seguinte para obter detalhes sobre como ativar a identidade do serviço gerido no conjunto de dimensionamento de máquina virtual.
 
 ## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Ativar a identidade de serviço gerido num VMMS existente do Azure
 
@@ -61,7 +61,7 @@ Para ativar o sistema de identidade numa VM que foi originalmente aprovisionada 
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Remover a identidade do serviço gerido de um conjunto de dimensionamento de máquina virtual do Azure
 
-Se tiver um conjunto de dimensionamento de máquina virtual que já não necessita de um MSI:
+Se tiver um conjunto de dimensionamento de máquina virtual que já não necessita de uma identidade de serviço geridas:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual. Além disso, certifique-se de que a sua conta pertencer a uma função que dá-lhe permissões de escrita no conjunto de dimensionamento de máquina virtual.
 
@@ -77,6 +77,6 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não necessi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Com o portal do Azure, forneça um máquina virtual do Azure do conjunto de dimensionamento MSI [acesso a outro recurso do Azure](howto-assign-access-portal.md).
+- Com o portal do Azure, forneça um dimensionamento de máquina virtual do Azure definir a identidade do serviço gerido [acesso a outro recurso do Azure](howto-assign-access-portal.md).
 
 Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.

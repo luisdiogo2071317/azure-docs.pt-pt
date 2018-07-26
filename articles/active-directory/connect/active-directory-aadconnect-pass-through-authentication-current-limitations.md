@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fff52a7909a1f3c59ebe4944386e096bd1a8d95
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213423"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258291"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory autenticação pass-through: Limitações atuais
 
@@ -35,7 +35,7 @@ São suportados os seguintes cenários:
 - Utilizador inícios de sessão para os clientes Outlook usando protocolos legados, tais como o Exchange ActiveSync, EAS, SMTP, POP e IMAP.
 - Inícios de usuário para aplicativos herdados de cliente do Office e aplicativos do Office que suportam [autenticação moderna](https://aka.ms/modernauthga): versões do Office 2010, 2013 e 2016.
 - Utilizador inícios de sessão para aplicações de protocolo legados, tais como o PowerShell versão 1.0 e outros.
-- Domínio do Azure AD é associado para dispositivos Windows 10.
+- Associa do Azure AD para dispositivos Windows 10.
 - Palavras-passe de aplicação para o multi-factor Authentication.
 
 ## <a name="unsupported-scenarios"></a>Cenários não suportados
@@ -47,7 +47,7 @@ Os cenários seguintes são _não_ suportados:
 - Autenticação pass-through não é integrada com [do Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Como solução para cenários não suportados _apenas_, ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página no Assistente do Azure AD Connect. Quando os utilizadores iniciarem sessão nas aplicações listado no "não suportado cenários" seção, esses pedidos de início de sessão específicos são _não_ processado pelos agentes de autenticação pass-through e, portanto, não irá ser registradas no [ Registos de autenticação pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Como solução para cenários não suportados _apenas_ (exceto a integração do Azure AD Connect Health), ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página no Assistente do Azure AD Connect. Quando os utilizadores iniciarem sessão nas aplicações listado no "não suportado cenários" seção, esses pedidos de início de sessão específicos são _não_ processado pelos agentes de autenticação pass-through e, portanto, não irá ser registradas no [ Registos de autenticação pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Ativar a sincronização de Hash de palavra-passe dá-lhe a opção de autenticação de ativação pós-falha se a sua infraestrutura no local é interrompida. Esta ativação pós-falha da autenticação pass-through para a sincronização de Hash de palavra-passe não é automática. Terá de mudar o método de início de sessão manualmente utilizando o Azure AD Connect. Se o servidor com o Azure AD Connect ficar inativo, é necessária a ajuda de Support da Microsoft para desativar a autenticação pass-through.

@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223689"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249194"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -58,7 +58,8 @@ Windows Server 2016 e SPs todos os | O Azure fornece suporte completo. | Prepara
 Windows Server 2012 R2 e SPs todos os | O Azure fornece suporte completo. | Preparado para o Azure
 Windows Server 2012 e SPs todos os | O Azure fornece suporte completo. | Preparado para o Azure
 Windows Server 2008 R2 com todos os SPs | O Azure fornece suporte completo.| Preparado para o Azure
-Windows Server 2003-2008 | Esses sistemas operacionais tenham passado o fim do suporte data e a necessidade de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para suporte no Azure. | Condicionalmente preparado para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
+Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte completo. | Preparado para o Azure
+2003, do Windows Server 2003 R2 | Esses sistemas operacionais tenham passado o fim do suporte data e a necessidade de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para suporte no Azure. | Condicionalmente preparado para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Estes sistemas operativos passaram a sua data de fim de suporte, a máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure. | Condicionalmente preparado para o Azure, recomenda-se para atualizar o sistema operacional antes de migrar para o Azure.
 Cliente do Windows 7, 8 e 10 | O Azure fornece suporte apenas a subscrição do Visual Studio. | Condicionalmente preparado para o Azure
 Windows Vista, XP Professional | Estes sistemas operativos passaram a sua data de fim de suporte, a máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure. | Condicionalmente preparado para o Azure, recomenda-se para atualizar o sistema operacional antes de migrar para o Azure.

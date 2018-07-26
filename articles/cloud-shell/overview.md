@@ -12,21 +12,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/24/2018
 ms.author: juluk
-ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856465"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258930"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo, acessível para o browser para o gerenciamento de recursos do Azure.
 Ele fornece a flexibilidade de escolher a experiência de shell mais adequada às estilo de que trabalho.
 Os utilizadores de Linux podem optar por uma experiência de Bash, ao passo que os utilizadores de Windows podem escolher o PowerShell.
 
-Experimente a partir de shell.azure.com com este botão.
+Experimente a partir de shell.azure.com clicando-se abaixo.
 
 [![](https://shell.azure.com/images/launchcloudshell.png "Inicie o Azure Cloud Shell")](https://shell.azure.com)
 
@@ -49,7 +49,12 @@ Os utilizadores de Linux podem utilizar Bash no Cloud Shell, enquanto os usuári
 ### <a name="authenticated-and-configured-azure-workstation"></a>Autenticado e configurada estação de trabalho do Azure
 Cloud Shell é gerida pela Microsoft para que ele vem com ferramentas de linha de comandos populares e suporte de idiomas. Cloud Shell segura é autenticado automaticamente para acesso imediato a seus recursos através dos cmdlets de CLI 2.0 do Azure ou do Azure PowerShell.
 
-Ver toda a [lista de ferramentas.](features.md#tools)
+Ver toda a [lista de ferramentas instaladas no Cloud Shell.](features.md#tools)
+
+### <a name="integrated-cloud-shell-editor"></a>Editor do Cloud Shell integrado
+Cloud Shell oferece um editor de texto gráfica integrada com base no Editor de Mónaco de código-fonte aberto. Basta criar e editar ficheiros de configuração ao executar `code .` para implementação totalmente integrada através da CLI 2.0 do Azure ou do Azure PowerShell.
+
+[Saiba mais sobre o editor do Cloud Shell](using-cloud-shell-editor.md).
 
 ### <a name="multiple-access-points"></a>Vários pontos de acesso
 O cloud Shell é uma ferramenta flexível que pode ser usada em:

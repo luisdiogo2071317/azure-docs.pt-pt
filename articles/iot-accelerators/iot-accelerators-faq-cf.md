@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076336"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248592"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador de solução de fábrica ligada
 
@@ -125,7 +125,7 @@ Em alternativa, iniciar sessão na VM através de SSH e inspecionar os ficheiros
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como posso verificar se a simulação está a enviar dados para a cloud?
 
-Com o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou o [iothub-explorer](https://github.com/azure/iothub-explorer) ferramenta, pode inspecionar os dados enviados para o IoT Hub do determinados dispositivos. Para usar essas ferramentas, precisa saber a cadeia de ligação do hub IoT na sua implementação. Consulte [como posso saber a cadeia de ligação do hub IoT utilizada pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Com o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou o [monitor-eventos de extensão de CLI do Azure IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) de comando, pode inspecionar os dados enviados para o IoT Hub do determinados dispositivos. Para usar essas ferramentas, precisa saber a cadeia de ligação do hub IoT na sua implementação. Consulte [como posso saber a cadeia de ligação do hub IoT utilizada pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspecione os dados enviados por um dos dispositivos publicador:
 

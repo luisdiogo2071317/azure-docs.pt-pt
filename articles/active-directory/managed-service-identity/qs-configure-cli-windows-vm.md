@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: cb23db13d67047225102c6888e27e8f79a3e5abf
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237619"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259318"
 ---
-# <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Configurar a identidade de serviço gerida (MSI) na VM do Azure com a CLI do Azure
+# <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Configurar a identidade do serviço gerido na VM do Azure com a CLI do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -105,7 +105,7 @@ Se tiver uma máquina virtual que já não necessita de sistema de identidade at
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Para remover a extensão de VM de MSI, usuário `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` mudar (consoante o tipo de VM) com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Para remover a extensão de VM de identidade de serviço gerida, usuário `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` mudar (consoante o tipo de VM) com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -119,7 +119,7 @@ Nesta secção, irá aprender como adicionar e remover um utilizador atribuído 
 
 Esta secção orienta-o através da criação de uma VM com a atribuição de uma identidade atribuída ao utilizador. Se já tiver uma VM que pretende utilizar, ignore esta secção e avance para a próxima.
 
-1. Pode ignorar este passo se já tiver um grupo de recursos que pretende utilizar. Criar uma [grupo de recursos](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para a contenção e a implantação de seu MSI, usando [criar grupo az](/cli/azure/group/#az_group_create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
+1. Pode ignorar este passo se já tiver um grupo de recursos que pretende utilizar. Criar uma [grupo de recursos](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para a contenção e a implementação da sua identidade de serviço gerida, usando [criar grupo az](/cli/azure/group/#az_group_create). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -165,7 +165,7 @@ Esta secção orienta-o através da criação de uma VM com a atribuição de um
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-A resposta contém detalhes para o utilizador atribuído MSI criado, semelhante ao seguinte. O recurso `id` valor atribuído para a identidade atribuída ao utilizador é utilizado no passo seguinte.
+A resposta contém detalhes para o utilizador atribuído a identidade gerida criada, semelhante ao seguinte. O recurso `id` valor atribuído para a identidade atribuída ao utilizador é utilizado no passo seguinte.
 
    ```json
    {
