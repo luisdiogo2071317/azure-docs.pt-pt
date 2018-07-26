@@ -3,25 +3,25 @@ title: 'Tutorial: funções definidas pelo utilizador do JavaScript do Azure Str
 description: Neste tutorial, vai realizar mecânicas de consulta avançada com as funções definidas pelo utilizador do JavaScript
 keywords: javascript, funções definidas pelo utilizador, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rodrigoa
+ms.openlocfilehash: a50b96f128fb32b8ac7b7b9971beeb3b12397b5f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415301"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184983"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
-
+ 
 O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o conjunto avançado de métodos de **Cadeia**, **RegExp**, **Matemática**, **Matriz** e **Data** que o JavaScript dispõe, as transformações de dados complexas com tarefas do Stream Analytics tornam-se mais fáceis de criar.
 
 Neste tutorial, ficará a saber como:
