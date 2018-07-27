@@ -4,9 +4,10 @@
   items:
     - name: O que são os Hubs de Eventos?
       href: event-hubs-about.md
-    - name: Comparar serviços de mensagens
-      href: ../event-grid/compare-messaging-services.md
-      maintainContext: true
+    - name: Hubs de Eventos para o Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Recolha dos Hubs de Eventos
+      href: event-hubs-capture-overview.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -16,14 +17,31 @@
       href: event-hubs-quickstart-cli.md
     - name: Processar fluxos de eventos - Azure Powershell
       href: event-hubs-quickstart-powershell.md
+    - name: Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
+      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Tutoriais
   items:
     - name: Visualizar anomalias de dados nas transmissões de dados dos Hubs de Eventos
       href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Transmitir macrodados em fluxo para um armazém de dados
+      href: ../event-grid/event-grid-event-hubs-integration.md
+      maintainContext: true
+    - name: Transmitir em fluxo dados para o Azure Databricks com os Hubs de Eventos
+      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+    - name: Hubs de Eventos para o Apache Kafka
+      items:
+        - name: Apache Kafka MirrorMaker com os Hubs de Eventos
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Flink com os Hubs de Eventos
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Akka Streams com os Hubs de Eventos
+          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Amostras
   href: event-hubs-samples.md
 - name: Conceitos
   items:
+    - name: Funcionalidades dos Hubs de Eventos
+      href: event-hubs-features.md
     - name: Visão geral do Anfitrião do Processador de Eventos
       href: event-hubs-event-processor-host.md
     - name: Filtros de ligação do IP
@@ -35,8 +53,6 @@
     - name: Integrar com o Event Grid
       href: ../event-grid/event-grid-event-hubs-integration.md
       maintainContext: true
-    - name: Funcionalidades dos Hubs de Eventos
-      href: event-hubs-features.md
     - name: Identidade de Serviço Gerida (pré-visualização)
       href: event-hubs-managed-service-identity.md
     - name: Controlo de Acesso Baseado em Funções (pré-visualização)
@@ -64,20 +80,10 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Receber eventos com o .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Hubs de Eventos para Kafka
+    - name: Hubs de Eventos para o Apache Kafka
       items:
-        - name: Descrição geral dos ecossistemas de Hubs de Eventos para o Kafka
-          href: event-hubs-for-kafka-ecosystem-overview.md
-        - name: Criar Hubs de Eventos ativados pelo Kafka
+        - name: Criar hubs de eventos ativados pelo Apache Kafka
           href: event-hubs-create-kafka-enabled.md
-        - name: Transmitir para os Hubs de Eventos para o Ecossistema Kafka
-          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Tutorial do Kafka MirrorMaker com os Hubs de Eventos
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Tutorial do Apache Flink com os Hubs de Eventos
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Tutorial do Akka Streams com os Hubs de Eventos
-          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: APIs disponíveis
       href: event-hubs-api-overview.md
       items:
@@ -113,12 +119,8 @@
           href: event-hubs-metrics-azure-monitor.md
         - name: Bibliotecas de gestão dos Hubs de Eventos
           href: event-hubs-management-libraries.md
-        - name: Captura
-          items:
-            - name: Recolha dos Hubs de Eventos
-              href: event-hubs-capture-overview.md
-            - name: Recolher dados dos Hubs de Eventos através de Python
-              href: event-hubs-capture-python.md
+        - name: Recolher dados dos Hubs de Eventos através de Python
+          href: event-hubs-capture-python.md
         - name: Transmitir dados do Diagnóstico do Azure em fluxo com os Hubs de Eventos
           href: event-hubs-streaming-azure-diags-data.md
         - name: Criar e implementar um hub de eventos com um modelo do Resource Manager

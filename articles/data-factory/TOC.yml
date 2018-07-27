@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes do SSIS no Azure
       items:
-        - name: Associar um IR Azure-SSIS a uma rede virtual
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Ativar a autenticação do Azure AD para o IR do Azure-SSIS
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Configurar o elevado desempenho de IR do SSIS do Azure
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Aprovisionar a Enterprise Edition para o IR do Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Configuração personalizada do IR do Azure-SSIS
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Instalar componentes licenciados para o IR de SSIS do Azure
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Executar pacotes de SSIS com a atividade Executar Pacote SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Agendar o runtime de integração de SSIS do Azure
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Associar um IR Azure-SSIS a uma rede virtual
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Ativar a autenticação do Azure AD para o IR do Azure-SSIS
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Aprovisionar a Enterprise Edition para o IR do Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Configuração personalizada do IR do Azure-SSIS
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Instalar componentes licenciados para o IR de SSIS do Azure
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Configurar o elevado desempenho de IR do SSIS do Azure
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Configurar a recuperação após desastre para o IR do SSIS do Azure
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Criar acionadores
       items:
         - name: Criar um acionador de agenda

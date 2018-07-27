@@ -138,7 +138,7 @@
 ### Resolução de problemas
 #### [Dados de auditoria em falta](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dados em falta em transferências](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Erros no pacote de conteúdos de registos de Atividades do Azure AD] (active-directory-reporting-troubleshoot-
+#### [Erros do pacote de conteúdos dos Registos de atividades do Azure AD](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Erros na API de Relatórios do Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Acesso Programático](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Resolução de problemas](manage-apps/application-proxy-troubleshoot.md)
 
 ### Gerir aplicações empresariais
+#### [Adicionar uma aplicação](manage-apps/add-application-portal.md)
+#### [Ver aplicações de inquilino](manage-apps/view-applications-portal.md)
 #### [Atribuir utilizadores](manage-apps/assign-user-or-group-access-portal.md)
 #### [Personalizar a imagem corporativa](manage-apps/change-name-or-logo-portal.md)
 #### [Desativar inícios de sessão do utilizador](manage-apps/disable-user-sign-in-portal.md)
 #### [Remover utilizadores](manage-apps/remove-user-or-group-access-portal.md)
-#### [Ver todas as minhas aplicações](manage-apps/view-applications-portal.md)
+
 #### [Gerir o aprovisionamento de contas de utilizador](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Gerir o início de sessão único para aplicações empresariais](manage-apps/configure-single-sign-on-portal.md)
 #### [Assinatura de certificado avançada para aplicações SAML](manage-apps/certificate-signing-options.md)

@@ -138,9 +138,9 @@
           items:
             - name: Retenção de cópia de segurança de longa duração
               href: sql-database-long-term-retention.md
-            - name: Configurar a retenção de cópias de segurança de longa duração - armazenamento SQL
+            - name: Configurar a utilização do armazenamento de blobs do Azure
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Configurar a retenção de cópias de segurança de longa duração - cofre do Azure (preterido)
+            - name: Configurar a utilização do cofre do Azure (preterido)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Grupos de ativação pós-falha e georreplicação
           items:

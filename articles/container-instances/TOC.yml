@@ -59,7 +59,7 @@
           href: container-instances-log-analytics.md
     - name: Executar cargas de trabalho
       items:
-        - name: Executar tarefas em contentores
+        - name: Executar tarefas com a política de reinício
           href: container-instances-restart-policy.md
         - name: Agentes de compilação do Jenkins no ACI
           href: container-instances-jenkins.md
