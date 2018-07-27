@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
+ms.date: 07/24/2018
 ms.author: genli
-ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005271"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282595"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instância pública IP (clássico) Descrição geral de nível
 Uma instância IP público ao nível (ILPIP) é um endereço IP público que pode atribuir diretamente para uma instância de função VM ou serviços Cloud, em vez de para o serviço em nuvem que sua instância VM ou função residem em. Um ILPIP não tomar o lugar do IP virtual (VIP) atribuído ao seu serviço cloud. Em vez disso, é um endereço IP adicional que pode utilizar para ligar diretamente à sua instância VM ou função.
@@ -144,6 +144,16 @@ Para adicionar um ILPIP para uma instância de função de serviços Cloud, exec
     </ServiceConfiguration>
     ```
 3. Carregar o ficheiro. cscfg para o serviço em nuvem, concluindo os passos a [como configurar os serviços Cloud](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artigo.
+
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Como obter informações de ILPIP para um serviço Cloud
+Para ver as informações de ILPIP por instância de função, execute o seguinte comando do PowerShell e observe os valores para *PublicIPAddress* e *PublicIPName*:
+
+```powershell
+$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Compreender como [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implementação clássica.

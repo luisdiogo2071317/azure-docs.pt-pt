@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093126"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264815"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerir o registo do inquilino no Azure Stack
 
@@ -35,6 +35,13 @@ Também pode usar essa operação se pretender alterar a subscrição associada 
 
 Tenha em atenção que apenas uma subscrição do Azure pode ser associada a um inquilino. Se tentar adicionar uma segunda assinatura a um inquilino existente, a primeira assinatura é escrita excessiva. 
 
+### <a name="use-api-profiles"></a>Utilizar perfis de API
+
+Os cmdlets neste artigo exigem que especifique um perfil de API quando a executar o PowerShell. Perfis de API representam um conjunto de fornecedores de recursos do Azure e suas versões de API. Eles ajudam a utilizar a versão correta da API ao interagir com múltiplas clouds do Azure, por exemplo ao trabalhar com global do Azure e o Azure Stack. Os perfis são especificados por um nome que corresponde à respetiva data de lançamento. Neste artigo, terá de utilizar o **2017-09-03** perfil.
+
+Para obter mais informações sobre o Azure Stack e perfis de API, consulte [perfis de versão de API de gerir no Azure Stack](user/azure-stack-version-profiles.md). Para obter instruções sobre como colocar em funcionamento com o perfil de API com o PowerShell, consulte [perfis de versão de API de utilização para o PowerShell no Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>Parâmetros
 
 | Parâmetro                  | Descrição |
 |---                         | --- |

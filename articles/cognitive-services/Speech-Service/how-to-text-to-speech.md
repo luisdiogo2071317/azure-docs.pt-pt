@@ -1,27 +1,26 @@
 ---
-title: Utilize texto em voz com serviços de voz | Documentos da Microsoft
+title: Utilizar texto em voz com serviços de voz
 description: Saiba como utilizar o texto em voz no serviço de voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213338"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281519"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
 O serviço de voz fornece uma funcionalidade de texto em voz através de um pedido HTTP simples. POSTAR o texto seja falado para o ponto final adequado e o serviço retorna um arquivo de áudio (`.wav`) que contém sintetizadas voz. Seu aplicativo, em seguida, pode utilizar este áudio como gosta.
 
-O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII ou UTF8) ou uma [SSML](speech-synthesis-markup.md) documento. Pedidos de texto sem formatação são ditas com uma voz de predefinição. Na maioria dos casos, queira usar um corpo SSML. O pedido HTTP tem de incluir uma [autorização](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+O corpo da mensagem de pedido para texto em voz podem ser texto simples (ASCII ou UTF8) ou uma [SSML](speech-synthesis-markup.md) documento. Pedidos de texto sem formatação são ditas com uma voz de predefinição. Na maioria dos casos, queira usar um corpo SSML. O pedido HTTP tem de incluir uma [autorização](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 
 Os pontos de extremidade regional texto em voz são mostrados aqui. Utilize o que é adequado à sua subscrição.
 
@@ -86,10 +85,10 @@ Se ocorrer um erro, são utilizados os códigos de estado abaixo. O corpo da res
 
 |Código|Descrição|Problema|
 |-|-|-|
-400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
+400 |Pedido incorreto |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
 401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou token é válido.
 413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
-|502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
+|502|Gateway inválido    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Para obter mais informações sobre o texto a API de REST de voz, consulte [REST APIs](rest-apis.md#text-to-speech).
 

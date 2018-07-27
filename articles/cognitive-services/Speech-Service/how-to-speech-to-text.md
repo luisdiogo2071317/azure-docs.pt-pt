@@ -1,21 +1,20 @@
 ---
-title: Utilize a voz para texto | Documentos da Microsoft
+title: Utilize a voz para texto
 description: Saiba como utilizar a conversão de voz em texto no serviço de voz
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 26cecedfc3ad2d472b9686e25054fe08253cee77
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 5e7916660275ab45c4556f1169f3e68fe1d3cb85
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068527"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282301"
 ---
 # <a name="use-speech-to-text-in-the-speech-service"></a>Utilize "Conversão de voz para texto" no serviço de voz
 

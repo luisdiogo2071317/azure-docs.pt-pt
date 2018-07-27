@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 07/18/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136609"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262852"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -71,7 +71,7 @@ As cópias de segurança PITR são georredundante e protegido por [replicação 
 Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>Cópias de segurança de retenção de longa duração
-Base de dados SQL oferece a opção de configurar a retenção de longo prazo (LTR) de cópias de segurança completas para até 10 anos. Se a política LTR estiver ativada, as cópias de segurança completas semanais são copiadas automaticamente para um contentor de armazenamento RA-GRS diferente. Para cumprir o requisito de conformidade diferentes, pode selecionar os períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. O consumo de armazenamento depende na frequência de cópias de segurança e a retenção period(s) selecionada. Pode utilizar o [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para calcular o custo de armazenamento LTR. 
+Base de dados SQL oferece a opção de configurar a retenção de longo prazo (LTR) de cópias de segurança completas para até 10 anos no armazenamento de Blobs do Azure. Se a política LTR estiver ativada, as cópias de segurança completas semanais são copiadas automaticamente para um contentor de armazenamento RA-GRS diferente. Para cumprir o requisito de conformidade diferentes, pode selecionar os períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. O consumo de armazenamento depende na frequência de cópias de segurança e a retenção period(s) selecionada. Pode utilizar o [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para calcular o custo de armazenamento LTR. 
 
 Como PITR, as cópias de segurança LTR são georredundante e estão protegidas pela [replicação do armazenamento do Azure entre regiões](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -133,5 +133,5 @@ Ver [API de REST de retenção de cópia de segurança](https://docs.microsoft.c
 - Cópias de segurança da base de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque eles protegem os dados de danos acidentais ou eliminação. Para saber mais sobre as outras base de dados do Azure SQL soluções de continuidade empresarial, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).
 - Para restaurar para um ponto no tempo, com o portal do Azure, consulte [restaurar base de dados para um ponto no tempo com o portal do Azure](sql-database-recovery-using-backups.md).
 - Para restaurar para um ponto no tempo com o PowerShell, consulte [restaurar base de dados para um ponto no tempo com o PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança num cofre dos serviços de recuperação do Azure no portal do Azure automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o portal do Azure](sql-database-long-term-backup-retention-configure.md).
-- Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança num cofre dos serviços de recuperação do Azure com o PowerShell automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança no armazenamento de Blobs do Azure com o portal do Azure automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o portal do Azure](sql-database-long-term-backup-retention-configure.md).
+- Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança no armazenamento do blogue do Azure com o PowerShell automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o PowerShell](sql-database-long-term-backup-retention-configure.md).

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441578"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282253"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utilizar o portal para criar uma aplicação do Azure Active Directory e o principal de serviço que pode aceder aos recursos
 
-Quando tiver o código que precisa de aceder ou modificar os recursos, tem de configurar uma aplicação do Azure Active Directory (AD). Atribuir as permissões necessárias para a aplicação do AD. Esta abordagem é preferencial para executar a aplicação em suas próprias credenciais, uma vez que pode atribuir permissões para a identidade de aplicação que são diferentes de suas próprias permissões. Normalmente, estas permissões estão restritas a exatamente aquilo que a aplicação precisa de fazer.
+Quando tiver o código que precisa de aceder ou modificar os recursos, tem de configurar uma aplicação do Azure Active Directory (AD). Em seguida, pode atribuir as permissões necessárias para a aplicação do AD. Esta abordagem é preferencial para executar a aplicação em suas próprias credenciais, uma vez que pode atribuir permissões para a identidade de aplicação que são diferentes de suas próprias permissões. Normalmente, estas permissões estão restritas a exatamente aquilo que a aplicação precisa de fazer.
 
-Este artigo mostra como executar esses passos através do portal. Ele se concentra num aplicativo de inquilino único onde o aplicativo destina-se para ser executada dentro da organização apenas um. Geralmente usa aplicações de inquilino único para aplicações de linha de negócio que são executados dentro da sua organização.
+Este artigo mostra-lhe como realizar estes passos através do portal. Ele se concentra num aplicativo de inquilino único onde o aplicativo destina-se para ser executada dentro da organização apenas um. Geralmente usa aplicações de inquilino único para aplicações de linha de negócio que são executados dentro da sua organização.
 
 > [!IMPORTANT]
 > Em vez de criar um principal de serviço, considere utilizar a Identidade de Serviço Gerida do Azure AD para a identidade da aplicação. O MSI do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o seu código é executado num serviço que suporta o MSI do Azure AD e acede a recursos que suportam a autenticação do Azure Active Directory, o MSI do Azure AD é uma opção melhor para si. Para saber mais sobre o MSI do Azure AD, incluindo os serviços que atualmente o suportam, veja [Identidade de Serviço Gerida para recursos do Azure](../active-directory/managed-service-identity/overview.md).
@@ -156,7 +156,7 @@ Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao rec
 
    ![Selecione adicionar](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Selecione a função que pretende atribuir à aplicação. A imagem seguinte mostra os **leitor** função.
+1. Selecione a função que pretende atribuir à aplicação. Para permitir que o aplicativo execute ações como **reinicie**, **iniciar** e **parar** instâncias, tem de ter que selecionar a função **contribuinte**. A imagem seguinte mostra os **leitor** função.
 
    ![Selecionar função](./media/resource-group-create-service-principal-portal/select-role.png)
 

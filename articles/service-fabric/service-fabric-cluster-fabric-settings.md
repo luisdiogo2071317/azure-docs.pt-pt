@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 56c904c0da87c3b0023fe5c9a125a359e23678dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238952"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263815"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e a política de atualização de recursos de infraestrutura
 Este documento informa como personalizar as várias configurações de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o seu cluster do Service Fabric. Pode personalizá-las através da [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -624,7 +624,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="securityadminclientx509names"></a>Segurança/AdminClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| |
+|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cliente de administrador. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cliente de administrador tem de estar na lista. |
 
 ## <a name="securityclientaccess"></a>Segurança/ClientAccess
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -730,7 +730,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="securityclientx509names"></a>Segurança/ClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| |
+|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cliente. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cliente tem de estar na lista.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Segurança/ClusterCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -740,7 +740,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="securityclusterx509names"></a>Segurança/ClusterX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| |
+|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cluster. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cluster tem de estar na lista.|
 
 ## <a name="securityservercertificateissuerstores"></a>Segurança/ServerCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -750,7 +750,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="securityserverx509names"></a>Segurança/ServerX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| |
+|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de servidor. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de servidor tem de estar na lista.|
 
 ## <a name="setup"></a>Configurar
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |

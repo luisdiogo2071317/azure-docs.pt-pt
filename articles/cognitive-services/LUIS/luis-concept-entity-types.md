@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226616"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282284"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -70,7 +70,7 @@ LUIS oferece muitos tipos de entidades; entidades previamente concebidas, máqui
 | **Simples** <br/>[Ficou a saber de máquina](#machine-learned) | ✔ | **Definição**<br>Uma entidade é uma entidade genérica que descreve um único conceito e será adquirida do contexto aprendidas por máquina. Contexto incluem a escolha do word, o posicionamento de word e o comprimento da expressão.<br/><br/>Esta é uma boa entidade palavras ou expressões que não estão formatados de forma consistente, mas indicam a mesma coisa. <br/><br/>[Início rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Correspondência exata](#exact-match)|| **Definição**<br>Lista de entidades representam um conjunto de palavras relacionadas, juntamente com seus synoymns fixo e fechado no seu sistema. <br><br>Cada entidade de lista pode ter um ou mais formulários. Melhor utilizados para um conjunto conhecido de variações em maneiras de representar o mesmo conceito.<br/><br/>LUIS não Deteta valores adicionais para entidades de lista. Utilize o **Recomendamos** funcionalidade para ver sugestões para novas palavras com base na lista atual.<br/><br>Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final. <br/><br/>[Início rápido](luis-quickstart-intent-and-list-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Misto](#mixed) | ✔|**Definição**<br>Patterns.any é um marcador de posição de comprimento variável utilizado apenas na expressão de modelo de um padrão para marcar onde a entidade começa e termina.  <br><br>**Exemplo**<br>Devido uma pesquisa de expressão para livros com base no título, a pattern.any extrai o título completo. É uma expressão de modelo usando pattern.any `Who wrote {BookTitle}[?]`.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Composição** <br/>[Ficou a saber de máquina](#machine-learned) | ✔|**Definição**<br>Uma entidade composta é constituída por outras entidades, como entidades previamente concebidas, simples, regex, lista, hierárquica. As entidades separadas formam uma entidade inteira. Lista de entidades não são permitidas em entidades compostas. <br><br>**Exemplo**<br>Uma entidade composta com o nome PlaneTicketOrder pode ter entidades subordinadas pré-criados `number` e `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Composição** <br/>[Ficou a saber de máquina](#machine-learned) | ✔|**Definição**<br>Uma entidade composta é constituída por outras entidades, como entidades previamente concebidas, simples, regex, lista, hierárquica. As entidades separadas formam uma entidade inteira. <br><br>**Exemplo**<br>Uma entidade composta com o nome PlaneTicketOrder pode ter entidades subordinadas pré-criados `number` e `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Hierárquica** <br/>[Ficou a saber de máquina](#machine-learned) |✔ | **Definição**<br>Uma entidade hierárquica é uma categoria de contextualmente aprendidas entidades simples.<br><br>**Exemplo**<br>Dada uma entidade hierárquica dos `Location` com subordinados `ToLocation` e `FromLocation`, cada filho pode ser determinado com base no **contexto** dentro da expressão. Na expressão, `Book 2 tickets from Seattle to New York`, o `ToLocation` e `FromLocation` contextualmente diferentes com base em palavras em torno delas. <br/><br/>**Não utilize se**<br>Se estiver à procura de uma entidade que tem as correspondências de texto exato para crianças, independentemente do contexto, deve usar uma entidade de lista. Se estiver procurando por uma relação principal-subordinado com outros tipos de entidade, deve usar a entidade composta.<br/><br/>[Início rápido](luis-quickstart-intent-and-hier-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

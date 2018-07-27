@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928737"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264720"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não é possível a aceder a extensão do Azure AD B2C no portal do Azure?
-Existem dois motivos comuns para por que da extensão do Azure AD não está a funcionar para.  O Azure AD B2C requer a sua função de utilizador no diretório para ser administrador global.  Contacte o administrador se acha que devem ter acesso.  Se tiver privilégios de administrador global, certifique-se de que está num diretório do Azure AD B2C e não um diretório do Azure Active Directory.  Pode ver as instruções para [criar um diretório do Azure AD B2C aqui](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Existem dois motivos comuns para por que a extensão do Azure AD não está a funcionar para.  O Azure AD B2C requer a sua função de utilizador no diretório para ser administrador global.  Contacte o administrador se acha que devem ter acesso.  Se tiver privilégios de administrador global, certifique-se de que está num diretório do Azure AD B2C e não um diretório do Azure Active Directory.  Pode ver as instruções para [criar um diretório do Azure AD B2C aqui](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Pode utilizar funcionalidades do Azure AD B2C no meu inquilino do Azure AD existente, com base em funcionários?
 O Azure AD e do Azure AD B2C são ofertas de produtos separada e não podem coexistir no mesmo inquilino.  Um inquilino do Azure AD representa uma organização.  Um inquilino do Azure AD B2C representa uma coleção de identidades a serem utilizadas com aplicações das entidades confiadoras.  Com as políticas personalizadas (em pré-visualização pública), o Azure AD B2C pode federar com o Azure AD, que permite a autenticação de funcionários numa organização.
@@ -118,7 +118,7 @@ Siga estes passos para eliminar o inquilino do Azure AD B2C:
 1. Agora iniciar sessão para o [portal do Azure](https://portal.azure.com/) como o administrador da subscrição. (Utilizar o mesmo ou conta profissional ou a mesma conta Microsoft que utilizou para se inscrever no Azure.)
 1. Comutador para o inquilino do Azure AD B2C que pretende eliminar.
 2. Navegue para o menu à esquerda do Active Directory.
-3. Selecione **utilizadores e grupos**.
+3. Selecionar **Utilizadores e grupos**.
 4. Selecione cada utilizador, por sua vez (excluir o utilizador de administrador da subscrição tem atualmente sessão iniciada como). Clique em **elimine** na parte inferior da página e clique em **Sim** quando lhe for pedido.
 5. Clique nas **registos das aplicações**.
 6. Selecione aplicativo chamado **b2c-extensions-app**. Clique em **elimine** e clique em **Sim** quando lhe for pedido.

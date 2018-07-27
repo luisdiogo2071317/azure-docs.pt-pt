@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448371"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264966"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo fala sobre os passos para configurar os relatórios para o Azure Backup com o Cofre dos serviços de recuperação e para aceder a estes relatórios com o Power BI. Depois de efetuar estes passos, pode ir diretamente para o Power BI para ver todos os relatórios, personalizar e criar relatórios. 
@@ -24,7 +24,6 @@ Este artigo fala sobre os passos para configurar os relatórios para o Azure Bac
 2. Relatórios do SQL do Azure, o DPM e o Azure Backup Server não são suportados neste momento.
 3. Pode visualizar relatórios em cofres e entre subscrições, se a mesma conta de armazenamento está configurada para cada um dos cofres de. Conta de armazenamento selecionada deve estar na mesma região que o Cofre de serviços de recuperação.
 4. A frequência de atualização agendada para os relatórios é 24 horas no Power BI. Também pode executar uma atualização do ad-hoc dos relatórios no Power BI, em que casos dados mais recentes na conta de armazenamento do cliente são utilizados para composição de relatórios. 
-5. Relatórios de cópia de segurança do Azure não são atualmente suportados em clouds nacionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. Criar uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) para configurá-lo para relatórios. Esta conta de armazenamento é utilizada para armazenar dados relacionados de relatórios.
@@ -75,7 +74,7 @@ Utilize os seguintes passos para configurar a conta de armazenamento para o Cofr
 ## <a name="view-reports-in-power-bi"></a>Ver relatórios no Power BI 
 Após configurar a conta de armazenamento para comunica com o Cofre de serviços de recuperação, demora cerca de 24 horas para dados de relatórios para começarem a fluir. Após 24 horas de configuração de conta de armazenamento, utilize os seguintes passos para ver relatórios no Power BI:
 1. [Inicie sessão no](https://powerbi.microsoft.com/landing/signin/) para o Power BI.
-2. Clique em **obter dados** e clique em **obter** sob **serviços** na biblioteca de pacote de conteúdos. Utilize os passos mencionados [documentação do Power BI para aceder ao pacote de conteúdos](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Clique em **obter dados** e clique em **obter** sob **serviços** na biblioteca de pacote de conteúdos. Utilize os passos mencionados [documentação do Power BI para aceder ao pacote de conteúdos](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Importar o pacote de conteúdos](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Tipo **Azure Backup** na barra de pesquisa e clique em **obter agora**.

@@ -1,38 +1,37 @@
 ---
-title: Funcionalidade de Armazenamento Imutável do armazenamento de Blobs do Azure (Pré-visualização) | Microsoft Docs
-description: Agora, o Armazenamento do Azure oferece suporte WORM para o armazenamento de objetos de Blobs que permite armazenar dados num estado que não pode ser apagado nem modificado durante um intervalo de tempo especificado pelo utilizador. Esta funcionalidade permite às organizações em várias indústrias reguladas, particularmente as organizações corretoras, armazenar dados em conformidade com o SEC 17a-4(f) e outros regulamentos.
+title: Armazenamento imutável para armazenamento de Blobs do Azure (pré-visualização) | Documentos da Microsoft
+description: O armazenamento do Azure oferece suporte WORM (escrever uma vez, muitos de leitura) para armazenamento de Blob (objeto) que permite aos utilizadores armazenar dados num Estado não apagável e não modificável para um intervalo especificado pelo utilizador de tempo. Suporte WORM para o armazenamento de Blobs do Azure permite às organizações em várias indústrias reguladas, particularmente, organizações de concessionário de Mediador, para armazenar dados em conformidade com o seg 17a-4(f) e outros regulamentos.
 services: storage
 author: sangsinh
-manager: twooley
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: a69d26b8c60f25b5710e48500cc727421d9e5c9a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070013"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263332"
 ---
-# <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Funcionalidade de Armazenamento Imutável do armazenamento de Blobs do Azure (Pré-visualização)
+# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Store dados críticos da empresa no armazenamento de Blobs do Azure (pré-visualização)
 
-A funcionalidade de Armazenamento Imutável para Blobs do Azure permite aos utilizadores armazenar dados críticos para a empresa no armazenamento de blobs do Azure, num estado WORM (Write Once Read Many). Este estado faz com que os blobs não possam ser apagados nem modificados durante um intervalo de tempo especificado pelo utilizador. Os blobs podem ser criados e lidos, mas não podem ser modificados nem eliminados durante o intervalo de retenção.
+Armazenamento imutável para armazenamento de Blobs do Azure (objeto) permite aos utilizadores armazenar dados críticos da empresa no armazenamento de Blobs do Azure num Estado WORM (escrever uma vez, muitos de leitura). Este estado faz com que os blobs não possam ser apagados nem modificados durante um intervalo de tempo especificado pelo utilizador. BLOBs podem ser criadas e ler, mas não modificados ou eliminados, durante o intervalo de retenção.
 
 ## <a name="overview"></a>Descrição geral
 
-A funcionalidade de Armazenamento Imutável permite às organizações em várias indústrias reguladas, particularmente as organizações corretoras, armazenar dados em conformidade com o SEC 17a-4(f) e outros regulamentos.
+Armazenamento imutável permite às organizações em várias indústrias reguladas, particularmente, organizações de concessionário de Mediador, para armazenar dados em conformidade com o seg 17a-4(f) e outros regulamentos.
 
 As aplicações típicas incluem:
 
-- **Conformidade regulamentar**: a funcionalidade de Armazenamento Imutável para Blobs do Azure foi concebida para ajudar instituições financeiras e indústrias relacionadas a cumprirem os regulamentos SEC 17a-4(f), CFTC 1.31©-(d), FINRA, etc.
+- **Conformidade a normas**: armazenamento imutável para o armazenamento de Blobs do Azure foi concebido para ajudar a instituições financeiras e setores relacionados endereços seg 17a-4(f), CFTC 1.31©-(d), FINRA etc.
 
-- **Retenção segura de documentos**: os utilizadores recebem máxima proteção de dados, pois o serviço de armazenamento de Blobs garante que os dados não podem ser modificados nem eliminados por qualquer utilizador, incluindo aqueles com privilégios administrativos da conta.
+- **Proteger a retenção de documentos**: os utilizadores recebem a proteção de dados máximo como armazenamento de BLOBs garante que os dados não podem ser modificados ou eliminados por qualquer utilizador, incluindo aqueles com privilégios administrativos da conta.
 
-- **Retenção legal**: o Armazenamento Imutável para blobs do Azure permite aos utilizadores armazenarem informações confidenciais, críticas para um litígio ou investigação criminal, etc., num estado à prova de adulteração durante o período de tempo pretendido.
+- **Suspensão legal**: armazenamento imutável para armazenamento de Blobs do Azure permite aos utilizadores armazenar informações confidenciais críticas para um litígio ou investigação criminal etc. num Estado de prova de adulteração durante o período pretendido.
 
-A funcionalidade de armazenamento imutável permite:
+Armazenamento imutável permite:
 
 - **Suporte à política de retenção baseada no tempo:** os utilizadores definem políticas para armazenar dados durante um intervalo de tempo especificado.
 
@@ -44,11 +43,11 @@ A funcionalidade de armazenamento imutável permite:
 
 - **Suporte ao Registo de Auditoria:** cada contentor contém um registo de auditoria que mostra até cinco comandos de retenção baseada no tempo para políticas de retenção baseadas no tempo bloqueadas, com o máximo de três registos para extensões de intervalo de retenção.  Para a retenção baseada no tempo, o registo contém o ID de utilizador, o tipo de comando, carimbos de data/hora e o intervalo de retenção. Para retenções legais, o registo contém o ID de utilizador, o tipo de comando, carimbos de data/hora e as etiquetas de retenção legal. Este registo é mantido durante o tempo de vida do contentor, em conformidade com as diretrizes de regulamentação SEC 17a-4(f). Um registo mais abrangente de todas as atividades de plano de controlo está disponível no [Registo de Atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). É da responsabilidade do utilizador armazenar esses registos de forma persistente, consoante requerido por motivos de regulamentação ou outros fins.
 
- A funcionalidade está ativada em todas as regiões públicas do Azure.
+Armazenamento imutável está ativado em todas as regiões públicas do Azure.
 
 ## <a name="how-it-works"></a>Como funciona
 
-O Armazenamento Imutável para Blobs do Azure suporta dois tipos de políticas WORM ou imutáveis: a retenção baseada no tempo e retenções legais. Veja a secção [Introdução](#Getting-started) para obter detalhes sobre como criar estas políticas imutáveis.
+Armazenamento imutável para armazenamento de Blobs do Azure suporta dois tipos de políticas de imutáveis ou WORM: retenção com base no tempo e retenções jurídicas. Veja a secção [Introdução](#Getting-started) para obter detalhes sobre como criar estas políticas imutáveis.
 Quando uma política de retenção baseada no tempo ou a retenção legal é aplicada num contentor, todos os blobs existentes irão mudar para o estado imutável (protegidos contra escrita e eliminação). Todos os novos blobs carregados para o contentor também serão movidos para o estado imutável.
 
 > [!IMPORTANT]
@@ -79,7 +78,7 @@ Consulte a documentação [API do Serviço Blob do Azure](https://docs.microsoft
 
 > [!NOTE]
 > O primeiro Colocar Blob e as operações Colocar Lista de Blocos e Colocar Blocos necessárias para criar um blob são permitidas nos dois primeiros cenários da tabela acima, todas as operações subsequentes não são permitidas.
-> A funcionalidade de Armazenamento Imutável só está disponível em contas GPv2 e de armazenamento de blobs, e tem de ser criada através do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Armazenamento imutável só está disponível nas contas de armazenamento de BLOBs e GPv2 e tem de ser criado através da [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Preços
 
@@ -94,7 +93,7 @@ As seguintes restrições aplicam-se durante a pré-visualização pública:
 
 ## <a name="getting-started"></a>Introdução
 
-O Armazenamento Imutável do Azure para Blobs do Azure é suportado nas versões mais recentes do [Portal do Azure](http://portal.azure.com), [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) do Azure e o Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Armazenamento imutável do Azure para armazenamento de Blobs do Azure é suportado em versões mais recentes do [Portal do Azure](http://portal.azure.com)do Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)e o Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -132,7 +131,7 @@ O Armazenamento Imutável do Azure para Blobs do Azure é suportado nas versões
 
 Instalar a [extensão CLI](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) com `az extension add -n storage-preview`
 
-Se já tiver a extensão instalada, utilize o seguinte comando para ativar a funcionalidade de Armazenamento Imutável: `az extension update -n storage-preview`
+Se já tiver a extensão instalada, utilize o seguinte comando para ativar o armazenamento de imutável: `az extension update -n storage-preview`
 
 A funcionalidade está incluída nos seguintes grupos de comandos (execute "-h" nos mesmos para ver os comandos): `az storage container immutability-policy` e `az storage container legal-hold`.
 
@@ -150,7 +149,7 @@ Um código do PowerShell de exemplo que ilustra a utilização da funcionalidade
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
-A funcionalidade de Armazenamento Imutável para Blobs do Azure é suportada nas seguintes versões de bibliotecas de cliente
+Armazenamento imutável para armazenamento de Blobs do Azure é suportado nas seguintes versões de biblioteca de cliente
 
 - [Biblioteca de Clientes .net (versão 7.2.0-pré-visualização e superior)](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Biblioteca de Clientes node.js (versão 4.0.0 e superior)](https://www.npmjs.com/package/azure-arm-storage)
@@ -170,11 +169,11 @@ A funcionalidade de Armazenamento Imutável para Blobs do Azure é suportada nas
 
 **A funcionalidade aplica-se apenas a blobs de blocos ou também se aplica a blobs de página e de acréscimo?**
 
-A funcionalidade de Armazenamento Imutável para blobs pode ser utilizada com qualquer tipo de blob.  Tenha em atenção, no entanto, que é recomendado que a funcionalidade seja utilizada principalmente para blobs de blocos. Ao contrário dos blobs de blocos, os blobs de página e de acréscimo têm de ser criados fora de um contentor WORM, e depois copiados para um.  Assim que são copiados para um contentor WORM, deixam de ser permitidos *anexos* a um blob de acréscimo ou alterações a um blob de página.
+Armazenamento imutável para blobs pode ser utilizado com qualquer tipo de blob.  Tenha em atenção, no entanto, que é recomendado que a funcionalidade seja utilizada principalmente para blobs de blocos. Ao contrário dos blobs de blocos, os blobs de página e de acréscimo têm de ser criados fora de um contentor WORM, e depois copiados para um.  Assim que são copiados para um contentor WORM, deixam de ser permitidos *anexos* a um blob de acréscimo ou alterações a um blob de página.
 
 **É necessário criar sempre uma nova conta de armazenamento para utilizar esta funcionalidade?**
 
-Pode utilizar a funcionalidade de Armazenamento Imutável com as contas GPv2 existentes ou novas contas de armazenamento, se o tipo de conta for GPv2. Esta funcionalidade só está disponível com o armazenamento de blobs.
+Pode utilizar o armazenamento imutável com as contas GPv2 existentes ou em novas contas de armazenamento se o tipo de conta GPv2. Esta funcionalidade só está disponível com o armazenamento de blobs.
 
 **O que acontece se tentar eliminar um contentor com uma política de retenção baseada no tempo ou de retenção legal *bloqueada*?**
 
@@ -186,7 +185,7 @@ A eliminação da conta de armazenamento falhará se existir, pelo menos, um con
 
 **Posso mover os dados entre camadas de blob diferentes (frequente, esporádico, progressivo) quando o blob está no estado imutável?**
 
-Sim, pode utilizar o comando Definir Camada de Blob para mover dados entre as camadas de blob, mantendo os dados no estado imutável. A funcionalidade de Armazenamento Imutável é suportada em camadas de blob frequente, esporádico e progressivo.
+Sim, pode utilizar o comando Definir Camada de Blob para mover dados entre as camadas de blob, mantendo os dados no estado imutável. Armazenamento imutável é suportado nos escalões de BLOBs de acesso frequente, esporádico e esporádica.
 
 **O que acontece se eu não conseguir pagar e o meu intervalo de retenção não tiver expirado?**
 
@@ -198,7 +197,7 @@ Sim, quando uma política de retenção baseada no tempo é criada pela primeira
 
 **A funcionalidade está disponível em clouds nacionais e do governo?**
 
-A funcionalidade de Armazenamento Imutável está atualmente disponível apenas em regiões públicas do Azure. Envie um e-mail para azurestoragefeedback@microsoft.com relativo ao interesse numa cloud nacional específica.
+Armazenamento imutável está atualmente disponível apenas nas regiões públicas do Azure. Envie um e-mail para azurestoragefeedback@microsoft.com relativo ao interesse numa cloud nacional específica.
 
 ## <a name="sample-code"></a>Código de exemplo
 

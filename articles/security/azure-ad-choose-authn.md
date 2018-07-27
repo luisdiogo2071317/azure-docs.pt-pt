@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: d0d72694fe2d88e257a8684dc37a250bc0ad7f3f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acf18c4624373dff8994a1996e9082770b90270
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970994"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283692"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação correta para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -106,9 +106,9 @@ Consulte a [implementar a sincronização de hash de palavra-passe](https://docs
 
     Há um outro benefício para a implantação de sincronização de hash de palavra-passe para além da autenticação pass-through. Ele atua como um método de cópia de segurança de autenticação quando o método de autenticação principal já não está disponível.
 
-* **Considerações sobre**. Poderá utilizar a sincronização de hash de palavra-passe como um método de autenticação de cópia de segurança para a autenticação pass-through e os agentes não é possível validar as credenciais de um utilizador. Em seguida, a ativação pós-falha para a sincronização de hash de palavra-passe não acontece automaticamente. Mude manualmente o método de início de sessão com o Azure AD Connect. 
+* **Considerações sobre**. Pode usar a sincronização de hash de palavra-passe como um método de autenticação de cópia de segurança para a autenticação pass-through, quando os agentes não é possível validar as credenciais de um utilizador devido a uma falha significativa no local. Ativação pós-falha para a sincronização de hash de palavra-passe não ocorre automaticamente e tem de utilizar o Azure AD Connect para mudar o método de início de sessão manualmente. 
 
-    Autenticação pass-through só suporta aplicações na cloud que utilizam autenticação moderna e protocolos específicos de Exchange Online. Alguns protocolos são o ActiveSync, POP3 e IMAP4. Por exemplo, Microsoft Office 2013 e posterior autenticação moderna de suporte, mas as versões anteriores não. Para obter mais informações sobre o suporte de aplicações do Office, consulte [autenticação moderna do Office 365 atualizado](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). Para oferecer suporte a outras considerações sobre a autenticação pass-through, incluindo o ID alternativo, consulte [perguntas mais frequentes sobre](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Para oferecer suporte a outras considerações sobre a autenticação pass-through, incluindo o ID alternativo, consulte [perguntas mais frequentes sobre](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
 Consulte a [implementando a autenticação pass-through](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) para obter os passos de implementação.
 

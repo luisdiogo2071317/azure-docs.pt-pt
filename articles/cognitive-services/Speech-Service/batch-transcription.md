@@ -1,20 +1,19 @@
 ---
-title: O Azure Batch transcrição API | Documentos da Microsoft do Azure
+title: O Azure Batch transcrição API
 description: Amostras
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346449"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281944"
 ---
 # <a name="batch-transcription"></a>Transcrição em lote
 
@@ -176,6 +175,6 @@ O exemplo apresentado aqui é no [GitHub](https://github.com/PanosPeriorellis/Sp
 > [!NOTE]
 > Uma transcrição de áudio requer, normalmente, um intervalo de tempo igual a duração do arquivo de áudio mais uma sobrecarga de 2 a 3 minutos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Preparar a sua subscrição de avaliação de conversão de voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)

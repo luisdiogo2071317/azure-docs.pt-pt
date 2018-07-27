@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214681"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282039"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos
 
@@ -64,7 +64,7 @@ Para obter um dispositivo registado com o Azure AD, tem três opções:
 
 - **[Dispositivos associados ao Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  - para fazer com que um dispositivo Windows 10 organizacional que não está associado com um local do AD registado com o Azure AD. 
 
-- **[Dispositivos associados ao Azure AD híbrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - para obter um dispositivo Windows 10 que estiver associado a uma local do AD registado com o Azure AD.
+- **[Dispositivos associados ao Azure AD híbrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - para obter um Windows 10 ou dispositivo suportado de nível inferior que esteja associado a uma local do AD registado com o Azure AD.
 
 Para se tornar um dispositivo gerido, um dispositivo registado tem de ser um **dispositivo associado ao Azure AD híbrido** ou uma **dispositivo que foi marcado como compatível**.  
 
@@ -77,7 +77,7 @@ Na sua política de acesso condicional, pode selecionar **requerer dispositivo a
 
 ![Condições com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Esta definição aplica-se apenas a dispositivos Windows 10 que estão associados a uma local do AD. Apenas pode registar estes dispositivos com o Azure AD com uma associação Azure AD híbrido, que é um [processo](device-management-hybrid-azuread-joined-devices-setup.md) para obter um dispositivo Windows 10 registado. 
+Esta definição aplica-se apenas ao Windows 10 ou dispositivos de nível inferior, como o Windows 7 ou Windows 8, que estão associados com um local do AD. Apenas pode registar estes dispositivos com o Azure AD com uma associação Azure AD híbrido, que é um [processo](device-management-hybrid-azuread-joined-devices-setup.md) para obter um dispositivo Windows 10 registado. 
 
 ![Condições com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

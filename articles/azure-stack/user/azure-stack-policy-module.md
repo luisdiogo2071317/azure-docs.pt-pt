@@ -1,6 +1,6 @@
 ---
-title: Utilizar o módulo de política de pilha do Azure | Microsoft Docs
-description: Saiba como restringir uma subscrição do Azure se comporte como uma subscrição de pilha do Azure
+title: Utilizar o módulo de política do Azure Stack | Documentos da Microsoft
+description: Saiba como restringir uma subscrição do Azure se comportar como uma subscrição do Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: mabrigg
-ms.openlocfilehash: 538cf0eb0f9f2351f7a71a1dd24aab05938963c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 105991296629e04addab33a0611736b379b11688
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259088"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281869"
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gestão da política do Azure utilizando o módulo de política de pilha do Azure
+# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gerir a política do Azure com o módulo de política do Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-O módulo de política de pilha do Azure permite-lhe configurar uma subscrição do Azure com o controlo de versões do mesmo e a disponibilidade do serviço como a pilha do Azure.  O módulo utiliza a **New-AzureRMPolicyAssignment** cmdlet para criar uma política do Azure, o que limita a tipos de recursos e serviços disponíveis numa subscrição.  Depois de configurar a política, pode utilizar a sua subscrição do Azure para desenvolver aplicações direcionadas para a pilha do Azure.
+O módulo de política do Azure Stack permite-lhe configurar uma subscrição do Azure com o mesmo controle de versão e a disponibilidade do serviço como o Azure Stack.  O módulo utiliza a **New-AzureRMPolicyAssignment** cmdlet para criar uma política do Azure, o que limita os tipos de recursos e serviços disponíveis numa assinatura.  Depois de configurar a política, pode utilizar a sua subscrição do Azure para desenvolver aplicações visadas para o Azure Stack.
 
 ## <a name="install-the-module"></a>Instalar o módulo
 
-1. Instale a versão necessária do módulo do AzureRM PowerShell, conforme descrito no passo 1 de [instale o PowerShell para Azure pilha](azure-stack-powershell-install.md).
-2. [Transferir as ferramentas de pilha do Azure a partir do GitHub](azure-stack-powershell-download.md)
+1. Instale a versão necessária do módulo AzureRM PowerShell, conforme descrito no passo 1 de [instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
+2. [Transferir as ferramentas do Azure Stack a partir do GitHub](azure-stack-powershell-download.md)
 3. [Configurar o PowerShell para utilização com o Azure Stack](azure-stack-powershell-configure-user.md)
 
 4. Importe o módulo de AzureStack.Policy.psm1:
@@ -39,9 +39,9 @@ O módulo de política de pilha do Azure permite-lhe configurar uma subscrição
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
-## <a name="apply-policy-to-azure-subscription"></a>Aplicar a política a subscrição do Azure
+## <a name="apply-policy-to-azure-subscription"></a>Aplicar a política de subscrição do Azure
 
-Pode utilizar o seguinte comando para aplicar uma política de Azure pilha predefinida contra a sua subscrição do Azure. Antes de executar este comando, substitua *nome da subscrição do Azure* com a sua subscrição do Azure.
+Pode utilizar o seguinte comando para aplicar uma política do Azure Stack predefinida em relação a sua subscrição do Azure. Antes de executar este comando, substitua *nome da subscrição do Azure* com a sua subscrição do Azure.
 
 ```PowerShell
 Add-AzureRmAccount
@@ -52,24 +52,25 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ```
 
-## <a name="apply-policy-to-a-resource-group"></a>Aplicar a política a um grupo de recursos
+## <a name="apply-policy-to-a-resource-group"></a>Aplicar a política para um grupo de recursos
 
-Poderá aplicar políticas que são mais granulares. Por exemplo, poderá ter outros recursos em execução na mesma subscrição. Pode definir o âmbito da aplicação de política para um grupo de recurso específico, o que lhe permite testar as suas aplicações para a pilha do Azure através de recursos do Azure. Antes de executar o seguinte comando, substitua *nome da subscrição do Azure* com o nome da sua subscrição do Azure.
+Pode querer aplicar as políticas que são mais granulares. Por exemplo, poderá ter outros recursos em execução na mesma subscrição. Pode definir o âmbito de aplicação de política para um grupo de recursos específico, o que lhe permite testar as suas aplicações para o Azure Stack com recursos do Azure. Antes de executar o seguinte comando, substitua *nome da subscrição do Azure* com o nome da sua subscrição do Azure.
 
 ```PowerShell
 Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 
 ```
 
 ## <a name="policy-in-action"></a>Política em ação
 
-Depois de implementar a política do Azure, receber um erro ao tentar implementar um recurso que proibida pela política.
+Depois de implementar a política do Azure, receberá um erro ao tentar implementar um recurso que proibida pela diretiva.
 
-![Resultado da falha de implementação de recursos devido a restrição de política](./media/azure-stack-policy-module/image1.png)
+![Resultado de falha de implementação de recursos devido à restrição de política](./media/azure-stack-policy-module/image1.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,21 +1,20 @@
 ---
-title: 'Início rápido: Reconhecer voz em c# no .NET Core no Windows utilizando o SDK de voz dos serviços cognitivos | Documentos da Microsoft'
+title: 'Início rápido: Reconhecer voz em c# no .NET Core no Windows utilizando o SDK de voz dos serviços cognitivos'
 titleSuffix: Microsoft Cognitive Services
 description: Aprender a reconhecer a conversão de voz em c# no .NET Core no Windows utilizando o SDK de voz dos serviços cognitivos
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f66917ed49393988a378de0a55525105c5d19b7c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259165"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282379"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em c# no .NET Core no Windows utilizando o SDK de voz
 

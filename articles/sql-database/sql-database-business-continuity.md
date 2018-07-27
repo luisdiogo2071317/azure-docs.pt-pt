@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092295"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263151"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -33,7 +33,7 @@ A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os tr�
 | --- | --- | --- | --- |--- |--- |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro num período de 7 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro no período configurado (até 35 dias)|Qualquer ponto de restauro no período configurado (até 35 dias)|
 | Georrestauro a partir de cópias de segurança georreplicado |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
-| Restaurar a partir do Azure Backup Vault |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem|ERT < 12h, RPO < 1 sem|
+| Restaurar a partir de retenção de longa duração de SQL |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem |ERT < 12h, RPO < 1 sem|ERT < 12h, RPO < 1 sem|
 | Georreplicação ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utilize o restauro de ponto no tempo para recuperar uma base de dados
@@ -102,7 +102,7 @@ Para obter mais informações e passos detalhados para restaurar uma base de dad
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restaurar cópias de segurança de retenção de longa duração
 
-Se a perda de dados ocorreu fora do período de retenção atual para cópias de segurança automáticas e a base de dados está configurada para retenção de longa duração, pode restaurar a partir de uma cópia de segurança completa no armazenamento de LTR para uma nova base de dados. Nesse momento, pode substituir a base de dados original pela base de dados restaurada ou copiar os dados necessários da base de dados restaurada para a base de dados original. Se precisar de obter uma versão antiga da base de dados antes de uma atualização principal da aplicação, responder a um pedido de auditores ou uma ordem legal, que pode criar uma base de dados com uma cópia de segurança completa guardada no Cofre de cópia de segurança do Azure.  Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
+Se a perda de dados ocorreu fora do período de retenção atual para cópias de segurança automáticas e a base de dados está configurada para utilizar o armazenamento de Blobs do Azure de retenção de longa duração, pode restaurar a partir de uma cópia de segurança completa no armazenamento de Blobs do Azure para uma nova base de dados. Nesse momento, pode substituir a base de dados original pela base de dados restaurada ou copiar os dados necessários da base de dados restaurada para a base de dados original. Se precisar de obter uma versão antiga da base de dados antes de uma atualização principal da aplicação, responder a um pedido de auditores ou uma ordem legal, que pode criar uma base de dados com uma cópia de segurança completa guardada no armazenamento de Blobs do Azure.  Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperar uma base de dados para outra região a partir de uma indisponibilidade do centro de dados regional do Azure
 <!-- Explain this scenario -->

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049522"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264597"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,44 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>Estado da versão
+
+7/20/2018: lançado para atualização automática. Versão para download seguirá em breve.
+
+### <a name="new-features-and-improvements"></a>Novos recursos e aperfeiçoamentos
+
+- A integração de federar o Ping de mensagens em fila no Azure AD Connect está agora disponível para disponibilidade geral. [Saiba mais sobre como federado do Azure AD com Ping federar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- O Azure AD Connect cria agora a cópia de segurança de confiança do Azure AD no AD FS, sempre que uma atualização é efetuada e armazena-a num arquivo separado para o fácil restauro, se necessário. [Saiba mais sobre a nova funcionalidade e o Azure AD confiam gestão no Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Novas ferramentas de resolução de problemas ajuda a resolver problemas relacionados com a alteração de endereço de e-mail principal e ocultando a conta na lista de endereços global
+- O Azure AD Connect foi atualizado para incluir o SQL Server 2012 Native Client mais recente
+- Quando mudar para a sincronização de Hash de palavra-passe ou autenticação pass-through utilizador inicie sessão na tarefa de "Alteração utilizador início de sessão", a caixa de verificação simples início de sessão único está ativada por predefinição.
+- Foi adicionado suporte para Windows Server Essentials 2019
+- O agente do Azure AD Connect Health foi atualizado para a versão mais recente 3.1.7.0
+- Durante uma atualização, se o instalador Deteta alterações às regras de sincronização padrão, o administrador é pedido com um aviso antes de substituir as regras de modificação. Isso permitirá que o usuário tome medidas corretivas e retomar mais tarde. O comportamento antigo: Se tiver ocorrido qualquer regra de out-of-box modificada, em seguida, manual o atualização foi substituir essas regras sem dar qualquer aviso ao utilizador e o agendador de sincronização foi desativado sem informar o utilizador. Novo comportamento: Será pedido ao utilizador com o aviso antes de substituir as regras de sincronização de out-of-box modificado. Usuário terá a opção para parar o processo de atualização e retomar mais tarde depois de tomar medidas corretivas necessárias.
+- Fornece um melhor processamento de um problema de conformidade FIPS, fornecendo uma mensagem de erro para a geração de hashes MD5 num ambiente compatível com FIPS e uma ligação para a documentação que fornece uma solução para este problema.
+- Atualizar a interface do Usuário para melhorar as tarefas de Federação no assistente, que agora estão num grupo de sub-rotina separado para a Federação. 
+- Todas as tarefas adicionais de Federação agora são agrupadas num único submenu de Facilidade de utilização.
+- Um novo módulo de Posh ADSyncConfig (AdSyncConfig.psm1) renovado com novas funções de permissões do AD movidas do ADSyncPrep.psm1 antigo (o que pode ser preterido em breve)
+
+### <a name="fixed-issues"></a>Problemas de fixos 
+
+- Foi corrigido um erro que intermitentemente produziria uma mensagem de erro para um problema de deadlock SQL resolvido automaticamente
+- Corrigidos vários problemas de acessibilidade para Editor de regras de sincronização e o Gestor do serviço de sincronização  
+- Foi corrigido um erro em que o Azure AD Connect não é possível obter as informações de definição de registo
+- Foi corrigido um erro que criar problemas quando o utilizador acede a partir de agora/voltar no Assistente
+- Foi corrigido um erro para impedir que um erro ocorre devido a thread de várias incorreto no Assistente de processamento
+- Quando a página de filtragem de sincronização de grupo encontra um erro LDAP ao resolver a grupos de segurança, o Azure AD Connect, agora, retorna a exceção com total fidelidade.  A causa de raiz para a exceção de referência é ainda desconhecida e será resolvida por um bug diferente.
+-  Foi corrigido um erro em que as permissões para chaves STK e NGC (atributo msDS-KeyCredentialLink em objetos de dispositivo/utilizador para WHfB) não foram corretamente definidas.     
+- Foi corrigido um erro em que 'Set-ADSyncRestrictedPermissions' não foi chamado corretamente
+-  A adicionar suporte para a permissão que concede no grupo de repetição de escrita no Assistente de instalação do AADConnect
+- Quando alterar método de início de sessão de sincronização de Hash de palavra-passe para o AD FS, a sincronização de Hash de palavra-passe não foi desativada.
+- Verificação adicional para endereços IPv6 na configuração do AD FS
+- Atualizado a mensagem de notificação a informar de que existe uma configuração existente.
+- Repetição de escrita do dispositivo não consegue detetar o contentor na floresta não fidedigna. Isso foi atualizado para fornecer uma mensagem de erro melhor e uma ligação para a documentação apropriada
+- Desmarcando uma UO e, em seguida, a sincronização/repetição de escrita correspondente a UO oferece a um erro genérico de sincronização. Isso foi alterado para criar uma mensagem de erro mais compreensível.
 
 ## <a name="118190"></a>1.1.819.0
 
@@ -218,9 +256,9 @@ Permitir    | Administradores                | Controlo Total         | Este obj
 Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
-Permitir    | Utilizadores Autenticados           | Listar conteúdo        | Este objeto  |
-Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Utilizadores Autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
+Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as definições para o AD DS conta que pode ser executado [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 
