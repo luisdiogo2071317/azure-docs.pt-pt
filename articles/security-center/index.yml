@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2a7957a1fd75a91864b372f9c976d90b245b6d79
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281270"
 documentType: LandingData
 title: Documentação do Centro de Segurança do Azure
 metadata:
@@ -11,14 +17,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/05/18
+  ms.date: 07/26/18
   ms.author: cmcclister
-  ms.openlocfilehash: 2d0c22cc59e0185caa9c298e1c26026e00faf2a5
-  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/10/2018
-  ms.locfileid: "27741104"
 abstract:
   description: O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças avançada entre cargas de trabalho na cloud híbrida. Saiba como começar a utilizar o Centro de Segurança, aplicar políticas de segurança pelas suas cargas de trabalho, limitar a sua exposição a ameaças e detetar e responder a ataques com os nossos inícios rápidos e tutoriais.
 sections:
@@ -72,5 +72,5 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Referência da API REST</a></p>
+    - html: <a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Referência da API REST</a>
+    - html: <a href="https://azure.microsoft.com/updates/?product=security-center">Atualizações de serviço</a>
