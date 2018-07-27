@@ -1,6 +1,6 @@
 ---
-title: Utilizar Akka fluxos com o Event Hubs do Azure para Kafka ecossistema | Microsoft Docs
-description: Ligar Akka fluxos para um Kafka ativado para o Hub de eventos
+title: Utilizar fluxos Akka com os Hubs de eventos do Azure para o Apache Kafka | Documentos da Microsoft
+description: A ligar fluxos Akka um Kafka ativado para o Hub de eventos
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
@@ -13,39 +13,39 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9db27340a2210ea0be0564b15241952477e592ba
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35304133"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284459"
 ---
-# <a name="using-akka-streams-with-event-hubs-for-kafka-ecosystem"></a>Utilizar Akka fluxos com os Event Hubs para Kafka ecossistema
+# <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar fluxos Akka com os Hubs de eventos para o Apache Kafka
 
-Uma das principais vantagens da utilização do Apache Kafka é a ecossistema de estruturas que pode ligar ao. Ativado por Kafka Event Hubs combina a flexibilidade de Kafka com suporte do ecossistema do Azure, da consistência e a escalabilidade.
+Uma das principais vantagens da utilização do Apache Kafka é o ecossistema das estruturas que pode estabelecer ligação ao. Os Hubs de eventos habilitados no Kafka combina a flexibilidade do Kafka com a escalabilidade, consistência e suporte do ecossistema do Azure.
 
-Este tutorial mostra como ligar Akka fluxos para os hubs de eventos ativado Kafka sem alterar os clientes de protocolo ou os seus próprios clusters em execução. Os Event Hubs do Azure para Kafka ecossistema suporta [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
+Este tutorial mostra-lhe como ligar Akka fluxos para os hubs de eventos de Kafka-ativado sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Os Hubs de eventos do Azure para o Kafka suporta [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Kit de desenvolvimento Java (JDK) 1.8 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Kit de desenvolvimento Java (JDK 1.8 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
-* [Transferir](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um arquivo binário Maven
+* [Baixe](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) num arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-É necessário um espaço de nomes de Event Hubs para enviar ou receber a partir de qualquer serviço de Event Hubs. Consulte [criar Kafka ativada Event Hubs](event-hubs-create-kafka-enabled.md) para obter informações sobre como obter um ponto final Kafka de Hubs de eventos. Certifique-se de que copie a cadeia de ligação de Event Hubs para utilização posterior.
+Um espaço de nomes de Hubs de eventos é necessário para enviar ou receber a partir de qualquer serviço de Hubs de eventos. Ver [criar Kafka ativado os Hubs de eventos](event-hubs-create-kafka-enabled.md) para obter informações sobre como obter um ponto de extremidade do Kafka de Hubs de eventos. Certifique-se copiar a cadeia de ligação de Hubs de eventos para utilização posterior.
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 
-Agora que tem uma cadeia de ligação ativada para Kafka Event Hubs, clone o repositório de Event Hubs do Azure e navegue para o `akka` subpasta:
+Agora que tem uma cadeia de ligação de Hubs de eventos habilitados no Kafka, clone o repositório de Hubs de eventos do Azure e navegue para o `akka` subpasta:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs.git
@@ -54,13 +54,13 @@ cd azure-event-hubs/samples/kafka/akka
 
 ## <a name="akka-streams-producer"></a>Produtor de fluxos de Akka
 
-Utilizando o exemplo de produtor Akka fluxos fornecido, envie mensagens para o serviço de Event Hubs.
+Usando o exemplo de produtor Akka fluxos fornecido, envie mensagens para o serviço de Hubs de eventos.
 
-### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto final Kafka de Hubs de eventos
+### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto de extremidade do Kafka de Hubs de eventos
 
 #### <a name="producer-applicationconf"></a>Produtor application.conf
 
-Atualização do `bootstrap.servers` e `sasl.jaas.config` valores na `producer/src/main/resources/application.conf` para direcionar o produtor ao ponto final do Event Hubs Kafka com a autenticação correta.
+Atualização do `bootstrap.servers` e `sasl.jaas.config` valores em `producer/src/main/resources/application.conf` para direcionar o produtor para o ponto de final do Kafka de Hubs de eventos com a autenticação correta.
 
 ```xml
 akka.kafka.producer {
@@ -78,26 +78,26 @@ akka.kafka.producer {
 }
 ```
 
-### <a name="run-producer-from-the-command-line"></a>Execute o produtor na linha de comandos
+### <a name="run-producer-from-the-command-line"></a>Execute o produtor a partir da linha de comandos
 
-Para executar o produtor na linha de comandos, gerar o JAR e, em seguida, executar a partir de Maven (ou gerar JAR com o Maven, execute em Java ao adicionar o JAR(s) de Kafka necessário para o classpath):
+Para executar o produtor da linha de comando, gerar JAR e, em seguida, execute a partir de Maven (ou gerar JAR com o Maven, em seguida, executar em Java, adicionando o JAR(s) de Kafka necessário para o caminho da classe):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 ```
 
-O produtor começa a enviar eventos para o hub de eventos ativado Kafka no tópico `test`e imprime os eventos de stdout.
+O produtor começa a enviar eventos para o hub de eventos de Kafka-ativado no tópico `test`e imprime os eventos para stdout.
 
 ## <a name="akka-streams-consumer"></a>Consumidor de fluxos de Akka
 
-Utilizando o exemplo fornecido consumidor, receba mensagens dos preparados Kafka event hubs.
+Usando o exemplo de consumidor fornecido, receba mensagens de hubs de eventos de Kafka-ativado.
 
-### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto final Kafka de Hubs de eventos
+### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto de extremidade do Kafka de Hubs de eventos
 
-#### <a name="consumer-applicationconf"></a>Consumidor application.conf
+#### <a name="consumer-applicationconf"></a>Application.conf de consumidor
 
-Atualização do `bootstrap.servers` e `sasl.jaas.config` valores na `consumer/src/main/resources/application.conf` para direcionar o consumidor ao ponto final do Event Hubs Kafka com a autenticação correta.
+Atualização do `bootstrap.servers` e `sasl.jaas.config` valores em `consumer/src/main/resources/application.conf` para direcionar o consumidor para o ponto de final do Kafka de Hubs de eventos com a autenticação correta.
 
 ```xml
 akka.kafka.consumer {
@@ -118,22 +118,22 @@ akka.kafka.consumer {
 }
 ```
 
-### <a name="run-consumer-from-the-command-line"></a>Executar consumidor na linha de comandos
+### <a name="run-consumer-from-the-command-line"></a>Execute o consumidor da linha de comando
 
-Para executar o consumidor na linha de comandos, gerar o JAR e, em seguida, executar a partir de Maven (ou gerar JAR com o Maven, execute em Java ao adicionar o JAR(s) de Kafka necessário para o classpath):
+Para executar o consumidor da linha de comando, gerar JAR e, em seguida, execute a partir de Maven (ou gerar JAR com o Maven, em seguida, executar em Java, adicionando o JAR(s) de Kafka necessário para o caminho da classe):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="AkkaTestConsumer"
 ```
 
-Se o hub de eventos ativado Kafka tem eventos (por exemplo, se o produtor também está em execução), em seguida, o consumidor começa a receber eventos de tópico `test`. 
+Se o hub de eventos habilitados no Kafka tem eventos (por exemplo, se o produtor também está em execução), em seguida, o consumidor começa a receber eventos de tópico `test`. 
 
-Veja o [Akka fluxos Kafka guia](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter mais informações sobre Akka fluxos.
+Veja a [Akka fluxos Kafka guia](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter mais informações sobre Akka fluxos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Saiba mais sobre Hubs de Eventos para o Ecossistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* Utilize [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [eventos de fluxo do Kafka local para Kafka ativado os Hubs de eventos na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Saiba como fluxo em Kafka ativado através de Event Hubs [aplicações nativas de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) ou [Apache Flink](event-hubs-kafka-flink-tutorial.md)
+* [Saiba mais sobre os Hubs de eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* Utilize o [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka no local para Hubs de Eventos ativados pelo Kafka na cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Aprenda a transmitir para o Kafka através de Hubs de eventos ativados [aplicativos nativos do Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) ou [Apache Flink](event-hubs-kafka-flink-tutorial.md)

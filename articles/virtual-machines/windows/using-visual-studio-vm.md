@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: ce587fcbc3bcbea129db1d3d9d0fb60cebdf8e0e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2c8cd5cb837787db7bd6cb0d76bdf734b7d7bc0f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972371"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285379"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Com o Visual Studio numa máquina de virtual do Azure (VM) pré-configurada é uma maneira rápida e fácil para ir de nada para um ambiente de desenvolvimento de segurança e execução. Imagens do sistema com configurações diferentes do Visual Studio estão disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -33,7 +33,7 @@ Imagens para as versões mais recentes principais para Visual Studio 2017 e o Vi
 | Versão de lançamento                                              | Edições                     |     Versão do produto     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
 | Visual Studio 2017: Mais recente (versão 15.7)                    |    Enterprise, da Comunidade     |      Versão 15.7.5     |
-| Visual Studio 2017: Mais recente pré-visualização (versão 15.8, 4 de pré-visualização) |    Enterprise, da Comunidade     |      Versão 15.8.4     |
+| Visual Studio 2017: Mais recente pré-visualização (versão 15.8, 5 de pré-visualização) |    Enterprise, da Comunidade     |      Versão 15.8.5     |
 |         Visual Studio 2017: RTW                              |    Enterprise, da Comunidade     |      Versão 15.0.15    |
 |   Visual Studio 2015: Mais recente (atualização 3)                      |    Enterprise, da Comunidade     |  Versão 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Nenhuma             | (Expirou para a manutenção) |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: fbeda6a74be11668f16d477696ea00653b73baa6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346030"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284831"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos 
 Base de dados SQL do Azure pode emitir métricas e diagnósticos registos para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -40,7 +40,7 @@ Métricas e diagnósticos de registo não está ativada por predefinição. Pode
 Quando ativar as métricas e registo de diagnósticos, tem de especificar o recurso do Azure em que são recolhidos os dados selecionados. As opções disponíveis incluem:
 
 - Log Analytics
-- Event Hubs
+- Hubs de Eventos
 - Armazenamento 
 
 Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. Depois de selecionar o recurso de armazenamento, tem de especificar os dados a recolher. As opções disponíveis incluem:
@@ -204,7 +204,7 @@ A forma mais fácil de configurar suas métricas de registos de bases de dados d
 
 Análise de SQL é um dashboard hierárquico que lhe permite mover através da hierarquia de recursos de base de dados SQL. Para saber como utilizar a solução de análise de SQL, veja [monitorizar a base de dados de SQL com a solução de análise de SQL](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="stream-into-event-hubs"></a>Stream nos Hubs de eventos
+## <a name="stream-into-event-hubs"></a>Transmitir em fluxo para os Hubs de Eventos
 
 Registos de diagnóstico e métricas de base de dados SQL podem serão transmitidos para os Hubs de eventos utilizando o incorporado **Stream para um hub de eventos** opção no portal. Também pode ativar o ID da regra do Service Bus utilizando uma definição de diagnóstico através de cmdlets do PowerShell, a CLI do Azure ou a API de REST do Azure Monitor. 
 
@@ -461,10 +461,31 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |blocked_process_filtered_s|Bloqueado o processo de relatório XML.|
 |duration_d|Duração do bloqueio em microssegundos.|
 
+### <a name="deadlocks-dataset"></a>Conjunto de dados de deadlocks
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|O ID de inquilino.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC] |Carimbo de hora quando o registo foi registado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: Deadlocks|
+|OperationName|Nome da operação. Sempre: DeadlockEvent|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: Servidores/bases de dados|
+|SubscriptionId|GUID que pertence a base de dados de subscrição.|
+|ResourceGroup|Nome do grupo de recursos que a base de dados pertence.|
+|LogicalServerName_s|Nome do servidor que a base de dados pertence.|
+|ElasticPoolName_s|Nome do conjunto elástico que pertence a base de dados, se aplicável.|
+|DatabaseName_s|Nome da base de dados. |
+|ResourceId|URI do recurso.|
+|deadlock_xml_s|Relatório de deadlock XML.|
+
 ### <a name="intelligent-insights-dataset"></a>Conjunto de dados de informações inteligente
 Saiba mais sobre o [formato de registo de informações inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como ativar o registo e compreender as categorias de métricas e registo suportadas por vários serviços do Azure, leia:
 

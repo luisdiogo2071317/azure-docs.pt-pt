@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444272"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283647"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Débito de conjunto com o para um conjunto de contentores ou ao nível da base de dados
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Definir débito para um conjunto de contentores ao nível da base de dados
 
 Aqui está um trecho de código para o aprovisionamento de 100.000 unidades de pedido por segundo num conjunto de contentores com o SDK de .NET da API de SQL:
 

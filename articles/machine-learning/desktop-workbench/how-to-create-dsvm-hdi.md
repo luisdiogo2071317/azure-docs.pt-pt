@@ -1,52 +1,52 @@
 ---
-title: Como criar DSVM e HDI como destinos de computação do Azure ML
-description: Crie cluster DSVM e HDI Spark como destinos de experimentação do Azure ML de computação.
+title: Como criar DSVM e HDI como destinos de computação para o Azure ML
+description: Crie DSVM e HDI Spark cluster como destinos de computação para experimentação do Azure ML.
 services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831030"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285833"
 ---
-# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e HDI Spark como destinos de computação
+# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar DSVM e HDI Spark cluster como destinos de computação
 
-Pode facilmente aumentar verticalmente ou ampliar a sua experimentação de aprendizagem adicionando destinos de computação adicionais, tais como baseado no Ubuntu DSVM (máquina de Virtual de ciência de dados) e o Apache Spark para o cluster do Azure HDInsight. Este artigo explica como os passos de criação de estes computação destinos no Azure. Para obter mais informações sobre metas de computação do Azure ML, consulte [descrição geral do serviço de experimentação do Azure Machine Learning](experimentation-service-configuration.md).
+Pode facilmente aumentar verticalmente ou aumente horizontalmente a sua experimentação de machine learning, adicionar destinos de computação adicionais, tais como a DSVM baseada em Ubuntu (máquina de Virtual de ciência de dados) e do Apache Spark para Azure HDInsight cluster. Este movimentações de artigo lhe os passos de criação de esses destinos no Azure de computação. Para obter mais informações sobre destinos de computação do Azure ML, consulte [descrição geral do serviço de experimentação do Azure Machine Learning](experimentation-service-configuration.md).
 
 >[!NOTE]
->Certifique-se de que tem permissões adequadas para criar recursos, tais como clusters VM e HDI no Azure antes de continuar. Também ambos estes recursos podem consumir muitos computação núcleos, consoante a configuração. Certifique-se a que sua subscrição tem capacidade suficiente para os núcleos de CPU virtuais. Pode obter sempre entre em contacto com o suporte do Azure para aumentar o número máximo de núcleos permitido na sua subscrição.
+>Certifique-se de que tem permissões adequadas para criar recursos, tais como a VM e HDI clusters no Azure antes de continuar. Também ambos estes recursos podem consumir muitos núcleos de computação consoante a configuração. Certifique-se de que a sua subscrição tem capacidade suficiente para os núcleos de CPU virtual. Pode obter sempre entre em contato com o suporte do Azure para aumentar o número máximo de núcleos permitidos na sua subscrição.
 
-## <a name="create-an-ubuntu-dsvm-in-azure-portal"></a>Criar um DSVM Ubuntu no portal do Azure
+## <a name="create-an-ubuntu-dsvm-in-azure-portal"></a>Criar um DSVM em Ubuntu no portal do Azure
 
-Pode criar um DSVM a partir do portal do Azure. 
+Pode criar uma DSVM do portal do Azure. 
 
-1. Inicie sessão no portal do Azure a partir do https://portal.azure.com
-2. Clique em de **+ novo** ligação e procure "dados máquina de virtual de ciência para Linux".
+1. Inicie sessão no portal do Azure https://portal.azure.com
+2. Clique nas **+ novo** link e procure "dados máquina de virtual de ciência para Linux".
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
-4. Escolha **Máquina Virtual de ciência de dados para Linux (Ubuntu)** na lista e siga o ecrã instruções para criar o DSVM.
+4. Escolher **Máquina Virtual de ciência de dados para Linux (Ubuntu)** na lista e, siga na tela instruções para criar a DSVM.
 
 >[!IMPORTANT]
->Certifique-se de que escolhe **palavra-passe** como o _tipo de autenticação_.
+>Certifique-se de que escolher **palavra-passe** como o _tipo de autenticação_.
 
 ![utilizar pwd](media/how-to-create-dsvm-hdi/use_pwd.png)
 
-## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Criar um DSVM Ubuntu utilizando a cli do azure
+## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Criar um DSVM em Ubuntu com a cli do azure
 
-Também pode utilizar um modelo de gestão de recursos do Azure para implementar um DSVM.
+Também pode utilizar um modelo de gestão de recursos do Azure para implementar uma DSVM do.
 
 >[!NOTE]
->Todos os comandos seguintes são considerados como ser emitido a partir da pasta raiz de um projeto do Azure ML.
+>Todos os comandos seguintes devem ser emitido a partir da pasta raiz de um projeto do Azure ML.
 
-Em primeiro lugar, crie um `mydsvm.json` ficheiros utilizando o editor de texto favorito no `docs` pasta. (Se não tiver um `docs` pasta na pasta raiz do projeto, crie uma.) Este ficheiro são utilizadas para configurar alguns parâmetros básicos para o modelo de gestão de recursos do Azure. 
+Primeiro, crie uma `mydsvm.json` de ficheiros com o seu editor de texto favorito no `docs` pasta. (Se não tiver um `docs` pasta na pasta de raiz do projeto, criar um.) Podemos usar esse arquivo para configurar alguns parâmetros básicos para o modelo de gestão de recursos do Azure. 
 
 Copie e cole o fragmento JSON seguinte para o `mydsvm.json` de ficheiros e preencha os valores apropriados:
 
@@ -63,13 +63,13 @@ Copie e cole o fragmento JSON seguinte para o `mydsvm.json` de ficheiros e preen
 }
 ```
 
-Para o _vmSize_ campo, pode utilizar qualquer tamanho VM suppported listado no [modelo de gestão de recursos do Azure de DSVM Ubuntu](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Recomendamos que utilize um do abaixo tamanhos como destinos de computação do Azure ML. 
+Para o _vmSize_ campo, pode usar qualquer tamanho VM suportado listado na [modelo de gestão de recursos do Azure de DSVM do Ubuntu](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Recomendamos que utilize um do abaixo tamanhos como destinos de computação para o Azure ML. 
 
 
 >[!TIP]
-> Para [profunda de cargas de trabalho de aprendizagem](how-to-use-gpu.md) pode implementar para VMs com tecnologia de GPU.
+> Para [cargas de trabalho de aprendizagem profunda](how-to-use-gpu.md) pode implementar em VMs com tecnologia de GPU.
 
-- [VMs de objetivo geral](/virtual-machines/linux/sizes-general.md)
+- [VMs de fins gerais](/virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
@@ -82,14 +82,14 @@ Para o _vmSize_ campo, pode utilizar qualquer tamanho VM suppported listado no [
   - Standard_NC24 
  
 
-Saiba mais sobre estes [tamanhos de máquinas virtuais do Linux no Azure](../../virtual-machines/linux/sizes.md) e os respetivos [obter informações sobre preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Saiba mais sobre estes [tamanhos de máquinas de virtuais do Linux no Azure](../../virtual-machines/linux/sizes.md) e seus [informações sobre preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-Inicie a janela de CLI da aplicação do Azure ML Workbench ao clicar no **ficheiro** --> **abra a linha de comandos**, ou **PowerShell aberta** item de menu. 
+Inicie a janela da CLI a partir da aplicação do Azure ML Workbench ao clicar em **arquivo** --> **linha de comandos aberta**, ou **PowerShell aberto** item de menu. 
 
 >[!NOTE]
->Também pode fazer isto em qualquer ambiente da linha de comandos em que tenha instalado az-cli.
+>Também pode fazer isso em qualquer ambiente de linha de comando em que tem instalada o az-cli.
 
-Na janela da linha de comandos, introduza o abaixo comandos:
+Na janela de linha de comandos, introduza os comandos abaixo:
 
 ```azurecli
 # first make sure you have a valid Azure authentication token
@@ -122,7 +122,7 @@ $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 $ az vm show -g <resource group name> -n <vm name> --query "publicIps"
 ```
 ## <a name="attach-a-dsvm-compute-target"></a>Anexar um destino de computação DSVM
-Assim que for criado o DSVM, agora pode anexá-la ao projeto do Azure ML.
+Quando a DSVM estiver criada, agora pode anexá-lo ao seu projeto do Azure ML.
 
 ```azurecli
 # attach the DSVM compute target
@@ -132,48 +132,48 @@ $ az ml computetarget attach remotedocker --name <compute target name> --address
 # prepare the Docker image on the DSVM 
 $ az ml experiment prepare -c <compute target name>
 ```
-Agora deve estar pronto para executar experimentações neste DSVM.
+Agora, deve estar pronto para executar experimentações neste DSVM.
 
-## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Desalocar uma DSVM e reiniciar mais tarde
-Quando concluir as tarefas de computação do Azure ML, pode anular a atribuição a DSVM. Esta ação será encerrado a VM, liberta os recursos de computação, mas que ela vai preservando os discos virtuais. Não lhe serem cobrados o custo de computação quando a VM é desalocada.
+## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Desalocar uma DSVM e reiniciá-lo mais tarde
+Quando concluir as tarefas de computação do Azure ML, possível desalocar a DSVM. Esta ação encerra a VM, liberta os recursos de computação, mas que ela vai preservando os discos virtuais. Não são cobradas pelo custo de computação quando a VM é desalocada.
 
-Ao anular atribuição de uma VM:
+Para desalocar uma VM:
 
 ```azurecli
 $ az vm deallocate -g <resource group name> -n <vm name>
 ```
 
-Para colocar a VM vida, utilize o `az ml start` comando:
+Para que a VM voltem a vida, utilize o `az ml start` comando:
 
 ```azurecli
 $ az vm start -g <resource group name> -n <vm name>
 ```
 
-## <a name="expand-the-dsvm-os-disk"></a>Expanda o disco de SO DSVM
-O DSVM Ubuntu vem com um disco de SO de 50GB e um disco de dados de 100GB. Docker armazena as respectivas imagens em disco de dados, como mais espaço existe disponível. Quando utilizado como destino de computação do Azure ML, este disco pode ser utilizado pelo motor de Docker extrair para baixo de imagens do Docker e a criação de camadas de conda seguir. Poderá ser necessário expandir o disco para um tamanho maior (por exemplo, 200 GB) para evitar o erro de "disco está cheio" enquanto estiver no meio de uma execução. Referência [como expandir os discos rígidos virtuais numa VM com Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazê-lo facilmente da cli do azure. 
+## <a name="expand-the-dsvm-os-disk"></a>Expanda o disco do SO DSVM
+A DSVM do Ubuntu vem com um disco de SO de 50GB e o disco de dados de 100GB. Docker armazena suas imagens do disco de dados, conforme mais espaço há disponível ali. Quando utilizado como destino de computação para o Azure ML, este disco pode ser utilizado pelo motor de Docker puxando imagens do Docker e a criação de camadas de conda com base no mesmo. Poderá ter de expandir o disco para um tamanho superior (por exemplo, 200 GB) para evitar o erro de "disco cheio" enquanto estiver no meio de uma execução. Referência [como expandir os discos rígidos virtuais numa VM do Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente no azure-cli. 
 
-## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Criar do Apache Spark para o cluster do Azure HDInsight no portal do Azure
+## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Criar um Apache Spark para Azure HDInsight cluster no portal do Azure
 
-Para executar tarefas do Spark de escalamento horizontal, terá de criar do Apache Spark para o cluster do Azure HDInsight no portal do Azure.
+Para executar tarefas do Spark de escalamento horizontal, terá de criar um Apache Spark para Azure HDInsight cluster no portal do Azure.
 
-1. Inicie sessão no portal do Azure a partir do https://portal.azure.com
-2. Clique em de **+ novo** ligação e procure "HDInsight".
+1. Inicie sessão no portal do Azure https://portal.azure.com
+2. Clique nas **+ novo** link e procure "HDInsight".
 
-    ![localizar hdi](media/how-to-create-dsvm-hdi/hdi.png)
+    ![encontrar hdi](media/how-to-create-dsvm-hdi/hdi.png)
     
-3. Escolha **HDInsight** na lista e, em seguida, clique em de **criar** botão.
-4. No **Noções básicas** ecrã de configuração, **tipo de Cluster** definições, certifique-se de que escolhe **Spark** como o _tipo de Cluster_, **Linux** como o _sistema operativo_, e **Spark 2.1.0 (HDI 3.6)** como o _Version.
+3. Escolher **HDInsight** na lista e, em seguida, clique na **criar** botão.
+4. Na **Noções básicas** ecrã de configuração, **tipo de Cluster** definições, certifique-se de que escolher **Spark** como o _tipo de Cluster_, **Linux** como o _sistema operativo_, e **Spark 2.1.0 (HDI 3.6)** como a verze rozhraní.
 
     ![Configurar hdi](media/how-to-create-dsvm-hdi/configure_hdi.png)
 
     >[!IMPORTANT]
-    >Observe que o ecrã acima, o cluster tem um _nome de utilizador de início de sessão de Cluster_ campo e um _Secure Shell (SSH) username_ campo. Estes são dois identidades de utilizador diferente, embora para sua comodidade, pode especificar a mesma palavra-passe para ambos os inícios de sessão. O _nome de utilizador de início de sessão de Cluster_ é utilizado para iniciar sessão na Web de gestão da IU do HDI cluster. O _nome de utilizador de início de sessão SSH_ é utilizado para iniciar sessão no nó principal do cluster, este é o que é necessário para o Azure ML emitir as tarefas do Spark.
+    >Observe que o ecrã acima, o cluster tem um _nome de utilizador de início de sessão de Cluster_ campo e um _nome de utilizador de Secure Shell (SSH)_ campo. Estes são duas identidades de utilizador diferente, mesmo que para sua comodidade, pode especificar a mesma palavra-passe para ambos os inícios de sessão. O _nome de utilizador de início de sessão de Cluster_ é utilizada para iniciar sessão para a gestão da IU web do cluster do HDI. O _nome de utilizador de início de sessão SSH_ é utilizada para iniciar sessão para o nó principal do cluster, e esse é o que é necessário para o Azure ML expedir as tarefas do Spark.
 
 5. Escolha o tamanho do cluster e o tamanho de nó que precisa e concluir o Assistente de criação. Pode demorar até 30 minutos para o cluster concluir o aprovisionamento. 
 
 ## <a name="attach-an-hdi-spark-cluster-compute-target"></a>Anexar um destino de computação de cluster do HDI Spark
 
-Depois do cluster do Spark HDI for criado, pode agora ligá-lo ao seu projeto do Azure ML.
+Depois de criar o cluster do Spark HDI, agora pode anexá-lo ao seu projeto do Azure ML.
 
 ```azurecli
 # attach the HDI compute target
@@ -182,12 +182,12 @@ $ az ml computetarget attach cluster --name <compute target name> --address <clu
 # prepare the conda environment on HDI
 $ az ml experiment prepare -c <compute target name>
 ```
-Agora deve estar pronto para executar experimentações deste cluster do Spark.
+Agora, deve estar pronto para executar experimentações deste cluster do Spark.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre:
 - [Descrição geral do serviço de experimentação do Azure Machine Learning](experimentation-service-configuration.md)
 - [Azure ficheiros de configuração do serviço de experimentação do Machine Learning Workbench](experimentation-service-configuration-reference.md)
-- [Apache Spark para o cluster do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/)
+- [Apache Spark para Azure HDInsight cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Máquina de Virtual de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

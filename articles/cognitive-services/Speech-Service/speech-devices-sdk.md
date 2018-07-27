@@ -1,44 +1,43 @@
 ---
-title: Sobre os dispositivos de reconhecimento de voz SDK | Microsoft Docs
-description: Uma introdução ao SDK de dispositivos de reconhecimento de voz.
+title: Sobre os dispositivos de voz SDK
+description: Uma introdução ao SDK de dispositivos de voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c4451dd2e4d868bd7f604fb8002c3a758a530136
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356279"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285498"
 ---
-# <a name="about-the-speech-devices-sdk-preview"></a>Sobre os dispositivos de reconhecimento de voz SDK (pré-visualização)
+# <a name="about-the-speech-devices-sdk-preview"></a>Sobre os dispositivos de voz SDK (pré-visualização)
 
-No seu próprio, o serviço Microsoft Speech funciona com uma ampla variedade de dispositivos e as origens de áudio. Agora que pode tomar as aplicações de reconhecimento de voz para o próximo nível com correspondência de hardware e software. O SDK de dispositivos de reconhecimento de voz é uma biblioteca previamente atento emparelhada com hardware ativado para microfone específico. O SDK torna mais fácil integrar o seu dispositivo com o serviço de Microsoft Speech baseado na nuvem e criar uma experiência de utilizador excecional para os seus clientes.
+Sozinho, o serviço Microsoft Speech funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca previamente atento emparelhada com o hardware específico habilitados no microfone. O SDK facilita integrar o seu dispositivo com o serviço de Microsoft Speech baseado na nuvem e criar uma experiência de usuário excecional para os seus clientes.
 
-O SDK permite-lhe criar os seus próprios dispositivos de ambiente com uma palavra de reativação personalizadas — pelo rectângulos que inicia uma interação do utilizador é exclusivo para a sua marca. Utiliza canal multi áudio para fornecer mais exato reconhecimento de voz através de supressão do ruído, cancelamento de eco, voz distante campo e beamforming.
+O SDK permite-lhe criar seus próprios dispositivos de ambiente com uma palavra de reativação personalizado — para que a indicação de que inicia uma interação do utilizador é exclusiva para a sua marca. Ele usa o áudio de vários canal para fornecer o reconhecimento de fala mais preciso através de supressão de ruído, cancelamento de eco, sem dúvida campo voz e beamforming.
 
-O SDK facilita a uma variedade de cenários ativados de voz, tais como unidade-através da ordenação sistemas, assistentes no carro ou in-home e speakers inteligentes. Pode responder a utilizadores com o texto, enunciar volta aos mesmos uma predefinição ou voz personalizadas, forneça os resultados da pesquisa, convertidos para outros idiomas e muito mais. 
+O SDK facilita a uma variedade de cenários habilitados para voz, como a unidade através de sistemas de ordenação, assistentes no carro ou in-home e alto-falantes inteligentes. Poderia responder aos utilizadores com texto, falar para si uma predefinição ou voz personalizadas, forneça os resultados da pesquisa, traduzir para outros idiomas e muito mais. 
 
 
 
 ## <a name="development-kit-providers"></a>Fornecedores do kit de desenvolvimento
 
-Estruturas de referência de sistema completa, ponto-a-ponto. Mais disponível em breve!
+Estruturas de referência do sistema completa, ponto-a-ponto. Mais em breve!
 
 |||
 |-|-|
-|[![Logótipo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece soluções completas de sistema de AI para aparelhos electric, automóveis, robots, toys e outras indústrias. Estruturas de referência do ROOBO reduzem significativamente o desenvolvimento tempo mercado através da integração com o serviço Microsoft Speech. [Visite ROOBO](http://ddk.roobo.com/)|
+|[![Logótipo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece soluções completas de sistema de ia para electric aparelhos domésticos, automóveis, robôs, toys e outros setores. Estruturas de referência do ROOBO reduzem significativamente o desenvolvimento time-to-market por meio da integração com o serviço Microsoft Speech. [Visite ROOBO](http://ddk.roobo.com/)|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para começar a utilizar, obtenha um [conta do Azure gratuita](https://azure.microsoft.com/free/ai/) e inscrever-se para o SDK de dispositivos de reconhecimento de voz.
+Para começar, obtenha uma [conta gratuita do Azure](https://azure.microsoft.com/free/ai/) e inscreva-se para o SDK de dispositivos de voz.
 
 > [!div class="nextstepaction"]
-> [Inscreva-se o SDK de dispositivos de reconhecimento de voz](get-speech-devices-sdk.md)
+> [Inscreva-se o SDK de dispositivos de voz](get-speech-devices-sdk.md)
 

@@ -1,21 +1,20 @@
 ---
-title: Exemplos de como grave voz para a criação de uma voz personalizada | Documentos da Microsoft
+title: Como exemplos de registos de voz para a criação de uma voz personalizada
 titleSuffix: Microsoft Cognitive Services
 description: Torne uma voz costum de qualidade de produção ao preparar um script robusto, contratação de talento de voz boa e gravar profissionalmente.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 1afab3b7c128abdf97c3a16fc493935bab5cfd4c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072270"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284171"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Como exemplos de registos de voz para uma voz personalizada
 
@@ -160,11 +159,11 @@ O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e 
 Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Embora o talento de voz torna-se familiarizado com o texto, pode clarificar a pronúncia de quaisquer palavras familiarizadas.
 
 > [!NOTE]
-> A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará um hardcopy demasiado. Nesta fase, pode editar pequeno sons indesejável que tenha perdido durante a gravação — desde que eles não se sobrepõem a qualquer voz real.
+> A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará um hardcopy demasiado. E continuará QUERENDO que o terceiro impressa cópia como uma cópia de segurança para o talento, no caso do computador estiver em baixo!
 
-Se não é possível corrigir um arquivo, removê-lo do seu conjunto de dados totalmente, fazer uma observação que tenha feito. Atores chamá-lo a "palavra operative". Guarde a cada ficheiro no formato WAV. Arquive o original gravar num local seguro, caso seja necessário voltar a ele mais tarde.
+Seu talento de voz pode perguntar qual palavra desejar enfatizadas numa expressão. Atores chamá-lo a "palavra operative". Informe-os de que pretende uma leitura natural com nenhuma ênfase especial. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
 
-Preserva o seu script e notas, demasiado. Está pronto para carregar as gravações e criar a sua voz personalizada! Sons não devem ser omitidos ou em conjunto, o que é comum na conversão de voz casual, slurred *, a menos que tenha sido escritos dessa forma no script.*
+Direcione o talento pronunciar palavras de forma distinta. Todas as palavras do script devem ser pronunciada como está escrito. Sons não devem ser omitidos ou em conjunto, o que é comum na conversão de voz casual, slurred *, a menos que tenha sido escritos dessa forma no script.*
 
 |Texto escrito|Pronúncia casual indesejada|
 |-|-|

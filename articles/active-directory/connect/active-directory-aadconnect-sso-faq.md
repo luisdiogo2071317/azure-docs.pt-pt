@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258498"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283228"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -94,10 +94,8 @@ Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
 
 1. Chamar `$creds = Get-Credential`. Quando lhe for pedido, introduza as credenciais de administrador de domínio de floresta do AD pretendida.
 
->[!NOTE]
->Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
-
-Utilize os UPNs, podemos traduzir 
+    >[!NOTE]
+    >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 
 2. Chamar `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando atualiza a chave de desencriptação do Kerberos para o `AZUREADSSOACC` conta de computador nesta floresta de AD específico e atualiza-o no Azure AD.
 3. Repita os passos anteriores para cada floresta do AD que configurou a funcionalidade no.
@@ -107,17 +105,36 @@ Utilize os UPNs, podemos traduzir
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Como posso desativar o SSO totalmente integrado?
 
-Pode ser desativado o SSO totalmente integrado com o Azure AD Connect.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Passo 1. Desativar a funcionalidade no seu inquilino
 
-Execute o Azure AD Connect, escolha "Alterar início de sessão na página de utilizador" e clique em "Seguinte". Em seguida, desmarque a opção "Ativar o início de sessão único em". Continue através do assistente. Após a conclusão do assistente, o SSO totalmente integrado está desativado no seu inquilino.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>A opção r: desativar com o Azure AD Connect
 
-No entanto, verá uma mensagem no ecrã que é a seguinte:
+1. Execute o Azure AD Connect, escolha **página de início de sessão da utilizador de alteração** e clique em **próxima**.
+2. Desmarque os **ativar o início de sessão único em** opção. Continue através do assistente.
+
+Depois de concluir o assistente, será desativada SSO totalmente integrado no seu inquilino. No entanto, verá uma mensagem no ecrã que é a seguinte:
 
 "Início de sessão único está agora desativado, mas existem passos manuais adicionais para realizar para concluir a limpeza. Saiba mais"
 
-Para concluir o processo, siga estes passos manuais no servidor no local onde está a executar o Azure AD Connect:
+Para concluir o processo de limpeza, siga os passos 2 e 3 no servidor no local onde está a executar o Azure AD Connect.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passo 1. Obter lista de florestas do AD em que tenha sido ativado SSO totalmente integrado
+#### <a name="option-b-disable-using-powershell"></a>A opção b: desativar utilizar o PowerShell
+
+Execute os seguintes passos no servidor no local onde está a executar o Azure AD Connect:
+
+1. Em primeiro lugar, transfira e instale o [assistente Microsoft Online Services início de sessão](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Em seguida, transferir e instalar o [módulo do Azure Active Directory de 64 bits para o Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importe o módulo do PowerShell do SSO totalmente integrado com o comando: `Import-Module .\AzureADSSO.psd1`.
+5. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
+6. Chamar `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Desativar o SSO totalmente integrado com o PowerShell não irá alterar o estado no Azure AD Connect. SSO totalmente integrado irá aparecer como ativada no **alterar utilizador inicie sessão** página.
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Passo 2. Obter lista de florestas do AD em que tenha sido ativado SSO totalmente integrado
+
+Siga os passos 1 a 5 abaixo se tiver desativado SSO totalmente integrado com o Azure AD Connect. Se tiver desativado SSO totalmente integrado com o PowerShell em vez disso, ir diretamente para o passo 6 abaixo.
 
 1. Em primeiro lugar, transfira e instale o [assistente Microsoft Online Services início de sessão](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Em seguida, transferir e instalar o [módulo do Azure Active Directory de 64 bits para o Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
@@ -126,7 +143,7 @@ Para concluir o processo, siga estes passos manuais no servidor no local onde es
 5. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
 6. Chamar `Get-AzureADSSOStatus`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 2. Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 3. Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

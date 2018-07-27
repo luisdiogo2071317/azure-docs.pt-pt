@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d153fa495c82103460dd8e4e2aae6000e49eb3eb
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238316"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283593"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -52,7 +52,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 | Nome | Limite | Notas | 
 |------|-------|-------| 
 | Duração de execução | 90 dias | Para alterar este limite, consulte [a duração da execução de alteração](#change-duration). | 
-| Retenção de armazenamento | hora de início de 90 dias a partir da execução | Para alterar este limite, consulte [alterar a retenção de armazenamento](#change-retention). | 
+| Retenção de armazenamento | hora de início de 90 dias a partir da execução | Para alterar este limite para um valor entre 7 dias e 90 dias, consulte [alterar a retenção de armazenamento](#change-retention). | 
 | Intervalo de periodicidade mínimo | 1 segundo | | 
 | Intervalo de periodicidade máximo | dias de 500 | | 
 |||| 
@@ -62,7 +62,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Alterar a retenção de armazenamento e a duração da execução
 
-Pode alterar este limite para um valor entre 7 dias e 90 dias. Fiquem acima do limite máximo, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+Para alterar o limite predefinido para entre 7 dias e 90 dias, siga estes passos. Se tiver de ir acima do limite máximo, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
 1. No portal do Azure, no menu da sua aplicação lógica, escolha **definições de fluxo de trabalho**. 
 
@@ -72,16 +72,18 @@ Pode alterar este limite para um valor entre 7 dias e 90 dias. Fiquem acima do l
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="looping-and-debatching-limits"></a>Um loop e divisões de limites
+## <a name="concurrency-looping-and-debatching-limits"></a>Simultaneidade, looping e divisões de limites
 
 Aqui estão os limites para uma execução da aplicação lógica única:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Iterações until | 5.000 | | 
-| Itens ForEach | 100.000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maiores, conforme necessário. | 
-| Paralelismo ForEach | 50 | A predefinição é 20. <p>Para alterar esse nível de predefinição num loop ForEach, defina o `runtimeConfiguration` propriedade o `foreach` ação. <p>Para executar sequencialmente um loop ForEach, defina o `operationOptions` propriedade como "Sequencial" no `foreach` ação. | 
+| Simultaneidade de Acionador | 50 | O limite predefinido é 20. Este limite descreve o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [simultaneidade de Acionador de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [acionar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Máximo de espera de execuções | 100 | O limite predefinido é 10. Este limite descreve o número máximo de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. <p><p>Para alterar o limite predefinido para um valor entre 0 e 100, inclusivamente, consulte [limitam execuções de espera da alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Itens foreach | 100.000 | Este limite descreve o número máximo de itens de matriz, que pode processar um loop "for each". <p><p>Para filtrar matrizes maiores, pode utilizar o [ação de consulta](../connectors/connectors-native-query.md). | 
+| Iterações de foreach | 50 | O limite predefinido é 20. Este limite descreve o número máximo de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar "for each" simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Itens SplitOn | 100.000 | | 
+| Iterações until | 5.000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -91,14 +93,14 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 Aqui estão os limites para uma execução da aplicação lógica única:
 
 | Nome | Limite | Notas | 
-| ----- | ----- | ----- | 
-| Execuções de ações por 5 minutos | 100.000 | Para aumentar o limite para 300.000, pode executar uma aplicação lógica no `High Throughput` modo. Para configurar em modo de alto débito, o `runtimeConfiguration` de recurso do fluxo de trabalho, defina o `operationOptions` propriedade para `OptimizedForHighThroughput`. <p>**Tenha em atenção**: modo de alto débito está em pré-visualização. Além disso, pode distribuir uma carga de trabalho em mais do que uma aplicação conforme necessário. | 
-| Chamadas de saída simultâneas de ações | ~2,500 | Reduza o número de pedidos simultâneos ou reduza a duração, conforme necessário. | 
-| Ponto final de tempo de execução: chamadas simultâneas de entrada | ~1,000 | Reduza o número de pedidos simultâneos ou reduza a duração, conforme necessário. | 
-| Ponto final de tempo de execução: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
-| Ponto final de tempo de execução: invocar chamadas por 5 minutos| 45,000 | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. |
-| Taxa de transferência de conteúdo por 5 minutos | 600 MB | Pode distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. |  
-||||| 
+| ---- | ----- | ----- | 
+| Ação: Execuções por 5 minutos | 300,000 | O limite predefinido é 100 000. Para alterar o limite predefinido, consulte [executar a aplicação lógica no modo de "débitos"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está em pré-visualização. Em alternativa, pode distribuir a carga de trabalho em mais do que uma aplicação de lógica, conforme necessário. | 
+| Ação: Chamadas de saída simultâneas | ~2,500 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
+| Ponto final de tempo de execução: chamadas simultâneas de entrada | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
+| Ponto final de tempo de execução: ler chamadas por 5 minutos  | 60,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
+| Ponto final de tempo de execução: invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
+| Taxa de transferência de conteúdo por 5 minutos | 600 MB | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. | 
+|||| 
 
 Para passar destes limites no processamento normal ou executar o teste de carga que pode passar destes limites, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
@@ -255,7 +257,7 @@ Todas as aplicações de lógica numa região, utilize os mesmos intervalos de e
 | Sudeste Asiático | 13.76.133.155, 52.163.228.93, 52.163.230.166 |
 | EUA Centro-Oeste | 52.161.27.190, 52.161.18.218, 52.161.9.108 |
 | Europa Ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65 |
-| Índia Ocidental | 104.211.164.80, 104.211.162.205, 104.211.164.136 |
+| Oeste da Índia | 104.211.164.80, 104.211.162.205, 104.211.164.136 |
 | EUA Oeste | 52.160.92.112, 40.118.244.241, 40.118.241.243 |
 | EUA Oeste 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132 |
 | Reino Unido Sul | 51.140.74.14, 51.140.73.85, 51.140.78.44 |
@@ -278,12 +280,12 @@ Todas as aplicações de lógica numa região, utilize os mesmos intervalos de e
 | Oeste do Japão | 40.74.140.173, 40.74.81.13, 40.74.85.215 |
 | EUA Centro-Norte | 168.62.249.81, 157.56.12.202, 65.52.211.164 |
 | Europa do Norte | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
-| EUA Centro-Sul | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| EUA Centro-Sul | 13.65.98.39, 13.84.41.46, 13.84.43.45 |
 | Sul da Índia | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
 | Sudeste Asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
 | EUA Centro-Oeste | 52.161.26.172, 52.161.8.128, 52.161.19.82 |
 | Europa Ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
-| Índia Ocidental | 104.211.164.112, 104.211.165.81, 104.211.164.25 |
+| Oeste da Índia | 104.211.164.112, 104.211.165.81, 104.211.164.25 |
 | EUA Oeste | 52.160.90.237, 138.91.188.137, 13.91.252.184 |
 | EUA Oeste 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67 |
 | Reino Unido Sul | 51.140.79.109, 51.140.78.71, 51.140.84.39 |
@@ -319,7 +321,7 @@ Para suportar as chamadas que [conectores](../connectors/apis-list.md) make, con
 | Sudeste Asiático | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
 | EUA Centro-Oeste | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
 | Europa Ocidental | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
-| Índia Ocidental | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| Oeste da Índia | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
 | EUA Oeste | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
 | EUA Oeste 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
 | Reino Unido Sul | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 

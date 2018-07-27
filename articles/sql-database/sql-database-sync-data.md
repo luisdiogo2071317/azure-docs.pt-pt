@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069391"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283629"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -117,7 +117,9 @@ Aprovisionamento e desaprovisionamento durante a criação do grupo de sincroniz
 
 -   Uma tabela não pode ter uma coluna de identidade que não é a chave primária.
 
--   Uma chave primária não pode ter o tipo de dados de datetime.
+-   Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binary, varbinary, imagem, xml. 
+
+-   Tenha cuidado ao utilizar os seguintes tipos de dados como uma chave primária, uma vez que a precisão suportada é apenas para o segundo: hora, datetime, datetime2, datetimeoffset.
 
 -   Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), à esquerda parêntesis Reto ([), ou Reto direito square (]).
 
@@ -131,7 +133,7 @@ Aprovisionamento e desaprovisionamento durante a criação do grupo de sincroniz
 
 -   XMLSchemaCollection (XML suportado)
 
--   Hierarchyid de cursor, Timestamp,
+-   Período de tempo do cursor, RowVersion, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Tipos de coluna não suportado
 

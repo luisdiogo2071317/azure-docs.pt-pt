@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248224"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283525"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
 
@@ -80,13 +80,16 @@ Se um utilizador não tem os métodos necessários mínimos registados, verão u
 
 #### <a name="mobile-app-and-sspr-preview"></a>Aplicação móvel e SSPR (pré-visualização)
 
-Quando utilizar uma aplicação móvel, como a aplicação Microsoft Authenticator, como um método para a reposição de palavra-passe utilizadores tenha em atenção o seguinte. Senha de autoatendimento repor quando apenas um método é necessário para a reposição de código de verificação é a única opção disponível para os utilizadores. Quando dois métodos são necessários os utilizadores poderão repor usando **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
+Quando utiliza uma aplicação móvel, como a aplicação Microsoft Authenticator, como um método para a reposição de palavra-passe, deve ter em atenção o seguinte:
+
+* Quando os administradores necessitam de um método a ser utilizado para repor uma palavra-passe, o código de verificação é a única opção disponível.
+* Quando os administradores necessitam de dois métodos a ser utilizado para repor uma palavra-passe, os utilizadores conseguem utilizar **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
 
 | Número de métodos necessários para a reposição | um | Dois |
 | :---: | :---: | :---: |
 | Funcionalidades de aplicações móveis disponíveis | Código | Código ou de notificação |
 
-Os utilizadores não terão a opção para registar a aplicação móvel quando efetuar o registo para a reposição de palavra-passe self-service. Em vez disso, os utilizadores podem registar a aplicação móvel no aka.ms/mfasetup ou a pré-visualização de registo de informações de segurança por aka.ms/setupsecurityinfo. 
+Os utilizadores não têm a opção para registar a aplicação móvel quando efetuar o registo para reposição de palavra-passe self-service do [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Os utilizadores podem registar a sua aplicação móvel [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), ou a nova pré-visualização de registo de informações de segurança por [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Alterar o método de autenticação
 

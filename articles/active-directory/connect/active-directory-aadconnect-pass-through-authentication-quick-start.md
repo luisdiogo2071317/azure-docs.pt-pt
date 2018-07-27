@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3389fed86fba8059db82816a6fc752f5374369a7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214987"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283373"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure Active Directory autenticação pass-through: Início rápido
 
@@ -73,7 +73,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
 Ativar a autenticação pass-through através de [do Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Pode ativar a autenticação pass-through no servidor primário ou de teste do Azure AD Connect. Recomenda-se ativá-la do servidor primário.
+>Pode ativar a autenticação pass-through no servidor primário ou de teste do Azure AD Connect. É altamente recomendável que habilitá-la do servidor primário. Se estiver a configurar um servidor de preparação do Azure AD Connect no futuro, **tem** continue para escolher a autenticação pass-through como a opção de início de sessão; escolher outra opção será **desativar** Autenticação pass-through no inquilino e ignorar a definição no servidor primário.
 
 Se estiver a instalar o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizada](active-directory-aadconnect-get-started-custom.md). Na **sessão do utilizador** página, selecione **autenticação pass-through** como o **método de início de sessão**. A conclusão com êxito, um agente de autenticação pass-through está instalado no mesmo servidor do Azure AD Connect. Além disso, a funcionalidade de autenticação pass-through está ativada no seu inquilino.
 

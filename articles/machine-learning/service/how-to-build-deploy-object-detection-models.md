@@ -1,6 +1,6 @@
 ---
-title: Criar e implementar um modelo de deteção de objeto utilizando o pacote do Azure Machine Learning para problemas de visão do computador.
-description: Saiba como criar, dar formação, testar e implementar um modelo de deteção do objeto do computador visão utilizando o pacote do Azure Machine Learning para problemas de visão do computador.
+title: Criar e implementar um modelo de deteção de objeto com o pacote do Azure Machine Learning para imagem digitalizada.
+description: Saiba como criar, formar, testar e implementar um modelo de deteção do objeto do computador visão com o pacote do Azure Machine Learning para imagem digitalizada.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,30 +9,30 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 62cc37d8c462d0fc1831de7b50a85738d6e63a17
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34728022"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285918"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Criar e implementar modelos de deteção de objeto com o Azure Machine Learning
 
-Neste artigo, saiba como utilizar **Azure Machine Learning pacote para computador visão** para preparar, testar e implementar uma [mais rápida de R CNN](https://arxiv.org/abs/1506.01497) modelo de deteção de objeto. 
+Neste artigo, saiba como utilizar **pacote do Azure Machine Learning para imagem digitalizada** para preparar, testar e implementar um [mais rápido do R-CNN](https://arxiv.org/abs/1506.01497) modelo de deteção de objeto. 
 
-Um grande número de problemas no domínio de visão computador possam ser resolvido através da deteção de objeto. Estes problemas incluem a criação de modelos que encontrar um número de variável de objetos de uma imagem. 
+Um grande número de problemas do domínio de visão do computador pode ser resolvido com a deteção de objetos. Esses problemas incluem a criação de modelos que encontrar um número variável de objetos numa imagem. 
 
-Quando criar e implementar este modelo com este pacote, leia os seguintes passos:
+Ao criar e implementar este modelo com este pacote, que execute os seguintes passos:
 1.  Criação de conjunto de dados
-2.  Definição de modelo de rede neuronal profundo (DNN)
-3.  Modelo de formação
+2.  Definição de modelo de rede Neurais profundas (DNN)
+3.  Preparação de modelos
 4.  Avaliação e visualização
-5.  Implementação de serviço Web
-6.  Serviço Web do teste de carga
+5.  Implementação do serviço Web
+6.  Serviço Web de teste de carga
 
-Neste exemplo, TensorFlow é utilizado como o framework de aprendizagem profunda, formação é executada localmente num computador GPU ligada, tal como o [profunda de VM de ciência de dados de aprendizagem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), e a implementação utilizar a CLI do Azure ML Operationalization.
+Neste exemplo, o TensorFlow for utilizado como a estrutura de aprendizagem profunda, treinamento é executado localmente num computador com a tecnologia de GPU, como o [VM de ciência de dados de aprendizagem profunda](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), e a implementação utiliza a CLI do Azure ML Operacionalização.
 
-Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para a referência de detalhado para cada módulo e uma classe.
+Consulte a [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para obter a referência detalhada para cada módulo e uma classe.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,36 +40,33 @@ Consulte o [documentação de referência do pacote](https://aka.ms/aml-packages
 
 1. As seguintes contas e aplicação tem de ser configurados e instalados:
    - Uma conta de Experimentação do Azure Machine Learning 
-   - Uma conta de gestão de modelo do Azure Machine Learning
+   - Uma conta de gestão de modelos do Azure Machine Learning
    - O Azure Machine Learning Workbench instalado
 
-   Se estes três são ainda não foi criadas ou instaladas, siga o [instalação de início rápido do Azure Machine Learning e Workbench](../service/quickstart-installation.md) artigo. 
+   Se esses três são ainda não foi criados ou instalados, siga os [instalação manual de início rápido do Azure Machine Learning e Bancada de trabalho](../service/quickstart-installation.md) artigo. 
 
-1. O pacote de aprendizagem máquina do Azure para problemas de visão do computador tem de estar instalado. Saiba como [instalar este pacote aqui](https://aka.ms/aml-packages/vision).
+1. Tem de estar instalado o pacote de Aprendizado de máquina do Azure para imagem digitalizada. Saiba como [instalar este pacote aqui](https://aka.ms/aml-packages/vision).
 
-## <a name="sample-data-and-notebook"></a>Bloco de notas e dados de exemplo
+## <a name="sample-data-and-notebook"></a>Dados de exemplo e o bloco de notas
 
 ### <a name="get-the-jupyter-notebook"></a>Obter o bloco de notas do Jupyter
 
-Transferir o bloco de notas para executar o exemplo descrito aqui por si.
+Transferir o bloco de notas para executar o exemplo descrito aqui por conta própria.
 
 > [!div class="nextstepaction"]
 > [Obter o bloco de notas do Jupyter](https://aka.ms/aml-packages/vision/notebooks/object_detection)
 
 ### <a name="load-the-sample-data"></a>Carregar os dados de exemplo
 
-Para esta demonstração, é fornecido um conjunto de dados de itens de grocery dentro refrigerators, constituída por 30 imagens e 8 classes (eggBox, joghurt, ketchup, mushroom, monteiro, laranja, squash e máximo). Para cada imagem jpg, há um ficheiro de xml anotação com um nome semelhante. 
+Para esta demonstração, é fornecido um conjunto de dados de itens de acessar dentro refrigeradores, consiste em 30 imagens e 8 classes (eggBox, joghurt, molho de tomates, mushroom, monteiro, laranja, proteção e água). Para cada imagem jpg, existe um arquivo de xml anotação com o mesmo nome. 
 
-A figura seguinte mostra a estrutura da pasta recomendada. 
+A figura seguinte mostra a estrutura de pastas recomendada. 
 
-![Estrutura de pastas](media/how-to-build-deploy-object-detection-models/data_directory.JPG)
+![estrutura de pastas](media/how-to-build-deploy-object-detection-models/data_directory.JPG)
 
 ## <a name="image-annotation"></a>Anotação de imagem
 
-Anotado localizações são necessários para dar formação e avaliar detector um objeto de objeto. [LabelImg](https://tzutalin.github.io/labelImg) é uma ferramenta de anotação de código aberto que pode ser utilizada para anotar imagens. LabelImg escreve um ficheiro xml por imagem no formato de Pascal VOC, que pode ser lidos por este pacote. 
-
-## <a name="storage-context"></a>Contexto de armazenamento
-O contexto de armazenamento é utilizado para determinar onde estão armazenados vários ficheiros de saída, tais como ficheiros de modelo DNN. Para obter mais informações, consulte o [StorageContext documentação](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). Normalmente, os conteúdos de armazenamento não necessitam de ser definida explicitamente. No entanto, para evitar o limite de tamanho de projeto do Workbench de 25 MB, definir o diretório de saídas para apontar para uma localização fora do projecto AML (".. /.. /.. /.. / cvtk_output "). Certifique-se de que remove o diretório de "cvtk_output" uma vez que já não é necessária.
+Anotado objeto localizações são necessários para preparar e avaliar um detector de objeto. [LabelImg](https://tzutalin.github.io/labelImg) é uma ferramenta de anotação de código-fonte aberto que pode ser utilizada para anotar imagens. LabelImg escreve um arquivo xml por imagem no formato de Pascal VOC, que pode ser lidos por este pacote. 
 
 
 ```python
@@ -77,28 +74,26 @@ import warnings
 warnings.filterwarnings("ignore")
 import os, time
 from cvtk.core import Context, ObjectDetectionDataset, TFFasterRCNN
+from cvtk.evaluation import DetectionEvaluation
+from cvtk.evaluation.evaluation_utils import graph_error_counts
 from cvtk.utils import detection_utils
-from matplotlib import pyplot as plt
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
 
-# Initialize the context object
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
-
+from matplotlib import pyplot as plt
 # Display the images
 %matplotlib inline
 ```
 
 ## <a name="create-a-dataset"></a>Criar um conjunto de dados
 
-Crie um conjunto de dados CVTK consiste num conjunto de imagens, com os seus respetivos anotações de caixa delimitador. Neste exemplo, as imagens de refrigerator que são fornecidos na ".. pasta/foods/sample_data/formação"são utilizados. Imagens JPEG só são suportadas.
+Crie um conjunto de dados CVTK que consiste num conjunto de imagens, com seus respectivos anotações de caixa delimitadora. Neste exemplo, as imagens de refrigerator (refrigerador) que são fornecidos no "... pasta/sample_data/foods/treinamento"são utilizados. São suportadas apenas as imagens JPEG.
 
 
 ```python
-image_folder = "../sample_data/foods/train"
+image_folder = "detection/sample_data/foods/train"
 data_train = ObjectDetectionDataset.create_from_dir(dataset_name='training_dataset', data_dir=image_folder,
                                                     annotations_dir="Annotations", image_subdirectory='JPEGImages')
 
@@ -131,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>Definir um modelo
 
-Neste exemplo, é utilizado o modelo de R-CNN mais rapidamente. Vários parâmetros podem ser fornecidos quando definir este modelo. O significado destes parâmetros, bem como os parâmetros utilizados para formação (consulte a secção seguinte) pode ser encontrado em documentos de API de qualquer um dos CVTK ou no [Web site de deteção de objeto Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Obter mais informações sobre o modelo mais rápida de R CNN podem ser encontradas em [esta ligação](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Este modelo baseia-se no rápido R-CNN e podem encontrar mais informações sobre o assunto [aqui](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+Neste exemplo, o modelo de forma mais rápida de R-CNN é usado. Vários parâmetros podem ser fornecidos ao definir esse modelo. O significado desses parâmetros, bem como os parâmetros utilizados para formação (consulte a secção seguinte) pode ser encontrado nos documentos de API de qualquer um dos CVTK ou no [Web site de deteção de objeto do Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Podem encontrar mais informações sobre o modelo mais rápido do R-CNN na [esta ligação](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Este modelo baseia-se no rápido R-CNN e mais informações sobre ela podem ser encontradas [aqui](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python
@@ -144,15 +139,15 @@ my_detector = TFFasterRCNN(labels=data_train.labels,
 
 ## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-O modelo de preparação de COCO mais rapidamente do R-CNN com ResNet50 é utilizado como ponto de partida para formação. 
+O modelo de formação de sistema COCO mais rápido do R-CNN com ResNet50 é utilizado como o ponto de partida para treinamento. 
 
-Para preparar o detector, definir o número de passos de preparação no código é 350, para que formação seja executado mais rapidamente (~ 5 minutos com GPU). Na prática, tem de defini-lo para, pelo menos, 10 vezes o número de imagens no conjunto de preparação.
+Para preparar o detetor de, o número de passos de treinamento no código está definido para 350, para que o treinamento é executado mais rapidamente (~ 5 minutos com GPU). Na prática, defini-lo para, pelo menos, 10 vezes o número de imagens no conjunto de treinamento.
 
-Neste exemplo, o número de passos de preparação de detector está definido para 350 para formação speedy. No entanto, na prática, uma boa regra prática consiste em definir os passos para 10 ou mais vezes o número de imagens no conjunto de preparação.
+Neste exemplo, o número de passos de treinamento detetor é definido como 350 para treinamento rápido. No entanto, na prática, uma boa regra prática é definir os passos para 10 ou mais vezes o número de imagens no conjunto de treinamento.
 
-Dois parâmetros de chaves para formação são:
-- Número de passos para preparar o modelo representado pelo argumento de num_seps. Cada passo trains o modelo com um minibatch do tamanho do lote um.
-- Learning rate(s), que pode ser definido pelo initial_learning_rate
+Dois parâmetros de chave para treinamento são:
+- Número de passos para preparar o modelo, representado pelo argumento num_seps. Cada passo prepara o modelo com um minibatch de tamanho de lote um.
+- Aprendizagem rate(s), que pode ser definida por initial_learning_rate
 
 ```python
 print("tensorboard --logdir={}".format(my_detector.train_dir))
@@ -188,21 +183,21 @@ print(end_train-start_train)
     361.604615688324
     
 
-TensorBoard pode ser utilizado para visualizar o progresso de formação. Eventos de TensorBoard estão localizados na pasta especificada pelo atributo de train_dir o objeto de modelo. Para ver TensorBoard, siga estes passos:
-1. Copie o printout que começa com 'tensorboard – logdir' para uma linha de comandos e executá-la. 
-2. Copie o URL devolvido na linha de comandos para um web browser para ver o TensorBoard. 
+TensorBoard pode ser utilizado para visualizar o curso de treinamento. Eventos de TensorBoard estão localizados na pasta especificada pelo atributo da train_dir o objeto de modelo. Para ver TensorBoard, siga estes passos:
+1. Copie a impressão que começa com "tensorboard – logdir' para uma linha de comando e executá-lo. 
+2. Copie a URL retornada da linha de comando para um navegador da web para ver o TensorBoard. 
 
-O TensorBoard deverá ser semelhante à seguinte captura de ecrã. Demora alguns instantes para a pasta de formação ser preenchido. Por isso, se não for apresentada TensorBoard segurança corretamente o primeiro tempo tente repetir os passos 1-2.  
+O TensorBoard deverá ser semelhante à seguinte captura de ecrã. Demora alguns minutos para a pasta de treinamento deve ser preenchida. Portanto, se for TensorBoard não mostra a corretamente a primeira hora tente repetir os passos 1 a 2.  
 
 ![tensorboard](media/how-to-build-deploy-object-detection-models/tensorboard.JPG)
 
 ## <a name="evaluate-the-model"></a>Avaliar o modelo
 
-O método 'avaliar' é utilizado para avaliar o modelo. Esta função requer um objeto de ObjectDetectionDataset como entrada. O conjunto de dados de avaliação pode ser criado utilizando a mesma função que utilizou para o conjunto de dados de formação. A métrica suportada é precisão médio, tal como definido para o [PASCAL VOC desafio](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
+O método "avaliar" é utilizado para avaliar o modelo. Essa função requer um objeto de ObjectDetectionDataset como entrada. O conjunto de dados de avaliação pode ser criado usando a mesma função que utilizou para o conjunto de dados de treinamento. A métrica suportada é médio de precisão, conforme definido para o [PASCAL VOC desafio](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
 
 
 ```python
-image_folder = "../sample_data/foods/test"
+image_folder = "detection/sample_data/foods/test"
 data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 eval_result = my_detector.evaluate(dataset=data_val)
 ```
@@ -237,7 +232,7 @@ eval_result = my_detector.evaluate(dataset=data_val)
     F1 2018-05-25 23:18:38,254 INFO Finished evaluation!
     
 
-Os resultados da avaliação, podem ser impresso num formato correto.
+Os resultados da avaliação podem ser impressos num formato limpo.
 
 
 ```python
@@ -260,9 +255,9 @@ print('{0: <15}: {1: <3}'.format("overall:", round(eval_result['PASCAL/Precision
     overall:       : 0.99
     
 
-Da mesma forma, pode calcular a precisão do modelo no conjunto de preparação. Isto ajuda a garantir de formação convergida para uma boa solução de fazê-lo. A precisão no conjunto de preparação depois de formação bem sucedida, muitas vezes, está próximo de 100%.
+Da mesma forma, pode computar a precisão do modelo no conjunto de treinamento. Fazer isto ajuda a certificar-se de treinamento de convergência para uma boa solução. A precisão no conjunto de treinamento, depois de treinamento bem-sucedido, muitas vezes, é quase 100%.
 
-Também podem ser visualizados resultados da avaliação TensorBoard, incluindo as imagens com caixas delimitador previstas e valores de mapa. Copie o printout do seguinte código para uma janela de linha de comandos para iniciar o cliente TensorBoard. Aqui, um valor de porta 8008 é utilizado para evitar conflitos com o valor predefinido 6006, que estava a utilizar para visualizar o estado de preparação.
+Também podem ser visualizados os resultados da avaliação TensorBoard, incluindo imagens com caixas de delimitadora previstas e valores de mapa. Copie o printout do código a seguir numa janela de linha de comandos para iniciar o cliente de TensorBoard. Aqui, é utilizado um valor de porta 8008 para evitar conflitos com o valor predefinido de 6006, o que estava a utilizar para visualizar o estado de treinamento.
 
 
 ```python
@@ -274,13 +269,13 @@ print("tensorboard --logdir={} --port=8008".format(my_detector.eval_dir))
 
 ## <a name="score-an-image"></a>Uma imagem de pontuação
 
-Quando estiver satisfeito com o desempenho do modelo treinado, a função de 'Pontuar' do objeto de modelo pode ser utilizada para pontuar novas imagens. As pontuações devolvidas podem ser visualizadas com a função 'visualizar'. 
+Quando estiver satisfeito com o desempenho do modelo preparado, a função de 'pontuação' do objeto de modelo pode ser utilizada para classificar as novas imagens. As pontuações devolvidas podem ser visualizadas com a função "visualizar". 
 
 
 ```python
 image_path = data_val.images[1].storage_path
 detections_dict = my_detector.score(image_path)
-path_save = out_root_path + "/scored_images/scored_image_preloaded.jpg"
+path_save = "./scored_images/scored_image_preloaded.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, image_size=(8, 12))
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
@@ -291,11 +286,11 @@ ax.get_figure().savefig(path_save)
 
 ##  <a name="save-the-model"></a>Guarde o modelo
 
-O modelo treinado pode ser guardado no disco e carregado novamente na memória, conforme ilustrado nos exemplos de código seguinte.
+O modelo treinado pode ser salvos em disco e carregado novamente para a memória, conforme mostrado nos exemplos de código a seguir.
 
 
 ```python
-save_model_path = out_root_path + "/frozen_model/faster_rcnn.model" # Please save your model to outside of your AML workbench project folder because of the size limit of AML project
+save_model_path = "./frozen_model/faster_rcnn.model"
 my_detector.save(save_model_path)
 ```
 
@@ -306,20 +301,20 @@ my_detector.save(save_model_path)
 
 ## <a name="load-the-saved-model-for-scoring"></a>Carregar o modelo guardado para classificação
 
-Para utilizar o modelo guardado, carregar o modelo na memória com a função 'carga'. Só tem de carregar uma vez. 
+Para utilizar o modelo guardado, carregar o modelo na memória com a função de "load". Apenas terá de carregar uma vez. 
 
 ```python
 my_detector_loaded = TFFasterRCNN.load(save_model_path)
 ```
 
-Depois do modelo é carregado, pode ser utilizado para pontuar uma imagem ou uma lista de imagens. Para uma única imagem, é devolvido um dicionário com chaves como 'detection_boxes', 'detection_scores' e 'num_detections'. Se a entrada é uma lista de imagens, uma lista de dicionário é devolvida, com um dicionário correspondente a uma imagem. 
+Depois do modelo é carregado, ele pode ser utilizado para classificar uma imagem ou uma lista de imagens. Para uma única imagem, um dicionário é devolvido com chaves como 'detection_boxes', 'detection_scores' e 'num_detections'. Se a entrada é uma lista de imagens, uma lista de dicionário é devolvida, com um dicionário correspondente a uma imagem. 
 
 
 ```python
 detections_dict = my_detector_loaded.score(image_path)
 ```
 
-Os objetos detetados com pontuações acima 0,5, incluindo etiquetas, pontuações e coordenadas pode ser impresso.
+Os objetos detetados com pontuações acima 0,5, incluindo etiquetas, pontuações e coordenadas pode ser impressos.
 
 
 ```python
@@ -351,24 +346,24 @@ print("\nFound {} objects in image {}.".format(n_obj, image_path))
     Found 8 objects in image ../sample_data/foods/test\JPEGImages\10.jpg.
     
 
-Visualize tal como as pontuações antes.
+Visualize as pontuações como antes.
 
 
 ```python
-path_save = out_root_path + "/scored_images/scored_image_frozen_graph.jpg"
+path_save = "./scored_images/scored_image_frozen_graph.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save, image_size=(8, 12))
 # ax.get_figure() # use this code extract the returned image
 ```
 
 ![PNG](media/how-to-build-deploy-object-detection-models/output_30_0.JPG)
 
-## <a name="operationalization-deploy-and-consume"></a>Operationalization: implementar e consumir
+## <a name="operationalization-deploy-and-consume"></a>Operacionalização: implementar e consumir
 
-Operationalization é o processo de publicação modelos e código como serviços web e o consumo destes serviços para produzir resultados de negócios. 
+Operacionalização é o processo de publicação de modelos e código como serviços da web e o consumo de um destes serviços para produzir resultados de negócios. 
 
-Depois do seu modelo está preparado, pode implementar este modelo como um serviço web para utilizar o consumo [CLI do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Os modelos podem ser implementados para o computador local ou o cluster do serviço de contentor do Azure (ACS). Utilizar ACS, pode dimensionar o seu serviço web manualmente ou utilizar a funcionalidade de dimensionamento automático.
+Assim que é preparado o modelo, pode implementar esse modelo como um serviço web para a utilização de consumo [da CLI do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Os modelos podem ser implementados em seu computador local ou o cluster do Azure Container Service (ACS). Usando o ACS, pode dimensionar manualmente o seu serviço web ou utilizar a funcionalidade de dimensionamento automático.
 
-**Iniciar sessão com a CLI do Azure**
+**Inicie sessão com a CLI do Azure**
 
 Utilizar um [Azure](https://azure.microsoft.com/) conta com uma subscrição válida, inicie sessão com o seguinte comando da CLI:
 <br>`az login`
@@ -376,17 +371,17 @@ Utilizar um [Azure](https://azure.microsoft.com/) conta com uma subscrição vá
 + Para mudar para outra subscrição do Azure, utilize o comando:
 <br>`az account set --subscription [your subscription name]`
 
-+ Para ver a conta de gestão do modelo atual, utilize o comando:
++ Para ver a conta de gestão de modelo atual, utilize o comando:
   <br>`az ml account modelmanagement show`
 
 **Criar e definir o seu ambiente de implementação de cluster**
 
-Só tem de definir o seu ambiente de implementação de uma vez. Se ainda não tem um, configure o ambiente de implementação utiliza agora [estas instruções](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+Apenas terá de definir o seu ambiente de implantação uma vez. Se ainda não tiver uma, configurar o ambiente de implantação agora usando [estas instruções](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
-Para ver o seu ambiente de implementação do Active Directory, utilize o seguinte comando da CLI:
+Para ver o seu ambiente de implantação do Active Directory, utilize o seguinte comando da CLI:
 <br>`az ml env show`
    
-Comando da CLI do Azure para criar e definir o ambiente de implementação de exemplo
+Comando da CLI do Azure de exemplo para criar e definir o ambiente de implantação
 
 ```CLI
 az provider register -n Microsoft.MachineLearningCompute
@@ -397,25 +392,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Gerir serviços web e implementações
+### <a name="manage-web-services-and-deployments"></a>Gerir implementações e serviços da web
 
-As APIs seguintes pode ser utilizadas para implementar modelos como serviços web, gerir esses serviços web e gerir implementações.
+As seguintes APIs pode ser utilizadas para implementar modelos como serviços da web, gerir os serviços da web e gerir implementações.
 
 |Tarefa|API|
 |----|----|
 |Criar o objeto de implementação|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |Implementar o serviço web|`deploy_obj.deploy()`|
-|Imagem de modelo de pontuação|`deploy_obj.score_image(local_image_path_or_image_url)`|
-|Eliminar o serviço web|`deploy_obj.delete()`|
-|Compilar a imagem do docker sem o serviço web|`deploy_obj.build_docker_image()`|
+|Imagem de pontuação|`deploy_obj.score_image(local_image_path_or_image_url)`|
+|Eliminar serviço web|`deploy_obj.delete()`|
+|Criar a imagem do docker sem o serviço web|`deploy_obj.build_docker_image()`|
 |Lista de implementação existente|`AMLDeployment.list_deployment()`|
 |Eliminar se o serviço existe com o nome da implementação|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**Documentação da API:** consulte o [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para a referência de detalhado para cada módulo e uma classe.
+**Documentação da API:** consulte a [documentação de referência do pacote](https://aka.ms/aml-packages/vision) para obter a referência detalhada para cada módulo e uma classe.
 
-**Referência da CLI:** para mais avançadas operações relacionadas com a implementação, consulte o [modelo gestão referência CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**Referência da CLI:** para mais avançada operações relacionadas com a implantação, consulte a [referência da CLI de gestão de modelos](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Gestão de implementação no portal do Azure**: pode controlar e gerir as implementações no [portal do Azure](https://ms.portal.azure.com/). No portal do Azure, localize a sua página de conta de gestão de modelo do Machine Learning utilizando o respetivo nome. Em seguida, avance para a página de conta de gestão do modelo > Gestão de modelo > serviços.
+**Gestão de implementação no portal do Azure**: pode controlar e gerir as implementações no [portal do Azure](https://ms.portal.azure.com/). No portal do Azure, encontre a sua página de conta de gestão de modelos do Machine Learning usa seu nome. Em seguida, vá para a página de conta de gestão de modelos > Gestão de modelos > serviços.
 
 ```python
 # ##### OPTIONAL - Interactive CLI setup helper ###### 
@@ -459,11 +454,11 @@ print("Deployment DONE")
 
 ### <a name="consume-the-web-service"></a>Consumir o serviço web
 
-Assim que tiver criado o serviço Web, pode Pontuar imagens com o serviço Web implementado. Tem várias opções:
+Uma vez criado o webservice, pode classificar as imagens com o serviço Web implementado. Tem várias opções:
 
-   - Diretamente pode Pontuar o serviço Web com o objeto de implementação com: deploy_obj.score_image(image_path_or_url) 
+   - Diretamente pode classificar o serviço Web com o objeto de implementação com: deploy_obj.score_image(image_path_or_url) 
    - Em alternativa, pode utilizar o url de ponto final de serviço e a chave de serviço (nenhum para a implementação local) com: AMLDeployment.score_existing_service_with_image (image_path_or_url service_endpoint_url, service_key = None)
-   - Forma os pedidos de http diretamente para pontuar o ponto final de serviço Web (para utilizadores avançados).
+   - Forma os pedidos de http diretamente para o ponto de extremidade do serviço Web de pontuação (para utilizadores avançados).
 
 ### <a name="score-with-existing-deployment-object"></a>Com o objeto de implementação existente de pontuação
 ```
@@ -503,7 +498,7 @@ for img_index, img_obj in enumerate(data_train.images[:num_images]):
     print("   Time for API call: {:.2f} seconds".format(timeit.default_timer() - tic))
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Pontuar com o url de ponto final de serviço e a chave de serviço
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Classificar pelo url do ponto final de serviço e a chave de serviço
 ```
     AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)
 ```
@@ -523,8 +518,8 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json[:50])
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Pontuar diretamente o ponto final com o pedido de http
-Segue-se algum código de exemplo para formar o pedido http diretamente no Python. Pode fazê-lo noutras linguagens de programação.
+### <a name="score-endpoint-with-http-request-directly"></a>Ponto final de pontuação com diretamente a solicitação de http
+Segue-se alguns códigos de exemplo para formar o pedido de http diretamente em Python. Pode fazê-lo em outras linguagens de programação.
 
 
 ```python
@@ -574,8 +569,8 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
 
 ```
 
-### <a name="parse-serialized-result-from-webservice"></a>Analisar o resultado serializado do webservice
-O resultado do serviço web é na cadeia json que possa ser analisada.
+### <a name="parse-serialized-result-from-webservice"></a>Analisar o resultado serializado de webservice
+O resultado do serviço web é na cadeia de caracteres do json que pode ser analisada.
 
 
 ```python
@@ -596,7 +591,7 @@ print("Parsed result:", parsed_result)
 
 ```python
 ax = detection_utils.visualize(image_path, parsed_result)
-path_save = "../../../cvtk_output/scored_images/scored_image_web.jpg"
+path_save = "./scored_images/scored_image_web.jpg"
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
 ax.get_figure().savefig(path_save)
@@ -604,10 +599,10 @@ ax.get_figure().savefig(path_save)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o pacote do Azure Machine Learning para visão de computador nestes artigos:
+Saiba mais sobre o pacote do Azure Machine Learning para imagem digitalizada nestes artigos:
 
-+ Leia o [descrição geral do pacote e aprender a instalá-lo](https://aka.ms/aml-packages/vision).
++ Leitura a [descrição geral do pacote e Aprenda a instalá-lo](https://aka.ms/aml-packages/vision).
 
-+ Explorar o [documentação de referência](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) para este pacote.
++ Explore os [documentação de referência](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) para este pacote.
 
-+ Saiba mais sobre [outros pacotes do Python para o Azure Machine Learning](reference-python-package-overview.md).
++ Saiba mais sobre [outros pacotes de Python para o Azure Machine Learning](reference-python-package-overview.md).

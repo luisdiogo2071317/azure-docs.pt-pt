@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259301"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284875"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -76,7 +76,7 @@ Utilize a lista de verificação seguinte para resolver problemas de SSO totalme
 - Certifique-se de que a funcionalidade de SSO totalmente integrado está ativada no Azure AD Connect. Se não é possível ativar a funcionalidade (por exemplo, devido a uma porta bloqueada), certifique-se de que tem todos os [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) no local.
 - Se tiver ativado o ambos [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado no seu inquilino, certifique-se de que o problema não está com a associação do Azure AD. SSO da associação do Azure AD têm precedência sobre o SSO totalmente integrado se o dispositivo está registado com o Azure AD e associados a um domínio. Com o SSO da associação do Azure AD, o utilizador verá um mosaico de início de sessão que diz "Conectados para Windows".
 - Certifique-se de que o URL do Azure AD (https://autologon.microsoftazuread-sso.com) é parte integrante das definições de zona de Intranet do utilizador.
-- Certifique-se de que o dispositivo da empresa está associado ao domínio do Active Directory.
+- Certifique-se de que o dispositivo da empresa está associado ao domínio do Active Directory. O dispositivo _não_ têm de ser [do Azure AD associado](../active-directory-azureadjoin-overview.md) para SSO totalmente integrado trabalhar.
 - Certifique-se de que o usuário está conectado ao dispositivo por meio de uma conta de domínio do Active Directory.
 - Certifique-se de que a conta de utilizador está numa floresta do Active Directory onde o SSO totalmente integrado tiver sido configurada.
 - Certifique-se de que o dispositivo está ligado à rede empresarial.
@@ -120,8 +120,8 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 
 1. Chamar `$creds = Get-Credential`. Quando lhe for pedido, introduza as credenciais de administrador de domínio para a floresta do Active Directory pretendida.
 
->[!NOTE]
->Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
+    >[!NOTE]
+    >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 
 2. Chamar `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove o `AZUREADSSOACCT` conta de computador do controlador de domínio no local para esta floresta do Active Directory específico.
 3. Repita os passos anteriores para cada floresta do Active Directory onde configurou a funcionalidade.
@@ -129,12 +129,10 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passo 4: Ativar o SSO totalmente integrado para cada floresta do Active Directory
 
 1. Chamar `Enable-AzureADSSOForest`. Quando lhe for pedido, introduza as credenciais de administrador de domínio para a floresta do Active Directory pretendida.
-
->[!NOTE]
->Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
-
+   >[!NOTE]
+   >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 2. Repita o passo anterior para cada floresta do Active Directory onde pretende configurar a funcionalidade.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Passo 5. Ativar a funcionalidade no seu inquilino
 
-Para ativar a funcionalidade no seu inquilino, chame `Enable-AzureADSSO` e introduza **verdadeira** no `Enable:` prompt.
+Para ativar a funcionalidade no seu inquilino, chame `Enable-AzureADSSO -Enable $true`.

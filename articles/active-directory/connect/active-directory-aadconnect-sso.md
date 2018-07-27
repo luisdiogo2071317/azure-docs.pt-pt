@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213236"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285362"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
@@ -30,12 +30,12 @@ Azure Active Directory totalmente integrada início de sessão único (Azure AD 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-SSO totalmente integrado pode ser combinada com ambos os [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) métodos de início de sessão.
+SSO totalmente integrado pode ser combinada com ambos os [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) métodos de início de sessão. É o SSO totalmente integrado _não_ aplicável ao Active Directory Federation Services (ADFS).
 
 ![Totalmente integrado início de sessão único](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->É o SSO totalmente integrado _não_ aplicável ao Active Directory Federation Services (ADFS).
+>Tem de SSO totalmente integrado no dispositivo do utilizador seja **associados a um domínio**, mas não precisa do dispositivo ser [do Azure AD associado](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -76,7 +76,9 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [**Início Rápido** ](active-directory-aadconnect-sso-quick-start.md) - colocar em funcionamento o SSO totalmente integrado do Azure AD.
+- [**Plano de implantação** ](https://aka.ms/AuthenticationDeploymentPlan) -o plano de implementação passo a passo.
 - [**Technical Deep Dive** ](active-directory-aadconnect-sso-how-it-works.md) -compreender como funciona esse recurso.
 - [**Perguntas mais frequentes** ](active-directory-aadconnect-sso-faq.md) -respostas para perguntas mais frequentes.
 - [**Resolução de problemas** ](active-directory-aadconnect-troubleshoot-sso.md) -Saiba como resolver problemas comuns com a funcionalidade.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para preenchimento de pedidos de novas funcionalidades.
+

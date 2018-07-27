@@ -4,23 +4,16 @@ description: Este documento fornece uma descrição geral de como ligar redes vi
 services: expressroute
 documentationcenter: na
 author: ganesr
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr
-ms.openlocfilehash: 7e1faa9dc5901861aab8e7911c241e6704b805b1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 99e0bbc0e2501deead8990776d35835ea396590b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257848"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284386"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -40,9 +33,9 @@ Este artigo irá ajudá-lo a ligar redes virtuais (VNets) para circuitos do Expr
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
-1. Tem a versão mais recente dos módulos do Azure PowerShell. Pode baixar os módulos do PowerShell mais recente da seção do PowerShell do [página de transferências do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o seu computador para utilizar os módulos do Azure PowerShell.
-2. Tem de rever o [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
-3. Deve ter um circuito ExpressRoute ativo.
+
+* Reveja os [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
+* Deve ter um circuito ExpressRoute ativo.
    * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e ter o seu fornecedor de conectividade, ativar o circuito.
    * Certifique-se de que tem o peering privado do Azure configurado para o seu circuito. Consulte a [configurar encaminhamento](expressroute-howto-routing-classic.md) artigo para obter instruções de encaminhamento.
    * Certifique-se de que o peering privado do Azure está configurado e o peering de BGP entre a rede e a Microsoft está ativo, para que pode habilitar a conectividade de ponto-a-ponto.
@@ -52,16 +45,31 @@ Pode ligar até 10 redes virtuais a um circuito do ExpressRoute. Tem de ser toda
 
 Pode ser associada uma VNet única para até quatro circuitos do ExpressRoute. Utilize o processo abaixo para criar uma nova ligação para cada circuito do ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
 
+## <a name="download-the-latest-powershell-cmdlets"></a>Transferir os cmdlets do PowerShell mais recente
+
+Tem a versão mais recente dos módulos do Azure PowerShell. Pode baixar os módulos do PowerShell mais recente da seção do PowerShell do [página de transferências do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o seu computador para utilizar os módulos do Azure PowerShell.
+
+Além disso, terá de transferir o módulo do ExpressRoute. Pode utilizar os seguintes comandos de exemplo para transferir os módulos do Azure e ExpressRoute. Quando utilizar estes comandos, tenha em atenção que o número de versão (neste exemplo, 5.1.1) será alterado à medida que as versões mais recentes dos cmdlets são lançadas.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Ligar uma rede virtual na mesma subscrição a um circuito
 Pode ligar uma rede virtual a um circuito do ExpressRoute com o cmdlet seguinte. Certifique-se de que o gateway de rede virtual é criado e está pronto para a ligação antes de executar o cmdlet.
 
-    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
-    Provisioned
+```powershell
+New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+Provisioned
+```
     
 ## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Remover uma ligação de rede virtual para um circuito
 Pode remover uma ligação de rede virtual para um circuito do ExpressRoute com o cmdlet seguinte. Certifique-se de que a subscrição atual está selecionada para a rede virtual fornecida. 
 
-    Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```powershell
+Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```
  
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Ligar uma rede virtual de uma subscrição diferente a um circuito

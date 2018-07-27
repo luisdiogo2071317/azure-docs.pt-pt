@@ -1,20 +1,19 @@
 ---
-title: Serviço de voz de serviços cognitivos do Azure | Documentos da Microsoft
+title: Serviço de voz de serviços cognitivos do Azure
 description: Saiba como personalizar pronúncia com os serviços cognitivos do serviço de voz.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: f926bf8686a279c93d8f1ed03e8a0ecf3f4a9632
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c7c06fc2f33baa7357fd5f945414daf2bc6e4858
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347420"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284943"
 ---
 # <a name="enable-custom-pronunciation"></a>Ativar pronúncia personalizada
 Pronúncia personalizada permite aos utilizadores definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa é um ficheiro de pronúncia (um ficheiro. txt simples).
@@ -62,6 +61,6 @@ Um formulário de apresentação só pode ser uma palavra personalizada, termo, 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do ficheiro
 O tamanho do ficheiro. txt que contenha as entradas de pronúncia está limitado a 1 MB. Normalmente, não é necessário carregar grandes quantidades de dados por meio deste ficheiro. A maioria dos arquivos de pronúncia personalizados são probabilidade de serem apenas alguns KBs de tamanho. A codificação do ficheiro. txt para todas as localidades deve ser o UTF-8 BOM. Para a Localidade do inglês, ANSI também é aceitável.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Melhorar a precisão de reconhecimento através da criação de um [um modelo acústico personalizado](how-to-customize-acoustic-models.md)
 * Melhorar a precisão de reconhecimento através da criação de um [modelo de idioma personalizado](how-to-customize-language-model.md)
