@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a8478436bfae20ee729ce41bcb134bd3a77fb26e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053476"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -133,7 +133,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![URLs de domínio do G Suite e únicas início de sessão em informações](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL de URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: 
     | |
@@ -150,7 +150,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![URLs de domínio do G Suite e únicas início de sessão em informações](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL de URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: 
     | |
@@ -286,7 +286,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

@@ -2,18 +2,18 @@
 title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto de extremidade de web personalizados - Powershell | Documentos da Microsoft
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
 services: storage,event-grid
-keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c2db67738dddbc9e20eb8fe9d2a30c7a26bf07cd
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068925"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262757"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com o PowerShell
 
@@ -38,7 +38,7 @@ Connect-AzureRmAccount
 ```
 
 > [!NOTE]
-> Disponibilidade para eventos de armazenamento está associada ao Event Grid [disponibilidade](../../event-grid/overview.md) e ficará disponível noutras regiões como o Event Grid.
+> A disponibilidade para eventos de Armazenamento está associada à [disponibilidade](../../event-grid/overview.md) do Event Grid e estará disponível noutras regiões como o Event Grid.
 
 Este exemplo utiliza **westus2** e armazena a seleção numa variável para uso.
 
@@ -102,9 +102,9 @@ Deverá ver o site sem mensagens atualmente apresentadas.
 
 [!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
-## <a name="subscribe-to-your-storage-account"></a>Subscrever a sua conta de armazenamento
+## <a name="subscribe-to-your-storage-account"></a>Subscrever à sua conta de armazenamento
 
-Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento que criou e transmite o URL da sua aplicação web como o ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`.
+Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve a conta de armazenamento que criou e transmite o URL da aplicação Web como o ponto final para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

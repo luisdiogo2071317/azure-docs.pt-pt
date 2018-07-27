@@ -1,6 +1,6 @@
 ---
-title: As restrições e os problemas conhecidos na importação de API de gestão do Azure API | Microsoft Docs
-description: Detalhes de problemas conhecidos e restrições a importar para utilizar os formatos de API aberta, WSDL ou WADL de API Management do Azure.
+title: Restrições e problemas conhecidos na importação de API de gestão de API do Azure | Documentos da Microsoft
+description: Detalhes de problemas conhecidos e restrições à importação no usando os formatos de API aberta, WSDL ou WADL de API Management do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598475"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285878"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
-Quando importar uma API, poderá ser apresentados algumas restrições ou identificar problemas que necessitam de ser retificado antes de importar com êxito. Documentos neste artigo estes, organizados pelo formato de importação da API.
+Ao importar uma API, poderá se deparou com algumas restrições ou identificar problemas que precisam de ser retificados antes de poder importá com êxito. Documentos neste artigo, organizadas pelo formato de importação da API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Se estiver a receber erros de importar o documento OpenAPI, certifique-se de que tem de validá-la - o utilizando o estruturador no portal do Azure (estrutura - Front-End - OpenAPI especificação Editor), ou com terceiros uma ferramenta como <a href="http://www.swagger.io">Swagger Editor</a>.
+Se estiver a receber erros de importar o seu documento OpenAPI, certifique-se de que validar-o-usando o designer no portal do Azure (Design - Front-End - Editor de especificação de OpenAPI,) ou com uma aplicação de terceiros, tais como de ferramenta <a href="http://editor.swagger.io">Swagger Editor</a>.
 
-* Apenas o formato JSON para OpenAPI é suportado.
-* Os parâmetros necessários em caminho e consulta tem de ter nomes exclusivos. (No OpenAPI um nome de parâmetro só deve ser exclusivo dentro de uma localização, por exemplo, caminho, consulta, cabeçalho.  No entanto, na API Management permitimos operações discriminated os parâmetros de caminho e consulta (que não suporta a OpenAPI). Por conseguinte, é necessário ser exclusivo no modelo de URL completo, os nomes de parâmetros.)
-* Esquemas referenciadas utilizando **$ref** propriedades não podem conter outros **$ref** propriedades.
-* **$ref** os apontadores não é possível fazer referência a ficheiros externos.
-* **x-ms-caminhos** e **x servidores** são as extensões suportadas apenas.
-* Extensões personalizadas são ignoradas na importação e não são guardadas ou preservadas para a exportação.
+* É suportado apenas o formato JSON de OpenAPI.
+* Parâmetros obrigatórios no caminho e consulta tem de ter nomes exclusivos. (No OpenAPI um nome de parâmetro apenas tem de ser exclusivo dentro de um local, por exemplo, caminho, consulta e cabeçalho.  No entanto, na gestão de API, podemos permitir operações a ser discriminados por parâmetros de caminho e consulta (que não suporta a OpenAPI). Por conseguinte Exigimos que os nomes de parâmetros de ser exclusivo dentro do modelo de URL completo.)
+* Esquemas referenciadas usando **$ref** propriedades não podem conter outros **$ref** propriedades.
+* **$ref** ponteiros não podem referenciar arquivos externos.
+* **x-ms-caminhos** e **x-servers** são as extensões suportadas apenas.
+* Extensões personalizadas são ignoradas ao importar e não são guardadas ou preservadas para exportação.
 
 > [!IMPORTANT]
-> Veja este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.
+> Veja este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.
 
 ## <a name="wsdl"> </a>WSDL
-Ficheiros WSDL são utilizados para gerar SOAP Pass-through APIs ou servem como o back-end de uma API SOAP-REST.
-* **Enlaces de SOAP** -SOAP apenas enlaces de estilo "documento" e "literal" codificação são suportados. Não são suportadas para o estilo de "rpc" ou a codificação SOAP.
-* **WSDL: import** -este atributo não é suportado. Os clientes devem intercala as importações num único documento.
-* **As mensagens com várias partes** -estes tipos de mensagens em fila não são suportados.
-* **WCF wsHttpBinding** -serviços SOAP criados com o Windows Communication Foundation devem utilizar o basicHttpBinding, wsHttpBinding não é suportada.
-* **MTOM** - serviços utilizando MTOM <em>poderá</em> funcione. Oficial de suporte não é oferecido neste momento.
-* **Recursão** -tipos que estão definidos em modo recursivo (por exemplo, consulte a uma matriz dos próprios) não são suportadas pelo APIM.
+Ficheiros WSDL são utilizados para gerar as APIs de pass-through SOAP ou servir como o back-end de uma API de SOAP para REST.
+* **Enlaces de SOAP** -enlaces de apenas SOAP do estilo "documento" e a codificação de "literal" são suportados. Não há suporte para o estilo de "rpc" ou a codificação de SOAP.
+* **WSDL:import** -este atributo não é suportado. Os clientes devem mesclar as importações num documento.
+* **Mensagens com várias partes** -estes tipos de mensagens não são suportados.
+* **WCF wsHttpBinding** -serviços SOAP criados com o Windows Communication Foundation devem utilizar a basicHttpBinding, wsHttpBinding não é suportada.
+* **MTOM** - serviços usando o MTOM <em>poderá</em> trabalhar. Oficial de suporte não está disponível neste momento.
+* **Recursão** -tipos que são definidos recursivamente (por exemplo, consulte a uma matriz por si mesmos) não são suportadas pelo APIM.
 
 ## <a name="wadl"> </a>WADL
-Atualmente, não existem nenhum WADL importar os problemas conhecidos.
+Atualmente, não existem não existem problemas de importação WADL conhecidos.

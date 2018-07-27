@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4be205f13260d60bc9788b873bea34970b560f5a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259124"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283610"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: início rápido
 
@@ -49,7 +49,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos:
     
 * **Ativar a autenticação moderna**: tem de ativar [autenticação moderna](https://aka.ms/modernauthga) no seu inquilino para esta funcionalidade funcione.
 
-* **Utilize as versões mais recentes de clientes do Office 365**: para obter uma experiência silenciosa início de sessão com clientes do Office 365 (Outlook, Word, Excel e outras pessoas), terá de versões 16.0.8730.xxxx ou superior.
+* **Utilize as versões mais recentes de clientes do Office 365**: para obter uma experiência silenciosa início de sessão com clientes do Office 365 (Outlook, Word, Excel e outras pessoas), os utilizadores precisam de utilizar versões 16.0.8730.xxxx ou superior.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 
@@ -194,7 +194,7 @@ SSO totalmente integrado não funciona no modo de navegação particular em nave
 
 Para testar a funcionalidade de um utilizador específico, certifique-se de que todas as condições seguintes são cumpridos:
   - O utilizador inicia sessão num dispositivo da empresa.
-  - O dispositivo é associado ao domínio do Active Directory.
+  - O dispositivo é associado ao domínio do Active Directory. O dispositivo _não_ têm de ser [do Azure AD associado](../active-directory-azureadjoin-overview.md).
   - O dispositivo tem uma ligação direta ao seu controlador de domínio (DC), na rede da empresa com ou sem fio ou através de uma ligação de acesso remoto, como uma ligação VPN.
   - Tiver [distribuiu o recurso](##step-3-roll-out-the-feature) a este utilizador através da política de grupo.
 

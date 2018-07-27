@@ -1,21 +1,20 @@
 ---
-title: Informações sobre o SDK de voz dos serviços cognitivos | Documentos da Microsoft
+title: Informações sobre o SDK de voz dos serviços cognitivos
 description: Uma visão geral dos SDKs disponíveis para o serviço de voz.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 20fe0c3501e562584cd7762555479457a34a9297
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113397"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281328"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informações sobre o SDK de voz dos serviços cognitivos
 
@@ -46,7 +45,7 @@ Em seguida, [transferir o SDK](https://aka.ms/csspeech/linuxbinary) e Descompact
 |Caminho|Descrição|
 |-|-|
 |`license.md`|Licença|
-|`third-party-notices.md`|Anúncios de terceiros|
+|`third-party-notices.md`|Avisos de terceiros|
 |`include`|Arquivos de cabeçalho para C e C++|
 |`lib/x64`|X64 nativo biblioteca para a ligação com a sua aplicação|
 |`lib/x86`|X86 nativo biblioteca para a ligação com a sua aplicação|

@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036756"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265069"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Afirmações opcionais no Azure AD (pré-visualização)
 
@@ -41,8 +41,8 @@ Um dos objetivos do [ponto final v2.0 do Azure AD](active-directory-appmodel-v2-
 
 | Tipo de conta | Ponto final V1.0                      | Ponto final v2.0  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/d – pedidos de suporte do RPS são utilizados em vez disso | Suporte a chegar |
-| AAD          | Suportadas                          | Suportadas      |
+| Conta Microsoft pessoal  | N/d – pedidos de suporte do RPS são utilizados em vez disso | Suporte a chegar |
+| Conta do Azure AD          | Suportadas                          | Suportadas      |
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de afirmações opcionais padrão
 O conjunto de afirmações opcionais disponíveis por predefinição para as aplicações a utilizar estão listados abaixo.  Para adicionar afirmações opcionais personalizadas para a sua aplicação, consulte [extensões de diretório](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), abaixo. 
@@ -60,7 +60,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `controls`                 | Multivalue de afirmação que contém os controles de sessão impostos pelas políticas de acesso condicional.  | JWT        |           | 3 valores:<br> "app_res": A aplicação precisa de impor restrições mais granulares. <br> "ca_enf": a imposição de acesso condicional foi diferida e ainda é necessária. <br> "no_cookie": Este token é insuficiente para o exchange para um cookie no browser. <br>  |
 | `home_oid`                 | Para os utilizadores convidados, o ID de objeto do utilizador no inquilino principal do utilizador.| JWT        |           | |
 | `sid`                      | ID de sessão utilizado para a fim de sessão de utilizador de por sessão. | JWT        |           |         |
-| `platf`                    | Plataforma de dispositivos    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
+| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Origem PrimaryAuthoritativeEmail do utilizador      | JWT        |           |         |
 | `verified_secondary_email` | Origem SecondaryAuthoritativeEmail do utilizador   | JWT        |           |        |
 | `enfpolids`                | IDs de política imposta. Uma lista da política de IDs que foram consideradas para o utilizador atual.  | JWT |  |  |
@@ -87,7 +87,7 @@ Essas declarações são sempre incluídas na v1.0 tokens, mas não incluídas n
 | `pwd_exp`     | Hora de expiração de palavra-passe        | A datetime em que a palavra-passe expira.                                                                                    |       |
 | `pwd_url`     | Alterar o URL da palavra-passe             | Um URL que o utilizador pode visitar para alterar a palavra-passe.                                                                        |       |
 | `in_corp`     | Rede empresarial interior        | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída                     |       |
-| `nickname`    | Alcunha                        | Um nome adicional para o utilizador, separado do primeiro ou último nome.                                                             |       |                                                                                                                |       |
+| `nickname`    | Apelido                        | Um nome adicional para o utilizador, separado do primeiro ou último nome.                                                             |       |                                                                                                                |       |
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto de utilizador do Azure AD. <br>"family_name": "Santos" |       |
 | `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto de utilizador do Azure AD.<br>"given_name": "Francisco"                   |       |
 
@@ -214,7 +214,7 @@ Existem várias opções disponíveis para atualização das propriedades na con
 3.  Selecione **extensão do Azure AD** no painel de navegação à esquerda e clique em **registos das aplicações**.
 4.  Encontre a aplicação que pretende configurar afirmações opcionais na lista e clique no mesmo.
 5.  A partir da página da aplicação, clique em **manifesto** para abrir o editor de manifesto inline. 
-6.  Pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para o [entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e o manifesto de uma vez guardado de formatos de automática. Elemets novo será adicionado ao `OptionalClaims` propriedade.
+6.  Pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para o [entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e o manifesto de uma vez guardado de formatos de automática. Serão adicionados novos elementos para o `OptionalClaims` propriedade.
 
       ```json
       "optionalClaims": 

@@ -1,44 +1,40 @@
 ---
-title: Funções de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Microsoft Docs
-description: Saiba mais sobre as funções para criar logic apps com a linguagem de definição de fluxo de trabalho
+title: As funções de referência de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Documentos da Microsoft
+description: Saiba mais sobre as funções para criar aplicações lógicas com a linguagem de definição de fluxo de trabalho
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/25/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301393"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263781"
 ---
-# <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Referência das funções de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
-Este artigo descreve as funções que pode utilizar durante a criação de fluxos de trabalho com [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para saber mais acerca das funções nas definições da aplicação lógica, consulte [linguagem de definição de fluxo de trabalho para o Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Este artigo descreve as funções que pode utilizar quando criar fluxos de trabalho com automatizados [do Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para saber mais sobre as funções em definições de aplicação lógica, consulte [linguagem de definição de fluxo de trabalho para o Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
-> A sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece depois de um parâmetro significa que o parâmetro é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
+> A sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece depois de um parâmetro significa que o parâmetro é opcional. Por exemplo, veja [getFutureTime()](#getFutureTime).
 
 <a name="action"></a>
 
 ## <a name="action"></a>action
 
-Devolver o *atual* ação de saída do runtime ou valores de outras pares de nome e valor JSON, o que pode atribuir a uma expressão. Por predefinição, esta função referencia o objeto de ação completo, mas pode especificar opcionalmente uma propriedade cujo valor que pretende. Consulte também [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
+Devolver o *atual* saída em tempo de execução, ou valores de outros pares de nome e valor JSON, que pode atribuir a uma expressão de ação. Por predefinição, esta função referencia o objeto de ação inteiro, mas, opcionalmente, pode especificar uma propriedade de valor que pretende. Consulte também [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
-Pode utilizar o `action()` função apenas nestes locais: 
+Pode utilizar o `action()` função apenas desses lugares: 
 
-* O `unsubscribe` propriedade para uma ação do webhook para que possa aceder o resultado do original `subscribe` pedido
-* O `trackedProperties` propriedade de uma ação
-* O `do-until` cíclicas condição de uma ação
+* O `unsubscribe` propriedade para uma ação de webhook para que possa acessar o resultado em relação ao original `subscribe` pedido
+* O `trackedProperties` propriedade para uma ação
+* O `do-until` loop condição para uma ação
 
 ```
 action()
@@ -47,19 +43,19 @@ action().outputs.body.<property>
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Propriedade*> | Não | Cadeia | O nome para a propriedade do objecto de acção cujo valor que pretende: **nome**, **startTime**, **endTime**, **entradas**,  **produz**, **estado**, **código**, **trackingId**, e **clientTrackingId**. No portal do Azure, pode localizar estas propriedades, revendo os detalhes de um específico histórico de execução. Para obter mais informações, consulte [API de REST - ações de execução do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
+| <*Propriedade*> | Não | Cadeia | O nome para a ação propriedade do objeto valor que pretende: **name**, **startTime**, **endTime**, **entradas**,  **produz**, **status**, **código**, **trackingId**, e **clientTrackingId**. No portal do Azure, pode encontrar essas propriedades, revendo os detalhes de um específico histórico de execuções. Para obter mais informações, consulte [API REST - ações de execução do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| <*ação-output*> | Cadeia | O resultado da ação atual ou de propriedade | 
+| <*saída de ação*> | Cadeia | A saída da ação atual ou propriedade | 
 |||| 
 
 <a name="actionBody"></a>
 
 ## <a name="actionbody"></a>actionBody
 
-Devolver uma ação `body` saída no tempo de execução. A abreviatura para `actions('<actionName>').outputs.body`. Consulte [body()](#body) e [actions()](#actions).
+Devolver uma ação `body` de saída em tempo de execução. Um atalho para `actions('<actionName>').outputs.body`. Ver [body()](#body) e [actions()](#actions).
 
 ```
 actionBody('<actionName>')
@@ -67,23 +63,23 @@ actionBody('<actionName>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Sim | Cadeia | O nome para a ação `body` resultado que pretende | 
+| <*actionName*> | Sim | Cadeia | O nome para a ação `body` saída que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| <*saída de corpo de ação*> | Cadeia | O `body` o resultado da ação especificada | 
+| <*saída de corpo de ação*> | Cadeia | O `body` de saída da ação especificada | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo obtém o `body` o resultado da ação Twitter `Get user`: 
+Neste exemplo obtém o `body` saída da ação de Twitter `Get user`: 
 
 ```
 actionBody('Get_user')
 ```
 
-E devolve o resultado deste:
+E devolve o resultado:
 
 ```json
 "body": {
@@ -104,7 +100,7 @@ E devolve o resultado deste:
 
 ## <a name="actionoutputs"></a>actionOutputs
 
-Devolve o resultado de uma ação no tempo de execução. A abreviatura para `actions('<actionName>').outputs`. Consulte [actions()](#actions).
+Devolva o resultado de uma ação em tempo de execução. Um atalho para `actions('<actionName>').outputs`. Ver [actions()](#actions).
 
 ```
 actionOutputs('<actionName>')
@@ -112,23 +108,23 @@ actionOutputs('<actionName>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Sim | Cadeia | O nome para a ação de saída do que pretende que o | 
+| <*actionName*> | Sim | Cadeia | O nome da ação de saída de que pretende que o | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| <*Saída*> | Cadeia | O resultado da ação especificada | 
+| <*Saída*> | Cadeia | A saída da ação especificada | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo obtém o resultado da ação Twitter `Get user`: 
+Neste exemplo obtém o resultado da ação de Twitter `Get user`: 
 
 ```
 actionOutputs('Get_user')
 ```
 
-E devolve o resultado deste:
+E devolve o resultado:
 
 ```json
 { 
@@ -167,10 +163,10 @@ E devolve o resultado deste:
 
 ## <a name="actions"></a>ações
 
-Devolva o resultado de uma ação no tempo de execução ou valores a partir de outros pares de nome e valor JSON, o que pode atribuir a uma expressão. Por predefinição, a função referencia o objeto de ação completo, mas pode especificar opcionalmente uma propriedade cujo valor que pretende. Para versões de expressão compacta, consulte [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), e [body()](#body). Para a ação atual, consulte [action()](#action).
+Devolva o resultado de uma ação em tempo de execução ou valores de outros pares de nome e valor JSON, que pode atribuir a uma expressão. Por predefinição, a função referencia o objeto de ação inteiro, mas, opcionalmente, pode especificar uma propriedade cujo valor que pretende. Para versões de forma abreviada, consulte [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), e [body()](#body). Para a ação atual, consulte [action()](#action).
 
 > [!NOTE] 
-> Anteriormente, pode utilizar o `actions()` função ou o `conditions` elemento ao especificar que uma ação foi executada com base na saída de outra ação. No entanto, para declarar explicitamente dependências entre as ações, terá agora de utilizar a ação dependente `runAfter` propriedade. Para saber mais sobre o `runAfter` propriedade, consulte [detetar e processar falhas com a propriedade runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
+> Anteriormente, poderia usar o `actions()` função ou o `conditions` elemento ao especificar que uma ação foi executada com base no resultado de outra ação. No entanto, para declarar explicitamente dependências entre ações, deverá utilizar a ação dependente `runAfter` propriedade. Para saber mais sobre o `runAfter` propriedade, veja [detetar e processar falhas com a propriedade runAfter](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ```
 actions('<actionName>')
@@ -179,30 +175,30 @@ actions('<actionName>').outputs.body.<property>
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Sim | Cadeia | O nome para o objecto de acção cuja saída pretende  | 
-| <*Propriedade*> | Não | Cadeia | O nome para a propriedade do objecto de acção cujo valor que pretende: **nome**, **startTime**, **endTime**, **entradas**,  **produz**, **estado**, **código**, **trackingId**, e **clientTrackingId**. No portal do Azure, pode localizar estas propriedades, revendo os detalhes de um específico histórico de execução. Para obter mais informações, consulte [API de REST - ações de execução do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
+| <*actionName*> | Sim | Cadeia | O nome para o objeto de ação cuja saída desejar  | 
+| <*Propriedade*> | Não | Cadeia | O nome para a ação propriedade do objeto valor que pretende: **name**, **startTime**, **endTime**, **entradas**,  **produz**, **status**, **código**, **trackingId**, e **clientTrackingId**. No portal do Azure, pode encontrar essas propriedades, revendo os detalhes de um específico histórico de execuções. Para obter mais informações, consulte [API REST - ações de execução do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| <*ação-output*> | Cadeia | O resultado da ação especificada ou de propriedade | 
+| <*saída de ação*> | Cadeia | A saída da ação especificada ou propriedade | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo obtém o `status` valor da propriedade da ação Twitter `Get user` no tempo de execução: 
+Neste exemplo obtém o `status` valor da propriedade da ação de Twitter `Get user` em tempo de execução: 
 
 ```
 actions('Get_user').outputs.body.status 
 ```
 
-E devolve o resultado deste: `"Succeeded"`
+E devolve o resultado: `"Succeeded"`
 
 <a name="add"></a>
 
 ## <a name="add"></a>adicionar
 
-Devolve o resultado da adição de dois números.
+Devolva o resultado da adição de dois números.
 
 ```
 add(<summand_1>, <summand_2>)
@@ -210,12 +206,12 @@ add(<summand_1>, <summand_2>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*summand_1*>, <*summand_2*> | Sim | Número inteiro, flutuante, ou misto | Os números a adicionar | 
+| <*summand_1*>, <*summand_2*> | Sim | Número inteiro, vírgula flutuante, ou uma combinação | Os números a adicionar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| <*soma de resultado*> | Um número inteiro ou número de vírgula flutuante | O resultado da adição de números especificados | 
+| <*soma de resultado*> | Número inteiro ou flutuante | O resultado da adição os números especificados | 
 |||| 
 
 *Exemplo*
@@ -226,13 +222,13 @@ Este exemplo adiciona os números especificados:
 add(1, 1.5)
 ```
 
-E devolve o resultado deste: `2.5`
+E devolve o resultado: `2.5`
 
 <a name="addDays"></a>
 
 ## <a name="adddays"></a>addDays
 
-Adicione um número de dias para um carimbo.
+Adicione um número de dias a um carimbo.
 
 ```
 addDays('<timestamp>', <days>, '<format>'?)
@@ -240,35 +236,35 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*dias*> | Sim | Número inteiro | O número positivo ou negativo de dias a adicionar | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo mais o número especificado de dias  | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora mais o número especificado de dias  | 
 |||| 
 
 *Exemplo 1*
 
-Este exemplo adiciona 10 dias para o carimbo especificado:
+Este exemplo adiciona 10 dias para o período de tempo especificado:
 
 ```
 addDays('2018-03-15T13:00:00Z', 10)
 ```
 
-E devolve o resultado deste: `"2018-03-25T00:00:0000000Z"`
+E devolve o resultado: `"2018-03-25T00:00:0000000Z"`
 
 *Exemplo 2*
 
-Neste exemplo subtrai de cinco dias a contar o carimbo especificado:
+Neste exemplo subtrai cinco dias do período de tempo especificado:
 
 ```
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-E devolve o resultado deste: `"2018-03-10T00:00:0000000Z"`
+E devolve o resultado: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
@@ -282,35 +278,35 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*horas*> | Sim | Número inteiro | O número positivo ou negativo horas a adicionar | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*Horas*> | Sim | Número inteiro | O número positivo ou negativo de horas a adicionar | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo mais o número especificado de horas  | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora mais o número especificado de horas  | 
 |||| 
 
 *Exemplo 1*
 
-Este exemplo adiciona 10 horas para o carimbo especificado:
+Este exemplo adiciona 10 horas para o período de tempo especificado:
 
 ```
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-E devolve o resultado deste: `"2018-03-15T10:00:0000000Z"`
+E devolve o resultado: `"2018-03-15T10:00:0000000Z"`
 
 *Exemplo 2*
 
-Neste exemplo subtrai do carimbo especificado de cinco horas:
+Neste exemplo subtrai cinco horas a partir do período de tempo especificado:
 
 ```
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-E devolve o resultado deste: `"2018-03-15T10:00:0000000Z"`
+E devolve o resultado: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -324,41 +320,41 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*minutos*> | Sim | Número inteiro | O número positivo ou negativo de minutos para adicionar | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*minutos*> | Sim | Número inteiro | O número positivo ou negativo de minutos a adicionar | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo e o número de minutos especificado | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora mais o número especificado de minutos | 
 |||| 
 
 *Exemplo 1*
 
-Este exemplo adiciona 10 minutos para o carimbo especificado:
+Este exemplo adiciona 10 minutos para o período de tempo especificado:
 
 ```
 addMinutes('2018-03-15T00:10:00Z', 10)
 ```
 
-E devolve o resultado deste: `"2018-03-15T00:20:00.0000000Z"`
+E devolve o resultado: `"2018-03-15T00:20:00.0000000Z"`
 
 *Exemplo 2*
 
-Neste exemplo subtrai cinco minutos do carimbo especificado:
+Neste exemplo subtrai cinco minutos do período de tempo especificado:
 
 ```
 addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
-E devolve o resultado deste: `"2018-03-15T00:15:00.0000000Z"`
+E devolve o resultado: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
 ## <a name="addproperty"></a>addProperty
 
-Adicionar uma propriedade e o valor ou o par nome / valor, para um objeto JSON e retorno do objeto atualizado. Se o objeto já existe no tempo de execução, a função emite um erro.
+Adicionar uma propriedade e seu valor ou o par nome / valor, a um objeto JSON e devolver do objeto atualizado. Se o objeto já existe no tempo de execução, a função emite um erro.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -366,19 +362,19 @@ addProperty(<object>, '<property>', <value>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sim | Object | O objeto JSON em que pretende adicionar uma propriedade | 
+| <*Objeto*> | Sim | Object | O objeto JSON em que pretende adicionar uma propriedade | 
 | <*Propriedade*> | Sim | Cadeia | O nome da propriedade adicionar | 
 | <*Valor*> | Sim | Qualquer | O valor da propriedade |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*objeto atualizado*> | Object | O objeto JSON atualizado com a propriedade especificada | 
 |||| 
 
 *Exemplo*
 
-Este exemplo adiciona o `accountNumber` propriedade para o `customerProfile` objeto, que é convertido em JSON com o [JSON()](#json) função. A função atribui um valor que é gerado pelo [guid()](#guid) funcionar e devolve o objeto atualizado:
+Este exemplo adiciona a `accountNumber` propriedade para o `customerProfile` objeto, que é convertido em JSON com o [JSON()](#json) função. A função atribui um valor que é gerado pelos [guid()](#guid) funcionar e retorna o objeto atualizado:
 
 ```
 addProperty(json('customerProfile'), 'accountNumber', guid())
@@ -388,7 +384,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 ## <a name="addseconds"></a>addSeconds
 
-Adicione um número de segundos para um carimbo.
+Adicione um número de segundos a um carimbo.
 
 ```
 addSeconds('<timestamp>', <seconds>, '<format>'?)
@@ -396,41 +392,41 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*Segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a adicionar | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo e o número de segundos especificado  | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora e o número de segundos especificado  | 
 |||| 
 
 *Exemplo 1*
 
-Este exemplo adiciona 10 segundos para o carimbo especificado:
+Este exemplo adiciona 10 segundos para o período de tempo especificado:
 
 ```
 addSeconds('2018-03-15T00:00:00Z', 10)
 ```
 
-E devolve o resultado deste: `"2018-03-15T00:00:10.0000000Z"`
+E devolve o resultado: `"2018-03-15T00:00:10.0000000Z"`
 
 *Exemplo 2*
 
-Neste exemplo subtrai cinco segundos para o carimbo especificado:
+Neste exemplo subtrai cinco segundos, para o período de tempo especificado:
 
 ```
 addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
-E devolve o resultado deste: `"2018-03-15T00:00:25.0000000Z"`
+E devolve o resultado: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
 ## <a name="addtotime"></a>addToTime
 
-Adicione um número de unidades de tempo para um carimbo. Consulte também [getFutureTime()](#getFutureTime).
+Adiciona um número de unidades de tempo para um carimbo. Consulte também [getFutureTime()](#getFutureTime).
 
 ```
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -438,42 +434,42 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificado para adicionar | 
-| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com *intervalo*: "Segunda", "Minutos", "Horas", "Dia", "Semanas", "Meses", "Ano" | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo e o número de unidades de tempo especificado  | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora e o número de unidades de tempo especificado  | 
 |||| 
 
 *Exemplo 1*
 
-Este exemplo adiciona um dia para o carimbo especificado:
+Este exemplo adiciona um dia para o período de tempo especificado:
 
 ```
 addToTime('2018-01-01T00:00:00Z', 1, 'Day') 
 ```
 
-E devolve o resultado deste: `"2018-01-02T00:00:00:0000000Z"`
+E devolve o resultado: `"2018-01-02T00:00:00:0000000Z"`
 
 *Exemplo 2*
 
-Este exemplo adiciona um dia para o carimbo especificado:
+Este exemplo adiciona um dia para o período de tempo especificado:
 
 ```
 addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-E devolve o resultado usando o formato "D" opcional: `"Tuesday, January 2, 2018"`
+E devolve o resultado com o formato "D" opcional: `"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
 ## <a name="and"></a>e
 
-Verifique se todas as expressões forem verdadeiras. Devolve verdadeiro quando todas as expressões forem verdadeiras ou devolver false quando, pelo menos, uma expressão é falsa.
+Verifique se todas as expressões forem verdadeiras. Devolve verdadeiro quando todas as expressões forem verdadeiras, ou retornar false quando, pelo menos, uma expressão é falsa.
 
 ```
 and(<expression1>, <expression2>, ...)
@@ -484,14 +480,14 @@ and(<expression1>, <expression2>, ...)
 | <*Expression1*>, <*expression2*>,... | Sim | Booleano | As expressões para verificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando todas as expressões forem verdadeiras. Devolveu false quando, pelo menos, uma expressão é falsa. | 
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando todas as expressões forem verdadeiras. Retornar false quando pelo menos uma expressão é falsa. | 
 |||| 
 
 *Exemplo 1*
 
-Estes exemplos verificam se os valores booleanos especificados estão todos os verdadeiras:
+Estes exemplos, verifique se os valores booleanos especificados são todas verdadeiros:
 
 ```
 and(true, true)
@@ -499,15 +495,15 @@ and(false, true)
 and(false, false)
 ```
 
-E devolve estes resultados:
+E retorna esses resultados:
 
-* Primeiro exemplo: ambas as expressões forem verdadeiras, por isso, devolve `true`. 
-* Segundo exemplo: uma expressão é false, por isso, devolve `false`.
-* Exemplo de terceiro: ambas as expressões são falsas, devolve, por isso, `false`.
+* Primeiro exemplo: ambas as expressões forem verdadeiras, portanto, retorna `true`. 
+* Segundo exemplo: uma expressão é falsa, portanto, retorna `false`.
+* Terceiro exemplo: ambas as expressões forem falsos, portanto, retorna `false`.
 
 *Exemplo 2*
 
-Estes exemplos verificam se são verdadeiras todas as expressões especificadas:
+Estes exemplos, verifique se as expressões especificadas são todas verdadeiras:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -515,17 +511,17 @@ and(equals(1, 1), equals(1, 2))
 and(equals(1, 2), equals(1, 3))
 ```
 
-E devolve estes resultados:
+E retorna esses resultados:
 
-* Primeiro exemplo: ambas as expressões forem verdadeiras, por isso, devolve `true`. 
-* Segundo exemplo: uma expressão é false, por isso, devolve `false`.
-* Exemplo de terceiro: ambas as expressões são falsas, devolve, por isso, `false`.
+* Primeiro exemplo: ambas as expressões forem verdadeiras, portanto, retorna `true`. 
+* Segundo exemplo: uma expressão é falsa, portanto, retorna `false`.
+* Terceiro exemplo: ambas as expressões forem falsos, portanto, retorna `false`.
 
 <a name="array"></a>
 
 ## <a name="array"></a>array
 
-Devolva uma matriz de um único especificado de entrada. Várias entradas, consulte [createArray()](#createArray). 
+Devolva uma matriz de um único especificado de entrada. Para várias entradas, consulte [createArray()](#createArray). 
 
 ```
 array('<value>')
@@ -533,29 +529,29 @@ array('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia para a criação de uma matriz | 
+| <*Valor*> | Sim | Cadeia | A cadeia de caracteres para a criação de uma matriz | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*valor*>] | Array | Uma matriz que contenha a entrada especificada único | 
+| [<*valor*>] | Array | Uma matriz que contém a única entrada especificada | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma matriz da cadeia "Olá":
+Este exemplo cria uma matriz da cadeia de "Olá":
 
 ```
 array('hello')
 ```
 
-E devolve o resultado deste: `["hello"]`
+E devolve o resultado: `["hello"]`
 
 <a name="base64"></a>
 
 ## <a name="base64"></a>base64
 
-Devolva a versão para uma cadeia com codificação base64.
+Devolva a versão codificada em base64 para uma cadeia de caracteres.
 
 ```
 base64('<value>')
@@ -566,26 +562,26 @@ base64('<value>')
 | <*Valor*> | Sim | Cadeia | A cadeia de entrada | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*cadeia base64*> | Cadeia | A versão com codificação base64 para a cadeia de entrada | 
+| <*cadeia base64*> | Cadeia | A versão codificada em base64 para a cadeia de entrada | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo converte a cadeia "Olá" a uma cadeia com codificação base64:
+Neste exemplo converte a cadeia "Olá" numa cadeia codificada em base64:
 
 ```
 base64('hello')
 ```
 
-E devolve o resultado deste: `"aGVsbG8="`
+E devolve o resultado: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
 ## <a name="base64tobinary"></a>base64ToBinary
 
-Devolva a versão binária para uma cadeia com codificação base64.
+Devolva a versão binária para uma cadeia de caracteres codificada em base64.
 
 ```
 base64ToBinary('<value>')
@@ -593,23 +589,23 @@ base64ToBinary('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com codificação base64 a converter | 
+| <*Valor*> | Sim | Cadeia | A cadeia codificada em base64 a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*binário para base64 cadeia*> | Cadeia | A versão binária para a cadeia com codificação base64 | 
+| <*binário para base64 cadeia*> | Cadeia | A versão binária para a cadeia codificada em base64 | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo converte o "aGVsbG8 =" cadeia com codificação base64 para uma cadeia binária:
+Neste exemplo converte o "aGVsbG8 =" cadeia de caracteres codificada em base64 para uma cadeia de caracteres binária:
 
 ```
 base64ToBinary('aGVsbG8=')
 ```
 
-E devolve o resultado deste: 
+E devolve o resultado: 
 
 `"0110000101000111010101100111001101100010010001110011100000111101"`
 
@@ -617,7 +613,7 @@ E devolve o resultado deste:
 
 ## <a name="base64tostring"></a>base64ToString
 
-Devolva a versão de cadeia para uma cadeia com codificação base64, eficazmente descodificar a cadeia base64. Utilize esta função vez [decodeBase64()](#decodeBase64). Embora ambas as funções funcionam da mesma forma, `base64ToString()` preferido.
+Devolva a versão de cadeia de caracteres para uma cadeia codificada em base64, efetivamente descodificar a cadeia base64. Utilize esta função vez [decodeBase64()](#decodeBase64). Embora ambas as funções funcionam da mesma maneira, `base64ToString()` é preferencial.
 
 ```
 base64ToString('<value>')
@@ -625,29 +621,29 @@ base64ToString('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com codificação base64 para descodificação | 
+| <*Valor*> | Sim | Cadeia | A cadeia codificada em base64 a descodificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*descodificar-base64-cadeia*> | Cadeia | A versão de cadeia para uma cadeia com codificação base64 | 
+| <*descodificar base64-cadeia de caracteres*> | Cadeia | A versão de cadeia de caracteres para uma cadeia de caracteres codificada em base64 | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo converte o "aGVsbG8 =" cadeia com codificação base64 apenas numa cadeia:
+Neste exemplo converte o "aGVsbG8 =" cadeia de caracteres codificada em base64 para apenas uma cadeia de caracteres:
 
 ```
 base64ToString('aGVsbG8=')
 ```
 
-E devolve o resultado deste: `"hello"`
+E devolve o resultado: `"hello"`
 
 <a name="binary"></a>
 
-## <a name="binary"></a>Binário 
+## <a name="binary"></a>binário 
 
-Devolva a versão binária para uma cadeia.
+Devolva a versão binária para uma cadeia de caracteres.
 
 ```
 binary('<value>')
@@ -658,28 +654,28 @@ binary('<value>')
 | <*Valor*> | Sim | Cadeia | A cadeia a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*binária de entrada-valor*> | Cadeia | A versão binária para a cadeia especificada | 
+| <*binário para entrada de valor*> | Cadeia | A versão binária para a cadeia especificada | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo converte a cadeia "Olá" para uma cadeia binária:
+Neste exemplo converte a cadeia "Olá" para uma cadeia de caracteres binária:
 
 ```
 binary('hello')
 ```
 
-E devolve o resultado deste: 
+E devolve o resultado: 
 
 `"0110100001100101011011000110110001101111"`
 
 <a name="body"></a>
 
-## <a name="body"></a>corpo
+## <a name="body"></a>Corpo
 
-Devolver uma ação `body` saída no tempo de execução. A abreviatura para `actions('<actionName>').outputs.body`. Consulte [actionBody()](#actionBody) e [actions()](#actions).
+Devolver uma ação `body` de saída em tempo de execução. Um atalho para `actions('<actionName>').outputs.body`. Ver [actionBody()](#actionBody) e [actions()](#actions).
 
 ```
 body('<actionName>')
@@ -687,23 +683,23 @@ body('<actionName>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Sim | Cadeia | O nome para a ação `body` resultado que pretende | 
+| <*actionName*> | Sim | Cadeia | O nome para a ação `body` saída que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | -----| ----------- | 
-| <*saída de corpo de ação*> | Cadeia | O `body` o resultado da ação especificada | 
+| <*saída de corpo de ação*> | Cadeia | O `body` de saída da ação especificada | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo obtém o `body` o resultado do `Get user` Twitter ação: 
+Neste exemplo obtém o `body` saída do `Get user` Twitter ação: 
 
 ```
 body('Get_user')
 ```
 
-E devolve o resultado deste: 
+E devolve o resultado: 
 
 ```json
 "body": {
@@ -722,9 +718,9 @@ E devolve o resultado deste:
 
 <a name="bool"></a>
 
-## <a name="bool"></a>bool
+## <a name="bool"></a>Bool
 
-Devolva a versão para um valor booleana.
+Devolva a versão de um valor booleana.
 
 ```
 bool(<value>)
@@ -735,30 +731,30 @@ bool(<value>)
 | <*Valor*> | Sim | Qualquer | O valor a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | VERDADEIRO ou FALSO | Booleano | A versão booleana para o valor especificado | 
 |||| 
 
 *Exemplo*
 
-Estes exemplos converter valores especificados para os valores booleanos: 
+Estes exemplos convertam os valores especificados para valores booleanos: 
 
 ```
 bool(1)
 bool(0)
 ```
 
-E devolve estes resultados: 
+E retorna esses resultados: 
 
 * Primeiro exemplo: `true` 
 * Segundo exemplo: `false`
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>Unir
+## <a name="coalesce"></a>Coalesce
 
-Devolva o primeiro valor não nulo a partir de um ou mais parâmetros. Cadeias vazias, as matrizes vazias e objetos em branco não são nulos.
+Devolva o primeiro valor não nulo de um ou mais parâmetros. Objetos vazios, prázdná pole e as cadeias vazias não são nulos.
 
 ```
 coalesce(<object_1>, <object_2>, ...)
@@ -766,17 +762,17 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*object_1*>, <*object_2*>,... | Sim | Qualquer, pode misturar tipos | Um ou mais itens para procurar um valor nulo | 
+| <*object_1*>, <*object_2*>,... | Sim | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulo | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*primeiro não-null-item*> | Qualquer | O primeiro item ou valor que não seja nulo. Se todos os parâmetros são nulos, esta função devolve um valor nula. | 
+| <*primeiro-não-null-item*> | Qualquer | O primeiro item ou valor que não seja null. Se todos os parâmetros são nulos, esta função devolve um valor nula. | 
 |||| 
 
 *Exemplo*
 
-Estes exemplos devolvem o primeiro valor não nulo do valores especificados ou null quando todos os valores são nulos:
+Estes exemplos devolvem o primeiro valor não nulo dos valores especificados, ou null quando todos os valores são nulos:
 
 ```
 coalesce(null, true, false)
@@ -784,7 +780,7 @@ coalesce(null, 'hello', 'world')
 coalesce(null, null, null)
 ```
 
-E devolve estes resultados: 
+E retorna esses resultados: 
 
 * Primeiro exemplo: `true` 
 * Segundo exemplo: `"hello"`
@@ -794,7 +790,7 @@ E devolve estes resultados:
 
 ## <a name="concat"></a>concat
 
-Combinar dois ou mais cadeias e a cadeia combinada de retorno. 
+Combinar dois ou mais cadeias de caracteres e retornar a cadeia de caracteres combinada. 
 
 ```
 concat('<text1>', '<text2>', ...)
@@ -802,55 +798,55 @@ concat('<text1>', '<text2>', ...)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Text1*>, <*text2*>,... | Sim | Cadeia | Pelo menos duas cadeias a combinar | 
+| <*Texto1*>, <*text2*>,... | Sim | Cadeia | Pelo menos duas cadeias de caracteres para combinar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*text1text2...*> | Cadeia | A cadeia criada a partir de cadeias de entrada combinadas | 
+| <*text1text2...*> | Cadeia | A cadeia de caracteres criada a partir as cadeias de caracteres de entrada combinadas | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo combina as cadeias de "Olá" e "Mundo":
+Este exemplo combina as cadeias de caracteres "Hello" e "World":
 
 ```
 concat('Hello', 'World')
 ```
 
-E devolve o resultado deste: `"HelloWorld"`
+E devolve o resultado: `"HelloWorld"`
 
 <a name="contains"></a>
 
 ## <a name="contains"></a>contém
 
-Verifique se uma coleção tem um item específico. Devolve verdadeiro quando o item é encontrado, ou de retorno falso quando não foi encontrado. Esta função é maiúsculas e minúsculas.
+Verifique se uma coleção tem um item específico. Devolve verdadeiro quando o item for encontrado, ou retornar falso quando não encontrado. Esta função diferencia maiúsculas de minúsculas.
 
 ```
 contains('<collection>', '<value>')
 contains([<collection>], '<value>')
 ```
 
-Especificamente, esta função funciona nestes tipos de coleção: 
+Especificamente, essa função funciona nestes tipos de coleção: 
 
-* A *cadeia* para localizar um *subcadeia*
-* Um *matriz* para localizar um *valor*
-* A *dicionário* para localizar um *chave*
+* R *cadeia de caracteres* para localizar um *subcadeia*
+* Uma *matriz* para localizar um *valor*
+* R *dicionário* para localizar um *chave*
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Dicionário, cadeia ou matriz | A coleção para verificar | 
-| <*Valor*> | Sim | Cadeia, matriz ou dicionário, respetivamente | O item a localizar | 
+| <*Coleção*> | Sim | Cadeia de caracteres, matriz ou dicionário | A coleção para verificar | 
+| <*Valor*> | Sim | Cadeia de caracteres, matriz ou dicionário, respetivamente | O item para localizar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o item é encontrado. Devolveu false quando não foi encontrado. |
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o item é encontrado. Retornar falso quando não encontrado. |
 |||| 
 
 *Exemplo 1*
 
-Este exemplo verifica a cadeia "Olá mundo" para a subcadeia "mundo" e devolve true:
+Este exemplo verifica a cadeia de caracteres "hello world" para a subcadeia "world" e devolve verdadeiro:
 
 ```
 contains('hello world', 'world')
@@ -858,7 +854,7 @@ contains('hello world', 'world')
 
 *Exemplo 2*
 
-Neste exemplo verifica a cadeia "Olá mundo" para a subcadeia "universo" e devolve false:
+Este exemplo verifica a cadeia de caracteres "hello world" para a subcadeia "universe" e devolve FALSO:
 
 ```
 contains('hello world', 'universe')
@@ -868,7 +864,7 @@ contains('hello world', 'universe')
 
 ## <a name="convertfromutc"></a>convertFromUtc
 
-Converta um carimbo de Universal tempo coordenada (UTC) com o fuso horário de destino.
+Converta um carimbo de Universal tempo coordenada (UTC) para o fuso horário de destino.
 
 ```
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
@@ -876,25 +872,25 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*destinationTimeZone*> | Sim | Cadeia | O nome da zona de tempo de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*destinationTimeZone*> | Sim | Cadeia | O nome para o fuso horário de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp convertido*> | Cadeia | Converter o carimbo com o fuso horário de destino | 
+| <*timestamp convertido*> | Cadeia | O carimbo de hora é convertida para o fuso horário de destino | 
 |||| 
 
 *Exemplo 1*
 
-Neste exemplo converte um carimbo com o fuso horário especificado: 
+Neste exemplo converte um carimbo para o fuso horário especificado: 
 
 ```
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-E devolve o resultado deste: `"2018-01-01T00:00:00.0000000"`
+E devolve o resultado: `"2018-01-01T00:00:00.0000000"`
 
 *Exemplo 2*
 
@@ -904,13 +900,13 @@ Neste exemplo converte um carimbo para o fuso horário especificado e o formato:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
 
-E devolve o resultado deste: `"Monday, January 1, 2018"`
+E devolve o resultado: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
 ## <a name="converttimezone"></a>convertTimeZone
 
-Converter um carimbo de fuso horário a origem com o fuso horário de destino.
+Converta um carimbo de fuso horário de origem para o fuso horário de destino.
 
 ```
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
@@ -918,15 +914,15 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*sourceTimeZone*> | Sim | Cadeia | O nome para o fuso horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*destinationTimeZone*> | Sim | Cadeia | O nome da zona de tempo de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*sourceTimeZone*> | Sim | Cadeia | O nome para o fuso de horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*destinationTimeZone*> | Sim | Cadeia | O nome para o fuso horário de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp convertido*> | Cadeia | Converter o carimbo com o fuso horário de destino | 
+| <*timestamp convertido*> | Cadeia | O carimbo de hora é convertida para o fuso horário de destino | 
 |||| 
 
 *Exemplo 1*
@@ -937,7 +933,7 @@ Neste exemplo converte o fuso horário de origem para o fuso horário de destino
 convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 ```
 
-E devolve o resultado deste: `"2018-01-01T00:00:00.0000000"`
+E devolve o resultado: `"2018-01-01T00:00:00.0000000"`
 
 *Exemplo 2*
 
@@ -947,13 +943,13 @@ Neste exemplo converte um fuso horário para o fuso horário especificado e o fo
 convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
 ```
 
-E devolve o resultado deste: `"Monday, January 1, 2018"`
+E devolve o resultado: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
 ## <a name="converttoutc"></a>convertToUtc
 
-Converta um carimbo de origem fuso horário Universal tempo coordenada (UTC).
+Converta um carimbo de fuso horário de origem para Universal tempo coordenada (UTC).
 
 ```
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
@@ -961,41 +957,41 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*sourceTimeZone*> | Sim | Cadeia | O nome para o fuso horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*sourceTimeZone*> | Sim | Cadeia | O nome para o fuso de horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp convertido*> | Cadeia | O carimbo convertido para UTC | 
+| <*timestamp convertido*> | Cadeia | O carimbo de hora convertido para UTC | 
 |||| 
 
 *Exemplo 1*
 
-Neste exemplo converte um timestamp UTC: 
+Neste exemplo converte um carimbo para UTC: 
 
 ```
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 ```
 
-E devolve o resultado deste: `"2018-01-01T08:00:00.0000000Z"`
+E devolve o resultado: `"2018-01-01T08:00:00.0000000Z"`
 
 *Exemplo 2*
 
-Neste exemplo converte um timestamp UTC:
+Neste exemplo converte um carimbo para UTC:
 
 ```
 convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 ```
 
-E devolve o resultado deste: `"Monday, January 1, 2018"`
+E devolve o resultado: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
 ## <a name="createarray"></a>createArray
 
-Devolva uma matriz de várias entradas. Para as matrizes de entrada único, consulte [array()](#array).
+Retornar uma matriz de várias entradas. Para matrizes de entrada únicas, consulte [array()](#array).
 
 ```
 createArray('<object1>', '<object2>', ...)
@@ -1006,9 +1002,9 @@ createArray('<object1>', '<object2>', ...)
 | <*objeto1*>, <*object2*>,... | Sim | Qualquer, mas não misto | Pelo menos dois itens para criar a matriz | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*objeto1*>, <*object2*>,...] | Array | A matriz de criada a partir de todos os itens de entrada | 
+| [<*objeto1*>, <*object2*>,...] | Array | A matriz criada a partir de todos os itens de entrada | 
 |||| 
 
 *Exemplo*
@@ -1019,13 +1015,13 @@ Este exemplo cria uma matriz destas entradas:
 createArray('h', 'e', 'l', 'l', 'o')
 ```
 
-E devolve o resultado deste: `["h", "e", "l", "l", "o"]`
+E devolve o resultado: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
 ## <a name="datauri"></a>dataUri
 
-Devolve um identificador de recurso uniforme (URI) de dados para uma cadeia. 
+Devolve um identificador de recurso uniforme (URI) de dados para uma cadeia de caracteres. 
 
 ```
 dataUri('<value>')
@@ -1036,7 +1032,7 @@ dataUri('<value>')
 | <*Valor*> | Sim | Cadeia | A cadeia a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*uri de dados*> | Cadeia | O URI de dados para a cadeia de entrada | 
 |||| 
@@ -1049,13 +1045,13 @@ Este exemplo cria um URI de dados para a cadeia "Olá":
 dataUri('hello') 
 ```
 
-E devolve o resultado deste: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+E devolve o resultado: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
 ## <a name="datauritobinary"></a>dataUriToBinary
 
-Devolva a versão binária para um identificador de recurso uniforme (URI) de dados. Utilize esta função vez [decodeDataUri()](#decodeDataUri). Embora ambas as funções funcionam da mesma forma, `decodeDataUri()` preferido.
+Devolva a versão binária de um identificador de recurso uniforme (URI) de dados. Utilize esta função vez [decodeDataUri()](#decodeDataUri). Embora ambas as funções funcionam da mesma maneira, `decodeDataUri()` é preferencial.
 
 ```
 dataUriToBinary('<value>')
@@ -1063,23 +1059,23 @@ dataUriToBinary('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | O URI para converter de dados | 
+| <*Valor*> | Sim | Cadeia | O URI de dados a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*binário de dados-uri*> | Cadeia | A versão binária para o URI de dados | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma binária versão destes URI de dados:
+Este exemplo cria uma versão binária para este URI de dados:
 
 ```
 dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-E devolve o resultado deste: 
+E devolve o resultado: 
 
 `"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
 1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
@@ -1090,7 +1086,7 @@ E devolve o resultado deste:
 
 ## <a name="datauritostring"></a>dataUriToString
 
-Devolva a versão de cadeia para um identificador de recurso uniforme (URI) de dados.
+Devolva a versão de cadeia de caracteres de um identificador de recurso uniforme (URI) de dados.
 
 ```
 dataUriToString('<value>')
@@ -1098,27 +1094,27 @@ dataUriToString('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | O URI para converter de dados | 
+| <*Valor*> | Sim | Cadeia | O URI de dados a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*cadeia de dados-uri*> | Cadeia | A versão de cadeia para o URI de dados | 
+| <*cadeia de caracteres de dados-uri*> | Cadeia | A versão de cadeia de caracteres para o URI de dados | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma cadeia para este URI de dados:
+Este exemplo cria uma cadeia de caracteres para este URI de dados:
 
 ```
 dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-E devolve o resultado deste: `"hello"`
+E devolve o resultado: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>DayOfMonth
+## <a name="dayofmonth"></a>dayOfMonth
 
 Devolva o dia do mês de um carimbo. 
 
@@ -1128,12 +1124,12 @@ dayOfMonth('<timestamp>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*dia do mês*> | Número inteiro | O dia do mês do carimbo especificado | 
+| <*dia do mês*> | Número inteiro | O dia do mês do período de tempo especificado | 
 |||| 
 
 *Exemplo*
@@ -1144,7 +1140,7 @@ Neste exemplo devolve o número para o dia do mês deste timestamp:
 dayOfMonth('2018-03-15T13:27:36Z')
 ```
 
-E devolve o resultado deste: `15`
+E devolve o resultado: `15`
 
 <a name="dayOfWeek"></a>
 
@@ -1158,12 +1154,12 @@ dayOfWeek('<timestamp>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*dia da semana*> | Número inteiro | O dia da semana do carimbo especificado onde domingo for 0, segunda é 1 e assim sucessivamente | 
+| <*dia da semana*> | Número inteiro | O dia da semana do período de tempo especificado em que domingo é 0, segunda-feira é 1 e assim por diante | 
 |||| 
 
 *Exemplo*
@@ -1174,13 +1170,13 @@ Neste exemplo devolve o número para o dia da semana deste timestamp:
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-E devolve o resultado deste: `3`
+E devolve o resultado: `3`
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>DayOfYear
+## <a name="dayofyear"></a>dayOfYear
 
-Devolva o dia do ano de um carimbo. 
+Devolva o dia do ano a partir de um carimbo. 
 
 ```
 dayOfYear('<timestamp>')
@@ -1188,12 +1184,12 @@ dayOfYear('<timestamp>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*dia do ano*> | Número inteiro | O dia do ano do carimbo especificado | 
+| <*dia do ano*> | Número inteiro | O dia do ano do período de tempo especificado | 
 |||| 
 
 *Exemplo*
@@ -1204,13 +1200,13 @@ Neste exemplo devolve o número do dia do ano a partir deste timestamp:
 dayOfYear('2018-03-15T13:27:36Z')
 ```
 
-E devolve o resultado deste: `74`
+E devolve o resultado: `74`
 
 <a name="decodeBase64"></a>
 
 ## <a name="decodebase64"></a>decodeBase64
 
-Devolva a versão de cadeia para uma cadeia com codificação base64, eficazmente descodificar a cadeia base64. Considere a utilização de [base64ToString()](#base64ToString) vez `decodeBase64()`. Embora ambas as funções funcionam da mesma forma, `base64ToString()` preferido.
+Devolva a versão de cadeia de caracteres para uma cadeia codificada em base64, efetivamente descodificar a cadeia base64. Considere a utilização [base64ToString()](#base64ToString) vez `decodeBase64()`. Embora ambas as funções funcionam da mesma maneira, `base64ToString()` é preferencial.
 
 ```
 decodeBase64('<value>')
@@ -1218,29 +1214,29 @@ decodeBase64('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com codificação base64 para descodificação | 
+| <*Valor*> | Sim | Cadeia | A cadeia codificada em base64 a descodificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*descodificar-base64-cadeia*> | Cadeia | A versão de cadeia para uma cadeia com codificação base64 | 
+| <*descodificar base64-cadeia de caracteres*> | Cadeia | A versão de cadeia de caracteres para uma cadeia de caracteres codificada em base64 | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma cadeia de uma cadeia com codificação base64:
+Este exemplo cria uma cadeia de caracteres para uma cadeia de caracteres codificada em base64:
 
 ```
 decodeBase64('aGVsbG8=')
 ```
 
-E devolve o resultado deste: `"hello"`
+E devolve o resultado: `"hello"`
 
 <a name="decodeDataUri"></a>
 
 ## <a name="decodedatauri"></a>decodeDataUri
 
-Devolva a versão binária para um identificador de recurso uniforme (URI) de dados. Considere a utilização de [dataUriToBinary()](#dataUriToBinary), vez `decodeDataUri()`. Embora ambas as funções funcionam da mesma forma, `dataUriToBinary()` preferido.
+Devolva a versão binária de um identificador de recurso uniforme (URI) de dados. Considere a utilização [dataUriToBinary()](#dataUriToBinary), em vez `decodeDataUri()`. Embora ambas as funções funcionam da mesma maneira, `dataUriToBinary()` é preferencial.
 
 ```
 decodeDataUri('<value>')
@@ -1248,23 +1244,23 @@ decodeDataUri('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | Os dados de cadeia URI para descodificação | 
+| <*Valor*> | Sim | Cadeia | Os dados de cadeia URI a descodificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*binário de dados-uri*> | Cadeia | A versão binária para uma cadeia URI de dados | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo devolve a versão binária destes URI de dados:
+Este exemplo retorna a versão binária para este URI de dados:
 
 ```
 decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-E devolve o resultado deste: 
+E devolve o resultado: 
 
 `"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
 1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
@@ -1275,7 +1271,7 @@ E devolve o resultado deste:
 
 ## <a name="decodeuricomponent"></a>decodeUriComponent
 
-Devolve uma cadeia que substitui o escape carateres com versões descodificadas. 
+Devolver uma cadeia de caracteres que substitui o escape de caracteres com versões decodificadas. 
 
 ```
 decodeUriComponent('<value>')
@@ -1283,29 +1279,29 @@ decodeUriComponent('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com os carateres de escape para descodificação | 
+| <*Valor*> | Sim | Cadeia | A cadeia de caracteres com os carateres de escape a descodificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*descodificar-uri*> | Cadeia | A cadeia atualizada com os carateres de escape descodificados | 
+| <*descodificar-uri*> | Cadeia | A cadeia de caracteres atualizada com os carateres de escape descodificada | 
 |||| 
 
 *Exemplo*
 
-Este exemplo substitui os carateres de escape nesta cadeia com versões descodificadas:
+Neste exemplo substitui os carateres de escape nessa cadeia descodificadas versões:
 
 ```
 decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
 
-E devolve o resultado deste: `"https://contoso.com"`
+E devolve o resultado: `"https://contoso.com"`
 
 <a name="div"></a>
 
 ## <a name="div"></a>div
 
-Devolve o resultado de número inteiro da divisão de dois números. Para obter o resultado do resto, consulte [mod()](#mod).
+Devolva o resultado de número inteiro de divisão de dois números. Para obter o resultado de resto, consulte [mod()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1313,31 +1309,31 @@ div(<dividend>, <divisor>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*dividendo*> | Sim | Um número inteiro ou número de vírgula flutuante | O número dividir pelo *divisor* | 
-| <*Divisor*> | Sim | Um número inteiro ou número de vírgula flutuante | O número que divide o *dividendo*, mas não pode ser 0 | 
+| <*dividendo*> | Sim | Número inteiro ou flutuante | O número pelo qual dividir o *divisor* | 
+| <*Divisor*> | Sim | Número inteiro ou flutuante | O número que divida o *dividendo*, mas não pode ser 0 | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*resultado quociente*> | Número inteiro | O resultado de número inteiro de dividir o primeiro número, o segundo número | 
+| <*resultado do quociente*> | Número inteiro | O resultado de número inteiro da divisão o primeiro número, o segundo número | 
 |||| 
 
 *Exemplo*
 
-Ambos os exemplos dividem o primeiro número, o segundo número:
+Os dois exemplos dividem o primeiro número, o segundo número:
 
 ```
 div(10, 5)
 div(11, 5)
 ```
 
-E devolver este resultado de: `2`
+E retornar esse resultado: `2`
 
 <a name="encodeUriComponent"></a>
 
 ## <a name="encodeuricomponent"></a>encodeUriComponent
 
-Devolva uma versão de identificador (URI) codificado de recurso uniforme uma cadeia, substituindo carateres não seguro URL com carateres de escape. Considere a utilização de [uriComponent()](#uriComponent), vez `encodeUriComponent()`. Embora ambas as funções funcionam da mesma forma, `uriComponent()` preferido.
+Devolve uma versão de identifier (URI) com codificação de recurso uniforme para uma cadeia de caracteres ao substituir carateres não seguros de URL com carateres de escape. Considere a utilização [uriComponent()](#uriComponent), em vez `encodeUriComponent()`. Embora ambas as funções funcionam da mesma maneira, `uriComponent()` é preferencial.
 
 ```
 encodeUriComponent('<value>')
@@ -1345,29 +1341,29 @@ encodeUriComponent('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia a converter para formato com codificação URI | 
+| <*Valor*> | Sim | Cadeia | A cadeia a converter para formato codificado por URI | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*uri codificado*> | Cadeia | A cadeia URI codificado com carateres de escape | 
+| <*uri codificado*> | Cadeia | A cadeia codificada de URI com caracteres de escape | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma versão codificado de URI para esta cadeia:
+Este exemplo cria uma versão codificada de URI para essa cadeia de caracteres:
 
 ```
 encodeUriComponent('https://contoso.com')
 ```
 
-E devolve o resultado deste: `"http%3A%2F%2Fcontoso.com"`
+E devolve o resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
 ## <a name="empty"></a>Vazio
 
-Verifique se uma coleção está vazia. Devolve verdadeiro quando a coleção está vazia, ou falso quando não vazio de retorno.
+Verifique se uma coleção está vazia. Devolve verdadeiro quando a coleção está vazia ou retornar falso quando não está vazio.
 
 ```
 empty('<collection>')
@@ -1376,33 +1372,33 @@ empty([<collection>])
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Objeto, cadeia ou matriz | A coleção para verificar | 
+| <*Coleção*> | Sim | Cadeia de caracteres, matriz ou objeto | A coleção para verificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando a coleção está vazia. Devolva falso quando não vazio. | 
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando a coleção está vazia. Retornar falso quando não está vazio. | 
 |||| 
 
 *Exemplo* 
 
-Estes exemplos, verifique se as coleções especificadas estão vazios:
+Estes exemplos, verifique se as coleções especificadas estão vazias:
 
 ```
 empty('')
 empty('abc')
 ```
 
-E devolve estes resultados: 
+E retorna esses resultados: 
 
-* Primeiro exemplo: passar uma cadeia vazia, pelo que a função devolve `true`. 
-* Segundo exemplo: passa a cadeia "abc", pelo que a função devolve `false`. 
+* Primeiro exemplo: passa uma cadeia vazia, pelo que a função devolve `true`. 
+* Segundo exemplo: passa a cadeia de caracteres "abc", para que a função devolve `false`. 
 
 <a name="endswith"></a>
 
 ## <a name="endswith"></a>endsWith
 
-Verifique se uma cadeia termina com uma subcadeia específica. Devolve verdadeiro quando a subcadeia for encontrada, ou de retorno falso quando não foi encontrado. Esta função não é sensível.
+Verifique se uma cadeia de caracteres termina com uma subcadeia específica. Devolve verdadeiro quando a subcadeia for encontrada, ou retornar falso quando não encontrado. Esta função não diferencia maiúsculas de minúsculas.
 
 ```
 endsWith('<text>', '<searchText>')
@@ -1410,40 +1406,40 @@ endsWith('<text>', '<searchText>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia de verificação | 
-| <*searchText*> | Sim | Cadeia | A final subcadeia a localizar | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres para verificar | 
+| <*searchText*> | Sim | Cadeia | A subcadeia final para localizar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando a subcadeia final é encontrada. Devolveu false quando não foi encontrado. | 
+| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando a subcadeia final é encontrada. Retornar falso quando não encontrado. | 
 |||| 
 
 *Exemplo 1* 
 
-Neste exemplo verifica se a cadeia "Olá mundo" termina com a cadeia de "mundo":
+Este exemplo verifica se a cadeia "Olá mundo" termina com a cadeia de caracteres "world":
 
 ```
 endsWith('hello world', 'world')
 ```
 
-E devolve o resultado deste: `true`
+E devolve o resultado: `true`
 
 *Exemplo 2*
 
-Neste exemplo verifica se a cadeia "Olá mundo" termina com a cadeia "universo":
+Este exemplo verifica se a cadeia "Olá mundo" termina com a cadeia de caracteres "universe":
 
 ```
 endsWith('hello world', 'universe')
 ```
 
-E devolve o resultado deste: `false`
+E devolve o resultado: `false`
 
 <a name="equals"></a>
 
 ## <a name="equals"></a>é igual a
 
-Verifique se os valores, expressões ou objetos são equivalentes. Devolve verdadeiro quando ambas são equivalentes ou devolvem falsas quando não estiverem equivalentes.
+Verifique se os valores, expressões ou objetos são equivalentes. Devolve verdadeiro quando ambos são equivalentes ou retornam falsas quando eles não são equivalentes.
 
 ```
 equals('<object1>', '<object2>')
@@ -1451,12 +1447,12 @@ equals('<object1>', '<object2>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto1*>, <*object2*> | Sim | vários | Os valores, expressões ou objetos a comparar | 
+| <*objeto1*>, <*object2*> | Sim | Vários | Os valores, expressões ou os objetos para comparar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando ambas são equivalentes. Devolva falso quando não equivalente. | 
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando ambos são equivalentes. Retornar falso quando não é equivalente. | 
 |||| 
 
 *Exemplo*
@@ -1468,16 +1464,16 @@ equals(true, 1)
 equals('abc', 'abcd')
 ```
 
-E devolve estes resultados: 
+E retorna esses resultados: 
 
-* Primeiro exemplo: ambos os valores são equivalentes, pelo que a função devolve `true`.
-* Segundo exemplo: ambos os valores não são equivalentes, pelo que a função devolve `false`.
+* Primeiro exemplo: ambos os valores são equivalentes, para que a função devolve `true`.
+* Segundo exemplo: ambos os valores não são equivalentes, para que a função devolve `false`.
 
 <a name="first"></a>
 
 ## <a name="first"></a>primeiro
 
-Devolva o primeiro item de uma cadeia ou matriz.
+Devolva o primeiro item a partir de uma cadeia ou matriz.
 
 ```
 first('<collection>')
@@ -1486,33 +1482,33 @@ first([<collection>])
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Cadeia ou matriz | A coleção onde encontrar o primeiro item |
+| <*Coleção*> | Sim | Cadeia de caracteres ou matriz | A coleção onde encontrar o primeiro item |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*item de coleção primeiro*> | Qualquer | O primeiro item na coleção | 
+| <*item de coleção de primeiro*> | Qualquer | O primeiro item na coleção | 
 |||| 
 
 *Exemplo*
 
-Estes exemplos encontrar o primeiro item nestas coleções:
+Estes exemplos encontrar o primeiro item estas coleções:
 
 ```
 first('hello')
 first([0, 1, 2])
 ```
 
-E devolver estes resultados: 
+E retornar esses resultados: 
 
 * Primeiro exemplo: `"h"`
 * Segundo exemplo: `0`
 
 <a name="float"></a>
 
-## <a name="float"></a>flutuante
+## <a name="float"></a>número de vírgula flutuante
 
-Converta uma versão de cadeia para um número de vírgula flutuante de um número real de ponto flutuante. Pode utilizar esta função só ao transmitir parâmetros personalizados para uma aplicação, tais como uma aplicação lógica.
+Converta uma versão de cadeia de caracteres para um número de vírgula flutuante para um número real de ponto flutuante. Pode utilizar esta função apenas quando passar parâmetros personalizados para uma aplicação, por exemplo, uma aplicação lógica.
 
 ```
 float('<value>')
@@ -1520,29 +1516,29 @@ float('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia que tem um número de vírgula flutuante válido para converter |
+| <*Valor*> | Sim | Cadeia | A cadeia de caracteres que tem um número de vírgula flutuante válido para converter |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de vírgula flutuante*> | Flutuante | O número de vírgula flutuante para a cadeia especificada | 
+| <*valor de vírgula flutuante*> | número de vírgula flutuante | O número de vírgula flutuante para a cadeia especificada | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma versão de cadeia para este número de vírgula flutuante:
+Este exemplo cria uma versão de cadeia de caracteres para este número de vírgula flutuante:
 
 ```
 float('10.333')
 ```
 
-E devolve o resultado deste: `10.333`
+E devolve o resultado: `10.333`
 
 <a name="formatDateTime"></a>
 
 ## <a name="formatdatetime"></a>formatDateTime
 
-Devolva uma timestamp no formato especificado.
+Devolve um carimbo no formato especificado.
 
 ```
 formatDateTime('<timestamp>', '<format>'?)
@@ -1550,13 +1546,13 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp reformatada*> | Cadeia | O carimbo atualizado no formato especificado | 
+| <*timestamp reformatado*> | Cadeia | O carimbo de hora atualizado no formato especificado | 
 |||| 
 
 *Exemplo*
@@ -1567,13 +1563,13 @@ Neste exemplo converte um carimbo para o formato especificado:
 formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
-E devolve o resultado deste: `"2018-03-15T12:00:00"`
+E devolve o resultado: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
 ## <a name="formdatamultivalues"></a>formDataMultiValues
 
-Devolver uma matriz com valores que correspondam a um nome de chave uma ação *dados do formulário* ou *codificado de formulário* saída. 
+Retornar uma matriz com valores que correspondem ao nome da chave numa ação *dados de formulário* ou *formulário codificado* saída. 
 
 ```
 formDataMultiValues('<actionName>', '<key>')
@@ -1581,30 +1577,30 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Sim | Cadeia | A ação cuja saída tem o valor da chave pretende obter | 
-| <*chave*> | Sim | Cadeia | O nome da chave cujo valor que pretende | 
+| <*actionName*> | Sim | Cadeia | A ação cuja saída tem o valor da chave que pretende | 
+| <*Chave*> | Sim | Cadeia | O nome da chave de valor que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*matriz com chave valores*>] | Array | Uma matriz com todos os valores que correspondem a chave especificada | 
+| [<*matriz com chaves-valores*>] | Array | Uma matriz com todos os valores que correspondem a chave especificada | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma matriz de valor da chave "Requerente" dados do formulário ou saída codificado de forma a ação especificada:  
+Este exemplo cria uma matriz de valor da chave "Assunto" em dados do formulário ou a saída de formulário codificado a ação especificada:  
 
 ```
 formDataMultiValues('Send_an_email', 'Subject')
 ```
 
-E devolve o texto do requerente numa matriz, por exemplo: `["Hello world"]`
+E retorna o texto do assunto numa matriz, por exemplo: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
 ## <a name="formdatavalue"></a>formDataValue
 
-Devolver um valor único que corresponda a um nome de chave uma ação *dados do formulário* ou *codificado de formulário* saída. Se a função localizar mais do que uma correspondência, a função emite um erro.
+Devolver um valor único que corresponde ao nome da chave numa ação *dados de formulário* ou *formulário codificado* saída. Se a função encontrar mais do que uma correspondência, a função emite um erro.
 
 ```
 formDataValue('<actionName>', '<key>')
@@ -1612,30 +1608,30 @@ formDataValue('<actionName>', '<key>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*actionName*> | Sim | Cadeia | A ação cuja saída tem o valor da chave pretende obter | 
-| <*chave*> | Sim | Cadeia | O nome da chave cujo valor que pretende |
+| <*actionName*> | Sim | Cadeia | A ação cuja saída tem o valor da chave que pretende | 
+| <*Chave*> | Sim | Cadeia | O nome da chave de valor que pretende |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*chave-valor*> | Cadeia | O valor da chave especificada  | 
+| <*chave-valor*> | Cadeia | O valor na chave especificada  | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma cadeia de valor da chave "Requerente" dados do formulário ou saída codificado de forma a ação especificada:  
+Este exemplo cria uma cadeia de caracteres do valor da chave "Assunto" em dados do formulário ou a saída de formulário codificado a ação especificada:  
 
 ```
 formDataValue('Send_an_email', 'Subject')
 ```
 
-E devolve o texto do requerente como uma cadeia, por exemplo: `"Hello world"`
+E retorna o texto do assunto como uma cadeia, por exemplo: `"Hello world"`
 
 <a name="getFutureTime"></a>
 
 ## <a name="getfuturetime"></a>getFutureTime
 
-Devolva o timestamp atual e as unidades de tempo especificado.
+Devolva o timestamp atual, bem como as unidades de tempo especificado.
 
 ```
 getFutureTime(<interval>, <timeUnit>, <format>?)
@@ -1643,41 +1639,41 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificado a subtrair | 
-| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com *intervalo*: "Segunda", "Minutos", "Horas", "Dia", "Semanas", "Meses", "Ano" | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. | 
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificada para subtrair | 
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo atual e o número de unidades de tempo especificado | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora atual e o número de unidades de tempo especificado | 
 |||| 
 
 *Exemplo 1*
 
-Suponha o timestamp atual é "2018-03-01T00:00:00.0000000Z". Este exemplo adiciona cinco dias para esse timestamp:
+Suponha que o timestamp atual é "2018-03-01T00:00:00.0000000Z". Este exemplo adiciona cinco dias para esse timestamp:
 
 ```
 getFutureTime(5, 'Day')
 ```
 
-E devolve o resultado deste: `"2018-03-06T00:00:00.0000000Z"`
+E devolve o resultado: `"2018-03-06T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
-Suponha o timestamp atual é "2018-03-01T00:00:00.0000000Z". Este exemplo adiciona cinco dias e converte o resultado para o formato "D":
+Suponha que o timestamp atual é "2018-03-01T00:00:00.0000000Z". Este exemplo adiciona cinco dias e converte o resultado em formato "D":
 
 ```
 getFutureTime(5, 'Day', 'D')
 ```
 
-E devolve o resultado deste: `"Tuesday, March 6, 2018"`
+E devolve o resultado: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
 ## <a name="getpasttime"></a>getPastTime
 
-Devolva o timestamp atual menos as unidades de tempo especificado.
+Devolva o carimbo de hora atual menos as unidades de tempo especificado.
 
 ```
 getPastTime(<interval>, <timeUnit>, <format>?)
@@ -1685,41 +1681,41 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificado a subtrair | 
-| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com *intervalo*: "Segunda", "Minutos", "Horas", "Dia", "Semanas", "Meses", "Ano" | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. | 
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificada para subtrair | 
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo atual menos o número de unidades de tempo especificado | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora atual menos o número de unidades de tempo especificado | 
 |||| 
 
 *Exemplo 1*
 
-Suponha o timestamp atual é "2018-02-01T00:00:00.0000000Z". Neste exemplo subtrai cinco dias a partir desse timestamp:
+Suponha que o timestamp atual é "2018-02-01T00:00:00.0000000Z". Neste exemplo subtrai cinco dias a partir desse timestamp:
 
 ```
 getPastTime(5, 'Day')
 ```
 
-E devolve o resultado deste: `"2018-01-27T00:00:00.0000000Z"`
+E devolve o resultado: `"2018-01-27T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
-Suponha o timestamp atual é "2018-02-01T00:00:00.0000000Z". Este exemplo subtrai cinco dias e converte o resultado para o formato "D":
+Suponha que o timestamp atual é "2018-02-01T00:00:00.0000000Z". Este exemplo subtrai cinco dias e converte o resultado em formato "D":
 
 ```
 getPastTime(5, 'Day', 'D')
 ```
 
-E devolve o resultado deste: `"Saturday, January 27, 2018"`
+E devolve o resultado: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
 ## <a name="greater"></a>maior
 
-Verifique se o primeiro valor é maior do que o segundo valor. Devolve verdadeiro quando o primeiro valor é mais ou devolver false quando inferior.
+Verifique se o primeiro valor é maior do que o segundo valor. Devolve verdadeiro quando o primeiro valor é mais ou retornar false quando menos.
 
 ```
 greater(<value>, <compareTo>)
@@ -1728,13 +1724,13 @@ greater('<value>', '<compareTo>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Número inteiro, flutuante ou uma cadeia | O primeiro valor para verificar se maior que o segundo valor | 
-| <*compareTo*> | Sim | Número inteiro, flutuante ou uma cadeia, respetivamente | O valor de comparação | 
+| <*Valor*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres | O primeiro valor para verificar se maior que o segundo valor | 
+| <*compareTo*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres, respetivamente | O valor de comparação | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é maior do que o segundo valor. Devolva falso quando o primeiro valor é igual ou menor do que o segundo valor. | 
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é maior do que o segundo valor. Retornar falso quando o primeiro valor é igual ou menor que o segundo valor. | 
 |||| 
 
 *Exemplo*
@@ -1746,7 +1742,7 @@ greater(10, 5)
 greater('apple', 'banana')
 ```
 
-E devolver estes resultados: 
+E retornar esses resultados: 
 
 * Primeiro exemplo: `true`
 * Segundo exemplo: `false`
@@ -1755,8 +1751,8 @@ E devolver estes resultados:
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 
-Verifique se o primeiro valor é maior que ou igual ao valor segundo.
-Devolve verdadeiro quando o primeiro valor é maior ou igual ou devolver falso quando o primeiro valor for menor.
+Verifique se o primeiro valor é maior que ou igual ao segundo valor.
+Devolve verdadeiro quando o primeiro valor é maior ou igual ou retornar falso quando o primeiro valor é menor.
 
 ```
 greaterOrEquals(<value>, <compareTo>)
@@ -1765,25 +1761,25 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Número inteiro, flutuante ou uma cadeia | O primeiro valor para verificar se maior que ou igual ao valor segundo | 
-| <*compareTo*> | Sim | Número inteiro, flutuante ou uma cadeia, respetivamente | O valor de comparação | 
+| <*Valor*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres | O primeiro valor para verificar se o maior que ou igual ao segundo valor | 
+| <*compareTo*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres, respetivamente | O valor de comparação | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é maior que ou igual ao valor segundo. Falso quando o primeiro texto seja menor que o segundo valor de retorno. | 
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é maior que ou igual ao segundo valor. Retornar falso quando o primeiro valor é menor do que o segundo valor. | 
 |||| 
 
 *Exemplo*
 
-Estes exemplos, verifique se o primeiro valor é igual ou maior do que o segundo valor:
+Estes exemplos, verifique se o primeiro valor é maior ou igual que o segundo valor:
 
 ```
 greaterOrEquals(5, 5)
 greaterOrEquals('apple', 'banana')
 ```
 
-E devolver estes resultados: 
+E retornar esses resultados: 
 
 * Primeiro exemplo: `true`
 * Segundo exemplo: `false`
@@ -1792,13 +1788,13 @@ E devolver estes resultados:
 
 ## <a name="guid"></a>GUID
 
-Gerar um identificador exclusivo global (GUID) como uma cadeia, por exemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce": 
+Gere um identificador exclusivo global (GUID) como uma cadeia, por exemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce": 
 
 ```
 guid()
 ```
 
-Além disso, pode especificar um formato diferente para o GUID que não seja o formato predefinido, "D", que é 32 dígitos separados por hífenes.
+Além disso, pode especificar um formato diferente para o GUID que não seja o formato de padrão, "D", que é 32 dígitos separados por hífens.
 
 ```
 guid('<format>')
@@ -1806,12 +1802,12 @@ guid('<format>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*formato*> | Não | Cadeia | Um único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para o GUID devolvido. Por predefinição, o formato é "D", mas pode utilizar "N", "D", "B", "P" ou "X". | 
+| <*Formato*> | Não | Cadeia | Uma única [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para o GUID devolvido. Por predefinição, o formato é "D", mas pode usar "N", "D", "B", "P" ou "X". | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*Valor GUID*> | Cadeia | Um GUID gerado aleatoriamente | 
+| <*Valor de GUID*> | Cadeia | Um GUID gerado aleatoriamente | 
 |||| 
 
 *Exemplo* 
@@ -1822,13 +1818,13 @@ Este exemplo gera o mesmo GUID, mas como 32 dígitos, separados por hífenes e e
 guid('P')
 ```
 
-E devolve o resultado deste: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
+E devolve o resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>Se
+## <a name="if"></a>IF
 
-Certifique-se uma expressão true ou false. Com base no resultado, devolva um valor especificado.
+Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, devolva um valor especificado.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -1841,14 +1837,14 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 | <*valueIfFalse*> | Sim | Qualquer | O valor a devolver quando a expressão é falsa | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*especificado retorno-valor*> | Qualquer | O valor especificado, que devolve com base em se a expressão é true ou false | 
+| <*especificado-retorno-valor*> | Qualquer | O valor especificado, que retorna com base em se a expressão é true ou false | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo devolve `"yes"` porque a expressão especificada devolve true. Caso contrário, devolve o exemplo `"no"`:
+Este exemplo retorna `"yes"` porque a expressão especificada retorna true. Caso contrário, o exemplo retorna `"no"`:
 
 ```
 if(equals(1, 1), 'yes', 'no')
@@ -1858,7 +1854,7 @@ if(equals(1, 1), 'yes', 'no')
 
 ## <a name="indexof"></a>indexOf
 
-Devolve a posição inicial ou o valor de índice de uma subcadeia. Esta função não é sensível e índices de começar com o número 0. 
+Devolve a posição inicial ou o valor de índice para uma subcadeia. Esta função não diferencia maiúsculas de minúsculas e índices começam com o número de 0. 
 
 ```
 indexOf('<text>', '<searchText>')
@@ -1866,30 +1862,30 @@ indexOf('<text>', '<searchText>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia que tenha a subcadeia a localizar | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres que tenha a subcadeia a localizar | 
 | <*searchText*> | Sim | Cadeia | A subcadeia a localizar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de índice*>| Número inteiro | O valor de índice ou a posição inicial para a subcadeia especificada. <p>Se a cadeia não for encontrada, devolve o número de -1. </br>Se a cadeia vazia, devolva o número 0. | 
+| <*valor de índice*>| Número inteiro | O valor de índice ou a posição inicial para a subcadeia especificada. <p>Se a cadeia de caracteres não for encontrada, devolva o número -1. </br>Se a cadeia estiver vazia, devolva o número de 0. | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo localiza o valor de índice inicial para a subcadeia de "mundo" na cadeia "Olá mundo":
+Neste exemplo localiza o valor de índice inicial para a subcadeia do "mundo" na cadeia de caracteres "hello world":
 
 ```
 indexOf('hello world', 'world')
 ```
 
-E devolve o resultado deste: `6`
+E devolve o resultado: `6`
 
 <a name="int"></a>
 
 ## <a name="int"></a>Int
 
-Devolva a versão de número inteiro de uma cadeia.
+Devolva a versão de número inteiro para uma cadeia de caracteres.
 
 ```
 int('<value>')
@@ -1900,39 +1896,39 @@ int('<value>')
 | <*Valor*> | Sim | Cadeia | A cadeia a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*resultado de número inteiro*> | Número inteiro | A versão de número inteiro para a cadeia especificada | 
+| <*resultado de inteiro*> | Número inteiro | A versão de número inteiro para a cadeia especificada | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma versão de número inteiro para a cadeia "10":
+Este exemplo cria uma versão de número inteiro para a cadeia de caracteres "10":
 
 ```
 int('10')
 ```
 
-E devolve o resultado deste: `10`
+E devolve o resultado: `10`
 
 <a name="item"></a>
 
-## <a name="item"></a>item
+## <a name="item"></a>Item
 
-Quando utilizada dentro de uma ação repetida através de uma matriz, devolva o item atual na matriz durante iteração atual a ação. Também pode obter os valores de propriedades esse item. 
+Quando utilizado dentro de uma ação de repetição numa matriz, retornar o item atual na matriz durante a iteração da ação de atual. Também pode obter os valores de propriedades desse item. 
 
 ```
 item()
 ```
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*item de matriz atual*> | Qualquer | O item atual na matriz para iteração atual a ação | 
+| <*item da matriz de atual*> | Qualquer | O item atual da matriz para iteração atual da ação | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo obtém o `body` elemento da mensagem atual para a ação "Send_an_email" dentro iteração atual de um para cada ciclo:
+Neste exemplo obtém o `body` elemento da mensagem atual para a ação de "Send_an_email" dentro de iteração atual de cada ciclo:
 
 ```
 item().body
@@ -1942,7 +1938,7 @@ item().body
 
 ## <a name="items"></a>itens
 
-Devolva o item atual de cada ciclo de um para cada ciclo. Utilize esta função dentro de cada ciclo.
+Devolva o item atual de cada ciclo num loop para cada. Utilize esta função dentro de cada ciclo.
 
 ```
 items('<loopName>')
@@ -1950,17 +1946,17 @@ items('<loopName>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*loopName*> | Sim | Cadeia | O nome para cada ciclo | 
+| <*loopName*> | Sim | Cadeia | O nome de cada ciclo | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*item*> | Qualquer | O item a partir de ciclo atual na especificado para cada ciclo | 
+| <*Item*> | Qualquer | O item do ciclo de atual no loop para cada especificado | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo obtém o item atual de ciclo para cada especificado:
+Neste exemplo obtém o item atual a partir de cada ciclo especificado:
 
 ```
 items('myForEachLoopName')
@@ -1970,7 +1966,7 @@ items('myForEachLoopName')
 
 ## <a name="json"></a>json
 
-Devolva o valor de tipo JavaScript Object Notation (JSON) ou o objeto para uma cadeia ou XML.
+Devolve o valor de tipo JavaScript Object Notation (JSON) ou o objeto para uma cadeia ou XML.
 
 ```
 json('<value>')
@@ -1978,33 +1974,33 @@ json('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia ou XML | A cadeia ou XML converter | 
+| <*Valor*> | Sim | Cadeia de caracteres ou XML | A cadeia ou o XML a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*Resultado de JSON*> | Tipo nativo JSON ou o objeto | O valor de tipo nativo JSON ou o objeto para a cadeia especificada ou XML. Se a cadeia for nula, a função devolve um objeto vazio. | 
+| <*Resultado de JSON*> | Tipo JSON nativo ou objeto | O valor de tipo nativo de JSON ou o objeto para a cadeia especificada ou XML. Se a cadeia de caracteres for nula, a função devolve um objeto vazio. | 
 |||| 
 
 *Exemplo 1* 
 
-Neste exemplo converte esta cadeia para o valor JSON:
+Neste exemplo converte essa cadeia de caracteres para o valor JSON:
 
 ```
 json('[1, 2, 3]')
 ```
 
-E devolve o resultado deste: `[1, 2, 3]`
+E devolve o resultado: `[1, 2, 3]`
 
 *Exemplo 2*
 
-Neste exemplo converte esta cadeia JSON: 
+Neste exemplo converte essa cadeia de caracteres JSON: 
 
 ```
 json('{"fullName": "Sophia Owen"}')
 ```
 
-E devolve o resultado deste:
+E devolve o resultado:
 
 ```
 {
@@ -2014,13 +2010,13 @@ E devolve o resultado deste:
 
 *Exemplo 3*
 
-Neste exemplo converte esta XML para JSON: 
+Neste exemplo converte esse XML para JSON: 
 
 ```
 json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
 ```
 
-E devolve o resultado deste:
+E devolve o resultado:
 
 ```json
 { 
@@ -2039,7 +2035,7 @@ E devolve o resultado deste:
 
 ## <a name="intersection"></a>intersecção
 
-Devolver uma coleção que tenha *apenas* os itens comuns entre coleções especificadas. A aparecer nos resultados, um item tem de aparecer em todas as coleções transmitidas para esta função. Se um ou mais itens têm o mesmo nome, o último item com esse nome é apresentado nos resultados.
+Retornar uma coleção que tenha *apenas* os itens comuns em coleções especificadas. A aparecer no resultado, um item tem de aparecer em todas as coleções transmitidas para esta função. Se um ou mais itens têm o mesmo nome, o último item com esse nome aparece no resultado.
 
 ```
 intersection([<collection1>], [<collection2>], ...)
@@ -2048,29 +2044,29 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*collection1*>, <*collection2*>,... | Sim | Matriz ou o objeto, mas não ambos | As coleções de onde pretende *apenas* os itens comuns | 
+| <*coleção1*>, <*coleção2*>,... | Sim | Matriz ou objeto, mas não ambos | As coleções do qual *apenas* os itens comuns | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*itens de comuns*> | Matriz nem um objeto, respetivamente | Uma coleção que tenha apenas os itens comuns entre coleções especificadas | 
+| <*itens comuns*> | Matriz ou um objeto, respetivamente | Uma coleção que tenha apenas os itens comuns em coleções especificadas | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo localiza os itens comuns entre estes matrizes:  
+Neste exemplo localiza os itens comuns entre essas matrizes:  
 
 ```
 intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
 ```
 
-E devolve uma matriz com *apenas* estes itens: `[1, 2]`
+E retorna uma matriz com *apenas* estes itens: `[1, 2]`
 
 <a name="join"></a>
 
 ## <a name="join"></a>aderir
 
-Devolve uma cadeia que tem todos os itens a partir de uma matriz e tem cada caráter separada por um *delimitador*.
+Devolver uma cadeia de caracteres que tem todos os itens de uma matriz tem cada caractere separada por um *delimitador*.
 
 ```
 join([<collection>], '<delimiter>')
@@ -2078,30 +2074,30 @@ join([<collection>], '<delimiter>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Array | A matriz de que tem os itens de associação |  
-| <*Delimitador*> | Sim | Cadeia | O separador que aparece entre cada caráter na cadeia resultante | 
+| <*Coleção*> | Sim | Array | A matriz que tenha os itens para aderir |  
+| <*delimitador*> | Sim | Cadeia | O separador que aparece entre cada caractere na cadeia resultante | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*char1*><*delimitador*><*char2*><*delimitador*>... | Cadeia | A cadeia resultante criada a partir de todos os itens na matriz especificada |
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma cadeia de todos os itens desta matriz com o caráter especificado como o delimitador de:
+Este exemplo cria uma cadeia de caracteres de todos os itens nessa matriz pelo caractere especificado como o delimitador:
 
 ```
 join([a, b, c], '.')
 ```
 
-E devolve o resultado deste: `"a.b.c"`
+E devolve o resultado: `"a.b.c"`
 
 <a name="last"></a>
 
 ## <a name="last"></a>última
 
-Devolva o último item de uma coleção.
+Devolva o último item a partir de uma coleção.
 
 ```
 last('<collection>')
@@ -2110,24 +2106,24 @@ last([<collection>])
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Cadeia ou matriz | A coleção onde encontrar o último item | 
+| <*Coleção*> | Sim | Cadeia de caracteres ou matriz | A coleção onde encontrar o último item | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*item de recolha de último*> | Cadeia ou matriz, respetivamente | O último item na coleção | 
+| <*item de recolha de último*> | Cadeia ou matriz, respetivamente | O último item da coleção | 
 |||| 
 
 *Exemplo* 
 
-Estes exemplos encontrar o último item nestas coleções:
+Estes exemplos encontrar o último item estas coleções:
 
 ```
 last('abcd')
 last([0, 1, 2, 3])
 ```
 
-E devolve estes resultados: 
+E retorna esses resultados: 
 
 * Primeiro exemplo: `"d"`
 * Segundo exemplo: `3`
@@ -2136,7 +2132,7 @@ E devolve estes resultados:
 
 ## <a name="lastindexof"></a>lastIndexOf
 
-Devolva o valor de índice ou a posição final para uma subcadeia. Esta função não é sensível e índices de começar com o número 0.
+Devolva o valor de índice ou a posição final para uma subcadeia. Esta função não diferencia maiúsculas de minúsculas e índices começam com o número de 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2144,28 +2140,28 @@ lastIndexOf('<text>', '<searchText>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia que tenha a subcadeia a localizar | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres que tenha a subcadeia a localizar | 
 | <*searchText*> | Sim | Cadeia | A subcadeia a localizar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de índice de fim*> | Número inteiro | O valor de índice ou a posição final para a subcadeia especificada. <p>Se a cadeia não for encontrada, devolve o número de -1. </br>Se a cadeia vazia, devolva o número 0. | 
+| <*valor de índice de fim*> | Número inteiro | O valor de índice ou a posição final para a subcadeia especificada. <p>Se a cadeia de caracteres não for encontrada, devolva o número -1. </br>Se a cadeia estiver vazia, devolva o número de 0. | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo localiza o valor final do índice para a subcadeia de "mundo" na cadeia "Olá mundo":
+Neste exemplo localiza o valor de índice final para a subcadeia do "mundo" na cadeia de caracteres "hello world":
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-E devolve o resultado deste: `10`
+E devolve o resultado: `10`
 
 <a name="length"></a>
 
-## <a name="length"></a>comprimento
+## <a name="length"></a>Comprimento
 
 Devolva o número de itens numa coleção.
 
@@ -2176,12 +2172,12 @@ length([<collection>])
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Cadeia ou matriz | A coleção com os itens a contar | 
+| <*Coleção*> | Sim | Cadeia de caracteres ou matriz | A coleção com os itens para contar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*o comprimento ou contagem*> | Número inteiro | O número de itens na coleção | 
+| <*comprimento ou contagem*> | Número inteiro | O número de itens na coleção | 
 |||| 
 
 *Exemplo*
@@ -2193,14 +2189,14 @@ length('abcd')
 length([0, 1, 2, 3])
 ```
 
-E devolver este resultado de: `4`
+E retornar esse resultado: `4`
 
 <a name="less"></a>
 
-## <a name="less"></a>menor
+## <a name="less"></a>menos
 
 Verifique se o primeiro valor é menor que o segundo valor.
-Devolve verdadeiro quando o primeiro valor é menor ou devolver falso quando o primeiro valor é mais.
+Devolve verdadeiro quando o primeiro valor é menor ou retornar falso quando o primeiro valor é mais.
 
 ```
 less(<value>, <compareTo>)
@@ -2209,13 +2205,13 @@ less('<value>', '<compareTo>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Número inteiro, flutuante ou uma cadeia | O primeiro valor para verificar se menor que o segundo valor | 
-| <*compareTo*> | Sim | Número inteiro, flutuante ou uma cadeia, respetivamente | O item de comparação | 
+| <*Valor*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres | O primeiro valor para verificar se menor do que o segundo valor | 
+| <*compareTo*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres, respetivamente | O item de comparação | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro texto seja menor que o segundo valor. Devolva falso quando o primeiro valor é igual ou maior do que o segundo valor. | 
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é menor do que o segundo valor. Retornar falso quando o primeiro valor é igual ou maior do que o segundo valor. | 
 |||| 
 
 *Exemplo*
@@ -2227,7 +2223,7 @@ less(5, 10)
 less('banana', 'apple')
 ```
 
-E devolver estes resultados: 
+E retornar esses resultados: 
 
 * Primeiro exemplo: `true`
 * Segundo exemplo: `false`
@@ -2236,8 +2232,8 @@ E devolver estes resultados:
 
 ## <a name="lessorequals"></a>lessOrEquals
 
-Verifique se o primeiro valor é menor ou igual ao valor segundo.
-Devolve verdadeiro quando o primeiro valor é menor ou igual ou devolver falso quando o primeiro valor é mais.
+Verifique se o primeiro valor é menor ou igual ao segundo valor.
+Devolve verdadeiro quando o primeiro valor é menor ou igual ou retornar falso quando o primeiro valor é mais.
 
 ```
 lessOrEquals(<value>, <compareTo>)
@@ -2246,25 +2242,25 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Número inteiro, flutuante ou uma cadeia | O primeiro valor para verificar se menor ou igual ao valor segundo | 
-| <*compareTo*> | Sim | Número inteiro, flutuante ou uma cadeia, respetivamente | O item de comparação | 
+| <*Valor*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres | O primeiro valor para verificar se menor que ou igual ao segundo valor | 
+| <*compareTo*> | Sim | Número inteiro, vírgula flutuante ou de cadeia de caracteres, respetivamente | O item de comparação | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando o primeiro valor é menor ou igual ao valor segundo. Devolveu false quando o primeiro valor é maior que o segundo valor. |  
+| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando o primeiro valor é menor ou igual ao segundo valor. Retornar falso quando o primeiro valor é maior do que o segundo valor. |  
 |||| 
 
 *Exemplo*
 
-Estes exemplos, verifique se o primeiro valor é menor ou igual ao valor segundo.
+Estes exemplos, verifique se o primeiro valor é menor ou igual que o segundo valor.
 
 ```
 lessOrEquals(10, 10)
 lessOrEquals('apply', 'apple')
 ```
 
-E devolver estes resultados: 
+E retornar esses resultados: 
 
 * Primeiro exemplo: `true`
 * Segundo exemplo: `false`
@@ -2273,20 +2269,20 @@ E devolver estes resultados:
 
 ## <a name="listcallbackurl"></a>listCallbackUrl
 
-Devolva o "URL de chamada de retorno" que chama um acionador ou ação. Esta função funciona apenas com acionadores e ações para o **HttpWebhook** e **ApiConnectionWebhook** conector tipos, mas não o **Manual**,  **Periodicidade**, **HTTP**, e **APIConnection** tipos. 
+Devolva o "URL de retorno de chamada" que chama um acionador ou ação. Esta função só funciona com acionadores e ações para o **HttpWebhook** e **ApiConnectionWebhook** tipos de conector, mas não o **Manual**,  **Periodicidade**, **HTTP**, e **APIConnection** tipos. 
 
 ```
 listCallbackUrl()
 ```
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*URL de chamada de retorno*> | Cadeia | O URL de chamada de retorno para um acionador ou ação |  
+| <*URL de retorno de chamada*> | Cadeia | O URL de retorno de chamada para um acionador ou ação |  
 |||| 
 
 *Exemplo*
 
-Este exemplo mostra um URL de chamada de retorno de exemplo que poderá devolver esta função:
+Este exemplo mostra um URL de retorno de chamada de exemplo que essa função pode retornar:
 
 `"https://prod-01.westus.logic.azure.com:443/workflows/<*workflow-ID*>/triggers/manual/run?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<*signature-ID*>"`
 
@@ -2294,7 +2290,7 @@ Este exemplo mostra um URL de chamada de retorno de exemplo que poderá devolver
 
 ## <a name="max"></a>máx.
 
-Devolva o valor mais alto de uma lista ou matriz com números inclusive em ambas as extremidades. 
+Devolva o valor mais alto de uma lista ou uma matriz com números que é, inclusivos em ambas as extremidades. 
 
 ```
 max(<number1>, <number2>, ...)
@@ -2303,25 +2299,25 @@ max([<number1>, <number2>, ...])
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*number1*>, <*Número2*>,... | Sim | Número inteiro, flutuante ou ambos | O conjunto de números a partir do qual pretende que o valor mais alto | 
-| [<*number1*>, <*Número2*>,...] | Sim | Matriz - número inteiro, flutuante ou ambos | A matriz de números a partir do qual pretende que o valor mais alto | 
+| <*number1*>, <*number2*>,... | Sim | Número inteiro, vírgula flutuante ou ambos | O conjunto de números a partir do qual pretende que o valor mais alto | 
+| [<*number1*>, <*number2*>,...] | Sim | Matriz - número inteiro, vírgula flutuante ou ambos | A matriz de números a partir do qual pretende que o valor mais alto | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor máximo*> | Um número inteiro ou número de vírgula flutuante | O valor mais alto na matriz especificada ou conjunto de números | 
+| <*valor máximo*> | Número inteiro ou flutuante | O valor mais alto na matriz especificada ou conjunto de números | 
 |||| 
 
 *Exemplo* 
 
-Estes exemplos obtém o valor mais alto do conjunto de números e a matriz de:
+Estes exemplos obtém o valor mais alto do conjunto de números e a matriz:
 
 ```
 max(1, 2, 3)
 max([1, 2, 3])
 ```
 
-E devolver este resultado de: `3`
+E retornar esse resultado: `3`
 
 <a name="min"></a>
 
@@ -2336,31 +2332,31 @@ min([<number1>, <number2>, ...])
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*number1*>, <*Número2*>,... | Sim | Número inteiro, flutuante ou ambos | O conjunto de números a partir do qual pretende que o menor valor | 
-| [<*number1*>, <*Número2*>,...] | Sim | Matriz - número inteiro, flutuante ou ambos | A matriz de números a partir do qual pretende que o menor valor | 
+| <*number1*>, <*number2*>,... | Sim | Número inteiro, vírgula flutuante ou ambos | O conjunto de números a partir do qual pretende que o valor mais baixo | 
+| [<*number1*>, <*number2*>,...] | Sim | Matriz - número inteiro, vírgula flutuante ou ambos | A matriz de números a partir do qual pretende que o valor mais baixo | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor mínimo*> | Um número inteiro ou número de vírgula flutuante | O valor mais baixo do conjunto especificado de números ou a matriz especificada | 
+| <*valor mínimo*> | Número inteiro ou flutuante | O valor mais baixo no conjunto especificado de números ou matriz especificada | 
 |||| 
 
 *Exemplo* 
 
-Estes exemplos obtém o valor mais baixo no conjunto de números e a matriz de:
+Estes exemplos obtém o valor mais baixo no conjunto de números e a matriz:
 
 ```
 min(1, 2, 3)
 min([1, 2, 3])
 ```
 
-E devolver este resultado de: `1`
+E retornar esse resultado: `1`
 
 <a name="mod"></a>
 
 ## <a name="mod"></a>MOD
 
-Devolve o resto da divisão de dois números. Para obter o resultado de número inteiro, consulte [div()](#div).
+Devolva o resto da divisão de dois números. Para obter o resultado de número inteiro, consulte [div()](#div).
 
 ```
 mod(<dividend>, <divisor>)
@@ -2368,13 +2364,13 @@ mod(<dividend>, <divisor>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*dividendo*> | Sim | Um número inteiro ou número de vírgula flutuante | O número dividir pelo *divisor* | 
-| <*Divisor*> | Sim | Um número inteiro ou número de vírgula flutuante | O número que divide o *dividendo*, mas não pode ser 0. | 
+| <*dividendo*> | Sim | Número inteiro ou flutuante | O número pelo qual dividir o *divisor* | 
+| <*Divisor*> | Sim | Número inteiro ou flutuante | O número que divida o *dividendo*, mas não pode ser 0. | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*módulo resultado*> | Um número inteiro ou número de vírgula flutuante | O resto da divisão do primeiro número, o segundo número | 
+| <*módulo do resultado*> | Número inteiro ou flutuante | O resto da divisão o primeiro número, o segundo número | 
 |||| 
 
 *Exemplo* 
@@ -2385,13 +2381,13 @@ Neste exemplo divide o primeiro número, o segundo número:
 mod(3, 2)
 ```
 
-E devolver este resultado de: `1`
+E retornar esse resultado: `1`
 
 <a name="mul"></a>
 
 ## <a name="mul"></a>MUL
 
-Devolva o produto de multiplicando dois números.
+Devolva o produto da multiplicação de dois números.
 
 ```
 mul(<multiplicand1>, <multiplicand2>)
@@ -2399,13 +2395,13 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*multiplicand1*> | Sim | Um número inteiro ou número de vírgula flutuante | O número a multiplicar por *multiplicand2* | 
-| <*multiplicand2*> | Sim | Um número inteiro ou número de vírgula flutuante | O número que múltiplos *multiplicand1* | 
+| <*multiplicand1*> | Sim | Número inteiro ou flutuante | O número a multiplicar por *multiplicand2* | 
+| <*multiplicand2*> | Sim | Número inteiro ou flutuante | O número que múltiplos *multiplicand1* | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*resultado do produto*> | Um número inteiro ou número de vírgula flutuante | O produto de multiplicando o primeiro número, o segundo número | 
+| <*resultado do produto*> | Número inteiro ou flutuante | O produto da multiplicação o primeiro número, o segundo número | 
 |||| 
 
 *Exemplo* 
@@ -2417,7 +2413,7 @@ mul(1, 2)
 mul(1.5, 2)
 ```
 
-E devolver estes resultados:
+E retornar esses resultados:
 
 * Primeiro exemplo: `2`
 * Segundo exemplo `3`
@@ -2426,7 +2422,7 @@ E devolver estes resultados:
 
 ## <a name="multipartbody"></a>multipartBody
 
-Devolva o corpo de uma parte específica no resultado de uma ação que tem várias partes.
+Devolve o corpo de uma parte específica na saída de uma ação que tem várias partes.
 
 ```
 multipartBody('<actionName>', <index>)
@@ -2438,16 +2434,16 @@ multipartBody('<actionName>', <index>)
 | <*Índice*> | Sim | Número inteiro | O valor de índice para a parte que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*Corpo*> | Cadeia | O corpo para a parte especificada | 
+| <*Corpo*> | Cadeia | O corpo da parte especificada | 
 |||| 
 
 <a name="not"></a>
 
 ## <a name="not"></a>não
 
-Verifique se uma expressão é falsa. Devolve verdadeiro quando a expressão é falsa, ou falso quando VERDADEIRO de retorno.
+Verifique se uma expressão é falsa. Devolve verdadeiro quando a expressão é falsa ou retornar falso quando verdadeiro.
 
 ```
 not(<expression>)
@@ -2458,44 +2454,44 @@ not(<expression>)
 | <*expressão*> | Sim | Booleano | A expressão para verificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando a expressão é falsa. Devolva falso quando a expressão for verdadeira. |  
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando a expressão é falsa. Retornar falso quando a expressão for verdadeira. |  
 |||| 
 
 *Exemplo 1*
 
-Estes exemplos verificam se as expressões especificadas são falsas: 
+Estes exemplos, verifique se as expressões especificadas são Falso: 
 
 ```
 not(false)
 not(true)
 ```
 
-E devolver estes resultados:
+E retornar esses resultados:
 
-* Primeiro exemplo: A expressão é falsa, pelo que a função devolve `true`.
-* Segundo exemplo: A expressão for verdadeira, pelo que a função devolve `false`.
+* Primeiro exemplo: A expressão é falsa, para que a função devolve `true`.
+* Segundo exemplo: A expressão for verdadeira, portanto, a função devolve `false`.
 
 *Exemplo 2*
 
-Estes exemplos verificam se as expressões especificadas são falsas: 
+Estes exemplos, verifique se as expressões especificadas são Falso: 
 
 ```
 not(equals(1, 2))
 not(equals(1, 1))
 ```
 
-E devolver estes resultados:
+E retornar esses resultados:
 
-* Primeiro exemplo: A expressão é falsa, pelo que a função devolve `true`.
-* Segundo exemplo: A expressão for verdadeira, pelo que a função devolve `false`.
+* Primeiro exemplo: A expressão é falsa, para que a função devolve `true`.
+* Segundo exemplo: A expressão for verdadeira, portanto, a função devolve `false`.
 
 <a name="or"></a>
 
 ## <a name="or"></a>ou
 
-Verifique se, pelo menos, uma expressão for verdadeira. Devolve verdadeiro quando, pelo menos, uma expressão for verdadeira ou devolver false quando todos os são falsos.
+Verifique se, pelo menos, uma expressão é verdadeira. Devolve verdadeiro quando pelo menos uma expressão é verdadeira ou retornar false quando todas forem falsos.
 
 ```
 or(<expression1>, <expression2>, ...)
@@ -2506,44 +2502,44 @@ or(<expression1>, <expression2>, ...)
 | <*Expression1*>, <*expression2*>,... | Sim | Booleano | As expressões para verificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando, pelo menos, uma expressão for verdadeira. Devolveu false quando todas as expressões forem falsas. |  
+| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando pelo menos uma expressão é verdadeira. Retorne false quando todas as expressões forem falsos. |  
 |||| 
 
 *Exemplo 1*
 
-Estes exemplos, verifique se, pelo menos, uma expressão for verdadeira:
+Estes exemplos, verifique se, pelo menos, uma expressão é verdadeira:
 
 ```
 or(true, false)
 or(false, false)
 ```
 
-E devolver estes resultados:
+E retornar esses resultados:
 
-* Primeiro exemplo: pelo menos uma expressão for verdadeira, pelo que a função devolve `true`.
-* Segundo exemplo: ambas as expressões são falsos, pelo que a função devolve `false`.
+* Primeiro exemplo: pelo menos uma expressão for verdadeira, para que a função devolve `true`.
+* Segundo exemplo: ambas as expressões forem falsos, para que a função devolve `false`.
 
 *Exemplo 2*
 
-Estes exemplos, verifique se, pelo menos, uma expressão for verdadeira:
+Estes exemplos, verifique se, pelo menos, uma expressão é verdadeira:
 
 ```
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
 
-E devolver estes resultados:
+E retornar esses resultados:
 
-* Primeiro exemplo: pelo menos uma expressão for verdadeira, pelo que a função devolve `true`.
-* Segundo exemplo: ambas as expressões são falsos, pelo que a função devolve `false`.
+* Primeiro exemplo: pelo menos uma expressão for verdadeira, para que a função devolve `true`.
+* Segundo exemplo: ambas as expressões forem falsos, para que a função devolve `false`.
 
 <a name="parameters"></a>
 
 ## <a name="parameters"></a>parâmetros
 
-Devolva o valor para um parâmetro que é descrito a definição da aplicação lógica. 
+Devolva o valor para um parâmetro que é descrito na sua definição da aplicação lógica. 
 
 ```
 parameters('<parameterName>')
@@ -2551,17 +2547,17 @@ parameters('<parameterName>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*parameterName*> | Sim | Cadeia | O nome para o parâmetro cujo valor que pretende | 
+| <*parameterName*> | Sim | Cadeia | O nome para o parâmetro de valor que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*valor do parâmetro*> | Qualquer | O valor para o parâmetro especificado | 
 |||| 
 
 *Exemplo* 
 
-Suponha que tem este valor JSON:
+Suponha que tenha este valor JSON:
 
 ```json
 {
@@ -2575,13 +2571,13 @@ Neste exemplo obtém o valor para o parâmetro especificado:
 parameters('fullName')
 ```
 
-E devolve o resultado deste: `"Sophia Owen"`
+E devolve o resultado: `"Sophia Owen"`
 
 <a name="rand"></a>
 
 ## <a name="rand"></a>rand
 
-Devolva um número inteiro aleatório a partir de um intervalo especificado, o que é inclusive apenas no final inicial.
+Devolva um número inteiro aleatório de um intervalo especificado, o que é, inclusive apenas no final de partida.
 
 ```
 rand(<minValue>, <maxValue>)
@@ -2589,30 +2585,30 @@ rand(<minValue>, <maxValue>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*MinValue*> | Sim | Número inteiro | O valor mais baixo inteiro no intervalo | 
-| <*MaxValue*> | Sim | Número inteiro | O número inteiro que se segue o maior número inteiro no intervalo que pode devolver a função | 
+| <*minValue*> | Sim | Número inteiro | O menor número inteiro no intervalo | 
+| <*maxValue*> | Sim | Número inteiro | O número inteiro que se segue do maior número inteiro no intervalo de que a função pode retornar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*resultado aleatório*> | Número inteiro | O número de inteiro aleatório devolvido a partir do intervalo especificado |  
+| <*resultado aleatório*> | Número inteiro | O número de inteiro aleatório devolvido do intervalo especificado |  
 |||| 
 
 *Exemplo*
 
-Neste exemplo obtém um número aleatório inteiro no intervalo especificado, excluindo o valor máximo de: 
+Neste exemplo obtém um número inteiro aleatório no intervalo especificado, excluindo o valor máximo de: 
 
 ```
 rand(1, 5)
 ```
 
-E devolve um destes números como resultado: `1`, `2`, `3`, ou `4` 
+E devolve um desses números como resultado: `1`, `2`, `3`, ou `4` 
 
 <a name="range"></a>
 
-## <a name="range"></a>intervalo
+## <a name="range"></a>Intervalo
 
-Devolva uma matriz de número inteiro que é iniciado a partir de um número inteiro especificado.
+Devolva uma matriz de inteiros que começa a partir de um número inteiro especificado.
 
 ```
 range(<startIndex>, <count>)
@@ -2620,30 +2616,30 @@ range(<startIndex>, <count>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*startIndex*> | Sim | Número inteiro | O valor de número inteiro que começa a matriz de como o primeiro item | 
+| <*startIndex*> | Sim | Número inteiro | O valor de número inteiro que começa a matriz como o primeiro item | 
 | <*Contagem*> | Sim | Número inteiro | O número de números inteiros na matriz | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | [<*intervalo resultado*>] | Array | A matriz com números inteiros a partir do índice especificado |  
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma matriz de número inteiro que inicia a partir do índice especificado e tem o número especificado de números inteiros:
+Este exemplo cria uma matriz de inteiros que começa a partir do índice especificado e tem o número especificado de números inteiros:
 
 ```
 range(1, 4)
 ```
 
-E devolve o resultado deste: `[1, 2, 3, 4]`
+E devolve o resultado: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-## <a name="replace"></a>Substituir
+## <a name="replace"></a>substituir
 
-Substituir uma subcadeia com a cadeia especificada e devolve a cadeia de resultado. Esta função é maiúsculas e minúsculas.
+Substituir uma subcadeia com a cadeia especificada e retornar a cadeia de caracteres do resultado. Esta função diferencia maiúsculas de minúsculas.
 
 ```
 replace('<text>', '<oldText>', '<newText>')
@@ -2651,31 +2647,31 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia que tenha a subcadeia para substituir | 
-| <*oldText*> | Sim | Cadeia | A subcadeia para substituir | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres que tenha a subcadeia substituir | 
+| <*oldText*> | Sim | Cadeia | A subcadeia substituir | 
 | <*newText*> | Sim | Cadeia | A cadeia de substituição | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*texto atualizado*> | Cadeia | A cadeia atualizada depois de substituir a subcadeia <p>Se a subcadeia não for encontrada, devolve da cadeia original. | 
+| <*texto atualizado*> | Cadeia | A cadeia de caracteres atualizada depois de substituir a subcadeia <p>Se não for encontrada a subcadeia, retorne a cadeia de caracteres original. | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo localiza a subcadeia "antiga" em "a antiga cadeia" e substitui "antigo" com "novo": 
+Neste exemplo encontra a subcadeia "antiga" no "old string" e substitui "antigo" com "new": 
 
 ```
 replace('the old string', 'old', 'new')
 ```
 
-E devolve o resultado deste: `"the new string"`
+E devolve o resultado: `"the new string"`
 
 <a name="removeProperty"></a>
 
 ## <a name="removeproperty"></a>removeProperty
 
-Remover uma propriedade de um objeto e retorno do objeto atualizado.
+Remover uma propriedade de um objeto e retornar do objeto atualizado.
 
 ```
 removeProperty(<object>, '<property>')
@@ -2683,18 +2679,18 @@ removeProperty(<object>, '<property>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sim | Object | O objeto JSON na qual pretende remover uma propriedade | 
-| <*Propriedade*> | Sim | Cadeia | O nome da propriedade remover | 
+| <*Objeto*> | Sim | Object | O objeto JSON a partir do qual pretende remover uma propriedade | 
+| <*Propriedade*> | Sim | Cadeia | O nome de propriedade a remover | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*objeto atualizado*> | Object | O objeto JSON atualizado sem a propriedade especificada | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo remove o `"accountLocation"` propriedade de um `"customerProfile"` objeto, que é convertido em JSON com o [JSON()](#json) funcionar e devolve o objeto atualizado:
+Neste exemplo remove a `"accountLocation"` propriedade de um `"customerProfile"` objeto, que é convertido em JSON com o [JSON()](#json) funcionar e retorna o objeto atualizado:
 
 ```
 removeProperty(json('customerProfile'), 'accountLocation')
@@ -2704,7 +2700,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 ## <a name="setproperty"></a>setProperty
 
-Defina o valor da propriedade de um objeto e devolver o objeto atualizado. Para adicionar uma nova propriedade, pode utilizar esta função ou o [addProperty()](#addProperty) função.
+Defina o valor de propriedade de um objeto e retornar do objeto atualizado. Para adicionar uma nova propriedade, pode usar esta função ou o [addProperty()](#addProperty) função.
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -2712,19 +2708,19 @@ setProperty(<object>, '<property>', <value>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sim | Object | O objeto JSON cuja propriedade pretende definir | 
-| <*Propriedade*> | Sim | Cadeia | O nome para a propriedade nova ou existente definir | 
-| <*Valor*> | Sim | Qualquer | O valor definido para a propriedade especificada |
+| <*Objeto*> | Sim | Object | O objeto JSON cuja propriedade pretende definir | 
+| <*Propriedade*> | Sim | Cadeia | O nome da propriedade nova ou existente definir | 
+| <*Valor*> | Sim | Qualquer | O valor a definir para a propriedade especificada |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*objeto atualizado*> | Object | O objeto JSON cuja propriedade definir atualizado | 
+| <*objeto atualizado*> | Object | O objeto JSON atualizado cuja propriedade definir | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo define o `"accountNumber"` propriedade um `"customerProfile"` objeto, que é convertido em JSON com o [JSON()](#json) função. A função atribui um valor gerado pelo [guid()](#guid) funcionar e devolve o objeto JSON atualizado:
+Este exemplo define a `"accountNumber"` propriedade num `"customerProfile"` objeto, que é convertido em JSON com o [JSON()](#json) função. A função atribui um valor gerado pelo [guid()](#guid) funcionar e retorna o objeto JSON atualizado:
 
 ```
 setProperty(json('customerProfile'), 'accountNumber', guid())
@@ -2732,7 +2728,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>Ignorar
+## <a name="skip"></a>ignorar
 
 Remover itens da frente de uma coleção e devolver *todas as outras* itens.
 
@@ -2743,29 +2739,29 @@ skip([<collection>], <count>)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Coleção*> | Sim | Array | A coleção cujos itens que pretende remover | 
-| <*Contagem*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens a remover em início | 
+| <*Contagem*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens a remover à frente | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | [<*coleção atualizados*>] | Array | A coleção atualizada depois de remover os itens especificados | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo remove um item, o número de 0, do início da matriz especificada: 
+Neste exemplo remove um item, o número de 0, da frente da matriz especificada: 
 
 ```
 skip([0, 1, 2, 3], 1)
 ```
 
-E devolve esta matriz com os restantes itens: `[1,2,3]`
+E retornará essa matriz com os itens restantes: `[1,2,3]`
 
 <a name="split"></a>
 
 ## <a name="split"></a>dividir
 
-Devolve uma matriz que tem todos os carateres de uma cadeia e tem cada caráter separada por um *delimitador*.
+Devolver uma matriz que tem todos os carateres de uma cadeia de caracteres e tem a cada caractere separada por um *delimitador*.
 
 ```
 split('<text>', '<separator>')
@@ -2773,24 +2769,24 @@ split('<text>', '<separator>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia com os carateres dividir |  
-| <*separador*> | Sim | Cadeia | O separador que aparece entre cada caráter na matriz resultante | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres que tem os carateres dividir |  
+| <*separador*> | Sim | Cadeia | O separador que aparece entre cada caractere na matriz resultante | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separador*><*char2*><*separador*>...] | Array | A matriz resultante criada a partir de todos os itens a cadeia especificada |
+| [<*char1*><*separador*><*char2*><*separador*>...] | Array | A matriz resultante criada a partir de todos os itens na cadeia de caracteres especificado |
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma matriz da cadeia especificada, separando cada caráter com uma vírgula como o delimitador de:
+Este exemplo cria uma matriz de cadeia especificada, separando cada caractere com uma vírgula como delimitador:
 
 ```
 split('abc', ',')
 ```
 
-E devolve o resultado deste: `[a, b, c]`
+E devolve o resultado: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
@@ -2804,24 +2800,24 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo especificado mas começando na marca de hora de zero para o dia | 
+| <*timestamp atualizado*> | Cadeia | O período de tempo especificado, mas começando na marca de hora zero para o dia | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo localiza o início do dia para este carimbo:
+Neste exemplo localiza o início do dia para este timestamp:
 
 ```
 startOfDay('2018-03-15T13:30:30Z')
 ```
 
-E devolve o resultado deste: `"2018-03-15T00:00:00.0000000Z"`
+E devolve o resultado: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
@@ -2835,24 +2831,24 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo especificado mas começando na marca de minuto de zero para a hora | 
+| <*timestamp atualizado*> | Cadeia | O período de tempo especificado, mas começando na marca de zero minutos para a hora | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo localiza o início da hora para este carimbo:
+Neste exemplo localiza o início da hora para este timestamp:
 
 ```
 startOfHour('2018-03-15T13:30:30Z')
 ```
 
-E devolve o resultado deste: `"2018-03-15T13:00:00.0000000Z"`
+E devolve o resultado: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
@@ -2866,30 +2862,30 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. |
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo especificado mas começando no primeiro dia do mês na marca de hora de zero | 
+| <*timestamp atualizado*> | Cadeia | O período de tempo especificado, mas começando no primeiro dia do mês na marca de hora zero | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo devolve o início do mês para este carimbo:
+Neste exemplo devolve o início do mês para este timestamp:
 
 ```
 startOfMonth('2018-03-15T13:30:30Z')
 ```
 
-E devolve o resultado deste: `"2018-03-01T00:00:00.0000000Z"`
+E devolve o resultado: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
 ## <a name="startswith"></a>startsWith
 
-Verificar se uma cadeia começa com uma subcadeia específica. Devolve verdadeiro quando a subcadeia for encontrada, ou de retorno falso quando não foi encontrado. Esta função não é sensível.
+Verificar se uma cadeia de caracteres começa com uma subcadeia específica. Devolve verdadeiro quando a subcadeia for encontrada, ou retornar falso quando não encontrado. Esta função não diferencia maiúsculas de minúsculas.
 
 ```
 startsWith('<text>', '<searchText>')
@@ -2897,40 +2893,40 @@ startsWith('<text>', '<searchText>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia de verificação | 
-| <*searchText*> | Sim | Cadeia | A cadeia de partida para localizar | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres para verificar | 
+| <*searchText*> | Sim | Cadeia | A cadeia de caracteres de partida para localizar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando a subcadeia inicial é encontrada. Devolveu false quando não foi encontrado. | 
+| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando a subcadeia inicial é encontrada. Retornar falso quando não encontrado. | 
 |||| 
 
 *Exemplo 1* 
 
-Neste exemplo verifica se a cadeia "Olá mundo" começa com a subcadeia de "Olá":
+Este exemplo verifica se a cadeia "Olá mundo" começa com a subcadeia "Olá":
 
 ```
 startsWith('hello world', 'hello')
 ```
 
-E devolve o resultado deste: `true`
+E devolve o resultado: `true`
 
 *Exemplo 2*
 
-Neste exemplo verifica se a cadeia "Olá mundo" começa com a subcadeia "saudações":
+Este exemplo verifica se a cadeia "Olá mundo" começa com a subcadeia "saudações":
 
 ```
 startsWith('hello world', 'greetings')
 ```
 
-E devolve o resultado deste: `false`
+E devolve o resultado: `false`
 
 <a name="string"></a>
 
 ## <a name="string"></a>cadeia
 
-Devolva a versão de cadeia para um valor.
+Devolva a versão de cadeia de caracteres para um valor.
 
 ```
 string(<value>)
@@ -2941,36 +2937,36 @@ string(<value>)
 | <*Valor*> | Sim | Qualquer | O valor a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de cadeia*> | Cadeia | A versão de cadeia para o valor especificado | 
+| <*valor de cadeia*> | Cadeia | A versão de cadeia de caracteres para o valor especificado | 
 |||| 
 
 *Exemplo 1* 
 
-Este exemplo cria a versão de cadeia para este número:
+Este exemplo cria a versão de cadeia de caracteres para este número:
 
 ```
 string(10)
 ```
 
-E devolve o resultado deste: `"10"`
+E devolve o resultado: `"10"`
 
 *Exemplo 2*
 
-Este exemplo cria uma cadeia para o objeto JSON especificado e utiliza o caráter de barra invertida (\\) como um caráter de escape para o valor de duplo-aspas (").
+Este exemplo cria uma cadeia de caracteres para o objeto JSON especificado e utiliza o caráter de barra invertida (\\) como um caráter de escape para o double-aspas (").
 
 ```
 string( { "name": "Sophie Owen" } )
 ```
 
-E devolve o resultado deste: `"{ \\"name\\": \\"Sophie Owen\\" }"`
+E devolve o resultado: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
 ## <a name="sub"></a>sub
 
-Devolve o resultado de subtraindo o segundo número do primeiro número.
+Devolva o resultado da subtração o segundo número do primeiro número.
 
 ```
 sub(<minuend>, <subtrahend>)
@@ -2978,30 +2974,30 @@ sub(<minuend>, <subtrahend>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*minuend*> | Sim | Um número inteiro ou número de vírgula flutuante | O número do qual subtrair a *subtrahend* | 
-| <*subtrahend*> | Sim | Um número inteiro ou número de vírgula flutuante | O número subtrair a *minuend* | 
+| <*minuendo*> | Sim | Número inteiro ou flutuante | O número a partir do qual subtrair o *subtraendo* | 
+| <*subtraendo*> | Sim | Número inteiro ou flutuante | O número a subtrair do *minuendo* | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*resultado*> | Um número inteiro ou número de vírgula flutuante | O resultado do subtraindo o segundo número do primeiro número | 
+| <*Resultado*> | Número inteiro ou flutuante | O resultado da subtração o segundo número do primeiro número dos | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo subtrai o segundo número do número primeiro:
+Neste exemplo subtrai o segundo número do primeiro número:
 
 ```
 sub(10.3, .3)
 ```
 
-E devolve o resultado deste: `10`
+E devolve o resultado: `10`
 
 <a name="substring"></a>
 
 ## <a name="substring"></a>subcadeia
 
-Caracteres de retorno de uma cadeia, a partir da posição especificada, ou o índice. Início de valores de índice com o número 0. 
+Devolva carateres de uma cadeia de caracteres, a partir da posição especificada, ou o índice. Início de valores de índice com o número de 0. 
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3010,30 +3006,30 @@ substring('<text>', <startIndex>, <length>)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Texto*> | Sim | Cadeia | A cadeia cujos carateres que pretende | 
-| <*startIndex*> | Sim | Número inteiro | Um número positivo para a posição inicial ou um valor de índice | 
-| <*comprimento*> | Sim | Número inteiro | Um número positivo de carateres que pretende incluir a subcadeia | 
+| <*startIndex*> | Sim | Número inteiro | Um número positivo para a posição inicial ou o valor de índice | 
+| <*Comprimento*> | Sim | Número inteiro | Um número positivo de carateres que pretende na subcadeia | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*resultado da subcadeia*> | Cadeia | Uma subcadeia com o número especificado de carateres, a partir da posição de índice especificado na cadeia de origem | 
+| <*resultado de subcadeia*> | Cadeia | Uma subcadeia com o número especificado de carateres, a partir da posição de índice especificado na cadeia de origem | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma subcadeia de cinco carateres da cadeia especificada, a partir do valor de índice 6:
+Este exemplo cria uma subcadeia de cinco caracteres da cadeia especificada, a partir do valor de índice 6:
 
 ```
 substring('hello world', 6, 5)
 ```
 
-E devolve o resultado deste: `"world"`
+E devolve o resultado: `"world"`
 
 <a name="subtractFromTime"></a>
 
 ## <a name="subtractfromtime"></a>subtractFromTime
 
-Subtrair um número de unidades de tempo de um carimbo. Consulte também [getPastTime](#getPastTime).
+Subtrai um número de unidades de tempo de um carimbo. Consulte também [getPastTime](#getPastTime).
 
 ```
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
@@ -3041,15 +3037,15 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o timestamp | 
-| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificado a subtrair | 
-| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com *intervalo*: "Segunda", "Minutos", "Horas", "Dia", "Semanas", "Meses", "Ano" | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
+| <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificada para subtrair | 
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*timestamp atualizado*> | Cadeia | O carimbo menos o número de unidades de tempo especificado | 
+| <*timestamp atualizado*> | Cadeia | O carimbo de hora menos o número de unidades de tempo especificado | 
 |||| 
 
 *Exemplo 1*
@@ -3060,7 +3056,7 @@ Neste exemplo subtrai um dia deste timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day') 
 ```
 
-E devolve o resultado deste: `"2018-01-01T00:00:00:0000000Z"`
+E devolve o resultado: `"2018-01-01T00:00:00:0000000Z"`
 
 *Exemplo 2*
 
@@ -3070,13 +3066,13 @@ Neste exemplo subtrai um dia deste timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D') 
 ```
 
-E devolve o resultado deste utilizando o formato "D" opcional: `"Monday, January, 1, 2018"`
+E retorna esse resultado com o formato "D" opcional: `"Monday, January, 1, 2018"`
 
 <a name="take"></a>
 
 ## <a name="take"></a>tirar
 
-Itens de retorno do início de uma coleção. 
+Itens de retorno da frente de uma coleção. 
 
 ```
 take('<collection>', <count>)
@@ -3085,34 +3081,34 @@ take([<collection>], <count>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Cadeia ou matriz | A coleção cujos itens que pretende | 
-| <*Contagem*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens que pretende que o do início | 
+| <*Coleção*> | Sim | Cadeia de caracteres ou matriz | A coleção cujos itens que pretende | 
+| <*Contagem*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens que pretende da frente | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*subconjunto*> ou [<*subconjunto*>] | Cadeia ou matriz, respetivamente | Uma cadeia ou matriz com o número especificado de itens obtidas a partir do início da coleção original | 
+| <*subconjunto*> ou [<*subconjunto*>] | Cadeia ou matriz, respetivamente | Uma cadeia ou matriz com o número especificado de itens obtidas a partir de frente da coleção original | 
 |||| 
 
 *Exemplo*
 
-Estes exemplos obter o número especificado de itens da frente destas coleções:
+Estes exemplos obtém o número especificado de itens da frente destas coleções:
 
 ```
 take('abcde`, 3)
 take([0, 1, 2, 3, 4], 3)
 ```
 
-E devolver estes resultados:
+E retornar esses resultados:
 
 * Primeiro exemplo: `"abc"`
 * Segundo exemplo: `[0, 1, 2]`
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>tiques
+## <a name="ticks"></a>ticks
 
-Devolver o `ticks` valor da propriedade para um carimbo especificado. A *marcas de escala* é um intervalo de 100 nanossegundos.
+Devolver o `ticks` valor da propriedade para um carimbo especificado. R *escala* é um intervalo de 100 nanossegundos.
 
 ```
 ticks('<timestamp>')
@@ -3120,19 +3116,19 @@ ticks('<timestamp>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Timestamp*> | Sim | Cadeia | A cadeia para um carimbo | 
+| <*Timestamp*> | Sim | Cadeia | A cadeia de caracteres para um carimbo | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*número de ticks*> | Número inteiro | O número de ticks desde o carimbo especificado | 
+| <*número de tiques*> | Número inteiro | O número de tiques desde o período de tempo especificado | 
 |||| 
 
 <a name="toLower"></a>
 
 ## <a name="tolower"></a>toLower
 
-Devolva uma cadeia no formato em minúsculas. Se um carácter na cadeia de não tiver uma versão em minúsculas, esse caráter permanece inalterado na cadeia devolvida.
+Retorne uma cadeia de caracteres no formato em minúsculas. Se um caráter na cadeia não tiver uma versão em minúsculas, esse caractere permanece inalterado na cadeia devolvida.
 
 ```
 toLower('<text>')
@@ -3143,26 +3139,26 @@ toLower('<text>')
 | <*Texto*> | Sim | Cadeia | A cadeia a devolver no formato em minúsculas | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*texto em minúsculas*> | Cadeia | A cadeia no formato minúsculas original | 
+| <*texto em minúsculas*> | Cadeia | A cadeia de caracteres original no formato em minúsculas | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo converte esta cadeia em minúsculas: 
+Neste exemplo converte essa cadeia de caracteres em minúsculas: 
 
 ```
 toLower('Hello World')
 ```
 
-E devolve o resultado deste: `"hello world"`
+E devolve o resultado: `"hello world"`
 
 <a name="toUpper"></a>
 
 ## <a name="toupper"></a>toUpper
 
-Devolva uma cadeia no formato maiúsculas. Se um carácter na cadeia de não tiver uma versão em maiúsculas, esse caráter permanece inalterado na cadeia devolvida.
+Retorne uma cadeia de caracteres no formato em maiúsculas. Se um caráter na cadeia não tiver uma versão em maiúsculas, esse caractere permanece inalterado na cadeia devolvida.
 
 ```
 toUpper('<text>')
@@ -3170,65 +3166,65 @@ toUpper('<text>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia a devolver no formato maiúsculas | 
+| <*Texto*> | Sim | Cadeia | A cadeia a devolver no formato em maiúsculas | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*texto em maiúsculas*> | Cadeia | A cadeia no formato maiúsculas original | 
+| <*texto em maiúsculas*> | Cadeia | A cadeia de caracteres original no formato em maiúsculas | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo converte esta cadeia em maiúsculas:
+Neste exemplo converte essa cadeia de caracteres em maiúsculas:
 
 ```
 toUpper('Hello World')
 ```
 
-E devolve o resultado deste: `"HELLO WORLD"`
+E devolve o resultado: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
 ## <a name="trigger"></a>Acionador
 
-Devolva o resultado de um acionador em tempo de execução ou valores a partir de outros pares de nome e valor JSON, o que pode atribuir a uma expressão. 
+Devolva o resultado de um acionador no tempo de execução ou valores de outros pares de nome e valor JSON, que pode atribuir a uma expressão. 
 
-* Dentro de entradas de um acionador, esta função devolve o resultado da execução anterior. 
+* Dentro das entradas de um acionador, esta função devolve o resultado da execução anterior. 
 
-* Dentro de condição de um acionador, esta função devolve o resultado da execução atual. 
+* Dentro da condição de um acionador, esta função devolve o resultado da execução atual. 
 
-Por predefinição, a função referencia o objeto de Acionador de todo, mas pode especificar opcionalmente uma propriedade cujo valor que pretende. Além disso, esta função tem as versões de expressão compacta disponíveis, consulte [triggerOutputs()](#triggerOutputs) e [triggerBody()](#triggerBody). 
+Por predefinição, a função referencia o objeto acionador inteiro, mas, opcionalmente, pode especificar uma propriedade cujo valor que pretende. Além disso, esta função tem versões de forma abreviada disponíveis, consulte [triggerOutputs()](#triggerOutputs) e [triggerBody()](#triggerBody). 
 
 ```
 trigger()
 ```
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*saída de Acionador*> | Cadeia | O resultado de um acionador em tempo de execução | 
+| <*saída de Acionador*> | Cadeia | A saída a partir de um acionador no tempo de execução | 
 |||| 
 
 <a name="triggerBody"></a>
 
 ## <a name="triggerbody"></a>triggerBody
 
-Devolver um acionador `body` saída no tempo de execução. A abreviatura para `trigger().outputs.body`. Consulte [trigger()](#trigger). 
+Devolver um acionador `body` de saída em tempo de execução. Um atalho para `trigger().outputs.body`. Ver [trigger()](#trigger). 
 
 ```
 triggerBody()
 ```
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*saída de corpo de Acionador*> | Cadeia | O `body` o acionador de saída | 
+| <*saída do corpo do acionador*> | Cadeia | O `body` saída a partir do acionador | 
 |||| 
 
 <a name="triggerFormDataMultiValues"></a>
 
 ## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
-Devolver uma matriz com valores que correspondam a um nome de chave num acionador *dados do formulário* ou *codificado de formulário* saída. 
+Retornar uma matriz com valores que correspondem ao nome da chave num acionador *dados de formulário* ou *formulário codificado* saída. 
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -3236,29 +3232,29 @@ triggerFormDataMultiValues('<key>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*chave*> | Sim | Cadeia | O nome da chave cujo valor que pretende | 
+| <*Chave*> | Sim | Cadeia | O nome da chave de valor que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*matriz com chave valores*>] | Array | Uma matriz com todos os valores que correspondem a chave especificada | 
+| [<*matriz com chaves-valores*>] | Array | Uma matriz com todos os valores que correspondem a chave especificada | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma matriz do valor da chave "feedUrl" dados do formulário ou saída de formulário com codificação de um acionador RSS: 
+Este exemplo cria uma matriz do valor da chave "feedUrl" nos dados de formulário ou a saída de formulário codificado de um acionador RSS: 
 
 ```
 triggerFormDataMultiValues('feedUrl')
 ```
 
-E devolve esta matriz como um resultado de exemplo: `["http://feeds.reuters.com/reuters/topNews"]`
+E retornará essa matriz como um resultado de exemplo: `["http://feeds.reuters.com/reuters/topNews"]`
 
 <a name="triggerFormDataValue"></a>
 
 ## <a name="triggerformdatavalue"></a>triggerFormDataValue
 
-Devolver uma cadeia com um valor único que corresponda a um nome de chave num acionador *dados do formulário* ou *codificado de formulário* saída. Se a função localizar mais do que uma correspondência, a função emite um erro.
+Retornar uma cadeia de caracteres com um valor único que corresponde ao nome da chave num acionador *dados de formulário* ou *formulário codificado* saída. Se a função encontrar mais do que uma correspondência, a função emite um erro.
 
 ```
 triggerFormDataValue('<key>')
@@ -3266,27 +3262,27 @@ triggerFormDataValue('<key>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*chave*> | Sim | Cadeia | O nome da chave cujo valor que pretende |
+| <*Chave*> | Sim | Cadeia | O nome da chave de valor que pretende |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*chave-valor*> | Cadeia | O valor da chave especificada | 
+| <*chave-valor*> | Cadeia | O valor na chave especificada | 
 |||| 
 
 *Exemplo* 
 
-Este exemplo cria uma cadeia a partir do valor de chave "feedUrl" dados do formulário ou saída de formulário com codificação de um acionador RSS:
+Este exemplo cria uma cadeia de caracteres do valor de chave de "feedUrl" nos dados de formulário ou a saída de formulário codificado de um acionador RSS:
 
 ```
 triggerFormDataValue('feedUrl')
 ```
 
-E devolve esta cadeia como um resultado de exemplo: `"http://feeds.reuters.com/reuters/topNews"` 
+E retorna essa cadeia de caracteres como um resultado de exemplo: `"http://feeds.reuters.com/reuters/topNews"` 
 
 <a name="triggerMultipartBody"></a>
 
-Devolva o corpo de uma parte específica na saída de um acionador que tem várias partes. 
+Devolve o corpo de uma parte específica na saída de um acionador que tem várias partes. 
 
 ```
 triggerMultipartBody(<index>)
@@ -3297,7 +3293,7 @@ triggerMultipartBody(<index>)
 | <*Índice*> | Sim | Número inteiro | O valor de índice para a parte que pretende |
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*Corpo*> | Cadeia | O corpo para a parte especificada na saída de várias partes de um acionador | 
 |||| 
@@ -3306,22 +3302,22 @@ triggerMultipartBody(<index>)
 
 ## <a name="triggeroutputs"></a>triggerOutputs
 
-Devolva o resultado de um acionador em tempo de execução ou valores a partir de outros pares de nome e valor JSON. A abreviatura para `trigger().outputs`. Consulte [trigger()](#trigger). 
+Devolva o resultado de um acionador no tempo de execução ou valores de outros pares de nome e valor JSON. Um atalho para `trigger().outputs`. Ver [trigger()](#trigger). 
 
 ```
 triggerOutputs()
 ```
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*saída de Acionador*> | Cadeia | O resultado de um acionador em tempo de execução  | 
+| <*saída de Acionador*> | Cadeia | A saída a partir de um acionador no tempo de execução  | 
 |||| 
 
 <a name="trim"></a>
 
 ## <a name="trim"></a>Cortar
 
-Remover espaços em branco à direita e à esquerda de uma cadeia e devolver a cadeia atualizada.
+Remover espaços em branco à esquerda e à direita de uma cadeia de caracteres e retornar a cadeia de caracteres atualizada.
 
 ```
 trim('<text>')
@@ -3329,29 +3325,29 @@ trim('<text>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Texto*> | Sim | Cadeia | A cadeia com o espaço em branco de direita e à esquerda para remover | 
+| <*Texto*> | Sim | Cadeia | A cadeia de caracteres que tenha o espaço em branco de esquerda e à direita para remover | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*updatedText*> | Cadeia | Uma versão atualizada da cadeia original sem espaços em branco à esquerda nem à direita | 
+| <*updatedText*> | Cadeia | Uma versão atualizada para a cadeia de caracteres original sem espaço em branco à esquerda nem à direita | 
 |||| 
 
 *Exemplo* 
 
-Neste exemplo remove o espaço em branco à direita e à esquerda da cadeia "Olá mundo":  
+Neste exemplo remove o espaço em branco à esquerda e à direita da cadeia de caracteres "Hello World":  
 
 ```
 trim(' Hello World  ')
 ```
 
-E devolve o resultado deste: `"Hello World"`
+E devolve o resultado: `"Hello World"`
 
 <a name="union"></a>
 
 ## <a name="union"></a>União
 
-Devolver uma coleção que tenha *todos os* os itens às coleções especificadas. A aparecer nos resultados, um item pode aparecer em qualquer coleção transmitida para esta função. Se um ou mais itens têm o mesmo nome, o último item com esse nome é apresentado nos resultados. 
+Retornar uma coleção que tenha *todos os* os itens de coleções especificadas. A aparecer no resultado, um item pode aparecer em qualquer coleção transmitida para esta função. Se um ou mais itens têm o mesmo nome, o último item com esse nome aparece no resultado. 
 
 ```
 union('<collection1>', '<collection2>', ...)
@@ -3360,12 +3356,12 @@ union([<collection1>], [<collection2>], ...)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*collection1*>, <*collection2*>,...  | Sim | Matriz ou o objeto, mas não ambos | As coleções de onde pretende *todos os* os itens | 
+| <*coleção1*>, <*coleção2*>,...  | Sim | Matriz ou objeto, mas não ambos | As coleções do qual *todos os* os itens | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*updatedCollection*> | Matriz nem um objeto, respetivamente | Uma coleção com todos os itens de coleções especificadas - sem duplicados | 
+| <*updatedCollection*> | Matriz ou um objeto, respetivamente | Uma coleção com todos os itens de coleções especificadas - não contém duplicados | 
 |||| 
 
 *Exemplo* 
@@ -3376,13 +3372,13 @@ Neste exemplo obtém *todos os* os itens destas coleções:
 union([1, 2, 3], [1, 2, 10, 101])
 ```
 
-E devolve o resultado deste: `[1, 2, 3, 10, 101]`
+E devolve o resultado: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
 ## <a name="uricomponent"></a>uriComponent
 
-Devolva uma versão de identificador (URI) codificado de recurso uniforme uma cadeia, substituindo carateres não seguro URL com carateres de escape. Utilize esta função vez [encodeUriComponent()](#encodeUriComponent). Embora ambas as funções funcionam da mesma forma, `uriComponent()` preferido.
+Devolve uma versão de identifier (URI) com codificação de recurso uniforme para uma cadeia de caracteres ao substituir carateres não seguros de URL com carateres de escape. Utilize esta função vez [encodeUriComponent()](#encodeUriComponent). Embora ambas as funções funcionam da mesma maneira, `uriComponent()` é preferencial.
 
 ```
 uriComponent('<value>')
@@ -3390,29 +3386,29 @@ uriComponent('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia a converter para formato com codificação URI | 
+| <*Valor*> | Sim | Cadeia | A cadeia a converter para formato codificado por URI | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*uri codificado*> | Cadeia | A cadeia URI codificado com carateres de escape | 
+| <*uri codificado*> | Cadeia | A cadeia codificada de URI com caracteres de escape | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria uma versão codificado de URI para esta cadeia:
+Este exemplo cria uma versão codificada de URI para essa cadeia de caracteres:
 
 ```
 uriComponent('https://contoso.com')
 ```
 
-E devolve o resultado deste: `"http%3A%2F%2Fcontoso.com"`
+E devolve o resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
 ## <a name="uricomponenttobinary"></a>uriComponentToBinary
 
-Devolva a versão binária para um componente do recurso uniforme (URI) do identificador.
+Devolva a versão binária de um componente do uniform resource identifier (URI).
 
 ```
 uriComponentToBinary('<value>')
@@ -3420,23 +3416,23 @@ uriComponentToBinary('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com codificação URI a converter | 
+| <*Valor*> | Sim | Cadeia | A cadeia codificada de URI a converter | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*binário-para-codificado-uri*> | Cadeia | A versão binária para a cadeia com codificação URI. O conteúdo do binário é representado pelo e com codificação base64 `$content`. | 
+| <*binário-para-codificado-uri*> | Cadeia | A versão binária para a cadeia codificada de URI. O conteúdo do binário é codificada em base64 e representado pelo `$content`. | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria a versão binária para esta cadeia codificados do URI: 
+Este exemplo cria a versão binária para essa cadeia de caracteres codificada do URI: 
 
 ```
 uriComponentToBinary('http%3A%2F%2Fcontoso.com')
 ```
 
-E devolve o resultado deste: 
+E devolve o resultado: 
 
 `"001000100110100001110100011101000111000000100101001100
 11010000010010010100110010010001100010010100110010010001
@@ -3447,7 +3443,7 @@ E devolve o resultado deste:
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
-Devolva que a versão de cadeia para um identificador de recurso uniforme (URI) codificado cadeia, de forma eficaz descodificar a cadeia com codificação URI.
+Devolva a versão de cadeia de caracteres de um identificador de recurso uniforme (URI) codificado em cadeia de caracteres, com eficiência descodificar a cadeia codificada de URI.
 
 ```
 uriComponentToString('<value>')
@@ -3455,23 +3451,23 @@ uriComponentToString('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com codificação URI para descodificação | 
+| <*Valor*> | Sim | Cadeia | A cadeia codificada de URI a descodificar | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*descodificar-uri*> | Cadeia | A versão descodificada para a cadeia com codificação URI | 
+| <*descodificar-uri*> | Cadeia | A versão decodificada para a cadeia codificada de URI | 
 |||| 
 
 *Exemplo*
 
-Este exemplo cria a versão de cadeia descodificada para esta cadeia codificados do URI: 
+Este exemplo cria a versão de cadeia descodificada para essa cadeia de caracteres codificada do URI: 
 
 ```
 uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
 
-E devolve o resultado deste: `"https://contoso.com"` 
+E devolve o resultado: `"https://contoso.com"` 
 
 <a name="uriHost"></a>
 
@@ -3485,10 +3481,10 @@ uriHost('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*URI*> | Sim | Cadeia | O URI cujo `host` valor | 
+| <*URI*> | Sim | Cadeia | O URI cujos `host` valor desejado | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*valor do anfitrião*> | Cadeia | O `host` valor para o URI especificado | 
 |||| 
@@ -3501,7 +3497,7 @@ Neste exemplo localiza o `host` valor para este URI:
 uriHost('https://www.localhost.com:8080')
 ```
 
-E devolve o resultado deste: `"www.localhost.com"`
+E devolve o resultado: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
@@ -3515,12 +3511,12 @@ uriPath('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*URI*> | Sim | Cadeia | O URI cujo `path` valor | 
+| <*URI*> | Sim | Cadeia | O URI cujos `path` valor desejado | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de caminho*> | Cadeia | O `path` valor para o URI especificado. Se `path` não ter um valor, devolve o caráter "/". | 
+| <*valor do caminho*> | Cadeia | O `path` valor para o URI especificado. Se `path` não ter um valor, devolve o caráter "/". | 
 |||| 
 
 *Exemplo*
@@ -3531,7 +3527,7 @@ Neste exemplo localiza o `path` valor para este URI:
 uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve o resultado deste: `"/catalog/shownew.htm"`
+E devolve o resultado: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
@@ -3545,23 +3541,23 @@ uriPathAndQuery('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*URI*> | Sim | Cadeia | O URI cujo `path` e `query` valores pretende | 
+| <*URI*> | Sim | Cadeia | O URI cujos `path` e `query` valores pretendidos | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de consulta de caminho*> | Cadeia | O `path` e `query` valores para o URI especificado. Se `path` não especificar um valor, devolve o caráter "/". | 
+| <*valor da consulta de caminho*> | Cadeia | O `path` e `query` valores para o URI especificado. Se `path` não especificar um valor, devolve o caráter "/". | 
 |||| 
 
 *Exemplo*
 
-Neste exemplo localiza o `path` e `query` valores para este URI:
+Neste exemplo localiza os `path` e `query` valores para este URI:
 
 ```
 uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve o resultado deste: `"/catalog/shownew.htm?date=today"`
+E devolve o resultado: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
@@ -3575,23 +3571,23 @@ uriPort('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*URI*> | Sim | Cadeia | O URI cujo `port` valor | 
+| <*URI*> | Sim | Cadeia | O URI cujos `port` valor desejado | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de porta*> | Número inteiro | O `port` valor para o URI especificado. Se `port` não especificar um valor, a porta predefinida para o protocolo de retorno. | 
+| <*valor de porta*> | Número inteiro | O `port` valor para o URI especificado. Se `port` não especificar um valor, devolve a porta predefinida para o protocolo. | 
 |||| 
 
 *Exemplo*
 
-Este exemplo devolve o `port` valor para este URI:
+Este exemplo retorna o `port` valor para este URI:
 
 ```
 uriPort('http://www.localhost:8080')
 ```
 
-E devolve o resultado deste: `8080`
+E devolve o resultado: `8080`
 
 <a name="uriQuery"></a>
 
@@ -3605,27 +3601,27 @@ uriQuery('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*URI*> | Sim | Cadeia | O URI cujo `query` valor | 
+| <*URI*> | Sim | Cadeia | O URI cujos `query` valor desejado | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor de consulta*> | Cadeia | O `query` valor para o URI especificado | 
+| <*valor da consulta*> | Cadeia | O `query` valor para o URI especificado | 
 |||| 
 
 *Exemplo*
 
-Este exemplo devolve o `query` valor para este URI: 
+Este exemplo retorna o `query` valor para este URI: 
 
 ```
 uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve o resultado deste: `"?date=today"`
+E devolve o resultado: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>UriScheme
+## <a name="urischeme"></a>uriScheme
 
 Devolver o `scheme` valor para um identificador de recurso uniforme (URI).
 
@@ -3635,23 +3631,23 @@ uriScheme('<uri>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*URI*> | Sim | Cadeia | O URI cujo `scheme` valor | 
+| <*URI*> | Sim | Cadeia | O URI cujos `scheme` valor desejado | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*valor de esquema*> | Cadeia | O `scheme` valor para o URI especificado | 
 |||| 
 
 *Exemplo*
 
-Este exemplo devolve o `scheme` valor para este URI:
+Este exemplo retorna o `scheme` valor para este URI:
 
 ```
 uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
-E devolve o resultado deste: `"http"`
+E devolve o resultado: `"http"`
 
 <a name="utcNow"></a>
 
@@ -3663,42 +3659,42 @@ Devolva o timestamp atual.
 utcNow('<format>')
 ```
 
-Opcionalmente, pode especificar um formato diferente com o <*formato*> parâmetro. 
+Opcionalmente, pode especificar um formato diferente com a <*formato*> parâmetro. 
 
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*formato*> | Não | Cadeia | É um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para o timestamp é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva informações de fuso horário. | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
 | <*timestamp atual*> | Cadeia | A data e hora atuais | 
 |||| 
 
 *Exemplo 1*
 
-Suponhamos hoje é 15 de Abril de 2018 1:00:00 PM. Neste exemplo obtém o timestamp atual: 
+Suponha que hoje é dia 15 de Abril de 2018 em 1: das 12:00:00. Neste exemplo obtém o timestamp atual: 
 
 ```
 utcNow()
 ```
 
-E devolve o resultado deste: `"2018-04-15T13:00:00.0000000Z"`
+E devolve o resultado: `"2018-04-15T13:00:00.0000000Z"`
 
 *Exemplo 2*
 
-Suponhamos hoje é 15 de Abril de 2018 1:00:00 PM. Neste exemplo obtém o timestamp atual utilizando o formato "D" opcional:
+Suponha que hoje é dia 15 de Abril de 2018 em 1: das 12:00:00. Neste exemplo obtém o timestamp atual usando o formato "D" opcional:
 
 ```
 utcNow('D')
 ```
 
-E devolve o resultado deste: `"Sunday, April 15, 2018"`
+E devolve o resultado: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-## <a name="variables"></a>variáveis
+## <a name="variables"></a>Variáveis
 
 Devolva o valor para uma variável especificada. 
 
@@ -3708,12 +3704,12 @@ variables('<variableName>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*variableName*> | Sim | Cadeia | O nome da variável cujo valor que pretende | 
+| <*Nomedavariável*> | Sim | Cadeia | O nome para a variável valor que pretende | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*valor da variável*> | Qualquer | O valor da variável especificada | 
+| <*valor de variável*> | Qualquer | O valor para a variável especificada | 
 |||| 
 
 *Exemplo*
@@ -3724,13 +3720,13 @@ Suponha que o valor atual para uma variável de "numItems" é 20. Neste exemplo 
 variables('numItems')
 ```
 
-E devolve o resultado deste: `20`
+E devolve o resultado: `20`
 
 <a name="workflow"></a>
 
 ## <a name="workflow"></a>fluxo de trabalho
 
-Devolva todos os detalhes sobre o fluxo de trabalho durante o tempo de execução. 
+Devolva todos os detalhes sobre o próprio fluxo de trabalho durante o tempo de execução. 
 
 ```
 workflow().<property>
@@ -3738,12 +3734,12 @@ workflow().<property>
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Propriedade*> | Não | Cadeia | O nome para a propriedade de fluxo de trabalho cujo valor que pretende <p>Um objeto de fluxo de trabalho com estas propriedades: **nome**, **tipo**, **id**, **localização**, e **executar**. O **executar** valor da propriedade também é um objeto com estas propriedades: **nome**, **tipo**, e **id**. | 
+| <*Propriedade*> | Não | Cadeia | O nome para a propriedade de fluxo de trabalho valor que pretende <p>Um objeto de fluxo de trabalho tem estas propriedades: **name**, **tipo**, **id**, **localização**, e **executar**. O **execute** valor da propriedade também é um objeto com estas propriedades: **nome**, **tipo**, e **id**. | 
 ||||| 
 
 *Exemplo*
 
-Neste exemplo devolve o nome de execução atual de um fluxo de trabalho:
+Neste exemplo devolve o nome para a execução de um fluxo de trabalho atual:
 
 ```
 workflow().run.name
@@ -3761,21 +3757,21 @@ xml('<value>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Valor*> | Sim | Cadeia | A cadeia com o objeto JSON a converter <p>O objeto JSON tem de ter a propriedade de raiz apenas um. <br>Utilizar o caráter de barra invertida (\\) como um caráter de escape para as aspas aspas ("). | 
+| <*Valor*> | Sim | Cadeia | A cadeia de caracteres com o objeto JSON para converter <p>O objeto JSON tem de ter a propriedade de raiz apenas um. <br>Utilizar o caráter de barra invertida (\\) como um caráter de escape aspas ("). | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*versão de XML*> | Object | O XML para a cadeia especificada ou o objeto JSON codificado | 
+| <*versão de XML*> | Object | O XML codificado para a cadeia especificada ou o objeto JSON | 
 |||| 
 
 *Exemplo 1*
 
-Este exemplo cria a versão XML para esta cadeia que contém um objeto JSON: 
+Este exemplo cria a versão XML para essa cadeia de caracteres, que contém um objeto JSON: 
 
 `xml( '{ \"name\": \"Sophia Owen\" }' )`
 
-E devolve o resultado deste XML: 
+E devolve o resultado XML: 
 
 ```xml
 <name>Sophia Owen</name>
@@ -3794,11 +3790,11 @@ Suponha que tem este objeto JSON:
 }
 ```
 
-Este exemplo cria XML de uma cadeia que contém este objeto JSON:
+Este exemplo cria o XML para uma cadeia que contém este objeto JSON:
 
 `xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
 
-E devolve o resultado deste XML: 
+E devolve o resultado XML: 
 
 ```xml
 <person>
@@ -3811,7 +3807,7 @@ E devolve o resultado deste XML:
 
 ## <a name="xpath"></a>XPath
 
-Verifique o XML para nós ou valores que correspondem a uma expressão de XPath (linguagem XML) e devolver valores ou nós correspondente. Uma expressão de XPath ou apenas "XPath", poderá navegar uma estrutura de documento XML, de modo a que possa selecionar nós ou valores de computação no conteúdo XML.
+Verificar o XML de nós ou valores que correspondem a uma expressão XPath (linguagem de caminho de XML) e devolver os valores ou nós correspondentes. Uma expressão XPath, ou apenas "XPath", ajuda-o a percorrer uma estrutura de documento XML para que possa selecionar nós ou valores de computação no conteúdo XML.
 
 ```
 xpath('<xml>', '<xpath>')
@@ -3819,50 +3815,50 @@ xpath('<xml>', '<xpath>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*XML*> | Sim | Qualquer | A cadeia XML para procurar nós ou valores que correspondam a um valor de expressão de XPath | 
-| <*XPath*> | Sim | Qualquer | A expressão XPath utilizada para localizar o nó XML ou valores correspondente | 
+| <*XML*> | Sim | Qualquer | A cadeia de caracteres XML para procurar nós ou valores que correspondem a um valor de expressão XPath | 
+| <*XPath*> | Sim | Qualquer | A expressão XPath usada para encontrar valores ou nós XML correspondentes | 
 ||||| 
 
-| Valor devolvido | Tipo | Descrição | 
+| Valor de retorno | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*nó XML*> | XML | Um nó XML quando apenas um único nó corresponde a expressão XPath especificada | 
-| <*Valor*> | Qualquer | O valor de um nó XML quando apenas um valor único corresponde a expressão XPath especificada | 
-| [<*xml Nó1*>, <*xml Nó2*>,...] </br>-ou- </br>[<*value1*>, <*value2*>,...] | Array | Uma matriz connosco XML ou os valores que correspondem a expressão XPath especificada | 
+| <*nó de XML*> | XML | Um nó XML quando apenas um único nó corresponde a expressão XPath especificada | 
+| <*Valor*> | Qualquer | O valor de um nó XML quando apenas um único valor corresponde à expressão XPath especificada | 
+| [<*xml node1*>, <*xml node2*>,...] </br>-ou- </br>[<*value1*>, <*value2*>,...] | Array | Uma matriz connosco XML ou valores que correspondem à expressão XPath especificada | 
 |||| 
 
 *Exemplo 1*
 
-Neste exemplo localiza nós que correspondem a `<name></name>` nó os argumentos especificados e devolve uma matriz com esses valores de nó: 
+Neste exemplo encontra nós que correspondem a `<name></name>` nó os argumentos especificados e retorna uma matriz com esses valores de nó: 
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
 Seguem-se os argumentos:
 
-* A cadeia "itens", que contém este XML:
+* A cadeia de "items", que contém este XML:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-  O exemplo utiliza o [parameters()](#parameters) funcionar para obter a cadeia XML no argumento "itens", mas tem também de converter a cadeia de formato XML utilizando o [xml()](#xml) função. 
+  O exemplo utiliza a [parameters()](#parameters) funcionar para obter a cadeia de caracteres XML no argumento de "items", mas tem também de converter a cadeia de formato XML, utilizando o [xml()](#xml) função. 
 
-* Esta expressão XPath que é transmitida como uma cadeia:
+* Esta expressão XPath, que é transmitido como uma cadeia de caracteres:
 
   `"/produce/item/name"`
 
-Segue-se a matriz de resultado com os nós que corresponde ao `<name></name`:
+Segue-se a matriz de resultado com os nós que correspondem ao `<name></name`:
 
 `[ <name>Gala</name>, <name>Honeycrisp</name> ]`
 
 *Exemplo 2*
 
-A seguir no exemplo 1, neste exemplo localiza nós que correspondem a `<count></count>` nó e adiciona esses valores de nó com o `sum()` função:
+A seguir no exemplo 1, neste exemplo encontra-se nós que correspondem a `<count></count>` nó e adiciona esses valores de nó com o `sum()` função:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-E devolve o resultado deste: `30`
+E devolve o resultado: `30`
 
 *Exemplo 3*
 
-Neste exemplo, ambas as expressões localizar nós que correspondem a `<location></location>` nó, os argumentos especificados, que incluem a XML com um espaço de nomes. As expressões de utilizam o caráter de barra invertida (\\) como um caráter de escape para as aspas aspas (").
+Neste exemplo, ambas as expressões de localizar nós que correspondem a `<location></location>` nó, os argumentos especificados, que incluem o XML com um espaço de nomes. As expressões de utilizam o caráter de barra invertida (\\) como um caráter de escape aspas (").
 
 * *Expressão 1*
 
@@ -3874,7 +3870,7 @@ Neste exemplo, ambas as expressões localizar nós que correspondem a `<location
 
 Seguem-se os argumentos:
 
-* Este XML, que inclui o espaço de nomes do documento XML, `xmlns="http://contoso.com"`: 
+* Este XML, que inclui o espaço de nomes de documento XML, `xmlns="http://contoso.com"`: 
 
   ```xml
   <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
@@ -3886,7 +3882,7 @@ Seguem-se os argumentos:
 
   * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
 
-Eis o nó de resultado que corresponda a `<location></location` nó:
+Aqui está o nó de resultado que corresponda a `<location></location` nó:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
@@ -3894,11 +3890,11 @@ Eis o nó de resultado que corresponda a `<location></location` nó:
 
 *Exemplo 4*
 
-A seguir no exemplo 3, neste exemplo localiza o valor de `<location></location>` nó: 
+A seguir no exemplo 3, neste exemplo encontra-se o valor no `<location></location>` nó: 
 
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
-E devolve o resultado deste: `"Paris"`
+E devolve o resultado: `"Paris"`
 
 ## <a name="next-steps"></a>Passos Seguintes
 
