@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/26/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466648"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308321"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure
 
@@ -45,14 +45,6 @@ Ao criar uma hierarquia que é agrupada por departamentos, pode atribuir [contro
 - Cada grupo de gestão pode ter vários filhos.
 - Todas as subscrições e grupos de gestão estão contidos dentro de uma única hierarquia em cada diretório. Ver [fatos importantes sobre o grupo de gestão de raiz](#important-facts-about-the-root-management-group) para exceções durante a pré-visualização.
 
-### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de subscrição de pré-visualização
-
-Atualmente, não existe uma limitação em pré-visualização em que não possa ver as subscrições que têm herdadas acesso a. O acesso seja herdado para a subscrição, mas o Azure Resource Manager não é capaz de honrar o acesso de herança ainda.  
-
-Com a API REST para obter informações sobre a subscrição devolve detalhes como tem acesso, mas dentro do portal do Azure e o Azure Powershell não mostram as subscrições.
-
-Este item está a ser executada e será resolvido antes de gestão de grupos são anunciados como "Disponibilidade geral."  
-
 ### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Limitação de fornecedor de soluções (CSP) durante a pré-visualização da cloud
 
 Há uma limitação atual para parceiros do fornecedor de soluções Cloud (CSP) em que eles não são capazes de criar ou gerir grupos de gestão dos seus clientes dentro do diretório do seu cliente.  
@@ -76,7 +68,7 @@ Cada diretório é atribuído um grupo de gestão único de nível superior deno
   - Ninguém é dado acesso predefinido para o grupo de gestão de raiz. Administradores globais do são apenas os utilizadores que podem elevar-se para obter acesso.  Assim que tiverem acesso, os administradores do podem atribuir qualquer função RBAC a outros utilizadores para gerir.  
 
 >[!NOTE]
->Se o seu diretório ao utilizar o serviço de grupos de gestão antes de 6/25/2018, o diretório poderá não ser configurado com todas as subscrições na hierarquia. A equipe do grupo de gestão retroativamente está a atualizar cada diretório de introdução à utilização de grupos de gestão na pré-visualização pública antes dessa data dentro de Julho de 2018. Todas as subscrições nos diretórios serão feitas filhos sob o grupo de gestão de raiz anterior.  
+>Se o seu diretório ao utilizar o serviço de grupos de gestão antes de 6/25/2018, o diretório poderá não ser configurado com todas as subscrições na hierarquia. A equipe do grupo de gestão retroativamente está a atualizar cada diretório de introdução à utilização de grupos de gestão na pré-visualização pública antes dessa data dentro de Julho/Agosto de 2018. Todas as subscrições nos diretórios serão feitas filhos sob o grupo de gestão de raiz anterior.  
 >
 >Se tiver dúvidas sobre este processo retroativa, contacte: managementgroups@microsoft.com  
   
@@ -97,9 +89,13 @@ A tabela a seguir mostra a lista de funções e ações suportadas em grupos de 
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X    | X      | X             |               | X     |
 |Contribuinte                 | X      | X      | X    | X      |               |               | X     |
+|Contribuinte do grupo de gestão *             | X      | X      | X    | X      |               |               | X     |
 |Leitor                      |        |        |      |        |               |               | X     |
+|Grupo de gestão. o leitor *                  |        |        |      |        |               |               | X     |
 |Contribuinte de Política de Recurso |        |        |      |        |               | X             |       |
 |Administrador de Acesso de Utilizador   |        |        |      |        | X             |               |       |
+
+*: Grupo de gestão Contribuidor e leitor do grupo de gestão permitem apenas aos utilizadores realizar essas ações no âmbito do grupo de gestão.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Definição de função RBAC personalizada e a atribuição
 

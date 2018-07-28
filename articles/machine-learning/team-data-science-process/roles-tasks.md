@@ -1,10 +1,11 @@
 ---
-title: Equipa de funções do processo de ciência de dados e tarefas - Azure | Microsoft Docs
-description: Uma descrição dos componentes chave, funções de pessoal e tarefas associadas para um projeto de equipa de ciência de dados.
+title: Funções de processo de ciência de dados e tarefas - Azure | Documentos da Microsoft
+description: Uma descrição do componentes-chave, funções de equipe e tarefas associadas para um projeto de equipe de ciência de dados.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,129 +15,139 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 275c1d1dad9030da776900c4e2b97152c8d2d581
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839137"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308529"
 ---
-# <a name="team-data-science-process-roles-and-tasks"></a>Funções do processo de ciência de dados de equipa e tarefas
+# <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Team Data Science Process
 
-O processo de ciência de dados de equipa é uma arquitetura desenvolvida pela Microsoft que fornece uma estruturados metodologia para criar soluções de Análise Preditiva e aplicações inteligentes de forma eficiente. Este artigo descreve as funções de chave técnicos, e das respetivas tarefas associadas são processados por uma ciência de dados equipa uniformizar neste processo. 
+O processo de ciência de dados de equipa é uma estrutura desenvolvida pela Microsoft que fornece uma metodologia estruturada para criar soluções de Análise Preditiva e aplicações inteligentes com eficiência. Este artigo descreve as funções de pessoal-chave e das respetivas tarefas associadas que são processadas por uma ciência de dados de equipa padronização sobre esse processo. 
 
-Este ligações de introdução para tutoriais com instruções sobre como configurar o ambiente de TDSP para o grupo de ciência de dados completo, as equipas de ciência de dados e projetos. Podemos fornecer instruções detalhadas sobre como utilizar os serviços de equipa do Visual Studio (VSTS) nos tutoriais como nossa plataforma que aloja o código e a ferramenta de planeamento seja ágil para gerir as tarefas de equipa, controlar o acesso e gerir os repositórios. 
+Este links de introdução para tutoriais que fornecem instruções sobre como configurar o ambiente do TDSP para o grupo de ciência de dados inteiro, as equipas de ciência de dados e projetos. Ele fornece orientações detalhadas usando o Visual Studio Team Services (VSTS) nos tutoriais.  O VSTS fornece uma plataforma de alojamento de código e a ferramenta de planejamento agile para gerir as tarefas de equipe, controlar o acesso e gerenciar os repositórios. 
 
-Também poderá utilizar estas informações para implementar TDSP na sua própria ferramenta seja ágil e que aloja o código de planeamento. 
+Pode usar essas informações para implementar o TDSP na sua própria ferramenta de planejamento ágil e alojamento de código. 
 
-## <a name="structures-of-data-science-groups-and-teams"></a>Estruturas de grupos de ciência de dados e equipas
-As funções de ciência de dados em empresas, muitas vezes, poderão sejam organizadas da hierarquia seguinte:
+## <a name="structures-of-data-science-groups-and-teams"></a>Estruturas de equipes e grupos de ciência de dados
+
+As funções de ciência de dados nas empresas, muitas vezes, podem ser organizadas na hierarquia do seguinte:
 
 1. ***Grupo de ciência de dados/s***
 
-2. ***Dados ciência equipa/s, no grupo/s***
+2. ***Dados ciência equipe/s no grupo/s***
 
-Essa uma estrutura existe será são grupo em equipa de clientes potenciais clientes potenciais. Normalmente, um projeto de ciência de dados é efetuado por um agrupamento de ciência de dados, o que pode ser composto por n clientes potenciais do projeto clientes potenciais (para tarefas de gestão e governação de projeto) e cientistas de dados ou engenheiros (contribuintes individuais / técnica técnico) que executará a ciência de dados dados e partes do projeto de engenharia. Antes da execução, a configuração e governação é feito através de clientes potenciais clientes potenciais grupo, a equipa ou projeto.
+Numa estrutura, há oportunidades potenciais do grupo e a equipa. Normalmente, um projeto de ciência de dados é feito por uma equipa de ciência de dados, que pode ser composta de oportunidades potenciais de projeto (para tarefas de gestão e administração de projeto) e os cientistas de dados ou engenheiros (contribuidores individuais técnicos e de pessoal) que executará a ciência de dados e partes do projeto de engenharia de dados. Antes da execução, o programa de configuração e a governação é feito pelo grupo, a equipe ou o oportunidades potenciais do projeto.
 
-## <a name="definition-of-four-tdsp-roles"></a>Definição de funções TDSP quatro
-Com pressuposto acima, especificámos a quatro funções distintas para o nosso pessoal equipa:
+## <a name="definition-of-four-tdsp-roles"></a>Definição de quatro funções TDSP
+Com a suposição acima, existem quatro funções distintas para o pessoal da Equipe:
 
-1. ***Gestor de grupo***. Gestor de grupo é o Gestor da unidade de ciência de dados completo numa empresa. Uma unidade de ciência de dados pode ter várias equipas, cada um dos quais está a funcionar em vários projetos de ciência de dados no verticals negócio distintos. Um Gestor de grupo pode delegar as suas tarefas para um substituto, mas as tarefas associadas a função de não alterar.
+1. ***Gerente de grupo***. Gerente de grupo é o gerente da unidade de ciência de dados inteiro numa empresa. Uma unidade de ciência de dados pode ter várias equipes, cada um deles está trabalhando em vários projetos de ciência de dados em mercados verticais de negócios distintos. Gerente de grupo pode delegar suas tarefas, para um substituto, mas não altere as tarefas associadas à função.
 
-2. ***Equipa de oportunidades potenciais***. Uma antecedência de equipa está a gerir uma equipa na unidade de ciência de dados de uma empresa. Uma equipa é composta por vários cientistas de dados. Para a unidade de ciência de dados com apenas um pequeno número de cientistas de dados, o Gestor de grupo e liderar a equipa podem ser a mesma pessoa.
+2. ***Líder da Equipe***. Um líder de equipe está a gerir uma equipa na unidade de ciência de dados de uma empresa. Uma equipe é composta por vários cientistas de dados. Para a unidade de ciência de dados com apenas um pequeno número de cientistas de dados, o Gestor de grupo e o líder de equipe podem ser a mesma pessoa.
 
-3. ***Projeto oportunidades potenciais***. Uma antecedência de projeto gere as atividades diárias de cientistas de dados individual num projeto de ciência de dados específicos.
+3. ***Líder de projeto***. Um líder de projeto gerencia as atividades diárias de cientistas de dados individuais num projeto de ciência de dados específicos.
 
-4. ***Projeto contribuinte individuais***. Dados Scientist, analista de negócios, engenheiro de dados, arquiteto de sistemas, etc. Um contribuinte individuais de projeto executa um projeto de ciência de dados. 
+4. ***Contribuidor Individual do projeto***. Cientista de dados, analista de negócios, engenheiro de dados, Arquiteto, etc. Um colaborador individual do projeto é executado um projeto de ciência de dados. 
 
 
-**[AZURE.NOTE]**: Dependendo da estrutura de uma empresa, uma única pessoa pode reproduzir funções mais do que um ou poderá existir mais do que uma pessoa trabalhar numa função. Frequentemente, isto poderá ser o caso em que as pequenas empresas ou as empresas com um pequeno número de técnico na respetiva organização de ciência de dados.
+> [!NOTE]
+> Consoante a estrutura numa empresa, uma única pessoa pode jogar mais de uma função ou poderá existir mais do que uma pessoa, trabalhando numa função. Com freqüência, isso pode ser o caso em que as pequenas empresas ou as empresas com um pequeno número de funcionários da organização de ciência de dados.
 
-## <a name="tasks-to-be-completed-by-four-personnel"></a>Tarefas a ser concluída por quatro técnico
+## <a name="tasks-to-be-completed-by-four-personnel"></a>Tarefas a serem concluídas por quatro pessoal
 
-A imagem seguinte ilustra as tarefas de nível superior para técnico pela função na adoção e implementar o processo de ciência de dados de equipa que conceptualized pela Microsoft. 
+A imagem seguinte ilustra as tarefas de nível superior para o pessoal por função numa adotar e implementar o processo de ciência de dados de equipa como conceptualized pela Microsoft. 
 
 ![Descrição geral de funções e tarefas](./media/roles-tasks/overview-tdsp-top-level.png)
 
-Este esquema e o contorno seguinte, mais detalhado de tarefas que são atribuídos a cada função de TDSP devem ajudar a escolher o tutorial adequado com base nas suas responsabilidades na organização.
+Esse esquema e a estrutura seguinte, mais detalhada de tarefas que estão atribuídos a cada função no TDSP devem ajudar a escolher o tutorial adequado com base em suas responsabilidades na organização.
 
->[AZURE.NOTE] Nas instruções que se seguem, mostramos passos sobre como configurar um ambiente TDSP e outras tarefas de ciência de dados nos serviços de equipa de Studio Visual (VSTS) ser concluído. Especificamos como realizar estas tarefas com VSTS, uma vez que é o que estamos a utilizar para implementar TDSP na Microsoft. VSTS facilita a colaboração ao integrar a gestão de itens de trabalho que controlam as tarefas e um serviço de alojamento de código utilizado para partilhar utilitários, organizar versões e fornecer a segurança baseada em funções. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo da sua plataforma, algumas funcionalidades, que iremos tirar partido do VSTS poderão não estar disponíveis. 
+> [!NOTE]
+> As instruções seguintes mostram as etapas de como configurar um ambiente de TDSP e realizar outras tarefas de ciência de dados no Visual Studio Team Services (VSTS). Especificamos como realizar estas tarefas com o VSTS, uma vez que é o que estamos a utilizar para implementar o TDSP na Microsoft. VSTS facilita a colaboração ao integrar a gestão de itens de trabalho que controlar as tarefas e um serviço de alojamento de código usado para compartilhar utilitários, versões de organizar e fornecer a segurança baseada em funções. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo da sua plataforma, algumas funcionalidades tirar partidas do VSTS podem não estar disponíveis. 
 >
->Também utilizamos o [Máquina Virtual de ciência de dados (DSVM)](http://aka.ms/dsvm) do Azure na nuvem como o ambiente de trabalho de análise com várias ferramentas de ciência de dados populares pré-configurados e integrados com vários serviços do Azure e software da Microsoft. Pode utilizar o DSVM ou qualquer outro ambiente de desenvolvimento para implementar TDSP. 
+>Instruções aqui também utilizam o [Máquina Virtual de ciência de dados (DSVM)](http://aka.ms/dsvm) sobre o Azure como na nuvem a área de trabalho de análise com várias ferramentas de ciência de dados populares pré-configuradas e integradas em diversos softwares da Microsoft e o Azure serviços. Pode usar a DSVM ou qualquer outro ambiente de desenvolvimento para implementar o TDSP. 
 
 
-## <a name="group-manager-tasks"></a>Grupo do Gestor de tarefas
+## <a name="group-manager-tasks"></a>Tarefas do Gestor de grupo
 
-As seguintes tarefas são concluídas o Gestor de grupo (ou um administrador de sistema TDSP designado) adotar o TDSP:
+As seguintes tarefas são concluídas, o Gestor de grupo (ou um administrador de sistema do TDSP designado) adotar o TDSP:
 
-- Criar um **conta de grupo** num código de plataforma (como o Github, Git, VSTS ou outros) de alojamento
-- Criar um **repositório de modelo de projeto** na conta de grupo e seed-lo no repositório de modelo de projeto desenvolvida pela equipa do Microsoft TDSP. O repositório de modelo de projeto TDSP da Microsoft fornece um **padronizado estrutura de diretórios** , incluindo diretórios de dados, o código e documentos e fornece um conjunto de **padronizado modelos de documento** ajudará a um processo de ciência de dados eficiente. 
-- Criar um **repositório de utilitário**e o seeding do repositório utilitário desenvolvido pela Microsoft TDSP equipa. O repositório de utilitário TDSP da Microsoft fornece um conjunto de utilitários útil para tornar o trabalho de um scientist dados mais eficaz, incluindo os utilitários de exploração de dados interativa, análises e relatórios e para a linha de base de modelação e relatórios.
-- Configurar o **política de controlo de segurança** destas duas repositórios na sua conta de grupo.  
+- Criar uma **conta de grupo** num código de hospedagem de plataforma (como o Github, Git, VSTS ou outros)
+- Criar uma **repositório de modelos de projeto** na conta de grupo e seed-lo a partir do repositório de modelos de projeto desenvolvido pela equipe do Microsoft TDSP. O repositório de modelos de projeto TDSP da Microsoft 
+    - Fornece uma **padronizados a estrutura de diretórios** incluindo diretórios de dados, código e documentos, 
+    - Fornece um conjunto de **padronizadas modelos de documentos** para orientar o processo de ciência de dados eficiente. 
+- Criar uma **repositório de utilitário**e efetuar o seeding do repositório de utilitário desenvolvido pela equipe do Microsoft TDSP. Fornece repositório de utilitário TDSP da Microsoft 
+    - um conjunto de utilitários útil para tornar o trabalho de um cientista de dados mais eficientes, incluindo utilitários para exploração interativa de dados, análises e relatórios e para a linha de base de modelagem e relatórios.
+- Configurar o **política de controlo de segurança** destes dois repositórios na sua conta de grupo.  
 
-Para obter instruções passo a passo detalhadas, consulte [Gestor do grupo de tarefas para uma equipa de ciência de dados](group-manager-tasks.md). 
-
-
-## <a name="team-lead-tasks"></a>Tarefas de fabrico de equipa
-
-As seguintes tarefas são concluídas liderar a equipa (ou um administrador de projeto de equipa designado) adotar o TDSP:
-
-- Se VSTS está selecionado para ser a plataforma de alojamento de código para o controlo de versões e de colaboração, crie um **projeto de equipa** no servidor VSTS do grupo. Caso contrário, esta tarefa pode ser ignorada.
-- Criar o **repositório de modelo de projeto de equipa** sob o projeto de equipa e seed-lo no repositório de modelo de projeto de Grupo configurar o Gestor de grupo ou o delegado do gestor. 
-- Criar o **repositório do utilitário de equipa**e adicione os utilitários de equipa específicos para o repositório. 
-- (Opcional) Criar **[file storage do Azure](https://azure.microsoft.com/services/storage/files/)** a ser utilizado para armazenar os recursos de dados que podem ser úteis para a equipa de toda. Outros membros da equipa podem montar este arquivo de ficheiros de nuvem partilhada nos respetivos ambientes de trabalho de análise.
-- (Opcional) Monte o file storage do Azure para o **máquinas de virtuais de ciência de dados** (DSVM) da equipa de levar e adicionar os recursos de dados no mesmo.
-- Configurar o **controlo de segurança** ao adicionar os membros da equipa e configurar os seus privilégios. 
-
-Para obter instruções passo a passo detalhadas, consulte [tarefas equipa levar para uma equipa de ciência de dados](team-lead-tasks.md).  
+Para obter instruções passo a passo detalhadas, consulte [tarefas de Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md). 
 
 
-## <a name="project-lead-tasks"></a>Tarefas de oportunidades potenciais do projeto
+## <a name="team-lead-tasks"></a>Tarefas de líder de equipe
 
-As seguintes tarefas são concluídas levar de projeto adotar o TDSP:
+As seguintes tarefas são concluídas o líder da Equipe (ou um administrador de projeto de equipe designado) adotar o TDSP:
 
-- Criar um **repositório de projeto** sob o projeto de equipa e seed-lo da equipa do repositório de modelo de projeto. 
-- (Opcional) Criar **file storage do Azure** a ser utilizado para armazenar recursos de dados do projeto. 
-- (Opcional) Monte o file storage do Azure para o **máquinas de virtuais de ciência de dados** (DSVM) do projeto levar e adicionar os recursos de dados do projeto no mesmo.
-- Configurar o **controlo de segurança** ao adicionar membros de projeto e configurar os seus privilégios. 
+- Se o VSTS é selecionado para ser a plataforma de alojamento de código para controle de versão e colaboração, crie uma **projeto de equipe** no servidor VSTS do grupo. Caso contrário, esta tarefa pode ser ignorada.
+- Criar a **repositório de modelos de projeto de equipe** sob o projeto de equipe e seed-lo a partir do repositório de modelos de projeto de Grupo configurar ao seu Gestor de grupo ou o delegado do gestor. 
+- Criar a **repositório de utilitário de equipe**e adicione os utilitários de específicas para a equipe para o repositório. 
+- (Opcional) Crie **[file storage do Azure](https://azure.microsoft.com/services/storage/files/)** a ser utilizado para armazenar elementos de dados que podem ser útil para toda a equipe. Outros membros da Equipe podem montar este arquivo de ficheiros de cloud partilhado em suas áreas de trabalho de análise.
+- (Opcional) Montar o armazenamento de ficheiros do Azure para o **máquina de Virtual de ciência de dados** (DSVM) da Equipe líder e adicionar recursos de dados no mesmo.
+- Configurar o **controlo de segurança** ao adicionar os membros da Equipe e configurar seus privilégios. 
 
-Para obter instruções passo a passo detalhadas, consulte [tarefas projeto levar para uma equipa de ciência de dados](project-lead-tasks.md). 
+Para obter instruções passo a passo detalhadas, consulte [líder da equipe de tarefas para uma equipa de ciência de dados](team-lead-tasks.md).  
 
-## <a name="project-individual-contributor-tasks"></a>Tarefas de contribuinte individuais do projeto
 
-As seguintes tarefas são concluídas um contribuinte individuais para realizar o projeto de ciência de dados utilizando o TDSP projeto (normalmente, um Scientist de dados):
+## <a name="project-lead-tasks"></a>Tarefas de líder do projeto
 
-- Clone o **repositório de projeto** configurado por antecedência o projeto. 
-- (Opcional) Montar partilhado **file storage do Azure** da equipa e projeto no respetivo **máquinas de virtuais de ciência de dados** (DSVM).
+As seguintes tarefas são concluídas, o líder de projeto para adotar o TDSP:
+
+- Criar uma **repositório projeto** sob o projeto de equipe e seed-lo da Equipe do repositório de modelos de projeto. 
+- (Opcional) Crie **armazenamento de ficheiros do Azure** a ser utilizado para armazenar elementos de dados do projeto. 
+- (Opcional) Montar o armazenamento de ficheiros do Azure para o **máquina de Virtual de ciência de dados** (DSVM) do projeto levar e adicionar recursos de dados do projeto no mesmo.
+- Configurar o **controlo de segurança** ao adicionar membros do projeto e configurar seus privilégios. 
+
+Para obter instruções passo a passo detalhadas, consulte [tarefas líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md). 
+
+## <a name="project-individual-contributor-tasks"></a>Tarefas de Contribuidor Individual do projeto
+
+As seguintes tarefas são concluídas por um colaborador Individual para conduzir o projeto de ciência de dados usando o TDSP projeto (normalmente um cientista de dados):
+
+- Clone o **repositório projeto** configure, o líder de projeto. 
+- (Opcional) Montar partilhada **armazenamento de ficheiros do Azure** da Equipe e do projeto no respetivo **máquina de Virtual de ciência de dados** (DSVM).
 - Execute o projeto. 
 
  
-Para obter instruções passo a passo detalhadas para Dependency para um projeto, consulte [contribuintes individuais do projeto para uma equipa de ciência de dados](project-ic-tasks.md). 
+Para obter instruções detalhadas passo a passo para a integração num projeto, consulte [contribuidores individuais do projeto para uma equipa de ciência de dados](project-ic-tasks.md). 
 
 
-## <a name="data-science-project-execution"></a>Execução de projeto de ciência de dados
+## <a name="data-science-project-execution"></a>Execução do projeto de ciência de dados
  
-Seguindo o conjunto de instruções relevante, cientistas de dados, oportunidades potenciais do projeto e clientes de potenciais clientes potenciais equipa podem criar itens de trabalho para controlar todas as tarefas e fases que necessita de um projeto desde o início para o respetivo fim. Também utilizando o git promove colaboração entre cientistas de dados e assegura que os artefactos gerados durante a execução do projeto têm a versão controlado e partilhado por todos os membros de projeto.
+Ao seguir o conjunto relevante de instruções, cientistas de dados, líder de projeto e líderes de equipe podem criar itens de trabalho para controlar todas as tarefas e fases que precisa de um projeto desde o início para o respetivo fim. Com o git também promove a colaboração entre cientistas de dados e garante que os artefatos gerados durante a execução do projeto estão versão controlada e partilhados por todos os membros do projeto.
 
-As instruções fornecidas para a execução do projeto tem foi desenvolvidas com base no pressuposto de que ambos os itens de trabalho e git repositórios estão no VSTS do projeto. Utilizar VSTS para ambos permite-lhe associar os itens de trabalho com os ramos de Git dos seus repositórios de projeto. Desta forma, pode controlar facilmente o que não foi executado para um item de trabalho. 
+As instruções fornecidas para a execução do projeto foram desenvolvidas com base no pressuposto de que ambos os itens de trabalho e projeto git repositórios estão no VSTS. Usando o VSTS para ambos permite-lhe ligar os seus itens de trabalho com os ramos do Git dos seus repositórios do projeto. Dessa forma, pode controlar facilmente o que foi feito para um item de trabalho. 
 
-A figura seguinte descreve este fluxo de trabalho para a execução do projeto com o TDSP.
+A figura a seguir descreve o fluxo de trabalho para utilizar o TDSP de execução do projeto.
 
-![Execução de projeto de ciência de dados típicas](./media/roles-tasks/overview-project-execute.png)
+![Execução do projeto de ciência de dados típico](./media/roles-tasks/overview-project-execute.png)
 
 O fluxo de trabalho inclui passos que podem ser agrupados em três atividades:
 
-- Sprint planeamento (projeto levar)
-- Desenvolver artefactos nos ramos de git para resolver itens de trabalho (dados Scientist)
-- Revisão de código e intercalação ramos com ramos mestres (levar do projeto ou outros membros do agrupamento)
+- (Líder de projeto) de planejamento de Sprint
+- Desenvolvimento de artefactos no ramos do git para abordar os itens de trabalho (cientista de dados)
+- Revisão de código e a mesclagem de ramificações com ramificações principais (líder de projeto ou outros membros da Equipe)
 
-Para obter instruções passo a passo detalhadas sobre o fluxo de trabalho de execução de projeto, consulte [execução de projetos de ciência de dados](project-execution.md).
+Para obter instruções detalhadas passo a passo no fluxo de trabalho de execução de projeto, consulte [execução de projetos de ciência de dados](project-execution.md).
+
+## <a name="project-structure"></a>Estrutura do projeto
+
+Utilize esta opção [repositório de modelos de projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para suportar a execução do projeto eficiente e colaboração. Este repositório dá-lhe um modelos de estrutura e o documento de diretório padronizados que pode utilizar para o seu próprio projeto TDSP.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Seguem-se ligações para as descrições das funções e tarefas definidas pelo processo de ciência de dados de equipa mais detalhadas:
+Explore as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipa:
 
-- [Grupo do Gestor de tarefas para uma equipa de ciência de dados](group-manager-tasks.md)
-- [Tarefas de fabrico da equipa de uma equipa de ciência de dados](team-lead-tasks.md)
-- [Tarefas de fabrico de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
-- [Contribuintes individuais de projeto para uma equipa de ciência de dados](project-ic-tasks.md)
+- [Tarefas do Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md)
+- [Tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
+- [Tarefas de líder de projeto para uma equipa de ciência de dados](project-lead-tasks.md)
+- [Contribuidores individuais do projeto para uma equipa de ciência de dados](project-ic-tasks.md)

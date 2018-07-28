@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a9972d19d33c69ea2eb1b0e00512f37a315b92d8
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285021"
+ms.locfileid: "39325212"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -129,10 +129,8 @@ Para adicionar um recurso de serviço de voz à sua conta do Azure, siga estes p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Baixe um SDK e um código de exemplo para experimentar o serviço de voz.
+Efetue um dos nossos inícios rápidos de 10 minutos, ou consulte as nossas amostras SDK.
 
 > [!div class="nextstepaction"]
-> [SDKs de voz](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Código de exemplo](samples.md)
+> [Início rápido: reconhecer voz em c#](quickstart-csharp-dotnet-windows.md)
+> [amostras do SDK de voz](speech-sdk.md#get-the-samples)

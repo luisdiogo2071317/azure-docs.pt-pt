@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 56c904c0da87c3b0023fe5c9a125a359e23678dc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263815"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309158"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e a política de atualização de recursos de infraestrutura
 Este documento informa como personalizar as várias configurações de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o seu cluster do Service Fabric. Pode personalizá-las através da [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
@@ -59,11 +59,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="applicationgatewayhttp"></a>Gateway de aplicação/Http
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| Isso não valida o certificado de servidor; concluída com êxito o pedido. Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. |
+|ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| Isso não valida o certificado de servidor; concluída com êxito o pedido. Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, a predefinição é 16384 |Dinâmica| Fornece o tamanho para o segmento em bytes, usado para ler o corpo. |
 |CrlCheckingFlag|uint, a predefinição é 0x40000000 |Dinâmica| Sinalizadores de validação da cadeia de certificado de aplicação/serviço; Por exemplo, 0x10000000 de verificação de CRL CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY definição como 0 dwFlags de CertGetCertificateChain é documentada desativa CRL verificação lista, completa, de valores suportados: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos.  Fornece o tempo de limite de solicitação padrão para os pedidos de http a ser processados no gateway de aplicação de http. |
-|ForwardClientCertificate|bool, a predefinição é falso|Dinâmica|Quando definido como false, inverta proxy não irá pedir para o certificado de cliente. Quando definido como true, inversa proxy irá pedir para o certificado de cliente durante o handshake SSL e reencaminhar o codificada em base64 a cadeia de formato PEM para o serviço num cabeçalho X-Client-Certificate.The serviço com o nome pode falhar o pedido com o código de estado apropriado Depois inspecionar os dados do certificado. Se isso é verdadeiro e o cliente não apresenta um certificado, o proxy inverso reencaminhar um cabeçalho vazio e permitir que o serviço de administrar o caso. Proxy inverso irão funcionar como uma camada transparente.|
+|ForwardClientCertificate|bool, a predefinição é falso|Dinâmica|Quando definido como false, inverta proxy não irá pedir para o certificado de cliente. Quando definido como true, inversa proxy irá pedir para o certificado de cliente durante o handshake SSL e reencaminhar o codificada em base64 a cadeia de formato PEM para o serviço num cabeçalho X-Client-Certificate.The serviço com o nome pode falhar o pedido com o código de estado apropriado Depois inspecionar os dados do certificado. Se isso é verdadeiro e o cliente não apresenta um certificado, o proxy inverso reencaminhar um cabeçalho vazio e permitir que o serviço de administrar o caso. Proxy inverso irão funcionar como uma camada transparente. Para obter mais informações, consulte [configurar a autenticação de certificado de cliente](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |cadeia de caracteres, predefinido é "None" |Estático| Indica o tipo de credenciais de segurança para utilizar os http aplicação gateway ponto final valores válidos são "nenhum / X 509. |
 |GatewayX509CertificateFindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica| Indica como procurar o certificado no arquivo especificado pelo valor GatewayX509CertificateStoreName suportados: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia de caracteres, a predefinição é "" |Dinâmica| Valor de filtro de pesquisa utilizado para localizar o certificado de gateway de aplicação de http. Este certificado é configurado no ponto final https e também pode ser utilizado para verificar a identidade da aplicação, se necessário, os serviços. FindValue é verificado primeiro; e se não existir; FindValueSecondary é pesquisado. |
@@ -75,13 +75,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |NumberOfParallelOperations | Uint, a predefinição é 5000 |Estático|Número de leituras por oposição a publicar na fila de servidor http. Esse item controla o número de pedidos simultâneos que podem ser concluídas ao HttpGateway. |
 |RemoveServiceResponseHeaders|cadeia de caracteres, predefinido é "data; Servidor"|Estático|Dois pontos de volumes / separados por vírgulas lista de cabeçalhos de resposta será removido da resposta do serviço; antes do reencaminhamento-lo ao cliente. Se isto estiver definido como uma cadeia vazia; passar todos os cabeçalhos devolvidos pelo serviço como-é. ou seja Não substituir a data e o servidor |
 |ResolveServiceBackoffInterval |Tempo em segundos, a predefinição é 5 |Dinâmica|Especifique o período de tempo em segundos.  Fornece a resolver o intervalo de término do padrão antes de repetir uma falha na operação de serviço. |
-|SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: true: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy reverso pode reencaminhar pedidos de pontos de extremidade seguro/não segura.  |
-|ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso.  |
+|SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: true: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy reverso pode reencaminhar pedidos de pontos de extremidade seguro/não segura. Para obter mais informações, consulte [inverter a lógica de seleção de ponto de extremidade do proxy](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
+|ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Gateway de aplicação/Http/ServiceCommonNameAndIssuer
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| Sujeita thumbprint de nome e o emissor dos certificados remotos que pode confiar o proxy inverso.|
+|PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| Sujeita thumbprint de nome e o emissor dos certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |

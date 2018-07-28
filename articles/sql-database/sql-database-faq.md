@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092074"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308818"
 ---
 # <a name="sql-database-faq"></a>FAQ da Base de Dados SQL
 
@@ -90,7 +90,7 @@ Sim, pode selecionar independentemente do nível de computação a sua aplicaç�
 Pode configurar a retenção de cópia de segurança para PITR entre 7 e 35 dias. O armazenamento de cópias de segurança é cobrado separadamente com base no consumo de armazenamento real se exceder a quantidade de armazenamento equivalente ao tamanho máximo de dados. Em pré-visualização, por predefinição o período de retenção PITR está definido para 7 dias. Em muitos casos, o tamanho máximo dos dados é suficiente para armazenar a 7 dias de cópias de segurança.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Por que permitir a seleção da geração de hardware para computação?
-Nosso objetivo é permitir flexibilidade máxima para que pode escolher uma configuração de desempenho que se aproxima as necessidades do aplicativo. A tabela acima mostra as diferenças entre Gen4 e Gen5. Em particular, o hardware de Gen4 oferece substancialmente mais memória por vCore. No entanto, o Gen5 hardware permite-lhe aumentar verticalmente os recursos de computação muito superiores. Queremos tornar essas diferenças transparente e, para que pode obter a proporção de relação preço/desempenho ideal para a sua aplicação.
+Nosso objetivo é permitir flexibilidade máxima para que pode escolher uma configuração de desempenho que se aproxima as necessidades do aplicativo. Hardware de Gen4 oferece substancialmente mais memória por vCore. No entanto, o Gen5 hardware permite-lhe aumentar verticalmente os recursos de computação muito superiores. Para obter mais informações, consulte [modelo de compra de vCore](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>É necessário colocar a minha aplicação offline para converter de uma base de dados baseado em DTU para um escalão de serviço baseado em vCore? 
 Os novos escalões de serviço oferecem um método de conversão online simples, semelhante ao processo existente de atualização de bases de dados do escalão de serviço Standard para Premium e vice-versa. Esta conversão pode ser iniciado através do portal do Azure, PowerShell, CLI do Azure, T-SQL ou a API REST. Ver [gerir bases de dados individuais](sql-database-single-database-scale.md) e [gerir conjuntos elásticos](sql-database-elastic-pool.md).

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214623"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308648"
 ---
-# <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Migrar servidores que executam o Windows Server 2008, 2008 R2 para o Azure
+# <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
 Este tutorial mostra como migrar os servidores no local com o Windows Server 2008 ou 2008 R2 para o Azure com o Azure Site Recovery. Neste tutorial, ficará a saber como:
 

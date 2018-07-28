@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6e035fff4aba2fa16563339b4ea0dc0a027ef016
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989593"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325416"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -301,8 +301,11 @@ Eis o código JavaScript:
 module.exports = function (context, eventHubMessages) {
     context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
     
-    eventHubMessages.forEach(message => {
+    eventHubMessages.forEach((message, index) => {
         context.log(`Processed message ${message}`);
+        context.log(`EnqueuedTimeUtc = ${context.bindingData.enqueuedTimeUtcArray[index]}`);
+        context.log(`SequenceNumber = ${context.bindingData.sequenceNumberArray[index]}`);
+        context.log(`Offset = ${context.bindingData.offsetArray[index]}`);
     });
 
     context.done();

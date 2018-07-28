@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: fbeda6a74be11668f16d477696ea00653b73baa6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284831"
+ms.locfileid: "39309066"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos 
 Base de dados SQL do Azure pode emitir métricas e diagnósticos registos para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -267,6 +267,8 @@ Saiba como [transferir registos de diagnóstico e métricas do armazenamento](..
 |Conjunto elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento do XTP |
 |||
 
+### <a name="logs"></a>Registos
+
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução de consulta Store
 
 |Propriedade|Descrição|
@@ -481,6 +483,36 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |DatabaseName_s|Nome da base de dados. |
 |ResourceId|URI do recurso.|
 |deadlock_xml_s|Relatório de deadlock XML.|
+
+### <a name="automatic-tuning-dataset"></a>Conjunto de dados de otimização automática
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|O ID de inquilino.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do fornecedor de recursos. Always: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: AutomaticTuning|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: Servidores/bases de dados|
+|SubscriptionId|GUID que pertence a base de dados de subscrição.|
+|ResourceGroup|Nome do grupo de recursos que a base de dados pertence.|
+|LogicalServerName_s|Nome do servidor que a base de dados pertence.|
+|LogicalDatabaseName_s|Nome da base de dados.|
+|ElasticPoolName_s|Nome do conjunto elástico que pertence a base de dados, se aplicável.|
+|DatabaseName_s|Nome da base de dados.|
+|ResourceId|URI do recurso.|
+|RecommendationHash_s|Valor hash exclusivo de recomendação de otimização automática.|
+|OptionName_s|Operação de otimização automática.|
+|Schema_s|Esquema de banco de dados.|
+|Table_s|Tabela afetada.|
+|IndexName_s|Nome do índice.|
+|IndexColumns_s|Nome da coluna.|
+|IncludedColumns_s|Colunas incluídas.|
+|EstimatedImpact_s|Estima o impacto da recomendação de otimização automática JSON.|
+|Event_s|Tipo de evento de otimização automática.|
+|Timestamp_t|Última atualização timestamp.|
 
 ### <a name="intelligent-insights-dataset"></a>Conjunto de dados de informações inteligente
 Saiba mais sobre o [formato de registo de informações inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md).

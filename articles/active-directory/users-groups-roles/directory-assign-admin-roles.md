@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450096"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325518"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -98,7 +98,7 @@ As seguintes funções de administrador estão disponíveis:
   | --- | --- |
   | Identity Protection Center |<ul><li>Todas as permissões da função do leitor de segurança.<li>Além disso, a capacidade de executar todas as operações de IPC, exceto para repor palavras-passe. |
   | Privileged Identity Management |<ul><li>Todas as permissões da função do leitor de segurança.<li>**Não é possível** gerir definições ou associações das funções do Azure AD. |
-  | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Centro de conformidade e segurança do Office 365 |<ul><li>Todas as permissões da função do leitor de segurança.<li>Pode configurar todas as definições no recurso de proteção avançada contra ameaças (proteção contra vírus e software, configuração de URL maliciosa, rastreamento de URL, etc.). |
+  | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Centro de Segurança e Conformidade do Office 365 |<ul><li>Todas as permissões da função do leitor de segurança.<li>Pode configurar todas as definições no recurso de proteção avançada contra ameaças (proteção contra vírus e software, configuração de URL maliciosa, rastreamento de URL, etc.). |
   
 * **[Leitor de segurança](#security-reader)**: os utilizadores com esta função têm acesso global só de leitura, incluindo todas as informações no Azure Active Directory, Identity Protection, Privileged Identity Management, bem como a capacidade de leitura do Azure Active Directory relatórios de início de sessão e registos de auditoria. A função também concede permissão só de leitura no Centro de conformidade e segurança do Office 365. Obter mais informações sobre as permissões do Office 365 estão disponíveis em [permissões no Centro de conformidade de segurança do Office 365 e](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -106,7 +106,7 @@ As seguintes funções de administrador estão disponíveis:
   | --- | --- |
   | Identity Protection Center |Ler todos os relatórios de segurança e informações das definições de funcionalidades de segurança<ul><li>Anti-spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de mensagens |
   | Privileged Identity Management |<p>Tem acesso só de leitura para todas as informações apresentadas no Azure AD PIM: as políticas e relatórios para atribuições de funções do Azure AD, revisões de segurança e acesso aos dados de política e relatórios para cenários, além de atribuição de função do Azure AD de leitura no futuro.<p>**Não é possível** inscrever-se no PIM do Azure AD ou fazer alterações ao mesmo. No portal do PIM ou através do PowerShell, alguém nesta função pode ativar as funções adicionais (por exemplo, Administrador Global ou administrador com função privilegiada), se o utilizador é um candidato para eles. |
-  | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Centro de conformidade e segurança do Office 365</p> |<ul><li>Leitura e gerir alertas<li>Políticas de segurança de leitura<li>Ler informações sobre ameaças, deteção de aplicações na Cloud e quarentena em pesquisa e investigar<li>Ler todos os relatórios |
+  | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Centro de Segurança e Conformidade do Office 365</p> |<ul><li>Leitura e gerir alertas<li>Políticas de segurança de leitura<li>Ler informações sobre ameaças, deteção de aplicações na Cloud e quarentena em pesquisa e investigar<li>Ler todos os relatórios |
 
 * **[O administrador de suporte do serviço](#service-support-administrator)**: os utilizadores com esta função podem abrir pedidos de suporte com a Microsoft para serviços do Azure e do Office 365 e vistas do dashboard de serviço e a mensagem center no portal do Azure e o portal de administração do Office 365. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -267,11 +267,6 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam identidades do Azure AD. No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "Administrador de empresa". É "Administrador Global" no [portal do Azure](https://portal.azure.com).
 
   > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões adicionais fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
   >
   >
@@ -389,13 +384,8 @@ Os membros desta função são adicionados ao grupo Administradores local em dis
 | **Ações** | **Descrição** |
 | --- | --- |
 
-### <a name="directory-reader"></a>Leitor de diretório
+### <a name="directory-readers"></a>Leitores de Diretório
 Pode ler as informações de diretório básicas. Para conceder acesso a aplicações
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -449,11 +439,6 @@ Pode ler as informações de diretório básicas. Para conceder acesso a aplica�
 ### <a name="directory-synchronization-accounts"></a>Contas de sincronização de diretório
 Só é utilizada pelo serviço do Azure AD Connect.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Criar Políticas no Azure Active Directory. |
@@ -482,11 +467,6 @@ Só é utilizada pelo serviço do Azure AD Connect.
 
 ### <a name="directory-writer"></a>Escritor de diretório
 Pode ler e gravar informações de diretório básicas. Para conceder acesso a aplicações
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -783,6 +763,25 @@ Pode gerir atribuições de funções no Azure AD
 | microsoft.aad.directory/DirectoryRole/Update | Atualize propriedades padrão em DirectoryRoles no Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Gerir todos os aspetos do serviço de gestão de funções com privilégios. |
 
+### <a name="reports-reader"></a>Leitor de Relatórios
+Pode ler relatórios de auditoria e inícios de sessão.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Leia Relatórios do Azure AD. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+| Microsoft.office365.usagereports/AllEntities/Read | Relatórios de utilização de leitura Office 365. |
+
 ### <a name="security-administrator"></a>Administrador de Segurança
 Pode ler as informações de segurança e relatórios
 
@@ -810,25 +809,6 @@ Pode ler as informações de segurança e relatórios
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Ler todos os aspetos do Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Leia todos os aspetos do Centro de Proteção do Office 365. |
 | microsoft.protectioncenter/AllEntities/Update | Gira o Centro de Proteção do Office 365. |
-
-### <a name="reports-reader"></a>Leitor de Relatórios
-Pode ler relatórios de auditoria e inícios de sessão.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
-  >
-  >
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Leia Relatórios do Azure AD. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
-| Microsoft.office365.usagereports/AllEntities/Read | Relatórios de utilização de leitura Office 365. |
 
 ### <a name="security-reader"></a>Leitor de Segurança
 Pode ler as informações de segurança e os relatórios no Azure AD e no Office 365.

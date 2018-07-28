@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248781"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308693"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
-O serviço importar/exportar do Azure é utilizado para importar com segurança as grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure envie unidades de disco num Datacenter do Azure. Este serviço também pode ser utilizado para transferir dados do armazenamento de Blobs do Azure para unidades de disco e disponibilize aos seus sites no local. Dados a partir de um ou mais discos podem ser importados ou ficheiros do Azure ou de armazenamento de Blobs do Azure. 
+O serviço importar/exportar do Azure é utilizado para importar com segurança as grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure envie unidades de disco num Datacenter do Azure. Este serviço também pode ser utilizado para transferir dados do armazenamento de Blobs do Azure para unidades de disco e disponibilize aos seus sites no local. Dados a partir de uma ou mais unidades de disco podem ser importados ou ficheiros do Azure ou de armazenamento de Blobs do Azure. 
 
-O serviço importar/exportar do Azure requer que fornecer seus próprios discos. Se pretender transferir os dados a utilizar discos fornecidos pela Microsoft, pode utilizar o disco do Azure Data Box para importar dados para o Azure. Microsoft vem até 5 discos encriptados de estado sólidos (SSDs) com uma capacidade de 40 TB por ordem, no seu datacenter através de uma operadora regional. Rapidamente, pode configurar discos, copiar dados para discos através de uma ligação USB 3.0 e envie os discos novamente para o Azure. Para obter mais informações, aceda a [descrição geral do disco do Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+O serviço importar/exportar do Azure permite-lhe fornecer as suas próprias unidades de disco ou utilizar unidades de disco fornecidas pela Microsoft. 
+
+Se quiser transferir dados através de unidades de disco fornecidas pela Microsoft, pode utilizar [disco do Azure Data Box](../../databox/data-box-disk-overview.md) para importar dados para o Azure. Microsoft vem até 5 encriptadas disco unidades de estado sólido (SSDs) com uma capacidade total de 40 TB por ordem, no seu datacenter através de uma operadora regional. Pode rapidamente configurar unidades de disco, copiar os dados em unidades de disco através de uma ligação USB 3.0 e enviar as unidades de disco para o Azure. Para obter mais informações, aceda a [descrição geral do disco do Azure Data Box](../../databox/data-box-disk-overview.md).
 
 ## <a name="azure-importexport-usecases"></a>Usecases de importação/exportação do Azure
 
@@ -34,23 +36,23 @@ Considere utilizar o serviço importar/exportar do Azure quando carregar ou tran
 
 O serviço importar/exportar utiliza os seguintes componentes:
 
-- **Importar/exportar**service: este serviço disponível no portal do Azure ajuda o utilizador a criar e controlar a importar e exportar tarefas.  
+- **Serviço de importação/exportação**: este serviço disponível no portal do Azure ajuda o utilizador crie e dados de controle (carregamento) de importar e exportar tarefas (download).  
 
 - **Ferramenta de WAImportExport**: Esta é uma ferramenta de linha de comandos que faz o seguinte: 
-    - Prepara a unidades de que é fornecida para importação.
+    - Prepara a unidades de disco que é fornecida para importação.
     - Facilita a copiar os dados para a unidade.
     - Encripta os dados na unidade com o BitLocker.
     - Gera os ficheiros de diário de unidade utilizados durante a criação de importação.
     - Ajuda a identificar o número de unidades necessários para tarefas de exportação.
+    
+> [!NOTE]
+> A ferramenta de WAImportExport está disponível em duas versões, versão 1 e 2. Recomendamos que utilize:
+> - Versão 1 para importar/exportar para o armazenamento de Blobs do Azure. 
+> - Versão 2 para importar dados para os ficheiros do Azure.
+>
+> A ferramenta de WAImportExport só é compatível com o sistema de operativo do Windows de 64 bits. Para versões de SO específicas suportadas, aceda a [requisitos de importar/exportar do Azure](storage-import-export-requirements.md#supported-operating-systems).
 
-    Essa ferramenta está disponível em duas versões, versão 1 e 2. Recomendamos que utilize:
-
-    - Versão 1 para importar/exportar para o armazenamento de Blobs do Azure. 
-    - Versão 2 para importar dados para os ficheiros do Azure.
-
-    A ferramenta de WAImportExport só é compatível com o sistema de operativo do Windows de 64 bits. Para versões de SO específicas suportadas, aceda a [requisitos de importar/exportar do Azure](storage-import-export-requirements.md#supported-operating-systems).
-
-- **Discos**: podem ser fornecidas unidades de estado sólido (SSDs) ou unidades de disco rígido (HDDs) para o datacenter do Azure. Ao criar uma tarefa de importação, entregar as unidades de disco que contém os dados. Ao criar uma tarefa de exportação, envie discos vazios para o datacenter do Azure. Para tipos de disco específico, aceda a [tipos de disco suportados](storage-import-export-requirements.md#supported-hardware).
+- **Unidades de disco**: podem ser fornecidas unidades de estado sólido (SSDs) ou unidades de disco rígido (HDDs) para o datacenter do Azure. Ao criar uma tarefa de importação, entregar as unidades de disco que contém os dados. Ao criar uma tarefa de exportação, envie discos vazios para o datacenter do Azure. Para tipos de disco específico, aceda a [tipos de disco suportados](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Como funciona a importação/exportação?
 
@@ -58,18 +60,12 @@ O serviço importar/exportar do Azure permite a transferência de dados em Blobs
 
 As tarefas podem ser importar ou exportar tarefas. Uma tarefa de importação permite-lhe importar dados para Blobs do Azure ou os ficheiros do Azure, ao passo que a tarefa de exportação permite que os dados exportados dos Blobs do Azure. Para uma tarefa de importação, enviar unidades que contêm os dados. Quando cria uma tarefa de exportação, envie discos vazios num Datacenter do Azure. Em cada caso, pode enviar até 10 unidades de disco por tarefa.
 
-> [!IMPORTANT]
-> Exportar dados para ficheiros do Azure não é suportada.
-
-Nesta secção, etapas de nível altas envolvido na importação e tarefas de exportação são descritas. 
-
-
 ### <a name="inside-an-import-job"></a>Dentro de uma tarefa de importação
 
 Num alto nível, uma tarefa de importação envolve os seguintes passos:
 
 1. Determine os dados sejam importados, número de unidades que precisar, localização de blob de destino para os seus dados no armazenamento do Azure.
-2. Utilize a ferramenta de WAImportExport para copiar dados para unidades de disco. Encripte os discos com o BitLocker.
+2. Utilize a ferramenta de WAImportExport para copiar dados para unidades de disco. As unidades de disco com o BitLocker para encriptar.
 3. Crie uma tarefa de importação na sua conta de armazenamento de destino no portal do Azure. Carregue os ficheiros de diário de unidade.
 4. Forneça o endereço do remetente e o número de conta de operadora para as unidades de envio é com.
 5. Envie as unidades de disco para o endereço de envio fornecido durante a criação da tarefa.

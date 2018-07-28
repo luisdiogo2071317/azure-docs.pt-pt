@@ -9,14 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: be15c8ca37e11f10c31c1fa8738d2b57308a00f2
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 549a8fd29cf1f986da0af1ae49dbf0e5335603bd
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283753"
+ms.locfileid: "39325705"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Início rápido: Reconhecer voz numa aplicação UWP utilizando o SDK de voz
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, irá aprender a criar uma aplicação plataforma Universal do Windows (UWP) usando o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
 A aplicação baseia-se com o [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
@@ -115,6 +117,6 @@ Procure este exemplo no `quickstart/csharp-uwp` pasta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tradução de voz](how-to-translate-speech.md)
+- [Tradução de voz](how-to-translate-speech-csharp.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)

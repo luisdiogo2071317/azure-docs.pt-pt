@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 81e3fd7183e97358b3d936045909ad5dc40612ff
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 01b571beba012ae0a1fa27d03f5e0e5454f62aa5
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281995"
+ms.locfileid: "39324960"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>O que há de novo no Azure SQL Data Warehouse? Maio de 2018 
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Maio de 2018. 
@@ -129,7 +129,7 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 Usando o `SET PARSEONLY ON` sintaxe permite que um usuário ter o motor do SQL Data Warehouse examinar a sintaxe de cada instrução T-SQL e retornar todas as mensagens de erro sem compilar ou executar a instrução. Anteriormente, no [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) vista de sistema, o estado para estas instruções permaneceria no `Running` estado. O `sys.dm_pdw_exec_requests` Vista agora irá devolver o estado como `Complete`.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como rapidamente [criar um SQL Data Warehouse] [criar um SQL Data Warehouse] e [carregar dados de exemplo] [carregar dados de exemplo]. Se estiver familiarizado com o Azure, pode achar [Glossário do Azure] [Glossário do Azure] útil à medida que encontra terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
+Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como rapidamente [criar um SQL Data Warehouse][create a SQL Data Warehouse]. Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure][Azure glossary] quando se deparar com terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  
 
 * [Histórias de sucesso de clientes]
 * [Blogues]
@@ -147,3 +147,5 @@ Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como rapidamente [
 [Fórum do Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

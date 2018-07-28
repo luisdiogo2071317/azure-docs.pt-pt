@@ -1,10 +1,11 @@
 ---
-title: Planeamento de projeto do processo de ciência de dados de equipa - Azure | Microsoft Docs
-description: Modelos de Microsoft Project e Excel que o ajudam a planear e gerir projetos de ciência de dados.
+title: Planejamento de projeto do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+description: Os modelos do Microsoft Project e o Excel que o ajudam a planearem e gerir projetos de ciência de dados.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,50 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838573"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308192"
 ---
-# <a name="team-data-science-process-project-planning"></a>O processo de ciência de dados de planeamento de projeto de equipa
+# <a name="team-data-science-process-project-planning"></a>Planejamento do projeto do processo de ciência de dados de equipa
 
-O processo de ciência de dados de equipa (TDSP) fornece um ciclo de vida para estruturar o desenvolvimento dos seus projetos de ciência de dados. Este artigo fornece ligações para modelos de Microsoft Project e Excel que o ajudam a planear e gerir estas fases de projeto.
+O Team Data Science Process (TDSP) fornece um ciclo de vida para estruturar o desenvolvimento dos seus projetos de ciência de dados. Este artigo fornece ligações para modelos do Microsoft Project e o Excel que o ajudam a planear e gerir estas fases do projeto.
 
-O ciclo de vida destaca as fases principais que projetos normalmente executar, muitas vezes, iteratively:
+O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
 - Compreensão Empresarial
-- Aquisição de dados e a compreensão
+- Aquisição de dados e compreensão
 - Modelação
 - Implementação
-- Aceitação de cliente
+- Aceitação do cliente
 
-Para obter descrições de cada uma destas fases, consulte [ciclo de vida do processo de ciência de dados de equipa](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Para obter descrições de cada um desses estágios, veja [ciclo de vida do processo de ciência de dados de equipa](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
 
  
-## <a name="microsoft-project-template"></a>Modelo de Project da Microsoft
+## <a name="microsoft-project-template"></a>Modelo do Microsoft Project
 
-O modelo de Project Microsoft para o processo de ciência de dados de agrupamento está disponível a partir daqui: [modelo Project da Microsoft](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+O modelo do Microsoft Project para o processo de ciência de dados de equipa que está disponível a partir daqui: [modelo do Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
-Quando abre o plano, clique na ligação para a extremidade esquerda para o TDSP. Alterar o nome e descrição e, em seguida, adicionar quaisquer outros recursos de equipa que tem. Calcule as datas necessárias da sua experiência.
+Quando abre o plano, clique na ligação mais à esquerda para o TDSP. Alterar o nome e descrição e, em seguida, adicionar outros recursos de equipe que precisa. Estime as datas necessárias da sua experiência.
 
 ![1](./media/team-data-science-process-project-templates/ms-project-templates.png)
 
-Cada tarefa tem uma nota. Abra essas tarefas para ver os recursos que já foram criados por si.
+Cada tarefa tem uma nota. Abra essas tarefas para ver quais os recursos que já foram criados por si.
 
 ![2](./media/team-data-science-process-project-templates/ms-project-template-task.png)
 
 
-## <a name="excel-template"></a>Modelo de Excel
+## <a name="excel-template"></a>Modelo do Excel
 
-Se não tiver acesso ao Microsoft Project, uma folha de cálculo do Excel com os mesmos dados também está disponível para transferência aqui: [modelo Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) pode solicitar qualquer ferramenta preferir utilizar.
+Se não tiver acesso ao Microsoft Project, uma planilha do Excel com os mesmos dados também está disponível para download aqui: [modelo do Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) pode extrai-lo para ferramentas de que preferir usar.
 
-Utilize estes modelos a sua conta e risco. O [exclusões de responsabilidade habituais](https://www.gnu.org/licenses/gpl-3.0.en.html) aplicar.
+Utilize estes modelos em seu próprio risco. O [avisos de isenção habituais](https://www.gnu.org/licenses/gpl-3.0.en.html) aplicam-se.
+
+## <a name="repository-template"></a>Modelo de repositório
+
+Utilize esta opção [repositório de modelos de projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para suportar a execução do projeto eficiente e colaboração. Este repositório dá-lhe um modelos de estrutura e o documento de diretório padronizados que pode utilizar para o seu próprio projeto TDSP.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Desenvolvimento seja ágil de projetos de ciência de dados](agile-development.md) este documento descreve a execução de um projeto de ciência de dados num systematic, versão controladas e forma colaboração dentro de uma equipa de projeto utilizando o processo de ciência de dados de equipa.
+[Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) este documento descreve a execução de um projeto de ciência de dados numa sistemática, a versão controlada e a forma de colaboração dentro de uma equipe de projeto usando o processo de ciência de dados de equipa.
 
-Instruções que demonstram todos os passos no processo de **cenários específicos** também são fornecidos. São listados e ligados com descrições de miniaturas no [instruções de exemplo](walkthroughs.md) tópico. Estes mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Orientações passo a passo que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) artigo. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 

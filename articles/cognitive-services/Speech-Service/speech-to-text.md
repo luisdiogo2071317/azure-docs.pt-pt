@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 464eb9bde689aa947a5b1e2900ae0fc4670fed6e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285481"
+ms.locfileid: "39325341"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 
@@ -50,4 +50,5 @@ Alguns recursos do **conversão de voz em texto** API não estão disponíveis a
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+* [Início rápido: reconhecer voz em c#](quickstart-csharp-dotnet-windows.md)
+* [Veja como a reconhecer intenções de voz em c#](how-to-recognize-intents-from-speech-csharp.md)

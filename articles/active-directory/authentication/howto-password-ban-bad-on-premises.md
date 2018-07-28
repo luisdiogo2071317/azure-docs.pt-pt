@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161835"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308880"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar a proteção de palavra-passe do Azure AD
 
@@ -56,7 +56,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 
 1. Escolha um ou mais servidores para hospedar o serviço de proxy de proteção de palavra-passe do Azure AD.
    * Cada serviço como esse pode fornecer apenas as políticas de palavra-passe para uma única floresta e a máquina de anfitrião tem de estar associado a um domínio a um domínio (raiz e subordinadas são ambos igualmente suportadas) nessa floresta. Para o serviço proxy de proteção de palavra-passe do Azure AD atender a sua missão, deve existir conectividade de rede entre a pelo menos um controlador de domínio em cada domínio da floresta e a máquina de host de Proxy de proteção de palavra-passe do Azure AD.
-   * Ele é suportado para instalar e executar o serviço de proxy de proteção de palavra-passe do Azure AD num controlador de domínio para fins de teste, mas, em seguida, precisa de conectividade de internet.
+   * Ele é suportado para instalar e executar o serviço de proxy de proteção de palavra-passe do Azure AD num controlador de domínio para fins, mas o controlador de domínio de teste, em seguida, precisa de conectividade de internet.
 
    > [!NOTE]
    > A pré-visualização pública suporta um máximo de dois (2) servidores de proxy por floresta.
@@ -110,6 +110,9 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 
    > [!NOTE]
    > Registo de floresta do Active Directory deve ser um único passo durante a vida útil da floresta. Os agentes do controlador de domínio em execução na floresta efetuará automaticamente quaisquer outra maintainenance necessário a partir deste ponto em diante. Uma vez que foi concluída com êxito para uma determinada floresta, invocações adicionais de `Register-AzureADPasswordProtectionForest` continuar a ter êxito, mas são desnecessários.
+
+   > [!NOTE]
+   > Para que `Register-AzureADPasswordProtectionForest` tenha êxito, pelo menos, um Windows Server 2012 ou posterior domínio controlador tem de estar disponível no domínio do servidor de proxy. No entanto, não existe nenhum requisito que o software do agente DC ser instalado em quaisquer controladores de domínio antes deste passo.
 
 6. Opcional: Configure o serviço de proxy de proteção de palavra-passe do Azure AD para escutar numa porta específica.
    * RPC sobre TCP é utilizada pela proteção de palavra-passe do Azure AD software do agente de DC nos controladores de domínio para comunicar com o serviço de proxy de proteção de palavra-passe do Azure AD. Por predefinição, a proteção de palavra-passe do Azure AD service de Proxy de política de palavra-passe escuta em qualquer ponto de extremidade RPC disponível dinâmico. Se for necessário devido a topologia de redes ou requisitos de firewall, o serviço em vez disso, pode ser configurado para escutar numa porta TCP específica.

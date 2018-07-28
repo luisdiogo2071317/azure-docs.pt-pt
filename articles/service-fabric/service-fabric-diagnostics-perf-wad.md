@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - com a extensão do Windows Azure Diagnostics de monitorização de desempenho | Microsoft Docs
-description: Utilize o Windows Azure Diagnostics para recolher os contadores de desempenho para os clusters de Service Fabric do Azure.
+title: O Azure Service Fabric - monitorização de desempenho com a extensão de diagnóstico do Windows Azure | Documentos da Microsoft
+description: Utilize o Windows Azure Diagnostics para recolher contadores de desempenho para os seus clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c8c1f107e9e70e72c48ea93ef211b2a760ffb5c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213236"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324430"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de diagnóstico do Windows Azure
 
-Este documento aborda os passos necessários para configurar a recolha de contadores de desempenho através da extensão do Windows Azure Diagnostics (WAD) para os clusters do Windows. Para os clusters do Linux, configurar o [agente do OMS](service-fabric-diagnostics-oms-agent.md) para recolher contadores de desempenho para os nós. 
+Este documento aborda os passos necessários para configurar a recolha de contadores de desempenho através da extensão do Windows Azure Diagnostics (WAD), para clusters do Windows. Para clusters do Linux, configurar o [agente do OMS](service-fabric-diagnostics-oms-agent.md) para recolher contadores de desempenho para os nós. 
 
  > [!NOTE]
-> A extensão WAD deve ser implementada no seu cluster para estes passos para resolver o problema. Se este não está configurado, aceda a [agregação de eventos e coleção utilizando o Windows Azure Diagnostics](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters).
+> A extensão WAD deve ser implementada no seu cluster para estes passos a trabalhar para si. Se ele não está configurado, aceda à [agregação de eventos e coleções com o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
 
-## <a name="collect-performance-counters-via-the-wadcfg"></a>Recolher contadores de desempenho através de WadCfg
+## <a name="collect-performance-counters-via-the-wadcfg"></a>Recolher contadores de desempenho por meio do WadCfg
 
-Para recolher os contadores de desempenho através de WAD, terá de modificar a configuração correta no modelo de Gestor de recursos do cluster. Siga estes passos para adicionar um contador de desempenho que pretende recolher ao seu modelo e executar uma atualização de recursos do Resource Manager.
+Para recolher contadores de desempenho por meio de WAD, terá de modificar a configuração adequadamente no modelo do Resource Manager do seu cluster. Siga estes passos para adicionar um contador de desempenho que pretende recolher ao seu modelo e executar uma atualização de recursos do Resource Manager.
 
-1. Localizar a configuração de WAD no modelo do seu cluster - localizar `WadCfg`. Irá adicionar os contadores de desempenho para recolher sob o `DiagnosticMonitorConfiguration`.
+1. Encontrar a configuração de WAD no modelo do seu cluster - encontrar `WadCfg`. Irá adicionar contadores de desempenho a recolher sob o `DiagnosticMonitorConfiguration`.
 
-2. Definir a configuração para recolher contadores de desempenho adicionando a secção seguinte para sua `DiagnosticMonitorConfiguration`. 
+2. Definir a sua configuração para recolher contadores de desempenho ao adicionar a secção seguinte para sua `DiagnosticMonitorConfiguration`. 
 
     ```json
     "PerformanceCounters": {
@@ -43,11 +43,11 @@ Para recolher os contadores de desempenho através de WAD, terá de modificar a 
     }
     ```
 
-    O `scheduledTransferPeriod` define como frquently os valores dos contadores que são recolhidos são transferidos para a tabela de armazenamento do Azure e qualquer configuradas sink. 
+    O `scheduledTransferPeriod` define como frquently os valores dos contadores que são recolhidos são transferidos para a tabela de armazenamento do Azure e a qualquer configuradas sink. 
 
-3. Adicionar os contadores de desempenho que pretende recolher o `PerformanceCounterConfiguration` que foi declarada no passo anterior. Cada contador que pretende recolher é definida com um `counterSpecifier`, `sampleRate`, `unit`, `annotation`e quaisquer relevantes `sinks`.
+3. Adicionar os contadores de desempenho que pretende recolher para o `PerformanceCounterConfiguration` que foi declarado no passo anterior. Cada contador que pretende recolher é definida com um `counterSpecifier`, `sampleRate`, `unit`, `annotation`e qualquer relevantes `sinks`.
 
-Eis um exemplo de uma configuração com o contador para a *Total de tempo do processador* (o período de tempo de CPU estava a ser utilizado para operações de processamento) e *invocações de método do serviço de recursos de infraestrutura Ator por segundo*, uma dos contadores de desempenho personalizado do Service Fabric. Consulte [fiável contadores de desempenho de Ator](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) e [fiável contadores de desempenho do serviço](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) para uma lista completa dos contadores de desempenho personalizado do Service Fabric.
+Eis um exemplo de uma configuração com o contador para o *Total de tempo do processador* (o período de tempo de CPU estava a ser utilizado para operações de processamento) e *invocações do método de Ator de recursos de infraestrutura do serviço por segundo*, um dos contadores de desempenho personalizados de Service Fabric. Consulte a [contadores de desempenho do Reliable Actor](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) e [contadores de desempenho do serviço fiável](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) para obter uma lista completa dos contadores de desempenho personalizado do Service Fabric.
 
  ```json
  "WadCfg": {
@@ -104,19 +104,19 @@ Eis um exemplo de uma configuração com o contador para a *Total de tempo do pr
        },
   ```
 
- Pode ser modificada a frequência de amostragem para o contador de acordo com as suas necessidades. O formato para o mesmo é `PT<time><unit>`, por isso, se pretender que o contador recolhido a cada segundo, em seguida, deverá definir o `"sampleRate": "PT15S"`.
+ A taxa de exemplo para o contador pode ser modificada de acordo com suas necessidades. O formato para o mesmo é `PT<time><unit>`, por isso, se pretender que o contador recolhido por cada segundo, em seguida, deve definir o `"sampleRate": "PT15S"`.
 
  >[!NOTE]
- >Embora pode utilizar `*` para especificar os grupos de contadores de desempenho com o nome da mesma forma, enviar contadores através de um receptor (para o Application Insights) necessita que são declarados individualmente. 
+ >Embora pode usar `*` para especificar grupos de contadores de desempenho que estão com o nome da mesma forma, envio de quaisquer contadores por meio de um coletor (para o Application Insights) requer que elas são declaradas individualmente. 
 
-4. Depois de adicionar os contadores de desempenho adequadas que têm de ser recolhidos, terá de atualizar o recurso de cluster para que estas alterações são refletidas no seu cluster em execução. Guardar o modificado `template.json` e abra do PowerShell. Pode atualizar o seu cluster utilizando `New-AzureRmResourceGroupDeployment`. A chamada requer que o nome do grupo de recursos, o ficheiro de modelo atualizado e o ficheiro de parâmetros e pede ao Gestor de recursos para fazer alterações adequadas para os recursos que tenha atualizado. Assim que iniciou a sessão na sua conta e está a subscrição correta, utilize o seguinte comando para executar a atualização:
+4. Depois de adicionar os contadores de desempenho adequado que têm de ser recolhidos, terá de atualizar o seu recurso de cluster para que estas alterações são refletidas no seu cluster em execução. Guardar sua modificado `template.json` e abra o PowerShell. Pode atualizar o seu cluster com `New-AzureRmResourceGroupDeployment`. A chamada requer o nome do grupo de recursos, o ficheiro de modelo atualizado e o ficheiro de parâmetros, pedidos e efetue as alterações necessárias para os recursos de que atualizou o Resource Manager. Depois de iniciado sessão na sua conta e a subscrição correta, utilize o seguinte comando para executar a atualização:
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Após a conclusão da atualização disponibilizando (demora entre 15 45 minutos), WAD deve ser recolher os contadores de desempenho e enviar para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associados ao seu cluster. Consulte os contadores de desempenho no Application Insights por [adicionar o Sink de AI para o modelo do Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
+5. Após a conclusão da atualização distribuindo (demora entre 15 a 45 minutos), WAD deve ser a recolher os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associados com o seu cluster. Consulte os contadores de desempenho no Application Insights ao [adicionando o Sink de ia para o modelo do Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Recolha mais contadores de desempenho para o cluster. Consulte [métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista dos contadores deve a recolher.
-* [Monitorização de utilização e diagnóstico com modelos de VM do Windows e o Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) mais efetuar modificações ao seu `WadCfg`, incluindo a configurar contas de armazenamento adicional para enviar dados de diagnóstico para.
+* Recolha mais contadores de desempenho para o seu cluster. Ver [métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista dos contadores que deve recolher.
+* [Monitorização de utilização e diagnóstico com modelos de VM do Windows e do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) ainda mais fazer modificações nas suas `WadCfg`, incluindo a configuração de contas de armazenamento adicional para enviar dados de diagnóstico para.

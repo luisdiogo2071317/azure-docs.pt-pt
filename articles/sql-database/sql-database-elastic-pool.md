@@ -7,19 +7,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091947"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326103"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
-Conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados que têm necessidades de utilização extremamente variáveis e imprevisíveis. As bases de dados num conjunto elástico são num único servidor de base de dados do Azure SQL e partilham um número definido de recursos a um preço do conjunto. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
+Os conjuntos elásticos da base de dados SQL são uma solução simples e rentável para gerir e dimensionar várias bases de dados com necessidades de utilização extremamente variáveis e imprevisíveis. As bases de dados num conjunto elástico são num único servidor de base de dados do Azure SQL e partilham um número definido de recursos a um preço do conjunto. Com os conjuntos elásticos na Base de Dados SQL do Azure, os programadores de SaaS podem otimizar o desempenho do preço num grupo de bases de dados dentro de um orçamento prescrito e, ao mesmo tempo, oferecer elasticidade de desempenho para cada base de dados.
 
 ## <a name="what-are-sql-elastic-pools"></a>Quais são os conjuntos elásticos SQL?
 
@@ -36,6 +36,9 @@ Conjuntos elásticos resolvem este problema ao garantir que as bases de dados re
 Conjuntos elásticos permitem aos programadores comprar recursos para um conjunto partilhado por várias bases de dados para acomodar períodos de utilização imprevisíveis bases de dados individuais. Pode configurar recursos para o conjunto com qualquer uma base no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). O pedido de recurso para um conjunto é determinado pela utilização agregada de seus bancos de dados. A quantidade de recursos disponíveis para os conjuntos é controlada pelo orçamento do programador. O desenvolvedor simplesmente adiciona bases de dados ao conjunto, define os recursos mínimos e máximos para as bases de dados (o mínimo e máximo DTUs ou mínimo ou máximo vCores dependendo de sua escolha de obtenção de recursos modelo) e, em seguida, define os recursos do conjunto com base em suas orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 
 Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Com muita carga, uma base de dados pode consumir mais recursos para satisfazer a procura. Bases de dados sob cargas mais leves consomem menos e bases de dados em qualquer carga não consomem nenhum recurso. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tem um orçamento previsível para o conjunto. Recursos adicionais podem ser adicionados a um conjunto existente sem períodos de indisponibilidade da base de dados, exceto pelo fato das bases de dados poderão ter de ser movidas para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Da mesma forma, se já não são necessários recursos extras eles podem ser removidos de um conjunto existente em qualquer ponto no tempo. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
+
+> [!NOTE]
+> Ao mover as bases de dados para dentro ou fora de um conjunto elástico, não existe nenhum tempo de inatividade, exceto para um breve período de tempo (na ordem de segundos) no final da operação quando ligações de base de dados são ignoradas.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando deve pensar num conjunto elástico da base de dados SQL?
 

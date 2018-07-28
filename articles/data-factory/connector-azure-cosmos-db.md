@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052771"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325358"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB com o Azure Data Factory
 
@@ -165,6 +165,8 @@ Para copiar dados para o Azure Cosmos DB, defina o tipo de sink na atividade de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **DocumentDbCollectionSink** |Sim |
+| WriteBehavior |Descreve como escrever dados para o Cosmos DB. Valores permitidos são: `insert` e `upsert`.<br/>O comportamento das **upsert** é substituir o documento se um documento do mesmo id já existe; caso contrário, inseri-lo. Observe ADF irá gerar automaticamente um id para o documento se não for especificado no documento original ou por mapeamento de colunas), que significa que terá de certificar-se de que o documento tem uma "id", para que upsert funcionar conforme esperado. |Não, o padrão é inserir |
+| writeBatchSize | Utilização do Data Factory [executor do Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escrever dados para o Cosmos DB. "writeBatchSize" controla o tamanho de documentos, fornecemos para a biblioteca de cada vez. Pode tentar aumento writeBatchSize para melhorar o desempenho. |Não |
 | nestingSeparator |É necessário um caráter especial no nome da coluna de origem para indicar esse documento aninhado. <br/><br/>Por exemplo, `Name.First` do conjunto de dados de saída a estrutura gera a seguinte estrutura JSON no documento do Cosmos DB:`"Name": {"First": "[value maps to this column from source]"}` quando o nestedSeparator é o ponto. |Não (a predefinição é o ponto `.`) |
 
 **Exemplo:**
@@ -191,7 +193,8 @@ Para copiar dados para o Azure Cosmos DB, defina o tipo de sink na atividade de 
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

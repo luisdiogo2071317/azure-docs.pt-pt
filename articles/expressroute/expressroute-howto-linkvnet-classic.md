@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr
-ms.openlocfilehash: 99e0bbc0e2501deead8990776d35835ea396590b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e598249d0065bde8b3fe74883da8a0e39c9bc7c7
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284386"
+ms.locfileid: "39308090"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -25,6 +25,10 @@ ms.locfileid: "39284386"
 >
 
 Este artigo irá ajudá-lo a ligar redes virtuais (VNets) para circuitos do ExpressRoute do Azure com o modelo de implementação clássica e o PowerShell. Redes virtuais podem ser na mesma subscrição ou podem fazer parte de outra subscrição.
+
+Pode ser associada uma VNet única para até quatro circuitos do ExpressRoute. Utilize os passos neste artigo para criar uma nova ligação a cada circuito do ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
+
+Pode ligar até 10 redes virtuais a um circuito do ExpressRoute. Tem de ser todas as redes virtuais na mesma região geopolítica. Pode associar um grande número de redes virtuais para o seu circuito do ExpressRoute ou redes virtuais de ligação que estão em outras regiões geopolíticas, se tiver ativado o suplemento ExpressRoute premium. Verifique os [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o suplemento premium.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -41,11 +45,7 @@ Este artigo irá ajudá-lo a ligar redes virtuais (VNets) para circuitos do Expr
    * Certifique-se de que o peering privado do Azure está configurado e o peering de BGP entre a rede e a Microsoft está ativo, para que pode habilitar a conectividade de ponto-a-ponto.
    * Tem de ter uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para [configurar uma rede virtual para o ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-Pode ligar até 10 redes virtuais a um circuito do ExpressRoute. Tem de ser todas as redes virtuais na mesma região geopolítica. Pode associar um grande número de redes virtuais para o seu circuito do ExpressRoute ou redes virtuais de ligação que estão em outras regiões geopolíticas, se tiver ativado o suplemento ExpressRoute premium. Verifique os [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o suplemento premium.
-
-Pode ser associada uma VNet única para até quatro circuitos do ExpressRoute. Utilize o processo abaixo para criar uma nova ligação para cada circuito do ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
-
-## <a name="download-the-latest-powershell-cmdlets"></a>Transferir os cmdlets do PowerShell mais recente
+### <a name="download-the-latest-powershell-cmdlets"></a>Transferir os cmdlets do PowerShell mais recente
 
 Tem a versão mais recente dos módulos do Azure PowerShell. Pode baixar os módulos do PowerShell mais recente da seção do PowerShell do [página de transferências do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o seu computador para utilizar os módulos do Azure PowerShell.
 

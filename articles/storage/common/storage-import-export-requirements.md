@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188807"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308059"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -30,13 +30,12 @@ Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
 
-Serviço de importação/exportação do Azure suporta as seguintes contas de armazenamento do Azure.
-- Clássica
+O serviço importar/exportar do Azure suporta as seguintes [contas de armazenamento do Azure](storage-account-options.md).
+- Contas de armazenamento gerais v1 de fins (implementações clássicas ou do Azure Resource Manager)
 - Contas de Armazenamento de blobs
-- Contas de armazenamento do v1 de fins gerais. 
+- Contas de armazenamento da v2 de fins gerais
 
 Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Em outras palavras, uma tarefa de importação/exportação única não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta
 A seguinte lista de tipos de armazenamento é suportada com o serviço importar/exportar do Azure.
 
 
-|Tarefa  |Armazenamento  |Suportadas  |Não suportado  |
+|Tarefa  |Serviço de armazenamento |Suportadas  |Não suportado  |
 |---------|---------|---------|---------|
-|Importar     |  Armazenamento de Blobs do Azure. <br>Blobs de blocos, blobs de página suportados. <br> Ficheiros do Azure suportados.       |         |
-|Exportar     |   Armazenamento de Blobs do Azure. <br>Os blobs de blocos, blobs de páginas e blobs de acréscimo suportados.       | Ficheiros do Azure não suportados.        |
+|Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de ficheiros do Azure       | Blobs de página e Blobs de blocos suportados <br><br> Ficheiros suportados          |
+|Exportar     |   Armazenamento de Blobs do Azure       | Os blobs de blocos, blobs de páginas e blobs de acréscimo suportados         | Ficheiros do Azure não suportados
 
 
 ## <a name="supported-hardware"></a>Hardware suportado 

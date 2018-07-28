@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239122"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308750"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -147,6 +147,12 @@ Se estiver a utilizar o início de sessão para análise de previsão, não capt
 * Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no **rever expressões de ponto final** página. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
 * Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com os seus registos e as expressões de exemplo. Os dados são mantidos nos servidores durante 60 dias antes de ser eliminado permanentemente.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft aceder aos meus dados de aplicação do LUIS para suas próprias finalidades, por exemplo, para melhorar o LUIS ou a Microsoft em geral? 
+
+Não. Modelo de dados da aplicação LUIS não é utilizado pelo LUIS para melhorar o LUIS como uma plataforma ou utilizado pela Microsoft de qualquer forma. Dados de cada aplicação são separada e pertencentes à empresa apenas pelo utilizador e colaboradores. 
+
+Saiba mais sobre [privacidade do utilizador](luis-reference-gdpr.md), [conformidade de segurança adicional](luis-concept-security.md#security-compliance), e [armazenamento de dados](luis-concept-data-storage.md).
+
 ## <a name="language-and-translation-support"></a>Suporte de idioma e de tradução 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Tenho uma aplicação numa linguagem e pretende criar uma aplicação paralela em outro idioma. O que é a maneira mais fácil de fazê-lo?
@@ -175,20 +181,6 @@ Se selecionar um modelo do LUIS e selecionar a **selecione** botão no painel de
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>É LUIS disponível no local ou na nuvem privada?
 Não. 
 
-## <a name="changes-to-the-docs"></a>Alterações para os documentos
-
-### <a name="where-did-the-tutorials-go"></a>Em que passei os tutoriais? 
-Os artigos que estavam anteriormente na seção Tutorial agora estão a ser a seção de procedimentos dos documentos. 
-
-|Tutorial|
-|--|
-|Integrar o LUIS com um bot com [c#](luis-csharp-tutorial-build-bot-framework-sample.md) e [node. js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Adicionar o Application Insights para um Bot com [c#](luis-tutorial-bot-csharp-appinsights.md) e [node. js](luis-tutorial-function-appinsights.md)|
-|Criar uma aplicação do LUIS programaticamente usando [node. js](luis-tutorial-node-import-utterances-csv.md)|
-|Uso [entidade composta](luis-tutorial-composite-entity.md) para extrair dados agrupados|
-|Adicione [listar entidade](luis-tutorial-list-entity.md) para deteção de entidade maior com node. js|
-|Melhorar a exatidão da previsão com um [lista de frase](luis-quickstart-primary-and-secondary-data.md), [padrões](luis-tutorial-pattern.md), e [testes de batch](luis-tutorial-batch-testing.md)|
-|[Corrija a ortografia](luis-tutorial-batch-testing.md) com a API de verificação ortográfica do Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na conferência Build 2018, ouvi sobre um recurso de compreensão de idiomas ou uma demonstração, mas eu não se lembrar de que foi chamado? 
 

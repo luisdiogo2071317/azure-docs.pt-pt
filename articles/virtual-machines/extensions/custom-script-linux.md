@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 850acae818638bb7c823edde03dbbecccf930073
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 433b750c1078828dcc3b18234125adf04625dbe8
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969328"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325178"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a versão 2 do Azure Custom Script extensão com máquinas virtuais do Linux
 A versão 2 do Custom Script extensão transfere e executa scripts em máquinas virtuais do Azure. Esta extensão é útil para configuração de pós-implementação, instalação de software ou qualquer outra tarefa de gestão de configuração /. Pode baixar scripts a partir do armazenamento do Azure ou noutra localização acessível da internet ou pode fornecê-los para o tempo de execução de extensão. 
@@ -226,7 +226,7 @@ Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manage
       },
     "protectedSettings": {
       "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/MyPythonScript.py"
+      "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
       ]  
     }
   }

@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: be8fb801acfb625685604a302051d813bfd97939
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035399"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325307"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o runtime do Azure IoT Edge no Linux (x64)
 
@@ -64,10 +64,15 @@ Atualize apt-get.
 sudo apt-get update
 ```
 
-Instale o motor de Moby e a interface de linha de comandos (CLI). A CLI é útil para desenvolvimento mas opcional para deployments.* de produção
+Instale o motor de Moby. 
 
 ```bash
 sudo apt-get install moby-engine
+```
+
+Instale a interface de linha de comandos (CLI) de Moby. A CLI é útil para desenvolvimento mas opcional para implementações de produção.
+
+```bash
 sudo apt-get install moby-cli
 ```
 
@@ -148,7 +153,7 @@ sudo iotedge list
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se tiver problemas com o runtime do Edge Check-out a corretamente, instalar o [resolução de problemas] [ lnk-trouble] página.
+Se estiver a ter problemas com o runtime do Edge corretamente a instalação, consulte a [resolução de problemas] [ lnk-trouble] página.
 
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md

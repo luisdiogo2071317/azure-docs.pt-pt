@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 0e07e76d2597ad73a9b7073732004f23fa090c97
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285423"
+ms.locfileid: "39324260"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre o texto em voz, API
 
@@ -41,4 +41,4 @@ Se desejar uma voz única para a sua aplicação, pode criar [tipos de voz perso
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+* [Veja como sintetizar voz através da API REST](how-to-text-to-speech.md)

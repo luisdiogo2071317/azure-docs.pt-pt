@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: 1a7f37d3f95701779a16cf5dc6844fb67ee7f956
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215106"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325256"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
@@ -51,20 +51,7 @@ Reveja a tabela abaixo para uma visão geral das diferenças entre o Balanceador
 >[!NOTE]
 > Novos designs devem adotar o Balanceador de carga Standard. 
 
-| | SKU Standard | SKU Básico |
-| --- | --- | --- |
-| Tamanho do conjunto de back-end | até 1000 instâncias | até 100 instâncias |
-| Pontos finais de conjunto de back-end | qualquer máquina virtual numa única rede virtual, incluindo blend de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | conjunto de máquinas virtuais numa escala de máquina virtual ou conjunto de disponibilidade única |
-| Zonas de Disponibilidade | com redundância de zona e zonais front-ends para entrada e mapeamentos de fluxos de saída, saída resistir a falhas de zona, balanceamento de carga entre zonas | / |
-| Diagnóstico | Monitor do Azure, incluindo bytes e contadores de pacotes, estado de funcionamento de métricas multidimensionais sonda de estado, as tentativas de ligação (TCP SYN), estado de funcionamento da ligação de saída (SNAT com êxito ou falhados fluxos), medidas de plano de dados do Active Directory | O Azure Log Analytics para o Balanceador de carga público só, o alerta de esgotamento de SNAT, contagem de estado de funcionamento do conjunto de back-end |
-| HA portas | Balanceador de carga interno | / |
-| Seguro por padrão | predefinição fechada para pontos finais públicos do Balanceador de carga e de IP e um grupo de segurança de rede deve ser usado para explicitamente lista de permissões para o tráfego flua | padrão aberto, grupo de segurança opcional |
-| [Ligações de saída](load-balancer-outbound-connections.md) | Vários front-ends com por sair em regra de balanceamento de carga. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  [Pontos finais de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) pode ser contatado sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços IP públicos, incluindo serviços de PaaS do Azure não está disponíveis como pontos finais de serviço de VNet, tem de ser contatados por meio de conectividade de saída e contagem para dados processados. Quando apenas um balanceador de carga interno está a servir uma máquina virtual, as ligações de saída através do padrão SNAT não estão disponíveis. Programação de SNAT de saída é o protocolo de transporte específico com base no protocolo de regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estão presentes.  Quando uma máquina virtual está a servir apenas Balanceador de carga interno, é utilizada a predefinição SNAT. |
-| [Vários front-ends](load-balancer-multivip-overview.md) | Entrada e [saída](load-balancer-outbound-connections.md) | Apenas de entrada |
-| [Sonda de estado de funcionamento para baixo de comportamento](load-balancer-custom-probe-overview.md) | Ligações de TCP permanecem ativas na instância de pesquisa para baixo __e__ em todas as sondas para baixo | Ligações de TCP permanecem ativas na instância de pesquisa para baixo. Todas as conexões TCP terminam em todas as sondas para baixo |
-| Operações de gestão | A maioria dos segundos de < a 30 de operações | 60-90 segundos típico |
-| SLA | 99,99% para o caminho de dados com duas máquinas virtuais em bom estado | Implícitas no SLA de VM | 
-| Preços | Cobrado com base no número de regras, dados processados de entrada ou saída associados a recursos  | sem custos |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Revisão [limites de serviço para o Balanceador de carga](https://aka.ms/lblimits), bem como [preços](https://aka.ms/lbpricing), e [SLA](https://aka.ms/lbsla).
 

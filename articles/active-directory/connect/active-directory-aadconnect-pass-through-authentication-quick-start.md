@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3389fed86fba8059db82816a6fc752f5374369a7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283373"
+ms.locfileid: "39308614"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure Active Directory autenticação pass-through: Início rápido
 
@@ -45,7 +45,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
 ### <a name="in-your-on-premises-environment"></a>No seu ambiente no local
 
 1. Identifique um servidor com o Windows Server 2012 R2 ou posterior para executar o Azure AD Connect. Adicione o servidor à mesma floresta do Active Directory que os utilizadores cujas palavras-passe tem de validar.
-2. Instalar o [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado no passo anterior. Se já tiver executado o Azure AD Connect, certifique-se de que a versão é 1.1.644.0 ou posterior.
+2. Instalar o [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado no passo anterior. Se já tiver executado o Azure AD Connect, certifique-se de que a versão é 1.1.750.0 ou posterior.
 
     >[!NOTE]
     >O Azure AD Connect as versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado com a sincronização de hash de palavra-passe. Se _não_ tenciona utilizar a sincronização de hash de palavra-passe em conjunto com a autenticação pass-through, leia o [notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).

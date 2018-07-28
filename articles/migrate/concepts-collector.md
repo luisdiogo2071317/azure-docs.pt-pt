@@ -4,15 +4,15 @@ description: Fornece uma descrição geral da aplicação Recoletora e como conf
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951044"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308464"
 ---
 # <a name="collector-appliance"></a>Aplicação recoletora
 
@@ -188,7 +188,7 @@ Também Recomendamos os seguintes passos para proteger a sua aplicação
 
 Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA mais uma vez.
 
-1. Baixe a versão mais recente [pacote de atualização](https://aka.ms/migrate/col/upgrade_9_11) (versão 1.0.9.11).
+1. Baixe a versão mais recente [pacote de atualização](https://aka.ms/migrate/col/upgrade_9_13) (versão 1.0.9.13).
 2. Para garantir que a correção transferida é segura, abra a janela de comando de administrador e execute o seguinte comando para gerar o hash para o ficheiro ZIP. O hash gerado deve corresponder com o hash mencionado em relação a versão específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA mais uma
 5. Com o botão direito no Setup.ps1 e selecionar executar com o PowerShell e siga as instruções no ecrã para instalar a atualização.
 
 ### <a name="list-of-updates"></a>Lista de atualizações
+
+#### <a name="upgrade-to-version-10913"></a>Atualizar para versão 1.0.9.13
+
+Valores para a atualização de hash [1.0.9.13 do pacote](https://aka.ms/migrate/col/upgrade_9_13)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>Atualizar para versão 1.0.9.11
 

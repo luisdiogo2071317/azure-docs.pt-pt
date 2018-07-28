@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adb78f04c0fd5ba175bb31c9a81ad58b3b03fb42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447324"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309031"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
 
@@ -72,7 +72,7 @@ Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em 
 
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | --- | --- | --- | --- |
-| Audiência |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma afirmação de audiência identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é a ID da aplicação da sua aplicação, como atribuído à sua aplicação no portal de registo de aplicação. A aplicação deve validar este valor e rejeitar o token, se não corresponde. |
+| Audiência |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma afirmação de audiência identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é a ID da aplicação da sua aplicação, como atribuído à sua aplicação no portal de registo de aplicação. A aplicação deve validar este valor e rejeitar o token, se não corresponde. Público-alvo é sinônimo de recursos. |
 | Emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Ele também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação do emissor para se certificar de que o token provém do ponto de final de v2.0 do Azure Active Directory. |
 | Emitida em |`iat` |`1438535543` |Esta afirmação é a hora em que o token foi emitido, representado na hora "Epoch". |
 | Hora de expiração |`exp` |`1438539443` |Hora de expiração da afirmação é a hora em que o token se torna inválido, representado na hora "Epoch". A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |

@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: a9a5a6b3c3f4831844083d082ba5b65cd900ec02
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281614"
+ms.locfileid: "39324783"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, saiba como criar uma aplicação de consola C++ no Linux (Ubuntu 16.04) com o SDK de voz dos serviços cognitivos para transcrição de voz em texto.
 
@@ -81,7 +83,7 @@ Transfira e instale o SDK da seguinte forma:
 
 1. Substitua a cadeia de caracteres `YourServiceRegion` com o [região](regions.md) associados à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
-## <a name="building"></a>Criando
+## <a name="building"></a>A criar
 
 > [!NOTE]
 > Certifique-se de copiar e colar os comandos de compilação abaixo como uma _uma linha_.
@@ -132,4 +134,4 @@ Procure este exemplo no `quickstart/cpp-linux` pasta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Visite o [página de exemplos](samples.md) para exemplos adicionais.
+* [Obtenha os nossos exemplos](speech-sdk.md#get-the-samples)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9341c3bcbe90788318c9b20ccc6988461e972347
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264543"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326195"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -43,7 +43,6 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 * O AD florestas e de versão funcional nível de esquema tem de ser Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde que são cumpridos os requisitos de nível de esquema e de floresta.
 * Se planeia utilizar a funcionalidade **repetição de escrita de palavra-passe**, em seguida, os controladores de domínio tem de estar no Windows Server 2008 (com o SP mais recente) ou posterior. Se seus controladores de domínio são no 2008 (pré-R2), então tem de aplicar também [correção KB2386717](http://support.microsoft.com/kb/2386717).
 * O controlador de domínio utilizado pelo Azure AD tem de ser gravável. É **nepodporuje** para utilizar um RODC (controlador de domínio só de leitura) e o Azure AD Connect não siga qualquer redirecionamentos de escrita.
-* É **nepodporuje** utilizar florestas/domínios no local com SLDs (domínios de etiqueta única).
 * É **nepodporuje** utilizar florestas/domínios no local com o "pontuada" (nome contenha um ponto final ".") Nomes NetBios.
 * É recomendado [ativar a Reciclagem do Active Directory](active-directory-aadconnectsync-recycle-bin.md).
 

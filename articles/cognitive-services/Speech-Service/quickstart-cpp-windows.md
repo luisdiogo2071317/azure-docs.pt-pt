@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 928018483eb727febd15d8e1c22bba53ba2aaedc
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285038"
+ms.locfileid: "39324576"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no ambiente de trabalho do Windows utilizando o SDK de voz
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Nós descrevemos como criar uma aplicação de consola baseada em C++ para a área de trabalho do Windows que utiliza o SDK de voz.
 O aplicativo se baseia a [Microsoft Cognitive Services voz SDK do pacote NuGet](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
@@ -93,4 +95,4 @@ Procure este exemplo no `quickstart/cpp-windows` pasta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Visite o [página de exemplos](samples.md) para exemplos adicionais.
+* [Obtenha os nossos exemplos](speech-sdk.md#get-the-samples)
