@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044922"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326029"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir itens do marketplace do Azure para o Azure Stack
 
@@ -148,26 +148,7 @@ Existem duas partes para este cenário:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>O download de importar e publicar no Marketplace do Azure Stack
 1. Os ficheiros de imagens de máquinas virtuais ou modelos de soluções que tenha [transferido anteriormente](#use-the-marketplace-syndication-tool-to-download-marketplace-items) devem ser disponibilizados localmente para o seu ambiente do Azure Stack.  
 
-2. Importe a imagem VHD para o Azure Stack, utilizando o **Add-AzsPlatformimage** cmdlet. Quando utilizar este cmdlet, substitua a *publicador*, *oferecer*e outros valores de parâmetros com os valores da imagem que está a importar. 
-
-   Pode obter o *publicador*, *oferecer*, e *sku* valores da imagem a partir do arquivo de texto que transfere com o arquivo AZPKG. O arquivo de texto é armazenado na localização de destino.
- 
-   No script de exemplo seguinte, são utilizados valores para o Windows Server 2016 Datacenter - máquina de virtual de Server Core. 
-
-   ```PowerShell  
-   Add-AzsPlatformimage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-   ```
-   **Sobre os modelos de solução:** alguns modelos podem incluir um pequeno de 3 MB. Ficheiro VHD com o nome **fixed3.vhd**. Não tem de importar esse ficheiro para o Azure Stack. Fixed3.vhd.  Este ficheiro é fornecido com alguns modelos de solução para satisfazer os requisitos de publicação para o Azure Marketplace.
-
-   Reveja a descrição de modelos e transferir e, em seguida, importar os requisitos adicionais, como VHDs, que são necessárias para trabalhar com o modelo de solução.
-
-3. Utilize o portal de administração para carregar o pacote de item do marketplace (o arquivo .azpkg) para o armazenamento de Blobs do Azure Stack. Carregamento do pacote torna-o disponível para o Azure Stack para poder publicar o item mais tarde a pilha do Azure Marketplace.
+2. Utilize o portal de administração para carregar o pacote de item do marketplace (o arquivo .azpkg) para o armazenamento de Blobs do Azure Stack. Carregamento do pacote torna-o disponível para o Azure Stack para poder publicar o item mais tarde a pilha do Azure Marketplace.
 
    Carregamento requer que tenha uma conta de armazenamento com um contentor publicamente acessível (consulte os pré-requisitos para este cenário)   
    1. No portal de administração do Azure Stack, aceda a **mais serviços** > **contas de armazenamento**.  
@@ -183,6 +164,33 @@ Existem duas partes para este cenário:
 
    5. Ficheiros que carrega são apresentados no painel de contentor. Selecione um ficheiro e, em seguida, copie o URL a partir da **propriedades do Blob** painel. Irá utilizar este URL no passo seguinte quando importar o item do marketplace para o Azure Stack.  Na imagem seguinte, o contentor está *test-armazenamento de BLOBs* e o ficheiro é *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  O ficheiro de URL é *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       ![Propriedades do blob](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+3. Importe a imagem VHD para o Azure Stack, utilizando o **Add-AzsPlatformimage** cmdlet. Quando utilizar este cmdlet, substitua a *publicador*, *oferecer*e outros valores de parâmetros com os valores da imagem que está a importar. 
+
+   Pode obter o *publicador*, *oferecer*, e *sku* valores da imagem a partir do arquivo de texto que transfere com o arquivo AZPKG. O arquivo de texto é armazenado na localização de destino. O *versão* valor é a versão observada ao transferir o item a partir do Azure no procedimento anterior. 
+ 
+   No script de exemplo seguinte, são utilizados valores para o Windows Server 2016 Datacenter - máquina de virtual de Server Core. Substitua *URI_path* com o caminho para a localização de armazenamento de BLOBs para o item.
+
+   ```PowerShell  
+   Add-AzsPlatformimage `
+    -publisher "MicrosoftWindowsServer" `
+    -offer "WindowsServer" `
+    -sku "2016-Datacenter-Server-Core" `
+    -osType Windows `
+    -Version "2016.127.20171215" `
+    -OsUri "URI_path"  
+   ```
+   **Sobre os modelos de solução:** alguns modelos podem incluir um pequeno de 3 MB. Ficheiro VHD com o nome **fixed3.vhd**. Não tem de importar esse ficheiro para o Azure Stack. Fixed3.vhd.  Este ficheiro é fornecido com alguns modelos de solução para satisfazer os requisitos de publicação para o Azure Marketplace.
+
+   Reveja a descrição de modelos e transferir e, em seguida, importar os requisitos adicionais, como VHDs, que são necessárias para trabalhar com o modelo de solução.  
+   
+   **Sobre as extensões:** quando trabalha com extensões de imagem de máquina virtual, utilize os seguintes parâmetros:
+   - *Publicador*
+   - *Tipo*
+   - *Versão*  
+
+   Não usar *oferecem* para extensões.   
+
 
 4.  Utilizar o PowerShell para publicar o item do marketplace no Azure Stack, utilizando o **Add-AzsGalleryItem** cmdlet. Por exemplo:  
     ```PowerShell  
