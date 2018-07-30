@@ -1,242 +1,247 @@
 ---
-title: Enfrentam API Java para Android tutorial | Microsoft Docs
+title: Tutorial de API Face de Java para Android | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Criar uma aplicação Android simple que utiliza a API de rostos em serviços cognitivos para detetar e humanos de moldura enfrenta numa imagem.
+description: Neste tutorial, vai criar uma aplicação Android simples que utiliza o serviço Face dos Serviços Cognitivos para detetar e enquadrar os rostos numa imagem.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 5164a261d482d0cca3842a973d2109b17999bd25
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 07/12/2018
+ms.author: nolachar
+ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355189"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125641"
 ---
-# <a name="getting-started-with-face-api-in-java-for-android-tutorial"></a>Introdução Android Tutorial de rostos em API em Java
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: criar uma aplicação Android para detetar e enquadrar rostos numa imagem
 
-Neste tutorial, irá aprender a criar e desenvolver uma aplicação Android simples que invoca a API de rostos em detetar faces humanos numa imagem. A aplicação apresenta o resultado pelo framing faces que Deteta.
+Neste tutorial, vai criar uma aplicação Android simples que utiliza a biblioteca de classes de Java do serviço Face para detetar rostos humanos numa imagem. A aplicação mostra uma imagem selecionada, com cada rosto detetado enquadrado por um retângulo. O código de exemplo completo está disponível no GitHub em [Detetar e enquadrar rostos numa imagem em Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample).
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
+![Captura de ecrã do Android de uma fotografia com rostos enquadrados por um retângulo vermelho](../Images/android_getstarted2.1.PNG)
 
-## <a name="preparation"></a> Preparação
+Este tutorial mostrar-lhe como:
 
-Para utilizar o tutorial, terá dos seguintes pré-requisitos:
+> [!div class="checklist"]
+> - Criar uma aplicação Android
+> - Instalar a biblioteca de cliente do serviço Face
+> - Utilizar a biblioteca de cliente para detetar rostos numa imagem
+> - Desenhar uma moldura em torno de cada rosto detetado
 
-- Android Studio e SDK instalado
-- Dispositivo Android (opcional para fins de teste).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="step1"></a>Passo 1: Subscrever para enfrentam API e obter a chave de subscrição
+- Precisa de uma chave de subscrição para executar o exemplo. Pode obter chaves de subscrição de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- [Android Studio](https://developer.android.com/studio/) com o mínimo de SDK 22 (requerido pela biblioteca de cliente do Face).
+- A biblioteca de cliente do Face [com.microsoft.projectoxford:face:1.4.3](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.projectoxford%22) do Maven. Não é necessário transferir o pacote. Abaixo, são fornecidas as instruções de instalação.
 
-Antes de utilizar qualquer API de letra, deve inscrever-se para subscrever enfrentam API no portal de serviços cognitivos da Microsoft. Consulte [subscrições](https://azure.microsoft.com/try/cognitive-services/). Chave primária e secundária pode ser utilizada neste tutorial.
+## <a name="create-the-project"></a>Criar o projeto
 
-## <a name="step2"></a>Passo 2: Criar a estrutura da aplicação
+Crie o seu projeto de aplicação Android seguindo estes passos:
 
-Neste passo irá criar um projeto de aplicação Android para implementar a IU básica diretriz cópias de segurança e apresentar uma imagem. Simplesmente, siga as instruções abaixo: 
+1. Abra o Android Studio. Este tutorial utiliza o Android Studio 3.1.
+1. Selecione **Iniciar um novo projeto do Android Studio**.
+1. No ecrã **Criar Projeto Android**, modifique os campos predefinidos, se necessário, e clique em **Seguinte**.
+1. No ecrã **Dispositivos Android de Destino**, utilize o seletor de lista pendente para escolher **API 22** ou superior, e clique em **Seguinte**.
+1. Selecione **Atividade Vazia** e clique em **Seguinte**.
+1. Desmarque **Retrocompatibilidade** e clique em **Concluir**.
 
-1. Abra o Android Studio.
-2. No menu ficheiro, clique em **novo projeto...**
-3. Atribua um nome de aplicação **MyFirstApp**e, em seguida, clique em seguinte. 
+## <a name="create-the-ui-for-selecting-and-displaying-the-image"></a>Criar a IU para selecionar e apresentar a imagem
 
-    ![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
+Abra *activity_main.xml*; deverá ver o Editor do Esquema. Selecione o separador **Texto** e substitua o conteúdo pelo seguinte código.
 
-4. Escolha a plataforma de destino, conforme necessário e, em seguida, clique em seguinte. 
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    ![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView1"
+        android:layout_above="@+id/button1"
+        android:contentDescription="Image with faces to analyze"/>
 
-5. Selecione **atividade básico** e, em seguida, clique em seguinte.
-6. Nome da atividade da seguinte forma e, em seguida, clique em Concluir. 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Browse for face image"
+        android:id="@+id/button1"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
+```
 
-    ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
+Abra *MainActivity.java* e substitua tudo, exceto a primeira instrução `package`, pelo seguinte código.
 
-7. Abra **ctivity_main.XML**, deverá ver o Editor de esquema desta atividade.
-8. Ver o ficheiro de texto de origem e, em seguida, edite o esquema de atividade da seguinte forma:
+O código define um processador de eventos no `Button` que inicia uma nova atividade para permitir ao utilizador selecionar uma imagem. Depois de selecionada, a imagem é apresentada no `ImageView`.
 
-    ```xml
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-     
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView1"
-            android:layout_above="@+id/button1" />
-    
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Browse"
-            android:id="@+id/button1"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    ```  
+```java
+import java.io.*;
+import android.app.*;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.view.*;
+import android.graphics.*;
+import android.widget.*;
+import android.provider.*;
 
-9. Abra **MainActivity.java** e inserir as diretivas de importação seguintes no início do ficheiro:
-
-    ```java
-    import java.io.*; 
-    import android.app.*; 
-    import android.content.*; 
-    import android.net.*; 
-    import android.os.*; 
-    import android.view.*; 
-    import android.graphics.*; 
-    import android.widget.*; 
-    import android.provider.*;
-    ```
-      
-    Lugar, modifique a classe da seguinte forma:  
-    
-    ```java
+public class MainActivity extends Activity {
     private final int PICK_IMAGE = 1;
     private ProgressDialog detectionProgressDialog;
-         
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-           super.onCreate(savedInstanceState);
-           setContentView(R.layout.activity_main);
-           Button button1 = (Button)findViewById(R.id.button1);
-           button1.setOnClickListener(new View.OnClickListener() {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            Button button1 = (Button)findViewById(R.id.button1);
+            button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                Intent gallIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                gallIntent.setType("image/*");
-                startActivityForResult(Intent.createChooser(gallIntent, "Select Picture"), PICK_IMAGE);
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(
+                        intent, "Select Picture"), PICK_IMAGE);
             }
         });
-         
+
         detectionProgressDialog = new ProgressDialog(this);
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
             Uri uri = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), uri);
                 ImageView imageView = (ImageView) findViewById(R.id.imageView1);
                 imageView.setImageBitmap(bitmap);
+
+                // Uncomment
+                //detectAndFrame(bitmap);
                 } catch (IOException e) {
-                e.printStackTrace();
+                    e.printStackTrace();
                 }
         }
     }
-    ```
-
-Agora a aplicação pode procurar uma fotografia na galeria do e apresente-a na janela semelhante para a imagem abaixo:
-
-![GettingStartAndroidUI](../Images/android_getstarted1.1.PNG)
-
-## <a name="step3"></a>Passo 3: Configurar a biblioteca de cliente de API de rostos em
-
-A API de letra é uma nuvem pedidos de API que possa invocar através de HTTPS. Uma forma mais conveniente de utilizar a API de rostos nas aplicações da plataforma de .NET, uma biblioteca de cliente também é fornecida para encapsular web pedidos. Neste exemplo, utilizamos a biblioteca de clientes para simplificar a nossa trabalho. 
-
-Siga as instruções abaixo para configurar a biblioteca de clientes: 
-
-1. Localize o nível superior **gradle** ficheiro do seu projeto a partir do painel do projeto mostrado no exemplo. Tenha em atenção que existem vários outros **gradle** precisam de ficheiros no seu projeto de árvore e abrir o nível superior **gradle** ficheiro em primeiro lugar.
-2. Adicionar **mavenCentral()** para repositórios dos seus projetos. Também pode utilizar jcenter(), que é o repositório de predefinição do Android Studio, uma vez que jcenter() é um superconjunto da mavenCentral().  
-
-```
-    allprojects {
-        repositories {
-            ...
-            mavenCentral()
-        }
-    }
+}
 ```
 
-3. Abra o **gradle** ficheiros no seu projeto 'aplicação'.
-4. Adicione uma dependência para a nossa biblioteca de clientes armazenada no repositório Central Maven:
+A aplicação pode agora procurar uma fotografia e apresentá-la na janela, semelhante à imagem abaixo.
 
-```
-    dependencies {  
-        ...  
-        implementation 'com.microsoft.projectoxford:face:1.4.3'  
-    }
-```
+![Captura de ecrã do Android de uma fotografia com rostos](../Images/android_getstarted1.1.PNG)
 
-5. Abra **MainActivity.java** no seu projeto de "app" e inserir o seguinte importa as diretivas de: 
-    
-    ```java
-    import com.microsoft.projectoxford.face.*;  
-    import com.microsoft.projectoxford.face.contract.*;  
-    ```
-    
-   Em seguida, insira o seguinte código na classe:
+## <a name="configure-the-face-client-library"></a>Configurar a biblioteca de cliente do Face
 
-    ```java
-    private FaceServiceClient faceServiceClient = new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
-    ```
+A API Face é uma API da cloud, que pode chamar com pedidos HTTPS. Este tutorial utiliza a biblioteca de cliente do Face, que encapsula estes pedidos Web para simplificar o seu trabalho.
 
-   Substitua o primeiro parâmetro acima com o ponto final de API que foi atribuído à sua chave no passo 1. Por exemplo:
-   
-        https://eastus2.api.cognitive.microsoft.com/face/v1.0
-   
-   Substitua o segundo parâmetro com a chave de subscrição que obteve no passo 1.
-   
-6. Abra o ficheiro **AndroidManifest.xml** no seu projeto 'aplicação'. Insira o elemento seguinte como elemento subordinado do **manifesto** elemento:  
+No painel **Projeto**, utilize o seletor de lista pendente para selecionar **Android**. Expanda **Scripts de Gradle** e abra *build.gradle (Module: app)*.
 
-    ```xml
-    <uses-permission android:name="android.permission.INTERNET" />  
-    ```
+Adicione uma dependência para a biblioteca de cliente do Face `com.microsoft.projectoxford:face:1.4.3`, conforme mostrado na captura de ecrã abaixo, e clique em **Sincronizar Agora**.
 
-7. Agora, está pronto para chamar a API de rosto da sua aplicação. 
+![Captura de ecrã do Android Studio do ficheiro build.gradle da Aplicação](../Images/face-tut-java-gradle.png)
 
-## <a name="step4"></a>Passo 4: Carregar imagens para detetar faces
-
-A forma mais simples para detetar faces é ao chamar o [enfrentam – detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API através do carregamento diretamente o ficheiro de imagem. Quando utilizar a biblioteca de clientes, isto pode ser feito utilizando o método assíncrono **DetectAsync** do **FaceServiceClient** classe. Cada enfrentam devolvido contém um retângulo para indicar a localização, combinada com uma série de atributos de rostos em opcional. Neste exemplo, precisamos apenas de obter a localização de letra. Aqui, é necessário inserir um método para o **MainActivity** classe para a deteção de rostos em: 
+Abra **MainActivity.java** e anexe as seguintes diretivas de importação:
 
 ```java
+import com.microsoft.projectoxford.face.*;
+import com.microsoft.projectoxford.face.contract.*;
+```
 
-    // Detect faces by uploading face images
-    // Frame faces after detection
-    
-    private void detectAndFrame(final Bitmap imageBitmap)
-    {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        ByteArrayInputStream inputStream = 
+## <a name="add-the-face-client-library-code"></a>Adicionar o código da biblioteca de cliente do Face
+
+Insira o seguinte código na classe `MainActivity`, acima do método `onCreate`:
+
+```java
+private final String apiEndpoint = "<API endpoint>";
+private final String subscriptionKey = "<Subscription Key>";
+
+private final FaceServiceClient faceServiceClient =
+        new FaceServiceRestClient(apiEndpoint, subscriptionKey);
+```
+
+Substitua `<API endpoint>` pelo ponto final da API que foi atribuído à sua chave. As chaves de subscrição de avaliação gratuita são geradas na região **westcentralus**. Portanto, se estiver a utilizar uma chave de subscrição de avaliação gratuita, a instrução seria:
+
+```java
+apiEndpoint = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+```
+
+Substitua `<Subscription Key>` pela sua chave de subscrição. Por exemplo:
+
+```java
+subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+```
+
+No painel **Projeto**, expanda **aplicação**, em seguida, **manifestos**, e abra *AndroidManifest.xml*.
+
+Insira o seguinte elemento como um subordinado direto do elemento `manifest`:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+Compile o seu projeto para verificar a existência de erros. Está agora pronto para chamar o serviço Face.
+
+## <a name="upload-an-image-to-detect-faces"></a>Carregar uma imagem para detetar rostos
+
+A forma mais simples de detetar rostos é chamar o método `FaceServiceClient.detect`. Este método encapsula o método API [Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e devolve uma matriz de `Face`.
+
+Cada `Face` devolvido inclui um retângulo para indicar a localização, em conjunto com uma série de atributos faciais opcionais. Neste exemplo, apenas as localizações de rostos são necessárias.
+
+Se ocorrer um erro, um `AlertDialog` apresenta o motivo subjacente.
+
+Insira os seguintes métodos na classe `MainActivity`.
+
+```java
+// Detect faces by uploading a face image.
+// Frame faces after detection.
+private void detectAndFrame(final Bitmap imageBitmap) {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+    ByteArrayInputStream inputStream =
             new ByteArrayInputStream(outputStream.toByteArray());
-        AsyncTask<InputStream, String, Face[]> detectTask =
+
+    AsyncTask<InputStream, String, Face[]> detectTask =
             new AsyncTask<InputStream, String, Face[]>() {
+                String exceptionMessage = "";
+
                 @Override
                 protected Face[] doInBackground(InputStream... params) {
                     try {
                         publishProgress("Detecting...");
                         Face[] result = faceServiceClient.detect(
-                                params[0], 
+                                params[0],
                                 true,         // returnFaceId
                                 false,        // returnFaceLandmarks
-                                null           // returnFaceAttributes: a string like "age, gender"
-                /* If you want value of FaceAttributes, try adding 4th argument like below.
-                            new FaceServiceClient.FaceAttributeType[] {
-                    FaceServiceClient.FaceAttributeType.Age,
-                    FaceServiceClient.FaceAttributeType.Gender }
-                */              
+                                null          // returnFaceAttributes:
+                                /* new FaceServiceClient.FaceAttributeType[] {
+                                    FaceServiceClient.FaceAttributeType.Age,
+                                    FaceServiceClient.FaceAttributeType.Gender }
+                                */
                         );
-                        if (result == null)
-                        {
-                            publishProgress("Detection Finished. Nothing detected");
+                        if (result == null){
+                            publishProgress(
+                                    "Detection Finished. Nothing detected");
                             return null;
                         }
-                        publishProgress(
-                                String.format("Detection Finished. %d face(s) detected",
-                                        result.length));
+                        publishProgress(String.format(
+                                "Detection Finished. %d face(s) detected",
+                                result.length));
                         return result;
                     } catch (Exception e) {
-                        publishProgress("Detection failed");
+                        exceptionMessage = String.format(
+                                "Detection failed: %s", e.getMessage());
                         return null;
                     }
                 }
+
                 @Override
                 protected void onPreExecute() {
                     //TODO: show progress dialog
@@ -250,92 +255,118 @@ A forma mais simples para detetar faces é ao chamar o [enfrentam – detetar](h
                     //TODO: update face frames
                 }
             };
-        detectTask.execute(inputStream);
-    }
+
+    detectTask.execute(inputStream);
+}
+
+private void showError(String message) {
+    new AlertDialog.Builder(this)
+    .setTitle("Error")
+    .setMessage(message)
+    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+        }})
+    .create().show();
+}
 ```
 
-## <a name="step5"></a>Passo 5: Marca enfrenta na imagem
+## <a name="frame-faces-in-the-image"></a>Enquadrar rostos na imagem
 
-Neste último passo, vamos combinar todos os passos acima em conjunto e marcar os faces detetados com frames na imagem. Primeiro, abra **MainActivity.java** e inserir um método de programa auxiliar para desenhar retângulos: 
-
-```java
-    private static Bitmap drawFaceRectanglesOnBitmap(Bitmap originalBitmap, Face[] faces) {
-        Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(Color.RED);
-        int stokeWidth = 2;
-        paint.setStrokeWidth(stokeWidth);
-        if (faces != null) {
-            for (Face face : faces) {
-                FaceRectangle faceRectangle = face.faceRectangle;
-                canvas.drawRect(
-                        faceRectangle.left,
-                        faceRectangle.top,
-                        faceRectangle.left + faceRectangle.width,
-                        faceRectangle.top + faceRectangle.height,
-                        paint);
-            }
-        }
-        return bitmap;
-    }
-```
-
-Agora concluir as partes TODO no **detectAndFrame** método para moldura faces e comunicar estado.
+Insira o seguinte método auxiliar na classe `MainActivity`. Esse método desenha um retângulo em torno de cada rosto detetado.
 
 ```java
-    @Override
-    protected void onPreExecute() {
-        detectionProgressDialog.show();
-    }
-    @Override
-    protected void onProgressUpdate(String... progress) {
-        detectionProgressDialog.setMessage(progress[0]);
-    }
-    @Override
-    protected void onPostExecute(Face[] result) {
-        detectionProgressDialog.dismiss();
-        if (result == null) return;
-        ImageView imageView = (ImageView)findViewById(R.id.imageView1);
-        imageView.setImageBitmap(drawFaceRectanglesOnBitmap(imageBitmap, result));
-        imageBitmap.recycle();
-    }
-```
- 
-Por fim, adicione uma chamada para o **detectAndFrame** método o **onActivityResult** método, como mostrado abaixo. 
-
-```java
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                imageView.setImageBitmap(bitmap);
-     
-                // This is the new addition.
-                // detectAndFrame(bitmap);
-     
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+private static Bitmap drawFaceRectanglesOnBitmap(
+        Bitmap originalBitmap, Face[] faces) {
+    Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+    Canvas canvas = new Canvas(bitmap);
+    Paint paint = new Paint();
+    paint.setAntiAlias(true);
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setColor(Color.RED);
+    paint.setStrokeWidth(10);
+    if (faces != null) {
+        for (Face face : faces) {
+            FaceRectangle faceRectangle = face.faceRectangle;
+            canvas.drawRect(
+                    faceRectangle.left,
+                    faceRectangle.top,
+                    faceRectangle.left + faceRectangle.width,
+                    faceRectangle.top + faceRectangle.height,
+                    paint);
         }
     }
+    return bitmap;
+}
 ```
 
-Execute esta aplicação e procurar por uma imagem que contém um tipo de letra. Aguarde alguns segundos permitir que a nuvem API para responder. Depois disso, irá obter um resultado semelhante para a imagem abaixo: 
+Conclua os métodos `AsyncTask`, indicados pelos comentários `TODO`, no método `detectAndFrame`. Em caso de êxito, a imagem selecionada é apresentada com os rostos enquadrados no `ImageView`.
+
+```java
+@Override
+protected void onPreExecute() {
+    detectionProgressDialog.show();
+}
+@Override
+protected void onProgressUpdate(String... progress) {
+    detectionProgressDialog.setMessage(progress[0]);
+}
+@Override
+protected void onPostExecute(Face[] result) {
+    detectionProgressDialog.dismiss();
+    if(!exceptionMessage.equals("")){
+        showError(exceptionMessage);
+    }
+    if (result == null) return;
+    ImageView imageView = findViewById(R.id.imageView1);
+    imageView.setImageBitmap(
+            drawFaceRectanglesOnBitmap(imageBitmap, result));
+    imageBitmap.recycle();
+}
+```
+
+Por fim, no método `onActivityResult`, anule os comentários à chamada para o método `detectAndFrame`, conforme mostrado abaixo.
+
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+        Uri uri = data.getData();
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(), uri);
+            ImageView imageView = findViewById(R.id.imageView1);
+            imageView.setImageBitmap(bitmap);
+
+            // Uncomment
+            detectAndFrame(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## <a name="run-the-app"></a>Executar a aplicação
+
+Execute a aplicação e procure uma imagem com um rosto. Aguarde alguns segundos para permitir que o serviço Face responda. Depois disso, obterá um resultado semelhante à imagem abaixo:
 
 ![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
 
-## <a name="summary"></a> Resumo
+## <a name="summary"></a>Resumo
 
-Neste tutorial, aprendeu o processo básico para utilizar a API de rostos em e criar uma aplicação para apresentar marcas de rostos em imagens. Para obter mais informações sobre a API de letra, consulte os procedimentos e [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+Neste tutorial, aprendeu o processo básico para utilizar o serviço Face e criou uma aplicação para apresentar rostos enquadrados numa imagem.
 
-## <a name="related"></a> Tutoriais relacionados
+## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução à API de letra CSharp tutorial](FaceAPIinCSharpTutorial.md)
-- [Introdução à API de letra tutorial do Python](FaceAPIinPythonTutorial.md)
+Saiba mais sobre como detetar e utilizar as particularidades do rosto.
+
+> [!div class="nextstepaction"]
+> [Como Detetar Rostos numa Imagem](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+
+Explore as APIs Face utilizadas para detetar rostos e os respetivos atributos, como a posição, o género, a idade, a posição da cabeça, o pelo facial e óculos.
+
+> [!div class="nextstepaction"]
+> [Referência da API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
