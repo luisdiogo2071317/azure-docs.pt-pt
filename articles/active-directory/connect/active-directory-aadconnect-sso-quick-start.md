@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4be205f13260d60bc9788b873bea34970b560f5a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283610"
+ms.locfileid: "39325392"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: início rápido
 
@@ -80,6 +80,9 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 4. Certifique-se de que o **totalmente integrada início de sessão único** funcionalidade é apresentado como **ativado**.
 
 ![Portal do Azure: painel do Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) no seu local do Active Directory (AD) em cada floresta do AD. Esta conta de computador é necessária para a funcionalidade funcionar. Mover o `AZUREADSSOACC` conta de computador para uma unidade organizacional (UO) onde outras contas de computador são armazenadas para se certificar de que é gerido da mesma forma e não é eliminado.
 
 ## <a name="step-3-roll-out-the-feature"></a>Passo 3: Implementar a funcionalidade
 

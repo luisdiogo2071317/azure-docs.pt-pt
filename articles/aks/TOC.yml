@@ -89,6 +89,10 @@
         - name: Solução de estado de funcionamento do contentor do Azure
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Ver os registos de componente principal
+          href: view-master-logs.md
+        - name: Ver os registos kubelet
+          href: kubelet-logs.md
     - name: Programar e executar aplicações
       items:
         - name: Executar aplicações com Helm
@@ -121,8 +125,6 @@
       items:
         - name: Acesso de nó SSH
           href: aks-ssh.md
-        - name: Obter registos kubelet
-          href: kubelet-logs.md
 - name: Referência
   items:
     - name: CLI do Azure

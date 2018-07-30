@@ -1,6 +1,6 @@
 ---
-title: Disponibilidade de SAP HANA dentro de uma região do Azure | Microsoft Docs
-description: Descreve as operações de SAP HANA em VMs do Azure de nativas numa região do Azure.
+title: Disponibilidade do SAP HANA dentro de uma região do Azure | Documentos da Microsoft
+description: Descreve as operações de SAP HANA em VMs nativas do Azure numa região do Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -13,111 +13,120 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/05/2018
+ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47dba73a6c22d11953485a69435000d3d2fe6f55
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4f2defd60ec6b835ec856c9253a92f1d6817e861
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192803"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326008"
 ---
-# <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade de SAP HANA dentro de uma região do Azure
-Este artigo descreve os vários cenários de disponibilidade dentro de uma região do Azure. O Azure tem várias regiões, propagar-se em todo o mundo. Para obter a lista de regiões do Azure, consulte [regiões do Azure](https://azure.microsoft.com/regions/). Para a implementação de SAP HANA em VMs dentro de uma região do Azure, a Microsoft oferece a implementação de uma única VM com uma instância HANA. Para uma maior disponibilidade, pode implementar duas VMs com duas instâncias HANA dentro de um [conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) que utiliza a replicação do sistema HANA de disponibilidade. 
+# <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade do SAP HANA dentro de uma região do Azure
+Este artigo descreve os vários cenários de disponibilidade numa região do Azure. O Azure tem muitas regiões, espalhados por todo o mundo. Para obter a lista de regiões do Azure, veja [regiões do Azure](https://azure.microsoft.com/regions/). Para implementar o SAP HANA nas VMs dentro de uma região do Azure, a Microsoft oferece a implementação de uma única VM com uma instância do HANA. Para maior disponibilidade, pode implementar duas VMs com duas instâncias do HANA dentro de um [conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) que utiliza a replicação de sistema do HANA para disponibilidade. 
 
-Atualmente, é a oferta uma pré-visualização pública do Azure [zonas de disponibilidade do Azure (pré-visualização)](https://docs.microsoft.com/azure/availability-zones/az-overview). Neste artigo, vamos não descrevem zonas de disponibilidade em detalhe. No entanto, incluímos um debate geral sobre como utilizar os conjuntos de disponibilidade versus zonas de disponibilidade.
+Atualmente, o Azure está oferecendo [zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Este artigo descreve as zonas de disponibilidade em detalhes. No entanto, ele inclui uma discussão geral sobre como utilizar conjuntos de disponibilidade em comparação com as zonas de disponibilidade.
 
-O que é a diferença entre um conjunto de disponibilidade e de uma zona de disponibilidade no Azure? Regiões do Azure, onde são oferecidas zonas de disponibilidade tem vários centros de dados. Os centros de dados são independentes no fornecimento de origem de energia, arrefecimento e rede. O motivo para a oferta diferentes zonas numa única região do Azure é por isso pode implementar aplicações em duas ou três horários de disponibilidade que são oferecidos. Partindo do princípio que problemas de rede ou de origem de energia iriam afetar apenas uma infraestrutura de zona de disponibilidade, a implementação da aplicação dentro de uma região do Azure ainda está totalmente funcional se utilizar as zonas de disponibilidade. Poderão ocorrer alguma capacidade reduzida. Por exemplo, VMs numa zona poderão perder-se, mas as VMs do outras duas zonas ainda seria configurado e em execução. 
+Regiões do Azure em que as zonas de disponibilidade são oferecidas tem vários datacenters. Os datacenters são independentes na prestação de fonte de energia, refrigeração e rede. É o motivo para a oferta zonas diferentes numa única região do Azure implementar aplicações em duas ou três zonas de disponibilidade que são oferecidos. Implementar entre zonas, emite no Power BI e rede que afetam apenas uma infraestrutura de zona de disponibilidade do Azure, a implementação da aplicação dentro de uma região do Azure ainda está funcional. Poderão ocorrer alguma capacidade reduzida. Por exemplo, VMs numa zona poderão perder-se, mas as VMs em duas outras zonas ainda estaria em execução. 
  
-Um conjunto de disponibilidade do Azure é uma capacidade de agrupamento lógico que ajuda a garantir que os recursos da VM que colocar no conjunto de disponibilidade estão falha isoladas entre si quando estão implementadas dentro de um datacenter do Azure. Azure garante que as VMs colocar dentro de um disponibilidade definida execução em vários servidores físicos, computação bastidores, unidades de armazenamento e comutadores de rede. Em alguma documentação do Azure, esta configuração é referida como possam ser posicionadas livremente em diferentes [domínios de atualização e falhas](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). Normalmente, é estes possam ser posicionadas livremente dentro de um datacenter do Azure. Partindo do princípio que problemas de rede de origem e de energia iriam afetar o Centro de dados que estiver a implementar, seria afetada todas as suas capacidade uma região do Azure.
+Um conjunto de disponibilidade do Azure é uma capacidade de agrupamento lógico que o ajuda a garantir que os recursos VM que colocar num conjunto de disponibilidade estão falha isoladas entre si quando são implementados num datacenter do Azure. O Azure garante que as VMs que colocar num Conjunto de Disponibilidade são executadas em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Em alguma documentação do Azure, esta configuração é referida como posicionamentos em diferentes [domínios de atualização e com falha](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). Normalmente, são estes posicionamentos dentro de um datacenter do Azure. Supondo que os problemas de rede e fonte de alimentação afetaria o Centro de dados que estão sendo implantados, todos os seus capacidade numa única região do Azure é afetada.
 
-A colocação dos centros de dados que representam zonas de disponibilidade do Azure é um compromisso entre a distribuição de latência de rede entre serviços implementados em diferentes zonas que aceitável para a maioria das aplicações e uma distância específica entre centros de dados. Idealmente, catastrophes naturais não afetam a capacidade, o fornecimento de rede e a infraestrutura para todas as zonas de disponibilidade nesta região. No entanto, como monumental catastrophes naturais demonstraram, zonas de disponibilidade poderão não fornecer sempre a disponibilidade que pretende que sejam dentro de uma região. Consideração Maria furacão que ilha de Porto Rico de acessos no 20 de Setembro de 2017. O furacão causado basicamente quase 100 por cento de blackout na ilha de mile-toda a 90.
+A colocação dos centros de dados que representam as zonas de disponibilidade do Azure é um compromisso entre a entrega de latência de rede aceitável entre serviços implementados em diferentes zonas e uma distância entre os datacenters. Catástrofes naturais ideal é que não afetam o poder, o fornecimento de rede e a infraestrutura para todas as zonas de disponibilidade nesta região. No entanto, como tem mostrado monumental catástrofes naturais, zonas de disponibilidade poderá não fornecer sempre a disponibilidade que pretende numa região. Considere a Maria furacão que atingem ilha de Porto Rico, 20 de Setembro de 2017. O furacão basicamente causou uma indisponibilidade quase 100 por cento na ilha quilómetro-toda a 90.
 
 ## <a name="single-vm-scenario"></a>Cenário de VM única
 
-Cenário de uma única VM, crie uma VM do Azure para a instância de SAP HANA. Utilizar o Premium Storage do Azure para alojar o disco de sistema operativo e todos os discos de dados. O tempo de atividade do Azure SLA de 99,9% e os SLAs de outros componentes do Azure é suficiente para a cumprir a SLA de disponibilidade para os seus clientes. Neste cenário, é necessário não é necessário para tirar partido de um conjunto para VMs que executam a camada DBMS de disponibilidade do Azure. Neste cenário, dependem duas funcionalidades diferentes:
+Um cenário de VM única, vai criar uma VM do Azure para a instância do SAP HANA. Utilize o armazenamento Premium do Azure para alojar o disco do sistema operativo e todos os seus discos de dados. O tempo de atividade do Azure, o SLA de 99,9 por cento e os SLAs de outros componentes do Azure é suficiente para que atenda a suas SLAs de disponibilidade para os seus clientes. Neste cenário, precisa sem a necessidade de tirar partido de um conjunto de disponibilidade do Azure para VMs que executam a camada do DBMS. Neste cenário, contar com duas funcionalidades diferentes:
 
-- Azure VM reinício automático (também referido como autorrecuperação do serviço do Azure)
-- Reinício automático de SAP HANA
+- Azure VM reinício automático (também referido como a recuperação do serviço do Azure)
+- Reinício automático do SAP HANA
 
-Reinício de automática VM do Azure ou a autorrecuperação do serviço, é uma funcionalidade do Azure que funciona em dois níveis:
+Reinício de automática VM do Azure, ou a recuperação do serviço, é uma funcionalidade do Azure que funciona em dois níveis:
 
 - O anfitrião do servidor do Azure verifica o estado de funcionamento de uma VM que está alojado no anfitrião do servidor.
-- O controlador de recursos de infraestrutura do Azure monitoriza o estado de funcionamento e a disponibilidade do anfitrião do servidor.
+- O controlador de malha do Azure monitoriza o estado de funcionamento e a disponibilidade do anfitrião do servidor.
 
-Uma funcionalidade de verificação do Estado de funcionamento monitoriza o estado de funcionamento de cada VM que está alojado num anfitrião do servidor do Azure. Se uma VM estiver num Estado nonhealthy, um reinício da VM pode ser iniciado pelo agente de anfitrião do Azure que verifica o estado de funcionamento da VM. O controlador de recursos de infraestrutura verifica o estado de funcionamento do anfitrião, verificando muitos diferentes parâmetros que possam indicar problemas com o hardware anfitrião. Verifica igualmente se existem na acessibilidade do anfitrião através da rede. Uma indicação de problemas com o anfitrião pode fazer com que os seguintes eventos:
+Uma funcionalidade de verificação de estado de funcionamento monitoriza o estado de funcionamento de cada VM que está alojado num anfitrião server do Azure. Se uma VM pertence a um mau estado, um reinício da VM pode ser iniciado pelo agente de anfitrião do Azure que verifica o estado de funcionamento da VM. O controlador de malha verifica o estado de funcionamento do anfitrião, a verificação de muitos parâmetros diferentes que podem indicar problemas com o hardware anfitrião. Ele também verifica a acessibilidade do anfitrião através da rede. Uma indicação de problemas com o host pode levar aos seguintes eventos:
 
-- Se o anfitrião sinalizar um Estado de funcionamento incorreto, um reinício do anfitrião e reiniciar as VMs que estavam em execução no anfitrião.
-- Se o anfitrião não está em bom estado de funcionamento após o reinício, um reinício do anfitrião e reiniciar as VMs que foram originalmente alojadas no anfitrião no anfitrião bom estado de funcionamento. Neste caso, o anfitrião está marcado como não bom estado de funcionamento. Não serão utilizada para implementações mais foi limpo ou substituída.
-- Se o anfitrião em mau estado de funcionamento tem problemas durante o processo de reinício, um reinício imediato das VMs num anfitrião em bom estado. 
+- Se o anfitrião sinaliza um Estado de funcionamento incorreto, serão disparados um reinício do anfitrião e um reinício de VMs que estavam em execução no anfitrião.
+- Se o anfitrião não está em bom estado de funcionamento após a reinicialização bem sucedida, é iniciada uma nova implementação de VMs que faziam originalmente no nó agora mau estado de funcionamento para um servidor de anfitrião em bom estado. Neste caso, o anfitrião original é marcado como estado de funcionamento incorreto. Isso não será usado para implementações mais até que ele tem limpos ou substituído.
+- Se o host problemático tem problemas durante o processo de reinicialização, é acionado um reinício imediato de VMs num anfitrião em bom estado. 
 
-Com o anfitrião e VM monitorização fornecida pelo Azure, as VMs do Azure que ocorrer problemas do anfitrião são reiniciadas automaticamente num anfitrião bom estado de funcionamento do Azure. 
+Com o anfitrião e a monitorização de VM fornecida pelo Azure, as VMs do Azure que ocorrerem problemas de anfitrião são reiniciadas automaticamente num anfitrião do Azure em bom estado. 
 
-A funcionalidade segundo que dependem deste cenário é o facto de que reinicia o serviço HANA que é executado numa VM reiniciada inicia-se automaticamente após a VM. Pode configurar [-reinício automático do serviço HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) através dos serviços watchdog de vários serviços HANA.
+>[!IMPORTANT]
+>Recuperação do serviço do Azure não irá reiniciar as VMs do Linux em que o SO convidado é num estado entre em pânico do kernel. As predefinições das versões de Linux frequentemente utilizadas, não são reiniciadas automaticamente VMs ou servidor em que o kernel de Linux está no estado entre em pânico. Em vez disso, a predefinição foresees para manter o sistema operacional no estado entre em pânico do kernel para conseguir anexar um depurador de kernel para analisar. Azure está a respeitar esse comportamento reiniciando automaticamente uma VM com o SO convidado num de um Estado. Suposição é que tais ocorrências são extremamente raras. Poderia substituir o comportamento predefinido para permitir um reinício da VM. Para alterar o padrão de comportamento ativar o parâmetro kernel.panic no /etc/sysctl.conf. O tempo definido para este parâmetro é em segundos. Valores recomendados comuns estão a aguardar 20 a 30 segundos antes de acionar o reinício por este parâmetro. Consulte também <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>.
 
-Poderá melhorar este cenário única VM ao adicionar um nó de ativação pós-falha amovíveis para uma configuração de SAP HANA. A documentação de SAP HANA, esta configuração é designada [auto-ativação pós-falha do anfitrião](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/ae60cab98173431c97e8724856641207.html). Esta configuração poderá fazer sentido uma situação de implementação no local onde o hardware do servidor é limitado e dedique um nó de servidor único, como o anfitrião de nó de ativação de pós-falha automática para um conjunto de anfitriões de produção. Mas no Azure, onde a infraestrutura subjacente do Azure fornece um servidor de destino em bom estado de um reinício VM com êxito, não fazer sentido para implementar automaticamente de anfitrião de SAP HANA-ativação pós-falha. Por este motivo, não temos de nenhum arquitetura de referência foresees um nó em modo de espera para HANA anfitrião auto-ativação pós-falha. Isto também se aplica a configurações de escalamento horizontal de SAP HANA.
+O segundo recurso que se baseiam neste cenário é o fato de que o serviço HANA que é executado numa VM reiniciada inicia automaticamente após a VM é reiniciada. Pode configurar [auto-reiniciar o serviço do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) através dos serviços de watchdog dos vários serviços do HANA.
+
+Poderá melhorar neste cenário de VM única ao adicionar um nó de ativação pós-falha frio para uma configuração de SAP HANA. Na documentação do SAP HANA, esta configuração denomina [alojar a ativação pós-falha automática](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/ae60cab98173431c97e8724856641207.html). Esta configuração poderá fazer sentido numa situação de implementação no local onde o hardware de servidor é limitado e que dedica um nó de servidor único, como o anfitrião do nó de ativação pós-falha automática para um conjunto de anfitriões de produção. Mas, no Azure, onde a infra-estrutura subjacente do Azure fornece um servidor de destino de bom estado de funcionamento para um reinício VM com êxito, não faz sentido para implementar o SAP HANA anfitrião-ativação pós-falha automática. Por motivo de recuperação do serviço do Azure, não existe nenhum arquitetura de referência que foresees um nó em modo de espera para HANA anfitrião-ativação pós-falha automática. 
+
+### <a name="special-case-of-sap-hana-scale-out-configurations-in-azure"></a>Caso especial de configurações de escalamento horizontal do SAP HANA no Azure
+Elevada disponibilidade para as configurações de escalamento horizontal do SAP HANA é a entidade confiadora no serviço de recuperação de VMs do Azure e o reinício da instância do SAP HANA, como a VM está a funcionar e executar novamente. Arquiteturas de alta disponibilidade com base no HANA System Replication vão ser introduzido numa altura posterior. 
+
 
 ## <a name="availability-scenarios-for-two-different-vms"></a>Cenários de disponibilidade para duas VMs diferentes
 
-Se utilizar duas VMs do Azure dentro de um conjunto de disponibilidade do Azure, pode aumentar o tempo de atividade entre estas duas VMs, se estas são colocadas num conjunto dentro de uma região do Azure de disponibilidade do Azure. O programa de configuração base no Azure deverá ter o seguinte aspeto:
+Se utilizar duas VMs do Azure dentro de um conjunto de disponibilidade do Azure, pode aumentar o tempo de atividade entre estas duas VMs se estas são colocadas num conjunto de disponibilidade do Azure numa região do Azure. A configuração base no Azure teria o seguinte aspeto:
 
 ![Diagrama de duas VMs com todas as camadas](./media/sap-hana-availability-one-region/two_vm_all_shell.PNG)
 
-Para ilustrar os cenários de disponibilidade diferente, algumas das camadas no diagrama estão omitidas. O diagrama mostra apenas as camadas que depict VMs, anfitriões, conjuntos de disponibilidade e regiões do Azure. Instâncias, grupos de recursos e subscrições de rede Virtual do Azure não desempenham um papel nos cenários descritos nesta secção.
+Para ilustrar os cenários de disponibilidade diferentes, algumas das camadas no diagrama são omitidas. O diagrama mostra apenas as camadas que retratar VMs, anfitriões, conjuntos de disponibilidade e regiões do Azure. Instâncias, grupos de recursos e subscrições de rede Virtual do Azure não têm uma função nos cenários descritos nesta secção.
 
 ### <a name="replicate-backups-to-a-second-virtual-machine"></a>Replicar as cópias de segurança para uma segunda máquina virtual
 
-Um dos setups mais rudimentares é utilizar cópias de segurança. Em particular, poderá ter cópias de segurança do registo de transações enviadas de uma VM para outra VM do Azure. Pode escolher o tipo de armazenamento do Azure. Nesta configuração for o responsável pela scripting a cópia de cópias de segurança agendadas, que são efetuadas na VM primeiro para a VM segundo. Se precisar de utilizar as segundo instâncias VM, tem de restaurar o completo, incrementais/valor diferencial e cópias de segurança de registos de transação para o ponto de que precisa. 
+Um das configurações mais rudimentares é utilizar cópias de segurança. Em particular, talvez tenha backups de log de transação enviados a partir de uma VM para outra VM do Azure. Pode escolher o tipo de armazenamento do Azure. Nessa configuração, é responsável por scripts a cópia de cópias de segurança agendadas realizadas na primeira VM para a segunda VM. Se precisar de utilizar as segundo instâncias VM, tem de restaurar o completas, incrementais/diferenciais e backups de log de transação para o ponto de que precisa. 
 
-A arquitetura tem o seguinte aspeto:
+A arquitetura é semelhante a:
 
 ![Diagrama de duas VMs com a replicação de armazenamento](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
-Esta configuração não é adequada para alcançar esta excelente tempos de objetivo de ponto de recuperação (RPO) e o objetivo de tempo de recuperação (RTO). Vezes RTO especialmente seriam afetado negativamente devido à necessidade para restaurar completamente a base de dados completo com as cópias de segurança copiadas. No entanto, esta configuração é útil para recuperar a partir de eliminação de dados inesperados nas instâncias do principais. Com esta configuração, em qualquer altura, pode restaurar para um determinado ponto no tempo, extrair os dados e importar os dados eliminados para a instância principal. Por conseguinte, poderá ser aconselhável utilizar um método de cópia de segurança em combinação com outras funcionalidades de elevada disponibilidade. 
+Esta configuração não é adequada para alcançar o excelentes horas de objetivo de ponto de recuperação (RPO) e objetivo de tempo de recuperação (RTO). RTO vezes especialmente seriam afetado negativamente devido à necessidade de restaurar completamente o banco de dados completo com as cópias de segurança copiadas. No entanto, esta configuração é útil para recuperar a partir de eliminação de dados não-intencionais nas instâncias da principais. Com esta configuração, em qualquer altura, pode restaurar para um determinado ponto no tempo, extrair os dados e importar os dados eliminados para a instância principal. Por conseguinte, poderá fazer sentido usar um método de cópia de segurança em combinação com outras funcionalidades de elevada disponibilidade. 
 
-Enquanto as cópias de segurança estão a ser copiadas, poderá utilizar uma VM mais pequena do que a VM principal que a instância de SAP HANA está em execução. Tenha em atenção que pode anexar um número mais pequeno de VHDs para VMs mais pequenas. Para obter informações sobre os limites de tipos VM individuais, consulte [tamanhos de máquinas virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Enquanto as cópias de segurança estão a ser copiadas, poderá conseguir utilizar uma VM mais pequena do que a VM principal que a instância do SAP HANA está a executar. Tenha em atenção que pode anexar um número menor de VHDs para VMs mais pequenas. Para obter informações sobre os limites de tipos VM individuais, consulte [tamanhos de máquinas de virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
-### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replicação do sistema de SAP HANA sem ativação pós-falha automática
+### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replicação do sistema de SAP HANA sem failover automático
 
-Os cenários descritos nesta secção utilizam a replicação do sistema de SAP HANA. Para a documentação do SAP, consulte [replicação do sistema](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Duas VMs do Azure numa única região do Azure tenham configurações diferentes, pelo que existem algumas diferenças nas RTO. Em geral, cenários sem ativação pós-falha automática não podem ser aplicadas especificamente para VMs numa região do Azure. Isto acontece porque a maioria das falhas na infraestrutura do Azure, a autorrecuperação do serviço do Azure reinicia a VM principal noutro anfitrião. Existem alguns casos de limite, onde pode ajudar a esta configuração em termos de cenários de falha. Em alternativa, em alguns casos, um cliente pode regressam mais eficiência.
+Os cenários descritos nesta secção utilizam a replicação de sistema do SAP HANA. Para a documentação do SAP, consulte [replicação de sistema](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html). Cenários sem failover automático não são comuns para configurações dentro de uma região do Azure. Uma configuração sem failover automático, embora evitando uma configuração de Pacemaker, obligates-na monitorizar e a ativação pós-falha manualmente. Como este demora e esforços também, a maioria dos clientes confiam no serviço do Azure em vez disso, a recuperação. Existem alguns casos extremos em que esta configuração pode ajudar em termos de cenários de falha. Em alternativa, em alguns casos, um cliente pode perceber mais eficiência.
 
-#### <a name="sap-hana-system-replication-without-auto-failover-and-without-data-preload"></a>Replicação do sistema de SAP HANA sem ativação de pós-falha automática e sem dados pré-carregamento
+#### <a name="sap-hana-system-replication-without-auto-failover-and-without-data-preload"></a>Replicação do sistema de SAP HANA sem ativação pós-falha automática e sem o pré-carregamento de dados
 
-Neste cenário, pode utilizar replicação do sistema de SAP HANA para mover dados de forma síncrona para alcançar um RPO de 0. Por outro lado, tem um suficientemente longa RTO que não precisa de ativação pós-falha ou dados pré-carregamento para a cache de instância HANA. Neste caso, é possível alcançar mais economia na configuração, efetuando as seguintes ações:
+Neste cenário, vai utilizar a replicação de sistema do SAP HANA para mover dados de forma síncrona para alcançar um RPO de 0. Por outro lado, tem um longa o suficiente RTO que não precisa de ativação pós-falha ou dados pré-carregamento para a cache de instância do HANA. Neste caso, é possível obter ainda mais economia em sua configuração, efetuando as seguintes ações:
 
-- Execute outra instância de SAP HANA na segunda VM. A instância de SAP HANA na VM segundo tira o máximo da memória da máquina virtual. Normalmente, trata-se no caso de ocorrer uma ativação pós-falha para a VM segundo. Pode desligar a VM segundo para que os dados replicados podem ser carregados para a cache da instância de HANA visada na segunda VM.
-- Utilize um tamanho VM mais pequeno da VM segundo. Se ocorrer uma ativação pós-falha, é necessário um passo adicional antes da ativação pós-falha manual. Neste passo, redimensione a VM para o tamanho da VM de origem. O cenário tem o seguinte aspeto:
+- Execute outra instância do SAP HANA na VM segundo. A instância do SAP HANA na VM segundo leva a maior parte da memória da máquina virtual. No caso de uma ativação pós-falha para a segunda VM, terá de encerrar a instância do SAP HANA em execução que tem os dados totalmente carregados na segunda VM, para que os dados replicados podem ser carregados para a cache da instância HANA direcionada na segunda VM.
+- Utilize um tamanho VM mais pequeno noutra. Se ocorrer uma ativação pós-falha, terá uma etapa adicional antes da ativação pós-falha manual. Neste passo, redimensione a VM para o tamanho da VM de origem. 
+ 
+O cenário é semelhante a:
 
 ![Diagrama de duas VMs com a replicação de armazenamento](./media/sap-hana-availability-one-region/two_vm_HSR_sync_nopreload.PNG)
 
 > [!NOTE]
-> Mesmo se não utilizar pré-carregamento de dados no destino de replicação do sistema HANA, precisa de, pelo menos, de 64 GB de memória. Também precisa de memória suficiente para além de 64 GB para manter os dados de rowstore na memória da instância de destino.
+> Mesmo se não utilizar o pré-carregamento de dados no destino de replicação de sistema HANA, tem de, pelo menos, 64 GB de memória. Também tem memória suficiente para além de 64 GB para manter os dados de rowstore na memória da instância de destino.
 
-#### <a name="sap-hana-system-replication-without-auto-failover-and-with-data-preload"></a>Replicação do sistema de SAP HANA sem ativação de pós-falha automática e com o pré-carregamento de dados
+#### <a name="sap-hana-system-replication-without-auto-failover-and-with-data-preload"></a>Replicação do sistema de SAP HANA sem ativação pós-falha automática e com o pré-carregamento de dados
 
-Neste cenário, os dados são replicados para a instância HANA na VM segundo é pré-carregado. Isto elimina as duas vantagens da pré-carregamento não dados. Neste caso, não é possível executar outro sistema de SAP HANA na VM do segundo. Também é possível utilizar um tamanho VM mais pequeno. Por conseguinte, os clientes raramente implementam este cenário.
+Neste cenário, os dados que são replicados para a instância HANA na segunda VM é pré-carregado. Isso elimina duas vantagens de pré-carregamento não de dados. Neste caso, não é possível executar outro sistema de SAP HANA noutra. Também não é possível utilizar um tamanho VM mais pequeno. Por conseguinte, os clientes raramente implementar este cenário.
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replicação do sistema de SAP HANA com ativação pós-falha automática
 
-No padrão e mais comuns de configuração de disponibilidade dentro de uma região do Azure, duas VMs do Azure com o SLES Linux ter um cluster de ativação pós-falha definido. O cluster do SLES Linux baseia-se no [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) framework, juntamente com um [STONITH](http://linux-ha.org/wiki/STONITH) dispositivo. 
+No padrão e mais comuns a configuração de disponibilidade numa região do Azure, duas VMs do Azure em execução no Linux do SLES tem um cluster de ativação pós-falha definido. O cluster do Linux do SLES se baseia a [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) framework, em conjunto com um [STONITH](http://linux-ha.org/wiki/STONITH) dispositivo. 
 
-A partir de uma perspetiva de SAP HANA, está sincronizado o modo de replicação que é utilizado e uma ativação pós-falha automática está configurada. Na segunda VM, a instância de SAP HANA atua como um nó em modo de espera frequente. O nó em modo de espera recebe uma transmissão em fluxo síncrono de registos de alteração da instância principal de SAP HANA. Como a aplicação no nó principal HANA empenhadas transações, o nó principal do HANA aguarda para confirmar a consolidação da aplicação, até que o nó secundário do SAP HANA confirma que recebeu o registo de consolidação. SAP HANA oferece dois modos de replicação síncrona. Para obter mais informações e para obter uma descrição das diferenças entre estes dois modos de replicação síncrona, consulte o artigo SAP [modos de replicação para a replicação do sistema de SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
+A partir de um ponto de vista do SAP HANA, o modo de replicação que é utilizado está sincronizado e uma ativação pós-falha automática está configurada. Na segunda VM, a instância do SAP HANA atua como um nó em modo de espera ativo. O nó em modo de espera recebe um fluxo síncrono de registos de alteração da instância principal do SAP HANA. Como as transações são confirmadas pela aplicação no nó principal do HANA, o nó principal do HANA aguarda para confirmar a consolidação para o aplicativo até que o nó secundário do SAP HANA confirma que ele recebeu o registo de consolidação. SAP HANA oferece dois modos de replicação síncrona. Para obter detalhes e uma descrição das diferenças entre esses dois modos de replicação síncrona, consulte o artigo SAP [modos de replicação para a replicação de sistema do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
-A configuração global tem o seguinte aspeto:
+A configuração geral é semelhante a:
 
 ![Diagrama de duas VMs com a replicação de armazenamento e de ativação pós-falha](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
 
-Poderá escolher esta solução porque permite-lhe atingir um RPO = 0 e um RTO extremamente baixa. Configure a conectividade de cliente de SAP HANA para que os clientes de SAP HANA utilizam o endereço IP virtual para ligar à configuração de replicação do sistema HANA. Isto elimina a necessidade de reconfigurar a aplicação se ocorrer uma ativação pós-falha para o nó secundário. Neste cenário, os SKUs de VM do Azure para as VMs principais e secundários têm de ser iguais.
+Poderá escolher esta solução porque ela permite-lhe alcançar um RPO = 0 e um RTO baixo. Configure a conectividade de cliente do SAP HANA, para que os clientes de SAP HANA utilizam o endereço IP virtual para ligar à configuração de replicação de sistema do HANA. Essa configuração elimina a necessidade de reconfigurar o aplicativo se ocorrer uma ativação pós-falha para o nó secundário. Neste cenário, os SKUs de VM do Azure para a VM principal e secundária tem de ser o mesmo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter orientações passo a passo sobre como configurar estas configurações no Azure, consulte:
 
-- [Configurar a replicação do sistema de SAP HANA em VMs do Azure](sap-hana-high-availability.md)
-- [Elevada disponibilidade para SAP HANA utilizando a replicação do sistema](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
+- [Configurar a replicação de sistema de SAP HANA em VMs do Azure](sap-hana-high-availability.md)
+- [Elevada disponibilidade para SAP HANA através de replicação de sistema](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
 
-Para obter mais informações sobre a disponibilidade de SAP HANA em regiões do Azure, consulte:
+Para obter mais informações sobre a disponibilidade do SAP HANA em regiões do Azure, consulte:
 
-- [Disponibilidade de SAP HANA em regiões do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
+- [Disponibilidade do SAP HANA em regiões do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
 
