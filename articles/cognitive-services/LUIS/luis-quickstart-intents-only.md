@@ -2,19 +2,19 @@
 title: Criar uma aplicação simples com duas intenções - Azure | Microsoft Docs
 description: Saiba como criar uma aplicação LUIS simples com duas intenções e sem entidades para identificar expressões de utilizador neste início rápido.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865816"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237779"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Criar aplicação com domínio personalizado
 Neste tutorial, crie uma aplicação que demonstre como utilizar **intenções** para determinar a _intenção_ do utilizador com base na expressão (texto) enviada para a aplicação. Quando terminar, obterá um ponto final do LUIS em execução na cloud.
