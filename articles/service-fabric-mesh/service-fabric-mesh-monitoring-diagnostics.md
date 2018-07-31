@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076420"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358328"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
-Malha do Azure Service Fabric é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento, ou de rede. Monitorização e diagnóstico para a malha de recursos de infraestrutura do serviço é categorizado em três tipos principais de dados de diagnóstico:
+O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes. Monitorização e diagnóstico para a malha de recursos de infraestrutura do serviço é categorizado em três tipos principais de dados de diagnóstico:
 
 - Registos de aplicações - estes são definidos como os registos das suas aplicações em contentores, com base na forma como tiver instrumentado a sua aplicação (por exemplo, registos do docker)
 - Eventos de plataforma - eventos a partir da plataforma de malha relevante para a operação de contentor, incluindo atualmente ativação de contentor, a desativação e cessação.
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> Pode utilizar o comando de "az malha servicereplica" para obter o nome de réplica. Nomes de réplica são incrementando números de 0.*
+> Pode utilizar o comando "az mesh réplica service" para obter o nome de réplica. Nomes de réplica são incrementando números de 0.*
 
 Eis o que isso é semelhante, para ver os registos do contêiner VotingWeb.Code da aplicação de voto:
 

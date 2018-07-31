@@ -3,7 +3,7 @@ title: Enlaces do SendGrid de funções do Azure
 description: Referência de enlaces do SendGrid de funções do Azure.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
-ms.author: tdykstra
-ms.openlocfilehash: 0cd5730d049749949db13f29499e268a1ebccc18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: glenga
+ms.openlocfilehash: 2796a7d9fb44a05e1873e2fcbde82c837db202be
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467955"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346458"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces do SendGrid de funções do Azure
 
@@ -195,7 +195,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**name**|| Necessário - o nome da variável no código de função para a pedido ou corpo do pedido. Este valor é ```$return``` quando existe apenas um valor de retorno. |
 |**apiKey**|**ApiKey**| O nome de uma definição de aplicação que contém a chave de API. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsSendGridApiKey".|
 |**Para**|**Para**| endereço de e-mail do destinatário. |
-|**de**|**De**| endereço de e-mail do remetente. |
+|**De**|**De**| endereço de e-mail do remetente. |
 |**subject**|**Assunto**| o assunto do e-mail. |
 |**text**|**Text** (Texto)| o conteúdo de e-mail. |
 

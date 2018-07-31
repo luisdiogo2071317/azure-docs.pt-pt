@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba9982d1f63345db394f1803c31d4246cfac499c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309175"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344135"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Particionar e dimensionar no Azure Cosmos DB
 
@@ -86,7 +86,7 @@ Escolha uma chave de partição, de modo que:
   A imagem à esquerda acima mostra o resultado de uma chave de partição inválido e a imagem correta acima mostra o resultado, quando uma chave de partição seja segura foi escolhida. Imagem da esquerda, pode ver que os dados não são distribuídos uniformemente entre as partições. Deve se esforçar para escolher uma chave de partição que distribui os dados para que ele se parece com a imagem correta.
 
 * Consultas que são invocadas com alta simultaneidade podem ser encaminhadas com eficiência, incluindo a chave de partição no predicado de filtro.  
-* Escolher uma chave de partição com cardinalidade superior é geralmente preferido – becaue ele produz, tipicamente, melhor distribuição e a escalabilidade. Por exemplo, uma chave composta pode ser formada pela concatenação de valores de várias propriedades para aumentar a cardinalidade.  
+* Escolher uma chave de partição com cardinalidade superior é geralmente preferido – becaue ele produz, tipicamente, melhor distribuição e a escalabilidade. Por exemplo, uma chave sintética pode ser formada pela concatenação de valores de várias propriedades para aumentar a cardinalidade.  
 
 Quando escolher uma chave de partição com acima considerações, não precisa se preocupar sobre o número de partições ou o débito é alocado por partição física, como o Azure Cosmos DB aumenta horizontalmente o número de partições físicas e também pode aumentar verticalmente a partições individuais conforme necessário.
 
@@ -205,9 +205,9 @@ g.E(['USA', 'I5'])
 
 Para obter mais informações, consulte [usando um gráfico de particionadas no Azure Cosmos DB](graph-partitioning.md).
 
-## <a name="composite-partition-key"></a>Chave de partição compostos
+## <a name="form-partition-key-by-concatenating-multiple-fields"></a>Chave de partição de formulário pela concatenação de vários campos
 
-Pode formar uma chave de partição compostos por concatenação e preenchimento vários valores de propriedade numa propriedade de único artificiais "partitionKey" do item.
+Também é possível formar uma chave de partição ao concatenar e preenchimento vários valores de propriedade numa propriedade de único artificiais "partitionKey" do item. Essas chaves são conhecidas como chaves sintéticas.
 
 Por exemplo, tem um documento que é semelhante a:
 
@@ -218,7 +218,7 @@ Por exemplo, tem um documento que é semelhante a:
 }
 ```
 
-Uma opção é definir partitionKey /deviceId ou /date. Se desejar formar uma chave composta no id de dispositivo e data. Concatenar esses dois valores numa propriedade de artificial "partitionKey" e defina a chave de partição para /partitionKey.
+Uma opção é definir partitionKey /deviceId ou /date. Se desejar formar uma chave de partição no id de dispositivo e data. Concatenar esses dois valores numa propriedade de artificial "partitionKey" e defina a chave de partição para /partitionKey.
 
 ```json
 {
@@ -228,7 +228,7 @@ Uma opção é definir partitionKey /deviceId ou /date. Se desejar formar uma ch
 }
 ```
 
-Em cenários em tempo real pode ter milhares de documentos para que deve definir a lógica do lado do cliente para concatenar os valores numa chave composta, inserir a chave composta os documentos e, em seguida, utilizá-la para especificar a chave de partição.
+Em cenários em tempo real pode ter milhares de documentos para que deve definir a lógica do lado do cliente para concatenar os valores numa chave sintética, inserir a chave sintética os documentos e, em seguida, utilizá-la para especificar a chave de partição.
 
 <a name="designing-for-scale"></a>
 ## <a name="design-for-scale"></a>Conceba para reduzir horizontalmente

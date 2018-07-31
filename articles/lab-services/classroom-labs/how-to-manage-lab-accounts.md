@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225307"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345893"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contentor para laboratórios geridos, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório com o Azure Lab Services e fornece acesso a proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório.
@@ -45,7 +45,7 @@ No Azure Lab Services, uma conta de laboratório é um contentor para laboratór
     ![Página da conta de laboratório](../media/how-to-manage-lab-accounts/lab-account-page.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Adicionar um utilizador à função de Criador do Laboratório
-Para configurar um laboratório de sala de aula numa conta de laboratório, o utilizador tem de ser um membro do **criador do laboratório** função na conta de laboratório. A conta que utilizou para criar a conta de laboratório é automaticamente adicionada a esta função. Se estiver a planear utilizar a mesma conta de utilizador para criar um laboratório de sala de aula, pode ignorar este passo. Para utilizar outra conta de utilizador para criar um laboratório de sala de aula, siga os passos abaixo: 
+Para configurar um laboratório de sala de aula numa conta de laboratório, o utilizador tem de ser membro da função **Criador de Laboratório** na conta de laboratório. A conta que utilizou para criar a conta de laboratório é adicionada automaticamente a esta função. Se estiver a planear utilizar a mesma conta de utilizador para criar um laboratório de sala de aula, pode ignorar este passo. Para utilizar outra conta de utilizador para criar um laboratório de sala de aula, siga os passos abaixo: 
 
 1. Na página **Conta de Laboratório**, selecione **Controlo de acesso (IAM)** e clique em **+ Adicionar** na barra de ferramentas. 
 
@@ -55,21 +55,27 @@ Para configurar um laboratório de sala de aula numa conta de laboratório, o ut
     ![Adicionar utilizador à função de Criador do Laboratório](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especifique as imagens do Marketplace disponíveis para os proprietários de laboratório
-Nesta secção, vai especificar imagens do Marketplace que os proprietários de laboratório podem utilizar para criar laboratórios de sala de aula. 
+Como um proprietário da conta de laboratório, pode especificar as imagens do Marketplace que os criadores de laboratório podem usar para criar laboratórios na conta de laboratório. 
 
-1. Selecione **imagens do Marketplace** no menu à esquerda. Por predefinição, verá a lista completa de imagens (ativada e desativada). Pode filtrar a lista para ver apenas as imagens de ativado/desativado, selecionando o **ativado apenas**/**desativado apenas** opção na lista pendente na parte superior. 
-
+1. Selecione **Imagens do Marketplace** no menu à esquerda. Por predefinição, verá a lista completa de imagens (ativadas e desativadas). Pode filtrar a lista para ver apenas as imagens ativadas/desativadas ao selecionar a opção **Apenas ativado**/**Apenas desativado** na lista pendente na parte superior. 
+    
     ![Página de imagens do Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
-2. Para **desativar** uma imagem do Marketplace que tiver sido ativada, realize uma das seguintes ações: 
-    1. Selecione **... (reticências)**  na coluna última e selecione **desativar imagem**. 
+
+    As imagens do Marketplace que são apresentadas na lista são apenas aqueles que satisfazem as condições seguintes:
+        
+    - Cria uma VM única.
+    - Utiliza o Azure Resource Manager para aprovisionar VMs
+    - Não precisa de comprar um plano de licenciamento extra
+2. Para **desativar** uma imagem do Marketplace que tenha sido ativada, efetue uma das seguintes ações: 
+    1. Selecione **... (reticências)** na última coluna e selecione **Desativar imagem**. 
 
         ![Desativar uma imagem](../media/tutorial-setup-lab-account/disable-one-image.png) 
-    2. Selecione uma ou mais imagens a partir da lista selecionando as caixas de verificação antes dos nomes de imagem na lista e selecione **desativar imagens selecionadas**. 
+    2. Selecione uma ou mais imagens a partir da lista ao selecionar as caixas de verificação antes dos nomes de imagem na lista e selecione **Desativar imagens selecionadas**. 
 
         ![Desativar várias imagens](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
-1. Da mesma forma, para **ativar** uma imagem do Marketplace, escolha uma das seguintes ações: 
-    1. Selecione **... (reticências)**  na coluna última e selecione **imagem preparada**. 
-    2. Selecione uma ou mais imagens a partir da lista selecionando as caixas de verificação antes dos nomes de imagem na lista e selecione **ativar imagens selecionadas**. 
+1. De forma semelhante, para **ativar** uma imagem do Marketplace, efetue uma das seguintes ações: 
+    1. Selecione **... (reticências)** na última coluna e selecione **Ativar imagem**. 
+    2. Selecione uma ou mais imagens a partir da lista ao selecionar as caixas de verificação antes dos nomes de imagem na lista e selecione **Ativar imagens selecionadas**. 
 
 ## <a name="view-lab-accounts"></a>Contas de laboratório do Vista
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).

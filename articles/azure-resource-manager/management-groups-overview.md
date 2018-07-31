@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/26/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308321"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358774"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar os recursos com grupos de gestão do Azure
 
 Se a sua organização tiver várias subscrições, poderá precisar de uma forma de gerir eficazmente o acesso, as políticas e a conformidade para essas subscrições. Grupos de gestão do Azure fornecem um nível de âmbito acima subscrições. Organizar subscrições em contentores, chamados "grupos de gestão" e aplicar suas condições de governação para os grupos de gestão. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão. Grupos de gestão dão-lhe a gestão de nível empresarial em grande escala, não importa que tipo de assinaturas pode ter.
-
-A funcionalidade de grupo de gestão está disponível em pré-visualização pública. Para começar a utilizar grupos de gestão, inicie sessão na [portal do Azure](https://portal.azure.com) e procure **grupos de gestão** no **todos os serviços** secção.
 
 Por exemplo, pode aplicar políticas para um grupo de gestão que limita as regiões disponíveis para criação da máquina virtual (VM). Esta política seria aplicada a todos os grupos de gestão, subscrições e recursos sob esse grupo de gestão ao permitir que apenas as VMs criadas nessa região.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarquia de grupos de gestão e de subscrições
 
 Pode criar uma estrutura flexível de subscrições e grupos de gestão para organizar os recursos para uma hierarquia para gestão de acesso e política unificada.
-O diagrama seguinte mostra um exemplo de hierarquia que consiste em grupos de gestão e de subscrições, organizadas por departamentos.
+O diagrama seguinte mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
 
 ![árvore](media/management-groups/MG_overview.png)
 
-Ao criar uma hierarquia que é agrupada por departamentos, pode atribuir [controlo de acesso de controlo (RBAC)](../role-based-access-control/overview.md) funções que *herdar* para os departamentos sob esse grupo de gestão. Ao utilizar grupos de gestão, pode reduzir a carga de trabalho e reduz o risco de erro tendo apenas atribuir a função de uma vez.
+Através da criação de uma hierarquia semelhante a este exemplo pode aplicar uma política, por exemplo, as localizações de VM limitadas a região E.u.a. oeste, no grupo "equipa de infraestrutura grupo de gestão" para ativar internas de conformidade e políticas de segurança. Esta política herda em ambas as subscrições do EA sob esse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Como esta política herda do grupo de gestão para as subscrições, esta política de segurança não pode ser alterada pelo proprietário do recurso ou subscrição, permitindo Governança melhorada.
+
+Outro cenário em que usaria grupos de gestão é fornecer acesso de utilizador para várias subscrições.  Ao mover várias subscrições sob esse grupo de gestão, tem a capacidade de criar uma atribuição de RBAC no grupo de gestão, que irá herdar o que o acesso a todas as subscrições.  Sem a necessidade de atribuições de RBAC do script ao longo de várias subscrições, uma atribuição do grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam.
 
 ### <a name="important-facts-about-management-groups"></a>Fatos importantes sobre grupos de gestão
 
@@ -44,11 +44,6 @@ Ao criar uma hierarquia que é agrupada por departamentos, pode atribuir [contro
 - Cada grupo de gestão e a subscrição só podem suportar um elemento principal.
 - Cada grupo de gestão pode ter vários filhos.
 - Todas as subscrições e grupos de gestão estão contidos dentro de uma única hierarquia em cada diretório. Ver [fatos importantes sobre o grupo de gestão de raiz](#important-facts-about-the-root-management-group) para exceções durante a pré-visualização.
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Limitação de fornecedor de soluções (CSP) durante a pré-visualização da cloud
-
-Há uma limitação atual para parceiros do fornecedor de soluções Cloud (CSP) em que eles não são capazes de criar ou gerir grupos de gestão dos seus clientes dentro do diretório do seu cliente.  
-Este item está a ser executada e será resolvido antes de gestão de grupos são anunciados como "Disponibilidade geral."
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório
 

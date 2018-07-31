@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249085"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344448"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -148,7 +148,7 @@ Para configurar permissões:
 
     ![Selecione o SQL Server na VM do Azure para a cópia de segurança](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    O **objetivo de cópia de segurança** menu apresenta dois passos: **detetar DBs em VMs** e **configurar a cópia de segurança**. O **detetar DBs em VMs** passo inicia uma pesquisa de máquinas virtuais do Azure.
+    O **objetivo de cópia de segurança** menu apresenta dois passos: **detetar DBs em VMs** e **configurar a cópia de segurança**. O **detetar DBs em VMs** passo iniciar uma pesquisa de máquinas virtuais do Azure.
 
     ![Reveja os dois passos de objetivo de cópia de segurança](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -341,7 +341,7 @@ Para configurar a proteção para uma base de dados SQL:
 
 Uma política de cópia de segurança define uma matriz de quando os backups são feitos e o período de tempo são retidos. Utilize a cópia de segurança do Azure para agendar a três tipos de cópia de segurança de bases de dados SQL:
 
-* Cópia de segurança completa: uma cópia de segurança completa da base de dados faz backup de todo o banco de dados. Uma cópia de segurança completa contém todos os dados numa base de dados específica ou um conjunto de grupos de ficheiros ou ficheiros e registo de suficiente para recuperar esses dados. No máximo, pode acionar uma cópia de segurança completa por dia. Pode optar por realizar um backup completo num intervalo diário ou semanal. 
+* Cópia de segurança completa: uma cópia de segurança completa da base de dados faz backup de todo o banco de dados. Uma cópia de segurança completa contém todos os dados numa base de dados específica ou um conjunto de grupos de ficheiros ou ficheiros e suficiente registos para recuperar esses dados. No máximo, pode acionar uma cópia de segurança completa por dia. Pode optar por realizar um backup completo num intervalo diário ou semanal. 
 * Cópia de segurança diferencial: um backup diferencial baseia-se a cópia de segurança de dados completa mais recente, anterior. Uma cópia de segurança diferencial captura apenas os dados que são alterados desde a cópia de segurança completa. No máximo, pode acionar uma cópia de segurança diferencial por dia. Não é possível configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
 * Cópia de segurança de registo de transações: restauro de ponto no tempo até um segundo específico permite a uma cópia de segurança do registo. No máximo, pode configurar cópias de segurança do registo transacional a cada 15 minutos.
 
@@ -406,15 +406,16 @@ Para criar uma política de cópia de segurança:
    ![Aceite a nova política de cópia de segurança](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restaurar uma base de dados SQL
-
 Cópia de segurança do Azure fornece funcionalidades para restaurar bases de dados individuais para uma data específica ou a hora (para o segundo) com os backups de log de transação. Cópia de segurança do Azure automaticamente determina o diferencial completa adequado e a cadeia de cópias de segurança de registo que são necessários para restaurar os dados com base nos seus tempos de restauro.
 
 Também pode selecionar um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico, em vez de uma hora específica.
- > [!Note]
- > Antes de acionar um restauro de base de dados "Mestra", iniciar a instância do SQL Server no modo de utilizador único com a opção de arranque `-m AzureWorkloadBackup`. O argumento para o `-m` opção é o nome do cliente. Apenas este cliente tem permissão para abrir a ligação. Para todas as bases de dados do sistema (modelo, mestra, msdb), pare o serviço SQL Agent antes de acionar o restauro. Feche todas as aplicações que podem tentar roubar uma ligação a qualquer uma destas bases de dados.
->
 
-Para restaurar uma base de dados:
+### <a name="pre-requisite-before-trigerting-a-restore"></a>Pré-requisitos antes de trigerting um restauro
+1. Pode restaurar a base de dados para uma instância do SQL Server na mesma região do Azure. O servidor de destino tem de ser registado no mesmo cofre dos serviços de recuperação como a origem.  
+2. Para restaurar uma base de dados encriptado do TDE para outro SQL Server, primeiro restaure o certificado para o servidor de destino ao seguir os passos documentados [aqui](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Antes de acionar um restauro de base de dados "Mestra", iniciar a instância do SQL Server no modo de utilizador único com a opção de arranque `-m AzureWorkloadBackup`. O argumento para o `-m` opção é o nome do cliente. Apenas este cliente tem permissão para abrir a ligação. Para todas as bases de dados do sistema (modelo, mestra, msdb), pare o serviço SQL Agent antes de acionar o restauro. Feche todas as aplicações que podem tentar roubar uma ligação a qualquer uma destas bases de dados.
+
+### <a name="steps-to-restore-a-database"></a>Passos para restaurar uma base de dados:
 
 1. Abra o Cofre de serviços de recuperação que está registado com a máquina virtual do SQL.
 

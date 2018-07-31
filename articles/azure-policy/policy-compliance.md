@@ -4,17 +4,17 @@ description: Determinam a conformidade e efeitos de avaliações de política do
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249650"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343557"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -35,7 +35,7 @@ Avaliações de políticas atribuídas e iniciativas de acontecem como resultado
 
 - Uma política ou iniciativa recentemente é atribuída a um âmbito. Quando isto ocorrer, demora cerca de 30 minutos para a atribuição a ser aplicado ao âmbito definido. Uma vez aplicada, o ciclo de avaliação começa para recursos dentro daquele escopo em relação a política atribuída recentemente ou a iniciativa e consoante os efeitos utilizados pela política ou iniciativa, recursos são marcados como compatíveis ou incompatíveis. Uma política de grandes ou iniciativa avaliada em comparação com um âmbito grande de recursos pode demorar tempo, portanto, não há nenhuma expectativa predefinida de quando a avaliação ciclo será concluída. Depois de terminar, resultados de compatibilidade atualizados estão disponíveis no portal e SDKs.
 - Uma política ou iniciativa já atribuído a um âmbito é atualizada. O ciclo de avaliação e o tempo para este cenário é igual de uma nova atribuição a um âmbito.
-- Um recurso é implementado para um âmbito com uma atribuição através do Resource Manager, do REST, da CLI do Azure ou do Azure PowerShell. Neste cenário, o evento de efeito (acrescentar, auditoria, negar, implementar) e informações de estado de conformidade ficarem disponíveis no portal e SDKs de cerca de 15 minutos mais tarde.
+- Um recurso é implementado para um âmbito com uma atribuição através do Resource Manager, do REST, da CLI do Azure ou do Azure PowerShell. Neste cenário, o evento de efeito (acrescentar, auditoria, negar, implementar) e informações de estado de conformidade para o recurso individual ficarem disponíveis no portal e SDKs de cerca de 15 minutos mais tarde. Este evento não faz com que uma edição de avaliação de outros recursos.
 - Ciclo de avaliação de conformidade. Uma vez a cada 24 horas, as atribuições são reavaliadas automaticamente. Uma política de grandes ou iniciativa avaliada em comparação com um âmbito grande de recursos pode demorar tempo, portanto, não há nenhuma expectativa predefinida de quando a avaliação ciclo será concluída. Depois de terminar, resultados de compatibilidade atualizados estão disponíveis no portal e SDKs.
 
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
@@ -51,8 +51,6 @@ Numa atribuição, um recurso está em conformidade se não seguir política ou 
 
 \* Os efeitos de Append, DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja TRUE.
 Os efeitos também necessitam que a condição de existência seja FALSE para estarem em não conformidade. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
-
-Para compreender melhor como os recursos são sinalizados como não conforme, vamos utilizar o exemplo de atribuição de política criado acima.
 
 Por exemplo, suponha que tem um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho), que são expostas a redes públicas.
 
@@ -353,4 +351,4 @@ Se tiver um [do Log Analytics](../log-analytics/log-analytics-overview.md) área
 
 - Veja a [Estrutura de definição do Policy](policy-definition.md).
 - Veja [Compreender os efeitos do Policy](policy-effects.md).
-- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md)
+- Rever o que é um grupo de gestão, com [Organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md)

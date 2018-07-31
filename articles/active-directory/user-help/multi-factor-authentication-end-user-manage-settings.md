@@ -1,27 +1,24 @@
 ---
-title: Gerir definições de verificação de dois passos - Azure AD | Documentos da Microsoft
+title: Gerir definições de verificação de dois passos - Azure Active Directory | Documentos da Microsoft
 description: Gerir como utilizar o Azure multi-factor Authentication, incluindo alterar as informações de contacto ou configurar seus dispositivos.
-services: multi-factor-authentication
+services: active-directory
 keywords: cliente de autenticação multifator, problema de autenticação, ID de correlação
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: ff48cb2cee5387f5dd5e0b89966a11fb76379337
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059439"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345094"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerir as definições de verificação de dois passos
 Este artigo responde a perguntas sobre como atualizar as definições de verificação ou multifator a autenticação de dois passos. Se estiver a ter problemas ao iniciar sessão para a sua conta, consulte [dificuldades com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas de ajuda.

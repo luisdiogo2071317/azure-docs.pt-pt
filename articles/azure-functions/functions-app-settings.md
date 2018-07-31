@@ -1,8 +1,8 @@
 ---
-title: Referência de definições de aplicação para as funções do Azure
+title: Referência de configurações de aplicação para as funções do Azure
 description: Documentação de referência para as definições de aplicação de funções do Azure ou variáveis de ambiente.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,23 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
-ms.author: tdykstra
-ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: glenga
+ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194272"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345060"
 ---
-# <a name="app-settings-reference-for-azure-functions"></a>Referência de definições de aplicação para as funções do Azure
+# <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
-As definições de aplicação na aplicação de função contém opções de configuração globais que afetam todas as funções para essa aplicação de função. Ao executar localmente, estas definições são as variáveis de ambiente. Este artigo apresenta as definições da aplicação que estão disponíveis em aplicações de função.
+Definições da aplicação na aplicação de função contém opções de configuração globais que afetam todas as funções para essa aplicação de função. Ao executar localmente, estas definições estão em variáveis de ambiente. Este artigo lista as definições da aplicação que estão disponíveis em aplicações de funções.
 
-Existem outras opções de configuração globais no [host.json](functions-host-json.md) ficheiros e no [local.settings.json](functions-run-local.md#local-settings-file) ficheiro.
+Existem outras opções de configuração global na [Host. JSON](functions-host-json.md) ficheiro e, no [Settings](functions-run-local.md#local-settings-file) ficheiro.
 
 ## <a name="appinsightsinstrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-A chave de instrumentação Application Insights, se estiver a utilizar o Application Insights. Consulte [monitorizar as funções do Azure](functions-monitoring.md).
+A chave de instrumentação Application Insights, se estiver a utilizar o Application Insights. Ver [monitorizar as funções do Azure](functions-monitoring.md).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -37,7 +37,7 @@ A chave de instrumentação Application Insights, se estiver a utilizar o Applic
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Cadeia de ligação de conta de armazenamento opcional para armazenar os registos e apresenta-os no **Monitor** separador no portal. A conta de armazenamento tem de ser um para fins gerais que suporta tabelas, filas e blobs. Consulte [conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [requisitos de conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
+A cadeia de ligação de conta de armazenamento opcional para armazenar os registos e exibi-los no **Monitor** separador no portal. A conta de armazenamento tem de ser um para fins gerais que suporta blobs, filas e tabelas. Ver [conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [os requisitos de conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -45,19 +45,19 @@ Cadeia de ligação de conta de armazenamento opcional para armazenar os registo
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true` significa que desative a predefinição de página que é apresentada para o URL de raiz de uma aplicação de função de destino. A predefinição é `false`.
+`true` significa que desativar a predefinição da página que é apresentada para o URL de raiz de uma aplicação de funções de destino. A predefinição é `false`.
 
 |Chave|Valor da amostra|
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
-Quando esta definição de aplicação for omitida ou definida para `false`, é apresentada uma página semelhante ao seguinte exemplo em resposta ao URL `<functionappname>.azurewebsites.net`.
+Quando esta definição de aplicação é omitida ou definida como `false`, uma página semelhante ao exemplo a seguir é apresentada na resposta para o URL `<functionappname>.azurewebsites.net`.
 
-![Página de destino de aplicação de função](media/functions-app-settings/function-app-landing-page.png)
+![Página de destino da aplicação de função](media/functions-app-settings/function-app-landing-page.png)
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true` significa utiliza o modo de libertação ao compilar o código de .NET; `false` significa utiliza o modo de depuração. A predefinição é `true`.
+`true` significa que utilize o modo de versão, ao compilar o código do .NET; `false` significa usar o modo de depuração. A predefinição é `true`.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -65,7 +65,7 @@ Quando esta definição de aplicação for omitida ou definida para `false`, é 
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
-Uma lista delimitada por vírgulas das funcionalidades de beta para ativar. Funcionalidades de beta ativadas por estes sinalizadores não são pronta de produção, mas podem ser ativadas para utilização experimental antes de poderem aceder em direto.
+Uma lista delimitada por vírgulas dos recursos de beta para ativar. Ativado por estes sinalizadores de recursos de beta não estão prontos para produção, mas podem ser ativados para utilização experimental antes que se propaguem.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -73,7 +73,7 @@ Uma lista delimitada por vírgulas das funcionalidades de beta para ativar. Func
 
 ## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
 
-O caminho para o diretório de raiz onde o *host.json* função de ficheiros e pastas estão localizadas. Na aplicação de função, a predefinição é `%HOME%\site\wwwroot`.
+O caminho para o diretório de raiz em que o *Host. JSON* função de ficheiros e pastas estão localizadas. Na aplicação de função, a predefinição é `%HOME%\site\wwwroot`.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -81,7 +81,7 @@ O caminho para o diretório de raiz onde o *host.json* função de ficheiros e p
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Especifica o repositório ou o fornecedor a utilizar para armazenamento de chaves. Atualmente, os repositórios do suportados são blob ("Blob") e o sistema de ficheiros ("desativado"). A predefinição é o sistema de ficheiros ("desativado").
+Especifica o repositório ou o fornecedor a utilizar para armazenamento de chaves. Atualmente, os repositórios suportados são blob ("Blob") e o sistema de ficheiros ("desativado"). A predefinição é o sistema de ficheiros ("desativado").
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -89,7 +89,7 @@ Especifica o repositório ou o fornecedor a utilizar para armazenamento de chave
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-O tempo de execução das funções do Azure utiliza esta cadeia de ligação da conta de armazenamento para todas as funções, exceto para funções HTTP acionado. A conta de armazenamento tem de ser um para fins gerais que suporta tabelas, filas e blobs. Consulte [conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [requisitos de conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
+O runtime das funções do Azure utiliza esta cadeia de ligação de conta de armazenamento para todas as funções, exceto para funções de acionada por HTTP. A conta de armazenamento tem de ser um para fins gerais que suporta blobs, filas e tabelas. Ver [conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [os requisitos de conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -97,23 +97,23 @@ O tempo de execução das funções do Azure utiliza esta cadeia de ligação da
 
 ## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
 
-Caminho para o compilador utilizado para TypeScript. Permite-lhe ignorar a predefinição se for necessário.
+Caminho para o compilador utilizado para o TypeScript. Pode substituir a predefinição se for necessário.
 
 |Chave|Valor da amostra|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%Home%\typescript|
 
-## <a name="functionappeditmode"></a>FUNÇÃO\_APLICAÇÃO\_EDITAR\_MODO
+## <a name="functionappeditmode"></a>FUNÇÃO\_APP\_EDITAR\_MODO
 
-Os valores válidos são "readwrite" e "readonly".
+Valores válidos são "readwrite" e "só de leitura".
 
 |Chave|Valor da amostra|
 |---|------------|
-|FUNÇÃO\_APLICAÇÃO\_EDITAR\_MODO|só de leitura|
+|FUNÇÃO\_APP\_EDITAR\_MODO|só de leitura|
 
 ## <a name="functionsextensionversion"></a>AS FUNÇÕES\_EXTENSÃO\_VERSÃO
 
-A versão do tempo de execução das funções do Azure para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente do que a versão principal (por exemplo, "~ 1"). Quando estiverem disponíveis novas versões para a versão principal, são automaticamente instaladas na aplicação de função. Para afixar a aplicação para uma versão específica, utilize o número de versão completa (por exemplo, "1.0.12345"). A predefinição é "~ 1".
+A versão do runtime das funções do Azure para utilizar esta aplicação de função. Um til com a versão principal significa utilizar a versão mais recente dessa versão principal (por exemplo, "~ 1"). Quando as novas versões para a versão principal estão disponíveis, serão automaticamente instaladas na function app. Para afixar a aplicação para uma versão específica, utilize o número da versão completo (por exemplo, "1.0.12345"). A predefinição é "~ 1".
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -121,7 +121,7 @@ A versão do tempo de execução das funções do Azure para utilizar esta aplic
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Para apenas planos de consumo. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e configuração são armazenados. Consulte [criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
+Para apenas os planos de consumo. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -129,26 +129,26 @@ Para apenas planos de consumo. Cadeia de ligação para a conta de armazenamento
 
 ## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
 
-Para apenas planos de consumo. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Predefinição é uma cadeia exclusiva que comece com o nome de aplicação de função. Consulte [criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
+Para apenas os planos de consumo. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [criar uma aplicação de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor da amostra|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="websitemaxdynamicapplicationscaleout"></a>WEB SITE\_MÁXIMO\_DINÂMICA\_APLICAÇÃO\_ESCALA\_ENVIADOS
+## <a name="websitemaxdynamicapplicationscaleout"></a>WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE
 
-O número máximo de instâncias que a aplicação de função pode aumentar horizontalmente. Predefinição não é nenhum limite.
+O número máximo de instâncias de que a aplicação de função pode aumentar horizontalmente para. A predefinição não é nenhum limite.
 
 > [!NOTE]
-> Esta definição é para uma funcionalidade de pré-visualização.
+> Esta definição destina-se uma funcionalidade de pré-visualização.
 
 |Chave|Valor da amostra|
 |---|------------|
-|WEB SITE\_MÁXIMO\_DINÂMICA\_APLICAÇÃO\_ESCALA\_ENVIADOS|10|
+|WEB SITE\_MAX\_DINÂMICO\_APLICATIVO\_DIMENSIONAMENTO\_HORIZONTALMENTE|10|
 
 ## <a name="websitenodedefaultversion"></a>WEB SITE\_NÓ\_DEFAULT_VERSION
 
-Predefinição é "6.5.0".
+A predefinição é "6.5.0".
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -156,8 +156,8 @@ Predefinição é "6.5.0".
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba como atualizar as definições de aplicação](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Saiba como atualizar as definições da aplicação](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-[Consulte as definições globais no ficheiro host.json](functions-host-json.md)
+[Ver definições globais no arquivo Host. JSON.](functions-host-json.md)
 
-[Consulte as outras definições de aplicação para aplicações do App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
+[Consulte outras definições de aplicação para aplicações de serviço de aplicações](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

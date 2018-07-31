@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859205"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343164"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Cópia de segurança online automática e restauro com o Azure Cosmos DB
 O Azure Cosmos DB tira automaticamente cópias de segurança de todos os seus dados em intervalos regulares. As cópias de segurança automáticas são executadas sem afetar o desempenho ou a disponibilidade das suas operações de base de dados. Todas as suas cópias de segurança são armazenadas separadamente em outro serviço de armazenamento, e essas cópias de segurança são replicadas globalmente para resiliência contra desastres regionais. As cópias de segurança automáticas destinam-se a cenários quando acidentalmente eliminar o contentor do Cosmos DB e mais tarde necessitam de recuperação de dados ou uma solução de recuperação após desastre.  
@@ -50,7 +50,7 @@ Conforme descrito acima, Azure Cosmos DB tira instantâneos dos seus dados a cad
 Para a API de SQL, se pretender manter o seu próprio instantâneos, pode usar a opção Exportar para JSON no Azure Cosmos DB [ferramenta de migração de dados](import-data.md#export-to-json-file) para agendar cópias de segurança adicionais.
 
 > [!NOTE]
-> Se "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Terá também de Certifique-se em contacto dentro de 8 horas para a equipa de suporte se acidentalmente eliminou seu contentor - coleção/tabela/gráfico se utilizar esta nova capacidade. 
+> Se "Aprovisionar débito para um conjunto de contentores ao nível da base de dados" – não se esqueça do restauro ocorre ao nível de conta de base de dados completo. Terá também de Certifique-se em contacto dentro de 8 horas para a equipa de suporte se acidentalmente eliminou seu contentor. Não não possível restaurar dados se não contactar a equipa de suporte dentro de 8 horas. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restaurar uma base de dados a partir de uma cópia de segurança online

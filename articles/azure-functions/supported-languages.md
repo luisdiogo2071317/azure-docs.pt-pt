@@ -1,9 +1,9 @@
 ---
-title: Idiomas suportados das funções do Azure
-description: Conheça os idiomas suportados (GA) e que são experimental ou em pré-visualização.
+title: Idiomas suportados nas funções do Azure
+description: Saiba que idiomas são suportados (GA) e que são experimental ou em pré-visualização.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,49 +13,49 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
-ms.author: tdykstra
-ms.openlocfilehash: 5786a206b258cfe7c48f52ead9b5a4cceb64cd5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: glenga
+ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879441"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343088"
 ---
-# <a name="supported-languages-in-azure-functions"></a>Idiomas suportados das funções do Azure
+# <a name="supported-languages-in-azure-functions"></a>Idiomas suportados nas funções do Azure
 
-Este artigo explica que os níveis de suporte é fornecido para idiomas que pode utilizar com as funções do Azure.
+Este artigo explica que os níveis de suporte oferecido para idiomas que pode usar com as funções do Azure.
 
 ## <a name="levels-of-support"></a>Níveis de suporte
 
 Existem três níveis de suporte:
 
-* **Geralmente disponível (GA)** - totalmente suportadas e aprovadas para utilização em produção.
-* **Pré-visualização** - ainda não suportado, mas é esperado para alcançar o estado de GA no futuro.
-* **Experimental** - não suportada e pode ser abandonada no futuro; nenhuma garantia de pré-visualização eventual ou estado GA.
+* **Disponibilidade geral (GA)** - totalmente suportado e aprovada para utilização em produção.
+* **Pré-visualização** - ainda não suportado, mas é esperado para alcançar o estado de disponibilidade geral no futuro.
+* **Experimental** – não suportado e pode ser abandonada no futuro; nenhuma garantia de pré-visualização eventual ou estado de disponibilidade geral.
 
-## <a name="languages-in-runtime-1x-and-2x"></a>Idiomas no tempo de execução 1. x e 2. x
+## <a name="languages-in-runtime-1x-and-2x"></a>Linguagens no runtime 1.x e 2.x
 
-[Duas versões do tempo de execução das funções do Azure](functions-versions.md) estão disponíveis. O tempo de execução de 1. x é depois da disponibilidade geral É o tempo de execução apenas for aprovado para aplicações de produção. O tempo de execução de 2. x está atualmente em pré-visualização, pelo que os idiomas que suporta estão em pré-visualização. A tabela seguinte mostra os idiomas são suportados em cada versão do tempo de execução.
+[Duas versões do runtime das funções do Azure](functions-versions.md) estão disponíveis. O runtime 1.x é GA. É o tempo de execução único que esteja aprovado para aplicações de produção. O runtime 2.x está atualmente em pré-visualização, pelo que os idiomas oferece suporte a estão em pré-visualização. A tabela seguinte mostra que idiomas são suportados em cada versão de runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>Idiomas experimental
+### <a name="experimental-languages"></a>Linguagens experimentais
 
-Os idiomas experimental em 1. x não escala bem e não suportam a todos os enlaces. Por exemplo, Python é lenta porque o tempo de execução de funções é executado *python.exe* com cada invocação de função. E embora Python suporte Enlaces de HTTP, não é possível aceder ao objeto de pedido.
+As linguagens experimentais em 1.x não dimensiona bem e não oferecem suporte a todas as ligações. Por exemplo, Python é lento porque o runtime das funções é executado *python.exe* com cada invocação de função. E embora Python suporte Enlaces de HTTP, não pode acessar o objeto de solicitação.
 
-Experimental suporte para o PowerShell está limitado a versão 4.0, uma vez que é o que é instalado em VMs que executam aplicações de função no. Se pretender executar scripts do PowerShell, considere [da automatização do Azure](https://azure.microsoft.com/services/automation/).
+Experimental suporte para o PowerShell está limitado a versão 4.0, uma vez que é o que é instalado nas VMs que são executadas as aplicações de funções no. Se quiser executar scripts do PowerShell, considere [automatização do Azure](https://azure.microsoft.com/services/automation/).
 
-O tempo de execução de 2. x não suporta idiomas experimental. 2. x, iremos irá adicionar suporte para um idioma apenas quando se dimensiona bem e suporta avançadas de acionadores.
+O runtime 2.x não suporta linguagens experimentais. 2.x, adicionaremos suporte para um idioma apenas quando se dimensione bem e suporta avançadas de acionadores.
 
-Se pretender utilizar um dos idiomas que só estão disponíveis em 1. x, permaneça o tempo de execução de 1. x. Mas não utilizar idiomas experimental para tudo o que pode depender, como não são suportadas para os mesmos oficial. Pode pedir ajuda ao [criar problemas de GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), mas não devem ser abertos casos de suporte para problemas com idiomas experimental. 
+Se pretender utilizar um dos idiomas que só estão disponíveis no 1.x, mantenha-se no 1.x runtime. Mas não utilize linguagens experimentais para tudo o que contar, porque não existe nenhum suporte oficial para eles. Pode pedir ajuda ao [criar problemas do GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), mas não devem ser abertos incidentes de suporte para problemas com linguagens experimentais. 
 
 ### <a name="language-extensibility"></a>Extensibilidade de idioma
 
-O tempo de execução de 2. x foi concebido para oferecer [extensibilidade de idioma](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Entre os idiomas primeiro a ser baseada neste extensibilidade modelo é Java, que se encontra na pré-visualização em 2. x.
+O runtime 2.x é projetado para oferecer [extensibilidade da linguagem](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Entre os idiomas primeiro seja baseada nessa extensibilidade o modelo é Java, que está em pré-visualização na 2.x.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para mais informações sobre como utilizar um dos idiomas GA ou preview das funções do Azure, consulte os seguintes recursos:
+Para saber mais sobre como utilizar uma das linguagens de disponibilidade geral ou de pré-visualização nas funções do Azure, consulte os seguintes recursos:
 
 > [!div class="nextstepaction"]
 > [C#](functions-reference-csharp.md)

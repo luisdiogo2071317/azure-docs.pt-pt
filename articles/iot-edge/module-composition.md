@@ -1,6 +1,6 @@
 ---
-title: Composição do módulo de limite de IoT do Azure | Microsoft Docs
-description: Saiba como um manifesto de implementação declara que módulos para implementar, como implementá-los e como criar rotas de mensagens entre eles.
+title: Composição do módulo do IoT Edge do Azure | Documentos da Microsoft
+description: Saiba como um manifesto de implantação declara que módulos para implementar, como implementá-los e como criar rotas de mensagens entre eles.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,38 +8,38 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 209f159d9003838edb36728828758b76730118ff
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098469"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345023"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Saiba como utilizar os manifestos de implementação para implementar os módulos e rotas
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Saiba como utilizar os manifestos de implantação para implementar módulos e rotas
 
-Cada dispositivo de limite de IoT é executado, pelo menos, dois módulos: $edgeAgent e $edgeHub, constituem o tempo de execução do limite de IoT. Para além das duas padrão, qualquer dispositivo de limite de IoT pode executar vários módulos para efetuar qualquer número de processos. Quando implementar em simultâneo todos os estes módulos num dispositivo, terá de uma forma de declarar quais os módulos que estão incluídos e como eles interagem entre si. 
+Cada dispositivo IoT Edge é executado, pelo menos, dois módulos: $edgeAgent e $edgeHub, que compõem o runtime do IoT Edge. Além desses dois padrão, qualquer dispositivo IoT Edge pode executar vários módulos para executar qualquer número de processos. Quando implementa todos esses módulos para um dispositivo ao mesmo tempo, precisa de uma forma para declarar os módulos a serem incluídos e como eles interagem entre si. 
 
-O *o manifesto de implementação* é um documento JSON que descreve:
+O *manifesto de implantação* é um documento JSON que descreve:
 
-* A configuração do agente Edge, que inclui a imagem de contentor para cada módulo, as credenciais para os registos do contentor privada acesso e instruções sobre como cada módulo deve ser criado e gerido.
-* A configuração do hub de limite, o que inclui a forma como o fluxo de mensagens entre módulos e, eventualmente, ao IoT Hub.
-* Opcionalmente, as propriedades pretendidas do duplos módulo.
+* A configuração do agente do Edge, que inclui a imagem de contentor para cada módulo, as credenciais para registos de contentores privado de acesso e instruções sobre como cada módulo deve ser criado e gerido.
+* A configuração do hub do Edge, que inclui a forma como o fluxo de mensagens entre módulos e, eventualmente, para o IoT Hub.
+* Opcionalmente, as propriedades pretendidas do duplos de módulo.
 
-Todos os dispositivos de IoT contorno tem de ser configurado com um manifesto de implementação. Os relatórios de um tempo de execução de limite de IoT recentemente instalado um código de erro até configurado com um manifesto válido. 
+Todos os dispositivos do IoT Edge tem de ser configurado com um manifesto de implantação. Os relatórios de um tempo de execução do IoT Edge instalado recentemente um código de erro até que configurado com um manifesto válido. 
 
-Os tutoriais de limite de IoT do Azure, criar um manifesto de implementação acedendo através de um assistente no portal do Azure IoT Edge. Também pode aplicar um manifesto de implementação utilizando através de programação REST ou o SDK do serviço do IoT Hub. Para obter mais informações, consulte [implementações de limite de IoT compreender][lnk-deploy].
+Os tutoriais do Azure IoT Edge, vai criar um manifesto de implantação através de um assistente no portal do Azure IoT Edge. Também pode aplicar um manifesto de implantação por meio de programação através do REST ou o SDK do serviço Hub IoT. Para obter mais informações, consulte [implementações do IoT Edge compreender][lnk-deploy].
 
-## <a name="create-a-deployment-manifest"></a>Crie um manifesto de implementação
+## <a name="create-a-deployment-manifest"></a>Criar um manifesto de implantação
 
-Um nível elevado, o manifesto de implementação configura propriedades pretendido de um duplo de módulo de módulos de limite de IoT implementados num dispositivo de limite de IoT. Dois destes módulos são sempre presente: `$edgeAgent`, e `$edgeHub`.
+Num alto nível, o manifesto de implantação configura as propriedades pretendidas do duplo do módulo de módulos do IoT Edge implementados num dispositivo IoT Edge. Dois destes módulos são sempre presente: `$edgeAgent`, e `$edgeHub`.
 
-Um manifesto de implementação que contém apenas o tempo de execução do limite de IoT (agente e hub) é válido.
+Um manifesto de implantação que contém apenas o runtime do IoT Edge (agente e hub) é válido.
 
-O manifesto segue esta estrutura:
+O manifesto segue essa estrutura:
 
 ```json
 {
-    "moduleContent": {
+    "modulesContent": {
         "$edgeAgent": {
             "properties.desired": {
                 // desired properties of the Edge agent
@@ -68,9 +68,9 @@ O manifesto segue esta estrutura:
 
 ## <a name="configure-modules"></a>Configurar módulos
 
-Terá de informar o tempo de execução do IoT Edge como instalar os módulos na sua implementação. As informações de configuração e gestão de todos os módulos ficar no interior do **$edgeAgent** pretendido propriedades. Estas informações incluem os parâmetros de configuração para o próprio agente de limite. 
+Precisa informar ao runtime do IoT Edge como instalar os módulos na sua implementação. As informações de configuração e gestão de todos os módulos penetra no **$edgeAgent** propriedades pretendidas. Estas informações incluem os parâmetros de configuração para o agente do Edge em si. 
 
-Para obter uma lista completa das propriedades que podem ou tem de ser incluída, consulte [propriedades do agente de limite e Edge hub](module-edgeagent-edgehub.md).
+Para obter uma lista completa de propriedades que pode ou tem de ser incluída, consulte [propriedades do agente do Edge e hub do Edge](module-edgeagent-edgehub.md).
 
 As propriedades de $edgeAgent siga esta estrutura:
 
@@ -107,9 +107,9 @@ As propriedades de $edgeAgent siga esta estrutura:
 
 ## <a name="declare-routes"></a>Declarar as rotas
 
-Hub de limite fornece uma forma de forma declarativa encaminhar mensagens entre módulos e entre módulos e IoT Hub. O hub de limite gere todas as comunicações, pelo que as informações de rota ficar no interior do **$edgeHub** pretendido propriedades. Pode ter várias rotas dentro da mesma implementação.
+Hub do Edge fornece uma forma de forma declarativa a rotear mensagens entre módulos e entre módulos e o IoT Hub. O hub do Edge gerencia todas as comunicações, para que as informações de rota penetra no **$edgeHub** propriedades pretendidas. Pode ter várias rotas dentro da mesma implementação.
 
-Rotas declaradas no **$edgeHub** pretendido propriedades com a seguinte sintaxe:
+As rotas são declaradas na **$edgeHub** pretendido propriedades com a seguinte sintaxe:
 
 ```json
 "$edgeHub": {
@@ -122,35 +122,35 @@ Rotas declaradas no **$edgeHub** pretendido propriedades com a seguinte sintaxe:
 }
 ```
 
-Cada rota necessita de uma origem e um receptor, mas a condição é uma informação opcional que pode utilizar para filtrar mensagens. 
+Cada rota tem uma origem e sink, mas a condição é uma parte opcional que pode utilizar para filtrar as mensagens. 
 
 
 ### <a name="source"></a>Origem
-A origem Especifica onde provenientes as mensagens. Pode ser qualquer um dos seguintes valores:
+A origem Especifica de onde vêm as mensagens. Pode ser qualquer um dos seguintes valores:
 
 | Origem | Descrição |
 | ------ | ----------- |
-| `/*` | Todas as mensagens do dispositivo para a nuvem de qualquer dispositivo ou o módulo |
-| `/messages/*` | Qualquer mensagem de dispositivo para nuvem enviada por um dispositivo ou um módulo através de alguns ou nenhum resultado |
-| `/messages/modules/*` | Qualquer mensagem de dispositivo para nuvem enviada por um módulo através de alguns ou nenhum resultado |
-| `/messages/modules/{moduleId}/*` | Qualquer mensagem de dispositivo para nuvem enviada por {moduleId} sem saída |
-| `/messages/modules/{moduleId}/outputs/*` | Qualquer mensagem de dispositivo para nuvem enviada por {moduleId}, com algumas saídas de |
-| `/messages/modules/{moduleId}/outputs/{output}` | Qualquer mensagem de dispositivo para nuvem enviada através de {moduleId} {saída} |
+| `/*` | Todas as mensagens de dispositivo para a cloud de qualquer dispositivo ou um módulo |
+| `/messages/*` | Qualquer mensagem de dispositivo-para-cloud enviada por um dispositivo ou um módulo por meio de alguns ou nenhum resultado |
+| `/messages/modules/*` | Qualquer mensagem de dispositivo-para-cloud enviada por um módulo por meio de alguns ou nenhum resultado |
+| `/messages/modules/{moduleId}/*` | Qualquer mensagem de dispositivo para a cloud enviada pelo {moduleId} sem saída |
+| `/messages/modules/{moduleId}/outputs/*` | Qualquer mensagem de dispositivo para a cloud enviada por {moduleId} com algumas saídas |
+| `/messages/modules/{moduleId}/outputs/{output}` | Qualquer mensagem de dispositivo para a cloud enviada através da utilização de {moduleId} {saída} |
 
 ### <a name="condition"></a>Condição
-A condição é opcional numa declaração rota. Se pretender passar todas as mensagens do sink de para a origem, basta deixar o **onde** cláusula completamente. Ou pode utilizar o [idioma de consulta do IoT Hub] [ lnk-iothub-query] para filtrar para determinados tipos de mensagem que satisfaçam a condição ou mensagens.
+A condição é opcional numa declaração de rota. Se quiser passar todas as mensagens de coletor para a origem, basta omitir a **onde** cláusula inteiramente. Ou pode utilizar o [linguagem de consulta do IoT Hub] [ lnk-iothub-query] para filtrar determinadas mensagens ou tipos de mensagem que satisfaçam a condição.
 
-As mensagens que transmita entre os módulos no limite de IoT são formatadas o mesmo que as mensagens que transmita entre os seus dispositivos e IoT Hub do Azure. Todas as mensagens são formatadas como JSON e ter **systemProperties**, **appProperties**, e **corpo** parâmetros. 
+As mensagens que passam entre módulos no IoT Edge são formatadas as mesmas que as mensagens que passam entre os dispositivos e IoT Hub do Azure. Todas as mensagens são formatadas como JSON e ter **systemProperties**, **appProperties**, e **corpo** parâmetros. 
 
 Pode criar consultas em torno de todos os três parâmetros com a seguinte sintaxe: 
 
 * Propriedades do sistema: `$<propertyName>` ou `{$<propertyName>}`
 * Propriedades da aplicação: `<propertyName>`
-* Propriedades de corpo: `$body.<propertyName>` 
+* Propriedades do corpo: `$body.<propertyName>` 
 
-Para obter exemplos sobre como criar consultas para as propriedades da mensagem, consulte [rotas expressões de consulta de mensagem de dispositivo para nuvem](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+Para obter exemplos sobre como criar consultas para as propriedades da mensagem, consulte [rotas de expressões de consulta de mensagem de dispositivo-para-cloud](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 
-Um exemplo que é específico para limite de IoT é quando pretender filtrar mensagens em fila que chegaram a um dispositivo de gateway a partir de um dispositivo de folha. Mensagens provenientes de módulos contém uma propriedade de sistema chamada **connectionModuleId**. Por isso, se pretender encaminhar mensagens a partir de dispositivos de folha diretamente ao IoT Hub, utilize a rota seguinte para excluir mensagens do módulo:
+Um exemplo que é específico do IoT Edge é quando se deseja para filtrar as mensagens que chegaram a um dispositivo de gateway, a partir de um dispositivo de folha. As mensagens provenientes de módulos contêm uma propriedade de sistema chamada **connectionModuleId**. Então, se pretender encaminhar mensagens a partir de dispositivos de folha diretamente para o IoT Hub, utilize a rota seguinte para excluir as mensagens do módulo:
 
 ```sql
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
@@ -161,28 +161,28 @@ O sink define onde as mensagens são enviadas. Pode ser qualquer um dos seguinte
 
 | Sink | Descrição |
 | ---- | ----------- |
-| `$upstream` | Enviar a mensagem ao IoT Hub |
+| `$upstream` | Enviar a mensagem para o IoT Hub |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem de entrada `{input}` do módulo `{moduleId}` |
 
-Limite de IoT fornece garantias de em-menos-uma vez. O hub de limite armazena mensagens localmente no caso de uma rota não é possível entregar a mensagem à sua sink. Por exemplo, se o hub Edge não é possível estabelecer ligação ao IoT Hub ou o módulo de destino não está ligado.
+IoT Edge fornece garantias pelo-menos-uma vez. O hub do Edge armazena mensagens localmente no caso de uma rota não é possível entregar a mensagem para o sink. Por exemplo, se o hub do Edge não é possível ligar ao IoT Hub ou o módulo de destino não está ligado.
 
-Edge hub armazena as mensagens até à hora especificada no `storeAndForwardConfiguration.timeToLiveSecs` propriedade o [Edge hub pretendido propriedades](module-edgeagent-edgehub.md).
+Hub do Edge armazena as mensagens até à hora especificada no `storeAndForwardConfiguration.timeToLiveSecs` propriedade o [propriedades pretendidas do hub do Edge](module-edgeagent-edgehub.md).
 
-## <a name="define-or-update-desired-properties"></a>Definir ou atualizar propriedades pretendidas 
+## <a name="define-or-update-desired-properties"></a>Definir ou atualizar as propriedades pretendidas 
 
-O manifesto de implementação pode especificar propriedades pretendidas para o duplo de módulo de cada módulo implementado no dispositivo de limite de IoT. Quando as propriedades pretendidas são especificadas no manifesto de implementação, podem substituem quaisquer propriedades pretendidas atualmente no duplo módulo.
+O manifesto de implantação pode especificar as propriedades pretendidas para o módulo duplo de cada módulo implementado no dispositivo IoT Edge. Quando as propriedades pretendidas são especificadas no manifesto de implantação, eles substituem quaisquer propriedades pretendidas atualmente no duplo do módulo.
 
-Se não especificar propriedades de pretendido de um duplo de módulo no manifesto de implementação, o IoT Hub não irá modificar o duplo de módulo de qualquer forma e conseguirá definir as propriedades de pretendido através de programação.
+Se não especificar as propriedades de pretendidas do duplo do módulo no manifesto de implantação, IoT Hub não irá modificar o duplo do módulo de qualquer forma, e poderá definir as propriedades pretendidas por meio de programação.
 
-Os mesmos mecanismos que lhe permitem modificar dispositivos duplos são utilizados para modificar duplos do módulo. Para obter mais informações, consulte o [guia para programadores do dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md).   
+Os mesmos mecanismos que permitem modificar dispositivos duplos são utilizados para modificar duplos de módulo. Para obter mais informações, consulte a [Guia do programador do dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md).   
 
-## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implementação
+## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implantação
 
-Este exemplo de um documento JSON manifesto de implementação.
+Este exemplo de um documento JSON de manifesto de implantação.
 
 ```json
 {
-  "moduleContent": {
+  "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
         "schemaVersion": "1.0",
@@ -260,9 +260,9 @@ Este exemplo de um documento JSON manifesto de implementação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter uma lista completa das propriedades que podem ou têm de ser incluídos no $edgeAgent e $edgeHub, consulte [propriedades do agente de limite e Edge hub](module-edgeagent-edgehub.md).
+* Para obter uma lista completa das propriedades que podem ou têm de ser incluídos na $edgeAgent e $edgeHub, consulte [propriedades do agente do Edge e hub do Edge](module-edgeagent-edgehub.md).
 
-* Agora que já sabe como são utilizados os módulos de IoT Edge, [compreender os requisitos e ferramentas para o desenvolvimento de módulos de limite de IoT][lnk-module-dev].
+* Agora que sabe como os módulos do IoT Edge são usados, [compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge][lnk-module-dev].
 
 [lnk-deploy]: module-deployment-monitoring.md
 [lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md

@@ -2,8 +2,8 @@
 title: Criar programaticamente as subscrições do Azure Enterprise | Documentos da Microsoft
 description: Saiba como criar subscrições do Azure Enterprise ou o Enterprise programador/teste adicionais por meio de programação.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: 36e69696b292454598faed2a95a844dc7a7442c5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: adpick
+ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265851"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358364"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente as subscrições do Azure Enterprise (pré-visualização)
 
@@ -28,9 +28,11 @@ Quando cria uma subscrição do Azure a partir desta API, essa subscrição é r
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Sua conta tem de ser um proprietário da conta numa inscrição EA do Azure. Se não estiver, peça ao administrador de inscrição para [adicioná-lo como proprietário da conta com o portal EA](https://ea.azure.com/helpdocs/addNewAccount) (início de sessão necessário). Siga as instruções no e-mail de convite que recebeu a criar manualmente uma subscrição inicial. Confirme a propriedade da conta e criar manualmente uma subscrição de EA inicial antes de prosseguir para o passo seguinte. Basta adicionar a conta para a inscrição não é suficiente.
+Tem de ter uma função de proprietário ou contribuinte na conta de inscrição que pretende criar subscrições no. Existem duas formas de obter estas funções:
 
-* Se pretender utilizar um principal de serviço para criar a subscrição EA, terá [conceder esse principal de serviço a capacidade de criar subscrições](grant-access-to-create-subscription.md).
+* O administrador de inscrição pode [torná-lo um proprietário da conta](https://ea.azure.com/helpdocs/addNewAccount) (início de sessão necessário) que torna o proprietário da conta de inscrição. Siga as instruções no e-mail de convite que recebeu a criar manualmente uma subscrição inicial. Confirme a propriedade da conta e criar manualmente uma subscrição de EA inicial antes de prosseguir para o passo seguinte. Basta adicionar a conta para a inscrição não é suficiente.
+
+* Proprietário de uma existente da conta de inscrição pode [lhe conceder acesso](grant-access-to-create-subscription.md). Da mesma forma, se pretender utilizar um principal de serviço para criar a subscrição EA, terá [conceder esse principal de serviço a capacidade de criar subscrições](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Encontrar contas que tem acesso
 

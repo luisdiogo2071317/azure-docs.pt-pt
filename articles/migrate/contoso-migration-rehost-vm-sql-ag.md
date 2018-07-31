@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: raynew
-ms.openlocfilehash: 2415812a62fc000ddb18318ac52b764c1b5de51b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008438"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359211"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: realojar a uma aplicação no local em VMs do Azure e o grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -39,7 +39,7 @@ Artigo 6: Realojar a uma aplicação em VMs do Azure e SQL Server sempre no grup
 
 
 
-Neste artigo, a Contoso migrar o Windows de duas camadas. Aplicação de NET SmartHotel em execução em VMs de VMware para o Azure. Se gostaria de utilizar esta aplicação, são fornecidas como código-fonte aberto e pode baixá-lo partir [GitHub](https://github.com/Microsoft/SmartHotel360).
+Neste artigo, a Contoso migrar a aplicação do Windows .NET SmartHotel de duas camadas em execução em VMs de VMware para o Azure. Se gostaria de utilizar esta aplicação, são fornecidas como código-fonte aberto e pode baixá-lo partir [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Fatores comerciais
 
@@ -457,7 +457,7 @@ Agora Contoso Especifica as definições de replicação de destino.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-Não, a Contoso pode criar uma política de replicação.
+Agora, a Contoso pode criar uma política de replicação.
 
 1. Na **preparar infraestrutura** > **definições de replicação** > **política de replicação** >  **criar e Associar**, criaram uma política **ContosoMigrationPolicy**.
 2. Se utilizarem as predefinições:

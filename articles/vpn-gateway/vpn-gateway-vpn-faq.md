@@ -2,24 +2,17 @@
 title: FAQ do Gateway de VPN do Azure | Microsoft Docs
 description: FAQ do VPN Gateway. FAQ das ligações em vários locais da Rede Virtual do Microsoft Azure, das ligações de configuração híbrida e dos Gateways de VPN.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719662"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359069"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
@@ -241,7 +234,7 @@ Não. Apenas o tráfego que tem um IP de destino contido nos intervalos de ender
 
 Pode ver informações adicionais sobre a rede virtual nas [FAQ da Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre o Gateway de VPN, veja [About VPN Gateway (Acerca do Gateway de VPN)](vpn-gateway-about-vpngateways.md).
 * Para obter mais informações sobre as definições de configuração do Gateway de VPN, veja [About VPN Gateway configuration settings (Acerca das definições de configuração do gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md).

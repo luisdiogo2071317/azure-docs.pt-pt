@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/03/2018
+ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069637"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358622"
 ---
 Armazenamento com redundância de zona (ZRS) replica os dados de forma síncrona em três clusters de armazenamento numa única região. Cada cluster de armazenamento é fisicamente separado dos outros e reside na sua própria zona de disponibilidade (AZ). Cada zona de disponibilidade e o cluster ZRS dentro da mesma, é autónomo, com utilitários separados e capacidades de rede.
 
@@ -29,10 +29,11 @@ Standard suporta atualmente o ZRS [para fins gerais v2 (GPv2)](../articles/stora
 O ZRS está disponível em geral nas seguintes regiões:
 
 - Este dos EUA 2
+- E.U.A. Oeste 2
 - Centro dos EUA
 - Europa do Norte
 - Europa Ocidental
-- Centro de França
+- França Central
 - Sudeste Asiático
 
 A Microsoft continua a ativar o ZRS em mais regiões do Azure. Verifique os [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) página regularmente para obter informações sobre novas regiões.

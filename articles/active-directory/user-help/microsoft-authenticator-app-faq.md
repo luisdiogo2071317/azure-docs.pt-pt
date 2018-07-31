@@ -1,123 +1,60 @@
 ---
-title: Ajuda com a aplicação Microsoft Authenticator - Azure AD | Documentos da Microsoft
+title: Ajuda com a aplicação Microsoft Authenticator - o Azure Active Directory | Documentos da Microsoft
 description: Fornece uma lista de perguntas mais frequentes e respostas relacionadas com a aplicação Microsoft Authentication e o Azure multi-factor Authentication.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
-ms.service: multi-factor-authentication
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: d86bc84653e38a9b64a336b8ce9ed7e657129e8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059831"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358654"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplicação Microsoft Authenticator FAQ
 
-Este artigo responde a perguntas comuns sobre a aplicação Microsoft Authenticator. Se não vir uma resposta à sua pergunta, vá para o [fórum de aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Além disso, outro FAQ sobre um recurso específico na aplicação, pode rever [iniciar sessão com o seu telemóvel FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+Este artigo responde a perguntas comuns sobre a aplicação Microsoft Authenticator. Se não vir uma resposta à sua pergunta, vá para o [fórum de aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Além disso, se procura-se para obter mais informações sobre o processo de início de sessão no telefone, pode ver, [iniciar sessão com o seu telemóvel FAQ](microsoft-authenticator-app-phone-signin-faq.md).
 
 A aplicação Microsoft Authenticator substituído a aplicação Azure Authenticator e é a aplicação recomendada quando utiliza o Azure multi-factor Authentication. A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-
-### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Os dados que o autenticador armazena em meu nome e como pode eliminar?
-
-Microsoft Authenticator armazena as informações de conta que criar quando adicionar uma conta. Quando utiliza o Authenticator, um registo de diagnóstico é criado para fins de depuração e armazena dados úteis nos ajudar a Microsoft a diagnosticar possíveis imprevistos. Pode acessar os dados de registo, abrindo **ajudar** > **enviar registos** > **ver registos**.
-
-Pode eliminar os dados ao eliminar o mosaico de conta. Eliminar o mosaico de conta também elimina a todas as informações de conta a ser utilizadas pela aplicação, incluindo os registos. 
-
-Para obter mais informações sobre como a Microsoft usa os dados, visite: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
-
-### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Quais são os códigos na aplicação para? Por que motivo é que o número keep contagem para baixo?
-
-Quando abre a aplicação Microsoft Authenticator, pode ver as contas que adicionou e um número de seis ou oito dígitos por cada um deles. Poderá ver um temporizador de 30 segundos para baixo de contagem.
-
-Esses códigos são usados ao iniciar sessão sua conta. Depois de introduzir o seu nome de utilizador e palavra-passe, poderá ser-lhe pedido para introduzir um código de verificação. Abra a aplicação Microsoft Authenticator e copie o código que está atualmente a aparecer. Introduza o código na página de início de sessão para concluir.
-
-A razão pela qual os códigos de alterar a cada 30 segundos é para que nunca usar o mesmo código duas vezes. Não é como uma palavra-passe que deverá se lembrar. A idéia é que somente alguém com acesso para o seu telefone sabe seu código de verificação.
-
-Os códigos não necessitam de internet ou dados, para que não tenha de se preocupar com o serviço de telefone para iniciar sessão. Quando fecha a aplicação, não manter em execução em segundo plano e ele não drena a bateria. Pode fechar a aplicação e ignorá-lo até à próxima vez que iniciar sessão.  
-
-### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Eu apenas receber notificações quando tiver a aplicação abrir. Se a aplicação não estiver aberta, não tenha quaisquer notificações.
-
-Se receber notificações, mas eles não fazem nenhum barulho ou Vibrar apesar de sua alteração do toque a ser no, primeiro verifique as definições de aplicação. Ative a aplicação para utilizar som ou Vibrar com suas notificações.
-
-Se não receber notificações de todo, verifique os seguintes casos:
-
-- É o seu telemóvel no modo silencioso ou de não incomodar? Esse modo pode manter as aplicações de envio de notificações.
-- Pode receber notificações de outras aplicações? Caso contrário, poderá existir um problema com as ligações de rede no seu telefone ou o canal de notificações do Android ou Apple. Pode solucionar a primeira opção nas definições do telefone, mas poderá ter de se comunicar com o seu fornecedor de serviços para obter ajuda com a segunda opção.
-- Pode receber notificações para algumas contas na aplicação, mas não para outros? Se Sim, remover a conta de problemática da sua aplicação e adicione-o novamente para ativar as notificações push.
-
-Se tentasse estas sugestões de resolução de problemas, mas ainda estiver a ter problemas, pode enviar os registos de diagnóstico. Aceda às definições da aplicação, em seguida, selecione **ajuda e feedback** e **enviar registos**. Em seguida, vá para o [fórum de aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e informe-no que o problema que está a ver e que medidas já tentou até agora.
-
-### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Já estou usando a aplicação Microsoft Authenticator para códigos de verificação. Como posso mudar para enviar notificações push num único clique
-Aprovar um início de sessão por meio de notificação push só está disponível para contas Microsoft pessoais ou profissionais e escolares contas Microsoft, não para contas de terceiros, como o Google ou Facebook. Se tiver uma empresa ou escola conta Microsoft, a sua organização pode optar por desativar esta opção.
-
-Se utilizar uma conta Microsoft para a sua conta pessoal e quer mudar para notificações push, terá de adicionar a conta novamente. Voltar a registar o dispositivo com a sua conta e configure as notificações push.  
-
-Se utilizar o Microsoft Authenticator para o seu trabalho ou escolar, sua organização decidir se pretende permitir que as notificações de um clique.
-
-### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>Notificações push de um clique funcionam para contas de terceiros?
-Não, notificações push só funcionam com contas Microsoft e contas do Azure Active Directory. Se a sua empresa ou escola utiliza contas do Azure AD, eles podem desativar esta funcionalidade.  
-
-### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>Eu tenho um novo dispositivo ou restaurado o meu dispositivo a partir de uma cópia de segurança. Como posso configurar minhas contas na aplicação Microsoft Authenticator novamente?
-Se estiver executando um dispositivo iOS, ter ativado **cópia de segurança automática**e criou uma cópia de segurança das suas contas no seu dispositivo antigo; pode usar essa cópia de segurança para recuperar as credenciais da conta no seu dispositivo novo. Para obter mais informações, consulte a [cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator](microsoft-authenticator-app-backup-and-recovery.md) artigo. 
-
-### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>Eu perder meu dispositivo ou movido para um novo dispositivo. Como me certifico de que não continuam para notificações para ir para o meu dispositivo antigo?  
-Adicionar a aplicação Microsoft Authenticator para seu novo dispositivo iOS não remove automaticamente a aplicação do seu dispositivo antigo. Até mesmo eliminar a aplicação do seu dispositivo antigo não é suficiente. Tem de eliminar a aplicação a partir do seu dispositivo antigo e dizer ao Microsoft ou sua organização para se esqueça do dispositivo antigo e cancelar seu registro da sua conta.
-- **Para remover a aplicação a partir de um dispositivo com uma conta Microsoft pessoal.** Aceda à área de verificação de dois passos da sua [segurança de conta](https://account.microsoft.com/security) página e optar por desativar a verificação para o seu dispositivo antigo.  
-- **Para remover a aplicação a partir de um dispositivo através de uma conta escolar ou profissional Microsoft.** Aceda à área de verificação de dois passos da sua [MyApps](https://myapps.microsoft.com/) página ou para o portal personalizado da sua organização e optar por desativar a verificação para o seu dispositivo antigo. 
-
-
-
-### <a name="how-do-i-remove-an-account-from-the-app"></a>Como remover uma conta a partir da aplicação?
-* iOS: no ecrã principal, percorra para a esquerda num mosaico de conta. Selecione **Eliminar**.
-* Windows Phone: A partir do ecrã principal, selecione o botão de menu, em seguida, **editar contas**. Toque no **X** junto ao nome da conta.
-* Android: A partir do ecrã principal, selecione o botão de menu, em seguida, **editar contas**. Toque no **X** junto ao nome da conta.
-
-Se tiver um dispositivo que está registado com a sua organização, terá de concluir uma etapa extra para remover a sua conta. Nestes dispositivos, a aplicação Microsoft Authenticator é automaticamente registada como um administrador do dispositivo. Se pretender desinstalar completamente o aplicativo, precisa primeiro anular o registo da aplicação nas definições da aplicação.
-
-### <a name="why-does-the-app-request-so-many-permissions"></a>Por que a aplicação pedir tantas permissões?
-Aqui está uma lista completa das permissões que pode ser-lhe pedido para, e como elas são usadas na aplicação. As permissões específicas que vir dependem do tipo de telefone que tem.
-
-* **Câmara**: utilizado para ler códigos QR quando adiciona um trabalho, uma instituição de ensino ou uma conta não Microsoft.
-* **Contatos e phone**: utilizado para simplificar o processo ao detetar contas existentes no seu telemóvel quando inicia sessão com a sua conta Microsoft pessoal.
-* **SMS**: utilizado para se certificar de que o seu número de telefone corresponde ao número no registo. Quando inicia sessão com a sua conta Microsoft pessoal pela primeira vez.  Enviamos uma mensagem de texto para o telefone onde transferiu a aplicação que inclui um código de verificação de um dígito de 6 a 8. Em vez de solicitar que encontre esse código e introduza-o na aplicação, ele se baseia na mensagem de texto para.
-* **Desenhar sobre outras aplicações**: A notificação obtém que verifica a sua identidade também é apresentada nas outras aplicações que podem estar em execução.
-* **Receber dados a partir da internet**: Esta permissão é necessária para enviar notificações.
-* **Impedir que o telefone em suspensão**: se registar o seu dispositivo com a sua organização, a sua organização pode alterar esta política no seu telemóvel.
-* **Controlar vibração**: pode escolher se pretende uma vibração sempre que receber uma notificação para verificar a sua identidade.
-* **Utilizar hardware de impressão digital**: algumas contas profissionais e escolares exigem um PIN adicional, sempre que verifique a sua identidade. PARA facilitar o processo, iremos permitem-lhe utilizar a impressão digital em vez de introduzir o PIN.
-* **Ver ligações de rede**: ao adicionar uma conta Microsoft, a aplicação requer a ligação de rede/internet.
-* **Ler o conteúdo do seu armazenamento**: Esta permissão só é utilizada quando reportar um problema técnico através das definições de aplicação. Algumas informações do seu armazenamento são recolhidas para diagnosticar o problema.
-* **Acesso de rede total**: Esta permissão é necessária para enviar notificações para verificar a sua identidade.
-* **São executados no arranque**: se reiniciar o seu telemóvel, esta permissão garante que continue recebe as notificações para verificar a sua identidade.
-
-### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Por que a aplicação Microsoft Authenticator permite-lhe aprovar um pedido sem desbloquear o dispositivo?
-
-Não tem de desbloquear o dispositivo para aprovar pedidos de verificação porque só tem de provar que tem o seu telemóvel consigo. Verificação de dois passos requer provando duas coisas – uma coisa que sabe e uma coisa que precisa. O que sabe, é a palavra-passe. A coisa que tem é o seu telemóvel (configurar com a aplicação Microsoft Authenticator e registado como uma prova de MFA.) Portanto, ter o telefone e aprovar o pedido satisfaz os critérios de segundo fator de autenticação.
-
-### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>O que significa o ícone de cadeado na lista conta?
-
-O ícone de cadeado indica que o dispositivo é registado no Azure AD e registrado para a conta. Registo de dispositivos para iOS ocorre durante a inscrição do Microsoft Intune.
+|Pergunta|Solução|
+|--------|--------|
+|Os dados que o autenticador armazena em meu nome e como pode eliminar?| A aplicação Microsoft Authenticator armazena as informações de conta que é fornecer ao adicionar uma conta. Quando utilizar a aplicação, um registo de diagnóstico é criado para fins de depuração e só armazena os dados que são úteis para ajudar a Microsoft a diagnosticar problemas imprevistos. Pode rever os dados de registo ao abrir a aplicação, selecionando **ajudar**, selecionar **enviar registos**e, em seguida, selecionando o **ver registos** botão.<br><br>Pode eliminar o todos os seus dados, incluindo os ficheiros de registo, ao eliminar o mosaico de conta no **contas** ecrã. Para obter mais informações sobre como a Microsoft usa os dados, consulte o [Portal de confiança do serviço](https://servicetrust.microsoft.com/ViewPage/HomePage.)|
+|Quais são os códigos na aplicação para?|Quando abre a aplicação Microsoft Authenticator, verá as suas contas foram adicionadas como mosaicos com um número de seis ou oito dígitos para cada um.<br><br>Usará esses códigos como verificação que é o que dizem que está. Depois de iniciar sessão com o seu nome de utilizador e palavra-passe, escreva o código de verificação que está no mosaico da mesmo, como a sua conta. Por exemplo, se estiver Alain iniciar sessão na sua conta de Contoso, usaria o código de verificação, 427303.<br><br>![Ecrã de contas na aplicação](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
+|Por que motivo é que o número junto ao keep código contagem para baixo?|Poderá ver um temporizador de 30 segundos a contagem para baixo junto ao seu código de verificação do Active Directory. Este temporizador é, de modo que nunca de iniciar sessão com o mesmo código duas vezes. Ao contrário de uma palavra-passe, não Queremos que se lembre este número. A idéia é que somente alguém com acesso para o seu telefone sabe seu código.|
+|Por que é o meu cinzento de mosaico de conta?|Algumas organizações exigem a aplicação Microsoft Authenticator para trabalhar com o início de sessão único e para proteger recursos da organização. Nesta situação, a conta não é utilizada para verificação de dois passos e aparece como cinza ou inativos. Este tipo de conta é freqüentemente chamado uma conta de "Mediador".|
+|O que fazer tudo a média de ícones?|![Ícone de chave de telefone](./media/microsoft-authenticator-app-faq/icon.png)<br>O ícone de chave de telefone mostra que a sua conta está atualizada para utilizar o início de sessão no telefone passe. Isso pode ser ativado para todas as contas pessoais da Microsoft e para trabalho único contas escolares ou profissionais na aplicação do autenticador. Para obter mais informações sobre o início de sessão no telemóvel, consulte [iniciar sessão com o seu telemóvel, não a palavra-passe](microsoft-authenticator-app-phone-signin-faq.md)<br><br>![Ícone de cadeado](./media/microsoft-authenticator-app-faq/lock.png)<br>O ícone de cadeado mostra que a sua conta escolar ou profissional está registada para a sua organização. Sua organização pode desejar registrar o dispositivo, para que eles possam entender quais os dispositivos que estão a aceder a recursos protegidos, por exemplo, ficheiros e aplicações, e, possivelmente, ativar o acesso condicional para reduzir o risco de acesso inadequado a esses recursos.|
+|O que é o registo de dispositivos?|Sua organização pode desejar registrar o dispositivo, para que eles possam entender quais os dispositivos que estão a aceder a recursos protegidos, por exemplo, ficheiros e aplicações, e, possivelmente, ativar o acesso condicional para reduzir o risco de acesso inadequado a esses recursos. Pode anular o registo do seu dispositivo com **definições**, mas pode perder o acesso a e-mails do Outlook, os ficheiros no OneDrive, e perderá a capacidade de utilizar o início de sessão no telefone.|
+|É necessário estar conectado à Internet ou minha rede para obter e utilizar os códigos de verificação?|Os códigos não requerem que na Internet ou se estiverem ligados a dados, para que não tenha serviço telefónico para iniciar sessão. Além disso, uma vez que a aplicação deixa de ser executada assim que fechá-lo, não drenar a bateria.|
+|Eu apenas receber notificações quando a aplicação estiver aberta. Se a aplicação é fechada, eu não receber notificações.|Se estiver a obter notificações, mas não um alerta, mesmo com a alteração do toque com, deve verificar as definições de aplicação. Certifique-se de que a aplicação está ativada para utilizar som ou Vibrar para notificações. Se não receber notificações de todo, verifique o seguinte:<ul><li>É o seu telemóvel no modo silencioso ou de não incomodar? Esses modos podem impedir aplicações de envio de notificações.</li><li>Pode obter notificações de outras aplicações? Caso contrário, ele poderia ser um problema com as ligações de rede no seu telefone ou o canal de notificações do Android ou Apple. Pode tentar resolver suas conexões de rede através das definições do seu telefone, mas poderá ter de se comunicar com o seu fornecedor de serviços para ajudar com o canal de notificações do Android ou Apple.</li><li>Pode obter notificações para algumas contas na aplicação, mas não para outros? Se Sim, remover a conta problemática do seu aplicativo, adicioná-lo novamente permitindo notificações e veja se isso corrige o problema.</li></ul>Se tentou todos estes passos e continuar a ter problemas, recomendamos que enviar os ficheiros de registo para obter um diagnóstico. Abra a aplicação, aceda a **ajudar**e, em seguida, selecione **enviar registos**. Depois disso, vá para o [fórum de aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) e informe-no que o problema que está a ver e que medidas já tentou até agora.|
+|Estou usando os códigos de verificação na aplicação, mas como posso mudar para as notificações push?|Pode definir esta cópia de segurança para a sua conta escolar ou profissional (Se ativado pelo seu administrador) ou para sua conta Microsoft pessoal, mas as notificações não funcionará para contas de terceiros, como o Google ou Facebook.<br><br>Para alternar a sua conta pessoal para notificações terá de voltar a registar o dispositivo com a conta, a configuração de notificações push.<br><br>Sua organização decidir se pretende permitir notificações de um clique para a sua conta escolar ou profissional, para que a sua organização pode desativar esta funcionalidade.|
+|Notificações funcionam para contas de terceiros|Não, notificações só funcionam com contas Microsoft e contas do Azure Active Directory. Se a sua empresa ou escola utiliza contas do Azure AD, eles podem desativar esta funcionalidade.|
+|Eu tenho um novo dispositivo ou restaurado o meu dispositivo a partir de uma cópia de segurança. Como posso configurar minhas contas na aplicação Microsoft Authenticator novamente?|Se estiver executando um dispositivo iOS, ter ativado **cópia de segurança automática**e criou uma cópia de segurança das suas contas no seu dispositivo antigo; pode usar essa cópia de segurança para recuperar as credenciais da conta no seu dispositivo novo. Para obter mais informações, consulte a [cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator](microsoft-authenticator-app-backup-and-recovery.md) artigo.|
+|Eu perder meu dispositivo ou movido para um novo dispositivo. Como me certifico de que não continuam para notificações para ir para o meu dispositivo antigo?|Adicionar a aplicação Microsoft Authenticator para seu novo dispositivo iOS não remove automaticamente a aplicação do seu dispositivo antigo. Até mesmo eliminar a aplicação do seu dispositivo antigo não é suficiente. Tem de eliminar a aplicação a partir do seu dispositivo antigo e dizer ao Microsoft ou sua organização para se esqueça do dispositivo antigo e cancelar seu registro da sua conta.<ul><li>**Para remover a aplicação a partir de um dispositivo com uma conta Microsoft pessoal.** Aceda à área de verificação de dois passos da sua [segurança de conta](https://account.microsoft.com/security) página e optar por desativar a verificação para o seu dispositivo antigo.</li><li>**Para remover a aplicação a partir de um dispositivo através de uma conta escolar ou profissional Microsoft.** Aceda à área de verificação de dois passos da sua [MyApps](https://myapps.microsoft.com/) página ou para o portal personalizado da sua organização e optar por desativar a verificação para o seu dispositivo antigo.</li></ul>|
+|Como remover uma conta a partir da aplicação?|<ul><li>**iOS.** No ecrã principal, selecione o botão de menu, em seguida, selecione **editar contas**. Toque no ícone vermelho junto ao nome da conta e toque em **remover conta**.</li><li>**Windows Phone.** No ecrã principal, selecione o botão de menu, em seguida, **editar contas**. Toque no **X** junto ao nome da conta.</li><li>**Android.** No ecrã principal, selecione o botão de menu, em seguida, **editar contas**. Toque no **X** junto ao nome da conta.</li></ul>Se tiver um dispositivo que está registado com a sua organização, terá de concluir uma etapa extra para remover a sua conta. Nestes dispositivos, a aplicação Microsoft Authenticator é automaticamente registada como um administrador do dispositivo. Se pretender desinstalar completamente o aplicativo, precisa primeiro anular o registo da aplicação nas definições da aplicação.|
+|Por que a aplicação pedir tantas permissões?|Aqui está uma lista completa das permissões que pode ser-lhe pedido para, e como elas são usadas na aplicação. As permissões específicas que vir dependem do tipo de telefone que tem.<ul><li>**Câmara.** Utilizado para ler códigos QR quando adiciona um trabalho, uma instituição de ensino ou uma conta não Microsoft.</li><li>**Contatos e telefone.** Usado para simplificar o processo ao detetar contas existentes no seu telemóvel quando inicia sessão com a sua conta Microsoft pessoal.</li><li>**SMS.** Utilizado para garantir que o seu número de telefone corresponde ao número no registo. Quando inicia sessão com a sua conta Microsoft pessoal pela primeira vez. Enviamos uma mensagem de texto para o telefone onde transferiu a aplicação que inclui um código de verificação de um dígito de 6 a 8. Em vez de solicitar que encontre esse código e introduza-o na aplicação, ele se baseia na mensagem de texto para.</li><li>**Desenhar sobre outras aplicações.** A notificação que obtém que verifica a que sua identidade também é apresentada nas outras aplicações que podem estar em execução.</li><li>**Receba dados a partir da internet.** Esta permissão é necessária para enviar notificações.</li><li>**Impedi que o telefone em suspensão.** Se registar o seu dispositivo com a sua organização, a sua organização pode alterar esta política no seu telemóvel.</li><li>**Vibração de controle.** Pode escolher se pretende uma vibração sempre que receber uma notificação para verificar a sua identidade.</li><li>**Utilize hardware de impressão digital.** Algumas contas profissionais e escolares exigem um PIN de adicional sempre que verifique a sua identidade. Para facilitar o processo, iremos permitem-lhe utilizar a impressão digital em vez de introduzir o PIN.</li><li> **Ver ligações de rede.** Quando adiciona uma conta Microsoft, a aplicação requer a ligação de rede/internet.</li><li>**Ler o conteúdo do seu armazenamento**. Esta permissão só é utilizada quando reportar um problema técnico através das definições de aplicação. Algumas informações do seu armazenamento são recolhidas para diagnosticar o problema.</li><li>**Acesso total à rede.** Esta permissão é necessária para enviar notificações para verificar a sua identidade.</li><li>**São executados no arranque.** Se reiniciar o seu telemóvel, esta permissão garante que continue que recebe as notificações para verificar a sua identidade.</li></ul>|
+|Por que a aplicação Microsoft Authenticator permite-lhe aprovar um pedido sem desbloquear o dispositivo?|Não tem de desbloquear o dispositivo para aprovar pedidos de verificação porque só tem de provar que tem o seu telemóvel consigo. Verificação de dois passos requer provando duas coisas – uma coisa que sabe e uma coisa que precisa. O que sabe, é a palavra-passe. A coisa que tem é o seu telemóvel (configurar com a aplicação Microsoft Authenticator e registado como uma prova de MFA.) Portanto, ter o telefone e aprovar o pedido satisfaz os critérios de segundo fator de autenticação.|
+|Por que não são todas as minhas contas aparecer ao abrir a aplicação Microsoft Authenticator no meu Apple Watch?|A aplicação Microsoft Authenticator só suporta a utilização pessoal da Microsoft ou contas escolares ou profissionais com notificações push na aplicação de complementar do Apple Watch. Para as suas outras contas, como o Google ou Facebook, terá de abrir a aplicação de autenticador no seu telemóvel para ver os códigos de verificação.|
+|Por que não pode aprovar ou negar notificações no meu Apple Watch?|Primeiro, certifique-se de que tiver atualizado para a aplicação Microsoft Authenticator, versão 6.0.0 ou superior no seu iPhone. Depois disso, abra a aplicação de acompanhamento de Microsoft Authenticator no seu Apple Watch e procurar por todas as contas com um **configurada** botão abaixo. Tem de concluir que configure o processo para aprovar as notificações para essas contas.|
+|Por que estou recebendo o erro **não é possível comunicar com o telefone ao utilizar a aplicação de acompanhamento de Microsoft Authenticator no Apple Watch**?|Se o seu telemóvel e assista não estão a comunicar, pode tentar o seguinte:<ol><li>Força sair da aplicação de telefone do Microsoft Authenticator e abra-o novamente no seu iPhone.</li><li>Força sair da aplicação de complementar no seu Apple Watch.<ol><li> Abra a aplicação de acompanhamento de Microsoft Authenticator no seu relógio</li><li>Premido o botão de lado até que o **encerramento** ecrã é apresentado.</li><li>Largue o botão do lado e mantenha premida a Crown Digital forçar a sair da aplicação do Active Directory.</li></ol></li><li>Desativar o Bluetooth e Wi-Fi para o seu telefone e o relógio e, em seguida, voltar a ativá-los.</li><li>Reinicie o seu iPhone e o relógio.</li></ol>|
+|Por que não é que o da aplicação de acompanhamento de Microsoft Authenticator para Apple Watch é a sincronização ou aparecendo em meu relógio?|Se a aplicação não está a aparecer no seu relógio, experimente o seguinte: <ol><li>Certificar-se de que seu relógio está em execução watchOS 4.0 ou superior.</li><li>Sincronize o seu relógio novamente.</li></ol>|
+|Meu aplicativo complementar do Apple Watch falhou. Posso enviar meus registos de falha para poder investigar? |Primeiro tem de certificar-se de que escolheu partilhar as suas análises connosco. Se for um utilizador TestFlight, já estiver inscrito no. Caso contrário, pode aceder à **definições > Privacidade > Analytics** e selecione o **partilhar do iPhone e análise de Watch** e o **partilha com os programadores de aplicações** opções.<br><br>Depois de se inscrever, pode tentar reproduzir suas falhas, para que os registos de falhas são automaticamente enviados à Microsoft para investigação. No entanto, se não conseguir reproduzir suas falhas, manualmente pode copiar os ficheiros de registo e enviá-los para nós.<ol><li>Abra a aplicação do relógio no seu telemóvel, aceda a **definições > geral**e, em seguida, clique em **cópia Watch Analytics**.</li><li>Localizar a falha correspondente sob **definições > Privacidade > Analytics > dados de análise**e, em seguida, copie manualmente o texto completo.</li><li>Abra a aplicação Microsoft Authenticator no seu telemóvel e colar copiados texto para o **partilha com os programadores de aplicações** caixa de texto no **enviar registos de** página.</li></ol>|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="contact-us"></a>Contacte-nos
-Se a sua pergunta não foi respondida aqui, queremos a sua opinião. Vá para o [fórum de aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) publique sua pergunta e obtenha ajuda da Comunidade ou deixe um comentário nesta página.
+-   Se tiver mais dúvidas sobre o início de sessão no telefone, veja [iniciar sessão com o seu telemóvel, não a palavra-passe](microsoft-authenticator-app-phone-signin-faq.md)
 
+-   Se pretender obter mais informações sobre a verificação de dois passos, veja [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md)
 
-### <a name="related-topics"></a>Tópicos relacionados
-* [Sobre a verificação de dois passos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) para contas Microsoft
-* [A ter problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para a sua conta escolar ou profissional?
-* [Utilizar o Microsoft Authenticator para iniciar sessão, a partir do telemóvel](microsoft-authenticator-app-phone-signin-faq.md)
+-   Se pretender obter mais informações sobre as informações de segurança, veja [gerir as suas informações de segurança](security-info-manage-settings.md)
+
+- Se a sua pergunta não foi respondida aqui, queremos a sua opinião. Vá para o [fórum de aplicação Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) publique sua pergunta e obtenha ajuda da Comunidade ou deixe um comentário nesta página.

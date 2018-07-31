@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 50ec925e10b32bd2bad63322ae166a02576c691a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325518"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344431"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -46,10 +46,8 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de acesso condicional](#conditional-access-administrator)**: os utilizadores com esta função têm a capacidade para gerir as definições de acesso condicional do Azure Active Directory.
   > [!NOTE]
-  > Para implementar a política de acesso condicional do Exchange ActiveSync no Azure, o utilizador também tem de ser Administrador Global.
+  > Para implementar a política de acesso condicional do Exchange ActiveSync no Azure, o utilizador também tem de ser um Administrador Global.
   
-* **[Administrador de serviços do Dynamics 365 / administrador de serviço CRM](#crm-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft CRM Online, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitor Estado de funcionamento do serviço. Mais informações em [utilizar a função de administrador de serviço para gerir o seu inquilino](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
-
 * **[Administradores de dispositivos](#device-administrators)**: os utilizadores com esta função tornam-se os administradores do computador local em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivo no Azure Active Directory.
 
 * **[Leitores de diretório](#directory-readers)**: Esta é uma função legada que está a ser atribuída às aplicações que não suportam a [consentimento Framework](../develop/active-directory-integrating-applications.md). Não deve ser atribuído a quaisquer utilizadores.
@@ -57,6 +55,8 @@ As seguintes funções de administrador estão disponíveis:
 * **[Contas de sincronização de diretórios](#directory-synchronization-accounts)**: não utilize. Esta função é atribuída automaticamente ao serviço Azure AD Connect e não é a finalidade ou suportada para qualquer outro uso.
 
 * **[Gravadores de diretórios](#directory-writers)**: Esta é uma função legada que está a ser atribuída às aplicações que não suportam a [consentimento Framework](../develop/active-directory-integrating-applications.md). Não deve ser atribuído a quaisquer utilizadores.
+
+* **[Administrador de serviços do Dynamics 365 / administrador de serviço CRM](#dynamics-365-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [utilizar a função de administrador de serviço para gerir o seu inquilino](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Administrador de serviços do Exchange](#exchange-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Exchange Online, quando o serviço está presente. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -352,27 +352,6 @@ Pode gerir capacidades de acesso condicional.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Atualize propriedades padrão em ConditionalAccessPolicys no Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Atualize a propriedade ConditionalAccessPolicys.Owners no Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>Administrador de Serviço CRM
-Pode gerir todos os aspetos do produto Dynamics 365.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
-  >
-  >
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Leia a propriedade Organizations.TrustedCAsForPasswordlessAuth no Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Crie e elimine todos os recursos e leia e atualize propriedades padrão no Controlo de Acesso do Azure. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Crie e gira pedidos de suporte do Office 365. |
-| microsoft.crm/AllEntities/AllActions | Gerir todos os aspetos do Dynamics 365. |
-
 ### <a name="device-administrators"></a>Administradores de Dispositivo
 Os membros desta função são adicionados ao grupo Administradores local em dispositivos associados ao AD Azure.
 
@@ -385,7 +364,9 @@ Os membros desta função são adicionados ao grupo Administradores local em dis
 | --- | --- |
 
 ### <a name="directory-readers"></a>Leitores de Diretório
-Pode ler as informações de diretório básicas. Para conceder acesso a aplicações
+<<<<<<< HEAD pode ler as informações de diretório básicas. Para conceder acesso a aplicações.
+=== Pode ler as informações de diretório básicas. Para conceder acesso a aplicações
+>>>>>>> ae91bfc09771777f3e74c0dd0f8db6bc14e1e710
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -487,6 +468,27 @@ Pode ler e gravar informações de diretório básicas. Para conceder acesso a a
 | microsoft.aad.directory/User/Update | Atualize propriedades padrão em utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Atualize a propriedade Users.AppRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Atualize a propriedade Users.Manager no Azure Active Directory. |
+
+### <a name="dynamics-365-service-administrator"></a>Administrador de serviços do Dynamics 365
+Pode gerir todos os aspetos do produto Dynamics 365.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Ver Descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Leia a propriedade Organizations.TrustedCAsForPasswordlessAuth no Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Crie e elimine todos os recursos e leia e atualize propriedades padrão no Controlo de Acesso do Azure. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Crie e gira pedidos de suporte do Office 365. |
+| microsoft.crm/AllEntities/AllActions | Gerir todos os aspetos do Dynamics 365. |
 
 ### <a name="exchange-service-administrator"></a>Administrador de Serviço Exchange
 Pode gerir todos os aspetos do produto Exchange.

@@ -1,37 +1,37 @@
 ---
-title: Comparar a colaboração B2B e B2C no Azure Active Directory | Microsoft Docs
-description: O que é a diferença entre a colaboração B2B do Active Directory do Azure e o Azure AD B2C?
+title: Comparar colaboração B2B e B2C no Azure Active Directory | Documentos da Microsoft
+description: O que é a diferença entre o Azure AD B2C e de colaboração do Azure Active Directory B2B?
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 19e8e9d22938fa8a18299d67aa77824aaae3f6da
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267504"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39348521"
 ---
-# <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparar a colaboração B2B e B2C no Azure Active Directory
+# <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparar colaboração B2B e B2C no Azure Active Directory
 
-Colaboração B2B do Azure Active Directory (Azure AD) e o Azure AD B2C permitem-lhe trabalhar com utilizadores externos no Azure AD. Mas a sua comparação?
+Colaboração B2B do Azure Active Directory (Azure AD) e do Azure AD B2C permitem que trabalhe com utilizadores externos no Azure AD. Mas como são comparadas?
 
 
-Funcionalidades de colaboração do B2B |     Oferta de autónoma AD B2C do Azure
+Capacidades de colaboração do B2B |     Oferta de autónoma do Azure AD B2C
 -------- | --------
-Se destina a: as organizações que pretendem conseguir autenticar os utilizadores da organização de parceiro, independentemente do fornecedor de identidade. | Se destina a: Inviting se os clientes do seu dispositivo móvel e as aplicações web, pessoas, os clientes institutional ou organizacionais no seu Azure AD.
-Identidades suportadas: os funcionários com o trabalho ou escola contas, parceiros com contas profissionais ou escolares ou qualquer endereço de e-mail. Em breve para suportar a Federação direta.  | Identidades suportadas: os utilizadores com contas de aplicação local (qualquer utilizador ou endereço de nome de e-mail) ou qualquer suportado social identidade com a Federação direta.
-O diretório de utilizadores de parceiros estão em: os utilizadores de parceiro da organização externo são geridos no mesmo diretório que os funcionários, mas anotados especial. Estes podem ser geridos da mesma forma que os funcionários, podem ser adicionados para os mesmos grupos e assim sucessivamente  | O diretório as entidades de utilizador do cliente estão em: no diretório de aplicação. Gerido separadamente a partir do diretório da organização dos funcionários e parceiros (se aplicável.
-Início de sessão único (SSO) para todas as aplicações do Azure AD-ligado é suportada. Por exemplo, pode fornecer acesso ao Office 365 ou aplicações no local e para outras aplicações de SaaS, como o Salesforce ou Workday.  |  SSO ao cliente pertencentes à empresa de aplicações dentro de inquilinos do Azure AD B2C é suportada. Não é suportado o SSO para Office 365 ou para outras aplicações SaaS não Microsoft e da Microsoft.
-Ciclo de vida do parceiro: geridos através do anfitrião/inviting organização.  | Ciclo de vida do cliente: gestão personalizada ou geridos pela aplicação.
-Política de segurança e conformidade: geridos através do anfitrião/inviting organização.  | Política de segurança e conformidade: gerida pela aplicação.
-Imagem corporativa: É utilizada a marca do anfitrião/inviting da organização.  |    Imagem corporativa: Gerida pela aplicação. Normalmente, tende produto imagem corporativa, com o fading organização em segundo plano.
-Obter mais informações: [blogue](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentação](what-is-b2b.md)  | Obter mais informações: [página de produto](https://azure.microsoft.com/services/active-directory-b2c/), [documentação](https://docs.microsoft.com/azure/active-directory-b2c/)
+Se destina a: as organizações que pretendem conseguir autenticar os utilizadores de uma organização de parceiro, independentemente do fornecedor de identidade. | Se destina a: convidar os clientes do seu dispositivo móvel e aplicações web, se pessoas, os clientes institucionais ou organizacionais para o Azure AD.
+Suportada de identidades: os funcionários com o trabalho ou escola contas, parceiros com contas escolares ou profissionais ou qualquer endereço de e-mail. Em breve para suportar o Federação direta.  | Suportada de identidades: os utilizadores com contas de aplicação local (qualquer e-mail endereço ou nome de utilizador) ou qualquer suportada a identidade de redes sociais com a Federação direta.
+O diretório que os usuários de parceiros estão na: utilizadores parceiros da organização externo são geridos no mesmo diretório que os funcionários, mas especialmente anotados. Eles podem ser geridos da mesma forma que os funcionários podem ser adicionados aos mesmos grupos e assim por diante  | O diretório as entidades de utilizador do cliente estão em: no diretório da aplicação. Gerido separadamente a partir do diretório da organização de funcionários e parceiros (se houver.
+Início de sessão único (SSO) para todas as aplicações do Azure AD-ligado é suportada. Por exemplo, pode fornecer acesso ao Office 365 ou aplicações no local e para outras aplicações SaaS, como o Salesforce ou Workday.  |  SSO para aplicações nos inquilinos do Azure AD B2C de pertencentes ao cliente é suportada. SSO para o Office 365 ou para outras aplicações SaaS não Microsoft e a Microsoft não é suportada.
+Ciclo de vida de parceiro: geridas pelo anfitrião/convidar organização.  | Ciclo de vida do cliente: Self-Service ou gerenciado pela aplicação.
+Política de segurança e conformidade: geridas pelo anfitrião/convidar organização (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Política de segurança e conformidade: geridos pela aplicação.
+Imagem corporativa: É utilizada a marca de anfitrião/convidando da organização.  |    Imagem corporativa: Geridas pela aplicação. Geralmente, tende a ser o produto de marca, com o esmaecimento de organização no plano de fundo.
+Obter mais informações: [mensagem de blogue](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentação](what-is-b2b.md)  | Obter mais informações: [página do produto](https://azure.microsoft.com/services/active-directory-b2c/), [documentação](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Passos Seguintes

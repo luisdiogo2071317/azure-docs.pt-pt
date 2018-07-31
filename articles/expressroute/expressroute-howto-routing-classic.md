@@ -1,26 +1,18 @@
 ---
 title: 'Como configurar o encaminhamento de circuito (peering) para o ExpressRoute: Azure: clássico | Documentos da Microsoft'
 description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
-documentationcenter: na
 services: expressroute
-author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
+author: cherylmc
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
-ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.topic: conceptual
+ms.date: 07/27/2018
+ms.author: cherylmc;ganesr
+ms.openlocfilehash: 14e96a36eed99d9967ac6f8188a161c922d6f334
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "31594142"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343666"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar um peering para um circuito do ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -33,7 +25,9 @@ ms.locfileid: "31594142"
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Este artigo orienta-o pelos passos para criar e gerir a configuração de encaminhamento de um circuito do ExpressRoute com o PowerShell e o modelo de implementação clássica. Os passos abaixo também irão mostrar como verificar o estado, atualizar ou eliminar e retirar o aprovisionamento do peerings para um circuito ExpressRoute.
+Este artigo orienta-o pelos passos para criar e gerir a configuração de encaminhamento de um circuito do ExpressRoute com o PowerShell e o modelo de implementação clássica. Os passos abaixo também irão mostrar como verificar o estado, atualizar ou eliminar e retirar o aprovisionamento do peerings para um circuito ExpressRoute. Pode configurar um, dois ou todos os três peerings (Azure privado, Azure público e Microsoft) para um circuito do ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. 
+
+Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que oferecem serviços de conectividade de camada 2. Se estiver a utilizar um fornecedor de serviços que oferece geridos de camada 3 serviços (normalmente uma VPN de IP, como MPLS), o seu fornecedor de conectividade irá configurar e gerir encaminhamento por si.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -41,295 +35,353 @@ Este artigo orienta-o pelos passos para criar e gerir a configuração de encami
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
-* Terá da versão mais recente dos cmdlets do PowerShell de gestão de serviço do Azure (SM). Para obter mais informações, consulte [introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview).  
+
 * Confirme que reviu as páginas [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md) página e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 * Deve ter um circuito ExpressRoute ativo. Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e ter o circuito ativado pelo seu fornecedor de conectividade antes de continuar. O circuito ExpressRoute tem de estar num estado aprovisionado e ativado para que seja capaz de executar os cmdlets descritos abaixo.
 
-> [!IMPORTANT]
-> Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que fornecem serviços de conectividade de Camada 2. Se estiver a utilizar um fornecedor de serviço que oferece serviços geridos de Camada 3 (normalmente, um VPN de IP, como MPLS), o seu fornecedor de conectividade irá configurar e gerir encaminhamento por si.
-> 
-> 
+### <a name="download-the-latest-powershell-cmdlets"></a>Transferir os cmdlets do PowerShell mais recente
 
-Pode configurar um, dois ou todos os três peerings (Azure privado, Azure público e Microsoft) para um circuito ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez.
+Instale as versões mais recentes de módulos do PowerShell de gestão de serviço do Azure (SM) e o módulo do ExpressRoute. Ao utilizar o exemplo seguinte, tenha em atenção que o número de versão (neste exemplo, 5.1.1) será alterado à medida que as versões mais recentes dos cmdlets são lançadas.
 
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
 
-### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Inicie sessão na sua conta do Azure e selecione uma subscrição
-1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
+Para obter mais informações, consulte [introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o seu computador para utilizar os módulos do Azure PowerShell.
 
-        Connect-AzureRmAccount
+### <a name="sign-in"></a>Iniciar sessão
 
+Para iniciar sessão na sua conta do Azure, utilize os exemplos seguintes:
+
+1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta.
+
+  ```powershell
+  Connect-AzureRmAccount
+  ```
 2. Verifique as subscrições da conta.
 
-        Get-AzureRmSubscription
-
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 4. Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
 
-        Add-AzureAccount
-
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## <a name="azure-private-peering"></a>Peering privado do Azure
+
 Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar a configuração do peering privado do Azure para um circuito ExpressRoute. 
 
 ### <a name="to-create-azure-private-peering"></a>Para criar um peering privado do Azure
-1. **Importe o módulo do PowerShell para o ExpressRoute.**
+
+1. **Crie um circuito do ExpressRoute.**
+
+  Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
+2. **Verifique o circuito de ExpressRoute para se certificar de que está aprovisionado.**
    
-    Tem de importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell para começar a utilizar os cmdlets ExpressRoute. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. A versão pode variar.    
+  Verifique se o circuito do ExpressRoute está aprovisionado e também ativado.
+
+  ```powershell
+  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+  ```
+
+  Retorno:
+
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : MyTestCircuit
+  Location                         : Silicon Valley
+  ServiceKey                       : *********************************
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Sku                              : Standard
+  Status                           : Enabled
+  ```
    
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **Crie um circuito do ExpressRoute.**
+  Certifique-se de que o circuito mostra como aprovisionado e ativado. Se não estiver, trabalhe com o fornecedor de conectividade para obter o seu circuito para o estado necessário e o estado.
+
+  ```powershell
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  ```
+3. **Configure o peering privado do Azure para o circuito.**
+
+  Confirme que tem os seguintes itens antes de continuar com os passos seguintes:
    
-    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo. 
-3. **Verifique o circuito de ExpressRoute para garantir que está aprovisionado.**
-   
-    Verifique primeiro se o circuito ExpressRoute está aprovisionado e também Ativado. Veja o exemplo abaixo.
-   
-        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-   
-        Bandwidth                        : 200
-        CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
-        ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
-        ServiceProviderProvisioningState : Provisioned
-        Sku                              : Standard
-        Status                           : Enabled
-   
-    Certifique-se de que o circuito mostra como aprovisionado e ativado. Se não trabalhe com o fornecedor de conectividade para obter o seu circuito para o estado necessário e o estado.
-   
-        ServiceProviderProvisioningState : Provisioned
-        Status                           : Enabled
-4. **Configure o peering privado do Azure para o circuito.**
-   
-    Confirme que tem os seguintes itens antes de continuar com os passos seguintes:
-   
-   * Uma sub-rede /30 para a ligação primária. Esta não pode fazer parte de qualquer espaço de endereço reservado para redes virtuais.
-   * Uma sub-rede /30 para a ligação secundária. Esta não pode fazer parte de qualquer espaço de endereço reservado para redes virtuais.
-   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
-   * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número AS privado para este peering. Assegure que não está a utilizar 65515.
-   * Um hash MD5 se optar por utilizar um. **Isto é opcional**.
+  * Uma sub-rede /30 para a ligação primária. Esta não pode fazer parte de qualquer espaço de endereço reservado para redes virtuais.
+  * Uma sub-rede /30 para a ligação secundária. Esta não pode fazer parte de qualquer espaço de endereço reservado para redes virtuais.
+  * Um ID de VLAN válido para estabelecer este peering. Certifique-se de que nenhum peering no circuito utiliza o mesmo ID de VLAN.
+  * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número AS privado para este peering. Certifique-se de que não está a utilizar 65515.
+  * Um hash MD5 se optar por utilizar um. **Opcional**.
      
-    Pode executar o cmdlet seguinte para configurar o peering privado o Azure para o seu circuito.
+  Pode utilizar o exemplo seguinte para configurar o peering privado do Azure para o seu circuito:
+
+  ```powershell
+  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+  ```    
+
+  Se pretender utilizar um hash MD5, utilize o exemplo seguinte para configurar o peering privado para o seu circuito:
+
+  ```powershell
+  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+  ```
      
-        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-     
-    Pode utilizar o cmdlet abaixo se optar por utilizar um hash MD5.
-     
-        New-AzureBGPPeering - AccessType privada - ServiceKey "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - VlanId 100 - SharedKey "A1B2C3D4"
-     
-     > [!IMPORTANT]
-     > Assegure que especifica o seu número AS como ASN de peering, não cliente ASN.
-     > 
-     > 
+  > [!IMPORTANT]
+  > Certifique-se de que especifica o seu número as como ASN de peering, não cliente ASN.
+  > 
 
 ### <a name="to-view-azure-private-peering-details"></a>Para ver os detalhes do peering privado do Azure
-Pode obter os detalhes de configuração com o cmdlet seguinte
 
-    Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+Pode ver os detalhes de configuração com o seguinte cmdlet:
 
-    AdvertisedPublicPrefixes       : 
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 
-    PeerAsn                        : 1234
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 10.0.0.0/30
-    RoutingRegistryName            : 
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 10.0.0.4/30
-    State                          : Enabled
-    VlanId                         : 100
+```powershell
+Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+```
 
+Retorno:
+
+```
+AdvertisedPublicPrefixes       : 
+AdvertisedPublicPrefixesState  : Configured
+AzureAsn                       : 12076
+CustomerAutonomousSystemNumber : 
+PeerAsn                        : 1234
+PrimaryAzurePort               : 
+PrimaryPeerSubnet              : 10.0.0.0/30
+RoutingRegistryName            : 
+SecondaryAzurePort             : 
+SecondaryPeerSubnet            : 10.0.0.4/30
+State                          : Enabled
+VlanId                         : 100
+```
 
 ### <a name="to-update-azure-private-peering-configuration"></a>Para atualizar a configuração do peering privado do Azure
-Pode atualizar qualquer parte da configuração com o cmdlet seguinte. No exemplo abaixo, o ID de VLAN do circuito está a ser atualizado de 100 para 500.
 
-    Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
+Pode atualizar qualquer parte da configuração com o cmdlet seguinte. No exemplo a seguir, o ID de VLAN do circuito está a ser atualizado de 100 para 500.
+
+```powershell
+Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
+```
 
 ### <a name="to-delete-azure-private-peering"></a>Para eliminar um peering privado do Azure
-Pode remover a sua configuração de peering executando o cmdlet seguinte.
 
-> [!WARNING]
-> Tem de assegurar que todas as redes virtuais são desassociadas do circuito ExpressRoute antes de executar este cmdlet. 
-> 
-> 
+Pode remover a sua configuração de peering executando o cmdlet seguinte. Deve certificar-se de que todas as redes virtuais são desassociadas do circuito do ExpressRoute antes de executar este cmdlet.
 
-    Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
-
+```powershell
+Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
+```
 
 ## <a name="azure-public-peering"></a>Peering público do Azure
+
 Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar a configuração do peering público do Azure para um circuito ExpressRoute.
 
 ### <a name="to-create-azure-public-peering"></a>Para criar um peering público do Azure
-1. **Importe o módulo do PowerShell para o ExpressRoute.**
+
+1. **Crie um circuito do ExpressRoute**
+
+  Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering público do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
+2. **Verifique o circuito de ExpressRoute para verificar se é aprovisionado**
+
+  Verifique primeiro se o circuito ExpressRoute está aprovisionado e também Ativado.
+
+  ```powershell
+  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+  ```
+
+  Retorno:
+
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : MyTestCircuit
+  Location                         : Silicon Valley
+  ServiceKey                       : *********************************
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Sku                              : Standard
+  Status                           : Enabled
+  ```
    
-    Tem de importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell para começar a utilizar os cmdlets ExpressRoute. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. A versão pode variar.   
-   
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **Crie um circuito do ExpressRoute**
-   
-    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering público do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
-3. **Verifique o circuito de ExpressRoute para garantir que está aprovisionado**
-   
-    Verifique primeiro se o circuito ExpressRoute está aprovisionado e também Ativado. Veja o exemplo abaixo.
-   
-        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-   
-        Bandwidth                        : 200
-        CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
-        ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
-        ServiceProviderProvisioningState : Provisioned
-        Sku                              : Standard
-        Status                           : Enabled
-   
-    Certifique-se de que o circuito mostra como aprovisionado e ativado. Se não trabalhe com o fornecedor de conectividade para obter o seu circuito para o estado necessário e o estado.
-   
-        ServiceProviderProvisioningState : Provisioned
-        Status                           : Enabled
+  Certifique-se de que o circuito mostra como aprovisionado e ativado. Se não estiver, trabalhe com o fornecedor de conectividade para obter o seu circuito para o estado necessário e o estado.
+
+  ```powershell
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  ```
 4. **Configurar o peering público do Azure para o circuito**
    
-    Assegure que tem as seguintes informações antes de prosseguir.
+  Certifique-se de que tem as seguintes informações antes de continuar:
    
-   * Uma sub-rede /30 para a ligação primária. Esta tem de ser um prefixo IPv4 válido.
-   * Uma sub-rede /30 para a ligação secundária. Esta tem de ser um prefixo IPv4 válido.
-   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
-   * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
-   * Um hash MD5 se optar por utilizar um. **Isto é opcional**.
-     
-    Pode executar o cmdlet seguinte para configurar o peering público do Azure para o seu circuito
-     
-        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-     
-    Pode utilizar o cmdlet abaixo se optar por utilizar um hash MD5
-     
-        New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-     
-     > [!IMPORTANT]
-     > Assegure que especifica o seu número AS como ASN de peering e não cliente ASN.
-     > 
-     > 
+  * Uma sub-rede /30 para a ligação primária. Esta tem de ser um prefixo IPv4 válido.
+  * Uma sub-rede /30 para a ligação secundária. Esta tem de ser um prefixo IPv4 válido.
+  * Um ID de VLAN válido para estabelecer este peering. Certifique-se de que nenhum peering no circuito utiliza o mesmo ID de VLAN.
+  * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
+  * Um hash MD5 se optar por utilizar um. **Opcional**.
 
+  > [!IMPORTANT]
+  > Certifique-se de que especifica o seu número as como ASN de peering e não cliente ASN.
+  >  
+     
+  Pode utilizar o exemplo seguinte para configurar o peering público do Azure para o seu circuito:
+
+  ```powershell
+  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+  ```
+     
+  Se pretender utilizar um hash MD5, utilize o exemplo seguinte para configurar o seu circuito:
+     
+  ```powershell
+  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+  ```
+     
 ### <a name="to-view-azure-public-peering-details"></a>Para ver os detalhes do peering público do Azure
-Pode obter os detalhes de configuração com o cmdlet seguinte
 
-    Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+Para ver os detalhes de configuração, utilize o seguinte cmdlet:
 
-    AdvertisedPublicPrefixes       : 
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 
-    PeerAsn                        : 1234
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 131.107.0.0/30
-    RoutingRegistryName            : 
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 131.107.0.4/30
-    State                          : Enabled
-    VlanId                         : 200
+```powershell
+Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+```
 
+Retorno:
+
+```powershell
+AdvertisedPublicPrefixes       : 
+AdvertisedPublicPrefixesState  : Configured
+AzureAsn                       : 12076
+CustomerAutonomousSystemNumber : 
+PeerAsn                        : 1234
+PrimaryAzurePort               : 
+PrimaryPeerSubnet              : 131.107.0.0/30
+RoutingRegistryName            : 
+SecondaryAzurePort             : 
+SecondaryPeerSubnet            : 131.107.0.4/30
+State                          : Enabled
+VlanId                         : 200
+```
 
 ### <a name="to-update-azure-public-peering-configuration"></a>Para atualizar a configuração do peering público do Azure
-Pode atualizar qualquer parte da configuração com o cmdlet seguinte
 
-    Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
+Pode atualizar qualquer parte da configuração com o cmdlet seguinte. Neste exemplo, o ID de VLAN do circuito está a ser atualizado de 200 para 600.
 
-O ID de VLAN do circuito está a ser atualizado de 200 para 600, no exemplo acima.
+```powershell
+Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
+```
 
+Certifique-se de que o circuito mostra como aprovisionado e ativado. 
 ### <a name="to-delete-azure-public-peering"></a>Para eliminar um peering público do Azure
-Pode remover a sua configuração de peering executando o cmdlet seguinte
 
-    Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+Pode remover a sua configuração de peering executando o seguinte cmdlet:
+
+```powershell
+Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
+```
 
 ## <a name="microsoft-peering"></a>Peering da Microsoft
+
 Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar a configuração do peering da Microsoft para um circuito ExpressRoute. 
 
 ### <a name="to-create-microsoft-peering"></a>Para criar peering da Microsoft
-1. **Importe o módulo do PowerShell para o ExpressRoute.**
+
+1. **Crie um circuito do ExpressRoute**
+  
+  Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
+2. **Verifique o circuito de ExpressRoute para verificar se é aprovisionado**
+
+  Certifique-se de que o circuito mostra como aprovisionado e ativado. 
    
-    Tem de importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell para começar a utilizar os cmdlets ExpressRoute. Execute os seguintes comandos para importar os módulos do Azure e do ExpressRoute para a sessão do PowerShell. A versão pode variar.   
+  ```powershell
+  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+  ```
+
+  Retorno:
    
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-        Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-2. **Crie um circuito do ExpressRoute**
+  ```powershell
+  Bandwidth                        : 200
+  CircuitName                      : MyTestCircuit
+  Location                         : Silicon Valley
+  ServiceKey                       : *********************************
+  ServiceProviderName              : equinix
+  ServiceProviderProvisioningState : Provisioned
+  Sku                              : Standard
+  Status                           : Enabled
+  ```
    
-    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
-3. **Verifique o circuito de ExpressRoute para garantir que está aprovisionado**
-   
-    Deve primeiro verificar se o circuito do ExpressRoute está num Estado aprovisionado e ativado.
-   
-        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-   
-        Bandwidth                        : 200
-        CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
-        ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
-        ServiceProviderProvisioningState : Provisioned
-        Sku                              : Standard
-        Status                           : Enabled
-   
-    Certifique-se de que o circuito mostra como aprovisionado e ativado. Se não trabalhe com o fornecedor de conectividade para obter o seu circuito para o estado necessário e o estado.
-   
-        ServiceProviderProvisioningState : Provisioned
-        Status                           : Enabled
-4. **Configurar o peering da Microsoft para o circuito**
+  Certifique-se de que o circuito mostra como aprovisionado e ativado. Se não estiver, trabalhe com o fornecedor de conectividade para obter o seu circuito para o estado necessário e o estado.
+
+  ```powershell
+  ServiceProviderProvisioningState : Provisioned
+  Status                           : Enabled
+  ```
+3. **Configurar o peering da Microsoft para o circuito**
    
     Confirme que tem as seguintes informações antes de continuar.
    
    * Uma sub-rede /30 para a ligação primária. Esta tem de ser um prefixo IPv4 público válido detido por si e registado num RIR/TIR.
    * Uma sub-rede /30 para a ligação secundária. Esta tem de ser um prefixo IPv4 público válido detido por si e registado num RIR/TIR.
-   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
+   * Um ID de VLAN válido para estabelecer este peering. Certifique-se de que nenhum peering no circuito utiliza o mesmo ID de VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
    * Prefixos anunciados: tem de fornecer uma lista de todos os prefixos que planeia anunciar durante a sessão de BGP. São aceites apenas prefixos de endereços IP públicos. Pode enviar uma lista separada por vírgulas se pretender enviar um conjunto de prefixos. Estes prefixos têm de ser registados para si num RIR/TIR.
-   * Cliente ASN: se estiver a anunciar prefixos que não estão registados para o número AS de peering, pode especificar o número AS no qual estão registados. **Isto é opcional**.
+   * Cliente ASN: se estiver a anunciar prefixos que não estão registados para o número AS de peering, pode especificar o número AS no qual estão registados. **Opcional**.
    * Nome do registo de encaminhamento: pode especificar o RIR/TIR de acordo com o número AS e os prefixos aos quais estão registados.
-   * Um hash MD5, se optar por utilizar um. **Isto é opcional.**
+   * Um hash MD5, se optar por utilizar um. **Opcional.**
      
-    Pode executar o cmdlet seguinte para configurar pering da Microsoft para o seu circuito
-     
-        New-AzureBGPPeering - AccessType Microsoft - ServiceKey "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - VlanId 300 - PeerAsn 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes " 123.0.0.0/30 "- RoutingRegistryName"ARIN"- SharedKey"A1B2C3D4"
+  Execute o cmdlet seguinte para configurar o peering da Microsoft para o seu circuito:
+ 
+  ```powershell
+  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+  ```
 
 ### <a name="to-view-microsoft-peering-details"></a>Para ver os detalhes do peering da Microsoft
-Pode obter os detalhes de configuração com o cmdlet seguinte.
 
-    Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+Pode ver os detalhes de configuração com o seguinte cmdlet:
 
-    AdvertisedPublicPrefixes       : 123.0.0.0/30
-    AdvertisedPublicPrefixesState  : Configured
-    AzureAsn                       : 12076
-    CustomerAutonomousSystemNumber : 2245
-    PeerAsn                        : 1234
-    PrimaryAzurePort               : 
-    PrimaryPeerSubnet              : 10.0.0.0/30
-    RoutingRegistryName            : ARIN
-    SecondaryAzurePort             : 
-    SecondaryPeerSubnet            : 10.0.0.4/30
-    State                          : Enabled
-    VlanId                         : 300
+```powershell
+Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+```
+Retorno:
 
+```powershell
+AdvertisedPublicPrefixes       : 123.0.0.0/30
+AdvertisedPublicPrefixesState  : Configured
+AzureAsn                       : 12076
+CustomerAutonomousSystemNumber : 2245
+PeerAsn                        : 1234
+PrimaryAzurePort               : 
+PrimaryPeerSubnet              : 10.0.0.0/30
+RoutingRegistryName            : ARIN
+SecondaryAzurePort             : 
+SecondaryPeerSubnet            : 10.0.0.4/30
+State                          : Enabled
+VlanId                         : 300
+```
 
 ### <a name="to-update-microsoft-peering-configuration"></a>Para atualizar a configuração do peering da Microsoft
-Pode atualizar qualquer parte da configuração com o cmdlet seguinte.
 
-    Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+Pode atualizar qualquer parte da configuração com o seguinte cmdlet:
+
+```powershell
+Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+```
 
 ### <a name="to-delete-microsoft-peering"></a>Para eliminar o peering da Microsoft
-Pode remover a sua configuração de peering executando o cmdlet seguinte.
 
-    Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+Pode remover a sua configuração de peering executando o seguinte cmdlet:
+
+```powershell
+Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Em seguida, [ligar uma VNet a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 * Para obter mais informações sobre fluxos de trabalho, consulte [fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
 * Para obter mais informações sobre peering do circuito, veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
-

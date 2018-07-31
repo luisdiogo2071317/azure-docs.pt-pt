@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 967aa87f89eff34427456bad3828e1e6509639cf
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488383"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358702"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
 Os grupos de gestão são contentores que o ajudam a gerir o acesso, política e conformidade em várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [do Azure Policy](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../role-based-access-control/overview.md). Para saber mais sobre os grupos de gestão, veja [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
-
-A funcionalidade de grupo de gestão está disponível em pré-visualização pública. Para começar a utilizar grupos de gestão, inicie sessão na [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [da CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os seus grupos de gestão.
 
 Para fazer alterações a um grupo de gestão, tem de ter uma função de proprietário ou Contribuidor no grupo de gestão. Para ver quais as permissões que tem, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md).
 
@@ -80,6 +78,7 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 3. Selecione o grupo de gestão que pretende eliminar.
 4. Selecione **Eliminar**.
     - Se o ícone estiver desabilitado, passar o rato seu Seletor de mouse sobre o ícone mostra-lhe o motivo.
+
     ![Eliminar grupo](media/management-groups/delete.png)
 5. Há uma janela que abre-se de confirmar que pretende eliminar o grupo de gestão.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972405"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359194"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 O Azure Key Vault permite aos utilizadores armazenar e utilizar chaves criptográficas dentro do ambiente do Microsoft Azure. Key Vault suporta vários tipos de chave e algoritmos e permite a utilização de módulos de segurança de Hardware (HSM) para chaves de valor elevado. Além disso, o Key Vault permite aos utilizadores armazenar segredos em segurança. Os segredos são objetos de octeto de tamanho limitado com nenhuma semântica específica. Key Vault também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionar uma funcionalidade de renovação automática.
@@ -73,7 +73,7 @@ O JavaScript Object Notation (JSON) e especificações de assinatura de objeto d
 -   [Algoritmos de Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [Assinatura de Web JSON (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
-### <a name="BKMK_DataTypes"></a> Tipos de dados
+### <a name="BKMK_DataTypes"></a> tipos de dados
 
 Consulte a [especificações de JOSE](#BKMK_Standards) para tipos de dados relevantes para chaves de encriptação e assinatura.  
 
@@ -106,7 +106,7 @@ Em que:
 
 |||  
 |-|-|  
-|`keyvault-name`|O nome para um cofre de chaves no serviço do Microsoft Azure Key Vault.<br /><br /> Nomes de Cofre de chaves são selecionados pelo usuário e são globalmente exclusivos.<br /><br /> Nome do Key Vault tem de ter uma cadeia 3 e 24 carateres comprimento que contém apenas (0 a 9, a-z, A-Z e -).|  
+|`keyvault-name`|O nome para um cofre de chaves no serviço do Microsoft Azure Key Vault.<br /><br /> Nomes de Cofre de chaves são selecionados pelo usuário e são globalmente exclusivos.<br /><br /> O nome do Cofre de Chaves tem de ser uma cadeia com 3 a 24 carateres de comprimento que contenha apenas (0-9, a-z, A-Z e -).|  
 |`object-type`|O tipo de objeto, "chaves" ou "segredos".|  
 |`object-name`|Um `object-name` é um nome de utilizador fornecido para e tem de ser exclusivo dentro de um cofre de chaves. O nome tem de ser uma cadeia de caracteres 1 127 carateres de comprimento e conter apenas 0-9, a-z, A-Z e -.|  
 |`object-version`|Um `object-version` é gerada pelo sistema, identificador de cadeia de caracteres de 32, opcionalmente, é usado para tratar de uma versão exclusiva de um objeto.|  
@@ -117,15 +117,36 @@ Em que:
 
 As chaves criptográficas no Azure Key Vault são representadas como objetos de chave do JSON Web [JWK]. As especificações de JWK/JWA bases também são expandidas para permitir os tipos de chave de exclusivos para a implementação do Azure Key Vault, por exemplo, a importação de chaves para o Azure Key Vault com o empacotamento específico do fornecedor (Thales) de HSM para ativar o transporte seguro de chaves, esse só pode ser utilizados nos HSMs do Azure Key Vault.  
 
-A versão inicial do Azure Key Vault suporta chaves RSA de apenas; versões futuras podem suportar outros tipos de chave, como de curva elíptica e simétrica.  
-
--   **RSA**: uma chave RSA de 2048 bits. Esta é uma chave "soft", que é processada no software por Cofre de chaves, mas é armazenada encriptados em descanso ao utilizar uma chave de sistema que está num HSM. Os clientes podem importar uma chave RSA existente ou solicitar que o Azure Key Vault gerar um.  
--   **RSA HSM**: chave de uma RSA, que é processada num HSM. As chaves RSA HSM estão protegidas em um dos mundos de segurança de HSM de Cofre de chave de Azure (há um universo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA, na forma de forma recuperável ou ao exportar a partir de um dispositivo HSM compatível, ou peça que o Azure Key Vault gerar um. Este tipo de chave adiciona o atributo de T para o JWK obter para transportar o material de chave HSM.  
+- **As chaves "Soft"**: uma chave processados no software pelo Key Vault, mas é encriptada em descanso ao utilizar uma chave de sistema que está num HSM. Os clientes podem importar uma chave RSA ou EC existente ou solicitar que o Azure Key Vault gerar um.
+- **Chaves de "Disco rígidas"**: processados de uma chave num HSM (módulo de Hardware de segurança). Estas chaves são protegidas em um dos mundos de segurança de HSM de Cofre de chave de Azure (há um universo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, na forma de forma recuperável ou ao exportar a partir de um dispositivo HSM compatível, ou peça que o Azure Key Vault gerar um. Este tipo de chave adiciona o atributo de T para o JWK obter para transportar o material de chave HSM.
 
      Para obter mais informações sobre dos limites geográficos, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+O Azure Key Vault suporta chaves RSA e criptografia de curva elíptica apenas; versões futuras podem suportar, tal como outros tipos de chave simétrica.
+
+-   **EC**: chave de criptografia de curva elíptica "Soft".
+-   **EC HSM**: chave de criptografia de curva elíptica "Rígido".
+-   **RSA**: chave RSA "Soft".
+-   **RSA HSM**: chave RSA "Fixas".
+
+O Azure Key Vault suporta chaves RSA de 2048, 3072 e 4096 de tamanhos e as chaves de criptografia de curva elíptica de tipo p-256, p-384, p-521 e P-256_K.
+
+### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
+
+Os módulos criptográficos que utiliza o Azure Key Vault, se o HSM ou software, são FIPS validada. Não precisa de fazer nada de especial para executar no modo FIPS. Se **crie** ou **importar** chaves como protegida por HSM, é garantido que ser processado dentro de HSMs validados FIPS 140-2 nível 2 ou superior. Se **crie** ou **importar** chaves como protegida por software, em seguida, são processados no interior de módulos criptográficos validados FIPS 140-2 de nível 1 ou superior. Para obter mais informações, consulte [chaves e os tipos de chave](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> Algoritmos EC
+ Os identificadores de algoritmo seguintes são suportados com chaves EC e EC HSM no Azure Key Vault. 
+
+#### <a name="signverify"></a>VERIFICAR/INÍCIO DE SESSÃO
+
+-   **ES256** - digests ECDSA para SHA-256 e chaves criadas com a curva p-256. Esse algoritmo é descrito em [RFC7518].
+-   **ES256K** - digests ECDSA para SHA-256 e chaves criadas com curva P-256_K. Esse algoritmo está pendente de padronização.
+-   **ES384** - digests ECDSA para SHA-384 e chaves criadas com a curva p-384. Esse algoritmo é descrito em [RFC7518].
+-   **ES512** - digests ECDSA para SHA-512 e chaves criadas com a curva p-521. Esse algoritmo é descrito em [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmos RSA  
- Os identificadores de algoritmo seguintes são suportados com chaves RSA no Azure Key Vault.  
+ Os identificadores de algoritmo seguintes são suportados com chaves RSA e RSA HSM no Azure Key Vault.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRIPTAÇÃO/DESENCRIPTAÇÃO.
 
@@ -138,25 +159,6 @@ A versão inicial do Azure Key Vault suporta chaves RSA de apenas; versões futu
 -   **RS384** - RSASSA-PKCS-v1_5, SHA-384 a utilizar. O valor de texto implícita de aplicação fornecido deve ser calculado utilizando SHA-384 e tem de ser 48 bytes de comprimento.  
 -   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor de texto implícita de aplicação fornecido deve ser calculado utilizando SHA-512 e tem de ser 64 bytes de comprimento.  
 -   **RSNULL** -veja [RFC2437], um caso de utilização especializado para permitir que determinados cenários TLS.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> Algoritmos de HSM de RSA  
-Os identificadores de algoritmo seguintes são suportados com chaves RSA HSM no Azure Key Vault.  
-
-### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
-
-Os módulos criptográficos que utiliza o Azure Key Vault, se o HSM ou software, são FIPS validada. Não precisa de fazer nada de especial para executar no modo FIPS. Se **crie** ou **importar** chaves como protegida por HSM, é garantido que ser processado dentro de HSMs validados FIPS 140-2 nível 2 ou superior. Se **crie** ou **importar** chaves como protegida por software, em seguida, são processados no interior de módulos criptográficos validados FIPS 140-2 de nível 1 ou superior. Para obter mais informações, consulte [chaves e os tipos de chave](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>MOLDAR/ANULAR MOLDAGEM, DE ENCRIPTAÇÃO/DESENCRIPTAÇÃO
-
--   **RSA1_5** -encriptação de chave RSAES-PKCS1-V1_5 [RFC3447].  
--   **RSA OAEP** - RSAES usando ideal assimétrica encriptação de preenchimento (OAEP) [RFC3447], com os parâmetros de padrão especificados pelo RFC 3447 na secção A.2.1. Esses parâmetros de predefinição estão a utilizar uma função de hash de SHA-1 e uma função de geração de máscara de MGF1 com SHA-1.  
-
- #### <a name="signverify"></a>VERIFICAR/INÍCIO DE SESSÃO  
-
--   **RS256** - RSASSA-PKCS-v1_5 com SHA-256. O valor de texto implícita de aplicação fornecido deve ser calculado utilizando SHA-256 e tem de ser 32 bytes de comprimento.  
--   **RS384** - RSASSA-PKCS-v1_5, SHA-384 a utilizar. O valor de texto implícita de aplicação fornecido deve ser calculado utilizando SHA-384 e tem de ser 48 bytes de comprimento.  
--   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor de texto implícita de aplicação fornecido deve ser calculado utilizando SHA-512 e tem de ser 64 bytes de comprimento.  
--   RSNULL: Veja [RFC2437], um caso de utilização especializada para permitir que determinados cenários TLS.  
 
 ###  <a name="BKMK_KeyOperations"></a> Operações de chaves
 

@@ -10,61 +10,64 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: f2b596b34aa18d20fa888ad40e82eccb90d5fd8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b35803de2cb503418d4373fe3429b81ec5474de4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465776"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358697"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gestão para a organização de recursos e gestão
-Os grupos de gestão são contentores que o ajudam a gerir o acesso, política e conformidade em várias subscrições. Criar estes contentores para criar uma hierarquia, eficaz e eficiente, que pode ser utilizada com [do Azure Policy](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure função](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md). 
 
-A funcionalidade de grupo de gestão está disponível em pré-visualização pública. Para começar a utilizar a gestão de grupos e início de sessão para o [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [da CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para Crie grupos de gestão.   
+Os grupos de gestão são contentores que o ajudam a gerir o acesso, política e conformidade em várias subscrições. Criar estes contentores para criar uma hierarquia, eficaz e eficiente, que pode ser utilizada com [do Azure Policy](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure função](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
 
 O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos a concluir. Existem processos que executam na primeira vez para configurar o serviço de grupos de gestão do Azure para o seu diretório. Receber uma notificação quando o processo estiver concluído.  
 
-## <a name="how-to-create-a-management-group"></a>Como criar um grupo de gestão
+## <a name="create-a-management-group"></a>Criar um grupo de gestão
+
 Pode criar o grupo de gestão, utilizando o portal, o PowerShell ou a CLI do Azure.
 
 ### <a name="create-in-portal"></a>Criar no portal
 
 1. Inicie sessão no [portal do Azure](http://portal.azure.com).
 2. Selecione **todos os serviços** > **grupos de gestão**.
-3. Na página principal, selecione **grupo de gestão de novo.** 
+3. Na página principal, selecione **grupo de gestão de novo.**
 
-    ![Grupo principal](media/management-groups/main.png) 
-4.  Preencha o campo de ID do grupo de gestão. 
-    - O **ID do grupo de gestão** é o identificador exclusivo do diretório que é utilizado para submeter os comandos neste grupo de gestão. Este identificador não é editável após a criação, como é usado em todo o sistema do Azure para identificar este grupo. 
+    ![Grupo principal](media/management-groups/main.png)
+4.  Preencha o campo de ID do grupo de gestão.
+    - O **ID do grupo de gestão** é o identificador exclusivo do diretório que é utilizado para submeter os comandos neste grupo de gestão. Este identificador não é editável após a criação, como é usado em todo o sistema do Azure para identificar este grupo.
     - O campo de nome de exibição é o nome que é apresentado no portal do Azure. Um nome de apresentação separada é um campo opcional ao criar a gestão de grupo e pode ser alterado em qualquer altura.  
 
     ![Criar](media/management-groups/create_context_menu.png)  
 5.  Selecione **guardar**
 
-
 ### <a name="create-in-powershell"></a>Criar no PowerShell
-No PowerShell, utilize os cmdlets Add-AzureRmManagementGroups.   
+
+No PowerShell, utilize os cmdlets Add-AzureRmManagementGroups:
 
 ```azurepowershell-interactive
-C:\> New-AzureRmManagementGroup -GroupName Contoso 
+C:\> New-AzureRmManagementGroup -GroupName Contoso
 ```
+
 O **GroupName** é um identificador exclusivo que está sendo criado. Esse identificador é utilizado por outros comandos, para fazer referência a este grupo e não é possível alterar mais tarde.
 
-Se quisesse o grupo de gestão para mostrar um nome diferente no portal do Azure, adicionaria as **DisplayName** parâmetro com a cadeia de caracteres. Por exemplo, se quisesse criar um grupo de gestão com o GroupName da Contoso e o nome a apresentar do "Grupo de Contoso", usaria o seguinte cmdlet: 
+Se quisesse o grupo de gestão para mostrar um nome diferente no portal do Azure, adicionaria as **DisplayName** parâmetro com a cadeia de caracteres. Por exemplo, se quisesse criar um grupo de gestão com o GroupName da Contoso e o nome a apresentar do "Grupo de Contoso", usaria o seguinte cmdlet:
 
 ```azurepowershell-interactive
 C:\> New-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
-``` 
+```
+
 Utilize o **ParentId** parâmetro para que este grupo de gestão criadas numa gestão diferentes.  
 
 ### <a name="create-in-azure-cli"></a>Criar na CLI do Azure
-Na CLI do Azure, utiliza o az comando de criação do grupo de gestão de conta. 
+
+Na CLI do Azure, utiliza o az comando de criação do grupo de gestão de conta.
 
 ```azure-cli
 C:\ az account management-group create --group-name <YourGroupName>
-``` 
+```
 
 ---
 

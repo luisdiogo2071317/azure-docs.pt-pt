@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224591"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358108"
 ---
 # <a name="prediction-score"></a>Classificação da predição
 Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 
@@ -36,6 +36,8 @@ Quando uma expressão resulta numa pontuação de confiança de baixa, LUIS dest
 Predição de cada expressão retorna uma intenção da parte superior de classificação. Esta é uma comparação numérica de pontuações de predição. As pontuações de duas principais podem ter uma muito pequena diferença entre eles. LUIS não indicar este proximidade que não seja retornando as pontuações.  
 
 Se estiver preocupado a proximidade das pontuações superior, deverá devolver a classificação para todas as intenções. Pode adicionar expressões com para os dois objetivos que indicam as diferenças com a escolha do word e disposição ou pode ter o aplicativo de chamada de LUIS, como um chatbot, fazer escolhas programáticas sobre como lidar com os dois objetivos principais. 
+
+Dois objetivos, o que são muito perto classificados, podem inverter devido a não determinístico treinamento. A classificação superior poderia se tornar a segunda parte superior e a segunda pontuação superior poderia se tornar a classificação superior primeiro. Para evitar esta situação, adicione expressões de exemplo para cada um dos principais duas objetivos para essa expressão com a escolha do word e o contexto que diferencia os dois objetivos. Os dois objetivos devem ter sobre o mesmo número de expressões de exemplo. Um princípio de separação para impedir a inversão devido a formação, é uma diferença de 15% em pontuações.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Devolver a pontuação de previsão para todos os objetivos
 Um resultado de teste ou ponto de extremidade pode incluir todas as intenções. Esta configuração é definida no [ponto final](https://aka.ms/v1-endpoint-api-docs) com o `verbose=true` par nome/valor de cadeia de caracteres de consulta. 

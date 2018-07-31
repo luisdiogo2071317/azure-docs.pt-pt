@@ -1,97 +1,126 @@
 ---
-title: Como utilizar as palavras-passe de aplicação no Azure MFA? | Microsoft Docs
-description: Esta página ajudará os usuários a compreender quais são as palavras-passe de aplicação e o que são utilizadas com relação ao MFA do Azure.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Como gerir palavras-passe de aplicação no Azure Active Directory | Documentos da Microsoft
+description: Esta página ajudará os usuários a compreender quais são as palavras-passe de aplicação e o que são utilizadas com relação ao verificação em dois passos.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 290458e95aaed0cc85d83539d9d870c334df45df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059432"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343293"
 ---
-# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>O que são palavras-passe de aplicação no Azure multi-factor Authentication?
-Determinadas aplicações não baseadas no browser, tais como o cliente de e-mail nativo da Apple que utiliza o Exchange Active Sync, atualmente não suportam autenticação multifator. Autenticação multifator está ativada por utilizador. Isso significa que se um utilizador tiver sido ativado para autenticação multifator e que estão a tentar utilizar aplicações não baseadas no browser, será possível fazê-lo. Uma palavra-passe de aplicação permite tal utilização. Se impor o multi-factor Authentication através de políticas de acesso condicional e não através de MFA por utilizador, não é possível criar palavras-passe de aplicação. Aplicações que utilizam políticas de acesso condicional para controlar o acesso não é necessário palavras-passe de aplicação.
+# <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
 
-Assim que tiver uma palavra-passe de aplicação, é usar isso em vez da palavra-passe original com estas aplicações não baseadas no browser. Isto acontece porque ao se registrar para verificação de dois passos, está dizendo ao Microsoft para não deixar que qualquer pessoa que inicie sessão com a palavra-passe se eles também não é possível efetuar a verificação de segundo. O cliente de e-mail nativa da Apple no seu telemóvel não pode iniciar sessão como utilizador porque não há verificação de dois passos. A solução para isso é criar uma mais segura palavra-passe de aplicação não utilizar todos os dias, mas apenas para aqueles aplicativos que não é possível suportar a verificação de dois passos. Utilize a palavra-passe de aplicação para que aplicações podem ignorar a multi-factor authentication e continuar a funcionar.
+Determinadas aplicações não baseadas no browser, tais como o Outlook 2010, não suporta a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.
 
-> [!NOTE]
-> Novos protocolos de autenticação de suporte de clientes do Office 2013 (incluindo Outlook) e pode ser utilizado com verificação de dois passos.  Isso significa que uma vez ativada, as palavras-passe de aplicação não são necessárias para utilização com clientes do Office 2013.  Para obter mais informações, consulte [Office 2013 autenticação moderna pré-visualização pública anunciada](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
 
+- As palavras-passe de aplicação são gerados automaticamente e apenas introduziu uma vez por aplicação.
 
-## <a name="how-to-use-app-passwords"></a>Como utilizar as palavras-passe de aplicação
-Seguem-se algumas coisas a serem lembrados sobre como utilizar as palavras-passe de aplicação.
+- Existe um limite de 40 palavras-passe por utilizador. Se tentar criar uma após esse limite, será solicitado para eliminar uma palavra-passe existente antes de poder criar novo.
 
-* Não crie suas próprias palavras-passe de aplicação. Em vez disso, estas são geradas automaticamente. Uma vez que apenas tem de introduzir a palavra-passe de aplicação uma vez por aplicação, é mais seguro utilizar uma palavra-passe mais complexa, gerada automaticamente, em vez de fazer um que pode se lembrar.
-* Atualmente, existe um limite de 40 palavras-passe por utilizador. Se tentar criá-lo Depois de ter atingido o limite, será solicitado que elimine uma das suas palavras-passe de aplicação existentes antes de criar um novo.
-* Deve usar uma palavra-passe aplicação por dispositivo, não por aplicação. Por exemplo, pode criar uma palavra-passe de aplicação para o seu computador portátil e utilizar essa palavra-passe de aplicação para todas as suas aplicações desse portátil. Em seguida, crie uma segunda palavra-passe de aplicação a utilizar para todas as suas aplicações no ambiente de trabalho.
-* Tem uma palavra-passe de aplicação à primeira que registar para verificação de dois passos.  Se precisar de outras opções, pode criá-los.
+- Utilize uma palavra-passe aplicação por dispositivo, não por aplicação. Por exemplo, crie uma única palavra-passe para todas as aplicações no computador portátil e, em seguida, outra palavra-passe única para todas as aplicações no ambiente de trabalho.
 
+    >[!Note]
+    >Novos protocolos de autenticação de suporte de clientes do Office 2013 (incluindo Outlook) e pode ser utilizado com verificação de dois passos. Esse suporte significa que após a verificação de dois passos está ativada, já não terá de palavras-passe de aplicação para clientes do Office 2013. Para obter mais informações, consulte a [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artigo.
 
+## <a name="where-to-create-and-delete-your-app-passwords"></a>Onde pretende criar e eliminar as palavras-passe de aplicação
 
-## <a name="creating-and-deleting-app-passwords"></a>Criar e excluir as palavras-passe de aplicação
-Durante sua inicial início de sessão, tem uma palavra-passe de aplicação que pode utilizar.  Além disso, também pode criar e eliminar as palavras-passe de aplicação mais tarde.  Como fazer isso depende de como utilizar o multi-factor authentication. Responda às seguintes perguntas para determinar onde deve ir ao gerir palavras-passe de aplicação:
+É-lhe fornecido uma palavra-passe de aplicação durante o registo de verificação inicial de dois passos. Se precisar de mais do que uma senha, pode criar palavras-passe adicionais, com base na forma como utiliza a verificação de dois passos:
 
-1. Usa a verificação da sua conta Microsoft pessoal? Se Sim, deve consultar o [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo para obter ajuda. Se não, continue a duas perguntas das perguntas.
+- **Verificação de dois passos é usar com a sua conta do Microsoft Azure.** Criar e eliminar as palavras-passe de aplicação com o [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte a [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) artigo.
 
-2. OK, pelo que utilizar a verificação de dois passos para a sua conta escolar ou profissional. Utilizá-la para iniciar sessão em aplicações do Office 365? Se Sim, deve consultar [criar uma palavra-passe de aplicação para o Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obter ajuda. Se não, continue a pergunta três.
+- **Verificação de dois passos é usar com sua conta Microsoft pessoal.** Criar e eliminar as palavras-passe de aplicação com o [Noções básicas de segurança](https://account.microsoft.com/account/) página com a sua conta Microsoft. Para obter mais informações, consulte a [palavras-passe de aplicação e verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo.
 
-3. Usa a verificação com o Microsoft Azure? Se Sim, avance para o [gerir palavras-passe de aplicação no portal do Azure](#manage-app-passwords-in-the-Azure-portal) seção deste artigo. Se não, continue a pergunta de quatro.
+- **Verificação de dois passos é usar com seu trabalho ou conta da instituição de ensino e aplicações do Office 365.** Criar e eliminar as palavras-passe de aplicação com as instruções no [criar e eliminar aplicações palavras-passe através do portal do Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) seção deste artigo.
 
-4. Não tem a certeza onde pode utilizar a verificação de dois passos? Avance para o [gerir palavras-passe de aplicação com o portal MyApps](#manage-app-passwords-with-the-myapps-portal) seção deste artigo.
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Criar e eliminar as palavras-passe de aplicação com o portal do Office 365
 
+Se utilizar a verificação de dois passos com o seu trabalho ou a conta escolar e a aplicações do Office 365, pode criar e eliminar as palavras-passe de aplicação com o portal do Office 365. Pode ter um máximo de 40 palavras-passe de aplicação ao mesmo tempo. Se precisar de outra palavra-passe de aplicações após esse limite, terá de eliminar uma das suas palavras-passe de aplicação existentes.
+
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para criar palavras-passe de aplicação com o portal do Office 365
+
+1. Inicie sessão na sua conta escolar ou profissional.
+
+2. Aceda a https://portal.office.com, selecione o **configurações** ícone no canto superior direito do **portal do Office 365** página e, em seguida, expanda **verificação adicional de segurança**.
+
+    ![Mostrar portal do Office expandido a área de verificação de segurança adicionais](media/security-info/security-info-o365password.png)
+
+3. Selecione o texto que indica **criar e gerir palavras-passe de aplicação** para abrir o **palavras-passe de aplicação** página.
+
+4. Selecione **Create**, escreva um nome amigável para a aplicação que tem da palavra-passe de aplicação e, em seguida, selecione **próxima**.
+
+5. Selecione **copiar palavra-passe para a área de transferência**e, em seguida, selecione **fechar**.
+
+6. Utilize a palavra-passe de aplicação copiado para iniciar sessão na sua aplicação não baseadas no browser. Só tem de introduzir esta palavra-passe de uma vez e ele é memorizado para o futuro.
+
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Para eliminar as palavras-passe de aplicação com o portal do Office 365
+
+1. Inicie sessão na sua conta escolar ou profissional.
+
+2. Aceda a https://portal.office.com, selecione o **configurações** ícone no canto superior direito do **portal do Office 365** página e, em seguida, selecione **verificação adicional de segurança**.
+
+3. Selecione o texto que indica **criar e gerir palavras-passe de aplicação** para abrir o **palavras-passe de aplicação** página.
+
+4. Selecione **elimine** a palavra-passe de aplicação eliminar, selecione **Sim** na caixa de confirmação e, em seguida, selecione **fechar**.
+
+    A palavra-passe de aplicação foi eliminada com êxito.
+
+5. Siga os passos para criar uma palavra-passe de aplicação para criar a sua nova palavra-passe de aplicação.
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gerir palavras-passe de aplicação no portal do Azure
+
 Se utilizar a verificação de dois passos com o Azure, em que pretende criar palavras-passe de aplicação através do portal do Azure.
 
+## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gerir palavras-passe de aplicação com o portal MyApps
 
+Também pode criar e eliminar as palavras-passe de aplicação através do portal as minhas aplicações.
 
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Faça a gestão de palavras-passe de aplicação com o portal MyApps.
-Se não tiver a certeza de como utilizar a autenticação multifator, em seguida, pode sempre criar e eliminar as palavras-passe de aplicação através do portal myapps.
+### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Para criar uma palavra-passe de aplicação com o portal as minhas aplicações
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma palavra-passe de aplicação com o portal MyApps
-1. Inicie sessão no [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Clique no nome da parte superior direita e selecione **perfil**.
+1. Inicie sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+
+2. Selecione o nome no canto superior direito e escolher **perfil**.
+
 3. Selecione **verificação adicional de segurança**.
+
    ![Selecione a verificação de segurança adicional - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
 4. Selecione **palavras-passe de aplicação**.
+
    ![Selecione palavras-passe de aplicação - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Clique em **Criar**.
-6. Introduza um nome para a palavra-passe de aplicação e clique em **seguinte**.
+
+6. Escreva um nome para a palavra-passe de aplicação e, em seguida, selecione **seguinte**.
+
 7. Copie a palavra-passe de aplicação para a área de transferência e cole-o na sua aplicação.
-   ![Criar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+   
+    ![Criar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para eliminar uma palavra-passe de aplicação com o portal MyApps
-1. Inicie sessão no [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Na parte superior, selecione o perfil.
-3. Selecione **verificação adicional de segurança**.
+### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Para eliminar uma palavra-passe de aplicação com o portal as minhas aplicações
 
-   ![Selecione a verificação de segurança adicional - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+1. Aceda ao seu perfil e, em seguida, selecione **verificação de segurança adicional**.
 
-4. Selecione **palavras-passe de aplicação**.
-
-   ![Selecione palavras-passe de aplicação - captura de ecrã](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Junto a palavra-passe de aplicação que pretende eliminar, clique em **eliminar**.
+2. Selecione **palavras-passe de aplicação**e, em seguida, selecione **eliminar** junto a palavra-passe de aplicação que pretende eliminar.
 
    ![Eliminar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
-6. Confirme que pretende eliminar essa palavra-passe clicando **Sim**.
-7. Assim que a palavra-passe de aplicação for eliminada, pode clicar em **fechar**.
+3. Selecione **Sim** para confirmar que pretende eliminar a palavra-passe e, em seguida, selecione **fechar**.
+
+## <a name="if-your-app-passwords-arent-working-properly"></a>Se as palavras-passe de aplicação não estão funcionando corretamente
+
+Certifique-se de que escreveu corretamente a palavra-passe. Se tiver a certeza de que introduziu corretamente a palavra-passe, pode tentar iniciar sessão novamente e criar uma nova palavra-passe de aplicação. Se nenhuma dessas opções corrigir o problema, contacte o suporte da empresa, de modo que podem eliminar a sua aplicação palavras-passe existentes, permitindo-lhe criar, de novo em folha. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

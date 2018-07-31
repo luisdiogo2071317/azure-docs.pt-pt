@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: ergreenl
-ms.openlocfilehash: 93e93f3cfa72fff744ada8d5109ae30a619c84b0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8ae99534916ce258dcab01ce2e37db1ffd809381
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264737"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358757"
 ---
 # <a name="suspended-domains"></a>Domínios suspensos
-Quando o Azure AD Domain Services não consegue atender a um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Este artigo explica por que os domínios geridos são suspensas e para saber como corrigir um domínio suspenso.
+Quando o Azure Active Directory Domain Services (Azure AD DS) não consegue atender a um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Este artigo explica por que os domínios geridos são suspensas e para saber como corrigir um domínio suspenso.
 
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Podem ter Estados de seu domínio gerido
 
 ![Linha cronológica de domínio suspenso](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
 
-O gráfico anterior descreve os possíveis Estados de um domínio gerido do Azure AD Domain Services pode estar em.
+O gráfico anterior descreve os possíveis Estados de um domínio gerido do Azure AD DS pode estar em.
 
 ### <a name="running-state"></a>"Estado"em execução
 Pertença a um domínio gerido, que está configurado corretamente e operacionais regularmente os **em execução** estado.
@@ -66,7 +66,7 @@ Em alguns casos (por exemplo, se tiver uma configuração de rede inválido), os
 ### <a name="the-suspended-state"></a>O estado "Suspenso"
 Um domínio gerido é colocado **suspenso** estado pelos seguintes motivos:
 
-* Um ou mais alertas críticos ainda não foi resolvidos em 15 dias. Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso a recursos que são necessários pelo Azure AD Domain Services.
+* Um ou mais alertas críticos ainda não foi resolvidos em 15 dias. Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso aos recursos necessários para o Azure AD DS.
     * Por exemplo, o alerta [AADDS104: erro de rede](active-directory-ds-troubleshoot-nsg.md) tem sido não resolvidos por mais de 15 dias no domínio gerido.
 * Existe um problema de faturação com a sua subscrição do Azure ou a sua subscrição do Azure expirou.
 
@@ -74,7 +74,7 @@ Domínios geridos são suspensas quando a Microsoft não consegue gerir, monitor
 
 **O que esperar**
 * Controladores de domínio para o seu domínio gerido são desconfiguradas e não estão acessíveis dentro da rede virtual.
-* Acesso de Secure LDAP para o domínio gerido através da Internet (se estiver ativada) deixa de funcionar.
+* Acesso de Secure LDAP para o domínio gerido através da internet (se estiver ativada) deixa de funcionar.
 * Observe falhas na autenticação para o domínio gerido, fazendo logon em máquinas de virtuais associados a um domínio ou ligar através de LDAP/LDAPS.
 * As cópias de segurança para o seu domínio gerido já não são feitas.
 * Interrompe a sincronização com o Azure AD.
@@ -90,18 +90,18 @@ Apenas o domínio gerido permanece num estado suspenso durante 15 dias. Para rec
 
 **O que esperar**
 * Todas as cópias de segurança para o domínio gerido e de recursos são eliminadas.
-* Não é possível restaurar o domínio gerido e tem de criar um novo domínio gerido para utilizar o Azure AD Domain Services.
+* Não é possível restaurar o domínio gerido e tem de criar um novo domínio gerido para utilizar o Azure AD DS.
 * Depois de eliminado, não são faturadas para o domínio gerido.
 
 
 ## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Como sabe se o seu domínio gerido está suspenso?
-Verá uma [alerta](active-directory-ds-troubleshoot-alerts.md) na página de estado de funcionamento de serviços de domínio do Azure AD no portal do Azure, que declara que o domínio está suspensa. O estado do domínio também mostra "Suspenso".
+Verá uma [alerta](active-directory-ds-troubleshoot-alerts.md) na página de estado de funcionamento do Azure AD DS no portal do Azure, que declara que o domínio está suspensa. O estado do domínio também mostra "Suspenso".
 
 
 ## <a name="restore-a-suspended-domain"></a>Restaurar um domínio suspenso
 Para restaurar um domínio que está no estado "Suspenso", siga os passos seguintes:
 
-1. Vá para o [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
+1. Vá para o [página do Azure Active Directory Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
 2. Selecione o domínio gerido.
 3. No painel esquerdo, selecione **estado de funcionamento**.
 4. Selecione o alerta. O ID do alerta será AADDS503 ou AADDS504, dependendo da causa de suspensão.
@@ -112,7 +112,7 @@ Só pode ser restaurado o seu domínio gerido para a data da última cópia de s
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Resolver alertas para o seu domínio gerido](active-directory-ds-troubleshoot-alerts.md)
-- [Leia mais sobre o Azure AD Domain Services](active-directory-ds-overview.md)
+- [Leia mais sobre o Azure Active Directory Domain Services](active-directory-ds-overview.md)
 - [Contacte a equipa de produto](active-directory-ds-contact-us.md)
 
 ## <a name="contact-us"></a>Contacte-nos

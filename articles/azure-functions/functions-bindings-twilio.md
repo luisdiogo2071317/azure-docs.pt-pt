@@ -3,7 +3,7 @@ title: Ligação do Twilio de funções do Azure
 description: Compreenda como utilizar o Twilio enlaces com as funções do Azure.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a391c411d0d3608d30309927875a62b366899367
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 580dd0409c2210de786723736128d489e5a93aa9
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929506"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345835"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação do Twilio para as funções do Azure
 
@@ -406,8 +406,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**name**|| Nome da variável no código de função para a mensagem de texto Twilio SMS. |
 |**accountSid**|**AccountSid**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o Sid de conta do Twilio.|
 |**authToken**|**AuthToken**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o token de autenticação de Twilio.|
-|**para**|**Para**| Este valor é definido como o número de telefone que o texto SMS é enviado para.|
-|**de**|**De**| Este valor é definido como o número de telefone que o texto SMS é enviado do.|
+|**Para**|**Para**| Este valor é definido como o número de telefone que o texto SMS é enviado para.|
+|**De**|**De**| Este valor é definido como o número de telefone que o texto SMS é enviado do.|
 |**Corpo**|**Corpo**| Este valor pode ser usado para codificar duro a mensagem de texto SMS se não precisa defini-la dinamicamente no código para a função. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

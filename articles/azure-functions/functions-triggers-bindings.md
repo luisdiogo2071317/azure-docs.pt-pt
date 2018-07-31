@@ -3,7 +3,7 @@ title: Acionadores e enlaces nas funções do Azure
 description: Saiba como utilizar acionadores e enlaces nas funções do Azure para ligar a sua execução de código para eventos online e serviços baseados na nuvem.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
-ms.author: tdykstra
-ms.openlocfilehash: a201c62f881865e41175bc8bde359c4dce3d168c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.author: glenga
+ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309083"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346607"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 

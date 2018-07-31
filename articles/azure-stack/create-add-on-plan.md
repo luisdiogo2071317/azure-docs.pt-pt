@@ -1,6 +1,6 @@
 ---
-title: Neste artigo, irá aprender a ofertas de pilha do Azure e os planos de atualização | Microsoft Docs
-description: Este artigo descreve como visualizar e modificar as ofertas de pilha do Azure e planos existentes.
+title: Neste artigo, irá aprender a atualizar os planos e ofertas do Azure Stack | Documentos da Microsoft
+description: Este artigo descreve como ver e modificar as ofertas do Azure Stack e planos existentes.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -13,42 +13,47 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238507"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358286"
 ---
-# <a name="azure-stack-add-on-plans"></a>Planos de suplemento de pilha do Azure
-Como um operador de pilha do Azure, criar planos que contêm as quotas aplicáveis para os seus utilizadores subscrever e serviços pretendidos. Estes [ *base planos* ](azure-stack-create-plan.md) contêm os serviços de núcleos para oferecidos aos seus utilizadores e só pode ter um plano base por oferta. Se necessitar de modificar a sua oferta, pode utilizar *planos de suplemento* que lhe permitem modificar o plano para expandir o computador, armazenamento, ou quotas inicialmente fornecidas com o plano de base de rede. 
+# <a name="azure-stack-add-on-plans"></a>Planos de suplementos do Azure Stack
 
-Apesar de combinar tudo num único plano pode ser ideal em alguns casos, poderá ter uma base de planear e oferecer serviços adicionais utilizando planos de suplemento. Por exemplo, pode optar por oferecem IaaS services como parte de um plano de base, com todos os serviços de PaaS tratados como planos de suplemento. Planos também podem ser utilizados para controlar o consumo de recursos no seu ambiente de pilha do Azure. Por exemplo, se pretender que os utilizadores para serem mindful da respetiva utilização de recursos, pode ter um plano de base relativamente pequeno (consoante os serviços necessários) e como os utilizadores aceder a capacidade, podem ser alertados que já tenha consumido a alocação de recursos com base no seu plano atribuído. A partir daí, os utilizadores podem selecionar um plano de suplemento disponíveis para obter recursos adicionais. 
+Como um operador do Azure Stack, criar planos de suplementos para modificar uma [ *plano base* ](azure-stack-create-plan.md) quando pretender oferecer serviços adicionais ou expandir *computador*, *armazenamento* , ou *rede* quotas para além da oferta inicial de planos base. Planos de suplementos modificar o plano de base e são as extensões opcionais que os utilizadores podem optar por subscrever. 
+
+Existem ocasiões combinar tudo num único plano é ideal. Outras vezes poderá ter uma base de planos e ofertas, em seguida, os serviços adicionais ao utilizar planos de suplementos. Por exemplo, poderia optar por oferecer serviços IaaS como parte de um plano base, com todos os serviços de PaaS tratados como planos de suplementos.
+
+Outro motivo para usar os planos de suplementos é ajudar os utilizadores a estar atento a sua utilização de recursos. Para fazer isso, pode começar com um plano base que inclui quotas relativamente pequenas (consoante os serviços necessários). Em seguida, como utilizadores atingem a capacidade, eles seriam ser alertados de que eles consumiu a alocação de recursos com base no respetivo plano atribuído. A partir daí, os utilizadores, em seguida, podem selecionar um plano de suplemento que fornece os recursos adicionais.
 
 > [!NOTE]
-> Quando um utilizador adiciona um plano de suplemento para uma subscrição de oferta existente, os recursos adicionais pode demorar até uma hora apresentada. 
+> Quando não quiser utilizar um plano de suplemento para expandir uma quota, também pode optar por [editar a configuração original da quota de](azure-stack-quota-types.md#to-edit-a-quota). 
+
+Quando um utilizador adiciona um plano de suplemento a uma subscrição de oferta existente, os recursos adicionais poderiam demorar uma hora a aparecer. 
 
 ## <a name="create-an-add-on-plan"></a>Criar um plano de suplemento
-Planos de suplemento são criados ao modificar uma oferta existente:
+Planos de suplementos são criados ao modificar uma oferta existente:
 
-1. Inicie sessão no portal de administrador de pilha do Azure como um administrador da nuvem.
-2. Siga os mesmos passos utilizados para [criar um novo plano base](azure-stack-create-plan.md) para criar um novo plano oferece serviços que não foram fornecidos anteriormente. Neste exemplo, serviços do Cofre de chaves (keyvault) serão incluídos no plano de novo.
+1. Inicie sessão no portal de administrador do Azure Stack como um administrador da nuvem.
+2. Siga os passos utilizados para [criar um novo plano base](azure-stack-create-plan.md) para criar um novo plano de oferta de serviços que não foram oferecidos anteriormente. Neste exemplo, serviços de Cofre de chaves (Microsoft. keyvault) serão incluídos no novo plano.
 3. No portal do administrador, clique em **oferece** e, em seguida, selecione a oferta para ser atualizado com um plano de suplemento.
 
    ![](media/create-add-on-plan/1.PNG)
 
-4.  Desloque-se na parte inferior das propriedades da oferta e selecione **planos de suplemento**. Clique em **Adicionar**.
+4.  Desloque para baixo das propriedades da oferta e selecione **planos de suplementos**. Clique em **Adicionar**.
    
     ![](media/create-add-on-plan/2.PNG)
 
-5. Selecione o plano para adicionar. Neste exemplo, o plano é chamado **plano do Cofre de chave**e, em seguida, clique em **selecione** para adicionar o plano para a oferta. Deverá receber uma notificação que o plano foi adicionado com êxito para a oferta.
+5. Selecione o plano para adicionar. Neste exemplo, o plano é designado **plano do Cofre de chave**. Depois de selecionar o plano, clique em **selecione** para adicionar o plano à oferta. Deverá receber uma notificação que o plano foi adicionado com êxito para a oferta.
    
     ![](media/create-add-on-plan/3.PNG)
 
-6. Reveja a lista de suplemento listados planos incluídos com a oferta para verificar que o suplemento do novo plano.
+6. Reveja a lista de suplemento planos incluídos com a oferta para verificar que o suplemento do novo plano listados.
    
     ![](media/create-add-on-plan/4.PNG)
 

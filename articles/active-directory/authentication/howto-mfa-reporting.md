@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: ead1c5a899057bb26154b45c75251e7d9e481147
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160897"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358671"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure multi-factor Authentication
 
@@ -29,13 +29,97 @@ O Azure multi-factor Authentication fornece diversos relatórios que podem ser u
 | Histórico de Utilizador Ignorado | O Azure AD > servidor MFA > omissão de uso individual | Fornece um histórico de pedidos para ignorar o multi-factor Authentication para um utilizador. |
 | Estado do servidor | O Azure AD > servidor MFA > Estado do servidor | Apresenta que o estado dos servidores multi-factor Authentication associado à sua conta. |
 
-## <a name="view-reports"></a>Ver relatórios 
+## <a name="view-mfa-reports"></a>Ver relatórios de MFA
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **servidor MFA**.
 3. Selecione o relatório que pretende ver.
 
    <center>![Nuvem](./media/howto-mfa-reporting/report.png)</center>
+
+## <a name="azure-ad-sign-ins-report"></a>Relatório de inícios de sessão do Azure AD
+
+Com o **relatório de atividade de inícios de sessão** no [portal do Azure](https://portal.azure.com), pode obter as informações necessárias para determinar o estado de funcionamento do ambiente.
+
+O relatório de inícios de sessão pode fornecer informações sobre a utilização de aplicações geridas e início de sessão atividades do utilizador, que inclui informações sobre a utilização da autenticação multifator (MFA). Os dados de MFA disponibilizam-lhe informações sobre como esta está a funcionar na sua organização. Permite-lhe responder a perguntas como:
+
+- O início de sessão foi submetido à MFA?
+- Como é que o utilizador concluiu a MFA?
+- Por que motivo é que o utilizador não conseguiu concluir a MFA?
+- Quantos utilizadores são submetidos à MFA?
+- Quantos utilizadores não conseguem concluir a submissão da MFA?
+- Quais são os problemas mais comuns da MFA com que os utilizadores finais se deparam?
+
+Estes dados estão disponíveis através da [portal do Azure](https://portal.azure.com) e o [API de relatórios](../active-directory-reporting-api-getting-started-azure-portal.md).
+
+![Nuvem](./media/howto-mfa-reporting/sign-in-report.png)
+
+### <a name="sign-ins-report-structure"></a>Estrutura de relatório de inícios de sessão
+
+Os relatórios de atividades de início de sessão para a MFA dão-lhe acesso às informações seguintes:
+
+**MFA necessária:** se a MFA é necessária para o início de sessão ou não. A MFA pode ser necessário devido à MFA por utilizador, o acesso condicional ou outros motivos. Os valores possíveis são **Sim** ou **não**.
+
+**Resultado da MFA:** obter mais informações sobre se a MFA foi cumprida ou recusada:
+
+- Se a MFA for cumprida, esta coluna disponibiliza mais informações sobre como foi cumprida.
+   - Multi-Factor Authentication do Azure
+      - concluída na cloud
+      - expirou devido a políticas configuradas no inquilino
+      - registo concluído
+      - cumprida por reclamação no token
+      - cumprida por reclamação fornecida por fornecedor externo
+      - cumprida por autenticação forte
+      - ignorada porque o fluxo executado foi o fluxo de início de sessão de mediador do Windows
+      - ignorada devido a palavra-passe de aplicação
+      - ignorada devido a localização
+      - ignorada devido a dispositivo registado
+      - ignorada devido a dispositivo memorizado
+      - concluída com êxito
+   - Redirecionado para fornecedor externo para autenticação multifator
+
+- Se for recusada, a coluna mostrará o motivo da recusa.
+   - Multi-Factor Authentication do Azure recusada;
+      - autenticação em curso
+      - tentativa de autenticação duplicada
+      - código errado introduzido demasiadas vezes
+      - autenticação inválida
+      - código de verificação de aplicação móvel inválido
+      - configuração incorreta
+      - a chamada telefónica foi para o correio de voz
+      - o formato do número de telefone é inválido
+      - erro de serviço
+      - não é possível comunicar com o telefone do utilizador
+      - não é possível enviar a notificação de aplicação móvel para o dispositivo
+      - não é possível enviar a notificação de aplicação móvel
+      - o utilizador recusou a autenticação
+      - o utilizador não respondeu à notificação de aplicação móvel
+      - o utilizador não tem nenhum método de verificação registado
+      - o utilizador introduziu um código incorreto
+      - o utilizador introduziu um PIN incorreto
+      - o utilizador desligou a chamada telefónica sem que a autenticação fosse bem sucedida
+      - o utilizador está bloqueado
+      - o utilizador nunca introduziu o código de verificação
+      - o utilizador não foi encontrado
+      - o código de verificação já foi utilizado uma vez
+
+**Método de autenticação da MFA:** o método de autenticação que o utilizador utilizou para concluir a MFA. Os valores possíveis incluem:
+
+- Mensagem de texto
+- Notificação de aplicação móvel
+- Chamada telefónica (telefone de autenticação)
+- Código de verificação de aplicação móvel
+- Chamada telefónica (telefone do escritório)
+- Chamada telefónica (telefone de autenticação alternativo)
+
+**Detalhe de autenticação da MFA:** versão limpa do número de telefone, por exemplo, + X XXXXXXXX64.
+
+**Acesso condicional** encontrar informações sobre as políticas de acesso condicional que afetados a tentativa de início de sessão, incluindo:
+
+- Nome da política
+- Controlos de concessão
+- Controlos de sessão
+- Resultado
 
 ## <a name="powershell-reporting"></a>Relatórios do PowerShell
 

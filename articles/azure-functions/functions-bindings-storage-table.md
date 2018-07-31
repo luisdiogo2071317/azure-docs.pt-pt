@@ -3,7 +3,7 @@ title: Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 description: Compreenda como utilizar os enlaces de armazenamento de tabelas do Azure nas funções do Azure.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: tdykstra
-ms.openlocfilehash: 2e6b63e3ff48d4234bceadfe0556a8af92d9f8cc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.author: glenga
+ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136592"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345910"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
