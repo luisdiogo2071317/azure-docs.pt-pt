@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 1a713d23a385723517ba1fe924f9ec54d81eade5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 4cf62e609505487961dbfbab3f46c37d54e8f50b
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857895"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259059"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Eis como os pipelines são definidos no formato JSON:
 
 Etiqueta | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
-nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>•   Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
+nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, um número ou um caráter de sublinhado (_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
 descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | Não
 atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
 parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não

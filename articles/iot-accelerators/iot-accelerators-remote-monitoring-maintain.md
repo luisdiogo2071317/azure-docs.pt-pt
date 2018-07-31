@@ -6,17 +6,17 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081793"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159388"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Resolver e remediar problemas nos dispositivos
+# <a name="troubleshoot-and-fix-device-issues"></a>Resolver problemas e corrigir erros do dispositivo
 
 Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para identificar e corrigir problemas com os seus dispositivos IoT ligados. Utilize alertas no dashboard do acelerador de soluções para identificar problemas e, em seguida, executar tarefas remotas para corrigir esses problemas.
 
@@ -28,11 +28,9 @@ Neste tutorial:
 > * Investigar um alerta de um dispositivo
 > * Resolver o problema do dispositivo
 
-## <a name="prerequisites"></a>Pré-requisitos
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Para seguir este tutorial, precisa de uma instância implementada do acelerador de soluções de Monitorização remota na sua subscrição do Azure.
-
-Se ainda não tiver implementado o acelerador de soluções de Monitorização Remota, deverá concluir o início rápido [Implementar uma solução de monitorização remota baseada na cloud](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Investigar um alerta
 
@@ -58,7 +56,7 @@ Para reconhecer o alerta, selecione todas as **Ocorrências de alerta** e escolh
 
 Ao reconhecer o alerta, o estado da ocorrência é alterado para **Reconhecido**.
 
-Na lista, pode ver o dispositivo **Protótipo** responsável por acionar o alerta de temperatura do dispositivo:
+Na lista de dispositivos com alertas, pode ver o dispositivo **Protótipo** responsável por acionar o alerta de temperatura do dispositivo:
 
 [![Listar os dispositivos que causam o alerta](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ Na lista, pode ver o dispositivo **Protótipo** responsável por acionar o alert
 
 Para resolver o problema com o dispositivo **Protótipo**, terá de chamar o método **DecreaseTemperature** no dispositivo.
 
-Para tomar decisões sobre um dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **Tarefas**. O modelo do dispositivo **Protótipo** especifica seis métodos que um dispositivo tem de suportar:
+Para tomar decisões sobre um dispositivo, selecione-o na lista de dispositivos com alertas e, em seguida, selecione **Tarefas**. O modelo do dispositivo **Protótipo** suporta seis métodos:
 
 [![Ver os métodos que o dispositivo suporta](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Escolha **DecreaseTemperature** e defina o nome da tarefa como **DecreaseTemperature**. Em seguida, escolha **Aplicar**:
+Escolha **DecreaseTemperature** e defina o nome da tarefa como **DecreaseTemperature**. Em seguida, clique em **Aplicar**:
 
 [![Criar a tarefa para diminuir a temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -81,6 +79,8 @@ Para controlar o estado da tarefa, clique em **Ver estado da tarefa**. Utilize a
 Pode verificar que a temperatura do dispositivo diminuiu ao ver a telemetria na página **Dashboard**:
 
 [![Ver a diminuição na temperatura](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,19 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/26/2017
+ms.date: 07/23/2018
 ms.author: barclayn
-ms.openlocfilehash: 1fd39cf6363cb028b2f933934c95ea2b635b754a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089310"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226718"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
+
 O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Ao utilizar o cofre de chaves do Azure, pode encriptar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros .PFX e palavras-passe) através das teclas que estão protegidas por módulos de segurança de hardware (HSM). Para maior segurança, pode importar ou gerar chaves nos HSMs. Se optar por fazê-lo, a Microsoft processa as suas chaves nos HSMs validados por FIPS 140-2 de Nível 2 (hardware e firmware).  
 
 A chave de cofre simplifica o processo de gestão de chaves e permite-lhe manter o controlo de teclas que acede e encripta os seus dados. Os programadores podem criar as chaves de desenvolvimento e teste em minutos e migrá-las totalmente para as chaves de produção. Os administradores de segurança podem conceder (e revogar) a permissão para as chaves, conforme necessário.
+
+## <a name="basic-concepts"></a>Conceitos básicos
+
+O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segurança. Um segredo é tudo cujo acesso deseja controlar rigidamente, como chaves de API, palavras-passe ou certificados.
+Abaixo encontram-se alguns termos-chave:
+- **Inquilino** - um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É utilizado mais frequentemente de forma exata para fazer referência ao conjunto de serviços do Azure e do Office 365 para uma organização
+- **Proprietário do Key Vault** - pode criar um Key Vault e obter acesso e controlo total sobre o mesmo. O proprietário do Key Vault também pode configurar a auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança, etc.
+- **Consumidor do Key Vault** - pode efetuar ações nos recursos dentro do Key Vault quando o proprietário lhe concede acesso, consoante as permissões concedidas.
+- O **[Azure Active Directory](../active-directory/active-directory-whatis.md)** é o serviço do Azure AD para um determinado inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino. 
+- **ID do Inquilino do Azure** - forma exclusiva para identificar um Azure Active Directory numa subscrição do Azure. 
+- **Identidade de Serviço Gerida** - o Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de ser autenticado no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para ler mais sobre a MSI, veja [aqui](../active-directory/managed-service-identity/overview.md)
+
+## <a name="key-vault-roles"></a>Funções do Key Vault
 
 Utilize a tabela seguinte para melhor compreender como a chave de cofre pode ajudar a satisfazer as necessidades dos programadores e dos administradores de segurança.
 
@@ -48,7 +62,8 @@ Este administrador iria fornecer URIs aos programadores para os contactar a part
 
 Os programadores também podem gerir as chaves diretamente, com APIs. Para obter mais informações, consulte o [manual do programador da chave](key-vault-developers-guide.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
+
 Para uma introdução tutorial para um administrador, consulte [Introdução ao cofre de chave do Azure](key-vault-get-started.md).
 
 Para obter mais informações sobre o registo de utilização do cofre de chave, consulte [Registo do cofre de chave do Azure](key-vault-logging.md).

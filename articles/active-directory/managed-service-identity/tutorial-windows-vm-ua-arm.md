@@ -1,6 +1,6 @@
 ---
-title: Utilizar uma MSI atribuída pelo utilizador de VM do Windows para aceder ao Azure Resource Manager
-description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida (MSI) Atribuída pelo Utilizador numa VM do Windows, para aceder ao Azure Resource Manager.
+title: Utilizar uma Identidade de Serviço Gerida de VM atribuída ao utilizador do Windows para aceder ao Azure Resource Manager
+description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida Atribuída ao Utilizador numa VM do Windows, para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904378"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248392"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida (MSI) Atribuída pelo Utilizador numa VM do Windows, para aceder ao Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida Atribuída ao Utilizador numa VM do Windows, para aceder ao Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -111,9 +111,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso da MSI atribuída pelo utilizador a um Grupo de Recursos no Azure Resource Manager 
+## <a name="grant-your-user-assigned-managed-service-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso de identidade atribuída ao utilizador a um Grupo de Recursos no Azure Resource Manager 
 
-A Identidade de Serviço Gerida (MSI) fornece identidades que podem ser utilizadas pelo seu código para pedir os tokens de acesso para autenticar para APIs de recurso que suportam a autenticação do Azure AD. Neste tutorial, o seu código irá aceder à API do Azure Resource Manager. 
+A Identidade de Serviço Gerida fornece identidades que podem ser utilizadas pelo seu código para pedir os tokens de acesso para autenticar para APIs de recurso que suportam a autenticação do Azure AD. Neste tutorial, o seu código irá aceder à API do Azure Resource Manager. 
 
 Antes de o seu código pode aceder à API, tem de conceder o acesso de identidade a um recurso no Azure Resource Manager. Neste caso, o Grupo de Recursos no qual a VM está contida. Atualize o valor de `<SUBSCRIPTION ID>`, conforme adequado para o seu ambiente.
 
@@ -148,7 +148,7 @@ No resto do tutorial, vai trabalhar a partir da VM que criámos anteriormente.
 
 4. Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota.
 
-5. Através de `Invoke-WebRequest` do PowerShell, faça um pedido ao ponto final de MSI local para obter um token de acesso para o Azure Resource Manager.
+5. Através de `Invoke-WebRequest` do PowerShell, faça um pedido ao ponto final da Identidade de Serviço Gerida local para obter um token de acesso para o Azure Resource Manager.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}

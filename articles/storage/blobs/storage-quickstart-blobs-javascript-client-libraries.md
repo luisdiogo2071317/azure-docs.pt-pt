@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419109"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216594"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ Em seguida, vai utilizar o Azure Cloud Shell para criar um token de segurança.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Criar uma Assinatura de Acesso partilhado
-A assinatura de acesso partilhado (SAS) é utilizada pelo código em execução no browser para autenticar pedidos ao armazenamento de Blobs. Ao utilizar a SAS, o cliente pode autenticar sem a chave de acesso da conta ou sem a cadeia de ligação. Para obter mais informações, veja [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md) (Utilizar assinaturas de acesso partilhado [SAS]).
+A assinatura de acesso partilhado (SAS) é utilizada pelo código em execução no browser para autorizar pedidos ao armazenamento de Blobs. Ao utilizar o SAS, o cliente pode autorizar o acesso aos recursos de armazenamento sem a chave de acesso da conta ou sem a cadeia de ligação. Para obter mais informações, veja [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md) (Utilizar assinaturas de acesso partilhado [SAS]).
 
 Pode criar um SAS com a CLI do AZURE através do Azure Cloud Shell ou com o Explorador de Armazenamento do Azure. A tabela seguinte descreve os parâmetros para os quais terá de indicar valores de modo a gerar uma SAS com a CLI.
 
@@ -62,7 +62,7 @@ Pode criar um SAS com a CLI do AZURE através do Azure Cloud Shell ou com o Expl
 O script seguinte utilizou a CLI do Azure para criar uma SAS que pode transmitir a um serviço de blobs de JavaScript.
 
 > [!NOTE]
-> Para obter os melhores resultados, remova espaços exta entre os parâmetros antes de colar o comando no Azure Cloud Shell.
+> Para obter os melhores resultados, remova os espaços adicionais entre os parâmetros antes de colar o comando no Azure Cloud Shell.
 
 ```bash
 az storage account generate-sas
@@ -254,4 +254,4 @@ Para limpar os recursos criados durante este início rápido, regresse ao [porta
 Explore os exemplos para saber como transferir blobs e comunicar o progresso durante o carregamentos de ficheiros.
 
 > [!div class="nextstepaction"]
-> [Blob storage client lbraries](https://github.com/Azure/azure-storage-node/tree/master/browser) (Bibliotecas de cliente do armazenamento de Blobs)
+> [Bibliotecas de cliente do armazenamento de blobs](https://github.com/Azure/azure-storage-node/tree/master/browser)

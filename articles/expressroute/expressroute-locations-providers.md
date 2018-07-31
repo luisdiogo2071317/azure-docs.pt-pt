@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 4e56e8ab1e31ec875f33bc47f745aa7b93e7788e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1a6a9eff6af6b2b87eaa543dea78bc77b623dc23
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116134"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216141"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -44,13 +44,13 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | --- | --- | --- |
 | **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Washington D.C., Montreal, Cidade do Quebeque, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
-| **Europa** |Centro de França, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Dublin, Londres, Newport (País de Gales), Paris |
+| **Europa** |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Dublin, Londres, Newport (País de Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Singapura, Singapura2 |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Governo da Austrália** | Austrália Central, Austrália Central 2 |Camberra, Camberra2 | 
-| **Índia** |Índia Ocidental, Índia Central, Sul da Índia |Chennai, Mumbai |
-| **Coreia do Sul** |Centro da Coreia, Sul da Coreia |Busan, Seul |
+| **Índia** |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Mumbai |
+| **Coreia do Sul** |Centro da Coreia, Sul da Coreia do Sul |Busan, Seul |
 | **África do Sul** |[Oeste da África do Sul+, Norte da África do Sul+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cidade do Cabo, Joanesburgo |
 
  **+** brevemente disponível
@@ -61,7 +61,7 @@ A tabela abaixo fornece informações sobre regiões e limites geopolíticos par
 
 | **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
-| **Nuvem para a Administração Pública dos EUA** |Gov (US) - Iowa, Gov (US) - Virginia, US DoD Central, US DoD East  |Chicago, Dallas, Nova Iorque, Seattle, Silicon Valley, Washington DC |
+| **Nuvem para a Administração Pública dos EUA** |US Gov - Iowa, Gov (US) - Virginia, US DoD Central, US DoD East  |Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Leste da Alemanha |Berlim, Frankfurt |
 
@@ -122,6 +122,8 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
 | **Nova Iorque** |Equinix, Level 3 Communications+, Verizon |
+| **Phoenix** | CenturyLink Cloud Connect |
+| **San Antonio** | Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications |
 | **Seattle** | Equinix |
 | **Washington D.C.** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -161,7 +163,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 ## <a name="c1partners"></a>Conectividade Através de Fornecedores de Serviços Adicionais
 | **Localização** | **Exchange** | **Fornecedores de Conetividade** |
 | --- | --- | --- |
-| **Amesterdão** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telia |
+| **Amesterdão** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Frankfurt** | Telecity | BICS, Nianet, QSC AG |

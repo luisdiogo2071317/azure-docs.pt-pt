@@ -1,6 +1,6 @@
 ---
-title: Utilizar uma MSI de VM do Linux para aceder ao Armazenamento do Azure com uma credencial de SAS
-description: Um tutorial que mostra como utilizar uma Identidade de Serviço Gerida (MSI) de VM do Linux para aceder ao Armazenamento do Azure com uma credencial de SAS em vez de uma chave de acesso da conta de armazenamento.
+title: Utilizar uma Identidade de Serviço Gerida de VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS
+description: Um tutorial que mostra como utilizar uma Identidade de Serviço Gerida de VM do Linux para aceder ao Armazenamento do Azure com uma credencial de SAS em vez de uma chave de acesso da conta de armazenamento.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: adf3df6dd9163ef40b4f953c07fce6a18b5ab30f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a8eb733cf90d0160fe4b36cfb8c30df3ff19566e
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044279"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258505"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma Identidade de Serviço Gerida de VM do Linux para aceder ao Armazenamento do Azure através de uma credencial de SAS
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como ativar a Identidade de Serviço Gerida (MSI) para uma Máquina Virtual do Linux e, em seguida, utilizar a MSI para obter uma credencial de Assinatura de Acesso Partilhado (SAS) de armazenamento. Especificamente, uma [credencial de SAS de Serviço](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Este tutorial mostra como ativar a Identidade de Serviço Gerida para uma Máquina Virtual do Linux e, em seguida, utilizar a Identidade de Serviço Gerida para obter uma credencial de Assinatura de Acesso Partilhado (SAS) de armazenamento. Especificamente, uma [credencial de SAS de Serviço](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Um SAS de Serviço permite conceder acesso limitado aos objetos numa conta de armazenamento durante um período limitado e num serviço específico (no nosso caso, o serviço de blobs), sem expor uma chave de acesso da conta. Pode utilizar uma credencial de SAS como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Para este tutorial, vamos demonstrar como carregar e transferir um blob com a CLI de Armazenamento do Azure. Vai aprender a:
 
 
 > [!div class="checklist"]
-> * Ativar a MSI numa Máquina Virtual do Linux 
+> * Ativar a Identidade de Serviço Gerida numa Máquina Virtual do Linux 
 > * Conceder o acesso da VM a um SAS da conta de armazenamento no Resource Manager 
 > * Obter um token de acesso com a identidade da VM e utilizá-lo para obter o SAS a partir do Resource Manager 
 
@@ -47,7 +47,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Linux num novo grupo de recursos
 
-Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa VM existente.
+Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar a Identidade de Serviço Gerida numa VM existente.
 
 1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
 2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
@@ -59,20 +59,20 @@ Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa
 5. Para selecionar um novo **Grupo de Recursos** no qual gostaria que a máquina virtual fosse criada, escolha **Criar Novo**. Quando terminar, clique em **OK**.
 6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro Tipo de disco suportado. No painel de definições, mantenha as predefinições e clique em **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM
+## <a name="enable-managed-service-identity-on-your-vm"></a>Ativar a Identidade de Serviço Gerida na sua VM
 
-Uma MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM. 
+Uma Identidade de Serviço Gerida de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM. 
 
 1. Navegue para o grupo de recursos da sua nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
 2. Nas "Definições" da VM à esquerda, clique em **Configuração**.
-3. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não.
+3. Para registar e ativar a Identidade de Serviço Gerida, selecione **Sim**; se desejar desativá-la, selecione Não.
 4. Certifique-se de que clica em **Guardar** para guardar a configuração.
 
     ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
-Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder acesso à MSI da VM às chaves de uma conta de armazenamento existente. 
+Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também pode ignorar este passo e conceder o acesso da Identidade de Serviço Gerida de VM às chaves de uma conta de armazenamento existente. 
 
 1. Clique no botão **+/Criar novo serviço**, no canto superior esquerdo do portal do Azure.
 2. Clique em **Armazenamento**, em seguida, em **Conta de Armazenamento**, e um novo painel "Criar a conta de armazenamento" será apresentado.
@@ -94,9 +94,9 @@ Mais tarde, iremos carregar e transferir um ficheiro para a nova conta de armaze
 
     ![Criar contentor de armazenamento](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Conceder o acesso de MSI da VM para utilizar um SAS de armazenamento 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Conceder acesso da Identidade de Serviço Gerida da VM para utilizar um SAS de armazenamento 
 
-O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD.  No entanto, pode utilizar uma MSI para obter um SAS de armazenamento do Resource Manager e, em seguida, utilizar o SAS para aceder ao armazenamento.  Neste passo, pode conceder o acesso de MSI da VM ao SAS da conta de armazenamento.   
+O Armazenamento do Azure não suporta nativamente a autenticação do Azure AD.  No entanto, pode utilizar uma Identidade de Serviço Gerida para obter um SAS de armazenamento do Resource Manager e, em seguida, utilizar o SAS para aceder ao armazenamento.  Neste passo, pode conceder o acesso da Identidade de Serviço Gerida de VM ao SAS da conta de armazenamento.   
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.   
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.  

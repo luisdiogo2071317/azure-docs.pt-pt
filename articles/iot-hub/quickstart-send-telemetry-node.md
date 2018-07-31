@@ -1,6 +1,6 @@
 ---
 title: 'Guia de Início Rápido: Enviar telemetria para o Hub IoT do Azure (Node.js) | Microsoft Docs'
-description: Neste guia de início rápido, irá executar duas aplicações Node.js de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
+description: Neste início rápido, irá executar duas aplicações Node.js de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 17afdd4c57f58770ae82093c5e23e469d1109f6a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 23ea129f4f755f312789f481a05eab9c1a6fd085
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540047"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215959"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Node.js)
 

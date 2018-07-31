@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 18b66cb9c0690df7b95cb36438ba802cb7432af6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918762"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216187"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -100,7 +100,7 @@ O Azure Site Recovery fornece três funções incorporadas para controlar as ope
 
 - **Contribuinte do Site Recovery** - esta função tem todas as permissões necessárias para gerir as operações do Azure Site Recovery num cofre dos Serviços de Recuperação. No entanto, um utilizador com esta função não consegue criar nem eliminar um cofre dos Serviços de Recuperação, nem atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para os administradores de recuperação após desastre que podem ativar e gerir a recuperação após desastre para aplicações ou organizações completas.
 
-- **Operador do Site Recovery** - esta função tem permissões para executar e gerir operações de Ativação Pós-falha e a Reativação Pós-falha. Um utilizador com esta função não consegue ativar nem desativar a replicação, criar ou eliminar cofres, registar uma nova infraestrutura ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação após desastre que pode efetuar a ativação pós-falha de máquinas virtuais ou aplicações quando indicado pelos proprietários da aplicação e administradores de TI. Após a resolução do desastre, o operador de DR pode voltar a proteger e efetuar a reativação pós-falha das máquinas virtuais.
+- **Operador do Site Recovery** - esta função tem permissões para executar e gerir operações de Ativação Pós-falha e Reativação Pós-falha. Um utilizador com esta função não consegue ativar nem desativar a replicação, criar ou eliminar cofres, registar uma nova infraestrutura ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação após desastre que pode efetuar a ativação pós-falha de máquinas virtuais ou aplicações quando indicado pelos proprietários da aplicação e administradores de TI. Após a resolução do desastre, o operador de DR pode voltar a proteger e efetuar a reativação pós-falha das máquinas virtuais.
 
 - **Leitor do Site Recovery** - esta função tem permissões para ver todas as operações de gestão do Site Recovery. Esta função é mais adequada para um executivo de monitorização de TI que pode monitorizar o estado atual da proteção e emitir pedidos de suporte.
 

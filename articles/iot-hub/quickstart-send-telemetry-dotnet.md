@@ -1,6 +1,6 @@
 ---
 title: 'Guia de Início Rápido: enviar telemetria para o Hub IoT do Azure (C#) | Microsoft Docs'
-description: Neste guia de início rápido, irá executar duas aplicações C# de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
+description: Neste início rápido, irá executar duas aplicações C# de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 501a8f2dad0537f0288dfd6a6d7bedcac054ab86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34f933474337d3cddce752b79dc0d3fdb4c39c0c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619306"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213722"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (C#)
 

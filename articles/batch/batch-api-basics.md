@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114444"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216313"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -505,7 +505,7 @@ Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cli
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.
-* Transfira e instale o [BatchLabs][batch_labs] para utilizar enquanto desenvolve as soluções do Batch. Utilize o BatchLabs para ajudar a criar, depurar e monitorizar aplicações do Azure Batch. 
+* Transfira e instale o [Batch Explorer][batch_labs] para utilizar enquanto desenvolve as soluções do Batch. Utilize o Batch Explorer para ajudar a criar, depurar e monitorizar aplicações do Azure Batch. 
 * Consulte os recursos da comunidade, incluindo [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade em Lote](https://github.com/Azure/Batch) e o [fórum do Azure Batch][batch_forum] no MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ Em situações onde algumas das suas tarefas estejam a falhar, a aplicação cli
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

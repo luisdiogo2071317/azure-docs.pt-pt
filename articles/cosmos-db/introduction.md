@@ -1,6 +1,6 @@
 ---
 title: Introdução ao Azure Cosmos DB | Microsoft Docs
-description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribuição global com vários modelos foi concebida para baixa latência, escalabilidade elástica e elevada disponibilidade.
+description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribuição global com vários modelos foi concebida para baixa latência, escalabilidade elástica e elevada disponibilidade, e fornece suporte nativo para dados NoSQL.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 256c951b5bf193f5ee5bfe5f70c3549ef17a4d9b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071983"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145286"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 

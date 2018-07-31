@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267133"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257876"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -85,7 +85,9 @@ Para saber mais sobre as permissões necessárias para criar um peering de rede 
 
 ## <a name="pricing"></a>Preços
 
-Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize uma ligação de peering de rede virtual. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
+Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize uma ligação de peering de rede virtual. Para obter mais informações sobre o VNet Peering e os preços do Global VNet Peering, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
+
+O trânsito do gateway é uma propriedade de peering que permite a uma rede virtual utilizar um gateway de VPN na rede virtual no modo de peering e, assim, permitir a conetividade entre vários locais ou VNet a VNet. O tráfego que passa através de um gateway remoto neste cenário está sujeito a [custos de gateway de VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) e não incorre em [custos de VNet peering](https://azure.microsoft.com/pricing/details/virtual-network). Por exemplo, se a VNetA tiver um gateway de VPN para conectividade no local e a VNetB estiver ligada à VNetA com as propriedades adequadas configuradas, o tráfego da VNetB no local apenas é cobrado por gateway VPN. Não se aplicam custos de VNet peering. Saiba como [configurar o trânsito do gateway de VPN para peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619287"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145541"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos da cloud para aprovisionamento de dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT
 
@@ -28,9 +28,9 @@ Este tutorial mostra como configurar a cloud para o aprovisionamento de disposit
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Criar uma instância do Serviço Aprovisionamento de Dispositivos e obter o âmbito do ID
 
@@ -50,9 +50,9 @@ Siga estes passos para criar uma nova instância do Serviço Aprovisionamento de
 
    ![Introduza as informações básicas sobre o DPS no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Clique em **Criar**.
-6. O *âmbito do ID* é utilizado para identificar os IDs de registo e oferece uma garantia de que o ID do registo é exclusivo. Para obter este valor, clique em **Descrição geral** para abrir a página **Essentials** para o Serviço Aprovisionamento de Dispositivos. Copie o valor **Âmbito do ID** para uma localização temporária para utilização posterior.
-7. Anote também o valor **Ponto final de serviço** ou copie-o para uma localização temporária para utilização posterior. 
+5. Clique em **Criar**. Após alguns instantes, a instância do Serviço de Aprovisionamento de Dispositivos é criada e é apresentada a página **Descrição Geral**.
+6. Na página **Descrição Geral** da nova instância de serviço, copie o valor do **Âmbito do ID** para utilização posterior. O valor é utilizado para identificar os IDs de registo e oferece uma garantia de que o ID do registo é exclusivo.
+7. Além disso, copie o valor **Ponto final de serviço** para utilização posterior. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -65,8 +65,11 @@ O passo seguinte é ligar o Serviço Aprovisionamento de Dispositivos e de hub I
 1. Na página **Todos os recursos**, clique na instância de Serviço Aprovisionamento de Dispositivos que criou anteriormente.
 2. Na página do Serviço Aprovisionamento de Dispositivos, clique em **Hubs IoT ligados**.
 3. Clique em **Adicionar**.
-4. Na página **Adicionar ligação ao hub IoT**, utilize os botões de opção para especificar se o hub IoT associado se encontra na subscrição atual ou numa subscrição diferente. Em seguida, escolha o nome do hub IoT na caixa **hub IoT**.
-5. Clique em **Guardar**.
+4. Na página **Adicionar ligação ao hub IoT**, forneça as seguintes informações e clique em **Guardar**:
+
+    * **Subscrição:** certifique-se de que está selecionada a subscrição que contém o hub IoT. Pode ligar ao hub IoT que reside numa subscrição diferente.
+    * **Hub IoT:** escolha o nome do hub IoT que quer associar a esta instância do Serviço de Aprovisionamento de Dispositivos.
+    * **Política de Acesso**: selecione **iothubowner** como as credenciais a utilizar para estabelecer a ligação ao hub IoT.
 
    ![Ligar o nome do hub para ligar ao DPS no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 

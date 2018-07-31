@@ -1,6 +1,6 @@
 ---
 title: Utilizar uma MSI de VM do Windows para aceder ao Azure Resource Manager
-description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Resource Manager.
+description: Um tutorial que explica o processo de utilização de uma Identidade de Serviço Gerida de VM do Windows para aceder ao Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bd314dd1543280cf2533e45f156ca634d15d1d2a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006969"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247249"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Resource Manager
+# <a name="use-a-windows-vm-managed-service-identity-to-access-resource-manager"></a>Utilizar uma Identidade de Serviço Gerida de VM do Windows para aceder ao Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como ativar a Identidade de Serviço Gerida (MSI) para uma máquina virtual (VM) do Windows. Pode utilizar essa identidade para aceder à API do Azure Resource Manager. As Identidades de Serviço Geridas são geridas automaticamente pelo Azure e permitem-lhe a autenticação em serviços que suportam a autenticação do Azure AD, sem a necessidade de inserir as credenciais no seu código. Saiba como:
+Este tutorial mostra como ativar a Identidade de Serviço Gerida para uma máquina virtual (VM) do Windows. Pode utilizar essa identidade para aceder à API do Azure Resource Manager. As Identidades de Serviço Geridas são geridas automaticamente pelo Azure e permitem-lhe a autenticação em serviços que suportam a autenticação do Azure AD, sem a necessidade de inserir as credenciais no seu código. Saiba como:
 
 > [!div class="checklist"]
-> * Ativar o MSI numa VM do Windows 
+> * Ativar a Identidade de Serviço Gerida numa VM do Windows 
 > * Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 > * Obter um token de acesso com a identidade da VM e utilizá-lo para chamar o Azure Resource Manager
 
@@ -43,7 +43,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
-Neste tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o MSI numa VM existente.
+Neste tutorial, vamos criar uma nova VM do Windows.  Também pode ativar a Identidade de Serviço Gerida numa VM existente.
 
 1.  Clique no botão **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
@@ -54,18 +54,18 @@ Neste tutorial, vamos criar uma nova VM do Windows.  Também pode ativar o MSI n
 
     ![Texto alternativo da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Ativar a Identidade de Serviço Gerida na sua VM 
 
-Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
+Uma Identidade de Serviço Gerida de VM permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
 
-1.  Selecione a **Máquina Virtual** na qual pretende ativar a MSI.  
+1.  Selecione a **Máquina Virtual** na qual quer ativar a Identidade de Serviço Gerida.  
 2.  Na barra de navegação esquerda, clique em **Configuração**. 
-3.  Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a MSI, selecione **Sim**; se desejar desativá-la, selecione Não. 
+3.  Vai ver a **Identidade de Serviço Gerida**. Para registar e ativar a Identidade de Serviço Gerida, selecione **Sim**; se desejar desativá-la, selecione Não. 
 4.  Certifique-se de que clica em **Guardar** para guardar a configuração.  
     ![Texto alternativo da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Conceder o acesso da VM a um grupo de recursos no Resource Manager
-Com a MSI, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Primeiro, temos de conceder acesso de identidade a esta VM a um recurso no Resource Manager, neste caso, o Grupo de Recursos no qual a VM está contida.  
+Com a Identidade de Serviço Gerida, o seu código pode obter tokens de acesso para autenticação em recursos que suportam a autenticação do Azure AD.  O Azure Resource Manager suporta a autenticação do Azure AD.  Primeiro, temos de conceder acesso de identidade a esta VM a um recurso no Resource Manager, neste caso, o Grupo de Recursos no qual a VM está contida.  
 
 1.  Navegue até ao separador para **Grupos de Recursos**. 
 2.  Selecione o **Grupo de Recursos** específico que criou para a sua **VM do Windows**. 
@@ -84,7 +84,7 @@ Terá de utilizar o **PowerShell** nesta parte.  Se não o tiver instalado, tran
 1.  No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**. 
 2.  Introduza o seu **Nome de Utilizador** e a **Palavra-passe** que adicionou quando criou a VM do Windows. 
 3.  Agora que já criou uma **Ligação ao Ambiente de Trabalho Remoto** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4.  Através de Invoke-WebRequest do PowerShell, faça um pedido ao ponto final da MSI local para obter um token de acesso para o Azure Resource Manager.
+4.  Através de Invoke-WebRequest do PowerShell, faça um pedido ao ponto final da Identidade de Serviço Gerida local para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

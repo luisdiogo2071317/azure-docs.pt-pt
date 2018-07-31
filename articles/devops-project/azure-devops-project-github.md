@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967447"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205566"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Criar um pipeline de CI/CD para o seu código existente com o Projeto de DevOps do Azure
 
@@ -49,7 +49,7 @@ O Projeto de DevOps do Azure cria um pipeline de CI/CD no VSTS.  Pode criar uma 
 
 1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
-1. Escolha o ícone **+ Novo** na barra de navegação esquerda e, em seguida, procure **projeto DevOps**.  Escolha **Criar**.
+1. Escolha o ícone **+ Novo** na barra de navegação esquerda e, em seguida, procure **projeto de DevOps**.  Escolha **Criar**.
 
     ![A Iniciar a Entrega Contínua](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -73,7 +73,7 @@ O Projeto de DevOps do Azure cria um pipeline de CI/CD no VSTS.  Pode criar uma 
 
 1. Dentro de alguns minutos, o **dashboard do projeto** é carregado no portal do Azure.  Um exemplo de aplicação é configurado num repositório da sua conta VSTS, uma compilação é executada e a sua aplicação é implementada no Azure.  Este dashboard fornece visibilidade para o **repositório de código** do GitHub, o **pipeline de CI/CD do VSTS** e a sua **aplicação no Azure**.  No lado direito do dashboard, selecione **Procurar** para ver a sua aplicação em execução.
 
-    ![Vista do dashboard](_img/azure-devops-project-github/dashboardnopreview.png) 
+    ![Vista do Dashboard](_img/azure-devops-project-github/dashboardnopreview.png) 
     
 O projeto de DevOps do Azure configura automaticamente uma compilação de CI e um acionador de versão.  O código permanece no seu repositório GitHub ou noutro repositório externo.  
 
@@ -111,7 +111,7 @@ O projeto de DevOps do Azure configurou automaticamente um pipeline de CI/CD com
 
 1. No lado esquerdo do browser, selecione as **reticências** junto à definição de versão e, em seguida, escolha **Editar**.
 
-1. A definição de versão contém um **pipeline**, que define o processo de lançamento.  Em **Artefactos**, selecione **Remover**.  A definição de compilação que examinou nos passos anteriores produz a saída utilizada para o artefacto. 
+1. A definição de versão contém um **pipeline**, que define o processo da versão.  Em **Artefactos**, selecione **Remover**.  A definição de compilação que examinou nos passos anteriores produz a saída utilizada para o artefacto. 
 
 1. No lado direito do ícone **Remover**, selecione o **Acionador de implementação contínua**.  Esta definição de versão tem um acionador de CD ativado, que executa uma implementação sempre que estiver disponível um novo artefacto de compilação.  Opcionalmente, pode desativar o acionador, para que as suas implementações requeiram execução manual. 
 
@@ -131,7 +131,7 @@ Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a u
 
 1. Navegue para o dashboard do **Projeto de DevOps do Azure** no portal do Azure.  No canto inferior direito do dashboard, escolha a ligação ao **Application Insights** para a sua aplicação.
 
-1. O painel **Application Insights** é aberto no portal do Azure.  Esta vista contém informações sobre a monitorização da utilização, do desempenho e da disponibilidade da aplicação.
+1. O painel **Application Insights** abre no portal do Azure.  Esta vista contém informações sobre a monitorização da utilização, do desempenho e da disponibilidade da aplicação.
 
     ![Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
@@ -141,9 +141,9 @@ Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a u
 
 1. Introduza um **Nome** para o alerta.
 
-1. Na lista pendente, selecione **Alterar Origem em**.  Escolha o **recurso do Serviço de Aplicações.**
-
-1. A predefinição de alerta é para um **tempo de resposta de servidor superior a 1 segundo**.  Selecione o menu pendente **Métrica** para examinar as várias métricas de alerta.  Pode configurar facilmente vários alertas, para melhorar as capacidades de monitorização da aplicação.
+1. Na lista pendente, selecione **Alterar Origem em**.  Selecione o **recurso do Serviço de Aplicações.**
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
+1. O alerta predefinido é para um **tempo de resposta de servidor superior a 1 segundo**.  Selecione o menu pendente **Métrica** para examinar as várias métricas de alerta.  Pode configurar facilmente vários alertas, para melhorar as capacidades de monitorização da aplicação.
 
 1. Selecione a caixa de verificação para **Notificar através de proprietários de e-mail, contribuidores e leitores**.  Opcionalmente, pode realizar ações adicionais quando um alerta é acionado, executando uma aplicação lógica do Azure.
 

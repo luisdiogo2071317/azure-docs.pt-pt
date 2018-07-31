@@ -1,15 +1,15 @@
-## <a name="append-other-apis"></a>Acrescentar outras APIs
+## <a name="append-other-apis"></a>Anexar outras APIs
 
-Uma API pode ser composta por APIs expostas por diferentes serviços: especificação de OpenAPI SOAP API, aplicação API, aplicação de função, aplicação lógica, Service Fabric.
+Uma API pode ser constituída por APIs expostas por diferentes serviços, incluindo a Especificação OpenAPI, uma API SOAP, a funcionalidade Aplicações API do Serviço de Aplicações do Azure, as Funções do Azure, o Azure Logic Apps e o Azure Service Fabric.
 
-![Importar](./media/api-management-append-apis/import.png)
+![Importar uma API](./media/api-management-append-apis/import.png)
 
-Acrescentar uma API diferentes à sua API existente, siga os passos abaixo. Depois de importar API outro, as operações são acrescentadas à sua API atual.
+Para anexar uma API diferente à sua API existente, conclua os passos seguintes. Quando importar outra API, as operações são anexadas à API atual.
 
-1. Navegue até à sua instância APIM no portal do Azure.
-2. Selecione APIs a partir de gestão de API.
-3. Prima o botão de reticências ". . ." a API que pretende anexar outro API para tp seguinte.
-4. Selecione importar no menu pendente.
-5. Selecione um dos serviços de que pretende importar uma API.
+1. Vá para a instância de Gestão de API no portal do Azure.
+2. Em **GESTÃO DE API**, selecione **APIs**.
+3. Selecione as reticências (**...**) junto à API à qual quer anexar outra API.
+4. Selecione **Importar** no menu pendente.
+5. Selecione um serviço a partir do qual quer importar uma API.
 
 

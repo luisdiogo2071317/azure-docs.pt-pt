@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 35d15811f31e64d0c27a23da802a16ce2e4570aa
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e3338e76f54516e384e5cfc3046b83f2e49476d9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113988"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215310"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -44,13 +44,13 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | --- | --- | --- |
 | **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Washington D.C., Montreal, Cidade do Quebeque, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
-| **Europa** |Centro de França, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Dublin, Londres, Newport (País de Gales), Paris |
+| **Europa** |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Dublin, Londres, Newport (País de Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Singapura, Singapura2 |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Governo da Austrália** | Austrália Central, Austrália Central 2 |Camberra, Camberra2 | 
-| **Índia** |Índia Ocidental, Índia Central, Sul da Índia |Chennai, Mumbai |
-| **Coreia do Sul** |Centro da Coreia, Sul da Coreia |Busan, Seul |
+| **Índia** |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Mumbai |
+| **Coreia do Sul** |Centro da Coreia, Sul da Coreia do Sul |Busan, Seul |
 | **África do Sul** |[Oeste da África do Sul+, Norte da África do Sul+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cidade do Cabo, Joanesburgo |
 
  **+** brevemente disponível
@@ -60,7 +60,7 @@ A tabela abaixo fornece informações sobre regiões e limites geopolíticos par
 
 | **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- |
-| **Nuvem para a Administração Pública dos EUA** |US Gov Arizona, Gov (US) - Iowa, US Gov Texas, Gov (US) - Virginia, US DoD Central, US DoD East  |Chicago, Dallas, Nova Iorque, Seattle, Silicon Valley, Washington DC |
+| **Nuvem para a Administração Pública dos EUA** |US Gov Arizona, US Gov - Iowa, US Gov Texas, Gov (US) - Virginia, US DoD Central, US DoD East  |Chicago, Dallas, Nova Iorque, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Leste da Alemanha |Berlim, Frankfurt |
 
@@ -146,9 +146,10 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **Fornecedor de serviços** | **Microsoft Azure** | **Office 365** | **Localizações** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Chicago, Washington D.C. |
+| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Suportado |Suportado |Phoenix |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Seattle, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Chicago, Nova Iorque+, Silicon Valley, Washington DC |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportado | Chicago, Dallas |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportado | Chicago, Dallas, San Antonio |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Washington D.C. |
 
 ### <a name="china"></a>China
@@ -225,6 +226,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londres | 
+| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amesterdão |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amesterdão |
 | **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  

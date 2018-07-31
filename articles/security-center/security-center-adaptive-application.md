@@ -3,7 +3,7 @@ title: Controlos de aplicações adaptativos no Centro de Segurança do Azure | 
 description: Este documento ajuda-o a utilizar os controlos de aplicações adaptativos no Centro de Segurança do Azure para adicionar as aplicações em execução em VMs do Azure à lista de permissões.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989970"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161937"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controlos de aplicações adaptativos no Centro de Segurança do Azure (Pré-visualização)
+# <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>O que são os controlos de aplicações adaptativos do Centro de Segurança?
@@ -35,7 +35,7 @@ Os controlos de aplicações adaptativos ajudam a controlar que aplicações pod
 - Permitir que a equipa de TI controle o acesso a dados confidenciais através da utilização de aplicações.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Como ativar os controlos de aplicações adaptáveis?
-Os controlos de aplicações adaptáveis ajudam-no a definir um conjunto de aplicações cuja execução é permitida em grupos de recursos configurados. Esta funcionalidade só está disponível para máquinas Windows (todas as versões, clássica ou Azure Resource Manager). Os passos seguintes podem ser utilizados para configurar a inclusão de aplicações nas listas de permissões do Centro de Segurança:
+Os controlos de aplicações adaptáveis ajudam-no a definir um conjunto de aplicações cuja execução é permitida em grupos configurados. Esta funcionalidade só está disponível para máquinas Windows (todas as versões, clássica ou Azure Resource Manager). Os passos seguintes podem ser utilizados para configurar a inclusão de aplicações nas listas de permissões do Centro de Segurança:
 
 1. Abra o dashboard **Centro de Segurança**.
 2. No painel esquerdo, selecione **Controlos de aplicação adaptáveis** localizados em **Defesa da cloud avançada**.
@@ -87,12 +87,12 @@ A secção **Grupos de VMs** contém três separadores:
 
 5. Depois de concluir as suas seleções, selecione **Criar**.
 
-Por predefinição, o Centro de Segurança ativa sempre o controlo de aplicações no modo *Auditoria*. Depois de confirmar que a lista de permissões não tem nenhum efeito adverso na sua carga de trabalho, pode alterar para o modo *Imposição*.
-
-O Centro de Segurança precisa de um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes do escalão standard do Centro de Segurança devem esperar um comportamento em que, primeiro, os grupos de VMs são apresentados no separador *nenhuma recomendação*.
-
+6. O Centro de Segurança aplica as regras adequadas em cada uma das VMs selecionadas ao tirar partido das capacidades incorporadas do AppLocker para servidores Windows. Além disso, o Centro de Segurança ativa sempre o controlo de aplicações no modo Auditoria, por predefinição. Depois de confirmar que a lista de permissões não tem nenhum efeito adverso na sua carga de trabalho, pode mudar para o modo **Imposição**. Para obter mais informações, veja [Como funciona o AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref).
+ 
 > [!NOTE]
-> Como melhor prática de segurança, o Centro de Segurança tentará sempre criar uma regra de publicador para as aplicações que devem ser adicionadas à lista de permissões e, a menos que as aplicações não tenham informações do publicador (ou seja, não sejam assinadas), é criada uma regra de caminho para o caminho completo do EXE específico.
+> - O Centro de Segurança precisa de um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes do escalão standard do Centro de Segurança devem esperar um comportamento em que, primeiro, os grupos de VMs são apresentados no separador *nenhuma recomendação*.
+> - Os Controlos de Aplicações Adaptáveis do Centro de Segurança não suportam VMs para as quais já esteja ativada uma política do AppLocker por um GPO ou uma política de segurança local.
+> -  Como melhor prática de segurança, o Centro de Segurança tentará sempre criar uma regra de publicador para as aplicações que devem ser adicionadas à lista de permissões e, a menos que as aplicações não tenham informações do publicador (ou seja, não sejam assinadas), é criada uma regra de caminho para o caminho completo do EXE específico.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Editar e monitorizar grupos configurados com o controlo de aplicações

@@ -1,5 +1,5 @@
 ---
-title: Implementar uma solução no Azure para gerir os meus dispositivos IoT industriais | Microsoft Docs
+title: Experimentar uma solução no Azure para gerir os meus dispositivos IoT industriais | Microsoft Docs
 description: Neste início rápido, vai implementar o acelerador de soluções de Fábrica Ligada de IoT do Azure e iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ce4d32c80040ec658070a3fa3132e34931a6755a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072683"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144518"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução com base na cloud para gerir os meus dispositivos IoT industriais
 
@@ -48,7 +48,7 @@ Clique em **Criar Solução** para iniciar a implementação. Este processo demo
 
 ## <a name="sign-in-to-the-solution"></a>Iniciar sessão na solução
 
-Quando a implementação na sua subscrição do Azure estiver concluída, verá uma marca de verificação verde e **Pronto** no mosaico da solução. Pode agora iniciar sessão no dashboard do acelerador de soluções de Fábrica Ligada.
+Quando a implementação na sua subscrição do Azure estiver concluída, verá uma marca de verificação verde e **Preparado** no mosaico da solução. Pode agora iniciar sessão no dashboard do acelerador de soluções de Fábrica Ligada.
 
 Na página **Soluções aprovisionadas**, clique no novo acelerador de soluções de Fábrica Ligada:
 

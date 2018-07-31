@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040852"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144198"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 O Azure Maps é uma coleção de serviços geoespaciais, apoiado por dados de mapeamento atualizados, para que possa dar contexto geográfico preciso para as suas aplicações Web e móveis. Ela contém as APIs REST para compor mapas, pesquisar pontos de interesse, encaminhar para pontos de interesse, condições de tráfego, fusos horários e IP para os serviços de localização. Pode utilizar estas APIs com ferramentas familiares para desenvolver e dimensionar rapidamente soluções que integram informações de localização nas suas soluções do Azure. Em conjunto com as APIs REST, integra um controlo JavaScript baseado na Web destinado a tornar o desenvolvimento mais fácil, flexível e portátil nos vários suportes de dados. 
@@ -92,6 +92,7 @@ Visite a página [APIs de Tráfego do Azure Maps](https://docs.microsoft.com/res
 
 O IP para Localização é um serviço de pré-visualização que lhe permite obter o código de país de duas letras para um determinado endereço IP. Este serviço pode ajudá-lo a adaptar a sua aplicação para atender às restrições geopolíticas especiais, bem como melhorar a experiência do utilizador, ao alterar o conteúdo da aplicação com base na localização geográfica. 
 
+Para obter informações sobre as APIs REST para o IP do serviço de localização, visite a página [APIs de Geolocalização do Azure Maps](https://docs.microsoft.com/rest/api/maps/geolocation).
 
 ## <a name="programming-model"></a>Modelo de programação
 

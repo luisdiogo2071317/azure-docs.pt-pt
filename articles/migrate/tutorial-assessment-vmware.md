@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 07/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970790"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172352"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -227,9 +227,9 @@ Os custos mensais estimados para computação e armazenamento são agregados par
 
 #### <a name="confidence-rating"></a>Classificação de confiança
 
-Cada avaliação no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate.
+Cada avaliação baseada no desempenho no Azure Migrate é associada a uma classificação de confiança de 1 a 5 estrelas (sendo que 1 estrela corresponde à mais baixa e 5 à mais alta). A classificação de confiança é alocada a uma avaliação com base na disponibilidade dos pontos de dados necessários para calcular a avaliação. A classificação de confiança de uma avaliação ajuda a calcular a fiabilidade das recomendações de tamanho fornecidas pelo Azure Migrate. A classificação de confiança não é aplicável como avaliações no local.
 
-A classificação de confiança de uma avaliação é mais útil para as avaliações de critério de dimensionamento como dimensionamento com base em desempenho. Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
+Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados de utilização da CPU, da memória e da VM. Além disso, para cada disco ligado à VM, é necessário o IOPS do disco e os dados de débito. De forma semelhante, para cada adaptador de rede anexado a uma VM, o Azure Migrate requer a entrada/saída de rede para efetuar o dimensionamento com base no desempenho. Se algum dos números de utilização acima não estiver disponível no vCenter Server, a recomendação de tamanho feita pelo Azure Migrate poderá não ser fiável. Consoante a percentagem de pontos de dados disponíveis, a classificação de confiança da avaliação é fornecida abaixo:
 
    **Disponibilidade de pontos de dados** | **Classificação de confiança**
    --- | ---

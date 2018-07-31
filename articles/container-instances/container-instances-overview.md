@@ -6,14 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/29/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 2da61d52e43857237f6e231c03ea62ba5eefdadd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160455"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -46,6 +47,8 @@ Para obter e persistir o estado com o Azure Container Instances, ofereceremos a 
 O Azure Container Instances permite agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
 
 Algumas funcionalidades estão atualmente restritas para contentores Linux. Enquanto trabalhamos para trazer paridade de funcionalidades para os contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
+
+O Azure Container Instances suporta imagens do Windows com base nas versões do Canal de Serviço a Longo Prazo (LTSC). As versões do Canal Semianual (SAC) do Windows, como 1709 e 1803, não são suportadas.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 

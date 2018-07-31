@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: dcda4e25932a74313674e91afc7382ea19724613
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4b00f28d3a1183d5033d0655d8c3f244e3d108e7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129955"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225997"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 
@@ -531,7 +531,7 @@ Irá utilizar o *kubernetes-wordpress.yml* para esta parte do tutorial. É apres
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
 
-Crie um servidor na Base de Dados do Azure para MySQL (Pré-visualização) com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Crie um servidor na Base de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 No comando seguinte, substitua o nome do servidor MySQL onde vê o marcador de posição _&lt;mysql_server_name>_ (os carateres válidos são `a-z`, `0-9` e `-`). Este nome faz parte do nome de anfitrião do servidor MySQL (`<mysql_server_name>.database.windows.net`); tem de ser globalmente exclusivo.
 

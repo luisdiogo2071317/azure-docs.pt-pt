@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967852"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189530"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster do Kubernetes ativado para os Espaços de Programador do Azure
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967852"
 
    ![Definições de configuração do Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Selecione **Seguinte: Redes** quando terminar.
+   Selecione **Seguinte: Autenticação** quando terminar.
+
+1. Escolha a definição pretendida para controlo de acesso baseado em funções (RBAC). Os espaços de desenvolvimento do Azure suportam clusters com RBAC ativado ou desativado.
+
+    ![Definição de RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Certifique-se de que o Encaminhamento de Aplicações Http está ativado.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967852"
 
     > [!IMPORTANT]
     > Tem de ter a certeza de que pretende ativar o Encaminhamento de Aplicações Http quando criar o cluster de AKS. Não pode alterar esta definição mais tarde.
-
-1. Escolha a definição pretendida para controlo de acesso baseado em funções (RBAC). Os espaços de desenvolvimento do Azure suportam clusters com RBAC ativado ou desativado.
-
-    ![Definição de RBAC](../media/common/k8s-RBAC.PNG)
 
 1. Selecione **Rever + criar** e, em seguida, selecione **Criar** quando terminar.

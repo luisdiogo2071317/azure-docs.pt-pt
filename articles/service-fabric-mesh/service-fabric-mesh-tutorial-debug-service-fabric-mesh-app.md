@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125658"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186743"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Tutorial: Depurar uma aplicação Web do Service Fabric Mesh
 
@@ -75,8 +75,8 @@ Depois de a implementação local estar concluída e o Visual Studio estar a exe
 **Sugestões de depuração**
 
 * Se receber o erro **Nenhum cluster local do Service Fabric em execução**, certifique-se de que o Service Local Custer Manager (SLCM) está em execução, clique com o botão direito do rato no ícone do SLCM na barra de tarefas e, em seguida, clique em **Iniciar Cluster Local**. Depois de ser iniciado, regresse ao Visual Studio e prima **F5**.
-* Se receber um erro **404** quando a aplicação for iniciada, provavelmente significa que as variáveis de ambiente em **service.yaml** estão incorretas. Certifique-se de que `AppName`, `ApiHostPort` e `ServiceName` estão definidos corretamente de acordo com as instruções em [Definir variáveis de ambiente](#set-environment-variables).
-* Se ocorrerem erros de compilação em **service.yaml**, certifique-se de que são utilizados espaços, não separadores, para avançar as linhas.
+* Se receber um erro **404** quando a aplicação for iniciada, provavelmente significa que as variáveis de ambiente em **service.yaml** estão incorretas. Certifique-se de que `ApiHostPort` e `ServiceName` estão definidos corretamente de acordo com as instruções em [Criar variáveis de ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+* Se ocorrerem erros de compilação em **service.yaml**, certifique-se de que são utilizados espaços, não separadores, para avançar as linhas. Além disso, por agora, tem de criar a aplicação com o idioma inglês.
 
 ### <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
 

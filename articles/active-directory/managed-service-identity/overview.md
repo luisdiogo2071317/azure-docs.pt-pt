@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006935"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237874"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>O que é a Identidade de Serviço Gerida para os recursos do Azure?
 
@@ -59,7 +59,7 @@ Eis um exemplo de como as Identidades Atribuídas pelo Sistema funcionam com as 
 6. É feita uma chamada para o Azure AD a pedir uma token de acesso, conforme especificado no passo 5, através da utilização do ID de cliente e do certificado configurados no passo 3. O Azure AD devolve um token de acesso JSON Web Token (JWT).
 7. O código envia o token de acesso numa chamada para um serviço que suporte a autenticação do Azure AD.
 
-Através do mesmo diagrama, eis um exemplo do funcionamento atribuído pelo utilizador com as Máquinas Virtuais do Azure.
+No mesmo diagrama, eis um exemplo do funcionamento de uma identidade gerida atribuída ao utilizador com as Máquinas Virtuais do Azure.
 
 1. O Azure Resource Manager recebe um pedido para criar uma identidade atribuída pelo utilizador.
 2. O Azure Resource Manager cria um Principal de Serviço no Azure AD para representar a identidade atribuída pelo utilizador. O Principal de Serviço é criado no inquilino do Azure AD no qual esta subscrição confia.

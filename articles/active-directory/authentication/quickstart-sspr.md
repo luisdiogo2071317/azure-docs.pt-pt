@@ -1,119 +1,76 @@
 ---
-title: Manual de início rápido de reposição personalizada de palavra-passe - Azure Active Directory
-description: Implementar rapidamente a reposição de palavras-passe self-service do Azure AD
+title: 'Início Rápido: Reposição personalizada de palavra-passe do Azure AD'
+description: Neste início rápido, vai configurar rapidamente a reposição personalizada de palavra-passe do Azure AD para permitir aos utilizadores repor as respetivas palavras-passe
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 01/11/2018
+ms.topic: quickstart
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057366"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223562"
 ---
-# <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementação rápida da reposição personalizada de palavras-passe do Azure AD
+# <a name="quickstart-self-service-password-reset"></a>Início Rápido: Reposição personalizada de palavra-passe
 
-> [!IMPORTANT]
-> **Está aqui porque está a ter problemas em iniciar sessão?** Se sim, veja [Help, I forgot my Azure AD password](../user-help/active-directory-passwords-update-your-own-password.md) (Ajudem-me, esqueci-me da minha palavra passe do Azure AD).
+Neste início rápido, vai percorrer a configuração da reposição personalizada de palavra-passe (SSPR) como uma forma simples de os administradores de TI permitirem aos utilizadores repor as palavras-passe ou desbloquear as contas.
 
-A reposição de palavras-passe self-service (Self-service Password Reste, SSPR) oferece aos administradores de TI uma forma simples de capacitarem os utilizadores a repor ou desbloquear as palavras-passe ou as contas deles. O sistema inclui relatórios detalhados que controlam quando os utilizadores acedem ao sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Este guia pressupõe que já tem uma versão de avaliação ou um inquilino licenciado do Azure Active Directory (Azure AD) em funcionamento. Se precisar de ajuda para configurar o Azure AD, veja [Getting started with Azure AD](../fundamentals/get-started-azure-ad.md) (Introdução ao Azure AD).
+* Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
+* Uma conta com privilégios de Administrador Global.
+* Um utilizador de teste não administrador com uma palavra-passe que conheça. Se precisar de criar um utilizador, veja o artigo [Início Rápido: Adicionar novos utilizadores ao Azure Active Directory](../add-users-azure-active-directory.md).
+* Um grupo piloto para testar do qual o utilizador de teste não administrador seja membro. Se precisar de criar um grupo, veja o artigo [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
-## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Ativar a SSPR para o seu inquilino do Azure AD
+## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 
 > [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
 
-1. No seu inquilino existente do Azure AD, no **Portal do Azure**, em **Azure Active Directory**, selecione **Reposição de palavra-passe**.
+1. No seu inquilino existente do Azure AD, no **portal do Azure**, em **Azure Active Directory**, selecione **Reposição de palavra-passe**.
 
-2. Na página **Propriedades**, na opção **Reposição Personalizada de Palavras-passe Ativada**, escolha uma das seguintes opções:
-   * **Ninguém**: ninguém pode utilizar a funcionalidade SSPR.
-   * **Selecionados**: só os membros de um grupo específico do Azure AD que escolher podem utilizar a funcionalidade SSPR. Recomendamos que defina um grupo de utilizadores e que utilize esta definição quando implementar a funcionalidade, para prova de conceito. O aninhamento de grupos de segurança é suportado aqui.
-   * **Todos**: todos os utilizadores que tenham contas no seu inquilino do Azure AD podem utilizar a funcionalidade SSPR. Recomendamos que utilize esta definição quando estiver pronto para implementar esta funcionalidade em todo o seu inquilino depois de concluir uma prova de conceito.
+2. Na página **Propriedades**, na opção **Reposição Personalizada de Palavra-passe Ativada**, selecione **Selecionado**.
+    * Em **Grupo**, selecione o grupo piloto criado como parte da secção de pré-requisitos deste artigo.
+    * Clique em **Guardar**.
 
-   > [!IMPORTANT]
-   > As contas de Administrador do Azure terão sempre a capacidade de repor as respetivas palavras-passe, independentemente da definição desta opção. 
+3. Na página **Métodos de autenticação**, selecione o seguinte:
+   * Número de métodos necessários para a reposição: **1**
+   * Métodos disponíveis para os utilizadores:
+      * **Número de telemóvel**
+      * **Telefone do emprego**
+   * Clique em **Guardar**.
 
-3. Na página **Métodos de autenticação**, escolha o seguinte:
-   * **Número de métodos necessários para repor**: suportamos um mínimo de um ou um máximo de dois.
-   * **Métodos disponíveis para os utilizadores**: precisamos de, pelo menos, um; contudo, não custa nada ter uma opção extra disponível.
-      * **Enviar por e-mail**: envia um e-mail com um código para o endereço de e-mail de autenticação configurado do utilizador.
-      * **Número de telemóvel**: disponibiliza ao utilizador a opção de receber uma chamada ou uma mensagem de texto com um código no telemóvel configurado.
-      * **Telefone do escritório**: liga para o utilizador e comunica um código no telefone do escritório configurado.
-      * **Perguntas de segurança**: requer que escolha:
-         * **Número de perguntas necessárias para registar**: o mínimo para o registo bem-sucedido. O utilizador pode optar por responder a mais perguntas, para criar um conjunto de perguntas de entre as quais escolher.  Esta opção pode ser definida entre três e cinco perguntas e tem de ser igual ou maior do que o número de perguntas necessárias para repor a palavra-passe. O utilizador pode adicionar perguntas personalizadas se o selecionar o botão **Personalizar** quando seleciona as perguntas de segurança.
-         * **Número de perguntas necessárias para a reposição**: podem ser definidas entre três e cinco perguntas que têm de ser respondidas corretamente para que seja possível repor ou desbloquear a palavra-passe do utilizador.
-            
     ![Autenticação][Authentication]
 
-4. Recomendado: em **Personalização**, pode alterar a ligação **Contactar o administrador** para apontar para uma página ou endereço de e-mail que definir. Recomendamos que defina esta ligação para algo como um endereço de e-mail ou site que os seus utilizadores já utilizem para as perguntas de suporte.
+4. Na página **Registo**, selecione as seguintes opções:
+   * Exigir que os utilizadores se registem quando iniciam sessão: **Sim**
+   * Definir o número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação: **365**
 
-5. Opcional: a página **Registo** dá aos administradores a opção de:
-   * Exigir que os utilizadores se registem quando iniciam sessão.
-   * Definir o número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação.
+## <a name="test-self-service-password-reset"></a>Testar a reposição personalizada de palavra-passe
 
-6. Opcional: a página **Notificações** dá aos administradores a opção de:
-   * Notificar os utilizadores sobre reposições de palavras-passe.
-   * Notificar todos os administradores quando outros administradores repõem as palavras-passe deles.
+Agora, vamos testar a configuração SSPR com um utilizador de teste. Desde que a Microsoft aplica requisitos de autenticação fortes às contas de administrador do Azure, um teste efetuado com uma conta de administrador pode alterar o resultado. Para obter mais informações sobre a política de palavras-passe de administrador, veja o nosso artigo sobre a [política de palavras-passe](concept-sspr-policy.md).
 
-Neste momento, já tem configurado o SSPR no seu inquilino do Azure AD. Os utilizadores podem agora utilizar as instruções nos artigos [Registar-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md) e [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md) para atualizarem a palavra-passe sem a intervenção do administrador. Se só precisar desta funcionalidade para a cloud, pode parar aqui. Ou pode avançar para a secção seguinte para configurar a sincronização de palavras-passe com domínios do Active Directory no local.
+1. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
+2. Inicie sessão com um utilizador de teste não administrador e registe o seu telefone de autenticação.
+3. Quando tiver terminado, clique no botão marcado com **parece bem** e feche a janela do browser.
+4. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://aka.ms/sspr](https://aka.ms/sspr).
+5. Introduza o ID de Utilizador dos utilizadores de teste não administradores, os carateres do CAPTCHA e, em seguida, clique em **Seguinte**.
+6. Siga os passos de verificação para repor a palavra-passe
 
-> [!TIP]
-> Teste o SSPR com um utilizador e não com um administrador, pois a Microsoft aplica requisitos de autenticação fortes às contas de administrador do Azure. Para obter mais informações sobre a política de palavras-passe de administrador, veja o nosso artigo sobre a [política de palavras-passe](concept-sspr-policy.md#administrator-password-policy-differences).
-
-## <a name="configure-synchronization-to-an-existing-identity-source"></a>Configurar a sincronização com uma origem de identidades existente
-
-Para ativar a sincronização de identidades no local com o Azure AD, tem de instalar e configurar o [Azure AD Connect](./../connect/active-directory-aadconnect.md) num servidor da sua organização. Esta aplicação processa a sincronização de utilizadores e grupos da sua origem de identidades existente com o seu inquilino do Azure AD. Para obter mais informações, consulte:
-
-* [Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./../connect/active-directory-aadconnect-dirsync-deprecated.md) (Atualizar de DirSync ou do Azure AD Sync para o Azure AD Connect)
-* [Introdução ao Azure AD Connect utilizando as definições rápidas](./../connect/active-directory-aadconnect-get-started-express.md)
-* [Configurar a repetição de escrita de palavras-passe](howto-sspr-writeback.md#configure-password-writeback) para gravar palavras-passe do Azure AD no seu diretório local
-
-### <a name="on-premises-policy-change"></a>Alteração à política no local
-
-Se sincronizar os utilizadores de um domínio do Active Directory no local e pretender permitir que os utilizadores reponham as respetivas palavras-passe imediatamente, faça a alteração seguinte na sua política de palavras-passe no local:
-
-1. Navegue para **Configuração do Computador** > **Políticas** > **Definições do Windows** > **Definições de Segurança**  >  **Políticas de Conta** > **Política de Palavras-passe**.
-
-2. Defina a **Antiguidade mínima da palavra-passe** como **0 dias**.
-
-Esta definição de segurança determina o período de tempo, em dias, durante o qual uma palavra-passe tem de ser utilizada antes de o utilizador a poder alterar. Se definir a definição de utilização mínima como **0 dias**, os utilizadores podem utilizar o SSPR se as palavras-passe forem alteradas pelas equipas de suporte.
-
-![Política][Policy]
-
-## <a name="disable-self-service-password-reset"></a>Desativar a reposição de palavras-passe self-service
+## <a name="clean-up-resources"></a>Limpar recursos
 
 É fácil desativar a reposição de palavras-passe self-service. Abra o seu inquilino do Azure AD e aceda a **Reposição de Palavras-passe** > **Propriedades** e selecione **Ninguém**, em **Reposição de Palavras-passe Self-Service Ativada**.
 
-### <a name="learn-more"></a>Saiba mais
-Os artigos seguintes disponibilizam informações adicionais relativamente à reposição de palavras-passe através do Azure AD:
-
-* [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
-* [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
-* [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
-* [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
-* [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
-* [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Creio que algo está a funcionar incorretamente. Como posso resolver problemas da SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, aprendeu a configurar a reposição de palavras-passe self-service para os seus utilizadores. Para concluir estes passos, avance para o portal do Azure:
+Neste início rápido, aprendeu a configurar a reposição personalizada de palavra-passe para os utilizadores apenas da cloud. Para obter informações sobre como concluir uma implementação mais detalhada, avance para o nosso guia de implementação.
 
 > [!div class="nextstepaction"]
-> [Ativar a reposição de palavras-passe self-service](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+> [Implementar a reposição personalizada de palavra-passe](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Métodos de autenticação do Azure AD disponíveis e a quantidade necessária"
-[Policy]: ./media/quickstart-sspr/password-policy.png "Política de Grupo de palavras-passe no local definida como 0 dias"
-

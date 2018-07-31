@@ -1,6 +1,6 @@
 ---
 title: Utilizar a Identidade de Serviço Gerida para uma VM do Linux aceder ao Azure Data Lake Store
-description: Um tutorial que lhe mostra como utilizar a Identidade de Serviço Gerida (MSI) para uma VM do Linux aceder ao Azure Data Lake Store.
+description: Um tutorial que lhe mostra como utilizar a Identidade de Serviço Gerida para uma VM do Linux aceder ao Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004885"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258835"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Tutorial: utilizar a Identidade de Serviço Gerida para uma VM do Linux aceder ao Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra-lhe como utilizar a Identidade de Serviço Gerida para uma máquina virtual (VM) do Linux aceder ao Azure Data Lake Store. O Azure gere automaticamente as identidades que criar através da MSI. Pode utilizar a MSI para autenticar para serviços que suportam a autenticação do Azure Active Directory (AD), sem ter de inserir credenciais no código. 
+Este tutorial mostra-lhe como utilizar a Identidade de Serviço Gerida para uma máquina virtual (VM) do Linux aceder ao Azure Data Lake Store. O Azure gere automaticamente as identidades que criar através da Identidade de Serviço Gerida. Pode utilizar a Identidade de Serviço Gerida para autenticar em serviços que suportam a autenticação do Azure Active Directory (AD), sem ter de inserir credenciais no código. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ativar a MSI numa VM do Linux. 
+> * Ativar a Identidade de Serviço Gerida numa VM do Linux. 
 > * Conceder acesso à VM ao Azure Data Lake Store.
 > * Obter um token de acesso com a identidade da VM e utilizá-lo para aceder ao Azure Data Lake Store.
 
@@ -58,13 +58,13 @@ Neste tutorial, vamos criar uma nova VM do Linux. Também pode ativar o MSI numa
 5. Para selecionar um novo grupo de recursos no qual pretende que a máquina virtual seja criada, selecione **Grupo de recursos** > **Criar novo**. Quando terminar, selecione **OK**.
 6. Selecione o tamanho da VM. Para ver mais tamanhos, selecione **Visualizar todos** ou altere o filtro **Tipo de disco suportado**. No painel de definições, mantenha as predefinições e selecione **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>Ativar a MSI na sua VM
+## <a name="enable-managed-service-identity-on-your-vm"></a>Ativar a Identidade de Serviço Gerida na sua VM
 
-Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
+Uma Identidade de Serviço Gerida de VM permite-lhe obter os tokens de acesso do Azure AD, sem ter de colocar as credenciais no código. Ativar a Identidade de Serviço Gerida numa VM faz duas coisas: regista a sua VM no Azure Active Directory para criar a respetiva identidade gerida e configura a identidade na VM.
 
-1. Em **Máquina Virtual**, selecione a máquina virtual na qual pretende ativar a MSI.
+1. Para **Máquina Virtual**, selecione a máquina virtual na qual quer ativar a Identidade de Serviço Gerida.
 2. No painel esquerdo, selecione **Configuração**.
-3. Verá a **Identidade de serviço gerida**. Para registar e ativar a MSI, selecione **Sim**. Se pretender desativá-la, selecione **Não**.
+3. Verá a **Identidade de serviço gerida**. Para registar e ativar a Identidade de Serviço Gerida, selecione **Sim**. Se pretender desativá-la, selecione **Não**.
    ![Seleção “Registar no Azure Active Directory”](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Selecione **Guardar**.
 
@@ -72,7 +72,7 @@ Um MSI de VM permite-lhe obter os tokens de acesso do Azure AD sem ter de coloca
 
 Agora pode conceder acesso à VM a ficheiros e pastas no Azure Data Lake Store. Neste passo, pode utilizar uma instância existente do Data Lake Store ou criar uma nova. Para criar uma instância do Data Lake Store com o portal do Azure, siga o [Início rápido do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Também existem inícios rápidos que utilizam a CLI do Azure e o Azure PowerShell na [Documentação do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
-No Data Lake Store, crie uma nova pasta e conceda permissão à MSI para ler, escrever e executar ficheiros nessa pasta:
+No Data Lake Store, crie uma nova pasta e conceda à Identidade de Serviço Gerida permissão para ler, escrever e executar ficheiros nessa pasta:
 
 1. No portal do Azure, selecione **Data Lake Store** no painel esquerdo.
 2. Selecione a instância do Data Lake Store que pretende utilizar.
@@ -90,7 +90,7 @@ A MSI pode agora realizar todas as operações nos ficheiros da pasta que criou.
 
 ## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Obter um token de acesso e chamar o sistema de ficheiros do Data Lake Store
 
-O Azure Data Lake Store suporta nativamente a autenticação do Azure AD, para que possa aceitar diretamente tokens de acesso obtidos através da MSI. Para autenticar para o sistema de ficheiros do Data Lake Store, envie um token de acesso emitido pelo Azure AD para o ponto final do sistema de ficheiros do Data Lake Store. O token de acesso está num cabeçalho de autorização no formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Para saber mais sobre o suporte do Data Lake Store para a autenticação do Azure AD, veja [Autenticação com o Data Lake Store através do Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+O Azure Data Lake Store suporta nativamente a autenticação do Azure AD, para que possa aceitar diretamente tokens de acesso obtidos através da Identidade de Serviço Gerida. Para autenticar para o sistema de ficheiros do Data Lake Store, envie um token de acesso emitido pelo Azure AD para o ponto final do sistema de ficheiros do Data Lake Store. O token de acesso está num cabeçalho de autorização no formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Para saber mais sobre o suporte do Data Lake Store para a autenticação do Azure AD, veja [Autenticação com o Data Lake Store através do Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 Neste tutorial, vai autenticar para a API REST do sistema de ficheiros do Data Lake Store com o cURL, para fazer pedidos REST.
 
@@ -101,7 +101,7 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 
 1. No portal, navegue para a VM do Linux. Em **Descrição Geral**, selecione **Ligar**.  
 2. Ligue à VM através do cliente SSH que escolher. 
-3. Na janela de terminal, com o cURL, faça um pedido para o ponto final da MSI local para obter um token de acesso para o sistema de ficheiros do Data Lake Store. O identificador de recurso do Data Lake Store é "https://datalake.azure.net/".  É importante incluir a barra à direita no identificador de recurso.
+3. Na janela de terminal, com o cURL, faça um pedido para o ponto final da Identidade de Serviço Gerida local para obter um token de acesso para o sistema de ficheiros do Data Lake Store. O identificador de recurso do Data Lake Store é "https://datalake.azure.net/".  É importante incluir a barra à direita no identificador de recurso.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
@@ -180,7 +180,7 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 
 Ao utilizar outras APIs do sistema de ficheiros do Data Lake Store pode anexar a ficheiros, transferir ficheiros, etc.
 
-Parabéns! Autenticou para o sistema de ficheiros do Data Lake Store com a MSI para uma VM do Linux.
+Parabéns! Autenticou para o sistema de ficheiros do Data Lake Store com a Identidade de Serviço Gerida para uma VM do Linux.
 
 ## <a name="next-steps"></a>Passos seguintes
 

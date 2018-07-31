@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823568"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259260"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Existem dois conjuntos de procedimentos diferentes à escolha. O procedimento de
     Se ainda não tem uma rede virtual, este procedimento orienta-o durante a criação de uma rede virtual nova com o modelo de implementação Resource Manager e a criação de ligações de Rede de VPNs e ExpressRoute novas. Para configurar uma rede virtual, siga os passos em [Para criar uma rede virtual nova e ligações coexistentes](#new).
 * Já tenho uma VNet do modelo de implementação Resource Manager.
   
-    Pode já ter uma rede virtual no local com uma ligação ExpressRoute ou de Rede de VPNs existente. Neste cenário, se a máscara de sub-rede do gateway for /28 ou superior, tem de eliminar o gateway existente. A secção [Para configurar ligações coexistentes a uma VNet já existente](#add) orienta-o através da eliminação do gateway e, em seguida, da criação de novas ligações ExpressRoute e de Rede de VPNs.
+    Pode já ter uma rede virtual no local com uma ligação ExpressRoute ou de Rede de VPNs existente. Neste cenário, se a máscara de sub-rede do gateway for /28 ou inferior (/28, /29, etc.), tem de eliminar o gateway existente. A secção [Para configurar ligações coexistentes a uma VNet já existente](#add) orienta-o através da eliminação do gateway e, em seguida, da criação de novas ligações ExpressRoute e de Rede de VPNs.
   
     Se eliminar e recriar o seu gateway, terá um período de inatividade para as ligações em vários locais. No entanto, as VMs e os serviços continuarão a poder comunicar através do balanceador de carga enquanto configura o seu gateway, se estiverem configurados para tal.
 
@@ -91,7 +91,7 @@ Este procedimento orienta-o ao longo da criação de uma VNet e de ligações Ex
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Crie uma rede virtual, incluindo uma Sub-Rede do Gateway. Para obter mais informações sobre como criar uma rede virtual, veja [Criar uma rede virtual](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Para obter mais informações sobre como criar sub-redes, veja [Criar uma sub-rede](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    

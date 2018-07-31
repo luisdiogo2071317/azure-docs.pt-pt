@@ -1,41 +1,40 @@
 ---
-title: "Introdução ao Azure DNS com o portal do Azure | Microsoft Docs"
-description: "Saiba como criar uma zona DNS e o registar no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com o portal do Azure."
+title: Início Rápido - criar uma zona e um registo DNS com o Portal do Azure
+description: Utilize este início rápido para aprender a criar uma zona e um registo DNS no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com o portal do Azure.
 services: dns
-documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: quickstart
+ms.date: 6/13/2018
+ms.author: victorh
+ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174654"
 ---
-# <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introdução ao Azure DNS com o portal do Azure
+# <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Início Rápido: configurar o DNS do Azure para resolução de nomes com o Portal do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [CLI 2.0 do Azure](dns-getstarted-cli.md)
+ Pode configurar o DNS do Azure para resolver os nomes de anfitrião no seu domínio público. Por exemplo, se tiver comprado o nome de domínio contoso.com de uma entidade de registo de nomes de domínio, pode configurar o DNS do Azure para alojar o domínio contoso.com e resolver www.contoso.com para o endereço IP do seu servidor Web ou aplicação Web.
 
-Este artigo explica-lhe os passos para criar a sua primeira zona DNS e o registo com o portal do Azure. Também pode executar estes passos com o Azure PowerShell ou a CLI do Azure de várias plataformas.
+Neste início rápido, vai criar um domínio de teste e, em seguida, vai criar um registo de endereço com o nome "www" para resolver para o endereço IP 10.10.10.10.
 
-Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Por fim, para publicar a zona DNS na Internet, tem de configurar os servidores de nomes do domínio. Cada um destes passos está descrito nos passos seguintes.
+É importante saber que todos os nomes e endereços IP utilizados neste início rápido são apenas exemplos e não pretendem representar um cenário real. No entanto, quando aplicável, também estão descritos cenários reais.
+
+<!---
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+--->
+
+Uma zona DNS é utilizada para conter as entradas de DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada entrada (ou registo) de DNS para o seu domínio é então criada no interior desta zona DNS. Os passos seguintes mostram como fazê-lo.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Inicie sessão no Portal do Azure.
-2. No menu Hub, clique em **Criar um recurso > Redes >** e, em seguida, clique em **Zona DNS**, para abrir a página **Criar zona DNS**.
+2. No canto superior esquerdo, clique em **+ Criar um recurso**, **Redes** e, em seguida, clique em **Zona DNS**, para abrir a página **Criar zona DNS**.
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
@@ -44,61 +43,67 @@ Uma zona DNS é utilizada para alojar os registos DNS para um determinado domín
 
    | **Definição** | **Valor** | **Detalhes** |
    |---|---|---|
-   |**Nome**|contoso.com|O nome da zona DNS|
+   |**Nome**|contoso.xyz|O nome da zona DNS para este exemplo. Pode utilizar qualquer valor que quiser neste início rápido, desde que ainda não tenha sido configurado nos servidores DNS do Azure. Um valor real seria um domínio que comprou de uma entidade de registo de nomes de domínio.|
    |**Subscrição**|[A sua subscrição]|Selecione uma subscrição para criar a zona DNS.|
-   |**Grupo de recursos**|**Criar novo:** contosoDNSRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou. Para saber mais sobre grupos de recursos, veja o artigo de descrição geral do [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
-   |**Localização**|EUA Oeste||
+   |**Grupo de recursos**|**Criar nova:** dns-test|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou. |
+   |**Localização**|EUA Leste||
 
-> [!NOTE]
-> Esta definição refere à localização do grupo de recursos e não tem qualquer impacto na zona DNS. A localização da zona DNS é sempre "global" e não está apresentada.
+A criação da zona pode demorar alguns minutos.
 
 ## <a name="create-a-dns-record"></a>Criar um registo DNS
 
-O exemplo seguinte explica-lhe o processo de criação do novo registo "A". Para outros tipos de registo e para modificar registos existentes, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md). 
+Agora, crie um novo registo de endereço (registo "A"). Os registos "A" são utilizados para resolver um nome de anfitrião para um endereço IP v4.
 
-1. Com a Zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.com**, na página Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **contoso.com** na caixa **Filtrar por nome...** para aceder facilmente à Zona DNS.
+1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.xyz**, na página Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **contoso.xyz** na caixa **Filtrar por nome...** para aceder facilmente à zona DNS.
 
 1. No topo da página **Zona DNS**, selecione **+ Conjunto de registos**, para abrir a página **Adicionar conjunto de registos**.
 
-1. Na página **Adicionar conjunto de registos**, introduza os valores seguintes e clique em **OK**. Neste exemplo, está a criar um registo A.
+1. Na página **Adicionar conjunto de registos**, introduza os valores seguintes e clique em **OK**. Neste exemplo, vai criar um registo "A".
 
    |**Definição** | **Valor** | **Detalhes** |
    |---|---|---|
-   |**Nome**|www|Nome do registo|
-   |**Tipo**|A| Os tipos de registo DNS para criar valores aceitáveis são A, AAAA, CNAME, MX, NS, SRV, TXT e PTR.  Para mais informações sobre os tipos de registo, visite [Descrição geral das zonas DNS e registos](dns-zones-records.md)|
-   |**TTL**|1|Tempo de vida do pedido DNS.|
-   |**Unidade de TTL**|Horas|Medida de tempo do valor TTL.|
-   |**Endereço IP**|ipAddressValue| Este valor é o endereço IP que o registo DNS resolve.|
-
-## <a name="view-records"></a>Ver registos
-
-Na parte inferior da página da zona DNS, pode ver os registos para a zona DNS. Deverá ver os registos DNS e SOA predefinidos, que são criados em cada zona, assim como quaisquer novos registos que tenha criado.
-
-![zona](./media/dns-getstarted-portal/viewzone500.png)
+   |**Nome**|www|Nome do registo. Este é o nome que quer utilizar para o anfitrião que pretende resolver para um endereço IP.|
+   |**Tipo**|A| Tipo de registo DNS a criar. Os registos "A" são as mais comuns, mas existem outros tipos de registo para servidores de e-mail (MX), endereços IP v6 (AAAA) e assim por diante. |
+   |**TTL**|1|Tempo de vida do pedido DNS. Especifica durante quanto tempo os clientes e servidores DNS podem colocar uma resposta em cache.|
+   |**Unidade de TTL**|hours|Medida de tempo do valor TTL.|
+   |**Endereço IP**|10.10.10.10| Este valor é o endereço IP para o qual o registo "A" resolve. Este é apenas um valor de teste para este início rápido. Para obter um exemplo real, deve introduzir o endereço IP público do seu servidor Web.|
 
 
-## <a name="update-name-servers"></a>Atualizar servidores de nomes
+Dado que, neste início rápido, não compra mesmo um nome de domínio real, não é necessário configurar o DNS do Azure como o nome de servidor junto da entidade de registo de nomes de domínio. No entanto, num cenário real, iria querer que qualquer pessoas na Internet conseguisse resolver o nome do anfitrião para ligar ao servidor ou à aplicação Web. Para obter mais informações sobre esse cenário real, veja [Delegar um domínio ao DNS do Azure](dns-delegate-domain-azure-dns.md).
 
-Depois de ter a certeza que a sua zona DNS e os registos foram configurados corretamente, tem de configurar o seu nome de domínio para utilizar os servidores de nomes do DNS do Azure. Isto permite que outros utilizadores na Internet encontrem os seus registos DNS.
 
-Os servidores de nomes para a sua zona são indicados no portal do Azure:
+## <a name="test-the-name-resolution"></a>Testar a resolução de nomes
 
-![zona](./media/dns-getstarted-portal/viewzonens500.png)
+Agora que tem uma zona de teste, com um registo "A" de teste, pode testar a resolução de nomes com uma ferramenta denominada nslookup. 
 
-Estes servidores de nomes devem ser configurados com a entidade de registo de nomes de domínio (onde comprou o nome de domínio). A entidade de registo oferece a opção para configurar os servidores de nomes do domínio. Para obter mais informações, consulte [Delegate your domain to Azure DNS (Delegar o seu domínio ao DNS do Azure)](dns-domain-delegation.md).
+1. Primeiro, deve anotar os servidores de nomes DNS do Azure a utilizar com o nslookup. 
 
-## <a name="delete-all-resources"></a>Eliminar todos os recursos
+   Os servidores de nomes para a sua zona estão listados na página **Descrição Geral** da zona DNS. Copie o nome de um dos servidores de nomes:
 
-Para eliminar todos os recursos criados neste artigo, conclua os seguintes passos:
+   ![zona](./media/dns-getstarted-portal/viewzonens500.png)
 
-1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **MyResourceGroup**, na página Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **MyResourceGroup** na caixa **Filtrar por nome...** para aceder facilmente ao grupo de recursos.
-1. Na página **MyResourceGroup**, clique no botão **Eliminar**.
-1. O portal requer que escreva o nome do grupo de recursos para confirmar que pretende eliminá-lo. Clique em **Eliminar**, escreva *MyResourceGroup* no nome do grupo de recursos e clique em **Eliminar**. A eliminação de um grupo de recursos elimina todos os recursos dentro do grupo de recursos. Por conseguinte, confirme os conteúdos de um grupo de recursos antes de o eliminar. O portal elimina todos os recursos contidos dentro do grupo de recursos e, em seguida, elimina o próprio grupo de recursos. Este processo demora vários minutos.
+2. Agora, abra uma linha de comandos e execute o seguinte comando:
+
+   ```
+   nslookup <host name> <name server>
+   
+   For example:
+
+   nslookup www.contoso.xyz ns1-08.azure-dns.com
+   ```
+
+Deverá ver algo semelhante à seguinte captura de ecrã:
+
+![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+Isto verifica se a resolução de nomes está a funcionar corretamente. www.contoso.xyz resolve para 10.10.10.10, tal como configurou!
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o grupo de recursos**dns-test** para eliminar os recursos criados neste início rápido. Para tal, clique no grupo de recursos **dns-test** e clique em **Eliminar grupo de recursos**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre DNS do Azure, consulte [Azure DNS overview (Descrição geral do DNS do Azure)](dns-overview.md).
-
-Para saber mais sobre a gestão de registos DNS no DNS do Azure, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md).
-
+> [!div class="nextstepaction"]
+> [Criar registos DNS para uma aplicação Web num domínio personalizado](./dns-web-sites-custom-domain.md)

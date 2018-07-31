@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: f028d37a98cecf14706773a2eb7cb601481435d1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2ae0fee410c93911546e5cbeef1378e6f7ebbc39
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307920"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205202"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Início Rápido: carregar, transferir e listar blobs através do Azure PowerShell
 
@@ -113,13 +113,15 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, aprendeu a transferir ficheiros entre o disco local e o armazenamento de Blobs do Azure. Para saber mais sobre a utilização do armazenamento de Blobs, avance para os procedimentos do armazenamento de blobs.
+Neste início rápido, aprendeu a transferir ficheiros entre o disco local e o armazenamento de Blobs do Azure. Para saber mais sobre como utilizar o armazenamento de Blobs com o PowerShell, avance para Como utilizar o Azure PowerShell com o Armazenamento do Azure.
 
 > [!div class="nextstepaction"]
-> [Procedimentos de Operações de Armazenamento de Blobs](storage-how-to-use-blobs-powershell.md)
+> [Using Azure PowerShell with Azure Storage (Utilizar o Azure PowerShell com o Armazenamento do Azure)](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Referência de cmdlets do Armazenamento do Microsoft Azure PowerShell
+
 * [Cmdlets do Armazenamento do PowerShell](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
+
 * O [Explorador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.

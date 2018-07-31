@@ -1,8 +1,8 @@
 ---
-title: Inscrever o dispositivo X.509 no Serviço de Aprovisionamento de Dispositivos do Azure com C# | Microsoft Docs
-description: Início Rápido do Azure - Inscrever o dispositivo X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure com o SDK de serviço C#
-author: bryanla
-ms.author: bryanla
+title: Este início rápido mostra como inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Azure com C# | Microsoft Docs
+description: Neste início rápido, vai inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Hub IoT do Azure com C#
+author: wesmc7777
+ms.author: wesmc
 ms.date: 01/21/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,33 +10,61 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 444b59da487aa88d42ca6713bba86cabc620a0c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf2a2dfbb46b8958e10431ba61e4bd8bc7ae18d6
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630202"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204964"
 ---
-# <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK de serviço C#
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 
-Estes passos explicam como criar programaticamente um grupo de inscrição para um certificado X.509 de AC de raiz ou intermediário com o [SDK de Serviço C#](https://github.com/Azure/azure-iot-sdk-csharp) e um exemplo de aplicação C# .NET Core. Um grupo de inscrição controla o acesso ao serviço de aprovisionamento de dispositivos que partilham um certificado de assinatura comum na respetiva cadeia de certificados. Para saber mais, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para obter mais informações sobre como utilizar a Infraestrutura de Chaves Públicas (PKI) baseada em certificados X.509 com o Hub IoT do Azure e o Serviço de Aprovisionamento de Dispositivos, veja [Descrição geral da segurança do certificado de AC X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). Embora os passos deste artigo funcionem em computadores Windows e Linux, este artigo utiliza um computador de desenvolvimento Windows.
+Este início rápido mostra como utilizar o C# para criar programaticamente um [Grupo de inscrição](concepts-service.md#enrollment-group) que utiliza certificados X.509 de AC de raiz ou intermediários. O grupo de inscrição é criado com o [SDK do IoT do Microsoft Azure para .NET](https://github.com/Azure/azure-iot-sdk-csharp) e uma aplicação C# .NET Core de exemplo. Um grupo de inscrição controla o acesso ao serviço de aprovisionamento de dispositivos que partilham um certificado de assinatura comum na respetiva cadeia de certificados. Para saber mais, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para obter mais informações sobre como utilizar a Infraestrutura de Chaves Públicas (PKI) baseada em certificados X.509 com o Hub IoT do Azure e o Serviço de Aprovisionamento de Dispositivos, veja [Descrição geral da segurança do certificado de AC X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
 
-## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
+Este início rápido espera que já tenha criado um hub IoT e a instância do Serviço de Aprovisionamento de Dispositivos. Se ainda não tiver criado estes recursos, conclua o início rápido [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de avançar neste artigo.
 
-1. Certifique-se de que tem o [Visual Studio 2017](https://www.visualstudio.com/vs/) instalado no seu computador. 
-2. Certifique-se de que tem o [SDK .Net Core](https://www.microsoft.com/net/download/windows) instalado no computador. 
-3. Antes de avançar, certifique-se de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
-4. Precisa de um ficheiro .pem ou .cer que contenha a parte pública de um certificado X.509 de AC de raiz ou intermediário que tenha sido carregado e verificado com o serviço de aprovisionamento. O [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) contém as ferramentas que podem ajudar a criar uma cadeia de certificados X.509, carregar um certificado de raiz ou intermediário dessa cadeia e realizar uma prova de posse com o serviço para verificar o certificado. Para utilizar estas ferramentas, transfira o conteúdo da pasta [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para uma pasta de trabalho no seu computador e siga os passos em [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Para além das ferramentas no SDK do C, o [Exemplo de verificação do certificado de grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) no **SDK do Serviço C#** mostra como fazer uma prova de posse com um certificado de AC de raiz ou intermediário X.509 existente. 
+Embora os passos deste artigo funcionem em computadores Windows e Linux, este artigo foi concebido para um computador de desenvolvimento Windows.
 
-  > [!IMPORTANT]
-  > Os certificados criados com as ferramentas do SDK foram concebidos para serem utilizados apenas para programação. Para saber como obter certificados adequados para código de produção, veja [Como obter um certificado de CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) na documentação do Hub IoT do Azure.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Instale o [Visual Studio 2017](https://www.visualstudio.com/vs/).
+* Instale o [SDK .Net Core](https://www.microsoft.com/net/download/windows).
+* Instale o [Git](https://git-scm.com/download/).
+
+
+
+## <a name="prepare-test-certificates"></a>Preparar os certificados de teste
+
+Neste início rápido, precisa de ter um ficheiro .pem ou .cer com a parte pública de um certificado X.509 de AC de raiz ou intermediário. Este certificado tem de ser carregado para o serviço de aprovisionamento e verificado pelo serviço. 
+
+O [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) contém as ferramentas de teste que podem ajudar a criar uma cadeia de certificados X.509, carregar um certificado de raiz ou intermediário dessa cadeia e realizar uma prova de posse com o serviço para verificar o certificado. Os certificados criados com as ferramentas do SDK foram concebidos para serem utilizados **apenas para testes de desenvolvimento**. Estes certificados **não podem ser utilizados em produção**. Contêm palavras-passe hard-coded ("1234") que expiram após 30 dias. Para saber como obter certificados adequados para utilização de produção, veja [Como obter um certificado X.509 de AC](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) na documentação do Hub IoT do Azure.
+
+Para utilizar estas ferramentas de teste para gerar certificados, execute os seguintes passos: 
+ 
+1. Abra uma linha de comandos ou shell do Git Bash e mude para uma pasta de trabalho no seu computador. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
+    
+  ```cmd/sh
+  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+  ```
+
+  Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+
+  As ferramentas de teste estão localizada em *azure-iot-sdk-c/tools/CACertificates* do repositório que clonou.    
+
+2. Siga os passos em [Gerir certificados de AC de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
+
+Para além das ferramentas no SDK C, o [Exemplo de verificação do certificado de grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) no *SDK do IoT do Microsoft Azure para .NET* mostra como fazer uma prova de posse em C# com um certificado de AC de raiz ou intermediário X.509 existente. 
+
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Obter a cadeia de ligação para o serviço de aprovisionamento
 
-Para o exemplo neste Início Rápido, precisa da cadeia de ligação para o seu serviço de aprovisionamento.
+Para o exemplo neste início rápido, precisa da cadeia de ligação para o seu serviço de aprovisionamento.
 1. Inicie sessão no portal do Azure, clique no botão **Todos os recursos**, no menu do lado esquerdo, e abra o Serviço de Aprovisionamento de Dispositivos. 
 2. Clique em **Políticas de acesso partilhado** e, em seguida, clique na política de acesso que pretende utilizar para abrir as respetivas propriedades. Na janela **Política de Acesso**, copie e tome nota da cadeia de ligação da chave primária. 
 

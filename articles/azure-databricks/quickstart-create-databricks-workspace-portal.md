@@ -1,25 +1,22 @@
 ---
-title: 'Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure | Microsoft Docs'
+title: 'Início Rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure'
 description: O manual de início rápido mostra como utilizar o portal do Azure para criar uma área de trabalho do Azure Databricks, um cluster do Apache Spark e executar uma tarefa do Spark.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232437"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225351"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -41,7 +38,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     ![Databricks no portal do Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
-3. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
+2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
@@ -63,6 +60,9 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster do Spark no Databricks
 
+> [!NOTE] 
+> Para utilizar uma conta gratuita para criar o cluster do Azure Databricks, antes de criar o cluster, aceda ao seu perfil e altere a subscrição para **pay as you go**. Para obter mais informações, veja [Conta gratuita do Azure](https://azure.microsoft.com/en-us/free/).  
+
 1. No portal do Azure, aceda à área de trabalho do Databricks que criou e, em seguida, clique em **Iniciar Área de Trabalho**.
 
 2. Será redirecionado para o portal do Azure Databricks. No portal, clique em **Cluster**.
@@ -83,14 +83,34 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
+
+## <a name="download-a-sample-data-file"></a>Transferir um ficheiro de dados de exemplo
+Transfira um ficheiro de dados JSON de exemplo e guarde-o no armazenamento de blobs do Azure.
+
+1. Transfira este ficheiro de dados JSON de exemplo [do Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) para o seu computador local. Clique com o botão direito do rato e guarde o ficheiro sem formato localmente. 
+
+2. Se ainda não tiver uma conta de armazenamento, crie uma. 
+   - No portal do Azure, selecione **Criar um recurso**.  Selecione a categoria **Armazenamento** e selecione **Contas de Armazenamento**  
+   - Indique um nome único para a conta de armazenamento.
+   - Selecione **Tipo de Conta**: **Armazenamento de Blobs**
+   - Selecione um nome de **Grupo de Recursos**. Utilize o mesmo grupo de recursos onde criou a área de trabalho do Databricks.
+   
+   Para obter mais informações, veja [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+
+3. Crie um Contentor de armazenamento na conta de Armazenamento de Blobs e carregue o ficheiro JSON de exemplo para o contentor. Pode utilizar o portal do Azure ou o [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar o ficheiro.
+
+   - Abra a conta de armazenamento no portal do Azure.
+   - Selecione **Blobs**.
+   - Selecione **+ Contentor** para criar um novo contentor vazio.
+   - Forneça um **Nome** para o contentor, como `databricks`. 
+   - Selecione o nível de acesso **Privado (acesso não anónimo)**.
+   - Após a criação do contentor, selecione o nome do contentor.
+   - Selecione o botão **Carregar**.
+   - Na página **Ficheiros**, selecione o **ícone de Pasta** para procurar e selecione o ficheiro de exemplo `small_radio_json.json` para carregamento. 
+   - Selecione **Carregar** para carregar o ficheiro.
+   
+   
 ## <a name="run-a-spark-sql-job"></a>Executar uma tarefa SQL do Spark
-
-Antes de começar esta secção, tem de satisfazer os seguintes pré-requisitos:
-
-* [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Transferir um ficheiro JSON de exemplo [a partir do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Carregar o ficheiro JSON de exemplo para a conta de armazenamento de Blobs do Azure que criou. Pode utilizar o [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar ficheiros.
-
 Execute as tarefas seguintes para criar um bloco de notas no Databricks, configure o bloco de notas para ler dados a partir de uma conta de armazenamento de Blobs do Azure e, em seguida, execute uma tarefa SQL do Spark nos dados.
 
 1. No painel do lado esquerdo, clique em **Área de trabalho**. No menu pendente de **Área de trabalho**, clique em **Criar** e, em seguida, clique em **Bloco de Notas**.

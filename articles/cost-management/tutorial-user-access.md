@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301612"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188187"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: atribuir acesso a dados de gestão de custos
 
@@ -28,6 +28,8 @@ Quando registou o seu contrato ou conta do Azure, foi criada uma conta com permi
 > [!div class="checklist"]
 > * Criar um utilizador com acesso de administrador
 > * Criar um utilizador com acesso de utilizador
+> * Eliminar um utilizador
+> * Eliminar ou exportar dados pessoais
 > * Criar e gerir entidades
 
 
@@ -42,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Embora já tenha acesso de administrador, os seus colegas na organização podem também precisar de ter acesso de administrador. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Gestão de Utilizadores**. Clique em **Adicionar Novo Utilizador** para adicionar um novo utilizador.
 
-Introduza as informações necessárias sobre o utilizador. O ID de Início de Sessão tem de ser um endereço de e-mail válido. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. No primeiro início de sessão, o utilizador define uma palavra-passe.
+Introduza as informações necessárias sobre o utilizador. O **ID de início de sessão** tem de ser um endereço de e-mail válido. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. No primeiro início de sessão, o utilizador define uma palavra-passe.
 
 Em **O utilizador tem acesso de administrador**, está selecionada a entidade de raiz da sua organização. Mantenha a raiz selecionada e, em seguida, guarde as informações de utilizador. A seleção da entidade de raiz permite ao utilizador ter permissão de administrador não só para a entidade de raiz na árvore, mas também para todas as entidades que residem abaixo da mesma.  
   ![Adicionar novo utilizador com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Os utilizadores típicos que precisem de acesso a dados de gestão de custos, co
 ![adicionar novo utilizador com acesso de utilizador](.\media\tutorial-user-access\new-user-access.png)
 
 Para ver um vídeo do tutorial sobre como adicionar utilizadores, veja [Adicionar Utilizadores ao Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+
+## <a name="delete-a-user"></a>Eliminar um utilizador
+
+Quando elimina um utilizador, quaisquer entidades a que o utilizador tenha acesso permanecem intactas. Os relatórios *pessoais* guardados são removidos quando o utilizador é eliminado. Os relatórios *públicos* guardados criados pelo utilizador não são eliminados.
+
+Não pode remover-se como utilizador.
+
+> [!WARNING]
+> Quando elimina um utilizador, não é possível restaurá-lo.
+
+1.  No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e, em seguida, selecione **Gestão de Utilizadores**.
+2.  Na lista de utilizadores, selecione o utilizador que quer eliminar e, em seguida, clique em **Eliminar Utilizador** (símbolo de caixote do lixo).
+3.  Na caixa Eliminar Utilizador, clique em **Sim** e, em seguida, clique em **OK**.
+
+
+## <a name="delete-or-export-personal-data"></a>Eliminar ou exportar dados pessoais
+
+Se quiser eliminar ou exportar dados pessoais do Cloudyn, tem de criar um pedido de suporte. Quando o pedido de suporte é criado, atua como pedido formal, um Pedido do Requerente de Dados. Em seguida, a Microsoft efetua uma ação de linha de comandos para remover a conta e eliminar quaisquer dados de cliente ou pessoais. Para saber mais sobre como pode solicitar a eliminação ou exportação dos seus dados, veja [Pedidos de Requerentes de Dados do Cloudyn](https://www.cloudyn.com/cloudyn-gdpr-requests).
 
 ## <a name="create-and-manage-entities"></a>Criar e gerir entidades
 
@@ -105,6 +125,8 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Criar um utilizador com acesso de administrador
 > * Criar um utilizador com acesso de utilizador
+> * Eliminar um utilizador
+> * Eliminar ou exportar dados pessoais
 > * Criar e gerir entidades
 
 

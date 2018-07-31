@@ -1,9 +1,9 @@
 ---
-title: Criar clusters Hadoop com contas de armazenamento de transferência segura no Azure HDInsight | Microsoft Docs
+title: Criar clusters Hadoop com contas de armazenamento de transferência segura no Azure HDInsight
 description: Saiba como criar clusters do HDInsight com contas de armazenamento do Azure com transferência segura ativada.
-keywords: hadoop getting started,hadoop linux,hadoop quickstart,secure transfer,azure storage account
 services: hdinsight
 author: mumian
+ms.author: jgao
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,14 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.workload: big-data
-ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/24/2018
+ms.openlocfilehash: b4dd6f0f5f44e128e0ae15db69b2f36f8e4c5600
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952199"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247164"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar clusters Hadoop com contas de armazenamento de transferência segura no Azure HDInsight
 
@@ -36,7 +35,7 @@ Antes de começar este tutorial, tem de ter os seguintes elementos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-Nesta secção, vai criar um cluster do Hadoop no HDInsight com um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo também está localizado no [Gibhub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Não precisa de ter experiência no modelo do Resource Manager para seguir este tutorial. Para conhecer outros métodos de criação de clusters e compreender as propriedades utilizadas neste tutorial, consulte [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Nesta secção, vai criar um cluster do Hadoop no HDInsight com um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo também está localizado no [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Não precisa de ter experiência no modelo do Resource Manager para seguir este tutorial. Para conhecer outros métodos de criação de clusters e compreender as propriedades utilizadas neste tutorial, consulte [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Clique na imagem seguinte para iniciar sessão no Azure e abrir o modelo do Azure Resource Manager no Portal do Azure. 
    
@@ -97,5 +96,3 @@ Para saber mais sobre como criar ou gerir um cluster do HDInsight, veja os segui
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-
