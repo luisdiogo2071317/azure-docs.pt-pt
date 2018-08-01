@@ -7,21 +7,19 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 8b32b241c4122893bb07993402a22d2223053f3d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115182"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389655"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
 > [!Note]
-> As APIs de V1 do indexador de vídeo foram preteridas e serão removidas no dia 1 de Agosto de 2018. Deve começar a utilizar as APIs do Video Indexer v2 para evitar interrupções.
->
-> Para programar com APIs do Video Indexer v2, veja as instruções presentes [aqui](https://api-portal.videoindexer.ai/). 
+> A API do Video Indexer V1 foi preterido no dia 1 de Agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções presentes [aqui](https://api-portal.videoindexer.ai/). 
 
 Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, ocrs, rostos, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 

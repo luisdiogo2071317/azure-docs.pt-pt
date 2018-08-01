@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347108"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389828"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -123,7 +123,7 @@ Para cenários com grandes quantidades de dados não estruturados para armazenar
 
 Processamento do registo é um cenário usado para usar entradas de armazenamento de Blobs com o Stream Analytics. Neste cenário, os arquivos de dados de telemetria tenham sido capturados a partir de um sistema e tem de ser analisado e processado para extrair dados significativos.
 
-O carimbo de hora padrão de eventos de armazenamento de BLOBs no Stream Analytics é o período de tempo que o blob foi modificado pela última vez, que é `BlobLastModifiedUtcTime`. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave.
+O carimbo de hora padrão de eventos de armazenamento de BLOBs no Stream Analytics é o período de tempo que o blob foi modificado pela última vez, que é `BlobLastModifiedUtcTime`. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave. Uma tarefa do Stream Analytics extrai dados da entrada de armazenamento de Blobs do Azure cada segundo se o arquivo de Blobs está disponível. Se o ficheiro blob não estiver disponível, há um término exponencial com um atraso de tempo máximo de 90 segundos.
 
 Entradas com formatação CSV *requerem* uma linha de cabeçalho para definir campos para o conjunto de dados e todos os campos de linha de cabeçalho tem de ser exclusiva.
 

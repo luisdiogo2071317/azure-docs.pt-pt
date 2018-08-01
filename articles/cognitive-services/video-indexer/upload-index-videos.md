@@ -7,18 +7,21 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258369"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390974"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar os seus vídeos  
 
 Este artigo mostra como utilizar o [carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API para carregar e indexar os seus vídeos com o indexador de vídeo do Azure. Ele também discute alguns dos parâmetros que pode definir a API para alterar o processo e a saída da API.
+
+> [!Note]
+> Ao criar uma conta do Video Indexer, pode escolher uma conta de avaliação gratuita (onde pode obter um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que não está limitado pela quota). <br/>Com a avaliação gratuita, Video Indexer fornece até 600 minutos de indexação gratuito para os utilizadores do Web site e até 2400 minutos de gratuitos de indexação para os utilizadores de API. <br/>Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Paga minutos indexados, bem como a conta de suporte de dados relacionados com custos. 
 
 ## <a name="configurations-and-params"></a>Configurações e parâmetros
 

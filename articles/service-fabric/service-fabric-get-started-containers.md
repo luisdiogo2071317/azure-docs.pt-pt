@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6577e15ff0773e336da61e7883e6ea7257b6b169
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294817"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358873"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -36,21 +36,21 @@ Para executar uma aplicação existente num contentor do Windows num cluster do 
 
 * Um cluster do Windows com três ou mais nós em execução no Windows Server com contentores. 
 
-  Para este artigo, a versão (compilação) do Windows Server com contentores em execução em nós do cluster tem de corresponder no computador de desenvolvimento. Isto acontece porque compilar a imagem de docker no computador de desenvolvimento e não existirem restrições de compatibilidade entre versões do contentor do SO e o anfitrião do SO em que é implementada. Para obter mais informações, consulte [contentor do Windows Server SO e o anfitrião de compatibilidade do SO](#windows-server-container-os-and-host-os-compatibility). 
+  Neste artigo, a versão (compilação) do Windows Server com contentores em execução em nós do cluster tem de corresponder no computador de desenvolvimento. Isto acontece porque criar a imagem do docker no seu computador de desenvolvimento e existem restrições de compatibilidade entre versões do contentor do sistema operacional e o SO do host no qual está implementada. Para obter mais informações, consulte [contentor do Windows Server SO e o host de compatibilidade do SO](#windows-server-container-os-and-host-os-compatibility). 
   
-  Para determinar a versão do Windows Server com contentores que necessita para o cluster, execute o `ver` comando a partir de uma linha de comandos do Windows no computador de desenvolvimento:
+  Para determinar a versão do Windows Server com contentores, precisa para o seu cluster, execute o `ver` comando num prompt de comando do Windows no computador de desenvolvimento:
 
-  * Se a versão contém *x.x.14323.x*, em seguida, selecione *WindowsServer 2016 Datacenter com contentores* para o sistema operativo quando [criar um cluster](service-fabric-cluster-creation-via-portal.md). Também pode [Experimente gratuitamente o Service Fabric](https://aka.ms/tryservicefabric) com um cluster de terceiros.
-  * Se a versão contém *x.x.16299.x*, em seguida, selecione *WindowsServerSemiAnnual Centro de dados-Core-1709-com-contentores* para o sistema operativo quando [criar um cluster](service-fabric-cluster-creation-via-portal.md). No entanto, não é possível utilizar um cluster de terceiros.
+  * Se a versão contém *x.x.14323.x*, em seguida, selecione *WindowsServer 2016 Datacenter com contentores* para o sistema operativo quando [criação de um cluster](service-fabric-cluster-creation-via-portal.md). Também pode [experimentar o Service Fabric gratuitamente](https://aka.ms/tryservicefabric) com um cluster de grupo.
+  * Se a versão contém *x.x.16299.x*, em seguida, selecione *WindowsServerSemiAnnual Datacenter-Core-1709-com-contentores* para o sistema operativo quando [criar um cluster](service-fabric-cluster-creation-via-portal.md). Não é possível utilizar um party cluster, no entanto.
 
 * Um registo no Azure Container Registry - [Criar um registo de contentor](../container-registry/container-registry-get-started-portal.md) na sua subscrição do Azure.
 
 > [!NOTE]
-> Implementar contentores para um cluster do Service Fabric em execução no Windows 10 é suportada.  Consulte [neste artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar os contentores do Windows.
+> A implementação de contentores para um cluster do Service Fabric em execução no Windows 10 é suportada.  Ver [este artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar contentores do Windows.
 >   
 
 > [!NOTE]
-> Versões de Service Fabric 6.2 e posteriores suportam a implementação contentores para clusters em execução no Windows Server versão 1709.  
+> Versões de Service Fabric 6.2 e versões posteriores dão suporte a implementação de contentores para clusters em execução no Windows Server versão 1709.  
 > 
 
 ## <a name="define-the-docker-container"></a>Definir o contentor do Docker
@@ -323,7 +323,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. No modo de isolamento de processo, todos os contentores em execução no mesmo computador anfitrião partilham o kernel com o anfitrião. No modo de isolamento de Hyper-V, os kernels estão isolados entre cada contentor de Hyper-V e o anfitrião do contentor. O modo de isolamento está especificado no elemento `ContainerHostPolicies` no ficheiro de manifesto de aplicação. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. A predefinição é o modo de isolamento do processo em anfitriões do Windows Server. Modo de isolamento de Hyper-V apenas é suportado em anfitriões do Windows 10,, para que o contentor é executado no modo de isolamento de Hyper-V, independentemente da respetiva definição de modo de isolamento. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
+O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. No modo de isolamento de processo, todos os contentores em execução no mesmo computador anfitrião partilham o kernel com o anfitrião. No modo de isolamento de Hyper-V, os kernels estão isolados entre cada contentor de Hyper-V e o anfitrião do contentor. O modo de isolamento está especificado no elemento `ContainerHostPolicies` no ficheiro de manifesto de aplicação. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. A predefinição é o modo de isolamento do processo em anfitriões do Windows Server. Modo de isolamento de Hyper-V apenas é suportado em anfitriões do Windows 10, pelo que o contentor é executado no modo de isolamento de Hyper-V, independentemente de sua definição do modo de isolamento. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -394,34 +394,34 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="windows-server-container-os-and-host-os-compatibility"></a>Contentor do Windows Server SO e o anfitrião de compatibilidade do SO
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Contentor do Windows Server SO e o host de compatibilidade do SO
 
-Contentores do Windows Server não são compatíveis em todas as versões de um anfitrião do SO. Por exemplo:
+Contentores do Windows Server não são compatíveis entre todas as versões de um sistema operacional host. Por exemplo:
  
-- Contentores do Windows Server incorporadas a utilizar o Windows Server versão 1709 não funcionam num anfitrião com o Windows Server versão 2016. 
-- Contentores do Windows Server criadas com o Windows Server 2016 funcionam no modo de isolamento de Hyper-v apenas num anfitrião com o Windows Server versão 1709. 
-- Com contentores do Windows Server criadas com o Windows Server 2016, poderá ser necessário para garantir que a revisão do contentor SO e sistema operativo do anfitrião são os mesmos quando executado no modo de isolamento do processo num anfitrião com o Windows Server 2016.
+- Contentores do Windows Server criados com a versão 1709 do Windows Server não funcionam num anfitrião com o Windows Server versão 2016. 
+- Contentores do Windows Server criados com o Windows Server 2016 funcionam no modo de isolamento de Hyper-v apenas num anfitrião com o Windows Server versão 1709. 
+- Com contentores do Windows Server criados com o Windows Server 2016, poderá ser necessário para se certificar de que a revisão do contentor de sistema operacional e o sistema operacional host são os mesmos quando em execução no modo de isolamento do processo num anfitrião com o Windows Server 2016.
  
-Para obter mais informações, consulte [compatibilidade da versão do Windows contentor](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Para obter mais informações, consulte [compatibilidade de versões do contentor Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considere a compatibilidade do SO anfitrião e o contentor do SO quando criar e implementar contentores ao cluster do Service Fabric. Por exemplo:
+Considere a compatibilidade do sistema operacional host e o contentor do sistema operacional ao criar e implementar contentores no cluster do Service Fabric. Por exemplo:
 
-- Certifique-se de que implemente contentores com o sistema operativo compatível com o SO em nós de cluster.
-- Certifique-se de que o modo de isolamento especificado para a sua aplicação do contentor é consistente com suporte para o contentor de SO no nó onde está a ser implementada.
-- Considere como SO é atualizado para os nós do cluster ou contentores podem afetar a respetiva compatibilidade. 
+- Certifique-se de que implementa contentores com um sistema operacional compatível com o SO em nós do cluster.
+- Certifique-se de que o modo de isolamento especificado para a sua aplicação de contentor é consistente com suporte para o contentor de sistema operacional no nó onde está a ser implementado.
+- Considere como as atualizações de SO para os nós de cluster ou contentores podem afetar seus de compatibilidade. 
 
 Recomendamos as seguintes práticas para se certificar de que a contentores são implementados corretamente no seu cluster do Service Fabric:
 
-- Para especificar a versão do SO do Windows Server que é criado um contentor a partir do, utilize a marcação explícita imagem com as imagens de Docker. 
-- Utilize [marcação de SO](#specify-os-build-specific-container-images) no seu ficheiro de manifesto de aplicação para se certificar de que a aplicação é compatível em diferentes versões do Windows Server e atualizações.
+- Utilize a marcação de imagem explícita com as imagens do Docker para especificar a versão do SO do Windows Server que é criado um contentor a partir. 
+- Uso [SO marcação](#specify-os-build-specific-container-images) no seu ficheiro de manifesto de aplicação para se certificar de que seu aplicativo é compatível em diferentes versões do Windows Server e as atualizações.
 
 > [!NOTE]
-> Com o Service Fabric versão 6.2 e posterior, pode implementar contentores com base no Windows Server 2016 localmente num anfitrião Windows 10. No Windows 10, contentores executam no modo de isolamento de Hyper-V, independentemente do modo de isolamento definido no manifesto da aplicação. Para obter mais informações, consulte [configurar o modo de isolamento](#configure-isolation-mode).   
+> Com o Service Fabric versão 6.2 e versões posterior, pode implementar contentores com base no Windows Server 2016 localmente num anfitrião com o Windows 10. No Windows 10, pode executar os contentores no modo de isolamento de Hyper-V, independentemente do modo de isolamento definido no manifesto do aplicativo. Para obter mais informações, consulte [modo de isolamento de configurar](#configure-isolation-mode).   
 >
  
 ## <a name="specify-os-build-specific-container-images"></a>Indicar imagens de contentor específicas da compilação de SO 
 
-Contentores do Windows Server podem não ser compatíveis entre versões diferentes do SO. Por exemplo, os contentores do Windows Server criadas com o Windows Server 2016 não funcionam no Windows Server versão 1709 no modo de isolamento do processo. Por conseguinte, se nós de cluster são atualizados para a versão mais recente, os serviços de contentor criados com as versões anteriores do sistema operativo poderão falhar. Para contornar esta com a versão 6.1 do tempo de execução e mais recente, o Service Fabric suporta especificar várias imagens de SO por contentor e etiquetagem-los com as versões de compilação do SO no manifesto da aplicação. Pode obter a versão de compilação do SO executando `winver` uma linha de comandos do Windows. Antes de atualizar o SO nos nós, atualize os manifestos da aplicação e especifique a substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
+Contentores do Windows Server podem não ser compatíveis entre diferentes versões do sistema operacional. Por exemplo, contentores do Windows Server criados com o Windows Server 2016 não funcionam no Windows Server versão 1709 no modo de isolamento do processo. Por conseguinte, se nós de cluster forem atualizados para a versão mais recente, os serviços de contentores criados com as versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6.1 do tempo de execução e mais recente, o Service Fabric suporta a especificação de várias imagens de sistema operacional por contentor e marcá-los com as versões de compilação do sistema operacional no manifesto do aplicativo. Pode obter a versão de compilação do SO, executando `winver` num prompt de comando do Windows. Antes de atualizar o SO nos nós, atualize os manifestos da aplicação e especifique a substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -601,7 +601,7 @@ O tempo de execução do Service Fabric aloca 20 minutos para transferir e extra
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]

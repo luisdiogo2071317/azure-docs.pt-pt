@@ -1,6 +1,6 @@
 ---
-title: Não é possível aceder este erro de aplicação empresarial quando utilizar uma aplicação de Proxy de aplicações | Microsoft Docs
-description: Como resolver problemas de acesso comuns com aplicações de Proxy de aplicações do Azure AD.
+title: Não é possível aceder este erro de aplicação empresarial quando utilizar uma aplicação de Proxy de aplicações | Documentos da Microsoft
+description: Como resolver problemas comuns de acesso com aplicações de Proxy de aplicações do Azure AD.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,106 +11,106 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1e13fe6a9a2e5251d167bb56a05721e613300e83
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80d25e7751e7fb676887879eefae85e5a6a04cd1
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334835"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367169"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
-Este artigo ajuda-o a resolver problemas comuns para o erro "não é possível aceder esta aplicação empresarial" uma aplicação de Proxy de aplicações do Azure AD.
+Este artigo ajuda-o a resolver problemas comuns para o erro "não é possível aceder esta aplicação empresarial" num aplicativo de Proxy de aplicações do Azure AD.
 
 ## <a name="overview"></a>Descrição geral
-Quando vir este erro, localize o código de estado na página de erro. Esse código é, provavelmente, uma dos seguintes códigos de estado:
+Quando vir este erro, encontre o código de estado na página de erro. Esse código se tratar de um dos seguintes códigos de estado:
 
--   **Tempo limite do gateway**: não é possível alcançar o conector do serviço do Proxy de aplicações. Este erro normalmente indica um problema com a atribuição de conector, o conector propriamente, ou o funcionamento em rede regras em torno do conector.
+-   **Tempo limite do gateway**: serviço o Proxy de aplicações é não é possível alcançar o conector. Este erro normalmente indica um problema com a atribuição de conector, o conector propriamente dito, ou o funcionamento em rede regras sobre o conector.
 
--   **Gateway incorreto**: O conector não é possível alcançar a aplicação de back-end. Este erro pode indicar uma configuração incorreta da aplicação.
+-   **Gateway inválido**: O conector não consegue aceder à aplicação de back-end. Este erro poderá indicar uma configuração incorreta do aplicativo.
 
--   **Proibido**: O utilizador não está autorizado a aceder à aplicação. Este erro pode acontecer quando o utilizador não está atribuído à aplicação no Azure Active Directory, ou se no back-end, o utilizador não tem permissão para aceder à aplicação.
+-   **Proibido**: O utilizador não está autorizado a aceder à aplicação. Este erro pode acontecer quando o utilizador não está atribuído para a aplicação no Azure Active Directory, ou se o back-end, o utilizador não tem permissão para aceder à aplicação.
 
-Para localizar o código, observe o texto à parte inferior esquerda da mensagem de erro para o campo de "Código de estado". Também procure qualquer sugestões adicionais na parte inferior da página.
+Para encontrar o código, observe o texto à esquerda na parte inferior da mensagem de erro para o campo de "Código de estado". Também procure qualquer dicas adicionais na parte inferior da página.
 
    ![Erro de tempo limite do gateway](./media/application-proxy/connection-problem.png)
 
-Para obter detalhes sobre como resolver a causa raiz destes erros e obter mais detalhes sobre correções sugeridos, consulte a secção correspondente abaixo.
+Para obter detalhes sobre como resolver a causa destes erros e obter mais detalhes sobre as correções sugeridas, consulte a seção correspondente abaixo.
 
 ## <a name="gateway-timeout-errors"></a>Erros de tempo limite do gateway
 
-Um tempo limite do gateway ocorre quando o serviço tenta contactar o conector e não é possível para o período de tempo limite. Este erro é habitualmente causado por uma aplicação atribuída a um grupo de conector com conectores não funcional ou algumas portas de que o conector não estão abertas.
+Um tempo limite do gateway ocorre quando o serviço tenta contactar o conector e não conseguir dentro da janela de tempo limite. Este erro é habitualmente causado por uma aplicação atribuída a um grupo de conectores com conectores a funcionar ou algumas portas exigidas pelo conector não estão abertas.
 
 
 ## <a name="bad-gateway-errors"></a>Erros de Gateway incorretos
 
-Um erro de gateway incorreto indica que o conector não é possível alcançar a aplicação de back-end. Certifique-se de que tiver publicado a aplicação correta. Prende comuns que causar este erro é:
+Um erro de gateway inválido indica que o conector não consegue aceder à aplicação de back-end. Certifique-se de que tiver publicado a aplicação correta. Erros comuns que fazem com que este erro são:
 
--   Um erro de digitação ou erro no URL interno
+-   Um erro de digitação ou um erro no URL interno
 
--   Não publicar a raiz da aplicação. Por exemplo, publicar <http://expenses/reimbursement> mas tentar acesso <http://expenses>
+-   Não publicar a raiz do aplicativo. Por exemplo, publicar <http://expenses/reimbursement> mas tentando aceder <http://expenses>
 
--   Problemas com a configuração de delegação restrita de Kerberos (KCD)
+-   Problemas com a configuração de Kerberos Constrained Delegation (KCD)
 
 -   Problemas com a aplicação de back-end
 
-## <a name="forbidden-errors"></a>Erros proibidos
+## <a name="forbidden-errors"></a>Proibido erros
 
-Se vir um erro proibido, não foi atribuída ao utilizador para a aplicação. Este erro dever-se no Azure Active Directory ou a aplicação de back-end.
+Se vir um erro proibido, o utilizador não foi atribuído à aplicação. Este erro pode ser no Azure Active Directory ou na aplicação de back-end.
 
-Para saber como atribuir utilizadores para a aplicação no Azure, consulte o [documentação configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Para saber como atribuir utilizadores a aplicação no Azure, veja a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
 
-Se a confirmar que o utilizador tem atribuída para a aplicação no Azure, verifique a configuração de utilizador da aplicação de back-end. Se estiver a utilizar autenticação do Kerberos restrita delegação/integrada do Windows, consulte a página de resolução de problemas de KCD diretrizes.
+Se confirmar que é atribuída ao utilizador para a aplicação no Azure, verifique a configuração de utilizador da aplicação de back-end. Se estiver a utilizar autenticação de Windows de integrado/delegação restrita de Kerberos, consulte a página de resolução de problemas de KCD de mensagens em fila para obter diretrizes.
 
-## <a name="check-the-applications-internal-url"></a>Verifique o URL interno da aplicação
+## <a name="check-the-applications-internal-url"></a>Verifique o URL interno do aplicativo
 
-Como primeiro passo rápido, faça duplo verificação e corrigir o URL interno ao abrir a aplicação através de **aplicações empresariais**, em seguida, selecionar o **Proxy de aplicações** menu. Certifique-se de que o URL interno é utilizada a partir da sua rede no local para aceder à aplicação.
+Como primeiro passo rápido, confirme e corrigir a URL interna ao abrir a aplicação através de **aplicações empresariais**, em seguida, selecionar o **Proxy de aplicações** menu. Certifique-se de que o URL interno é utilizada a partir da sua rede no local para aceder à aplicação.
 
-## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Certifique-se que a aplicação é atribuída a um conector do grupo de trabalho
+## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Verifique a aplicação é atribuída a um grupo de conectores em funcionamento
 
-Para verificar a aplicação é atribuído a um conector do grupo de trabalho:
+Para verificar a aplicação é atribuído a um grupo de conectores em funcionamento:
 
-1.  Abra a aplicação no portal, acedendo a **do Azure Active Directory**, clicando no **aplicações empresariais**, em seguida, **todas as aplicações.** Abra a aplicação, em seguida, selecione **Proxy de aplicações** no menu esquerdo.
+1.  Abra a aplicação no portal, acedendo a **do Azure Active Directory**, clicar em **aplicações empresariais**, em seguida, **todas as aplicações.** Abra a aplicação, em seguida, selecione **Proxy de aplicações** no menu à esquerda.
 
-2.  Observe o campo de grupo de conector. Se não houver nenhum conectores Active Directory no grupo, verá um aviso. Se não vir quaisquer avisos, mova em "verificar todas as portas necessárias estão na lista de permissões".
+2.  Veja o campo de grupo do conector. Se não existirem não existem conectores ativos no grupo, verá um aviso. Se não vir quaisquer avisos, passarei para "verificar todas as portas necessárias estão na lista de permissões".
 
-3.  Se o problema está visível conector grupo, utilize o na lista pendente para selecionar o grupo correto e confirmar que deixarem de ver quaisquer avisos. Se o grupo de conector pretendido está a ser mostrada, clicar na mensagem de aviso para abrir a página com a gestão do conector.
+3.  Se o problema é mostrar o grupo do conector, utilize a menu pendente para selecionar o grupo correto e confirme que já não vê quaisquer avisos. Se o grupo do conector prevista é apresentada, clique a mensagem de aviso para abrir a página com a gestão do conector.
 
-4.  Aqui, existem algumas formas de obter informações completas:
+4.  A partir daqui, existem algumas formas de fazer uma busca ainda mais:
 
-  * Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo "Grupo de conector", utilize a lista pendente para selecionar o grupo correto e clique em Guardar.
+  * Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
 
-  * Transfira um novo conector para esse grupo: nesta página, pode obter a ligação para [transfira um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha direta de visão, para a aplicação de back-end. Typicall, o conector está instalado no mesmo servidor que a aplicação. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que pertença ao grupo à direita.
+  * Transferir um novo conector para esse grupo: nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Typicall, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
 
-  * Investigar um conector inativo: se um conector mostra como inativo, é possível alcançar o serviço. Este erro normalmente é devido a algumas as portas necessárias a ser bloqueadas. Para resolver este problema, mover em "verificar todas as portas necessárias estão na lista de permissões".
+  * Investigar um conector inativo: se um conector mostra como inativo, não conseguir contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
 
-Depois de utilizar estes passos para garantir que a aplicação é atribuída a um grupo com trabalhar conectores, teste novamente a aplicação. Se esta ainda não está a funcionar, continue para a secção seguinte.
+Depois de utilizar estes passos para garantir que a aplicação é atribuída a um grupo com a trabalhar de conectores, teste o aplicativo novamente. Se ainda não está funcionando, avance para a secção seguinte.
 
 ## <a name="check-all-required-ports-are-whitelisted"></a>Verifique todas as portas necessárias estão na lista de permissões
 
-Para verificar se todas as necessárias portas são abertas, consulte a documentação sobre a abertura de portas. Se as portas necessárias estão abertas, mova para a secção seguinte.
+Para verificar-se de que todas as necessárias portas estão abertas, consulte a documentação sobre como abrir portas. Se as portas necessárias estiverem abertas, mova para a secção seguinte.
 
-## <a name="check-for-other-connector-errors"></a>Verifique a existência de outros erros de conector
+## <a name="check-for-other-connector-errors"></a>Verificação de outros erros de conector
 
-Se nenhuma das respostas anteriores resolver o problema, o passo seguinte é procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
+Se nenhum deles resolver o problema, a próxima etapa é procurar problemas ou erros com o conector propriamente dito. Pode ver alguns erros comuns na [documento de resolução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitas das mensagens de erro partilham recomendações específicas para correções. Para ver os registos, consulte o [documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
+Também pode ver diretamente os registos do conector para identificar eventuais erros. Muitas das mensagens de erro partilham recomendações específicas para correções. Para ver os registos, consulte a [documentação dos conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
 
-## <a name="additional-resolutions"></a>Resoluções adicionais
+## <a name="additional-resolutions"></a>Resoluções de adicionais
 
-Se o procedimento acima não corrigir o problema, existem alguns diferentes as causas possíveis. Para identificar o problema:
+Se o procedimento acima não corrigir o problema, há algumas causas possíveis diferentes. Para identificar o problema:
 
-Se a aplicação está configurada para utilizar a autenticação integrada de Windows (IWA), teste a aplicação sem o início de sessão único. Caso contrário, para avançar para o parágrafo seguinte. Para verificar a aplicação sem o início de sessão único, abra a aplicação através de **aplicações da empresa,** e vá para o **Single Sign-On** menu. Altere o na lista pendente de "Autenticação integrada do Windows" para "Do Azure AD single sign-on desativada". 
+Se seu aplicativo estiver configurado para utilizar a autenticação integrada do Windows (IWA), teste o aplicativo sem início de sessão único. Caso contrário, mover para o próximo parágrafo. Para verificar o aplicativo sem início de sessão único, abra a sua aplicação através de **aplicações empresariais,** e vá para o **Single Sign-On** menu. Altere a lista pendente de "Autenticação integrada do Windows" para "Do Azure AD início de sessão único desativado". 
 
-Agora, abra um browser e tente aceder novamente a aplicação. Deve ser pedida a autenticação e aceder à aplicação. Se é possível efetuar a autenticação, é o problema com a configuração de delegação restrita de Kerberos (KCD) que permite o início de sessão. Para obter mais informações, consulte a página KCD resolver problemas.
+Agora, abra um browser e tente aceder novamente à aplicação. Deve ser pedida a autenticação e obter no aplicativo. Se é possível efetuar a autenticação, o problema é com a configuração de Kerberos Constrained Delegation (KCD) que permite o início de sessão único. Para obter mais informações, consulte a página resolução de problemas de KCD.
 
-Se continuar a ver o erro, avance para a máquina onde o conector é instalado, abra um browser e tentam aceder o URL interno utilizado para a aplicação. O conector funciona como outro cliente do mesmo computador. Se não conseguirem contactar a aplicação, investigue o motivo pelo qual que a máquina não é possível alcançar a aplicação, ou utilizar um conector num servidor que é capaz de aceder à aplicação.
+Se continuar a ver o erro, vá para a máquina em que o conector é instalado, abra um browser e tentam aceder a URL interna utilizada para a aplicação. O conector funciona como outro cliente a partir do mesmo computador. Se não é possível aceder à aplicação, investigar por que é possível aceder à aplicação ou utilizar um conector num servidor que é capaz de aceder à aplicação que a máquina.
 
-Se pode aceder a aplicação do que a máquina, para procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](manage-apps/application-proxy-troubleshoot.md#connector-errors). Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitos dos nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
+Se pode entrar nessa máquina, a aplicação para procurar problemas ou erros com o conector propriamente dito. Pode ver alguns erros comuns na [documento de resolução de problemas](manage-apps/application-proxy-troubleshoot.md#connector-errors). Também pode ver diretamente os registos do conector para identificar eventuais erros. Muitas das nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md)

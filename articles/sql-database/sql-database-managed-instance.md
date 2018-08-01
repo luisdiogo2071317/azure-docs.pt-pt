@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 02a2a5d808f21c48181da265b05c7f532a200c2f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346703"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390692"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância gerida (pré-visualização)?
 
@@ -148,7 +148,7 @@ A lista seguinte descreve as principais características da camada de serviços 
 | Versão do SQL Server / criar | SQL Server mais recente (disponível) |
 | Recursos adicionais | [OLTP dentro da memória](sql-database-in-memory.md)<br> 1 réplica só de leitura adicional ([Escalamento leitura](sql-database-read-scale-out.md))
 | Tamanho de armazenamento min | 32 GB |
-| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os vCore tamanhos<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 40, 64, 80 vCores</ul>|
+| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os vCore tamanhos<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 32, 40, 64, 80 vCores</ul>|
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número de ficheiros de dados (linhas) pela base de dados | Vários | 
 | Número de ficheiros de registo (registo) por base de dados | 1 | 

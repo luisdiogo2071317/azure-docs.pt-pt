@@ -1,6 +1,6 @@
 ---
-title: Problema ao adicionar uma aplicação de galeria do Azure AD | Microsoft Docs
-description: Compreender a letra de pessoas problemas comuns quando adicionar aplicações de galeria do Azure AD e o que pode fazer resolvê-los
+title: Problema ao adicionar uma aplicação da galeria do Azure AD | Documentos da Microsoft
+description: Compreender os rostos de pessoas de problemas comuns ao adicionar aplicações de galeria do Azure AD e o que pode fazer para resolvê-los
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,62 +11,62 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 906a089417cefab72e036dbf1e5650285c7440bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: acde4dff332a6cafad98a7d82938225861b7ec71
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334990"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366856"
 ---
-# <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação de galeria do Azure AD
+# <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação da galeria do Azure AD
 
-Este artigo ajuda-o a compreender a letra de pessoas problemas comuns quando adicionar aplicações de galeria do Azure AD e o que pode fazer resolvê-los.
+Este artigo ajuda-o a compreender os rostos de pessoas de problemas comuns ao adicionar aplicações de galeria do Azure AD e o que pode fazer para resolvê-los.
 
-## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Posso clica no botão "Adicionar" e a minha aplicação demorava muito tempo a ser apresentado
+## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "Adicionar" e a minha aplicação demorava muito tempo para que sejam apresentadas
 
-Em algumas circunstâncias, pode demorar 1-2 minutos (e, por vezes, mais) para uma aplicação a aparecer depois adicioná-lo ao seu diretório. Embora não seja o desempenho esperado normal, pode ver a adição de aplicação está em curso, clicando no **notificações** ícone (de sino) no canto superior direito do [portal do Azure](https://portal.azure.com/) e procura para um **em curso** ou **concluído** notificação com a etiqueta **Criar aplicação.**
+Em algumas circunstâncias, pode demorar 1 a 2 minutos (e, às vezes, mais tempo) para uma aplicação para aparecerem ao fim de adicioná-lo ao seu diretório. Embora não seja o desempenho esperado normal, pode ver a adição de aplicação está em curso, ao clicar no **notificações** ícone (na campainha) no canto superior direito dos [portal do Azure](https://portal.azure.com/) e à procura para uma **em curso** ou **concluído** notificação rotulada **Criar aplicação.**
 
-Se nunca é adicionada a sua aplicação ou encontrar um erro quando clicar no **adicionar** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro, seguindo os passos a [como ver os detalhes de uma notificação de portal](#how-to-see-the-details-of-a-portal-notification) secção.
+Se seu aplicativo nunca é adicionado ou encontrar um erro ao clicar o **Add** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro ao seguir os passos a [como ver os detalhes de uma notificação no portal](#how-to-see-the-details-of-a-portal-notification) secção.
 
-## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Posso clica no botão "Adicionar" e não aparece a minha aplicação
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "Adicionar" e meu aplicativo não foi publicado
 
-Por vezes, devido a problemas temporários, problemas de rede ou um erro, adicionar uma aplicação falhar. Pode dizer Isto acontece quando clicar no **notificações** ícone (de sino) no canto superior direito do portal do Azure e ver um ícone vermelho (!) junto à sua **Criar aplicação** notificação. Isto indica que ocorreu um erro ao criar a aplicação.
+Às vezes, devido a problemas transitórios, problemas de rede ou um bug, adicionando uma falha de aplicação. Pode dizer isso acontece quando clica o **notificações** ícone (na campainha) no canto superior direito do portal do Azure e que veja um ícone vermelho (!!!) junto ao seu **Criar aplicação** notificação. Isto indica que ocorreu um erro ao criar a aplicação.
 
-Se ocorrer um erro quando clicar no **adicionar** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro, seguindo os passos a [como ver os detalhes de uma notificação de portal](#how-to-see-the-details-of-a-portal-notification) secção.
+Se ocorrer um erro ao clicar o **Add** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro ao seguir os passos a [como ver os detalhes de uma notificação no portal](#how-to-see-the-details-of-a-portal-notification) secção.
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Posso não sabe como configurar a minha aplicação assim que tiver adicionado
+ ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei como configurar a minha aplicação assim que tiver adicionado
 
-Se precisar de ajuda para saber mais sobre as aplicações, o [lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom local para iniciar.
+Se precisar de ajuda a aprender sobre aplicativos, o [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar para começar.
 
-Além disto, o [biblioteca de documentos de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajudá-lo a saber mais sobre o início de sessão com o Azure AD e como funciona.
+Além disso, o [biblioteca de documentos de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajudá-lo a saber mais sobre o início de sessão único com o Azure AD e como ela funciona.
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação no portal
 
 Pode ver os detalhes de qualquer notificação do portal, seguindo os passos abaixo:
 
-1.  Clique em de **notificações** ícone (de sino) no canto superior direito do Portal do Azure
+1.  Clique nas **notificações** ícone (de sino) na parte superior direita do Portal do Azure
 
-2.  Selecione qualquer notificação num **erro** Estado (as com um vermelho (!) junto ao-las).
+2.  Selecione qualquer notificação numa **erro** Estado (aquelas com linhas vermelhas (!!!) junto a eles).
 
     >[!NOTE]
-    >Não é possível clicar as notificações de um **Successful** ou **em curso** estado.
+    >Não é possível clicar em notificações numa **Successful** ou **em curso** estado.
     >
     >
 
 4.  Utilize as informações em **detalhes de notificação** para obter mais detalhes sobre o problema de compreender.
 
-5.  Se ainda precisar de ajuda, também pode partilhar estas informações com um engenheiro de suporte técnico ou o grupo do produto para obter ajuda com o seu problema.
+5.  Se ainda precisar de ajuda, também pode partilhar estas informações com um engenheiro de suporte ou o grupo de produto para obter ajuda com o seu problema.
 
-6.  Clique em de **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo de suporte ou produto
+6.  Clique nas **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo do produto ou de suporte
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte
 
-É muito importante que partilha **todos os detalhes apresentados abaixo** com um engenheiro de suporte se precisar de ajuda, para que o podem ajudar a rapidamente. Pode fazê-lo facilmente por **tirar uma captura de ecrã,** ou clicando a **ícone de erro de cópia**, encontrado para a direita do **copiar erro** caixa de texto.
+É muito importante que partilham **todos os detalhes indicados abaixo** com um engenheiro de suporte se precisar de ajuda, para que eles podem ajudá-lo a rapidamente. Pode fazê-lo facilmente ao **tirar uma captura de ecrã** ou ao clicar o **ícone de erro da cópia**, apresentado à direita do **copiar erro** caixa de texto.
 
-## <a name="notification-details-explained"></a>Detalhes de notificação explicados
+## <a name="notification-details-explained"></a>Detalhes da notificação explicados
 
 Consulte as seguintes descrições para obter mais detalhes sobre as notificações.
 
@@ -74,7 +74,7 @@ Consulte as seguintes descrições para obter mais detalhes sobre as notificaç�
 
 -   **Título** – o título descritivo da notificação
 
-  * Exemplo – **as definições de proxy de aplicações**
+  * Exemplo – **as definições de proxy de aplicação**
 
 -   **Descrição** – a descrição, o que ocorreu em resultado da operação
 
@@ -84,15 +84,15 @@ Consulte as seguintes descrições para obter mais detalhes sobre as notificaç�
 
     -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID do pedido de cliente** – o ID do pedido específico efetuado pelo browser
+-   **ID do pedido de cliente** – o ID de pedido específico feito pelo browser
 
     -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Hora UTC de carimbo de data /** – timestamp durante os quais a notificação ocorreu, em UTC
+-   **Hora UTC do carimbo de data /** – o período de tempo durante o qual a notificação ocorreu, em UTC
 
     -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **ID de transação interno** – o ID interno podemos utilizar ao procurar o erro do nosso sistemas
+-   **ID de transação interno** – o ID interno, podemos usar para procurar o erro nos nossos sistemas
 
     -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -100,7 +100,7 @@ Consulte as seguintes descrições para obter mais detalhes sobre as notificaç�
 
     -   Exemplo – **tperkins@f128.info**
 
--   **ID de inquilino** – o ID exclusivo do inquilino que o utilizador que executou a operação foi membro de
+-   **ID do inquilino** – o ID exclusivo do inquilino que fazia parte, o utilizador que executou a operação
 
     -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
@@ -110,23 +110,23 @@ Consulte as seguintes descrições para obter mais detalhes sobre as notificaç�
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhada
 
--   **Nome a apresentar** – **(pode estar vazio)** mais detalhado nome a apresentar para o erro
+-   **Nome a apresentar** – **(pode estar vazio)** um nome a apresentar mais detalhado do erro
 
-    -   Exemplo – **as definições de proxy de aplicações**
+    -   Exemplo – **as definições de proxy de aplicação**
 
 -   **Estado** – o estado específico da notificação
 
     -   Exemplo – **falhou**
 
--   **ID de objeto** – **(pode estar vazio)** o ID de objeto relativamente ao qual foi efetuada a operação
+-   **ID de objeto** – **(pode estar vazio)** o ID de objeto em relação aos quais a operação foi executada
 
     -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Detalhes** – a descrição, o que ocorreu em resultado da operação de detalhado
+-   **Detalhes** – o detalhadas descrição, o que ocorreu em resultado da operação
 
-    -   Exemplo – **url interno 'http://bing.com/' é inválido porque já se encontra em utilização**
+    -   Exemplo – **url interno "http://bing.com/" é inválido, uma vez que já está em utilização**
 
--   **Copiar erro** – clique em de **ícone copiar** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um grupo de suporte ou produto 
+-   **Erro ao copiar** – clique a **ícone de cópia** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um grupo de suporte ou produto 
 -   engenheiro
 
     -   Exemplo ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```

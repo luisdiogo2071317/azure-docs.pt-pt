@@ -1,6 +1,6 @@
 ---
-title: Problema de instalar o conector de agente de Proxy de aplicações | Microsoft Docs
-description: Como resolver problemas que poderá enfrentam ao instalar o conector de agente de Proxy da aplicação
+title: Problema ao instalar o conector de agente de Proxy de aplicações | Documentos da Microsoft
+description: Como resolver problemas que pode se depara ao instalar o conector de agente de Proxy de aplicações
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,65 +11,65 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: d7d893c75fc0da31824491b834ca6ab21bec8b41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6d0eb2e816e39a92bf895842d570587ec5385f1a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330283"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366149"
 ---
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>Instalar o conector de agente de Proxy de aplicações do problema
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema ao instalar o conector de agente de Proxy de aplicações
 
-Conector do Proxy de aplicações do Microsoft AAD é um componente de domínio interno que utiliza ligações de saída para estabelecer a conectividade do ponto de final nuvem disponível para o domínio interno.
+Conector do Proxy de aplicações do Microsoft AAD é um componente de domínio interno que utiliza as ligações de saída para estabelecer a conectividade do ponto final disponíveis na cloud para o domínio interno.
 
-## <a name="general-problem-areas-with-connector-installation"></a>Áreas de problema geral com a instalação do conector
+## <a name="general-problem-areas-with-connector-installation"></a>Áreas com problemas gerais com a instalação do conector
 
 Quando a instalação de um conector falhar, a causa raiz é normalmente uma das seguintes áreas:
 
-1.  **Conectividade** – para concluir uma instalação com êxito, as novas necessidades de conector para registar e estabelecer propriedades de fidedignidade futuras. Isto é feito através da ligação ao serviço de nuvem de Proxy de aplicações do AAD.
+1.  **Conectividade** – para concluir uma instalação com êxito, as necessidades de conector novo para se registrar e estabelecer as propriedades de fidedignidade futuras. Isso é feito ao ligar ao serviço de nuvem de Proxy de aplicações do AAD.
 
-2.  **Estabelecimento de confiança** – o novo conector cria um certificado autoassinado e regista no serviço em nuvem.
+2.  **Estabelecimento de confiança** – o novo conector cria um certificado autoassinado e registra para o serviço em nuvem.
 
-3.  **Autenticação do administrador do** – durante a instalação, o utilizador tem de fornecer credenciais de administrador para concluir a instalação do conector.
+3.  **Autenticação do administrador de** – durante a instalação, o utilizador tem de fornecer credenciais de administrador para concluir a instalação de conector.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade para o serviço de Proxy de aplicações em nuvem e a página do Microsoft Login
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verifique a conectividade com o serviço de Proxy de aplicações na Cloud e a página de Login da Microsoft
 
-**Objetivo:** Certifique-se de que a máquina do conector pode ligar para o ponto final do registo de Proxy de aplicações do AAD, bem como a página de início de sessão da Microsoft.
+**Objetivo:** Certifique-se de que o computador do conector pode ligar-se para o ponto final do registo de Proxy de aplicações do AAD, bem como a página de início de sessão da Microsoft.
 
-1.  Abra um browser e aceda à página web seguinte: <https://aadap-portcheck.connectorporttest.msappproxy.net> e certifique-se de que a conectividade a datacenters EUA Central e de EUA Leste com as portas 80 e 443 está a funcionar.
+1.  Abra um browser e aceda à página web seguinte: <https://aadap-portcheck.connectorporttest.msappproxy.net> e certifique-se de que a conectividade com data Centers de E.U.A. Central e E.U.A. leste, com as portas 80 e 443 está a funcionar.
 
-2.  Se qualquer um dessas portas não for bem sucedida (não tem uma marca de verificação verde), certifique-se de que tem o proxy de Firewall ou back-end \*. msappproxy.net com as portas 80 e 443 definido corretamente.
+2.  Se qualquer uma dessas portas não for bem sucedida (não tem uma marca de verificação verde), certifique-se de que tem o proxy de Firewall ou back-end \*. msappproxy.net com as portas 80 e 443 definido corretamente.
 
-3.  Abra um browser (separador separado) e aceda à página web seguinte: <https://login.microsoftonline.com>, certifique-se de que pode iniciar sessão nessa página.
+3.  Abra um browser (separador à parte) e aceda à página web seguinte: <https://login.microsoftonline.com>, certifique-se de que pode iniciar sessão nessa página.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Certifique-se de que os componentes de máquina e back-end suportem para o certificado de confiança do Proxy de aplicações
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Certifique-se de que os componentes de máquina e de back-end de suporte para o certificado de confiança do Proxy de aplicações
 
-**Objetivo:** Certifique-se de que a máquina de conector, o proxy de back-end e a firewall podem suportar o certificado criado pelo conector do confiança futuras.
+**Objetivo:** Certifique-se de que a máquina de conector, o proxy de back-end e o firewall podem suportar o certificado criado pelo conector para confiança futura.
 
 >[!NOTE]
->O conector tenta criar um certificado de SHA512 que é suportado pelo TLS1.2. Se a máquina ou a firewall back-end e proxy não suportar TLS1.2, a instalação falhar.
+>O conector tenta criar um certificado de SHA512 que é suportado pelo TLS1.2. Se a máquina ou o firewall back-end e o proxy não suportar TLS1.2, a instalação falhar.
 >
 >
 
 **Para resolver o problema:**
 
-1.  Certifique-se de que a máquina suporta TLS1.2 – versões de todas as janelas após 2012 R2 devem suportar TLS 1.2. Se a máquina de conector for de uma versão do 2012 R2 ou versões anteriores, certifique-se de que o KBs seguintes estão instalados no computador: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Certifique-se de que a máquina suporta TLS1.2 – versões de todos os Windows após 2012 R2 devem dar suporte a TLS 1.2. Se a sua máquina de conector encontra-se de uma versão do 2012 R2 ou antes, certifique-se de que o KBs seguintes são instalados na máquina: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
-2.  Contacte o administrador de rede e peça verificar que o proxy de back-end e de firewall não bloqueia SHA512 para tráfego de saída.
+2.  Contacte o administrador de rede e peça para verificar que o proxy de back-end e de firewall não bloqueia SHA512 tráfego de saída.
 
-## <a name="verify-admin-is-used-to-install-the-connector"></a>Certifique-se de admin é utilizado para instalar o conector
+## <a name="verify-admin-is-used-to-install-the-connector"></a>Verifique se o administrador é utilizado para instalar o conector
 
-**Objetivo:** Certifique-se de que o utilizador tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o utilizador tem de ser um administrador global para a instalação com êxito.
+**Objetivo:** Certifique-se de que o utilizador que tenta instalar o conector é um administrador com as credenciais corretas. Atualmente, o utilizador tem de ser um administrador global para a instalação com êxito.
 
 **Para verificar que as credenciais estão corretas:**
 
-Ligar ao <https://login.microsoftonline.com> e utilizar as mesmas credenciais. Certifique-se o início de sessão com êxito. Pode verificar a função de utilizador acedendo a **do Azure Active Directory**  - &gt; **utilizadores e grupos**  - &gt; **todos os utilizadores**. 
+Ligar ao <https://login.microsoftonline.com> e utilizar as mesmas credenciais. Certifique-se de que o início de sessão é efetuada com êxito. Pode verificar a função de utilizador ao aceder **do Azure Active Directory**  - &gt; **utilizadores e grupos**  - &gt; **todos os utilizadores**. 
 
-Selecione a sua conta de utilizador, em seguida, "função de diretório" no menu resultante. Verifique se a função selecionada "Administrador Global". Se não for possível aceder a qualquer uma das páginas ao longo estes passos, não é um administrador global.
+Selecione a sua conta de utilizador, em seguida, "função de diretório" no menu resultante. Certifique-se de que a função selecionada é "Administrador Global". Se não conseguir aceder a qualquer uma das páginas ao longo destes passos, não for um administrador global.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md)
