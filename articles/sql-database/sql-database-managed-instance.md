@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
-ms.translationtype: MT
+ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091998"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346703"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância gerida (pré-visualização)?
 
@@ -139,15 +139,16 @@ Camada de serviços críticos de negócios foi concebida para aplicações com r
 
 A lista seguinte descreve as principais características da camada de serviços críticos de negócio: 
 -   Concebido para aplicações de negócio com mais elevado desempenho e requisitos de HA 
--   É fornecido com o armazenamento SSD extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)-suporta até 100 bases de dados por instância 
+-   É fornecido com o armazenamento SSD extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)
+-   Suporta até 100 bases de dados por instância 
 
 |Funcionalidade | Descrição|
 |---|---|
-| Número de vCores * | 8, 16, 24 (geração 4)<br>8, 16, 24, 32, 40, 64, 80 (fins 5)|
+| Número de vCores * | 8, 16, 24, 32 (geração 4)<br>8, 16, 24, 32, 40, 64, 80 (fins 5)|
 | Versão do SQL Server / criar | SQL Server mais recente (disponível) |
 | Recursos adicionais | [OLTP dentro da memória](sql-database-in-memory.md)<br> 1 réplica só de leitura adicional ([Escalamento leitura](sql-database-read-scale-out.md))
 | Tamanho de armazenamento min | 32 GB |
-| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os vCore tamanhos<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 40, 60, 80 vCores</ul>|
+| Tamanho máximo de armazenamento | Gen 4: 1 TB (todos os vCore tamanhos<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 40, 64, 80 vCores</ul>|
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número de ficheiros de dados (linhas) pela base de dados | Vários | 
 | Número de ficheiros de registo (registo) por base de dados | 1 | 

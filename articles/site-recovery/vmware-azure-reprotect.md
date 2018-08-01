@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916484"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346684"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Voltar a proteger máquinas do Azure para um site no local
 
@@ -63,7 +63,7 @@ Para implementar um servidor de processos no Azure:
 O servidor de destino mestre recebe dados da reativação pós-falha. Por predefinição, o servidor de destino mestre é executado no servidor de configuração no local. No entanto, dependendo do volume de tráfego de repetição de falha, poderá ter de criar um servidor de destino principal separado para reativação pós-falha. Eis como criar um:
 
 * [Criar um servidor de destino mestre Linux](vmware-azure-install-linux-master-target.md) para reativação pós-falha de VMs do Linux. Isto é necessário.
-* Opcionalmente, crie um servidor de destino principal separado para reativação pós-falha da VM do Windows. Para tal, execute novamente a configuração unificada e selecione para criar um servidor de destino mestre. [Saiba mais](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* Opcionalmente, crie um servidor de destino principal separado para reativação pós-falha da VM do Windows. Para tal, execute novamente a configuração unificada e selecione para criar um servidor de destino mestre. [Saiba mais](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 Depois de criar um servidor de destino mestre, efetue as seguintes tarefas:
 

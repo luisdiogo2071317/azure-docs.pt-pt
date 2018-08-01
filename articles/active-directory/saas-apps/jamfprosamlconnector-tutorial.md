@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046945"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integração do Azure Active Directory com o Jamf Pro
 
@@ -139,7 +139,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. Desloque para baixo até **fornecedor de identidade** sob a **Single Sign-On** secção e execute os seguintes passos:
+10. Sobre o **Single Sign-On** página execute os seguintes passos:
+
+    ![O Jamf Pro único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Selecione **servidor de Jamf Pro** para ativar o acesso de início de sessão único.
+
+    b. Selecionando **omissão de permissões para todos os utilizadores** os utilizadores não serão redirecionados para a página de início de sessão do fornecedor de identidade para a autenticação, mas pode iniciar sessão no Jamf Pro diretamente em vez disso. Quando um usuário tentar acessar o Jamf Pro através do fornecedor de identidade, autorização e autenticação de SSO iniciado por IdP ocorre.
+
+    c. Selecione o **NameID** opção para **mapeamento de utilizadores: SAML**. Por predefinição, esta definição está definida como **NameID** , mas pode definir um atributo personalizado.
+
+    d. Selecione **E-Mail** para **mapeamento de utilizador: o JAMF PRO**. O Jamf Pro mapeia os atributos SAML enviados pelo IdP das seguintes formas: por utilizadores e grupos. Quando um usuário tenta acessar o Jamf Pro, por predefinição o Jamf Pro obtém informações sobre o utilizador a partir do fornecedor de identidade e compara com algo de contas de utilizador do Jamf Pro. Se a conta de utilizador de entrada não existir no Jamf Pro, em seguida, a correspondência de nomes de grupo ocorre.
+
+    e. Cole o valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` no **o nome de ATRIBUTO de grupo** caixa de texto.
+ 
+11. Sobre o mesmo desloque-se de página para baixo até **fornecedor de identidade** sob a **Single Sign-On** secção e execute os seguintes passos:
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -149,10 +163,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Selecione **URL de metadados** como uma opção da **origem de METADADOS do fornecedor de identidade** menu pendente e, na caixa de texto seguinte, cole o **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure.
 
-    d. Cópia a **ID de entidade** vlaue e colá-lo no **identificador (ID de entidade)** caixa de texto no **domínio de Jamf Pro e URLs** secção no portal do Azure.
+    d. Cópia a **ID de entidade** valor e cole-o no **identificador (ID de entidade)** caixa de texto no **domínio de Jamf Pro e URLs** secção no portal do Azure.
 
     >[!NOTE]
-    > Aqui `aadsso` é a parte de subdomínio (que é para fins de referência). Utilize este valor para concluir o início de sessão no URL e o URL de resposta no **domínio de Jamf Pro e URLs** secção no portal do Azure.
+    > Este valor tênues é a parte de subdomínio. Utilize este valor para concluir o início de sessão no URL e o URL de resposta no **domínio de Jamf Pro e URLs** secção no portal do Azure.
 
     e. Clique em **Guardar**.
 
@@ -270,7 +284,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

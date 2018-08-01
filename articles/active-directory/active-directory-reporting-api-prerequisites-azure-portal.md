@@ -1,6 +1,6 @@
 ---
-title: Pré-requisitos para aceder ao Azure Active Directory reporting API | Microsoft Docs
-description: Saiba mais sobre os pré-requisitos para o Azure AD API do relatório de acesso
+title: Pré-requisitos para aceder ao Azure Active Directory reporting API | Documentos da Microsoft
+description: Saiba mais sobre os pré-requisitos para aceder à API de relatórios do Azure AD
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -16,20 +16,20 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d842b1af74c1b276f367e0ff15703880f7560aa
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9dc30f1d303c6849ed016d0bc81ce1bf3d3d9d5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224791"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390624"
 ---
-# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Azure Active Directory API do relatório
+# <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Azure Active Directory reporting API
 
 As [APIs de relatórios Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
 
-A Reporting Services utiliza API [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso a web APIs.
+As utilizações de API de geração de relatórios [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso a web APIs.
 
-Para preparar o seu acesso à API do Reporting Services, tem de:
+Para preparar o acesso para a API de relatórios, terá de:
 
 1. Atribuir funções
 2. Registar uma aplicação
@@ -40,7 +40,7 @@ Para preparar o seu acesso à API do Reporting Services, tem de:
 
 ## <a name="assign-roles"></a>Atribuir funções
 
-Para obter acesso aos dados de relatórios através da API, terá de ter uma das seguintes funções atribuídas:
+Para obter acesso aos dados dos relatórios por meio da API, tem de ter uma das seguintes funções atribuídas:
 
 - Leitor de Segurança
 
@@ -53,38 +53,38 @@ Para obter acesso aos dados de relatórios através da API, terá de ter uma das
 
 ## <a name="register-an-application"></a>Registar uma aplicação
 
-Tem de registar uma aplicação, mesmo que está a aceder a API de relatórios através de um script. Isto dá-lhe um **ID da aplicação**, que é necessário para uma chamada de autorização e permite que o código receber tokens.
+Tem de registar uma aplicação, mesmo que está acessando a API de relatórios através de um script. Isso lhe dá uma **ID da aplicação**, que é necessário para uma chamada de autorização e permite que seu código para receber tokens.
 
-Para configurar o seu diretório para o Azure AD API do relatório de acesso, tem de iniciar sessão portal do Azure com uma conta de administrador do Azure que também seja membro do **Administrador Global** função de diretório no seu inquilino do Azure AD.
+Para configurar o diretório para aceder à API de relatórios do Azure AD, tem de iniciar sessão portal do Azure com uma conta de administrador do Azure que também seja membro do **Administrador Global** função de diretório no inquilino do Azure AD.
 
 > [!IMPORTANT]
-> As aplicações em execução sob credenciais com privilégios de "admin" como este podem ser muito poderosas, por isso, certifique-se a manter segura a credenciais de ID/segredo da aplicação.
+> Aplicações em execução sob credenciais com privilégios de "admin" como isso podem ser muito poderosas, por isso, não se esqueça de proteger as credenciais de ID/segredos da aplicação.
 > 
 
 
-**Para registar uma aplicação do Azure Active Directory:**
+**Registar uma aplicação do Azure Active Directory:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **do Azure Active Directory**.
+1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. No **do Azure Active Directory** página, clique em **registos de aplicação**.
+2. Sobre o **do Azure Active Directory** página, clique em **registos das aplicações**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/02.png) 
 
-3. No **registos de aplicação** página, na barra de ferramentas na parte superior, clique em **novo registo de aplicação**.
+3. Sobre o **registos de aplicações** página, na barra de ferramentas na parte superior, clique em **novo registo de aplicação**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/03.png)
 
-4. No **criar** página, execute os seguintes passos:
+4. Sobre o **criar** página, execute os seguintes passos:
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
-    a. No **nome** caixa de texto, tipo `Reporting API application`.
+    a. Na **Name** caixa de texto, tipo `Reporting API application`.
 
     b. Como **tipo de aplicação**, selecione **aplicação Web / API**.
 
-    c. No **URL de início de sessão** caixa de texto, tipo `https://localhost`.
+    c. Na **URL de início de sessão** caixa de texto, tipo `https://localhost`.
 
     d. Clique em **Criar**. 
 
@@ -102,26 +102,26 @@ Dependendo da API que pretende aceder, tem de conceder a aplicação as seguinte
 ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/36.png)
 
 
-A secção seguinte apresenta os passos para ambas as APIs. Se não quiser aceder a uma das APIs, pode ignorar os passos relacionados.
+A seção a seguir lista os passos para ambas as APIs. Se não quiser aceder a uma das APIs, pode ignorar os passos relacionados.
  
 
 **Para conceder as permissões de aplicação para utilizar as APIs:**
 
-1. No **registos de aplicação** página, na lista de aplicações, clique em **aplicação API de relatórios**.
+1. Sobre o **registos de aplicações** página, na lista de aplicações, clique em **aplicação de API de relatórios**.
 
-2. No **aplicação API de relatórios** página, na barra de ferramentas na parte superior, clique em **definições**. 
+2. Sobre o **aplicação API de relatórios** página, na barra de ferramentas na parte superior, clique em **definições**. 
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-3. No **definições** página, clique em **as permissões necessárias**. 
+3. Sobre o **definições** página, clique em **permissões obrigatórias**. 
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/06.png)
 
-4. No **as permissões necessárias** na página de **API** lista, clique em **Windows Azure Active Directory**. 
+4. No **permissões obrigatórias** página, além do **API** , clique em **Windows Azure Active Directory**. 
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. No **ativar o acesso ao** página, selecione **ler os dados de diretório** e, desmarque **iniciar sessão e ler o perfil de utilizador**. 
+5. Na **ativar o acesso ao** página, selecione **ler dados do diretório** e, desmarcar **iniciar sessão e ler o perfil de utilizador**. 
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
@@ -129,26 +129,26 @@ A secção seguinte apresenta os passos para ambas as APIs. Se não quiser acede
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-7. No **as permissões necessárias** página, na barra de ferramentas na parte superior, clique em **adicionar**.
+7. Sobre o **permissões obrigatórias** página, na barra de ferramentas na parte superior, clique em **Add**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/32.png)
 
-8. No **acesso à API adicionar** página, clique em **selecionar um API**.
+8. Sobre o **adicionar acesso à API** página, clique em **selecionar uma API**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/31.png)
 
-9. No **selecionar um API** página, clique em **Microsoft Graph**e, em seguida, clique em **selecione**.
+9. Sobre o **selecionar uma API** página, clique em **Microsoft Graph**e, em seguida, clique em **selecionar**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/33.png)
 
-10. No **ativar o acesso ao** página, selecione **ler todos os dados de registo de auditoria**e, em seguida, clique em **selecione**.  
+10. Sobre o **ativar o acesso ao** página, selecione **ler todos os dados de registo de auditoria**e, em seguida, clique em **selecionar**.  
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/34.png)
 
 
-11. No **acesso à API adicionar** página, clique em **feito**.  
+11. Sobre o **adicionar acesso à API** página, clique em **feito**.  
 
-12. No **as permissões necessárias** página, na barra de ferramentas na parte superior. Clique em **conceder permissões**e, em seguida, clique em **Sim**.
+12. Sobre o **permissões obrigatórias** página, na barra de ferramentas na parte superior. Clique em **conceder permissões**e, em seguida, clique em **Sim**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
 
@@ -161,78 +161,76 @@ Esta secção mostra como obter as seguintes definições do diretório:
 - ID de Cliente
 - Segredo do cliente
 
-Necessitar destes valores quando configurar chamadas à API do Reporting Services. 
+Vai precisar destes valores quando configurar chamadas para a API de relatórios. 
 
-### <a name="get-your-domain-name"></a>Obter o nome de domínio
+### <a name="get-your-domain-name"></a>Obter o seu nome de domínio
 
 **Para obter o seu nome de domínio:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **do Azure Active Directory**.
+1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. No **do Azure Active Directory** página, clique em **nomes de domínio personalizado**.
+2. Sobre o **do Azure Active Directory** página, clique em **nomes de domínio personalizado**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
 3. Copie o seu nome de domínio na lista de domínios.
 
 
-### <a name="get-your-applications-client-id"></a>Obter ID de cliente da aplicação
+### <a name="get-your-applications-client-id"></a>Obter ID de cliente da sua aplicação
 
-**Para obter o ID de cliente da aplicação:**
+**Para obter o ID de cliente da sua aplicação:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **do Azure Active Directory**.
+1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. No **registos de aplicação** página, na lista de aplicações, clique em **aplicação API de relatórios**.
+2. Sobre o **registos de aplicações** página, na lista de aplicações, clique em **aplicação de API de relatórios**.
 
-3. No **aplicação API de relatórios** página, à **ID da aplicação**, clique em **clique para copiar**.
+3. Sobre o **aplicação API de relatórios** página, no **ID da aplicação**, clique em **clique para copiar**.
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/11.png) 
 
 
 
-### <a name="get-your-applications-client-secret"></a>Obter o segredo do cliente da aplicação
-Para obter o segredo do cliente da sua aplicação, terá de criar uma nova chave e guarde o respetivo valor após guardar a nova chave porque não é possível obter este valor já mais tarde.
+### <a name="get-your-applications-client-secret"></a>Obter segredo do cliente da sua aplicação
+Para obter segredo do cliente da sua aplicação, terá de criar uma nova chave e guarde o respetivo valor ao guardar a nova chave, porque não é possível obter este valor deixa de poder mais tarde.
 
-**Para obter o segredo do cliente da aplicação:**
+**Para obter segredo do cliente da sua aplicação:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **do Azure Active Directory**.
+1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. No **registos de aplicação** página, na lista de aplicações, clique em **aplicação API de relatórios**.
+2. Sobre o **registos de aplicações** página, na lista de aplicações, clique em **aplicação de API de relatórios**.
 
 
-3. No **aplicação API de relatórios** página, na barra de ferramentas na parte superior, clique em **definições**. 
+3. Sobre o **aplicação API de relatórios** página, na barra de ferramentas na parte superior, clique em **definições**. 
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-4. No **definições** na página de **APIR acesso** secção, clique em **chaves**. 
+4. No **definições** página, além do **APIR acesso** secção, clique em **chaves**. 
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/12.png)
 
 
-5. No **chaves** página, execute os seguintes passos:
+5. Sobre o **chaves** página, execute os seguintes passos:
 
     ![Registar aplicação](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
-    a. No **Descrição** caixa de texto, tipo `Reporting API`.
+    a. Na **Descrição** caixa de texto, tipo `Reporting API`.
 
-    b. Como **expira**, selecione **nos 2 anos**.
+    b. Como **Expires**, selecione **dentro de 2 anos**.
 
     c. Clique em **Guardar**.
 
     d. Copie o valor da chave.
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter dados com o Azure Active Directory API do relatório com certificados](active-directory-reporting-api-with-certificates.md).
-
-- [Obter uma primeira impressão das APIs de relatórios](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Criar a sua própria solução](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Utilizar o Azure Active Directory reporting API com certificados para obter dados](active-directory-reporting-api-with-certificates.md)
+* [Obter uma primeira impressão das APIs de relatórios](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Relatório de atividade de início de sessão de referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

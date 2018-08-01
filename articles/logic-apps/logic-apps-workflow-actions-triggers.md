@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 98d023f801ab4864e01a7dba32b5700b2d52e604
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264322"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390709"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de Acionador e ação para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -156,8 +156,8 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
  
 | Elemento | Tipo | Descrição |
 |---------|------|-------------| 
-| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| Corpo | Objeto JSON | O corpo da resposta | 
+| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| corpo | Objeto JSON | O corpo da resposta | 
 |||| 
 
 *Exemplo*
@@ -328,8 +328,8 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 | Elemento | Tipo | Descrição |
 |---------|------|-------------| 
-| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| Corpo | Objeto JSON | O corpo da resposta | 
+| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| corpo | Objeto JSON | O corpo da resposta | 
 |||| 
 
 *Requisitos para pedidos recebidos*
@@ -422,8 +422,8 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 | Elemento | Tipo | Descrição |
 |---------|------|-------------| 
-| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| Corpo | Objeto JSON | O corpo da resposta | 
+| cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
+| corpo | Objeto JSON | O corpo da resposta | 
 |||| 
 
 *Exemplo*
@@ -816,7 +816,7 @@ Seguem-se alguns tipos de ação frequentemente utilizadas:
 ### <a name="built-in-actions"></a>Ações incorporadas
 
 | Tipo de ação | Descrição | 
-|-------------|-------------|  
+|-------------|-------------| 
 | [**Compor**](#compose-action) | Cria uma única saída a partir de entradas, que podem ter vários tipos. | 
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto final HTTP. | 
