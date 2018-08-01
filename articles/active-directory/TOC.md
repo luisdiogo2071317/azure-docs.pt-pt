@@ -131,7 +131,6 @@
 #### [Latências](active-directory-reporting-latencies-azure-portal.md)
 #### [Referência da atividade de auditoria](active-directory-reporting-activity-audit-reference.md)
 #### [Códigos de erro de atividade de início de sessão](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpretar o esquema de registo de auditoria no Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpretar o esquema de registo de início de sessão no Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Planear a Associação do Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tarefas
+#### [Como planear a sua implementação associada híbrida do Azure Active Directory](devices/hybrid-azuread-join-plan.md)
+#### [Configurar a associação híbrida do Azure Active Directory para os domínios geridos](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configurar a associação híbrida do Azure Active Directory para os domínios federados](devices/hybrid-azuread-join-federated-domains.md)
+#### [Como controlar a associação híbrida do Azure AD dos seus dispositivos](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Configurar dispositivos Windows 10 registados no Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurar dispositivos associados ao Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Configurar dispositivos associados ao Azure AD híbridos](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Configurar dispositivos associados ao Azure AD híbridos](devices/hybrid-azuread-join-manual-steps.md)
 #### [Implementar no local](active-directory-device-registration-on-premises-setup.md)
 #### [Associação ao Azure AD durante a experiência de primeira execução do Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Resolução de problemas

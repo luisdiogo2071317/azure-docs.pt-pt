@@ -39,8 +39,16 @@
         - name: Encriptação inativa de dados
           href: azure-security-encryption-atrest.md
         - name: Encriptação de disco para VMs IaaS
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Pré-requisitos de encriptação de disco
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Encriptação de disco para VMs do Windows
+              href: azure-security-disk-encryption-windows.md
+            - name: Encriptação de disco para VMs do Linux
+              href: azure-security-disk-encryption-linux.md
+            - name: Apêndice para a encriptação de discos
+              href: azure-security-disk-encryption-appendix.md
             - name: FAQ de encriptação de discos
               href: azure-security-disk-encryption-faq.md
             - name: Resolução de problemas
@@ -198,6 +206,16 @@
       items:
         - name: Dados de Estado de Funcionamento e IA
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: Análise de dados
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Armazém de dados
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: Aplicação web IaaS
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: Aplicação web PaaS
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Análise de dados
