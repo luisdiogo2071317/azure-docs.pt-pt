@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: d2b5487f82cc66d9689fdda6ac79b2fbfbec414c
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f1905e66bbe823f6c7c9c35d6540f3c8ca1d6ccd
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348623"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389638"
 ---
 # <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Definir informações de segurança para utilizar perguntas de segurança predefinidas (pré-visualização)
 
@@ -28,8 +28,10 @@ Configuração de suas informações de segurança requer que inicie sessão na 
 
 Dependendo das definições da sua organização, poderá ser-lhe pedido para adicionar perguntas de segurança às suas informações de segurança quando iniciar sessão. Caso contrário, para iniciar a configuração de perguntas de segurança das informações de segurança, siga os passos em [gerir as suas informações de segurança](security-info-manage-settings.md).
 
+Se utilizar perguntas de segurança, recomendamos que utilize-os em conjunto com outro método. Perguntas de segurança podem ser menos seguras do que outros métodos, porque algumas pessoas podem saber as respostas a perguntas de outra pessoa.
+
 >[!Note]
->Se não vir a opção de perguntas de segurança, é possível que a sua organização não permite-lhe utilizar perguntas de segurança para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
+>Perguntas de segurança são armazenadas em privado e segura num objeto de utilizador no diretório e apenas podem ser respondidas por si durante o registo. Não é possível para o administrador para ler ou modificar as suas perguntas ou respostas.<br>Se não vir a opção de perguntas de segurança, é possível que a sua organização não permite-lhe utilizar perguntas de segurança para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
 
 ### <a name="to-choose-and-answer-your-security-questions"></a>Escolher e responder a perguntas de segurança
 

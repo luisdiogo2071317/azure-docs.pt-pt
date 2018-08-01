@@ -1,5 +1,5 @@
 ---
-title: Publicação de aplicações em redes separadas e localizações de utilização de grupos do conector no Proxy de aplicações do Azure AD | Microsoft Docs
+title: Publicação de aplicações em redes separadas e localizações com grupos de conexão no Proxy de aplicação do Azure AD | Documentos da Microsoft
 description: Aborda como criar e gerir grupos de conectores no Proxy de aplicações do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -10,117 +10,117 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 50f17d7b833874cd15ddc9f2e4f93fa7af1700a2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34162009"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364978"
 ---
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações utilizar grupos de conector
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações através de grupos de conectores
 
-Os clientes utilizam o Proxy de aplicações do Azure AD para mais cenários e aplicações. Por isso que fizemos do Proxy de aplicação ainda mais flexível Ativando topologias mais. Pode criar grupos de conetor da Proxy da aplicação para que pode atribuir conectores específicos para servirem aplicações específicas. Esta capacidade dá-lhe mais controlo e formas para otimizar a implementação de Proxy de aplicações. 
+Os clientes utilizam o Proxy de aplicações do Azure AD para cada vez mais cenários e aplicativos. Então, fizemos do Proxy de aplicações ainda mais flexível, permitindo que mais de topologias. Pode criar grupos de conector de Proxy de aplicações para que pode atribuir conectores específicos para servir aplicativos específicos. Esta capacidade fornece mais controle e maneiras de otimizar a sua implementação do Proxy de aplicações. 
 
-Cada conector do Proxy da aplicação é atribuído a um grupo de conector. Todos os conectores que pertencem ao mesmo grupo de conector atuam como uma unidade separada para elevada disponibilidade e o balanceamento de carga. Todos os conectores pertencem a um grupo de conector. Se não criar grupos, todos os seus conectores estão num grupo predefinido. O administrador pode criar novos grupos e atribuir-lhes conectores no portal do Azure. 
+Cada conector de Proxy de aplicações é atribuído a um grupo de conectores. Todos os conectores que pertencem ao mesmo grupo de conector atuam como uma unidade separada para elevada disponibilidade e balanceamento de carga. Todos os conectores pertencerem a um grupo de conectores. Se não criar grupos, em seguida, todos os seus conectores estão num grupo predefinido. O administrador pode criar novos grupos e atribuir-lhes conectores no portal do Azure. 
 
-Todas as aplicações são atribuídas a um grupo de conector. Se não criar grupos, todas as suas aplicações são atribuídas a um grupo predefinido. Mas se organizar os conectores em grupos, pode definir cada aplicação para trabalhar com um grupo específico de conector. Neste caso, apenas os conectores nesse grupo servem a aplicação mediante pedido. Esta funcionalidade é útil se as suas aplicações alojadas em localizações diferentes. Pode criar grupos de conector com base na localização, para que as aplicações são sempre servidas pelo conectores que estão fisicamente próximos-los.
+Todas as aplicações são atribuídas a um grupo de conectores. Se não criar grupos, em seguida, todas as suas aplicações são atribuídas a um grupo predefinido. Mas se organizar os seus conectores em grupos, pode definir cada aplicativo para trabalhar com um grupo conector específico. Neste caso, apenas os conectores nesse grupo de servem a aplicação mediante pedido. Esta funcionalidade é útil se as aplicações são alojadas em localizações diferentes. Pode criar grupos de conectores com base na localização, para que os aplicativos são sempre servidos por conectores que estão fisicamente próximos-los.
 
 >[!TIP] 
->Se tiver uma grande implementação do Proxy de aplicações, não atribua quaisquer aplicações ao grupo predefinido do conector. Dessa forma, os novos conectores não recebem qualquer tráfego em direto até que atribui a um grupo de conector do Active Directory. Esta configuração também lhe permite colocar os conectores de um modo inativo movendo-os novamente para o grupo predefinido, para que possam executar manutenção sem afetar os seus utilizadores.
+>Se tiver uma grande implantação de Proxy de aplicações, não atribua todas as aplicações para o grupo do conector de predefinição. Dessa forma, os novos conectores não recebam qualquer tráfego em direto até que a atribuição a um grupo do conector do Active Directory. Esta configuração também permite-lhe colocar conectores num modo inativo por movê-los de volta para o grupo predefinido, para que pode executar a manutenção sem afetar os seus utilizadores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para os conectores de grupo, tem de certificar-se de [instalados vários conectores](application-proxy-enable.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo de conector.
+Para os conectores de grupo, terá de certificar-se de que [instalados vários conectores](application-proxy-enable.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo do conector.
 
-## <a name="create-connector-groups"></a>Criar grupos de conector
-Utilize estes passos para criar grupos de conector tantos conforme pretender. 
+## <a name="create-connector-groups"></a>Criar grupos de conectores
+Utilize estes passos para criar grupos de conectores tantas quanto quiser. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **proxy de aplicações**.
-2. Selecione **novo grupo de conector**. É apresentado o painel do novo grupo de conector.
+2. Selecione **novo grupo conector**. No painel do novo grupo conector aparece.
 
-   ![Selecione o novo grupo de conector](./media/application-proxy-connector-groups/new-group.png)
+   ![Selecione o novo grupo conector](./media/application-proxy-connector-groups/new-group.png)
 
-3. Dê um nome do novo grupo de conector, em seguida, utilize o menu pendente para selecionar os conectores pertencem este grupo.
+3. Dê um nome ao seu novo grupo do conector e, em seguida, utilize o menu pendente para selecionar quais conectores pertencem neste grupo.
 4. Selecione **Guardar**.
 
-## <a name="assign-applications-to-your-connector-groups"></a>Atribuir as aplicações para os grupos de conector
-Utilize estes passos para cada aplicação que já estejam publicados com o Proxy da aplicação. Pode atribuir uma aplicação a um grupo de conector quando publicar pela primeira vez, ou pode utilizar estes passos para alterar a atribuição de sempre que pretender.   
+## <a name="assign-applications-to-your-connector-groups"></a>Atribuir aplicações aos seus grupos de conector
+Utilize estes passos para cada aplicação que tenham publicado com o Proxy de aplicações. Pode atribuir uma aplicação para um grupo de conectores quando publicá-lo pela primeira vez, ou pode utilizar estes passos para alterar a atribuição de sempre que quiser.   
 
 1. A partir do dashboard de gestão para o seu diretório, selecione **aplicações empresariais** > **todas as aplicações** > a aplicação que pretende atribuir a um grupo do conector > **Proxy de aplicações**.
-2. Utilize o **conector grupo** menu pendente para selecionar o grupo que pretende que a aplicação para utilizar.
+2. Utilizar o **grupo de conectores** menu pendente para selecionar o grupo que pretende que a aplicação a utilizar.
 3. Selecione **guardar** para aplicar a alteração.
 
-## <a name="use-cases-for-connector-groups"></a>Casos de utilização de grupos de conector 
+## <a name="use-cases-for-connector-groups"></a>Casos de utilização para grupos de conectores 
 
-Grupos de conector são úteis para vários cenários, incluindo:
+Grupos de conexão são úteis para vários cenários, incluindo:
 
-### <a name="sites-with-multiple-interconnected-datacenters"></a>Sites com vários centros de dados interligados
+### <a name="sites-with-multiple-interconnected-datacenters"></a>Sites com vários datacenters interconectados
 
-Muitas organizações têm um número de interligado centros de dados. Neste caso, que pretende manter o mesmo tráfego no Centro de dados possível, porque as ligações do Centro de dados entre são dispendiosas e lenta. Pode implementar conectores em cada datacenter para servir apenas as aplicações que residem no Centro de dados. Esta abordagem minimiza o Centro de dados entre ligações e proporciona uma experiência de completamente transparente para os seus utilizadores.
+Muitas organizações têm um número de datacenters interconectados. Neste caso, pretende manter como grande parte do tráfego no Centro de dados possível, porque as ligações em vários datacenters são dispendiosos e lenta. Pode implementar conectores em cada datacenter para servir apenas as aplicações que residem no Centro de dados. Essa abordagem minimiza as ligações em vários datacenters e fornece uma experiência totalmente transparente para os seus utilizadores.
 
-### <a name="applications-installed-on-isolated-networks"></a>Aplicações instaladas em redes isoladas
+### <a name="applications-installed-on-isolated-networks"></a>Aplicativos instalados em redes isoladas
 
-As aplicações podem ser alojadas nas redes que não fazem parte da rede empresarial principal. Pode utilizar grupos de conector para instalar os conectores dedicados em redes isoladas também isolar aplicações à rede. Normalmente, isto acontece quando um fornecedor de terceiros mantém uma aplicação específica para a sua organização. 
+Aplicativos podem ser hospedados em redes que não fazem parte da rede corporativa principal. Pode utilizar grupos de conectores para instalar os conectores dedicados em redes isoladas também isolar aplicativos à rede. Normalmente, isto acontece quando um fornecedor de terceiros mantém uma aplicação específica para a sua organização. 
 
-Grupos de conetor permitem-lhe instalar os conectores dedicados para essas redes que publicam apenas aplicações específicas, tornando mais fácil e mais segura para outsource gestão de aplicações para os fornecedores de terceiros.
+Grupos de conectores permitem que instalar os conectores dedicados para essas redes que publicar apenas aplicativos específicos, tornando mais fácil e seguro para terceirizar a gestão de aplicações para fornecedores de terceiros.
 
-### <a name="applications-installed-on-iaas"></a>Aplicações instaladas no IaaS 
+### <a name="applications-installed-on-iaas"></a>Aplicativos instalados em IaaS 
 
-Para as aplicações instaladas no IaaS para acesso à nuvem, os grupos de conector fornecem um serviço comuns para proteger o acesso a todas as aplicações. Grupos de conector não criar dependência adicional na sua rede empresarial ou a experiência de aplicação de fragmento. Os conectores podem ser instalados em todos os centros de dados de nuvem e servem apenas as aplicações que residem nessa rede. Pode instalar vários conectores para alcançarem elevada disponibilidade.
+Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector fornecem um serviço comum para proteger o acesso a todas as aplicações. Grupos de conectores não criar dependência adicional na sua rede empresarial ou fragmentados a experiência da aplicação. Os conectores podem ser instalados em todos os datacenters de cloud e servem apenas as aplicações que residem na rede. Pode instalar vários conectores para assegurar elevada disponibilidade.
 
-Utilizar como um exemplo de uma organização que tem várias máquinas virtuais ligadas a sua própria IaaS alojados rede virtual. Para permitir aos funcionários utilizar estas aplicações, estas redes privadas estão ligadas à rede empresarial através da VPN de site para site. Isto fornece uma boa experiência para os empregados que estão localizados no local. No entanto, poderá não ser ideal para os empregados remotos, porque requer mais infraestrutura no local para encaminhar o acesso, como pode ver no diagrama abaixo:
+Veja como um exemplo de uma organização que tenha várias máquinas de virtuais ligadas à sua própria IaaS alojados de rede virtual. Para permitir que os funcionários usem estas aplicações, estas redes privadas estão ligadas à rede empresarial através de VPN de site a site. Isso fornece uma boa experiência para os funcionários que estão localizados no local. Mas, talvez não seja ideal para os empregados remotos, porque requer mais infraestrutura no local para encaminhar o acesso, como pode ver no diagrama abaixo:
 
-![Rede de Iaas AzureAD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Rede de Iaas do AzureAD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
-Com os grupos de conector do Proxy de aplicações do Azure AD, pode ativar a um serviço comuns proteger o acesso a todas as aplicações sem criar dependência adicional na sua rede empresarial:
+Com os grupos de conector de Proxy de aplicações do Azure AD, pode ativar a um serviço comum proteger o acesso a todas as aplicações sem a criação de dependência adicional na sua rede empresarial:
 
-![Fornecedores de nuvem de Iaas vários AzureAD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Fornecedores de Cloud de vários de Iaas do AzureAD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
-### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Várias florestas – grupos de conetor diferente para cada floresta
+### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Várias florestas – grupos de conectores diferentes para cada floresta
 
-Maioria dos clientes que tenham implementado o Proxy de aplicações estão a utilizar as respetivas single-sign-on (SSO) capacidades, efetuando a delegação restrita de Kerberos (KCD). Para atingir esse objetivo, máquinas o conector tem de estar associado a um domínio que pode delegar os utilizadores para a aplicação. KCD suporta as capacidades de múltiplas florestas. Mas para as empresas que têm diferentes ambientes de várias florestas sem qualquer fidedignidade entre eles, um único conector não pode ser utilizado para todas as florestas. 
+A maioria dos clientes que tenham implementado o Proxy de aplicações estão a utilizar suas capacidades de início de sessão único (SSO) através de Kerberos Constrained Delegation (KCD). Para atingir esse objetivo, máquinas do conector tem de ser associado a um domínio que pode delegar os utilizadores no sentido da aplicação. KCD oferece suporte a recursos de múltiplas florestas. Mas, para as empresas que têm ambientes de várias florestas distintas sem qualquer fidedignidade entre eles, um único conector não pode ser utilizado para todas as florestas. 
 
-Neste caso, conectores específicos podem ser implementados por floresta e definidos para servirem aplicações que foram publicadas para servir apenas utilizadores nessa floresta específica. Cada grupo de conector representa uma floresta diferente. Enquanto o inquilino e a maioria da experiência é unificada para todas as florestas, os utilizadores podem ser atribuídos a respetivas aplicações de floresta utilizando grupos do Azure AD.
+Neste caso, conectores específicos podem ser implementados por floresta e definidos para servir aplicativos que foram publicados para servir apenas os utilizadores nessa floresta específica. Cada grupo de conectores representa uma floresta diferente. Embora o inquilino e a maioria da experiência é unificada para todas as florestas, os utilizadores podem ser atribuídos às respetivas aplicações de floresta utilizando grupos do Azure AD.
  
-### <a name="disaster-recovery-sites"></a>Locais de recuperação de desastre
+### <a name="disaster-recovery-sites"></a>Sites de recuperação após desastre
 
-Existem duas abordagens diferentes que pode tomar com um site de recuperação (DR) após desastre, dependendo de como os sites são implementados:
+Existem duas abordagens diferentes, que pode tomar com um site de recuperação (DR) após desastre, dependendo de como os sites são implementados:
 
-* Se o site de DR está incorporado no modo ativo-ativo onde é exatamente como o site principal e tem as mesmas redes e definições do AD, pode criar os conectores no site de DR no mesmo grupo de conector do site principal. Isto permite ao Azure AD detetar as ativações pós-falha para si.
-* Se o site de DR está separado do site principal, pode criar um grupo de conector diferentes no site de DR, e a 1) tiver aplicações de cópia de segurança ou 2) manualmente divert aplicação existente para o grupo de conector de DR, conforme necessário.
+* Se o seu site de DR baseia-se no modo ativo-ativo onde é exatamente como o site principal e tem o mesmo sistema de rede e as definições do AD, pode criar os conectores no site de DR no mesmo grupo de conector, como o site principal. Isto permite ao Azure AD detetar as ativações pós-falha por si.
+* Se seu site de DR é diferente do site principal, pode criar um grupo de conectores diferentes no site de DR, e um 1) tiver aplicativos de backup ou desviar 2) manualmente a aplicação existente para o grupo do conector de DR, conforme necessário.
  
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Servir várias empresas a partir de um único inquilino
 
-Existem muitas formas diferentes de implementar um modelo no qual um fornecedor de serviço única implementa e mantém do Azure AD relacionadas com os serviços de várias empresas. Os grupos de conector ajudam o administrador segregar conectores e aplicações em diferentes grupos. Uma forma, o que é adequada para pequenas empresas, é ter um único do Azure AD enquanto as empresas diferentes têm os seus próprios nome de domínio e redes de inquilino. Isto também se aplica para cenários de c & d e situações em que um único divisão de IT serve várias empresas por motivos de regulamentação ou horário comercial. 
+Existem várias formas diferentes de implementar um modelo no qual um único provedor de serviços implementa e mantém do Azure AD relacionados com serviços para várias empresas. Grupos de conectores ajudam o administrador de separar os conectores e aplicações em grupos diferentes. Uma forma, o que é adequada para pequenas empresas, é ter um único Azure AD, enquanto as empresas diferentes têm seu próprio nome de domínio e redes de inquilino. Isto também se aplica para cenários de M & r e situações em que um único divisão de TI da serve várias empresas por motivos de regulamentação ou comerciais. 
 
 ## <a name="sample-configurations"></a>Configurações de exemplo
 
 Alguns exemplos que pode implementar, incluem os seguintes grupos de conector.
  
-### <a name="default-configuration--no-use-for-connector-groups"></a>Configuração predefinida-não utilize para grupos de conetor
+### <a name="default-configuration--no-use-for-connector-groups"></a>Configuração predefinida – não utilize para grupos de conectores
 
-Se não utilizar grupos de conector, a configuração teria este aspeto:
+Se não utilizar grupos de conexão, a configuração teria o seguinte aspeto:
 
 ![AzureAD não existem grupos de conector](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
-Esta configuração é suficiente para pequenas implementações e testes. Também funcionarão corretamente se a sua organização tem uma topologia de rede simples.
+Esta configuração é suficiente para testes e Implantações pequenas. Ela também funcionará bem se sua organização tiver uma topologia de rede simples.
  
 ### <a name="default-configuration-and-an-isolated-network"></a>Configuração predefinida e uma rede isolada
 
-Esta configuração é uma evolução da predefinição, no qual é uma aplicação específica que é executada numa rede isolada, tais como a rede virtual IaaS: 
+Esta configuração é uma evolução do predefinido, em que é uma aplicação específica que é executado numa rede isolada, tais como a rede virtual do IaaS: 
 
 ![AzureAD não existem grupos de conector](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
  
-### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Recomendado configuração – vários grupos específicos e um grupo predefinido para inativo
+### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configuração – recomendada para vários grupos específicos e um grupo padrão para inativo
 
-A configuração recomendada para organizações grandes e complexas é para que o grupo predefinido do conector como um grupo que não a servir quaisquer aplicações e é utilizado para conectores Inativos ou recentemente instalados. Todas as aplicações são servidas através de grupos de conetor personalizado. Isto permite que todos os a complexidade dos cenários descritos acima.
+A configuração recomendada para organizações grandes e complexas é fazer com o grupo do conector padrão como um grupo que não atender a todas as aplicações e é utilizado para os conectores de inatividade ou recentemente instalados. Todos os aplicativos são atendidos a utilização de grupos de conector personalizado. Isto permite que todos os a complexidade dos cenários descritos acima.
 
-No exemplo abaixo, a empresa tem dois centros de dados, A e B, com dois conectores que servem de cada site. Cada site tem diferentes aplicações que são executadas no mesmo. 
+No exemplo abaixo, a empresa tem dois centros de dados, A e B, com dois conectores que servem de cada site. Cada site tem diferentes aplicativos executados nele. 
 
 ![AzureAD não existem grupos de conector](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
  

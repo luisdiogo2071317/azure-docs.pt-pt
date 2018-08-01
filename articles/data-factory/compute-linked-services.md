@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070047"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390216"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica os diferentes ambientes de computação que pode utilizar para processar ou transformar dados. Ele também fornece detalhes sobre as configurações diferentes (sob demanda versus traga seu próprio) suportados pelo Data Factory, quando configurar os serviços ligados de ligação estes ambientes de uma fábrica de dados do Azure de computação.
@@ -385,7 +385,7 @@ Criar um serviço ligado do Azure Machine Learning para registar um ponto final 
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tipo                   | A propriedade de tipo deve ser definida como: **AzureML**. | Sim                                      |
 | mlEndpoint             | O URL de classificação do lote.                   | Sim                                      |
-| apiKey                 | API do modelo de área de trabalho publicado.     | Sim                                      |
+| ApiKey                 | API do modelo de área de trabalho publicado.     | Sim                                      |
 | updateResourceEndpoint | O URL de recurso de atualização para um ponto de extremidade de serviço do Azure ML Web utilizado para atualizar o serviço Web preditivo com o ficheiro de modelo preparado | Não                                       |
 | servicePrincipalId     | Especifique o ID de cliente. da aplicação     | Necessário se updateResourceEndpoint for especificado |
 | servicePrincipalKey    | Especifique a chave da aplicação.           | Necessário se updateResourceEndpoint for especificado |
@@ -429,8 +429,8 @@ Criar uma **do Azure Data Lake Analytics** serviço para uma fábrica de dados d
 | tipo                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
 | accountName          | Nome da conta do Azure Data Lake Analytics.  | Sim                                      |
 | dataLakeAnalyticsUri | URI do Azure Data Lake Analytics.           | Não                                       |
-| subscriptionId       | Id de subscrição do Azure                    | Não (se não for especificado, a subscrição do data factory é utilizada). |
-| resourceGroupName    | Nome do grupo de recursos do Azure                | Não (se não for especificado, grupo de recursos do data factory é utilizado). |
+| subscriptionId       | Id de subscrição do Azure                    | Não                                       |
+| resourceGroupName    | Nome do grupo de recursos do Azure                | Não                                       |
 | servicePrincipalId   | Especifique o ID de cliente. da aplicação     | Sim                                      |
 | servicePrincipalKey  | Especifique a chave da aplicação.           | Sim                                      |
 | inquilino               | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim                                      |
@@ -505,15 +505,6 @@ Criar um serviço ligado do Azure SQL Data Warehouse e utilizá-lo com o [ativid
 
 ## <a name="sql-server-linked-service"></a>Serviço ligado do SQL Server
 Criar um serviço ligado do SQL Server e utilizá-lo com o [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado a partir de um pipeline do Data Factory. Ver [conector do SQL Server](connector-sql-server.md#linked-service-properties) artigo para obter detalhes sobre este serviço ligado.
-
-## <a name="azure-data-factory---naming-rules"></a>O Azure Data Factory - regras de nomenclatura
-A tabela seguinte fornece regras de nomenclatura dos artefactos do Data Factory.
-
-| Nome                             | Exclusividade de nome                          | Verificações de validação                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Exclusivo em todo o Microsoft Azure. Nomes diferenciam maiúsculas de minúsculas, ou seja, `MyDF` e `mydf` fazer referência à fábrica de dados mesmo. | <ul><li>Cada fábrica de dados está associada a exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
-| Serviços ligados/tabelas/pipelines | Exclusivo numa fábrica de dados. Nomes diferenciam maiúsculas de minúsculas. | <ul><li>Número máximo de caracteres num nome de tabela: 260.</li><li>Nomes de objeto tem de começar com uma letra, número ou um caráter de sublinhado (_).</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
-| Grupo de Recursos                   | Exclusivo em todo o Microsoft Azure. Nomes diferenciam maiúsculas de minúsculas. | <ul><li>Número máximo de carateres: 1000.</li><li>O nome pode conter letras, dígitos e os seguintes carateres: "-", "_",","e"."</li></ul> |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista das atividades de transformação do Azure Data Factory suporta, consulte [transformar dados](transform-data.md).

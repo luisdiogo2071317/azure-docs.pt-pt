@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344448"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364381"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -258,7 +258,7 @@ Quando utiliza a **detetar bds** ferramenta, cópia de segurança do Azure execu
 
     ![Selecione a VM e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Configurar cópia de segurança para bases de dados do SQL Server 
+## <a name="configure-backup-for-sql-server-databases"></a>Configurar cópia de segurança para bases de dados do SQL Server
 
 Cópia de segurança do Azure fornece serviços de gestão para proteger as bases de dados do SQL Server e gerir tarefas de cópia de segurança. As funções de monitorização e gestão dependem do seu Cofre dos serviços de recuperação. 
 
@@ -317,6 +317,9 @@ Para configurar a proteção para uma base de dados SQL:
 
 8. Na **escolher política de cópia de segurança** caixa de lista pendente, escolha uma política de cópia de segurança e, em seguida, selecione **OK**. Para obter informações sobre como criar uma política de cópia de segurança, consulte [definir uma política de cópia de segurança](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Durante a pré-visualização, não é possível editar as políticas de cópia de segurança. Se pretender uma política diferente do que está disponível na lista, tem de criar essa política. Para informações sobre como criar uma nova política de cópia de segurança, consulte a secção [definir uma política de cópia de segurança](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Escolha uma política de cópia de segurança da lista](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     Sobre o **política de cópia de segurança** menu, no **escolher política de cópia de segurança** caixa de lista pendente, pode: 
@@ -345,21 +348,28 @@ Uma política de cópia de segurança define uma matriz de quando os backups sã
 * Cópia de segurança diferencial: um backup diferencial baseia-se a cópia de segurança de dados completa mais recente, anterior. Uma cópia de segurança diferencial captura apenas os dados que são alterados desde a cópia de segurança completa. No máximo, pode acionar uma cópia de segurança diferencial por dia. Não é possível configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
 * Cópia de segurança de registo de transações: restauro de ponto no tempo até um segundo específico permite a uma cópia de segurança do registo. No máximo, pode configurar cópias de segurança do registo transacional a cada 15 minutos.
 
-A política criada no cofre dos serviços de recuperação de nível. Vários cofres podem utilizar a mesma política de cópia de segurança, mas tem de aplicar a política de cópia de segurança para cada cofre. Quando cria uma política de cópia de segurança, a cópia de segurança completa diária é a predefinição. Pode adicionar um backup diferencial, mas apenas se configurar cópias de segurança completas para ocorrer semanalmente. O procedimento seguinte explica como criar uma política de cópia de segurança para uma instância do SQL Server numa máquina virtual do Azure.
+A política criada no cofre dos serviços de recuperação de nível. Vários cofres podem utilizar a mesma política de cópia de segurança, mas tem de aplicar a política de cópia de segurança para cada cofre. Quando cria uma política de cópia de segurança, a cópia de segurança completa diária é a predefinição. Pode adicionar um backup diferencial, mas apenas se configurar cópias de segurança completas para ocorrer semanalmente. O procedimento seguinte explica como criar uma política de cópia de segurança para uma instância do SQL Server numa máquina virtual do Azure. 
 
+> [!NOTE]
+> Em pré-visualização, não é possível editar uma política de cópia de segurança. Em vez disso, tem de criar uma nova política com os detalhes pretendidos.  
+ 
 Para criar uma política de cópia de segurança:
 
-1. Na **política de cópia de segurança** menu, na **escolher política de cópia de segurança** caixa de lista pendente, selecione **criar novo**.
+1. No cofre dos serviços de recuperação que protege a base de dados SQL, clique em **políticas de cópia de segurança**e, em seguida, clique em **Add**. 
 
-   ![Criar uma nova política de cópia de segurança](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Abra a criar nova política de cópia de segurança caixa de diálogo](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    O **política de cópia de segurança** menu mostra os campos que são necessários para uma nova política de cópia de segurança do SQL Server.
+   O **adicionar** menu é apresentada.
 
-   ![novos campos de política de cópia de segurança](./media/backup-azure-sql-database/blank-new-policy.png)
+2. Na **Add** menu, clique em **do SQL Server na VM do Azure**.
 
-2. Na **nome da política** , introduza um nome.
+   ![Escolha um tipo de política para a nova política de cópia de segurança](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Um backup completo é obrigatório. Aceite os valores predefinidos para a cópia de segurança completa ou selecione **cópia de segurança completa** para editar a política.
+   Selecionar o SQL Server na VM do Azure define o tipo de política e abre o menu de política de cópia de segurança. O **política de cópia de segurança** menu mostra os campos que são necessários para uma nova política de cópia de segurança do SQL Server.
+
+3. Na **nome da política**, introduza um nome para a nova política.
+
+4. Um backup completo é obrigatório; Não é possível desativar a **cópia de segurança completa** opção. Clique em **cópia de segurança completa** para ver e editar a política. Mesmo que não altere a política de cópia de segurança, deve ver os detalhes da política.
 
     ![novos campos de política de cópia de segurança](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Para criar uma política de cópia de segurança:
 
    ![definição de intervalo semanal](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Por predefinição, todos os **período de retenção** opções estão selecionadas: diárias, semanais, mensais e anuais. Anular seleção de limites de intervalo de retenção indesejados. Defina os intervalos de usar. Na **política de cópia de segurança completa** menu, selecione **OK** para aceitar as configurações.
+5. Por predefinição, todos os **período de retenção** opções estão selecionadas: diárias, semanais, mensais e anuais. Anular seleção de limites de intervalo de retenção indesejados. Defina os intervalos de usar. Na **política de cópia de segurança completa** menu, selecione **OK** para aceitar as configurações.
 
    ![Definições de intervalo de intervalo de retenção](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Pontos de recuperação são marcados para retenção com base no seu período de retenção. Por exemplo, se selecionar uma cópia de segurança completa diária, apenas uma cópia de segurança completa é acionada por dia. A cópia de segurança para um dia específico é marcado e mantido com base no período de retenção semanais e a definição de retenção semanal. Mensal e anual períodos de retenção se comportam de maneira semelhante.
 
-5. Para adicionar uma política de cópia de segurança diferencial, selecione **cópia de segurança diferencial**. O **política de cópia de segurança diferencial** é aberto o menu. 
+6. Para adicionar uma política de cópia de segurança diferencial, selecione **cópia de segurança diferencial**. O **política de cópia de segurança diferencial** é aberto o menu. 
 
    ![Abra o menu de política de cópia de segurança diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,17 +401,17 @@ Para criar uma política de cópia de segurança:
 
     Selecione **OK** para guardar a política e retornar o Main **política de cópia de segurança** menu.
 
-6. Para adicionar uma política de cópia de segurança do registo transacional, selecione **cópia de segurança do registo**. O **registo de cópia de segurança** é aberto o menu.
+7. Para adicionar uma política de cópia de segurança do registo transacional, selecione **cópia de segurança do registo**. O **registo de cópia de segurança** é aberto o menu.
 
     Na **registo de cópia de segurança** menu, selecione **ativar**e, em seguida, defina os controlos de frequência e retenção. Backups de log podem ocorrer com a frequência de 15 minutos e podem ser mantidos até 35 dias. Selecione **OK** para guardar a política e retornar o Main **política de cópia de segurança** menu.
 
    ![Editar a política de cópia de segurança do registo](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. Sobre o **política de cópia de segurança** menu, escolha se pretende ativar **compressão de cópia de segurança de SQL**. Compressão está desativada por predefinição.
+8. Sobre o **política de cópia de segurança** menu, escolha se pretende ativar **compressão de cópia de segurança de SQL**. Compressão está desativada por predefinição.
 
     No back-end, o Azure Backup utiliza compressão de cópias de segurança nativa SQL.
 
-8. Depois de concluir as edições para a política de cópia de segurança, selecione **OK**. 
+9. Depois de concluir as edições para a política de cópia de segurança, selecione **OK**. 
 
    ![Aceite a nova política de cópia de segurança](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
@@ -410,8 +420,9 @@ Cópia de segurança do Azure fornece funcionalidades para restaurar bases de da
 
 Também pode selecionar um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico, em vez de uma hora específica.
 
-### <a name="pre-requisite-before-trigerting-a-restore"></a>Pré-requisitos antes de trigerting um restauro
-1. Pode restaurar a base de dados para uma instância do SQL Server na mesma região do Azure. O servidor de destino tem de ser registado no mesmo cofre dos serviços de recuperação como a origem.  
+### <a name="pre-requisite-before-triggering-a-restore"></a>Pré-requisitos antes de acionar um restauro
+
+1. Pode restaurar a base de dados para uma instância do SQL Server na mesma região do Azure. O servidor de destino tem de estar registado no mesmo cofre dos serviços de recuperação como a origem.  
 2. Para restaurar uma base de dados encriptado do TDE para outro SQL Server, primeiro restaure o certificado para o servidor de destino ao seguir os passos documentados [aqui](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
 3. Antes de acionar um restauro de base de dados "Mestra", iniciar a instância do SQL Server no modo de utilizador único com a opção de arranque `-m AzureWorkloadBackup`. O argumento para o `-m` opção é o nome do cliente. Apenas este cliente tem permissão para abrir a ligação. Para todas as bases de dados do sistema (modelo, mestra, msdb), pare o serviço SQL Agent antes de acionar o restauro. Feche todas as aplicações que podem tentar roubar uma ligação a qualquer uma destas bases de dados.
 

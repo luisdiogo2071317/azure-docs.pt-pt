@@ -1,6 +1,6 @@
 ---
-title: Como monitorizar uma conta de armazenamento do Azure | Microsoft Docs
-description: Saiba como monitorizar uma conta de armazenamento no Azure utilizando o portal do Azure.
+title: Como monitorizar uma conta de armazenamento do Azure | Documentos da Microsoft
+description: Saiba como monitorizar uma conta de armazenamento no Azure com o portal do Azure.
 services: storage
 documentationcenter: ''
 author: tamram
@@ -12,148 +12,141 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 07/31/2018
 ms.author: tamram
-ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 931b711d67db2b20c653fe6515735fdedc358b48
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322918"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364364"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
 
-[Análise de armazenamento do Azure](../storage-analytics.md) fornece métricas para todos os serviços de armazenamento e os registos para blobs, filas e tabelas. Pode utilizar o [portal do Azure](https://portal.azure.com) para configurar os registos e as métricas são registados para a sua conta e configure gráficos que fornecem representações visuais dos seus dados de métricas.
+[Análise de armazenamento do Azure](../storage-analytics.md) fornece métricas para todos os serviços de armazenamento e registos para blobs, filas e tabelas. Pode utilizar o [portal do Azure](https://portal.azure.com) para configurar as métricas e registos são registados para a sua conta e configurar gráficos que fornecem representações visuais dos seus dados de métricas.
 
 > [!NOTE]
-> Não existem custos associados a examinar os dados de monitorização no portal do Azure. Para obter mais informações, consulte [faturação e de análise de armazenamento](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Existem os custos associados a examinar dados de monitorização no portal do Azure. Para obter mais informações, consulte [a análise de armazenamento e de faturação](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
-> Ficheiros do Azure suporta métricas da análise de armazenamento atualmente, mas ainda não suporta o registo.
+> Os ficheiros do Azure suporta métricas da análise de armazenamento atualmente, mas ainda não suporta o registo.
 > 
-> Para obter um guia aprofundado sobre a utilização de análise de armazenamento e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o Storage do Azure, consulte [monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
+> Para obter um guia detalhado sobre como utilizar a análise de armazenamento e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o armazenamento do Azure, consulte [monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Configurar a monitorização de uma conta de armazenamento
 
-1. No [portal do Azure](https://portal.azure.com), selecione **contas do Storage**, em seguida, o nome de conta de armazenamento para abrir o dashboard de conta.
-1. Selecione **diagnóstico** no **monitorização** secção do painel de menu.
+1. Na [portal do Azure](https://portal.azure.com), selecione **contas de armazenamento**, em seguida, o nome de conta de armazenamento para abrir o dashboard de conta.
+1. Selecione **diagnóstico** no **monitorização** seção do painel de menu.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
-1. Selecione o **tipo** dos dados de métricas para cada **serviço** que pretende monitorizar e o **política de retenção** para os dados. Também pode desativar a monitorização, definindo **estado** para **desativar**.
+1. Selecione o **tipo** de dados de métricas para cada **service** que pretende monitorizar e o **política de retenção** para os dados. Também pode desativar a monitorização através da definição **Status** para **desativar**.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
+    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-01.png)
 
-   Existem dois tipos de métricas, pode ativar para cada serviço, que estão ativadas por predefinição para novas contas de armazenamento:
-
-   * **Agregação**: recolhe métricas como percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas para o blob, a fila, a tabela e os serviços de ficheiros.
-   * **Por API**: para além das métricas de agregação, recolhe o mesmo conjunto de métricas para cada operação de armazenamento na API do serviço de armazenamento do Azure.
-
-   Para definir a política de retenção de dados, mover o **retenção (dias)** controlo de deslize ou introduza o número de dias de dados para a retenção de 1 a 365. A predefinição para novas contas de armazenamento é sete dias. Se não pretender definir uma política de retenção, introduza zero. Se não houver nenhuma política de retenção, é até eliminar os dados de monitorização.
+   Para definir a política de retenção de dados, mover o **retenção (dias)** controlo de deslize ou introduza o número de dias de dados para manter os, de 1 a 365. A predefinição para novas contas de armazenamento é de sete dias. Se não pretender definir uma política de retenção, insira a zero. Se não houver nenhuma política de retenção, cabe-lhe eliminar os dados de monitorização.
 
    > [!WARNING]
-   > São-lhe cobrados quando eliminar manualmente os dados de métricas. Dados de análise obsoletos (mais antigos do que a política de retenção de dados) foi eliminados pelo sistema, sem qualquer custo. É recomendável definir uma política de retenção com base no quanto pretende manter os dados de análise de armazenamento para a sua conta. Consulte [que cobra pode implicar ao ativar as métricas do storage?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) para obter mais informações.
+   > São cobrados quando eliminar manualmente os dados de métricas. Dados de análise obsoletos (dados com mais de sua política de retenção) são eliminados pelo sistema, sem qualquer custo. Recomendamos a definição de uma política de retenção com base no quanto pretende manter os dados de análise de armazenamento para a sua conta. Ver [o que os custos pode implicar quando ativar as métricas de armazenamento?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) para obter mais informações.
    >
 
 1. Quando concluir a configuração de monitorização, selecione **guardar**.
 
-Um conjunto predefinido de métricas é apresentado nos gráficos no painel de conta de armazenamento, bem como os painéis do serviço individual (blob, fila, tabela e ficheiro). Assim que tiver ativado as métricas para um serviço, pode demorar uma hora para os dados são apresentados no respetivos gráficos. Pode selecionar **editar** em qualquer gráfico métrico para [configurar as métricas](#how-to-customize-metrics-charts) são apresentadas no gráfico.
+Um conjunto predefinido de métricas é apresentado em gráficos no painel da conta de armazenamento, bem como os painéis de serviço individual (blob, fila, tabela e ficheiro). Assim que tive ativado as métricas para um serviço, poderá demorar até uma hora para dados a serem exibidos nos seus gráficos. Pode selecionar **edite** em qualquer gráfico de métricas para [configurar as métricas](#how-to-customize-metrics-charts) são apresentados no gráfico.
 
-Pode desativar a recolha de métricas e registo definindo **estado** para **desativar**.
+Pode desativar a recolha de métricas e registo ao definir **Status** ao **desativar**.
 
 > [!NOTE]
-> Storage do Azure utiliza [tabela armazenamento](../common/storage-introduction.md#table-storage) para armazenar as métricas para a sua conta de armazenamento e armazena as métricas em tabelas na sua conta. Para obter mais informações, consulte. [Como são armazenadas as métricas](../common/storage-analytics.md#how-metrics-are-stored).
+> Armazenamento do Azure utiliza [armazenamento de tabelas](../common/storage-introduction.md#table-storage) para armazenar as métricas da sua conta de armazenamento e as métricas de arquivos em tabelas na sua conta. Para obter mais informações, consulte. [Como as métricas são armazenadas](../common/storage-analytics.md#how-metrics-are-stored).
 >
 
-## <a name="customize-metrics-charts"></a>Personalizar gráficos de métricas
+## <a name="customize-metrics-charts"></a>Personalizar os gráficos de métricas
 
-Utilize o procedimento seguinte para escolher quais as métricas do storage para ver um gráfico de métricas. 
+Utilize o procedimento seguinte para escolher as métricas de armazenamento para ver um gráfico de métricas. 
 
-1. Comece por apresentar um gráfico de métrica de armazenamento no portal do Azure. Pode encontrar gráficos no **painel de conta de armazenamento** e no **métricas** painel para um serviço individual (blob, fila, tabela, o ficheiro).
+1. Iniciar ao apresentar um gráfico de métricas de armazenamento no portal do Azure. Pode encontrar gráficos sobre o **painel conta de armazenamento** e, no **métricas** painel para um serviço individual (blob, fila, tabela e ficheiro).
 
-   Neste exemplo, iremos trabalhar com o gráfico seguinte que aparece no **painel de conta de armazenamento**:
+   Neste exemplo, utiliza o que é apresentado no gráfico a seguir a **painel de conta de armazenamento**:
 
    ![Seleção de gráfico no portal do Azure](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
-1. Em seguida, clique em qualquer lugar dentro do gráfico para abrir o **métrica** painel. Selecione **editar gráfico** para abrir o **editar gráfico** painel.
+1. Clique em qualquer lugar dentro do gráfico para editar o gráfico.
 
-   ![Botão de gráfico no painel de gráfico editar](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
+1. Em seguida, selecione o **intervalo de tempo** das métricas para apresentar no gráfico e o **serviço** (blob, fila, tabela, de ficheiros) cujas métricas que pretende apresentar. Aqui, as métricas da semana passada estão selecionadas a apresentar para o serviço de BLOBs:
 
-1. No **editar gráfico** painel, selecione o **intervalo de tempo** das métricas para apresentar no gráfico e o **serviço** (blob, fila, tabela, de ficheiros) cujas métricas que pretende apresentar. Aqui, selecionamos apresentação das métricas da semana passada para o serviço blob:
+   ![Seleção de intervalo e o serviço de hora no painel Editar gráfico](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
 
-   ![Seleção de intervalo e o serviço de hora no painel de editar gráfico](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
+1. Selecionar a pessoa **métricas** tinha como apresentadas no gráfico, em seguida, clique em **OK**.
 
-1. Selecione o indivíduo **métricas** como tinha apresentadas no gráfico, em seguida, clique em **OK**. Por exemplo, aqui escolheu apresentar o *ContainerCount* e *ObjectCount* métricas:
+   ![Seleção de métrica individual no painel de editar gráfico](./media/storage-monitor-storage-account/storage-edit-metric-selections.png)
 
-   ![Seleção de métrica individuais no painel de editar gráfico](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
+As definições do gráfico não afetam a coleção, a agregação ou o armazenamento de dados na conta de armazenamento de monitorização.
 
-As definições de gráfico não afetam a coleção, a agregação ou o armazenamento dos dados na conta de armazenamento, apenas a visualização de dados de métricas de monitorização.
+### <a name="metrics-availability-in-charts"></a>Disponibilidade de métricas em gráficos
 
-### <a name="metrics-availability-in-charts"></a>Disponibilidade de métricas nos gráficos
-
-A lista de alterações de métricas disponíveis com base nos que escolheu no menu pendente e o tipo de unidade do gráfico de serviço que está a editar. Por exemplo, pode selecionar métricas de percentagem, como *PercentNetworkError* e *PercentThrottlingError* apenas se estiver a editar um gráfico que mostra as unidades de medida como percentagem:
+A lista de alterações de métricas disponíveis com base no qual serviço que escolheu na lista pendente e o tipo de unidade do gráfico que está a editar. Por exemplo, pode selecionar métricas de percentagem, como *PercentNetworkError* e *PercentThrottlingError* apenas se estiver a editar um gráfico que apresenta as unidades de medida como percentagem:
 
 ![Gráfico de percentagem de erro de pedido no portal do Azure](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
 ### <a name="metrics-resolution"></a>Resolução de métricas
 
-As métricas que selecionou no diagnóstico determina a resolução das métricas que estão disponíveis para a sua conta:
+As métricas que selecionou no **diagnóstico** determina a resolução das métricas que estão disponíveis para a sua conta:
 
-* **Agregação** monitorização fornece métricas como percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas a partir do blob, tabela, ficheiros e serviços da fila.
-* **Por API** disponibiliza melhorar resolução, métricas disponíveis para operações de armazenamento individuais, além para as agregações de nível de serviço.
+* **Agregação** monitorização fornece as métricas, como percentagens de entrada/saída, disponibilidade, latência e êxito. Estas métricas são agregadas a partir do blob, tabela, ficheiros e serviços de fila.
+* **Por API** fornece uma resolução mais, com métricas disponíveis para operações de armazenamento individuais, além para as agregações de nível de serviço.
 
 ## <a name="configure-metrics-alerts"></a>Configurar alertas de métricas
 
-Pode criar alertas para notificá-lo quando limiares tem sido atingidos de métricas de recurso de armazenamento.
+Pode criar alertas para notificá-lo quando forem atingidos limiares de métricas de recurso de armazenamento.
 
-1. Para abrir o **painel regras de alertas**, desloque para baixo até o **monitorização** secção o **painel de Menu** e selecione **regras de alerta**.
-1. Selecione **Adicionar alerta** para abrir o **adicionar uma regra de alerta** painel
-1. Selecione um **recursos** (blob, ficheiro, fila, tabela) da lista pendente e introduza um **nome** e **Descrição** para a nova regra de alerta.
-1. Selecione o **métrica** para o qual pretende adicionar um alerta, um alerta **condição**e um **limiar**. A unidade de limiar escreva muda, consoante a métrica que escolheu. Por exemplo, "contagem" é o tipo de unidade para *ContainerCount*, enquanto a unidade para o *PercentNetworkError* métrica é uma percentagem.
-1. Selecione o **período**. As métricas que atingirem ou excedem o limiar dentro do período de acionam um alerta.
-1. (Opcional) Configurar **E-Mail** e **Webhook** notificações. Para obter mais informações sobre webhooks, consulte [configurar um webhook num alerta métrico Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Se não configurar notificações de e-mail ou webhook, alertas irão aparecer apenas no portal do Azure.
+1. Para abrir o **painel de regras de alerta**, desloque para baixo até o **monitorização** seção o **painel de Menu** e selecione **alertas (clássico)**.
+2. Selecione **Adicionar alerta de métrica (clássico)** para abrir o **adicionar uma regra de alerta** painel
+3. Introduza um **Name** e **Descrição** para sua nova regra de alerta.
+4. Selecione o **métrica** para que gostaria de adicionar um alerta, um alerta **condição**e um **limiar**. A unidade de limiar escreva é diferente consoante a métrica que escolheu. Por exemplo, "count" é o tipo de unidade para *ContainerCount*, enquanto a unidade para o *PercentNetworkError* métrica é uma percentagem.
+5. Selecione o **período**. As métricas que atingirem ou excederem o limiar dentro do período de acionam um alerta.
+6. (Opcional) Configurar **E-Mail** e **Webhook** notificações. Para obter mais informações sobre os webhooks, consulte [configurar um webhook num alerta de métrica do Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Se não configurar notificações de e-mail ou webhook, alertas serão apresentados apenas no portal do Azure.
 
-![Painel 'Adicionar uma regra de alerta' no portal do Azure](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
+![Painel "Adicionar uma regra de alerta" no portal do Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 
-## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Adicione gráficos de métricas ao dashboard do portal
+## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Adição de gráficos de métricas ao dashboard do portal
 
-Pode adicionar gráficos de métricas do Storage do Azure para qualquer uma das suas contas do storage ao seu dashboard do portal.
+Pode adicionar gráficos de métricas de armazenamento do Azure para qualquer uma das suas contas de armazenamento ao seu dashboard do portal.
 
-1. Clique em selecionar **editar dashboard** ao visualizar o dashboard na [portal do Azure](https://portal.azure.com).
-1. No **mosaico galeria**, selecione **localizar os mosaicos por** > **tipo**.
-1. Selecione **tipo** > **contas do Storage**.
-1. No **recursos**, selecione a conta de armazenamento cujas métricas que pretende adicionar ao dashboard.
+1. Clique em Select **editar dashboard** enquanto vê o dashboard na [portal do Azure](https://portal.azure.com).
+1. Na **Galeria de mosaicos**, selecione **encontrar mosaicos por** > **tipo**.
+1. Selecione **tipo** > **contas de armazenamento**.
+1. Na **recursos**, selecione a conta de armazenamento cujas métricas que pretende adicionar ao dashboard.
 1. Selecione **categorias** > **monitorização**.
-1. Arrastar e largar o gráfico mosaico no dashboard para a métrica que pretende apresentar. Repita para todas as métricas que gostaria de apresentadas no dashboard. Na imagem seguinte, o gráfico "Blobs - Total de pedidos do" é realçado, por exemplo, mas todos os gráficos estão disponíveis para colocação no dashboard.
+1. Arrastar e soltar o gráfico de mosaico no dashboard para a métrica que pretende apresentar. Repita para todas as métricas que gostaria de ter apresentadas no dashboard. Na imagem seguinte, o gráfico "Blobs - Total de pedidos" está realçado como exemplo, mas todos os gráficos estão disponíveis para colocação no seu dashboard.
 
-   ![Galeria de mosaico no portal do Azure](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
-1. Selecione **feito personalizar** perto da parte superior do dashboard quando tiver terminado a adição de gráficos.
+   ![Galeria de mosaicos no portal do Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
+1. Selecione **personalização concluída** perto da parte superior do dashboard quando tiver terminado a adição de gráficos.
 
-Depois de adicionar gráficos ao seu dashboard, pode personalizar ainda mais-las conforme descrito em [personalizar gráficos de métricas](#how-to-customize-metrics-charts).
+Depois de adicionar gráficos ao seu dashboard, pode personalizar ainda mais-los conforme descrito em [personalizar gráficos de métricas](#how-to-customize-metrics-charts).
 
 ## <a name="configure-logging"></a>Configurar o registo
 
-Pode instruir o Storage do Azure para guardar os registos de diagnóstico para leitura, escrita e eliminação pedidos para o blob, tabela e serviços da fila. A política de retenção de dados, definir também se aplica a estes registos.
+Pode instruir o armazenamento do Azure para guardar os registos de diagnóstico para leitura, escrita e eliminação de pedidos para o blob, tabela e os serviços de fila. A política de retenção de dados que definir também se aplica a estes registos.
 
 > [!NOTE]
-> Ficheiros do Azure suporta métricas da análise de armazenamento atualmente, mas ainda não suporta o registo.
+> Os ficheiros do Azure suporta métricas da análise de armazenamento atualmente, mas ainda não suporta o registo.
 >
 
-1. No [portal do Azure](https://portal.azure.com), selecione **contas do Storage**, em seguida, o nome da conta do storage para abrir o painel de conta de armazenamento.
-1. Selecione **diagnóstico** no **monitorização** secção do painel de menu.
+1. Na [portal do Azure](https://portal.azure.com), selecione **contas de armazenamento**, em seguida, o nome da conta do storage para abrir o painel de conta de armazenamento.
+1. Selecione **diagnóstico** no **monitorização** seção do painel de menu.
 
-    ![Diagnóstico item de menu sob monitorização no portal do Azure.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![Item de menu Diagnóstico em monitorização no portal do Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
     
-1. Certifique-se **estado** está definido como **no**e selecione o **serviços** para o qual gostaria de ativar o registo.
+1. Certifique-se **Status** está definida como **no**e selecione o **serviços** para que gostaria de ativar o registo.
 
-    ![Configure o registo no portal do Azure.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
+    ![Configure o registo no portal do Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Clique em **Guardar**.
 
-Os registos de diagnóstico são guardados no contentor do blob denominado $logs na sua conta de armazenamento. Pode ver os dados de registo utilizando o Explorador de armazenamento, como o [Explorador de armazenamento do Microsoft](http://storageexplorer.com), ou através de programação utilizando a biblioteca de clientes de armazenamento ou o PowerShell.
+Os registos de diagnóstico são guardados num contentor de Blobs com o nome *$logs* na sua conta de armazenamento. Pode ver os dados de log usando um Explorador de armazenamento, como o [Explorador de armazenamento do Microsoft](http://storageexplorer.com), ou programaticamente usando a biblioteca de clientes de armazenamento ou o PowerShell.
 
-Para obter informações sobre como aceder ao contentor $logs, consulte [aceder aos dados de registo e ativar o registo de armazenamento](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Para obter informações sobre como aceder ao contentor $logs, consulte [ativar o registo de armazenamento e acesso a dados de registo](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Obter mais informações sobre [métricas, registo e faturação](../storage-analytics.md) para análise de armazenamento.
-* [Ativar dados de métricas de métricas e vista de armazenamento do Azure](../storage-enable-and-view-metrics.md) utilizando o PowerShell e através de programação com c#.
+* Encontrar mais detalhes sobre [métricas, registo e de faturação](../storage-analytics.md) para análise de armazenamento.
+* [Ativar dados de métricas de métricas e vista de armazenamento do Azure](../storage-enable-and-view-metrics.md) com o PowerShell e através de programação com c#.

@@ -7,13 +7,13 @@ author: tomarcher
 manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
-ms.date: 07/25/2018
-ms.openlocfilehash: 407ec2bbb145e73b1a903886204b660aadc9a65f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 07/31/2018
+ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284419"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391491"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar o serviço de aplicações do Azure com o plug-in do Jenkins 
 
@@ -221,7 +221,7 @@ Para o **URL de registo do Docker** valor, forneça o URL utilizando o formato h
 
 3. Aceda a http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Substitua &lt;x > e &lt;y > com quaisquer números para obter a soma de x + y.
     
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de resolução de problemas
 
 Se tiver quaisquer erros com os plug-ins do Jenkins, comunique o assunto na [Jenkins JIRA](https://issues.jenkins-ci.org/) para o componente específico.
 

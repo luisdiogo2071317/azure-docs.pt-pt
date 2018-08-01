@@ -1,6 +1,6 @@
 ---
-title: Definições de Runbooks na automatização do Azure
-description: Descreve as definições de configuração para um runbook na automatização do Azure e como alterá-los utilizando o portal do Azure e o Windows PowerShell.
+title: Definições de Runbook na automatização do Azure
+description: Descreve as definições de configuração para um runbook na automatização do Azure e como alterá-las com o portal do Azure e o Windows PowerShell.
 services: automation
 ms.service: automation
 ms.component: process-automation
@@ -9,39 +9,39 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 951e59333ab1a1e982386c5c71f79b86f5e62440
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2174135aaf2e16907f16f38c1df1ec002b3083fd
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194201"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391440"
 ---
 # <a name="runbook-settings"></a>Definições de runbook
-Cada runbook na automatização do Azure tem várias definições que ajudam a ser identificados e alterar o respetivo comportamento de registo. Cada uma destas definições é descrita abaixo seguida pelos procedimentos sobre como modificá-las.
+Cada runbook na automatização do Azure tem várias definições que os ajudam a ser identificados e alterar seu comportamento de Registro em log. Cada uma destas definições é descrita abaixo seguida pelos procedimentos sobre como modificá-los.
 
 ## <a name="settings"></a>Definições
 ### <a name="name-and-description"></a>Nome e descrição
-Não é possível alterar o nome de um runbook depois de terem sido criadas. A descrição é opcional e pode ter até 512 carateres.
+Não é possível alterar o nome de um runbook depois de este ter sido criado. A descrição é opcional e pode ter até 512 carateres.
 
 ### <a name="tags"></a>Etiquetas
-As etiquetas permitem atribuir palavras e expressões diferentes para ajudar a identificar um runbook. Por exemplo, quando submeter um runbook para o [galeria do PowerShell](https://www.powershellgallery.com/), especifique etiquetas específicas para identificar as categorias o runbook deve estar listado no. Pode especificar várias etiquetas para um runbook, separando-as com vírgulas.
+As etiquetas permitem atribuir palavras e expressões para ajudar a identificar um runbook diferentes. Por exemplo, quando submeter um runbook para o [galeria do PowerShell](https://www.powershellgallery.com/), especificar etiquetas específicas para identificar as categorias do runbook deve estar listado no. Pode especificar várias etiquetas para um runbook, separando-as com vírgulas.
 
 ### <a name="logging"></a>Registo
-Por predefinição, os registos verboso e progresso não são escritos no histórico da tarefa. Pode alterar as definições para um determinado runbook para efetuar estes registos. Para obter mais informações sobre estes registos, consulte [Runbook resultados e mensagens](automation-runbook-output-and-messages.md).
+Por predefinição, os registos verboso e progresso não são escritos no histórico da tarefa. Pode alterar as definições de um determinado runbook para efetuar estes registos. Para obter mais informações sobre estes registos, consulte [Runbook Output and Messages](automation-runbook-output-and-messages.md).
 
 ## <a name="changing-runbook-settings"></a>Alterar definições de runbooks
 
-### <a name="changing-runbook-settings-with-the-azure-portal"></a>Alterar definições de runbooks com o portal do Azure
-Pode alterar as definições para um runbook no portal do Azure a partir de **definições** painel do runbook.
+### <a name="changing-runbook-settings-with-the-azure-portal"></a>Alterar definições de runbooks no portal do Azure
+Pode alterar as definições de um runbook no portal do Azure a **definições** painel do runbook.
 
-1. No portal do Azure, selecione **automatização** e, em seguida, em seguida, clique no nome de uma conta de automatização.
+1. No portal do Azure, selecione **automatização** e, em seguida, clique no nome de uma conta de automatização.
 2. Selecione o **Runbooks** separador.
-3. Clique no nome de um runbook e o utilizador é direcionado para o painel de definições para o runbook. Aqui pode especificar ou modificar etiquetas, a descrição de runbook, configurar definições de rastreio e de registo e as ferramentas de suporte para o ajudar a resolver problemas de acesso.     
+3. Clique no nome de um runbook e será direcionado para o painel de definições para o runbook. A partir daqui pode especificar ou modificar etiquetas, a descrição do runbook, configurar o registo e definições de rastreio e aceder às ferramentas de suporte para o ajudar a resolver problemas.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Alterar definições de runbooks com o Windows PowerShell
-Pode utilizar o [conjunto AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet para alterar as definições para um runbook. Se pretender especificar várias etiquetas, pode optar por fornecer uma matriz ou uma cadeia única com valores de delimitado por vírgulas para o parâmetro de etiquetas. Pode obter as etiquetas atuais com o [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Pode utilizar o [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet para alterar as definições de um runbook. Se quiser especificar várias etiquetas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores separado por vírgulas para o parâmetro de etiquetas. Pode obter as etiquetas atuais com o [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
 
-Os comandos de exemplo seguintes mostram como definir as propriedades de um runbook. Este exemplo adiciona três etiquetas para as etiquetas existentes e especifica que registos verbosos devem ser registados.
+Os comandos de exemplo seguintes mostram como definir as propriedades de um runbook. Este exemplo adiciona três etiquetas para as etiquetas existentes e especifica que registos verbosos devem ter sessão iniciados.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -52,6 +52,6 @@ Os comandos de exemplo seguintes mostram como definir as propriedades de um runb
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber como criar e obter mensagens de erro e de saída a partir de runbooks, consulte [Runbook resultados e mensagens](automation-runbook-output-and-messages.md) 
-* Para compreender como adicionar um runbook que já foi desenvolvido pela Comunidade ou outra origem ou criar o seus próprios Consulte runbook [criar ou importar um Runbook](automation-creating-importing-runbook.md) 
+* Para saber como criar e recuperar mensagens de erro e de saída a partir de runbooks, consulte o artigo [Runbook Output and Messages](automation-runbook-output-and-messages.md) 
+* Para saber como adicionar um runbook que já foi desenvolvido pela Comunidade ou outra origem ou para criar seus próprios runbook, consulte [criar ou importar um Runbook](automation-creating-importing-runbook.md) 
 

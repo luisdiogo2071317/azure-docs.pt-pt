@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126512"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390301"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
@@ -172,7 +172,7 @@ Os Runbook Workers híbridos pode ser configurados para ser executado apenas ass
 O exemplo seguinte cria um certificado autoassinado que pode ser utilizado na assinatura de runbooks. O exemplo cria o certificado e exporta-lo. O certificado é importado para as funções de trabalho de Runbook híbridas mais tarde. O thumbprint é retornado, que isto é utilizado mais tarde para referenciar o certificado.
 
 ```powershell
-# Create a self signed runbook that can be used for code signing
+# Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
                                         -KeyAlgorithm RSA `
@@ -211,14 +211,14 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### <a name="sign-your-runbooks-using-the-certificate"></a>Inscrever-se os Runbooks com o certificado
 
-O Runbook híbrido funções de trabalho configuradas para utilizar apenas para iniciar sessão runbooks. Tem de iniciar runbooks que estão a ser utilizada na função de trabalho de Runbook híbrida. Utilize o seguinte exemplo do PowerShell para assinar seus runbooks.
+O Runbook híbrido funções de trabalho configuradas para utilizar apenas para iniciar sessão runbooks, tem de iniciar runbooks que estão a ser utilizada na função de trabalho de Runbook híbrida. Utilize o seguinte exemplo do PowerShell para assinar seus runbooks.
 
 ```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Depois do runbook foi assinado, tem de ser importado para a sua conta de automatização e publicada com o bloco de assinaturas. Para saber como importar runbooks, consulte [importar um runbook a partir de um ficheiro para automatização do Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+Quando o runbook foi assinado, tem de ser importado para a sua conta de automatização e publicada com o bloco de assinaturas. Para saber como importar runbooks, consulte [importar um runbook a partir de um ficheiro para automatização do Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

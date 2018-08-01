@@ -1,6 +1,6 @@
 ---
-title: Ocorreu um erro inesperado ao efetuar o consentimento para uma aplicação | Microsoft Docs
-description: Explica como erros que podem ocorrer durante o processo de consenting para uma aplicação e o que pode fazer sobre os mesmos
+title: Erro inesperado ao consentir uma aplicação | Documentos da Microsoft
+description: Aborda os erros que podem ocorrer durante o processo de consentir uma aplicação e o que pode fazer sobre eles
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,39 +11,39 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78c2bd9f7d4f2b89ffdf4056edc394edbe761795
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331082"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363242"
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ocorreu um erro inesperado ao efetuar o consentimento para uma aplicação
+# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao consentir uma aplicação
 
-Este artigo aborda os erros que podem ocorrer durante o processo de consenting para uma aplicação. Se estiver a resolver os avisos de consentimento inesperado que não contêm quaisquer mensagens de erro, consulte [cenários de autenticação para o Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Este artigo aborda os erros que podem ocorrer durante o processo de consentir uma aplicação. Se estiver a resolver solicitações de consentimento inesperado que não contêm quaisquer mensagens de erro, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Muitas aplicações que se integram com o Azure Active Directory requerem permissões para aceder a outros recursos para funcionar. Quando estes recursos também estão integrados no Azure Active Directory, permissões para aceder aos mesmos, muitas vezes, é pedido utilizando a estrutura de consentimento comuns. É apresentado um pedido de consentimento, que ocorre geralmente na primeira vez uma aplicação é utilizada, mas também pode ocorrer num utilize subsequente da aplicação.
+Muitos aplicativos que se integram com o Azure Active Directory requerem permissões para aceder a outros recursos para funcionar. Quando esses recursos também estão integrados no Azure Active Directory, permissões para aceder aos mesmos, muitas vezes, é solicitado usando a estrutura comum de consentimento. Um pedido de consentimento é apresentado, que geralmente ocorre na primeira vez que um aplicativo é usado, mas também pode ocorrer num uso subseqüente do aplicativo.
 
-Determinadas condições devem ser verdadeiras para um utilizador consentimento para as permissões que necessita de uma aplicação. Se estas condições não estiverem reunidas, podem ocorrer os seguintes erros.
+Tem de ser verdadeiras para um utilizador dar consentimento às permissões de que um aplicativo exigir determinadas condições. Se estas condições não forem cumpridas, podem ocorrer os seguintes erros.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Erro de permissões não autorizado a pedir
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; está a solicitar um ou mais permissões que não autorizado a conceder. Contacte um administrador, o que pode consentimento para esta aplicação em seu nome.
+* **AADSTS90093:** &lt;clientAppDisplayName&gt; está a solicitar uma ou mais permissões que não tem autorização para conceder. Contacte um administrador, que pode consentir a esta aplicação em seu nome.
 
-Este erro ocorre quando um utilizador que não seja um administrador da empresa tenta utilizar uma aplicação que está a pedir as permissões que apenas um administrador pode conceder. Este erro pode ser resolvido por um administrador conceder acesso à aplicação em nome da sua organização.
+Este erro ocorre quando um utilizador que não seja um administrador da empresa tenta utilizar uma aplicação que está a pedir permissões que apenas um administrador pode conceder. Este erro pode ser resolvido por um administrador conceder acesso à aplicação em nome da sua organização.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede a conceder permissões de erro
-* **AADSTS90093:** de um administrador &lt;tenantDisplayName&gt; tem de definir uma política que o impede de concessão de permissões &lt;nome da aplicação&gt; as permissões que está a solicitar. Contacte um administrador de &lt;tenantDisplayName&gt;, que pode conceder permissões para esta aplicação em seu nome.
+* **AADSTS90093:** um administrador do &lt;tenantDisplayName&gt; definiu uma política que impede a concessão &lt;nome da aplicação&gt; as permissões que está a solicitar. Contacte um administrador do &lt;tenantDisplayName&gt;, que pode conceder permissões a esta aplicação em seu nome.
 
-Este erro ocorre quando um administrador de empresa desativa a capacidade dos utilizadores autorizar aplicações, em seguida, um utilizador de administrador não tenta utilizar uma aplicação que requer consentimento. Este erro pode ser resolvido por um administrador conceder acesso à aplicação em nome da sua organização.
+Este erro ocorre quando um administrador de empresa desativa a capacidade dos utilizadores dar consentimento a aplicações e, em seguida, um utilizador de não-administrador tenta utilizar uma aplicação que necessita de consentimento. Este erro pode ser resolvido por um administrador conceder acesso à aplicação em nome da sua organização.
 
 ## <a name="intermittent-problem-error"></a>Erro de problema intermitente
-* **AADSTS90090:** parece que o processo de início de sessão encontrou um problema intermitente gravar as permissões que foi efetuada uma tentativa para conceder a &lt;clientAppDisplayName&gt;. Tente novamente mais tarde.
+* **AADSTS90090:** parece que o processo de início de sessão encontrou um problema intermitente gravar as permissões que tentou conceder ao &lt;clientAppDisplayName&gt;. Tente novamente mais tarde.
 
-Este erro indica que ocorreu um problema do lado do serviço intermitente. Podem ser resolvido através da tentativa de consentimento para novamente a aplicação.
+Este erro indica que ocorreu um problema de lado do serviço. Puder ser resolvido, tentando autorizar a aplicação novamente.
 
 ## <a name="resource-not-available-error"></a>Recurso erro não está disponível
 * **AADSTS65005:** a aplicação &lt;clientAppDisplayName&gt; solicitadas permissões para aceder a um recurso &lt;resourceAppDisplayName&gt; que não está disponível. 
@@ -53,29 +53,29 @@ Contacte o programador da aplicação.
 ##  <a name="resource-not-available-in-tenant-error"></a>Recurso não está disponível no erro de inquilino
 * **AADSTS65005:** &lt;clientAppDisplayName&gt; está a solicitar acesso a um recurso &lt;resourceAppDisplayName&gt; que não está disponível na sua organização &lt;tenantDisplayName &gt;. 
 
-Certifique-se de que este recurso se encontra disponível ou contacte o administrador de &lt;tenantDisplayName&gt;.
+Certifique-se de que este recurso está disponível ou contacte o administrador do &lt;tenantDisplayName&gt;.
 
-## <a name="permissions-mismatch-error"></a>Erro de falta de correspondência de permissões
-* **AADSTS65005:** a aplicação pedida consentimento para recursos de acesso &lt;resourceAppDisplayName&gt;. Este pedido falhou porque não corresponde ao modo como a aplicação foi previamente configurada durante o registo de aplicação. Contactar a aplicação vendor.* *
+## <a name="permissions-mismatch-error"></a>Erro de correspondência de permissões
+* **AADSTS65005:** a aplicação pediu o consentimento para recursos de acesso &lt;resourceAppDisplayName&gt;. Este pedido falhou porque não corresponde a como a aplicação foi previamente configurada durante o registo de aplicação. Entre em contato com a aplicação vendor.* *
 
-Estes erros que todas ocorrerem quando a aplicação de que um utilizador está a tentar consentimento para solicitar permissões para aceder a uma aplicação de recursos que não pode ser localizada no diretório da organização (inquilino). Esta situação pode ocorrer por vários motivos:
+Estes erros todos ocorrem quando o aplicativo de um usuário está tentando dar consentimento a está a pedir permissões para aceder a uma aplicação de recurso que não pode ser encontrada no diretório da organização (inquilino). Esta situação pode ocorrer por diversos motivos:
 
--   O programador da aplicação de cliente tiver configurado os seus aplicação incorretamente, provocando-lo a pedir acesso a um recurso inválido. Neste caso, o programador da aplicação tem de atualizar a configuração da aplicação cliente para resolver este problema.
+-   O desenvolvedor do aplicativo cliente tenha configurado seu aplicativo incorretamente, fazendo com que ele solicitar acesso a um recurso é inválida. Neste caso, o programador da aplicação tem de atualizar a configuração da aplicação cliente para resolver este problema.
 
--   Um Principal de serviço que representa a aplicação de recurso de destino não existem na organização, ou existia no passado, mas foi removido. Para resolver este problema, um Principal de serviço para a aplicação de recursos têm de ser aprovisionado na organização, para a aplicação de cliente pode pedir permissões ao mesmo. O Principal de serviço pode ser aprovisionado de diversas formas, consoante o tipo de aplicação, incluindo:
+-   Um Principal de serviço que representa o aplicativo de recurso de destino não existe na organização, ou existiu no passado, mas foi removido. Para resolver este problema, um Principal de serviço para a aplicação de recurso tem de ser aprovisionado na organização para que a aplicação cliente pode pedir permissões às mesmas. O Principal de serviço pode ser aprovisionado de diversas formas, consoante o tipo de aplicação, incluindo:
 
-    -   Adquirir uma subscrição para a aplicação de recursos (aplicações publicadas da Microsoft)
+    -   Adquirir uma assinatura para a aplicação de recurso (aplicações publicadas da Microsoft)
 
-    -   Consenting para a aplicação de recursos
+    -   Que consinta a aplicação de recurso
 
-    -   Conceder as permissões de aplicações através do portal do Azure
+    -   Conceder permissões de aplicação através do portal do Azure
 
-    -   Adicionar a aplicação na Galeria de aplicações do Azure AD
+    -   Adicionar a aplicação a partir da Galeria de aplicações do Azure AD
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-[As aplicações, permissões e consentimento no Azure Active Directory (v1 ponto final)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Aplicações, permissões e consentimento no Azure Active Directory (ponto de final v1)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
-[Âmbitos, permissões e consentimento no Azure Active Directory (ponto final v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+[Âmbitos, permissões e consentimento no Azure Active Directory (ponto final v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

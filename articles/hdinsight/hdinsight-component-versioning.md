@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: fd2539830ab20fe4c63ddf3bb97cccdb13e535ea
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 02f730aaf9f47da564d459577a31377ef63207a4
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857009"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390641"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -84,7 +84,6 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 | Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
-| 3.3 do HDInsight |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2018 |Sim |Não |
 
 > [!NOTE]
 > Depois de suporte para uma versão tiver expirado, poderá não ser disponível através do portal do Microsoft Azure. No entanto, a versões de cluster continuam a estar disponíveis através da `Version` parâmetro no Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) comando e o SDK de .NET até a data de retirada de versão.
@@ -98,6 +97,7 @@ A tabela seguinte lista as versões do HDInsight que são **não** disponível n
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |28 de Junho de 2018 |Sim |Não |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
+| 3.3 do HDInsight |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2018 |Sim |Não |
 | 3.3 do HDInsight |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |
 | 3.2 do HDInsight |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de Fevereiro de 2015 |1 de Março de 2016 |1 de Abril de 2017 |Sim |Não |
 | 3.1 do HDInsight |HDP 2.1 |Windows Server 2012 R2 |24 de Junho de 2014 |18 de Maio de 2015 |30 de Junho de 2016 |Sim |Não |

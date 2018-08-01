@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264597"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390158"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -60,6 +60,7 @@ Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?Lin
 
 ### <a name="fixed-issues"></a>Problemas de fixos 
 
+- Foi corrigido um erro em que o servidor do AAD Connect mostraria elevada utilização da CPU após a atualização para o .net 4.7.2
 - Foi corrigido um erro que intermitentemente produziria uma mensagem de erro para um problema de deadlock SQL resolvido automaticamente
 - Corrigidos vários problemas de acessibilidade para Editor de regras de sincronização e o Gestor do serviço de sincronização  
 - Foi corrigido um erro em que o Azure AD Connect não é possível obter as informações de definição de registo
@@ -256,9 +257,9 @@ Permitir    | Administradores                | Controlo Total         | Este obj
 Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
-Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
-Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Utilizadores autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Listar conteúdo        | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as definições para o AD DS conta que pode ser executado [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 

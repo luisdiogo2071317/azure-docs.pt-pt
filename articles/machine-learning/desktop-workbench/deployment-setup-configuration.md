@@ -1,54 +1,62 @@
 ---
-title: A configuração de gestão de modelo do Azure Machine Learning e configuração | Microsoft Docs
-description: Este documento descreve os conceitos e os passos envolvidos na configuração e como configurar a gestão de modelo do Azure Machine Learning.
+title: Configuração de gestão de modelo do Azure Machine Learning e configuração | Documentos da Microsoft
+description: Este documento descreve os passos e conceitos envolvidos na definir e configurar a gestão de modelos no Azure Machine Learning.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: bf96a6986abe858074decaaecfe38b3807822aab
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 150114184f6f04f22aa9da409758daa6a0d175b5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830246"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369052"
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
-Este documento obtém-lo a começar a utilizar a gestão de modelo do Azure ML para implementar e gerir os seus modelos de machine learning como serviços web. 
+Este documento apresenta-lhe começar a utilizar a gestão de modelos do Azure ML para implementar e gerir modelos como serviços da web de aprendizagem. 
 
-Utilizando a gestão de modelo do Azure ML, pode implementar e gerir eficientemente os modelos de Machine Learning que são criados utilizando um número de estruturas, incluindo SparkML, Keras, TensorFlow, o Toolkit de cognitivos ou Python. 
+Utilizar a gestão de modelos do Azure ML, pode com eficiência implementar e gerir modelos de Machine Learning, que são criados usando várias estruturas, incluindo SparkML, Keras, TensorFlow, o Microsoft Cognitive Toolkit ou Python. 
 
-No final deste documento, deve ser capaz de ter o seu ambiente de gestão de modelo configurado e pronto para implementar os modelos de machine learning.
+No final deste documento, será capaz de ter o seu ambiente de gestão de modelo configurado e pronto para implementar modelos de aprendizagem.
 
-## <a name="what-you-need-to-get-started"></a>O que precisa de começar
-Para tirar o máximo partido deste guia, deve ter acesso de contribuinte a um grupo de recursos que pode implementar os seus modelos para ou a uma subscrição do Azure.
-A CLI é previamente instalada o Workbench do Azure Machine Learning e no [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+## <a name="what-you-need-to-get-started"></a>O que precisa para começar a utilizar
+Para tirar o máximo proveito deste guia, deve ter acesso de contribuinte a uma subscrição do Azure ou um grupo de recursos que pode implementar os seus modelos para.
+A CLI vem pré-instalada no Azure Machine Learning Workbench e, no [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
-## <a name="using-the-cli"></a>Utilizar a CLI
-Para utilizar as interfaces de linha de comandos (CLIs) do Workbench, clique em **ficheiro** -> **abra a linha de comandos**. 
+## <a name="using-the-cli"></a>Com a CLI
+Para utilizar as interfaces de linha de comandos (CLI) do Workbench, clique em **arquivo** -> **linha de comandos aberta**. 
 
-Em dados de ciência de Máquina Virtual, ligue e abra a linha de comandos. Tipo `az ml -h` para ver as opções. Para obter mais detalhes sobre os comandos, utilize o - sinalizador de ajuda.
+Num dados de Máquina Virtual de ciência, ligue e abra o prompt de comando. Tipo de `az ml -h` para ver as opções. Para obter mais detalhes sobre os comandos, utilize o-- sinalizador de ajuda.
 
-Em todos os outros sistemas, terá de instalar os CLIs.
+Em todos os outros sistemas, terá de instalar a CLI.
+
+>[!NOTE]
+> Num bloco de notas do Jupyter numa DSVM do Linux, pode aceder a CLI do Azure e a CLI do Azure ML com o formato do comando abaixo.  **Isso é para um bloco de notas do Jupyter numa DSVM do Linux, especificamente**.  Estes comandos acedem o kernel de Python atual no bloco de notas (por exemplo, o conda `py35` ambiente)
+>```
+>import sys
+>! {sys.executable} -m azure.cli login
+>! {sys.executable} -m azure.cli ml -h
+>```
 
 ### <a name="installing-or-updating-on-windows"></a>Instalar (ou atualizar) no Windows
 
 Instalar o Python de https://www.python.org/. Certifique-se de que selecionou para instalar o pip.
 
-Abra uma linha de comandos utilizando executar como administrador e execute os seguintes comandos:
+Abra um prompt de comando usando executar como administrador e execute os seguintes comandos:
 
 ```cmd
 pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="installing-or-updating-on-linux"></a>Instalar (ou atualizar) no Linux
-Execute o seguinte comando na linha de comandos e siga as instruções:
+Execute o seguinte comando na linha de comando e siga as instruções:
 
 ```bash
 sudo -i
@@ -56,27 +64,27 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Configurar Docker no Linux
-Para configurar Docker no Linux para utilização por utilizadores não raiz, siga as instruções aqui: [pós-instalação passos para Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+Para configurar o Docker no Linux para utilização por utilizadores não raiz, siga as instruções aqui: [os passos de pós-instalação para Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
-> No DSVM de Linux, pode executar o script abaixo para configurar corretamente o Docker. **Lembre-se terminar sessão e voltar a iniciar sessão depois de executar o script.**
+> Numa DSVM do Linux, pode executar o script abaixo para configurar corretamente o Docker. **Lembre-se de terminar sessão e voltar a iniciar sessão depois de executar o script.**
 >```
 >sudo /opt/microsoft/azureml/initial_setup.sh
 >```
 
-## <a name="deploying-your-model"></a>Implementar o modelo
-Utilize a CLI para implementar modelos como serviços web. Os serviços web podem ser implementados localmente ou para um cluster.
+## <a name="deploying-your-model"></a>Implementar o seu modelo
+Utilize a CLI para implementar modelos como serviços da web. Os serviços da web podem ser implementados localmente ou num cluster.
 
-Começar com uma implementação local, validar que o modelo e o código de trabalho, em seguida, implementar um cluster para utilização de escala de produção.
+Começar com uma implementação local, validar que o modelo e o código funcionam, em seguida, implementar num cluster para efeitos de escala de produção.
 
-Para começar, terá de configurar o ambiente de implementação. O programa de configuração do ambiente é uma tarefa de tempo. Assim que a configuração estiver concluída, pode reutilizar o ambiente para implementações subsequentes. Consulte a secção seguinte para obter mais detalhes.
+Para começar, terá de configurar o ambiente de implantação. Configuração do ambiente é uma tarefa de tempo. Depois da configuração estiver concluída, é possível reutilizar o ambiente para implementações subsequentes. Consulte a secção seguinte para obter mais detalhes.
 
-Quando concluir a configuração de ambiente:
-- Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um web browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para se autenticar.
-- Durante o processo de autenticação, é-lhe pedida uma conta autenticar com. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e de permissões suficientes para criar recursos na conta. Quando o início de sessão estiver concluída, são apresentadas informações da sua subscrição e lhe for perguntado se pretende continuar com a conta selecionada.
+Quando concluir a configuração do ambiente:
+- Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para autenticar.
+- Durante o processo de autenticação, lhe for pedido para uma conta autenticar com o. Importante:-Selecione uma conta que tenha uma subscrição do Azure válida e permissões suficientes para criar recursos na conta. Quando o início de sessão estiver concluído, as informações de subscrição são apresentadas e lhe for perguntado se desejar continuar com a conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
-Para iniciar o processo de configuração, tem de registar alguns fornecedores de ambiente, introduzindo os seguintes comandos:
+Para iniciar o processo de configuração, terá de registar os fornecedores de ambiente alguns ao introduzir os seguintes comandos:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
@@ -84,19 +92,19 @@ az provider register -n Microsoft.ContainerRegistry
 az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Implementação de local
-Para implementar e testar o seu serviço web no computador local, configure um ambiente local utilizando o seguinte comando. O nome do grupo de recursos é opcional.
+Para implementar e testar o seu serviço web no computador local, configure um ambiente local com o seguinte comando. O nome do grupo de recursos é opcional.
 
 ```azurecli
 az ml env setup -l [Azure Region, e.g. eastus2] -n [your environment name] [-g [existing resource group]]
 ```
 >[!NOTE] 
->Implementação do serviço local web requer a instalação Docker num computador local. 
+>Implementação do serviço local web requer a instalação do Docker no computador local. 
 >
 
 O comando de configuração do ambiente local cria os seguintes recursos na sua subscrição:
 - Um recurso de grupo (se não for indicado, ou se o nome fornecido não existir)
-- uma conta de armazenamento
-- Um registo de contentor do Azure (ACR)
+- Uma conta de armazenamento
+- Um Azure Container Registry (ACR)
 - Uma conta do Application insights
 
 Após a conclusão da configuração com êxito, defina o ambiente para ser utilizado com o seguinte comando:
@@ -106,9 +114,9 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 #### <a name="cluster-deployment"></a>Implementação de cluster
-Utilize a implementação de Cluster para cenários de produção de grande escala. Configura um cluster de ACS com Kubernetes como o orchestrator. O cluster de ACS pode ser ampliado para lidar com maior débito para as chamadas de serviço web.
+Utilize a implementação de Cluster para cenários de produção de grande escala. Ele configura um cluster de ACS com o Kubernetes como o orchestrator. O cluster de ACS pode ser dimensionado para processar um débito maior de suas chamadas de serviço da web.
 
-Para implementar o serviço web para um ambiente de produção, configure primeiro o ambiente utilizando o seguinte comando:
+Para implementar o seu serviço web num ambiente de produção, primeiro configure o ambiente com o seguinte comando:
 
 ```azurecli
 az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastus2] [-g [resource group]]
@@ -116,15 +124,15 @@ az ml env setup --cluster -n [your environment name] -l [Azure region e.g. eastu
 
 O comando de configuração do ambiente de cluster cria os seguintes recursos na sua subscrição:
 - Um recurso de grupo (se não for indicado, ou se o nome fornecido não existir)
-- uma conta de armazenamento
-- Um registo de contentor do Azure (ACR)
-- Uma implementação de Kubernetes num cluster do serviço de contentor do Azure (ACS)
+- Uma conta de armazenamento
+- Um Azure Container Registry (ACR)
+- Uma implementação de Kubernetes num cluster do Azure Container Service (ACS)
 - Uma conta do Application insights
 
 >[!IMPORTANT]
-> Para criar com êxito um ambiente de cluster, terá de ter acesso de Contribuidor na subscrição do Azure ou o grupo de recursos.
+> Para criar com êxito um ambiente de cluster, terá de estar a ter acesso de Contribuidor na subscrição do Azure ou o grupo de recursos.
 
-O grupo de recursos, a conta de armazenamento e o ACR são criados rapidamente. A implementação de ACS pode demorar até 20 minutos. 
+O grupo de recursos, a conta de armazenamento e o ACR são criadas rapidamente. A implementação do ACS pode demorar até 20 minutos. 
 
 Para verificar o estado de um tipo de aprovisionamento de clusters em curso, utilize o seguinte comando:
 
@@ -139,11 +147,11 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 >[!NOTE] 
-> Depois de criar o ambiente, para implementações subsequentes, apenas terá de utilizar o comando set acima para reutilizá-lo.
+> Depois do ambiente for criado, para implementações subsequentes, só tem de utilizar o comando set acima para reutilizá-la.
 >
 
-### <a name="create-a-model-management-account"></a>Criar uma conta de gestão de modelo
-É necessária para implementar modelos de uma conta de gestão de modelo. Precisa de fazer uma vez por subscrição e pode reutilizar a mesma conta de múltiplas implementações.
+### <a name="create-a-model-management-account"></a>Criar uma conta de gestão de modelos
+Uma conta de gestão é necessária para a implementação de modelos. Terá de fazer isto vez por subscrição e pode reutilizar a mesma conta em várias implementações.
 
 Para criar uma nova conta, utilize o seguinte comando:
 
@@ -156,9 +164,9 @@ Para utilizar uma conta existente, utilize o seguinte comando:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-Como resultado deste processo, o ambiente está preparado e a conta de gestão do modelo foi criada para fornecer as funcionalidades necessárias para gerir e implementar modelos de Machine Learning (consulte [gestão de modelo do Azure Machine Learning](model-management-overview.md) para um Descrição geral).
+Como resultado desse processo, o ambiente está pronto e a conta de gestão de modelo foi criada para fornecer os recursos necessários para gerir e implementar modelos de Machine Learning (consulte [gestão de modelos do Azure Machine Learning](model-management-overview.md) para um Descrição geral).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter instruções sobre como implementar os serviços web para ser executada num computador local ou um cluster de avançar para [implementar um modelo de Machine Learning como um serviço Web](model-management-service-deploy.md).
-* Experimente um dos muitos exemplos na galeria.
+* Para obter instruções sobre como implementar serviços web para serem executadas num computador local ou um cluster, continue para [implementar um modelo de aprendizagem automática como um serviço Web](model-management-service-deploy.md).
+* Experimente um dos muito exemplos na galeria.

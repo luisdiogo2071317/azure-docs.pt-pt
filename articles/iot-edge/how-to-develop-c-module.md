@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 902516d194a8f3a91cad829e05437343eabf95cd
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348562"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391457"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de C para o Azure IoT Edge
 
@@ -73,7 +73,7 @@ Existem quatro itens dentro da solução:
 
 ## <a name="develop-your-module"></a>Desenvolver o seu módulo
 
-O código de função do Azure de predefinição que vem com a solução está localizado em **módulos** > **\<seu nome de módulo\>**   >   **main**. O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
+O código do módulo de C predefinido que é fornecido com a solução está localizado em **módulos** > **\<seu nome de módulo\>** > **main** . O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
 
 Quando estiver pronto para personalizar o modelo de C com o seu próprio código, utilize o [SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos esse endereço tem da chave para soluções de IoT, como segurança, gestão de dispositivos e confiabilidade. 
 
@@ -81,9 +81,15 @@ Quando estiver pronto para personalizar o modelo de C com o seu próprio código
 
 Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor diferente. Utilizar qualquer um destes ficheiros que terminam com a extensão **.debug** para criar o seu módulo para fins de teste. Atualmente, os módulos de C suportam a depuração apenas em contentores do Linux amd64.
 
-1. No VS Code, navegue para o `deployment.template.json` ficheiro. Atualizar o seu URL de imagem de função adicionando **.debug** ao fim.
+1. No VS Code, navegue para o `deployment.template.json` ficheiro. Atualizar o seu URL de imagem do módulo adicionando **.debug** ao fim.
 
-   ![Adicionar *** .debug para o seu nome de imagem](./media/how-to-develop-c-module/image-debug.png)
+    ![Adicionar *** .debug para o seu nome de imagem](./media/how-to-develop-c-module/image-debug.png)
+
+2. Substitua o createOptions do módulo de node. js em **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 
+    
+    ```json
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    ```
 
 2. Na paleta de comandos VS Code, introduza e execute o comando **Edge: solução de IoT Edge criar**.
 3. Selecione o `deployment.template.json` ficheiro para a sua solução da paleta de comandos. 
@@ -107,8 +113,7 @@ Mantém depuração de código de VS informações de configuração num `launch
 
 4. Na vista de depuração de código do VS, verá as variáveis no painel esquerdo. 
 
-> [!NOTE]
-> Este exemplo mostra como depurar os módulos do IoT Edge do .NET Core em contentores. Baseia-se a versão de depuração `Dockerfile.debug`, que inclui o depurador de linha de comandos do .NET Core VSDBG em sua imagem de contentor ao criá-lo. Depois de depurar seus módulos do c#, recomendamos que diretamente utilizar ou personalizar `Dockerfile` sem VSDBG de módulos do IoT Edge prontos para produção.
+O exemplo anterior mostra como depurar os módulos do IoT Edge do C em contentores. Ele adicionou portas expostas no seu createOptions de contentor do módulo. Depois de concluir a depuração de seus módulos do node. js, recomendamos que remova estas portas expostas de módulos do IoT Edge prontos para produção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

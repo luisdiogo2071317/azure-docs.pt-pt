@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4a29f3e8b8f12091d640d68be3e2b0e87a8cc271
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348696"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391382"
 ---
 # <a name="manage-your-security-info-preview"></a>Gerir as suas informações de segurança (pré-visualização)
 
@@ -86,7 +86,7 @@ Este artigo ajuda-o a resolver problemas de suas informações de segurança, in
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre as informações de segurança do [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md) artigo.
+- Saiba mais sobre as informações de segurança de [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md).
 
 - Saiba mais sobre a verificação de dois passos no [descrição geral de verificação de dois passos](user-help-two-step-verification-overview.md) artigo. 
 

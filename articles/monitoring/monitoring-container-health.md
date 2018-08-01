@@ -3,7 +3,7 @@ title: Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) (pr
 description: Este artigo descreve como pode ver facilmente o desempenho do seu contentor do AKS para compreender rapidamente a utilização de seu ambiente alojado do Kubernetes.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249102"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366101"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorizar estado de funcionamento do Azure Kubernetes Service (AKS) contentor (pré-visualização)
 
@@ -39,7 +39,7 @@ Antes de começar, certifique-se de que tem o seguinte:
 
 - Um cluster do AKS novo ou existente.
 - Um agente do OMS em contentores para a versão do Linux microsoft / oms:ciprod04202018 ou posterior. O número de versão é representado por uma data no seguinte formato: *mmddyyyy*. O agente é instalado automaticamente durante a integração do Estado de funcionamento do contentor. 
-- Uma área de trabalho do Log Analytics. Pode criá-la quando ativa a monitorização do seu novo cluster do AKS, ou pode criá-la por meio [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), da funcionalidade [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), ou no [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
+- Uma área de trabalho do Log Analytics. Pode criá-la quando ativar a monitorização do seu novo cluster do AKS ou permitir que a experiência de integração, criar uma área de trabalho padrão no grupo de recursos predefinido da subscrição de cluster do AKS. Se optar por criá-lo, pode criá-lo através de [do Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), da funcionalidade [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), ou no [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 - A função de Contribuidor do Log Analytics, para ativar a monitorização do contentor. Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Componentes 
@@ -47,14 +47,20 @@ Antes de começar, certifique-se de que tem o seguinte:
 Sua capacidade de monitorizar o desempenho se baseia num agente do OMS em contentores de Linux, que recolhe dados de eventos de desempenho e de todos os nós do cluster. O agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada depois de ativar a monitorização de contentores. 
 
 >[!NOTE] 
->Se já tiver implementado um cluster do AKS, ativa a monitorização utilizando um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente. 
+>Se já tiver implementado um cluster do AKS, ativa a monitorização com o CLI do Azure ou um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Ativar a monitorização de estado de funcionamento de contentor para um novo cluster
-Durante a implementação, pode ativar a monitorização de um novo cluster do AKS no portal do Azure. Siga os passos no artigo guia de introdução [implementar um cluster do Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md). Sobre o **monitorização** página, para o **Ativar monitorização** opção, selecione **Sim**e, em seguida, selecione uma área de trabalho do Log Analytics existente ou crie um novo. 
+Durante a implementação, pode ativar a monitorização de um novo cluster do AKS no portal do Azure ou com a CLI do Azure. Siga os passos no artigo guia de introdução [implementar um cluster do Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md) se pretender ativar a partir do portal. Sobre o **monitorização** página, para o **Ativar monitorização** opção, selecione **Sim**e, em seguida, selecione uma área de trabalho do Log Analytics existente ou crie um novo. 
+
+Para ativar a monitorização de um novo cluster do AKS criado com a CLI do Azure, siga o passo no artigo guia de introdução na seção [cluster do AKS criar](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+
+>[!NOTE]
+>Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.27 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>
 
 Depois de ativar a monitorização e todas as tarefas de configuração são concluídas com êxito, pode monitorizar o desempenho do seu cluster em qualquer uma das seguintes formas:
 
@@ -66,7 +72,20 @@ Depois de ativar a monitorização e todas as tarefas de configuração são con
 Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar dados operacionais para o cluster. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Ativar a monitorização de estado de funcionamento de contentor para os clusters geridos existentes
-Pode ativar a monitorização de um cluster do AKS que já tenha sido implementado no portal do Azure ou com o modelo Azure Resource Manager fornecido com o cmdlet do PowerShell `New-AzureRmResourceGroupDeployment` ou a CLI do Azure. 
+Pode ativar a monitorização de um cluster do AKS que já tenha sido implementado por meio da CLI do Azure, no portal ou com o modelo Azure Resource Manager fornecido com o cmdlet do PowerShell `New-AzureRmResourceGroupDeployment`. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Ativar monitorização utilizando a CLI do Azure
+O passo seguinte permite o monitoramento do cluster do AKS com a CLI do Azure. Neste exemplo, não tem de criar por ou especificar uma área de trabalho existente. Este comando simplifica o processo para si através da criação de uma área de trabalho padrão no grupo de recursos predefinido da subscrição de cluster do AKS, se já não existir na região.  O formato de é semelhante a área de trabalho predefinida criada *DefaultWorkspace -<GUID>-<Region>*.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+A saída terá a seguinte aparência:
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Ativar a monitorização no portal do Azure
 Para ativar a monitorização do seu contentor do AKS no portal do Azure, efetue o seguinte:
@@ -297,6 +316,26 @@ User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
+
+## <a name="view-configuration-with-cli"></a>Ver configuração com a CLI
+Utilize o `aks show` comando para obter os detalhes desse tipo, tal como está a solução ativada ou não, o que é o resourceID de área de trabalho do Log Analytics e detalhes de resumo sobre o cluster.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+Após alguns minutos, o comando é concluído e devolve o formato JSON informações sobre a solução.  Os resultados do comando deve mostrar o perfil de complemento de monitorização e é semelhante a saída de exemplo seguinte:
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
 
 ## <a name="view-performance-utilization"></a>Utilização de desempenho do Vista
 Quando abre o estado de funcionamento do contentor, a página apresenta imediatamente a utilização de desempenho do seu cluster inteiro. Ver informações sobre o seu cluster do AKS está organizado em quatro perspectivas:

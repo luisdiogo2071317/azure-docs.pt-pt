@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072080"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390658"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Agente de compilação de utilização do Azure Container Instances, como um Jenkins
 
@@ -127,6 +127,10 @@ Para testar a tarefa de compilação e observe como a plataforma de compilação
 4. Depois de terminar todas as tarefas de compilação, as instâncias de contentores são removidas.
 
    ![Grupo de recursos com o container instances removido](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de resolução de problemas
+
+Se tiver quaisquer erros com os plug-ins do Jenkins, comunique o assunto na [Jenkins JIRA](https://issues.jenkins-ci.org/) para o componente específico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

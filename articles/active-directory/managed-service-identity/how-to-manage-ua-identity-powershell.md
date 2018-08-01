@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: def5788b83116ce0843f1fdd86933830cabc9ee2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188004"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389690"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Criar, lista ou eliminar uma identidade atribuída ao utilizador com o Azure PowerShell
 
@@ -38,6 +38,12 @@ Neste artigo, saiba como criar, listar e eliminar uma identidade atribuída ao u
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
     - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade atribuída ao utilizador.
     - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para ler as propriedades de uma identidade de utilizador atribuída de (lista).
+
+> [!NOTE]
+> Enquanto utilizador atribuído identidades ainda estão em pré-visualização, que terá primeiro de instalar manualmente o módulo de AzureRM.ManagedServiceIdentity com o seguinte comando. 
+```azurepowershell-interactive
+Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
+```
 
 ## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo utilizador
 

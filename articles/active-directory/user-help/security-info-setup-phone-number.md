@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4b889f47c696148c693081ee0873fc57d91600c9
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 701a47a3907c77dbf5d51692e5d1ddc0c49ab985
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348611"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390107"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>Configurar informações de segurança para usar chamadas de telefone (pré-visualização)
 
@@ -29,7 +29,7 @@ Configuração de suas informações de segurança requer que inicie sessão na 
 Dependendo das definições da sua organização, poderá ser-lhe pedido para adicionar um número de telefone para sua informação de segurança quando iniciar sessão. Caso contrário, para iniciar a configuração de chamadas telefónicas das informações de segurança, siga os passos em [gerir as suas informações de segurança](security-info-manage-settings.md).
 
 >[!Note]
->Se não vir a opção de telefone, é possível que a sua organização não permite a utilização de chamadas telefónicas para verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
+>Informações de segurança não suportam a utilização de extensões de telefone. Mesmo que adicione o formato correto, 4255551234 + 1 X 12345, as extensões são removidas antes da chamada é feita.<br>Se não vir a opção de telefone, é possível que a sua organização não permite a utilização de chamadas telefónicas para verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
 
 ### <a name="to-use-your-phone-number"></a>Para utilizar o seu número de telefone
 

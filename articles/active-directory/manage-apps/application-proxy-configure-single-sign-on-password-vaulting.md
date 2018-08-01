@@ -1,6 +1,6 @@
 ---
-title: Início de sessão único para aplicações com o Proxy de aplicações do Azure AD | Microsoft Docs
-description: Ative único início de sessão para as suas aplicações publicadas no local com o Proxy de aplicações do Azure AD no portal do Azure.
+title: Início de sessão único para aplicações com o Proxy de aplicações do Azure AD | Documentos da Microsoft
+description: Ative o único início de sessão em seus aplicativos publicados no local com o Proxy de aplicações do Azure AD no portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,37 +10,37 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fef163e258f797fc57d391a353b1acc148a3ef49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fa12dd5e9dbe25bad947abed5ab1c732d231b25c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161981"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362827"
 ---
-# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão com o Proxy da aplicação
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão único com o Proxy de aplicações
 
-Proxy de aplicações do Active Directory do Azure ajuda a melhorar a produtividade através da publicação de aplicações no local para que os empregados remotos podem aceder de forma segura, demasiado. No portal do Azure, pode também configurar início de sessão único (SSO) para estas aplicações. Os utilizadores só precisam para autenticar com o Azure AD e podem aceder à aplicação empresarial sem terem de voltar a iniciar sessão.
+Proxy de aplicação do Active Directory do Azure ajuda-o a melhorar a produtividade ao publicar aplicações no local para que os empregados remotos podem aceder em segurança, também. No portal do Azure, pode também configurar início de sessão único (SSO) a estas aplicações. Os utilizadores só tem de autenticar com o Azure AD e eles podem aceder a sua aplicação empresarial sem ter de iniciar sessão novamente.
 
-Proxy de aplicações suporta vários [único modos de início de sessão](application-proxy-single-sign-on.md). Baseado em palavra-passe de início de sessão destina-se para as aplicações que utilizam uma combinação de nome de utilizador/palavra-passe para autenticação. Quando configura baseada em palavra-passe de início de sessão para a sua aplicação, os utilizadores têm de iniciar sessão na aplicação no local, uma vez. Depois disso, o Azure Active Directory armazena as informações de início de sessão e automaticamente fornece-o para a aplicação quando os utilizadores acedem remotamente. 
+Proxy de aplicações suporta vários [único início de sessão em modos](application-proxy-single-sign-on.md). Com base em palavra-passe de início de sessão foi concebido para aplicações que utilizam uma combinação de nome de utilizador/palavra-passe para autenticação. Quando configura com base em palavra-passe de início de sessão para a sua aplicação, os utilizadores têm de iniciar sessão uma vez a aplicação de no local. Depois disso, o Azure Active Directory armazena as informações de início de sessão e disponibiliza-lo automaticamente para a aplicação quando os utilizadores aceder remotamente. 
 
-Já deverá ter publicado e testado a sua aplicação com o Proxy de aplicações. Se não, siga os passos no [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md) , em seguida, volte aqui. 
+Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se não for, siga os passos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md) , em seguida, volte aqui. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configurar a palavra-passe vaulting para a sua aplicação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 2. Selecione **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**.
-3. Na lista, selecione a aplicação que pretende configurar com SSO.  
-4. Selecione **de sessão único-**.
+3. Na lista, selecione a aplicação que pretende configurar com o SSO.  
+4. Selecione **início de sessão único**.
 
-   ![Selecione o início de sessão único](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Selecione início de sessão único](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
-5. Para o modo SSO, escolha **baseada em palavra-passe de início de sessão**.
-6. Para o URL de início de sessão, introduza o URL para a página onde os utilizadores introduzem o respetivo nome de utilizador e palavra-passe para iniciar sessão na sua aplicação fora da rede empresarial. Isto poderá ser o URL externo que criou quando publicado a aplicação através do Proxy de aplicações. 
+5. Para o modo SSO, escolha **baseado em palavra-passe de início de sessão**.
+6. Para o URL de início de sessão, introduza o URL para a página onde os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão na sua aplicação fora da rede empresarial. Isto pode ser o URL externo que criou quando que publicou a aplicação através do Proxy de aplicações. 
 
    ![Escolher com base em palavra-passe de início de sessão e introduza o URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
@@ -52,9 +52,9 @@ Já deverá ter publicado e testado a sua aplicação com o Proxy de aplicaçõe
 
 ## <a name="test-your-app"></a>Testar a aplicação
 
-Aceda ao URL externo que configurou para o acesso remoto à sua aplicação. Inicie sessão com as suas credenciais para essa aplicação (ou as credenciais para uma conta de teste que configurou com acesso). Depois de iniciar sessão com êxito, deverá conseguir deixar a aplicação e voltar atrás sem introduzir as suas credenciais novamente. 
+Aceda ao URL externo que configurou para o acesso remoto à sua aplicação. Inicie sessão com as suas credenciais para essa aplicação (ou as credenciais para uma conta de teste que configurou com acesso). Depois de iniciar sessão com êxito, deve ser capaz de deixar a aplicação e voltar atrás sem introduzir as suas credenciais novamente. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Leia sobre outras formas de implementar [-início de sessão único com o Proxy da aplicação](application-proxy-single-sign-on.md)
+- Saiba mais sobre outras formas de implementar [início de sessão único com o Proxy de aplicações](application-proxy-single-sign-on.md)
 - Saiba mais sobre [considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD](application-proxy-security.md)

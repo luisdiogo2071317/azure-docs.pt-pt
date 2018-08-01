@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: de5ccd62a9624ad463a51fa204c0b5dca19992ef
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226174"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390352"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local com o registo de dispositivos do Azure Active Directory
 Quando exige que os utilizadores a associação à área de trabalho em seus dispositivos pessoais para o serviço de registo de dispositivos do Azure Active Directory (Azure AD), os dispositivos podem ser marcados como conhecidas para a sua organização. Segue-se um guia passo a passo para ativar o acesso condicional para aplicações no local ao utilizar os serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.
@@ -165,7 +165,7 @@ Existem muitas formas diferentes de comunicar este URL aos seus utilizadores. Po
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Associar um dispositivo com Windows 7, utilize o registo de dispositivos do Azure Active Directory
 Para registar dispositivos associados a domínios do Windows 7, precisa implantar o [pacote de software de registo de dispositivos](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Para obter instruções sobre como utilizar o pacote, consulte [pacotes de instalador do Windows para computadores Windows de 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+Para obter instruções sobre como utilizar o pacote, consulte [pacotes de instalador do Windows para computadores Windows de 10](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Certifique-se de que os dispositivos registados é escrita novamente no Active Directory
 Pode ver e certifique-se de que seus objetos de dispositivo tem sido escritos novamente para o Active Directory utilizando LDP.exe ou ADSI Edit. Ambos estão disponíveis com as ferramentas do administrador do Active Directory.

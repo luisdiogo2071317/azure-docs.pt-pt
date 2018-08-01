@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308693"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364530"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
 O serviço importar/exportar do Azure é utilizado para importar com segurança as grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure envie unidades de disco num Datacenter do Azure. Este serviço também pode ser utilizado para transferir dados do armazenamento de Blobs do Azure para unidades de disco e disponibilize aos seus sites no local. Dados a partir de uma ou mais unidades de disco podem ser importados ou ficheiros do Azure ou de armazenamento de Blobs do Azure. 
 
-O serviço importar/exportar do Azure permite-lhe fornecer as suas próprias unidades de disco ou utilizar unidades de disco fornecidas pela Microsoft. 
+Fornecer-lhe próprias unidades de disco e a transferência de dados com o serviço importar/exportar do Azure. Também pode utilizar unidades de disco fornecidas pela Microsoft. 
 
 Se quiser transferir dados através de unidades de disco fornecidas pela Microsoft, pode utilizar [disco do Azure Data Box](../../databox/data-box-disk-overview.md) para importar dados para o Azure. Microsoft vem até 5 encriptadas disco unidades de estado sólido (SSDs) com uma capacidade total de 40 TB por ordem, no seu datacenter através de uma operadora regional. Pode rapidamente configurar unidades de disco, copiar os dados em unidades de disco através de uma ligação USB 3.0 e enviar as unidades de disco para o Azure. Para obter mais informações, aceda a [descrição geral do disco do Azure Data Box](../../databox/data-box-disk-overview.md).
 

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248101"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389614"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -108,11 +108,12 @@ Dados de monitorização de aplicações requer que seu código está equipado c
 
 Encaminhamento seus dados de monitorização para um hub de eventos com o Azure Monitor permite-lhe integrar facilmente com parceiros SIEM e ferramentas de monitorização. A maioria das ferramentas requerem a cadeia de ligação do hub de eventos e determinadas permissões à sua subscrição do Azure para ler dados do hub de eventos. Aqui está uma lista parcial das ferramentas com a integração do Azure Monitor:
 
-* **IBM QRadar** -o Microsoft Azure DSM e protocolo de Hub de eventos do Microsoft Azure estão disponíveis para transferência a partir [o site de suporte da IBM](http://www.ibm.com/support). Pode [Saiba mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** -o Microsoft Azure DSM e protocolo de Hub de eventos do Microsoft Azure estão disponíveis para transferência a partir [o site de suporte da IBM](http://www.ibm.com/support). Pode [Saber mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -consoante a configuração do Splunk, há duas abordagens:
     1. [O suplemento de Monitor do Azure para o Splunk](https://splunkbase.splunk.com/app/3534/) está disponível em Splunkbase e um projeto de código-fonte aberto. [A documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Se não é possível instalar um suplemento na sua instância do Splunk (ex. Se utilizar um proxy ou em execução na Splunk Cloud), pode reencaminhar estes eventos para o coletor de eventos do Splunk HTTP usando [essa função que é acionada por mensagens novas no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -instruções sobre como configurar SumoLogic consumir dados de um hub de eventos é [disponível aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **Servidor syslog** - se de que pretende transmitir dados do Azure Monitor diretamente para um servidor syslog, pode consultar [deste repositório do github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Arquive o registo de atividades para uma conta de armazenamento](monitoring-archive-activity-log.md)

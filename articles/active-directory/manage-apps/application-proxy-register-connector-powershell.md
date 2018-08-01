@@ -1,5 +1,5 @@
 ---
-title: Conector do Proxy de aplicações do Azure AD de instalação silenciosa | Microsoft Docs
+title: Conector de Proxy de aplicação do Azure AD de instalação silenciosa | Documentos da Microsoft
 description: Aborda como executar uma instalação autónoma do Azure AD de conector de Proxy de aplicações para fornecer acesso remoto seguro às suas aplicações no local.
 services: active-directory
 documentationcenter: ''
@@ -10,62 +10,62 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7cc51a3e16c476385fc360ea7f40826e21daaebc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3f8ef9ea3a46dde77ac27e7105148ac886f9212d
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292607"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362942"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação automática para o conector do Proxy de aplicações do Azure AD
 
-Este tópico ajuda a criar um script do Windows PowerShell que permite a instalação automática e o registo para o conector do Proxy de aplicações do Azure AD.
+Este tópico ajuda-o a criar um script do Windows PowerShell que permite a instalação automática e o registo do conector de Proxy de aplicações do Azure AD.
 
-Esta capacidade é útil quando pretender:
+Esta funcionalidade é útil quando pretender:
 
-* Instale o conector em servidores do Windows que não tem interface de utilizador ativado ou que não é possível aceder com o ambiente de trabalho remoto.
-* Instalar e registar muitos conetores em simultâneo.
+* Instale o conector em servidores do Windows que não têm a interface do usuário ativado, ou que não pode acessar com o ambiente de trabalho remoto.
+* Instale e registre muitos conetores ao mesmo tempo.
 * Integre a instalação do conector e o registo como parte de outro procedimento.
-* Crie uma imagem de servidor padrão que contém os bits de conector, mas não está registada.
+* Crie uma imagem de servidor padrão que contém os bits de conector, mas não está registrada.
 
-Para o [conector do Proxy de aplicação](application-proxy-connectors.md) funcione, tem de ser registado no diretório do Azure AD através de um administrador global e a palavra-passe. Normalmente esta informação é introduzida durante a instalação do conector numa caixa de diálogo de pop-up, mas pode utilizar o PowerShell para automatizar este processo em vez disso.
+Para o [conector de Proxy de aplicações](application-proxy-connectors.md) funcione, tem de estar registado no diretório do Azure AD com um administrador global e a palavra-passe. Normalmente esta informação é introduzida durante a instalação de conector numa caixa de diálogo pop-up, mas pode utilizar o PowerShell para automatizar este processo em vez disso.
 
-Existem dois passos para uma instalação autónoma. Em primeiro lugar, instale o conector. Segundo, registe o conector com o Azure AD. 
+Há duas etapas para uma instalação autônoma. Em primeiro lugar, instale o conector. Em segundo lugar, registe o conector com o Azure AD. 
 
 ## <a name="install-the-connector"></a>Instalar o conector
-Utilize os seguintes passos para instalar o conector sem registando:
+Utilize os seguintes passos para instalar o conector sem Registro-lo:
 
 1. Abra uma linha de comandos.
-2. Execute o seguinte comando, no qual o /q significa silenciosos instalação. Uma instalação silenciosos não solicita-lhe para aceitar o contrato de licença de utilizador final.
+2. Execute o seguinte comando, em que o /q significa instalação silencioso. Uma instalação silencioso não pedir-lhe para aceitar o contrato de licença de utilizador final.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 ## <a name="register-the-connector-with-azure-ad"></a>Registar o conector com o Azure AD
 Existem dois métodos que pode utilizar para registar o conector:
 
-* Registar o conector através de um objeto de credencial do Windows PowerShell
-* Registar o conector utilizando um token criado offline
+* Registar o conector usando um objeto de credencial do Windows PowerShell
+* Registar o conector através de um token criado offline
 
-### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registar o conector através de um objeto de credencial do Windows PowerShell
-1. Criar um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de utilizador administrativo e a palavra-passe para o seu diretório. Execute o seguinte comando, substituindo *\<username\>* e  *\<palavra-passe\>*:
+### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registar o conector usando um objeto de credencial do Windows PowerShell
+1. Criar um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de utilizador administrativo e a palavra-passe para o seu diretório. Execute o seguinte comando, substituindo *\<nome de utilizador\>* e  *\<palavra-passe\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Aceda a **conector do Proxy da aplicação AAD C:\Program Files\Microsoft** e execute o seguinte script utilizando o `$cred` objeto que criou:
+2. Aceda a **conector de Proxy de aplicações do C:\Program Files\Microsoft AAD** e execute o script seguinte com o `$cred` objeto que criou:
    
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
-### <a name="register-the-connector-using-a-token-created-offline"></a>Registar o conector utilizando um token criado offline
-1. Crie um token offline utilizando a classe de AuthenticationContext utilizando os valores nesta fragmento de código ou os cmdlets do PowerShell abaixo:
+### <a name="register-the-connector-using-a-token-created-offline"></a>Registar o conector através de um token criado offline
+1. Crie um token offline usando a classe de AuthenticationContext utilizando os valores neste trecho de código ou os cmdlets do PowerShell abaixo:
 
-    **Utilizar c#:**
+    **Usando a linguagem c#:**
 
         using System;
         using System.Diagnostics;
@@ -120,7 +120,7 @@ Existem dois métodos que pode utilizar para registar o conector:
             tenantID = authResult.TenantId;
         }
 
-    **Através do PowerShell:**
+    **Com o PowerShell:**
 
         # Locate AzureAD PowerShell Module
         # Change Name of Module to AzureAD after what you have installed
@@ -170,17 +170,17 @@ Existem dois métodos que pode utilizar para registar o conector:
         
         #endregion
 
-2. Assim que tiver o token, crie um SecureString utilizando o token:
+2. Assim que tiver o token, crie uma SecureString com o token:
 
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
 
-3. Execute o seguinte comando do Windows PowerShell, substituindo \<inquilino GUID\> com o seu ID de diretório:
+3. Execute o seguinte comando do Windows PowerShell, substituindo \<GUID de inquilino\> com o seu ID de diretório:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## <a name="next-steps"></a>Passos Seguintes 
 * [Publicar aplicações com o seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Resolver problemas com o Proxy da aplicação](application-proxy-troubleshoot.md)
+* [Resolver problemas que possa ter com o Proxy de aplicações](application-proxy-troubleshoot.md)
 
 

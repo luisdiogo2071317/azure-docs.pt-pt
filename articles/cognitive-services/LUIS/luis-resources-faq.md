@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308750"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390199"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -190,7 +190,7 @@ As seguintes funcionalidades foram lançadas na conferência Build 2018:
 |--|--|
 |Aprimoramentos|[Expressão regular](luis-concept-data-extraction.md##regular-expression-entity-data) entidade e [frases chave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entidade
 |Padrões|Padrões [conceito](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [procedimentos](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) incluindo do conceito de entidade [lista explícita](luis-concept-patterns.md#explicit-lists) para exceções<br>[Funções](luis-concept-roles.md) conceito|
-|Integrações|[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) a integração do [análise de sentimentos](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Voz](https://docs.microsoft.com/azure/cognitive-services/speech) a integração do [priming de voz](luis-how-to-publish-app.md#enable-speech-priming) em conjunto com [SDK de voz](https://aka.ms/SpeechSDK)|
+|Integrações|[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) a integração do [análise de sentimentos](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Voz](https://docs.microsoft.com/azure/cognitive-services/speech) a integração do priming de voz em conjunto com [SDK de voz](https://aka.ms/SpeechSDK)|
 |Ferramenta de distribuição|Parte [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), linha de comandos de expedição [ferramenta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) para combinar vários LUIS e QnA Maker aplicações numa única aplicação LUIS para melhor reconhecimento da intenção de um Bot
 
 Criação adicionais [as rotas API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) foram incluídos. 

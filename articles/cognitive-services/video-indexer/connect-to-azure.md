@@ -9,16 +9,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 849a8dde07c248b6d7b317de5908b3a46dfad777
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 456ee8f7461fdb6a4335cdb36d4a6f9182e4c63e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259015"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389284"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
 
-Quando utilizar uma conta de avaliação gratuita do Video Indexer, está limitado pela quota e o número de vídeos a que permite-lhe indexar. Este artigo mostra como criar uma conta do Video Indexer que está ligada a uma subscrição do Azure, o que permite que estes limites e utiliza a preços pay as you go.
+Ao criar uma conta do Video Indexer, pode escolher uma conta de avaliação gratuita (onde pode obter um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que não está limitado pela quota). Com a avaliação gratuita, Video Indexer fornece até 600 minutos de indexação gratuito para os utilizadores do Web site e até 2400 minutos de gratuitos de indexação para os utilizadores de API. Com uma opção paga, pode criar uma conta do Video Indexer que está ligada à sua subscrição do Azure e uma conta de Media Services do Azure. Paga minutos indexados, bem como a conta de suporte de dados relacionados com custos. 
+
+Este artigo mostra como criar uma conta do Video Indexer que está ligada a uma subscrição do Azure e uma conta de Media Services do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

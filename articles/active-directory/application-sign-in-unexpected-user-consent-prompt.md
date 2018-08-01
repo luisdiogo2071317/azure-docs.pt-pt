@@ -1,6 +1,6 @@
 ---
-title: Pedido de consentimento inesperado quando iniciar sessão a uma aplicação | Microsoft Docs
-description: Como resolver problemas quando um utilizador verá um pedido de consentimento para uma aplicação que tem de ser integrado com o Azure AD que não era esperado
+title: Pedido de consentimento inesperado ao iniciar sessão a uma aplicação | Documentos da Microsoft
+description: Como resolver problemas quando um utilizador vê uma solicitação de consentimento para uma aplicação que tiver integrado com o Azure AD que não era esperado
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,43 +11,43 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 096f099c7fc44078cc6c6329b7022613ef09a0d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a5bf4de00073abb5edbbd5db74d8ee3ebce16913
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331065"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365336"
 ---
-# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado quando iniciar sessão a uma aplicação
+# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado ao iniciar sessão a uma aplicação
 
-Muitas aplicações que se integram com o Azure Active Directory requerem permissões a vários recursos para executar. Quando estes recursos também estão integrados no Azure Active Directory, as permissões para aceder-lhes é pedido utilizando a estrutura de consentimento do Azure AD. 
+Muitos aplicativos que se integram com o Azure Active Directory requerem permissões a vários recursos para ser executado. Quando esses recursos também estão integrados no Azure Active Directory, permissões para aceder aos mesmos é solicitado a usando a estrutura de consentimento do Azure AD. 
 
-Isto resulta num consentimento linha de comandos que está a ser apresentado na primeira vez que é utilizada uma aplicação, que é, muitas vezes, uma operação única. 
+Isso resulta numa ser do prompt de consentimento mostrado na primeira vez que um aplicativo é usado, que é muitas vezes uma operação única. 
 
-## <a name="scenarios-in-which-users-see-consent-prompts"></a>Cenários em que os utilizadores veem consentimento dos avisos
+## <a name="scenarios-in-which-users-see-consent-prompts"></a>Pedidos de consentimento de cenários em que os utilizadores veem
 
-Avisos adicionais podem ser esperados em vários cenários:
+Os pedidos adicionais podem ser esperados em vários cenários:
 
-* O conjunto de permissões necessárias para a aplicação ter sido alterado.
+* O conjunto de permissões exigido pelo aplicativo foram alterados.
 
-* O utilizador que originalmente autorizado a aplicação não era um administrador e agora um utilizador diferente (não-administrador) está a utilizar a aplicação pela primeira vez.
+* O utilizador que consentiu originalmente para a aplicação não era administrador e, agora um usuário diferente (não-administrador) está a utilizar a aplicação pela primeira vez.
 
-* O utilizador que originalmente autorizado a aplicação foi um administrador, mas não foi possível consentimento em nome de toda a organização.
+* O utilizador que consentiu originalmente para o aplicativo era administrador, mas não consentiu em nome de toda a organização.
 
-* A aplicação está a utilizar [consentimento incremental e dinâmico](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) para solicitar permissões adicionais depois de consentimento inicialmente foi concedido. Isto é frequentemente utilizado quando funcionalidades opcionais de uma aplicação adicional requerem permissões para além daquelas necessário para a funcionalidade de linha de base.
+* O aplicativo está usando [consentimento de incremental e dinâmico](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) para solicitar permissões adicionais após a autorização ser concedida inicialmente. Isto é frequentemente utilizado quando funcionalidades opcionais de um aplicativo adicional requerem permissões para além daquelas necessárias para a funcionalidade de linha de base.
 
-* Consentimento foi revogado depois de ser concedido inicialmente.
+* Consentimento foi revogado após ser concedido inicialmente.
 
-* O programador configurou a aplicação para exigir um pedido de consentimento sempre que é utilizada (Nota: não é recomendado).
+* O desenvolvedor tenha configurado o aplicativo exigir um pedido de consentimento, sempre que é utilizada (Nota: não é recomendado).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
--   [As aplicações, permissões e consentimento no Azure Active Directory (v 1.0 ponto final)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Aplicações, permissões e consentimento no Azure Active Directory (v1.0 ponto final)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 
--   [Âmbitos, permissões e consentimento no Azure Active Directory (ponto final v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+-   [Âmbitos, permissões e consentimento no Azure Active Directory (ponto final v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

@@ -1,5 +1,5 @@
 ---
-title: Regras para atribuição de nomes de entidades do Azure Data Factory | Microsoft Docs
+title: Regras para atribuição de nomes de entidades do Azure Data Factory | Documentos da Microsoft
 description: Descreve as regras de nomenclatura para entidades do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cca9befb65abed3b6d07a52aa286c43725577121
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cfab1a82c7da0ad596c9989e5a9f3ed800c58e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051751"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389315"
 ---
-# <a name="azure-data-factory---naming-rules"></a>O Azure Data Factory - as regras de nomenclatura
-A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de dados.
+# <a name="azure-data-factory---naming-rules"></a>O Azure Data Factory - regras de nomenclatura
+A tabela seguinte fornece regras de nomenclatura dos artefactos do Data Factory.
 
 | Nome | Exclusividade de nome | Verificações de validação |
 |:--- |:--- |:--- |
-| Data Factory |Exclusivo em todo o Microsoft Azure. Os nomes são sensível, ou seja, `MyDF` e `mydf` Consulte para a mesma fábrica de dados. |<ul><li>Cada fábrica de dados está associada ao exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
-| Os serviços ligados/tabelas/Pipelines |Exclusivo com uma fábrica de dados. Os nomes são sensível. |<ul><li>Número máximo de carateres num nome de tabela: a 260.</li><li>Nomes de objeto tem de começar com uma letra, o número ou um caráter de sublinhado (_).</li><li>Os seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li><li>Traços ("-") não são permitidos em nomes de serviços ligados e de conjuntos de dados apenas.</li></ul>  |
-| Grupo de Recursos |Exclusivo em todo o Microsoft Azure. Os nomes são sensível. | Para obter mais informações, consulte [as regras de nomenclatura do Azure e restrições](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
+| Data Factory |Exclusivo em todo o Microsoft Azure. Nomes diferenciam maiúsculas de minúsculas, ou seja, `MyDF` e `mydf` fazer referência à fábrica de dados mesmo. |<ul><li>Cada fábrica de dados está associada a exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
+| Serviços ligados/conjuntos de dados/Pipelines |Exclusivo numa fábrica de dados. Nomes diferenciam maiúsculas de minúsculas. |<ul><li>Nomes de objeto tem de começar com uma letra, número ou um caráter de sublinhado (_).</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li><li>Traços ("-") não são permitidas nos nomes dos serviços ligados e dos conjuntos de dados apenas.</li></ul>  |
+| Grupo de Recursos |Exclusivo em todo o Microsoft Azure. Nomes diferenciam maiúsculas de minúsculas. | Para mais informações, veja [restrições e regras de nomenclatura do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba como criar fábricas de dados ao seguir as instruções passo a passo em [início rápido: criar uma fábrica de dados](quickstart-create-data-factory-powershell.md) artigo. 
+Saiba como criar fábricas de dados com as instruções passo a passo na [início rápido: criar uma fábrica de dados](quickstart-create-data-factory-powershell.md) artigo. 

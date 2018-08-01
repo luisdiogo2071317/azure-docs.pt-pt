@@ -1,51 +1,50 @@
 ---
-title: Resolução de problemas de encriptação de disco do Azure | Microsoft Docs
-description: Este artigo fornece sugestões de resolução de problemas para o Microsoft Azure disco encriptação para Windows e as VMs de IaaS Linux.
+title: Resolução de problemas de encriptação de disco do Azure | Documentos da Microsoft
+description: Este artigo fornece sugestões de resolução de problemas para o Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
 services: security
 documentationcenter: na
-author: DevTiw
-manager: avibm
-editor: barclayn
+author: mestew
+manager: MBaldwin
 ms.assetid: ce0e23bd-07eb-43af-a56c-aa1a73bdb747
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: DevTiw
-ms.openlocfilehash: 4bc1f7cf64a2a08215cd82d8e72e40eba8db3093
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 07/30/2018
+ms.author: mstewart
+ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809078"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390726"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
-Este guia destina-se a profissionais de TI, analistas de segurança de informações e administradores de nuvem cujas organizações utilizam o Azure Disk Encryption e necessitam de documentação de orientação para resolver problemas relacionados com encriptação de disco.
+Este guia destina-se a profissionais de TI, analistas de segurança de informações e os administradores de nuvem cujas organizações utilizam o Azure Disk Encryption. Este artigo é fornecer orientações para resolução de problemas relacionados à criptografia de disco.
 
-## <a name="troubleshooting-linux-os-disk-encryption"></a>Resolução de problemas de encriptação de disco de SO Linux
+## <a name="troubleshooting-linux-os-disk-encryption"></a>Resolução de problemas de encriptação de disco do SO Linux
 
-Encriptação de disco de sistema operativo (SO) do Linux tem desmonte a unidade de SO antes de o executar através do processo de encriptação de disco completo. Se este não é possível desmontar a unidade, uma mensagem de erro de "Falha ao desmontar após..." é provável que ocorrem.
+Encriptação de disco de sistema operativo (SO) do Linux tem desmontar a unidade de sistema operacional antes de executá-lo no processo de encriptação de disco completa. Se ele não é possível desmontar a unidade, uma mensagem de erro de "Falha ao desmontar após..." é provável que ocorram.
 
-Este erro é mais provável acontecer se a encriptação de disco de SO for tentada num ambiente de VM de destino que foi alterado ou mudou da imagem de galeria as cotações suportados. Exemplos de desvios de imagem suportado que podem interferir com a capacidade da extensão de desmonte a unidade de SO incluem o seguinte:
-- Imagens personalizadas já não correspondem a um sistema de ficheiros suportado ou o esquema de criação de partições.
-- Aplicações de grande como SAP, MongoDB, Apache Cassandra e Docker não são suportadas quando estão instalados e em execução no sistema operativo antes de encriptação.  Encriptação de disco do Azure não consegue encerrar com segurança estes processos conforme necessário durante a preparação da unidade de SO para a encriptação de disco.  Se existirem processos ainda ativos que contém os identificadores de ficheiros abertos a unidade do SO, a unidade de SO não pode ser desmontada, causando uma falha ao encriptar a unidade de SO. 
-- Personalizado de scripts que são executados na proximidade do tempo de fecho para a encriptação ativada ou se existirem outras alterações estão a ser efetuadas na VM durante o processo de encriptação. Este conflito pode acontecer quando um modelo Azure Resource Manager define várias extensões para executar em simultâneo, ou quando uma extensão de script personalizado ou outra ação será executada em simultâneo para encriptação de disco. Isolar esses passos e não poderão resolver o problema.
-- Não foi desativado segurança avançada Linux (SELinux) antes de ativar a encriptação, pelo que o passo de unmount falhar. Pode ser reenabled SELinux após a conclusão da encriptação.
-- O disco de SO utiliza um esquema de Gestor de Volume lógica (LVM). Embora o suporte de disco de dados do limitado LVM esteja disponível, um disco de SO LVM não é.
-- Requisitos mínimos de memória não são cumpridos (7 GB é sugerida para encriptação de disco do SO).
-- Unidades de dados estão em modo recursivo montado no diretório /mnt/ ou entre si (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Outros Azure Disk Encryption [pré-requisitos](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para Linux não são cumpridos.
+Este erro pode ocorrer quando a encriptação de disco do SO é tentasse num ambiente de VM de destino que foi alterado da imagem da Galeria das ações suportadas. Exemplos de desvios em relação a imagem suportados que podem interferir com a capacidade da extensão de desmontar a unidade do SO incluem as seguintes razões:
+- Imagens personalizadas já não correspondem um sistema de ficheiros suportado ou o esquema de particionamento.
+- Aplicativos grandes, como SAP, MongoDB, Apache Cassandra e a Docker não são suportados quando estão instalados e em execução no sistema operacional antes de encriptação. O Azure Disk Encryption não consegue encerrar esses processos com segurança conforme necessário durante a preparação da unidade do SO para a encriptação de disco. Se existirem processos ainda ativos, que contém identificadores de abrir o ficheiro para a unidade de sistema operacional, a unidade do SO não pode estar desmontada, resultando numa falha ao encriptar a unidade do sistema operacional. 
+- Custom scripts que são executados em proximidade fechar tempo para a encriptação ativada ou se existirem outras alterações estão a ser efetuadas na VM durante o processo de criptografia. Esse conflito pode acontecer quando um modelo Azure Resource Manager define várias extensões para executar em simultâneo, ou quando uma extensão de script personalizado ou outra ação é executada em simultâneo para encriptação de disco. Serializar e isolar esses passos poderão resolver o problema.
+- Segurança avançada Linux (SELinux) não foi desativada antes de ativar a encriptação, para que o passo de desmontar falhar. Pode ser reenabled SELinux após a conclusão da criptografia.
+- O disco do SO utiliza um esquema de Gestor de volumes lógicos (LVM). Embora o suporte de disco de dados LVM limitado estiver disponível, um disco de SO de LVM não é.
+- Requisitos mínimos de memória não forem cumpridos (7 GB é sugerida para a encriptação de disco do SO).
+- Unidades de dados são recursivamente montada no diretório /mnt/ ou de outro (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
+- Outros Azure Disk Encryption [pré-requisitos](azure-security-disk-encryption-prerequisites.md) para Linux não forem cumpridos.
 
 ## <a name="unable-to-encrypt"></a>Não é possível encriptar
 
-Em alguns casos, o encriptação de disco parece estar bloqueada em "Iniciada de encriptação de disco de SO" de Linux e SSH está desativada. O processo de encriptação pode demorar entre 3-16 horas para concluir uma imagem das cotações de galeria. Se forem adicionados discos de dados de várias terabyte tamanho, o processo pode demorar dias.
+Em alguns casos, a encriptação de disco parece estar bloqueada em "Iniciada de encriptação de disco de SO" de Linux e SSH está desativada. O processo de encriptação pode demorar entre horas de 3-16 a terminar numa imagem da Galeria das ações. Se forem adicionados discos de dados de tamanho de terabytes de transmissões, o processo pode demorar dias.
 
-A sequência de encriptação de disco de SO Linux unmounts temporariamente a unidade de SO. Em seguida, efetua bloco a bloco de encriptação de disco de SO completo, antes que o remounts no seu estado encriptado. Ao contrário do Azure Disk Encryption no Windows, encriptação de disco do Linux não permite a utilização simultânea de VM enquanto a encriptação está em curso. As características de desempenho da VM podem efetuar uma diferença significativa no tempo necessário para a encriptação completa. Estas características incluem o tamanho do disco e se a conta de armazenamento é padrão ou armazenamento premium (SSD).
+A sequência de encriptação de disco do SO Linux desmonta temporariamente a unidade do SO. Em seguida, executa encriptação de bloco a bloco do disco do SO inteiro, antes de ele remounts-lo no seu estado encriptado. Ao contrário do Azure Disk Encryption no Windows, a encriptação de disco do Linux não permite para utilização em simultâneo da VM enquanto a encriptação está em curso. As características de desempenho da VM podem fazer uma diferença significativa no tempo necessário para a encriptação completa. Essas características incluem o tamanho do disco e se a conta de armazenamento é standard ou o armazenamento premium (SSD).
 
-Para verificar o estado de encriptação, consultar o **ProgressMessage** campo devolvido o [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) comando. Enquanto está a ser encriptada a unidade de SO, a VM entra num Estado de manutenção e desativa o SSH para evitar qualquer interrupção para o processo contínuo. O **EncryptionInProgress** relatórios para a maioria do tempo de mensagens, enquanto a encriptação está em curso. Várias horas mais tarde, um **VMRestartPending** mensagem pede-lhe para reiniciar a VM. Por exemplo:
+Para verificar o estado de encriptação, consultar o **ProgressMessage** campo devolvido do [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) comando. Enquanto a unidade do SO está a ser encriptada, a VM entra num Estado de manutenção e desativa o SSH para evitar qualquer interrupção para o processo contínuo. O **EncryptionInProgress** relatórios para a maioria das vezes de mensagens, enquanto a encriptação está em curso. Várias horas depois, um **VMRestartPending** mensagem solicita que reinicie a VM. Por exemplo:
 
 
 ```
@@ -62,32 +61,33 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-Depois de lhe for pedido para reiniciar a VM e, depois de reinicia a VM, tem de aguardar 2 a 3 minutos para o reinício e para os passos finais para ser executado no destino. As alterações de mensagem de estado quando a encriptação é finally concluir. Depois desta mensagem estiver disponível, o disco de SO encriptado deverá estar pronto a utilizar e a VM está pronta para ser utilizadas novamente.
+Depois de lhe for pedido para reiniciar a VM e, depois de reinicia a VM, tem de aguardar 2 a 3 minutos para o reinício e para os últimos passos a serem executadas no destino. As alterações de mensagem de estado quando a encriptação é finalmente concluída. Depois desta mensagem estiver disponível, a unidade do SO encriptada deve estar pronta a utilizar e a VM está pronta para ser utilizada novamente.
 
-Nos seguintes casos, recomendamos que restaure a VM para o instantâneo ou uma cópia de segurança criada imediatamente antes de encriptação:
-   - Se a sequência de reinício descrito anteriormente não ocorrer.
-   - Se as informações de arranque, mensagem de progresso ou outros indicadores de erro se a encriptação de SO de relatório não meio este processo. Um exemplo de uma mensagem é o erro "Falha ao desmontar" descrita neste guia.
+Nos seguintes casos, recomendamos que restaure a VM para o instantâneo ou a cópia de segurança criada imediatamente antes de encriptação:
+   - Se a sequência de reinício descrito anteriormente não acontece.
+   - Se as informações de arranque, mensagem de progresso ou outros indicadores de erro se a encriptação de SO de relatório não no meio esse processo. Um exemplo de uma mensagem é o erro "Falha ao desmontar" descrita neste guia.
 
-Antes da tentativa seguinte, reevaluate as características da VM e certifique-se de que todos os pré-requisitos são cumpridos.
+Antes da próxima tentativa, reavaliar as características da VM e certifique-se de que todos os pré-requisitos são cumpridos.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Resolução de problemas do Azure Disk Encryption atrás de uma firewall
-Quando a conectividade é restrita por uma firewall, requisitos de proxy ou definições de grupo (NSG) de segurança de rede, a capacidade da extensão para efetuar tarefas de necessárias poderá ser interrompida. Este interrupção pode resultar em mensagens de estado, tais como o "Estado da extensão não está disponível na VM." Em cenários esperados, a encriptação não for concluída. As secções que se seguem tem alguns problemas comuns de firewall que poderá investigar.
+Quando a conectividade é restringida por uma firewall, o requisito de proxy ou definições de grupo (NSG) de segurança de rede, a capacidade da extensão para efetuar tarefas necessárias pode ser interrompida. Este interrupção pode resultar em mensagens de estado, tais como o "Estado da extensão não está disponível na VM." Em cenários esperados, a encriptação não for concluída. As secções que se seguem têm alguns problemas comuns de firewall que pode investigar.
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede
-As definições de grupo de segurança de rede que são aplicadas ainda permite que o ponto final para cumpram a configuração de rede documentado [pré-requisitos](https://docs.microsoft.com/azure/security/azure-security-disk-encryption#prerequisites) para encriptação de disco.
+Quaisquer definições de grupo de segurança de rede que são aplicadas ainda permite que o ponto final de acordo com a configuração de rede documentado [pré-requisitos](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) para a encriptação de disco.
 
-### <a name="azure-key-vault-behind-a-firewall"></a>Cofre de chaves do Azure atrás de uma firewall
-A VM tem de ser capaz de aceder um cofre de chaves. Consulte a documentação de orientação sobre o acesso ao Cofre de chaves por trás de uma firewall que o [Cofre de chaves do Azure](https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall) mantém de equipa.
+### <a name="azure-key-vault-behind-a-firewall"></a>O Azure Key Vault protegido por uma firewall
+A VM tem de ser capaz de aceder um cofre de chaves. Consulte a documentação de orientação sobre o acesso ao Cofre de chaves através de uma firewall que o [do Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) equipe mantém. 
 
-### <a name="linux-package-management-behind-a-firewall"></a>Gestão de pacotes de Linux atrás de uma firewall
+### <a name="linux-package-management-behind-a-firewall"></a>Gestão de pacotes do Linux protegida por uma firewall
 
-Em runtime, o Azure Disk Encryption para Linux baseia-se no sistema de gestão do pacote de distribuição de destino para instalar os componentes de pré-requisito necessários antes de ativar a encriptação. Se as definições da firewall impediram que a VM ser capaz de transferir e instalar estes componentes, em seguida, falhas subsequentes esperadas. Os passos para configurar este sistema de pacote de gestão podem variar por distribuição. No Red Hat, quando um proxy for necessário, tem de garantir que o Gestor de subscrição e yum estão configurados corretamente. Para obter mais informações, consulte [como resolver problemas do Gestor de subscrição e yum](https://access.redhat.com/solutions/189533).  
+No tempo de execução, o Azure Disk Encryption para Linux baseia-se no sistema de gestão do pacote de distribuição de destino para instalar componentes de pré-requisitos necessários antes de ativar a encriptação. Se as definições da firewall impedem que a VM ser capaz de transferir e instalar estes componentes, em seguida, falhas subsequentes esperadas. Os passos para configurar este sistema de gestão de pacotes podem variar de distribuição. Em Red Hat, quando um proxy for necessário, tem de garantir que o Gestor de subscrições e yum estão configuradas corretamente. Para obter mais informações, consulte [como solucionar problemas do Gestor de subscrições e yum](https://access.redhat.com/solutions/189533).  
 
-## <a name="troubleshooting-windows-server-2016-server-core"></a>Resolução de problemas de núcleo de servidor do Windows Server 2016
 
-No Windows Server 2016 Server Core, o componente de bdehdcfg não está disponível por predefinição. Este componente necessita de encriptação de disco do Azure. É utilizado para dividir o volume de sistema do volume do SO, o que é efetuado apenas uma vez para o tempo de vida da VM. Estes binários não são necessários durante as operações de encriptação posteriores.
+## <a name="troubleshooting-windows-server-2016-server-core"></a>Resolução de problemas do Server Core do Windows Server 2016
 
-Para resolver este problema, ficheiros de cópia dos seguintes 4 de uma VM de centro de dados do Windows Server 2016 para a mesma localização no Server Core:
+No Windows Server 2016 Server Core, o componente de bdehdcfg não está disponível por predefinição. Este componente é exigido pelo Azure Disk Encryption. É utilizado para dividir o volume do sistema de volume do sistema operacional, que é feito apenas uma vez para o tempo de vida da VM. Esses binários não são necessários durante as operações de encriptação posteriores.
+
+Para contornar este problema, copie os seguintes ficheiros de quatro a partir de uma VM de centro de dados do Windows Server 2016 para o mesmo local no Server Core:
 
    ```
    \windows\system32\bdehdcfg.exe
@@ -102,9 +102,9 @@ Para resolver este problema, ficheiros de cópia dos seguintes 4 de uma VM de ce
    bdehdcfg.exe -target default
    ```
 
-   3. Este comando cria uma partição do sistema de 550 MB. Reinicie o sistema.
+   3. Este comando cria uma partição do sistema de 550 MB. Reinicialize o sistema.
 
-   4. Utilize o utilitário DiskPart para verificar os volumes e, em seguida, avançar.  
+   4. Use o DiskPart para verificar os volumes e, em seguida, avançar.  
 
 Por exemplo:
 
@@ -119,12 +119,12 @@ DISKPART> list vol
 ```
 ## <a name="troubleshooting-encryption-status"></a>Resolução de problemas de estado de encriptação
 
-Se o estado de encriptação esperado não corresponde ao que está a ser reportado no portal, consulte o seguinte artigo de suporte: [estado de encriptação está incorretamente apresentado no Portal de gestão do Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+Se o estado de encriptação esperado não coincide com o que está a ser comunicado no portal, consulte o seguinte artigo de suporte: [estado de encriptação é incorretamente apresentado no Portal de gestão do Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste documento, aprendeu mais informações sobre alguns problemas comuns no Azure Disk Encryption e como resolver esses problemas. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
+Neste documento, ficou a saber mais sobre alguns problemas comuns no Azure Disk Encryption e como solucionar esses problemas. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
 
-- [Aplicar a encriptação de disco no Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Encriptar uma máquina virtual do Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
-- [Encriptação de dados do Azure Inativos](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Aplicar encriptação de disco no Centro de segurança do Azure](../security-center/security-center-apply-disk-encryption.md)
+- [Encriptar uma máquina virtual do Azure](../security-center/security-center-disk-encryption.md)
+- [Encriptação de dados do Azure em repouso](azure-security-encryption-atrest.md)

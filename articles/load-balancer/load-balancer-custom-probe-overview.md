@@ -1,6 +1,6 @@
 ---
 title: Utilizar as pesquisas personalizadas do Balanceador de carga para monitorizar o estado de funcionamento | Documentos da Microsoft
-description: Saiba como utilizar as pesquisas personalizadas para o Balanceador de carga do Azure para monitorizar instâncias por trás do Balanceador de carga
+description: Saiba como utilizar sondas de estado de funcionamento para monitorizar instâncias por trás do Balanceador de carga
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,20 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: kumud
-ms.openlocfilehash: afe46cf9fc710decba4524bd5a0fe1e73804f636
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b73028935fd60945a948c1c4e1848424b615d92e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344169"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363688"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
 O Azure Load Balancer utiliza sondas de estado de funcionamento para determinar a quais instâncias de conjunto de back-end irão receber novos fluxos. Pode utilizar sondas de estado de funcionamento para detetar a falha de um aplicativo numa instância de back-end. Também pode gerar uma resposta personalizada para uma sonda de estado de funcionamento e utilizar a sonda de estado de funcionamento para controlo de fluxo e sinalizar ao balanceador de carga se pretende continuar a enviar novos fluxos ou parar o envio de novos fluxos para uma instância de back-end. Isso pode ser utilizado para gerir a carga ou períodos de indisponibilidade planeados.
 
 Quando uma sonda de estado de funcionamento falha, o Balanceador de carga para a enviar novos fluxos para a respetiva instância de mau estado de funcionamento. O comportamento de fluxos de novos e existentes depende se um fluxo é TCP ou UDP como bem como que SKU do Balanceador de carga que está a utilizar.  Revisão [sonda inativo comportamento para obter detalhes](#probedown).
+
+> [!IMPORTANT]
+> As sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 e não tem de ser bloqueadas para sondas marcar sua instância.  Revisão [endereço IP de origem de sonda](#probesource) para obter detalhes.
 
 ## <a name="health-probe-types"></a>Tipos de sonda de estado de funcionamento
 
@@ -37,6 +40,8 @@ Para o balanceamento de carga UDP, deve gerar um sinal de sonda de estado de fun
 Ao usar [regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md) com [Balanceador de carga Standard](load-balancer-standard-overview.md), todas as portas têm balanceada de carga e uma resposta de sonda de estado de funcionamento único deve refletir o estado de toda a instância.  
 
 Deve ser não NAT ou de um Estado de funcionamento da pesquisa por meio da instância que recebe a sonda de estado de funcionamento para outra instância na sua VNet, como isso pode levar a falhas em cascata no seu cenário de proxy.
+
+Se desejar testar uma falha de sonda de estado de funcionamento ou marcar para baixo de uma instância individual, pode utilizar um grupo de segurança para a sonda de estado de funcionamento de bloqueio explícita (destino ou [origem](#probesource)).
 
 ### <a name="tcp-probe"></a>Sonda TCP
 
@@ -97,9 +102,6 @@ Os valores de tempo limite e a frequência definidos no SuccessFailCount determi
 
 Uma regra de balanceamento de carga definiu uma sonda de estado de funcionamento único o conjunto de back-end respectivos.
 
-> [!IMPORTANT]
-> Uma sonda de estado de funcionamento do Balanceador de carga utiliza o endereço IP 168.63.129.16. Este endereço IP público facilita a comunicação aos recursos da plataforma interna para o traga-your-own-IP cenário a rede Virtual do Azure. O endereço IP público 168.63.129.16 virtual é utilizado em todas as regiões, e não altera. Recomendamos que permite que este endereço IP em qualquer do Azure [grupos de segurança](../virtual-network/security-overview.md) e políticas de local firewall. Ele não deve ser considerado um risco de segurança porque apenas a plataforma do Azure interna pode obter um pacote desse endereço. Se não permitir este endereço IP nas suas políticas de firewall, um comportamento inesperado ocorre numa variedade de cenários, incluindo a falha do seu carregamento com balanceamento de serviço. Também não deve configurar a VNet com um intervalo de endereços IP que contém 168.63.129.16.  Se tiver várias interfaces na sua VM, terá de assegurar a que responder à sonda na interface de que utilizador o recebeu.  Isso pode exigir exclusivamente NAT'ing este endereço na VM numa base por interface de origem.
-
 ## <a name="probedown"></a>Sonda de comportamento
 
 ### <a name="tcp-connections"></a>Ligações TCP
@@ -120,11 +122,25 @@ UDP é sem ligações e não existe nenhum Estado de fluxo controlado por UDP. S
 
 Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, os fluxos UDP existentes irão terminar para básico e Standard balanceadores de carga.
 
+
+## <a name="probesource"></a>Endereço IP de origem de sonda
+
+Todas as sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 como a origem.  Quando levam seus próprios endereços IP para rede Virtual do Azure, é garantido que este endereço IP de origem de sonda de estado de funcionamento para que seja exclusivo como globalmente está reservado para a Microsoft.  Este endereço é o mesmo em todas as regiões e não se altera. Ele não deve ser considerado um risco de segurança porque apenas a plataforma do Azure interna pode obter um pacote a partir deste endereço IP. 
+
+Para a sonda de estado de funcionamento do Balanceador de carga marcar a sua instância, **tem** permitir que este endereço IP em qualquer serviço [grupos de segurança](../virtual-network/security-overview.md) e políticas de local firewall.
+
+Se não permitir este endereço IP nas suas políticas de firewall, a sonda de estado de funcionamento falhará, pois é não é possível alcançar a sua instância.  Por sua vez, o Balanceador de carga marcará-se para baixo da sua instância devido à falha de sonda de estado de funcionamento.  Isso pode causar a falha do seu serviço com balanceamento de carga. 
+
+Não também deve configurar o seu VNet com o Microsoft pertence o intervalo de endereços IP que contém 168.63.129.16.  Isto irá entrar em conflito com o endereço IP da sonda de estado de funcionamento.
+
+Se tiver várias interfaces na sua VM, terá de assegurar a que responder à sonda na interface de que utilizador o recebeu.  Isso pode exigir exclusivamente NAT'ing este endereço na VM numa base por interface de origem.
+
 ## <a name="monitoring"></a>Monitorização
 
 Todos os [Balanceador de carga Standard](load-balancer-standard-overview.md) expõe o estado de sonda de estado de funcionamento como métricas multidimensionais por instância através do Azure Monitor.
 
 Balanceador de carga básico expõe o estado de sonda de estado de funcionamento por conjunto de back-end através do Log Analytics.  Só está disponível para balanceadores de carga básico público e não está disponível para balanceadores de carga básico interno.  Pode usar [do log analytics](load-balancer-monitor-log.md) para verificar o estado de funcionamento de sonda de Balanceador de carga público e a contagem de sonda. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.
+
 
 ## <a name="limitations"></a>Limitações
 

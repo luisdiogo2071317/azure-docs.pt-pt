@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: aa575340c0775369d4be05b5e323c05f7dd3218a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348556"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391414"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Definir informações de segurança para utilizar o e-mail (pré-visualização)
 
@@ -29,7 +29,7 @@ Configuração de suas informações de segurança requer que inicie sessão na 
 Dependendo das definições da sua organização, poderá ser-lhe pedido para adicionar um endereço de e-mail às suas informações de segurança quando iniciar sessão. Caso contrário, para iniciar a configuração de e-mail das informações de segurança, siga os passos em [gerir as suas informações de segurança](security-info-manage-settings.md).
 
 >[!Note]
->Se não vir a opção de e-mail, é possível que a sua organização não permite a utilização de uma mensagem de e-mail para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
+>Recomendamos que utilize uma conta de e-mail que não requer a sua palavra-passe de rede para aceder.<br>Se não vir a opção de e-mail, é possível que a sua organização não permite a utilização de uma mensagem de e-mail para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
 
 ### <a name="to-use-your-email-address"></a>Para utilizar o seu endereço de e-mail
 

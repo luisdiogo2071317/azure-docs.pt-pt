@@ -1,6 +1,6 @@
 ---
-title: Como remover o acesso de um utilizador a uma aplicação | Microsoft Docs
-description: Compreender como remover o acesso de um utilizador a uma aplicação
+title: Como remover o acesso de um utilizador a uma aplicação | Documentos da Microsoft
+description: Aprenda a remover o acesso de um utilizador a uma aplicação
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,65 +11,65 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: e227f46db05c108c27322e8dd76177cf9849c937
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0deb5215c1379ac552a492f4b9e90df83201aebf
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330337"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364486"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
 Este artigo ajuda-o a compreender como remover o acesso de um utilizador a uma aplicação.
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Pretender remover um utilizador específico ou do grupo de atribuição para uma aplicação
+## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um utilizador específico ou do grupo a uma aplicação
 
-Para remover um utilizador ou a atribuição de grupo para uma aplicação, siga os passos apresentados no [remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artigo.
+Para remover um utilizador ou a atribuição de grupo a uma aplicação, siga os passos apresentados no [remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artigo.
 
-. # # pretendo desativar todos os acessos a uma aplicação para cada utilizador
+. # # quero desativar todos os acessos a uma aplicação para cada utilizador
 
-Para desativar a todos os utilizadores inícios de sessão a uma aplicação, siga os passos apresentados no [desativar utilizador inícios de sessão para uma aplicação empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artigo.
+Para desativar todos os utilizadores inícios de sessão a uma aplicação, siga os passos apresentados no [desativar utilizador-inícios de sessão de uma aplicação empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artigo.
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Pretender eliminar uma aplicação totalmente
+## <a name="i-want-to-delete-an-application-entirely"></a>Quero eliminar uma aplicação totalmente
 
 Para **eliminar uma aplicação**, siga estas instruções:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Co-administrador.**
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
+2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
+3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todas as aplicações** para ver uma lista de todas as suas aplicações.
+5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-   * Se não vir a aplicação que pretende mostrar aqui, utilize o **filtro** controlo na parte superior a **lista de todas as aplicações** e defina o **mostrar** opção para **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende eliminar.
 
-7.  Quando carrega a aplicação, clique em **eliminar** ícone da aplicação superior **descrição geral** painel.
+7.  Assim que o aplicativo é carregado, clique em **elimine** ícone da aplicação superior **descrição geral** painel.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento do utilizador futura para qualquer aplicação
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento de utilizador futuras para qualquer aplicação
 
-Desativar o consentimento do utilizador para o seu diretório todo impedir que os utilizadores finais consenting para qualquer aplicação. Os administradores podem ainda consentimento no behalves do utilizador. Para saber mais sobre o consentimento de aplicação e, por isso poderá ou poderá pretender fazê-lo, ler [utilizador compreender e administração consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em behalves do utilizador. Para saber mais sobre o consentimento da aplicação e, por isso que pode ou não querer fazer isso, leia [consentimento de administrador e de utilizador de compreensão](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Para **desativar todas as operações de consentimento do utilizador futuras no seu diretório todo**, siga estas instruções:
+Para **desativar todas as operações de consentimento de utilizador futuras no seu diretório inteiro**, siga estas instruções:
 
 1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
-2.  Abra o **extensão do Active Directory do Azure** clicando **todos os serviços** no topo do menu de navegação esquerdo principal.
+2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"do Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **do Azure Active Directory** item.
+3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
 4.  Clique em **utilizadores e grupos** no menu de navegação.
 
-5.  Clique em **as definições de utilizador**.
+5.  Clique em **definições de utilizador**.
 
-6.  Desative todas as operações de consentimento do utilizador futuras definindo a **utilizadores podem permitir que as aplicações aceder aos respetivos dados** alternar para **não** e clique em de **guardar** botão.
+6.  Desativar todas as operações de consentimento do utilizador futuras ao definir o **os utilizadores podem permitir que as aplicações acedam aos seus dados** alternar para **não** e clique nas **guardar** botão.
 
 
 # <a name="next-steps"></a>Passos Seguintes

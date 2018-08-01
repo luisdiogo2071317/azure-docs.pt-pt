@@ -3,22 +3,22 @@ title: Escrever expressões para mapeamentos de atributos no Azure Active Direct
 description: Saiba como utilizar os mapeamentos de expressão para transformar valores de atributo num formato aceitável durante o aprovisionamento automatizado de objetos de aplicação SaaS no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
-ms.author: markvi
-ms.openlocfilehash: c0c3e6fab27ff16f0cc75fde3587d280278be882
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
+ms.openlocfilehash: 0fa8fc6408a81429dfa9e8d73ef842644591c144
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215293"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365944"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -173,7 +173,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
+| **Origem** |Necessário |Cadeia |**Origem** valor para atualizar. |
 
 - - -
 ### <a name="switch"></a>Comutador

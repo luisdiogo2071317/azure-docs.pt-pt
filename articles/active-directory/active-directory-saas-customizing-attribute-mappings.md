@@ -1,154 +1,154 @@
 ---
-title: Personalizar os mapeamentos de atributos do Azure AD | Microsoft Docs
-description: Identificar os mapeamentos de atributos para aplicações de SaaS no Azure Active Directory como a pode modificá-los para abordar as necessidades de negócio.
+title: Personalizar mapeamentos de atributos de AD do Azure | Documentos da Microsoft
+description: Saiba quais mapeamentos de atributos para aplicações de SaaS no Azure Active Directory são como pode modificá-los para atender as suas necessidades de negócio.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036449"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365197"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de utilizador aprovisionamento mapeamentos de atributos para aplicações de SaaS no Azure Active Directory
-Microsoft Azure AD fornece suporte para o aprovisionamento de utilizadores para aplicações de SaaS de terceiros, tais como o Salesforce, Google Apps e outros. Se tiver de aprovisionamento de utilizadores para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de mapeamentos de atributos.
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
+Microsoft Azure AD fornece suporte para aprovisionamento de utilizadores para aplicações de SaaS de terceiros, como o Salesforce, Google Apps e outros. Se tiver de aprovisionamento de utilizadores para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de mapeamentos de atributos.
 
-Não há um conjunto de atributos e os mapeamentos de atributos entre objetos de utilizador do Azure AD e objetos de utilizador de cada aplicação SaaS previamente configurado. Algumas aplicações, gerir outros tipos de objetos, além de utilizadores, tais como grupos. <br> 
- Pode personalizar os mapeamentos de atributos predefinidos consoante as suas necessidades de negócio. Isto significa que pode alterar ou eliminar mapeamentos de atributos existentes ou criar novos mapeamentos de atributos.
+Existe um conjunto pré-configuradas de atributos e mapeamentos de atributos entre objetos de utilizador do Azure AD e os objetos de utilizador de cada aplicação de SaaS. Algumas aplicações, gerir outros tipos de objetos, além de utilizadores, tais como grupos. <br> 
+ Pode personalizar os mapeamentos de atributos padrão, de acordo com suas necessidades empresariais. Isso significa que, pode alterar ou eliminar mapeamentos de atributos existentes ou criar novos de mapeamentos de atributos.
  
 ## <a name="editing-user-attribute-mappings"></a>Editar mapeamentos de atributos de utilizador
 
-No portal do Azure AD, pode aceder a esta funcionalidade, clicando num **mapeamentos** configuração em **aprovisionamento** no **gerir** secção um  **Aplicação empresarial**.
+No portal do Azure AD, pode aceder a esta funcionalidade ao clicar num **mapeamentos** configuração em **aprovisionamento** no **gerir** secção de um  **Aplicação empresarial**.
 
 
 ![Salesforce][5] 
 
-Ao clicar num **mapeamentos** configuração, abre o relacionados **mapeamento de atributos** ecrã. Existem mapeamentos de atributos que são necessários para uma aplicação SaaS a funcionar corretamente. Para os atributos necessários, o **eliminar** funcionalidade não está disponível.
+Clicar num **mapeamentos** configuração, é aberto o relacionados **mapeamento do atributo** ecrã. Existem mapeamentos de atributos que são necessários para uma aplicação SaaS para funcionar corretamente. Para os atributos necessários, o **eliminar** funcionalidade não está disponível.
 
 
 ![Salesforce][6]  
 
-No exemplo acima, pode ver que o **Username** atributo de um objeto gerido no Salesforce é preenchido com o **userPrincipalName** valor o objeto ligado para o Azure Active Directory.
+No exemplo acima, pode ver que o **nome de utilizador** atributo de um objeto gerido no Salesforce é preenchido com o **userPrincipalName** valor do objeto ligado para o Azure Active Directory.
 
-Pode personalizar existente **mapeamentos de atributos** clicando um mapeamento. Esta ação abre o **Editar atributo** ecrã.
+Pode personalizar a existente **mapeamentos de atributos** ao clicar num mapeamento. Esta ação abre o **Editar atributo** ecrã.
 
 ![Salesforce][7]  
 
 
-### <a name="understanding-attribute-mapping-types"></a>Compreender tipos de mapeamento de atributos
-Com mapeamentos de atributos, pode controlar a forma como os atributos são preenchidos numa aplicação SaaS de terceiros. Existem quatro tipos de mapeamento diferentes suportados:
+### <a name="understanding-attribute-mapping-types"></a>Compreender os tipos de mapeamento do atributo
+Com mapeamentos de atributos, controla a forma como os atributos são preenchidos numa aplicação SaaS de terceiros. Existem quatro tipos de mapeamento diferentes suportados:
 
 * **Direto** – o atributo de destino é preenchido com o valor de um atributo do objeto ligado no Azure AD.
 * **Constante** – o atributo de destino é preenchido com uma cadeia específica que especificou.
 * **Expressão** -o atributo de destino é preenchido com base no resultado de uma expressão de tipo de script. 
   Para obter mais informações, consulte [escrever expressões para mapeamentos de atributos no Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **Nenhum** -o atributo de destino for deixado inalterado. No entanto, se o atributo de destino é alguma vez vazio, é preenchido com o valor predefinido que especificar.
+* **Nenhum** -o atributo de destino é deixado sem modificações. No entanto, se o atributo de destino está sempre vazio, é preenchida com o valor predefinido que especificar.
 
-Para além destes quatro tipos básicos, mapeamentos de atributos personalizados suportam o conceito de opcional **predefinido** valor atribuição. A atribuição de valor predefinido garante que um atributo de destino é preenchido com um valor se não existir nenhuma um valor no Azure AD, nem o objeto de destino. A configuração mais comuns é a deixar isto em branco.
+Para além desses quatro tipos básicos, mapeamentos de atributos personalizados suportam o conceito de opcional **predefinição** atribuição de valor. A atribuição de valor de predefinição garante que um atributo de destino é preenchido com um valor se não houver nenhuma um valor no Azure AD nem no objeto de destino. A configuração mais comuns é deixar em branco.
 
 
-### <a name="understanding-attribute-mapping-properties"></a>Noções sobre as propriedades de mapeamento de atributos
+### <a name="understanding-attribute-mapping-properties"></a>Noções básicas sobre as propriedades de mapeamento do atributo
 
-Na secção anterior, poderá já foram introduzidos para a propriedade de tipo de mapeamento de atributos.
-Para além desta propriedade mapeamentos de atributos também suportam os seguintes atributos:
+Na secção anterior, já foram introduzidas para o tipo de mapeamento do atributo de propriedade.
+Para além desta propriedade, mapeamentos de atributos também suportam os seguintes atributos:
 
 - **Atributo de origem** -o atributo de utilizador do sistema de origem (exemplo: Azure Active Directory).
 - **Atributo de destino** – o atributo de utilizador no sistema de destino (exemplo: ServiceNow).
-- **Corresponder objetos utilizando este atributo** – se ou não desta mapeamento deve ser utilizado para identificar exclusivamente os utilizadores entre os sistemas de origem e de destino. Normalmente, isto está definido no atributo userPrincipalName ou correio no Azure AD, que normalmente é mapeado para um campo de nome de utilizador numa aplicação de destino.
-- **Correspondência de precedência** – vários atributos de correspondência pode ser definido. Quando existem vários, estes são avaliados por ordem definida por este campo. Assim que for encontrada uma correspondência, não são necessárias mais correspondência de atributos são avaliados.
+- **Correspondência de objetos utilizando este atributo** – independentemente desse mapeamento deve ser utilizado para identificar exclusivamente os utilizadores entre os sistemas de origem e de destino. Normalmente, isso é definido no atributo userPrincipalName ou email no Azure AD, que normalmente é mapeado para um campo de nome de utilizador num aplicativo de destino.
+- **Precedência de correspondência** – o várias correspondência de atributos pode ser definida. Quando houver múltiplos, eles são avaliados na ordem definida por este campo. Assim que uma correspondência for encontrada, não são necessárias mais correspondência de atributos são avaliados.
 - **Aplicar este mapeamento**
-    - **Sempre** – aplicar desta mapeamento em ambos os criação de utilizador e as ações de atualização
-    - **Apenas durante a criação** -aplicar desta mapeamento apenas ações de criação de utilizador
+    - **Sempre** – aplicar este mapeamento em ambos os criação de utilizador e ações de atualização
+    - **Apenas durante a criação** -aplicar este mapeamento apenas nas ações de criação do utilizador
 
 
 ## <a name="editing-group-attribute-mappings"></a>Editar mapeamentos de atributos de grupo
 
-Um número selecionado de aplicações, como o ServiceNow, a caixa e o Google Apps, suporta a capacidade de aprovisionar os objetos de grupo para além dos objetos de utilizador. Objetos de grupo podem conter propriedades de grupo, tais como os nomes a apresentar e aliases, além de membros do grupo de e-mail.
+Um número selecionado de aplicativos, como o ServiceNow, a caixa e o Google Apps, suporta a capacidade de provisionar objetos de grupo, além de objetos de utilizador. Objetos de grupo podem conter propriedades do grupo, como os nomes a apresentar e aliases, além de membros do grupo de e-mail.
 
 ![ServiceNow][8]  
 
-Aprovisionamento de grupo pode ser opcionalmente ativado ou desativado, selecionando o mapeamento de grupo em **mapeamentos**e definição **ativado** para a opção pretendida no **demapeamentodeatributos** ecrã.
+Aprovisionamento do grupo pode ser opcionalmente ativado ou desativado, selecionando o mapeamento de grupo sob **mapeamentos**e a definição **ativado** para a opção pretendida no **mapeamento do atributo** ecrã.
 
-Os atributos aprovisionados como parte dos objetos de grupo podem ser personalizados da mesma forma que os objetos de utilizador, descrito anteriormente. 
+Os atributos aprovisionados como parte dos objetos de grupo podem ser personalizados da mesma forma como os objetos de utilizador, descrito anteriormente. 
 
 >[!TIP]
->O aprovisionamento dos objetos de grupo (propriedades e membros) é um conceito distinto do [atribuir grupos](manage-apps/assign-user-or-group-access-portal.md) para uma aplicação. É possível atribuir um grupo a uma aplicação, mas apenas aprovisionar os objetos de utilizador contidos no grupo. O aprovisionamento dos objetos de grupo completo não é necessário para utilizar grupos na atribuições.
+>O aprovisionamento de objetos de grupo (propriedades e membros) é um conceito distinto da [atribuir grupos](manage-apps/assign-user-or-group-access-portal.md) a uma aplicação. É possível atribuir um grupo a uma aplicação, mas apenas aprovisionar os objetos de utilizador contidos no grupo. Aprovisionamento de objetos de grupo completo não é necessário para utilizar grupos na atribuições.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Editar a lista de atributos suportados
 
-Os atributos de utilizador suportados para uma determinada aplicação são previamente configurados. APIs de gestão de utilizador a maioria das aplicações não suporta a deteção de esquema, não é capaz de gerar dinamicamente a lista de atributos suportados efetuando chamadas para a aplicação, por conseguinte, o Azure AD que o serviço de fornecimento. 
+Os atributos de utilizador suportados para um determinado aplicativo estão pré-configuradas. APIs de gestão de utilizador a maioria das aplicações não suportam a deteção de esquema, portanto o Azure AD que o serviço de aprovisionamento não é capaz de gerar dinamicamente a lista de atributos suportados por meio de chamadas para a aplicação. 
 
-No entanto, algumas aplicações suportam atributos personalizados. Ordem para o Azure AD que o serviço de fornecimento conseguir ler e escrever os atributos personalizados, é necessário introduzir as respetivas definições para o Azure portal com o **Mostrar opções avançadas** caixa de verificação na parte inferior do  **Mapeamento de atributos** ecrã.
+No entanto, algumas aplicações suportam atributos personalizados. Por ordem para o serviço de aprovisionamento do AD do Azure para poder ler e escrever atributos personalizados, é necessário introduzir as respetivas definições no portal do Azure com o **Mostrar opções avançadas** caixa de verificação na parte inferior do  **Mapeamento do atributo** ecrã.
 
 Aplicações e sistemas que suportam a personalização da lista de atributos incluem:
 
 * Salesforce
 * ServiceNow
-* Workday
-* Azure Active Directory ([atributos predefinidos de AD Graph API do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e as extensões de diretórios personalizada são suportadas)
-* As aplicações que suportam [SCIM 2.0](https://tools.ietf.org/html/rfc7643), em que os atributos definidos no [esquema core](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
+* Dia de trabalho
+* O Azure Active Directory ([atributos de padrão do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados são suportadas)
+* As aplicações que suportam [SCIM 2.0](https://tools.ietf.org/html/rfc7643), em que os atributos definidos na [esquema central](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 >[!NOTE]
->Editar a lista de atributos suportados só é recomendada para os administradores que tem personalizado o esquema das respetivas aplicações e sistemas e tem conhecimento de primeira mão da forma como os respetivos atributos personalizados foram definidos. Por vezes, é necessário familiaridade com as ferramentas APIs e os programadores fornecidas por uma aplicação ou sistema. 
+>Editar a lista de atributos suportados apenas é recomendada para os administradores que tem personalizado o esquema de seus aplicativos e sistemas e tenham conhecimento de primeira mão de como seus atributos personalizados foram definidos. Às vezes, isso exige familiaridade com as ferramentas APIs e os desenvolvedores fornecidas por um aplicativo ou sistema. 
 
 ![Editor][9]  
 
 Ao editar a lista de atributos suportados, são fornecidas as seguintes propriedades:
 
-* **Nome** -o nome do sistema do atributo, tal como definido no esquema o objeto de destino. 
-* **Tipo** -o tipo de dados que armazena o atributo, tal como definido no esquema o objeto de destino. Isto pode ser um dos seguintes:
+* **Nome** -o nome do sistema do atributo, tal como definido no esquema do objeto de destino. 
+* **Tipo de** -o tipo de dados que armazena o atributo, tal como definido no esquema do objeto de destino. Isto pode ser um dos seguintes:
    * *Binário* -atributo contém dados binários.
-   * *Booleano* -atributo contém um valor VERDADEIRO ou FALSO.
+   * *Booleano* -atributo contém um valor de VERDADEIRO ou FALSO.
    * *DateTime* -atributo contém uma cadeia de data.
    * *Número inteiro* -atributo contém um número inteiro.
-   * *Referência* -atributo contém um ID que faça referência a um valor armazenado no outra tabela na aplicação de destino.
-   * *Cadeia* -atributo contém uma cadeia de texto. 
-* **Chave primária?** -Se ou não o atributo é definido como um campo de chave primário no esquema o objeto de destino.
-* **Necessário?** -Se ou não o atributo é necessário para ser preenchida no sistema ou a aplicação de destino.
-* **Valores múltiplos?** -Se ou não o atributo suporta vários valores.
-* **Caso exato?** -Se ou não os valores de atributos são avaliados de forma a maiúsculas e minúsculas.
-* **Expressão de API** -não utilize, a menos que indicado para o fazer, a documentação de um conector de aprovisionamento específico (por exemplo, Workday).
-* **Referenciado atributo de objeto** - se se tratar de um atributo de tipo de referência, em seguida, este menu permite-lhe selecionar a tabela e o atributo da aplicação de destino que contém o valor associado o atributo. Por exemplo, se tiver um atributo com o nome "Departamento", cujo valor armazenado referencia um objeto numa tabela "Departamentos" separado, deverá selecionar "Departments.Name". Tenha em atenção que as tabelas de referência e os campos ID principais suportados para uma determinada aplicação previamente estão configurados e atualmente não podem ser editados utilizando o portal do Azure, mas podem ser editados utilizando o [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+   * *Referência* -atributo contém um ID que faz referência a um valor armazenado em outra tabela na aplicação de destino.
+   * *Cadeia de caracteres* -atributo contém uma cadeia de texto. 
+* **Chave primária?** -Ou não o atributo é definido como um campo de chave primária no esquema do objeto de destino.
+* **Necessário?** -Ou não o atributo é necessário para ser preenchido em sistemas ou aplicativos de destino.
+* **Valores múltiplos?** -Ou não o atributo oferece suporte a vários valores.
+* **Maiúsculas ou minúsculas?** -Ou não os valores de atributos são avaliados de uma forma de maiúsculas e minúsculas.
+* **Expressão de API** -não utilizar, exceto se instruído a fazer isso, a documentação para um conector de aprovisionamento específico (por exemplo, o dia de trabalho).
+* **Referenciado atributo de objeto** - se se tratar de um atributo de tipo de referência, em seguida, esse menu permite-lhe selecionar a tabela e o atributo no aplicativo de destino que contém o valor associado com o atributo. Por exemplo, se tiver um atributo com o nome "Departamento", cujo valor armazenado referencia um objeto numa tabela de "Departamentos" separada, deve selecionar "Departments.Name". Tenha em atenção que as tabelas de referência e os campos de ID principal suportados para um determinado aplicativo pré-configuradas e atualmente não podem ser editados com o portal do Azure, mas podem ser editados utilizando o [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Para adicionar um novo atributo, desloque até ao final da lista de atributos suportados, preencha os campos acima utilizando as entradas fornecidas e selecione **adicionar atributo**. Selecione **guardar** quando terminar de adicionar atributos. Em seguida, precisa de recarregar a **aprovisionamento** separador para novos atributos fique disponível no editor de mapeamento de atributos.
+Para adicionar um novo atributo, desloque-se para o final da lista de atributos suportados, preencha os campos acima usando entradas fornecidas e selecione **adicionar atributo**. Selecione **guardar** quando concluir a adição de atributos. Em seguida, terá de recarregar o **aprovisionamento** separador para os novos atributos fiquem disponíveis no editor de mapeamento do atributo.
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restaurar a atributos predefinidos e mapeamentos de atributos
 
-Deve terá início ao longo e repor a sua mapeamentos existentes de volta para o respetivo estado predefinido, pode selecionar o **restaurar mapeamentos de predefinição** caixa de verificação e guardar a configuração. Isto define todos os mapeamentos como se a aplicação apenas tinha foi adicionada ao inquilino do Azure AD da Galeria de aplicações. 
+Caso precise começar novamente e reposição seus mapeamentos existentes de volta para o seu estado padrão, pode selecionar o **restaurar os mapeamentos predefinidos** caixa de verificação e guardar a configuração. Isso define todos os mapeamentos, como se o aplicativo simplesmente tinha sido adicionado ao seu inquilino do Azure AD da Galeria de aplicações. 
 
-A seleção desta opção irá eficazmente forçar uma sincronização de todos os utilizadores a enquanto o aprovisionamento está em execução. 
+A seleção desta opção efetivamente forçará uma nova sincronização de todos os utilizadores enquanto o serviço de aprovisionamento está em execução. 
 
 >[!IMPORTANT]
->Recomenda-se vivamente que **estado de aprovisionamento** ser definido como **desativar** antes de invocar esta opção.
+>É altamente recomendável que **estado de aprovisionamento** definida como **desativar** antes de invocar esta opção.
 
 
-## <a name="what-you-should-know"></a>O que deve conhecer
+## <a name="what-you-should-know"></a>O que deve saber
 
-* Microsoft Azure AD fornece uma implementação eficaz de um processo de sincronização. Num ambiente inicializado, apenas os objetos que necessitam de atualizações são processados durante um ciclo de sincronização. 
+* Microsoft Azure AD fornece uma implementação eficiente de um processo de sincronização. Num ambiente inicializado, apenas os objetos que precisam de atualizações são processados durante um ciclo de sincronização. 
 
-* Atualizar mapeamentos de atributos tem um impacto no desempenho de um ciclo de sincronização. Uma atualização para a configuração de mapeamento de atributos requer que todos os objetos geridos para ser reavaliadas. 
+* A atualizar mapeamentos de atributo tem um impacto no desempenho de um ciclo de sincronização. Uma atualização para a configuração de mapeamento do atributo necessitar de todos os objetos geridos ser reavaliadas. 
 
-* É uma melhor prática recomendada para manter o número de alterações consecutivas para os mapeamentos de atributos no mínimo.
+* É uma prática recomendada para manter o número de alterações consecutivas para seus mapeamentos de atributos no mínimo.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Automatizar utilizador aprovisionamento/desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md)
+* [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](active-directory-saas-app-provisioning.md)
 * [Escrever expressões para mapeamentos de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Filtros de âmbito para o aprovisionamento de utilizador](active-directory-saas-scoping-filters.md)
+* [Filtros de âmbito para o aprovisionamento do utilizador](active-directory-saas-scoping-filters.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](saas-apps/tutorial-list.md)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1bb4fed22fd62c4934f841cabf3dbbe1df253de
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441367"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390491"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Do Azure Active Directory B2C: Migração de utilizador
 Ao migrar o fornecedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também poderá ter de migrar a conta de utilizador. Este artigo explica como migrar as contas de utilizador existentes de qualquer fornecedor de identidade para o Azure AD B2C. O artigo não se destina a ser prescritivas, mas, em vez disso, ele descreve alguns cenários. O desenvolvedor é responsável pela adequação de cada abordagem.
@@ -355,8 +355,6 @@ Pode ver e monitorizar as informações de registo em tempo quase real.
 
 6. Verificar a saída da RESTful API.
 
-Para obter mais informações, consulte [transmissão em fluxo de registos e a consola][AppService-Log].
-
 > [!IMPORTANT]
 > Utilize os registos de diagnóstico apenas durante o desenvolvimento e teste. O resultado de RESTful API pode conter informações confidenciais que não devem ser expostas na produção.
 >
@@ -367,7 +365,6 @@ Depois de concluir o [introdução às políticas personalizadas] [ B2C-GetStart
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
 [AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
-[AppService-Log]: https://docs.microsoft.com/azure/active-directory-b2c/app-service-web/web-sites-streaming-logs-and-console
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started
 [B2C-GetStartedCustom]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom
