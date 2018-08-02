@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237779"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358143"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Criar aplicação com domínio personalizado
 Neste tutorial, crie uma aplicação que demonstre como utilizar **intenções** para determinar a _intenção_ do utilizador com base na expressão (texto) enviada para a aplicação. Quando terminar, obterá um ponto final do LUIS em execução na cloud.
@@ -32,7 +32,7 @@ Esta aplicação é o tipo mais simples de aplicação LUIS, uma vez que não ex
 > * Adicionar expressões de exemplo à intenção ApplyForJob 
 > * Preparar, publicar e consultar novamente o ponto final 
 
-Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Objetivo da aplicação
 Esta aplicação tem algumas intenções. A primeira intenção, **`GetJobInformation`**, identifica quando um utilizador quer informações sobre empregos disponíveis numa empresa. A segunda intenção, **`None`**, identifica todos os outros tipos de expressão. Mais adiante no início rápido, é adicionada uma terceira intenção, `ApplyForJob`. 
@@ -49,8 +49,6 @@ Esta aplicação tem algumas intenções. A primeira intenção, **`GetJobInform
     ![A nova aplicação LUIS](./media/luis-quickstart-intents-only/create-app.png)
 
 4. Quando esse processo terminar, a aplicação mostra a página **Intents** (Intenções) com a intenção **None** (Nenhuma). 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "Captura de ecrã da página de lista Intents (Intenções)")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>Criar a intenção GetJobInformation
 1. Selecione **Create new intent** (Criar nova intenção). Introduza o nome da nova intenção `GetJobInformation`. Esta intenção é prever sempre que um utilizador quer informações sobre empregos na sua empresa.
@@ -90,16 +88,16 @@ Esta aplicação tem algumas intenções. A primeira intenção, **`GetJobInform
 
     ![Botão de preparação](./media/luis-quickstart-intents-only/train-button.png)
 
-    A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+2. A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
 
     ![Barra de estado preparado](./media/luis-quickstart-intents-only/trained.png)
 
-2. No lado direito superior do site do LUIS, selecione o botão **Publish** (Publicar) para abrir a página Publish (Publicar). O bloco de produção está selecionado por predefinição. Selecione o botão **Publish** (Publicar) na opção de bloco de produção. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
 
-    Não precisa de criar uma chave de ponto final do LUIS no portal do Azure antes de publicar ou antes de testar o URL do ponto final. Cada aplicação do LUIS tem uma chave de iniciante gratuita para a criação. Oferece-lhe criação ilimitada e [alguns resultados de ponto final](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Ponto final de consulta para a intenção GetJobInformation
-1. Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá para o final do URL no endereço e introduza `I'm looking for a job with Natual Language Processing`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões no passo 4, pelo que é um bom teste e deve devolver a intenção `GetJobInformation` como a principal intenção de classificação. 
 
@@ -152,7 +150,10 @@ Regresse ao separador do browser do site do LUIS e crie uma nova intenção para
     [Prepare e publique](#train-and-publish-the-app) novamente. 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Ponto final de consulta para a intenção ApplyForJob
-Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Na nova janela do browser, introduza `Can I submit my resume for job 235986` no final do URL. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Na nova janela do browser, introduza `Can I submit my resume for job 235986` no final do URL. 
 
     ```
     {

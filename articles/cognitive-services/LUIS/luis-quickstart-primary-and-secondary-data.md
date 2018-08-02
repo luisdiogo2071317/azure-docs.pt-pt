@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238010"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308974"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Adicionar entidade simples e lista de expressões
 Neste tutorial, vai criar uma aplicação que demonstra como extrair dados de aprendizagem automática de uma expressão com a entidade **Simple** (Simples).
@@ -29,7 +29,7 @@ Neste tutorial, vai criar uma aplicação que demonstra como extrair dados de ap
 > * Adicionar a lista de expressões para melhorar o sinal das palavras da tarefa
 > * Preparar, publicar a aplicação e repetir a consulta do ponto final
 
-Para este artigo, precisa de uma conta do [LUIS](luis-reference-regions.md#luis-website) gratuita para criar a sua aplicação LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se não tiver a aplicação de Recursos Humanos do tutorial [entidade composta](luis-tutorial-composite-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website). A aplicação a importar está no repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
@@ -70,8 +70,6 @@ Esta aplicação LUIS tem nomes de trabalhos em várias intenções. Ao identifi
 ## <a name="create-job-simple-entity"></a>Criar uma entidade simples do trabalho
 
 1. Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
-
-    [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. Na página **Intents** (Intenções), selecione a intenção **ApplyForJob**. 
 
@@ -139,22 +137,14 @@ O LUIS desconhece as alterações às intenções e entidades (o modelo), até s
     ![Notificação de êxito de preparação](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar a aplicação para obter o URL de ponto final
-Para obter uma predição do LUIS num chatbot ou noutra aplicação, tem de publicar a aplicação. 
 
-1. No lado direito superior do site do LUIS, selecione o botão **Publish** (Publicar). 
-
-2. Selecione o bloco Production (Produção) e o botão **Publish** (Publicar).
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Captura de ecrã da página Publicar com o botão Publicar no bloco de produção realçado")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto final com uma expressão diferente
-Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Captura de ecrã da página Publicar com o ponto final realçado")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. Vá para o final do URL no endereço e introduza `Here is my c.v. for the programmer job`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver as expressões `ApplyForJob`.
+2. Vá para o final do URL no endereço e introduza `Here is my c.v. for the programmer job`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver as expressões `ApplyForJob`.
 
 ```JSON
 {

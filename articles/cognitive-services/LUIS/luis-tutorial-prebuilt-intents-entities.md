@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239040"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358527"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Adicionar intenções e entidades pré-concebidas
 Adicione intenções pré-concebidas e entidades à aplicação do tutorial de Recursos Humanos para obter rapidamente a predição de intenção e a extração de dados. 
@@ -27,6 +27,8 @@ Neste tutorial, ficará a saber como:
 * Preparar e publicar
 * Consultar o LUIS e receber a resposta de predição
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>Antes de começar
 Se não tiver a aplicação de [Recursos Humanos](luis-quickstart-intents-only.md) do tutorial anterior, [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para uma nova aplicação no site do [LUIS](luis-reference-regions.md#luis-website) a partir do repositório do Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
@@ -36,8 +38,6 @@ Se quiser manter a aplicação de Recursos Humanos original, clone a versão na 
 O LUIS oferece várias intenções pré-concebidas para ajudar com intenções comuns do utilizador.  
 
 1. Certifique-se de que a aplicação está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita. 
-
-    [ ![Captura de ecrã da aplicação LUIS com o botão Criar realçado na barra de navegação superior direita](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Selecione **Adicionar intenção de domínio pré-concebido**. 
 
@@ -72,24 +72,20 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
     ![Captura de ecrã do número selecionado na caixa de diálogo de entidades pré-concebidas](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
-1. No lado direito superior do site do LUIS, selecione o botão **Train** (Preparar). 
 
-    ![Botão de preparação](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    A preparação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
+## <a name="publish-app-to-endpoint"></a>Publicar a aplicação no ponto final
 
-    ![Barra de estado preparado](./media/luis-quickstart-intents-only/trained.png)
-
-2. No lado direito superior do site do LUIS, selecione o botão **Publish** (Publicar) para abrir a página Publish (Publicar). 
-
-3. O bloco de produção está selecionado por predefinição. Selecione o botão **Publish** (Publicar) na opção de bloco de produção. A publicação está concluída quando for apresentada a barra de estado verde na parte superior do site a confirmar o êxito.
-
-    Não precisa de criar uma chave de ponto final do LUIS no portal do Azure antes de publicar ou antes de testar o URL do ponto final. Cada aplicação do LUIS tem uma chave de iniciante gratuita para a criação. Oferece-lhe criação ilimitada e [alguns resultados de ponto final](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>Consultar ponto final com uma expressão
-Na página **Publish** (Publicar), selecione a ligação do **ponto final** na parte inferior da página. Esta ação abre outra janela de browser com o URL de ponto final na barra de endereço. Vá para o final do URL no endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
 
-O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março e o número 3. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Vá para o final do URL no endereço e introduza `I want to cancel on March 3`. O último parâmetro de cadeia de consulta é `q`, a expressão **query**. 
+
+    O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março e o número 3. 
 
     ```
     {
@@ -166,12 +162,13 @@ O resultado previu a intenção Utilities.Cancel e extraiu a data de 3 de março
     }
     ```
 
-Existem dois valores de 3 de março porque a expressão não indicou se 3 de março é no passado ou no futuro. Cabe à aplicação de chamadas do LUIS fazer uma suposição ou pedir esclarecimentos, se assim for preciso. 
+    Existem dois valores de 3 de março porque a expressão não indicou se 3 de março é no passado ou no futuro. Cabe à aplicação de chamadas do LUIS fazer uma suposição ou pedir esclarecimentos, se assim for preciso. 
 
-Ao adicionar rápida e facilmente intenções e entidades pré-concebidas, a aplicação cliente pode adicionar gestão de conversação e extrair tipos de dados comuns. 
+    Ao adicionar rápida e facilmente intenções e entidades pré-concebidas, a aplicação cliente pode adicionar gestão de conversação e extrair tipos de dados comuns. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
