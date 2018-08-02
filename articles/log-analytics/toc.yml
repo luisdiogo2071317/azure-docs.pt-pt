@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: Guias de procedimentos
   items:
-    - name: Criar uma área de trabalho do Log Analytics
-      href: log-analytics-quick-create-workspace.md
+    - name: Criar área de trabalho
+      items:
+        - name: Utilizar o portal do Azure
+          href: log-analytics-quick-create-workspace.md
     - name: Recolher dados
       items:
         - name: Origens ligadas

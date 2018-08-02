@@ -25,6 +25,8 @@
   items:
     - name: Métodos de autenticação
       href: concept-authentication-methods.md
+    - name: Registo convergido
+      href: concept-registration-mfa-sspr-converged.md
     - name: Reposição personalizada de palavra-passe
       items:
         - name: Como Funciona a Reposição de Palavras-passe

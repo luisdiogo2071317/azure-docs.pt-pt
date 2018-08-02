@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 3a93f4df52f5e148faaa1e8e7a0275b68d2ff508
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391775"
+ms.locfileid: "39399903"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption 
  Neste artigo, os pré-requisitos do Azure Disk Encryption, explica os itens que precisam de estar em vigor antes de poder utilizar o Azure Disk Encryption. Juntamente com a pré-requisitos gerais, está integrado do Azure Disk Encryption [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) e utiliza uma aplicação do Azure AD para fornecer autenticação para gerir as chaves de encriptação no Cofre de chaves. Também pode pretender utilizar [do Azure PowerShell](/powershell/azure/overview) ou o [CLI do Azure](/cli/azure/) para configurar ou configurar o Cofre de chaves e a aplicação do Azure AD.
@@ -398,11 +398,6 @@ Antes de utilizar o script do PowerShell, deve estar familiarizado com os pré-r
 
 ## <a name="bkmk_Cert"></a> Autenticação baseada em certificado (opcional)
 Se gostaria de utilizar a autenticação de certificado, pode carregar um para o seu Cofre de chaves e implementá-la para o cliente. Antes de utilizar o script do PowerShell, deve estar familiarizado com os pré-requisitos do Azure Disk Encryption para compreender os passos no script. O script de exemplo poderá ter as alterações para o seu ambiente.
-
-> [!IMPORTANT]
-> Autenticação baseada em certificados. do Azure AD não é atualmente suportada em VMs do Linux.
-
-
 
      
  ```powershell
