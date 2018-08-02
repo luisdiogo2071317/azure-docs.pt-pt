@@ -3,7 +3,7 @@ title: Comparar Flow, Logic Apps, Functions, e WebJobs - Azure
 description: 'Compare serviços cloud da Microsoft que estão otimizados para tarefas de integração:  Flow, Logic Apps, Functions e WebJobs.'
 services: functions,app-service\logic
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 tags: ''
 keywords: microsoft flow, flow, fluxo, logic apps, aplicações lógicas, funções do azure, funções, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970143"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346288"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparar Flow, Logic Apps, Functions e WebJobs
 

@@ -3,18 +3,17 @@ title: Início Rápido do Azure – Criar um blob no armazenamento de objetos co
 description: Neste início rápido, irá utilizar a CLI do Azure no armazenamento de objetos (Blobs). Em seguida, utilize a CLI para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: b55fe97adc56f4b8f1baeb2d8bb5f905fcd424bd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 106c84a6eaff3766c5308ccb130dc7c21e7ec4d8
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232725"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397017"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, transferir e listar blobs através da CLI do Azure
 

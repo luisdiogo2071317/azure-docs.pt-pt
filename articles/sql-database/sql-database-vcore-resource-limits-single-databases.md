@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126413"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414611"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -22,9 +22,13 @@ Este artigo fornece os limites de recursos detalhados para a base de dados do Az
 
 Para baseado em DTU limites de modelo compra, veja [limites dos recursos baseados em DTU da base de dados de SQL](sql-database-dtu-resource-limits.md).
 
+> [!IMPORTANT]
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
+
+
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de dados: tamanhos de armazenamento e níveis de desempenho
 
-Para bases de dados individuais, as tabelas seguintes mostram os recursos disponíveis para uma base de dados em cada nível de desempenho e a camada de serviço. Pode definir a camada de serviços, nível de desempenho e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-servers-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), o [Da CLI do azure](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Para bases de dados individuais, as tabelas seguintes mostram os recursos disponíveis para uma base de dados em cada nível de desempenho e a camada de serviço. Pode definir a camada de serviços, nível de desempenho e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), o [Da CLI do azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### <a name="general-purpose-service-tier"></a>Escalão de serviço de fins geral
 

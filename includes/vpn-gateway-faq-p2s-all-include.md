@@ -5,16 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cd19945e316ebc5462642006255103b4631ce29
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38727540"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361358"
 ---
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos finais de cliente VPN posso ter na minha configuração Ponto a Site?
+
+Suportamos até 128 clientes VPN para conseguir ligar a uma rede virtual ao mesmo tempo.
+
 ### <a name="supportedclientos"></a>Que sistemas operativos cliente posso utilizar com a ligação Ponto a Site?
 
 São suportados os seguintes sistemas operativos cliente:
@@ -31,13 +35,7 @@ São suportados os seguintes sistemas operativos cliente:
 * Linux (StrongSwan)
 * iOS
 
->[!NOTE]
->[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
->
-
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos finais de cliente VPN posso ter na minha configuração Ponto a Site?
-
-Suportamos até 128 clientes VPN para conseguir ligar a uma rede virtual ao mesmo tempo.
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Posso atravessar proxies e firewalls com a capacidade Ponto a Site?
 

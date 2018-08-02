@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 07/30/2018
 ms.author: terrylan
-ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529419"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363759"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: proteger os seus recursos com o Centro de Segurança do Azure
 O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso à máquina virtual (VM) just-in-time reduz a exposição a ataques ao permitir ao utilizador negar o acesso persistente a VMs. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
@@ -38,8 +38,6 @@ Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no es
 
 ## <a name="manage-vm-access"></a>Gerir o acesso à VM
 O acesso à VM just-in-time pode ser utilizado para bloquear o tráfego de entrada nas VMs do Azure, reduzindo a exposição a ataques e proporcionando o acesso fácil para ligar a VMs quando necessário.
-
-O acesso à VM just-in-time encontra-se em pré-visualização.
 
 As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando o acesso just-in-time estiver ativado, o Centro de Segurança utiliza regras do Grupo de Segurança de Rede (NSG), que restringem o acesso às portas de gestão, para que não possam ser visadas pelos atacantes.
 
@@ -75,7 +73,7 @@ As portas de gestão não precisam de estar abertas permanentemente. Apenas têm
 ## <a name="harden-vms-against-malware"></a>Proteger VMs contra software maligno
 Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplicações cuja execução é permitida em grupos de recursos configurados, o que, entre outras vantagens, ajuda a proteger as suas VMs contra software maligno. O Centro de Segurança utiliza machine learning para analisar os processos que estão a ser executados na VM e ajuda-o a aplicar regras de inclusão nas listas de permissões com base nessas informações.
 
-Os controlos de aplicações adaptáveis encontram-se em pré-visualização. Esta funcionalidade só está disponível para máquinas Windows.
+Esta funcionalidade só está disponível para máquinas Windows.
 
 1. Volte ao menu principal do Centro de Segurança. Em **DEFESA DE CLOUD AVANÇADA**, selecione **Controlos de aplicações adaptáveis**.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161937"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389332"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
@@ -87,8 +87,7 @@ A secção **Grupos de VMs** contém três separadores:
 
 5. Depois de concluir as suas seleções, selecione **Criar**.
 
-6. O Centro de Segurança aplica as regras adequadas em cada uma das VMs selecionadas ao tirar partido das capacidades incorporadas do AppLocker para servidores Windows. Além disso, o Centro de Segurança ativa sempre o controlo de aplicações no modo Auditoria, por predefinição. Depois de confirmar que a lista de permissões não tem nenhum efeito adverso na sua carga de trabalho, pode mudar para o modo **Imposição**. Para obter mais informações, veja [Como funciona o AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref).
- 
+
 > [!NOTE]
 > - O Centro de Segurança precisa de um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes do escalão standard do Centro de Segurança devem esperar um comportamento em que, primeiro, os grupos de VMs são apresentados no separador *nenhuma recomendação*.
 > - Os Controlos de Aplicações Adaptáveis do Centro de Segurança não suportam VMs para as quais já esteja ativada uma política do AppLocker por um GPO ou uma política de segurança local.

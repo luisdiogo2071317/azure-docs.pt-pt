@@ -8,23 +8,36 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091869"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413659"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
 
 No Azure, pode ter suas cargas de trabalho do SQL Server em execução numa infraestrutura alojada (IaaS) ou em execução como um serviço hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)):
 
-* [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/): motor de base de dados A SQL, com base no Enterprise Edition do SQL Server, otimizada para o desenvolvimento de aplicativos modernos. Base de dados SQL do Azure oferece duas versões do SQL como um serviço hospedado: servidores lógicos e [instâncias do Azure SQL da base de dados gerida (pré-visualização)](sql-database-managed-instance.md). Com as duas versões, a base de dados do Azure SQL adiciona funcionalidades adicionais que não estão disponíveis no SQL Server, como inteligência incorporada e gerenciamento. Com a primeira versão, pode ter um servidor lógico que contém [bases de dados únicas](sql-database-servers-databases.md) e pode agrupar servidores num [conjunto elástico](sql-database-elastic-pool.md) partilhar recursos e reduzir os custos. Um servidor lógico da SQL Database do Azure que contém as bases de dados individuais e em pool oferece a maioria dos recursos no âmbito da base de dados do SQL Server. Com o Azure SQL Database Managed Instance, base de dados do Azure SQL oferece recursos compartilhados para bases de dados e funcionalidades adicionais com âmbito de instância. Instância de gerida de base de dados de SQL do Azure suporta a migração de base de dados com um mínimo de nenhuma alteração de base de dados.
-* [SQL Server em Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado e alojado na cloud em máquinas de virtuais do Windows Server ou Linux (VMs) em execução no Azure, também conhecido como uma infraestrutura como serviço (IaaS). SQL Server em máquinas virtuais do Azure é uma boa opção para a migração no local bases de dados do SQL Server e a aplicações sem qualquer alteração de base de dados. Todas as versões recentes e edições do SQL Server estão disponíveis para a instalação na máquina virtual IaaS. A diferença mais significativa da base de dados SQL é que as VMs do SQL Server permitem o controlo total sobre o motor de base de dados. Pode escolher quando a aplicação de patches/manutenção será iniciada, para alterar o modelo de recuperação para simples ou em massa registados para ativar carregamento mais rápido menos log, para colocar em pausa ou iniciar o motor quando necessário, e podem personalizar totalmente o motor de base de dados do SQL Server. Com esse controle adicional vem com responsabilidade para gerir as máquinas virtuais.
+- [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/): motor de base de dados A SQL, com base no Enterprise Edition do SQL Server, otimizada para o desenvolvimento de aplicativos modernos. Base de dados SQL do Azure oferece várias opções de implementação:
+  - Pode implementar uma base de dados para um [servidor lógico](sql-database-logical-servers.md).
+  - Pode implementar um [conjunto elástico](sql-database-elastic-pool.md) num [servidor lógico](sql-database-logical-servers.md) partilhar recursos e reduzir os custos. 
 
-Saiba como cada opção se ajusta à plataforma de dados da Microsoft e obtenha ajuda para encontrar a opção adequada aos seus requisitos comerciais. Quer dê prioridade à redução de custos ou a uma administração mínima acima de tudo o resto, este artigo pode ajudá-lo a decidir qual é a abordagem que melhor responde aos requisitos comerciais a que dá mais importância.
+      > [!NOTE]
+      > Uma base de dados de SQL do Azure que contém as bases de dados individuais e em pool oferece a maioria dos recursos no âmbito da base de dados do SQL Server.
+
+      A ilustração seguinte mostra essas opções de implementação:
+
+      ![Opções de implementação](./media/sql-database-technical-overview/deployment-options.png) 
+  - Pode implementar um [instâncias do Azure SQL da base de dados gerida (pré-visualização)](sql-database-managed-instance.md). 
+
+      > [!NOTE]
+      > Com as duas versões, a base de dados do Azure SQL adiciona funcionalidades adicionais que não estão disponíveis no SQL Server, como inteligência incorporada e gerenciamento. Com a primeira versão, com o Azure SQL Database Managed Instance, SQL Database do Azure oferece recursos compartilhados para bases de dados e funcionalidades adicionais com âmbito de instância. Instância de gerida de base de dados de SQL do Azure suporta a migração de base de dados com um mínimo de nenhuma alteração de base de dados.
+- [SQL Server em Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado e alojado na cloud em máquinas de virtuais do Windows Server ou Linux (VMs) em execução no Azure, também conhecido como uma infraestrutura como serviço (IaaS). SQL Server em máquinas virtuais do Azure é uma boa opção para a migração no local bases de dados do SQL Server e a aplicações sem qualquer alteração de base de dados. Todas as versões recentes e edições do SQL Server estão disponíveis para a instalação na máquina virtual IaaS. A diferença mais significativa da base de dados SQL é que as VMs do SQL Server permitem o controlo total sobre o motor de base de dados. Pode escolher quando a aplicação de patches/manutenção será iniciada, para alterar o modelo de recuperação para simples ou em massa registados para ativar carregamento mais rápido menos log, para colocar em pausa ou iniciar o motor quando necessário, e podem personalizar totalmente o motor de base de dados do SQL Server. Com esse controle adicional vem com responsabilidade para gerir as máquinas virtuais.
+
+Saiba como cada opção de implementação se adapta a plataforma de dados da Microsoft e obtenha ajuda para encontrar a opção adequada aos seus requisitos empresariais. Quer dê prioridade à redução de custos ou a uma administração mínima acima de tudo o resto, este artigo pode ajudá-lo a decidir qual é a abordagem que melhor responde aos requisitos comerciais a que dá mais importância.
 
 ## <a name="microsofts-sql-data-platform"></a>Plataforma de dados do SQL da Microsoft
 
@@ -45,7 +58,7 @@ Nas secções seguintes, ficará a conhecer o SQL Server na nuvem pública da Mi
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Um olhar mais atento sobre a Base de Dados SQL do Azure e o SQL Server em VMs do Azure
 
-**Base de dados SQL do Azure** é um relacional da base de dados-como-serviço (DBaaS) alojada na cloud do Azure que se enquadra na categoria do setor de *plataforma-como-serviço (PaaS)*. A [Base de Dados SQL](sql-database-technical-overview.md) baseia-se em hardware e software normalizado que é detido, alojado e mantido pela Microsoft. Base de dados SQL, pode utilizar as funcionalidades incorporadas e funcionalidades que requerem uma ampla configuração do SQL Server. Ao utilizar a Base de Dados SQL, paga apenas o que utilizar, dispondo de opções para aumentar verticalmente ou horizontalmente para obter um maior desempenho sem interrupções. SQL Database do Azure, com suporte para ambos [bases de dados únicas](sql-database-servers-databases.md) e [conjuntos elásticos](sql-database-elastic-pool.md) para partilhar recursos, é um ambiente ideal para o desenvolvimento de novas aplicações na cloud. E, com [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md), pode trazer a sua própria licença. Além disso, esta opção fornece todos os benefícios de PaaS de SQL Database do Azure, mas adiciona recursos que foram anteriormente disponíveis apenas em VMs de SQL. Isto inclui uma rede virtual nativa (VNet) e quase 100% de compatibilidade com SQL Server no local. [Instância gerida](sql-database-managed-instance.md) é ideal para locais de base de dados migrações para o Azure com alterações mínimas necessárias. 
+**Base de dados SQL do Azure** é um relacional da base de dados-como-serviço (DBaaS) alojada na cloud do Azure que se enquadra na categoria do setor de *plataforma-como-serviço (PaaS)*. A [Base de Dados SQL](sql-database-technical-overview.md) baseia-se em hardware e software normalizado que é detido, alojado e mantido pela Microsoft. Base de dados SQL, pode utilizar as funcionalidades incorporadas e funcionalidades que requerem uma ampla configuração do SQL Server. Ao utilizar a Base de Dados SQL, paga apenas o que utilizar, dispondo de opções para aumentar verticalmente ou horizontalmente para obter um maior desempenho sem interrupções. Base de dados SQL do Azure é um ambiente ideal para o desenvolvimento de novas aplicações na cloud. E, com [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md), pode trazer a sua própria licença. Além disso, esta opção fornece todos os benefícios de PaaS de SQL Database do Azure, mas adiciona recursos que foram anteriormente disponíveis apenas em VMs de SQL. Isto inclui uma rede virtual nativa (VNet) e quase 100% de compatibilidade com SQL Server no local. [Instância gerida](sql-database-managed-instance.md) é ideal para locais de base de dados migrações para o Azure com alterações mínimas necessárias. 
 
 O **SQL Server em Máquinas Virtuais (VMs) do Azure** insere-se na categoria do setor *Infraestrutura como serviço (IaaS)* e permite executar o SQL Server dentro de uma máquina virtual na nuvem. [Máquinas virtuais do SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) também é executado em hardware normalizado que é propriedade, alojado e mantido pela Microsoft. Quando utilizar o SQL Server numa VM, pode pagar apenas-como que utilizar lugar por uma licença do SQL Server já incluída numa imagem do SQL Server ou facilmente utilizar uma licença já existente. Também pode parar ou retomar a VM conforme necessário.
 

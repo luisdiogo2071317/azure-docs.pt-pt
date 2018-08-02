@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d31ea1fe579e5ac7a846c1c0d03012d70be9884d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159353"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284494"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Tutorial: Monitorizar os seus dispositivos IoT
 
@@ -33,7 +33,7 @@ Neste tutorial:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="choose-the-devices-to-display"></a>Selecionar os dispositivos a apresentar
 
@@ -93,7 +93,7 @@ Para o camião-02, todos os alertas são avisos de temperatura de carga superior
 
 Os mesmos filtros que definem o período de tempo para os alertas, e controlam os dispositivos que são apresentados, determinam como os KPIs são agregados. Por predefinição, o painel mostra KPIs agregados ao longo da última hora.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
