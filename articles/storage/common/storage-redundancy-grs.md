@@ -1,6 +1,6 @@
 ---
-title: Geo-redundant storage (GRS) for cross-regional durability in Azure Storage | Microsoft Docs
-description: Geo-redundant storage (GRS) replicates your data between two regions that are hundreds of miles apart. GRS protects against hardware failures in the datacenter as well as regional disasters.
+title: Armazenamento georredundante (GRS) de durabilidade de inter-regional no armazenamento do Azure | Documentos da Microsoft
+description: Armazenamento georredundante (GRS) replica os dados entre duas regiões que distam centenas de quilómetros de distância. GRS protege contra falhas de hardware no Centro de dados, bem como de desastres regionais.
 services: storage
 author: tolandmike
 manager: jeconnoc
@@ -8,19 +8,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
-ms.openlocfilehash: 1aa3f1e948921a2f356b88e31ef1b9b0f408920a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bd9d807796eee0d66387e481fa81a04f9ded5548
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2018
-ms.locfileid: "30324118"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397438"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Geo-redundant storage (GRS): Cross-regional replication for Azure Storage
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Armazenamento georredundante (GRS): replicação de inter-regional do armazenamento do Azure
 
-[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
-## <a name="see-also"></a>See also
+## <a name="see-also"></a>Consulte também
 
-- [Azure Storage replication](storage-redundancy.md)
-- [Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
-- [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
+- [Replicação do Armazenamento do Azure](storage-redundancy.md)
+- [Armazenamento localmente redundante (LRS): redundância de dados de baixo custo do armazenamento do Azure](storage-redundancy-lrs.md)
+- [Armazenamento com redundância de zona (ZRS): aplicações de armazenamento do Azure de elevada disponibilidade](storage-redundancy-zrs.md)

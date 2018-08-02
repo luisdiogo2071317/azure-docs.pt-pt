@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0493679575e9ff94ede1ad40c2bcadc6066afa6b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214888"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399020"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -29,7 +29,7 @@ Este artigo descreve considerações importantes para uma implementação do Azu
 ## <a name="azure-file-sync-terminology"></a>Terminologia de sincronização de ficheiros do Azure
 Antes de entrar em detalhes sobre como planear uma implementação de sincronização de ficheiros do Azure, é importante compreender a terminologia.
 
-### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
+### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
 O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para o Azure File Sync. O recurso de serviço de sincronização de armazenamento é um elemento de rede do recurso de conta de armazenamento e da mesma forma pode ser implementado em grupos de recursos do Azure. Recursos de nível superior distintos do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento podem criar relacionamentos de sincronização com várias contas de armazenamento através de vários grupos de sincronização. Uma subscrição pode ter vários recursos de serviço de sincronização de armazenamento implementados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
@@ -156,6 +156,10 @@ Como o antivírus funciona através da análise de ficheiros para o código mali
 
 As seguintes soluções são conhecidas para suportar a ignorar ficheiros offline:
 
+- [O Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - O Windows Defender automaticamente ignora a leitura esses ficheiros. Temos testado Defender e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP funciona da mesma forma Defender; Veja acima
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [Segurança de ponto final do McAfee](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (consulte "Apenas o que precisa de verificação" na página 90 do PDF)
 - [Kaspersky software antivírus](https://support.kaspersky.com/4684)
@@ -197,7 +201,7 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | EUA Central | Iowa |
 | Ásia Oriental | RAE de Hong Kong |
 | EUA Leste | Virgínia |
-| E.u.a. Leste 2 | Virgínia |
+| E.U.A. Leste 2 | Virgínia |
 | Europa do Norte | Irlanda |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |

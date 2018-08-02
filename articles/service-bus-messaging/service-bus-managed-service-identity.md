@@ -1,6 +1,6 @@
 ---
-title: Identidade do serviço gerido pré-visualização do Service Bus do Azure | Microsoft Docs
-description: Utilizar as identidades de serviço geridas com o Service Bus do Azure
+title: Identidade do serviço gerido com a pré-visualização do Azure Service Bus | Documentos da Microsoft
+description: Utilizar identidades de serviço gerido com o Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,70 +12,74 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874657"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397989"
 ---
-# <a name="managed-service-identity-preview"></a>Identidade de serviço geridas (pré-visualização)
+# <a name="managed-service-identity-preview"></a>Identidade de Serviço Gerida (pré-visualização)
 
-Uma identidade de serviço geridas (MSI) é uma funcionalidade de cross-Azure que permite-lhe criar uma identidade segura associada à implementação em que é executado o código da aplicação. Pode, em seguida, associar essa identidade com funções de controlo de acesso que conceda permissões personalizadas para aceder a recursos do Azure específicos que necessita da sua aplicação.
+Uma identidade de serviço gerida (MSI) é uma funcionalidade de entre o Azure permite-lhe criar uma identidade segura associada à implementação em que o código da aplicação é executado. Em seguida, pode associar essa identidade com funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure que a aplicação precisa.
 
-Com MSI, a plataforma do Azure gere esta identidade de tempo de execução. Não é necessário armazenar e proteger chaves de acesso no seu código da aplicação ou a configuração, para a identidade do próprio ou para os recursos que necessita para aceder. Não precisa de uma aplicação de cliente do Service Bus com no interior de uma aplicação do App Service do Azure ou numa máquina virtual com o suporte MSI ativado processar regras SAS e chaves ou quaisquer outros tokens de acesso. A aplicação de cliente apenas tem o endereço de ponto final do espaço de nomes de mensagens do Service Bus. Quando se liga a aplicação, o Service Bus vincula o contexto do MSI para o cliente numa operação que é apresentado um exemplo neste artigo. 
+Com o MSI, a plataforma do Azure gere esta identidade de tempo de execução. Não é necessário armazenar e proteger chaves de acesso no seu código da aplicação ou a configuração, para a identidade propriamente dita, ou para os recursos que precisa acessar. Uma aplicação de cliente do Service Bus em execução dentro de um aplicativo de serviço de aplicações do Azure ou numa máquina virtual com o suporte MSI ativado não precisa lidar com regras SAS e as chaves ou quaisquer outros tokens de acesso. A aplicação cliente precisa apenas o endereço de ponto final do espaço de nomes de mensagens do Service Bus. Quando se liga a aplicação, o Service Bus vincula o contexto do MSI para o cliente de uma operação que é mostrado um exemplo deste artigo. 
 
-Assim que estiver associado a uma identidade de serviço geridas, um cliente do Service Bus pode efetuar operações de todos os autorizados. Autorização é concedida ao associar um MSI com as funções do Service Bus. 
+Assim que estiver associado a uma identidade de serviço gerida, um cliente do Service Bus pode efetuar operações de todos os autorizados. Autorização é concedida ao associar um MSI com funções do Service Bus. 
 
-## <a name="service-bus-roles-and-permissions"></a>As funções do Service Bus e permissões
+## <a name="service-bus-roles-and-permissions"></a>Permissões e funções do Service Bus
 
-Para a versão de pré-visualização pública inicial, só é possível adicionar uma identidade de serviço geridas para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes do Service Bus, que concede o controlo total da identidade em todas as entidades no espaço de nomes. No entanto, a gestão de operações que alteram a topologia de espaço de nomes são inicialmente apenas apesar suportada do Azure Resource Manager e não através da interface de gestão de REST do Service Bus nativa. Este suporte também significa que não é possível utilizar o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objeto dentro de uma identidade de serviço geridas.
+Para a versão de pré-visualização pública inicial, só pode adicionar uma identidade de serviço gerido para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes do Service Bus, que concede o controlo total de identidade em todas as entidades no espaço de nomes. No entanto, a gestão de operações que alteram a topologia de espaço de nomes são inicialmente suportada apenas através do Azure Resource Manager e não através da interface de gestão do REST do Service Bus nativa. Esse suporte também significa que não é possível utilizar o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objeto dentro de uma identidade de serviço gerida.
 
-## <a name="use-service-bus-with-a-managed-service-identity"></a>Utilizar o Service Bus com uma identidade de serviço geridas
+## <a name="use-service-bus-with-a-managed-service-identity"></a>Utilizar o Service Bus com uma identidade de serviço gerido
 
-A secção seguinte descreve os passos necessários para criar e implementar uma aplicação de exemplo que é executado sob uma identidade de serviço geridas, como de conceder à identidade acesso a um espaço de nomes de mensagens do Service Bus e como a aplicação interage com o Service Bus entidades utilizando essa identidade.
+A secção seguinte descreve os passos necessários para criar e implementar uma aplicação de exemplo que é executado sob uma identidade de serviço gerido, como pode conceder esse acesso de identidade para um espaço de nomes de mensagens do Service Bus e como o aplicativo interage com o Service Bus entidades usando essa identidade.
 
-Esta introdução descreve uma aplicação web alojada no [App Service do Azure](https://azure.microsoft.com/services/app-service/). Os passos necessários para uma aplicação alojada em VM são semelhantes.
+Esta introdução descreve uma aplicação web alojada na [App Service do Azure](https://azure.microsoft.com/services/app-service/). Os passos necessários para um aplicativo hospedado por VM são semelhantes.
 
-### <a name="create-an-app-service-web-application"></a>Criar uma aplicação do serviço de aplicações web
+### <a name="create-an-app-service-web-application"></a>Criar uma aplicação web do serviço de aplicações
 
-O primeiro passo é criar uma aplicação ASP.NET do serviço de aplicações. Se não estiver familiarizado com como fazê-lo no Azure, siga [neste guia de procedimentos](../app-service/app-service-web-get-started-dotnet-framework.md). No entanto, em vez de criar uma aplicação MVC, conforme mostrado no tutorial, crie uma aplicação de formulários Web.
+A primeira etapa é criar um aplicativo ASP.NET de serviço de aplicações. Se não estiver familiarizado com a forma de fazê-lo no Azure, siga [este guia de procedimentos](../app-service/app-service-web-get-started-dotnet-framework.md). No entanto, em vez de criar uma aplicação de MVC, conforme mostrado no tutorial, crie uma aplicação de Web Forms.
 
-### <a name="set-up-the-managed-service-identity"></a>Configurar a identidade de serviço geridas
+### <a name="set-up-the-managed-service-identity"></a>Configurar a identidade de serviço gerido
 
-Depois de criar a aplicação, navegue para a aplicação web recentemente criada no portal do Azure (também apresentado o procedimentos), em seguida, navegue para o **identidade de serviço geridas** página e ativar a funcionalidade: 
+Depois de criar a aplicação, navegue para a aplicação web recentemente criada no portal do Azure (também mostrada os procedimentos), em seguida, navegue para o **identidade do serviço gerido** de páginas e ativar a funcionalidade: 
 
 ![](./media/service-bus-managed-service-identity/msi1.png)
 
-Assim que tiver ativada a funcionalidade, uma nova identidade de serviço é criada no Azure Active Directory e configurada para o anfitrião do serviço de aplicações.
+Assim que tive ativado a funcionalidade, uma nova identidade de serviço é criada no Azure Active Directory e configurada o Host de serviço de aplicações.
 
-### <a name="create-a-new-service-bus-messaging-namespace"></a>Criar um novo espaço de nomes mensagens do Service Bus
+### <a name="create-a-new-service-bus-messaging-namespace"></a>Criar um novo namespace de mensagens do Service Bus
 
-Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) de uma das regiões do Azure que tenham suporte de pré-visualização para RBAC: **dos EUA Leste**, **dos EUA Leste 2**, ou **Europa Ocidental** . 
+Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) de uma das regiões do Azure com suporte de pré-visualização para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental** . 
 
-Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar** para adicionar a identidade de serviço geridas para o **proprietário** função. Para tal, procure o nome da aplicação web a **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
+Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **Add** para adicionar a identidade de serviço gerido para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
 
 ![](./media/service-bus-managed-service-identity/msi2.png)
  
-Identidade de serviço gerida da aplicação web tem agora acesso para o espaço de nomes do Service Bus e para a fila que criou anteriormente. 
+Identidade do serviço gerido do aplicativo web tem agora acesso ao espaço de nomes do Service Bus e para a fila que criou anteriormente. 
 
 ### <a name="run-the-app"></a>Executar a aplicação
 
-Agora, modifique a página predefinida da aplicação ASP.NET que criou. Também pode utilizar o código de aplicação web de [este repositório do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Agora, modifique a página predefinida do aplicativo ASP.NET que criou. Pode usar o código de aplicativo da web [este repositório de GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
-A página de Default.aspx é a página de destino. O código pode ser encontrado no ficheiro default.aspx. O resultado é uma aplicação web mínima com alguns campos de entrada e com **enviar** e **receber** botões ligar ao Service Bus para enviar ou receber mensagens.
+A página default. aspx é sua página de destino. O código pode ser encontrado no arquivo Default.aspx.cs. O resultado é um aplicativo web mínima com alguns campos de entrada e com **enviar** e **receber** botões que ligar ao Service Bus para enviar ou receber mensagens.
 
-Tenha em atenção o [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objecto foi inicializado. Em vez de utilizar o fornecedor de tokens de acesso partilhado Token (SAS), o código cria um fornecedor de tokens para a identidade de serviço geridas com o `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` chamada. Como tal, não existem nenhum segredos manter e utilizar. O fluxo do contexto de identidade de serviço geridas ao Service Bus e o handshake de autorização são processadas automaticamente pelo fornecedor de token, o que é um modelo mais simples que através da SAS.
+Observe como o [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) objeto é inicializado. Em vez de utilizar o fornecedor do token de acesso partilhado Token (SAS), o código cria um fornecedor do token para a identidade de serviço gerido com o `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` chamar. Como tal, não há nenhum segredos para manter e utilizar. O fluxo do contexto de identidade do serviço gerido para o Service Bus e o handshake de autorização são manipulados automaticamente pelo fornecedor do token, que é um modelo mais simples do que através da SAS.
 
-Depois de efetuar estas alterações, publicar e executar a aplicação. É uma forma fácil de obter os dados de publicação corretos transferir e, em seguida, importar um perfil de publicação no Visual Studio:
+Depois de efetuar estas alterações, publicar e executar a aplicação. Uma forma fácil de obter os dados de publicação corretos é baixar e, em seguida, importar um perfil de publicação no Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 Para enviar ou receber mensagens, introduza o nome do espaço de nomes e o nome da entidade que criou, em seguida, clique em **enviar** ou **receber**.
- 
-Tenha em atenção que a identidade de serviço geridas só funciona no ambiente do Azure e apenas na implementação do serviço de aplicações em que esteja configurado. Note também que identidades de serviço geridas não funcionam com as ranhuras de implementação do serviço de aplicações neste momento.
+
+
+> [!NOTE]
+> - A identidade de serviço gerido funciona apenas dentro do ambiente do Azure, nos serviços de aplicações, as VMs do Azure, e os conjuntos de dimensionamento. Para aplicativos .NET, a biblioteca de Microsoft.Azure.Services.AppAuthentication, que é utilizada pelo pacote NuGet do Service Bus, fornece uma abstração sobre este protocolo e oferece suporte a uma experiência de desenvolvimento local. Esta biblioteca também permite-lhe testar o seu código localmente no computador de desenvolvimento, com a sua conta de utilizador do Visual Studio, a CLI 2.0 do Azure ou a autenticação integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com esta biblioteca, consulte [autenticação de serviço a serviço para o Azure Key Vault com o .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Atualmente, identidades de serviço geridas não funcionam com blocos de implementação do serviço de aplicações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Utilizar as pesquisas personalizadas do Balanceador de carga para monitorizar o estado de funcionamento | Documentos da Microsoft
+title: Utilizar sondas de estado de funcionamento do Balanceador de carga para proteger o seu serviço | Documentos da Microsoft
 description: Saiba como utilizar sondas de estado de funcionamento para monitorizar instâncias por trás do Balanceador de carga
 services: load-balancer
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 07/31/2018
 ms.author: kumud
-ms.openlocfilehash: b73028935fd60945a948c1c4e1848424b615d92e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363688"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397294"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 

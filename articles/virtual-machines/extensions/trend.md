@@ -1,9 +1,9 @@
 ---
-title: Instalar a tendência de segurança avançada Micro numa VM | Microsoft Docs
-description: Este artigo descreve como instalar e configurar a segurança de tendência Micro numa VM criada com o modelo de implementação clássico no Azure.
+title: Instalar o Trend Micro Deep Security numa VM | Documentos da Microsoft
+description: Este artigo descreve como instalar e configurar a segurança do Trend Micro numa VM criada com o modelo de implementação clássico no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: danis
-ms.openlocfilehash: 6098d310bcc6fe5df2378688b78277fc7e4b16bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: 7cddbce56dc136b706bc55c19e3ad700ef13073f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942677"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413774"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security como Serviço numa VM do Windows
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
-Este artigo mostra como instalar e configurar a segurança avançada do tendência Micro como um serviço numa nova ou existente máquina virtual (VM) com o Windows Server. Segurança avançada, como um serviço inclui proteção antimalware, uma firewall, um sistema de prevenção de intrusões e monitorização de integridade.
+Este artigo mostra-lhe como instalar e configurar o Trend Micro Deep Security como serviço numa nova ou existente máquina virtual (VM) com o Windows Server. Deep Security como um serviço inclui proteção antimalware, uma firewall, um sistema de prevenção de intrusões e monitorização da integridade.
 
-O cliente é instalado como uma extensão de segurança através do agente da VM. Numa nova máquina virtual, instalar o agente de segurança avançadas, como o agente da VM é automaticamente criado pelo portal do Azure.
+O cliente é instalado como uma extensão de segurança por meio do agente de VM. Numa nova máquina virtual, instale o agente de segurança avançada, à medida que o agente da VM é criado automaticamente pelo portal do Azure.
 
-VM existente criada no portal do Azure, a CLI do Azure ou o PowerShell não pode ter um agente VM. Para uma máquina virtual existente que não tem o agente da VM, tem de transferir e instalá-lo primeiro. Este artigo abrange ambas as situações.
+Uma VM existente criada com o portal do Azure, a CLI do Azure ou o PowerShell poderá não ter um agente de VM. Para uma máquina virtual existente que não tem o agente da VM, terá de transferir e instalá-lo primeiro. Este artigo aborda as duas situações.
 
-Se tiver uma subscrição atual de tendência Micro para uma solução no local, pode utilizá-lo para ajudar a proteger as máquinas virtuais do Azure. Se ainda não estiver um cliente, pode inscrever-se para uma subscrição de avaliação. Para obter mais informações sobre esta solução, consulte a mensagem de blogue de tendência Micro [Microsoft Azure VM extensão para a segurança do agente](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Se tiver uma subscrição atual do Trend Micro, para uma solução no local, pode utilizá-lo para ajudar a proteger máquinas virtuais do Azure. Se ainda não estiver um cliente, pode inscrever-se para uma subscrição de avaliação. Para obter mais informações sobre esta solução, consulte a mensagem de blogue Trend Micro [Microsoft Azure VM Agent extensão para o Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
-## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Instale o agente de segurança avançada numa nova VM
+## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Instalar o agente de segurança profunda numa nova VM
 
-O [portal do Azure](http://portal.azure.com) permite-lhe instalar a extensão de segurança de tendência Micro quando utiliza uma imagem a partir de **Marketplace** para criar a máquina virtual. Se estiver a criar uma única máquina virtual, utilizando o portal é uma forma fácil adicionar proteção de tendência Micro.
+O [portal do Azure](http://portal.azure.com) permite-lhe instalar a extensão de segurança do Trend Micro, quando utiliza uma imagem a partir do **Marketplace** para criar a máquina virtual. Se estiver a criar uma única máquina virtual, com o portal é uma forma fácil de adicionar uma proteção da Trend Micro.
 
-Através de uma entrada do **Marketplace** abre um assistente que o ajuda a configurar a máquina virtual. Utilizar o **definições** painel, o painel do assistente, instalar a extensão de segurança de tendência Micro terceiro.  Para instruções gerais, consulte [criar uma máquina virtual com o Windows no portal do Azure](../windows/classic/tutorial.md).
+Através de uma entrada a partir da **Marketplace** abre um assistente que o ajuda a configurar a máquina virtual. Utilizar o **definições** painel, o painel de terceira do assistente, para instalar a extensão de segurança do Trend Micro.  Para instruções gerais, veja [criar uma máquina virtual com Windows no portal do Azure](../windows/classic/tutorial.md).
 
-Quando chegar ao **definições** painel do assistente, efetue os seguintes passos:
+Quando vai para o **definições** painel do assistente, efetue os seguintes passos:
 
 1. Clique em **extensões**, em seguida, clique em **Adicionar extensão** no painel seguinte.
 
    ![Começar a adicionar a extensão][1]
 
-2. Selecione **profunda de segurança de agente** no **novo recurso** painel. No painel de agente de segurança avançada, clique em **criar**.
+2. Selecione **agente de segurança avançado** no **novo recurso** painel. No painel de agente de Deep Security, clique em **criar**.
 
-   ![Identificar o agente de segurança avançada][2]
+   ![Identificar o agente de segurança avançado][2]
 
-3. Introduza o **identificador de inquilino** e **palavra-passe de ativação de inquilino** para a extensão. Opcionalmente, pode introduzir um **identificador de política de segurança**. Em seguida, clique em **OK** para adicionar o cliente.
+3. Introduza o **identificador do inquilino** e **palavra-passe de ativação do inquilino** para a extensão. Opcionalmente, pode introduzir um **identificador de política de segurança**. Em seguida, clique em **OK** para adicionar o cliente.
 
-   ![Forneça detalhes de extensão][3]
+   ![Fornecer detalhes de extensão][3]
 
-## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Instale o agente de segurança avançada no VM existente
+## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Instalar o agente de segurança profunda numa VM existente
 Para instalar o agente numa VM existente, terá dos seguintes itens:
 
-* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalada no seu computador local. Pode verificar a versão do Azure PowerShell que tenha instalado utilizando o **azure Get-Module | versão de formato tabela** comando. Para obter instruções e uma hiperligação para a versão mais recente, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Inicie sessão na sua subscrição do Azure utilizando `Add-AzureAccount`.
-* O agente da VM instalado na máquina virtual de destino.
+* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no seu computador local. Pode verificar a versão do PowerShell do Azure que tenha instalado utilizando o **azure Get-Module | versão do formato-table** comando. Para obter instruções e um link para a versão mais recente, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Inicie sessão na sua subscrição do Azure com `Add-AzureAccount`.
+* O agente da VM instalado na máquina de virtual de destino.
 
-Em primeiro lugar, certifique-se de que o agente da VM já está instalado. Preencha o nome de serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos uma linha de comandos do PowerShell do Azure de nível de administrador. Substituir tudo dentro de aspas, incluindo os < e > carateres.
+Em primeiro lugar, certifique-se de que o agente da VM já está instalado. Preencha o nome do serviço cloud e o nome de máquina virtual e, em seguida, execute os seguintes comandos numa linha de comando do nível de administrador do Azure PowerShell. Substituir tudo dentro das aspas, incluindo os < e > carateres.
 
     $CSName = "<cloud service name>"
     $VMName = "<virtual machine name>"
     $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
     write-host $vm.VM.ProvisionGuestAgent
 
-Se não souber o nome da máquina virtual e o serviço em nuvem, execute **Get-AzureVM** para apresentar informações para todas as máquinas virtuais na sua subscrição atual.
+Se não souber o serviço em nuvem e o nome de máquina virtual, execute **Get-AzureVM** exibir essas informações para todas as máquinas virtuais na sua subscrição atual.
 
-Se o **escrita anfitrião** comando devolve **verdadeiro**, o agente VM está instalado. Se devolver **falso**, consulte as instruções e uma hiperligação para a transferência do blogue do Azure [extensões - parte 2 e o agente da VM](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+Se o **write-host** comando **verdadeiro**, o agente da VM está instalado. Se ele retorna **False**, consulte as instruções e um link para download na mensagem de blogue do Azure [agente da VM e extensões – parte 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
-Se o agente VM está instalado, execute estes comandos.
+Se o agente da VM estiver instalado, execute estes comandos.
 
     $Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
 
     Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
 ## <a name="next-steps"></a>Passos Seguintes
-Demora alguns minutos para que o agente iniciar a execução quando é instalado. Depois disso, terá de ativar segurança profunda na máquina virtual, para que possa ser gerido por um Gestor de segurança avançada. Consulte os artigos seguintes para obter instruções adicionais:
+Demora alguns minutos para que o agente começar a executar quando é instalado. Depois disso, terá de ativar o Deep Security na máquina virtual para que possam ser gerido por um Gestor de segurança avançada. Veja os artigos seguintes para obter instruções adicionais:
 
 * Artigo da tendência sobre esta solução, [Instant-On Cloud Security para o Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
-* A [script do Windows PowerShell de exemplo](http://go.microsoft.com/fwlink/?LinkId=404100) para configurar a máquina virtual
+* R [script do Windows PowerShell de exemplo](http://go.microsoft.com/fwlink/?LinkId=404100) para configurar a máquina virtual
 * [Instruções](http://go.microsoft.com/fwlink/?LinkId=404099) para o exemplo
 
 ## <a name="additional-resources"></a>Recursos adicionais

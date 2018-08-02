@@ -1,6 +1,6 @@
 ---
-title: Decisões de implementação desligado do Azure para a pilha do Azure integrado sistemas | Microsoft Docs
-description: Determine as decisões de implementações de vários nós ligado do Azure de pilha do Azure de planeamento de implementação.
+title: Sistemas integrados de decisões de implementação desconectado do Azure para o Azure Stack | Documentos da Microsoft
+description: Determine decisões para implementações de ligada ao Azure Stack Azure com vários nós de planejamento da implantação.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,54 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151132"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412761"
 ---
-# <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisões sobre a pilha do Azure de planeamento de implementação desligada do Azure integrado sistemas
-Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
+# <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados do Azure decisões para o Azure Stack de planejamento da implantação desligada
+Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), em seguida, pode finalizar suas decisões de implementação do Azure Stack.
 
-Com o desligado da opção de implementação do Azure, pode implementar e utilizar o Azure pilha sem uma ligação à Internet. No entanto, uma implementação de desligado, está limitado a um arquivo de identidade do AD FS e o modelo de faturação baseada na capacidade. 
+Com os que estão da opção de implementação do Azure, pode implementar e utilizar o Azure Stack sem uma ligação à Internet. No entanto, com uma implementação de desligado, está limitado a um repositório de identidades do AD FS e o modelo de faturação com base na capacidade. 
 
-Escolha esta opção se a:
-- Tem de segurança ou outras restrições que requerem a implementação do Azure pilha num ambiente que não está ligado à Internet.
-- Pretende bloquear os dados (incluindo dados de utilização) de que está a ser enviados para o Azure.
-- Pretende utilizar o Azure pilha puramente como uma solução de nuvem privada que é implementada a sua Intranet empresarial e não é interessado em cenários híbridos.
+Escolha esta opção se:
+- Ter segurança ou outras restrições que requerem a implementação do Azure Stack num ambiente que não está ligado à Internet.
+- Deseja bloquear dados (incluindo dados de utilização) de ser enviado para o Azure.
+- Pretende utilizar o Azure Stack puramente como uma solução de nuvem privada que é implementada a sua Intranet empresarial e não está interessado em cenários híbridos.
 
 > [!TIP]
-> Por vezes, este tipo de ambiente também é referido como "cenário submarine".
+> Às vezes, esse tipo de ambiente também é referido como um "cenário submarino".
 
-Uma implementação desligada não estritamente significa que não é possível ligar mais tarde a sua instância de pilha do Azure para o Azure para cenários VM do inquilino híbridos. Significa que não tem conectividade para o Azure durante a implementação ou não pretender utilizar o Azure Active Directory como o arquivo de identidade.
+Uma implementação desligada não significa estritamente que não é possível ligar mais tarde a sua instância do Azure Stack para o Azure para cenários VM do inquilino híbrido. Isso significa que não tem ligação para o Azure durante a implementação ou não pretender utilizar o Azure Active Directory como o armazenamento de identidade.
 
-## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funcionalidades que são debilitadas ou não está disponíveis em implementações desligadas 
-Pilha do Azure foi concebida para funcionar melhor quando ligado ao Azure, pelo que é importante ter em atenção que existem algumas funcionalidades de que estão completamente indisponível no modo desligado ou afetada. 
+## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funcionalidades que são reduzidas ou não está disponíveis em implementações desligadas 
+O Azure Stack foi concebido para funcionam melhor quando ligado ao Azure, pelo que é importante observar que existem alguns recursos e funcionalidades que são totalmente indisponível no modo desligado ou reduzida. 
 
 |Funcionalidade|Impacto no modo desligado|
 |-----|-----|
-|Implementação da VM com a extensão de DSC para configurar a implementação da VM|Danificada - extensão de DSC na procura à Internet para o WMF mais recente.|
-|Implementação da VM com a extensão de Docker para executar comandos de Docker|Danificada – Docker irá verificar a Internet para a versão mais recente e esta verificação irá falhar.|
-|Ligações de documentação no Portal de pilha do Azure|Indisponível – ligações, tais como enviar comentários, ajuda, início rápido, etc., que utilizam um URL de Internet não funcionará.|
-|Alerta remediação/mitigação que referencia um guia de remediação online|Indisponível – remediações de alerta ligações que utilizam que um URL de Internet não funcionará.|
-|Sindicação Marketplace – a capacidade para seleccionar e adicionar pacotes de galeria diretamente a partir do Azure Marketplace|Danificada – quando implementar o Azure pilha num modo desligado (sem qualquer acesso à internet), não é possível transferir itens do marketplace utilizando o portal de pilha do Azure. No entanto, pode utilizar o [ferramenta de sindicação do marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para transferir os itens do marketplace para uma máquina que tenha acesso à internet e, em seguida, transfere-os para o seu ambiente de pilha do Azure.|
-|Utilizar contas de Federação do Active Directory do Azure para gerir uma implementação de pilha do Azure|Indisponível – esta funcionalidade necessita de conectividade para o Azure. Tem de ser utilizado em vez disso, o AD FS com uma instância local do Active Directory.|
-|Serviços Aplicacionais|Danificada - WebApps pode necessitar de acesso à Internet para o conteúdo atualizado.|
-|Interface de Linha de Comandos (CLI)|Danificada – CLI foi reduzido funcionalidade em termos de aprovisionamento dos princípios de serviço e autenticação.|
-|Visual Studio – da Cloud discovery|Danificada – da Cloud Discovery ou irá detetar nuvens diferentes ou não irão funcionar.|
-|Visual Studio – do AD FS|Danificada – só suporta o Visual Studio Enterprise AD FS.
-Telemetria|Indisponível – os dados telemétricos para a pilha do Azure como bem como quaisquer pacotes de Galeria de terceiros que dependem de dados de telemetria.|
-|Certificados|Indisponível – ligação à Internet é necessário para os serviços de lista de revogação de certificados (CRL) e protocolo de estado de certificado Online (OSCP) no contexto de HTTPS.|
-|Cofre de chaves|Danificada – um caso de utilização comuns para o Cofre de chaves é ter uma aplicação de ler os segredos no tempo de execução. Para tal, a aplicação tem um principal de serviço no diretório. No Azure Active Directory, os utilizadores regulares (não administradores) são por predefinição permitida para adicionar principais de serviço. No AD (utilizando o AD FS) não são. Isto coloca uma hurdle a experiência de ponto a ponto, porque um sempre tiver de passar por um administrador de diretório para adicionar qualquer aplicação.| 
+|Implementação da VM com a extensão de DSC para configurar a implementação da VM|Com deficiências visuais - extensão DSC procura para a Internet para o WMF mais recente.|
+|Implementação da VM com a extensão Docker para executar comandos do Docker|Com deficiências visuais – Docker irá verificar a Internet para a versão mais recente e esta verificação irá falhar.|
+|Ligações de documentação no Portal do Azure Stack|Indisponível – ligações, como enviar comentários, ajuda, guia de introdução, etc. que utilizam um URL de Internet não funcionará.|
+|Alerta remediação/atenuação que faz referência a um guia de atualização online|Indisponível – qualquer remediação do alerta contém ligações que utilizam que um URL de Internet não funcionará.|
+|Marketplace, a capacidade para seleccionar e adicionar pacotes de galeria diretamente a partir do Azure Marketplace|Com deficiências visuais – quando implementar o Azure Stack num modo desligado (sem qualquer conectividade de Internet), não é possível transferir itens do marketplace com o portal do Azure Stack. No entanto, pode utilizar o [ferramenta de distribuição de mercado](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) transferir os itens do marketplace para uma máquina que tenha conectividade à internet e, em seguida, transferi-las ao seu ambiente do Azure Stack.|
+|Utilizar contas de Federação do Azure Active Directory para gerir uma implementação do Azure Stack|Indisponível – esta funcionalidade necessita de conectividade para o Azure. Tem de ser utilizado em vez disso, o AD FS com uma instância local do Active Directory.|
+|Serviços Aplicacionais|Com deficiências visuais - WebApps podem exigir acesso à Internet para o conteúdo atualizado.|
+|Interface de Linha de Comandos (CLI)|Com deficiências visuais – CLI tem funcionalidades reduzidas em termos de autenticação e dos princípios de serviço de aprovisionamento.|
+|Visual Studio – da Cloud discovery|Da Cloud Discovery com deficiências visuais – ou irá detetar nuvens diferentes ou não irá funcionar.|
+|Visual Studio – do AD FS|Com deficiências visuais – somente o Visual Studio Enterprise suporta o AD FS.
+Telemetria|Indisponível – dados de telemetria para o Azure Stack como bem como quaisquer pacotes de Galeria de terceiros que dependem de dados de telemetria.|
+|Certificados|Indisponível – ligação à Internet é necessária para os serviços de lista de revogação de certificados (CRL) e protocolo de Status de certificado Online (OSCP) no contexto de HTTPS.|
+|Cofre de chaves|Um caso de utilização comuns para o Key Vault com deficiências visuais – consiste num aplicativo que leia os segredos em tempo de execução. Para isso, a aplicação tem um principal de serviço no diretório. No Azure Active Directory, os usuários regulares (não-administradores) são por predefinição autorizada a adicionar principais de serviço. No AD (com o AD FS) não são. Isso coloca uma barreira da experiência do ponto-a-ponto, porque um sempre precisa passar por um administrador do diretório para adicionar qualquer aplicação.| 
 
 ## <a name="learn-more"></a>Saiba mais
-- Para obter informações sobre casos de utilização, aquisição, parceiros e fornecedores de hardware do OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página de produto.
-- Para obter informações sobre o plano e a georreplicação disponibilidade pilha do Azure integrados sistemas, consulte o documento técnico: [pilha do Azure: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-- Para saber mais sobre o Microsoft Azure pilha empacotamento e preços [transferir. o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+- Para obter informações sobre casos de utilização, de compra, parceiros e fornecedores de hardware de OEM, consulte a [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
+- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para saber mais sobre pacotes e preços do Microsoft Azure Stack [transferir o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Integração de rede do Centro de dados](azure-stack-network.md)

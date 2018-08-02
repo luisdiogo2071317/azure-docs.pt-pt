@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282039"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414472"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos
 
@@ -60,11 +60,11 @@ Em termos simples, os dispositivos geridos são dispositivos que estão sob *alg
 
 Para obter um dispositivo registado com o Azure AD, tem três opções:
 
-- **[Dispositivos registados do Azure AD](device-management-introduction.md#azure-ad-registered-devices)**  - para obter um dispositivo pessoal registado no Azure AD
+- **[Dispositivos registados do Azure AD](devices/overview.md#azure-ad-registered-devices)**  - para obter um dispositivo pessoal registado no Azure AD
 
-- **[Dispositivos associados ao Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  - para fazer com que um dispositivo Windows 10 organizacional que não está associado com um local do AD registado com o Azure AD. 
+- **[Dispositivos associados ao Azure AD](devices/overview.md#azure-ad-joined-devices)**  - para fazer com que um dispositivo Windows 10 organizacional que não está associado com um local do AD registado com o Azure AD. 
 
-- **[Dispositivos associados ao Azure AD híbrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - para obter um Windows 10 ou dispositivo suportado de nível inferior que esteja associado a uma local do AD registado com o Azure AD.
+- **[Dispositivos associados ao Azure AD híbrido](devices/overview.md#hybrid-azure-ad-joined-devices)**  - para obter um Windows 10 ou dispositivo suportado de nível inferior que esteja associado a uma local do AD registado com o Azure AD.
 
 Para se tornar um dispositivo gerido, um dispositivo registado tem de ser um **dispositivo associado ao Azure AD híbrido** ou uma **dispositivo que foi marcado como compatível**.  
 

@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205345"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398006"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança do Azure VM V2
 
@@ -107,7 +107,7 @@ Não existe nenhum custo para atualizar a pilha para v2. Os instantâneos são a
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Atualizar para a v2 de pilha aumentar o limite de instantâneos de conta de armazenamento premium, 10 TB?
 
-Instantâneos tirados como parte da contagem de pilha v2 para limite de instantâneo de 10 TB de uma conta de armazenamento premium para discos não geridos. 
+Não, o limite de instantâneo total por conta de armazenamento ainda falta em 10TB. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Nas contas de armazenamento Premium, instantâneos tirados de ponto de recuperação instantânea ocupam o limite de 10 TB de instantâneo?
 

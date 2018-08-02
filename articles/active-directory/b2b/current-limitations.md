@@ -1,35 +1,38 @@
 ---
-title: Limitações de colaboração B2B do Azure Active Directory do | Microsoft Docs
-description: Limitações atuais para colaboração B2B do Azure Active Directory do
+title: Limitações de colaboração do Azure Active Directory B2B | Documentos da Microsoft
+description: Limitações atuais para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 562076e9529ffeac4cb0f99c1ffd4d4866d0bd1a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 34713f4bf43f047bdee8d87f2e4410d13ba3492d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260121"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400379"
 ---
-# <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações de colaboração B2B do Azure AD
-Colaboração B2B do Active Directory (Azure AD) Azure está atualmente sujeitos as limitações descritas neste artigo.
+# <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração B2B do Azure AD
+Colaboração do Azure Active Directory (Azure AD) B2B está sujeito às limitações descritas neste artigo.
 
-## <a name="possible-double-multi-factor-authentication"></a>Autenticação multifator dupla possíveis
-Com o Azure AD B2B, pode impor autenticação multifator na organização de recursos (a organização convidando). As razões para esta abordagem passo são detalhadas no [acesso condicional para os utilizadores de colaboração do B2B](conditional-access.md). Se um parceiro já tem a autenticação multifator, configurar e imposto, os seus utilizadores poderão ter de efetuar a autenticação de uma vez na respetiva organização inicial e, em seguida, novamente no seu.
+## <a name="possible-double-multi-factor-authentication"></a>Autenticação multifator dupla possível
+Com o Azure AD B2B, pode impor autenticação multifator na organização de recursos (a organização de convite). Os motivos para essa abordagem são detalhados no [acesso condicional para utilizadores de colaboração B2B](conditional-access.md). Se um parceiro já tiver a autenticação multifator, configurar e impostas, seus usuários poderão ter de efetuar a autenticação uma vez na sua organização da página principal e, em seguida, novamente no mesmo seu.
 
 ## <a name="instant-on"></a>Instant-on
-Os fluxos de colaboração B2B, iremos adicionar utilizadores ao diretório e atualizar dinamicamente durante resgate convite, atribuição de aplicação e assim sucessivamente. As atualizações e escritas normalmente acontecer na instância de um diretório e têm de ser replicadas em todas as instâncias. Conclusão da replicação depois de todas as instâncias são atualizadas. Por vezes, quando o objeto é escrito ou atualizado numa instância e a chamada para obter este objeto é outra instância, podem ocorrer latências de replicação. Se isto acontecer, atualize ou volte a tentar para o ajudar. Se estiver a escrever uma aplicação utilizando a nossa API, tentativas com algumas término é uma prática bom e defesas para reduzir este problema.
+Os fluxos de colaboração do B2B, podemos adicionar utilizadores ao diretório e atualizá-los dinamicamente durante o resgate de convite, atribuição de aplicações e assim por diante. As atualizações e as gravações normalmente acontecem na instância de um diretório e têm de ser replicadas em todas as instâncias. Concluída a replicação depois de todas as instâncias são atualizadas. Por vezes, quando o objeto é escrito ou atualizado numa instância e a chamada para recuperar este objeto é para outra instância, podem ocorrer latências de replicação. Se isto acontecer, atualize ou Repita para ajudar. Se estiver escrevendo uma aplicação com a nossa API, em seguida, é repetida com um término é uma prática de bom e defensiva para diminuir este problema.
+
+## <a name="azure-ad-directories"></a>Diretórios do Azure AD
+O Azure AD B2B está sujeito a do Azure AD limites de serviço diretório. Para obter detalhes sobre o número de diretórios, pode criar um utilizador e o número de diretórios para que um utilizador ou o utilizador convidado pode pertencer, veja [restrições e limites do serviço Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os artigos seguintes na colaboração B2B do Azure AD:
+Veja os artigos seguintes na colaboração B2B do Azure AD:
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Delegar B2bB convites de colaboração](delegate-invitations.md)
+- [Delegar convites de colaboração B2B](delegate-invitations.md)
 

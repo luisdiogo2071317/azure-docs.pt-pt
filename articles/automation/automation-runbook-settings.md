@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2174135aaf2e16907f16f38c1df1ec002b3083fd
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391440"
+ms.locfileid: "39397718"
 ---
 # <a name="runbook-settings"></a>Definições de runbook
 Cada runbook na automatização do Azure tem várias definições que os ajudam a ser identificados e alterar seu comportamento de Registro em log. Cada uma destas definições é descrita abaixo seguida pelos procedimentos sobre como modificá-los.
@@ -39,7 +39,7 @@ Pode alterar as definições de um runbook no portal do Azure a **definições**
 3. Clique no nome de um runbook e será direcionado para o painel de definições para o runbook. A partir daqui pode especificar ou modificar etiquetas, a descrição do runbook, configurar o registo e definições de rastreio e aceder às ferramentas de suporte para o ajudar a resolver problemas.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Alterar definições de runbooks com o Windows PowerShell
-Pode utilizar o [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet para alterar as definições de um runbook. Se quiser especificar várias etiquetas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores separado por vírgulas para o parâmetro de etiquetas. Pode obter as etiquetas atuais com o [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Pode utilizar o [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) cmdlet para alterar as definições de um runbook. Se quiser especificar várias etiquetas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores separado por vírgulas para o parâmetro de etiquetas. Pode obter as etiquetas atuais com o [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 Os comandos de exemplo seguintes mostram como definir as propriedades de um runbook. Este exemplo adiciona três etiquetas para as etiquetas existentes e especifica que registos verbosos devem ter sessão iniciados.
 

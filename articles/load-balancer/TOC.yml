@@ -40,7 +40,7 @@
   items:
     - name: O que é o Balanceador de Carga Standard?
       href: load-balancer-standard-overview.md
-    - name: Load Balancer probes (Sondas do Balanceador de Carga)
+    - name: Sondas do estado de funcionamento
       href: load-balancer-custom-probe-overview.md
     - name: Portas de Elevada Disponibilidade
       href: load-balancer-ha-ports-overview.md

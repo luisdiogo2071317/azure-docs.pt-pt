@@ -1,9 +1,9 @@
 ---
-title: Descrição geral do agente de VM Linux do Azure | Microsoft Docs
-description: Saiba como instalar e configurar o agente Linux (waagent) para gerir a interação da sua máquina virtual com o controlador de recursos de infraestrutura do Azure.
+title: Descrição geral do agente de VM do Linux do Azure | Documentos da Microsoft
+description: Saiba como instalar e configurar o agente do Linux (waagent) para gerir a interação da sua máquina virtual com o Azure Fabric Controller.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danis
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2fe93cba2c8b295925ce4cfa8c3017ee1373261
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d3cba4e884b64d47c4e3109b23aebab7dd9da45f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942768"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412165"
 ---
-# <a name="understanding-and-using-the-azure-linux-agent"></a>Compreender e utilizar o agente Linux do Azure
+# <a name="understanding-and-using-the-azure-linux-agent"></a>Compreendendo e usando o agente Linux do Azure
 
-O agente de Linux do Microsoft Azure (waagent) gere Linux e FreeBSD aprovisionamento e interação de VM com o controlador de recursos de infraestrutura do Azure. Para além do agente Linux fornecer a funcionalidade de aprovisionamento, o Azure também fornece a opção de utilização de nuvem init para algumas sos Linux. O agente Linux fornece as seguintes funcionalidades para Linux e FreeBSD IaaS implementações:
+O agente de Linux do Microsoft Azure (waagent) gere o Linux e FreeBSD aprovisionamento e interação de VM com o Azure Fabric Controller. Além do agente Linux fornecendo funcionalidade de aprovisionamento, o Azure também fornece a opção de utilizar o cloud-init para alguns sistemas operacionais de Linux. O agente Linux fornece as seguintes funcionalidades para Linux e FreeBSD IaaS implementações:
 
 > [!NOTE]
-> Para obter mais informações, consulte o [Leia-me](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
+> Para obter mais informações, consulte a [Leiame](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 > 
 > 
 
-* **Imagem de aprovisionamento**
+* **Aprovisionamento de imagens**
   
   * Criação de uma conta de utilizador
   * Configurar tipos de autenticação SSH
   * Implementação de chaves públicas SSH e pares de chaves
-  * A definição do nome de anfitrião
+  * Definir o nome de anfitrião
   * O nome de anfitrião de publicação para a plataforma de DNS
-  * Relatórios por impressão digital de chave de anfitrião do SSH para a plataforma
-  * Gestão de discos de recursos
-  * Formatação e montar o disco de recursos
-  * Configurar o espaço de comutação
+  * Relatório de impressão digital de chave de anfitrião do SSH para a plataforma
+  * Gestão de recursos do disco
+  * Formatação e a montagem do disco de recurso
+  * Configurando o espaço de comutação
 * **Redes**
   
-  * Gere as rotas para melhorar a compatibilidade com servidores DHCP de plataforma
+  * Gere as rotas para melhorar a compatibilidade com servidores para plataforma de DHCP
   * Garante a estabilidade do nome de interface de rede
 * **Kernel**
   
-  * Configura o virtual NUMA (desativar kernel <`2.6.37`)
+  * Configura o virtual NUMA (desativar o kernel <`2.6.37`)
   * Consome entropia de Hyper-V para /dev/random
-  * Configura os tempos limite de SCSI para o dispositivo de raiz (o que pode ser remoto)
+  * Configura os tempos limite de SCSI para o dispositivo de raiz (o que poderia ser remoto)
 * **Diagnóstico**
   
-  * Redirecionamento de consola para a porta série
+  * Redirecionamento da consola para a porta serial
 * **Implementações do SCVMM**
   
-  * Deteta e bootstraps o agente do VMM para Linux quando executado num ambiente do System Center Virtual Machine Manager 2012 R2
-* **Extensão da VM**
+  * Deteta e inicializa o agente do VMM para Linux quando em execução num ambiente do System Center Virtual Machine Manager 2012 R2
+* **Extensão de VM**
   
-  * Inserir componentes criados pela Microsoft e parceiros, numa VM com Linux (IaaS) para ativar o software e automatização de configuração
-  * Implementação de referência de extensão da VM no [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Injetar componentes criados pela Microsoft e parceiros em VM do Linux (IaaS) para ativar o software e automatização de configuração
+  * Implementação de referência de extensão de VM no [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
-O fluxo de informações da plataforma para o agente ocorre através de dois canais:
+O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
 
-* Um momento do arranque ligados DVD para implementações IaaS. DVD inclui um ficheiro de configuração compatível com OVF, que inclui todas as informações de aprovisionamento que não seja o keypairs SSH real.
-* Um ponto final TCP expor uma API REST utilizado para obter a implementação e configuração da topologia.
+* Um tempo de inicialização anexados DVD para implementações de IaaS. Esse DVD inclui um ficheiro de configuração compatível com OVF, que inclui todas as informações de aprovisionamento que não sejam os pares de chaves SSH real.
+* Um ponto final TCP expor uma API REST utilizada para obter a implementação e configuração da topologia.
 
 ## <a name="requirements"></a>Requisitos
-Os seguintes sistemas foram testados e são conhecidos para trabalhar com o agente Linux do Azure:
+Os seguintes sistemas foram testados e funcionam com o agente Linux do Azure:
 
 > [!NOTE]
-> Esta lista pode diferir da lista oficial de sistemas suportados na plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Esta lista poderá ser diferente da lista oficial de sistemas suportados na plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -88,52 +88,52 @@ Os seguintes sistemas foram testados e são conhecidos para trabalhar com o agen
 
 Outros sistemas suportados:
 
-* FreeBSD 10 + (agente Linux do Azure v2.0.10 +)
+* FreeBSD 10 + (o agente Linux do Azure v2.0.10 +)
 
-O agente Linux depende de alguns pacotes de sistema para funcionar corretamente:
+O agente do Linux depende de alguns pacotes de sistema para funcionar corretamente:
 
 * Python 2.6 +
 * OpenSSL 1.0 +
 * OpenSSH 5.3 +
-* Utilitários de sistema de ficheiros: sfdisk fdisk, mkfs, parted
+* Utilitários de sistema de ficheiros: parted sfdisk fdisk, mkfs,
 * Ferramentas de palavra-passe: chpasswd, sudo
 * Ferramentas de processamento de texto: PO, grep
-* Ferramentas de rede: rota ip
-* Suporta kernel para montar a sistemas de ficheiros instalados UDF.
+* Ferramentas de rede: rotas de ip
+* Suporte a kernel de montagem de sistemas de ficheiros do UDF.
 
 ## <a name="installation"></a>Instalação
-Instalação a utilizar um RPM ou um pacote de DEB no repositório de pacotes a distribuição é o método preferencial de instalar e atualizar o agente Linux do Azure. Todos os o [aprovadas fornecedores de distribuição](../linux/endorsed-distros.md) integrar o pacote do agente Linux do Azure, as imagens e repositórios.
+A instalação a utilizar um RPM ou um pacote DEB no repositório de pacotes de sua distribuição é o método preferencial de instalação e atualização do agente Linux do Azure. Todas as a [apoiadas pelo fornecedores de distribuição](../linux/endorsed-distros.md) integrar o pacote do agente Linux do Azure em suas imagens e repositórios.
 
-Consulte a documentação do [repo do agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent) para opções de instalação avançadas, como a instalação de origem ou para localizações personalizadas ou prefixos.
+Consulte a documentação sobre o [repositório do agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent) para opções de instalação avançada, como a instalação de origem ou para localizações personalizadas ou prefixos.
 
 ## <a name="command-line-options"></a>Opções da linha de comandos
 ### <a name="flags"></a>Sinalizadores
-* verboso: aumentar a verbosidade do comando especificado
+* verboso: aumentar verbosidade do comando especificado
 * forçar: Ignorar confirmação interativa para alguns comandos
 
 ### <a name="commands"></a>Comandos
-* ajudar a: lista os comandos suportados e os sinalizadores.
-* deprovision: tentativa de limpar o sistema e torná-lo adequado para reprovisioning. As eliminações de operação seguintes:
+* ajudar a: lista os comandos com suporte e sinalizadores.
+* desaprovisionamento: tentar limpar o sistema e torná-la adequada para reprovisionamento. Eliminações de operação seguinte:
   
-  * Todas as chaves de anfitrião SSH (se Provisioning.RegenerateSshHostKeyPair 'y' no ficheiro de configuração)
-  * Configuração de NameServer no /etc/resolv.conf
-  * Palavra-passe de raiz do /etc/shadow (se Provisioning.DeleteRootPassword 'y' no ficheiro de configuração)
+  * Todas as chaves de anfitrião SSH (se Provisioning. regeneratesshhostkeypair 'y' no ficheiro de configuração)
+  * Configuração de nomes em /etc/resolv.conf
+  * Palavra-passe de raiz de /etc/shadow (se Provisioning. deleterootpassword 'y' no ficheiro de configuração)
   * Concessões de cliente DHCP em cache
   * Repõe o nome do anfitrião para localhost.localdomain
 
 > [!WARNING]
-> Desaprovisionamento não garante que a imagem é limpa de todas as informações confidenciais e adequado para a redistribuição.
+> Desaprovisionamento não garante que a imagem é limpa de todas as informações confidenciais e adequada para redistribuição.
 > 
 > 
 
-* deprovision + utilizador: efetua tudo - deprovision (acima) e também elimina a última conta de utilizador aprovisionado (obtida /var/lib/waagent) e dados associados. Este parâmetro é quando uma imagem que foi anteriormente aprovisionamento no Azure, pelo que podem ser capturada e reutilizada de aprovisionamento automatizados.
-* versão: apresenta a versão de waagent
-* serialconsole: Configura GRUB para marcar ttyS0 (a porta série primeiro) como a consola de arranque. Isto garante que os registos do kernel lido são enviados para a porta série e disponibilizados para depuração.
-* o daemon: executar waagent como um daemon para gerir a interação com a plataforma. Este argumento é especificado para waagent no waagent init script.
+* desaprovisionamento + utilizador: executa tudo no - desaprovisionamento (acima) e também elimina a última conta de utilizador aprovisionado (obtida a partir do /var/lib/waagent) e dados associados. Este parâmetro é quando Desconfiguração de uma imagem que foi anteriormente aprovisionamento no Azure, pelo que pode ser capturado e reutilizado.
+* versão: apresenta a versão do waagent
+* serialconsole: configura o GRUB para marcar ttyS0 (a primeira porta serial) como a consola de arranque. Isto garante que os registos de arranque de kernel são enviados para a porta serial e disponibilizados para depuração.
+* o daemon: executar waagent como um daemon para gerir a interação com a plataforma. Este argumento é especificado para waagent no script de init waagent.
 * iniciar: executar waagent como um processo em segundo plano
 
 ## <a name="configuration"></a>Configuração
-Um ficheiro de configuração (/ etc/waagent.conf) controla as ações de waagent. O seguinte mostra um ficheiro de configuração de exemplo:
+Um ficheiro de configuração (/ etc/waagent.conf) controla as ações de waagent. O código a seguir mostra um ficheiro de configuração de exemplo:
 
     ```
     Provisioning.Enabled=y
@@ -161,17 +161,17 @@ Um ficheiro de configuração (/ etc/waagent.conf) controla as ações de waagen
     AutoUpdate.Enabled=y
     ```
 
-As seguintes que são descritas várias opções de configuração. Opções de configuração são dos três tipos; Valor booleano, cadeia ou número inteiro. As opções de configuração booleano podem ser especificadas como "y" ou "n". A especial palavra-chave "None" pode ser utilizado para algumas entradas de configuração de tipo de cadeia como os seguintes detalhes:
+O seguinte que várias opções de configuração estão descritas. Opções de configuração são de três tipos; Booleano, cadeia de caracteres ou número inteiro. As opções de configuração booleano podem ser especificadas como "y" ou "n". A especial palavra-chave "None" podem ser utilizados para algumas entradas de configuração do tipo de cadeia de caracteres como os seguintes detalhes:
 
 **Provisioning.Enabled:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Isto permite ao utilizador ativar ou desativar a funcionalidade de aprovisionamento no agente. Os valores válidos são "y" ou "n". Se o aprovisionamento estiver desativado, chaves de anfitrião e o utilizador SSH na imagem são preservadas e qualquer configuração especificada no Azure API de aprovisionamento é ignorada.
+Isto permite ao utilizador ativar ou desativar a funcionalidade de aprovisionamento do agente. Valores válidos são "y" ou "n". Se o aprovisionamento estiver desativado, chaves de anfitrião e o utilizador SSH na imagem são preservadas e qualquer configuração especificada no Azure API de aprovisionamento é ignorada.
 
 > [!NOTE]
-> O `Provisioning.Enabled` por predefinição, parâmetro "n" no Ubuntu nuvem imagens que utilizam a nuvem init para o aprovisionamento.
+> O `Provisioning.Enabled` parâmetro a predefinição é "n" nas imagens do Ubuntu em nuvem que utilizar o cloud-init para o aprovisionamento.
 > 
 > 
 
@@ -180,30 +180,30 @@ Isto permite ao utilizador ativar ou desativar a funcionalidade de aprovisioname
 Type: Boolean  
 Default: n
 ```
-Se o conjunto, a palavra-passe de raiz no ficheiro de sombra etc/é apagado durante o processo de aprovisionamento.
+Se o conjunto, a palavra-passe de raiz no arquivo de cópias de sombra/etc/é apagado durante o processo de aprovisionamento.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Se o conjunto de todos os SSH anfitrião pares de chaves (ecdsa, dsa e rsa) é eliminado durante o processo de aprovisionamento do /etc/hosts ssh /. E é gerado um par de chaves de raiz único.
+Se o conjunto, todos os SSH anfitrião pares de chaves (ecdsa, dsa e rsa) é eliminado durante o processo de aprovisionamento do /etc/ssh /. E é gerado um par de chaves de raiz único.
 
-O tipo de encriptação para o par de chaves de raiz é configurável pela entrada Provisioning.SshHostKeyPairType. Algumas distribuições recriar pares de chaves SSH para todos os tipos de encriptação em falta quando o daemon de SSH é reiniciado (por exemplo, após um reinício).
+O tipo de encriptação para o novo par de chaves é configurável pela entrada Provisioning.SshHostKeyPairType. Algumas distribuições recriar os pares de chaves SSH para todos os tipos de encriptação em falta quando o daemon de SSH é reiniciado (por exemplo, após um reinício).
 
 **Provisioning.SshHostKeyPairType:**  
 ```
 Type: String  
 Default: rsa
 ```
-Isto pode ser definido como um tipo de algoritmos de encriptação é suportado pelo daemon de SSH na máquina virtual. Os valores normalmente suportados são "rsa", "dsa" e "ecdsa". "putty.exe" no Windows não suporta "ecdsa". Por isso, se pretender utilizar putty.exe no Windows para ligar a uma implementação de Linux, utilize "rsa" ou "dsa".
+Isso pode ser definido como um tipo de algoritmo de encriptação que é suportado pelo daemon de SSH na máquina virtual. Os valores normalmente suportados são "rsa", "dsa" e "ecdsa". "putty.exe" no Windows não suporta "ecdsa". Então, se pretender utilizar putty.exe no Windows para ligar a uma implementação do Linux, utilize "rsa" ou "dsa".
 
 **Provisioning.MonitorHostName:**  
 ```
 Type: Boolean  
 Default: y
 ```
-Se o conjunto de waagent monitoriza a máquina virtual do Linux para as alterações de nome de anfitrião (tal como devolvido pelo comando "hostname") e automaticamente Atualize a configuração de rede na imagem para refletir a alteração. Para enviar a alteração de nome para os servidores DNS, rede é reiniciada na máquina virtual. Isto resulta no brief perda de conectividade à Internet.
+Se o conjunto de waagent monitoriza a máquina virtual do Linux para que as alterações de nome de anfitrião (conforme devolvido pelo comando "hostname") e automaticamente Atualize a configuração de rede na imagem para refletir a alteração. Para enviar a alteração de nome para os servidores DNS, o sistema de rede é reiniciado na máquina virtual. Em resumo, isso resulta de perda de conectividade de Internet.
 
 **Provisioning.DecodeCustomData**  
 ```
@@ -217,14 +217,14 @@ Se o conjunto de waagent descodifica CustomData a partir de Base64.
 Type: Boolean  
 Default: n
 ```
-Se for definido, waagent executado CustomData após o aprovisionamento.
+Se o conjunto de waagent executa CustomData após o aprovisionamento.
 
 **Provisioning.AllowResetSysUser**
 ```
 Type: Boolean
 Default: n
 ```
-Esta opção permite que a palavra-passe para o utilizador sys a reposição; desativado por predefinição.
+Esta opção permite que a palavra-passe para o utilizador de sys ser redefinidas; desativado por predefinição.
 
 **Provisioning.PasswordCryptId**  
 ```
@@ -249,35 +249,35 @@ Comprimento de salt aleatório utilizado ao gerar o hash de palavra-passe.
 Type: Boolean  
 Default: y
 ```
-Se definido, o disco de recursos fornecido pela plataforma do é formatado e montado pelas waagent se o tipo de sistema de ficheiros pedido pelo utilizador no "ResourceDisk.Filesystem" é diferente de "ntfs". Uma única partição do tipo Linux (83) é tornada disponível no disco. Esta partição não está formatada corretamente se podem ser montados com êxito.
+Se definido, o disco de recurso fornecido pela plataforma é formatado e montado pela waagent se o tipo de sistema de ficheiros solicitado pelo utilizador em "ResourceDisk.Filesystem" é diferente de "ntfs". Uma única partição de tipo (83) do Linux é disponibilizada no disco. Esta partição não está formatada se podem ser montados com êxito.
 
 **ResourceDisk.Filesystem:**  
 ```
 Type: String  
 Default: ext4
 ```
-Esta ação Especifica o tipo de sistema de ficheiros para o disco de recursos. Os valores suportados variam consoante a distribuição de Linux. Se a cadeia é X, em seguida, mkfs. X deve estar presente na imagem de Linux. SLES 11 imagens, normalmente, devem utilizar 'ext3'. Imagens de FreeBSD devem utilizar aqui 'ufs2'.
+Esta ação Especifica o tipo de sistema de ficheiros para o disco de recurso. Valores suportados variam consoante a distribuição de Linux. Se a cadeia de caracteres é X, em seguida, mkfs. X deve estar presente na imagem do Linux. Imagens de 11 de SLES, normalmente, devem utilizar 'ext3'. Imagens de FreeBSD devem usar 'ufs2' aqui.
 
 **ResourceDisk.MountPoint:**  
 ```
 Type: String  
 Default: /mnt/resource 
 ```
-Esta ação Especifica o caminho no qual o disco de recursos está montado. O disco de recursos é um *temporário* disco e poderá ser esvaziada quando a VM é desaprovisionada.
+Esta ação Especifica o caminho em que o disco de recurso é montado. O disco de recurso é um *temporária* disco e poderá ser esvaziada quando a VM é desaprovisionada.
 
 **ResourceDisk.MountOptions**  
 ```
 Type: String  
 Default: None
 ```
-Especifica opções de montagem do disco a ser transmitido para o comando -o de montagem. Esta é uma lista separada por vírgulas de valores, por ex. 'nodev, nosuid'. Consulte mount(8) para obter mais detalhes.
+Especifica opções de montagem do disco a serem passados para o comando de -o de montagem. Esta é uma lista separada por vírgulas de valores, por ex. 'nodev, nosuid'. Ver mount(8) para obter detalhes.
 
 **ResourceDisk.EnableSwap:**  
 ```
 Type: Boolean  
 Default: n
 ```
-Se definir um ficheiro de comutação (/ swapfile) é criado no disco recursos e adicionado para o espaço de comutação do sistema.
+Se definir um ficheiro de comutação (/ swapfile) é criado no disco de recurso e adicionado ao espaço de comutação do sistema.
 
 **ResourceDisk.SwapSizeMB:**  
 ```
@@ -291,28 +291,28 @@ O tamanho do ficheiro de comutação em megabytes.
 Type: Boolean  
 Default: n
 ```
-Se o conjunto de verbosidade do registo é elevado. Waagent regista /var/log/waagent.log e utiliza a funcionalidade de logrotate de sistema para rodar os registos.
+Se o conjunto de verbosidade de log é aumentado. Waagent regista /var/log/waagent.log e utiliza a funcionalidade de logrotate de sistema para girar os registos.
 
 **OS.EnableRDMA**  
 ```
 Type: Boolean  
 Default: n
 ```
-Se o conjunto, o agente tenta instalar e, em seguida, carregar um controlador de kernel RDMA que corresponde à versão de firmware no hardware subjacente.
+Se o conjunto, o agente tentar instalar e, em seguida, carregar um driver do kernel RDMA que corresponde à versão do firmware no hardware subjacente.
 
 **OS.RootDeviceScsiTimeout:**  
 ```
 Type: Integer  
 Default: 300
 ```
-Esta definição configura o limite de tempo de SCSI em segundos em unidades de dados e de disco do SO. Se não for definido, o sistema são utilizadas as predefinições.
+Esta definição configura o tempo limite de SCSI em segundos em que as unidades de disco e os dados do sistema operacional. Se não for definido, o sistema são utilizadas predefinições.
 
-**SO. OpensslPath:**  
+**SISTEMA OPERACIONAL. OpensslPath:**  
 ```
 Type: String  
 Default: None
 ```
-Esta definição pode ser utilizada para especificar um caminho alternativo para openssl binário a utilizar para operações de criptografia.
+Esta definição pode ser utilizada para especificar um caminho alternativo para openssl binário a utilizar operações criptográficas.
 
 **HttpProxy.Host, HttpProxy.Port**  
 ```
@@ -326,15 +326,15 @@ Se o conjunto, o agente utiliza este servidor proxy para aceder à internet.
 Type: Boolean
 Default: y
 ```
-Ativar ou desativar a atualização automática para o estado do objetivo de processamento; a predefinição está ativada.
+Ativar ou desativar atualização automática para o estado do objetivo de processamento; a predefinição está ativada.
 
 
 
-## <a name="ubuntu-cloud-images"></a>Ubuntu nuvem imagens
-Utilizar imagens de nuvem Ubuntu [nuvem init](https://launchpad.net/ubuntu/+source/cloud-init) para efetuar várias tarefas de configuração que caso contrário, deverá ser geridas pelo agente Linux do Azure. Aplicam as seguintes diferenças:
+## <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
+Utilizar imagens de nuvem do Ubuntu [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para executar muitas tarefas de configuração que caso contrário, teriam de ser gerenciadas pelo agente Linux do Azure. Aplicam as seguintes diferenças:
 
-* **Provisioning.Enabled** por predefinição, "n" no Ubuntu nuvem imagens que utilizam a nuvem init para efetuar tarefas de aprovisionamento.
-* Os seguintes parâmetros de configuração não tem qualquer efeito nas imagens de nuvem de Ubuntu utilizar init da nuvem para gerir o disco de recursos e espaço de comutação:
+* **Provisioning.Enabled** a predefinição é "n" nas imagens do Ubuntu na Cloud que utilize o cloud-init para executar tarefas de aprovisionamento.
+* Os seguintes parâmetros de configuração não têm qualquer efeito nas imagens do Ubuntu na Cloud que utilize o cloud-init para gerir o disco de recurso e espaço de comutação:
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
@@ -342,8 +342,8 @@ Utilizar imagens de nuvem Ubuntu [nuvem init](https://launchpad.net/ubuntu/+sour
   * **ResourceDisk.EnableSwap**
   * **ResourceDisk.SwapSizeMB**
 
-* Para obter mais informações, consulte os recursos seguintes para configurar o ponto de montagem do disco de recursos e espaço no Ubuntu nuvem imagens de comutação durante o aprovisionamento:
+* Para obter mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e trocar espaço nas imagens do Ubuntu Cloud durante o aprovisionamento:
   
-  * [Ubuntu Wiki: Configurar partições de comutação](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Dados personalizados inserirem-se para uma Máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
+  * [Wiki do Ubuntu: Configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Injetar dados personalizados numa máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
 

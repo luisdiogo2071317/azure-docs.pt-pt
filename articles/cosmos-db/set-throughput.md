@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283647"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399095"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter o débito de contentores do Azure Cosmos DB e a base de dados
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Obtenção de débito através GetLastRequestStatistics comando da API do MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenção de débito através de métricas do portal de API do MongoDB
+
+A forma mais simples para obter uma boa estimativa do pedido de unidades de cobrança para sua base de dados de API do MongoDB está a utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *encargos de pedidos* gráficos, pode obter uma estimativa de quantas unidades de pedido cada operação está a consumir e quantas unidades de pedido que consomem em relação ao outro.
+
+![Métricas do portal de API do MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na API do MongoDB
+Aplicações que excedem o débito aprovisionado para um contentor ou um conjunto de contentores será limitado taxa até que a taxa de consumo passa a ser inferior a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end irá terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB repete automaticamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se estiver a receber muitas `Too Many Requests` códigos de erro, poderá considerar adicionar a lógica de repetição em rotinas de tratamento de erros do seu aplicativo ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Obter os encargos de pedidos com o comando de GetLastRequestStatistics da API do MongoDB
 
 A API do MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para recuperar os custos de pedido a uma determinada operação.
 
@@ -254,14 +263,19 @@ Um método para estimar a quantidade de débito reservado exigida pela sua aplic
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtenção de débito através de métricas do portal de API do MongoDB
+## <a id="RequestchargeGraphAPI"></a>Obter os encargos de pedidos para contas da API do Gremlin 
 
-A forma mais simples para obter uma boa estimativa do pedido de unidades de cobrança para sua base de dados de API do MongoDB está a utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *encargos de pedidos* gráficos, pode obter uma estimativa de quantas unidades de pedido cada operação está a consumir e quantas unidades de pedido que consomem em relação ao outro.
+Eis um exemplo sobre como obter os encargos de pedidos para contas de API do Gremlin com a biblioteca de Gremlin.Net. 
 
-![Métricas do portal de API do MongoDB][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na API do MongoDB
-Aplicações que excedem o débito aprovisionado para um contentor ou um conjunto de contentores será limitado taxa até que a taxa de consumo passa a ser inferior a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end irá terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB repete automaticamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se estiver a receber muitas `Too Many Requests` códigos de erro, poderá considerar adicionar a lógica de repetição em rotinas de tratamento de erros do seu aplicativo ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Além do método acima, também pode utilizar o cabeçalho "x-ms-total-pedido-cobrança" para cálculos de unidades de pedido.
+
 
 ## <a name="throughput-faq"></a>FAQ de débito
 

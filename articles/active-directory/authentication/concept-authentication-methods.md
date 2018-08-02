@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: fd46473fe1c60ccbac0b0c65ca2e30ac4b37a953
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344686"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414529"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -41,20 +41,6 @@ A Microsoft recomenda administradores assegura aos usuários para selecionar mai
 | --- |
 | Notificação de aplicação móvel e o código de aplicação móvel como métodos de palavra-passe self-service do Azure AD reposição são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
-
-## <a name="converged-user-registration-preview"></a>Registo de utilizador convergida (pré-visualização)
-
-Até agora, os utilizadores tinham de se registrar métodos de autenticação para MFA e o SSPR nos dois portais de diferentes. Número de utilizadores que foram confusa pelo fato de que os métodos semelhantes foram utilizados no MFA e o SSPR e não se registraram em ambos os portais. Isso levou a alguns utilizadores a ser não é possível utilizar o MFA ou o SSPR quando necessário, que leva a uma chamada de suporte técnico e um utilizador aborrecido.
-
-Para permitir aos utilizadores para se registar métodos de autenticação Azure multi-factor Authentication e palavra-passe self-service, reposição, através do portal do mesmo, conclua os seguintes passos:
-
-1. Inicie sessão no portal do Azure como um administrador global.
-1. Navegue até **do Azure Active Directory**, **definições do utilizador**, **gerir as definições para as funcionalidades de pré-visualização do painel de acesso**.
-1. Sob **os utilizadores podem utilizar funcionalidades de pré-visualização para registar e gerir informações de segurança**, pode optar por ativar para um **Selected** grupo de utilizadores ou para **todos os** utilizadores.
-
-Os utilizadores podem agora utilizar [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) para se registar para MFA e o SSPR.
-
-![Pré-visualizar o registo de utilizador convergido - adicionar informações de segurança à sua conta para utilização com a MFA e o SSPR](media/concept-authentication-methods/concept-add-methods.png)
 
 ## <a name="password"></a>Palavra-passe
 
@@ -212,3 +198,5 @@ Se sua organização estiver federada para SSO com o Azure AD e vai estar a util
 [Ativar a reposição para a sua organização no palavra-passe self-service](quickstart-sspr.md)
 
 [Ativar a multi-factor Authentication para a sua organização](howto-mfa-getstarted.md)
+
+[Documentação de configuração de método de autenticação de utilizador final](https://aka.ms/securityinfoguide)

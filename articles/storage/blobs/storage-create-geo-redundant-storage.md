@@ -3,19 +3,18 @@ title: Tornar os dados das aplicações altamente disponíveis no Azure | Micros
 description: Utilize o armazenamento georredundante de acesso de leitura para tornar os dados das suas aplicações altamente disponíveis
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: blobs
+ms.openlocfilehash: 7abd251751613224d062da5578e9c91a525599c9
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193779"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399037"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados das suas aplicações altamente disponíveis com o Armazenamento do Azure
 
@@ -24,7 +23,7 @@ Este tutorial é a primeira parte de uma série, que mostra como tornar os dados
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Create a storage account
+> * Criar uma conta de armazenamento
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
@@ -60,7 +59,7 @@ Para concluir este tutorial:
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure.
 
@@ -270,7 +269,7 @@ Com o Java, a definição de processadores de chamada de retorno é desnecessár
 Na parte um da série, aprendeu a tornar uma aplicação altamente disponível com contas de armazenamento RA-GRS, nomeadamente a:
 
 > [!div class="checklist"]
-> * Create a storage account
+> * Criar uma conta de armazenamento
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola

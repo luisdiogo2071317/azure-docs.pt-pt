@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237184"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397531"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O serviço DNS é um serviço de sistema opcional que pode ativar no seu cluster para detetar a outros serviços que utilizam o protocolo DNS. 
@@ -159,7 +159,7 @@ Pode definir o nome DNS para um serviço ao criar usando o `New-ServiceFabricSer
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>Torne as consultas DNS numa partição de serviço com estado
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Pré-visualização] Torne as consultas DNS numa partição de serviço com estado
 A partir do Service Fabric versão 6.3, o serviço de DNS do Service Fabric suporta consultas para as partições do serviço.
 
 Para as partições que vão ser utilizadas em consultas DNS, aplicam-se as seguintes restrições de nomenclatura:
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Problemas conhecidos
+* Para versões de Service Fabric 6.3 e superiores, existe um problema com pesquisas de DNS para nomes de serviço que contém um hífen, o nome de DNS. Para obter mais informações sobre este problema, controlar as seguintes [problema do GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). A atualização em seguida 6.3 surgem uma correção para isso. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre a comunicação de serviço dentro do cluster com [ligar e comunicar com serviços](service-fabric-connect-and-communicate-with-services.md)

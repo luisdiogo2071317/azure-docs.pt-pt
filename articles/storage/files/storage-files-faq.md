@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ecedb171fba9ae8719121f51026134f2bdc1a5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160234"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413710"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -54,7 +54,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     Para obter uma descrição mais detalhada sobre as diferenças entre ficheiros do Azure e o armazenamento de Blobs do Azure, consulte [decidindo quando usar o armazenamento de Blobs do Azure, ficheiros do Azure ou discos do Azure para](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para saber mais sobre o armazenamento de Blobs do Azure, veja [introdução ao armazenamento de BLOBs](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Por que motivo devo utilizar uma partilha de ficheiros do Azure em vez de discos do Azure?**  
-    Um disco em discos do Azure é simplesmente um disco. Um disco de autônomo por si só, não é muito útil. Para obter o valor de discos do Azure, tem de anexar um disco a uma máquina virtual que está em execução no Azure. Discos do Azure podem ser utilizados por tudo o que usaria um disco para um servidor no local. Pode usá-lo como um disco de sistema do sistema operacional, como o espaço de comutação para um sistema operacional ou como armazenamento dedicado para uma aplicação. Um uso interessante para os discos do Azure é criar um servidor de ficheiros na cloud para utilizar nos mesmos locais onde poderá utilizar uma partilha de ficheiros do Azure. Implementar um servidor de ficheiros em máquinas de virtuais do Azure é uma forma de alto desempenho para obter o armazenamento de ficheiros no Azure quando necessitar de opções de implementação que não são atualmente suportadas pelo serviço ficheiros do Azure (por exemplo, o NFS protocolo premium ou suporte de armazenamento). 
+    Um disco em discos do Azure é simplesmente um disco. Para obter o valor de discos do Azure, tem de anexar um disco a uma máquina virtual que está em execução no Azure. Discos do Azure podem ser utilizados por tudo o que usaria um disco para um servidor no local. Pode usá-lo como um disco de sistema do sistema operacional, como o espaço de comutação para um sistema operacional ou como armazenamento dedicado para uma aplicação. Um uso interessante para os discos do Azure é criar um servidor de ficheiros na cloud para utilizar nos mesmos locais onde poderá utilizar uma partilha de ficheiros do Azure. Implementar um servidor de ficheiros em máquinas de virtuais do Azure é uma forma de alto desempenho para obter o armazenamento de ficheiros no Azure quando necessitar de opções de implementação que não são atualmente suportadas pelo serviço ficheiros do Azure (por exemplo, o NFS protocolo premium ou suporte de armazenamento). 
 
     No entanto, a executar um servidor de ficheiros com discos do Azure como armazenamento de back-end, normalmente, é muito mais barato do que a utilizar uma partilha de ficheiros do Azure, por diversos motivos. Em primeiro lugar, além de pagar por armazenamento de disco, também tem paga para a despesa de um ou mais VMs do Azure em execução. Em segundo lugar, também tem de gerir as VMs que são utilizadas para executar o servidor de ficheiros. Por exemplo, é responsável por atualizações de SO. Por fim, se precisar em última análise de dados em cache no local, cabe a a configurar e gerir as tecnologias de replicação, por exemplo, ficheiro sistema replicação distribuído (DFSR), para fazer isso acontecer.
 

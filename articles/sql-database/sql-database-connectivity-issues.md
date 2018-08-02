@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113499"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398942"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Resolver problemas, diagnosticar e prevenir erros de ligação e erros transitórios do SQL para a Base de Dados SQL
 Este artigo descreve como impedir, resolução de problemas, diagnosticar e mitigar erros de ligação e erros transitórios que seu aplicativo de cliente encontra quando interage com a base de dados do Azure SQL. Saiba como configurar a lógica de repetição, criar a cadeia de ligação e ajustar as outras definições de ligação.
@@ -181,17 +181,21 @@ Para obter informações gerais sobre a configuração de portas e endereços IP
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Ligação: ADO.NET 4.6.1
-Se o programa usa classes do ADO.NET, como **System.Data.SqlClient.SqlConnection** para ligar à base de dados SQL, recomendamos que utilize o .NET Framework versão 4.6.1 ou posterior.
+### <a name="connection-adonet-462-or-later"></a>Ligação: ADO.NET 4.6.2 ou posterior
+Se o programa usa classes do ADO.NET, como **System.Data.SqlClient.SqlConnection** para ligar à base de dados SQL, recomendamos que utilize o .NET Framework versão 4.6.2 ou posterior.
 
-ADO.NET 4.6.1:
+A partir do ADO.NET 4.6.2:
+
+- A tentativa de abrir ligação seja repetida imediatamente para bases de dados SQL do Azure, melhorando assim o desempenho de aplicações com o cloud.
+
+A partir do ADO.NET 4.6.1:
 
 * Base de dados SQL, confiabilidade foi melhorada ao abrir uma ligação ao utilizar o **SqlConnection. Open** método. O **aberto** método incorpora agora mecanismos de repetição de melhor esforço em resposta a falhas transitórias para determinados erros durante o período de tempo limite de ligação.
 * Agrupamento de ligações é suportado, que inclui uma verificação de eficiente que o objeto de conexão dá seu programa está a funcionar.
 
-Quando utiliza um objeto de conexão de um pool de conexões, recomendamos que o seu programa temporariamente fechar a ligação quando não é imediatamente em utilização. Não é Caro reabrir uma ligação, mas é criar uma nova ligação.
+Quando utiliza um objeto de conexão de um pool de conexões, recomendamos que o seu programa temporariamente fecha a conexão quando não é imediatamente em utilização. Não é Caro reabrir uma ligação, mas é criar uma nova ligação.
 
-Se usar o ADO.NET 4.0 ou anterior, recomendamos que Atualize para o ADO.NET mais recente. A partir de Novembro de 2015, pode [transferir ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Se usar o ADO.NET 4.0 ou anterior, recomendamos que Atualize para o ADO.NET mais recente. A partir de Agosto de 2018, pode [transferir ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

@@ -9,11 +9,11 @@ ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358622"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400013"
 ---
 Armazenamento com redundância de zona (ZRS) replica os dados de forma síncrona em três clusters de armazenamento numa única região. Cada cluster de armazenamento é fisicamente separado dos outros e reside na sua própria zona de disponibilidade (AZ). Cada zona de disponibilidade e o cluster ZRS dentro da mesma, é autónomo, com utilitários separados e capacidades de rede.
 

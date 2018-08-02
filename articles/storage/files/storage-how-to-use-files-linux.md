@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: d4f77460ea6b0a31ed40286f33aa4296bafc9087
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda06fbb63352dd71cb0183ebdf683dc2f3a4a4c
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007297"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413846"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Partilhas de ficheiros do Azure podem ser montadas em distribuições do Linux com o [cliente do SMB kernel](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros do Azure: a pedido com o `mount` comando e de arranque através da criação de uma entrada no `/etc/fstab`.
@@ -34,7 +34,7 @@ ms.locfileid: "39007297"
     
     Suporte de encriptação SMB 3.0 foi introduzido na versão de kernel 4.11 Linux e tem sido backported para versões mais antigas do kernel para distribuições populares do Linux. No momento da publicação deste documento, as distribuições seguintes a partir da galeria do Azure suportam a opção de montagem especificada nos cabeçalhos de tabela. 
 
-* * * Mínimo recomendado de versões com recursos de montagem correspondentes (vs SMB versão 3.0 de SMB versão 2.1) * *    
+* **Mínimo recomendado para as versões com recursos de montagem correspondentes (versão do SMB versão 2.1 vs do SMB 3.0)**    
     
     |   | SMB 2.1 <br>(Monta em VMs na mesma região do Azure) | SMB 3.0 <br>(Monta no local e em várias regiões) |
     | --- | :---: | :---: |

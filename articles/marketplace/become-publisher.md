@@ -3,8 +3,8 @@ title: Se tornar um publicador em lojas no marketplace | Azure
 description: Este artigo descreve como se tornar um publicador no marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172318"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412020"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -103,8 +103,8 @@ Depois de concluir o [Centro de desenvolvimento](https://developer.microsoft.com
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre as lojas de marketplace: AppSource e do Azure Marketplace
-*   Determinar a sua oferta do marketplace
+* Saiba mais sobre as lojas de marketplace: [comparando AppSource e o Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Determinar o tipo de lista para a sua solução](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

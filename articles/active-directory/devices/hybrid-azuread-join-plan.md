@@ -16,16 +16,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2b74a85d866bcb2f67f61792d1afe2b590ffa418
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369045"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399922"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
 
-De forma semelhante a um utilizador, o dispositivo está se tornando outra identidade que, como um administrador de TI, pretende proteger e utilizar para proteger os seus recursos em qualquer momento e local. Este objetivo pode ser feito ao trazer as identidades de dispositivo para o Azure AD. Pode fazê-lo ao fazer uma associação do Azure AD, uma associação do Azure AD híbrido ou um Azure AD registado o estado do dispositivo. Ao trazer os seus dispositivos com o Azure AD, possa maximizar a produtividade do utilizador final, aproveitando o início de sessão único (SSO) todos os seus recursos na cloud e no local e, ao mesmo tempo, proteger o acesso aos recursos da cloud e no local, permitindo condicional Acesso. Para obter mais detalhes, consulte o acesso condicional no Azure AD.
+De forma semelhante a um utilizador, um dispositivo está se tornando outra identidade que pretende proteger e também utilizar para proteger os seus recursos em qualquer momento e local. Pode concretizar este objetivo ao trazer as identidades dos seus dispositivos com o Azure AD através de um dos seguintes métodos:
+
+- Associação do Azure AD
+- Associação ao Azure AD Híbrido
+- Registo do Azure AD
+
+Ao trazer os seus dispositivos com o Azure AD, maximize a produtividade dos seus utilizadores através do início de sessão único (SSO) todos os seus recursos na cloud e no local. Ao mesmo tempo, pode proteger o acesso aos seus recursos na cloud e no local com o [acesso condicional](../active-directory-conditional-access-azure-portal.md).
 
 Se tiver um ambiente do Active Directory no local e pretender associar os dispositivos associados a um domínio ao Azure AD, isso pode ser feito através da configuração de dispositivos de associados ao Azure AD híbrido. Este artigo fornece a com os passos relacionados para implementar um Azure AD híbrido Junte-se em seu ambiente. 
 
@@ -95,8 +101,6 @@ O registo do Windows Server a executar a função de controlador de domínio (DC
 
 Se sua organização necessita de acesso à Internet através de um proxy autenticado de saída, tem de certificar-se de que os seus computadores Windows 10 podem autenticar com êxito para o proxy de saída. Como computadores Windows 10 executarem o registo de dispositivos com o contexto da máquina, é necessário configurar a autenticação de proxy de saída usando o contexto da máquina.
 
-Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte como controlar a associação do Azure AD híbrido dos seus dispositivos.
-
 
 Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md).
 
@@ -119,9 +123,9 @@ Se o seu ambiente tem domínios geridos, oferece suporte a associação do híbr
 
 A partir da versão 1.1.819.0, o Azure AD Connect fornece um Assistente para configurar a associação do Azure AD híbrido. O assistente permite-lhe simplificar significativamente o processo de configuração. Para obter mais informações, consulte:
 
-- [Configurar a associação ao Azure Active Directory de híbrido para domínios federados](hybrid-azuread-join-federated-domains.md)
+- [Configurar a associação híbrida do Azure Active Directory para os domínios federados](hybrid-azuread-join-federated-domains.md)
 
-- [Configurar a associação ao Azure Active Directory de híbrido para domínios geridos](hybrid-azuread-join-managed-domains.md)
+- [Configurar a associação híbrida do Azure Active Directory para os domínios geridos](hybrid-azuread-join-managed-domains.md)
 
 
  Se instalar a versão necessária do Azure AD Connect não é uma opção para si, veja [como configurar manualmente o registo de dispositivos](../device-management-hybrid-azuread-joined-devices-setup.md). 

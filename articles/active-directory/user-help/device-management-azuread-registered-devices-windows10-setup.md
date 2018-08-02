@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: bf763b08f234145cb81d2cded170348f96e5e478
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0c38c0160cea51940ac5b04ee64095c6a6f25b5d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343346"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414679"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Dispositivos Windows 10 registados do conjunto de cópia de segurança do Azure Active Directory
 
@@ -28,7 +28,7 @@ Se pretender ativar a **Bring Your Own Device (BYOD)** cenário, isso pode ser f
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para registar um dispositivo Windows 10, o serviço de registo do dispositivo tem de ser configurado para que possa registar dispositivos. Além disso, tem de ter menos dispositivos registados que o máximo configurado. Para obter mais informações, consulte [configurar definições do dispositivo](../device-management-azure-portal.md#configure-device-settings).
+Para registar um dispositivo Windows 10, o serviço de registo do dispositivo tem de ser configurado para que possa registar dispositivos. Além disso, tem de ter menos dispositivos registados que o máximo configurado. Para obter mais informações, consulte [configurar definições do dispositivo](../devices/device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>O que deve saber
 

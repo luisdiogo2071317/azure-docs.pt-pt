@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236929"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412115"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Limites de recursos de base de dados do Azure SQL de descrição geral 
 
@@ -28,10 +28,12 @@ Este artigo fornece uma descrição geral do recurso de base de dados do Azure S
 | Número de servidores por subscrição em qualquer região predefinido | 20 |
 | Número máx. de servidores por subscrição em qualquer região | 200 |
 | DTU / quota de eDTU por servidor | 54,000 |
+| quota de vCore por servidor | 540 |
+| Conjuntos de máx. por servidor | limitado pelo número de DTUs ou vCores |
 |||
 
 > [!NOTE]
-> Para obter mais quota de /eDTU DTU ou mais servidores que o valor predefinido, pode ser submetido um novo pedido de suporte no portal do Azure para a subscrição com o tipo de problema "Quota". As DTU / limite de quota e base de dados de eDTU por servidor restringe o número de conjuntos elásticos por servidor. 
+> Para obter mais quota de /eDTU DTU, quota de vCore ou mais servidores que o valor predefinido, pode ser submetido um novo pedido de suporte no portal do Azure para a subscrição com o tipo de problema "Quota". As DTU / limite de quota e base de dados de eDTU por servidor restringe o número de conjuntos elásticos por servidor. 
 
 > [!IMPORTANT]
 > Como o número de bases de dados se aproxima do limite por servidor, pode ocorrer o seguinte:
@@ -56,6 +58,7 @@ Quando se deparar com utilização elevada de espaço, as opções de atenuaçã
 
 - Aumentar o tamanho máximo da base de dados ou elástica do agrupamento ou adicionar mais armazenamento. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
 - Se a base de dados num conjunto elástico, em seguida, em alternativa a base de dados pode ser movida fora do conjunto, para que o seu espaço de armazenamento não é partilhado com outras bases de dados.
+- Reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>Sessões e funções de trabalho (pedidos) 
 

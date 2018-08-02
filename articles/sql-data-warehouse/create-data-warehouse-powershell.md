@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Criar um Azure SQL Data Warehouse - Powershell do Azure | Microsoft Docs'
-description: Crie rapidamente um servidor lógico de base de dados do SQL Server, a regra de firewall ao nível do servidor e o armazém de dados com o Azure PowerShell.
+title: 'Início rápido: Criar um armazém de dados SQL do Azure – Powershell do Azure | Documentos da Microsoft'
+description: Crie rapidamente um servidor lógico de base de dados SQL, a regra de firewall ao nível do servidor e o armazém de dados com o Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e0bb014ec0706d458ff2f38e409efba5d66aaf18
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72ed9e921d96faea155c1da88dd32fcbd467d549
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529521"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414005"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar um Azure SQL data warehouse com o Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure com o Azure PowerShell
 
 Crie rapidamente um armazém de dados SQL do Azure com o Azure PowerShell.
 
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-Criar um [servidor lógico SQL do Azure](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) utilizando o [novo AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) comando. Um servidor lógico contém um grupo de bases de dados geridas como um grupo. O exemplo seguinte cria um servidor com um nome aleatório no seu grupo de recursos com um início de sessão de administrador denominado `ServerAdmin` e uma palavra-passe de `ChangeYourAdminPassword1`. Substitua estes valores predefinidos conforme quiser.
+Criar uma [servidor lógico SQL do Azure](../sql-database/sql-database-logical-servers.md) utilizando o [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) comando. Um servidor lógico contém um grupo de bases de dados geridas como um grupo. O exemplo seguinte cria um servidor com um nome aleatório no seu grupo de recursos com um início de sessão de administrador denominado `ServerAdmin` e uma palavra-passe de `ChangeYourAdminPassword1`. Substitua estes valores predefinidos conforme quiser.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -93,7 +93,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall do servidor
 
-Criar um [regra de firewall ao nível do servidor SQL do Azure](../sql-database/sql-database-firewall-configure.md) utilizando o [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) comando. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, tais como SQL Server Management Studio ou o utilitário SQLCMD para ligar a um SQL data warehouse através da firewall de serviço do SQL Data Warehouse. No exemplo seguinte, a firewall apenas é aberta para outros recursos do Azure. Para ativar a conectividade externa, altere o endereço IP para um endereço adequado para o seu ambiente. Para abrir todos os endereços IP, utilize 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço final.
+Criar uma [regra de firewall ao nível do servidor SQL do Azure](../sql-database/sql-database-firewall-configure.md) utilizando o [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) comando. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como o SQL Server Management Studio ou o utilitário SQLCMD para ligar a um SQL data warehouse através da firewall de serviço do SQL Data Warehouse. No exemplo seguinte, a firewall apenas é aberta para outros recursos do Azure. Para ativar a conectividade externa, altere o endereço IP para um endereço adequado para o seu ambiente. Para abrir todos os endereços IP, utilize 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço final.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -102,12 +102,12 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> Base de dados SQL e SQL Data Warehouse comunicam através da porta é 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não será possível ligar ao seu servidor SQL do Azure, a menos que o departamento de TI abre-se a porta 1433.
+> Base de dados SQL e SQL Data Warehouse comunicam através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não será possível ligar ao servidor SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
 
 ## <a name="create-a-data-warehouse-with-sample-data"></a>Criar um armazém de dados com dados de exemplo
-Este exemplo cria um armazém de dados utilizando as variáveis definidas anteriormente.  Especifica o objetivo de serviço como DW400, que é um ponto de partida custo inferior para o seu armazém de dados. 
+Este exemplo cria um armazém de dados com as variáveis definidas anteriormente.  Especifica o objetivo de serviço como DW400, que é um ponto de partida de custo mais baixo e para o seu armazém de dados. 
 
 ```Powershell
 New-AzureRmSqlDatabase `
@@ -122,7 +122,7 @@ New-AzureRmSqlDatabase `
 
 Os parâmetros necessários são:
 
-* **RequestedServiceObjectiveName**: A quantidade de [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) que está a pedir. Aumentar esta quantidade aumenta os custos de computação. Para obter uma lista de valores suportados, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: A quantidade de [unidades de armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) que está a solicitar. Aumentar esse valor aumenta o custo de computação. Para obter uma lista de valores suportados, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
 * **DatabaseName**: o nome do SQL Data Warehouse que está a criar.
 * **ServerName**: O nome do servidor que está a utilizar para a criação.
 * **ResourceGroupName**: o grupo de recursos que está a utilizar. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.

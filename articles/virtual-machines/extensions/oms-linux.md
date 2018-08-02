@@ -1,9 +1,9 @@
 ---
-title: Extensão de máquina virtual de análise de registos do Azure para Linux | Microsoft Docs
-description: Implemente o agente de análise de registos na máquina de virtual com Linux utilizando uma extensão da máquina virtual.
+title: Extensão de máquina virtual do Log Analytics do Azure para Linux | Documentos da Microsoft
+description: Implemente o agente do Log Analytics na máquina virtual Linux utilizando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,25 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/21/2018
-ms.author: danis
-ms.openlocfilehash: cc8b3f6a4ff6b683fc4ed2777adf6ab0b17f05be
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: roiyz
+ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301490"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414299"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de análise de registo para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-Análise de registos fornece capacidades de remediação de monitorização, alertas e alertas na nuvem e no local ativos. A extensão de máquina virtual do agente de análise do registo para Linux é publicada e suportada pela Microsoft. A extensão instala o agente de análise de registos em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho de análise de registos existente. Este documento fornece detalhes sobre as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual de análise de registos de Linux.
+Log Analytics proporciona capacidades de remediação do alerta, monitorização e alertas na cloud e recursos no local. A extensão de máquina virtual do agente do Log Analytics para Linux é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do Log Analytics para Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente de análise de registos pode ser executada contra estes distribuições do Linux.
+A extensão de agente do Log Analytics pode ser executada nessas distribuições de Linux.
 
 | Distribuição | Versão |
 |---|---|
@@ -43,10 +43,10 @@ A extensão de agente de análise de registos pode ser executada contra estes di
 | Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
 | SUSE Linux Enterprise Server | 11 e 12 (x86/x64) |
 
-### <a name="agent-and-vm-extension-version"></a>Versão do agente e extensão de VM
-A tabela seguinte fornece um mapeamento da versão da extensão da VM de análise do registo e pacote de agente de análise do registo para cada versão. Uma ligação para as notas de versão para a versão de pacote do agente de análise de registos está incluída. Notas de versão incluem detalhes sobre correções e novas funcionalidades disponíveis para uma versão do agente especificado.  
+### <a name="agent-and-vm-extension-version"></a>Versão de agente e a extensão de VM
+A tabela seguinte fornece um mapeamento da versão da extensão de VM do Log Analytics e pacote de agente do Log Analytics para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do Log Analytics está incluída. Notas de versão incluem detalhes sobre correções de bugs e novos recursos disponíveis para uma versão de determinado agente.  
 
-| Versão de extensão de VM com Linux de análise do registo | Versão de pacote de agente de análise do registo | 
+| Versão de extensão de VM do Linux de análise do registo | Versão do pacote de agente de análise de registo | 
 |--------------------------------|--------------------------|
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -62,15 +62,15 @@ A tabela seguinte fornece um mapeamento da versão da extensão da VM de anális
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-Centro de segurança do Azure Aprovisiona o agente de análise de registos e liga a uma área de trabalho de análise de registos predefinida criada pelo ASC na sua subscrição do Azure automaticamente. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e interrompe a ligação com o Centro de segurança do Azure.
+Automaticamente, o Centro de segurança do Azure Aprovisiona o agente Log Analytics e liga-o para uma área de trabalho de Log Analytics do padrão criada pelo ASC na sua subscrição do Azure. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e divide a ligação com o Centro de segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão do agente de análise do registo de Linux requer que a máquina virtual de destino está ligada à internet. 
+A extensão de agente do Log Analytics para o Linux requer que a máquina virtual de destino está ligada à internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente de análise do registo. A extensão requer o ID da área de trabalho e a chave de área de trabalho a partir da área de trabalho de análise de registos do destino; Estes valores podem ser [encontrado na sua área de trabalho de análise de registos](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Porque a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados da definição de extensão protegido de VM do Azure é encriptados e desencriptados apenas na máquina virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A extensão requer o ID de área de trabalho e a chave de área de trabalho da área de trabalho do Log Analytics para destino; Estes valores podem ser [encontrado na sua área de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Uma vez que a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados de definição de protegidos de extensão VM do Azure são encriptados e desencriptados apenas na máquina de virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -100,7 +100,7 @@ O JSON seguinte mostra o esquema para a extensão de agente de análise do regis
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Fabricante | Microsoft.EnterpriseCloud.Monitoring |
+| publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | OmsAgentForLinux |
 | typeHandlerVersion | 1.6 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
@@ -109,11 +109,11 @@ O JSON seguinte mostra o esquema para a extensão de agente de análise do regis
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração de implementação de post, como de integração para análise de registos. Um modelo de Gestor de recursos de exemplo que inclui a extensão de VM de agente de análise do registo pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação, tais como a integração para o Log Analytics. Um modelo do Resource Manager de exemplo que inclui a extensão de VM de agente do Log Analytics pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-A configuração de JSON para uma extensão da máquina virtual pode ser aninhada o recurso de máquina virtual ou colocada no nível superior de um modelo do Resource Manager JSON de raiz ou. A colocação da configuração JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [definir nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
+A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-O exemplo seguinte assume que a extensão da VM é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo a seguir supõe que a extensão de VM é aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 ```json
 {
@@ -138,7 +138,7 @@ O exemplo seguinte assume que a extensão da VM é aninhada o recurso de máquin
 }
 ```
 
-Quando colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual principal e o tipo de reflete a configuração aninhada.  
+Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual principal e o tipo reflete a configuração aninhada.  
 
 ```json
 {
@@ -163,9 +163,9 @@ Quando colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma 
 }
 ```
 
-## <a name="azure-cli-deployment"></a>Implementação da CLI do Azure
+## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-A CLI do Azure pode ser utilizada para implementar a extensão de VM de agente de análise do registo para uma máquina virtual existente. Substitua o *workspaceId* e *workspaceKey* com os da sua área de trabalho de análise de registos. 
+A CLI do Azure pode ser utilizada para implementar a extensão de VM de agente do Log Analytics para uma máquina virtual existente. Substitua a *workspaceId* e *workspaceKey* com os da sua área de trabalho do Log Analytics. 
 
 ```azurecli
 az vm extension set \
@@ -177,11 +177,11 @@ az vm extension set \
   --settings '{"workspaceId": "omsid"}'
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolver problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-É possível obter dados sobre o estado das implementações de extensão do portal do Azure e utilizando a CLI do Azure. Para ver o estado de implementação das extensões para uma determinada VM, execute o seguinte comando utilizando a CLI do Azure.
+Podem ser obtidos dados sobre o estado das implementações de extensão do portal do Azure e com a CLI do Azure. Para ver o estado de implementação de extensões para uma determinada VM, execute o seguinte comando com a CLI do Azure.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -193,22 +193,22 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 /opt/microsoft/omsagent/bin/stdout
 ```
 
-### <a name="error-codes-and-their-meanings"></a>Códigos de erro e os respetivos significados
+### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código de Erro | Significado | Ação possíveis |
+| Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
-| 9 | Ativar chamado prematuramente | [Atualizar o agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
-| 10 | VM já está ligada a uma área de trabalho de análise de registos | Para ligar a VM para a área de trabalho especificada no esquema de extensão, defina stopOnMultipleConnections como false nas definições públicas ou remova esta propriedade. Esta VM obtém cobrada depois de cada área de trabalho está ligado a um. |
-| 11 | Configuração inválida fornecida para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implementação. |
-| 12 | O Gestor de pacotes dpkg está bloqueado | Certifique-se de que todos os dpkg operações de atualização na máquina tiver concluído e tente novamente. |
-| 17 | Falha de instalação de pacote do OMS | 
+| 9 | Ativar chamado prematuramente | [Atualizar o agente do Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
+| 10 | A VM já está ligada a uma área de trabalho do Log Analytics | Para ligar a VM para a área de trabalho especificada no esquema de extensão, definir stopOnMultipleConnections como false nas definições de públicas ou remova esta propriedade. Esta VM é faturado uma vez para cada área de trabalho está ligada. |
+| 11 | Config inválido fornecido para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implementação. |
+| 12 | O Gestor de pacotes dpkg está bloqueado | Certifique-se de que todos os dpkg operações de atualização na máquina tiver concluído a e tente novamente. |
+| 17 | Falha de instalação do pacote OMS | 
 | 19 | Falha de instalação do pacote OMI | 
 | 20 | Falha de instalação do pacote SCX |
 | 51 | Esta extensão não é suportada no sistema de operação da VM | |
-| 55 | Não é possível ligar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID de área de trabalho. |
+| 55 | Não é possível ligar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID da área de trabalho. |
 
 Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do OMS agente para Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda, a qualquer altura neste artigo, pode contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

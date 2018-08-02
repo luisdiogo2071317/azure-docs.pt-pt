@@ -1,56 +1,55 @@
 ---
-title: Ativar o acesso de leitura público para contentores e blobs do armazenamento de Blobs do Azure | Microsoft Docs
-description: Saiba como tornar disponível para acesso anónimo a contentores e blobs e como aceder às mesmas através de programação.
+title: Ativar o acesso de leitura público para contentores e blobs no armazenamento de Blobs do Azure | Documentos da Microsoft
+description: Saiba como tornar disponível para acesso anónimo a contentores e blobs e como devem ser acessados por meio de programação.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29557068"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398823"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
-Pode ativar o acesso de leitura anónimo, público para um contentor e os respetivos blobs no armazenamento de Blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a estes recursos sem partilha a chave de conta e, sem necessidade de uma assinatura de acesso partilhado (SAS).
+Pode ativar o acesso de leitura anónimo, público para um contentor e respetivos blobs no armazenamento de Blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a esses recursos sem partilhar a sua chave de conta e sem a necessidade de uma assinatura de acesso partilhado (SAS).
 
-Acesso de leitura público é melhor para cenários onde pretende que determinados blobs sempre estar disponível para acesso de leitura anónimo. Para um controlo mais preciso, pode criar uma assinatura de acesso partilhado. Assinaturas de acesso partilhado permitem-lhe fornecer acesso restrito com permissões diferentes, durante um período de tempo específico. Para obter mais informações sobre como criar partilhado assinaturas de acesso, consulte [Using partilhado assinaturas de acesso (SAS) no Storage do Azure](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Acesso de leitura público é melhor para cenários onde pretende que determinados blobs para estar sempre disponíveis para acesso de leitura anónimo. Para um controlo mais detalhado, pode criar uma assinatura de acesso partilhado. Assinaturas de acesso partilhado permitem-lhe proporcionar acesso restrito com permissões diferentes, para um período de tempo específico. Para obter mais informações sobre a criação de partilhado assinaturas de acesso, consulte [Using partilhado assinaturas de acesso (SAS) no armazenamento do Azure](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Conceder permissões de utilizadores anónimos a contentores e blobs
-Por predefinição, um contentor e blobs dentro do mesmo podem ser acedidos apenas pelo proprietário da conta de armazenamento. Para atribuir utilizadores anónimos permissões de leitura para um contentor e os respetivos blobs, pode definir as permissões de contentor para permitir o acesso público. Utilizadores anónimos podem ler os blobs num contentor acessível publicamente sem autenticar o pedido.
+Por predefinição, um contentor e os blobs dentro da mesma podem ser acedidos apenas pelo proprietário da conta de armazenamento. Para conceder aos utilizadores anónimos permissões de leitura para um contentor e respetivos blobs, pode definir as permissões de contentor para permitir o acesso público. Utilizadores anónimos podem ler blobs num contentor acessível ao público sem autenticar o pedido.
 
 Pode configurar um contentor com as seguintes permissões:
 
-* **Acesso de leitura não público:** o contentor e os respetivos blobs podem ser acedidos apenas por proprietário da conta de armazenamento. Esta é a predefinição para todos os novos contentores.
-* **Acesso para blobs só de leitura de público:** Blobs no contentor podem ser lidos por pedido anónimo, mas não estão disponíveis dados de contentor. Os clientes anónimos não é possível enumerar os blobs no contentor.
-* **Total de acesso de leitura público:** todos os dados de blob e contentor podem ser lidos por pedido anónimo. Os clientes podem enumerar os blobs no contentor por pedido anónimo, mas não é possível enumerar os contentores na conta de armazenamento.
+* **Acesso de leitura não público:** o contentor e respetivos blobs podem ser acedidos apenas pelo proprietário da conta de armazenamento. Esta é a predefinição para todos os novos contentores.
+* **Acesso apenas para blobs de leitura pública:** Blobs no contentor podem ser lidos por pedido anónimo, mas os dados de contentor não estão disponíveis. Clientes anônimos não é possível enumerar os blobs no contentor.
+* **Acesso de leitura público total:** todos os dados de contentor e blob podem ser lido por pedido anónimo. Os clientes podem enumerar os blobs no contentor ao pedido anónimo, mas não é possível enumerar os contentores na conta de armazenamento.
 
-Pode utilizar o seguinte para definir as permissões do contentor:
+Pode utilizar o seguinte para definir permissões de contentor:
 
 * [Portal do Azure](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [CLI 2.0 do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
-* Através de programação, ao utilizar uma das bibliotecas de cliente de armazenamento ou a API REST
+* Por meio de programação, ao utilizar uma das bibliotecas de cliente do armazenamento ou a API REST
 
 ### <a name="set-container-permissions-in-the-azure-portal"></a>Definir permissões de contentor no portal do Azure
-Definir as permissões do contentor do [portal do Azure](https://portal.azure.com), siga estes passos:
+Para definir permissões de contentor [portal do Azure](https://portal.azure.com), siga estes passos:
 
-1. Abra o **conta de armazenamento** painel no portal. Pode encontrar a conta do storage ao selecionar **contas do Storage** no painel do menu principal do portal.
-1. Em **serviço BLOB** no painel de menu, selecione **contentores**.
-1. Faça duplo clique na linha contentor ou selecione o botão de reticências para abrir o contentor **menu de contexto**.
+1. Abra sua **conta de armazenamento** painel no portal. Pode encontrar a sua conta de armazenamento selecionando **contas de armazenamento** no painel do menu principal do portal.
+1. Sob **serviço BLOB** no painel de menu, selecione **contentores**.
+1. Faça duplo clique na linha de contentor ou selecione as reticências para abrir o contêiner **menu de contexto**.
 1. Selecione **política de acesso** no menu de contexto.
-1. Selecione um **aceder tipo** no menu pendente.
+1. Selecione um **acessar tipo** no menu pendente.
 
-    ![Metadados do contentor caixa de diálogo Editar](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+    ![Editar caixa de diálogo de metadados do contentor](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### <a name="set-container-permissions-with-net"></a>Defina as permissões de contentor com o .NET
-Para definir as permissões para um contentor com c# e a biblioteca de clientes de armazenamento para .NET, obter permissões existentes no contentor ao chamar o **GetPermissions** método. Em seguida, defina o **PublicAccess** propriedade para o **BlobContainerPermissions** objeto é devolvido pelo **GetPermissions** método. Por fim, chame o **SetPermissions** método com as permissões atualizados.
+### <a name="set-container-permissions-with-net"></a>Definir permissões de contentor com o .NET
+Para definir permissões para um contentor com o c# e a biblioteca de cliente de armazenamento para .NET, obter permissões existentes que o contentor ao chamar o **GetPermissions** método. Em seguida, defina o **PublicAccess** propriedade para o **BlobContainerPermissions** objeto devolvido pelos **GetPermissions** método. Por fim, chame o **SetPermissions** método com as permissões atualizadas.
 
-O exemplo a seguir define as permissões o contentor para acesso de leitura público completa. Para definir as permissões para acesso de leitura público para apenas blobs, defina o **PublicAccess** propriedade **BlobContainerPublicAccessType.Blob**. Para remover todas as permissões para utilizadores anónimos, defina a propriedade como **BlobContainerPublicAccessType.Off**.
+O exemplo seguinte define as permissões o contentor para acesso de leitura público completa. Para definir permissões para acesso de leitura público para blobs apenas, defina o **PublicAccess** propriedade **BlobContainerPublicAccessType.Blob**. Para remover todas as permissões para utilizadores anónimos, defina a propriedade **BlobContainerPublicAccessType.Off**.
 
 ```csharp
 public static void SetPublicContainerPermissions(CloudBlobContainer container)
@@ -62,10 +61,10 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>Aceder anonimamente a contentores e blobs
-Um cliente que acede ao contentores e blobs anonimamente pode utilizar construtores que não necessitem de credenciais. Os exemplos seguintes mostram algumas formas diferentes de referenciar recursos do serviço Blob anonimamente.
+Um cliente que acede aos contentores e blobs anonimamente pode utilizar construtores que não necessitam de credenciais. Os exemplos seguintes mostram algumas formas diferentes para fazer referência a recursos de serviço Blob anonimamente.
 
-### <a name="create-an-anonymous-client-object"></a>Criar um objeto de cliente anónimo
-Pode criar um novo objeto de cliente de serviço para acesso anónimo ao fornecer o ponto final do serviço Blob para a conta. No entanto, também deve conhecer o nome de um contentor nessa conta que está disponível para acesso anónimo.
+### <a name="create-an-anonymous-client-object"></a>Criar um objeto de cliente anônimo
+Pode criar um novo objeto de cliente de serviço para acesso anónimo ao fornecer o ponto final de serviço de BLOBs para a conta. No entanto, também deve saber o nome de um contentor nessa conta que está disponível para acesso anónimo.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -83,8 +82,8 @@ public static void CreateAnonymousBlobClient()
 }
 ```
 
-### <a name="reference-a-container-anonymously"></a>Referência a um contentor anonimamente
-Se tiver o URL para um contentor anonimamente disponível, pode utilizá-lo para o contentor de referenciar diretamente.
+### <a name="reference-a-container-anonymously"></a>Fazer referência a um contentor anonimamente
+Se tiver o URL para um contentor que está disponível de forma anônima, pode utilizá-lo para referenciar diretamente o contentor.
 
 ```csharp
 public static void ListBlobsAnonymously()
@@ -100,8 +99,8 @@ public static void ListBlobsAnonymously()
 }
 ```
 
-### <a name="reference-a-blob-anonymously"></a>Referenciar um blob anonimamente
-Se tiver o URL para um blob que está disponível para acesso anónimo, pode referenciar o blob diretamente utilizando esse URL:
+### <a name="reference-a-blob-anonymously"></a>Um blob de referência anonimamente
+Se tiver o URL para um blob que está disponível para acesso anónimo, pode referenciar o blob diretamente usando esse URL:
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -111,36 +110,36 @@ public static void DownloadBlobAnonymously()
 }
 ```
 
-## <a name="features-available-to-anonymous-users"></a>Funcionalidades disponíveis para utilizadores anónimos
-Mostra o seguinte tabela que operações podem ser chamadas por utilizadores anónimos quando ACL um contentor está definido para permitir o acesso público.
+## <a name="features-available-to-anonymous-users"></a>Recursos disponíveis para utilizadores anónimos
+A tabela seguinte mostra as operações que podem ser chamadas por usuários anônimos, quando a ACL de um contentor está definido para permitir o acesso público.
 
 | Operação REST | Permissão com acesso de leitura público completa | Permissão com acesso de leitura público para blobs apenas |
 | --- | --- | --- |
-| Contentores de lista |Apenas o proprietário |Apenas o proprietário |
+| Lista de contentores |Apenas o proprietário |Apenas o proprietário |
 | Criar contentor |Apenas o proprietário |Apenas o proprietário |
 | Obter as propriedades do contentor |Todos |Apenas o proprietário |
 | Obter metadados do contentor |Todos |Apenas o proprietário |
-| Definir os metadados do contentor |Apenas o proprietário |Apenas o proprietário |
+| Metadados do conjunto de contentor |Apenas o proprietário |Apenas o proprietário |
 | Obter o contentor ACL |Apenas o proprietário |Apenas o proprietário |
-| Definir o contentor ACL |Apenas o proprietário |Apenas o proprietário |
-| Eliminar o contentor |Apenas o proprietário |Apenas o proprietário |
-| Lista de Blobs |Todos |Apenas o proprietário |
-| Colocar Blob |Apenas o proprietário |Apenas o proprietário |
+| Definir o contentor de ACL |Apenas o proprietário |Apenas o proprietário |
+| Eliminar contentor |Apenas o proprietário |Apenas o proprietário |
+| Listar os Blobs |Todos |Apenas o proprietário |
+| Colocar o Blob |Apenas o proprietário |Apenas o proprietário |
 | Obter o Blob |Todos |Todos |
-| Obter propriedades de Blob |Todos |Todos |
-| Defina as propriedades de Blob |Apenas o proprietário |Apenas o proprietário |
-| Obter metadados do Blob |Todos |Todos |
-| Definir os metadados do Blob |Apenas o proprietário |Apenas o proprietário |
-| Colocar bloco |Apenas o proprietário |Apenas o proprietário |
-| Obter a lista de bloqueios (apenas blocos consolidados) |Todos |Todos |
-| Obter a lista de bloqueios (apenas blocos não consolidados ou todos os blocos) |Apenas o proprietário |Apenas o proprietário |
+| Obter as propriedades do Blob |Todos |Todos |
+| Definir as propriedades do Blob |Apenas o proprietário |Apenas o proprietário |
+| Obter Metadados do Blob |Todos |Todos |
+| Definir metadados do Blob |Apenas o proprietário |Apenas o proprietário |
+| Colocar o bloco |Apenas o proprietário |Apenas o proprietário |
+| Obter lista de bloqueios (apenas blocos confirmados) |Todos |Todos |
+| Obter a lista de bloqueios (apenas os blocos não consolidados ou todos os blocos) |Apenas o proprietário |Apenas o proprietário |
 | Colocar a lista de bloqueios |Apenas o proprietário |Apenas o proprietário |
-| Eliminar o Blob |Apenas o proprietário |Apenas o proprietário |
+| Eliminar Blob |Apenas o proprietário |Apenas o proprietário |
 | Copiar Blob |Apenas o proprietário |Apenas o proprietário |
 | Blob de instantâneo |Apenas o proprietário |Apenas o proprietário |
 | Blob de concessão |Apenas o proprietário |Apenas o proprietário |
 | Colocar a página |Apenas o proprietário |Apenas o proprietário |
-| Obter intervalos de página |Todos |Todos |
+| Os intervalos obter páginas |Todos |Todos |
 | Blob de acréscimo |Apenas o proprietário |Apenas o proprietário |
 
 ## <a name="next-steps"></a>Passos Seguintes

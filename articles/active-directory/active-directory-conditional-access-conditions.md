@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248285"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413149"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são condições no acesso condicional do Azure Active Directory? 
 
@@ -152,7 +152,7 @@ Casos de utilização comuns para esta condição são as políticas com as prot
 
 - Bloquear o acesso de aplicações web, mas permitir o acesso das aplicações móveis e de Desktops.
 
-Pode aplicar esta condição para SSO da web e protocolos de autenticação moderna. Também pode aplicá-la para aplicativos de email que usam o Microsoft Exchange ActiveSync. Os exemplos são as aplicações de e-mail nativo na maioria dos smartphones. Atualmente, as aplicações de cliente que utilizam os protocolos herdados precisam de ser protegidas com os serviços de Federação do Azure AD.
+Pode aplicar esta condição para SSO da web e protocolos de autenticação moderna. Também pode aplicá-la para aplicativos de email que usam o Microsoft Exchange ActiveSync. Os exemplos são as aplicações de e-mail nativo na maioria dos smartphones. 
 
 Só pode selecionar a condição de aplicações de cliente se o Microsoft Office 365 Exchange Online é a única aplicação na cloud que selecionou.
 

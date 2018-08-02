@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136660"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398959"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
@@ -138,6 +138,42 @@ Os utilizadores podem rever e ver os termos de utilização que aceitaram, utili
 
 1. A partir daí, pode rever os Termos de utilização que aceitou. 
 
+## <a name="edit-terms-of-use-details"></a>Editar detalhes de utilização dos termos de
+É possível editar alguns detalhes dos termos de utilização, mas não é possível modificar um documento existente. O procedimento seguinte descreve como editar os detalhes.
+
+1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Selecione os termos de utilização que pretende editar.
+
+1. Clique em **editar termos**.
+
+1. Em termos de edição do painel de utilização, altere o nome, nome a apresentar ou exigir que os utilizadores expandam os valores.
+
+    ![Adicionar Termos de Utilização](media/active-directory-tou/edit-tou.png)
+
+1. Clique em **guardar** para guardar as alterações.
+
+    Depois de guardar as alterações, os utilizadores terão voltem os novos termos.
+
+## <a name="add-a-terms-of-use-language"></a>Adicionar termos de linguagem de utilização
+O procedimento seguinte descreve como adicionar termos de linguagem de utilização.
+
+1. Inicie sessão no Azure e navegue para **Termos de utilização** em [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Selecione os termos de utilização que pretende editar.
+
+1. No painel de detalhes, clique nas **idiomas** separador.
+
+    ![Adicionar Termos de Utilização](media/active-directory-tou/languages-tou.png)
+
+1. Clique em **Adicionar idioma**.
+
+1. Em termos de adicionar do painel de linguagem de uso, carregue o localizados PDF e selecione o idioma.
+
+    ![Adicionar Termos de Utilização](media/active-directory-tou/language-add-tou.png)
+
+1. Clique em **adicionar** para adicionar o idioma.
+
 ## <a name="delete-terms-of-use"></a>Eliminar Termos de utilização
 Pode eliminar Termos de utilização antigos com o procedimento seguinte.
 
@@ -175,8 +211,11 @@ R: o utilizador conta em termos de relatório de utilização e que aceite/recus
 **P: por que vejo um número diferente de consentimentos em termos de relatório de utilização vs. o Azure AD, registos de auditoria?**</br>
 R: os termos de relatório de utilização são armazenados durante a vida útil do que termos de utilização, ao mesmo tempo a auditoria do Azure AD, os registos são armazenados durante 30 dias. Além disso, os termos de relatório de utilização só apresenta o estado de consentimento atual de utilizadores. Por exemplo, se um utilizador recusa e, em seguida, aceita, os termos de utilização relatório mostrará apenas esse utilizador aceite. Se precisar de ver o histórico, pode utilizar o Azure AD registos de auditoria.
 
-**P: Se alterar os termos de utilização, é necessário que os utilizadores aceitar novamente?**</br>
-R: Sim, um administrador pode alterar os termos de utilização e requer que os utilizadores voltem os novos termos.
+**P: se posso editar os detalhes para os termos de utilização, é necessário que os utilizadores aceitar novamente?**</br>
+R: Sim, se um administrador editar os detalhes para os termos de utilização, ele requer que os utilizadores voltem os novos termos.
+
+**P: posso atualizar uma existente termos de utilização documento?**</br>
+R: atualmente, não é possível atualizar uma existente termos de documento de utilização. Para alterar os termos de utilização de documento, terá de criar novos termos de instância de utilização.
 
 **P: se hiperlinks são em termos de utilizar o documentos PDF, os utilizadores finais será capazes de clicar nas mesmas?**</br>
 R: o PDF é processado por predefinição como um JPEG, pelo que não são clicáveis hiperlinks. Os utilizadores têm a opção de selecionar **com problemas em visualizar? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks são suportados.

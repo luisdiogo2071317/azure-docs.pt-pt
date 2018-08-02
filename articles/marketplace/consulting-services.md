@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950411"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414706"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
 Serviços no Azure Marketplace de consultoria fornece aos parceiros Microsoft o objetivo de ligar clientes com os serviços para suportar e expandir a sua utilização do Azure. O Azure Marketplace suporta a listagem das ofertas de serviço de consultoria de parceiros de integrador de sistema (SI) da Microsoft. 
@@ -31,17 +31,17 @@ As lojas de marketplace estão alinhadas com os públicos-alvo e produtos cloud 
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|
-|Audiência   |Os profissionais de TI e programadores da Cloud|Os utilizadores empresariais / tomadores de decisão de linha de negócio|
+|**Público-alvo**   |**Os profissionais de TI e programadores da cloud**|**Os utilizadores empresariais / tomadores de decisão de linha de negócio**|
 |Relevância de solução     |Aplicações técnicas criadas para ou no Azure|Aplicações empresariais que tiram partido / estendem D365, o Power BI, do Office 365, do Azure. (Suplemento ou complemento concluída aplicações)|
 |Opções de publicação     |Contacte-me, versão de avaliação, Transact ou dos serviços de consultoria|Contacte-Me, versão de avaliação ou dos serviços de consultoria|
 |Na experiência de produto      |Portal de Gestão do Azure|Dynamics 365, Office 365, aplicações de cliente do Office| 
 |Outros      |No local de publicação através do Azure Stack|Serviços de consultoria para o Dynamics e o Power BI|
 
->[!Note]
->Serviços no Azure Marketplace de consultoria devem tirar partido das ofertas destinadas a um público técnico com foco no *soluções técnicas do Azure e serviços.*
-
-
 Ofertas de serviço que são baseadas no Microsoft Dynamics 365, o Office 365 e o Power BI são elegíveis para ser listado no AppSource. Para obter mais informações, consulte [diretrizes de listagem de serviços de consultoria Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+>[!Note]
+>Serviços no Azure Marketplace de consultoria devem tirar partido das ofertas destinadas a um * * público técnico com se concentra em *soluções técnicas do Azure e serviços.* **
+
 
 >[!TIP]
 >Esta informação destina-se apenas a serviços do Azure Marketplace. Para publicar a loja Azure Marketplace, irá tornar esta seleção, selecionando "Azure" no menu pendente "Produto principal" no Portal de parceiros de nuvem. Para publicar no AppSource, irá tornar esta seleção, selecionando "do Dynamics 365", "Power BI" ou "Power Apps" no menu pendente "Produto principal" no Portal de parceiros de nuvem.
@@ -59,7 +59,7 @@ Parceiros também devem ter uma **competência silver ou gold** na área de rele
 Para obter mais informações, consulte [competências através do Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
  
 
-Parceiros de SI podem submeter ofertas de serviço de consultoria para os seguintes países de 18. 
+**Parceiros de SI podem submeter ofertas de serviço de consultoria para os seguintes países de 18**
 
 |Países elegíveis |  |  |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ Parceiros de SI podem submeter ofertas de serviço de consultoria para os seguin
 |Finlândia     |México         |Reino Unido         |
 |França     |Países Baixos         |Estados Unidos         |
 
-O lançamento do Azure Marketplace de serviços de consultoria entram primeiro em direto para a Austrália, Canadá, Reino Unido e Estados Unidos. Os catálogos para outros países serão em direto após um número significativo e apelativas seleção de ofertas de serviço foram submetidos por parceiros e aprovado pela Microsoft.
+O lançamento do Azure Marketplace de serviços de consultoria entrarão em direto no geo-região específica. Primeira inicialização será: Estados Unidos, Canadá, Reino Unido e Austrália. Os catálogos para outros países serão em direto após um número significativo e apelativas seleção de ofertas de serviço foram submetidos por parceiros e aprovado pela Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Como registar-se para serviços no Azure Marketplace de consultoria
 Comece por registar os serviços de consultoria com [do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
@@ -121,7 +121,7 @@ As ofertas têm de ser de um dos seguintes cinco tipos de serviço (é possível
 * **Prova de conceito**: uma implementação de âmbito limitado para determinar se uma solução cumpre os requisitos de cliente. 
 * **Workshop**: um compromisso interativo que é realizado no local de um cliente. Ele pode envolver-se ao treinamento, informes, avaliações ou demonstrações que são criadas no ambiente ou de dados do cliente. 
 
-Nota: exceto para o *Briefing* tipo de serviço, serviços de consultoria pode ser oferecido (ou seja, no local na localização de um cliente ou recurso de um parceiro) presenciais ou virtualmente (ou seja, através de teleconferencing, web conferência ou remoto implementação). Informes devem ser disponibilizados em pessoa.
+**Nota:** exceto para o *resumo* tipo de serviço, serviços de consultoria pode ser oferecido (ou seja, no local na localização de um cliente ou recurso de um parceiro) presenciais ou virtualmente (ou seja, através de teleconferencing, da web conferência ou implementação remota). Informes devem ser disponibilizados em pessoa.
 
 Assim que tiver configurado os elementos necessários listados acima, a equipa de revisão de conteúdo deverá validar que sua descrição da oferta é informativo e concluída para o seu público-alvo. 
 
@@ -144,11 +144,11 @@ Ao revisar oferecem descrições e resumos da oferta, a equipe aplicará os segu
 
 |Tipo de Oferta  |Necessário |Recomendado  |
 |---------|---------|---------|
-|Avaliação    |   Incluir uma agenda detalhada para obter avaliações de vários dias ou várias semanas e articular o que resultado final que o cliente pode esperar      |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
-|Briefing    |   Articular o resultado final que o cliente pode esperar. Lembre-se de que esse informes também devem ser oferecidos pessoalmente. Se está a fornecer um serviço virtual, escolha um tipo de oferta diferente    |  Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior       |
-|Implementação    |  Incluir uma agenda detalhada para implementações de vários dias ou várias semanas e articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso       |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
-|Prova de conceito    |    Articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso     | Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior        |
-|Workshop    |   Inclua uma agenda detalhada diária, semanal ou mensal, consoante a duração escolhida da sua oferta. Articular o que as metas de aprendizado ou outros materiais a entregar é de seu workshop     |   Otimizar a sua oferta resumo com suas palavras-chave da otimização de mecanismo de pesquisa superior      |
+|**Avaliação**    |   Incluir uma agenda detalhada para obter avaliações de vários dias ou várias semanas e articular o que resultado final que o cliente pode esperar      |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
+|**Resumo**    |   Articular o resultado final que o cliente pode esperar. Lembre-se de que esse informes também devem ser oferecidos pessoalmente. Se está a fornecer um serviço virtual, escolha um tipo de oferta diferente    |  Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior       |
+|**Implementação**    |  Incluir uma agenda detalhada para implementações de vários dias ou várias semanas e articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso       |    Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior     |
+|**Prova de conceito**    |    Articular quais alterações de engenharia, artefactos técnicos ou outros artefatos de que um cliente pode esperar que os resultados do compromisso     | Otimizar a sua oferta resumo com suas palavras-chave de otimização do mecanismo de pesquisa superior        |
+|**Workshop**    |   Inclua uma agenda detalhada diária, semanal ou mensal, consoante a duração escolhida da sua oferta. Articular o que as metas de aprendizado ou outros materiais a entregar é de seu workshop     |   Otimizar a sua oferta resumo com suas palavras-chave da otimização de mecanismo de pesquisa superior      |
 
 No Portal de parceiro de Cloud, pode adicionar formatação à sua listagem usando [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Isso é uma linguagem de design simples que o ajudará a adicionar polaco a sua listagem. 
 
@@ -160,3 +160,12 @@ No Portal de parceiro de Cloud, pode adicionar formatação à sua listagem usan
 *   Quebra de linha depois de cabeçalho
 *   * * = bold (não existe espaço) (Ex: **sem espaço**) • • de resumo de oferta Italicize Agenda e os resultados finais é um cabeçalho
 
+## <a name="next-steps"></a>Próximos Passos
+
+Se ainda não fez isso, 
+
+- [Registar](https://azuremarketplace.microsoft.com/sell) no marketplace
+
+Se está registado e trabalhar no Portal de parceiros da Cloud, 
+
+- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta

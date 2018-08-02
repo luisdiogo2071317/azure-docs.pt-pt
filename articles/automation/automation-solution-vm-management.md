@@ -6,37 +6,34 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/30/2018
+ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bb59206f1b9f63f7d0310d35fc888cec1546874
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364571"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399054"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
 A iniciar/parar VMs fora do horário comercial solução inicia e interrompe as máquinas virtuais do Azure em agendas definidas pelo utilizador, fornece informações através do Azure Log Analytics e envia e-mails opcionais ao utilizar [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md). Ele oferece suporte do Azure Resource Manager e as VMs clássicas na maioria dos cenários.
 
-Esta solução fornece uma opção de automatização descentralizado para os utilizadores que pretende reduzir os custos dos através da utilização de recursos sem servidor de baixo custo. Com esta solução, pode:
+Esta solução fornece uma opção de automatização descentralizada de baixo custo para os utilizadores que queiram otimizar seus custos VM. Com esta solução, pode:
 
 - Agendar VMs para iniciar e parar.
 - Agendar VMs para iniciar e parar em ordem ascendente através de etiquetas do Azure (não suportado para VMs clássicas).
 - Auto-parar VMs com base na utilização de CPU baixa.
 
+Seguem-se limitações para a solução atual:
+
+- Essa solução gerencia VMs em qualquer região, mas só pode ser utilizada na mesma subscrição como a sua conta de automatização do Azure.
+- Esta solução está disponível no Azure e AzureGov para qualquer região que suporte uma área de trabalho do Log Analytics, uma conta de automatização do Azure e alertas. Regiões de AzureGov atualmente não suportam a funcionalidade de correio eletrónico.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Os runbooks funcionam com uma [conta Run As do Azure](automation-create-runas-account.md). A conta Run As é o método de autenticação preferencial, porque utiliza a autenticação de certificado em vez de uma palavra-passe que pode expirar ou ser alteradas frequentemente.
-- Essa solução gerencia apenas as VMs que estão na mesma subscrição como a sua conta de automatização do Azure.
-- Esta solução está disponível no Azure e AzureGov para qualquer região que suporte uma área de trabalho do Log Analytics, uma conta de automatização do Azure e alertas.
-
-  > [!NOTE]
-  > Os runbooks de gerir a agenda VM podem segmentar VMs em qualquer região.
-
-  > [!NOTE]
-  > Regiões de AzureGov não suportam a funcionalidade de correio eletrónico.
+Os runbooks para esta solução funcionam com um [conta Run As do Azure](automation-create-runas-account.md). A conta Run As é o método de autenticação preferencial, porque utiliza a autenticação de certificado em vez de uma palavra-passe que pode expirar ou ser alteradas frequentemente.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -64,7 +61,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Atualizou o log Analytics [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
 
 1. Depois de fornecer as informações necessárias sobre o **área de trabalho do OMS** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
-1. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, terá de também criar uma nova conta de automatização a ser associado ele. Selecione **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
+1. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho de análise de registo. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
    - No campo **Nome**, introduza o nome da conta de Automatização.
 
     Todas as outras opções são preenchidas automaticamente com base na área de trabalho da Log Analytics selecionada. Estas opções não podem ser modificadas. O método de autenticação predefinido para os runbooks incluídos nesta solução é a conta Run As do Azure. Depois de clicar em **OK**, as opções de configuração são validadas e a conta de automatização é criada. Pode acompanhar o progresso em **Notificações**, no menu.

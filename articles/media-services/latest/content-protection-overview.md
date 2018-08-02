@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115235"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399758"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -30,7 +30,7 @@ A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serv
 
 &#42;*encriptação dinâmica suporta AES-128 "chave não encriptada", CBCS e CENC. Para obter detalhes, consulte a matriz de suporte [aqui](#streaming-protocols-and-encryption-types).*
 
-Este artigo explica os conceitos e terminologia relevante para compreender a proteção de conteúdo com os Media Services. O artigo também fornece ligações para artigos que discutem como proteger o conteúdo. 
+Este artigo explica os conceitos e terminologia relevante para compreender a proteção de conteúdo com os Media Services. O artigo também tem o [FAQ](#faq) secção e fornece ligações para artigos que mostram como proteger o conteúdo. 
 
 ## <a name="main-components-of-the-content-protection-system"></a>Componentes principais do sistema de proteção de conteúdo
 
@@ -43,7 +43,7 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
   * Chaves de conteúdo, protocolos de transmissão em fluxo e DRMs correspondentes aplicados, definição de encriptação de DRM
 
   > [!NOTE]
-  > Pode criptografar cada ativo com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Ver [transmissão em fluxo protocolos e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
+  > Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
   
   Os artigos seguintes mostram os passos para encriptar os conteúdos com AES e/ou DRM: 
   
@@ -125,6 +125,65 @@ Com uma conteúdo chave política de token restrito, a chave de conteúdo é env
 
 Ao configurar a política de token restrito, tem de especificar a chave de verificação primária, emissor e parâmetros de público-alvo. A chave de verificação primária contém a chave de que o token foi assinado com. O emissor é o serviço de token seguro que emite o token. O público-alvo, às vezes chamado de âmbito, descreve a intenção do token ou o recurso o token de acesso a autoriza. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Perguntas mais frequentes
+
+### <a name="question"></a>Pergunta
+
+Como implementar o sistema de (PlayReady, Widevine e FairPlay) do multi-DRM usando serviços de multimédia do Azure (AMS) v3 e também o serviço de entrega de licença/chave de AMS utilizar?
+
+### <a name="answer"></a>Resposta
+
+Para o cenário de ponto-a-ponto, consulte a [seguinte o exemplo de código](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
+
+O exemplo mostra como:
+
+1. Criar e configurar ContentKeyPolicies.
+
+  O exemplo contém funções que configuram [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), e [FairPlay](fairplay-license-overview.md) licenças.
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. Crie um StreamingLocator que está configurado para transmitir um recurso de encriptados. 
+
+  No caso deste exemplo, definimos **StreamingPolicyName** para **PredefinedStreamingPolicy.SecureStreaming** que suporta a encriptação de envelope e cenc e define duas chaves de conteúdo sobre o StreamingLocator. 
+
+  Se também pretender encriptar com FairPlay, defina o **StreamingPolicyName** ao **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+
+3. Crie um token de teste.
+
+  O **GetTokenAsync** método mostra como criar um teste de token.
+  
+4. Crie o URL de transmissão em fluxo.
+
+  O **GetDASHStreamingUrlAsync** método mostra como criar o URL de transmissão em fluxo. Neste caso, os fluxos de URL a **DASH** conteúdo.
+
+### <a name="question"></a>Pergunta
+
+Como e onde obter JWT token antes de o utilizar para a licença de pedido ou a chave?
+
+### <a name="answer"></a>Resposta
+
+1. Para a produção, tem de ter um Secure Token serviços (STS) (serviço web) que emite o token JWT mediante um pedido HTTPS. Para teste, poderia usar o código mostrado na **GetTokenAsync** método definido na [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ http://aka.ms/jwt ](http://aka.ms/jwt). 
+* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ http://aka.ms/amtest ](http://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
+
+### <a name="question"></a>Pergunta
+
+Como autorizar pedidos para transmitir vídeos em fluxo com encriptação AES?
+
+### <a name="answer"></a>Resposta
+
+A abordagem correta é tirar partido do STS (serviço Token seguro):
+
+STS, dependendo do perfil de usuário, adicione afirmações diferentes (por exemplo, "Premium User", "Utilizador básico", "Utilizador de avaliação gratuita"). Com afirmações diferentes num JWT, o utilizador pode ver o conteúdo diferente. Obviamente, para conteúdo diferente/recurso, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
+
+Utilize APIs de serviços de suporte de dados do Azure para configurar/chave de licença de entrega e a criptografia de seus ativos (conforme mostrado na [este exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092125"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414447"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore
 
@@ -22,6 +22,8 @@ Este artigo fornece os limites de recursos detalhados para conjuntos elásticos 
 
 Para baseado em DTU limites de modelo compra, veja [limites de recursos baseados em DTU de base de dados do SQL - conjuntos elásticos](sql-database-dtu-resource-limits-elastic-pools.md).
 
+> [!IMPORTANT]
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Conjunto elástico: tamanhos de armazenamento e níveis de desempenho
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283525"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413108"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
 
@@ -50,6 +50,7 @@ Página de reposição de leitura, os seguintes passos para saber mais sobre a l
        * Se os métodos de autenticação não estiverem configurados, o utilizador recomenda que contacte o seu administrador para repor a palavra-passe.
      * Se a política requer dois métodos, em seguida, ele garante que o utilizador tem os dados apropriados definidos para, pelo menos, dois dos métodos de autenticação ativados pela política de administrador.
        * Se os métodos de autenticação não estiverem configurados, o utilizador recomenda que contacte o seu administrador para repor a palavra-passe.
+     * Se uma função de administrador do Azure é atribuída ao utilizador a política de palavra-passe de porta de dois segura é imposta. Obter mais informações sobre esta política podem ser encontradas na seção [diferenças de política de reposição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Verifica se a senha do usuário é gerida no local (autenticação federada de pass-through ou sincronizados de hash de palavra-passe).
      * Se a repetição de escrita é implementada e a senha do usuário é geridos no local, em seguida, o utilizador tem permissão para continuar para autenticar e repor a palavra-passe.
      * Se a repetição de escrita não estiver implementada e a senha do usuário é geridos no local, é pedido ao utilizador que contacte o seu administrador para repor a palavra-passe.
@@ -68,6 +69,9 @@ Se estiver ativada a SSPR, tem de selecionar pelo menos uma das seguintes opçõ
 
 Os utilizadores só podem repor a palavra-passe, se tiverem dados presentes nos métodos de autenticação que o administrador tiver ativado.
 
+> [!WARNING]
+> Contas atribuídas funções de administrador do Azure será necessárias usar métodos, conforme definido na secção [diferenças de política de reposição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Autenticação][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticação necessários
@@ -85,7 +89,7 @@ Quando utiliza uma aplicação móvel, como a aplicação Microsoft Authenticato
 * Quando os administradores necessitam de um método a ser utilizado para repor uma palavra-passe, o código de verificação é a única opção disponível.
 * Quando os administradores necessitam de dois métodos a ser utilizado para repor uma palavra-passe, os utilizadores conseguem utilizar **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
 
-| Número de métodos necessários para a reposição | um | Dois |
+| Número de métodos necessários para a reposição | Um | Dois |
 | :---: | :---: | :---: |
 | Funcionalidades de aplicações móveis disponíveis | Código | Código ou de notificação |
 

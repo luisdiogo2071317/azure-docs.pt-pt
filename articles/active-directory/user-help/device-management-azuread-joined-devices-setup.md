@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 511580b95646677a231a68862cae8a6aa57abcb0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345536"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411714"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Dispositivos associados ao conjunto de cópia de segurança do Azure Active Directory
 
@@ -28,7 +28,7 @@ Se quiser colocar os dispositivos Windows 10 pertencentes no trabalho sob o cont
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para associar um dispositivo Windows 10, o serviço de registo do dispositivo tem de ser configurado para que possa registar dispositivos. Além de ter permissão para associar dispositivos no seu inquilino do Azure AD, tem de ter menos dispositivos registados que o máximo configurado. Para obter mais informações, consulte [configurar definições do dispositivo](../device-management-azure-portal.md#configure-device-settings).
+Para associar um dispositivo Windows 10, o serviço de registo do dispositivo tem de ser configurado para que possa registar dispositivos. Além de ter permissão para associar dispositivos no seu inquilino do Azure AD, tem de ter menos dispositivos registados que o máximo configurado. Para obter mais informações, consulte [configurar definições do dispositivo](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -116,16 +116,14 @@ Também pode rever as definições de dispositivos no portal do Azure AD.
 
 ![Ligado](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Para obter mais informações, consulte [localizar dispositivos](../device-management-azure-portal.md#locate-devices).
+Para obter mais informações, consulte [localizar dispositivos](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte: 
 
-- O [introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
-- [Gestão de dispositivos no portal do Azure](../device-management-azure-portal.md)
-- 
-
+- O [introdução à gestão de dispositivos no Azure Active Directory](../devices/overview.md)
+- [Gestão de dispositivos no portal do Azure](../devices/device-management-azure-portal.md)
 
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343105"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413584"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatizar o SO e aplicação de patches de estrutura com o ACR Build
 
@@ -33,7 +33,20 @@ Imagem de contentor do acionador baseia-se automaticamente quando o código ser 
 
 Início do ciclo de vida de gestão é iniciado antes dos desenvolvedores confirmar suas primeiras linhas de código. Da ACR Build [rápido criar](container-registry-tutorial-quick-build.md) funcionalidade permite uma experiência de desenvolvimento integrado de loop interno local, a descarga de compilações para o Azure. Com compilações rápidas, pode verificar as definições de compilação automatizada antes de consolidar a seu código.
 
-Usando os familiares `docker build` formato, o [compilação do az acr] [ az-acr-build] comando na CLI do Azure utiliza um contexto local, envia-os para o serviço de criação do ACR e, por predefinição, envia a imagem criada para o registo após conclusão. ACR Build segue os registos georreplicado, permitindo que as equipes de desenvolvimento dispersas aproveitar o registro replicado mais próximo.
+Usando os familiares `docker build` formato, o [compilação do az acr] [ az-acr-build] comando na CLI do Azure demora um **contexto** (o conjunto de ficheiros para criar), envia-os para o serviço de criação do ACR e, por predefinição, envia a imagem criada para o registo após a conclusão.
+
+A tabela seguinte mostra alguns exemplos de localizações de contexto suportados para o ACR Build:
+
+| Localização de contexto | Descrição | Exemplo |
+| ---------------- | ----------- | ------- |
+| Sistema de ficheiros local | Ficheiros dentro de um diretório no sistema de ficheiros local. | `/home/user/projects/myapp` |
+| Ramo principal do GitHub | Ramo de arquivos dentro do mestre (ou outro padrão) de um repositório do GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Ramo do GitHub | Ramo específico de um repositório do GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Pedido Pull do GitHub | Pedido Pull num repositório do GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| Subpasta do GitHub | Arquivos numa subpasta num repositório do GitHub. Exemplo mostra a combinação da especificação de PR e subpasta. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Tarball remoto | Arquivos num arquivo compactado num servidor Web remoto. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build também segue os registos georreplicado, permitindo que as equipes de desenvolvimento dispersas aproveitar o registro replicado mais próximo.
 
 Criação do ACR foi concebido como um ciclo de vida de contentor primitivo. Por exemplo, integre o ACR Build na sua solução de CI/CD. Executando [início de sessão az] [ az-login] com um [principal de serviço][az-login-service-principal], sua solução de CI/CD, em seguida, poderia emitir [az acr build] [ az-acr-build] compilações de imagem de comandos para iniciar.
 

@@ -7,17 +7,17 @@ manager: carmonm
 keywords: recuperação de cópia de segurança e após desastres; serviço de cópia de segurança
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605829"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412956"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
-Este artigo responde a questões recorrentes sobre os componentes do Backup do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Este artigo responde a perguntas comuns sobre os componentes de cópia de segurança do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Para analisar rapidamente as secções neste artigo, utilize as ligações à direita, em **Neste artigo**.
 
@@ -25,22 +25,25 @@ Para analisar rapidamente as secções neste artigo, utilize as ligações à di
 ## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure? <br/>
-Sim. Pode criar até 500 cofres de serviços de recuperação, por região suportada de cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Sim. Pode criar até 500 cofres de serviços de recuperação por região suportada da cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre? <br/>
-Pode registar até 1000 Azure máquinas por cofre. Se estiver a utilizar o agente de MAB, pode registar até 50 agentes MAB por cofre. E pode registar os 50 servidores de servidores/DPM MAB para um cofre.
+Pode registar até 1000 as máquinas virtuais do Azure por cofre. Se estiver a utilizar o agente de MAB, pode registar até 50 agentes MAB por cofre. E pode registrar 50 servidores DPM/servidores MAB para um cofre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar os dados de um servidor de outro servidor quando restaurar os dados?<br/>
 Todos os servidores registados no mesmo cofre podem recuperar os dados de cópias de segurança de outros servidores *que utilizam a mesma frase de acesso*. Se tiver servidores cujos dados de cópia de segurança pretende isolar de outros servidores na sua organização, utilize uma frase de acesso designada para esses servidores. Por exemplo, os servidores de recursos humanos podem utilizar uma frase de acesso de encriptação, os servidores de gestão de contas outra e os servidores de armazenamento uma terceira.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Posso "migrar" os meus dados de cópia de segurança ou o meu cofre entre subscrições? <br/>
-Não. O cofre é criado um nível de subscrição e não pode ser reatribuído para outra subscrição quando for criado.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>Posso migrar meu cofre entre subscrições? <br/>
+Não. O Cofre é criado ao nível da subscrição e não pode ser reatribuído para outra subscrição.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Pode migrar dados de cópia de segurança para outro Cofre? <br/>
+Não. Não não possível mover dados de cópia de segurança armazenados num cofre num cofre diferente.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Os cofres dos Serviços de Recuperação baseiam-se no Resource Manager. Cofres de cópia de segurança ainda são suportados? <br/>
-Foi convertidos cofres de cópia de segurança para os cofres dos serviços de recuperação. Se não foi possível converter o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para si. 
+Foram convertidos cofres de cópia de segurança para cofres dos serviços de recuperação. Se não tiver convertido o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Posso migrar um cofre da Cópia de Segurança para um cofre dos Serviços de Recuperação? <br/>
-Todos os cofres de cópia de segurança foi convertidos para cofres dos serviços de recuperação. Se não foi possível converter o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para si.
+Todos os cofres de cópia de segurança foram convertidos para cofres dos serviços de recuperação. Se não tiver convertido o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para.
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 Está disponível uma lista detalhada de perguntas em [FAQ on Azure file-folder backup](backup-azure-file-folder-backup-faq.md) (FAQ sobre a cópia de segurança de ficheiros/pastas do Azure).
@@ -65,16 +68,16 @@ Não. Um servidor DPM ou MABS pode ser registado para apenas um cofre.
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Que versão do System Center Data Protection Manager é suportada?
 
 Recomendamos que instale o agente do Azure Backup [mais recente](http://aka.ms/azurebackup_agent) no último update rollup (UR) do System Center Data Protection Manager (DPM). 
-- Para o System Center DPM 2012 R2, [14 de Rollup de atualização](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) é a atualização mais recente.
+- Para o System Center DPM 2012 R2 [14 de Rollup de atualização](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) é a atualização mais recente.
 - Para o System Center DPM 2016, [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593) é a atualização mais recente.
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Instalei o agente do Backup do Azure para proteger os meus ficheiros e pastas. Pode instalar o System Center DPM para proteger cargas de trabalho de VM/aplicações no local para o Azure?
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Instalei o agente do Backup do Azure para proteger os meus ficheiros e pastas. Posso instalar o System Center DPM para proteger cargas de trabalho de VM/aplicações no local para o Azure?
 
-Sim. No entanto, para utilizar a cópia de segurança do Azure com o System Center Data Protection Manager (DPM), instale primeiro o DPM e, em seguida, instale o agente de cópia de segurança do Azure. Instalar os componentes do Azure Backup por esta ordem garante que o agente do Azure Backup funciona com o DPM. Instalar o agente do Azure Backup antes do DPM não é aconselhável nem suportado.
+Sim. No entanto, para utilizar o Azure Backup com o System Center Data Protection Manager (DPM), instale o DPM primeiro e, em seguida, instale o agente de cópia de segurança do Azure. Instalar os componentes do Azure Backup por esta ordem garante que o agente do Azure Backup funciona com o DPM. Instalar o agente do Azure Backup antes do DPM não é aconselhável nem suportado.
 
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode utilizar o DPM para cópia de segurança de aplicações na pilha do Azure?
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode utilizar o DPM para efetuar cópias de segurança de aplicações no Azure Stack?
 
-Não. Apesar de poder utilizar o Backup do Azure para proteger a pilha do Azure, cópia de segurança do Azure não suporta atualmente a utilizar o DPM para cópia de segurança de aplicações na pilha do Azure.
+Não. Apesar de poder utilizar o Azure Backup para proteger o Azure Stack, Microsoft Azure Backup não suporta atualmente com o DPM para efetuar cópias de segurança de aplicações no Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Como funciona o Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se cancelar uma tarefa de cópia de segurança depois de ser iniciada, os dados de cópia de segurança transferidos são eliminados? <br/>
@@ -86,10 +89,10 @@ Se cancelar uma tarefa de cópia de segurança para uma VM do Azure, os dados tr
 Sim. Pode executar tarefas de cópia de segurança no Windows Server ou em estações de trabalho Windows até três vezes por dia. Pode executar tarefas de cópia de segurança no System Center DPM até duas vezes por dia. Pode executar uma tarefa de cópia de segurança para as VMs do IaaS uma vez por dia. Utilize a política de agendamento para Windows Server ou estação de trabalho do Windows para especificar agendas diárias ou semanais. Com o System Center DPM, pode especificar agendas diárias, semanais, mensais e anuais.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Por que motivo o tamanho dos dados transferido para o cofre dos Serviços de Recuperação é inferior aos dados dos quais fiz uma cópia de segurança?<br/>
- Todos os dados para os quais são criadas cópias de segurança a partir do Agente do Azure Backup, do SCDPM ou do Azure Backup Server são comprimidos e encriptados antes de serem transferidos. Assim que for aplicada a compressão e encriptação, os dados no cofre dos serviços de recuperação são 30-40% mais reduzidos.
+ Todos os dados para os quais são criadas cópias de segurança a partir do Agente do Azure Backup, do SCDPM ou do Azure Backup Server são comprimidos e encriptados antes de serem transferidos. Uma vez aplicada a compressão e encriptação, os dados no cofre dos serviços de recuperação são 30-40% mais reduzidos.
 
 ## <a name="what-can-i-back-up"></a>Do que posso fazer uma cópia de segurança
-### <a name="which-operating-systems-does-azure-backup-support-br"></a>Que sistemas operativos suporta a cópia de segurança do Azure? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Que sistemas operativos suportam o Azure Backup? <br/>
 O Azure Backup suporta a lista seguinte de sistemas operativos para criar cópias de segurança: ficheiros e pastas, e aplicações de carga de trabalho protegidas com o Azure Backup Server e o System Center Data Protection Manager (DPM).
 
 | Sistema Operativo | Plataforma | SKU |
@@ -114,7 +117,7 @@ O Azure Backup suporta a lista seguinte de sistemas operativos para criar cópia
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Existe um limite no tamanho de cada origem de dados para uma cópia de segurança? <br/>
-Cópia de segurança do Azure impõe um tamanho máximo para uma origem de dados, no entanto, os limites para a origem são grandes. A partir de agosto de 2015, o tamanho máximo das origens de dados para os sistemas operativos suportados é:
+O Azure Backup impõe um tamanho máximo para uma origem de dados, no entanto, os limites para a origem são grandes. A partir de agosto de 2015, o tamanho máximo das origens de dados para os sistemas operativos suportados é:
 
 | S.No | Sistema operativo | Tamanho máximo da origem de dados |
 |:---:|:--- |:--- |
@@ -134,16 +137,16 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 | Microsoft Exchange |Soma de todas as bases de dados do Exchange num servidor Exchange para a cópia de segurança |
 | Estado do Sistema/BMR |Cada cópia individual da BMR ou estado do sistema da máquina para a cópia de segurança |
 
-Para cópia de segurança de VM do IaaS do Azure, cada VM pode ter até 16 discos de dados e cada disco de dados pode ser 4095 GB.
+Para cópia de segurança de VM de IaaS do Azure, cada VM pode ter até 16 discos de dados e cada disco de dados pode ter até 4095 GB.
 
-### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Existe um limite na quantidade de dados retidos num cofre dos serviços de recuperação?
-Não há nenhum limite a quantidade de dados que pode criar uma cópia de segurança serviços de recuperação do cofre.
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Existe um limite na quantidade de dados mantidos num cofre dos serviços de recuperação?
+Não existe nenhum limite na quantidade de dados, que pode criar uma cópia de segurança serviços de recuperação do cofre.
 
 ## <a name="retention-policy-and-recovery-points"></a>Pontos de recuperação e política de retenção
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Existe alguma diferença entre a política de retenção para o DPM e o Windows Server/cliente Windows (ou seja, no Windows Server sem DPM)?<br/>
 Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção diárias, semanais, mensais e anuais.
 
-### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Pode configurar as minhas políticas de retenção seletivamente – isto é, configurar semanais e diárias, mas não anuais e mensais?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Pode configurar meu políticas de retenção seletivamente – ou seja, configurar semanais e diárias, mas não anuais e mensais?<br/>
 Sim, a estrutura de retenção do Backup do Azure permite-lhe ter total flexibilidade na definição da política de retenção, de acordo com os seus requisitos.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Posso "agendar uma cópia de segurança" para as 18:00 e especificar políticas de retenção noutra hora?<br/>
@@ -167,8 +170,8 @@ Não existe limite no número de recuperações do Backup do Azure.
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure? <br/>
 Não. As recuperações são gratuitas e não lhe é cobrado o tráfego de saída.
 
-### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero os meus política de cópia de segurança?
-Quando uma nova política é aplicada, agenda e a retenção da nova política é seguido. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova. Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
+### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero meu política de cópia de segurança?
+Quando uma nova política é aplicada, agenda e a retenção da nova política é seguida. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova. Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
 
 ## <a name="azure-backup-encryption"></a>Encriptação do Azure Backup
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Os dados enviados para o Azure são encriptados? <br/>

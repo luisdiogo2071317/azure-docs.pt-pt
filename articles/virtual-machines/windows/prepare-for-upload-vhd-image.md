@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 9eb9984d99b907cd73f5f667cca41496127744e9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263519"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398976"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
-Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta apenas as VMs de geração 1 que estão no formato de ficheiro VHD e têm um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 Para obter mais informações sobre a política de suporte para VM do Azure, consulte [suporte de software de servidor Microsoft para as VMs do Azure do Microsoft](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -39,8 +39,8 @@ Depois de converter o disco, crie uma VM que utiliza o disco convertido. Iniciar
 1. Abra o Gestor de Hyper-V e selecione o seu computador local à esquerda. No menu acima da lista de computador, clique em **ação** > **editar disco**.
 2. Sobre o **localizar disco rígido Virtual** ecrã, localize e selecione o seu disco virtual.
 3. Sobre o **selecionar ação** ecrã e, em seguida, selecione **converter** e **seguinte**.
-4. Se precisar converter de VHDX, selecione **VHD** e, em seguida, clique em **seguinte**
-5. Se precisar de converter a partir de um disco de expansão dinâmica, selecione **fixos de tamanho** e, em seguida, clique em **seguinte**
+4. Se precisar converter de VHDX, selecione **VHD** e, em seguida, clique em **próxima**.
+5. Se precisar de converter a partir de um disco de expansão dinâmica, selecione **fixos de tamanho** e, em seguida, clique em **próxima**.
 6. Localize e selecione um caminho para guardar o novo ficheiro VHD.
 7. Clique em **Concluir**.
 
@@ -73,7 +73,7 @@ Na VM que pretende carregar para o Azure, executar todos os comandos nas etapas 
     ```PowerShell
     netsh winhttp reset proxy
     ```
-3. Defina a política de SAN de disco para [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
+3. Defina a política de SAN de disco para [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -205,7 +205,7 @@ Certifique-se de que as seguintes definições estão configuradas corretamente 
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
    ```
-3. Ative as seguintes regras de firewall permitir o tráfego RDP 
+3. Ative as seguintes regras de firewall permitir o tráfego RDP:
 
    ```PowerShell
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
@@ -236,76 +236,82 @@ Certifique-se de que as seguintes definições estão configuradas corretamente 
 2. Configure as definições de dados de configuração de arranque (BCD). 
 
     > [!Note]
-    > Certifique-se de executar estes comandos numa janela de comandos elevada e **não** no PowerShell:
+    > Certifique-se de que executar estes comandos numa janela elevada do PowerShell.
    
-   ```CMD
-   bcdedit /set {bootmgr} integrityservices enable
-   
-   bcdedit /set {default} device partition=C:
-   
-   bcdedit /set {default} integrityservices enable
-   
-   bcdedit /set {default} recoveryenabled Off
-   
-   bcdedit /set {default} osdevice partition=C:
-   
-   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```powershell
+    cmd
 
-   #Enable Serial Console Feature
+    bcdedit /set {bootmgr} integrityservices enable
+    bcdedit /set {default} device partition=C:
+    bcdedit /set {default} integrityservices enable
+    bcdedit /set {default} recoveryenabled Off
+    bcdedit /set {default} osdevice partition=C:
+    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
+    #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-
     bcdedit /set {bootmgr} timeout 10
-
     bcdedit /set {bootmgr} bootems yes
-
-    bcdedit /ems {<<BOOT LOADER IDENTIFIER>>} ON
-
+    bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
-    #Setup the Guest OS to collect a kernel dump on an OS crash event
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP"
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1
+    exit
    ```
-3. Certifique-se de que o repositório de Instrumentations de gestão do Windows é consistente. Para efetuar isto, execute o seguinte comando:
+3. O registo de informação pode ser útil para solucionar problemas de falha do Windows. Ative a recolha de informação de registo:
+
+    ```powershell
+    cmd
+
+    #Setup the Guest OS to collect a kernel dump on an OS crash event
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    #Setup the Guest OS to collect user mode dumps on a service crash event
+    md c:\Crashdumps
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v CrashCount /t REG_DWORD /d 10 /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpType /t REG_DWORD /d 2 /f
+    sc config WerSvc start= demand
+
+    exit
+    
+    ```
+4. Certifique-se de que o repositório de Instrumentations de gestão do Windows é consistente. Para efetuar isto, execute o seguinte comando:
 
     ```PowerShell
     winmgmt /verifyrepository
     ```
     Se o repositório está danificado, veja [WMI: Corrupção de repositório, ou não](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-4. Certifique-se de que qualquer outro aplicativo não está a utilizar a porta 3389. Esta porta é utilizada para o serviço RDP no Azure. Pode executar **netstat - anob** para ver as portas em que são utilizadas na VM:
+5. Certifique-se de que qualquer outro aplicativo não está a utilizar a porta 3389. Esta porta é utilizada para o serviço RDP no Azure. Pode executar **netstat - anob** para ver as portas em que são utilizadas na VM:
 
     ```PowerShell
     netstat -anob
     ```
 
-5. Se o VHD do Windows que pretende carregar um controlador de domínio, em seguida, siga estes passos:
+6. Se o VHD do Windows que pretende carregar um controlador de domínio, em seguida, siga estes passos:
 
-    A. Siga [estes passos Extras](https://support.microsoft.com/kb/2904015) para preparar o disco.
+    1. Siga [estes passos Extras](https://support.microsoft.com/kb/2904015) para preparar o disco.
 
-    B. Certifique-se de que sabe a palavra-passe do DSRM no caso de ter que iniciar a VM no DSRM em algum momento. Talvez queira consulte esta ligação para definir o [palavra-passe DSRM](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+    1. Certifique-se de que sabe a palavra-passe do DSRM no caso de ter que iniciar a VM no DSRM em algum momento. Talvez queira consulte esta ligação para definir o [palavra-passe DSRM](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
-6. Certifique-se de que a conta de administrador interno e a palavra-passe são conhecidas para. Poderá repor a palavra-passe de administrador local atual e certifique-se de que pode utilizar esta conta para iniciar sessão no Windows através da ligação de RDP. Esta permissão de acesso é controlado pelo objeto de diretiva de grupo "Permitir início de sessão através dos serviços de ambiente de trabalho remoto". Pode ver este objeto no Editor de políticas de grupo de Local em:
+7. Certifique-se de que a conta de administrador interno e a palavra-passe são conhecidas para. Poderá repor a palavra-passe de administrador local atual e certifique-se de que pode utilizar esta conta para iniciar sessão no Windows através da ligação de RDP. Esta permissão de acesso é controlado pelo objeto de diretiva de grupo "Permitir início de sessão através dos serviços de ambiente de trabalho remoto". Pode ver este objeto no Editor de políticas de grupo de Local em:
 
     Configuração de computador Windows Settings\Local Policies\User Rights Assignment
 
-7. As políticas de verificação do AD seguinte para se certificar de que não estão a bloquear o acesso RDP através de RDP ou não pertence a rede:
+8. As políticas de verificação do AD seguinte para se certificar de que não estão a bloquear o acesso RDP através de RDP ou não pertence a rede:
 
     - Acesso de configuração Windows \ direitos de utilizador\negar do computador a este computador da rede
 
     - Computador configuração Windows \ direitos de utilizador\negar início de sessão através dos serviços de ambiente de trabalho remoto
 
 
-8. Reinício da VM para se certificar de que o Windows está ainda em bom estado pode ser contatado, utilizando a ligação de RDP. Neste momento, pode querer criar uma VM no seu local Hyper-V para certificar-se de que a VM está a iniciar completamente e, em seguida, testar, mesmo que esteja acessível de RDP.
+9. Reinício da VM para se certificar de que o Windows está ainda em bom estado pode ser contatado, utilizando a ligação de RDP. Neste momento, pode querer criar uma VM no seu local Hyper-V para certificar-se de que a VM está a iniciar completamente e, em seguida, testar, mesmo que esteja acessível de RDP.
 
-9. Remover quaisquer filtros de Interface de Driver de transporte Extras, como o software que analisa TCP pacotes ou firewalls extras. Poderá também ver isso num estágio posterior depois da VM é implementada no Azure, se necessário.
+10. Remover quaisquer filtros de Interface de Driver de transporte Extras, como o software que analisa TCP pacotes ou firewalls extras. Poderá também ver isso num estágio posterior depois da VM é implementada no Azure, se necessário.
 
-10. Desinstale qualquer software de terceiros e controladores que está relacionado com componentes físicos ou qualquer outra tecnologia de virtualização.
+11. Desinstale qualquer software de terceiros e controladores que está relacionado com componentes físicos ou qualquer outra tecnologia de virtualização.
 
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
 A configuração ideal é **ter o nível de patch da máquina em que a versão mais recente**. Se não for possível, certifique-se de que as seguintes atualizações são instaladas:
@@ -387,25 +393,7 @@ As seguintes definições não afetam a carregar o VHD. No entanto, recomendamos
 
     - [Agente da VM e extensões – parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [Agente da VM e extensões – parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-* O registo de informação pode ser útil para solucionar problemas de falha do Windows. Ative a recolha de informação de registo:
-  
-    ```cmd
-    md c:\CrashDumps
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
-    sc config WerSvc start= demand
-    ```
-    Se receber erros durante a qualquer um dos procedimentos passos neste artigo, isso significa que as chaves de registo já existe. Nesta situação, utilize em vez disso, os seguintes comandos:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "CrashDumpEnable" -Value "2" -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "DumpFile" -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpFolder" -Value "c:\CrashDumps"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpCount" -Value 10 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2 -Type DWord
-    Set-Service -Name WerSvc -StartupType Manual
-    ```
 *  Depois da VM é criada no Azure, recomendamos que colocar o ficheiro de paginação no volume "Unidade Temporal" para melhorar o desempenho. Pode configurar isso da seguinte forma:
 
     ```PowerShell

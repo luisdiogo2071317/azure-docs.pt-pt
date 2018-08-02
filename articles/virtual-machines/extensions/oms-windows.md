@@ -1,9 +1,9 @@
 ---
-title: Extensão de máquina virtual de análise de registos do Azure para Windows | Microsoft Docs
-description: Implemente o agente de análise de registos na máquina virtual do Windows com uma extensão da máquina virtual.
+title: Extensão da máquina virtual do Azure Log Analytics para Windows | Documentos da Microsoft
+description: Implemente o agente do Log Analytics na máquina de virtual do Windows com uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,34 +14,34 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
-ms.author: danis
-ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: roiyz
+ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301785"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414747"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de análise de registo para o Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de análise de registo para Windows
 
-Análise de registos fornece capacidades de monitorização na nuvem e no local ativos. A extensão de máquina virtual do agente de análise do registo para o Windows é publicada e suportada pela Microsoft. A extensão instala o agente de análise de registos em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho de análise de registos existente. Este documento fornece detalhes sobre as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual de análise de registos para o Windows.
+Log Analytics proporciona capacidades de monitorização na cloud e recursos no local. A extensão de máquina virtual do agente do Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do Log Analytics para Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente de análise do registo para o Windows pode ser executado no Windows Server 2008 R2, 2012, 2012 R2 e 2016 versões.
+A extensão de agente do Log Analytics para o Windows podem ser executado em Windows Server 2008 R2, 2012 e 2012 R2 e 2016 versões.
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-Centro de segurança do Azure Aprovisiona o agente de análise de registos e liga com a área de trabalho da análise de registos predefinida da subscrição do Azure automaticamente. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
+Automaticamente, o Centro de segurança do Azure Aprovisiona o agente Log Analytics e liga-o com a área de trabalho da análise de registo predefinido da subscrição do Azure. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
-A extensão de agente de análise do registo para o Windows requer que a máquina virtual de destino está ligada à internet. 
+A extensão de agente do Log Analytics para Windows requer que a máquina virtual de destino está ligada à internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente de análise do registo. A extensão requer o Id da área de trabalho e a chave de área de trabalho da área de trabalho de análise de registos de destino. Estes podem ser encontradas nas definições para a área de trabalho no portal do Azure. Porque a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados da definição de extensão protegido de VM do Azure é encriptados e desencriptados apenas na máquina virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A extensão requer o Id da área de trabalho e a chave de área de trabalho da área de trabalho do Log Analytics de destino. Estes podem ser encontrados nas definições de área de trabalho no portal do Azure. Uma vez que a chave da área de trabalho deve ser tratada como dados confidenciais, devem ser armazenado numa configuração de definição protegido. Dados de definição de protegidos de extensão VM do Azure são encriptados e desencriptados apenas na máquina de virtual de destino. Tenha em atenção que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -71,7 +71,7 @@ O JSON seguinte mostra o esquema para a extensão de agente de análise do regis
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Fabricante | Microsoft.EnterpriseCloud.Monitoring |
+| publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
@@ -79,11 +79,11 @@ O JSON seguinte mostra o esquema para a extensão de agente de análise do regis
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo Azure Resource Manager para executar a extensão de agente de análise do registo durante uma implementação de modelo Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM de agente de análise do registo pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de agente do Log Analytics durante uma implementação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM de agente do Log Analytics pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
-O JSON para uma extensão da máquina virtual pode ser aninhado o recurso de máquina virtual ou colocado no nível superior de um modelo do Resource Manager JSON ou raiz. O posicionamento de JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [definir nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
+O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou colocado na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-O exemplo seguinte assume que a extensão de análise de registos é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo a seguir supõe que a extensão do Log Analytics é aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 
 ```json
@@ -110,7 +110,7 @@ O exemplo seguinte assume que a extensão de análise de registos é aninhada o 
 }
 ```
 
-Quando colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual principal e o tipo de reflete a configuração aninhada. 
+Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual principal e o tipo reflete a configuração aninhada. 
 
 ```json
 {
@@ -136,9 +136,9 @@ Quando colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma 
 }
 ```
 
-## <a name="powershell-deployment"></a>Implementação de PowerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
-O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual do agente de análise do registo para uma máquina virtual existente. Antes de executar o comando, as configurações de públicas e privadas tem de ser armazenados numa tabela hash do PowerShell. 
+O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual do Log Analytics Agent para uma máquina virtual existente. Antes de executar o comando, as configurações de públicas e privadas tem de ser armazenados numa tabela de hash do PowerShell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
@@ -155,17 +155,17 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -Location WestUS 
 ```
 
-## <a name="troubleshoot-and-support"></a>Resolver problemas e suporte
+## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-É possível obter dados sobre o estado das implementações de extensão do portal do Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implementação das extensões para uma determinada VM, execute o seguinte comando utilizando o módulo PowerShell do Azure.
+Podem ser obtidos dados sobre o estado das implementações de extensão do portal do Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implementação de extensões para uma determinada VM, execute o seguinte comando com o módulo Azure PowerShell.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Resultado da execução de extensão é registado para ficheiros encontrados no diretório seguinte:
+Resultado da execução de extensão é registado para arquivos encontrados no diretório seguinte:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
@@ -173,4 +173,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda, a qualquer altura neste artigo, pode contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

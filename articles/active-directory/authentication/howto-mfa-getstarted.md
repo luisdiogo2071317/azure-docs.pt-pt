@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0afe5ba21fe17d8aec4d72c30086c6840f9e3c8e
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161575"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412417"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementar com base na cloud do Azure multi-factor Authentication
 
@@ -40,7 +40,7 @@ Ativado por utilizador de alterar estado - este é o método tradicional para ex
 
 ## <a name="choose-authentication-methods"></a>Escolher métodos de autenticação
 
-Ative, pelo menos, um método de autenticação para os seus utilizadores com base nos requisitos da sua organização. Achamos que, quando estiver ativado para os utilizadores da aplicação Microsoft Authenticator fornece a melhor experiência de utilizador. Se precisa entender quais métodos estão disponíveis e como configurá-los consulte o artigo [o que são methods]](concept-authentication-methods.md) de autenticação.
+Ative, pelo menos, um método de autenticação para os seus utilizadores com base nos requisitos da sua organização. Achamos que, quando estiver ativado para os utilizadores da aplicação Microsoft Authenticator fornece a melhor experiência de utilizador. Se precisa entender quais métodos estão disponíveis e como configurá-los consulte o artigo [quais são os métodos de autenticação](concept-authentication-methods.md).
 
 ## <a name="get-users-to-enroll"></a>Introdução aos utilizadores a inscrição
 
@@ -69,37 +69,37 @@ Antes de ativar a multi-factor Authentication, sua organização tem de determin
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta de administrador global.
-1. Navegue até **do Azure Active Directory**, **acesso condicional**
-1. Selecione **nova política**
+1. Procure **Azure Active Directory**, **Acesso condicional**
+1. Selecione **Nova política**
 1. Dê um nome relevante para a sua política
 1. Em **utilizadores e grupos**
    * Sobre o **inclusão** separador, selecione a **todos os utilizadores** botão de opção
    * RECOMENDADO: No **excluir** separador, marque a caixa **utilizadores e grupos** e escolha um grupo para ser utilizado para exclusões quando os utilizadores não têm acesso aos seus métodos de autenticação.
-   * Clique em **concluído**
+   * Clique em **Concluído**
 1. Sob **aplicações na Cloud**, selecione a **todas as aplicações na cloud** botão de opção
    * Como opção: Na **excluir** separador, selecione aplicações na cloud que sua organização não exija a MFA para.
-   * Clique em **concluído**
+   * Clique em **Concluído**
 1. Sob **condições** secção
    * : Se tiver ativado o Azure Identity Protection, pode optar por avaliar o risco de início de sessão como parte da política.
    * OPCIONALMENTE: Se tiver configurado locais confiáveis ou localizações com nome, pode especificar para incluir ou excluir esses locais da política.
-1. Sob **concessão**, certifique-se a **conceder acesso** botão de opção está selecionada
-    * Marque a caixa **exigir autenticação multifator**
+1. Sob **Conceder**, certifique-se de que o botão de opção **Conceder acesso** está selecionado
+    * Assinale a caixa **Pedir a autenticação multifator**
     * Clique em **Selecionar**
-1. Ignorar a **sessão** secção
-1. Definir o **ativar política** alternar para **no**
+1. Ignore a secção **Sessão**
+1. Defina o botão de alternar **Ativar política** para **Ativado**
 1. Clique em **Criar**.
 
 ![Criar uma política de acesso condicional para ativar a MFA para os utilizadores do portal do Azure no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
-### <a name="test-azure-multi-factor-authentication"></a>Testar a autenticação Multifator do Azure
+### <a name="test-azure-multi-factor-authentication"></a>Testar Multi-Factor Authentication do Azure
 
 Para confirmar que a sua política de acesso condicional funciona, teste a iniciar sessão a um recurso que não deve exigir a MFA e, em seguida, no portal do Azure que exija a MFA.
 
-1. Abra uma nova janela de browser InPrivate ou modo incógnito e navegue até [ https://account.activedirectory.windowsazure.com ](https://account.activedirectory.windowsazure.com).
-   * Inicie sessão com o utilizador de teste criado como parte da secção pré-requisitos deste artigo e tenha em atenção que ele deve lhe pede para concluir a MFA.
+1. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+   * Inicie sessão com o utilizador de teste criado como parte da secção de pré-requisitos deste artigo e tenha em atenção que ele não lhe deve pedir para concluir a MFA.
    * Feche a janela do browser
-2. Abra uma nova janela de browser InPrivate ou modo incógnito e navegue até [ https://portal.azure.com ](https://portal.azure.com).
-   * Inicie sessão com o teste de utilizador criadas como parte da secção de pré-requisitos deste artigo e tenha em atenção que agora deve ser necessário para se registar e utilizar o Azure multi-factor Authentication.
+2. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://portal.azure.com](https://portal.azure.com).
+   * Inicie sessão com o utilizador de teste criado como parte da secção de pré-requisitos deste artigo e tenha em atenção que agora deve ser preciso registar-se e utilizar o Multi-Factor Authentication do Azure.
    * Feche a janela do browser
 
 ## <a name="next-steps"></a>Passos Seguintes

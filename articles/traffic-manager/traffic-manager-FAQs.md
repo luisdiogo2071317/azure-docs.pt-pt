@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036926"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399182"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036926"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>Que endereço IP utilizar o Gestor de tráfego?
 
-Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Envia as respostas DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes, em seguida, ligar para o ponto final de serviço diretamente, não através do Gestor de tráfego.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), Gestor de tráfego funciona ao nível do DNS. Envia as respostas DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes, em seguida, ligar para o ponto final de serviço diretamente, não através do Gestor de tráfego.
 
 Por conseguinte, o Gestor de tráfego não fornece um ponto final ou o endereço IP para a ligação para clientes. Se quiser o endereço IP estático para o seu serviço, que tem de ser configurado no serviço, não no Gestor de tráfego.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>O que tipos de tráfego podem ser encaminhado através do Gestor de tráfego?
-Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), um ponto de final do Gestor de tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Por conseguinte, o Gestor de tráfego pode encaminhar o tráfego que provém da internet pública para um conjunto de pontos de extremidade que é também com acesso à internet. Se tiver pontos finais que estão dentro de uma rede privada (por exemplo, uma versão interna do [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm utilizadores garantindo DNS pedidos de tais redes internas, Gestor de tráfego não pode ser utilizado para esses tráfego.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), um ponto de final do Gestor de tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Por conseguinte, o Gestor de tráfego pode encaminhar o tráfego que provém da internet pública para um conjunto de pontos de extremidade que é também com acesso à internet. Se tiver pontos finais que estão dentro de uma rede privada (por exemplo, uma versão interna do [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm utilizadores garantindo DNS pedidos de tais redes internas, Gestor de tráfego não pode ser utilizado para esses tráfego.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gestor de tráfego oferece suporte a sessões "adesivos"?
 
-Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas de DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego. Por conseguinte, o Gestor de tráfego não vê o tráfego HTTP entre o cliente e o servidor.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas de DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego. Por conseguinte, o Gestor de tráfego não vê o tráfego HTTP entre o cliente e o servidor.
 
 Além disso, o endereço IP de origem da consulta DNS recebida pelo Gestor de tráfego pertence ao serviço DNS recursivo, não no cliente. Por conseguinte, o Gestor de tráfego não tem nenhuma forma para controlar os clientes individuais e não é possível implementar "adesivos" sessões. Esta limitação é comum a todos os sistemas de gestão de tráfego com base no DNS e não é específica para o Gestor de tráfego.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Por que estou a ver um erro HTTP ao utilizar o Gestor de tráfego?
 
-Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas de DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes, em seguida, ligar para o ponto final de serviço diretamente, não através do Gestor de tráfego. Gestor de tráfego não não ver o tráfego HTTP entre cliente e servidor. Por conseguinte, qualquer erro HTTP que vê deve ser proveniente de seu aplicativo. Para o cliente ligar à aplicação, todos os passos de resolução DNS estão completos. Isso inclui qualquer interação com o Gestor de tráfego no fluxo de tráfego de aplicativo.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), Gestor de tráfego funciona ao nível do DNS. Utiliza as respostas de DNS para direcionar clientes para o ponto de extremidade de serviço apropriado. Os clientes, em seguida, ligar para o ponto final de serviço diretamente, não através do Gestor de tráfego. Gestor de tráfego não não ver o tráfego HTTP entre cliente e servidor. Por conseguinte, qualquer erro HTTP que vê deve ser proveniente de seu aplicativo. Para o cliente ligar à aplicação, todos os passos de resolução DNS estão completos. Isso inclui qualquer interação com o Gestor de tráfego no fluxo de tráfego de aplicativo.
 
 Investigação adicional, por conseguinte, deve se concentrar no aplicativo.
 
@@ -51,7 +51,7 @@ O cabeçalho de anfitrião HTTP enviado a partir do navegador do cliente é a fo
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>O que é o impacto no desempenho da utilização do Gestor de tráfego?
 
-Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Uma vez que os clientes ligam diretamente para os pontos finais de serviço, não há nenhum impacto no desempenho incorrido quando utilizar o Gestor de tráfego assim que a ligação ser estabelecida.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), Gestor de tráfego funciona ao nível do DNS. Uma vez que os clientes ligam diretamente para os pontos finais de serviço, não há nenhum impacto no desempenho incorrido quando utilizar o Gestor de tráfego assim que a ligação ser estabelecida.
 
 Uma vez que o Gestor de tráfego integrado nas aplicações ao nível do DNS, ele exige uma pesquisa de DNS adicional para ser inserido na cadeia de resolução de DNS. O impacto do Gestor de tráfego em tempo de resolução DNS é mínimo. O Gestor de tráfego utiliza uma rede global de servidores de nomes e usa [anycast](https://en.wikipedia.org/wiki/Anycast) de rede para garantir que o DNS consultas são sempre encaminhadas para o servidor de nome disponível mais próximo. Além disso, a colocação em cache de respostas DNS significa que a latência DNS adicional gasta com o Gestor de tráfego aplica-se apenas a uma fração de sessões.
 
@@ -59,7 +59,7 @@ O método de desempenho encaminha o tráfego para o ponto de extremidade dispon�
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Os protocolos de aplicação posso utilizar com o Gestor de tráfego?
 
-Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Depois de concluída a pesquisa DNS, os clientes ligam ao ponto final da aplicação diretamente, não através do Gestor de tráfego. Por conseguinte, a ligação pode utilizar qualquer protocolo de aplicação. Se selecionar TCP como o monitorização, o Gestor de tráfego do protocolo monitorização de estado de funcionamento do ponto final pode ser feito sem utilizar quaisquer protocolos de aplicação. Se optar por ter o estado de funcionamento verificado com um protocolo de aplicação, o ponto final tem de ser capaz de responder a pedidos HTTP ou HTTPS obter.
+Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), Gestor de tráfego funciona ao nível do DNS. Depois de concluída a pesquisa DNS, os clientes ligam ao ponto final da aplicação diretamente, não através do Gestor de tráfego. Por conseguinte, a ligação pode utilizar qualquer protocolo de aplicação. Se selecionar TCP como o monitorização, o Gestor de tráfego do protocolo monitorização de estado de funcionamento do ponto final pode ser feito sem utilizar quaisquer protocolos de aplicação. Se optar por ter o estado de funcionamento verificado com um protocolo de aplicação, o ponto final tem de ser capaz de responder a pedidos HTTP ou HTTPS obter.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Pode utilizar o Gestor de tráfego com um nome de domínio 'sem "www"'?
 

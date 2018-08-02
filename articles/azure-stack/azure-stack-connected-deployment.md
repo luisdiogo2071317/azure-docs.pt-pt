@@ -1,6 +1,6 @@
 ---
-title: Decisões de implementação ligado do Azure para a pilha do Azure integrado sistemas | Microsoft Docs
-description: Determine as decisões de implementações de vários nós ligado do Azure de pilha do Azure de planeamento de implementação.
+title: Sistemas integrados de decisões de implementação ligada do Azure para o Azure Stack | Documentos da Microsoft
+description: Determine decisões para implementações de ligada ao Azure Stack Azure com vários nós de planejamento da implantação.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,64 +12,64 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d64b834f1c6794976461c93d4ad1d05f8647e986
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120391"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414594"
 ---
-# <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisões sobre a pilha do Azure de planeamento de implementação ligada do Azure integrado sistemas
-Depois de tiver decidido [como irá integrar pilha do Azure para o seu ambiente de nuvem híbrida](azure-stack-connection-models.md), em seguida, pode finalizar as suas decisões de implementação de pilha do Azure.
+# <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>A implementação do Azure ligada decisões para o Azure Stack de planeamento de sistemas integrados
+Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), em seguida, pode finalizar suas decisões de implementação do Azure Stack.
 
-Implementar pilha do Azure ligado ao Azure significa que pode ter o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) para o arquivo de identidade. Também pode escolher entre o modelo de faturação: pay-como-utiliza ou com base na capacidade. Uma implementação ligada é a opção predefinida, porque permite aos clientes obter o maior valor fora do Azure pilha, especialmente para cenários de nuvem híbridos que envolvam Azure e Azure pilha. 
+Implementação do Azure Stack, ligado ao Azure significa que pode ter o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) para seu armazenamento de identidade. Também pode escolher entre o modelo de faturação: pay-as que use ou baseada em capacidade. Uma implementação ligada é a opção predefinida, uma vez que permite aos clientes obter o máximo valor fora do Azure Stack, particularmente para cenários de cloud híbrida que envolvem o Azure e o Azure Stack. 
 
-## <a name="choose-an-identity-store"></a>Selecionar um arquivo de identidade
-Com uma implementação ligada, pode escolher entre o Azure AD ou AD FS para o arquivo de identidade. Uma implementação de desligado, sem conectividade internet, pode apenas utilizar o AD FS.
+## <a name="choose-an-identity-store"></a>Escolher um arquivo de identidade
+Com uma implementação de ligado, pode escolher entre o Azure AD ou AD FS para seu armazenamento de identidade. Uma implementação de desligado, sem conectividade de internet, pode apenas utilizar o AD FS.
 
-A opção de arquivo de identidade não tem efeito em máquinas virtuais de inquilino (VMs). VMs de inquilino podem escolher que pretendem ligar ao dependendo de como irá ser configurados do arquivo de identidade: do Azure AD, Windows Server Active Directory associados a um domínio, grupo de trabalho, etc. Este não está relacionado com a decisão de fornecedor de identidade de pilha do Azure. 
+Sua escolha de arquivo de identidade não tem nenhuma relevância em máquinas de virtuais de inquilino (VMs). VMs do inquilino podem escolher qual querem ligar ao dependendo de como serão configurados de armazenamento de identidade: Azure AD, Windows Server Active Directory associados a um domínio, grupo de trabalho, etc. Isso está relacionada com a decisão de fornecedor de identidade do Azure Stack. 
 
-Por exemplo, se implementar o inquilino de IaaS VMs no início da pilha do Azure e pretende associar um domínio do Active Directory empresarial e utilizar contas a partir daí, pode fazer isto ainda. Não são necessários para utilizar o arquivo de identidade do Azure AD, que selecione aqui dessas contas.
+Por exemplo, se implementar o inquilino de IaaS VMs com base no Azure Stack e desejá-los para associar um domínio do Active Directory empresarial e utilizar contas a partir daí, ainda pode fazer isso. Não tem de utilizar o armazenamento de identidade do Azure AD, que selecione aqui para essas contas.
 
-### <a name="azure-ad-identity-store"></a>Arquivo de identidade do Azure AD
-Quando utilizar o Azure AD para o arquivo de identidade requer duas contas do Azure AD: uma conta de administrador global e uma conta de faturação. Estas contas podem ser as mesmas contas ou contas diferentes. Durante a com a mesma conta de utilizador poderá ser útil se tiver um número limitado de contas do Azure e mais simples, necessidades comerciais podem sugerir utilizando duas contas:
+### <a name="azure-ad-identity-store"></a>Armazenamento de identidade do Azure AD
+Quando utilizar o Azure AD para o armazenamento de identidade requer duas contas do Azure AD: uma conta de administrador global e uma conta de cobrança. Estas contas podem ser as mesmas contas ou contas diferentes. Embora possa ser com a mesma conta de utilizador mais simples e útil se tiver um número limitado de contas do Azure, necessidades da sua empresa podem sugerir usando duas contas:
 
-1. **Conta de administrador global** (apenas necessário para implementações ligadas). Esta é uma conta do Azure que é utilizada para criar aplicações e principais de serviço para os serviços de infraestrutura de pilha do Azure no Azure Active Directory. Esta conta tem de ter permissões de administrador de diretório para o diretório que o sistema de pilha do Azure será implementado em. Ele irá tornar-se "operador de cloud" Administrador Global para o Azure AD de inquilino e será utilizado: 
-    - Para aprovisionar e delegar principais de serviço para todos os serviços de pilha do Azure tem de interagir com o Azure Active Directory e do Graph API e aplicações. 
-    - Como a conta de administrador de serviço. Este é o proprietário da subscrição de fornecedor predefinido (que é possível alterar mais tarde). Pode iniciar sessão no portal de administração do Azure pilha com esta conta e pode utilizá-la para criar ofertas e planos, defina quotas e efetuar outras administrativas funções na pilha do Azure.
-2. **Conta de faturação** (necessário para ambos ligado e desligado implementações). Esta conta do Azure é utilizada para estabelecer a relação de faturação entre o sistema de pilha do Azure integrado e o back-end de comércio do Azure. Esta é a conta que será faturada por taxas de pilha do Azure. Esta conta também será utilizada para sindicação marketplace e outros cenários híbridos. 
+1. **Conta de administrador global** (apenas necessário para implementações ligadas). Esta é uma conta do Azure que é utilizada para criar principais de serviço para serviços de infraestrutura do Azure Stack e aplicações no Azure Active Directory. Esta conta tem de ter permissões de administrador do diretório para o diretório que será implementado em seu sistema do Azure Stack. Ela se tornará o operador"nuvem" Administrador Global do Azure AD de inquilino e será utilizado: 
+    - Para aprovisionar e delegar principais de serviço para todos os serviços do Azure Stack que precisam interagir com o Azure Active Directory e a Graph API e aplicações. 
+    - Como a conta de administrador de serviços. Este é o proprietário da subscrição do fornecedor do padrão (que é possível alterar mais tarde). Pode iniciar sessão no portal de administração do Azure Stack com esta conta e pode utilizá-lo para criar ofertas e planos, definir as quotas e realizar funções administrativas no Azure Stack.
+2. **Conta de faturação** (obrigatório para ambos ligado e desligado implementações). Esta conta do Azure é utilizada para estabelecer a relação de faturação entre seu sistema integrado do Azure Stack e o back-end do Azure commerce. Esta é a conta que será cobrada as taxas do Azure Stack. Esta conta também vai ser utilizada pela sua oferta de itens do marketplace e outros cenários híbridos. 
 
-### <a name="ad-fs-identity-store"></a>Arquivo de identidade do AD FS
-Escolha esta opção se pretender utilizar o seu próprio arquivo de identidade, tais como o Active Directory empresarial, para as contas de administrador de serviço.  
+### <a name="ad-fs-identity-store"></a>Armazenamento de identidade do AD FS
+Escolha esta opção se pretender utilizar o seu próprio repositório de identidades, como o seu Active Directory empresarial, para as suas contas de administrador de serviços.  
 
 ## <a name="choose-a-billing-model"></a>Escolha um modelo de faturação
-Pode escolher uma **Pay-como-utiliza** ou **capacidade** modelo de faturação. Implementações de modelo de faturação pay-como-utiliza tem de ser capazes de utilização de relatórios através de uma ligação para o Azure, pelo menos, uma vez a cada 30 dias. Por conseguinte, o modelo de faturação Pay-como-utiliza apenas está disponível para implementações ligadas.  
+Pode escolher entre **Pay-as que use** ou o **capacidade** modelo de faturação. Implementações de modelos de faturação pay-as que use tem de ser capazes de utilização de relatório através de uma ligação para o Azure, pelo menos, uma vez a cada 30 dias. Por conseguinte, o modelo de faturação de pagamento-como-utiliza só está disponível para implementações ligadas.  
 
-### <a name="pay-as-you-use"></a>Pay-como-utiliza
-Com o modelo de faturação Pay-como-utiliza, a utilização é cobrada a uma subscrição do Azure. Paga apenas quando utiliza os serviços de pilha do Azure. Se este é o modelo que opte por utilizar, precisará de uma subscrição do Azure e o ID de conta associados a essa subscrição (por exemplo, serviceadmin@contoso.onmicrosoft.com). EA, CSP e CSL subscrições são suportadas. Relatórios de utilização é configurado durante [registo Azure pilha](azure-stack-registration.md).
+### <a name="pay-as-you-use"></a>Pay-as que use
+Com o modelo de faturação de pagamento-como-utiliza, a utilização é cobrada a uma subscrição do Azure. Paga apenas quando usar os serviços do Azure Stack. Se esse é o modelo que opte por utilizar, terá de uma subscrição do Azure e o ID da conta associada a essa subscrição (por exemplo, serviceadmin@contoso.onmicrosoft.com). As subscrições do EA, o CSP e CSL são suportadas. Relatórios de utilização é configurada durante [registo do Azure Stack](azure-stack-registration.md).
 
 > [!NOTE]
-> Na maioria dos casos, os clientes empresariais utilizará subscrições EA e fornecedores de serviços irá utilizar o CSP ou CSL subscrições.
+> Na maioria dos casos, os clientes empresariais utilizarão as subscrições do EA e fornecedores de serviços irá utilizar as subscrições de CSP ou CSL.
 
-Se pretender utilizar uma subscrição do CSP, reveja a tabela abaixo para identificar a subscrição do CSP a utilizar, como a abordagem correta depende do cenário exato do CSP:
+Se pretender utilizar uma subscrição do CSP, reveja a tabela a seguir para identificar a subscrição do CSP para utilizar, como a abordagem correta depende do cenário exato do CSP:
 
 |Cenário|Opções de domínio e de subscrição|
 |-----|-----|
-|É um **direta CSP parceiro** ou um **Indireta fornecedor CSP**, e irá funcionar a pilha do Azure|Utilize uma subscrição de CSL (camada de serviço comum).<br>     ou<br>Crie um inquilino do Azure AD com um nome descritivo no Centro de parceiros. Por exemplo &lt;organização > CSPAdmin com uma subscrição do Azure CSP associada à mesma.|
-|É um **Indireta CSP revendedor**, e irá funcionar a pilha do Azure|Peça ao seu fornecedor CSP Indireta para criar um inquilino do Azure AD para a sua organização com uma subscrição do Azure CSP associada ao mesmo utilizando o Centro de parceiros.|
+|É um **direto de parceiro CSP** ou uma **fornecedor de CSP Indiretos**, e irá utilizar o Azure Stack|Utilize uma subscrição de CSL (camada de serviço comum).<br>     ou<br>Crie um inquilino do Azure AD com um nome descritivo no Centro de parceiros. Por exemplo &lt;sua organização > CSPAdmin com uma subscrição do Azure CSP associada a ele.|
+|É um **revendedor de CSP Indiretos**, e irá utilizar o Azure Stack|Peça ao seu fornecedor de CSP Indiretos para criar um inquilino do Azure AD para a sua organização com uma subscrição do Azure CSP associada a ele usando o Centro de parceiros.|
 
-### <a name="capacity-based-billing"></a>Capacidade de faturação baseada em
-Se optar por utilizar o modelo de faturação de capacidade, tem de comprar um Azure pilha capacidade planear SKU com base na capacidade do seu sistema. Terá de saber o número de núcleos físicos na pilha do Azure para comprar a quantidade correta. 
+### <a name="capacity-based-billing"></a>Capacidade de faturação com base
+Se optar por utilizar o modelo de faturação de capacidade, tem de comprar um SKU do Azure Stack capacidade plano com base na capacidade do seu sistema. Terá de saber o número de núcleos físicos no seu Azure Stack para comprar a quantidade correta. 
 
-Faturação capacidade requer um Enterprise Agreement (EA) subscrição do Azure para o registo. O motivo é que o registo configura sindicação, que requer uma subscrição do Azure. A subscrição não está a ser utilizada para a utilização de pilha do Azure.
+Faturação capacidade requer um Enterprise Agreement (EA) uma subscrição do Azure para o registo. O motivo é que os registo configura a disponibilidade de itens no Marketplace, que requer uma subscrição do Azure. A subscrição não é utilizada para a utilização do Azure Stack.
 
 ## <a name="learn-more"></a>Saiba mais
-- Para obter informações sobre casos de utilização, aquisição, parceiros e fornecedores de hardware do OEM, consulte o [Azure pilha](https://azure.microsoft.com/overview/azure-stack/) página de produto.
-- Para obter informações sobre o plano e a georreplicação disponibilidade pilha do Azure integrados sistemas, consulte o documento técnico: [pilha do Azure: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-- Para saber mais sobre o Microsoft Azure pilha empacotamento e preços [transferir. o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+- Para obter informações sobre casos de utilização, de compra, parceiros e fornecedores de hardware de OEM, consulte a [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
+- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para saber mais sobre pacotes e preços do Microsoft Azure Stack [transferir o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Integração de rede do Centro de dados](azure-stack-network.md)

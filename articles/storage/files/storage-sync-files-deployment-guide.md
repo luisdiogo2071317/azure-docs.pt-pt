@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215150"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414246"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -83,7 +83,7 @@ O agente de sincronização de ficheiros do Azure é um pacote disponível para 
 Pode transferir o agente a partir da [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Quando o download for concluído, clique duas vezes o pacote do MSI para iniciar a instalação do agente de sincronização de ficheiros do Azure.
 
 > [!Important]  
-> Se pretender utilizar o Azure File Sync com um Cluster de ativação pós-falha, o agente do Azure File Sync tem de ser instalado em cada nó no cluster.
+> Se pretender utilizar o Azure File Sync com um Cluster de ativação pós-falha, o agente do Azure File Sync tem de ser instalado em cada nó no cluster. Cada nó do cluster tem registado para trabalhar com o Azure File Sync.
 
 Recomendamos que faça o seguinte:
 - Deixe o caminho de instalação predefinido (C:\Program Files\Azure\StorageSyncAgent), para simplificar a manutenção de resolução de problemas e de servidor.
@@ -93,6 +93,9 @@ Quando a instalação do agente do Azure File Sync estiver concluída, a interfa
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Execute o seguinte código de PowerShell para transferir a versão adequada do agente do Azure File Sync para o seu sistema operacional e instalá-lo no seu sistema.
+
+> [!Important]  
+> Se pretender utilizar o Azure File Sync com um Cluster de ativação pós-falha, o agente do Azure File Sync tem de ser instalado em cada nó no cluster. Cada nó do cluster tem registado para trabalhar com o Azure File Sync.
 
 ```PowerShell
 # Gather the OS version
