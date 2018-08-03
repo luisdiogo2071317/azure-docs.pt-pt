@@ -1,6 +1,6 @@
 ---
 title: Encriptação do serviço de armazenamento do Azure com chaves geridas pelo cliente no Azure Key Vault | Documentos da Microsoft
-description: Utilize a funcionalidade de encriptação de serviço de armazenamento do Azure para encriptar o armazenamento de Blobs do Azure, o ficheiros do Azure, o armazenamento de filas do Azure e o armazenamento de tabelas do Azure no lado do serviço ao armazenar os dados e decifrá-la ao obter os dados a utilizar chaves geridas pelo cliente.
+description: Utilize a funcionalidade de encriptação de serviço de armazenamento do Azure para encriptar o armazenamento de Blobs do Azure e ficheiros do Azure no lado do serviço ao armazenar os dados e decifrá-la ao obter os dados a utilizar chaves geridas pelo cliente.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: adca912121b4317d08481aeacffaa89b403ff7db
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414939"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480756"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault
 Microsoft Azure está empenhada em ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacionais. Uma forma que a plataforma de armazenamento do Azure protege os seus dados é através do Storage Service Encryption (SSE), que encripta os dados ao escrevê-lo para o armazenamento e desencripta os dados quando recuperá-lo. A encriptação e desencriptação é automático, transparente e utiliza a 256 bits [encriptação AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
@@ -23,7 +23,7 @@ Pode utilizar chaves de encriptação gerida pela Microsoft e o SSE ou pode usar
 O SSE para o armazenamento de Blobs do Azure e ficheiros do Azure estão integrados no Azure Key Vault, para que possa utilizar um cofre de chaves para gerir as chaves de encriptação. Pode criar suas próprias chaves de encriptação e armazená-las num cofre de chaves, ou pode usar APIs do Azure Key Vault para gerar chaves de encriptação. Com o Azure Key Vault, pode gerir e controlar as suas chaves e também a utilização da chave de auditoria.
 
 > [!Note]  
-> Encriptação do serviço de armazenamento não está disponível para [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). Recomendamos que utilize encriptação no nível do SO, como [do Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer encriptação integrado com o Cofre de chaves.
+> Utilizar chaves geridas pelo cliente de encriptação do serviço de armazenamento não está disponível para [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). [O Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) utiliza a norma da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer uma solução de encriptação, integrado com o Cofre de chaves.
 
 Porquê criar suas próprias chaves? Chaves personalizadas dão-lhe mais flexibilidade, para que pode criar, girar, desativar e definir controlos de acesso. Chaves personalizadas também permitem-lhe auditar as chaves de encriptação utilizadas para proteger os seus dados.
 
@@ -121,7 +121,7 @@ Sim.
 Existe um custo associado para utilizar o Azure Key Vault. Para obter mais detalhes, visite [preços do Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). Não existe nenhum custo adicional para o SSE, que está ativado para todas as contas de armazenamento.
 
 **Encriptação do serviço de armazenamento está disponível em Managed Disks do Azure?**  
-Não, a encriptação do serviço de armazenamento não está disponível para [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). Recomendamos que utilize encriptação no nível do SO, como [do Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer encriptação integrado com o Cofre de chaves.
+Encriptação do serviço de armazenamento está disponível para Managed Disks do Azure com chaves geridas pela Microsoft, mas não com o cliente de chaves geridas. Em lugar de Managed Disks suporte SSE com chaves geridas pelo cliente, é recomendável [do Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)no Linux para fornecer encriptação, integrado com o Cofre de chaves.
 
 **Como é diferente do Azure Disk Encryption Storage Service Encryption?**  
 O Azure Disk Encryption fornece integração entre soluções baseadas no sistema operacional como o BitLocker e o DM-Crypt e o Cofre de chaves do Azure. Encriptação do serviço de armazenamento fornece encriptação nativamente na camada de plataforma de armazenamento do Azure, abaixo da máquina virtual.

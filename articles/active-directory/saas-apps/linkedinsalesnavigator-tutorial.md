@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 1df301e197c90970aa1e73620f94f977ecd34ba0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046911"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425202"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn Sales Navigator
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LinkedIn Sales Navigator da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-linkedin-sales-navigator-from-the-gallery"></a>Adicionando o LinkedIn Sales Navigator da Galeria
 Para configurar a integração do LinkedIn Sales Navigator para o Azure AD, terá de adicionar o LinkedIn Sales Navigator partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração do LinkedIn Sales Navigator para o Azure AD, ter�
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Clique em **nova aplicação** botão na parte superior da caixa de diálogo.
+1. Clique em **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **LinkedIn Sales Navigator**.
+1. Na caixa de pesquisa, escreva **LinkedIn Sales Navigator**.
 
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
 
-5. No painel de resultados, selecione **LinkedIn Sales Navigator**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **LinkedIn Sales Navigator**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relação de ligação é estabelecida atribuindo o valor do **nome de util
 Para configurar e testar o Azure AD início de sessão único com o LinkedIn Sales Navigator, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)**  - para ter um equivalente da Eduarda Almeida no LinkedIn Sales Navigator que está ligado a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)**  - para ter um equivalente da Eduarda Almeida no LinkedIn Sales Navigator que está ligado a representação do Azure AD do utilizador.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,21 +104,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, na **modo** selecione **baseado em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, na **modo** selecione **baseado em SAML início de sessão** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
 
-3. Numa janela do browser web diferente, início de sessão na sua **LinkedIn Sales Navigator** Web site como um administrador.
+1. Numa janela do browser web diferente, início de sessão na sua **LinkedIn Sales Navigator** Web site como um administrador.
 
-4. Na **Centro de contas**, clique em **definições globais** sob **definições**. Além disso, selecione **Sales Navigator** na lista pendente.
+1. Na **Centro de contas**, clique em **definições globais** sob **definições**. Além disso, selecione **Sales Navigator** na lista pendente.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Clique em **ou clique aqui para carregar e copiar campos individuais do formulário** e copie **Id de entidade** e **Url de acesso de consumidor de asserção (ACS)**.
+1. Clique em **ou clique aqui para carregar e copiar campos individuais do formulário** e copie **Id de entidade** e **Url de acesso de consumidor de asserção (ACS)**.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. No portal do Azure, em **LinkedIn Sales Navigator domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação na **IDP** iniciada pelo modo.
+1. No portal do Azure, em **LinkedIn Sales Navigator domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação na **IDP** iniciada pelo modo.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
@@ -126,17 +126,17 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Na **URL de resposta** caixa de texto, introduza o **Url de acesso de consumidor de asserção (ACS)** copiados a partir do Portal do LinkedIn
 
-7. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo.
+1. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
     Na **URL de início de sessão** caixa de texto, digite o valor usando o seguinte padrão: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
-8. Sua **LinkedIn Sales Navigator** aplicativo espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra um exemplo. O valor predefinido **identificador de utilizador** é **user.userprincipalname** mas o LinkedIn Sales Navigator espera que seja mapeada com endereço de e-mail do utilizador. Pode usar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização. 
+1. Sua **LinkedIn Sales Navigator** aplicativo espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra um exemplo. O valor predefinido **identificador de utilizador** é **user.userprincipalname** mas o LinkedIn Sales Navigator espera que seja mapeada com endereço de e-mail do utilizador. Pode usar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização. 
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. Na **atributos de utilizador** secção, clique em **ver e editar todos os outros atributos de utilizador** e definir os atributos. O utilizador tem de adicionar quatro afirmações com o nome **e-mail**, **departamento**, **firstname**, e **lastname** e o valor deve ser mapeado com **user.mail**, **user.department**, **user.givenname**, e **user.surname** , respetivamente
+1. Na **atributos de utilizador** secção, clique em **ver e editar todos os outros atributos de utilizador** e definir os atributos. O utilizador tem de adicionar quatro afirmações com o nome **e-mail**, **departamento**, **firstname**, e **lastname** e o valor deve ser mapeado com **user.mail**, **user.department**, **user.givenname**, e **user.surname** , respetivamente
 
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
@@ -159,7 +159,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     d. Clique em **Ok**
 
-10. Execute os seguintes passos no **nome** atributo -
+1. Execute os seguintes passos no **nome** atributo -
 
     a. Clique no atributo para abrir o **Editar atributo** janela.
 
@@ -169,19 +169,19 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     c. Clique em **Ok** para guardar a definição.
 
-11. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-12. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-13. Aceda a **definições de administração do LinkedIn** secção. Clique em **arquivo XML carregar** para carregar o ficheiro de metadados XML que transferiu do portal do Azure.
+1. Aceda a **definições de administração do LinkedIn** secção. Clique em **arquivo XML carregar** para carregar o ficheiro de metadados XML que transferiu do portal do Azure.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-14. Clique em **no** para ativar o SSO. Estado SSO é alterado de **não ligado** para **ligado**
+1. Clique em **no** para ativar o SSO. Estado SSO é alterado de **não ligado** para **ligado**
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -201,15 +201,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
 
-2. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
 
@@ -239,23 +239,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **LinkedIn Sales Navigator**.
+1. Na lista de aplicações, selecione **LinkedIn Sales Navigator**.
 
     ![Configurar o início de sessão único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -266,7 +266,7 @@ Quando clica no mosaico do LinkedIn Sales Navigator no painel de acesso, deve se
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

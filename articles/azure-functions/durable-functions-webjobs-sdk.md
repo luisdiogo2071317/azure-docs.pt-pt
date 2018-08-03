@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 90100461d7db93ece23bf2420a1b7e8c43da915b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 94d443505c5c1634c9da00d455e0163b2762d969
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343054"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426039"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
@@ -223,7 +223,7 @@ A principal alteração introduzida por 3.x é o uso do .NET Core em vez do .NET
   * `Microsoft.Azure.WebJobs.Extensions`
   * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-2. Alteração `Main` código de método para obter a cadeia de ligação de armazenamento e a chave de instrumentação do Application Insights de um *appSettings* de ficheiros, usando a estrutura de configuração do .NET Core.  Segue-se um exemplo:
+1. Alteração `Main` código de método para obter a cadeia de ligação de armazenamento e a chave de instrumentação do Application Insights de um *appSettings* de ficheiros, usando a estrutura de configuração do .NET Core.  Segue-se um exemplo:
 
    ```cs
    static void Main(string[] args)

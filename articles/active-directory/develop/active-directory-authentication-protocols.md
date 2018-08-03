@@ -1,6 +1,6 @@
 ---
-title: Protocolos de autenticação do Azure Active Directory | Microsoft Docs
-description: Uma descrição geral de protocolos de autenticação suportados pelo Azure Active Directory (AD)
+title: Protocolos de autenticação do Active Directory do Azure | Documentos da Microsoft
+description: Uma descrição geral dos protocolos de autenticação suportado pelo Azure Active Directory (AD)
 documentationcenter: dev-center-name
 author: CelesteDG
 services: active-directory
@@ -17,27 +17,27 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f591898dbe40d2756d5797636ca529c359959f92
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 81626cac41b1733f49e7fe1254c6b2bf8f5281cb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317080"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442287"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticação do Azure Active Directory
-Azure Active Directory (Azure AD) suporta vários os protocolos de autenticação e autorização mais amplamente utilizados. Os tópicos nesta secção descrevem os protocolos suportados e a respetiva implementação no Azure AD. Os tópicos incluídos uma revisão dos tipos de afirmação suportados, uma introdução à utilização de metadados de Federação, detalhada OAuth 2.0. função de segurança e documentação de referência do protocolo SAML 2.0 e uma secção de resolução de problemas.
+Azure Active Directory (Azure AD) suporta vários dos protocolos de autenticação e autorização mais amplamente utilizados. Os tópicos nesta secção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluída uma análise dos tipos de afirmação suportados, uma introdução ao uso dos metadados de Federação, detalhadas OAuth 2.0. e documentação de referência do protocolo SAML 2.0 e uma secção de resolução de problemas.
 
-## <a name="authentication-protocols-articles-and-reference"></a>Protocolos de autenticação artigos e de referência
-* [Importante informações sobre como assinar Rollover de chave no Azure AD](active-directory-signing-key-rollover.md) – Saiba mais sobre a assinatura do Azure AD cadência da chave, as alterações que pode efetuar para atualizar automaticamente a chave e debate sobre como atualizar os cenários de aplicações mais comuns.
+## <a name="authentication-protocols-articles-and-reference"></a>Protocolos de autenticação de artigos e referência
+* [Importante informações sobre como assinar Rollover de chave no Azure AD](active-directory-signing-key-rollover.md) – Saiba mais sobre a cadência da chave, que pode efetuar para atualizar automaticamente a chave de alterações e discussão sobre como atualizar os cenários mais comuns de aplicação de assinatura do Azure AD.
 * [Token e tipos de afirmação suportados](active-directory-token-and-claims.md) -Saiba mais sobre as afirmações nos tokens de que o Azure AD emite.
-* [Os metadados de Federação](active-directory-federation-metadata.md) -aprender a localizar e interpretar os documentos de metadados que gera do Azure AD.
+* [Metadados de Federação](active-directory-federation-metadata.md) -Saiba como localizar e interpretar os documentos de metadados que o Azure AD gera.
 * [OAuth 2.0 no Azure AD](active-directory-protocols-oauth-code.md) -Saiba mais sobre a implementação de OAuth 2.0 no Azure AD.
-* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) -aprender a utilizar um protocolo de autorização do OAuth 2.0 para autenticação.
-* [Chamadas de serviços com credenciais do cliente](active-directory-protocols-oauth-service-to-service.md) -aprender a utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviço ao serviço.
-* [Chamadas de serviços com o fluxo de On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md) -aprender a utilizar o fluxo de OAuth 2.0 On-Behalf-Of para chamadas de serviço ao serviço.
-* [Referência do protocolo SAML](active-directory-saml-protocol-reference.md) -Saiba mais sobre os perfis de Single Sign-On e única Sign-out SAML do Azure AD.
+* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) -Saiba como utilizar o OAuth 2.0, um protocolo de autorização, para autenticação.
+* [Chamadas de serviço para serviço com as credenciais de cliente](active-directory-protocols-oauth-service-to-service.md) -Saiba como utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviço para serviço.
+* [Chamadas de serviço para serviço com o On-Behalf-Of Flow](active-directory-protocols-oauth-on-behalf-of.md) -Saiba como utilizar o fluxo do OAuth 2.0 On-Behalf-Of para chamadas de serviço para serviço.
+* [Referência do protocolo SAML](active-directory-saml-protocol-reference.md) -Saiba mais sobre os perfis de início de sessão único e SAML de fim de sessão único do Azure AD.
 
 ## <a name="see-also"></a>Consultar Também
-[Guia para programadores do Azure Active Directory](active-directory-developers-guide.md)
+[Guia para programadores do Azure Active Directory](azure-ad-developers-guide.md)
 
 [Exemplos de código do Active Directory](active-directory-code-samples.md)

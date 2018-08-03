@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 7bb15323a1f4ead02a24c4ee451de8890a635032
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 367310527619d4bdb5f84a80c567a9d83698846e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053053"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Azure Active Directory com os laboratórios Fluxx
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Fluxx laboratórios da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-fluxx-labs-from-the-gallery"></a>Adicionando Fluxx laboratórios da Galeria
 Para configurar a integração de Fluxx laboratórios com o Azure AD, terá de adicionar Fluxx laboratórios a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,15 +63,15 @@ Para configurar a integração de Fluxx laboratórios com o Azure AD, terá de a
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Fluxx laboratórios**, selecione **Fluxx laboratórios** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Fluxx laboratórios**, selecione **Fluxx laboratórios** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Laboratórios de Fluxx na lista de resultados](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Nos laboratórios de Fluxx, atribuir o valor do **nome de utilizador** no Azure 
 Para configurar e testar o Azure AD início de sessão único com Fluxx laboratórios, precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de laboratórios de Fluxx](#create-a-fluxx-labs-test-user)**  - para ter um equivalente da Eduarda Almeida nos laboratórios de Fluxx que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de laboratórios de Fluxx](#create-a-fluxx-labs-test-user)**  - para ter um equivalente da Eduarda Almeida nos laboratórios de Fluxx que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -101,11 +101,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Caixa de diálogo de início de sessão único](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
-3. Sobre o **Fluxx laboratórios de domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Fluxx laboratórios de domínio e URLs** secção, execute os seguintes passos:
 
     ![Fluxx laboratórios de domínio e URLs únicas início de sessão em informações](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_url.png)
 
@@ -126,29 +126,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de laboratórios de Fluxx](mailto:travis@fluxxlabs.com) obter esses valores.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. Na **Fluxx laboratórios Configuration** secção, clique em **configurar laboratórios de Fluxx** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Na **Fluxx laboratórios Configuration** secção, clique em **configurar laboratórios de Fluxx** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
-7. Numa janela do browser web diferente, inicie sessão site da sua empresa Fluxx laboratórios como administrador.
+1. Numa janela do browser web diferente, inicie sessão site da sua empresa Fluxx laboratórios como administrador.
 
-8. Selecione **administrador** abaixo a **definições** secção.
+1. Selecione **administrador** abaixo a **definições** secção.
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/config1.png)
 
-9. No painel administração, selecione **Plug-ins** > **integrações** e, em seguida, selecione **SSO-(Disabled) de SAML**
+1. No painel administração, selecione **Plug-ins** > **integrações** e, em seguida, selecione **SSO-(Disabled) de SAML**
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/config2.png)
 
-10. Na secção de atributo, execute os seguintes passos:
+1. Na secção de atributo, execute os seguintes passos:
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/config3.png)
 
@@ -185,15 +185,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/fluxxlabs-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/fluxxlabs-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/fluxxlabs-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/fluxxlabs-tutorial/create_aaduser_04.png)
 
@@ -213,15 +213,15 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Fluxx laboratórios, t
 
 1. Inicie sessão no site da sua empresa Fluxx laboratórios como administrador.
 
-2. Clique no apresentado a seguir **ícone**.
+1. Clique no apresentado a seguir **ícone**.
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/config6.png)
 
-3. No dashboard, clique no abaixo apresentado ícone para abrir o **novas pessoas** cartão.
+1. No dashboard, clique no abaixo apresentado ícone para abrir o **novas pessoas** cartão.
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/config4.png)
 
-4. Sobre o **novas pessoas** secção, execute os seguintes passos:
+1. Sobre o **novas pessoas** secção, execute os seguintes passos:
 
     ![Configuração de laboratórios Fluxx](./media/fluxxlabs-tutorial/config5.png)
 
@@ -241,23 +241,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Fluxx laboratórios**.
+1. Na lista de aplicações, selecione **Fluxx laboratórios**.
 
     ![A ligação de Fluxx laboratórios na lista de aplicações](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -269,7 +269,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

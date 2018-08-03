@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866863"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436714"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Utilizar perfis de versão de API com o Azure CLI 2.0 do Azure Stack
 
@@ -38,7 +38,7 @@ Deverá ver a versão da CLI do Azure e outras bibliotecas dependentes instalada
 
 1. Obter o certificado de raiz da AC do Azure Stack [seu operador do Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certificado de Python existente.
 
-2. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Pode utilizar o seguinte comando de Python de linha de comandos do bash:
+1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Pode utilizar o seguinte comando de Python de linha de comandos do bash:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ Se estiver a executar o CLI de uma máquina **fora** o ambiente do Azure Stack:
 
 1. Tem de configurar [conectividade VPN para o Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Copie o certificado PEM que recebeu do operador do Azure Stack e tome nota da localização do ficheiro (PATH_TO_PEM_FILE).
+1. Copie o certificado PEM que recebeu do operador do Azure Stack e tome nota da localização do ficheiro (PATH_TO_PEM_FILE).
 
-3. Execute os comandos seguintes, consoante final no sistema operacional de seu desenvolvimento da estação de trabalho.
+1. Execute os comandos seguintes, consoante final no sistema operacional de seu desenvolvimento da estação de trabalho.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Utilize os seguintes passos para ligar ao Azure Stack:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Defina o ambiente do Active Directory com os seguintes comandos.
+1. Defina o ambiente do Active Directory com os seguintes comandos.
 
    a. Para o *cloud administrativa* ambiente, utilize:
 
@@ -156,14 +156,14 @@ Utilize os seguintes passos para ligar ao Azure Stack:
         -n AzureStackUser
       ```
 
-3. Atualize a configuração do seu ambiente para utilizar o perfil de versão de API específico do Azure Stack. Para atualizar a configuração, execute o seguinte comando:
+1. Atualize a configuração do seu ambiente para utilizar o perfil de versão de API específico do Azure Stack. Para atualizar a configuração, execute o seguinte comando:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Inicie sessão no seu ambiente do Azure Stack, utilizando o `az login` comando. Pode iniciar sessão no ambiente do Azure Stack como um utilizador ou como um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Inicie sessão no seu ambiente do Azure Stack, utilizando o `az login` comando. Pode iniciar sessão no ambiente do Azure Stack como um utilizador ou como um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Inicie sessão como um *utilizador*: pode especificar o nome de utilizador e palavra-passe diretamente dentro do `az login` comando ou autenticar com um browser. Precisa fazer a última opção se a sua conta tem a autenticação multifator ativada.
 

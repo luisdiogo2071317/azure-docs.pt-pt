@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b097a85ee97fb815106803ab95f3e4f6edde4896
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136677"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422422"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -103,11 +103,11 @@ Crie um conjunto do Batch com, pelo menos, dois nós de computação.
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **procurar** no menu à esquerda e selecione **contas do Batch**.
 
-2. Selecione a sua conta do Batch para abrir o **conta do Batch** painel.
+1. Selecione a sua conta do Batch para abrir o **conta do Batch** painel.
 
-3. Selecione o **conjuntos** mosaico.
+1. Selecione o **conjuntos** mosaico.
 
-4. Na **agrupamentos** painel, selecione a **adicionar** botão na barra de ferramentas para adicionar um conjunto.
+1. Na **agrupamentos** painel, selecione a **adicionar** botão na barra de ferramentas para adicionar um conjunto.
 
    a. Introduza um ID para o conjunto (**ID do conjunto**). Tenha em atenção o ID do conjunto. Irá precisar dele quando criar a solução de fábrica de dados.
 
@@ -126,7 +126,7 @@ Utilizar [6 de Explorador de armazenamento do Azure](https://azurestorageexplore
 
 1. Criar um contentor com o nome **mycontainer** com acesso privado (sem acesso anónimo).
 
-2. Se usar CloudXplorer, crie pastas e subpastas com a seguinte estrutura:
+1. Se usar CloudXplorer, crie pastas e subpastas com a seguinte estrutura:
 
    ![Estrutura de pasta e subpasta](./media/data-factory-data-processing-using-batch/image3.png)
 
@@ -134,15 +134,15 @@ Utilizar [6 de Explorador de armazenamento do Azure](https://azurestorageexplore
 
    Se utilizar o Explorador de armazenamento, no próximo passo, carregar ficheiros com os seguintes nomes: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`e assim por diante. Este passo cria automaticamente as pastas.
 
-3. Criar um arquivo de texto **file.txt** no seu computador com o conteúdo que tenha a palavra-chave **Microsoft**. Um exemplo é "atividade personalizada do atividade personalizada Microsoft teste Microsoft de teste".
+1. Criar um arquivo de texto **file.txt** no seu computador com o conteúdo que tenha a palavra-chave **Microsoft**. Um exemplo é "atividade personalizada do atividade personalizada Microsoft teste Microsoft de teste".
 
-4. Carregar o ficheiro para as seguintes pastas de entrada no armazenamento de BLOBs:
+1. Carregar o ficheiro para as seguintes pastas de entrada no armazenamento de BLOBs:
 
    ![Pastas de entrada](./media/data-factory-data-processing-using-batch/image4.png)
 
    Se utilizar o Explorador de armazenamento, carregue o **file.txt** do ficheiro para **mycontainer**. Selecione **cópia** na barra de ferramentas para criar uma cópia do blob. Na **Blob de cópia** caixa de diálogo, altere a **nome do blob de destino** para `inputfolder/2015-11-16-00/file.txt`. Repita este passo para criar `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`e assim por diante. Esta ação cria automaticamente as pastas.
 
-5. Criar outro contentor com o nome `customactivitycontainer`. Carregar o ficheiro de zip da atividade personalizada para este contentor.
+1. Criar outro contentor com o nome `customactivitycontainer`. Carregar o ficheiro de zip da atividade personalizada para este contentor.
 
 #### <a name="visual-studio"></a>Visual Studio
 Instale o Visual Studio 2012 ou posterior para criar a atividade de lote personalizada a ser utilizado na solução de fábrica de dados.
@@ -150,7 +150,7 @@ Instale o Visual Studio 2012 ou posterior para criar a atividade de lote persona
 ### <a name="high-level-steps-to-create-the-solution"></a>Passos de alto nível para criar a solução
 1. Crie uma atividade personalizada que contém a lógica de processamento de dados.
 
-2. Crie uma fábrica de dados que utiliza a atividade personalizada.
+1. Crie uma fábrica de dados que utiliza a atividade personalizada.
 
 ### <a name="create-the-custom-activity"></a>Criar a atividade personalizada
 A atividade personalizada da fábrica de dados é o coração desta solução de exemplo. A solução de exemplo utiliza o Batch para executar a atividade personalizada. Para obter informações sobre como desenvolver atividades personalizadas e usá-los em pipelines da fábrica de dados, consulte [utilizar atividades personalizadas num pipeline de fábrica de dados](data-factory-use-custom-activities.md).
@@ -192,19 +192,19 @@ O método tem alguns componentes principais que precisa entender:
 
    g. Selecione **OK** para criar o projeto.
 
-2. Selecione **ferramentas** > **Gestor de pacotes NuGet** > **Package Manager Console**.
+1. Selecione **ferramentas** > **Gestor de pacotes NuGet** > **Package Manager Console**.
 
-3. Na consola do Gestor de pacotes, execute o seguinte comando para importar Microsoft.Azure.Management.DataFactories:
+1. Na consola do Gestor de pacotes, execute o seguinte comando para importar Microsoft.Azure.Management.DataFactories:
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
-4. Importar os **armazenamento do Azure** pacote NuGet no projeto. Este pacote é necessário uma vez que usar a API de armazenamento de BLOBs neste exemplo:
+1. Importar os **armazenamento do Azure** pacote NuGet no projeto. Este pacote é necessário uma vez que usar a API de armazenamento de BLOBs neste exemplo:
 
     ```powershell
     Install-Package Azure.Storage
     ```
-5. Adicione o seguinte usando diretivas para o ficheiro de origem no projeto:
+1. Adicione o seguinte usando diretivas para o ficheiro de origem no projeto:
 
     ```csharp
     using System.IO;
@@ -218,17 +218,17 @@ O método tem alguns componentes principais que precisa entender:
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
-6. Altere o nome do espaço de nomes para **MyDotNetActivityNS**.
+1. Altere o nome do espaço de nomes para **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
-7. Altere o nome da classe para **MyDotNetActivity**e derivá-lo a partir do **IDotNetActivity** interface conforme mostrado:
+1. Altere o nome da classe para **MyDotNetActivity**e derivá-lo a partir do **IDotNetActivity** interface conforme mostrado:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
-8. Implementar (adicionar) a **Execute** método o **IDotNetActivity** interface para o **MyDotNetActivity** classe. Copie o seguinte código de exemplo para o método. Para obter uma explicação sobre a lógica usada nesse método, consulte a [executar o método](#execute-method) secção.
+1. Implementar (adicionar) a **Execute** método o **IDotNetActivity** interface para o **MyDotNetActivity** classe. Copie o seguinte código de exemplo para o método. Para obter uma explicação sobre a lógica usada nesse método, consulte a [executar o método](#execute-method) secção.
 
     ```csharp
     /// <summary>
@@ -310,7 +310,7 @@ O método tem alguns componentes principais que precisa entender:
        return new Dictionary<string, string>();
     }
     ```
-9. Adicione os seguintes métodos auxiliares à classe. Esses métodos são chamados pela **Execute** método. Mais importante, o **Calculate** método isola o código que itera através de cada blob.
+1. Adicione os seguintes métodos auxiliares à classe. Esses métodos são chamados pela **Execute** método. Mais importante, o **Calculate** método isola o código que itera através de cada blob.
 
     ```csharp
     /// <summary>
@@ -394,15 +394,15 @@ O método tem alguns componentes principais que precisa entender:
 
     O método de Calculate calcula o número de instâncias da palavra-chave "Microsoft" nos ficheiros de entrada (blobs na pasta). O termo de pesquisa "Microsoft" está embutido no código.
 
-10. Compile o projeto. Selecione **crie** no menu e, em seguida, selecione **compilar solução**.
+1. Compile o projeto. Selecione **crie** no menu e, em seguida, selecione **compilar solução**.
 
-11. Iniciar o Explorador do Windows e vá para o **bin\\depurar** ou **bin\\versão** pasta. A escolha de pasta depende do tipo de compilação.
+1. Iniciar o Explorador do Windows e vá para o **bin\\depurar** ou **bin\\versão** pasta. A escolha de pasta depende do tipo de compilação.
 
-12. Criar um ficheiro zip **MyDotNetActivity.zip** que contém todos os binários no  **\\bin\\depurar** pasta. Pode querer incluir o MyDotNetActivity. **pdb** para que obtenham detalhes adicionais, como o número de linha no código-fonte que causou o problema quando ocorre uma falha de ficheiros.
+1. Criar um ficheiro zip **MyDotNetActivity.zip** que contém todos os binários no  **\\bin\\depurar** pasta. Pode querer incluir o MyDotNetActivity. **pdb** para que obtenham detalhes adicionais, como o número de linha no código-fonte que causou o problema quando ocorre uma falha de ficheiros.
 
    ![Lista de pastas de bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
-13. Carregue **MyDotNetActivity.zip** como um blob para o contentor de BLOBs `customactivitycontainer` no armazenamento de BLOBs que o StorageLinkedService ligada serviço no ADFTutorialDataFactory utiliza. Criar o contentor de BLOBs `customactivitycontainer` se ainda não exista.
+1. Carregue **MyDotNetActivity.zip** como um blob para o contentor de BLOBs `customactivitycontainer` no armazenamento de BLOBs que o StorageLinkedService ligada serviço no ADFTutorialDataFactory utiliza. Criar o contentor de BLOBs `customactivitycontainer` se ainda não exista.
 
 #### <a name="execute-method"></a>Executar o método
 Esta seção fornece mais detalhes sobre o código no método Execute.
@@ -432,20 +432,20 @@ Esta seção fornece mais detalhes sobre o código no método Execute.
     ```
    Para obter mais informações, consulte a documentação para o [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) método.
 
-2. O código para o trabalho por meio de conjunto de blobs logicamente vai dentro do fazer-while loop. Na **Execute** método, a fazer-enquanto loop passa a lista de blobs para um método chamado **Calculate**. O método retorna uma variável de cadeia de caracteres chamada **saída** ou seja, o resultado de ter iteração de todos os blobs no segmento.
+1. O código para o trabalho por meio de conjunto de blobs logicamente vai dentro do fazer-while loop. Na **Execute** método, a fazer-enquanto loop passa a lista de blobs para um método chamado **Calculate**. O método retorna uma variável de cadeia de caracteres chamada **saída** ou seja, o resultado de ter iteração de todos os blobs no segmento.
 
    Devolve o número de ocorrências do termo de pesquisa "Microsoft" no blob passado para o **Calculate** método.
 
     ```csharp
     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
     ```
-3. Depois do **Calculate** método termina, ele deve ser escrito para um blob de novo. Para cada conjunto de blobs processados, um novo blob pode ser escrito com os resultados. Para escrever para um blob novo, primeiro localize o conjunto de dados de saída.
+1. Depois do **Calculate** método termina, ele deve ser escrito para um blob de novo. Para cada conjunto de blobs processados, um novo blob pode ser escrito com os resultados. Para escrever para um blob novo, primeiro localize o conjunto de dados de saída.
 
     ```csharp
     // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
     Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
     ```
-4. O código também chama o método auxiliar **GetFolderPath** para obter o caminho da pasta (o nome do contentor de armazenamento).
+1. O código também chama o método auxiliar **GetFolderPath** para obter o caminho da pasta (o nome do contentor de armazenamento).
 
     ```csharp
     folderPath = GetFolderPath(outputDataset);
@@ -457,20 +457,20 @@ Esta seção fornece mais detalhes sobre o código no método Execute.
     
     return blobDataset.FolderPath;
     ```
-5. O código chama o **GetFileName** método para recuperar o nome de ficheiro (nome do blob). O código é semelhante ao código anterior que foi utilizado para obter o caminho da pasta.
+1. O código chama o **GetFileName** método para recuperar o nome de ficheiro (nome do blob). O código é semelhante ao código anterior que foi utilizado para obter o caminho da pasta.
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
     
     return blobDataset.FileName;
     ```
-6. O nome do ficheiro é gravado através da criação de um objeto URI. O construtor URI usa o **BlobEndpoint** propriedade para retornar o nome do contentor. O nome de ficheiro e caminho de pasta são adicionadas para construir o URI de blob de saída.  
+1. O nome do ficheiro é gravado através da criação de um objeto URI. O construtor URI usa o **BlobEndpoint** propriedade para retornar o nome do contentor. O nome de ficheiro e caminho de pasta são adicionadas para construir o URI de blob de saída.  
 
     ```csharp
     // Write the name of the file.
     Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
     ```
-7. Após o nome do ficheiro é escrito, pode escrever a cadeia de saída a partir do **Calculate** método para um blob novo:
+1. Após o nome do ficheiro é escrito, pode escrever a cadeia de saída a partir do **Calculate** método para um blob novo:
 
     ```csharp
     // Create a blob and upload the output text.
@@ -532,17 +532,17 @@ A instrução a seguir fornece detalhes adicionais.
 
    c. Selecione **Data Factory** sobre o **análise de dados** painel.
 
-2. Sobre o **nova fábrica de dados** painel, introduza **CustomActivityFactory** para o nome. O nome da fábrica de dados tem de ser globalmente exclusivo. Se receber o erro "o nome da fábrica de dados CustomActivityFactory não está disponível", altere o nome da fábrica de dados. Por exemplo, utilize yournameCustomActivityFactory e volte a criar a fábrica de dados.
+1. Sobre o **nova fábrica de dados** painel, introduza **CustomActivityFactory** para o nome. O nome da fábrica de dados tem de ser globalmente exclusivo. Se receber o erro "o nome da fábrica de dados CustomActivityFactory não está disponível", altere o nome da fábrica de dados. Por exemplo, utilize yournameCustomActivityFactory e volte a criar a fábrica de dados.
 
-3. Selecione **nome do grupo de recursos**e selecione um grupo de recursos existente ou crie um grupo de recursos.
+1. Selecione **nome do grupo de recursos**e selecione um grupo de recursos existente ou crie um grupo de recursos.
 
-4. Certifique-se de que a subscrição e região onde pretende que a fábrica de dados a ser criado estão corretos.
+1. Certifique-se de que a subscrição e região onde pretende que a fábrica de dados a ser criado estão corretos.
 
-5. Selecione **Create** sobre o **nova fábrica de dados** painel.
+1. Selecione **Create** sobre o **nova fábrica de dados** painel.
 
-6. É criado a fábrica de dados no dashboard do portal.
+1. É criado a fábrica de dados no dashboard do portal.
 
-7. Depois da fábrica de dados é criada com êxito, verá os **fábrica de dados** página, que mostra o conteúdo da fábrica de dados.
+1. Depois da fábrica de dados é criada com êxito, verá os **fábrica de dados** página, que mostra o conteúdo da fábrica de dados.
 
    ![Página da fábrica de dados](./media/data-factory-data-processing-using-batch/image6.png)
 
@@ -552,13 +552,13 @@ Serviços ligados ligam os arquivos de dados ou serviços de computação à fá
 #### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 1. Selecione o **autor e implementar** mosaico a **fábrica de dados** painel **CustomActivityFactory**. É apresentado o Editor do Data Factory.
 
-2. Selecione **novo arquivo de dados** na barra de comandos e escolha **armazenamento do Azure.** O script JSON, que vai utilizar para criar um serviço ligado no editor aparece de armazenamento.
+1. Selecione **novo arquivo de dados** na barra de comandos e escolha **armazenamento do Azure.** O script JSON, que vai utilizar para criar um serviço ligado no editor aparece de armazenamento.
 
    ![Novo arquivo de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, veja [ver, copiar e voltar a gerar armazenamento de chaves de acesso](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter a chave de acesso de armazenamento, veja [ver, copiar e voltar a gerar armazenamento de chaves de acesso](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
+1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
    ![Implementação](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -567,7 +567,7 @@ Neste passo, vai criar um serviço ligado para a sua conta do Batch que é utili
 
 1. Selecione **nova computação** na barra de comandos e escolha **do Azure Batch.** O script JSON, que vai utilizar para criar um lote de serviço ligado no editor será exibido.
 
-2. No script de JSON:
+1. No script de JSON:
 
    a. Substitua **nome da conta** com o nome da sua conta do Batch.
 
@@ -593,7 +593,7 @@ Neste passo, vai criar um serviço ligado para a sua conta do Batch que é utili
    
    e. Especifique **StorageLinkedService** para o **linkedServiceName** propriedade. Criou este serviço ligado no passo anterior. Este armazenamento é utilizado como uma área de teste para ficheiros e registos.
 
-3. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
+1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
 #### <a name="step-3-create-datasets"></a>Passo 3: Criar conjuntos de dados
 Neste passo, vai criar conjuntos de dados para representar os dados de entrada e saídos.
@@ -601,7 +601,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 #### <a name="create-the-input-dataset"></a>Criar o conjunto de dados de entrada
 1. No Editor do Data Factory, selecione o **novo conjunto de dados** botão na barra de ferramentas. Selecione **armazenamento de Blobs do Azure** na lista pendente.
 
-2. Substitua o script JSON no painel direito pelo seguinte fragmento JSON:
+1. Substitua o script JSON no painel direito pelo seguinte fragmento JSON:
 
     ```json
     {
@@ -683,14 +683,14 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3. Selecione **Deploy** na barra de ferramentas para criar e implementar a **InputDataset** tabela.
+1. Selecione **Deploy** na barra de ferramentas para criar e implementar a **InputDataset** tabela.
 
 #### <a name="create-the-output-dataset"></a>Criar o conjunto de dados de saída
 Neste passo, vai criar outro conjunto de dados do tipo AzureBlob para representar os dados de saída.
 
 1. No Editor do Data Factory, selecione o **novo conjunto de dados** botão na barra de ferramentas. Selecione **armazenamento de Blobs do Azure** na lista pendente.
 
-2. Substitua o script JSON no painel direito pelo seguinte fragmento JSON:
+1. Substitua o script JSON no painel direito pelo seguinte fragmento JSON:
 
     ```json
     {
@@ -732,7 +732,7 @@ Neste passo, vai criar outro conjunto de dados do tipo AzureBlob para representa
 
     Lembre-se de que todos os arquivos numa pasta de entrada (por exemplo, 2015-11-16-00) fazem parte de um setor com a hora de início de 2015-11-16-00. Quando esse setor é processado, a atividade personalizada examina cada arquivo e produz uma linha no arquivo de saída com o número de ocorrências do termo de pesquisa "Microsoft". Se existirem três arquivos na pasta 2015-11-16-00, existem três linhas da saída ficheiro 2015-11-16-00.txt.
 
-3. Selecione **Deploy** na barra de ferramentas para criar e implementar a **OutputDataset**.
+1. Selecione **Deploy** na barra de ferramentas para criar e implementar a **OutputDataset**.
 
 #### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>Passo 4: Criar e executar o pipeline com uma atividade personalizada
 Neste passo, vai criar um pipeline com uma atividade, a atividade personalizada que criou anteriormente.
@@ -744,7 +744,7 @@ Neste passo, vai criar um pipeline com uma atividade, a atividade personalizada 
 
 1. No Editor do Data Factory, selecione **novo pipeline** na barra de comandos. Se não vir o comando, selecione o símbolo de reticências para apresentá-la.
 
-2. Substitua o script JSON no painel direito pelo seguinte fragmento JSON:
+1. Substitua o script JSON no painel direito pelo seguinte fragmento JSON:
 
     ```json
     {
@@ -803,7 +803,7 @@ Neste passo, vai criar um pipeline com uma atividade, a atividade personalizada 
     - O **isPaused** propriedade é definida como false por padrão. O pipeline executa imediatamente neste exemplo, uma vez que os setores de início no passado. Pode definir esta propriedade **true** colocar em pausa o pipeline e o conjunto de volta ao **falso** para reiniciar.
     -   O **começar** e **final** tempos são cinco horas de distância. Setores são produzidos de hora a hora, para que os setores de cinco são produzidos pelo pipeline.
 
-3. Selecione **Implementar** na barra de comandos para implementar o pipeline.
+1. Selecione **Implementar** na barra de comandos para implementar o pipeline.
 
 #### <a name="step-5-test-the-pipeline"></a>Passo 5: Testar o pipeline
 Neste passo, vai testar o pipeline soltando ficheiros em pastas de entrada. Comece por testar o pipeline com um ficheiro para cada pasta de entrada.
@@ -812,23 +812,23 @@ Neste passo, vai testar o pipeline soltando ficheiros em pastas de entrada. Come
 
    ![Diagrama](./media/data-factory-data-processing-using-batch/image10.png)
 
-2. Na **diagrama** ver, faça duplo clique no conjunto de dados de entrada **InputDataset**.
+1. Na **diagrama** ver, faça duplo clique no conjunto de dados de entrada **InputDataset**.
 
    ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
 
-3. O **InputDataset** é apresentado o painel com todos os setores de cinco prontos. Observe que o **hora de início do SETOR** e **hora de fim do SETOR** para cada setor.
+1. O **InputDataset** é apresentado o painel com todos os setores de cinco prontos. Observe que o **hora de início do SETOR** e **hora de fim do SETOR** para cada setor.
 
    ![Início do setor de entrada e de fim vezes](./media/data-factory-data-processing-using-batch/image12.png)
 
-4. Na **diagrama** visualizar, selecione **OutputDataset**.
+1. Na **diagrama** visualizar, selecione **OutputDataset**.
 
-5. Os setores de cinco saída aparecem na **pronto** se foram produzidas de estado.
+1. Os setores de cinco saída aparecem na **pronto** se foram produzidas de estado.
 
    ![Início do setor de saída e tempos de fim](./media/data-factory-data-processing-using-batch/image13.png)
 
-6. Utilizar o portal para ver as tarefas associadas os setores e ver que VM de cada setor foi executado em. Para obter mais informações, consulte a [integração do Data Factory e Batch](#data-factory-and-batch-integration) secção.
+1. Utilizar o portal para ver as tarefas associadas os setores e ver que VM de cada setor foi executado em. Para obter mais informações, consulte a [integração do Data Factory e Batch](#data-factory-and-batch-integration) secção.
 
-7. Os ficheiros de saída são apresentados em `mycontainer` em `outputfolder` no armazenamento de Blobs.
+1. Os ficheiros de saída são apresentados em `mycontainer` em `outputfolder` no armazenamento de Blobs.
 
    ![Ficheiros de saída no armazenamento](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -841,15 +841,15 @@ Neste passo, vai testar o pipeline soltando ficheiros em pastas de entrada. Come
 
    ![Diagrama de mapeamento do setor](./media/data-factory-data-processing-using-batch/image16.png)
 
-8. Experimente agora o com vários ficheiros numa pasta. Criar os arquivos **file2.txt**, **file3.txt**, **file4.txt**, e **file5.txt** com o mesmo conteúdo que file.txt na pasta **2015-11-06-01**.
+1. Experimente agora o com vários ficheiros numa pasta. Criar os arquivos **file2.txt**, **file3.txt**, **file4.txt**, e **file5.txt** com o mesmo conteúdo que file.txt na pasta **2015-11-06-01**.
 
-9. Na pasta de saída, elimine o ficheiro de saída **2015-11-16-01.txt**.
+1. Na pasta de saída, elimine o ficheiro de saída **2015-11-16-01.txt**.
 
-10. Sobre o **OutputDataset** painel, com o setor com o botão direito **hora de início do SETOR** definido como **11/16/2015 01:00:00 AM**. Selecione **executar** para voltar a executar/reprocessamento o setor. Agora, o setor tem cinco ficheiros em vez de um ficheiro.
+1. Sobre o **OutputDataset** painel, com o setor com o botão direito **hora de início do SETOR** definido como **11/16/2015 01:00:00 AM**. Selecione **executar** para voltar a executar/reprocessamento o setor. Agora, o setor tem cinco ficheiros em vez de um ficheiro.
 
     ![Executar](./media/data-factory-data-processing-using-batch/image17.png)
 
-11. Depois do setor é executado e o respetivo estado é **pronto**, verifique se o conteúdo do ficheiro de saída neste setor (**2015-11-16-01.txt**). O ficheiro de saída é apresentado em `mycontainer` em `outputfolder` no armazenamento de Blobs. Deve haver uma linha para cada ficheiro do setor.
+1. Depois do setor é executado e o respetivo estado é **pronto**, verifique se o conteúdo do ficheiro de saída neste setor (**2015-11-16-01.txt**). O ficheiro de saída é apresentado em `mycontainer` em `outputfolder` no armazenamento de Blobs. Deve haver uma linha para cada ficheiro do setor.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -884,7 +884,7 @@ A depuração inclui algumas técnicas básicas.
 
    ![Estrutura de pastas de entrada](./media/data-factory-data-processing-using-batch/image3.png)
 
-2. Na **Execute** método de sua atividade personalizada, utilize o **IActivityLogger** objeto para registar informações que o ajuda a resolver problemas. As mensagens anteriormente registadas apresentados ao utilizador\_0. ficheiro de registo.
+1. Na **Execute** método de sua atividade personalizada, utilize o **IActivityLogger** objeto para registar informações que o ajuda a resolver problemas. As mensagens anteriormente registadas apresentados ao utilizador\_0. ficheiro de registo.
 
    Sobre o **OutputDataset** painel, selecione o setor para ver a **setor de dados** painel para essas fatias. Sob **execuções de atividades**, verá uma execução para o setor de atividade. Se selecionou **executar** na barra de comandos, pode começar a executar o setor mesmo de outra atividade.
 
@@ -907,15 +907,15 @@ A depuração inclui algumas técnicas básicas.
     
     Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
     ```
-3. Incluir o **PDB** no ficheiro zip do ficheiro para que os detalhes do erro tenham informações como a pilha de chamadas quando ocorre um erro.
+1. Incluir o **PDB** no ficheiro zip do ficheiro para que os detalhes do erro tenham informações como a pilha de chamadas quando ocorre um erro.
 
-4. Todos os ficheiros no ficheiro zip para a atividade personalizada têm de estar no nível superior com sem subpastas.
+1. Todos os ficheiros no ficheiro zip para a atividade personalizada têm de estar no nível superior com sem subpastas.
 
    ![Lista de ficheiros zip de atividade personalizada](./media/data-factory-data-processing-using-batch/image20.png)
 
-5. Certifique-se de que **assemblyName** (mydotnetactivity. dll), **entryPoint** (mydotnetactivityns. Mydotnetactivity), **packageFile** (customactivitycontainer / MyDotNetActivity.zip), e **packageLinkedService** (devem apontar para o armazenamento de BLOBs que contém o ficheiro zip) estão definidos para os valores corretos.
+1. Certifique-se de que **assemblyName** (mydotnetactivity. dll), **entryPoint** (mydotnetactivityns. Mydotnetactivity), **packageFile** (customactivitycontainer / MyDotNetActivity.zip), e **packageLinkedService** (devem apontar para o armazenamento de BLOBs que contém o ficheiro zip) estão definidos para os valores corretos.
 
-6. Se corrigir um erro e pretender processar de novo o setor, com o botão direito do setor no **OutputDataset** painel e selecione **executar**.
+1. Se corrigir um erro e pretender processar de novo o setor, com o botão direito do setor no **OutputDataset** painel e selecione **executar**.
 
    ![Painel de OutputDataset opção executar](./media/data-factory-data-processing-using-batch/image21.png)
 
@@ -923,7 +923,7 @@ A depuração inclui algumas técnicas básicas.
    > É de um contentor no armazenamento de Blobs com o nome `adfjobs`. Este contentor não é eliminado automaticamente, mas pode eliminar em segurança depois de concluir o teste da solução. Da mesma forma, a solução de fábrica de dados cria uma tarefa do Batch com o nome `adf-\<pool ID/name\>:job-0000000001`. É possível eliminar esta tarefa depois de testar a solução se assim o desejar.
    >
    >
-7. A atividade personalizada não utiliza a **App. config** ficheiro a partir do seu pacote. Por conseguinte, se seu código ler quaisquer cadeias de ligação do arquivo de configuração, não funciona em tempo de execução. A prática recomendada quando utiliza o Batch é guardar segredos no Azure Key Vault. Em seguida, utilize um principal de serviço baseada em certificados para proteger o Cofre de chaves e distribuir o certificado para o conjunto do Batch. A atividade personalizada .NET pode a aceder aos segredos do Cofre de chaves no tempo de execução. Esta solução genérica pode ser dimensionado para qualquer tipo de segredo, não apenas uma cadeia de ligação.
+1. A atividade personalizada não utiliza a **App. config** ficheiro a partir do seu pacote. Por conseguinte, se seu código ler quaisquer cadeias de ligação do arquivo de configuração, não funciona em tempo de execução. A prática recomendada quando utiliza o Batch é guardar segredos no Azure Key Vault. Em seguida, utilize um principal de serviço baseada em certificados para proteger o Cofre de chaves e distribuir o certificado para o conjunto do Batch. A atividade personalizada .NET pode a aceder aos segredos do Cofre de chaves no tempo de execução. Esta solução genérica pode ser dimensionado para qualquer tipo de segredo, não apenas uma cadeia de ligação.
 
     Existe uma solução mais fácil, mas não é uma prática recomendada. Pode criar um serviço ligado da base de dados do SQL com ligação de definições de cadeia de caracteres. Em seguida, pode criar um conjunto de dados que utiliza o serviço ligado e o conjunto de dados da cadeia como um conjunto de dados de entrada fictício para a atividade .NET personalizada. Em seguida, pode aceder a cadeia de ligação do serviço ligado no código de atividade personalizada. Deve funcionar bem no tempo de execução.  
 
@@ -932,11 +932,11 @@ Pode estender este exemplo para saber mais sobre as funcionalidades do Data Fact
 
 1. Adicionar às subpastas seguintes no `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07 2011-11-16-08 e 2015-11-16-09. Coloca ficheiros de entrada nessas pastas. Alterar a hora de fim para o pipeline partir `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na **diagrama** ver, faça duplo clique em **InputDataset** e confirme que os setores de entrada estão prontos. Faça duplo clique em **OutputDataset** para ver o estado dos setores de saída. Caso se encontrem no **pronto** de estado, verifique a pasta de saída para os ficheiros de saída.
 
-2. Aumentar ou diminuir a **simultaneidade** definição para compreender como ele afeta o desempenho da sua solução, especialmente o processamento que ocorre no Batch. Para obter mais informações sobre o **simultaneidade** definição, consulte "passo 4: criar e executar o pipeline com uma atividade personalizada."
+1. Aumentar ou diminuir a **simultaneidade** definição para compreender como ele afeta o desempenho da sua solução, especialmente o processamento que ocorre no Batch. Para obter mais informações sobre o **simultaneidade** definição, consulte "passo 4: criar e executar o pipeline com uma atividade personalizada."
 
-3. Criar um conjunto com superiores/inferiores **tarefas de máximo por VM**. Para utilizar o novo conjunto que criou, atualize o serviço de Batch ligado na solução de fábrica de dados. Para obter mais informações sobre o **tarefas de máximo por VM** definição, consulte "passo 4: criar e executar o pipeline com uma atividade personalizada."
+1. Criar um conjunto com superiores/inferiores **tarefas de máximo por VM**. Para utilizar o novo conjunto que criou, atualize o serviço de Batch ligado na solução de fábrica de dados. Para obter mais informações sobre o **tarefas de máximo por VM** definição, consulte "passo 4: criar e executar o pipeline com uma atividade personalizada."
 
-4. Criar um conjunto do Batch com o **dimensionamento automático** funcionalidade. Dimensionar automaticamente nós de computação de um conjunto do Batch é o ajuste dinâmico do poder utilizado pela sua aplicação de processamento. 
+1. Criar um conjunto do Batch com o **dimensionamento automático** funcionalidade. Dimensionar automaticamente nós de computação de um conjunto do Batch é o ajuste dinâmico do poder utilizado pela sua aplicação de processamento. 
 
     A fórmula de exemplo aqui alcança o seguinte comportamento. Quando o conjunto for criado inicialmente, ele começa com uma VM. Estados do Active Directory (em fila) e a métrica de $PendingTasks define o número de tarefas em execução. A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated em conformidade. Ele garante que TargetDedicated nunca vai além de 25 VMs. Conforme novas tarefas submetidas, o conjunto automaticamente cresce. Como tarefas são concluídas, as VMs se tornar um gratuito por um e o dimensionamento automático diminui essas VMs. Pode ajustar startingNumberOfVMs e maxNumberofVMs às suas necessidades.
  
@@ -954,7 +954,7 @@ Pode estender este exemplo para saber mais sobre as funcionalidades do Data Fact
 
    Se o conjunto utiliza a predefinição [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço Batch pode demorar entre 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o conjunto utiliza um autoScaleEvaluationInterval diferente, o serviço Batch pode demorar autoScaleEvaluationInterval mais de 10 minutos.
 
-5. Na solução de exemplo, o **Execute** método invoca o **Calculate** método que processa um setor de dados de entrada para produzir um setor de dados de saída. Pode escrever seu próprio método para processar dados de entrada e substitua a **Calculate** chamada de método **Execute** método com uma chamada para seu método.
+1. Na solução de exemplo, o **Execute** método invoca o **Calculate** método que processa um setor de dados de entrada para produzir um setor de dados de saída. Pode escrever seu próprio método para processar dados de entrada e substitua a **Calculate** chamada de método **Execute** método com uma chamada para seu método.
 
 ### <a name="next-steps-consume-the-data"></a>Próximos passos: consumir os dados
 Depois de processar dados, pode consumir ferramentas online, como o Power BI. Seguem-se ligações para ajudar a compreender o Power BI e como utilizá-la no Azure:

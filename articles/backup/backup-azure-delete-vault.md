@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901855"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422948"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -35,11 +35,11 @@ Se já tiver o Cofre de serviços de recuperação aberto, avance para o segundo
 
    ![Escolha o Cofre na lista](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
-2. Na lista, selecione o cofre que pretende eliminar. Quando selecionar o cofre, é aberto o dashboard do cofre.
+1. Na lista, selecione o cofre que pretende eliminar. Quando selecionar o cofre, é aberto o dashboard do cofre.
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-3. Para eliminar um cofre, no dashboard do cofre, clique em **eliminar**. Será solicitado a certifique-se de que pretende eliminar o cofre.
+1. Para eliminar um cofre, no dashboard do cofre, clique em **eliminar**. Será solicitado a certifique-se de que pretende eliminar o cofre.
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
 
@@ -71,26 +71,26 @@ Para eliminar um cofre dos serviços de recuperação:
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
    ```
 
-2. Abra uma janela do PowerShell com privilégios de administrador.
+1. Abra uma janela do PowerShell com privilégios de administrador.
 
-3. Utilize `Set-ExecutionPolicy Unrestricted` para remover quaisquer restrições.
+1. Utilize `Set-ExecutionPolicy Unrestricted` para remover quaisquer restrições.
 
-4. Execute o seguinte comando para transferir o pacote de cliente do Azure Resource Manager de chocolately.org.
+1. Execute o seguinte comando para transferir o pacote de cliente do Azure Resource Manager de chocolately.org.
 
     `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-5. Utilize o seguinte comando para instalar o cliente de API do Azure Resource Manager.
+1. Utilize o seguinte comando para instalar o cliente de API do Azure Resource Manager.
 
    `choco.exe install armclient`
 
-6. No portal do Azure, recolha o ID de subscrição e o nome do grupo de recursos associados para o Cofre de serviços de recuperação que pretende eliminar.
+1. No portal do Azure, recolha o ID de subscrição e o nome do grupo de recursos associados para o Cofre de serviços de recuperação que pretende eliminar.
 
-7. No PowerShell, execute o seguinte comando com o seu ID de subscrição, nome do grupo de recursos e o nome do cofre dos serviços de recuperação. Ao executar o comando, elimina o Cofre e todas as dependências.
+1. No PowerShell, execute o seguinte comando com o seu ID de subscrição, nome do grupo de recursos e o nome do cofre dos serviços de recuperação. Ao executar o comando, elimina o Cofre e todas as dependências.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-8. Inicie sessão na sua subscrição no portal do Azure e certifique-se de que o Cofre é eliminado.
+1. Inicie sessão na sua subscrição no portal do Azure e certifique-se de que o Cofre é eliminado.
 
 
 ## <a name="remove-vault-dependencies-and-delete-vault"></a>Remover dependências do cofre e eliminar Cofre
@@ -113,17 +113,17 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/selected-backup-items.png)
 
-2. Selecione um tipo de cópia de segurança para ver todos os itens desse tipo.
+1. Selecione um tipo de cópia de segurança para ver todos os itens desse tipo.
 
     ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-3. Para todos os itens na lista, com o botão direito do item e, no menu de contexto, selecione **parar cópia de segurança**.
+1. Para todos os itens na lista, com o botão direito do item e, no menu de contexto, selecione **parar cópia de segurança**.
 
     ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/stop-backup-item.png) 
 
     É aberto o menu parar cópia de segurança.
 
-4. Sobre o **parar cópia de segurança** menu, da **escolha uma opção** menu, selecione **eliminar dados de cópia de segurança**, escreva o nome do item e clique em **parar cópia de segurança**.
+1. Sobre o **parar cópia de segurança** menu, da **escolha uma opção** menu, selecione **eliminar dados de cópia de segurança**, escreva o nome do item e clique em **parar cópia de segurança**.
 
     Escreva o nome do item, a certifique-se de que pretende eliminá-lo. O **parar cópia de segurança** botão ativa depois de verificar o item. Se mantiver os dados, não poderá eliminar o cofre.
 
@@ -132,17 +132,17 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
     Se pretender, forneça um motivo por que motivo está a eliminar os dados e adicione comentários. Para verificar a tarefa foi concluída, verifique as mensagens do Azure ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/messages.png). <br/>
     Assim que a tarefa é concluída, o serviço envia uma mensagem: *o processo de cópia de segurança foi parado e os dados de cópia de segurança foram eliminados*.
 
-5. Depois de eliminar um item na lista, sobre o **itens de cópia de segurança** menu, clique em **atualizar** para ver os itens no cofre.
+1. Depois de eliminar um item na lista, sobre o **itens de cópia de segurança** menu, clique em **atualizar** para ver os itens no cofre.
 
       ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Quando não há nenhum item na lista, desloque-se para o **Essentials** painel no menu do cofre dos serviços de recuperação. Não deve haver algum **itens de cópia de segurança**, **servidores de gestão de cópia de segurança**, ou **itens replicados** listados. Se ainda forem apresentados itens no cofre, regresse ao passo três e escolha uma lista de tipo de item de diferentes.  
 
-6. Quando não há mais itens da barra de ferramentas do cofre, clique em **eliminar**.
+1. Quando não há mais itens da barra de ferramentas do cofre, clique em **eliminar**.
 
     ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Certifique-se de que pretende eliminar o cofre, clique em **Sim**.
+1. Certifique-se de que pretende eliminar o cofre, clique em **Sim**.
 
     O Cofre é eliminado e o portal devolve para o **New** menu de serviços.
 
@@ -150,17 +150,17 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
 1. No menu do dashboard do cofre, desloque para baixo para a secção Gerir e clique em **infraestrutura de cópia de segurança**. 
 
-2. No submenu, clique em **servidores de gestão de cópia de segurança** para ver o servidor de servidores de cópia de segurança do Azure e o System Center DPM. Pode parar e eliminar servidores de ficheiros do Azure, servidores SQL na VM do Azure e máquinas virtuais do Azure. 
+1. No submenu, clique em **servidores de gestão de cópia de segurança** para ver o servidor de servidores de cópia de segurança do Azure e o System Center DPM. Pode parar e eliminar servidores de ficheiros do Azure, servidores SQL na VM do Azure e máquinas virtuais do Azure. 
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-3. Com o botão direito do item que pretende eliminar e, de submenu, selecione **eliminar**.
+1. Com o botão direito do item que pretende eliminar e, de submenu, selecione **eliminar**.
 
     ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
     É aberto o menu parar cópia de segurança.
 
-4. Sobre o **parar cópia de segurança** menu, da **escolha uma opção** menu, selecione **eliminar dados de cópia de segurança**, escreva o nome do item e clique em **parar cópia de segurança**.
+1. Sobre o **parar cópia de segurança** menu, da **escolha uma opção** menu, selecione **eliminar dados de cópia de segurança**, escreva o nome do item e clique em **parar cópia de segurança**.
 
     Para verificar-se de que pretende eliminar, digite seu nome. O **parar cópia de segurança** botão ativa depois de verificar o item. Se mantiver os dados, não é possível eliminar o cofre.
 
@@ -169,16 +169,16 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
     Opcionalmente, pode fornecer um motivo por que motivo está a eliminar os dados e adicione comentários. Para verificar que a tarefa for concluída, verifique as mensagens do Azure ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/messages.png). <br/>
     Quando a tarefa estiver concluída, o serviço envia uma mensagem: o processo de cópia de segurança foi parado e os dados de cópia de segurança foram eliminados.
 
-5. Depois de eliminar um item na lista, sobre o **itens de cópia de segurança** menu, clique em **atualizar** para ver os itens restantes no cofre.
+1. Depois de eliminar um item na lista, sobre o **itens de cópia de segurança** menu, clique em **atualizar** para ver os itens restantes no cofre.
 
       ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Quando não há nenhum item na lista, desloque-se para o **Essentials** painel no menu do cofre dos serviços de recuperação. Não deve haver algum **itens de cópia de segurança**, **servidores de gestão de cópia de segurança**, ou **itens replicados** listados. Se ainda forem apresentados itens no cofre, regresse ao passo três e escolha uma lista de tipo de item de diferentes.  
-6. Quando existem não existem mais itens no cofre, no dashboard do cofre, clique **eliminar**.
+1. Quando existem não existem mais itens no cofre, no dashboard do cofre, clique **eliminar**.
 
     ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Certifique-se de que pretende eliminar o cofre, clique em **Sim**.
+1. Certifique-se de que pretende eliminar o cofre, clique em **Sim**.
 
     O Cofre é eliminado e o portal devolve para o **New** menu de serviços.
 
@@ -187,11 +187,11 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
 1. No menu do dashboard do cofre, desloque para baixo para a secção Gerir e clique em **infraestrutura de cópia de segurança**.
 
-2. No submenu, clique em **servidores protegidos** para ver a lista de protegidos tipos de servidor, incluindo o agente de cópia de segurança do Azure.
+1. No submenu, clique em **servidores protegidos** para ver a lista de protegidos tipos de servidor, incluindo o agente de cópia de segurança do Azure.
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-3. Na **servidores protegidos** , clique em agente de cópia de segurança do Azure.
+1. Na **servidores protegidos** , clique em agente de cópia de segurança do Azure.
 
     ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
 
@@ -199,15 +199,15 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
     ![Selecione o servidor protegido específico](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
 
-4. Na lista de servidores, clique em um para abrir respetivo menu.
+1. Na lista de servidores, clique em um para abrir respetivo menu.
 
     ![ver o dashboard do servidor selecionado](./media/backup-azure-delete-vault/selected-protected-server.png)
 
-5. No menu do dashboard do servidor selecionado, clique em **eliminar**.
+1. No menu do dashboard do servidor selecionado, clique em **eliminar**.
 
     ![eliminar o servidor selecionado](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Sobre o **elimine** escreva o nome do item de menu e clique em **eliminar**.
+1. Sobre o **elimine** escreva o nome do item de menu e clique em **eliminar**.
 
     Escreva o nome do item, a certifique-se de que pretende eliminá-lo. O **eliminar** botão ativa depois de verificar o item.
 
@@ -216,16 +216,16 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
     Opcionalmente, pode fornecer um motivo por que motivo está a eliminar os dados e adicione comentários. Para verificar que a tarefa for concluída, verifique as mensagens do Azure ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/messages.png). <br/>
     Quando a tarefa estiver concluída, o serviço envia uma mensagem: o processo de cópia de segurança foi parado e os dados de cópia de segurança foram eliminados.
 
-7. Depois de eliminar um item na lista, sobre o **itens de cópia de segurança** menu, clique em **atualizar** para ver os itens restantes no cofre.
+1. Depois de eliminar um item na lista, sobre o **itens de cópia de segurança** menu, clique em **atualizar** para ver os itens restantes no cofre.
 
       ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Quando não há nenhum item na lista, desloque-se para o **Essentials** painel no menu do cofre dos serviços de recuperação. Não deve haver algum **itens de cópia de segurança**, **servidores de gestão de cópia de segurança**, ou **itens replicados** listados. Se ainda forem apresentados itens no cofre, regresse ao passo três e escolha uma lista de tipo de item de diferentes.  
-8. Quando existem não existem mais itens no cofre, no dashboard do cofre, clique **eliminar**.
+1. Quando existem não existem mais itens no cofre, no dashboard do cofre, clique **eliminar**.
 
     ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-9. Certifique-se de que pretende eliminar o cofre, clique em **Sim**.
+1. Certifique-se de que pretende eliminar o cofre, clique em **Sim**.
 
     O Cofre é eliminado e o portal devolve para o **New** menu de serviços.
 
@@ -238,7 +238,7 @@ Se parar o processo de cópia de segurança, mas acidentalmente *reter* os dados
     ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
     O **eliminar dados de cópia de segurança** é aberto o menu.
-2. Sobre o **eliminar dados de cópia de segurança** escreva o nome do item de menu e clique em **eliminar**.
+1. Sobre o **eliminar dados de cópia de segurança** escreva o nome do item de menu e clique em **eliminar**.
 
     ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/delete-retained-vault.png)
 

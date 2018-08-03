@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com as melhorias de pequenas | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e melhorias pequeno.
+title: 'Tutorial: Integração do Azure Active Directory com pequenas melhorias | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e pequenos aprimoramentos.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a984c7955218e29e4a6f99c93e9336e88c9f63a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225835"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423832"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Azure Active Directory com as melhorias de pequenos
+# <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Azure Active Directory com pequenas melhorias
 
-Neste tutorial, saiba como integrar pequeno melhorias no Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar pequenas melhorias no Azure Active Directory (Azure AD).
 
-Melhoramentos pequenas a integração com o Azure AD fornece as seguintes vantagens:
+Integração de pequenas melhorias com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao melhoramentos pequeno
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para pequenas melhoramentos (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao pequenas melhorias
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para pequenas melhorias (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com as melhorias de pequenas, terá dos seguintes itens:
+Para configurar a integração do Azure AD com pequenas melhorias, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Um pequeno melhoramentos-início de sessão único ativada subscrição
+- Um pequeno melhorias logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -49,219 +49,219 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. A adição de pequenas melhoramentos na galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando pequenas melhorias da Galeria
+1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-small-improvements-from-the-gallery"></a>A adição de pequenas melhoramentos na galeria do
-Para configurar a integração das melhorias pequeno com o Azure AD, tem de adicionar pequeno melhoramentos na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-small-improvements-from-the-gallery"></a>Adicionando pequenas melhorias da Galeria
+Para configurar a integração de pequenas melhorias para o Azure AD, terá de adicionar pequenas melhorias a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar pequeno melhoramentos na galeria do, execute os seguintes passos:**
+**Para adicionar pequenas melhorias a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **melhoramentos pequeno**.
+1. Na caixa de pesquisa, escreva **pequenas melhorias**.
 
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_search.png)
 
-5. No painel de resultados, selecione **melhoramentos pequeno**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **pequenas melhorias**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com as melhorias de pequenos com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com pequenas aperfeiçoamento com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo em melhoramentos pequeno for para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no melhoramentos pequeno tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte em pequenas melhorias a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em pequenas melhorias deve ser estabelecido.
 
-Em pequenas melhoramentos, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Em pequenas melhorias, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com as melhorias de pequenas, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com pequenas melhorias, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de melhoramentos pequeno](#creating-a-small-improvements-test-user)**  - para ter um homólogo de Britta Simon pequeno melhoramentos que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de pequenas melhorias](#creating-a-small-improvements-test-user)**  - para ter um equivalente da Eduarda Almeida em pequenas melhorias que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação melhoramentos pequeno.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de pequenas melhorias.
 
-**Para configurar o Azure AD-início de sessão único com as melhorias de pequenas, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com pequenas melhorias, execute os seguintes passos:**
 
-1. No portal do Azure, no **melhoramentos pequeno** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **pequenas melhorias** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_samlbase.png)
 
-3. No **domínio melhoramentos pequenos e URLs** secção, execute os seguintes passos:
+1. Sobre o **pequenas melhorias de domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.small-improvements.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.small-improvements.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.small-improvements.com`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de melhoramentos pequeno](mailto:support@small-improvements.com) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de pequenas melhorias cliente](mailto:support@small-improvements.com) obter esses valores. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_general_400.png)
 
-6. No **pequeno de melhoramentos de configuração** secção, clique em **configurar pequeno melhoramentos** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+1. Sobre o **pequenas melhorias de configuração** secção, clique em **configurar pequenas melhorias** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_configure.png) 
 
-7. Na outra janela do browser, inicie sessão site da sua empresa melhoramentos pequeno como administrador.
+1. Na outra janela do browser, inicie sessão site da sua empresa pequenas melhorias como administrador.
 
-8. Na página do dashboard principal, clique em **administração** botão no lado esquerdo.
+1. Na página dashboard principal, clique em **administração** botão à esquerda.
    
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
-9. Clique em de **SAML SSO** no botão de **integrações** secção.
+1. Clique nas **SAML SSO** botão **integrações** secção.
    
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
-10. Na página de configuração de SSO, execute os seguintes passos:
+1. Na página de configuração de SSO, execute os seguintes passos:
    
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. No **ponto final de HTTP** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
+    a. Na **ponto final de HTTP** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
 
-    b. Abra o seu certificado transferido no bloco de notas, copie o conteúdo e, em seguida, cole-o para o **x509 certificado** caixa de texto. 
+    b. Abra o seu certificado transferido no bloco de notas, copiar o conteúdo e, em seguida, cole-o para o **x509 certificado** caixa de texto. 
 
-    c. Se pretender ter SSO e início de sessão formulário opção de autenticação disponível para os utilizadores, em seguida, verifique o **ativar o acesso através de início de sessão/palavra-passe demasiado** opção.  
+    c. Se desejar ter início de sessão e SSO formulário opção de autenticação disponível para os utilizadores, em seguida, verifique os **ativar o acesso através do início de sessão/palavra-passe demasiado** opção.  
 
-    d. Introduza o valor adequado para o nome do botão de início de sessão do SSO no **SAML Prompt** caixa de texto.  
+    d. Introduza o valor apropriado para mencionar o botão de início de sessão do SSO no **linha de comandos do SAML** caixa de texto.  
 
     e. Clique em **Guardar**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-small-improvements-test-user"></a>Criar um utilizador de teste de melhoramentos pequeno
+### <a name="creating-a-small-improvements-test-user"></a>Criar um utilizador de teste de pequenas melhorias
 
-Para ativar a utilizadores do Azure AD iniciar sessão no melhoramentos pequeno, têm de ser aprovisionados para pequenas melhoramentos. No caso de melhorias pequeno, o aprovisionamento é numa tarefa manual.
+Para ativar a utilizadores do Azure AD iniciar sessão no pequenas melhorias, tem de ser aprovisionados em pequenas melhorias. No caso de pequenas melhorias, o aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Início de sessão no site da sua empresa melhoramentos pequeno como administrador.
+1. Início de sessão no site da sua empresa pequenas melhorias como administrador.
 
-2. Na Home page, avance para o menu à esquerda, clique em **administração**.
+1. Na Home page, vá para o menu no lado esquerdo, clique em **administração**.
 
-3. Clique em de **diretório utilizador** botão da secção de gestão de utilizadores. 
+1. Clique nas **diretório de utilizador** botão da secção de gestão de utilizadores. 
    
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
-4. Clique em **adicionar utilizadores**.
+1. Clique em **adicionar utilizadores**.
 
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-5. No **adicionar utilizadores** caixa de diálogo, execute os seguintes passos: 
+1. Sobre o **adicionar usuários** caixa de diálogo, execute os seguintes passos: 
 
     ![Criar um utilizador de teste do Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
     
-    a. Introduza o **nome próprio** do utilizador, como **Britta**.
+    a. Introduza o **nome próprio** do utilizador, como **Eduarda**.
 
     b. Introduza o **Apelido** do utilizador, como **Simon**.
 
     c. Introduza o **E-Mail** do utilizador, como **brittasimon@contoso.com**. 
 
-    d. Também pode optar por introduzir a mensagem pessoal o **enviar e-mail de notificação** caixa. Se não pretender enviar a notificação, em seguida, desmarque esta caixa de verificação.
+    d. Também é possível inserir a mensagem pessoal na **Enviar notificação por e-mail** caixa. Se não pretender enviar a notificação, em seguida, desmarque esta caixa de verificação.
 
     e. Clique em **criar utilizadores**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para pequenas melhoramentos.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a pequenas melhorias.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a melhoramentos pequeno, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a pequenas melhorias, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **melhoramentos pequeno**.
+1. Na lista de aplicações, selecione **pequenas melhorias**.
 
     ![Configurar o início de sessão único](./media/smallimprovements-tutorial/tutorial_smallimprovements_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 O objetivo desta secção consiste em testar a configuração de SSO do Azure AD através do painel de acesso.  
 
-Quando clica no mosaico de pequenas melhorias no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de melhoramentos pequeno.
+Quando clica no mosaico de pequenas melhorias no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo de pequenas melhorias.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

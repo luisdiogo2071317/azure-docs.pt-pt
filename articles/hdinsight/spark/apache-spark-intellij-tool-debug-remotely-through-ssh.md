@@ -1,7 +1,7 @@
 ---
-title: 'Toolkit do Azure para o IntelliJ: aplicações de depuração Spark remotamente através do SSH | Microsoft Docs'
-description: Clusters orientações passo a passo sobre como utilizar as ferramentas do HDInsight na Azure Toolkit para o IntelliJ para depurar aplicações remotamente no HDInsight através de SSH
-keywords: depurar remotamente intellij, de depuração remota intellij, ssh, intellij, hdinsight, depurar intellij, depuração
+title: 'Azure Toolkit para IntelliJ: aplicações do Spark de depurar remotamente através de SSH | Documentos da Microsoft'
+description: Orientações passo a passo sobre como utilizar ferramentas do HDInsight no Azure Toolkit para IntelliJ para depurar aplicações remotamente nos HDInsight clusters através de SSH
+keywords: depurar remotamente intellij, ssh, intellij, depuração remota intellij, hdinsight, depurar intellij, depuração
 services: hdinsight
 documentationcenter: ''
 author: jejiang
@@ -15,30 +15,30 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: ad0b1bbfc74f992a646ac375583f3399243873f5
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 3d46f52f577227eedf070e845a7a8bfc82084f4e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165201"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435718"
 ---
-# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Toolkit do Azure para o IntelliJ através de SSH
+# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Azure Toolkit para IntelliJ através de SSH
 
-Este artigo fornece orientações passo a passo sobre como utilizar as ferramentas do HDInsight na Azure Toolkit para o IntelliJ para depurar aplicações remotamente num cluster do HDInsight. Para depurar o projeto, também pode ver o [aplicações de depuração Spark do HDInsight com o Toolkit do Azure para o IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) vídeo.
+Este artigo fornece orientações passo a passo sobre como utilizar ferramentas do HDInsight no Azure Toolkit para IntelliJ para depurar aplicações remotamente num cluster do HDInsight. Para depurar o projeto, também pode ver o [aplicações do Spark do HDInsight de depurar com o Azure Toolkit para IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) vídeo.
 
 **Pré-requisitos**
-* **As ferramentas do HDInsight no Toolkit do Azure para o IntelliJ**. Esta ferramenta faz parte do Toolkit do Azure para o IntelliJ. Para obter mais informações, consulte [instalar o Toolkit do Azure para o IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). E **Toolkit do Azure para o IntelliJ**. Utilize este toolkit para criar Spark aplicações para um cluster do HDInsight. Para obter mais informações, siga as instruções em [Toolkit do Azure de utilização para o IntelliJ criar Spark aplicações para um cluster do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **Ferramentas do HDInsight no Azure Toolkit para IntelliJ**. Essa ferramenta faz parte do Azure Toolkit para IntelliJ. Para obter mais informações, consulte [instalar o Azure Toolkit para IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). E **Azure Toolkit para IntelliJ**. Utilize este kit de ferramentas para criar Spark aplicações para um cluster do HDInsight. Para obter mais informações, siga as instruções em [utilizar o Azure Toolkit para IntelliJ criar Spark aplicações para um cluster do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **SSH do HDInsight serviço com o nome de utilizador e palavra-passe gestão**. Para obter mais informações, consulte [ligar para o HDInsight (Hadoop), utilizando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [utilizar o SSH túnel para aceder à Ambari web IU, JobHistory, NameNode, Oozie e outras UIs web](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **SSH do HDInsight service com a gestão de nome de utilizador e palavra-passe**. Para obter mais informações, consulte [ligar ao HDInsight (Hadoop) através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [utilizar o SSH Tunneling to access Ambari túnel web UI, JobHistory, NameNode, Oozie e outras interfaces do usuário web](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
-## <a name="learn-how-to-perform-local-run-and-debugging"></a>Saiba como efetuar local, executar e depuração
+## <a name="learn-how-to-perform-local-run-and-debugging"></a>Aprenderá a efetuar local, execute e depuração
 ### <a name="scenario-1-create-a-spark-scala-application"></a>Cenário 1: Criar uma aplicação do Spark Scala 
 
-1. Iniciar o IntelliJ IDEA e, em seguida, criar um projeto. No **novo projeto** diálogo caixa, efetue o seguinte:
+1. Inicie o IntelliJ IDEA e, em seguida, crie um projeto. Na caixa de diálogo **Novo Projeto**, faça o seguinte:
 
    a. Selecione **HDInsight**. 
 
-   b. Selecione um modelo Java ou Scala com base na sua preferência. Selecione entre as seguintes opções:
+   b. Selecione um modelo Java ou Scala, com base na sua preferência. Selecione entre as seguintes opções:
 
       - **O Spark no HDInsight (Scala)**
 
@@ -48,113 +48,113 @@ Este artigo fornece orientações passo a passo sobre como utilizar as ferrament
 
       Este exemplo utiliza um **Spark no HDInsight exemplo (Scala)** modelo.
 
-   c. No **ferramenta de compilação** lista, selecione um dos seguintes, de acordo com a sua necessidade:
+   c. Na lista **Ferramenta de compilação**, selecione uma das seguintes opções, de acordo com as suas necessidades:
 
-      - **Maven**, para o suporte de Assistente de criação do projeto Scala
+      - **Maven**, para o suporte de assistente de criação do projeto Scala
 
-      -  **SBT**, para gerir as dependências e a criação do projeto Scala 
+      -  **SBT**, para gerir as dependências e a complicação do projeto Scala 
 
       ![Criar um projeto de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
    d. Selecione **Seguinte**.     
  
-2. As próximas **novo projeto** janela, efetue o seguinte procedimento:
+1. Nos próximos **novo projeto** janela, efetue o seguinte procedimento:
 
-   ![Selecione o Spark SDK](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
+   ![Selecione o SDK do Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
    a. Introduza um nome de projeto e a localização do projeto.
 
-   b. No **projeto SDK** na lista pendente, selecione **1.8 do Java** para **Spark 2** cluster ou selecione **Java 1.7** para **Spark 1. x**  cluster.
+   b. Na **SDK do Project** na lista pendente, selecione **Java 1.8** para **2.x do Spark** de cluster ou selecione **Java 1.7** para **1.x do Spark**  cluster.
 
-   c. No **Spark versão** na lista pendente, o Assistente de criação de projeto Scala integra-se a versão correta para o SDK do Spark e Scala SDK. Se a versão de cluster do spark é anterior ao 2.0, selecione **Spark 1. x**. Caso contrário, selecione **Spark 2. x.** Este exemplo utiliza **Spark 2.0.2 (Scala 2.11.8)**.
+   c. Na **versão do Spark** na lista pendente, o Assistente de criação de projeto Scala integra-se a versão correta para o SDK do Spark e do Scala. Se a versão de cluster do spark é anterior ao 2.0, selecione **Spark 1.x**. Caso contrário, selecione **2.x do Spark.** Este exemplo utiliza o **Spark 2.0.2 (Scala 2.11.8)**.
 
    d. Selecione **Concluir**.
 
-3. Selecione **src** > **principal** > **scala** para abrir o código no projeto. Este exemplo utiliza o **SparkCore_wasbloTest** script.
+1. Selecione **src** > **principal** > **scala** para abrir o seu código no projeto. Este exemplo utiliza a **SparkCore_wasbloTest** script.
 
 ### <a name="prerequisite-for-windows"></a>Pré-requisitos para o windows
-Enquanto estiver a executar a aplicação do Spark Scala local num computador Windows, poderá obter uma exceção, conforme explicado no [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe está em falta no Windows. 
+Enquanto estiver a executar a aplicação Spark Scala local num computador Windows, pode receber uma exceção, conforme explicado [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorrer porque WinUtils.exe está em falta no Windows. 
 
-Para resolver este erro, [transferir o ficheiro executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) numa localização como **C:\WinUtils\bin**. Em seguida, adicione a variável de ambiente **HADOOP_HOME**e defina o valor da variável para **C:\WinUtils**.
+Para resolver este erro, [transferir executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para uma localização, como **C:\WinUtils\bin**. Em seguida, adicione a variável de ambiente **HADOOP_HOME**e defina o valor da variável a ser **C:\WinUtils**.
 
 ### <a name="scenario-2-perform-local-run"></a>Cenário 2: Executar a execução local
-1. Abra o **SparkCore_wasbloTest** script, o editor de scripts com o botão direito e, em seguida, selecione a opção **executar '[Spark tarefa] XXX'** para efetuar a execução local.
-2. Executar uma vez local foi concluída, pode ver o ficheiro de saída, guarde o Explorador de projeto atual **dados** > **__predefinido__**.
+1. Abra o **SparkCore_wasbloTest** do script, o editor de scripts com o botão direito e, em seguida, selecione a opção **executar 'XXX [tarefa do Spark]'** para efetuar a execução local.
+1. Executar uma vez local foi concluída, pode ver o ficheiro de saída, guarde o Explorador de projeto atual **dados** > **__predefinição__**.
 
-    ![Resultado da execução do local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-3. A nossa ferramentas definiu a predefinição configuração de execução local automaticamente quando efetuar local local e execução de depuração. Abra a configuração **[Spark tarefa] XXX** no canto superior direito, pode ver o **[Spark tarefa] XXX** já criados no **tarefa do Azure HDInsight Spark**. Mudar para **executar localmente** separador.
+    ![Resultado de execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+1. Nossas ferramentas tem definido a predefinição de depurar local Configuração de execução automaticamente quando executar o local de execução e local. Abra a configuração **XXX [tarefa do Spark]** no canto superior direito, pode ver a **XXX [tarefa do Spark]** já criado sob **tarefa do Azure HDInsight Spark**. Mude para o **executar localmente** separador.
 
     ![Configuração de execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
-    - [As variáveis de ambiente](#prerequisite-for-windows): Se definir a variável de ambiente de sistema já **HADOOP_HOME** para **C:\WinUtils**, pode automaticamente detetar que não é necessário para adicionar manualmente.
-    - [Localização de WinUtils.exe](#prerequisite-for-windows): Se não tiver definido a variável de ambiente de sistema, pode encontrar a localização ao clicar no respetivo botão.
-    - Escolha apenas uma das duas opções, e que não são necessários no MacOS e Linux.
-4. Também pode definir a configuração manualmente antes de efetuar a depuração de local e execução local. Captura de ecrã anterior, selecione o sinal de adição (**+**). Em seguida, selecione o **tarefa do Azure HDInsight Spark** opção. Introduza as informações de **nome**, **nome da classe principal** para guardar, em seguida, clique no botão de execução local.
+    - [Variáveis de ambiente](#prerequisite-for-windows): Se definir a variável de ambiente de sistema já **HADOOP_HOME** para **C:\WinUtils**, pode automaticamente detetar que não há necessidade de adicionar manualmente.
+    - [Localização de WinUtils.exe](#prerequisite-for-windows): Se não tiver definido a variável de ambiente de sistema, pode encontrar a localização, clicando em seu botão.
+    - Escolha uma das duas opções, e que não são necessários no MacOS e Linux.
+1. Também pode definir a configuração manualmente antes de efetuar a depuração local de execução e local. Na captura de ecrã anterior, selecione o sinal de adição (**+**). Em seguida, selecione o **tarefa do Azure HDInsight Spark** opção. Introduza informações em **Name**, **nome da classe principal** para salvar, em seguida, clique no botão de execução local.
 
-### <a name="scenario-3-perform-local-debugging"></a>Cenário 3: Executar uma depuração local
-1. Abra o **SparkCore_wasbloTest** script, pontos de interrupção do conjunto.
-2. O editor de scripts com o botão direito e, em seguida, selecione a opção **depurar '[Spark tarefa] XXX'** para efetuar a depuração local.   
+### <a name="scenario-3-perform-local-debugging"></a>Cenário 3: Executar a depuração local
+1. Abra o **SparkCore_wasbloTest** do script, pontos de interrupção do conjunto.
+1. O editor de scripts com o botão direito e, em seguida, selecione a opção **depurar "[tarefa do Spark] XXX"** para efetuar a depuração local.   
 
 
 
-## <a name="learn-how-to-perform-remote-run-and-debugging"></a>Saiba como efetuar remoto execute e depuração
-### <a name="scenario-1-perform-remote-run"></a>Cenário 1: Executar execução remota
+## <a name="learn-how-to-perform-remote-run-and-debugging"></a>Aprenderá a efetuar remotos, executar e depurar
+### <a name="scenario-1-perform-remote-run"></a>Cenário 1: Executar a execução remota
 
-1. Para o acesso a **editar configurações** menu, selecione o ícone no canto superior direito. Este menu, pode criar ou editar as configurações para depuração remota.
+1. Para aceder a **editar configurações** menu, selecione o ícone no canto superior direito. Neste menu, pode criar ou editar as configurações para depuração remota.
 
    ![Editar configurações](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-2. No **configurações de execução/depuração** diálogo caixa, selecione o sinal de adição (**+**). Em seguida, selecione o **tarefa do Azure HDInsight Spark** opção.
+1. Na **configurações de execução/depuração** caixa de diálogo caixa, selecione o sinal de adição (**+**). Em seguida, selecione o **tarefa do Azure HDInsight Spark** opção.
 
-   ![Adicionar uma nova configuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-3. Mudar para **executar remotamente num Cluster** separador. Introduza as informações de **nome**, **cluster do Spark**, e **nome da classe principal**. Em seguida, selecione **configuração avançada**. Suportam a nossa ferramentas de depuração com **executores**. O **numExectors**, o valor predefinido é 5. A seria melhor não definido como superior a 3.
+   ![Adicionar a nova configuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
+1. Mude para o **executados remotamente num Cluster** separador. Introduza informações em **Name**, **cluster do Spark**, e **nome da classe principal**. Em seguida, selecione **configuração avançada**. Suportam de nossas ferramentas de depuração com **executores**. O **numExectors**, o valor predefinido é 5. Seria melhor não definido como superior a 3.
 
-   ![Execute as configurações de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
+   ![Executar configurações de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-4. No **Spark submissão avançada configuração** caixa de diálogo, selecione **depuração remota ativar Spark**. Introduza o nome de utilizador do SSH e, em seguida, introduza uma palavra-passe ou utilizar um ficheiro de chave privada. Para guardar a configuração, selecione **OK**. Se pretender efetuar a depuração remota, terá de configurá-lo. Não é necessário para defini-lo se pretender utilizar remoto execute.
+1. Na **Spark submissão do Advanced Configuration** caixa de diálogo, selecione **depuração remota do Spark ativar**. Introduza o nome de utilizador do SSH e, em seguida, introduza uma palavra-passe ou utilizar um ficheiro de chave privada. Para guardar a configuração, selecione **OK**. Se pretender efetuar a depuração remota, terá de configurá-lo. Não é necessário configurá-lo se pretender utilizar remoto a executar.
 
-   ![Ativar depuração remota do Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
+   ![Ativar a depuração remota do Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-5. Agora, a configuração é guardada com o nome que forneceu. Para ver os detalhes da configuração, selecione o nome de configuração. Para efetuar alterações, selecione **editar configurações**. 
+1. Agora, a configuração é guardada com o nome que indicou. Para ver os detalhes de configuração, selecione o nome da configuração. Para fazer alterações, selecione **editar configurações**. 
 
-6. Depois de concluir as definições de configurações, pode executar o projeto de clusters remotos ou efetuar a depuração remota.
+1. Depois de concluir as definições de configurações, pode executar o projeto no cluster remoto ou efetuar a depuração remota.
    
-   ![Botão de execução remoto](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
+   ![Botão de execução remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Clique em de **desligar** botão que os registos de submissão não são apresentados no painel esquerdo. No entanto, se ainda está em execução no back-end.
+1. Clique nas **desligar** botão que os registos de envio não são apresentados no painel do lado esquerdo. No entanto, ele ainda está em execução no back-end.
 
-   ![Botão de execução remoto](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
+   ![Botão de execução remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
 
 
 ### <a name="scenario-2-perform-remote-debugging"></a>Cenário 2: Executar a depuração remota
-1. Configurar pontos de quebra e, em seguida, clique o **depuração remota** ícone. A diferença com submissão remoto é que precisem de nome de utilizador/palavra-passe do SSH de ser configurado.
+1. Configurar pontos de rutura e, em seguida, clique nas **depuração remota** ícone. A diferença com envio remoto é essa necessidade de nome de utilizador/palavra-passe SSH para ser configurado.
 
    ![Selecione o ícone de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
 
-2. Quando a execução do programa atinge o ponto de quebra, verá um **controlador** separador e dois **Executor** nos separadores o **depurador** painel. Selecione o **retomar programa** ícone para continuar a executar o código, que, em seguida, atinge o ponto de interrupção seguinte. Terá de mudar para o correto **Executor** separador para localizar o executor de destino para a depuração. Pode ver os registos de execução no correspondente **consola** separador.
+1. Quando a execução do programa atinge o ponto de interrupção, verá uma **Driver** separador e duas **Executor** separadores o **depurador** painel. Selecione o **programa de retomar** ícone para continuar a executar o código, que, em seguida, atinge o ponto de interrupção seguinte. Terá de mudar para o correto **Executor** separador para localizar o executor de destino para depurar. Pode ver os registos de execução no correspondente **consola** separador.
 
    ![Separador de depuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
-### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Cenário 3: Executar depuração remota e da correção de erros
-1. Configurar dois de quebra de pontos e, em seguida, selecione o **depurar** ícone para iniciar o processo de depuração remoto.
+### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Cenário 3: Executar a depuração remota e da correção de bug
+1. Configurar dois pontos de rutura e, em seguida, selecione o **depurar** ícone para iniciar o processo de depuração remoto.
 
-2. O código para o primeiro ponto de quebra e as informações de variável e o parâmetro são apresentadas no **variáveis** painel. 
+1. O código para no primeiro ponto de interrupção, e o parâmetro e informações variáveis são mostrados na **variáveis** painel. 
 
-3. Selecione o **retomar programa** ícone para continuar. O código interrompe o segundo ponto. A exceção é detetada como esperado.
+1. Selecione o **programa de retomar** ícone para continuar. O código para o segundo ponto. A exceção é recebida como esperado.
 
-   ![Erro de Throw](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
+   ![Gerar erro](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
 
-4. Selecione o **retomar programa** ícone novamente. O **HDInsight Spark submissão** janela apresenta um erro de "Falha de execução da tarefa".
+1. Selecione o **programa de retomar** ícone novamente. O **submissão de Spark do HDInsight** janela exibe um erro de "tarefa de execução falhou".
 
    ![Submissão de erro](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
 
-5. Para atualizar dinamicamente o valor da variável utilizando o IntelliJ capacidade de depuração, selecione **depurar** novamente. O **variáveis** painel aparece novamente. 
+1. Para atualizar dinamicamente o valor da variável ao utilizar o IntelliJ capacidade de depuração, selecione **depurar** novamente. O **variáveis** é apresentado o painel novamente. 
 
-6. Faça duplo clique de destino no **depurar** separador e, em seguida, selecione **definir valor**. Em seguida, introduza um novo valor para a variável. Em seguida, selecione **Enter** para guardar o valor. 
+1. Com o botão direito do destino no **depurar** separador e, em seguida, selecione **definir o valor**. Em seguida, introduza um novo valor para a variável. Em seguida, selecione **Enter** para guardar o valor. 
 
    ![Definir valor](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
-7. Selecione o **retomar programa** ícone para continuar a executar o programa. Nesta altura, sem exceção é detetada. Pode ver que o projeto é executada com êxito sem quaisquer exceções.
+1. Selecione o **programa de retomar** ícone para continuar a executar o programa. Desta vez, nenhuma exceção é capturada. Pode ver que o projeto é executado com êxito sem quaisquer exceções.
 
    ![Depurar sem exceção](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
@@ -162,12 +162,12 @@ Para resolver este erro, [transferir o ficheiro executável](http://public-repo-
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="demo"></a>Demonstração
-* Criar Scala projeto (vídeo): [criar aplicações do Spark Scala](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Depuração remota (vídeo): [Toolkit do Azure de utilização para o IntelliJ depurar aplicações do Spark remotamente num cluster do HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Criar projeto de Scala (vídeo): [criar aplicações do Spark Scala](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Depuração remota (vídeo): [utilizar o Azure Toolkit para IntelliJ depurar aplicações do Spark remotamente num cluster do HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com BI: efetuar uma análise de dados interativa ao utilizar o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de sites com o Spark no HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -176,12 +176,12 @@ Para resolver este erro, [transferir o ficheiro executável](http://public-repo-
 * [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Utilize o Toolkit do Azure para o IntelliJ para criar Spark aplicações para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md)
-* [Utilize o Toolkit do Azure para o IntelliJ para depurar aplicações do Spark remotamente através da VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilize as ferramentas do HDInsight para o IntelliJ com Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Utilizar as ferramentas do HDInsight na Azure Toolkit para Eclipse para criar Spark aplicações](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Utilizar o Azure Toolkit para IntelliJ para criar Spark aplicações para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md)
+* [Utilizar o Azure Toolkit para IntelliJ para depurar aplicações do Spark remotamente através de VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utilizar ferramentas do HDInsight para IntelliJ com a Sandbox da Hortonworks](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Utilizar ferramentas do HDInsight no Azure Toolkit para Eclipse para criar Spark aplicações](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter no cluster Spark para o HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

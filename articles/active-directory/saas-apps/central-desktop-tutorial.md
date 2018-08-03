@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 2c571ebc45875167373b592abc720b045d1835bd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048760"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Azure Active Directory com o ambiente de trabalho Central
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, siga as seguintes recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário que é descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o ambiente de trabalho Central da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="add-central-desktop-from-the-gallery"></a>Adicionar área de trabalho Central a partir da Galeria
 Para configurar a integração do ambiente de trabalho Central para o Azure AD, terá de adicionar área de trabalho Central a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do ambiente de trabalho Central para o Azure AD, 
 
     ![O botão do Azure Active Directory][1]
 
-2. Aceda a **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Aceda a **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar novos aplicativos, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
+1. Para adicionar novos aplicativos, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Central Desktop**. Selecione **Central Desktop** no painel de resultados e, em seguida, selecione a **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Central Desktop**. Selecione **Central Desktop** no painel de resultados e, em seguida, selecione a **Add** botão para adicionar a aplicação.
 
     ![Ambiente de trabalho central na lista de resultados](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Na área de trabalho Central, atribua **nome de utilizador** o mesmo valor como 
 Para configurar e testar o Azure AD início de sessão único com o ambiente de trabalho Central, tem de concluir os seguintes blocos de construção:
 
 1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. [Criar um utilizador de teste do ambiente de trabalho Central](#create-a-central-desktop-test-user) ter um equivalente da Eduarda Almeida na área de trabalho Central que está ligada à representação de utilizador do Azure AD.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
+1. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. [Criar um utilizador de teste do ambiente de trabalho Central](#create-a-central-desktop-test-user) ter um equivalente da Eduarda Almeida na área de trabalho Central que está ligada à representação de utilizador do Azure AD.
+1. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Para ativar o início de sessão único, na **início de sessão único** caixa de diálogo a **modo** na lista pendente, selecione **baseado em SAML logon**.
+1. Para ativar o início de sessão único, na **início de sessão único** caixa de diálogo a **modo** na lista pendente, selecione **baseado em SAML logon**.
  
     ![Caixa de diálogo de início de sessão único](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
 
-3. Na **Central de ambiente de trabalho de domínio e URLs** secção, siga os passos seguintes:
+1. Na **Central de ambiente de trabalho de domínio e URLs** secção, siga os passos seguintes:
 
     ![Domínio de ambiente de trabalho central e URLs único informações de início de sessão](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
@@ -123,25 +123,25 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e início de sessão no URL. Contacte os [equipa de suporte de cliente de ambiente de trabalho Central](https://imeetcentral.com/contact-us) obter esses valores. 
 
-4. Na **certificado de assinatura SAML** secção, selecione **certificado**. Em seguida, guarde o ficheiro de certificado no seu computador.
+1. Na **certificado de assinatura SAML** secção, selecione **certificado**. Em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
-5. Selecione o botão **Guardar**.
+1. Selecione o botão **Guardar**.
 
     ![Configurar o início de sessão único botão Save](./media/central-desktop-tutorial/tutorial_general_400.png)
     
-6. Na **configuração do ambiente de trabalho Central** secção, selecione **configurar o ambiente de trabalho Central** para abrir o **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir a **referência rápida** secção.
+1. Na **configuração do ambiente de trabalho Central** secção, selecione **configurar o ambiente de trabalho Central** para abrir o **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir a **referência rápida** secção.
 
     ![Configuração de ambiente de trabalho central](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
 
-7. Inicie sessão no seu **Central Desktop** inquilino.
+1. Inicie sessão no seu **Central Desktop** inquilino.
 
-8. Aceda a **definições**. Selecione **avançadas**e, em seguida, selecione **início de sessão único**.
+1. Aceda a **definições**. Selecione **avançadas**e, em seguida, selecione **início de sessão único**.
 
     ![Configuração - Advanced](./media/central-desktop-tutorial/ic769563.png "configuração - avançada")
 
-9. Sobre o **início de sessão único em definições** página, siga os passos seguintes:
+1. Sobre o **início de sessão único em definições** página, siga os passos seguintes:
 
     ![Único configurações de logon](./media/central-desktop-tutorial/ic769564.png "início de sessão único em definições")
     
@@ -153,7 +153,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     d. Na **URL de fim de sessão de SSO** caixa, cole a **URL de fim de sessão** valor que copiou do portal do Azure.
 
-10. Na **método de verificação de assinatura de mensagem** secção, siga os passos seguintes:
+1. Na **método de verificação de assinatura de mensagem** secção, siga os passos seguintes:
 
     ![Método de verificação de assinatura da mensagem](./media/central-desktop-tutorial/ic769565.png "método de verificação de assinatura de mensagem") um. Selecione **Certificado**.
     
@@ -180,15 +180,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/central-desktop-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**. Em seguida, selecione **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**. Em seguida, selecione **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/central-desktop-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **utilizador** caixa de diálogo, selecione **Add** na parte superior do **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **utilizador** caixa de diálogo, selecione **Add** na parte superior do **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/central-desktop-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, siga os passos seguintes:
+1. Na **utilizador** diálogo caixa, siga os passos seguintes:
 
     ![A caixa de diálogo de utilizador](./media/central-desktop-tutorial/create_aaduser_04.png)
 
@@ -211,17 +211,17 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 
 1. Inicie sessão no seu inquilino de ambiente de trabalho Central.
 
-2. Aceda a **pessoas** > **membros internos**.
+1. Aceda a **pessoas** > **membros internos**.
 
-3. Selecione **adicionar membros internos**.
+1. Selecione **adicionar membros internos**.
 
     ![As pessoas](./media/central-desktop-tutorial/ic781051.png "pessoas")
     
-4. Na **endereço de E-Mail de novos membros** , escreva uma conta do Azure AD que pretende aprovisionar e, em seguida, selecione **próxima**.
+1. Na **endereço de E-Mail de novos membros** , escreva uma conta do Azure AD que pretende aprovisionar e, em seguida, selecione **próxima**.
 
     ![Endereços de novos membros de correio eletrónico](./media/central-desktop-tutorial/ic781052.png "endereços dos novos membros de E-Mail")
 
-5. Selecione **membro ou membros adicionar interno**.
+1. Selecione **membro ou membros adicionar interno**.
 
     ![Adicionar membro interno](./media/central-desktop-tutorial/ic781053.png "Adicionar membro interno")
    
@@ -238,27 +238,27 @@ Nesta secção, vai ativar utilizador Eduarda Almeida para utilizar o Azure iní
 
 1. No portal do Azure, abra a vista de aplicações. Ir para a vista de diretório e, em seguida, aceda a **aplicações empresariais**.
 
-2. Selecione **todos os aplicativos**.
+1. Selecione **todos os aplicativos**.
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Central Desktop**.
+1. Na lista de aplicações, selecione **Central Desktop**.
 
     ![A ligação de ambiente de trabalho Central na lista de aplicações](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. No menu à esquerda, selecione **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Selecione o **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione o **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** no **utilizadores** lista.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** no **utilizadores** lista.
 
-6. Na **utilizadores e grupos** caixa de diálogo, clique nas **selecione** botão.
+1. Na **utilizadores e grupos** caixa de diálogo, clique nas **selecione** botão.
 
-7. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
+1. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -270,7 +270,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

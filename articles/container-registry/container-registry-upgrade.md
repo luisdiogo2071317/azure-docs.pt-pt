@@ -1,6 +1,6 @@
 ---
 title: Atualizar um registo de contentor do Azure clássico
-description: Tirar partido de expandido do conjunto de funcionalidades de básicas, Standard e Premium geridos os registos do contentor, atualizando o registo de contentor clássico não gerido.
+description: Tire partido da expandidos conjunto de funcionalidades do Basic, Standard e Premium geridos registos de contentores ao atualizar o seu registo de contentor clássico não gerido.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -8,65 +8,65 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 084dfc8f87aaea4b5bbad7cb5fdb9d445d566206
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168712"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432393"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registo de contentor clássico
 
-Registo de contentor do Azure (ACR) está disponível em vários escalões de serviço, [conhecido como SKUs](container-registry-skus.md). A edição inicial do ACR oferecidas um SKU único, clássico, que não possui várias funcionalidades inerentes para básico, Standard e Premium SKUs (coletivamente conhecidos como *geridos* registos). Este artigo fornece detalhes sobre como migrar o registo de clássico não gerido para uma dos SKUs geridos para que pode tirar partido do respetivo conjunto de funcionalidades avançada.
+O Azure Container Registry (ACR) está disponível em vários escalões de serviço, [conhecido como SKUs](container-registry-skus.md). A versão inicial do ACR oferecido um único SKU, clássico, que não possui vários recursos inerentes para o básico, Standard e Premium SKUs (coletivamente conhecido como *geridos* registos). Este artigo fornece detalhes sobre como migrar seu registo clássico não gerenciado para um dos SKUs geridos, para que possam tirar partido do seu conjunto de recursos aprimorados.
 
-## <a name="why-upgrade"></a>Por que motivo atualizar?
+## <a name="why-upgrade"></a>Por que atualizar?
 
-Devido às capacidades limitadas de registos de clássico não gerido, recomendamos que todos os registos de clássico ser atualizados para básico, Standard ou Premium registos geridos. Estes SKUs de nível mais elevados mais aprofundadamente integram o registo para as capacidades do Azure.
+Devido os recursos limitados de registos de clássico não gerido, é recomendado que todos os registos de clássico ser atualizados para básico, Standard ou Premium registos geridos. Essas SKUs de nível mais alto integrar o registo mais profundamente às capacidades do Azure.
 
-Fornecem registos geridos:
+Registos geridos fornecem:
 
-* Integração do Active Directory do Azure para [individuais início de sessão](container-registry-authentication.md#individual-login-with-azure-ad)
+* Integração do Active Directory do Azure para [início de sessão individual](container-registry-authentication.md#individual-login-with-azure-ad)
 * Suporte de eliminação de imagem e etiqueta
 * [Georreplicação](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Mais de tudo, um registo de clássico depende da conta de armazenamento que os do Azure são automaticamente Aprovisiona na sua subscrição do Azure ao criar o registo. Por outro lado, a básicas, Standard e Premium SKUs tirar partido do Azure [armazenamento funcionalidades avançadas](container-registry-storage.md) ao processamento de forma transparente o armazenamento das suas imagens para si. Não é criada uma conta de armazenamento separada na sua própria subscrição.
+Acima de tudo, um registo clássico depende da conta de armazenamento que Azure Aprovisiona automaticamente na sua subscrição do Azure ao criar o registo. Por outro lado, o básico, Standard e Premium SKUs tirar partido do Azure [avançadas funcionalidades de armazenamento](container-registry-storage.md) ao tratar de forma transparente o armazenamento das suas imagens para. Não é criada uma conta de armazenamento em separado na sua própria subscrição.
 
-Registo gerido armazenamento fornece as seguintes vantagens:
+Armazenamento de registo gerido fornece as seguintes vantagens:
 
-* As imagens de contentor são [encriptados em descanso ao](container-registry-storage.md#encryption-at-rest).
-* As imagens estão armazenadas utilizando [armazenamento georredundante](container-registry-storage.md#geo-redundant-storage), assuring cópia de segurança das suas imagens com a replicação de multirregião.
-* Capacidade de livremente [mover entre os SKUs](container-registry-skus.md#changing-skus), ativar o débito mais elevado quando seleciona um SKU de nível mais elevado. Com cada SKU ACR pode satisfazer as necessidades de débito como aumentam às suas necessidades.
+* São imagens de contentor [encriptados em descanso](container-registry-storage.md#encryption-at-rest).
+* As imagens são armazenadas [armazenamento georredundante](container-registry-storage.md#geo-redundant-storage), garantindo cópia de segurança das suas imagens com a replicação de várias regiões.
+* Capacidade de livremente [mover entre SKUs](container-registry-skus.md#changing-skus), permitindo um débito mais elevado, ao escolher um SKU de nível superior. Com cada SKU, ACR pode satisfazer as suas necessidades de débito à medida que suas necessidades aumentam.
 * Modelo de segurança unificada para o registo e o respetivo armazenamento fornece gestão de direitos simplificada. Gerir permissões apenas para o registo de contentor, sem ter de gerir também permissões para uma conta de armazenamento separada.
 
-Para obter detalhes adicionais sobre armazenamento de imagem no ACR, consulte [armazenamento de imagem do contentor no registo de contentor do Azure](container-registry-storage.md).
+Para obter detalhes adicionais sobre armazenamento de imagens no ACR, consulte [armazenamento de imagens de contentor no Azure Container Registry](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 
-Quando altera um registo do clássico para um registo gerido, Azure tem de copiar todas as imagens de contentor existente da conta do storage ACR criados na sua subscrição para uma conta de armazenamento gerida pelo Azure. Dependendo do tamanho do seu registo, este processo pode demorar alguns minutos a várias horas.
+Quando altera um registo de clássico para um registo gerido, Azure tem de copiar todas as imagens de contentor existente da conta de armazenamento criados ACR na sua subscrição para uma conta de armazenamento gerida pelo Azure. Dependendo do tamanho do seu registo, este processo pode demorar alguns minutos a várias horas.
 
-Durante o processo de conversão, todos os `docker push` operações estiverem bloqueadas, enquanto `docker pull` continua a funcionar.
+Durante o processo de conversão, todos os `docker push` operações são bloqueadas, enquanto `docker pull` continua a funcionar.
 
-Não eliminar ou modificar o conteúdo da conta do storage, fazer uma cópia do registo clássico durante o processo de conversão. Se o fizer, pode resultar em danos das suas imagens de contentor.
+Não eliminar ou modificar os conteúdos da conta de armazenamento de segurança do registo clássico durante o processo de conversão. Fazer isso pode resultar em danos imagens de contentor.
 
-Assim que a migração estiver concluída, a conta de armazenamento na sua subscrição que originalmente efetuou o registo de clássico já é utilizada pelo ACR. Depois de verificar que se a migração foi bem sucedida, considere eliminar a conta de armazenamento para o ajudar a minimizar os custos.
+Quando a migração estiver concluída, a conta de armazenamento na sua subscrição que originalmente de segurança do registo clássico já é utilizada pelo ACR. Depois de verificar se a migração foi concluída com êxito, considere eliminar a conta de armazenamento para o ajudar a minimizar os custos.
 
 >[!IMPORTANT]
-> Atualização do clássico para uma dos SKUs geridos é um **processo unidirecional**. Assim que tiver a converter um registo para básico, Standard ou Premium do clássico, não é possível reverter para clássico. No entanto, pode, livremente mover entre os SKUs de gerido com capacidade suficiente para o registo.
+> A atualização da implementação clássica para um dos SKUs geridos é um **processo unidirecional**. Assim que tenha convertido um registo para básico, Standard ou Premium do clássico, não é possível reverter para clássico. Pode, no entanto, livremente mover entre os SKUs geridos com capacidade suficiente para o seu registo.
 
 ## <a name="how-to-upgrade"></a>Como atualizar
 
-Pode atualizar um registo de clássico não gerido para uma dos SKUs geridos de várias formas. Nas secções seguintes, vamos descrevem o processo para utilizar o [CLI do Azure] [ azure-cli] e [portal do Azure][azure-portal].
+Pode atualizar um registo clássico não gerenciado para um dos SKUs geridos de várias formas. As secções seguintes, descrevemos o processo para utilizar o [CLI do Azure] [ azure-cli] e o [portal do Azure][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Atualização na CLI do Azure
 
-Para atualizar um registo de clássica a CLI do Azure, execute o [atualização de acr az] [ az-acr-update] de comandos e especificar o SKU de novo para o registo. No exemplo seguinte, um registo de clássico com o nome *myclassicregistry* é atualizado para o SKU Premium:
+Para atualizar um registo clássico na CLI do Azure, execute o [atualização do az acr] [ az-acr-update] de comando e especifique o novo SKU para o registo. No exemplo a seguir, o nome de um registo clássico *myclassicregistry* é atualizado para o SKU Premium:
 
 ```azurecli-interactive
 az acr update --name myclassicregistry --sku Premium
 ```
 
-Quando a migração estiver concluída, deverá ver um resultado semelhante ao seguinte. Tenha em atenção que o `sku` é "Premium" e o `storageAccount` é "null," que indica que o Azure gere agora o armazenamento de imagem para este registo.
+Quando a migração estiver concluída, deve ver um resultado semelhante ao seguinte. Tenha em atenção que o `sku` é "Premium" e o `storageAccount` for "nulo," que indica que o Azure gere agora o armazenamento de imagens para este registo.
 
 ```JSON
 {
@@ -93,31 +93,31 @@ Se especificar um registo gerido SKU cuja capacidade máxima é inferior ao tama
 
 `Cannot update the registry SKU due to reason: Registry size 12936251113 bytes exceeds the quota value 10737418240 bytes for SKU Basic. The suggested SKU is Standard.`
 
-Se receber um erro semelhante, execute o [atualização de acr az] [ az-acr-update] novamente o comando e especifique o SKU sugerido, que é o nível mais elevado seguinte SKU que possam acomodá as imagens.
+Se receber um erro semelhante, execute o [atualização do az acr] [ az-acr-update] novamente o comando e especificar o SKU sugerido, que é o SKU de nível mais elevado de next que pode acomodar suas imagens.
 
-## <a name="upgrade-in-azure-portal"></a>Atualização no portal do Azure
+## <a name="upgrade-in-azure-portal"></a>Atualizar no portal do Azure
 
-Ao atualizar um registo de clássica através do portal do Azure, Azure seleciona automaticamente o SKU de nível mais baixo que possam acomodá as imagens. Por exemplo, se o registo contém GiB 12 nas imagens, Azure seleciona automaticamente e converte o registo do clássico para Standard (máximo de 100 GiB).
+Ao atualizar um registo clássico com o portal do Azure, o Azure seleciona automaticamente o SKU de nível mais baixo que pode acomodar suas imagens. Por exemplo, se o seu registo contém 12 GiB em imagens, Azure seleciona automaticamente e converte o registo de clássico para o Standard (máximo de 100 GiB).
 
-Para atualizar o seu registo clássica através do portal do Azure, navegue para o registo de contentor **descrição geral** e selecione **atualização para o registo gerido**.
+Para atualizar o seu registo clássico com o portal do Azure, navegue para o registo de contentor **descrição geral** e selecione **atualização para o registo gerido**.
 
-![Registo clássico atualizar botão na IU do portal do Azure][update-classic-01-upgrade]
+![Clique no botão no portal do Azure da interface do Usuário de atualização de registo clássico][update-classic-01-upgrade]
 
 Selecione **OK** para confirmar que pretende atualizar para um registo gerido.
 
-![Registo clássico atualizar confirmação no portal do Azure da IU][update-classic-02-confirm]
+![Atualizar o registo clássico confirmação no portal do Azure da interface do Usuário][update-classic-02-confirm]
 
-Durante a migração, o portal indica que o registo **estado de aprovisionamento** é *atualização*. Conforme mencionado anteriormente, `docker push` operações são desativadas durante a migração e não tem de eliminar ou atualizar a conta de armazenamento utilizada pelo registo clássica, enquanto a migração está em curso – se o fizer, pode resultar em danos de imagem.
+Durante a migração, o portal indica que o Registro **estado de aprovisionamento** é *atualização*. Conforme mencionado anteriormente, `docker push` operações estão desativadas durante a migração e não tem de eliminar ou atualizar a conta de armazenamento utilizada pelo registo clássico, enquanto a migração está em curso – se o fizer, pode resultar em danos de imagem.
 
-![Registo clássico progresso da atualização do portal do Azure da IU][update-classic-03-updating]
+![Progresso no portal do Azure da interface do Usuário da atualização de registo clássico][update-classic-03-updating]
 
-Quando a migração estiver concluída, o **estado de aprovisionamento** indica *com êxito*, e pode novamente `docker push` ao seu registo.
+Quando a migração estiver concluída, o **estado de aprovisionamento** indica *Succeeded*, e pode, mais uma vez `docker push` para o seu registo.
 
-![Estado de conclusão no portal do Azure da IU de atualização de registo clássico][update-classic-04-updated]
+![Estado de conclusão no portal do Azure da interface do Usuário de atualização de registo clássico][update-classic-04-updated]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que tiver atualizado um registo para básico, Standard ou Premium do clássico, Azure já não utiliza a conta de armazenamento que originalmente efetuou o registo de clássico. Para reduzir o custo, considere eliminar a conta de armazenamento ou o contentor de Blob na conta que contém as imagens de contentor antigo.
+Assim que tiver atualizado um registo para básico, Standard ou Premium do clássico, o Azure já não utiliza a conta de armazenamento que originalmente de segurança do registo clássico. Para reduzir os custos, considere eliminar a conta de armazenamento ou o contentor de BLOBs na conta que contém as imagens de contentor antigo.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
@@ -126,6 +126,6 @@ Assim que tiver atualizado um registo para básico, Standard ou Premium do clás
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [azure-cli]: /cli/azure/install-azure-cli
 [azure-portal]: https://portal.azure.com

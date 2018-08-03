@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237048"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434963"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizar a replicação das alterações de esquema na sincronização de dados SQL do Azure
 
@@ -23,9 +23,9 @@ Sincronização de dados SQL permite que os utilizadores a sincronizar dados ent
 
 Este artigo apresenta uma solução de replicar automaticamente as alterações de esquema para todos os pontos finais de sincronização de dados SQL.
 1. Esta solução utiliza um acionador DDL para controlar as alterações de esquema.
-2. O acionador insere os comandos de alteração de esquema numa tabela de controle.
-3. Esta tabela de controle está sincronizada com todos os pontos finais com o serviço de sincronização de dados.
-4. Acionadores DML após a inserção são utilizados para aplicar as alterações de esquema em outros pontos de extremidade.
+1. O acionador insere os comandos de alteração de esquema numa tabela de controle.
+1. Esta tabela de controle está sincronizada com todos os pontos finais com o serviço de sincronização de dados.
+1. Acionadores DML após a inserção são utilizados para aplicar as alterações de esquema em outros pontos de extremidade.
 
 Este artigo utiliza ALTER TABLE como um exemplo de uma alteração de esquema, mas esta solução também funciona para outros tipos de alterações de esquema.
 
@@ -136,31 +136,31 @@ Depois das alterações de esquema são replicadas para todos os pontos finais, 
 
 1.  Verifique o esquema alterar.
 
-2.  Evite qualquer alteração de dados em que as novas colunas envolvidas até concluir o passo que cria o acionador.
+1.  Evite qualquer alteração de dados em que as novas colunas envolvidas até concluir o passo que cria o acionador.
 
-3.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos finais.
+1.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos finais.
 
-4.  Atualizar o esquema de base de dados e adicionar a nova coluna ao esquema de sincronização.
+1.  Atualizar o esquema de base de dados e adicionar a nova coluna ao esquema de sincronização.
 
-5.  Dados da coluna nova estão sincronizados durante a próxima operação de sincronização.
+1.  Dados da coluna nova estão sincronizados durante a próxima operação de sincronização.
 
 #### <a name="remove-columns"></a>Remover colunas
 
 1.  Remova as colunas de esquema de sincronização. Sincronização de dados para sincronizar dados nessas colunas.
 
-2.  Verifique o esquema alterar.
+1.  Verifique o esquema alterar.
 
-3.  Atualize o esquema de base de dados.
+1.  Atualize o esquema de base de dados.
 
 #### <a name="update-data-types"></a>Tipos de dados de atualização
 
 1.  Verifique o esquema alterar.
 
-2.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos finais.
+1.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos finais.
 
-3.  Atualize o esquema de base de dados.
+1.  Atualize o esquema de base de dados.
 
-4.  Se os tipos de dados novas e antigas não são totalmente compatíveis - por exemplo, se alterar do `int` para `bigint` -sincronização poderão falhar antes de concluir os passos que criar os acionadores. Sincronização for concluída com êxito após uma repetição.
+1.  Se os tipos de dados novas e antigas não são totalmente compatíveis - por exemplo, se alterar do `int` para `bigint` -sincronização poderão falhar antes de concluir os passos que criar os acionadores. Sincronização for concluída com êxito após uma repetição.
 
 #### <a name="rename-columns-or-tables"></a>Mudar o nome de colunas ou tabelas
 
@@ -176,25 +176,25 @@ A lógica de replicação descrita neste artigo deixa de funcionar em algumas si
 
 1.  Desativar o acionador DDL e evitar qualquer alteração de esquema adicional até o problema ser corrigido.
 
-2.  A base de dados de ponto final, onde o problema está a acontecer, desabilite o disparador de depois de inserir de mensagens em fila no ponto final onde não é possível efetuar a alteração de esquema. Esta ação permite que o comando de alteração de esquema a ser sincronizada.
+1.  A base de dados de ponto final, onde o problema está a acontecer, desabilite o disparador de depois de inserir de mensagens em fila no ponto final onde não é possível efetuar a alteração de esquema. Esta ação permite que o comando de alteração de esquema a ser sincronizada.
 
-3.  Acionar a sincronização para sincronizar a tabela de controlo de alterações de esquema.
+1.  Acionar a sincronização para sincronizar a tabela de controlo de alterações de esquema.
 
-4.  A base de dados de ponto final, onde o problema está a acontecer, consulta o esquema alterar tabela de histórico para obter o ID do último comando de alteração de esquema aplicada.
+1.  A base de dados de ponto final, onde o problema está a acontecer, consulta o esquema alterar tabela de histórico para obter o ID do último comando de alteração de esquema aplicada.
 
-5.  Consulte a tabela para listar todos os comandos com um ID maior que o valor de ID que obteve no passo anterior de controlo de alterações de esquema.
+1.  Consulte a tabela para listar todos os comandos com um ID maior que o valor de ID que obteve no passo anterior de controlo de alterações de esquema.
 
     a.  Ignore esses comandos que não não possível executar a base de dados do ponto final. Terá de lidar com a inconsistência de esquema. Reverta as alterações de esquema original se a inconsistência tem impacto sobre a sua aplicação.
 
     b.  Aplica manualmente esses comandos que devem ser aplicados.
 
-6.  Atualizar a tabela de histórico de alterações de esquema e defina o último ID aplicado para o valor correto.
+1.  Atualizar a tabela de histórico de alterações de esquema e defina o último ID aplicado para o valor correto.
 
-7.  Verificar se o esquema está atualizado.
+1.  Verificar se o esquema está atualizado.
 
-8.  Voltar a ativar o acionador depois de inserir desabilitado na segunda etapa.
+1.  Voltar a ativar o acionador depois de inserir desabilitado na segunda etapa.
 
-9.  Voltar a ativar o acionador DDL desabilitado no primeiro passo.
+1.  Voltar a ativar o acionador DDL desabilitado no primeiro passo.
 
 Se quiser limpar os registros na tabela de controle de alteração de esquema, utilize DELETE em vez de TRUNCATE. Nunca propagar novamente a coluna de identidade na tabela de registo utilizando o DBCC CHECKIDENT de alterações de esquema. Pode criar tabelas de controlo de alteração de esquema novo e atualizar o nome da tabela em que o acionador DDL se reseeding for necessário.
 

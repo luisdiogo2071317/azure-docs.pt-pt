@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 60133dd6d541500db448cf107dd3c0ab193a03f7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d617b7a1195f322ad33a47ae2fd99b7eb336b7b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048692"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory com o Software de RH Cezanne
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Software de RH Cezanne da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Adicionando o Software de RH Cezanne da Galeria
 Para configurar a integração de Software de RH Cezanne com o Azure AD, terá de adicionar Cezanne RH Software a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração de Software de RH Cezanne com o Azure AD, terá d
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Software de RH Cezanne**, selecione **Cezanne RH Software** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Software de RH Cezanne**, selecione **Cezanne RH Software** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Software de RH Cezanne na lista de resultados](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Em Software de RH Cezanne, atribuir o valor do **nome de utilizador** no Azure A
 Para configurar e testar o Azure AD início de sessão único com o Software de RH Cezanne, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de Software de RH Cezanne](#create-a-cezannehrsoftware-test-user)**  - para ter um equivalente da Eduarda Almeida no Software de RH Cezanne que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de Software de RH Cezanne](#create-a-cezannehrsoftware-test-user)**  - para ter um equivalente da Eduarda Almeida no Software de RH Cezanne que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. Sobre o **Cezanne RH Software domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Cezanne RH Software domínio e URLs** secção, execute os seguintes passos:
 
     ![Domínio de Software de RH Cezanne e URLs únicas início de sessão em informações](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
@@ -119,37 +119,37 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o URL de resposta real. Contacte [equipa de suporte de cliente de Software de RH Cezanne](https://cezannehr.com/services/support/) obter esses valores.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Sobre o **configuração de Software de RH Cezanne** secção, clique em **configurar Software de RH Cezanne** para abrir **configurar início de sessão** janela.
+1. Sobre o **configuração de Software de RH Cezanne** secção, clique em **configurar Software de RH Cezanne** para abrir **configurar início de sessão** janela.
 
     ![Configuração de Software Cezanne RH](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Desloque para baixo para o **referência rápida** secção. Copiar o **SAML único início de sessão no URL do serviço e o ID de entidade de SAML** partir o **secção de referência rápida.**
+1. Desloque para baixo para o **referência rápida** secção. Copiar o **SAML único início de sessão no URL do serviço e o ID de entidade de SAML** partir o **secção de referência rápida.**
 
     ![Configuração de Software Cezanne RH](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
 
-8. Numa janela do browser web diferente, início de sessão no seu inquilino de Software de RH Cezanne como administrador.
+1. Numa janela do browser web diferente, início de sessão no seu inquilino de Software de RH Cezanne como administrador.
 
-9. No painel de navegação esquerdo, clique em **configuração do System**. Aceda a **definições de segurança**. Em seguida, navegue até **configuração do início de sessão único**.
+1. No painel de navegação esquerdo, clique em **configuração do System**. Aceda a **definições de segurança**. Em seguida, navegue até **configuração do início de sessão único**.
 
     ![Configure o lado de início de sessão na aplicação única](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-10. Na **permitir que os utilizadores iniciar sessão com o seguinte serviço único início de sessão (SSO)** painel, verifique o **SAML 2.0** caixa e selecione o **configuração avançada** opção.
+1. Na **permitir que os utilizadores iniciar sessão com o seguinte serviço único início de sessão (SSO)** painel, verifique o **SAML 2.0** caixa e selecione o **configuração avançada** opção.
 
     ![Configure o lado de início de sessão na aplicação única](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-11. Clique em **adicionar novo** botão.
+1. Clique em **adicionar novo** botão.
 
     ![Configure o lado de início de sessão na aplicação única](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-12. Execute os seguintes passos no **fornecedores de identidade do SAML 2.0** secção.
+1. Execute os seguintes passos no **fornecedores de identidade do SAML 2.0** secção.
 
     ![Configure o lado de início de sessão na aplicação única](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -167,7 +167,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     g. Clique no botão **OK**. 
 
-13. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configure o lado de início de sessão na aplicação única](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
@@ -187,15 +187,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/cezannehrsoftware-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/cezannehrsoftware-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/cezannehrsoftware-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/cezannehrsoftware-tutorial/create_aaduser_04.png)
 
@@ -215,11 +215,11 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Software de RH Cez
 
 1.  Inicie sessão no site da sua empresa Cezanne RH Software como um administrador.
 
-2.  No painel de navegação esquerdo, clique em **configuração do System**. Aceda a **gerir utilizadores**. Em seguida, navegue até **adicionar novo utilizador**.
+1.  No painel de navegação esquerdo, clique em **configuração do System**. Aceda a **gerir utilizadores**. Em seguida, navegue até **adicionar novo utilizador**.
 
     ![Novo utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "novo utilizador")
 
-3.  No **detalhes de pessoa** secção, executar passos abaixo:
+1.  No **detalhes de pessoa** secção, executar passos abaixo:
 
     ![Novo utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "novo utilizador")
     
@@ -231,7 +231,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Software de RH Cez
     
     d. Na **email** caixa de texto, como o tipo de endereço de e-mail do utilizador Brittasimon@contoso.com.
 
-4.  No **informações da conta** secção, executar passos abaixo:
+1.  No **informações da conta** secção, executar passos abaixo:
 
     ![Novo utilizador](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "novo utilizador")
     
@@ -243,15 +243,15 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Software de RH Cez
     
     d. Clique em **OK**.
 
-5. Navegue para **início de sessão único** separador e selecione **adicionar novo** no **SAML 2.0 identificadores** área.
+1. Navegue para **início de sessão único** separador e selecione **adicionar novo** no **SAML 2.0 identificadores** área.
 
     ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "utilizador")
 
-6. Escolha o fornecedor de identidade para o **fornecedor de identidade** e, na caixa de texto de **identificador de utilizador**, introduza o endereço de e-mail da conta da Eduarda Almeida.
+1. Escolha o fornecedor de identidade para o **fornecedor de identidade** e, na caixa de texto de **identificador de utilizador**, introduza o endereço de e-mail da conta da Eduarda Almeida.
 
     ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "utilizador")
     
-7. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "utilizador")
 
@@ -267,23 +267,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Cezanne RH Software**.
+1. Na lista de aplicações, selecione **Cezanne RH Software**.
 
     ![A ligação de Software de RH Cezanne na lista de aplicações](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -295,7 +295,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041002"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ScaleX Enterprise
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando propriedades ScaleX Enterprise da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>Adicionando propriedades ScaleX Enterprise da Galeria
 Para configurar a integração do ScaleX Enterprise para o Azure AD, terá de adicionar ScaleX empresarial a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração do ScaleX Enterprise para o Azure AD, terá de ad
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **ScaleX Enterprise**.
+1. Na caixa de pesquisa, escreva **ScaleX Enterprise**.
 
     ![Criar um utilizador de teste do Azure AD](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. No painel de resultados, selecione **ScaleX Enterprise**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **ScaleX Enterprise**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relação de ligação é estabelecida atribuindo o valor do **nome de util
 Para configurar e testar o Azure AD início de sessão único com o ScaleX Enterprise, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  - para ter um equivalente da Eduarda Almeida na empresa ScaleX que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  - para ter um equivalente da Eduarda Almeida na empresa ScaleX que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,11 +104,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, como **modo** selecionar **baseado em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, como **modo** selecionar **baseado em SAML início de sessão** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. Sobre o **ScaleX Enterprise domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+1. Sobre o **ScaleX Enterprise domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -116,7 +116,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/acs/`
 
-4. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Verifique **Mostrar definições de URL avançadas**, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -125,7 +125,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Essas não são os valores reais. Atualize estes valores com o identificador real, o URL de resposta ou URL de início de sessão. Contacte [equipa de suporte de ScaleX Enterprise Client](http://info.rescale.com/contact_sales) obter esses valores. 
 
-5. A aplicação de ScaleX espera que as asserções SAML num formato específico, o que exige que modificar mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Clique em **ver e editar todos os outros atributos de utilizador** as definições de atributos de caixa de verificação para abrir o personalizado.
+1. A aplicação de ScaleX espera que as asserções SAML num formato específico, o que exige que modificar mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Clique em **ver e editar todos os outros atributos de utilizador** as definições de atributos de caixa de verificação para abrir o personalizado.
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
@@ -137,32 +137,32 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
-5. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
-7. Na **ScaleX Enterprise Configuration** secção, clique em **configurar empresarial de ScaleX** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** e **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Na **ScaleX Enterprise Configuration** secção, clique em **configurar empresarial de ScaleX** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** e **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. Para configurar o início de sessão único num **ScaleX Enterprise** lado, o início de sessão para o site da empresa de ScaleX Enterprise como administrador.
+1. Para configurar o início de sessão único num **ScaleX Enterprise** lado, o início de sessão para o site da empresa de ScaleX Enterprise como administrador.
 
-9. Clique no menu na parte superior direita e selecione **Contoso administração**.
+1. Clique no menu na parte superior direita e selecione **Contoso administração**.
 
     > [!NOTE] 
     > A Contoso é apenas um exemplo. Isso deve ser o nome real da sua empresa. 
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
-10. Selecione **integrações** no menu superior e selecione **Single Sign-On**.
+1. Selecione **integrações** no menu superior e selecione **Single Sign-On**.
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/admin_sso.png) 
 
-11. Preencha o formulário da seguinte forma:
+1. Preencha o formulário da seguinte forma:
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
@@ -197,15 +197,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
+1. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
     
     ![Criar um utilizador de teste do Azure AD](./media/scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
@@ -233,23 +233,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **ScaleX Enterprise**.
+1. Na lista de aplicações, selecione **ScaleX Enterprise**.
 
     ![Configurar o início de sessão único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -261,7 +261,7 @@ Clique no mosaico propriedades ScaleX Enterprise no painel de acesso, irá obter
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

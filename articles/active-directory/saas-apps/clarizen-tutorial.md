@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Clarizen | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Clarizen.
+title: 'Tutorial: Integração do Azure Active Directory com Clarizen | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,244 +14,244 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f1ce8d961666b6abf4d9abe4fd881023afae7a3d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218120"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Azure Active Directory com Clarizen
 
-Neste tutorial, irá aprender a integração do Azure Active Directory (Azure AD) com Clarizen. Esta integração proporciona as seguintes vantagens:
+Neste tutorial, saiba como integrar o Azure Active Directory (Azure AD) com Clarizen. Esta integração dá-lhe as seguintes vantagens:
 
-- Pode controlar, no Azure AD, quem tem acesso às Clarizen.
-- Pode permitir que os utilizadores ser iniciada automaticamente para Clarizen (-início de sessão único) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central, o portal do Azure.
+- Pode controlar, no Azure AD, quem tem acesso a Clarizen.
+- Pode permitir que os utilizadores ter automaticamente sessão iniciada no Clarizen (início de sessão único) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central, o portal do Azure.
 
-O cenário deste tutorial consiste em duas tarefas principais:
+O cenário neste tutorial consiste em duas tarefas principais:
 
 1. Adicione Clarizen a partir da galeria.
-2. Configurar e testar o Azure AD-início de sessão único.
+1. Configurar e testar o Azure AD início de sessão único.
 
-Se pretender obter mais detalhes sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Se pretender obter mais detalhes sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para configurar a integração do Azure AD com Clarizen, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Uma subscrição de Clarizen está ativada para o início de sessão único
+- Uma subscrição de Clarizen que está ativada para início de sessão único
 
-Para testar os passos neste tutorial, siga estas recomendações:
+Para testar os passos neste tutorial, siga as seguintes recomendações:
 
-- Teste do Azure AD-início de sessão único num ambiente de teste. Não utilize o seu ambiente de produção, a menos que isto é necessário.
+- Teste do Azure AD início de sessão único num ambiente de teste. Não utilize o seu ambiente de produção, a menos que isso é necessário.
 - Se não tiver um ambiente de teste do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="add-clarizen-from-the-gallery"></a>Adicionar Clarizen a partir da Galeria
-Para configurar a integração de Clarizen com o Azure AD, adicione Clarizen na Galeria à sua lista de aplicações SaaS geridas.
+Para configurar a integração do Clarizen com o Azure AD, adicione Clarizen a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique em de **do Azure Active Directory** ícone.
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, clique nas **Azure Active Directory** ícone.
 
     ![Ícone do Active Directory do Azure][1]
 
-2. Clique em **aplicações empresariais**. Em seguida, clique em **todas as aplicações**.
+1. Clique em **aplicações empresariais**. Em seguida, clique em **todos os aplicativos**.
 
-    ![Ao clicar em "As aplicações empresariais" e "Todas as aplicações"][2]
+    ![Clicar em "Aplicações empresariais" e "Todas as aplicações"][2]
 
-3. Clique em de **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique nas **adicionar** botão na parte superior da caixa de diálogo.
 
     ![O botão "Adicionar"][3]
 
-4. Na caixa de pesquisa, escreva **Clarizen**.
+1. Na caixa de pesquisa, escreva **Clarizen**.
 
     ![Escrever "Clarizen" na caixa de pesquisa](./media/clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. No painel de resultados, selecione **Clarizen**e, em seguida, clique em **adicionar** para adicionar a aplicação.
+1. No painel de resultados, selecione **Clarizen**e, em seguida, clique em **Add** para adicionar a aplicação.
 
     ![Selecionar Clarizen no painel de resultados](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
-Nas secções seguintes, configure e teste do Azure AD-início de sessão único com Clarizen com base no utilizador de teste Britta Simon.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+Nas seções a seguir, configure e teste do Azure AD início de sessão único com Clarizen com base no utilizador de teste Eduarda Almeida.
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Clarizen é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Clarizen tem de ser estabelecida. Estabelecer esta relação de ligação ao atribuir o valor de **nome de utilizador** no Azure AD como o valor do **Username** no Clarizen.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Clarizen a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Clarizen deve ser estabelecido. Estabelecer esta relação de ligação ao atribuir o valor de **nome de utilizador** no Azure AD como o valor de **Username** no Clarizen.
 
-Para configurar e testar o Azure AD-início de sessão único com Clarizen, conclua os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Clarizen, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD-início de sessão único](#configure-azure-ad-single-sign-on)**  para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar do Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Clarizen](#create-a-clarizen-test-user)**  para ter um homólogo de Britta Simon no Clarizen que está ligada a representação do Azure AD da forma.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para permitir aos utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Clarizen](#create-a-clarizen-test-user)**  ter um equivalente da Eduarda Almeida na Clarizen que está ligado à representação de ela do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
-Ativar o Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Clarizen.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+Ativar o Azure AD início de sessão único no portal do Azure e configurar o início de sessão único em seu aplicativo Clarizen.
 
-1. No portal do Azure, no **Clarizen** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Clarizen** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Ao clicar em "Single sign-on"][4]
+    ![Clicar em "Início de sessão único"][4]
 
-2. No **de sessão único-** caixa de diálogo, para **modo**, selecione **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Na **início de sessão único** caixa de diálogo, para **modo**, selecione **baseado em SAML logon** para ativar o início de sessão único.
 
-    ![Selecionar "baseados em SAML início de sessão"](./media/clarizen-tutorial/tutorial_clarizen_01.png)
+    ![Selecionar "baseado em SAML Sign-on"](./media/clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. No **Clarizen domínio e os URLs** secção, execute os seguintes passos:
+1. Na **Clarizen domínio e URLs** secção, execute os seguintes passos:
 
-    ![Caixas de URL de identificador e resposta](./media/clarizen-tutorial/tutorial_clarizen_02.png)
+    ![Caixas para o URL de identificador e resposta](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. No **identificador** caixa, digite o valor como: **Clarizen**
+    a. Na **identificador** , escreva o valor como: **Clarizen**
 
-    b. No **URL de resposta** caixa, escreva um URL, utilizando o padrão do seguinte: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    b. Na **URL de resposta** , escreva um URL ao utilizar o seguinte padrão: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
     > [!NOTE]
-    > Estes não são os valores reais. Tem de utilizar o identificador real e URL de resposta. Aqui sugerimos que utilize o valor exclusivo de uma cadeia como o identificador. Para obter os valores reais, contacte o [equipa de suporte de Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
+    > Essas não são os valores reais. Tem de utilizar o identificador real e URL de resposta. Aqui sugerimos que utilize o valor exclusivo de uma cadeia de caracteres como o identificador. Para obter os valores reais, entre em contato com o [equipa de suporte de Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. No **certificado de assinatura de SAML** secção, clique em **criar novo certificado**.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **criar novo certificado**.
 
-    ![Clicar em "Criar o novo certificado"](./media/clarizen-tutorial/tutorial_clarizen_03.png)    
+    ![Clicar em "Criar novo certificado"](./media/clarizen-tutorial/tutorial_clarizen_03.png)    
 
-5. No **criar o novo certificado** diálogo caixa, clique no ícone de calendário e selecione uma data de expiração. Em seguida, clique em **Guardar**.
+1. Na **criar novo certificado** diálogo caixa, clique no ícone de calendário e selecione uma data de expiração. Em seguida, clique em **Guardar**.
 
-    ![Selecionar e guardar uma data de expiração](./media/clarizen-tutorial/tutorial_general_300.png)
+    ![Selecionar e salvar uma data de expiração](./media/clarizen-tutorial/tutorial_general_300.png)
 
-6. No **certificado de assinatura de SAML** secção, selecione **tornar o novo certificado ativa**e, em seguida, clique em **guardar**.
+1. Na **certificado de assinatura SAML** secção, selecione **ativar o novo certificado**e, em seguida, clique em **guardar**.
 
-    ![Selecionar a caixa de verificação para efetuar o novo certificado Active Directory](./media/clarizen-tutorial/tutorial_clarizen_04.png)
+    ![Selecionar a caixa de verificação para fazer com que o novo certificado ativo](./media/clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. No **o certificado de Rollover** caixa de diálogo, clique em **OK**.
+1. Na **certificado de Rollover** caixa de diálogo, clique em **OK**.
 
-    ![Ao clicar em "OK" para confirmar que pretende tornar o certificado ativa](./media/clarizen-tutorial/tutorial_general_400.png)
+    ![Clicar em "OK" para confirmar que pretende ativar o certificado](./media/clarizen-tutorial/tutorial_general_400.png)
 
-8. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Na **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![Ao clicar em "Certificate (Base64)" para iniciar a transferência](./media/clarizen-tutorial/tutorial_clarizen_05.png)
+    ![Clicar em "Certificado (Base64)" para iniciar o download](./media/clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. No **Clarizen configuração** secção, clique em **configurar Clarizen** para abrir o **configurar início de sessão** janela.
+1. Na **Clarizen Configuration** secção, clique em **configurar Clarizen** para abrir o **configurar início de sessão** janela.
 
     ![Clicar em "Configurar Clarizen"](./media/clarizen-tutorial/tutorial_clarizen_06.png)
 
-    ![Janela "Configurar o início de sessão", incluindo URLs e ficheiros](./media/clarizen-tutorial/tutorial_clarizen_07.png)
+    ![Janela de "Configurar o início de sessão", incluindo URLs e ficheiros](./media/clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. Numa janela do browser web diferente, inicie sessão no site da sua empresa Clarizen como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Clarizen como um administrador.
 
-11. Clique em seu nome de utilizador e, em seguida, clique em **definições**.
+1. Clique em seu nome de utilizador e, em seguida, clique em **definições**.
 
-    ![Ao clicar em "Definições" em seu nome de utilizador](./media/clarizen-tutorial/tutorial_clarizen_001.png "definições")
+    ![Clicar em "Definições" em seu nome de utilizador](./media/clarizen-tutorial/tutorial_clarizen_001.png "definições")
 
-12. Clique em de **definições globais** separador. Em seguida, junto a **autenticação federada**, clique em **editar**.
+1. Clique nas **definições globais** separador. Em seguida, junto a **autenticação federada**, clique em **editar**.
 
     ![Separador "Definições globais"](./media/clarizen-tutorial/tutorial_clarizen_002.png "definições globais")
 
-13. No **autenticação federada** diálogo caixa, execute os seguintes passos:
+1. Na **autenticação federada** diálogo caixa, execute os seguintes passos:
 
-    ![Caixa de diálogo "Autenticação federada"](./media/clarizen-tutorial/tutorial_clarizen_003.png "autenticação federada")
+    !["Autenticação federada" caixa de diálogo](./media/clarizen-tutorial/tutorial_clarizen_003.png "autenticação federada")
 
-    a. Selecione **ativar federado autenticação**.
+    a. Selecione **Enable federado autenticação**.
 
     b. Clique em **carregar** para carregar o certificado transferido.
 
-    c. No **URL de início de sessão** box, introduza o valor de **único início de sessão no URL do serviço SAML** na janela de configuração de aplicação do Azure AD.
+    c. Na **URL de início de sessão** , introduza o valor de **SAML único início de sessão no URL do serviço** partir da janela de configuração de aplicação do Azure AD.
 
-    d. No **Sign-out URL** box, introduza o valor de **Sign-Out URL** na janela de configuração de aplicação do Azure AD.
+    d. Na **URL de fim de sessão** , introduza o valor de **URL de fim de sessão** partir da janela de configuração de aplicação do Azure AD.
 
-    e. Selecione **utilizar POST**.
+    e. Selecione **utilize POST**.
 
     f. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-No portal do Azure, crie um utilizador de teste chamado Britta Simon.
+No portal do Azure, crie um utilizador de teste Eduarda Almeida.
 
 ![Nome e endereço de e-mail do utilizador de teste do Azure AD][100]
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** ícone.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** ícone.
 
     ![Ícone do Active Directory do Azure](./media/clarizen-tutorial/create_aaduser_01.png)
 
-2. Clique em **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores** para apresentar a lista de utilizadores.
+1. Clique em **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores** para apresentar a lista de utilizadores.
 
-    ![Ao clicar em "Utilizadores e grupos" e "Todos os utilizadores"](./media/clarizen-tutorial/create_aaduser_02.png)
+    ![Clicar em "Utilizadores e grupos" e "Todos os utilizadores"](./media/clarizen-tutorial/create_aaduser_02.png)
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
 
     ![O botão "Adicionar"](./media/clarizen-tutorial/create_aaduser_03.png)
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
-    ![Caixa de diálogo "Utilizador" com o nome, endereço de correio eletrónico e palavra-passe preenchidos](./media/clarizen-tutorial/create_aaduser_04.png)
+    ![Caixa de diálogo de "Usuário" com o nome, endereço de e-mail e palavra-passe preenchidos](./media/clarizen-tutorial/create_aaduser_04.png)
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail da conta Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail da conta Eduarda Almeida.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor de **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor de **palavra-passe**.
 
     d. Clique em **Criar**.
 
 ### <a name="create-a-clarizen-test-user"></a>Criar um utilizador de teste Clarizen
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Clarizen. Clarizen suporta o aprovisionamento de utilizadores automática, que é por predefinição ativada. Pode encontrar mais detalhes [aqui](clarizen-provisioning-tutorial.md) sobre como configurar o aprovisionamento de utilizadores automática.
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Clarizen. Clarizen suporta o aprovisionamento automático de utilizadores, que está por predefinição, ativada. Pode encontrar mais detalhes [aqui](clarizen-provisioning-tutorial.md) sobre como configurar o aprovisionamento automático de utilizadores.
 
-**Se precisar de criar manualmente o utilizador, execute os seguintes passos:**
+**Se precisar de criar manualmente o utilizador, execute, os seguintes passos:**
 
-Para ativar o Azure AD aos utilizadores iniciar sessão Clarizen, terá de aprovisionar contas de utilizador. No caso de Clarizen, o aprovisionamento é uma tarefa manual.
+Para ativar a utilizadores do Azure AD iniciar sessão no Clarizen, terá de aprovisionar contas de utilizador. No caso de Clarizen, o aprovisionamento é uma tarefa manual.
 
-1. Inicie sessão no site da sua empresa Clarizen como administrador.
+1. Inicie sessão no site da sua empresa Clarizen como um administrador.
 
-2. Clique em **pessoas**.
+1. Clique em **pessoas**.
 
-    ![Clicar em "As pessoas"](./media/clarizen-tutorial/create_aaduser_001.png "pessoas")
+    ![Clicar em "Quem"](./media/clarizen-tutorial/create_aaduser_001.png "pessoas")
 
-3. Clique em **convidar utilizador**.
+1. Clique em **convidar utilizador**.
 
-    ![Botão "Convidar utilizadores"](./media/clarizen-tutorial/create_aaduser_002.png "convidar utilizadores")
+    ![Botão "Convidar o utilizador"](./media/clarizen-tutorial/create_aaduser_002.png "convidar utilizadores")
 
-4. No **convidar pessoas** diálogo caixa, execute os seguintes passos:
+1. Na **convidar pessoas** diálogo caixa, execute os seguintes passos:
 
-    ![Caixa de diálogo "Convidar pessoas"](./media/clarizen-tutorial/create_aaduser_003.png "convidar pessoas")
+    !["Convidar pessoas" caixa de diálogo](./media/clarizen-tutorial/create_aaduser_003.png "convidar pessoas")
 
-    a. No **E-Mail** caixa, escreva o endereço de e-mail da conta Britta Simon.
+    a. Na **E-Mail** , escreva o endereço de e-mail da conta Eduarda Almeida.
 
     b. Clique em **convidar**.
 
     > [!NOTE]
-    > O marcador de posição de conta do Azure Active Directory irá receber um e-mail e siga uma ligação para confirmar a respetiva conta para ficar ativa.
+    > O titular da conta do Azure Active Directory irá receber um e-mail e seguir uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-Ative Britta Simon a utilizar Azure-início de sessão único, conceder o acesso ao Clarizen.
+Ative a Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Clarizen.
 
-![Utilizador de teste atribuído][200]
+![Utilizador de teste atribuídas][200]
 
-1. Do Azure portal, abra as aplicações ver, navegue para a vista de diretório, clique em **aplicações empresariais**e, em seguida, clique em **todas as aplicações**.
+1. No Azure portal, abra ver as aplicações, navegue para a vista de diretório, clique em **aplicações empresariais**e, em seguida, clique em **todos os aplicativos**.
 
-    ![Ao clicar em "As aplicações empresariais" e "Todas as aplicações"][201]
+    ![Clicar em "Aplicações empresariais" e "Todas as aplicações"][201]
 
-2. Na lista de aplicações, selecione **Clarizen**.
+1. Na lista de aplicações, selecione **Clarizen**.
 
     ![Selecionar Clarizen na lista](./media/clarizen-tutorial/tutorial_clarizen_50.png)
 
-3. No painel esquerdo, clique em **utilizadores e grupos**.
+1. No painel esquerdo, clique em **utilizadores e grupos**.
 
-    ![Ao clicar em "Utilizadores e grupos"][202]
+    ![Clicar em "Utilizadores e grupos"][202]
 
-4. Clique no botão **Adicionar**. Em seguida, no **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
+1. Clique no botão **Adicionar**. Em seguida, na **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
 
-    ![O botão "Adicionar" e a caixa de diálogo "Atribuição adicionar"][203]
+    ![O botão "Adicionar" e a caixa de diálogo "Adicionar atribuição"][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista de utilizadores.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores.
 
-6. No **utilizadores e grupos** caixa de diálogo, clique em de **selecione** botão.
+1. Na **utilizadores e grupos** caixa de diálogo, clique nas **selecione** botão.
 
-7. No **adicionar atribuição** caixa de diálogo, clique em de **atribuir** botão.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
-Teste a configuração do Azure AD único início de sessão utilizando o painel de acesso.
+Teste a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Clarizen no painel de acesso, esta deve ser iniciada automaticamente aplicação Clarizen.
+Quando clica no mosaico Clarizen no painel de acesso, deve ser automaticamente conectado à sua aplicação Clarizen.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar o aprovisionamento de utilizadores](clarizen-provisioning-tutorial.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [Configurar o aprovisionamento do utilizador](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

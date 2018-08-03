@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 24a5c1a260cf86f0860e0292c2eb9527f976a363
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040515"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory com SignalFx
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando SignalFx da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-signalfx-from-the-gallery"></a>Adicionando SignalFx da Galeria
 Para configurar a integração do SignalFx com o Azure AD, terá de adicionar SignalFx a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do SignalFx com o Azure AD, terá de adicionar Si
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **SignalFx**, selecione **SignalFx** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **SignalFx**, selecione **SignalFx** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![SignalFx na lista de resultados](./media/signalfx-tutorial/tutorial_signalfx_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com SignalFx, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste SignalFx](#create-a-signalfx-test-user)**  - para ter um equivalente da Eduarda Almeida na SignalFx que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste SignalFx](#create-a-signalfx-test-user)**  - para ter um equivalente da Eduarda Almeida na SignalFx que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -100,11 +100,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/signalfx-tutorial/tutorial_signalfx_samlbase.png)
 
-3. Sobre o **SignalFx domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **SignalFx domínio e URLs** secção, execute os seguintes passos:
 
     ![SignalFx domínio e URLs únicas início de sessão em informações](./media/signalfx-tutorial/tutorial_signalfx_url.png)
 
@@ -115,11 +115,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > O valor anterior não é o valor real. Atualize o valor com o URL de resposta real, o que é explicado mais tarde no tutorial.
 
-4. Aplicação de SignalFx espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.   
+1. Aplicação de SignalFx espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.   
 
     ![Configurar o início de sessão único](./media/signalfx-tutorial/tutorial_signalfx_attribute.png)
 
-5. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
+1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
@@ -142,7 +142,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     e. Clique em **OK**.
  
-6. Sobre o **certificado de assinatura SAML** secção, execute os seguintes passos: 
+1. Sobre o **certificado de assinatura SAML** secção, execute os seguintes passos: 
 
     ![O link de download de certificado](./media/signalfx-tutorial/tutorial_signalfx_certificate.png)
 
@@ -150,25 +150,25 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-7. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/signalfx-tutorial/tutorial_general_400.png)
 
-8. Sobre o **SignalFx configuração** secção, clique em **configurar SignalFx** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** partir o **secção de referência rápida.**
+1. Sobre o **SignalFx configuração** secção, clique em **configurar SignalFx** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** partir o **secção de referência rápida.**
 
     ![Configuração de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-9. Início de sessão no site da sua empresa SignalFx como administrador.
+1. Início de sessão no site da sua empresa SignalFx como administrador.
 
-10. No SignalFx, sobre o superior, clique em **integrações** para abrir a página de integrações.
+1. No SignalFx, sobre o superior, clique em **integrações** para abrir a página de integrações.
 
     ![Integração de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
 
-11. Clique em **do Azure Active Directory** mosaico sob **dos serviços de início de sessão** secção.
+1. Clique em **do Azure Active Directory** mosaico sob **dos serviços de início de sessão** secção.
  
     ![SignalFx saml](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
 
-12. Clique em **nova integração** e, no **instalar** separador execute os seguintes passos:
+1. Clique em **nova integração** e, no **instalar** separador execute os seguintes passos:
  
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -196,15 +196,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/signalfx-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/signalfx-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/signalfx-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/signalfx-tutorial/create_aaduser_04.png)
 
@@ -237,23 +237,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **SignalFx**.
+1. Na lista de aplicações, selecione **SignalFx**.
 
     ![A ligação de SignalFx na lista de aplicações](./media/signalfx-tutorial/tutorial_signalfx_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -265,7 +265,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

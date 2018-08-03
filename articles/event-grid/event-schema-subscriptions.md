@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 59c41d4303cad00107793f3c09382347fbb1fb5b
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173814"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480390"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos do Azure Event Grid para subscrições
 
@@ -36,7 +36,7 @@ As subscrições do Azure emitem eventos de gestão do Azure Resource Manager, c
 
 ## <a name="example-event"></a>Evento de exemplo
 
-O exemplo seguinte mostra o esquema de um recurso criado do evento: 
+O exemplo seguinte mostra o esquema para uma **ResourceWriteSuccess** eventos. O mesmo esquema é utilizado para **ResourceWriteFailure** e **ResourceWriteCancel** eventos com valores diferentes para `eventType`.
 
 ```json
 [{
@@ -96,7 +96,7 @@ O exemplo seguinte mostra o esquema de um recurso criado do evento:
 }]
 ```
 
-O esquema para um evento de recurso eliminado é semelhante:
+O exemplo seguinte mostra o esquema para uma **ResourceDeleteSuccess** eventos. O mesmo esquema é utilizado para **ResourceDeleteFailure** e **ResourceDeleteCancel** eventos com valores diferentes para `eventType`.
 
 ```json
 [{
@@ -184,7 +184,7 @@ O objeto de dados tem as seguintes propriedades:
 | Autorização | objeto | O pedido de autorização para a operação. |
 | afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | cadeia | Um ID de operação para resolução de problemas. |
-| httpRequest | objeto | Os detalhes da operação. |
+| httpRequest | objeto | Os detalhes da operação. Este objeto só é incluído ao atualizar um recurso existente ou eliminar um recurso. |
 | ResourceProvider | cadeia | O fornecedor de recursos, executar a operação. |
 | resourceUri | cadeia | O URI do recurso na operação. |
 | operationName | cadeia | A operação que foi executada. |

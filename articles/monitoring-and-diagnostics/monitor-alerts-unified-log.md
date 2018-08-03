@@ -8,23 +8,27 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971725"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440434"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de registo no Azure Monitor - alertas 
-Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas suportados dentro do novo [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.... Para obter detalhes de alertas de métrica com os registos, consulte [perto de alertas de métrica de Tempo Real](monitoring-near-real-time-metric-alerts.md)
+Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas suportados dentro do novo [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
 
 
-Alerta de registo é composta por regras de pesquisa de registos, criadas para [do Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+Alerta de registo é composta por regras de pesquisa de registos, criadas para [do Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Os detalhes dos preços para alertas de registo está disponível na [preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) página. No faturas do Azure, os alertas de registo são representadas como tipo `microsoft.insights/scheduledqueryrules` com:
+- Alertas de registo no Application Insights apresentado com o nome exato do alerta, juntamente com o grupo de recursos e as propriedades do alerta
+- Alertas no Log Analytics mostrado com o nome do alerta de registo `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com o grupo de recursos e as propriedades do alerta
 
+    > [!NOTE]
+    > O nome para pesquisas guardadas tudo, cronogramas e ações criadas com a API de análise de registo tem de ser em minúsculas. Se inválido carateres como `<, >, %, &, \, ?, /` são utilizados – eles serão substituídos por `_` na fatura.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Log search regra de alerta - definição e tipos
 
-Regras de pesquisa de registo são criadas através de alertas do Azure para automaticamente executar consultas de registo especificado em intervalos regulares.  Se os resultados da consulta de registos corresponderem a critérios específicos, em seguida, é criado um registo de alerta. A regra, em seguida, pode executar automaticamente uma ou mais ações usando [grupos de ação](monitoring-action-groups.md). 
+São criadas regras de pesquisa de registos pelos Alertas do Azure para executar automaticamente consultas de registos especificados a intervalos regulares.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, é criado um registo de alerta. A regra pode executar automaticamente uma ou mais ações através dos [Grupos de Ações](monitoring-action-groups.md). 
 
 Regras de pesquisa de registo são definidas pelos seguintes detalhes:
 - **Consulta de registo**.  A consulta é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se é criado um alerta. *O Azure Application Insights* consulta também pode incluir [chamadas em várias aplicações](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), desde que o utilizador tem direitos de acesso para os aplicativos externos. 
@@ -60,7 +64,7 @@ Considere um cenário onde deseja saber quando a sua aplicação baseada na web 
 - **Consulta:** pedidos | onde resultCode = = "500"<br>
 - **Período de tempo:** 30 minutos<br>
 - **Frequência do alerta:** cinco minutos<br>
-- **Valor de limiar:** excelente que 0<br>
+- **Valor de limiar:** maior que 0<br>
 
 Em seguida, alerta seria executar a consulta a cada 5 minutos, com 30 minutos de dados, para procurar qualquer registo em que o código de resultado era 500. Se nem um registo é encontrado, ele é acionado o alerta e aciona a ação configurada.
 
@@ -86,7 +90,7 @@ Considere um cenário em que queria um alerta se a qualquer computador excedeu a
 - **Consulta:** desempenho | onde ObjectName = = "Processador" e CounterName = = "% de tempo do processador" | resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 5 m), computador<br>
 - **Período de tempo:** 30 minutos<br>
 - **Frequência do alerta:** cinco minutos<br>
-- **Agregar valor:** excelente que 90<br>
+- **Agregar valor:** superior a 90<br>
 - **Acionar alerta com base em:** Total de casos de violações de maior que 2<br>
 
 A consulta deverá criar um valor médio para cada computador em intervalos de 5 minutos.  Esta consulta seria executada a cada 5 minutos para os dados recolhidos durante os 30 minutos anteriores.  Dados de exemplo são mostrados abaixo para três computadores.
@@ -104,7 +108,7 @@ Alerta de registo, bem como a respetiva consisting regra alerta de pesquisa de r
 - Modelos Azure Resource Manager
 
 ### <a name="azure-portal"></a>Portal do Azure
-Desde a introdução dos [novos alertas do Azure](monitoring-overview-unified-alerts.md), agora os utilizadores podem gerir todos os tipos de alertas no portal do Azure a partir de um único local e os passos semelhantes. Saiba mais sobre [usando novos alertas do Azure](monitor-alerts-unified-usage.md).
+Desde a introdução dos [novos alertas do Azure](monitoring-overview-unified-alerts.md), agora os utilizadores podem gerir todos os tipos de alertas no portal do Azure a partir de um único local e com os passos semelhantes para utilização. Saiba mais sobre [usando novos alertas do Azure](monitor-alerts-unified-usage.md).
 
 Além disso, os utilizadores podem aperfeiçoa as consultas na plataforma de análise de escolha no Azure e, em seguida *importá-los para utilização em alertas ao guardar a consulta*. Passos a seguir:
 - *Para o Application Insights*: portal obrigatória para análise, validar a consulta e seus resultados. Em seguida, guarde com o nome exclusivo para o *consultas compartilhadas*.
@@ -131,7 +135,7 @@ Para obter detalhes, bem como exemplos sobre como utilizar modelos do Resource M
  
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Compreender [alertas de registo no Azure](monitor-alerts-unified-log-webhook.md).
+* Compreender [webhooks em alertas de registo no Azure](monitor-alerts-unified-log-webhook.md).
 * Saiba mais sobre a nova [alertas do Azure](monitoring-overview-unified-alerts.md).
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md).
 * Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-overview.md).    

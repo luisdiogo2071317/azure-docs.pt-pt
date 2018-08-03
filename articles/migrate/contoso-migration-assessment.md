@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399078"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422329"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar cargas de trabalho no local para migração para o Azure
 
@@ -99,7 +99,7 @@ Neste cenário, a Contoso transfere e executa Data Migration Assistant para aval
 - Contoso é um nome fictício que representa uma organização empresarial típica.
 - A Contoso tiver um datacenter no local (**contoso-datacenter**) e os controladores de domínio (**CONTOSODC1**, **CONTOSODC2**).
 - VMware VMs estão localizadas em anfitriões do VMware ESXi a executar a versão 6.5 (**contosohost1**, **contosohost2**).
-- O ambiente do VMware é gerido pelo vCenter Server 6.5 (**vcenter**, em execução numa VM).
+- O ambiente do VMware é gerido pelo vCenter Server 6.5 (**vcenter.contoso.com**, em execução numa VM).
 - A aplicação de viagens SmartHotel tem estas características:
     - A aplicação está em camadas em duas VMs de VMware (**WEBVM** e **SQLVM**).
     - As VMs estão localizadas no anfitrião ESXi do VMware **contosohost1.contoso.com**.
@@ -123,12 +123,10 @@ Contoso e outros utilizadores têm de cumprir os seguintes pré-requisitos para 
 - Pelo menos, duas VMs do VMware no local, uma a executar uma base de dados do SQL Server.
 - Permissões para instalar agentes do Azure Migrate em cada VM.
 - As VMs devem ter conectividade à Internet direta.  
-        
-- Pode restringir o acesso à internet para o [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Se as suas VMs não tem ligação à internet, o Azure Log Analytics [Gateway de OMS](../log-analytics/log-analytics-oms-gateway.md) tem de estar instalado nos mesmos.
+        - Pode restringir o acesso à Internet aos [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        – Se as suas VMs não têm conectividade com a internet, o Azure Log Analytics [Gateway de OMS](../log-analytics/log-analytics-oms-gateway.md) tem de estar instalado nos mesmos e o tráfego de agente direcionado através do mesmo.
 - Do FQDN da VM a executar a instância do SQL Server, para avaliação da base de dados.
-- Firewall do Windows em execução na VM do SQL Server deve permitir ligações externas na porta TCP 1433 (predefinição). A configuração permite que dados Migration Assistant para se ligar.
+- Firewall do Windows em execução na VM do SQL Server deve permitir ligações externas na porta TCP 1433 (predefinição). Esta configuração permite que dados Migration Assistant para se ligar.
 
 ## <a name="assessment-overview"></a>Descrição geral da avaliação
 
@@ -297,7 +295,7 @@ Antes de implementar a VM, a Contoso verifica que o ficheiro OVA é seguro:
 
 ### <a name="create-the-collector-appliance"></a>Criar a aplicação recoletora
 
-Agora, a Contoso pode importar o ficheiro transferido para a instância do servidor vCenter e aprovisionar a VM do servidor de configuração:
+Agora, a Contoso pode importar o ficheiro transferido para a instância do servidor vCenter e aprovisionar a aplicação recoletora VM:
 
 1. Na consola do vSphere Client, Contoso seleciona **arquivo** > **implementar o modelo OVF**.
 
@@ -353,7 +351,7 @@ Quando a coleção estiver concluída, a Contoso verifica se as VMs aparecem no 
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>Passo 5: Preparar para a análise de dependência
 
-Para ver as dependências entre as VMs que quer aceder, Contoso transfere e instala os agentes nas VMs da aplicação. Contoso instala os agentes em todas as VMs para as suas aplicações, tanto para Windows e Linux.
+Para ver as dependências entre as VMs que deseja avaliar, Contoso transfere e instala os agentes nas VMs da aplicação. Contoso instala os agentes em todas as VMs para as suas aplicações, tanto para Windows e Linux.
 
 ### <a name="take-a-snapshot"></a>Criar um Instantâneo
 

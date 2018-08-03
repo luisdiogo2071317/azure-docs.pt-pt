@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887579"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426093"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilizar webhooks de registo de contentor do Azure
 
@@ -28,7 +28,7 @@ Para obter detalhes sobre pedidos de webhook, veja [referência de esquema de we
 
 ## <a name="create-webhook-azure-portal"></a>Criar webhook portal do Azure
 
-1. Entrar para a [portal do Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Navegue para o registo de contentor no qual pretende criar um webhook.
 1. Sob **serviços**, selecione **Webhooks**.
 1. Selecione **adicionar** na barra de ferramentas da webhook.
@@ -49,7 +49,7 @@ Formulário de webhook de exemplo:
 
 ## <a name="create-webhook-azure-cli"></a>Criar webhook da CLI do Azure
 
-Para criar um webhook com a CLI do Azure, utilize o [az acr webhook criar](/cli/azure/acr/webhook#az_acr_webhook_create) comando.
+Para criar um webhook com a CLI do Azure, utilize o [az acr webhook criar](/cli/azure/acr/webhook#az-acr-webhook-create) comando.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -69,7 +69,7 @@ Antes de utilizar o webhook no contentor de push de imagem e eliminar ações, p
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para testar um webhook do ACR com a CLI do Azure, utilize o [ping do az acr webhook](/cli/azure/acr/webhook#az_acr_webhook_ping) comando.
+Para testar um webhook do ACR com a CLI do Azure, utilize o [ping do az acr webhook](/cli/azure/acr/webhook#az-acr-webhook-ping) comando.
 
 ```azurecli-interactive
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01

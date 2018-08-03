@@ -1,6 +1,6 @@
 ---
-title: Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR | Microsoft Docs
-description: Saiba como implementar a aplicação no App Service do Azure com um ficheiro ZIP (ou um ficheiro WAR para programadores do Java).
+title: Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR | Documentos da Microsoft
+description: Saiba como implementar a aplicação no App Service do Azure com um arquivo ZIP (ou um ficheiro WAR para programadores Java).
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: a3178d5cb09087a243a51e20567895d03ce1f7fb
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b628ae0806febb3ffd4edaf71be45841aff38516
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234139"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423033"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR
 
-Este artigo mostra como utilizar um ficheiro ZIP ou o ficheiro WAR para implementar a sua aplicação web em [App Service do Azure](app-service-web-overview.md). 
+Este artigo mostra-lhe como utilizar um ficheiro ZIP ou o ficheiro WAR para implementar a aplicação web para [App Service do Azure](app-service-web-overview.md). 
 
-Esta implementação de ficheiro ZIP utiliza o mesmo serviço Kudu esse powers contínua com base na integração implementações. O kudu suporta as seguintes funcionalidades para a implementação do ficheiro ZIP: 
+Esta implementação de arquivo ZIP utiliza o mesmo serviço de Kudu esse implementações baseadas em integração contínua do powers. Kudu suporta as seguintes funcionalidades para a implementação de arquivo ZIP: 
 
-- Eliminação de ficheiros à esquerda de uma implementação anterior.
-- Opção para ativar o processo de compilação predefinido, que inclui o restauro do pacote.
+- Eliminações de ficheiros left de uma implantação anterior.
+- Opção de ativar o processo de compilação padrão, que inclui o restauro do pacote.
 - [Personalização da implementação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), incluindo executar scripts de implementação.  
-- Registos de implementação. 
+- Logs de implantação. 
 
-Para obter mais informações, consulte [documentação do Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Para obter mais informações, consulte [documentação de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-A implementação de ficheiro WAR implementa o [WAR](https://wikipedia.org/wiki/WAR_(file_format)) ficheiro para o App Service para executar a sua aplicação web Java. Consulte [ficheiro WAR implementar](#deploy-war-file).
+A implementação de ficheiro WAR implementa sua [WAR](https://wikipedia.org/wiki/WAR_(file_format)) ficheiro para o serviço de aplicações para executar a aplicação web Java. Ver [ficheiro WAR implementar](#deploy-war-file).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,12 +46,12 @@ Para concluir os passos neste artigo:
 ## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
 
 >[!NOTE]
-> Se tiver transferido os ficheiros de um ficheiro ZIP, extraia os ficheiros pela primeira vez. Por exemplo, se um ficheiro ZIP que transferiu a partir do GitHub, não é possível implementar esse ficheiro como-é. GitHub adiciona mais diretórios aninhados, que não funcionam com o serviço de aplicações. 
+> Se transferiu os ficheiros num arquivo ZIP, extraia os ficheiros em primeiro lugar. Por exemplo, se tiver transferido um ficheiro ZIP do GitHub, não é possível implementar esse arquivo como – é. GitHub adiciona diretórios aninhados adicionais, que não funcionam com o serviço de aplicações. 
 >
 
-Numa janela de terminal local, navegue para o diretório de raiz do seu projeto de aplicação. 
+Na janela do terminal local, navegue para o diretório de raiz do seu projeto de aplicação. 
 
-Este diretório deve conter o ficheiro de entrada para a sua aplicação web, tal como _index.html_, _index.php_, e _app.js_. Também pode conter ficheiros do pacote de gestão, como _project.json_, _Composer_, _Package. JSON_, _bower.json_e _requirements.txt_.
+Este diretório deve conter o ficheiro de entrada para a sua aplicação web, tal como _Index. HTML_, _Index_, e _App. js_. Também pode conter ficheiros do pacote de gestão, como _Project_, _Composer. JSON_, _Package. JSON_, _bower_e o _Requirements. txt_.
 
 Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
 
@@ -67,29 +67,29 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Implementar o ficheiro ZIP com a CLI do Azure
 
-Certifique-se a versão da CLI do Azure 2.0.21 ou posterior. Para ver qual a versão, executou `az --version` comando na janela de terminal.
+Certifique-se de que a versão da CLI do Azure é 2.0.21 ou posterior. Para ver qual é a versão, executou `az --version` comando na janela de terminal.
 
-Implementar o ficheiro ZIP carregado para a sua aplicação web utilizando o [az webapp configuração origem de implementação de software-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) comando.  
+Implementar o ficheiro ZIP carregado na sua aplicação web com o [az webapp config origem de implementação de software-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) comando.  
 
-O exemplo seguinte implementa o ficheiro ZIP que carregou. Quando utilizar uma instalação local da CLI do Azure, especifique o caminho local no ficheiro ZIP para `--src`.   
+O exemplo seguinte implementa o ficheiro ZIP carregado. Quando utilizar uma instalação local da CLI do Azure, especifique o caminho para o ficheiro ZIP local para `--src`.   
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação. Se estiver configurado qualquer processo de compilação personalizado adicional, este é executado corretamente. Para obter mais informações, consulte [documentação do Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação. Se estiver configurado qualquer processo de compilação personalizado adicional, este é executado corretamente. Para obter mais informações, consulte [documentação de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
 ## <a name="deploy-war-file"></a>Implementar ficheiro WAR
 
-Para implementar um ficheiro WAR no App Service, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/wardeploy. O pedido POST tem de conter o ficheiro .war no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. 
+Para implementar um ficheiro WAR para o serviço de aplicações, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/wardeploy. O pedido POST tem de conter o ficheiro .war no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. 
 
-Para a autenticação HTTP básica, terá das credenciais de implementação do serviço de aplicações. Para ver como definir as suas credenciais de implementação, consulte [definido e repor as credenciais de utilizador ao nível](app-service-deployment-credentials.md#userscope).
+Para a autenticação básica HTTP, terá de suas credenciais de implementação do serviço de aplicações. Para ver como definir as suas credenciais de implementação, consulte [definido e repor as credenciais de nível de usuário](app-service-deployment-credentials.md#userscope).
 
-### <a name="with-curl"></a>Com o cURL
+### <a name="with-curl"></a>Com cURL
 
-O exemplo seguinte utiliza a ferramenta de cURL para implementar um ficheiro de .war. Substitua os marcadores de posição `<username>`, `<war_file_path>`, e `<app_name>`. Quando lhe for pedido pelo cURL, escreva a palavra-passe.
+O exemplo seguinte utiliza a ferramenta cURL para implementar um ficheiro. War. Substitua os marcadores de posição `<username>`, `<war_file_path>`, e `<app_name>`. Quando lhe for pedido curl, escreva a palavra-passe.
 
 ```bash
 curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
@@ -97,7 +97,7 @@ curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.s
 
 ### <a name="with-powershell"></a>Com o PowerShell
 
-O exemplo seguinte utiliza [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) para enviar um pedido que contém o ficheiro .war. Substitua os marcadores de posição `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, e `<app_name>`.
+O exemplo seguinte utiliza [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) para enviar um pedido que contém o ficheiro. War. Substitua os marcadores de posição `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, e `<app_name>`.
 
 ```PowerShell
 $username = "<deployment_user>"
@@ -112,9 +112,9 @@ Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64A
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para cenários de implementação mais avançados, tente [implementar no Azure com o Git](app-service-deploy-local-git.md). Implementação baseada em Git para o Azure permite o controlo de versão, o restauro de pacote, MSBuild e muito mais.
+Para cenários de implementação mais avançados, tente [implementar no Azure com o Git](app-service-deploy-local-git.md). Implementação baseada no Git para o Azure permite o controle de versão, o restauro de pacote, MSBuild e muito mais.
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [O kudu: Implementação a partir de um ficheiro zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
-* [Credenciais de implementação do App Service do Azure](app-service-deploy-ftp.md)
+* [Kudu: Implementar a partir de um arquivo zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Credenciais de implementação do serviço de aplicações do Azure](app-service-deploy-ftp.md)

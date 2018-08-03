@@ -1,6 +1,6 @@
 ---
-title: Aprovisionar uma máquina de Virtual ciência do Linux (Ubuntu) dados no Azure | Microsoft Docs
-description: Configure e crie um dados ciência de Máquina Virtual para Linux (Ubuntu) no Azure para fazer análises e machine learning.
+title: Aprovisionar uma máquina de Virtual de ciência dados Linux (Ubuntu) no Azure | Documentos da Microsoft
+description: Configurar e criar um Data Science Virtual Machine para Linux (Ubuntu) no Azure para fazer a análise e machine learning.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -14,95 +14,95 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179712"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422380"
 ---
-# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar as máquinas de ciência de dados para Linux (Ubuntu)
+# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
 
-As máquinas de ciência de dados para o Linux é uma imagem de máquina virtual baseada no Ubuntu que torna mais fácil começar a utilizar com o machine learning, incluindo learning profunda, no Azure. Learning profunda ferramentas incluem:
+A máquina de Virtual de ciência de dados para Linux é uma imagem de máquina virtual baseada em Ubuntu que torna mais fácil começar a utilizar com o machine learning, incluindo a aprendizagem profunda, no Azure. Ferramentas de aprendizagem profunda incluem:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizagem profunda criada para velocidade, expressivity e modularidade
-  * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma do Caffe
-  * [Toolkit de cognitivos](https://github.com/Microsoft/CNTK): uma profunda toolkit de software da Microsoft Research de aprendizagem
-  * [H2O](https://www.h2o.ai/): uma plataforma de macrodados open source e a interface gráfica do utilizador
-  * [Keras](https://keras.io/): uma alto nível rede neuronal da API no Python para Theano e TensorFlow
-  * [MXNet](http://mxnet.io/): uma biblioteca de aprendizagem profunda flexível e eficiente com vários enlaces de idioma
-  * [NVIDIA dígitos](https://developer.nvidia.com/digits): um sistema de gráfico que simplifica as tarefas comuns de aprendizagem profunda
-  * [PyTorch](http://pytorch.org/): uma biblioteca Python alto nível com suporte para redes dinâmicas
-  * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de open source para intelligence máquina do Google
-  * [Theano](http://deeplearning.net/software/theano/): biblioteca Python da para definir, otimizar e avaliação de forma eficiente matemática expressões que envolvem matrizes multidimensionais
-  * [Torch](http://torch.ch/): uma estrutura de informática científicos com suporte wide para algoritmos de machine learning
-  * CUDA, cuDNN e o controlador NVIDIA
-  * Muitas blocos de notas do Jupyter de exemplo
+  * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizagem profunda criada para a velocidade, a expressividade e a modularidade
+  * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma cruzada do Caffe
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): uma Kit de ferramentas de software da Microsoft Research de aprendizagem profunda
+  * [H2O](https://www.h2o.ai/): uma plataforma de macrodados de código-fonte aberto e uma interface gráfica do usuário
+  * [Keras](https://keras.io/): uma rede neural alto nível API em Python para Theano e TensorFlow
+  * [MXNet](http://mxnet.io/): uma biblioteca de aprendizagem profunda, flexível e eficiente com muitas associações de idioma
+  * [NVIDIA dígitos](https://developer.nvidia.com/digits): um sistema gráfico que simplifica tarefas comuns de aprendizagem profunda
+  * [PyTorch](http://pytorch.org/): uma biblioteca de Python de alto nível com suporte para redes dinâmicos
+  * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de código-fonte aberto para a inteligência da máquina do Google
+  * [Theano](http://deeplearning.net/software/theano/): biblioteca de A Python para definir, otimizar e avaliar com eficiência matemáticas expressões que envolvem matrizes multidimensionais
+  * [Maçarico](http://torch.ch/): uma estrutura de computação científica, com amplo suporte para algoritmos de machine learning
+  * CUDA, cuDNN e os controladores NVIDIA
+  * Muitos blocos de notas do Jupyter de exemplo
 
-Todas as bibliotecas são versões GPU, embora também são executadas na CPU.
+Todas as bibliotecas são as versões GPU, embora também são executadas na CPU.
 
-As máquinas de ciência de dados para o Linux também contém as ferramentas populares para desenvolvimento e ciência de atividades de dados, incluindo:
+A máquina de Virtual de ciência de dados para Linux também contém ferramentas populares para desenvolvimento e de ciência de atividades de dados, incluindo:
 
-* Edição de programador do Microsoft R com Microsoft R Open
-* Distribuição do Python anaconda (versões 2.7 e 3.5), incluindo bibliotecas de análise de dados mais populares
-* JuliaPro - uma distribuição organizada de idioma de Leonor com bibliotecas de análise de dados e científicos populares
-* Instância de Spark autónomo e de nó único Hadoop (HDFS, Yarn)
-* JupyterHub - um servidor de bloco de notas Jupyter multiuser R, Python, PySpark, kernels Leonor de suporte
+* Microsoft R Server Developer Edition com o Microsoft R Open
+* Distribuição da Python anaconda (versões 2.7 e 3.5), incluindo bibliotecas de análise de dados populares
+* JuliaPro - uma distribuição organizada da linguagem Julia com bibliotecas de análise de dados e científicas populares
+* Instância autónoma Spark e Hadoop (HDFS, Yarn) de nó único
+* JupyterHub - um servidor de bloco de notas Jupyter multiutilizador com suporte R, Python, PySpark, Julia kernels
 * Explorador do Storage do Azure
 * Interface de linha de comandos do Azure (CLI) para gerir recursos do Azure
-* Ferramentas do Machine learning
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um rápido de machine learning técnicas, como online, hash, allreduce, reductions, learning2search, Active Directory, de suporte do sistema e a configuração interativa
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta fornecer implementação de árvore rápido e preciso elevada
-  * [Rattle](http://rattle.togaware.com/): uma ferramenta gráfica que torna a introdução de machine learning no R fácil e de análise de dados
-  * [LightGBM](https://github.com/Microsoft/LightGBM): gradação rápida, distribuída, elevado desempenho os aumentos framework
-* SDK do Azure em Java, Python, node.js, Ruby, PHP
-* Bibliotecas na R e Python para utilizam no Azure Machine Learning e outros serviços do Azure
-* Ferramentas de desenvolvimento e editores (RStudio PyCharm, IntelliJ, Emacs, vim)
+* Ferramentas de aprendizagem de máquina
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um rápido de machine learning sistema dar suporte a técnicas, como online, hash, allreduce, reduções, learning2search, Active Directory e a aprendizagem interativa
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta, fornecendo árvore elevada precisos e implementação
+  * [Rattle](http://rattle.togaware.com/): uma ferramenta gráfica que simplifica a introdução à análise de dados e aprendizagem automática no R fácil
+  * [LightGBM](https://github.com/Microsoft/LightGBM): um dégradé rápido, distribuído e de alto desempenho adaptativo framework
+* SDK do Azure em Java, Python, node. js, Ruby, PHP
+* Bibliotecas em R e Python para utilizam no Azure Machine Learning e outros serviços do Azure
+* Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, vim)
 
 
-Se o fizer ciência de dados envolve iterating numa sequência de tarefas:
+Fazer ciência de dados envolve a iteração numa seqüência de tarefas:
 
-1. Localizar, carregar e processar previamente os dados
-2. Criar e testar modelos
-3. Implementação de modelos para consumo em aplicações inteligentes
+1. Encontrar, para carregar e processar previamente os dados
+1. Criar e testar modelos
+1. Implementação de modelos para consumo em aplicações inteligentes
 
-Cientistas de dados utilizam várias ferramentas para concluir estas tarefas. Pode ser bastante demorada para encontrar as versões do software adequadas e, em seguida, para transferir, compilação e instalar estas versões.
+Os cientistas de dados usar várias ferramentas para concluir estas tarefas. Ele pode ser muito demorado para encontrar as versões apropriadas do software e, em seguida, para transferir, compilar e instalar estas versões.
 
-As máquinas de ciência de dados para o Linux poderá facilitar este fardo substancialmente. Utilize-o para iniciar o projeto de análise. Permite-lhe trabalhar nos tarefas em vários idiomas, incluindo R, Python, SQL Server, Java e C++. O Azure SDK incluído na VM permite-lhe criar as suas aplicações utilizando vários serviços no Linux para a plataforma de nuvem da Microsoft. Além disso, tem acesso a outros idiomas como Ruby, Perl, PHP e node.js, que também são instalados previamente.
+A máquina de Virtual de ciência de dados para Linux pode facilitar essa carga substancialmente. Utilize-o para iniciar o projeto da análise. Permite-lhe trabalhar em tarefas em várias linguagens, incluindo o R, Python, SQL, Java e C++. O SDK do Azure incluídos na VM permite-lhe criar seus aplicativos com vários serviços no Linux para a plataforma de cloud da Microsoft. Além disso, terá acesso a outras linguagens como Ruby, Perl, PHP e node. js, que também são instalados previamente.
 
-Não existem sem custos de software para esta imagem VM de ciência de dados. Paga apenas as taxas de utilização de hardware do Azure são avaliadas com base no tamanho da máquina virtual que for aprovisionado. Obter mais detalhes sobre as taxas de computação podem ser encontrados no [página de listagem de VM no Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Existem não existem custos de software para esta imagem VM de ciência de dados. Paga apenas as tarifas de utilização de hardware do Azure são avaliadas com base no tamanho da máquina virtual que for aprovisionado. Obter mais detalhes sobre as tarifas de computação podem ser encontrados no [página de lista de VM no Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de ciência de dados
-A [CentOS](linux-dsvm-intro.md) imagem também está disponível, com muitas das mesmas ferramentas como a imagem de Ubuntu. A [Windows](provision-vm.md) imagem está também disponível.
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da máquina de Virtual de ciência de dados
+R [CentOS](linux-dsvm-intro.md) imagem também está disponível, com muitas das mesmas ferramentas, como a imagem de Ubuntu. R [Windows](provision-vm.md) imagem também está disponível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de poder criar uma máquina de Virtual de ciência de dados para o Linux, tem de ter uma subscrição do Azure. Para obter uma, consulte o artigo [avaliação gratuita do Azure obter](https://azure.microsoft.com/free/).
+Antes de poder criar uma máquina de Virtual de ciência de dados para Linux, tem de ter uma subscrição do Azure. Para obter uma, veja [avaliação gratuita do Azure obter](https://azure.microsoft.com/free/).
 
-## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar a máquina de Virtual de ciência de dados para Linux
-Eis os passos para criar uma instância da máquina de Virtual de ciência de dados para Linux:
+## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar a sua máquina de Virtual de ciência de dados para Linux
+Eis os passos para criar uma instância de máquina de Virtual de ciência de dados para Linux:
 
-1. Navegue para a máquina virtual listagem no [portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
-2. Clique em **criar** (na parte inferior) para fazer aparecer o assistente.![ configurar dados-ciência-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. As secções seguintes fornecem as entradas para todos os passos no assistente (enumerado à direita da ilustração anterior) utilizadas para criar a Máquina Virtual de ciência de dados de Microsoft. Seguem-se as entradas necessárias para configurar cada um destes passos:
+1. Navegue para a máquina virtual listagem sobre o [portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Clique em **Create** (na parte inferior) para abrir o assistente.![ Configurar-data--vm de ciência](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. As secções seguintes fornecem as entradas para cada um dos passos do assistente (enumerado à direita da figura anterior) utilizadas para criar a máquina de Virtual de ciência de dados do Microsoft. Seguem-se as entradas necessárias para configurar cada um destes passos:
    
    a. **Noções básicas**:
    
    * **Nome**: nome do seu servidor de ciência de dados que está a criar.
    * **Nome de utilizador**: primeira conta de início de sessão ID.
-   * **Palavra-passe**: primeira conta palavra-passe (pode utilizar a chave pública SSH em vez da palavra-passe).
-   * **Subscrição**: Se tiver mais do que uma subscrição, selecione aquele no qual a máquina está a ser criado e cobrados. Tem de ter privilégios de criação de recursos para esta subscrição.
-   * **Grupo de recursos**: pode criar uma nova ou utilize um grupo existente.
-   * **Localização**: selecione o Centro de dados que é mais adequado. Normalmente, é o Centro de dados que a maioria dos seus dados, ou se aproxima-se à sua localização física para acesso de rede mais rápido.
+   * **Palavra-passe**: primeira conta palavra-passe (pode usar chave pública SSH em vez da palavra-passe).
+   * **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas. Tem de ter privilégios de criação de recursos para esta subscrição.
+   * **Grupo de recursos**: pode criar um novo ou utilizar um grupo existente.
+   * **Localização**: selecionar o Datacenter mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados, ou mais se aproxima-se à sua localização física para acesso de rede mais rápido.
    
    b. **Tamanho**:
    
-   * Selecione um dos tipos de servidor que cumpra os requisitos funcionais e restrições de custo. Selecione **ver tudo** para ver mais opções de tamanhos de VM. Selecione um NC ou classe ND VM para formação GPU. O [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) regiões com GPUs listas de páginas.
+   * Selecione um dos tipos de servidor que se adequa ao requisito funcional e restrições de custo. Selecione **ver tudo** para ver mais opções de tamanhos de VM. Selecione uma VM de classe ND para treinamento de GPU ou NC. O [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) página apresenta uma lista de regiões com GPUs.
    
    c. **Definições**:
    
-   * **Tipo de disco**: escolha **Premium** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **padrão**. VMs de GPU necessitam de um disco padrão.
-   * **Conta de armazenamento**: pode criar uma nova conta de armazenamento do Azure na sua subscrição ou utilize uma já existente na mesma localização que escolheu no **Noções básicas** passo do assistente.
-   * **Outros parâmetros**: na maioria dos casos, utilize apenas os valores predefinidos. A ter em consideração os valores não predefinidos, coloque o cursor sobre a ligação informativa para ajuda sobre as campos específicos.
+   * **Tipo de disco**: escolha **Premium** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **padrão**. GPU VMs necessitam de um disco Standard.
+   * **Conta de armazenamento**: pode criar uma nova conta de armazenamento do Azure na sua subscrição ou utilize um já existente na mesma localização que foi selecionado na **Noções básicas** passo do assistente.
+   * **Outros parâmetros**: na maioria dos casos, simplesmente usar os valores predefinidos. A serem considerados valores não predefinidos, coloque o cursor sobre a ligação informativa para obter ajuda sobre campos específicos.
    
    d. **Resumo**:
    
@@ -110,46 +110,46 @@ Eis os passos para criar uma instância da máquina de Virtual de ciência de da
    
    e. **Comprar**:
    
-   * Para iniciar o aprovisionamento, clique em **comprar**. É fornecida uma ligação para os termos da transação. A VM não tem quaisquer taxas adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo.
+   * Para iniciar o aprovisionamento, clique em **comprar**. É fornecida uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo.
 
-O aprovisionamento deve demorar cerca de 5-10 minutos. O estado de aprovisionamento da é apresentado no portal do Azure.
+O aprovisionamento deve demorar cerca de 5 a 10 minutos. O estado do provisionamento é apresentado no portal do Azure.
 
-## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Como aceder a máquina de Virtual de ciência de dados para Linux
+## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Como acessar a máquina de Virtual de ciência de dados para Linux
 
-Pode aceder a DSVM Ubuntu utilizando três métodos:
-1. SSH para sessões de terminais
-2. X2Go sessões gráfica
-3. JupyterHub e JupyterLab para blocos de notas do Jupyter
+Pode acessar a DSVM em Ubuntu com três métodos:
+1. SSH para sessões de terminal
+1. X2Go para sessões de gráficos
+1. JupyterHub e JupyterLab para blocos de notas do Jupyter
 
 ### <a name="ssh"></a>SSH
 
-Depois de criada a VM, pode iniciar sessão-lo através de SSH. Utilizar as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface de shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (X Windows sistema), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente X2Go.
+Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode baixar uma ferramenta de cliente SSH, como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
 
 > [!NOTE]
-> O cliente X2Go efetuar melhor nos testes de reencaminhamento de X11. Recomendamos que utilize o cliente X2Go para uma interface gráfica do ambiente de trabalho.
+> O cliente de X2Go executada melhor do que em testes de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
 > 
 > 
 
 ### <a name="x2go"></a>X2Go
-A VM com Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para se ligar no ambiente de trabalho de gráfico de VM com Linux, execute o seguinte procedimento no cliente:
+A VM do Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para ligar-se na área de trabalho de gráfico de VM do Linux, execute o seguinte procedimento no cliente:
 
-1. Transferir e instalar o cliente X2Go para a sua plataforma de cliente de [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Executar o cliente X2Go e selecione **nova sessão**. É aberta uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
-   * **Separador sessões**:
+1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Executar o cliente de X2Go e selecione **nova sessão**. Ele abre uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
+   * **Separador de sessão**:
      * **Anfitrião**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
      * **Início de sessão**: nome de utilizador na VM do Linux.
-     * **Porta SSH**: deixe-22, o valor predefinido.
-     * **Tipo de sessão**: Altere o valor para XFCE. Atualmente, a VM com Linux suporta apenas ambiente de trabalho XFCE.
-   * **Separador de suporte de dados**: pode desativar o suporte de som e cliente impressão se não pretender utilizá-los.
-   * **Pastas partilhadas**: Se pretender que diretórios das suas máquinas de cliente instaladas na VM do Linux, adicione os diretórios de máquina do cliente que pretende partilhar com a VM neste separador.
+     * **Porta SSH**: deixá-lo em 22, o valor predefinido.
+     * **Tipo de sessão**: Altere o valor para XFCE. Atualmente, a VM com Linux só suporta XFCE desktop.
+   * **Guia de suporte de dados**: pode desativar o suporte para som e cliente impressão se não precisar usá-los.
+   * **Pastas compartilhadas**: Se pretender que diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
 
-Depois de iniciar sessão para a VM ao utilizar o cliente SSH ou de ambiente de trabalho gráfico XFCE através do cliente X2Go, está pronto para começar a utilizar as ferramentas que estão instaladas e configuradas na VM. No XFCE, pode ver os atalhos de menu de aplicações e ícones do ambiente de trabalho para muitas das ferramentas.
+Depois de iniciar sessão na VM com o cliente SSH ou de uma área de trabalho gráfica do XFCE por meio do cliente de X2Go, está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. No XFCE, pode ver atalhos no menu aplicações e ícones para muitas das ferramentas.
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub e JupyterLab
 
-Executa o DSVM Ubuntu [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor de Jupyter vários utilizador. Para ligar, navegue até à https://your-vm-ip:8000 no seu computador portátil ou ambiente de trabalho, introduza o nome de utilizador e palavra-passe que utilizou para criar a VM e iniciar sessão. Estão disponíveis procurar e experimentar vários blocos de notas do exemplo.
+Executa a DSVM em Ubuntu [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor de Jupyter de vários utilizador. Para ligar, navegue até https://your-vm-ip:8000 em seu laptop ou desktop, introduza o nome de utilizador e palavra-passe que utilizou para criar a VM e iniciar sessão. Muitos blocos de notas de exemplo estão disponíveis para procurar e experimentar.
 
-JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para aceder ao mesmo, inicie sessão no JupyterHub, em seguida, navegue para o URL https://your-vm-ip:8000/lab. Pode definir JupyterLab como o servidor de bloco de notas predefinido ao adicionar esta linha para /etc/jupyterhub/jupyterhub_config.py:
+JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, também está disponível. Para acessá-lo, inicie sessão no JupyterHub, em seguida, navegue para o URL https://your-vm-ip:8000/lab. Pode definir JupyterLab como o servidor de bloco de notas predefinido ao adicionar esta linha para /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 
@@ -157,9 +157,9 @@ JupyterLab, a próxima geração de blocos de notas do Jupyter e JupyterHub, tam
 ### <a name="deep-learning-libraries"></a>Bibliotecas de aprendizagem profunda
 
 #### <a name="cntk"></a>CNTK
-O Toolkit de cognitivos é um open source, profunda toolkit de aprendizagem. Enlaces de Python estão disponíveis nos ambientes de Conda raiz e py35. Também tem uma ferramenta da linha de comandos (cntk) que já se encontra no caminho.
+O Microsoft Cognitive Toolkit é uma código-fonte aberto, Kit de ferramentas de aprendizagem profunda. Enlaces de Python estão disponíveis nos ambientes de Conda de raiz e py35. Ele também tem uma ferramenta da linha de comandos (cntk) que já se encontra no caminho.
 
-Blocos de notas do exemplo Python estão disponíveis no JupyterHub. Para executar um exemplo básico da linha de comandos, execute os seguintes comandos na shell:
+Blocos de notas de Python de exemplo estão disponíveis no JupyterHub. Para executar um exemplo básico da linha de comandos, execute os seguintes comandos no shell:
 
     cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
     cntk configFile=lr_bs.cntk makeMode=false command=Train
@@ -167,51 +167,51 @@ Blocos de notas do exemplo Python estão disponíveis no JupyterHub. Para execut
 Para obter mais informações, consulte a secção CNTK [GitHub](https://github.com/Microsoft/CNTK)e o [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 #### <a name="caffe"></a>Caffe
-Caffe é uma arquitetura de aprendizagem profunda do Centro de formação e Berkeley visão. Está disponível no /opt/caffe. Exemplos podem ser encontrados no /opt/caffe/examples.
+Caffe é uma estrutura de aprendizagem profunda da visão de Berkeley e central de informações. Está disponível no /opt/caffe. Exemplos podem ser encontrados no /opt/caffe/examples.
 
 #### <a name="caffe2"></a>Caffe2
-Caffe2 é uma arquitetura de aprendizagem profunda do Facebook que está incorporada no Caffe. Está disponível no Python 2.7 no ambiente Conda raiz. Para o ativar, execute o seguinte a partir da shell:
+Caffe2 é uma estrutura de aprendizagem profunda do Facebook que se baseia em Caffe. Está disponível no Python 2.7 no ambiente de raiz de Conda. Para ativá-lo, execute o seguinte a partir da shell:
 
     source /anaconda/bin/activate root
 
-Algumas notas de exemplo estão disponíveis no JupyterHub.
+Alguns blocos de notas de exemplo estão disponíveis no JupyterHub.
 
 #### <a name="h2o"></a>H2O
-H2O é uma plataforma de Análise Preditiva e de aprendizagem rápida, dentro da memória, distribuída. Um pacote do Python está instalado em ambientes de Anaconda de raiz e py35. Também é instalado um pacote de R. Para iniciar o H2O a partir da linha de comandos, execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; existem vários [opções da linha de comandos](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que pretende configurar. O fluxo de IU da Web de podem ser acedido ao navegar para http://localhost:54321 para começar a utilizar. Notas de exemplo também estão disponíveis no JupyterHub.
+H2O é uma plataforma de Análise Preditiva e de aprendizagem rápida, dentro da memória, distribuída. Um pacote do Python está instalado em ambientes de Anaconda de raiz e py35. Também é instalado um pacote de R. Para iniciar o H2O a partir da linha de comandos, execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; existem vários [opções de linha de comandos](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que pretende configurar. A IU do Flow Web podem ser acedido ao navegar para http://localhost:54321 para começar a utilizar. Blocos de notas de exemplo também estão disponíveis no JupyterHub.
 
 #### <a name="keras"></a>Keras
-Keras é uma alto nível rede neuronal da API no Python é capaz de executar na parte superior do TensorFlow ou Theano. Está disponível em ambientes de Python raiz e py35. 
+Keras é uma rede neural alto nível API em Python, que é capaz de executar na parte superior do TensorFlow ou Theano. Está disponível nos ambientes de Python de raiz e py35. 
 
 #### <a name="mxnet"></a>MXNet
-MXNet é uma arquitetura de aprendizagem profunda concebida para eficácia e flexibilidade. Tem enlaces R e Python incluídos no DSVM. Notas de exemplo são incluídas no JupyterHub, e código de exemplo está disponível no /dsvm/samples/mxnet.
+MXNet é uma estrutura de aprendizagem profunda destinada a eficiência e flexibilidade. Ele tem enlaces de R e Python incluídos na DSVM. Blocos de notas de exemplo estão incluídos no JupyterHub e código de exemplo está disponível no /dsvm/samples/mxnet.
 
 #### <a name="nvidia-digits"></a>NVIDIA DÍGITOS
-O NVIDIA profunda Learning GPU formação sistema, conhecido como dígitos, é um sistema para simplificar as tarefas de aprendizagem profunda comuns, como a gestão de dados, estruturar e as redes neurais formação em sistemas GPU e monitorização do desempenho em tempo real com visualização avançada. 
+NVIDIA Deep Learning GPU treinamento sistema, conhecido como dígitos, é um sistema para simplificar tarefas comuns de aprendizagem profunda, como gerenciamento de dados, design e as redes neurais treinamento em sistemas GPU e monitorização do desempenho em tempo real com visualização avançada. 
 
-DÍGITOS está disponível como um serviço, denominado dígitos. Inicie o serviço e navegue até à http://localhost:5000 para começar a utilizar.
+DÍGITOS está disponível como um serviço, chamado dígitos. Inicie o serviço e navegue até http://localhost:5000 para começar a utilizar.
 
-DÍGITOS também é instalado como um módulo de Python no ambiente Conda raiz.
+DÍGITOS também é instalado como um módulo de Python no ambiente de raiz de Conda.
 
 #### <a name="tensorflow"></a>TensorFlow
-TensorFlow é biblioteca de aprendizagem profunda da Google. É uma biblioteca de software código aberto para o cálculo numérica utilizar gráficos de fluxo de dados. TensorFlow está disponível no ambiente py35 Python e alguns blocos de notas do exemplo estão incluídos no JupyterHub.
+TensorFlow é a biblioteca de aprendizagem profunda da Google. É uma biblioteca de software de código-fonte aberto para o cálculo numérica usando gráficos de fluxo de dados. TensorFlow está disponível no ambiente de Python py35 e alguns blocos de notas de exemplo estão incluídos no JupyterHub.
 
 #### <a name="theano"></a>Theano
-Theano é uma biblioteca de Python para o cálculo numérica eficiente. Está disponível em ambientes de Python raiz e py35. 
+Theano é uma biblioteca de Python para o cálculo numérica eficiente. Está disponível nos ambientes de Python de raiz e py35. 
 
 #### <a name="torch"></a>Torch
-Torch é uma arquitetura de informática científicos com suporte wide para algoritmos do machine learning. Está disponível no /dsvm/tools/torch e a sessão interativa ésimo e o Gestor de pacotes luarocks estão disponíveis na linha de comandos. Exemplos estão disponíveis no /dsvm/samples/torch.
+Maçarico é uma estrutura de computação científica com amplo suporte para algoritmos de machine learning. Está disponível no /dsvm/tools/torch e a sessão interativa de th e o Gestor de pacotes de luarocks estão disponíveis na linha de comandos. Exemplos estão disponíveis no /dsvm/samples/torch.
 
-PyTorch também está disponível no ambiente de Anaconda de raiz. Os exemplos são no /dsvm/samples/pytorch.
+PyTorch também está disponível no ambiente de Anaconda de raiz. Os exemplos são em /dsvm/samples/pytorch.
 
 ### <a name="microsoft-r-server"></a>Microsoft R Server
-R é um dos idiomas mais populares para análise de dados e de aprendizagem. Se pretender utilizar o R para a sua análise, a VM possui Microsoft R Server (MRS) com o Microsoft R abrir (MRO) e a biblioteca de Kernel de bibliotecas (MKL). O MKL otimiza operações bibliotecas comuns no algoritmos analíticos. MRO é 100 por cento compatível com CRAN R e qualquer uma das bibliotecas publicadas no CRAN R pode ser instalado no MRO. MRS dá-lhe dimensionar e operationalization dos modelos de R para os serviços web. Pode editar os programas de R dos editores predefinido, como RStudio, vi ou Emacs. Se preferir utilizar o editor de Emacs, tiver sido previamente instalado. O pacote de Emacs RIMIR (Emacs Speaks estatísticas) simplifica a trabalhar com ficheiros de R dentro do editor de Emacs.
+R é uma das linguagens mais populares para análise de dados e o machine learning. Se pretender utilizar o R para a sua análise, a VM tem o Microsoft R Server (MRS) com o Microsoft R Open (MRO) e a biblioteca de Kernel da matemática (MKL). O MKL otimiza operações matemáticas comuns em algoritmos de análises. MRO é 100 por cento compatível com R do CRAN e qualquer uma das bibliotecas publicadas na CRAN R pode ser instalado na MRO. MRS dá-lhe o dimensionamento e a operacionalização de modelos de R em serviços web. Pode editar os seus programas de R em um dos editores de padrão, como o RStudio, vi ou Emacs. Se preferir utilizar o editor de Emacs, tem sido previamente instalada. O pacote de Emacs eitos de acesso (Emacs participa como Palestrante estatísticas) simplifica o trabalho com arquivos de R no editor de Emacs.
 
-Para iniciar R consola, basta escrevê **R** na shell. Isto leva-o para um ambiente interativo. Para desenvolver o seu programa de R, normalmente, utilize um editor como Emacs ou vi e, em seguida, execute os scripts dentro do R. Com RStudio, tem um ambiente IDE completa gráfico para desenvolver o seu programa de R.
+Para iniciar R da consola, basta digitar **R** no shell. Isto leva-o para um ambiente interativo. Para desenvolver o seu programa de R, normalmente, utilize um editor como Emacs ou vi e, em seguida, execute os scripts do R. Com o r Studio, tem um ambiente de IDE gráfico completas para desenvolver o seu programa de R.
 
-Há também um script do R para que instale o [pacotes primeiros 20 R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) se pretender. Este script pode ser executado após são na interface interativa R, que pode ser introduzida (tal como mencionado) escrevendo **R** na shell.  
+Também existe um script R para a instalação a [pacotes de R de 20 principais](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) se desejar. Este script pode ser executado depois de se na interface interativa R, que pode ser introduzida (conforme mencionado), escrevendo **R** no shell.  
 
 ### <a name="python"></a>Python
-Anaconda Python é instalado com o Python 2.7 e 3.5 ambientes. O ambiente 2.7 denomina _raiz_, e o ambiente 3.5 é denominada _py35_. Esta distribuição contém o Python base juntamente com cerca de 300 dos pacotes de análise de bibliotecas, engenharia e os dados mais populares. 
+Anaconda Python está instalado com o Python 2.7 e 3,5 ambientes. Denomina-se o ambiente de 2,7 _raiz_, e o ambiente de 3,5 é chamado _py35_. Essa distribuição contém o Python base juntamente com aproximadamente 300 dos pacotes de análises de dados, engenharia e matemática mais populares. 
 
 O ambiente de py35 é a predefinição. Para ativar o ambiente de raiz (2.7):
 
@@ -221,14 +221,14 @@ Para ativar o ambiente de py35 novamente:
 
     source activate py35
 
-Para invocar uma sessão interativa de Python, basta escrevê **python** na shell. 
+Para invocar uma sessão interativa do Python, basta escrever **python** no shell. 
 
-Instalar as bibliotecas de Python adicionais utilizando ```conda``` ou ````pip```` . Para pip, ative o ambiente correto primeiro se não pretender que a predefinição:
+Instalar bibliotecas adicionais do Python usando ```conda``` ou ````pip```` . Para o pip, ative o ambiente correto primeiro se não pretender que o padrão:
 
     source activate root
     pip install <package>
 
-Ou especifique o caminho completo para através do pip:
+Em alternativa, especificar o caminho completo para do pip:
 
     /anaconda/bin/pip install <package>
     
@@ -236,35 +236,35 @@ Para conda, deve sempre especificar o nome do ambiente (_py35_ ou _raiz_):
 
     conda install <package> -n py35
 
-Se estiver numa interface gráfica ou ter o conjunto de cópias de segurança de reencaminhamento de X11, pode escrever **pycharm** para iniciar o IDE do Python PyCharm. Pode utilizar os editores de texto predefinido. Além disso, pode utilizar Spyder, um IDE do Python que está incluído com as distribuições de Anaconda Python. Spyder necessita de um ambiente de trabalho gráfico ou X11 reencaminhamento. Um atalho para Spyder é fornecido no desktop.s gráfica
+Se estiver numa interface gráfica ou ter o conjunto de cópia de segurança de reencaminhamento de X11, pode digitar **pycharm** para iniciar o IDE de Python PyCharm. Pode utilizar os editores de texto padrão. Além disso, pode usar Spyder, um IDE de Python que é fornecida com distribuições Anaconda Python. Spyder necessita de uma área de trabalho gráfica ou X11 reencaminhamento. Um atalho para Spyder é fornecido no desktop.s gráfica
 
-### <a name="jupyter-notebook"></a>Bloco de notas do Jupyter
-A distribuição de Anaconda também inclui um bloco de notas do Jupyter, um ambiente para partilhar o código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Inicie sessão com o nome de utilizador de Linux local e a palavra-passe.
+### <a name="jupyter-notebook"></a>O bloco de notas do Jupyter
+A distribuição de Anaconda também vem com um bloco de notas do Jupyter, um ambiente para partilhar código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Iniciar sessão com o seu nome de utilizador local do Linux e a palavra-passe.
 
-O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, Python 3 e R kernels. Não há um ícone de ambiente de trabalho com o nome "De notas do Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente SSH ou X2Go, também pode visitar [ https://localhost:8000/ ](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
+O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, 3 de Python e kernels do R. Há um ícone de área de trabalho com o nome "Bloco de notas Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente de SSH ou X2Go, também pode visitar [ https://localhost:8000/ ](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
 
 > [!NOTE]
 > Continue se obter quaisquer avisos de certificado.
 > 
 > 
 
-Pode aceder ao servidor de bloco de notas do Jupyter de qualquer anfitrião. Basta escrevê *https://\<nome DNS de VM ou o endereço IP\>: 8000 /*
+Pode acessar o servidor de bloco de notas do Jupyter a partir de qualquer anfitrião. Basta digitar *https://\<nome da VM de DNS ou endereço IP\>: 8000 /*
 
 > [!NOTE]
-> Porta 8000 está aberta na firewall por predefinição quando a VM está aprovisionada.
+> Porta 8000 está aberta na firewall por padrão quando a VM está aprovisionada.
 > 
 > 
 
-Podemos ter empacotada exemplo blocos de notas – Python num e um em R. Pode ver a ligação para os exemplos na home page do bloco de notas, depois de se autenticar para o bloco de notas do Jupyter utilizando o seu nome de utilizador de Linux local e a palavra-passe. Pode criar um novo bloco de notas, selecionando **novo**e, em seguida, o kernel do idioma apropriado. Se não vir o **novo** botão, clique em de **Jupyter** ícone na parte superior esquerda para aceder à home page do servidor do bloco de notas.
+Podemos ter compactado blocos de notas de exemplo – Python num e outro em R. Pode ver a ligação para os exemplos na home page do bloco de notas depois de autenticar para o bloco de notas do Jupyter com o seu nome de utilizador local do Linux e a palavra-passe. Pode criar um novo bloco de notas, selecionando **New**e, em seguida, o kernel de idioma apropriado. Se não vir a **New** botão a **Jupyter** ícone no canto superior esquerdo para ir para a home page do servidor do bloco de notas.
 
-### <a name="apache-spark-standalone"></a>Apache Spark autónomo 
-Uma instância autónoma do Apache Spark está pré-instalado DSVM o Linux para o ajudar a desenvolver aplicações do Spark localmente primeiro antes de testar e implementar em grandes clusters. Pode executar programas PySpark através do kernel do Jupyter. Quando abrir o Jupyter, clique em de **novo** botão e deverá ver uma lista de kernels disponíveis. O "Spark - Python" é o kernel do PySpark que lhe permite criar Spark aplicações utilizando a linguagem de Python. Também pode utilizar um IDE do Python como PyCharm ou Spyder para criar, o programa de Spark. Desde, esta é uma instância autónoma, a pilha de Spark executa o programa de cliente chamar. Isto torna mais rápido e mais fácil solucionar problemas em comparação com a desenvolver um cluster do Spark. 
+### <a name="apache-spark-standalone"></a>Autónomo do Apache Spark 
+Uma instância autónoma do Apache Spark é pré-instalado na DSVM do Linux para o ajudar a desenvolver aplicações do Spark localmente primeiro antes de testar e implantar em grandes clusters. Pode executar programas PySpark por meio do kernel do Jupyter. Quando abre o Jupyter, clique nas **New** botão e deverá ver uma lista de kernels disponíveis. O "Spark – Python" é o kernel do PySpark que lhe permite criar Spark aplicações utilizando a linguagem Python. Também pode utilizar um IDE de Python como PyCharm ou Spyder para criar programa Spark. Já que, esta é uma instância autónoma, a pilha de Spark é executado dentro do programa de cliente chamada. Isto torna mais rápido e fácil de solucionar problemas em comparação com o desenvolvimento de um cluster do Spark. 
 
-Um bloco de notas do PySpark de exemplo é fornecido no Jupyter que pode encontrar no diretório "SparkML" sob o diretório de raiz do Jupyter ($HOME/blocos de notas/SparkML/pySpark). 
+Um bloco de notas do PySpark de exemplo é fornecido no Jupyter, que pode encontrar no diretório "SparkML" sob o diretório raiz do Jupyter ($HOME/blocos de notas/SparkML/pySpark). 
 
-Se estiver de programação R para Spark, pode utilizar o Microsoft R Server, SparkR ou sparklyr. 
+Se estiver de programação R para o Spark, pode utilizar o Microsoft R Server, SparkR ou sparklyr. 
 
-Antes de executar no contexto do Spark no Microsoft R Server, terá de executar uma uma vez que o passo de configuração para ativar um único nó HDFS do Hadoop e o Yarn instância local. Por predefinição, serviços do Hadoop são instalados, mas o DSVM desativados. Para ativá-la, terá de executar os comandos seguintes como raiz na primeira vez:
+Antes de executar no contexto do Spark no Microsoft R Server, terá de realizar uma uma vez que o passo de configuração para ativar um único nó HDFS do Hadoop e Yarn a instância local. Por predefinição, os serviços do Hadoop são instalados mas desativados na DSVM. Para ativá-lo, terá de executar os seguintes comandos como raiz na primeira vez:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -274,110 +274,110 @@ Antes de executar no contexto do Spark no Microsoft R Server, terá de executar 
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Pode parar o Hadoop relacionados com serviços quando não precisar deles executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` uma amostra que demonstra como desenvolver e testar MRS no contexto de Spark remoto (que é a instância de Spark autónomo no DSVM) é fornecida e disponível na `/dsvm/samples/MRS` diretório. 
+É possível parar o Hadoop relacionados com serviços quando não precisar, executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` um exemplo que demonstra como desenvolver e testar MRS no contexto de Spark remoto (que é a instância de Spark autónoma no DSVM) é fornecido e está disponível no `/dsvm/samples/MRS` diretório. 
 
 ### <a name="ides-and-editors"></a>IDEs e editores
-Tem de escolher entre vários editores de código. Isto inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio PyCharm são editores gráficas e tem de ter sessão iniciada para um ambiente de trabalho gráfico utilizá-los. Estes editores tem o ambiente de trabalho e aplicações atalhos do menu iniciá-los.
+Tem uma opção de vários editores de códigos. Isto inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio PyCharm são editores gráficas e tem de ser iniciada para uma área de trabalho gráfica para utilizá-los. Esses editores tem o ambiente de trabalho e a aplicação atalhos no menu para iniciá-los.
 
-**VIM** e **Emacs** são editores baseados em texto. Em Emacs, iremos tenha instalado um pacote de suplemento chamado Emacs Speaks estatísticas (RIMIR) que facilita a trabalhar com R dentro do editor de Emacs. Podem encontrar mais informações em [RIMIR](http://ess.r-project.org/).
+**VIM** e **Emacs** são editores baseados em texto. No Emacs, podemos ter instalado um pacote adicional chamado Emacs participa como Palestrante estatísticas (eitos de acesso) que facilita o trabalho com R no editor de Emacs. Obter mais informações podem ser encontradas em [IMIR](http://ess.r-project.org/).
 
-**LaTex** está instalada através do pacote de texlive juntamente com um suplemento Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) pacote, o que simplifica a criação os documentos LaTex dentro Emacs.  
+**LaTex** é instalado através do pacote de texlive juntamente com um suplemento de Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) pacote, que simplifica a criação de seus documentos LaTex dentro de Emacs.  
 
 ### <a name="databases"></a>Bases de Dados
 
-#### <a name="graphical-sql-client"></a>Cliente gráfica do SQL Server
-**SQuirrel SQL**, um cliente do SQL Server gráfico, foi fornecido para ligação às bases de dados diferentes (por exemplo, o Microsoft SQL Server e o MySQL) e para executar consultas do SQL Server. Pode executar este partir de uma sessão de ambiente de trabalho gráfica (utilizando o cliente X2Go, por exemplo). Para invocar SQuirrel SQL, pode iniciar do ícone no ambiente de trabalho ou execute o seguinte comando na shell.
+#### <a name="graphical-sql-client"></a>Cliente SQL de gráfico
+**SQuirrel SQL**, um cliente SQL gráfico, foi fornecido para ligar a bases de dados diferentes (por exemplo, o Microsoft SQL Server e o MySQL) e para executar consultas SQL. Pode executá-lo a partir de uma sessão de ambiente de trabalho gráfica (com o cliente de X2Go, por exemplo). Para invocar SQuirrel SQL, pode iniciá-lo do ícone na área de trabalho ou execute o seguinte comando no shell.
 
     /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 
-Antes da primeira utilização, configurar os controladores e os aliases de base de dados. Os controladores JDBC estão localizados em:
+Antes da primeira utilização, configurar os controladores e aliases de base de dados. Os drivers JDBC estão localizados em:
 
 */usr/share/java/jdbcdrivers*
 
 Para obter mais informações, consulte [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
-#### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas de linha de comandos para aceder ao Microsoft SQL Server
-O pacote de controladores ODBC para o SQL Server também inclui duas ferramentas da linha de comandos:
+#### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas da linha de comandos para acessar o Microsoft SQL Server
+O pacote de controladores ODBC para o SQL Server também vem com duas ferramentas de linha de comandos:
 
-**BCP**: O volume de utilitário bcp copia dados entre uma instância do Microsoft SQL Server e um ficheiro de dados num formato especificado por um utilizador. Pode ser utilizado o utilitário bcp para importar um grande número de linhas novas para tabelas do SQL Server ou para exportar dados para fora tabelas para ficheiros de dados. Para importar dados para uma tabela, tem de utilizar um ficheiro de formato criado para essa tabela ou compreender a estrutura da tabela e os tipos de dados que são válidos para as colunas.
+**BCP**: O volume de utilitário bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados num formato especificado pelo utilizador. O utilitário bcp. exe pode ser utilizado para importar um grande número de novas linhas para tabelas do SQL Server ou para exportar os dados para fora das tabelas para ficheiros de dados. Para importar dados para uma tabela, tem de utilizar um ficheiro de formato criado para a tabela ou compreender a estrutura da tabela e os tipos de dados que são válidos para as colunas.
 
-Para obter mais informações, consulte [estabelecer ligação com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+Para obter mais informações, consulte [ligar com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**SQLCMD**: pode introduzir instruções Transact-SQL com o utilitário sqlcmd, bem como os procedimentos de sistema e os ficheiros na linha de comandos do script. Este utilitário utiliza ODBC a execução de lotes de Transact-SQL.
+**SQLCMD**: pode introduzir instruções Transact-SQL com o utilitário sqlcmd, bem como dos procedimentos de sistema e arquivos no prompt de comando de script. Esse utilitário utiliza ODBC para executar lotes do Transact-SQL.
 
 Para obter mais informações, consulte [ligar com sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
 > [!NOTE]
-> Existem algumas diferenças neste utilitário entre plataformas Linux e Windows. Consulte a documentação para obter mais detalhes.
+> Existem algumas diferenças nesse utilitário entre plataformas Linux e Windows. Consulte a documentação para obter detalhes.
 > 
 > 
 
 #### <a name="database-access-libraries"></a>Bibliotecas de acesso de base de dados
-Bibliotecas estão disponíveis no R e Python bases de dados de acesso.
+Bibliotecas estão disponíveis em R e Python para acessar bancos de dados.
 
-* No R, o **RODBC** pacote ou **dplyr** pacote permite-lhe consultar ou executar instruções SQL no servidor de base de dados.
-* No Python, o **pyodbc** biblioteca fornece acesso a base de dados com ODBC como camada subjacente.  
+* Em R, o **RODBC** pacote ou **dplyr** pacote permite-lhe consultar ou executar instruções SQL no servidor de base de dados.
+* Em Python, o **pyodbc** biblioteca fornece acesso de base de dados com o ODBC, como a camada subjacente.  
 
 ### <a name="azure-tools"></a>Ferramentas do Azure
 As seguintes ferramentas do Azure são instaladas na VM:
 
-* **Interface de linha de comandos do Azure**: A CLI do Azure permite-lhe criar e gerir recursos do Azure através de comandos da shell. Para invocar as ferramentas do Azure, basta escrevê **do azure ajuda**. Para obter mais informações, consulte o [página de documentação do CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de armazenamento do Microsoft Azure**: Explorador de armazenamento do Microsoft Azure é uma ferramenta gráfica que é utilizada para percorrer os objetos que tem de ser armazenados na sua conta de armazenamento do Azure e para carregar e transferir dados para e de blobs do Azure. Pode aceder Explorador de armazenamento a partir do ícone de atalho do ambiente de trabalho. Pode invocar a partir de uma linha de shell, escrevendo **StorageExplorer**. Tem de ter sessão iniciada a partir de um cliente X2Go ou ter o conjunto de cópias de segurança de reencaminhamento de X11.
+* **Interface de linha de comandos do Azure**: A CLI do Azure permite-lhe criar e gerir recursos do Azure através de comandos da shell. Para invocar as ferramentas do Azure, basta escrever **do azure ajuda**. Para obter mais informações, consulte a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Explorador de armazenamento do Microsoft Azure**: Explorador de armazenamento do Microsoft Azure é uma ferramenta gráfica que é utilizada para percorrer os objetos que tem armazenados na sua conta de armazenamento do Azure e para carregar e transferir dados para e de blobs do Azure. Pode acessar o Explorador de armazenamento do ícone de atalho de desktop. Pode invocá-lo num prompt do shell, escrevendo **StorageExplorer**. Tem de iniciar sessão a partir de um cliente X2Go ou tem o conjunto de cópia de segurança de reencaminhamento de X11.
 * **Bibliotecas do Azure**: seguem-se algumas das bibliotecas pré-instaladas.
   
-  * **Python**: relacionadas com o Azure bibliotecas no Python que é instaladas são **azure**, **azureml**, **pydocumentdb**, e **pyodbc**. Com as três primeiros bibliotecas, pode aceder a serviços de armazenamento do Azure, Azure Machine Learning e base de dados do Azure Cosmos (uma base de dados NoSQL no Azure). A biblioteca quarta, pyodbc (juntamente com o Microsoft ODBC driver para SQL Server), permite que o acesso do SQL Server, SQL Database do Azure e Azure SQL Data Warehouse do Python através da utilização de uma interface ODBC. Introduza **lista pip** para ver todas as bibliotecas listadas. Lembre-se de que executa este comando no Python 2.7 e 3.5 ambientes.
-  * **R**: relacionadas com o Azure, as bibliotecas no R instalados estão **AzureML** e **RODBC**.
-  * **Java**: A lista de bibliotecas de Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas de chaves são Azure armazenamento e gestão de APIs, base de dados do Azure Cosmos e JDBC controladores para o SQL Server.  
+  * **Python**: as bibliotecas relacionados com o Azure em Python que está instalados estão **azure**, **azureml**, **pydocumentdb**, e **pyodbc**. Com as três primeiras bibliotecas, pode aceder a serviços de armazenamento do Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL no Azure). A biblioteca de quarta, pyodbc (juntamente com o Microsoft ODBC driver para SQL Server), permite o acesso ao SQL Server, SQL Database do Azure e Azure SQL Data Warehouse do Python, utilizando uma interface ODBC. Introduza **lista de pip** para ver todas as bibliotecas listadas. Certifique-se de que execute este comando no Python 2.7 e 3,5 ambientes.
+  * **R**: são bibliotecas relacionados com o Azure em R instalados **AzureML** e **RODBC**.
+  * **Java**: A lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas de chave são do Azure armazenamento e gestão de APIs, do Azure Cosmos DB, JDBC controladores e para o SQL Server.  
 
-Pode aceder a [portal do Azure](https://portal.azure.com) do browser Firefox pré-instaladas. No portal do Azure, pode criar, gerir e monitorizar os recursos do Azure.
+Pode aceder a [portal do Azure](https://portal.azure.com) do navegador Firefox pré-instaladas. No portal do Azure, pode criar, gerir e monitorizar recursos do Azure.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-O Azure Machine Learning é um serviço em nuvem completamente gerido que lhe permite criar, implementar e partilhar as soluções de Análise Preditiva. Criar os modelos e experimentações do Azure Machine Learning Studio. Pode ser acedido a partir de um browser web na máquina virtual de ciência de dados, visitando [Microsoft Azure Machine Learning](https://studio.azureml.net).
+O Azure Machine Learning é um serviço cloud totalmente gerido que permite-lhe criar, implementar e partilhar soluções de Análise Preditiva. Criar suas experimentações e modelos a partir do Azure Machine Learning Studio. Pode ser acedido a partir de um navegador da web na máquina de virtual de ciência de dados ao visitar [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Depois de se inscrever Azure Machine Learning Studio, tem acesso a uma tela de experimentação onde pode criar um fluxo lógico para os algoritmos do machine learning. Também tem acesso a um bloco de notas do Jupyter alojado no Azure Machine Learning e pode trabalhar de forma totalmente integrada com experimentações no Machine Learning Studio. Operacionalize os modelos de machine learning que criou envolvendo-los numa interface de serviço web. Isto permite aos clientes escritos em qualquer idioma invocar predições a partir de modelos de machine learning. Para obter mais informações, consulte o [documentação de Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+Depois de iniciar sessão Azure Machine Learning Studio, tem acesso a uma tela de experimentação onde pode criar um fluxo lógico para os algoritmos de machine learning. Também tem acesso a um bloco de notas do Jupyter alojado no Azure Machine Learning e pode trabalhar de forma totalmente integrada com as experimentações no Machine Learning Studio. Operacionalize os modelos de machine learning que criou, encapsulando-as numa interface de serviço da web. Isto permite aos clientes escritas em qualquer linguagem invocar predições a partir de modelos de machine learning. Para obter mais informações, consulte a [documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Pode também criar os seus modelos no R ou Python na VM e, em seguida, implementá-la na produção no Azure Machine Learning. Iremos instalou bibliotecas R (**AzureML**) e Python (**azureml**) para ativar esta funcionalidade.
+Pode também criar os seus modelos em R ou Python na VM e, em seguida, implementá-la em produção no Azure Machine Learning. Podemos instalar bibliotecas no R (**AzureML**) e Python (**azureml**) para ativar esta funcionalidade.
 
-Para obter informações sobre como implementar modelos no R e Python no Azure Machine Learning, consulte [dez coisas que pode fazer na ciência de dados de Máquina Virtual](vm-do-ten-things.md) (em especial, a secção "Criar modelos de utilizar o R ou Python e Operacionalizá-los utilizando o Azure Machine Learning").
+Para obter informações sobre como implementar os modelos em R e Python no Azure Machine Learning, consulte [dez coisas que pode fazer na máquina Virtual de ciência de dados](vm-do-ten-things.md) (em particular, a secção "Criar modelos com R ou Python e Operacionalize-os com Azure Machine Learning").
 
 > [!NOTE]
-> Estas instruções destinam-se a versão do Windows da VM de ciência de dados. Mas as informações fornecidas na implementação de modelos Azure Machine Learning há aplicáveis para a VM com Linux.
+> Estas instruções destinam-se para a versão do Windows da VM de ciência de dados. Mas as informações fornecidas sobre a implementação de modelos para o Azure Machine Learning é aplicável à VM do Linux.
 > 
 > 
 
-### <a name="machine-learning-tools"></a>Ferramentas do Machine learning
-A VM inclui alguns do machine learning ferramentas e algoritmos que tenham sido pré-compilado e previamente instalados localmente. Estas incluem:
+### <a name="machine-learning-tools"></a>Ferramentas de aprendizagem de máquina
+A VM vem com alguns de machine learning ferramentas e algoritmos que foram pré-compilados e previamente instalados localmente. Estas incluem:
 
-* **Vowpal Wabbit**: um algoritmo de aprendizagem rápido online.
-* **xgboost**: uma ferramenta que proporciona algoritmos da árvore otimizada, elevada.
-* **Rattle**: com base em R uma ferramenta gráfica para exploração de dados fácil e de modelação.
-* **Python**: Anaconda Python vem agrupada com algoritmos do machine learning com bibliotecas como saber de Scikit. Pode instalar outras bibliotecas utilizando o `pip install` comando.
-* **LightGBM**: gradação rápida, distribuída, elevado desempenho os aumentos framework com base nos algoritmos da árvore de decisões.
-* **R**: uma biblioteca completa de funções do machine learning está disponível para R. Algumas das bibliotecas que vêm pré-instaladas são lm, glm, randomForest, rpart. Outras bibliotecas de podem ser instaladas através da execução:
+* **Vowpal Wabbit**: um algoritmo de aprendizagem online rapidamente.
+* **xgboost**: uma ferramenta que fornece os algoritmos de árvore otimizada, elevada.
+* **Rattle**: baseada em R de uma ferramenta gráfica para modelação e exploração de dados fácil.
+* **Python**: Anaconda Python vem agrupado com algoritmos de machine learning com bibliotecas como Scikit-saiba. Pode instalar outras bibliotecas com o `pip install` comando.
+* **LightGBM**: um dégradé rápido, distribuído e de alto desempenho adaptativo framework com base em algoritmos de árvore de decisão.
+* **R**: uma biblioteca completa de funções do machine learning está disponível para R. Algumas das bibliotecas que vêm pré-instaladas são lm, glm, randomForest, rpart. Outras bibliotecas podem ser instaladas ao executar:
   
         install.packages(<lib name>)
 
 Eis algumas informações adicionais sobre as ferramentas de três aprendizagem primeiro na lista.
 
 #### <a name="vowpal-wabbit"></a>Vowpal Wabbit
-Vowpal Wabbit é uma sistema operativo que utiliza técnicas, como online, hash, allreduce, reductions, learning2search, Active Directory, de aprendizagem e a configuração interativa.
+Vowpal Wabbit é um sistema que utiliza técnicas, como online, hash, allreduce, reduções, learning2search, Active Directory, de aprendizagem automática e a aprendizagem interativa.
 
-Para executar a ferramenta num exemplo básico, efetue o seguinte:
+Para executar a ferramenta num exemplo básico, faça o seguinte:
 
     cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
     cd vwdemo
     vw house_dataset
 
-Existem outras, maior demonstrações nesse diretório. Para obter mais informações sobre VW, consulte [nesta secção do GitHub](https://github.com/JohnLangford/vowpal_wabbit)e o [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+Existem outras, maiores demonstrações nesse diretório. Para obter mais informações sobre VW, consulte [nesta secção do GitHub](https://github.com/JohnLangford/vowpal_wabbit)e o [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 #### <a name="xgboost"></a>xgboost
-Esta é uma biblioteca que está concebida e otimizada para algoritmos (árvore elevada). O objetivo desta biblioteca consiste em emitir os limites de cálculo das máquinas para extremes necessárias para fornecer árvore em grande escala, os aumentos que dimensionável, portáteis e precisos.
+Esta é uma biblioteca que foi concebida e otimizada para algoritmos de elevada (árvore). O objetivo dessa biblioteca é emitir os limites de computação de máquinas para extremos precisava fornecer árvore em grande escala adaptativo que é dimensionável, portáteis e precisas.
 
-É fornecido como uma linha de comandos, bem como uma biblioteca de R.
+Ele é fornecido como uma linha de comando, bem como uma biblioteca de R.
 
-Para utilizar esta biblioteca no R, pode iniciar uma sessão interativa de R (apenas escrevendo **R** na shell) e carregar a biblioteca.
+Para utilizar esta biblioteca no R, pode iniciar uma sessão de R interativa (apenas digitando **R** no shell) e carregar a biblioteca.
 
-Eis um exemplo simples, que pode executar numa linha de comandos do R:
+Eis um exemplo simples que pode executar no prompt de R:
 
     library(xgboost)
 
@@ -389,51 +389,51 @@ Eis um exemplo simples, que pode executar numa linha de comandos do R:
                     eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
     pred <- predict(bst, test$data)
 
-Para executar a linha de comandos xgboost, seguem-se os comandos para executar na shell:
+Para executar a linha de comandos xgboost, aqui estão os comandos para executar no shell:
 
     cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
     cd xgboostdemo
     xgboost mushroom.conf
 
 
-Um ficheiro de .model é escrito para o diretório especificado. Pode encontrar informações sobre este exemplo de demonstração [no GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+Um arquivo de .model é gravado no diretório especificado. Pode encontrar informações sobre este exemplo de demonstração [no GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
-Para mais informações sobre xgboost, consulte o [página de documentação xgboost](https://xgboost.readthedocs.org/en/latest/)e a respetiva [repositório do GitHub](https://github.com/dmlc/xgboost).
+Para obter mais informações sobre xgboost, consulte a [página de documentação xgboost](https://xgboost.readthedocs.org/en/latest/)e a respetiva [repositório do GitHub](https://github.com/dmlc/xgboost).
 
 #### <a name="rattle"></a>Rattle
-Rattle (o **R** **A**nalytical **T**ool **T**Nã **L**mais significativos beneficiar **i**asily) utiliza a exploração de dados baseadas em GUI e modelação. Apresente resumos de análises e visual de dados, os dados de transformações que podem ser prontamente modelados, cria supervisionados e supervisionados os modelos de dados, apresenta o desempenho dos modelos graficamente, e define dados pontuações de novo. Também gera código do R, replicar as operações na IU do que podem ser executadas diretamente no R ou utilizadas como um ponto de partida para análise adicional.
+Rattle (a **R** **uma**nalíticos **T**ool **T**s **L**ganhar **E** asily) utiliza dados baseados em GUI exploração e modelação. Ele Apresenta resumos de estatísticos e visual de dados, transformações de dados que podem ser modelados prontamente, cria modelos supervisionados e supervisionados dos dados, apresenta o desempenho dos modelos graficamente, e conjuntos de dados de novas pontuações. Ele também gera um código de R, replicar as operações na interface de Usuário que podem ser executadas diretamente no R ou utilizadas como um ponto de partida para análises posteriores.
 
-Para executar Rattle, tem de ser uma gráfica ambiente de trabalho início de sessão. No terminal, escreva ```R``` para introduzir o ambiente do R. Na linha de R, introduza os seguintes comandos:
+Para executar Rattle, terá de estar numa gráfica desktop início de sessão. No terminal, escreva ```R``` para introduzir o ambiente de R. No prompt de R, introduza os seguintes comandos:
 
     library(rattle)
     rattle()
 
-Agora uma interface gráfica abre-se com um conjunto de separadores. Eis os passos de início rápido no Rattle precisam para utilizar um conjunto de dados de Meteorologia de exemplo e criar um modelo. Em alguns dos passos abaixo, lhe for pedido para instalar automaticamente e carregar alguns pacotes necessários do R que ainda não no sistema.
+Agora uma interface gráfica abre-se com um conjunto de guias. Aqui estão os passos de início rápido em Rattle necessária para utilizar um conjunto de dados de Meteorologia de exemplo e criar um modelo. Em alguns dos passos abaixo, é solicitado a instalar e carregar alguns pacotes R necessários que não estão já no sistema automaticamente.
 
 > [!NOTE]
-> Se não tiver acesso para instalar o pacote no diretório do sistema (predefinição), poderá ver uma linha de comandos na janela de consola do R para instalar pacotes para a sua biblioteca pessoal. Resposta *y* se vir estes pedidos.
+> Se não tiver acesso para instalar o pacote no diretório do sistema (predefinição), pode ver uma mensagem na janela da consola de R para instalar pacotes para sua biblioteca pessoal. Resposta *y* se vir que esses prompts.
 > 
 > 
 
 1. Clique em **Executar**.
-2. Uma caixa de diálogo aparece, pedimos-lhe se pretende utilizar no conjunto de dados de Meteorologia de exemplo. Clique em **Sim** ao carregar o exemplo.
-3. Clique em de **modelo** separador.
-4. Clique em **executar** para construir uma árvore de decisões.
-5. Clique em **desenhar** para apresentar a árvore de decisões.
-6. Clique em de **floresta** botão de opção e clique em **executar** para criar uma floresta aleatória.
-7. Clique em de **Evaluate** separador.
-8. Clique em de **risco** botão de opção e clique em **executar** a apresentar dois rastreia de desempenho de risco (Cumulative).
-9. Clique em de **registo** separador para mostrar o código de gerar R para as operações de anteriores.
-   (Resultam de erros na versão atual do Rattle, tem de inserir um *#* caráter à frente do *exportar este registo...*  no texto do registo.)
-10. Clique em de **exportar** botão para guardar o ficheiro de script do R denominado *weather_script. R* para a pasta raiz.
+1. Uma caixa de diálogo aparece, que lhe pergunta se gostaria de usar o conjunto de dados de Meteorologia de exemplo. Clique em **Sim** para carregar o exemplo.
+1. Clique nas **modelo** separador.
+1. Clique em **Execute** para criar uma árvore de decisão.
+1. Clique em **desenhar** para apresentar a árvore de decisões.
+1. Clique nas **floresta** botão de opção e clique em **Execute** para criar uma floresta aleatória.
+1. Clique nas **Evaluate** separador.
+1. Clique nas **risco** botão de opção e clique em **Execute** para apresentar os dois gráficos de desempenho de risco (Cumulative).
+1. Clique nas **Log** separador para mostrar o código de gerar R para as operações anteriores.
+   (Devido a um erro na versão atual do Rattle, precisa inserir um *#* caractere à frente do *exportar este registo...*  no texto do registo.)
+1. Clique nas **exportar** botão para guardar o ficheiro de script R com o nome *weather_script. R* para a pasta raiz.
 
-Pode sair Rattle e R. Agora pode modificar o script R gerado ou utilizá-lo, dado que está a executá-la em qualquer altura para repetir tudo o que foi concluído dentro da IU Rattle. Especialmente para principiantes em R, esta é uma forma fácil para fazer a análise e machine learning numa interface gráfica simple, ao gerar automaticamente o código no R para modificar e/ou mais rapidamente.
+Pode sair Rattle e R. Agora pode modificar o script R gerado ou utilizá-lo, pois é executá-lo em qualquer altura para repetir a tudo o que foi feito na interface de Usuário Rattle. Especialmente para iniciantes em R, esta é uma forma fácil de fazer uma análise e machine learning numa interface gráfica simple, ao gerar automaticamente o código no R para modificar e/ou Saiba mais rapidamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Eis como pode continuar a exploração e de aprendizagem automática:
+Eis como pode continuar a sua aprendizagem e a exploração:
 
-* O [ciência de dados na máquina de Virtual de ciência de dados para Linux](linux-dsvm-walkthrough.md) instruções mostram como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados de Linux aprovisionados aqui. 
-* Explore as várias ferramentas de ciência de dados de ciência de dados VM por experimentar as ferramentas descritas neste artigo. Também pode executar *dsvm-mais-info* na shell na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Aprenda a criar soluções analíticas ponto-a-ponto sistematicamente utilizando o [o processo de ciência de dados de equipa](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visite o [galeria do Cortana análise](http://gallery.cortanaanalytics.com) machine learning e dados análise exemplos que utilizam o conjunto de análise da Cortana.
+* O [ciência de dados na máquina de Virtual de ciência de dados para Linux](linux-dsvm-walkthrough.md) instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux aprovisionados aqui. 
+* Explore as várias ferramentas de ciência de dados na VM de ciência de dados por experimentar as ferramentas descritas neste artigo. Também pode executar *dsvm-mais-info* no shell na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
+* Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visite o [galeria do Cortana Analytics](http://gallery.cortanaanalytics.com) para machine learning e os dados analytics de exemplo que utilizam o Cortana Analytics Suite.
 

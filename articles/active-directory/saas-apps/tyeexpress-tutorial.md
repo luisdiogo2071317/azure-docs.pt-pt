@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o T & Express I | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e T & I Express.
+title: 'Tutorial: Integração do Azure Active Directory com o T & E Express | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e T & E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,227 +14,227 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a9a2efffa057ee1e35e8074556043b8e515c39c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3b9a2ed9b374192151a8a737a5b51d9085d53ff
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224135"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430922"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Azure Active Directory com o T & I Express
+# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Azure Active Directory com o T & E Express
 
-Neste tutorial, irá aprender a integrar T & I Express com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o T & E Express com o Azure Active Directory (Azure AD).
 
-Integrar o T & I Express com o Azure AD fornece as seguintes vantagens:
+T & E Express a integração com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao T & I Express
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para & I Express (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal de gestão do Azure
+- Pode controlar no Azure AD que tenha acesso ao T & E Express
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o T & E Express (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – o portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o T & I Express, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o T & E Express, precisa do seguinte:
 
 - Uma subscrição do Azure AD
-- Um Redireccionamen & I Express início de sessão único subscrição ativado
+- Um T & E Express início de sessão único na subscrição ativado
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
-- Não deve utilizar o seu ambiente de produção, a menos que isto é necessário.
+- Não deve utilizar o seu ambiente de produção, a menos que isso é necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar e & I Express na galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionar T & E Express a partir da Galeria
+1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-te-express-from-the-gallery"></a>Adicionar e & I Express na galeria do
-Para configurar a integração da T & I Express com o Azure AD, tem de adicionar e & I Express na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-te-express-from-the-gallery"></a>Adicionar T & E Express a partir da Galeria
+Para configurar a integração de d & E Express com o Azure AD, terá de adicionar T & E Express a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar e & I Express na galeria do, execute os seguintes passos:**
+**Para adicionar T & E Express a partir da galeria, execute os seguintes passos:**
 
-1. No  **[Azure Management Portal](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[do Portal de gestão do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **T & I Express**.
+1. Na caixa de pesquisa, escreva **T & E Express**.
 
     ![Criar um utilizador de teste do Azure AD](./media/tyeexpress-tutorial/tutorial_tyeexpress_search.png)
 
-5. No painel de resultados, selecione **T & I Express**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **T & E Express**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/tyeexpress-tutorial/tutorial_tyeexpress_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com o T & I Express com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com o T & E Express com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo T & I Express for para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no T & I Express tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no T & E Express a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no T & E Express deve ser estabelecido.
 
-Esta relação de ligação é estabelecida ao atribuir o valor da **nome de utilizador** no Azure AD como o valor a **Username** T & I Express.
+Esta relação de ligação é estabelecida atribuindo o valor do **nome de utilizador** no Azure AD como o valor da **nome de utilizador** no T & E Express.
 
-Para configurar e testar o Azure AD-início de sessão único com o T & I Express, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o T & E Express, precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste T & I Express](#creating-a-te-express-test-user)**  - para ter um homólogo de Britta Simon T & I Express que está ligada a representação do Azure AD da forma.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste T & E Express](#creating-a-te-express-test-user)**  - para ter um equivalente da Eduarda Almeida na T & E Express que está ligado à representação de ela do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão do Azure e configurar o início de sessão único na sua aplicação T & I Express.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal de gestão do Azure e configurar início de sessão único em seu aplicativo T & E Express.
 
-**Para configurar o Azure AD-início de sessão único com o T & I Express, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o T & E Express, execute os seguintes passos:**
 
-1. No portal de gestão do Azure, no **T & I Express** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal de gestão do Azure, sobre o **T & E Express** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, como **modo** selecione **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, como **modo** selecione **baseado em SAML início de sessão** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tutorial_tyeexpress_samlbase.png)
 
-3. No **T & I Express domínio e os URLs** secção, execute os seguintes passos:
+1. Sobre o **T & URLs e domínio da Express E** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. No **identificador** caixa de texto, digite o valor como: `https://<domain>.tyeexpress.com`
+    a. Na **identificador** caixa de texto, digite o valor como: `https://<domain>.tyeexpress.com`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
-    > Tenha em atenção que estas não são os valores reais. Tem de atualizar estes valores com o identificador e o URL de resposta real. Aqui sugerimos que utilize o valor de cadeia exclusivo no identificador de. Contacte [equipa de suporte de T & I Express](http://www.tyeexpress.com/contacto.aspx) para obter estes valores.
+    > Tenha em atenção que estes não são os valores reais. Terá de atualizar estes valores com o identificador real e o URL de resposta. Aqui iremos sugerir-lhe utilizar o valor único de cadeia de caracteres no identificador de. Contacte [equipa de suporte de d & E Express](http://www.tyeexpress.com/contacto.aspx) obter esses valores.
 
-5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tutorial_general_400.png)
 
-8. Para configurar o início de sessão único em **T & i rápida** lado, o início de sessão para o T & zar express aplicação sem início de sessão único SAML utilizando credenciais de administrador.
+1. Para configurar o início de sessão único num **T & E Express** lado, o início de sessão para as horas e despesas express aplicação sem início de sessão único SAML sobre como utilizar as credenciais de administrador.
 
-9. Sob o **Admin** separador, clique em **domínio SAML** para abrir a página de definições de SAML.
+1. Sob o **administrador** separador, clique em **domínio SAML** para abrir a página de definições de SAML.
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tye-SAML.png)
 
-10. Selecione o **Activar(Activate)** opção de **não** para **SI(Yes)**. No **metadados do fornecedor de identidade** caixa de texto, cole os metadados XML que tiver donwloaded a partir do portal do Azure.
+1. Selecione o **Activar(Activate)** opção partir **não** para **SI(Yes)**. Na **metadados de fornecedor de identidade** caixa de texto, cole os metadados XML que tenha foi transferido a partir do portal do Azure.
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tyeAdmin.png)
 
-11. Clique em de **Guardar(Save)** botão para guardar as definições. 
+1. Clique nas **Guardar(Save)** botão para guardar as definições.  
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal de gestão do Azure chamado Britta Simon.
+O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure Management chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal de gestão do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal de gestão do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/tyeexpress-tutorial/create_aaduser_01.png) 
 
-2. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
+1. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
     
     ![Criar um utilizador de teste do Azure AD](./media/tyeexpress-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/tyeexpress-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/tyeexpress-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-te-express-test-user"></a>Criar um utilizador de teste T & I Express
+### <a name="creating-a-te-express-test-user"></a>Criar um utilizador de teste T & E Express
 
-Para permitir que os utilizadores do Azure AD sessão T & I Express, têm de ser aprovisionados para T & I Express.  
-Em caso de T & I Express, o aprovisionamento é uma tarefa manual.
+Para habilitar logon T & E Express de utilizadores do Azure AD, tem de ser aprovisionados no T & E Express.  
+Em caso de T & E Express, o aprovisionamento é uma tarefa manual.
 
-**Aprovisionar contas de utilizador, execute os seguintes passos:**
+**Para aprovisionar contas de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no site da sua empresa T & Express I como administrador.
+1. Inicie sessão no site da sua empresa T & E Express como administrador.
 
-2. Na etiqueta do administrador, clique em utilizadores para abrir a página principal de utilizadores.
+1. Na etiqueta do administrador, clique em utilizadores para abrir a página mestra de utilizadores.
 
-    ![Adicionar empregado](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Adicionar o funcionário](./media/tyeexpress-tutorial/tye-adminusers.png)
 
-3. Na página inicial, clique em **+** para adicionar os utilizadores.
+1. Na home page, clique em **+** para adicionar os utilizadores.
 
-    ![Adicionar empregado](./media/tyeexpress-tutorial/tye-usershome.png)
+    ![Adicionar o funcionário](./media/tyeexpress-tutorial/tye-usershome.png)
 
-4. Introduza todos os detalhes obrigatórios, tal como pedido no formulário e clique no botão de guardar para guardar os detalhes.
+1. Introduza todos os detalhes obrigatórios como pedido no formulário e clique no botão Guardar para guardar os detalhes.
 
-    ![Adicionar empregado](./media/tyeexpress-tutorial/tye-usersadd.png)
+    ![Adicionar o funcionário](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-    ![Adicionar empregado](./media/tyeexpress-tutorial/tye-userssave.png)
+    ![Adicionar o funcionário](./media/tyeexpress-tutorial/tye-userssave.png)
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo o respetivo acesso para & I Express.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a T & E Express.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon para & I Express, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a T & E Express, execute os seguintes passos:**
 
-1. No portal de gestão do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal de gestão do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **T & I Express**.
+1. Na lista de aplicações, selecione **T & E Express**.
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico T & I Express no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação T & I Express.
+Quando clica no mosaico T & E Express no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação T & E Express.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Registo convergido para SSPR do Azure AD e MFA
-description: Registo de reposição de Authenticaiton de multi-factor do Azure AD e a palavra-passe self-service
+title: Registo convergido para SSPR do Azure AD e MFA (pré-visualização pública)
+description: Authenticaiton de multi-factor do Azure AD e a palavra-passe self-service de reposição do registo (pré-visualização pública)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414904"
+ms.locfileid: "39447966"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Convergida registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Convergida registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication (pré-visualização pública)
 
 Até agora, os utilizadores tinham de se registrar métodos de autenticação para o Azure multi-factor Authentication (MFA) e a reposição de palavra-passe self-service (SSPR) em dois portais de diferentes. Número de utilizadores que foram confusa pelo fato de que métodos semelhantes foram utilizados para o MFA do Azure e o SSPR e não se registraram em ambos os portais. Este disparidade levou a alguns utilizadores a ser não é possível utilizar o MFA do Azure ou o SSPR quando necessário, que leva a uma chamada de suporte técnico e, potencialmente, um utilizador aborrecido. Agora, os utilizadores podem registar uma vez e obter os benefícios da MFA do Azure e SSPR, eliminando a necessidade de registrar seus métodos de autenticação para estas funcionalidades duas vezes.  
 

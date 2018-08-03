@@ -1,6 +1,6 @@
 ---
-title: Utilizar um endereço IP estático com o Balanceador de carga do serviço de Kubernetes do Azure (AKS)
-description: Utilize um endereço IP estático com o Balanceador de carga do serviço de Kubernetes do Azure (AKS).
+title: Utilizar um endereço IP estático com o Balanceador de carga do Azure Kubernetes Service (AKS)
+description: Utilize um endereço IP estático com o Balanceador de carga do Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: af1dffd681eaf7b2eb90ab4657cc25f2144a48d9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100594"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423628"
 ---
-# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilizar um endereço IP estático com o Balanceador de carga do serviço de Kubernetes do Azure (AKS)
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilizar um endereço IP estático com o Balanceador de carga do Azure Kubernetes Service (AKS)
 
-Em alguns casos, tal como quando o serviço de Kubernetes do Azure (AKS) carregar balanceador é recriado ou Kubernetes serviços com um tipo de LoadBalancer são recriados, pode alterar o endereço IP público do serviço Kubernetes. Este configurar um endereço IP estático para os serviços de Kubernetes detalhes de documento.
+Em alguns casos, como quando carregar o Azure Kubernetes Service (AKS) é recriado balanceador ou serviços do Kubernetes com um tipo de LoadBalancer são recriados, pode alterar o endereço IP público do serviço de Kubernetes. Esse detalhes do documento configurar um endereço IP estático para os seus serviços do Kubernetes.
 
 ## <a name="create-static-ip-address"></a>Criar endereço IP estático
 
-Crie um endereço IP público estático para o serviço de Kubernetes. O endereço IP tem de ser criados no AKS **nó** grupo de recursos. Obter o nome do grupo de recursos com o [mostrar de recurso az] [ az-resource-show] comando.
+Crie um endereço IP público estático para o serviço de Kubernetes. O endereço IP tem de ser criado do AKS **nó** grupo de recursos. Obtenha o nome do grupo de recursos com o [show de recursos de az] [ az-resource-show] comando.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -30,7 +30,7 @@ $ az resource show --resource-group myResourceGroup --name myAKSCluster --resour
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Utilize o [ip público de rede az criar] [ az-network-public-ip-create] comando para criar o endereço IP.
+Utilize o [criar ip público de rede de az] [ az-network-public-ip-create] comando para criar o endereço IP.
 
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
@@ -64,7 +64,7 @@ Tome nota do endereço IP.
   }
 ````
 
- Se for necessário, o endereço pode ser obtido utilizando o [lista de ip público de rede az] [ az-network-public-ip-list] comando.
+ Se for necessário, o endereço pode ser obtido com o [lista de public-ip de rede de az] [ az-network-public-ip-list] comando.
 
 ```azurecli-interactive
 az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
@@ -76,7 +76,7 @@ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastu
 
 ## <a name="create-service-with-ip-address"></a>Criar serviço com o endereço IP
 
-Assim que tiver sido aprovisionado o endereço IP estático, um serviço Kubernetes pode ser criado com o `loadBalancerIP` propriedade e um valor do endereço IP estático.
+Após ter sido aprovisionado o endereço IP estático, pode ser criado um serviço de Kubernetes com o `loadBalancerIP` propriedade e um valor do endereço IP estático.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ spec:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se o endereço IP estático não foi criado ou foi criado no grupo de recursos incorreto, a criação do serviço falha. Para resolver problemas, devolver eventos de criação de serviço com o [kubectl descrevem] [ kubectl-describe] comando.
+Se o endereço IP estático não tiver sido criado, ou foi criado no grupo de recursos errado, Falha ao criar o serviço. Para resolver problemas, retornar a eventos de criação de serviço com o [kubectl descrevem] [ kubectl-describe] comando.
 
 ```azurecli-interactive
 kubectl describe service azure-vote-front
@@ -127,6 +127,6 @@ Events:
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-resource-show]: /cli/azure/resource#az-resource-show

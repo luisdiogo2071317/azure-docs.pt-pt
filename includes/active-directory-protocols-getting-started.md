@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: cb31bb91c80e4d5dd032b009b40d8e3fc435e0c8
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 5a4f08718175dd7ef369d801807e6c8e1ff28fd9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359464"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39485670"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registar a aplicação com o inquilino do AD
 Em primeiro lugar, terá de registar a sua aplicação com o seu inquilino do Azure Active Directory (Azure AD). Esta ação dar-lhe-á um ID de Aplicação para a aplicação e ativá-lo-á para receber tokens.
@@ -28,7 +28,7 @@ Em primeiro lugar, terá de registar a sua aplicação com o seu inquilino do Az
   * Ignore este passo, se tiver apenas um inquilino do Azure AD na sua conta ou se já tiver selecionado o adequado inquilino do Azure AD.
 * No painel de navegação da esquerda, clique em **Azure Active Directory**.
 * Clique em **registos de aplicações** e clique em **novo registo de aplicação**.
-* Siga os avisos e crie uma nova aplicação. Para este tutorial não importa se é uma aplicação Web ou uma aplicação nativa, mas se pretender exemplos específicos de aplicações Web ou aplicações nativas, veja os [inícios rápidos](../articles/active-directory/develop/active-directory-developers-guide.md).
+* Siga os avisos e crie uma nova aplicação. Para este tutorial não importa se é uma aplicação Web ou uma aplicação nativa, mas se pretender exemplos específicos de aplicações Web ou aplicações nativas, veja os [inícios rápidos](../articles/active-directory/develop/azure-ad-developers-guide.md).
   * Para aplicações Web, indique o **URL de início de sessão**, que é o URL de base da sua aplicação, onde os utilizadores podem iniciar sessão, por exemplo `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Para aplicativos nativos fornecem uma **URI de redirecionamento**, que o Azure AD irá utilizar para devolver respostas token. Introduza um valor específico para a aplicação, por exemplo `http://MyFirstAADApp`

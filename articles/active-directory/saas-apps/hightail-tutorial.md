@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Hightail | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Hightail.
+title: 'Tutorial: Integração do Azure Active Directory com Hightail | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,129 +13,129 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1151044d5c1002c808ae1214086aff5fad84a55e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319110"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integração do Azure Active Directory com Hightail
 
-Neste tutorial, irá aprender a integrar Hightail com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar Hightail com o Azure Active Directory (Azure AD).
 
-Integrar Hightail com o Azure AD fornece as seguintes vantagens:
+Integrar Hightail no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Hightail
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Hightail (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Hightail (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Hightail, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Hightail-início de sessão único ativada subscrição
+- Um Hightail logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Hightail a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando Hightail da Galeria
+1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-hightail-from-the-gallery"></a>Adicionar Hightail a partir da Galeria
-Para configurar a integração de Hightail com o Azure AD, terá de adicionar Hightail a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-hightail-from-the-gallery"></a>Adicionando Hightail da Galeria
+Para configurar a integração do Hightail com o Azure AD, terá de adicionar Hightail a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Hightail a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Hightail**.
+1. Na caixa de pesquisa, escreva **Hightail**.
 
     ![Criar um utilizador de teste do Azure AD](./media/hightail-tutorial/tutorial_hightail_search.png)
 
-5. No painel de resultados, selecione **Hightail**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Hightail**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/hightail-tutorial/tutorial_hightail_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com Hightail com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com Hightail com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Hightail é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Hightail tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Hightail a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Hightail deve ser estabelecido.
 
-No Hightail, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Hightail, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com Hightail, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com Hightail, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Hightail](#creating-a-hightail-test-user)**  - para ter um homólogo de Britta Simon Hightail que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Hightail](#creating-a-hightail-test-user)**  - para ter um equivalente da Eduarda Almeida na Hightail que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Hightail.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Hightail.
 
-**Para configurar o Azure AD-início de sessão único com Hightail, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com Hightail, execute os seguintes passos:**
 
-1. No portal do Azure, no **Hightail** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Hightail** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. No **Hightail domínios e URLs** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
+1. Sobre o **Hightail domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-    No **URL de resposta** caixa de texto, escreva o URL como: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    Na **URL de resposta** caixa de texto, escreva o URL como: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE]
-    > O valor de URL de resposta não é o valor real. Atualizar o valor do URL de resposta com o URL de resposta real, que é explicada mais tarde no tutorial.
+    > O valor de URL de resposta não é o valor real. Atualizar o valor de URL de resposta com o URL de resposta real, o que é explicado mais tarde no tutorial.
 
-4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
+1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva o URL como: `https://www.hightail.com/loginSSO`
+    Na **URL de início de sessão** caixa de texto, escreva o URL como: `https://www.hightail.com/loginSSO`
 
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail aplicação espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos do **"Atributo"** separador da aplicação. A seguinte captura de ecrã mostra um exemplo para este. 
+1. Hightail aplicativo espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **". o atributo"** separador do aplicativo. Captura de ecrã seguinte mostra um exemplo disso. 
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
-6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
+1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |
     | FirstName | User.givenName |
-    | Apelido | User.Surname |
+    | LastName | User.Surname |
     | Email | User.Mail |    
     | UserIdentity | User.Mail |
     
@@ -145,128 +145,128 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_officespace_05.png)
 
-    b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha.
 
     d. Deixe o **espaço de nomes** em branco.
 
     e. Clique em **OK**.
 
-7. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_general_400.png)
 
-8. No **Hightail configuração** secção, clique em **configurar Hightail** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+1. Sobre o **Hightail configuração** secção, clique em **configurar Hightail** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
     >[!NOTE]
-    >Antes de configurar o início de sessão único em aplicações Hightail,. em branco lista o domínio de e-mail com Hightail à mesma equipa, para que todos os utilizadores que estão a utilizar este domínio podem utilizar a funcionalidade de início de sessão único.
+    >Antes de configurar o início de sessão único na aplicação Hightail, inicie a lista de permissões da Equipe do seu domínio de e-mail com Hightail para que todos os utilizadores que estão a utilizar este domínio podem utilizar a funcionalidade de início de sessão único.
 
-9. Na outra janela do browser, abra o **Hightail** portal de administração.
+1. Na outra janela do browser, abra a **Hightail** portal de administração.
 
-10. Clique em **ícone utilizador** do canto superior direito da página. 
+1. Clique em **ícone de utilizador** do canto superior direito da página. 
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/configure1.png)
 
-11. Clique em **consola de administração de vista** separador.
+1. Clique em **consola de administração do modo de exibição** separador.
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/configure2.png)
 
-12. No menu na parte superior, clique em de **SAML** separador e execute os seguintes passos:
+1. No menu na parte superior, clique nas **SAML** separador e execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/configure3.png)
 
-    a. No **URL de início de sessão** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML** copiados a partir do portal do Azure.
+    a. Na **URL de início de sessão** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço** copiados a partir do portal do Azure.
 
-    b. Abra o certificado codificado base-64 no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **SAML certificado** caixa de texto.
+    b. Abra o certificado com codificação base 64 no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado SAML** caixa de texto.
 
-    c. Clique em **cópia** para copiar o URL de consumidor SAML para a instância e cole-a no **URL de resposta** textbox em **Hightail domínios e URLs** secção no portal do Azure.
+    c. Clique em **cópia** para copiar o URL de consumidor SAML para a sua instância e cole-o na **URL de resposta** caixa de texto no **Hightail domínio e URLs** secção no portal do Azure.
 
-    d. Clique em **guardar configurações**.
+    d. Clique em **salvar configurações**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/hightail-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/hightail-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/hightail-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/hightail-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-hightail-test-user"></a>Criar um utilizador de teste Hightail
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon Hightail. 
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Hightail. 
 
-Não há nenhum item de ação para si nesta secção. Hightail suporta o aprovisionamento de utilizador de just-in-time com base nas afirmações personalizadas. Se tiver configurado as afirmações personalizadas conforme mostrado na secção **[configurar do Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** superior, um utilizador é criado automaticamente na aplicação que não existe ainda. 
+Não existe nenhum item de ação para nesta secção. Hightail suporta aprovisionamento de utilizadores de just-in-time com base nas afirmações personalizadas. Se tiver configurado as declarações personalizadas, conforme mostrado na secção **[configuração do Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** acima, um utilizador é criado automaticamente na aplicação não ainda existir. 
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Hightail](mailto:support@hightail.com). 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Hightail.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Hightail.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a Hightail, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a Hightail, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Hightail**.
+1. Na lista de aplicações, selecione **Hightail**.
 
     ![Configurar o início de sessão único](./media/hightail-tutorial/tutorial_hightail_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202]
+    ![Atribuir utilizador][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.
+O objetivo desta secção é testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Hightail no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Hightail.
+Quando clica no mosaico Hightail no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Hightail.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

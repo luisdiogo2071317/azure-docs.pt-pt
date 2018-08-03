@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 7f8bedda36e4008bdb9c3aeefc4d5acdf6ba253e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ce74d4263e06c33c9beb66417b5ab8d61b8a259f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042134"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Azure Active Directory com TOPdesk - público
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar TOPdesk - público a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-topdesk---public-from-the-gallery"></a>Adicionar TOPdesk - público a partir da Galeria
 Para configurar a integração do TOPdesk - público para o Azure AD, terá de adicionar TOPdesk - público a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do TOPdesk - público para o Azure AD, terá de a
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **TOPdesk - Public**, selecione **TOPdesk - público** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **TOPdesk - Public**, selecione **TOPdesk - público** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![TOPdesk - público na lista de resultados](./media/topdesk-public-tutorial/tutorial_topdesk-public_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No TOPdesk - públicos, atribuir o valor do **nome de utilizador** no Azure AD c
 Para configurar e testar o Azure AD início de sessão único com TOPdesk - público, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um TOPdesk - utilizador de teste público](#create-a-topdesk---public-test-user)**  - para ter um equivalente da Eduarda Almeida na TOPdesk - público que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um TOPdesk - utilizador de teste público](#create-a-topdesk---public-test-user)**  - para ter um equivalente da Eduarda Almeida na TOPdesk - público que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/topdesk-public-tutorial/tutorial_topdesk-public_samlbase.png)
 
-3. Sobre o **TOPdesk - domínio público e URLs** secção, execute os seguintes passos:
+1. Sobre o **TOPdesk - domínio público e URLs** secção, execute os seguintes passos:
 
     ![Informações de início de sessão de único TOPdesk - domínio público e URLs](./media/topdesk-public-tutorial/tutorial_topdesk-public_url.png)
 
@@ -119,33 +119,33 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. URL de resposta é explaned mais tarde no tutorial. Contacte [TOPdesk - equipa de suporte de cliente público](https://help.topdesk.com/saas/enterprise/user/) obter esses valores.  
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/topdesk-public-tutorial/tutorial_topdesk-public_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/topdesk-public-tutorial/tutorial_general_400.png)
     
-6. Sobre o **TOPdesk - configuração pública** secção, clique em **configurar TOPdesk - público** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **TOPdesk - configuração pública** secção, clique em **configurar TOPdesk - público** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![TOPdesk - configuração pública](./media/topdesk-public-tutorial/tutorial_topdesk-public_configure.png) 
 
-7. Inicie sessão no seu **TOPdesk - público** site da empresa como administrador.
+1. Inicie sessão no seu **TOPdesk - público** site da empresa como administrador.
 
-8. Na **TOPdesk** menu, clique em **definições**.
+1. Na **TOPdesk** menu, clique em **definições**.
    
     ![As definições](./media/topdesk-public-tutorial/ic790598.png "definições")
 
-9. Clique em **definições de início de sessão**.
+1. Clique em **definições de início de sessão**.
    
     ![Definições de início de sessão](./media/topdesk-public-tutorial/ic790599.png "definições de início de sessão")
 
-10. Expanda a **definições de início de sessão** e, em seguida, clique **geral**.
+1. Expanda a **definições de início de sessão** e, em seguida, clique **geral**.
    
     ![Gerais](./media/topdesk-public-tutorial/ic790600.png "geral")
 
-11. Na **pública** secção a **início de sessão SAML** configuração secção, execute os seguintes passos:
+1. Na **pública** secção a **início de sessão SAML** configuração secção, execute os seguintes passos:
    
     ![Definições técnicas](./media/topdesk-public-tutorial/ic790601.png "definições técnicas")
    
@@ -157,7 +157,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
    
     c. Copiar o **AssertionConsumerService** valor, cole este valor na **URL de resposta** caixa de texto no **TOPdesk - domínio público e URLs** secção.      
    
-12. Para criar um ficheiro de certificado, execute os seguintes passos:
+1. Para criar um ficheiro de certificado, execute os seguintes passos:
     
     ![Certificado](./media/topdesk-public-tutorial/ic790606.png "certificado")
     
@@ -169,11 +169,11 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     
     d. Guardar o copiado **X509Certificate** valor localmente no seu computador num arquivo.
 
-13. Na **pública** secção, clique em **Add**.
+1. Na **pública** secção, clique em **Add**.
     
     ![Início de sessão SAML](./media/topdesk-public-tutorial/ic790625.png "início de sessão SAML")
 
-14. Sobre o **Assistente de configuração de SAML** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **Assistente de configuração de SAML** caixa de diálogo página, execute os seguintes passos:
     
     ![Assistente de configuração de SAML](./media/topdesk-public-tutorial/ic790608.png "Assistente de configuração de SAML")
     
@@ -204,15 +204,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/topdesk-public-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/topdesk-public-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/topdesk-public-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/topdesk-public-tutorial/create_aaduser_04.png)
 
@@ -232,11 +232,11 @@ No caso de TOPdesk - públicos, o aprovisionamento é uma tarefa manual.
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o aprovisionamento de utilizadores, execute os seguintes passos:
 1. Inicie sessão no seu **TOPdesk - público** site da empresa como administrador.
 
-2. No menu na parte superior, clique em **TOPdesk \> New \> ficheiros de suporte \> pessoa**.
+1. No menu na parte superior, clique em **TOPdesk \> New \> ficheiros de suporte \> pessoa**.
    
     ![Pessoa](./media/topdesk-public-tutorial/ic790628.png "pessoa")
 
-3. Na caixa de diálogo nova pessoa, execute os seguintes passos:
+1. Na caixa de diálogo nova pessoa, execute os seguintes passos:
    
     ![Nova pessoa](./media/topdesk-public-tutorial/ic790629.png "nova pessoa")
    
@@ -263,23 +263,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **TOPdesk - público**.
+1. Na lista de aplicações, selecione **TOPdesk - público**.
 
     ![TOPdesk - ligação pública na lista de aplicações](./media/topdesk-public-tutorial/tutorial_topdesk-public_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -291,7 +291,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171988"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442773"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V para o Azure
 
@@ -113,7 +113,8 @@ RDM | ND | ND
 Disco > 1 TB | Sim, até 4095 GB | Sim, até 4095 GB
 Disco: setor de lógico e físico de 4K | Não suportado: Ger 1/Gen 2 | Não suportado: Ger 1/Gen 2
 Disco: lógico de 4K e o setor físico de 512 bytes | Sim |  Sim
-Volume com o disco repartido > 1 TB<br/><br/> Gestão de volumes lógicos (LVM) | Sim | Sim
+Gestão de volumes lógicos (LVM). LVM é suportada em discos de dados apenas. O Azure fornece apenas um único disco de SO. | Sim | Sim
+Volume com o disco repartido > 1 TB | Sim | Sim
 Espaços de armazenamento | Sim | Sim
 Disco de acesso frequente Adicionar/remover | Não | Não
 Excluir o disco | Sim | Sim

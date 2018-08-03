@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054884"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430999"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista abrangente de cada documento escrito sobre os vários recursos relacionados com a aplicação no Azure Active Directory (Azure AD).
@@ -143,7 +143,7 @@ Se sua organização está a desenvolver ou a manutenção de linha de negócio 
 
 | Guia do artigo |  |
 |:---:| --- |
-| Orientações para profissionais de TI e desenvolvedores de aplicativos à integração de aplicações com o Azure AD |[O IT Guia do Pro para desenvolver aplicativos para o Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Guia do programador para o Azure Active Directory](active-directory-developers-guide.md) |
+| Orientações para profissionais de TI e desenvolvedores de aplicativos à integração de aplicações com o Azure AD |[O IT Guia do Pro para desenvolver aplicativos para o Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Guia do programador para o Azure Active Directory](develop/azure-ad-developers-guide.md) |
 | Como a aplicação fornecedores podem adicionar as suas aplicações para a Galeria de aplicações do Azure AD |[Listar a sua aplicação na Galeria de aplicações de diretório do Azure Active Directory](active-directory-app-gallery-listing.md) |
 | Como gerir o acesso a aplicativos desenvolvidos com o Azure Active Directory |[Como ativar a atribuição de utilizadores para aplicativos desenvolvidos](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Atribuir utilizadores à sua aplicação](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Atribuição de grupo à sua aplicação](active-directory-applications-guiding-developers-assigning-groups.md) |
 

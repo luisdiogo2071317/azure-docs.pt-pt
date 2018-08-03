@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97b6507cb8c5a66b8b6ccbfccd2c838b4b3fb53a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68d8ba6b08811b96df8b8b2daa074166301ffcd0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053306"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com confluência SAML SSO pela Microsoft
 
@@ -69,7 +69,7 @@ A partir de agora, os seguintes versões do confluência são suportadas:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar confluência SAML SSO pela Microsoft a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-confluence-saml-sso-by-microsoft-from-the-gallery"></a>Adicionar confluência SAML SSO pela Microsoft a partir da Galeria
 Para configurar a integração do confluência SAML SSO pela Microsoft para o Azure AD, terá de adicionar confluência SAML SSO pela Microsoft a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -80,19 +80,19 @@ Para configurar a integração do confluência SAML SSO pela Microsoft para o Az
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **confluência SAML SSO pela Microsoft**.
+1. Na caixa de pesquisa, escreva **confluência SAML SSO pela Microsoft**.
 
     ![Criar um utilizador de teste do Azure AD](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_search.png)
 
-5. No painel de resultados, selecione **confluência SAML SSO pela Microsoft**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **confluência SAML SSO pela Microsoft**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_addfromgallery.png)
 
@@ -104,10 +104,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com confluência SAML SSO pela Microsoft, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um confluência SAML SSO por utilizador de teste da Microsoft](#creating-a-confluence-saml-sso-by-microsoft-test-user)**  - para ter um equivalente da Eduarda Almeida na confluência SAML SSO pela Microsoft que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um confluência SAML SSO por utilizador de teste da Microsoft](#creating-a-confluence-saml-sso-by-microsoft-test-user)**  - para ter um equivalente da Eduarda Almeida na confluência SAML SSO pela Microsoft que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -119,11 +119,11 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_samlbase.png)
 
-3. Sobre o **confluência SAML SSO pelo Microsoft Domain e URLs** secção, execute os seguintes passos:
+1. Sobre o **confluência SAML SSO pelo Microsoft Domain e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_url.png)
 
@@ -136,29 +136,29 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. A porta é opcional, caso seja um URL com nome. Estes valores são recebidos durante a configuração de confluência Plug-in do, que é explicado mais tarde no tutorial.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
     
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
      
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/tutorial_general_400.png)
 
-6. Numa janela do browser web diferente, inicie sessão na sua instância de confluência como administrador.
+1. Numa janela do browser web diferente, inicie sessão na sua instância de confluência como administrador.
 
-7. Paire o rato sobre o ícone de roda dentada e clique nas **suplementos**.
+1. Paire o rato sobre o ícone de roda dentada e clique nas **suplementos**.
     
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon1.png)
 
-8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando **carregar o suplemento** menu. A transferência de plug-in é coberta [contrato de serviço do Microsoft](https://www.microsoft.com/en-us/servicesagreement/). 
     
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon12.png)
 
-9. Assim que o plug-in estiver instalado, ele aparece na **utilizador instalado** secção de suplementos do **suplemento gerir** secção. Clique em **configurar** para configurar o plug-in de novo.
+1. Assim que o plug-in estiver instalado, ele aparece na **utilizador instalado** secção de suplementos do **suplemento gerir** secção. Clique em **configurar** para configurar o plug-in de novo.
     
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon13.png)
 
-10. Execute os seguintes passos na página de configuração:
+1. Execute os seguintes passos na página de configuração:
 
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon52.png)
 
@@ -200,15 +200,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/confluencemicrosoft-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/confluencemicrosoft-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/confluencemicrosoft-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/confluencemicrosoft-tutorial/create_aaduser_04.png) 
 
@@ -228,11 +228,11 @@ Para ativar a utilizadores do Azure AD iniciar sessão no servidor no local de c
 
 1. Inicie sessão no seu servidor no local de confluência como administrador.
 
-2. Paire o rato sobre o ícone de roda dentada e clique nas **gestão de utilizadores**.
+1. Paire o rato sobre o ícone de roda dentada e clique nas **gestão de utilizadores**.
 
     ![Adicionar o funcionário](./media/confluencemicrosoft-tutorial/user1.png) 
 
-3. Na secção utilizadores, clique em **adicionar utilizadores** separador. Sobre o **adicionar um utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Na secção utilizadores, clique em **adicionar utilizadores** separador. Sobre o **adicionar um utilizador** caixa de diálogo página, execute os seguintes passos:
 
     ![Adicionar o funcionário](./media/confluencemicrosoft-tutorial/user2.png) 
 
@@ -260,23 +260,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **confluência SAML SSO pela Microsoft**.
+1. Na lista de aplicações, selecione **confluência SAML SSO pela Microsoft**.
 
     ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -288,7 +288,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

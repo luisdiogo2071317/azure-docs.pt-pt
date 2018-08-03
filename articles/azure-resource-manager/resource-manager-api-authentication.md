@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: c76941d366ecd7aa44c8fa64dbe2245103db715b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036851"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425831"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utilize o recurso de API do Gerenciador de autenticação para aceder a subscrições
 ## <a name="introduction"></a>Introdução
@@ -106,7 +106,7 @@ O pedido falha porque o utilizador não iniciou sessão ainda, mas pode recupera
 ## <a name="get-user--app-access-token"></a>Obter utilizador + token de acesso de aplicação
 A aplicação redireciona o utilizador para o Azure AD com um OAuth 2.0 autorizar pedido - autenticar as credenciais do usuário e obter um código de autorização. Seu aplicativo usa o código de autorização para obter um token de acesso para o Resource Manager. O [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) método cria o pedido de autorização.
 
-Este artigo mostra as solicitações da REST API para autenticar o utilizador. Também pode utilizar bibliotecas auxiliares para efetuar a autenticação no seu código. Para obter mais informações sobre estas bibliotecas, consulte [bibliotecas de autenticação do Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Para obter orientações sobre como integrar a gestão de identidades num aplicativo, consulte [Guia do programador do Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Este artigo mostra as solicitações da REST API para autenticar o utilizador. Também pode utilizar bibliotecas auxiliares para efetuar a autenticação no seu código. Para obter mais informações sobre estas bibliotecas, consulte [bibliotecas de autenticação do Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Para obter orientações sobre como integrar a gestão de identidades num aplicativo, consulte [Guia do programador do Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Pedido de autenticação (OAuth 2.0)
 Emita uma abrir ID Connect/OAuth2.0 autorizar pedido para o ponto de final de autorização do Azure AD:

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SD elementos | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e os elementos de SD.
+title: 'Tutorial: Integração do Azure Active Directory com elementos de SD | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e elementos de SD.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,121 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcd4c654c2dc9812fe62dc07d5fb1170ef3fa38
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5c830df47ff212d2f4d93eb48001ce3a3e2207
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221500"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446929"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Azure Active Directory com SD elementos
+# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Azure Active Directory com elementos de SD
 
-Neste tutorial, irá aprender a integrar SD elementos com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o SD elementos com o Azure Active Directory (Azure AD).
 
-Integrar SD elementos com o Azure AD fornece as seguintes vantagens:
+Integrar o SD elementos com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso aos elementos de SD
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada em elementos de SD (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso a elementos de SD
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para elementos de SD (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com elementos SD, terá dos seguintes itens:
+Para configurar a integração do AD do Azure com SD elementos, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um SD elementos-início de sessão único ativada subscrição
+- Um SD elementos logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. A adição de elementos de SD na galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando SD elementos da Galeria
+1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-sd-elements-from-the-gallery"></a>A adição de elementos de SD na galeria do
-Para configurar a integração de SD elementos com o Azure AD, tem de adicionar elementos SD na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-sd-elements-from-the-gallery"></a>Adicionando SD elementos da Galeria
+Para configurar a integração de elementos de SD no Azure AD, terá de adicionar elementos de SD a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar SD elementos a partir da galeria, execute os seguintes passos:**
+**Para adicionar elementos de SD a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **SD elementos**.
+1. Na caixa de pesquisa, escreva **SD elementos**.
 
     ![Criar um utilizador de teste do Azure AD](./media/sd-elements-tutorial/tutorial_sdelements_search.png)
 
-5. No painel de resultados, selecione **SD elementos**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **elementos SD**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/sd-elements-tutorial/tutorial_sdelements_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com elementos SD com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com elementos de SD com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo em elementos de SD é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em elementos de SD tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte em elementos de SD a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado nos elementos SD deve ser estabelecido.
 
-Em elementos de SD, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Elementos de SD, atribua o valor do **nome de utilizador** no Azure AD como o valor da **nome de utilizador** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com elementos SD, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com SD elementos, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste de elementos de SD](#creating-a-sd-elements-test-user)**  - ter um homólogo de Britta Simon em elementos de SD que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de elementos de SD](#creating-a-sd-elements-test-user)**  - para ter um equivalente da Eduarda Almeida em elementos de SD que está ligada à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação de elementos de SD.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de elementos de SD.
 
-**Para configurar o Azure AD-início de sessão único com elementos SD, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com elementos de SD, execute os seguintes passos:**
 
-1. No portal do Azure, no **SD elementos** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **elementos SD** página de integração de aplicativo, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sdelements_samlbase.png)
 
-3. No **SD elementos domínio e os URLs** secção, execute os seguintes passos:
+1. Sobre o **SD elementos de domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sdelements_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de elementos de SD](mailto:support@sdelements.com) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de elementos de SD](mailto:support@sdelements.com) obter esses valores.
 
-4. Aplicação de elementos de SD espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos do **"Atributo de utilizador"** separador da aplicação. A seguinte captura de ecrã mostra um exemplo para este.
+1. Aplicação de elementos de SD espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos a partir do **"Atributo de utilizador"** separador do aplicativo. Captura de ecrã seguinte mostra um exemplo disso.
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sdelements_attribute.png)
 
-5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos: 
+1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos: 
 
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |
     | e-mail |User.Mail |
-    | nome próprio |User.givenName |
+    | FirstName |User.givenName |
     | Apelido |User.Surname |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -137,104 +137,104 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_officespace_05.png)
 
-    b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha.
 
     d. Clique em **OK**.
  
-6. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sdelements_certificate.png) 
 
-7. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_general_400.png)
 
-8. No **SD elementos configuração** secção, clique em **Configurar elementos de SD** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+1. Sobre o **SD elementos de configuração** secção, clique em **Configurar elementos do SD** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sdelements_configure.png)
 
-9. Para obter início de sessão único ativada, contacte o seu [equipa de suporte de elementos de SD](mailto:support@sdelements.com) e forneça-los com o ficheiro de certificado transferido. 
+1. Para obter o início de sessão único ativada, contacte o seu [equipa de suporte de elementos de SD](mailto:support@sdelements.com) e fornecê-los com o ficheiro de certificado transferido. 
 
-10. Numa janela do browser diferente, início de sessão no seu inquilino de elementos de SD como administrador.
+1. Numa janela do browser diferente, início de sessão no seu inquilino de elementos de SD como administrador.
 
-11. No menu na parte superior, clique em **sistema**e, em seguida, **Single Sign-on**. 
+1. No menu na parte superior, clique em **System**e, em seguida **início de sessão único**. 
    
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sd-elements_09.png) 
 
-12. No **as definições de início de sessão único** caixa de diálogo, execute os seguintes passos:
+1. Sobre o **definições de início de sessão único** caixa de diálogo, execute os seguintes passos:
    
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sd-elements_10.png) 
    
-    a. Como **SSO tipo**, selecione **SAML**.
+    a. Como **tipo de SSO**, selecione **SAML**.
    
-    b. No **ID de entidade do fornecedor de identidade** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure. 
+    b. Na **ID de entidade do fornecedor de identidade** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure. 
    
-    c. No **fornecedor único início de sessão no serviço de identidade** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure. 
+    c. Na **fornecedor único início de sessão no serviço de identidade** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure. 
    
     d. Clique em **Guardar**.
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/sd-elements-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/sd-elements-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/sd-elements-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/sd-elements-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-sd-elements-test-user"></a>Criar um utilizador de teste de SD elementos
+### <a name="creating-a-sd-elements-test-user"></a>Criar um utilizador de teste de elementos de SD
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon em elementos de SD. No caso de elementos de SD, criar utilizadores de elementos de SD é uma tarefa manual.
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida em elementos de SD. No caso de elementos de SD, criar utilizadores de elementos de SD é uma tarefa manual.
 
-**Para criar Britta Simon em elementos de SD, execute os seguintes passos:**
+**Para criar a Eduarda Almeida nos elementos SD, execute os seguintes passos:**
 
-1. Numa janela do browser web, início de sessão no site da sua empresa elementos SD como administrador.
+1. Numa janela do browser web, início de sessão no site da sua empresa SD elementos como administrador.
 
-2. No menu na parte superior, clique em **gestão de utilizadores**e, em seguida, **utilizadores**.
+1. No menu na parte superior, clique em **gestão de utilizadores**e, em seguida **utilizadores**.
    
-    ![Criar um utilizador de teste de SD elementos](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Criar um utilizador de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
-3. Clique em **adicionar novo utilizador**.
+1. Clique em **adicionar novo utilizador**.
    
-    ![Criar um utilizador de teste de SD elementos](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Criar um utilizador de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
  
-4. No **adicionar novo utilizador** caixa de diálogo, execute os seguintes passos:
+1. Sobre o **adicionar novo utilizador** caixa de diálogo, execute os seguintes passos:
    
-    ![Criar um utilizador de teste de SD elementos](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
+    ![Criar um utilizador de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. No **correio electrónico** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    a. Na **email** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
    
-    b. No **nome próprio** caixa de texto, introduza o nome de utilizador como **Britta**.
+    b. Na **nome próprio** caixa de texto, introduza o nome de utilizador, como **Eduarda**.
    
-    c. No **Apelido** caixa de texto, introduza o apelido do utilizador, como **Simon**.
+    c. Na **sobrenome** caixa de texto, introduza o apelido do utilizador, como **Simon**.
    
     d. Como **função**, selecione **utilizador**. 
    
@@ -242,44 +242,44 @@ O objetivo desta secção consiste em criar um utilizador chamado Britta Simon e
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso aos elementos de SD.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso aos elementos de SD.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon em elementos de SD, execute os seguintes passos:**
+**Para atribuir Eduarda Almeida aos elementos de SD, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **SD elementos**.
+1. Na lista de aplicações, selecione **SD elementos**.
 
     ![Configurar o início de sessão único](./media/sd-elements-tutorial/tutorial_sdelements_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.
+O objetivo desta secção é testar a configuração do Azure AD única início de sessão com o painel de acesso.
   
-Quando clica no mosaico de elementos de SD no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de elementos de SD.
+Quando clica no mosaico de elementos de SD no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de elementos de SD.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

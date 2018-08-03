@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 9f1db693ac75d7ab4b9776d60f63a0ca7524f760
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050189"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Azure Active Directory com Zoho um
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Zoho um da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-zoho-one-from-the-gallery"></a>Adicionando Zoho um da Galeria
 Para configurar a integração do Zoho um com o Azure AD, terá de adicionar Zoho uma galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do Zoho um com o Azure AD, terá de adicionar Zoh
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Zoho um**, selecione **Zoho uma** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Zoho um**, selecione **Zoho uma** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Zoho um na lista de resultados](./media/zohoone-tutorial/tutorial_zohoone_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com Zoho um, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Zoho uma](#create-a-zoho-one-test-user)**  - para ter um equivalente da Eduarda Almeida na Zoho um que esteja ligado a representação do Azure AD do utilizador.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Zoho uma](#create-a-zoho-one-test-user)**  - para ter um equivalente da Eduarda Almeida na Zoho um que esteja ligado a representação do Azure AD do utilizador.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -100,11 +100,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/zohoone-tutorial/tutorial_zohoone_samlbase.png)
 
-3. Sobre o **Zoho um domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+1. Sobre o **Zoho um domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Zoho um domínio e URLs únicas início de sessão em informações](./media/zohoone-tutorial/tutorial_zohoone_url.png)
 
@@ -116,32 +116,32 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     d. Na **estado de reencaminhamento** caixa de texto, escreva um URL:`https://one.zoho.com`
 
-4. Se desejar configurar a aplicação no **SP** iniciado do modo de executar o passo seguinte:
+1. Se desejar configurar a aplicação no **SP** iniciado do modo de executar o passo seguinte:
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
      
     > [!NOTE] 
     > Precedente **URL de resposta** e **URL de início de sessão** valor não é real. Atualizar o valor com o URL de resposta real e o URL de início de sessão que é explicado mais tarde no tutorial. 
 
-5. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/zohoone-tutorial/tutorial_zohoone_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/zohoone-tutorial/tutorial_general_400.png)
     
-7. Sobre o **Zoho uma configuração** secção, clique em **configurar Zoho uma** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Zoho uma configuração** secção, clique em **configurar Zoho uma** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Zoho uma configuração](./media/zohoone-tutorial/tutorial_zohoone_configure.png) 
 
-8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Zoho um como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Zoho um como administrador.
 
-9. Sobre o **organização** separador, clique em **configuração** sob **autenticação SAML**.
+1. Sobre o **organização** separador, clique em **configuração** sob **autenticação SAML**.
 
     ![Zoho uma organização](./media/zohoone-tutorial/tutorial_zohoone_setup.png)
 
-10. Na página do pop-up, execute os seguintes passos:
+1. Na página do pop-up, execute os seguintes passos:
 
     ![Sig Zoho um](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
@@ -153,15 +153,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     d. Clique em **Guardar**.
 
-11. Depois de guardar a configuração de autenticação SAML, copie os **SAML Identfier** valor e usar esse valor no **URL de resposta** no portal do Azure, em **Zoho um domínio e URLs** secção.
+1. Depois de guardar a configuração de autenticação SAML, copie os **SAML Identfier** valor e usar esse valor no **URL de resposta** no portal do Azure, em **Zoho um domínio e URLs** secção.
 
     ![Zoho um saml](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
-12. Vá para o **domínios** separador e, em seguida, clique em **Adicionar domínio**.
+1. Vá para o **domínios** separador e, em seguida, clique em **Adicionar domínio**.
 
     ![Zoho um domínio](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
-13. Sobre o **Adicionar domínio** página, execute os seguintes passos:
+1. Sobre o **Adicionar domínio** página, execute os seguintes passos:
 
     ![Zoho um Adicionar domínio](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
@@ -184,15 +184,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/zohoone-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/zohoone-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/zohoone-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/zohoone-tutorial/create_aaduser_04.png)
 
@@ -212,11 +212,11 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Zoho um, tem de ser ap
 
 1. Inicie sessão no Zoho um como um administrador de segurança.
 
-2. Sobre o **os utilizadores** separador, clique em **logótipo de utilizador**.
+1. Sobre o **os utilizadores** separador, clique em **logótipo de utilizador**.
 
     ![Zoho um utilizador](./media/zohoone-tutorial/tutorial_zohoone_users.png)
 
-3. Sobre o **adicionar utilizador** página, execute os seguintes passos:
+1. Sobre o **adicionar utilizador** página, execute os seguintes passos:
 
     ![Zoho um adicionar utilizador](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
@@ -241,23 +241,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Zoho um**.
+1. Na lista de aplicações, selecione **Zoho um**.
 
     ![A ligação Zoho um na lista de aplicações](./media/zohoone-tutorial/tutorial_zohoone_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -269,7 +269,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

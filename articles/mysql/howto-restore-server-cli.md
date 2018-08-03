@@ -1,6 +1,6 @@
 ---
 title: Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL
-description: Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL, utilizando a CLI do Azure.
+description: Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL com a CLI do Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -10,61 +10,61 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: f4253d4259d66b0c5746ef61cfc3cf4f4f2caad3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319093"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448916"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL utilizando a CLI do Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL com a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
-Base de dados do Azure para servidores MySQL são cópias de segurança periodicamente para ativar funcionalidades de restauro. Utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto no tempo, num servidor novo.
+Base de dados do Azure para MySQL servidores são uma cópia de segurança periodicamente para ativar funcionalidades de restauro. Ao utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto anterior no tempo, num servidor novo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este guia de procedimentos, tem de:
-- Um [base de dados do Azure para o servidor de MySQL e base de dados](quickstart-create-mysql-server-database-using-azure-cli.md)
+Para concluir este guia de procedimentos, terá de:
+- Um [base de dados do Azure para servidor MySQL e base de dados](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
  
 
 > [!IMPORTANT]
-> Este guia de procedimentos é necessário utilizar a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, a linha de comandos da CLI do Azure, introduza `az --version`. Para instalar ou atualizar, consulte o artigo [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> Este guia de procedimentos é necessário utilizar a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, introduza `az --version`. Para instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="set-backup-configuration"></a>Configuração do conjunto de cópia de segurança
+## <a name="set-backup-configuration"></a>Configuração de conjunto de cópia de segurança
 
-Efetue a escolha entre configurar o servidor para cópias de segurança localmente redundantes ou cópias de segurança georredundante durante a criação do servidor. 
+Fazer a escolha entre configurar seu servidor para cópias de segurança localmente redundantes ou cópias de segurança georredundante durante a criação do servidor. 
 
 > [!NOTE]
-> Depois de criar um servidor, o tipo de redundância de que possui, não pode ser mudado vs georredundante localmente redundantes.
+> Depois de criar um servidor, o tipo de redundância tem, vs geograficamente redundantes localmente redundantes, não pode ser mudado.
 >
 
-Durante a criação de um servidor através de `az mysql server create` comando, o `--geo-redundant-backup` parâmetro decide a opção de redundância de cópia de segurança. Se `Enabled`, são efetuadas cópias de segurança de redundante de georreplicação. Ou, se `Disabled` são efetuadas cópias de segurança localmente redundantes. 
+Durante a criação de um servidor através da `az mysql server create` comando, o `--geo-redundant-backup` parâmetro decide sua opção de redundância da cópia de segurança. Se `Enabled`, as cópias de segurança com redundância geográfica direcionadas. Ou se `Disabled` localmente redundantes backups são feitos. 
 
-O período de retenção de cópias de segurança está definido pelo parâmetro `--backup-retention`. 
+O período de retenção de cópia de segurança é definido pelo parâmetro `--backup-retention`. 
 
-Para obter mais informações sobre como definir estes valores durante a criação, consulte o [base de dados do Azure para o servidor de MySQL início rápido da CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Para obter mais informações sobre como definir esses valores durante a criação, consulte a [base de dados do Azure para o servidor MySQL início rápido da CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-O período de retenção de cópias de segurança de um servidor pode ser alterado da seguinte forma:
+O período de retenção de cópia de segurança de um servidor pode ser alterado da seguinte forma:
 
 ```azurecli-interactive
 az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
-O exemplo anterior é alterado o período de retenção de cópias de segurança de mydemoserver para 10 dias.
+O exemplo anterior altera o período de retenção de cópia de segurança de mydemoserver para 10 dias.
 
-O período de retenção de cópias de segurança é regida pelas até que ponto anterior no tempo que pode ser obtido um restauro de ponto no tempo, uma vez que o se basear em cópias de segurança disponíveis. Restauro de ponto no tempo é ainda mais descrito na secção seguinte.
+O período de retenção de cópia de segurança controla até que ponto no tempo que pode ser obtido um restauro de ponto no tempo, uma vez que é baseado em cópias de segurança disponíveis. Restauro de ponto no tempo é descrito mais detalhadamente na secção seguinte.
 
-## <a name="server-point-in-time-restore"></a>Restauro do ponto no tempo de servidor
-Pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente for deixado como está. Por exemplo, se uma tabela acidentalmente for removida, ao meio-dia hoje em dia, pode restaurar a hora imediatamente antes ao meio-dia. Em seguida, pode obter a tabela em falta e os dados da cópia de restaurada do servidor. 
+## <a name="server-point-in-time-restore"></a>Restauro de ponto no tempo do servidor
+Pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela acidentalmente cair no meio-dia hoje em dia, pode restaurar para o tempo, pouco antes do meio-dia. Em seguida, pode obter a tabela em falta e os dados da cópia restaurada do servidor. 
 
-Para restaurar o servidor, utilizar a CLI do Azure [restauro do servidor az mysql](/cli/azure/mysql/server#az_mysql_server_restore) comando.
+Para restaurar o servidor, utilize a CLI do Azure [restauro do az mysql server](/cli/azure/mysql/server#az-mysql-server-restore) comando.
 
 ### <a name="run-the-restore-command"></a>Execute o comando de restauro
 
-Para restaurar o servidor, na linha de comandos da CLI do Azure, introduza o seguinte comando:
+Para restaurar o servidor, no prompt de comando da CLI do Azure, introduza o seguinte comando:
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
@@ -73,34 +73,34 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 O `az mysql server restore` comando requer os seguintes parâmetros:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos onde o servidor de origem existe.  |
+| resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de origem existe.  |
 | nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
-| restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato ISO8601 de data e hora. Por exemplo, pode utilizar o seus próprios fuso horário local, como `2018-03-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto anterior no tempo para restaurar para. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
 
-Quando restaurar um servidor para um ponto anterior no tempo, é criado um novo servidor. O servidor original e respetivas bases de dados a partir do ponto no tempo especificado são copiados para o novo servidor.
+Quando restaurar um servidor para um ponto anterior no tempo, é criado um novo servidor. O servidor original e respetivas bases de dados a partir do ponto no tempo especificado, são copiados para o novo servidor.
 
-A localização e o preço de camada de valores para o servidor restaurado permanecerem o mesmo que o servidor original. 
+A localização e valores de escalão de preço para o servidor restaurado permanecerem o mesmo que o servidor original. 
 
-Depois de concluir o processo de restauro, localize o novo servidor e certifique-se de que a serem restaurados conforme esperado.
+Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
 
-## <a name="geo-restore"></a>Georreplicação restauro
-Se tiver configurado o servidor para cópias de segurança georredundante, um novo servidor pode ser criado da cópia de segurança de que o servidor existente. Este novo servidor pode ser criado em qualquer região que a base de dados do Azure para MySQL está disponível.  
+## <a name="geo-restore"></a>Restauro geográfico
+Se tiver configurado o seu servidor para cópias de segurança georredundante, um novo servidor de pode ser criado da cópia de segurança desse servidor existente. Este novo servidor de pode ser criado em qualquer região que a base de dados do Azure para MySQL está disponível.  
 
-Para criar um servidor utilizando uma cópia de segurança redundante georreplicação, utilizar a CLI do Azure `az mysql server georestore` comando.
+Para criar um servidor utilizando uma cópia de segurança com redundância geográfica, utilize a CLI do Azure `az mysql server georestore` comando.
 
 > [!NOTE]
-> Quando um servidor é criado pela primeira vez pode não ser imediatamente disponível para o restauro de georreplicação. Poderá demorar algumas horas para os metadados necessários ser preenchido.
+> Quando é criado um servidor pode não estar imediatamente disponível para o restauro geográfico. Poderá demorar algumas horas para os metadados necessários ser preenchido.
 >
 
-A georreplicação restaurar o servidor, na linha de comandos da CLI do Azure, introduza o seguinte comando:
+A geo restaurar o servidor, no prompt de comando da CLI do Azure, introduza o seguinte comando:
 
 ```azurecli-interactive
 az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
 ```
-Este comando cria um novo servidor chamado *mydemoserver georestored* nos EUA leste, que irão pertencer a *myresourcegroup*. É um objetivo geral, o servidor Gen 4 com 8 vCores. O servidor é criado a partir da cópia de segurança georredundante de *mydemoserver*, que também se encontra no grupo de recursos *myresourcegroup*
+Este comando cria um novo servidor chamado *mydemoserver georestored* na região E.U.A. Leste que irão pertencer ao *myresourcegroup*. É para fins gerais, servidor de Gen 4 com 8 vCores. O servidor é criado a partir da cópia de segurança georredundante de *mydemoserver*, que também se encontra no grupo de recursos *myresourcegroup*
 
-Se pretender criar o novo servidor num grupo de recursos diferente do servidor existente, em seguida, no `--source-server` parâmetro seria qualificar o nome do servidor como no exemplo seguinte:
+Se quiser criar o novo servidor no grupo de recursos diferente do servidor existente, em seguida, no `--source-server` parâmetro seria qualificar o nome do servidor como no exemplo seguinte:
 
 ```azurecli-interactive
 az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
@@ -110,17 +110,17 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 O `az mysql server georestore` requies os seguintes parâmetros de comando:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-|resource-group| myResourceGroup | O nome do grupo de recursos novo servidor irão pertencer a.|
+|resource-group| myResourceGroup | O nome do grupo de recursos, o novo servidor irá pertencer a.|
 |nome | mydemoserver-georestored | O nome do novo servidor. |
-|source-server | mydemoserver | O nome do servidor existente cujas cópias de segurança redundante georreplicação são utilizadas. |
+|source-server | mydemoserver | O nome do servidor existente, cujas cópias de segurança com redundância geográfica são utilizadas. |
 |localização | eualeste | A localização do novo servidor. |
-|nome do SKU| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para um objetivo geral, o servidor Gen 4 com 8 vCores.|
+|nome do SKU| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para fins gerais, servidor de Gen 4 com 8 vCores.|
 
 
 >[!Important]
->Ao criar um novo servidor por um restauro georreplicação, herda o mesmo tamanho de armazenamento e o escalão de preço que o servidor de origem. Não não possível alterar estes valores durante a criação. Depois de criar o novo servidor, o tamanho de armazenamento pode ser escalado para cima.
+>Ao criar um novo servidor por um restauro geográfico, ele herda o mesmo tamanho de armazenamento e o escalão de preço que o servidor de origem. Não não possível alterar estes valores durante a criação. Depois de criar o novo servidor, o tamanho de armazenamento pode ser aumentado.
 
-Depois de concluir o processo de restauro, localize o novo servidor e certifique-se de que a serem restaurados conforme esperado.
+Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).

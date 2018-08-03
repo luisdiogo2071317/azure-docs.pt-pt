@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 05ec113db5fbdc0f2ea7d1f176c9be654f53a946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8aef1edf4d7a02686db48d3e788e4f9493c398
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053347"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integração do Azure Active Directory com o DocuSign
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando DocuSign da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adicionando DocuSign da Galeria
 Para configurar a integração do DocuSign para o Azure AD, terá de adicionar DocuSign a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração do DocuSign para o Azure AD, terá de adicionar D
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Clique em **nova aplicação** botão na parte superior da caixa de diálogo.
+1. Clique em **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **DocuSign**.
+1. Na caixa de pesquisa, escreva **DocuSign**.
 
     ![Criar um utilizador de teste do Azure AD](./media/docusign-tutorial/tutorial_docusign_search.png)
 
-5. No painel de resultados, selecione **DocuSign**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **DocuSign**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relação de ligação é estabelecida atribuindo o valor do **nome de util
 Para configurar e testar o Azure AD início de sessão único com o DocuSign, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do DocuSign](#creating-a-docusign-test-user)**  - para ter um equivalente da Eduarda Almeida no DocuSign que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do DocuSign](#creating-a-docusign-test-user)**  - para ter um equivalente da Eduarda Almeida no DocuSign que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,40 +104,40 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
 
-3. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base 64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base 64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. Na **configuração do DocuSign** seção do portal do Azure, clique em **configurar DocuSign** para abrir a janela de início de sessão de configurar. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Na **configuração do DocuSign** seção do portal do Azure, clique em **configurar DocuSign** para abrir a janela de início de sessão de configurar. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
     
     ![Configurar o início de sessão único](./media/docusign-tutorial/tutorial_docusign_configure.png)
 
-5. Numa janela do browser web diferente, inicie sessão no seu **portal de administração do DocuSign** como administrador.
+1. Numa janela do browser web diferente, inicie sessão no seu **portal de administração do DocuSign** como administrador.
 
-6. No menu de navegação à esquerda, clique em **domínios**.
+1. No menu de navegação à esquerda, clique em **domínios**.
    
     ![A configurar o início de sessão único][51]
 
-7. No painel da direita, clique em **domínio de afirmação**.
+1. No painel da direita, clique em **domínio de afirmação**.
    
     ![A configurar o início de sessão único][52]
 
-8. Na **um domínio de afirmação** caixa de diálogo, na **nome de domínio** caixa de texto, escreva o seu domínio da empresa e, em seguida, clique em **afirmação**. Certifique-se de que verificar o domínio e o estado estiver ativo.
+1. Na **um domínio de afirmação** caixa de diálogo, na **nome de domínio** caixa de texto, escreva o seu domínio da empresa e, em seguida, clique em **afirmação**. Certifique-se de que verificar o domínio e o estado estiver ativo.
    
     ![A configurar o início de sessão único][53]
 
-9. No menu no lado esquerdo, clique em **fornecedores de identidade**  
+1. No menu no lado esquerdo, clique em **fornecedores de identidade**  
    
     ![A configurar o início de sessão único][54]
-10. No painel da direita, clique em **Add Identity Provider**. 
+1. No painel da direita, clique em **Add Identity Provider**. 
    
     ![A configurar o início de sessão único][55]
 
-11. Sobre o **definições do fornecedor de identidade** página, execute os seguintes passos:
+1. Sobre o **definições do fornecedor de identidade** página, execute os seguintes passos:
    
     ![A configurar o início de sessão único][56]
 
@@ -155,24 +155,24 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     g. Como **pedido de fim de sessão de envio pelo**, selecione **obter**.
 
-12. Na **mapeamento de atributos personalizado** secção, selecione o campo que deseja mapear com afirmações do Azure AD. Neste exemplo, o **emailaddress** mapeada com o valor de afirmação **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. É o nome de afirmação padrão do Azure AD para a afirmação de e-mail. 
+1. Na **mapeamento de atributos personalizado** secção, selecione o campo que deseja mapear com afirmações do Azure AD. Neste exemplo, o **emailaddress** mapeada com o valor de afirmação **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. É o nome de afirmação padrão do Azure AD para a afirmação de e-mail. 
    
     > [!NOTE]
     > Utilizar o adequado **identificador de utilizador** para mapear o utilizador do Azure AD para o mapeamento de utilizador do DocuSign. Selecione o campo apropriadas e introduza o valor apropriado com base nas suas definições de organização.
           
     ![A configurar o início de sessão único][57]
 
-13. Na **certificado do fornecedor de identidade** secção, clique em **Add Certificate**em seguida, carregue o certificado que transferiu a partir do portal do Azure AD.   
+1. Na **certificado do fornecedor de identidade** secção, clique em **Add Certificate**em seguida, carregue o certificado que transferiu a partir do portal do Azure AD.   
    
     ![A configurar o início de sessão único][58]
 
-14. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
-15. Na **fornecedores de identidade** secção, clique em **ações**e, em seguida, clique em **pontos finais**.   
+1. Na **fornecedores de identidade** secção, clique em **ações**e, em seguida, clique em **pontos finais**.   
    
     ![A configurar o início de sessão único][59]
  
-16. Na **ver SAML 2.0 pontos finais** secção na **portal de administração do DocuSign**, execute os seguintes passos:
+1. Na **ver SAML 2.0 pontos finais** secção na **portal de administração do DocuSign**, execute os seguintes passos:
    
     ![A configurar o início de sessão único][60]
    
@@ -184,7 +184,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
       
     c.  Clique em **fechar**
     
-17. No portal do Azure, clique em **guardar**.
+1. No portal do Azure, clique em **guardar**.
     
     ![Configurar o início de sessão único](./media/docusign-tutorial/tutorial_general_400.png)
 
@@ -202,15 +202,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/docusign-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/docusign-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/docusign-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/docusign-tutorial/create_aaduser_04.png) 
 
@@ -238,23 +238,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **DocuSign**.
+1. Na lista de aplicações, selecione **DocuSign**.
 
     ![Configurar o início de sessão único](./media/docusign-tutorial/tutorial_docusign_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -266,7 +266,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o aprovisionamento do utilizador](docusign-provisioning-tutorial.md)
 
 

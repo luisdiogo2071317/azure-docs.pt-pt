@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391491"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441685"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar o serviço de aplicações do Azure com o plug-in do Jenkins 
 
@@ -65,7 +65,7 @@ Para implementar o seu projeto para aplicações Web, pode carregar seus artefac
 Antes de configurar a tarefa no Jenkins, precisará de um plano do serviço de aplicações do Azure e uma aplicação web para executar a aplicação de Java.
 
 
-1. Crie um plano de serviço de aplicações do Azure com o **gratuito** escalão de preço, utilizando o `az appservice plan create` [comando da CLI do Azure](/cli/azure/appservice/plan#az_appservice_plan_create). O plano do serviço de aplicações define os recursos físicos que são utilizados para alojar as suas aplicações. Todas as aplicações que estão atribuídas a um plano do serviço de aplicações partilham estes recursos. Recursos partilhados ajudá-lo a poupar nos custos quando alojar várias aplicações.
+1. Crie um plano de serviço de aplicações do Azure com o **gratuito** escalão de preço, utilizando o `az appservice plan create` [comando da CLI do Azure](/cli/azure/appservice/plan#az-appservice-plan-create). O plano do serviço de aplicações define os recursos físicos que são utilizados para alojar as suas aplicações. Todas as aplicações que estão atribuídas a um plano do serviço de aplicações partilham estes recursos. Recursos partilhados ajudá-lo a poupar nos custos quando alojar várias aplicações.
 2. Crie uma aplicação Web. Pode utilizar o [portal do Azure](/azure/app-service-web/web-sites-configure) ou o seguinte `az` comando da CLI do Azure:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

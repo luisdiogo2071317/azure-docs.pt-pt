@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364381"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433570"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -47,6 +47,8 @@ Os seguintes itens são conhecidos limitações da pré-visualização pública:
 - [As cópias de segurança dos grupos de disponibilidade distribuída](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) têm limitações.
 - Sempre na ativação pós-falha Cluster instâncias do SQL Server (FCIs) não são suportadas.
 - Utilize o portal do Azure para configurar o Azure Backup para proteger bases de dados do SQL Server. O Azure PowerShell, a CLI do Azure e as APIs REST não são atualmente suportadas.
+
+Consulte a [secção de FAQ](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para obter mais detalhes sobre o suporte/não suportadas cenários.
 
 ## <a name="support-for-azure-geos"></a>Suporte para geos do Azure
 

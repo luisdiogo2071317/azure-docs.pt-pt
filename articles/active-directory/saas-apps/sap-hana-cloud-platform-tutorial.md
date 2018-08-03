@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 07b3c32601d90fdeed1c335c0f36a5ccbdbe4f1d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050879"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Active Directory com SAP Cloud Platform
 
@@ -56,7 +56,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando a plataforma de Cloud de SAP da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Adicionando a plataforma de Cloud de SAP da Galeria
 Para configurar a integração da plataforma de Cloud de SAP no Azure AD, terá de adicionar plataforma de Cloud de SAP a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -67,15 +67,15 @@ Para configurar a integração da plataforma de Cloud de SAP no Azure AD, terá 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **SAP Cloud Platform**, selecione **SAP Cloud Platform** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **SAP Cloud Platform**, selecione **SAP Cloud Platform** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Plataforma de Cloud SAP na lista de resultados](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Na plataforma de Cloud do SAP, atribua o valor do **nome de utilizador** no Azur
 Para configurar e testar o Azure AD início de sessão único com o SAP Cloud Platform, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de SAP Cloud Platform](#create-a-sap-cloud-platform-test-user)**  - para ter um equivalente da Eduarda Almeida na plataforma de Cloud de SAP que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de SAP Cloud Platform](#create-a-sap-cloud-platform-test-user)**  - para ter um equivalente da Eduarda Almeida na plataforma de Cloud de SAP que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -105,11 +105,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
 
-3. Sobre o **SAP Cloud Platform domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **SAP Cloud Platform domínio e URLs** secção, execute os seguintes passos:
 
     ![Domínio de plataforma de Cloud do SAP e URLs únicas início de sessão em informações](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
@@ -149,21 +149,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente de plataforma de Cloud de SAP](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) para obter o URL de início de sessão e o identificador. URL de resposta, pode obter da secção de gestão de fidedignidade que é explicada mais tarde no tutorial.
     > 
      
-4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. Numa janela do browser web diferente, inicie sessão cabine de plataforma de Cloud de SAP em `https://account.<landscape host>.ondemand.com/cockpit`(por exemplo: https://account.hanatrial.ondemand.com/cockpit).
+1. Numa janela do browser web diferente, inicie sessão cabine de plataforma de Cloud de SAP em `https://account.<landscape host>.ondemand.com/cockpit`(por exemplo: https://account.hanatrial.ondemand.com/cockpit).
 
-7. Clique nas **confiar** separador.
+1. Clique nas **confiar** separador.
    
     ![Confiar](./media/sap-hana-cloud-platform-tutorial/ic790800.png "confiar")
 
-8. Na secção Gestão confiar, sob **fornecedor de serviços locais**, execute os seguintes passos:
+1. Na secção Gestão confiar, sob **fornecedor de serviços locais**, execute os seguintes passos:
 
     ![Gestão de confiança](./media/sap-hana-cloud-platform-tutorial/ic793931.png "confiar gestão")
    
@@ -181,7 +181,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     g. Clique em **Guardar**.
 
-9. Depois de guardar o **fornecedor de serviços locais** definições, efetue o seguinte para obter o URL de resposta:
+1. Depois de guardar o **fornecedor de serviços locais** definições, efetue o seguinte para obter o URL de resposta:
    
     ![Obter metadados](./media/sap-hana-cloud-platform-tutorial/ic793930.png "obter metadados")
 
@@ -191,7 +191,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
  
     c. Copie o valor do **localização** atributo e, em seguida, cole-o para o **URL de resposta** campo na configuração do AD do Azure para SAP Cloud Platform.
 
-10. Clique nas **fornecedor de identidade fidedignos** separador e, em seguida, clique em **Adicionar fornecedor de identidade fidedignos**.
+1. Clique nas **fornecedor de identidade fidedignos** separador e, em seguida, clique em **Adicionar fornecedor de identidade fidedignos**.
    
     ![Gestão de confiança](./media/sap-hana-cloud-platform-tutorial/ic790802.png "confiar gestão")
    
@@ -200,7 +200,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > 
     > 
 
-11. Clique nas **gerais** separador e, em seguida, clique em **procurar** para carregar o ficheiro de metadados baixado.
+1. Clique nas **gerais** separador e, em seguida, clique em **procurar** para carregar o ficheiro de metadados baixado.
     
     ![Gestão de confiança](./media/sap-hana-cloud-platform-tutorial/ic793932.png "confiar gestão")
     
@@ -208,9 +208,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     >Depois de carregar o ficheiro de metadados, os valores para **URL de início de sessão único**, **URL de fim de sessão único**, e **certificado de assinatura** são preenchidos automaticamente.
     > 
      
-12. Clique no separador **Atributos**.
+1. Clique no separador **Atributos**.
 
-13. Sobre o **atributos** separador, executar o passo seguinte:
+1. Sobre o **atributos** separador, executar o passo seguinte:
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "atributos") 
 
@@ -256,15 +256,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/sap-hana-cloud-platform-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
 
@@ -284,7 +284,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão na plataforma Cloud d
 
 1. Inicie sessão no seu **SAP Cloud Platform** cockpit.
 
-2. Execute o seguinte:
+1. Execute o seguinte:
    
     ![As autorizações](./media/sap-hana-cloud-platform-tutorial/ic790805.png "autorizações")
    
@@ -310,23 +310,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **SAP Cloud Platform**.
+1. Na lista de aplicações, selecione **SAP Cloud Platform**.
 
     ![A ligação de SAP Cloud Platform na lista de aplicações](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -338,7 +338,7 @@ Quando clica no mosaico de SAP Cloud Platform no painel de acesso, deve obter au
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

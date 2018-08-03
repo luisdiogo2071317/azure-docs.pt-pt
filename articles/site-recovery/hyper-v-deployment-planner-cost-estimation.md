@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917477"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428535"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
 
@@ -105,7 +105,7 @@ Para adicionar VMs manualmente:
 
 1. Selecione **Inserir linha** para inserir uma nova linha entre as linhas **Início** e **Fim**.
 
-2. Preencha as seguintes colunas com base no tamanho aproximado da VM e no número de VMs que correspondem a esta configuração: 
+1. Preencha as seguintes colunas com base no tamanho aproximado da VM e no número de VMs que correspondem a esta configuração: 
 
     a. **Número de VMs**
 
@@ -125,9 +125,9 @@ Para adicionar VMs manualmente:
 
     i. **Benefício Híbrido do Azure**
 
-3. Pode aplicar o mesmo valor a todas as VMs na tabela ao selecionar **Aplicar a todos** para **Número de Explorações de DR num ano**, **Duração de cada Exploração de DR (Dias)**, **Redundância de dados** e **Benefício Híbrido do Azure**.
+1. Pode aplicar o mesmo valor a todas as VMs na tabela ao selecionar **Aplicar a todos** para **Número de Explorações de DR num ano**, **Duração de cada Exploração de DR (Dias)**, **Redundância de dados** e **Benefício Híbrido do Azure**.
 
-4. Selecione **Voltar a calcular o custo** para atualizar o custo.
+1. Selecione **Voltar a calcular o custo** para atualizar o custo.
 
 **VM Name (Nome da VM)**: o nome da VM.
 

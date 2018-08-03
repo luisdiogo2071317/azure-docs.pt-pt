@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Reward Gateway | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Reward Gateway.
+title: 'Tutorial: Integração do Azure Active Directory com o Gateway de recompensa | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Gateway de recompensa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: aefbdfff59f295f0a21c98671ce0c23a7006a91c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229676"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442800"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com Reward Gateway
+# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com o Gateway de recompensa
 
-Neste tutorial, irá aprender a integrar Reward Gateway com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o Gateway de recompensa com o Azure Active Directory (Azure AD).
 
-Integrar Reward Gateway com o Azure AD fornece as seguintes vantagens:
+Integrar o Gateway de recompensa no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Reward Gateway
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada ao Gateway Reward (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao Gateway de recompensa
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o Gateway de recompensa (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Reward Gateway, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o Gateway de recompensa, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Gateway de Reward-início de sessão único ativada subscrição
+- Um Gateway de recompensa logon único habilitado subscrição
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Gateway de Reward a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionar o Gateway de recompensa a partir da Galeria
+1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-reward-gateway-from-the-gallery"></a>Adicionar Gateway de Reward a partir da Galeria
-Para configurar a integração do Reward Gateway com o Azure AD, tem de adicionar Reward Gateway na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-reward-gateway-from-the-gallery"></a>Adicionar o Gateway de recompensa a partir da Galeria
+Para configurar a integração do Gateway de recompensa com o Azure AD, terá de adicionar o Gateway de recompensa a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Reward Gateway a partir da galeria, execute os seguintes passos:**
+**Para adicionar o Gateway de recompensa da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Reward Gateway**.
+1. Na caixa de pesquisa, escreva **Gateway de recompensa**.
 
     ![Criar um utilizador de teste do Azure AD](./media/reward-gateway-tutorial/tutorial_rewardgateway_search.png)
 
-5. No painel de resultados, selecione **Reward Gateway**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Gateway de recompensa**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/reward-gateway-tutorial/tutorial_rewardgateway_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com o Gateway de Reward com base num utilizador de teste chamado "Britta Simon".
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com o Gateway de recompensa com base num utilizador de teste chamado "Eduarda Almeida".
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Reward Gateway é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Reward Gateway tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Gateway de recompensa a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Gateway de recompensa deve ser estabelecido.
 
-No Reward Gateway, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+No Gateway de recompensa, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com Reward Gateway, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o Gateway de recompensa, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste do Reward Gateway](#creating-a-reward-gateway-test-user)**  - para ter um homólogo de Britta Simon Reward Gateway que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do Gateway de recompensa](#creating-a-reward-gateway-test-user)**  - para ter um equivalente da Eduarda Almeida no Gateway de recompensa que está ligada à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Reward Gateway.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação de Gateway de recompensa.
 
-**Para configurar o Azure AD-início de sessão único com Reward Gateway, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o Gateway de recompensa, execute os seguintes passos:**
 
-1. No portal do Azure, no **Reward Gateway** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Gateway de recompensa** página de integração de aplicativo, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/reward-gateway-tutorial/tutorial_rewardgateway_samlbase.png)
 
-3. No **Reward domínio de Gateway e URLs** secção, execute os seguintes passos:
+1. Sobre o **URLs de domínio de Gateway de recompensa e** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -120,7 +120,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://<companyname>.rewardgateway.co.nz/` |
     | `https://<companyname>.rewardgateway.com.au/` |
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -129,97 +129,97 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Para obter estes valores começar a configurar uma integração no Portal do Gestor de Reward. Podem ser encontrados detalhes no http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Para obter estes valores começar a configurar uma integração no Portal do Gestor de recompensa. Podem encontrar detalhes na http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/reward-gateway-tutorial/tutorial_rewardgateway_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único em **Reward Gateway** lado, a começar a configurar uma integração no Portal do Gestor de Reward. Utilize os metadados transferido para obter o certificado de assinatura e carregar que durante a configuração. Podem ser encontrados detalhes no http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Para configurar o início de sessão único num **Gateway de recompensa** lado, a começar a configurar uma integração no Portal do Gestor de recompensa. Utilize os metadados baixado para obter o seu certificado de assinatura e carregar que durante a configuração. Podem encontrar detalhes na http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/reward-gateway-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/reward-gateway-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/reward-gateway-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/reward-gateway-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-reward-gateway-test-user"></a>Criar um utilizador de teste Reward Gateway
+### <a name="creating-a-reward-gateway-test-user"></a>Criar um utilizador de teste do Gateway de recompensa
 
-Nesta secção, vai criar um utilizador chamado Britta Simon no Reward Gateway. Trabalhar com o Gateway de Reward [suporta equipa](mailto:clientsupport@rewardgateway.com) para adicionar os utilizadores na plataforma Reward Gateway.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Gateway de recompensa. Trabalhar com o Gateway de recompensa [equipa de suporte](mailto:clientsupport@rewardgateway.com) para adicionar os utilizadores da plataforma de recompensa Gateway.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso ao Reward Gateway.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao Gateway de recompensa.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon ao Reward Gateway, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a recompensa Gateway, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Reward Gateway**.
+1. Na lista de aplicações, selecione **Gateway de recompensa**.
 
     ![Configurar o início de sessão único](./media/reward-gateway-tutorial/tutorial_rewardgateway_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Reward Gateway no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Reward Gateway.
+Quando clica no mosaico de recompensa Gateway no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de Gateway de recompensa.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

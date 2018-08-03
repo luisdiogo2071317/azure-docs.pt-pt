@@ -3,71 +3,142 @@ title: Monitorizar a identidade e o acesso no Centro de Segurança do Azure | Mi
 description: Saiba como utilizar a capacidade de identidade e acesso no Centro de Segurança do Azure para monitorizar a atividade de acesso dos seus utilizadores e os problemas relacionados com identidades.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 5ee263ef8fb0f20049215eda53e0d58a45342b7e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/14/2018
+ms.author: terrylan
+ms.openlocfilehash: b2243b10c20a0c8ed0faccbcc82e24193bd4adac
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774833"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39460269"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center"></a>Monitorizar a identidade e o acesso no Centro de Segurança do Azure
+# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
 
-## <a name="why-monitor-identity-and-access"></a>Porquê monitorizar a identidade e o acesso?
-A identidade deve ser o plano de controlo da sua empresa e proteger a sua identidade deve ser a sua prioridade. No passado, existiram perímetros em torno de organizações e esses perímetros foram um dos principais limites de defesa. Hoje em dia, com mais dados e mais aplicações a mudarem para a cloud, a identidade torna-se no novo perímetro.
+> [!NOTE]
+> Monitorizar a identidade e acesso está em pré-visualização e disponível apenas no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+>
+>
 
-Através da monitorização das atividades de identidade, poderá levar a cabo ações proativas antes da ocorrência de um incidente ou ações reativas para parar uma tentativa de ataque. O dashboard Identidade e Acesso apresenta uma descrição geral do seu estado de identidade, incluindo:
+A identidade deve ser o plano de controlo da sua empresa e proteger a sua identidade deve ser a sua prioridade. O perímetro de segurança deixou de ser um perímetro de rede para um perímetro de identidade. A segurança se torna menos sobre defesa de rede e mais informações sobre a Defender seus dados, bem como gerir a segurança das suas aplicações e os utilizadores. Hoje em dia, com mais dados e mais aplicações a mudarem para a cloud, a identidade torna-se no novo perímetro.
 
-* Número de tentativas falhadas de início de sessão. 
-* As contas dos utilizadores que foram utilizadas durante essas tentativas.
-* As contas que foram bloqueadas.
-* As contas com palavras-passe alteradas ou repostas. 
-* O número atual de contas com sessão iniciada.
+Através da monitorização das atividades de identidade, poderá levar a cabo ações proativas antes da ocorrência de um incidente ou ações reativas para parar uma tentativa de ataque. O dashboard de identidade e acesso fornece recomendações, tais como:
 
-## <a name="monitor-identity-and-access-activities"></a>Monitorizar atividades de identidade e acesso
-Para ver as atividades atuais relacionadas com identidade e acesso, tem de aceder ao dashboard **Identidade e Acesso**.
+- Ativar a MFA para contas com privilégios na sua subscrição
+- Remover contas externas com permissões de escrita da sua subscrição
+- Remover contas externas com privilégios da sua subscrição
 
-1. Abra o dashboard **Centro de Segurança**.
+> [!NOTE]
+> Se a sua subscrição tiver mais de 250 contas, o Centro de segurança não consegue executar as recomendações de identidade na sua subscrição. Recomendações que são executadas não estão listadas na "avaliações indisponíveis" que é abordada abaixo.
+Centro de segurança não consegue executar as recomendações de identidade em agentes de administrador de um parceiro de fornecedor de soluções Cloud (CSP).
+>
+>
 
-2. No painel do lado esquerdo, em **Prevenção**, selecione **Identidade e Acesso**. Se tiver várias áreas de trabalho, é apresentado o seletor de área de trabalho.
+Ver [recomendações](security-center-identity-access.md#recommendations) para obter uma lista das recomendações de acesso e identidades fornecidas pelo centro de segurança.
 
-    ![Seleção de área de trabalho](./media/security-center-identity-access\security-center-identity-access-fig1.png)
+## <a name="monitoring-security-health"></a>Monitorizar o estado de funcionamento de segurança
+Pode monitorizar o estado de segurança dos seus recursos na **Centro de segurança – descrição geral** dashboard. O **recursos** secção é um indicador de estado de funcionamento que mostra as gravidades para cada tipo de recurso.
 
-    > [!NOTE]
-    > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para a subscrição Standard para utilizar esta funcionalidade. Se a coluna mais à direita mostrar **PRECISA DE ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança. 
-    > 
-3. Se tiver mais do que uma área de trabalho para investigar, pode priorizar a investigação de acordo com a coluna **INÍCIOS DE SESSÃO FALHADOS**. Mostra o número atual de tentativas de início de sessão sem êxito nesta área de trabalho. Selecione a área de trabalho que pretende utilizar e o dashboard **Identidade e Acesso** é apresentado.
+Pode ver uma lista de todos os problemas, selecionando **recomendações**. Sob **recursos**, pode exibir uma lista dos problemas específicos de computação e aplicações, segurança de dados, redes, ou identidade e acesso. Para obter mais informações sobre como aplicar recomendações, veja [implementar recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
 
-    ![Identidade e Acesso](./media/security-center-identity-access\security-center-identity-access-fig2.png)
+Para obter uma lista completa das recomendações de identidades e acessos, consulte [recomendações](security-center-identity-access.md#recommendations).
 
-4. As informações disponíveis neste dashboard podem ajudá-lo a identificar imediatamente uma potencial atividade suspeita. O dashboard está dividido em três áreas principais:
+Para continuar, selecione **identidade e acesso** sob **recursos** ou o menu principal do Centro de segurança.
 
-    a. **Postura de identidade**. Resume as atividades relacionadas com identidades que ocorrem nesta área de trabalho.
+![Dashboard Centro de Segurança][1]
 
-    b. **Inícios de sessão falhados**. Ajuda a identificar rapidamente a causa principal das tentativas de início de sessão falhadas. Mostra uma lista das 10 contas principais que tiveram o maior número de tentativas falhadas de início de sessão.
+## <a name="monitor-identity-and-access"></a>Monitor de identidades e acessos
+Sob **identidade e acesso**, há duas guias:
 
-    c. **Inícios de sessão ao longo do tempo**. Ajuda a identificar rapidamente o número de inícios de sessão ao longo do tempo. Mostra uma lista de tentativas de início de sessão da conta principal do computador.
-    
-Independentemente do mosaico que selecionar, o dashboard que é apresentado baseia-se na consulta de Pesquisa de Registos. A única diferença é o tipo de consulta e o resultado. Pode ainda selecionar um item, como, por exemplo, um computador e ver os dados relevantes. 
+- **Descrição geral**: recomendações identificado pelo centro de segurança.
+- **Subscrições**: lista das suas subscrições e o estado de segurança atual de cada.
 
-## <a name="see-also"></a>Consulte também
-Neste artigo, aprendeu a monitorizar a identidade e o acesso no Centro de Segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
+![Identidade e Acesso][2]
 
+### <a name="overview-section"></a>Seção de visão geral
+Sob **descrição geral**, há uma lista de recomendações. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de subscrições são afetadas por essa recomendação. A terceira coluna mostra a gravidade do problema.
+
+1. Selecione uma recomendação. A recomendação é apresentada a janela e apresenta:
+
+  - Descrição da recomendação
+  - Lista de subscrições de mau e bom estado de funcionamento
+  - Lista de recursos não verificados devido a uma avaliação com falhas ou o recurso está sob a uma subscrição em execução no escalão gratuito e não é avaliada
+
+  ![Janela da recomendação][3]
+
+1. Selecione uma subscrição na lista para obter detalhes adicionais.
+
+### <a name="subscriptions-section"></a>Secção de subscrições
+Sob **subscrições**, há uma lista de subscrições. A primeira coluna apresenta uma lista de subscrições. A segunda coluna mostra o número total de recomendações para cada subscrição. A terceira coluna mostra a gravidade dos problemas.
+
+![Separador da subscrição][4]
+
+1.  Selecione uma subscrição. É aberta uma vista de resumida com três separadores:
+
+  - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
+  - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
+  - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou porque a subscrição tiver mais de 250 contas.
+
+  Sob **recomendações** é uma lista de recomendações para a subscrição selecionada e a gravidade de cada recomendação.
+
+  ![Recomendações para selecionar a subscrição][5]
+
+1. Selecione uma recomendação para obter uma descrição da recomendação, uma lista de subscrições mau e bom estado de funcionamento e uma lista de recursos não verificados.
+
+  ![Descrição da recomendação][6]
+
+  Sob **transmitido avaliações** é uma lista de avaliações aprovadas.  Gravidade dessas avaliações é sempre verde.
+
+  ![Avaliações aprovadas][7]
+
+1. Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação e uma lista das inscrições em bom estado. Há uma guia para subscrições de mau estado de funcionamento que apresenta uma lista de todas as subscrições que falharam.
+
+  ![Avaliações aprovadas][8]
+
+## <a name="recommendations"></a>Recomendações
+Utilize a tabela abaixo como referência para ajudar a compreender as recomendações de identidade e acesso disponíveis e o que cada um deles faz se as aplicar.
+
+| Recomendação | Descrição |
+| --- | --- |
+| Designar mais do que um proprietário na sua subscrição | Recomenda-se de que designar mais do que um proprietário da subscrição para ter a redundância de acesso de administrador. |
+| Designar até 3 proprietários na sua subscrição | Recomenda-se de que designar menos de 3 proprietários de subscrições para reduzir a possibilidade de violação por um proprietário comprometido. |
+| Ativar a MFA para contas com permissões de proprietário na sua subscrição | Recomenda-se que ative o multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de administrador para evitar falhas de segurança de contas ou recursos. |
+| Ativar a MFA para contas com permissões de escrita na sua subscrição | Recomenda-se que ative o multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de escrita para evitar uma violação de contas ou recursos. |
+| Ativar a MFA para contas com permissões de leitura na sua subscrição | Recomenda-se que ative o multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de leitura para evitar uma violação de contas ou recursos. |
+| Remover contas externas com permissões de leitura da sua subscrição | Recomenda-se de que remover contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado. |
+| Remover contas externas com permissões de escrita da sua subscrição | Recomenda-se de que remover contas externas com privilégios de escrita da sua subscrição para impedir o acesso não monitorizado. |
+| Remover contas externas com permissões de proprietário da sua subscrição | Recomenda-se de que remover contas externas com permissões de proprietário da sua subscrição para impedir o acesso não monitorizado. |
+| Remover contas preteridas da subscrição | Recomenda que remova preterido contas das suas subscrições. |
+| Remover contas preteridas com permissões de proprietário da subscrição | Recomenda que remova preterido contas com permissões de proprietário das suas subscrições. |
+
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
+
+- [Proteger as máquinas e aplicações no Centro de segurança do Azure](security-center-virtual-machine-recommendations.md)
+- [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
+- [Proteger os dados no Centro de segurança do Azure e o serviço SQL do Azure](security-center-sql-service-recommendations.md)
+
+Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
-* [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de resolução de problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança. 
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre respostas para as perguntas mais frequentes sobre o Centro de Segurança.
-* [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
 
+
+<!--Image references-->
+[1]: ./media/security-center-identity-access/overview.png
+[2]: ./media/security-center-identity-access/identity-dashboard.png
+[3]: ./media/security-center-identity-access/select-subscription.png
+[4]: ./media/security-center-identity-access/subscriptions.png
+[5]: ./media/security-center-identity-access/recommendations.png
+[6]: ./media/security-center-identity-access/designate.png
+[7]: ./media/security-center-identity-access/passed-assessments.png
+[8]: ./media/security-center-identity-access/remove.png

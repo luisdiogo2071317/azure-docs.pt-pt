@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 7705baa0ba912f24d7859110c75d36703aeb4a77
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041964"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory com Riskware
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Riskware da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-riskware-from-the-gallery"></a>Adicionando Riskware da Galeria
 Para configurar a integração do Riskware com o Azure AD, terá de adicionar Riskware a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do Riskware com o Azure AD, terá de adicionar Ri
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Riskware**, selecione **Riskware** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Riskware**, selecione **Riskware** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Riskware na lista de resultados](./media/riskware-tutorial/tutorial_riskware_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com Riskware, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Riskware](#create-a-riskware-test-user)**  - para ter um equivalente da Eduarda Almeida na Riskware que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Riskware](#create-a-riskware-test-user)**  - para ter um equivalente da Eduarda Almeida na Riskware que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -100,11 +100,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Caixa de diálogo de início de sessão único](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
-3. Sobre o **Riskware domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Riskware domínio e URLs** secção, execute os seguintes passos:
 
     ![Riskware domínio e URLs únicas início de sessão em informações](./media/riskware-tutorial/tutorial_riskware_url.png)
 
@@ -127,29 +127,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > O valor do URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Riskware](mailto:support@pansoftware.com.au) para obter o valor.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/riskware-tutorial/tutorial_riskware_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/riskware-tutorial/tutorial_general_400.png)
 
-6. Sobre o **Riskware configuração** secção, clique em **configurar Riskware** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Riskware configuração** secção, clique em **configurar Riskware** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Riskware como um administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Riskware como um administrador.
 
-8. No canto superior direito, clique em **manutenção** para abrir a página de manutenção.
+1. No canto superior direito, clique em **manutenção** para abrir a página de manutenção.
 
     ![Manter as configurações de Riskware](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
-9. Na página de manutenção, clique em **autenticação**.
+1. Na página de manutenção, clique em **autenticação**.
 
     ![Configuração de Riskware authen](./media/riskware-tutorial/tutorial_riskware_authen.png)
 
-10. Na **configuração da autenticação** página, execute os seguintes passos:
+1. Na **configuração da autenticação** página, execute os seguintes passos:
 
     ![Configuração de Riskware authenconfig](./media/riskware-tutorial/tutorial_riskware_config.png)
 
@@ -194,15 +194,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/riskware-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/riskware-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/riskware-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/riskware-tutorial/create_aaduser_04.png)
 
@@ -222,15 +222,15 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Riskware, tem de ser a
 
 1. Inicie sessão no Riskware como um administrador de segurança.
 
-2. No canto superior direito, clique em **manutenção** para abrir a página de manutenção. 
+1. No canto superior direito, clique em **manutenção** para abrir a página de manutenção. 
 
     ![Configuração de Riskware mantém](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
-3. Na página de manutenção, clique em **pessoas**.
+1. Na página de manutenção, clique em **pessoas**.
 
     ![Pessoas de configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. Selecione **detalhes** separador e execute os seguintes passos:
+1. Selecione **detalhes** separador e execute os seguintes passos:
 
     ![Detalhes de configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
@@ -240,7 +240,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Riskware, tem de ser a
 
     c. Na **Apelido** caixa de texto, introduza o apelido do utilizador, como **Simon**.
 
-5. Sobre o **segurança** separador, execute os seguintes passos:
+1. Sobre o **segurança** separador, execute os seguintes passos:
 
     ![Segurança da configuração de Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -250,7 +250,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Riskware, tem de ser a
 
     c. Na **palavra-passe** caixa de texto, introduza a palavra-passe do utilizador.
 
-6. Sobre o **organização** separador, execute os seguintes passos:
+1. Sobre o **organização** separador, execute os seguintes passos:
 
     ![Configuração de Riskware org](./media/riskware-tutorial/tutorial_riskware_org.png)
 
@@ -260,7 +260,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Riskware, tem de ser a
 
     c. Sob **funcionário** secção, selecione **estado de funcionário** como informais.
 
-7. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -274,23 +274,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Riskware**.
+1. Na lista de aplicações, selecione **Riskware**.
 
     ![A ligação de Riskware na lista de aplicações](./media/riskware-tutorial/tutorial_riskware_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -302,7 +302,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

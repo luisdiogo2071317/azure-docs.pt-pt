@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: fe876db13cc5fb97f827a80a328003a7d2585adc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041995"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory com a área de trabalho pelo Facebook
 
@@ -55,7 +55,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar à área de trabalho pelo Facebook a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Adicionar à área de trabalho pelo Facebook a partir da Galeria
 Para configurar a integração de área de trabalho pelo Facebook com o Azure AD, terá de adicionar à área de trabalho pelo Facebook a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -66,19 +66,19 @@ Para configurar a integração de área de trabalho pelo Facebook com o Azure AD
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **à área de trabalho pelo Facebook**.
+1. Na caixa de pesquisa, escreva **à área de trabalho pelo Facebook**.
 
     ![Criar um utilizador de teste do Azure AD](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
 
-5. No painel de resultados, selecione **à área de trabalho pelo Facebook**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **à área de trabalho pelo Facebook**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Esta relação de ligação é estabelecida atribuindo o valor do **nome de util
 Para configurar e testar o Azure AD início de sessão único à área de trabalho pelo Facebook, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar a frequência de reautenticação](#configuring-reauthentication-frequency)**  - para configurar a área de trabalho para solicitar uma verificação SAML.
-3. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar uma área de trabalho por utilizador de teste do Facebook](#creating-a-workplace-by-facebook-test-user)**  - para ter um equivalente da Eduarda Almeida na área de trabalho pelo Facebook, que está ligado à representação de utilizador do Azure AD.
-5. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-6. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar a frequência de reautenticação](#configuring-reauthentication-frequency)**  - para configurar a área de trabalho para solicitar uma verificação SAML.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar uma área de trabalho por utilizador de teste do Facebook](#creating-a-workplace-by-facebook-test-user)**  - para ter um equivalente da Eduarda Almeida na área de trabalho pelo Facebook, que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -108,11 +108,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. Sobre o **à área de trabalho ao domínio do Facebook e URLs** secção, execute os seguintes passos:
+1. Sobre o **à área de trabalho ao domínio do Facebook e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
@@ -123,45 +123,45 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são o real. Atualize estes valores com o URL de início de sessão e o identificador real. Consulte a página de autenticação do Dashboard à área de trabalho da empresa para os valores corretos para sua Comunidade local de trabalho. 
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/workplacebyfacebook-tutorial/tutorial_general_400.png)
 
-6. Sobre o **à área de trabalho pela configuração do Facebook** secção, clique em **configurar o local de trabalho pelo Facebook** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **à área de trabalho pela configuração do Facebook** secção, clique em **configurar o local de trabalho pelo Facebook** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/workplacebyfacebook-tutorial/config.png) 
 
-7. Numa janela do browser web diferente, início de sessão à sua área de trabalho por site de empresa do Facebook como administrador.
+1. Numa janela do browser web diferente, início de sessão à sua área de trabalho por site de empresa do Facebook como administrador.
   
    > [!NOTE] 
    > Como parte do processo de autenticação SAML, à área de trabalho pode utilizar cadeias de caracteres de consulta de até 2,5 quilobytes de tamanho para passar parâmetros para o Azure AD.
 
-8. Na **Dashboard da empresa**, aceda ao **autenticação** separador.
+1. Na **Dashboard da empresa**, aceda ao **autenticação** separador.
 
-9. Sob **autenticação SAML**, selecione **SSO apenas** na lista pendente.
+1. Sob **autenticação SAML**, selecione **SSO apenas** na lista pendente.
 
-10. Os valores copiados a partir de entrada **à área de trabalho pela configuração do Facebook** seção do portal do Azure nos campos correspondentes:
+1. Os valores copiados a partir de entrada **à área de trabalho pela configuração do Facebook** seção do portal do Azure nos campos correspondentes:
 
     *   Na **URL de SAML** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
     *   Na **caixa de texto do URL de emissor de SAML**, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
     *   Na **redirecionamento de fim de sessão de SAML** (opcional), cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
     *   Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado SAML** caixa de texto.
 
-11. Poderá ter de introduzir o URL de público-alvo, o URL de destinatário, e o ACS (serviço de consumidor de asserção) URL listado sob os **configuração SAML do** secção.
+1. Poderá ter de introduzir o URL de público-alvo, o URL de destinatário, e o ACS (serviço de consumidor de asserção) URL listado sob os **configuração SAML do** secção.
 
-12. Desloque para baixo da seção e clique nas **SSO de teste** botão. O resultado é uma janela de pop-up que aparece com página de início de sessão do Azure AD apresentados. Introduza as credenciais em como normal para autenticar. 
+1. Desloque para baixo da seção e clique nas **SSO de teste** botão. O resultado é uma janela de pop-up que aparece com página de início de sessão do Azure AD apresentados. Introduza as credenciais em como normal para autenticar. 
 
     **Resolução de problemas:** Certifique-se de que está a ser devolvido back do Azure AD é o mesmo que a conta da área de trabalho tiver iniciado sessão com o endereço de e-mail.
 
-13. Quando o teste estiver concluído com êxito, desloque-se para a parte inferior da página e clique nas **guardar** botão.
+1. Quando o teste estiver concluído com êxito, desloque-se para a parte inferior da página e clique nas **guardar** botão.
 
-14. Todos os utilizadores usem à área de trabalho serão agora apresentados com página de início de sessão do Azure AD para autenticação.
+1. Todos os utilizadores usem à área de trabalho serão agora apresentados com página de início de sessão do Azure AD para autenticação.
 
-15. **Redirecionamento de fim de sessão de SAML (opcional)** - 
+1. **Redirecionamento de fim de sessão de SAML (opcional)** - 
 
     Pode optar por configurar, opcionalmente, um Url de fim de sessão SAML, que podem ser usados para apontar para a página de fim de sessão do Azure AD. Quando esta definição está ativada e configurada, o utilizador já não será direcionado para a página de fim de sessão de área de trabalho. Em vez disso, o utilizador será redirecionado para o url que foi adicionado na definição de redirecionamento de fim de sessão de SAML.
 
@@ -186,15 +186,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_04.png) 
 
@@ -227,23 +227,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **à área de trabalho pelo Facebook**.
+1. Na lista de aplicações, selecione **à área de trabalho pelo Facebook**.
 
     ![Configurar o início de sessão único](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -254,7 +254,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o aprovisionamento do utilizador](workplacebyfacebook-provisioning-tutorial.md)
 
 

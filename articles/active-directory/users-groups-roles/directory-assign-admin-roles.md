@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f5d53b75b8cc47fc8405a334ae9af32faa67a439
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399945"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39481058"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
 Utilizar o Azure Active Directory (Azure AD), pode designar administradores separados para servir as funções diferentes. Os administradores podem ser indicados no portal do Azure AD para realizar tarefas como adicionar ou alterar os utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador e gerir nomes de domínio.
 
 ## <a name="details-about-the-global-administrator-role"></a>Detalhes sobre a função de administrador global
+
 O administrador global tenha acesso a todas as funcionalidades administrativas. Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída a função de administrador global do diretório. Apenas os administradores globais podem atribuir outras funções de administrador.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
+
 Para saber como atribuir funções administrativas a um utilizador no Azure Active Directory, veja [atribuir um utilizador a funções de administrador no Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Funções disponíveis
+
 As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador da aplicação](#application-administrator)**: os utilizadores nesta função podem criar e gerir todos os aspetos de aplicações empresariais, registos de aplicação e as definições de proxy da aplicação. Esta função também concede a capacidade de dar consentimento a permissões delegadas e permissões de aplicação, excluindo o Microsoft Graph e o Azure AD Graph. Os membros desta função não são adicionados como proprietários durante a criação de novos registos de aplicação ou aplicações da empresa.
@@ -48,7 +51,7 @@ As seguintes funções de administrador estão disponíveis:
   > [!NOTE]
   > Para implementar a política de acesso condicional do Exchange ActiveSync no Azure, o utilizador também tem de ser um Administrador Global.
   
-* **[Administradores de dispositivos](#device-administrators)**: os utilizadores com esta função tornam-se os administradores do computador local em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivo no Azure Active Directory.
+* **[Administradores de dispositivos](#device-administrators)**: esta função está disponível para atribuição apenas como um administrador local adicional na [definições do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os utilizadores com esta função tornam-se administradores de computadores locais em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory. 
 
 * **[Leitores de diretório](#directory-readers)**: Esta é uma função legada que está a ser atribuída às aplicações que não suportam a [consentimento Framework](../develop/active-directory-integrating-applications.md). Não deve ser atribuído a quaisquer utilizadores.
 
@@ -353,15 +356,13 @@ Pode gerir capacidades de acesso condicional.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Atualize a propriedade ConditionalAccessPolicys.Owners no Azure Active Directory. |
 
 ### <a name="device-administrators"></a>Administradores de Dispositivo
-Os membros desta função são adicionados ao grupo Administradores local em dispositivos associados ao AD Azure.
+
+Os utilizadores com esta função tornam-se administradores de computadores locais em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivo no Azure Active Directory.
 
   > [!NOTE]
   > Esta função herda permissões adicionais do [função de utilizador](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Ações** | **Descrição** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Leitores de Diretório
 Pode ler as informações de diretório básicas. Para conceder acesso a aplicações.

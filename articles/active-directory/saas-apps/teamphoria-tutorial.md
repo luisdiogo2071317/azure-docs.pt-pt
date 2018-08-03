@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 794945caeea113dc6f1cc2ab5e11a76c3e88c83e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041913"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integração do Azure Active Directory com Teamphoria
 
@@ -53,7 +53,7 @@ Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Teamphoria da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-teamphoria-from-the-gallery"></a>Adicionando Teamphoria da Galeria
 Para configurar a integração do Teamphoria com o Azure AD, terá de adicionar Teamphoria a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,19 +64,19 @@ Para configurar a integração do Teamphoria com o Azure AD, terá de adicionar 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Teamphoria**.
+1. Na caixa de pesquisa, escreva **Teamphoria**.
 
     ![Criar um utilizador de teste do Azure AD](./media/teamphoria-tutorial/tutorial_teamphoria_search.png)
 
-5. No painel de resultados, selecione **Teamphoria**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Teamphoria**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/teamphoria-tutorial/tutorial_teamphoria_addfromgallery.png)
 
@@ -88,10 +88,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com Teamphoria, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Teamphoria](#creating-a-teamphoria-test-user)**  - para ter um equivalente da Eduarda Almeida na Teamphoria que está ligado à representação de ela do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Teamphoria](#creating-a-teamphoria-test-user)**  - para ter um equivalente da Eduarda Almeida na Teamphoria que está ligado à representação de ela do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -103,11 +103,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/tutorial_teamphoria_samlbase.png)
 
-3. Sobre o **Teamphoria domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Teamphoria domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/tutorial_teamphoria_url.png)
 
@@ -116,29 +116,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > O valor de URL de início de sessão não é real. Terá de atualizar este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Teamphoria](https://www.teamphoria.com/) para obter o URL de início de sessão.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/tutorial_general_400.png)
 
-6. Sobre o **Teamphoria configuração** secção, clique em **configurar Teamphoria** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Teamphoria configuração** secção, clique em **configurar Teamphoria** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/tutorial_teamphoria_configure.png)
 
-7. Para configurar o início de sessão único num **Teamphoria** lado, início de sessão para a sua aplicação Teamphoria como administrador.
+1. Para configurar o início de sessão único num **Teamphoria** lado, início de sessão para a sua aplicação Teamphoria como administrador.
 
-8. Aceda a **definições de administrador** opção na barra de ferramentas da lado esquerda e, no separador configurar, clique em **início de sessão único** para abrir a janela de configuração de SSO.
+1. Aceda a **definições de administrador** opção na barra de ferramentas da lado esquerda e, no separador configurar, clique em **início de sessão único** para abrir a janela de configuração de SSO.
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/admin_sso_configure.png)
 
-9. Clique em **adicionar novo fornecedor de identidade** opção no canto superior direito para abrir o formulário para adicionar as definições de SSO.
+1. Clique em **adicionar novo fornecedor de identidade** opção no canto superior direito para abrir o formulário para adicionar as definições de SSO.
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
-10. Introduza os detalhes nos campos, conforme descrito abaixo-
+1. Introduza os detalhes nos campos, conforme descrito abaixo-
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
@@ -163,15 +163,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/teamphoria-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     ![Criar um utilizador de teste do Azure AD](./media/teamphoria-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/teamphoria-tutorial/create_aaduser_03.png)
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/teamphoria-tutorial/create_aaduser_04.png) 
 
@@ -191,15 +191,15 @@ Para habilitar logon Teamphoria de utilizadores do Azure AD, tem de ser aprovisi
 
 1. Inicie sessão no site da sua empresa Teamphoria como administrador.
 
-2. Clique em **administrador** definições na barra de ferramentas à esquerda e, no **GERIR** separador clique em **utilizadores** para abrir a página de administração para os utilizadores.
+1. Clique em **administrador** definições na barra de ferramentas à esquerda e, no **GERIR** separador clique em **utilizadores** para abrir a página de administração para os utilizadores.
 
     ![Adicionar o funcionário](./media/teamphoria-tutorial/admin_manage_users.png)
 
-3. Clique nas **MANUAL CONVIDAR** opção.
+1. Clique nas **MANUAL CONVIDAR** opção.
 
     ![Convidar pessoas](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
-4. Nesta página, realize após a ação.
+1. Nesta página, realize após a ação.
     
     ![Convidar pessoas](./media/teamphoria-tutorial/manual_user_invite.png)
 
@@ -223,23 +223,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201]
 
-2. Na lista de aplicações, selecione **Teamphoria**.
+1. Na lista de aplicações, selecione **Teamphoria**.
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/tutorial_teamphoria_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -250,7 +250,7 @@ Se pretender testar as definições de início de sessão únicas, abra o painel
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

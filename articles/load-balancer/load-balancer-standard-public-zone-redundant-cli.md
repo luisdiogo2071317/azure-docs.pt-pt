@@ -1,6 +1,6 @@
 ---
-title: Balanceamento de carga de VMs com redundância de zona utilizando a CLI do Azure | Microsoft Docs
-description: Saiba como criar um padrão de Balanceador de público de carga com zona redundante front-end utilizando a CLI do Azure
+title: Balanceamento de carga de VMs com redundância de zona com a CLI do Azure | Documentos da Microsoft
+description: Saiba como criar um público Balanceador de carga Standard com zona redundante front-end com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: dbefe5324acb699abb0e06b8f3f464a91a6fa2e2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34273971"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431135"
 ---
-#  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balanceamento de carga VMs em todas as zonas de disponibilidade com a CLI do Azure
+#  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balancear carga de VMs em todas as zonas de disponibilidade com a CLI do Azure
 
-Os passos neste artigo através da criação de um público [padrão de Balanceador de carga](https://aka.ms/azureloadbalancerstandard) com um front-end com redundância de zona para alcançar a redundância de zona sem uma dependência de vários registos DNS. Um único endereço IP Front-end é automaticamente com redundância de zona.  Zona redundante front-end a utilizar para o Balanceador de carga, com um único endereço IP agora pode aceder qualquer VM numa rede virtual numa região entre todas as zonas de disponibilidade. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
+Este artigo mostra-se através da criação de um público [Balanceador de carga Standard](https://aka.ms/azureloadbalancerstandard) com um front-end com redundância de zona para obter redundância de zona sem dependência de vários registos DNS. Um único endereço IP de front-end é automaticamente com redundância de zona.  Com um front-end de com redundância de zona para o Balanceador de carga, com um único endereço IP agora pode aceder qualquer VM numa rede virtual numa região que está em todas as zonas de disponibilidade. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 
-Para obter mais informações sobre a utilização de zonas de disponibilidade com o Balanceador de carga padrão, consulte [padrão Balanceador de carga e zonas de disponibilidade](load-balancer-standard-availability-zones.md).
+Para obter mais informações sobre a utilização das Zonas de disponibilidade com o Balanceador de Carga Standard, veja [Balanceador de Carga Standard e Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.17 ou superior.  Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da CLI do Azure versão 2.0.17 ou superior.  Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
-> Suporte para as zonas de disponibilidade está disponível para famílias de tamanho VM, selecionados de recursos do Azure e regiões. Para obter mais informações sobre como começar a utilizar e os recursos do Azure, regiões e famílias de tamanho VM pode tentar zonas de disponibilidade com, consulte [zonas de descrição geral da disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, pode contactar-nos no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abrir um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> Suporte para zonas de disponibilidade está disponível para os recursos do Azure selecionados e regiões e famílias de tamanhos VM. Para obter mais informações sobre como começar a utilizar e quais recursos do Azure, regiões e famílias de tamanhos VM pode experimentar com as zonas de disponibilidade, consulte [descrição geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, pode contactar-nos no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abrir um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte cria um grupo de recursos denominado *myResourceGroupSLB* no *westeurope* localização:
+O exemplo seguinte cria um grupo de recursos chamado *myResourceGroupSLB* no *westeurope* localização:
 
 ```azurecli-interactive
 az group create \
@@ -49,10 +49,10 @@ az group create \
 --location westeurope
 ```
 
-## <a name="create-a-zone-redundant-public-ip-standard"></a>Criar uma zona redundante pública IP padrão
-Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Uma zona com redundância de front-end é servido por todas as zonas de disponibilidade numa região em simultâneo. Criar um zona redundante endereço IP público com [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Quando cria um endereço IP público padrão, é zona redundante por predefinição.
+## <a name="create-a-zone-redundant-public-ip-standard"></a>Criar uma zona Standard público com redundância IP
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Um com redundância de zona front-end é atendido por todas as zonas de disponibilidade numa região ao mesmo tempo. Criar uma zona com redundância de endereço IP pública com [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Quando cria um endereço IP público Standard, é zona redundante por predefinição.
 
-O exemplo seguinte cria um zona redundante endereço IP público com o nome *myPublicIP* no *myResourceGroupLoadBalancer* grupo de recursos.
+O exemplo seguinte cria um zona com redundância de endereço IP público com o nome *myPublicIP* no *myResourceGroupLoadBalancer* grupo de recursos.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -61,7 +61,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Criar o padrão de Balanceador de carga do Azure
+## <a name="create-azure-load-balancer-standard"></a>Criar Standard de Balanceador de carga do Azure
 Esta secção descreve como pode criar e configurar os seguintes componentes do balanceador de carga:
 - Um conjunto de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um conjunto de IPs de back-end no qual o conjunto do front-end envia o tráfego de rede com balanceamento de carga.
@@ -69,7 +69,7 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 - uma regra de balanceador de carga que define como o tráfego é distribuído pelas VMs.
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
-Criar um balanceador de carga Standard com [az rede lb criar](/cli/azure/network/lb#az_network_lb_create). O exemplo seguinte cria um balanceador de carga com o nome *myLoadBalancer* e atribui o *myPublicIP* endereço para a configuração de IP Front-end.
+Crie um balanceador de carga Standard com [az rede lb criar](/cli/azure/network/lb#az-network-lb-create). O exemplo seguinte cria um balanceador de carga com o nome *myLoadBalancer* e atribui a *myPublicIP* endereço para a configuração de IP Front-end.
 
 ```azurecli-interactive
 az network lb create \
@@ -83,7 +83,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>Criar a sonda de estado de funcionamento na porta 80
 
-Uma sonda de estado de funcionamento verifica todas as instâncias de máquina virtual para assegurar que podem enviar o tráfego de rede. A instância da máquina virtual com verificações de sonda com falha é removida do balanceador de carga até ficar novamente online e uma verificação de sonda determinar que está em bom estado. Criar uma sonda do Estado de funcionamento com pesquisa de lb az rede criar para monitorizar o estado de funcionamento das máquinas virtuais. Para criar uma sonda de estado de funcionamento TCP, utilize [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). O exemplo seguinte cria uma sonda de estado de funcionamento com o nome *myHealthProbe*:
+Uma sonda de estado de funcionamento verifica todas as instâncias de máquina virtual para assegurar que podem enviar o tráfego de rede. A instância da máquina virtual com verificações de sonda com falha é removida do balanceador de carga até ficar novamente online e uma verificação de sonda determinar que está em bom estado. Criar uma sonda de estado de funcionamento com a sonda de lb de rede de az criar para monitorizar o estado de funcionamento das máquinas virtuais. Para criar uma sonda de estado de funcionamento TCP, utilize [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). O exemplo seguinte cria uma sonda de estado de funcionamento com o nome *myHealthProbe*:
 
 ```azurecli-interactive
 az network lb probe create \
@@ -95,7 +95,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Criar regra de Balanceador de carga para a porta 80
-Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myLoadBalancerRuleWeb* com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) para escutar a porta 80 no conjunto de front-end *myFrontEndPool* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80.
+Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myLoadBalancerRuleWeb* com [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) para escutar a porta 80 no conjunto de front-end *myFrontEndPool* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -115,7 +115,7 @@ Antes de implementar algumas VMs e testar o balanceador de carga, crie os recurs
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Criar uma rede virtual denominada *myVnet* com uma sub-rede denominada *mySubnet* em myResourceGroup utilizando [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create).
+Criar uma rede virtual denominada *myVnet* com uma sub-rede denominada *mySubnet* no myResourceGroup com [az rede vnet criar](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -128,7 +128,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Criar o grupo de segurança de rede com o nome *myNetworkSecurityGroup* definir ligações de entrada à sua rede virtual com [az rede nsg criar](/cli/azure/network/nsg#az_network_nsg_create).
+Criar grupo de segurança de rede com o nome *myNetworkSecurityGroup* para definir as conexões de entrada à sua rede virtual com [az rede nsg criar](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Criar uma regra de grupo de segurança de rede com o nome *myNetworkSecurityGroupRule* para a porta 80 com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
+Criar uma regra de grupo de segurança de rede com o nome *myNetworkSecurityGroupRule* para a porta 80 com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -153,7 +153,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Criar NICs
-Criar o NICs virtuais três com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create) e associá-las com o endereço IP público e o grupo de segurança de rede. O exemplo seguinte cria seis NICs virtuais. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes). Pode criar NICs virtuais e VMs adicionais em qualquer altura e adicioná-las ao balanceador de carga:
+Criar três NICs virtuais com [nic da rede de az criar](/cli/azure/network/nic#az-network-nic-create) e associá-las com o endereço IP público e o grupo de segurança de rede. O exemplo seguinte cria seis NICs virtuais. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes). Pode criar NICs virtuais e VMs adicionais em qualquer altura e adicioná-las ao balanceador de carga:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -168,7 +168,7 @@ for i in `seq 1 3`; do
 done
 ```
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
-Neste exemplo, crie três máquinas virtuais localizadas na zona 1, de zona 2 e 3 a ser utilizada como servidores de back-end para o Balanceador de carga de zona. Também instalar NGINX nas máquinas virtuais para verificar que o Balanceador de carga foi criado com êxito.
+Neste exemplo, vai criar três máquinas de virtuais localizadas na zona 1, zona 2 e zona 3 para ser utilizada como servidores de back-end do Balanceador de carga. Instale também o NGINX nas máquinas virtuais para verificar se o Balanceador de carga foi criado com êxito.
 
 ### <a name="create-cloud-init-config"></a>Criar configuração de inicialização da cloud
 
@@ -216,10 +216,10 @@ runcmd:
   - nodejs index.js
 ```
 
-### <a name="create-the-zonal-virtual-machines"></a>Criar as máquinas virtuais zonal
-Criar as VMs com [az vm criar](/cli/azure/vm#az_vm_create) na zona 1, de zona 2 e 3 de zona. O exemplo seguinte cria uma VM em cada zona e gera chaves SSH, caso ainda não existam:
+### <a name="create-the-zonal-virtual-machines"></a>Criar as máquinas virtuais zonais
+Criar as VMs com [az vm criar](/cli/azure/vm#az-vm-create) na zona 1, zona 2 e zona 3. O exemplo seguinte cria uma VM em cada zona e gera chaves SSH caso estas ainda não existam:
 
-Criar uma VM em cada zona (zona 1, zone2 e zona 3) da *westeurope* localização.
+Criar uma VM em cada zona (zona 1, zona 2 e zona 3) do *westeurope* localização.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -235,7 +235,7 @@ done
 ```
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-Obter o endereço IP público da utilização de Balanceador de carga [mostrar de ip público de rede az](/cli/azure/network/public-ip#az_network_public_ip_show). 
+Obtenha o endereço IP público da utilização de Balanceador de carga [show de public-ip de rede de az](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \
@@ -248,7 +248,7 @@ Em seguida, pode introduzir o endereço IP público num browser. Não se esqueç
 
 ![Executar aplicação Node.js](./media/load-balancer-standard-public-zone-redundant-cli/running-nodejs-app.png)
 
-Para ver o Balanceador de carga distribuir o tráfego entre VMs em todas as zonas de disponibilidade três executar a sua aplicação, pode parar uma VM numa determinada zona e atualize o browser.
+Para ver o Balanceador de carga a distribuir tráfego pelas VMs em todos os três zonas de disponibilidade com a sua aplicação, pode parar uma VM numa zona específica e atualize o browser.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o [Balanceador de Carga Standard](./load-balancer-standard-overview.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: dfbabdc7d5a02b21103ac709b8dbc89d69cde0e0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9634d8ede40500bf0a92ae07a1a514895d355a31
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054272"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Azure Active Directory com várias contas do Amazon Web Services (AWS)
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Amazon Web Services (AWS) da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionando o Amazon Web Services (AWS) da Galeria
 Para configurar a integração do Amazon Web Services (AWS) para o Azure AD, terá de adicionar Amazon Web Services (AWS) a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,19 +64,19 @@ Para configurar a integração do Amazon Web Services (AWS) para o Azure AD, ter
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Amazon Web Services (AWS)**, selecione **Amazon Web Services (AWS)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Amazon Web Services (AWS)**, selecione **Amazon Web Services (AWS)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
-5. Depois do aplicativo é adicionado, vá para **propriedades** página e copie a **ID de objeto**.
+1. Depois do aplicativo é adicionado, vá para **propriedades** página e copie a **ID de objeto**.
 
     ![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
 
@@ -91,7 +91,7 @@ No Amazon Web Services (AWS), atribuir o valor do **nome de utilizador** no Azur
 Para configurar e testar o Azure AD início de sessão único com o Amazon Web Services (AWS), tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -103,19 +103,19 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
 
-3. Sobre o **Amazon Web Services (AWS) de domínio e URLs** secção, o utilizador não tem de efetuar outros passos de como a aplicação já está pré-integrada com o Azure.
+1. Sobre o **Amazon Web Services (AWS) de domínio e URLs** secção, o utilizador não tem de efetuar outros passos de como a aplicação já está pré-integrada com o Azure.
 
     ![URLs de domínio do Amazon Web Services (AWS) e únicas início de sessão em informações](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-4. O aplicativo de Software do Amazon Web Services (AWS) espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos da "**atributos de utilizador**" secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.
+1. O aplicativo de Software do Amazon Web Services (AWS) espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos da "**atributos de utilizador**" secção na página de integração de aplicações. Captura de ecrã seguinte mostra um exemplo disso.
 
     ![Configurar o início de sessão único atributo](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_attribute.png)    
 
-5. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
     | Nome do Atributo  | Valor do Atributo | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
@@ -139,29 +139,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     d. Clique em **OK**.
 
-6. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-7. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/aws-multi-accounts-tutorial/tutorial_general_400.png)
 
-8. Numa janela do browser diferente, início de sessão no site da sua empresa Amazon Web Services (AWS) como administrador.
+1. Numa janela do browser diferente, início de sessão no site da sua empresa Amazon Web Services (AWS) como administrador.
 
-9. Clique em **AWS Home**.
+1. Clique em **AWS Home**.
    
     ![Configurar a página inicial do início de sessão único][11]
 
-10. Clique em **IAM** (identidade e gestão de acesso). 
+1. Clique em **IAM** (identidade e gestão de acesso). 
    
     ![Configurar a identidade de início de sessão única][12]
 
-11. Clique em **fornecedores de identidade**e, em seguida, clique em **criar fornecedor**. 
+1. Clique em **fornecedores de identidade**e, em seguida, clique em **criar fornecedor**. 
    
     ![Configurar o fornecedor de início de sessão único][13]
 
-12. Sobre o **configurar o fornecedor** caixa de diálogo página, execute os seguintes passos: 
+1. Sobre o **configurar o fornecedor** caixa de diálogo página, execute os seguintes passos: 
    
     ![Configurar o início de sessão único de caixa de diálogo][14]
  
@@ -173,15 +173,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     d. Clique em **passo seguinte**.
 
-13. Sobre o **Certifique-se de informações do fornecedor** página de diálogo, clique em **criar**. 
+1. Sobre o **Certifique-se de informações do fornecedor** página de diálogo, clique em **criar**. 
     
     ![Configurar o início de sessão único verificar][15]
 
-14. Clique em **funções**e, em seguida, clique em **criar função**. 
+1. Clique em **funções**e, em seguida, clique em **criar função**. 
     
     ![Configurar funções de início de sessão únicas][16]
 
-15. Sobre o **criar função** página, execute os seguintes passos:  
+1. Sobre o **criar função** página, execute os seguintes passos:  
     
     ![Configurar a confiança de início de sessão única][19] 
 
@@ -193,11 +193,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
   
     d. Clique em **seguinte: permissões**.
 
-16. Na **políticas de permissões de anexar** caixa de diálogo, clique em **próximo: revisão**.  
+1. Na **políticas de permissões de anexar** caixa de diálogo, clique em **próximo: revisão**.  
     
     ![Configurar a política de início de sessão única][33]
 
-17. Sobre o **revisão** caixa de diálogo, execute os seguintes passos:   
+1. Sobre o **revisão** caixa de diálogo, execute os seguintes passos:   
     
     ![Configurar a revisão de início de sessão único][34] 
 
@@ -209,23 +209,23 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Crie tantas funções conforme necessário e mapeá-los para o fornecedor de identidade.
 
-18. Terminar sessão atual conta AWS e inicie sessão com outra conta em que pretende configurar o início de sessão único com o Azure AD.
+1. Terminar sessão atual conta AWS e inicie sessão com outra conta em que pretende configurar o início de sessão único com o Azure AD.
 
-19. Execute a 9 passo a passo e 17 para criar várias funções que pretende o programa de configuração para esta conta. Se tiver mais de duas contas, execute os mesmos passos para todas as contas criar funções para os mesmos.
+1. Execute a 9 passo a passo e 17 para criar várias funções que pretende o programa de configuração para esta conta. Se tiver mais de duas contas, execute os mesmos passos para todas as contas criar funções para os mesmos.
 
-20. Depois de todas as funções são criadas no contas, elas aparecem a **funções** lista para essas contas.
+1. Depois de todas as funções são criadas no contas, elas aparecem a **funções** lista para essas contas.
 
     ![Configuração de funções](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
 
-21. É necessário capturar todas as funções ARN e entidades fidedignas para todas as funções entre todas as contas, que é necessário mapear manualmente com a aplicação do Azure AD. 
+1. É necessário capturar todas as funções ARN e entidades fidedignas para todas as funções entre todas as contas, que é necessário mapear manualmente com a aplicação do Azure AD. 
 
-22. Clique em funções para copiar **função ARN** e **entidades fidedignas** valores. Vai precisar destes valores para todas as funções que precisa criar no Azure AD.
+1. Clique em funções para copiar **função ARN** e **entidades fidedignas** valores. Vai precisar destes valores para todas as funções que precisa criar no Azure AD.
 
     ![Configuração de funções](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_role_summary.png)
  
-23. Executar o passo anterior para todas as funções em todas as contas e armazenar todos eles no formato **ARN de função, entidades fidedignas** num bloco de notas. 
+1. Executar o passo anterior para todas as funções em todas as contas e armazenar todos eles no formato **ARN de função, entidades fidedignas** num bloco de notas. 
 
-24. Open [do Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) na outra janela.
+1. Open [do Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) na outra janela.
 
     a. Inicie sessão para o site de API do Graph com as credenciais de Administrador Global/Co-administradores para o seu inquilino.
 
@@ -243,7 +243,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
-    Se estiver a utilizar vários diretórios, em seguida, pode utilizar seguindo o padrão, que tem o seu domínio primário no mesmo `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se estiver a utilizar vários diretórios, em seguida, pode utilizar seguindo o padrão, que tem o seu domínio primário no mesmo  `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
     ![Caixa de diálogo Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
     
@@ -307,15 +307,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Caixa de diálogo Graph explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-25. Depois do Principal de serviço for corrigido com mais de funções, pode atribuir utilizadores/grupos para as respetivas funções. Isso pode ser feito ao aceder ao portal e navegar para a aplicação do Amazon Web Services. Clique nas **utilizadores e grupos** separador na parte superior. 
+1. Depois do Principal de serviço for corrigido com mais de funções, pode atribuir utilizadores/grupos para as respetivas funções. Isso pode ser feito ao aceder ao portal e navegar para a aplicação do Amazon Web Services. Clique nas **utilizadores e grupos** separador na parte superior. 
 
-26. Recomendamos que crie novos grupos para cada função do AWS, de modo a que possa atribuir essa função específica desse grupo. Tenha em atenção que se trata de um para um mapeamento para um grupo a uma função. Em seguida, pode adicionar os membros que pertencem a esse grupo.
+1. Recomendamos que crie novos grupos para cada função do AWS, de modo a que possa atribuir essa função específica desse grupo. Tenha em atenção que se trata de um para um mapeamento para um grupo a uma função. Em seguida, pode adicionar os membros que pertencem a esse grupo.
 
-27. Assim que os grupos são criados, selecione o grupo e atribuir à aplicação. 
+1. Assim que os grupos são criados, selecione o grupo e atribuir à aplicação. 
 
     ![Configurar o início de sessão único adicionar](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
-28. Para atribuir a função ao grupo, selecione a função e clique em **atribuir** botão na parte inferior da página.
+1. Para atribuir a função ao grupo, selecione a função e clique em **atribuir** botão na parte inferior da página.
 
     ![Configurar o início de sessão único adicionar](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
@@ -339,7 +339,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

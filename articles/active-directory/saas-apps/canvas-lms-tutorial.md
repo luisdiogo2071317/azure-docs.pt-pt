@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 9811be78bd6260b17c462c077ed299dff8309b83
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: af2c997f0842da751eb93f0788a7402fc7d144ae
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048512"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Tutorial: Integração do Azure Active Directory com LMS baseadas em telas
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando a tela da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-canvas-from-the-gallery"></a>Adicionando a tela da Galeria
 Para configurar a integração da tela com o Azure AD, terá de adicionar baseadas em telas a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração da tela com o Azure AD, terá de adicionar basead
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **tela**.
+1. Na caixa de pesquisa, escreva **tela**.
 
     ![Criar um utilizador de teste do Azure AD](./media/canvas-lms-tutorial/tutorial_canvaslms_search.png)
 
-5. No painel de resultados, selecione **tela**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **tela**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Na tela, atribua o valor do **nome de utilizador** no Azure AD como o valor da *
 Para configurar e testar o Azure AD início de sessão único com o Canvas, precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste baseada em telas](#creating-a-canvas-test-user)**  - para ter um equivalente da Eduarda Almeida na tela que está ligada à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste baseada em telas](#creating-a-canvas-test-user)**  - para ter um equivalente da Eduarda Almeida na tela que está ligada à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,11 +104,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
 
-3. Sobre o **baseadas em telas de domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **baseadas em telas de domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
@@ -119,29 +119,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente baseada em telas](https://community.canvaslms.com/community/help) obter esses valores. 
  
-4. Sobre o **certificado de assinatura SAML** secção, copie a **THUMBPRINT** valor do certificado.
+1. Sobre o **certificado de assinatura SAML** secção, copie a **THUMBPRINT** valor do certificado.
 
     ![Configurar o início de sessão único](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/canvas-lms-tutorial/tutorial_general_400.png)
 
-6. Na **configuração baseada em telas** secção, clique em **configurar tela** para abrir **configurar início de sessão** janela. Cópia a **alterar o URL da palavra-passe, URL de fim de sessão, ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Na **configuração baseada em telas** secção, clique em **configurar tela** para abrir **configurar início de sessão** janela. Cópia a **alterar o URL da palavra-passe, URL de fim de sessão, ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
  
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa tela como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa tela como administrador.
 
-8. Aceda a **cursos \> contas geridas \> Microsoft**.
+1. Aceda a **cursos \> contas geridas \> Microsoft**.
    
     ![Tela](./media/canvas-lms-tutorial/IC775990.png "baseadas em telas")
 
-9. No painel de navegação à esquerda, selecione **autenticação**e, em seguida, clique em **Adicionar nova configuração de SAML**.
+1. No painel de navegação à esquerda, selecione **autenticação**e, em seguida, clique em **Adicionar nova configuração de SAML**.
    
     ![Autenticação](./media/canvas-lms-tutorial/IC775991.png "autenticação")
 
-10. Na página de integração atual, execute os seguintes passos:
+1. Na página de integração atual, execute os seguintes passos:
    
     ![Integração atual](./media/canvas-lms-tutorial/IC775992.png "integração atual")
 
@@ -175,15 +175,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/canvas-lms-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/canvas-lms-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/canvas-lms-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/canvas-lms-tutorial/create_aaduser_04.png) 
 
@@ -205,19 +205,19 @@ Em caso de tela, o aprovisionamento de utilizadores é uma tarefa manual.
 
 1. Inicie sessão no seu **tela** inquilino.
 
-2. Aceda a **cursos \> contas geridas \> Microsoft**.
+1. Aceda a **cursos \> contas geridas \> Microsoft**.
    
    ![Tela](./media/canvas-lms-tutorial/IC775990.png "baseadas em telas")
 
-3. Clique em **Utilizadores**.
+1. Clique em **Utilizadores**.
    
    ![Os utilizadores](./media/canvas-lms-tutorial/IC775995.png "utilizadores")
 
-4. Clique em **adicionar novo utilizador**.
+1. Clique em **adicionar novo utilizador**.
    
    ![Os utilizadores](./media/canvas-lms-tutorial/IC775996.png "utilizadores")
 
-5. Em Adicionar uma página de diálogo do novo utilizador, execute os seguintes passos:
+1. Em Adicionar uma página de diálogo do novo utilizador, execute os seguintes passos:
    
    ![Adicionar utilizador](./media/canvas-lms-tutorial/IC775997.png "adicionar utilizador")
    
@@ -246,23 +246,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **tela**.
+1. Na lista de aplicações, selecione **tela**.
 
     ![Configurar o início de sessão único](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -274,7 +274,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

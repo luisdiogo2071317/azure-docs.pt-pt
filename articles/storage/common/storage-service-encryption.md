@@ -1,6 +1,6 @@
 ---
 title: Encriptação do serviço de armazenamento do Azure para dados Inativos | Documentos da Microsoft
-description: Utilize a funcionalidade de encriptação de serviço de armazenamento do Azure para encriptar o armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados e decifrá-la ao obter os dados.
+description: Utilize a funcionalidade de encriptação de serviço de armazenamento do Azure para encriptar os Managed Disks do Azure, o armazenamento de Blobs do Azure, o ficheiros do Azure, o armazenamento de filas do Azure e o armazenamento de tabelas do Azure no lado do serviço ao armazenar os dados e decifrá-la ao obter os dados.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,26 +8,28 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1a127f7e3dd57376ecd05d4ae7030becb33f1159
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412360"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480310"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do serviço de armazenamento do Azure para dados Inativos
-Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, a plataforma de armazenamento do Azure encripta automaticamente os dados antes de persisti-los para o armazenamento de Blobs do Azure, ficheiros do Azure ou o armazenamento de filas do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos para a plataforma de armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
+Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, a plataforma de armazenamento do Azure encripta automaticamente os dados antes de persisti-los para Managed Disks do Azure, o armazenamento de Blobs do Azure, o ficheiros do Azure ou o armazenamento de filas do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos para a plataforma de armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
 
 Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não terá de modificar as suas aplicações para tirar partido da encriptação do serviço de armazenamento ou de código.
 
 A funcionalidade encripta automaticamente dados em:
 
-- Armazenamento do Azure de BLOBs, ficheiros do Azure, armazenamento de filas do Azure, armazenamento de tabelas do Azure.  
+- Serviços de armazenamento do Azure:
+    - Managed Disks do Azure
+    - Armazenamento de Blobs do Azure
+    - Ficheiros do Azure
+    - Armazenamento de filas do Azure
+    - Armazenamento de tabelas do Azure.  
 - Ambos os escalões de desempenho (Standard e Premium).
 - Ambos os modelos de implementação (Azure Resource Manager e clássica).
-
-> [!Note]  
-> Encriptação do serviço de armazenamento não está disponível para [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). Recomendamos que utilize encriptação no nível do SO, como [do Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer encriptação integrado com o Cofre de chaves.
 
 Encriptação do serviço de armazenamento não afeta o desempenho dos serviços de armazenamento do Azure.
 
@@ -55,13 +57,10 @@ Encriptação está ativada por predefinição e não existe nenhuma provisão p
 Não existe nenhum custo adicional.
 
 **Pode utilizar as minhas chaves de encriptação?**  
-Sim, pode usar suas próprias chaves de encriptação. Para obter mais informações, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Sim, para armazenamento de Blobs do Azure e ficheiros do Azure, pode usar suas próprias chaves de encriptação. Chaves geridas pelo cliente não são atualmente suportadas pelo Azure Managed Disks. Para obter mais informações, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Pode revogar o acesso às chaves de encriptação?**  
 Sim, se [usar suas próprias chaves de encriptação](storage-service-encryption-customer-managed-keys.md) no Azure Key Vault.
-
-**Encriptação do serviço de armazenamento está disponível em Managed Disks do Azure?**  
-Não, a encriptação do serviço de armazenamento não está disponível para [Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md). Recomendamos que utilize encriptação no nível do SO, como [do Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer encriptação integrado com o Cofre de chaves.
 
 **Como é diferente do Azure Disk Encryption Storage Service Encryption?**  
 O Azure Disk Encryption fornece integração entre soluções baseadas no sistema operacional como o BitLocker e o DM-Crypt e o Cofre de chaves do Azure. Encriptação do serviço de armazenamento fornece encriptação nativamente na camada de plataforma de armazenamento do Azure, abaixo da máquina virtual.

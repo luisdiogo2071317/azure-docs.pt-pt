@@ -1,6 +1,6 @@
 ---
 title: Ações de Webhook para alertas de registo nos alertas do Azure
-description: Este artigo descreve como para uma regra de alerta de registo utilizando o registo analytics ou o application insights, transmite dados como HTTP webhook e detalhes sobre as personalizações diferentes possíveis.
+description: Este artigo descreve como para uma regra de alerta de registo com o log analytics ou aplicativo insights, irá enviar dados por push como webhook de HTTP e os detalhes das personalizações diferentes possíveis.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,53 +8,55 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264260"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426698"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
-Quando um [alerta é criado no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configuração utilizar grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e detalhes sobre como configurar o webhook com base em JSON personalizado.
+Quando um [é criado um alerta no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configurar a utilização de grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
 
 
 ## <a name="webhook-actions"></a>Ações de Webhook
 
-As ações de Webhook permitem-lhe invocar um processo externo através de um pedido de HTTP POST único.  O serviço que está a ser chamado deve suportar webhooks e determinar a forma como utiliza qualquer payload recebe.   Exemplos de como utilizar um webhook em resposta a um alerta estão a enviar uma mensagem [Slack](http://slack.com) ou criar um incidente no [PagerDuty](http://pagerduty.com/).  
+Ações de Webhook permitem-lhe invocar um processo externo através de um único pedido de HTTP POST.  O serviço que está a ser chamado deve suportar webhooks e determinar como ele usa qualquer carga que recebe.   Exemplos de como utilizar um webhook em resposta a um alerta estão a enviar uma mensagem [Slack](http://slack.com) ou a criação de um incidente na [PagerDuty](http://pagerduty.com/).  
 
-As ações de Webhook requerem as propriedades na tabela seguinte:
+Ações de Webhook exigem as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | URL de webhook |O URL do webhook. |
-| Payload JSON personalizado |Payload personalizado para enviar com o webhook, quando esta opção é escolhida durante a criação do alerta. Detalhes disponíveis em [gerir alertas através de alertas do Azure ](monitor-alerts-unified-usage.md) |
+| Payload JSON personalizado |Payload personalizado para enviar com o webhook, quando esta opção for escolhida durante a criação do alerta. Detalhes disponíveis em [gerir alertas através de alertas do Azure ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
-> Testar o botão de Webhook juntamente com *incluir payload JSON personalizado do webhook* opção para alerta de registo, irá acionar fictício chamada para testar o URL do webhook. Não contém dados real e representativo do esquema JSON utilizado para os alertas de registo. 
+> Testar Webhook botão juntamente com *incluir payload JSON personalizado para webhook* opção para o registo de alerta, irá disparar a chamada fictícia para testar o URL do webhook. Não contém dados reais e representativo do esquema JSON utilizado para os alertas de registo. 
 
-Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados para o serviço externo.  Por predefinição, o payload inclui os valores na tabela seguinte: pode optar por substituir este payload por um personalizado da sua própria.  Nesse caso pode utilizar as variáveis na tabela para cada um dos parâmetros para incluir o respetivo valor no payload personalizado.
+Webhooks incluem um URL e uma carga formatado em JSON que é os dados enviados para o serviço externo.  Por predefinição, o payload inclui os valores na tabela seguinte: pode optar por substituir este payload com um personalizado seus próprios.  Nesse caso pode utilizar as variáveis na tabela para cada um dos parâmetros para incluir o seu valor no payload personalizado.
 
 
 | Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nome da regra de alerta. |
-| Gravidade |#severity |Gravidade definida para o alerta de registo desencadeou. |
-| AlertThresholdOperator |#thresholdoperator |Operador de limiar para a regra de alerta.  *Maior* ou *menor*. |
+| Gravidade |#severity |Gravidade definida para o alerta de registo de acionamento. |
+| AlertThresholdOperator |#thresholdoperator |Operador de limiar para a regra de alerta.  *Maior* ou *inferior a*. |
 | AlertThresholdValue |#thresholdvalue |Valor de limiar para a regra de alerta. |
-| LinkToSearchResults |#linktosearchresults |Ligue ao portal da análise que devolve os registos da consulta que criou o alerta. |
+| LinkToSearchResults |#linktosearchresults |Ligar ao portal de análise que devolve os registos da consulta que criou o alerta. |
 | O parâmetro ResultCount |#searchresultcount |Número de registos nos resultados da pesquisa. |
-| Hora de fim do intervalo de pesquisa |#searchintervalendtimeutc |Hora de fim da consulta em UTC, formatar - mm/dd/aaaa hh: mm: ss AM/PM. |
+| Hora de fim do intervalo de pesquisa |#searchintervalendtimeutc |Hora para a consulta em UTC, fim format - mm/dd/aaaa hh: mm: ss AM/PM. |
 | Intervalo de pesquisa |#searchinterval |Regra de janela de tempo para o alerta, formato - hh: mm:. |
-| StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em UTC, formatar - mm/dd/aaaa hh: mm: ss AM/PM.. 
+| StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em UTC, format - mm/dd/aaaa hh: mm: ss AM/PM... 
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
-| SearchResults |"IncludeSearchResults": VERDADEIRO|Registos devolvidos pela consulta como uma tabela de JSON, limitado para os primeiro 1000 registos; Se "IncludeSearchResults": true foi adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
-| WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
-| ID da aplicação |#applicationid |ID do Application Insight aplicação. |
-| ID da subscrição |#subscriptionid |ID de subscrição do Azure utilizados com o Application Insights. 
+| SearchResults |"IncludeSearchResults": true|Registos devolvidos pela consulta como uma tabela de JSON, limitada para os primeiros 1000 registos; Se "IncludeSearchResults": true é adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
+| WorkspaceID |#workspaceid |ID da sua área de trabalho do Log Analytics. |
+| ID da aplicação |#applicationid |ID do seu Application Insight aplicação. |
+| ID da subscrição |#subscriptionid |ID da sua subscrição do Azure utilizado com o Application Insights. 
 
+> [!NOTE]
+> LinkToSearchResults passa parâmetros como o tempo de SearchQuery, StartTime de intervalo de pesquisa e final do intervalo de pesquisa no URL do portal do Azure para visualização na secção de análise. Portal do Azure tem um limite de tamanho URI de aprox 2.000 caracteres e será aberto se os valores de parâmetros excederem o limite de disse. Os utilizadores podem introduzir manualmente detalhes para ver os resultados no portal de análise ou utilizar o [API do REST de análise do Application Insights](https://dev.applicationinsights.io/documentation/Using-the-API) ou [API de REST do Log Analytics](https://dev.loganalytics.io/reference) para obter os resultados por meio de programação 
 
-Por exemplo, poderá especificar o payload personalizado seguinte, que inclui um único parâmetro chamado *texto*.  O serviço que chama o webhook seria possível esperar este parâmetro.
+Por exemplo, pode especificar o seguinte o payload personalizado que inclui um único parâmetro chamado *texto*.  O serviço que chama este webhook seria de esperando que este parâmetro.
 
 ```json
 
@@ -62,28 +64,28 @@ Por exemplo, poderá especificar o payload personalizado seguinte, que inclui um
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-Este payload de exemplo seria resolver algo semelhante ao seguinte quando enviados para o webhook.
+Este payload de exemplo deve resolver para algo semelhante ao seguinte quando enviados para o webhook.
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Dado que tem todas as variáveis num webhook personalizado especificado no bastidor JSON como "#searchinterval", o webhook resultante também terão os dados da variável no interior de inclusão, como "00: 05:00".
+Que tenham todas as variáveis num webhook personalizado especificado no bastidor JSON, como "#searchinterval", o webhook resultante também terão os dados da variável dentro de bastidor, como "00: 05:00".
 
-Para incluir os resultados da pesquisa no payload personalizado, certifique-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no json payload. 
+Para incluir os resultados da pesquisa num payload personalizado, certifique-se de que **IncudeSearchResults** está definido como uma propriedade de nível superior no payload de json. 
 
-## <a name="sample-payloads"></a>Payloads de exemplo
-Esta secção mostra o payload de exemplo do webhook para alertas de registo, incluindo payload é padrão e a respetiva personalizada.
+## <a name="sample-payloads"></a>Cargas de exemplo
+Esta secção mostra o payload de exemplo do webhook para alertas de registo, incluindo a carga é padrão e quando seu custom.
 
 > [!NOTE]
-> Para garantir a retrocompatibilidade, o payload de webhook padrão para alertas através de Log Analytics do Azure é igual ao [análise de registos de gestão de alertas](../log-analytics/log-analytics-alerts-creating.md). Mas para os alertas de registo utilizando [Application Insights](../application-insights/app-insights-analytics.md), o payload de webhook padrão baseia-se no esquema de ação grupo.
+> Para garantir a compatibilidade com versões anteriores, é o mesmo que o payload do webook padrão para os alertas com o Azure Log Analytics [gestão de alertas do Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Mas para os alertas de registo utilizando [Application Insights](../application-insights/app-insights-analytics.md), o payload do webook standard baseia-se no esquema do grupo de ação.
 
-### <a name="standard-webhook-for-log-alerts"></a>Webhook Standard para os alertas de registo 
-Ambos estes exemplos tiverem indicado um payload fictício com apenas duas colunas e linhas de dois.
+### <a name="standard-webhook-for-log-alerts"></a>Padrão Webhook para alertas de registo 
+Ambos estes exemplos tiveram indicado um payload fictício com apenas duas colunas e linhas de duas.
 
-#### <a name="log-alert-for-azure-log-analytics"></a>Alerta de registo para análise de registos do Azure
-Segue-se um payload de exemplo para uma ação do webhook padrão *sem opção de Json personalizado* a ser utilizado para alertas com base na análise do registo.
+#### <a name="log-alert-for-azure-log-analytics"></a>Alerta de registo para o Log-Analytics do Azure
+Segue-se um payload de exemplo para uma ação padrão de webhook *sem opção de Json personalizada* a ser utilizado para alertas com base na análise do registo.
 
 ```json
 {
@@ -119,7 +121,7 @@ Segue-se um payload de exemplo para uma ação do webhook padrão *sem opção d
  ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta de registo para o Azure Application Insights
-Segue-se um payload de exemplo para um webhook padrão *sem opção de Json personalizado* quando utilizado para o application insights-alertas com base em registo-.
+Segue-se um payload de exemplo para um webhook padrão *sem opção de Json personalizada* quando utilizada para a aplicação com base em insights-alertas de registo.
     
 ```json
 {
@@ -168,7 +170,7 @@ Por exemplo, para criar um payload personalizado que inclua apenas o nome do ale
     }
 ```
 
-Segue-se um payload de exemplo para uma ação de webhook personalizadas para qualquer alerta de registo.
+Segue-se um payload de exemplo para uma ação personalizada de webhook para qualquer alerta de registo.
     
 ```json
     {
@@ -195,7 +197,7 @@ Segue-se um payload de exemplo para uma ação de webhook personalizadas para qu
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [registar alertas nos alertas do Azure ](monitor-alerts-unified-log.md)
+- Saiba mais sobre [alertas de registo nos alertas do Azure ](monitor-alerts-unified-log.md)
 - Criar e gerir [grupos de ação no Azure](monitoring-action-groups.md)
 - Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
-- Saiba mais sobre [Log Analytics](../log-analytics/log-analytics-overview.md). 
+- Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-overview.md). 

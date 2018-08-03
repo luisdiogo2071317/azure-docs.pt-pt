@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 962b3f0e18c2dbedf80c0cfca6bc8275b394307b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4d8be22a6b700d5ea9d95ee19d6ad3fa7bf5910a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046020"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integração do Azure Active Directory com o Suite de vida de SilkRoad
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar conjunto de vida de SilkRoad a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Adicionar conjunto de vida de SilkRoad a partir da Galeria
 Para configurar a integração do SilkRoad vida Suite para o Azure AD, terá de adicionar SilkRoad vida Suite a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do SilkRoad vida Suite para o Azure AD, terá de 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Suite de vida de SilkRoad**, selecione **SilkRoad vida Suite** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Suite de vida de SilkRoad**, selecione **SilkRoad vida Suite** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Conjunto de vida de SilkRoad na lista de resultados](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Conjunto de vida de SilkRoad, atribuir o valor do **nome de utilizador** no Azur
 Para configurar e testar o Azure AD início de sessão único com SilkRoad vida Suite, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do pacote de vida de SilkRoad](#create-a-silkroad-life-suite-test-user)**  - para ter um equivalente da Eduarda Almeida no conjunto de vida de SilkRoad que está ligada à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do pacote de vida de SilkRoad](#create-a-silkroad-life-suite-test-user)**  - para ter um equivalente da Eduarda Almeida no conjunto de vida de SilkRoad que está ligada à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_samlbase.png)
 
-3. Sobre o **SilkRoad vida Suite domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **SilkRoad vida Suite domínio e URLs** secção, execute os seguintes passos:
 
     ![SilkRoad vida Suite domínio e URLs únicas início de sessão em informações](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
 
@@ -127,40 +127,40 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente de conjunto de vida de SilkRoad](https://www.silkroad.com/locations/) obter esses valores. 
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/silkroad-life-suite-tutorial/tutorial_general_400.png)
     
-6. Sobre o **SilkRoad vida Suite configuração** secção, clique em **configurar conjunto de vida de SilkRoad** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **SilkRoad vida Suite configuração** secção, clique em **configurar conjunto de vida de SilkRoad** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de conjunto de vida de SilkRoad](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_configure.png) 
 
-7. Início de sessão no site da sua empresa SilkRoad como administrador. 
+1. Início de sessão no site da sua empresa SilkRoad como administrador. 
  
     >[!NOTE] 
     > Para obter acesso à aplicação SilkRoad vida Suite autenticação para configurar a Federação com o Microsoft Azure AD, contacte o suporte de SilkRoad ou o seu representante de SilkRoad serviços.
 
-8. Aceda a **fornecedor de serviços**e, em seguida, clique em **detalhes de Federação**. 
+1. Aceda a **fornecedor de serviços**e, em seguida, clique em **detalhes de Federação**. 
    
     ![O Azure AD Single Sign-On][10]
 
-9. Clique em **transferir metadados de Federação**e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Clique em **transferir metadados de Federação**e, em seguida, guarde o ficheiro de metadados no seu computador.
    
     ![O Azure AD Single Sign-On][11] 
 
-10. No seu **SilkRoad** aplicação, clique em **autenticação origens**.
+1. No seu **SilkRoad** aplicação, clique em **autenticação origens**.
    
     ![O Azure AD Single Sign-On][12] 
 
-11. Clique em **Adicionar origem de autenticação**. 
+1. Clique em **Adicionar origem de autenticação**. 
    
     ![O Azure AD Single Sign-On][13] 
 
-12. Na **Adicionar origem de autenticação** secção, execute os seguintes passos: 
+1. Na **Adicionar origem de autenticação** secção, execute os seguintes passos: 
    
     ![O Azure AD Single Sign-On][14]
   
@@ -168,11 +168,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
   
     b. Clique em **fornecedor de identidade criar utilizando dados de ficheiro**.
 
-13. Na **origens de autenticação** secção, clique em **editar**. 
+1. Na **origens de autenticação** secção, clique em **editar**. 
     
      ![O Azure AD Single Sign-On][15] 
 
-14. Sobre o **Editar origem de autenticação** caixa de diálogo, execute os seguintes passos: 
+1. Sobre o **Editar origem de autenticação** caixa de diálogo, execute os seguintes passos: 
     
      ![O Azure AD Single Sign-On][16] 
 
@@ -192,7 +192,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     h. Clique em **Guardar**.
 
-15. Desative todas as outras origens de autenticação. 
+1. Desative todas as outras origens de autenticação. 
     
      ![O Azure AD Single Sign-On][17]
 
@@ -211,15 +211,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/silkroad-life-suite-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/silkroad-life-suite-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/silkroad-life-suite-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/silkroad-life-suite-tutorial/create_aaduser_04.png)
 
@@ -247,23 +247,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Suite de vida de SilkRoad**.
+1. Na lista de aplicações, selecione **Suite de vida de SilkRoad**.
 
     ![A ligação de SilkRoad vida Suite na lista de aplicações](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -275,7 +275,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

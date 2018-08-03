@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Marketo | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e do Marketo.
+title: 'Tutorial: Integração do Azure Active Directory com o Marketo | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e do Marketo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,144 +14,144 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e7ff12938ea66bc218f71018247e70f0ebc1400d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bd647601249e22942596e78b66d0322857f3eaa4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226814"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448133"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory com Marketo
+# <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory com o Marketo
 
-Neste tutorial, irá aprender a integração do Marketo no Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o Marketo com o Azure Active Directory (Azure AD).
 
 Integração do Marketo com o Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao Marketo
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Marketo (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada ao Marketo (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Marketo, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Marketo início de sessão único subscrição ativado
+- Um Marketo início de sessão único na subscrição ativado
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Marketo a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando o Marketo da Galeria
+1. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-marketo-from-the-gallery"></a>Adicionar Marketo a partir da Galeria
-Para configurar a integração do Marketo com o Azure AD, terá de adicionar Marketo a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-marketo-from-the-gallery"></a>Adicionando o Marketo da Galeria
+Para configurar a integração do Marketo com o Azure AD, terá de adicionar Marketo a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Marketo a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Marketo**.
+1. Na caixa de pesquisa, escreva **Marketo**.
 
     ![Criar um utilizador de teste do Azure AD](./media/marketo-tutorial/tutorial_marketo_search.png)
 
-5. No painel de resultados, selecione **Marketo**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Marketo**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/marketo-tutorial/tutorial_marketo_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com Marketo com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com Marketo com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Marketo é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Marketo tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Marketo para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Marketo tem de ser estabelecida.
 
-No Marketo, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+No Marketo, atribuir o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com Marketo, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com o Marketo, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste do Marketo](#creating-a-marketo-test-user)**  - para ter um homólogo de Britta Simon Marketo que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do Marketo](#creating-a-marketo-test-user)**  - para ter um equivalente da Eduarda Almeida no Marketo que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação do Marketo.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único na sua aplicação do Marketo.
 
-**Para configurar o Azure AD-início de sessão único com Marketo, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com o Marketo, execute os seguintes passos:**
 
-1. No portal do Azure, no **Marketo** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **Marketo** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_samlbase.png)
 
-3. No **URLs e de domínio do Marketo** secção, execute os seguintes passos:
+1. Sobre o **Marketo domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://saml.marketo.com/sp`
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://saml.marketo.com/sp`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte do Marketo](http://investors.marketo.com/contactus.cfm) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte do Marketo](http://investors.marketo.com/contactus.cfm) obter esses valores.
  
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_general_400.png)
 
-6. No **Marketo configuração** secção, clique em **configurar Marketo** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+1. Na **configuração do Marketo** secção, clique em **configurar Marketo** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_configure.png) 
 
-7. Para obter o Id de Munchkin da sua aplicação, inicie sessão no Marketo utilizando credenciais de administrador e execute os seguintes ações:
+1. Para obter o Id de Munchkin da sua aplicação, inicie sessão no Marketo com credenciais de administrador e execute as ações seguintes:
    
-    a. Inicie sessão na aplicação do Marketo com credenciais do administrador.
+    a. Inicie sessão na aplicação do Marketo com credenciais de administrador.
    
-    b. Clique em de **Admin** botão no painel de navegação superior.
+    b. Clique nas **administrador** botão no painel de navegação superior.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Navegue para o menu de integração e clique o **ligação Munchkin**.
+    c. Navegue para o menu de integração e clique nas **Munchkin link**.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_11.png)
    
-    d. Copie o Id de Munchkin apresentado no ecrã e concluir o seu URL de resposta no Assistente de configuração do Azure AD.
+    d. Copie o Id de Munchkin aparecem no ecrã e concluir o seu URL de resposta no Assistente de configuração do Azure AD.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
-8. Para configurar o SSO na aplicação, siga os passos abaixo:
+1. Para configurar o SSO na aplicação, siga os passos abaixo:
    
-    a. Inicie sessão na aplicação do Marketo com credenciais do administrador.
+    a. Inicie sessão na aplicação do Marketo com credenciais de administrador.
    
-    b. Clique em de **Admin** botão no painel de navegação superior.
+    b. Clique nas **administrador** botão no painel de navegação superior.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
@@ -163,101 +163,101 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
-    e. **Ativado** Single Sign-On definições.
+    e. **Ativado** as definições de início de sessão único.
    
-    f. Colar o **ID de entidade de SAML**, no **emissor ID** caixa de texto.
+    f. Colar o **ID de entidade de SAML**, na **ID do emissor** caixa de texto.
    
-    g. No **ID de entidade** caixa de texto, introduza o URL como `http://saml.marketo.com/sp`.
+    g. Na **ID de entidade** caixa de texto, introduza o URL como `http://saml.marketo.com/sp`.
    
-    h. Selecione a localização de ID de utilizador como **elemento identificador de nome**.
+    h. Selecione a localização de ID de utilizador como **elemento de identificador de nome**.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
-    > Se o identificador do seu utilizador não é o valor UPN e altere o valor no separador de atributo.
+    > Se o identificador de utilizador não é o valor UPN, em seguida, altere o valor no separador de atributo.
    
     i. Carregue o certificado que transferiu a partir do Assistente de configuração do Azure AD. **Guardar** as definições.
    
     j. Edite as definições de páginas de redirecionamento.
    
-    k. Colar o **único início de sessão no URL do serviço SAML** no **URL de início de sessão** caixa de texto.
+    k. Colar o **SAML único início de sessão no URL do serviço** no **URL de início de sessão** caixa de texto.
    
-    l. Colar o **Sign-Out URL** no **URL de fim de sessão** caixa de texto.
+    l. Colar o **URL de fim de sessão** no **URL de fim de sessão** caixa de texto.
    
-    m. No **erro URL**, copiar o **URL de instância do Marketo** e clique em **guardar** botão guardar as definições.
+    m. Na **URL de erro**, cópia sua **URL de instância do Marketo** e clique em **guardar** botão para guardar as definições.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_10.png)
 
-9. Para ativar o SSO para que os utilizadores, conclua as seguintes ações:
+1. Para ativar o SSO para os utilizadores, conclua as seguintes ações:
    
-    a. Inicie sessão na aplicação do Marketo com credenciais do administrador.
+    a. Inicie sessão na aplicação do Marketo com credenciais de administrador.
    
-    b. Clique em de **Admin** botão no painel de navegação superior.
+    b. Clique nas **administrador** botão no painel de navegação superior.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Navegue para o **segurança** menu e **definições de início de sessão**.
+    c. Navegue para o **Security** menu e clique em **definições de início de sessão**.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_13.png)
    
-    d. Verifique o **requerem SSO** opção e **guardar** as definições.
+    d. Verifique os **requerem SSO** opção e **guardar** as definições.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_14.png)
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/marketo-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/marketo-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/marketo-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/marketo-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-a-marketo-test-user"></a>Criar um utilizador de teste do Marketo
 
-Nesta secção, vai criar um utilizador chamado Britta Simon Marketo. Siga estes passos para criar um utilizador na plataforma do Marketo.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Marketo. Siga estes passos para criar um utilizador na plataforma do Marketo.
 
-1. Inicie sessão na aplicação do Marketo com credenciais do administrador.
+1. Inicie sessão na aplicação do Marketo com credenciais de administrador.
 
-2. Clique em de **Admin** botão no painel de navegação superior.
+1. Clique nas **administrador** botão no painel de navegação superior.
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
-3. Navegue para o **segurança** menu e **utilizadores e funções**
+1. Navegue para o **Security** menu e clique em **de utilizadores e funções**
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
-4. Clique em de **convidar novo utilizador** ligação no separador de utilizadores
+1. Clique nas **convidar novo utilizador** ligação no separador utilizadores
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
-5. No Assistente de convidar novo utilizador preencher as seguintes informações
+1. No Assistente de convidar novo utilizador preencher as seguintes informações
    
     a. Introduza o utilizador **E-Mail** endereço na caixa de texto
    
@@ -269,55 +269,55 @@ Nesta secção, vai criar um utilizador chamado Britta Simon Marketo. Siga estes
    
     d. Clique em **Seguinte**
 
-6. No **permissões** separador, selecione o **userRoles** e clique em **seguinte**
+1. Na **permissões** separador, selecione a **funções de utilizador** e clique em **seguinte**
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_17.png)
-7. Clique em de **enviar** botão para enviar o convite de utilizador
+1. Clique nas **enviar** botão para enviar o convite de utilizador
    
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_18.png)
 
-8. Recebe a notificação de correio eletrónico e tem de clicar na ligação e alterar a palavra-passe para ativar a conta de utilizador. 
+1. Recebe a notificação de e-mail e tem de clicar na ligação e alterar a palavra-passe para ativar a conta de utilizador. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão único, conceder acesso ao Marketo.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao Marketo.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon ao Marketo, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida ao Marketo, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Marketo**.
+1. Na lista de aplicações, selecione **Marketo**.
 
     ![Configurar o início de sessão único](./media/marketo-tutorial/tutorial_marketo_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico do Marketo no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação do Marketo.
+Quando clica no mosaico do Marketo no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do Marketo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

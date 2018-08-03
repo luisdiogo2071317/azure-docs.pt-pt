@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o IBM Kenexa inquérito Enterprise | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e Enterprise do IBM Kenexa inquérito.
+title: 'Tutorial: Integração do Azure Active Directory com o IBM Kenexa pesquisa empresarial | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o IBM Kenexa pesquisa empresarial.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,206 +14,206 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: bca5d5111f5cfc3bcf2720af855f44d1928bcfd6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221021"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449505"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa inquérito Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa pesquisa empresarial
 
-Neste tutorial, irá aprender a integrar IBM Kenexa inquérito Enterprise com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar o IBM Kenexa pesquisa empresarial no Azure Active Directory (Azure AD).
 
-Integrar o IBM Kenexa inquérito Enterprise com o Azure AD fornece as seguintes vantagens:
+Integrar o IBM Kenexa pesquisa empresarial no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao IBM Kenexa inquérito Enterprise.
-- Pode permitir aos utilizadores iniciar sessão automaticamente IBM Kenexa inquérito empresarial utilizando início de sessão único (SSO) com as respetivas contas do Azure AD.
-- Pode gerir as contas numa localização central: portal do Azure.
+- Pode controlar no Azure AD que tenha acesso ao IBM Kenexa pesquisa empresarial.
+- Pode permitir que os utilizadores iniciem sessão automaticamente nas IBM Kenexa pesquisa empresarial com o início de sessão único (SSO) com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central: portal do Azure.
 
-Se pretender saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com IBM Kenexa inquérito empresarial, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o IBM Kenexa pesquisa empresarial, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Uma subscrição IBM Kenexa inquérito Enterprise SSO ativado
+- Uma subscrição habilitados para IBM Kenexa pesquisa empresarial SSO
 
 > [!NOTE]
-> Ao testar os passos neste tutorial, recomendamos que utilize um ambiente de produção.
+> Quando testa os passos neste tutorial, é recomendável que não use um ambiente de produção.
 
-Para testar os passos neste tutorial, siga estas recomendações:
+Para testar os passos neste tutorial, siga as seguintes recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, testar o SSO do Azure AD num ambiente de teste. O cenário descrito no tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar SSO do Azure AD num ambiente de teste. O cenário descrito no tutorial consiste em dois blocos de construção principais:
 
-* Adicionar IBM Kenexa inquérito Enterprise da galeria do
-* Configurar e testar o SSO do Azure AD
+* Adicionar IBM Kenexa pesquisa empresarial a partir da Galeria
+* Configurando e testando o SSO do Azure AD
 
-## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Adicionar IBM Kenexa inquérito Enterprise a partir da Galeria
-Para configurar a integração do IBM Kenexa inquérito Enterprise com o Azure AD, adicione IBM Kenexa inquérito Enterprise da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Adicionar IBM Kenexa pesquisa empresarial a partir da Galeria
+Para configurar a integração do IBM Kenexa pesquisa empresarial no Azure AD, adicione IBM Kenexa pesquisa empresarial a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-Para adicionar IBM Kenexa inquérito Enterprise da galeria do, efetue o seguinte:
+Para adicionar IBM Kenexa pesquisa empresarial a partir da galeria, faça o seguinte:
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique em de **do Azure Active Directory** botão. 
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, clique nas **Azure Active Directory** botão. 
 
     ![O botão do Azure Active Directory][1]
 
-2. Selecione **aplicações empresariais**e, em seguida, selecione **todas as aplicações**.
+1. Selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![O painel de aplicações da empresa][2]
+    ![O painel de aplicações empresariais][2]
     
-3. Para adicionar uma aplicação, clique o **nova aplicação** botão.
+1. Para adicionar uma aplicação, clique nas **nova aplicação** botão.
 
-    ![O novo botão de aplicação][3]
+    ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **IBM Kenexa inquérito Enterprise**.
+1. Na caixa de pesquisa, escreva **IBM Kenexa pesquisa empresarial**.
 
     ![Criar um utilizador de teste do Azure AD](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
 
-5. Na lista de resultados, selecione **IBM Kenexa inquérito Enterprise**e, em seguida, clique em de **adicionar** botão para adicionar a aplicação.
+1. Na lista de resultados, selecione **IBM Kenexa pesquisa empresarial**e, em seguida, clique nas **Add** botão para adicionar a aplicação.
 
-    ![IBM Kenexa inquérito Enterprise na lista de resultados](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
+    ![IBM Kenexa pesquisa empresarial na lista de resultados](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
-Nesta secção, configurar e testar o SSO do Azure AD com o IBM Kenexa inquérito Enterprise com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+Nesta secção, configurar e testar o SSO do Azure AD com o IBM Kenexa pesquisa empresarial com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para SSO funcionar, do Azure AD tem de identificar o homólogo de utilizador do IBM Kenexa inquérito empresarial no Azure AD. Por outras palavras, do Azure AD tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e um utilizador relacionado da empresa do IBM Kenexa inquérito.
+Para SSO para funcionar, o Azure AD precisa identificar a contrapartida de utilizador do IBM Kenexa pesquisa empresarial no Azure AD. Em outras palavras, do Azure AD tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e um utilizador relacionado no IBM Kenexa pesquisa empresarial.
 
-Para estabelecer a relação de ligação, atribua o valor do **nome de utilizador** IBM Kenexa inquérito empresa como o valor de **Username** no Azure AD.
+Para estabelecer a relação de ligação, atribuir o valor do **nome de utilizador** no IBM Kenexa pesquisa empresarial, como o valor da **Username** no Azure AD.
 
-Para configurar e testar o SSO do Azure AD com o IBM Kenexa inquérito Enterprise, conclua os blocos modulares nas dois secções.
+Para configurar e testar o SSO do Azure AD com o IBM Kenexa pesquisa empresarial, conclua os blocos de construção nas próximas duas secções.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, ativar o SSO do Azure AD no portal do Azure e configurar o SSO na sua aplicação IBM Kenexa inquérito empresarial da seguinte forma:
+Nesta secção, ativar o SSO do Azure AD no portal do Azure e configurar o SSO na sua aplicação empresarial de pesquisa do IBM Kenexa efetuando o seguinte procedimento:
 
-1. No portal do Azure, no **IBM Kenexa inquérito Enterprise** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **IBM Kenexa pesquisa empresarial** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar o IBM Kenexa inquérito Enterprise único início de sessão na ligação][4]
+    ![Configurar o IBM Kenexa pesquisa empresarial única início de sessão na ligação][4]
 
-2. No **de sessão único-** caixa de diálogo a **modo** caixa, selecione **baseados em SAML início de sessão** para permitir SSO.
+1. Na **início de sessão único** caixa de diálogo a **modo** caixa, selecione **baseado em SAML logon** para ativar o SSO.
  
     ![Caixa de diálogo de início de sessão único](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
 
-3. No **IBM Kenexa inquérito Enterprise domínio e os URLs** secção, execute os seguintes passos:
+1. Na **IBM Kenexa pesquisa empresarial domínio e URLs** secção, execute os seguintes passos:
 
-    ![Domínio de empresa do IBM Kenexa inquérito e os URLs únicos de informações de início de sessão](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+    ![IBM Kenexa pesquisa empresarial domínio e URLs únicas início de sessão em informações](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL com o padrão do seguinte: `https://surveys.kenexa.com/<companycode>`
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL com o padrão do seguinte: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
-    > Os valores anteriores não são reais. Atualize-as com o identificador real e o URL de resposta. Para obter os valores reais, contacte o [equipa de suporte do IBM Kenexa inquérito Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
+    > Os valores anteriores não são reais. Atualizá-las com o identificador real e URL de resposta. Para obter os valores reais, entre em contato com o [equipa de suporte da empresa de pesquisa do IBM Kenexa](https://www.ibm.com/support/home/?lnk=fcw).
 
-4. Em **certificado de assinatura de SAML**, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado para o seu computador.
+1. Sob **certificado de assinatura SAML**, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado para o seu computador.
 
-    ![A hiperligação de transferência do certificado (Base64)](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+    ![O link de download de certificado (Base64)](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
-    A aplicação do IBM Kenexa inquérito Enterprise espera receber as asserções de segurança asserções Markup Language (SAML) num formato específico, que necessita para adicionar mapeamentos de atributos personalizados para a configuração dos seus atributos de token SAML. O valor da afirmação de identificador de utilizador na resposta tem de corresponder ao ID de SSO que está configurado no sistema Kenexa. Para mapear o identificador de utilizador adequada na sua organização como protocolo de datagrama de Internet do SSO (IDP), trabalhar com o [equipa de suporte do IBM Kenexa inquérito Enterprise](https://www.ibm.com/support/home/?lnk=fcw). 
+    O aplicativo empresarial de pesquisa do IBM Kenexa espera-se receber as asserções de segurança asserções Markup Language (SAML) num formato específico, o que requer a adição de mapeamentos de atributos personalizados para a configuração dos seus atributos de token SAML. O valor da afirmação de identificador de utilizador na resposta têm de corresponder o ID de SSO está configurado no sistema Kenexa. Para mapear o identificador de utilizador adequada na sua organização como protocolo de datagrama de Internet do SSO (IDP), trabalhar com o [equipa de suporte da empresa de pesquisa do IBM Kenexa](https://www.ibm.com/support/home/?lnk=fcw). 
 
-    Por predefinição, o Azure AD define o identificador de utilizador como o valor de nome principal (UPN) do utilizador. Pode alterar este valor no **atributo** separador, conforme mostrado na captura de ecrã seguinte. A integração funciona apenas depois de concluir o mapeamento corretamente.
+    Por predefinição, o Azure AD define o identificador de utilizador como o valor de nome principal (UPN) do utilizador. Pode alterar este valor sobre o **atributo** separador, conforme mostrado na captura de ecrã seguinte. A integração funciona apenas depois de concluir o mapeamento corretamente.
     
     ![A caixa de diálogo de atributos de utilizador](./media/kenexasurvey-tutorial/tutorial_attribute.png) 
 
-5. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
-    ![A configurar-início de sessão único guardar botão](./media/kenexasurvey-tutorial/tutorial_general_400.png)
+    ![A configurar início de sessão único botão Save](./media/kenexasurvey-tutorial/tutorial_general_400.png)
 
-6. Para abrir o **configurar início de sessão** janela em **IBM Kenexa inquérito Enterprise configuração**, clique em **configurar IBM Kenexa inquérito Enterprise**. 
+1. Para abrir o **configurar o início de sessão** janela, em **IBM Kenexa pesquisa Enterprise Configuration**, clique em **configurar empresarial de pesquisa do IBM Kenexa**. 
  
-    ![A ligação de configurar IBM Kenexa inquérito Enterprise](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
+    ![A ligação de configurar o IBM Kenexa pesquisa empresarial](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
 
-7. Copiar o **Sign-Out URL**, **ID de entidade de SAML**, e **único início de sessão no URL do serviço SAML** valores do **referência rápida** secção.
+1. Copiar o **URL de fim de sessão**, **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** valores do **referência rápida** secção.
 
-8. No **configurar início de sessão** janela, em **referência rápida**, copiar o **Sign-Out URL**, **ID de entidade de SAML**, e **SAML único URL do serviço de início de sessão** valores.
+1. No **configurar o início de sessão** janela, em **referência rápida**, copiar o **URL de fim de sessão**, **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** valores.
 
-9. Para configurar o SSO no **IBM Kenexa inquérito Enterprise** lado, enviar o transferido **certificado (Base64)**, **Sign-Out URL**, **ID de entidade de SAML**, e **único início de sessão no URL do serviço SAML** valores para o [equipa de suporte do IBM Kenexa inquérito Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
+1. Configurar o SSO a **IBM Kenexa pesquisa empresarial** lado, envie o transferido **certificado (Base64)**, **URL de fim de sessão**, **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** valores para o [equipa de suporte da empresa de pesquisa do IBM Kenexa](https://www.ibm.com/support/home/?lnk=fcw).
 
 > [!TIP]
-> Pode fazer referência a uma versão concisa destas instruções o [portal do Azure](https://portal.azure.com) enquanto estiver a configurar a aplicação. Depois de adicionar a aplicação a partir de **do Active Directory** > **aplicações empresariais** secção, basta clicar no **de sessão único-** separador e, em seguida, aceder a incorporado documentação através de **configuração** secção no final. Para saber mais sobre a funcionalidade de documentação embedded, consulte [do Azure AD incorporado documentação](https://go.microsoft.com/fwlink/?linkid=845985).
+> Pode consultar para uma versão concisa destas instruções no [portal do Azure](https://portal.azure.com) enquanto estiver a configurar a aplicação. Depois de adicionar a aplicação a partir do **do Active Directory** > **aplicações empresariais** secção, basta clicar o **início de sessão único** separador e, em seguida, aceder a documentação por meio do Embedded a **configuração** secção no final. Para saber mais sobre a funcionalidade de documentação do embedded, veja [documentação do embedded do Azure AD](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-Nesta secção, criar o utilizador de teste Britta Simon no portal do Azure da seguinte forma:
+Nesta secção, vai criar o utilizador de teste Eduarda Almeida no portal do Azure, fazendo o seguinte:
 
 ![Criar um utilizador de teste do Azure AD][100]
 
-1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
+1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
 
     ![O botão do Azure Active Directory](./media/kenexasurvey-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
     
-    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/kenexasurvey-tutorial/create_aaduser_02.png) 
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/kenexasurvey-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
  
-    ![O botão de adição](./media/kenexasurvey-tutorial/create_aaduser_03.png) 
+    ![Botão Adicionar](./media/kenexasurvey-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
  
     ![A caixa de diálogo de utilizador](./media/kenexasurvey-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
-### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Criar um utilizador de teste do IBM Kenexa inquérito Enterprise
+### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Criar um utilizador de teste do IBM Kenexa pesquisa empresarial
 
-Nesta secção, vai criar um utilizador chamado Britta Simon IBM Kenexa inquérito empresa. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no IBM Kenexa pesquisa empresarial. 
 
-Para criar utilizadores no sistema IBM Kenexa inquérito Enterprise e mapear o ID de SSO para os mesmos, pode trabalhar com o [equipa de suporte do IBM Kenexa inquérito Enterprise](https://www.ibm.com/support/home/?lnk=fcw). Este valor de ID de SSO também deve ser mapeado para o valor do identificador de utilizador do Azure AD. Pode alterar esta predefinição no **atributo** separador.
+Para criar utilizadores no sistema IBM Kenexa pesquisa empresarial e mapear o ID de SSO para os mesmos, pode trabalhar com o [equipa de suporte da empresa de pesquisa do IBM Kenexa](https://www.ibm.com/support/home/?lnk=fcw). Este valor de ID de SSO também deve ser mapeado para o valor do identificador de utilizador do Azure AD. Pode alterar esta predefinição sobre o **atributo** separador.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar utilizador Britta Simon para utilizar o SSO do Azure ao conceder acesso para a empresa do IBM Kenexa inquérito.
+Nesta secção, vai ativar utilizador Eduarda Almeida para utilizar o SSO do Azure ao conceder acesso para IBM Kenexa pesquisa empresarial.
 
 ![Atribuir a função de utilizador][200] 
 
-Para atribuir o utilizador Britta Simon para IBM Kenexa inquérito Enterprise, efetue o seguinte:
+Para atribuir utilizador Eduarda Almeida a IBM Kenexa pesquisa empresarial, faça o seguinte:
 
-1. No portal do Azure, abra o **aplicações** vista, aceda ao **diretório** visualizar, selecione **aplicações empresariais**e, em seguida, clique em **todas as aplicações** .
+1. No portal do Azure, abra o **aplicativos** modo de exibição, vá para o **diretório** visualizar, selecione **aplicações empresariais**e, em seguida, clique em **todas as aplicações** .
 
-    ![O "As aplicações empresariais" e ligações de "Todas as aplicações"][201] 
+    ![A "Aplicações empresariais" e os links de "Todas as aplicações"][201] 
 
-2. No **aplicações** lista, selecione **IBM Kenexa inquérito Enterprise**.
+1. Na **aplicativos** lista, selecione **IBM Kenexa pesquisa empresarial**.
 
-    ![A ligação do IBM Kenexa inquérito Enterprise na lista de aplicações](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
+    ![A ligação da IBM Kenexa pesquisa empresarial na lista de aplicações](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
 
-3. No painel esquerdo, clique em **utilizadores e grupos**.
+1. No painel esquerdo, clique em **utilizadores e grupos**.
 
-    ![A ligação de "Utilizadores e grupos"][202] 
+    ![A ligação "Utilizadores e grupos"][202] 
 
-4. Clique em de **adicionar** botão e, em seguida, no **adicionar atribuição** painel, selecione **utilizadores e grupos**.
+1. Clique nas **Add** botão e, em seguida, no **adicionar atribuição** painel, selecione **utilizadores e grupos**.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo a **utilizadores** lista, selecione **Britta Simon**.
+1. Na **utilizadores e grupos** caixa de diálogo a **utilizadores** lista, selecione **Eduarda Almeida**.
 
-6. No **utilizadores e grupos** caixa de diálogo, clique em de **selecione** botão.
+1. Na **utilizadores e grupos** caixa de diálogo, clique nas **selecione** botão.
 
-7. No **adicionar atribuição** caixa de diálogo, clique em de **atribuir** botão.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, testar a configuração de SSO do Azure AD utilizando o painel de acesso.
+Nesta secção, vai testar a configuração de SSO do Azure AD utilizando o painel de acesso.
 
-Ao clicar no **IBM Kenexa inquérito Enterprise** na peça de mosaico do painel de acesso, esta deve ser iniciada automaticamente aplicação IBM Kenexa inquérito Enterprise.
+Quando clica no **IBM Kenexa pesquisa empresarial** mosaico no painel de acesso, deve ser automaticamente a sessão iniciada sua aplicação IBM Kenexa pesquisa empresarial.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

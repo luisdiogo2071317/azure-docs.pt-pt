@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: a4ea4272b11c167d95840b45b39634abea8c1cea
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051603"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Azure Active Directory com Recognize
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Recognize da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-recognize-from-the-gallery"></a>Adicionando Recognize da Galeria
 Para configurar a integração de reconhecer no Azure AD, terá de adicionar reconhecer a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração de reconhecer no Azure AD, terá de adicionar rec
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Recognize**.
+1. Na caixa de pesquisa, escreva **Recognize**.
 
     ![Criar um utilizador de teste do Azure AD](./media/recognize-tutorial/tutorial_recognize_search.png)
 
-5. No painel de resultados, selecione **Recognize**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Recognize**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/recognize-tutorial/tutorial_recognize_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Reconhecer, atribua o valor do **nome de utilizador** no Azure AD como o valor d
 Para configurar e testar o Azure AD início de sessão único com Recognize, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de reconhecer](#creating-a-recognize-test-user)**  - para ter um equivalente da Eduarda Almeida na reconhecer que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de reconhecer](#creating-a-recognize-test-user)**  - para ter um equivalente da Eduarda Almeida na reconhecer que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,11 +104,11 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/recognize-tutorial/tutorial_recognize_samlbase.png)
 
-3. Sobre o **reconhecer o domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **reconhecer o domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/recognize-tutorial/tutorial_recognize_url.png)
 
@@ -119,29 +119,29 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de reconhecer](mailto:support@recognizeapp.com) obter o URL de início de sessão e pode obter o valor do identificador ao abrir o URL de metadados do fornecedor de serviço da secção definições de SSO que é explicada mais tarde no tutorial. . 
  
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/recognize-tutorial/tutorial_recognize_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/recognize-tutorial/tutorial_general_400.png)
 
-6. Sobre o **configuração reconhecer** secção, clique em **configurar reconhecer** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **configuração reconhecer** secção, clique em **configurar reconhecer** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/recognize-tutorial/tutorial_recognize_configure.png) 
 
-7. Numa janela do browser web diferente, início de sessão no seu inquilino de reconhecer como administrador.
+1. Numa janela do browser web diferente, início de sessão no seu inquilino de reconhecer como administrador.
 
-8. No canto superior direito, clique em **Menu**. Aceda a **da empresa administrador**.
+1. No canto superior direito, clique em **Menu**. Aceda a **da empresa administrador**.
    
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-9. No painel de navegação esquerdo, clique em **definições**.
+1. No painel de navegação esquerdo, clique em **definições**.
    
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_001.png)
 
-10. Execute os seguintes passos no **as definições de SSO** secção.
+1. Execute os seguintes passos no **as definições de SSO** secção.
    
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_002.png)
     
@@ -157,11 +157,11 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     
     f. Clique nas **guardar as definições de** botão. 
 
-11. Junto a **as definições de SSO** secção, copie o URL sob **url de metadados do fornecedor de serviço**.
+1. Junto a **as definições de SSO** secção, copie o URL sob **url de metadados do fornecedor de serviço**.
    
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-12. Abra o **ligação de URL de metadados** num navegador em branco para transferir o documento de metadados. Em seguida, copie o value(entityID) EntityDescriptor do ficheiro e cole-a no **identificador** na caixa de texto **seção reconhecer o domínio e URLs** no portal do Azure.
+1. Abra o **ligação de URL de metadados** num navegador em branco para transferir o documento de metadados. Em seguida, copie o value(entityID) EntityDescriptor do ficheiro e cole-a no **identificador** na caixa de texto **seção reconhecer o domínio e URLs** no portal do Azure.
     
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_004.png)
 
@@ -180,15 +180,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/recognize-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/recognize-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/recognize-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/recognize-tutorial/create_aaduser_04.png) 
 
@@ -210,11 +210,11 @@ Esta aplicação não suporta o aprovisionamento SCIM, mas tem uma sincronizaç�
 
 1. Inicie sessão no site da sua empresa reconhecer como administrador.
 
-2. No canto superior direito, clique em **Menu**. Aceda a **da empresa administrador**.
+1. No canto superior direito, clique em **Menu**. Aceda a **da empresa administrador**.
 
-3. No painel de navegação esquerdo, clique em **definições**.
+1. No painel de navegação esquerdo, clique em **definições**.
 
-4. Execute os seguintes passos no **sincronização de utilizador** secção.
+1. Execute os seguintes passos no **sincronização de utilizador** secção.
    
    ![Novo utilizador](./media/recognize-tutorial/tutorial_recognize_005.png "novo utilizador")
    
@@ -236,23 +236,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Recognize**.
+1. Na lista de aplicações, selecione **Recognize**.
 
     ![Configurar o início de sessão único](./media/recognize-tutorial/tutorial_recognize_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -263,7 +263,7 @@ Quando clica no mosaico de reconhecer no painel de acesso, deve obter automatica
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

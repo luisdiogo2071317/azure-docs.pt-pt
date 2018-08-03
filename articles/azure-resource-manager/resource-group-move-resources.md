@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4f73b6d735997b663ca6769aaceaf363b6d3eda7
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 81e50b53e8a8069fc0698240e7b1f2ead2c611a8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346489"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439520"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -139,7 +139,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma subscriçã
 * Data Lake Store
 * DNS
 * Event Grid
-* Event Hubs
+* Hubs de Eventos
 * Clusters do HDInsight - veja [limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
 * Cofre de Chaves
@@ -412,7 +412,7 @@ Para mover para uma nova subscrição, incluem um valor para o `DestinationSubsc
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o [movimentação do recurso de az](/cli/azure/resource?view=azure-cli-latest#az_resource_move) comando. Forneça os IDs dos recursos para mover dos recursos. O exemplo seguinte mostra como mover vários recursos para um novo grupo de recursos. Na `--ids` parâmetro, fornecer uma lista separada por espaço do recurso IDs para mover.
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o [movimentação do recurso de az](/cli/azure/resource?view=azure-cli-latest#az-resource-move) comando. Forneça os IDs dos recursos para mover dos recursos. O exemplo seguinte mostra como mover vários recursos para um novo grupo de recursos. Na `--ids` parâmetro, fornecer uma lista separada por espaço do recurso IDs para mover.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -432,7 +432,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 No corpo do pedido, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de REST de movimentação, consulte [mover recursos](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre os cmdlets do PowerShell para gerir a sua subscrição, veja [utilizar o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
 * Para saber mais sobre os comandos da CLI do Azure para gerir a sua subscrição, veja [com a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).

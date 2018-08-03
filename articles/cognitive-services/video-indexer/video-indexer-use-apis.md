@@ -9,14 +9,17 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 82416c7c653438fcd8b8f4a4ead7591bad0ac022
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391520"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449486"
 ---
 # <a name="use-azure-video-indexer-api"></a>Utilizar a API do indexador de vídeo do Azure
+
+> [!Note]
+> A API do Video Indexer V1 foi preterido no dia 1 de Agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções presentes [aqui](https://api-portal.videoindexer.ai/). 
 
 O Video Indexer consolida várias tecnologias de áudio e vídeo inteligência artificial (IA) oferecidas pela Microsoft num serviço integrado, tornando o desenvolvimento mais simples. As APIs foram concebidas para ativar alcance de desenvolvedores se concentrem nas tecnologias de ia de suporte de dados de consumo sem se preocupar em escala, global, disponibilidade e fiabilidade de plataforma em nuvem. Pode usar a API para carregar os ficheiros, obter informações detalhadas de vídeo, obter os URLs de widgets de informações e player para incorporá-los a sua aplicação e outras tarefas.
 

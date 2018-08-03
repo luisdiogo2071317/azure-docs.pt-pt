@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a913075c051c6b784495917b7edbd7340254a212
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 77aa6805094d44d16eea9ac671316c9702423e6c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952635"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433407"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas ao utilizar o Azure Monitor  
 
@@ -38,14 +38,14 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas do Azure.
 1. Na [portal](https://portal.azure.com/), selecione **Monitor** e, na secção MONITOR - escolher **alertas**.  
     ![Monitorização](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
-2. Selecione o **nova regra de alerta** botão para criar um novo alerta no Azure.
+1. Selecione o **nova regra de alerta** botão para criar um novo alerta no Azure.
     ![Adicionar alerta](./media/monitor-alerts-unified/AlertsPreviewOption.png)
 
-3. A secção de criar o alerta é mostrada com três partes consiste em: *definir a condição de alerta*, *definir detalhes do alerta*, e *Definir grupo de ação*.
+1. A secção de criar o alerta é mostrada com três partes consiste em: *definir a condição de alerta*, *definir detalhes do alerta*, e *Definir grupo de ação*.
 
     ![Criar regra](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Definir a condição de alerta com o **selecionar recurso** ligação e especificando o destino, ao selecionar um recurso. Filtro ao selecionar o * subscrição, * tipo de recurso e, finalmente, selecionando necessários *recursos*.
+1.  Definir a condição de alerta com o **selecionar recurso** ligação e especificando o destino, ao selecionar um recurso. Filtro ao selecionar o * subscrição, * tipo de recurso e, finalmente, selecionando necessários *recursos*.
 
     >[!NOTE]
 
@@ -62,7 +62,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas do Azure.
 
     > Alertas de registo de atividade são também suportadas, mas estão em pré-visualização. [Saiba mais](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Alertas de métricas*: Certifique-se **tipo de recurso** está selecionada com o tipo de sinal como **métrica**, em seguida, uma vez adequado **recurso** é escolhido clique  *Feito* botão para retornar ao criar alerta. Em seguida utilize o **adicionar critérios** botão para escolher o sinal específico da lista de opções de sinal, serviço de monitoramento e tipo listado - que estão disponíveis para o recurso selecionado anteriormente.
+1. *Alertas de métricas*: Certifique-se **tipo de recurso** está selecionada com o tipo de sinal como **métrica**, em seguida, uma vez adequado **recurso** é escolhido clique  *Feito* botão para retornar ao criar alerta. Em seguida utilize o **adicionar critérios** botão para escolher o sinal específico da lista de opções de sinal, serviço de monitoramento e tipo listado - que estão disponíveis para o recurso selecionado anteriormente.
 
     ![Selecionar um recurso](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -70,11 +70,11 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas do Azure.
 
     >  Todos os [perto alertas em tempo real](monitoring-near-real-time-metric-alerts.md) com capacidade de recursos é listada com o serviço de monitor **plataforma** e sinalizar tipo como **métrica**
 
-6. *Alertas de métricas*: assim que o sinal é selecionado, a lógica para alertar pode ser declarada. Para referência, o histórico de dados de sinal é mostrado com opção de ajustar a janela de tempo utilizando **Mostrar histórico**, variando dos últimos seis horas para a última semana. Com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Como pré-visualização da lógica de fornecida, a condição é mostrada na visualização, juntamente com o histórico de sinal, para indicar quando seria ter acionado o alerta. Por fim especifique durante o período de tempo, o alerta deve ser para a condição especificada por escolher o **período** opção juntamente com a frequência com que o alerta deve executar selecionando **frequência**.
+1. *Alertas de métricas*: assim que o sinal é selecionado, a lógica para alertar pode ser declarada. Para referência, o histórico de dados de sinal é mostrado com opção de ajustar a janela de tempo utilizando **Mostrar histórico**, variando dos últimos seis horas para a última semana. Com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Como pré-visualização da lógica de fornecida, a condição é mostrada na visualização, juntamente com o histórico de sinal, para indicar quando seria ter acionado o alerta. Por fim especifique durante o período de tempo, o alerta deve ser para a condição especificada por escolher o **período** opção juntamente com a frequência com que o alerta deve executar selecionando **frequência**.
 
     ![Configurar lógica de sinal para métrica](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
-7. *Alertas de métricas*: sinal se é uma métrica, em seguida, janela de alerta pode ser filtrada com vários pontos de dados ou as dimensões para o recurso do Azure disse. 
+1. *Alertas de métricas*: sinal se é uma métrica, em seguida, janela de alerta pode ser filtrada com vários pontos de dados ou as dimensões para o recurso do Azure disse. 
 
     a. Escolha uma duração do **Mostrar histórico** lista pendente para visualizar um outro período de tempo. Pode escolher as dimensões para as métricas suportadas filtrar numa série de tempo; a escolha de dimensões é opcional e up-to cinco dimensões podem ser utilizadas. 
 
@@ -84,7 +84,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas do Azure.
 
     ![Configurar lógica de sinal para métricas multidimensionais](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertas de registo*: Certifique-se **tipo de recurso** é uma origem de análise, como *do Log Analytics* ou *Application Insights* e sinalizar tipo como **registo** , em seguida, uma vez adequado **recurso** está selecionado, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista de opções de sinal disponíveis para o recurso e a partir da lista de sinal **pesquisa de registos personalizado** opção para escolhida iniciar o monitor de serviço, como *registo Análise* ou *Application Insights*.
+1. *Alertas de registo*: Certifique-se **tipo de recurso** é uma origem de análise, como *do Log Analytics* ou *Application Insights* e sinalizar tipo como **registo** , em seguida, uma vez adequado **recurso** está selecionado, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista de opções de sinal disponíveis para o recurso e a partir da lista de sinal **pesquisa de registos personalizado** opção para escolhida iniciar o monitor de serviço, como *registo Análise* ou *Application Insights*.
 
    ![Selecione um recurso - pesquisa de registos personalizado](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -92,7 +92,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas do Azure.
 
    > Alertas de listas, podem importar consulta do analytics como tipo de sinal - **Log (consulta guardada)**, como mostra acima ilustração. Para que os utilizadores possam aperfeiçoa sua consulta do Analytics e, em seguida, guarde-as para utilização futura nos alertas - mais detalhes sobre como utilizar a guardar consulta disponível em [utilizando a pesquisa de registos no log analytics](../log-analytics/log-analytics-log-searches.md) ou [consulta partilhada no application insights análise](../log-analytics/log-analytics-overview.md). 
 
-9.  *Alertas de registo*: depois de selecionada, a consulta para alertas pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta o campo apresenta o erro em vermelho. Se a sintaxe de consulta está correta – para referência, histórico de dados da consulta declarado é mostrado como um gráfico com a opção para ajustar a janela de tempo da última seis horas da semana passada.
+1.  *Alertas de registo*: depois de selecionada, a consulta para alertas pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta o campo apresenta o erro em vermelho. Se a sintaxe de consulta está correta – para referência, histórico de dados da consulta declarado é mostrado como um gráfico com a opção para ajustar a janela de tempo da última seis horas da semana passada.
 
  ![Configurar a regra de alerta](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
 
@@ -104,7 +104,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas do Azure.
 
     ![Agregar na opção](./media/monitor-alerts-unified/aggregate-on.png)
 
-10.  *Alertas de registo*: com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Por fim especifique na lógica de tempo para avaliar a condição especificada, utilizando **período** opção. Juntamente com a frequência com que o alerta deve executar selecionando **frequência**.
+1.  *Alertas de registo*: com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Por fim especifique na lógica de tempo para avaliar a condição especificada, utilizando **período** opção. Juntamente com a frequência com que o alerta deve executar selecionando **frequência**.
 Para **alertas de registo** alertas podem ser baseados em:
    - *Número de registos*: é criado um alerta se a contagem de registos devolvidos pela consulta for maior ou menor que o valor fornecido.
    - *Medida da métrica*: é criado um alerta se cada *agregar valor* nos resultados excede o valor de limiar fornecido e é *agrupados por* escolhido o valor. O número de falhas de um alerta é o número de vezes que o limite é excedido no período de tempo escolhido. Pode especificar o Total de falhas para qualquer combinação de violações de entre o conjunto de resultados ou falhas consecutivas para exigir que as violações devem ocorrer no amostras consecutivas. Saiba mais sobre [alertas de registo e os tipos de](monitor-alerts-unified-log.md).
@@ -112,7 +112,7 @@ Para **alertas de registo** alertas podem ser baseados em:
     > [!TIP]
     > Atualmente em alertas - alertas de pesquisa de registo podem demorar personalizados *período* e *frequência* valor no minuto (s). Valores podem diferir dos 5 minutos e 1440 minutos (ou seja) 24 horas. Portanto, se pretender que o período de alerta para ser três horas, por exemplo, convertê-lo em minutos - 180 minutos, antes de utilização
 
-11. Como o segundo passo, defina um nome para o alerta no **nome da regra de alerta** campo juntamente com um **Descrição** com detalhes sobre as especificações para o alerta e **gravidade** partir das opções fornecidas. Esses detalhes são reutilizados em todos os e-mails de alerta, notificações ou push feita pelo Azure Monitor. Além disso, o utilizador pode optar por ativar imediatamente a regra de alerta após a criação, ativando adequadamente **ativar regra após a criação** opção.
+1. Como o segundo passo, defina um nome para o alerta no **nome da regra de alerta** campo juntamente com um **Descrição** com detalhes sobre as especificações para o alerta e **gravidade** partir das opções fornecidas. Esses detalhes são reutilizados em todos os e-mails de alerta, notificações ou push feita pelo Azure Monitor. Além disso, o utilizador pode optar por ativar imediatamente a regra de alerta após a criação, ativando adequadamente **ativar regra após a criação** opção.
 
     Para **alertas de registo** apenas, algumas funcionalidades adicionais estão disponível nos detalhes do alerta:
 
@@ -123,7 +123,7 @@ Para **alertas de registo** alertas podem ser baseados em:
         > [!TIP]
         > Especifique um valor alerta suppress superior à frequência do alerta para garantir a notificações são paradas sem sobreposição
 
-12. Como a terceira e última etapa, especifique se houver **grupo de ação** tem de ser acionada para a regra de alerta quando for cumprida a condição do alerta. Pode escolher qualquer grupo de ação existente com o alerta ou crie um novo grupo de ação. Em conformidade com selecionado o grupo de ação, quando o alerta é o acionador do Azure será: enviar email(s), Enviar SMS(s), chamar o webhook (s), remediar através de Runbooks do Azure, push para a ferramenta ITSM, entre outras. Saiba mais sobre [grupos de ação](monitoring-action-groups.md).
+1. Como a terceira e última etapa, especifique se houver **grupo de ação** tem de ser acionada para a regra de alerta quando for cumprida a condição do alerta. Pode escolher qualquer grupo de ação existente com o alerta ou crie um novo grupo de ação. Em conformidade com selecionado o grupo de ação, quando o alerta é o acionador do Azure será: enviar email(s), Enviar SMS(s), chamar o webhook (s), remediar através de Runbooks do Azure, push para a ferramenta ITSM, entre outras. Saiba mais sobre [grupos de ação](monitoring-action-groups.md).
 
     Para **alertas de registo** algumas funcionalidades adicionais estão disponíveis para substituir as ações padrão:
 
@@ -135,7 +135,7 @@ Para **alertas de registo** alertas podem ser baseados em:
         > [!NOTE]
         > Para **testar Webhook** a opção de trabalhar, o ponto final deve suportar [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) e utilizador pode utilizar o proxy CORS para resolver problemas de "Nenhum cabeçalho Access-Control-Allow-Origin"
 
-13. Se todos os campos são válidos e com escala verde a **criar regra de alerta** botão pode ser clicado e é criado um alerta no Azure Monitor - alertas. Todos os alertas podem ser visualizados a partir os alertas do Dashboard.
+1. Se todos os campos são válidos e com escala verde a **criar regra de alerta** botão pode ser clicado e é criado um alerta no Azure Monitor - alertas. Todos os alertas podem ser visualizados a partir os alertas do Dashboard.
 
     ![Criação de regras](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
@@ -145,8 +145,8 @@ Para **alertas de registo** alertas podem ser baseados em:
 
 1. Na [portal](https://portal.azure.com/), selecione **Monitor** e, na secção MONITOR - escolher **alertas**.  
 
-2. O **Dashboard alertas** é apresentado - na qual todos os alertas do Azure são unificados e apresentados num quadro singular ![Dashboard de alerta](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
-3. Da parte superior esquerda para a direita, o Dashboard mostra rapidamente, o seguinte - que pode ser clicado para ver uma lista detalhada:
+1. O **Dashboard alertas** é apresentado - na qual todos os alertas do Azure são unificados e apresentados num quadro singular ![Dashboard de alerta](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
+1. Da parte superior esquerda para a direita, o Dashboard mostra rapidamente, o seguinte - que pode ser clicado para ver uma lista detalhada:
     - *Acionados alertas*: O número de alertas atualmente, que tem cumpridos lógica e na disparado Estado
     - *Total de regras de alerta*: O número de regras de alerta criadas e em subtexto, o número que estão atualmente ativadas 
     
@@ -155,20 +155,20 @@ Para **alertas de registo** alertas podem ser baseados em:
         > Para garantir que o dashboard consistente com detalhes sobre todos os alertas acionados, incluindo alertas de registo para o application insights e o log analytics; [Avançado unificado o alerta (pré-visualização)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) deve ser utilizado
   
   
-4. Uma lista de todos os alertas acionados é mostrada que o usuário pode clicar para ver os detalhes
-5. Auxílio em particular a localizar os alertas; é possível usar as opções de menu pendente na parte superior para filtragem específica *subscrição, grupo de recursos e/ou recurso*. Mais para qualquer não resolvido do alerta, uma utilização a *alerta de filtro* opção para localizar para fornecido palavra-chave - alertas correspondentes específicos com *nome, alerta critérios, grupo de recursos e o recurso de destino*
+1. Uma lista de todos os alertas acionados é mostrada que o usuário pode clicar para ver os detalhes
+1. Auxílio em particular a localizar os alertas; é possível usar as opções de menu pendente na parte superior para filtragem específica *subscrição, grupo de recursos e/ou recurso*. Mais para qualquer não resolvido do alerta, uma utilização a *alerta de filtro* opção para localizar para fornecido palavra-chave - alertas correspondentes específicos com *nome, alerta critérios, grupo de recursos e o recurso de destino*
 
 ## <a name="managing-your-alerts-in-azure-portal"></a>Gerir os seus alertas no Portal do Azure
 1. Na [portal](https://portal.azure.com/), selecione **Monitor** e, na secção MONITOR - escolher **alertas**.  
-2. Selecione o **gerir regras** botão na barra superior, para navegar para a secção de gestão de regra - onde estão apresentadas os todas as regras de alerta criadas; incluindo alertas que foram desativadas.
-3. Para localizar de regras de alerta específicas, um pode utilizar os filtros de lista pendente na parte superior, que permite às regras de alerta assim, agreguem específicas *subscrição, grupos de recursos e/ou recurso*. Em alternativa sobre como utilizar a pesquisa painel acima da lista de regra de alerta marcado *filtrar alertas*, um pode fornecer a palavra-chave, que é comparado com *nome do alerta, condição e recurso de destino*; para mostrar apenas regras de correspondência.
+1. Selecione o **gerir regras** botão na barra superior, para navegar para a secção de gestão de regra - onde estão apresentadas os todas as regras de alerta criadas; incluindo alertas que foram desativadas.
+1. Para localizar de regras de alerta específicas, um pode utilizar os filtros de lista pendente na parte superior, que permite às regras de alerta assim, agreguem específicas *subscrição, grupos de recursos e/ou recurso*. Em alternativa sobre como utilizar a pesquisa painel acima da lista de regra de alerta marcado *filtrar alertas*, um pode fornecer a palavra-chave, que é comparado com *nome do alerta, condição e recurso de destino*; para mostrar apenas regras de correspondência.
    ![Alerta de gerir as regras](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
-4. Para ver ou modificar a regra de alerta específica, clique no respetivo nome seria exibida como um link clicável.
-5. Alerta definida é mostrada - na estrutura da fase de três: grupo de 3) ação de detalhe do alerta de 1) condição 2) o alerta. **Critérios de destino** pode ser clicado para modificar a lógica de alerta ou uma nova critérios podem ser adicionados depois de utilizar o ícone de reciclagem para eliminar a lógica anterior. Da mesma forma, na secção de detalhes do alerta - **Descrição** e **gravidade** pode ser modificado. E o grupo de ação pode ser alterado ou um novo pode ser moldado para criar uma ligação para o alerta utilizando o **novo grupo de ação** botão.
+1. Para ver ou modificar a regra de alerta específica, clique no respetivo nome seria exibida como um link clicável.
+1. Alerta definida é mostrada - na estrutura da fase de três: grupo de 3) ação de detalhe do alerta de 1) condição 2) o alerta. **Critérios de destino** pode ser clicado para modificar a lógica de alerta ou uma nova critérios podem ser adicionados depois de utilizar o ícone de reciclagem para eliminar a lógica anterior. Da mesma forma, na secção de detalhes do alerta - **Descrição** e **gravidade** pode ser modificado. E o grupo de ação pode ser alterado ou um novo pode ser moldado para criar uma ligação para o alerta utilizando o **novo grupo de ação** botão.
 
    ![Modificar a regra de alerta](./media/monitor-alerts-unified/AlertsPreviewEdit.png)
 
-6. Com o painel superior, alterações do alerta podem ser incluindo reflexiva: **salvar** para consolidar quaisquer alterações efetuadas às alerta, **descartar** para voltar atrás sem consolidar as alterações feitas para o alerta, **desativar**  para desativar o alerta - o após o qual ele já não é executada ou aciona qualquer ação. E por fim, **eliminar** para remover permanentemente a regra de alerta toda a partir do Azure.
+1. Com o painel superior, alterações do alerta podem ser incluindo reflexiva: **salvar** para consolidar quaisquer alterações efetuadas às alerta, **descartar** para voltar atrás sem consolidar as alterações feitas para o alerta, **desativar**  para desativar o alerta - o após o qual ele já não é executada ou aciona qualquer ação. E por fim, **eliminar** para remover permanentemente a regra de alerta toda a partir do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

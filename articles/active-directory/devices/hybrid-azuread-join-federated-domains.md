@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369171"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430311"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios federados
 
@@ -48,7 +48,7 @@ Este tutorial parte do princípio de que está familiarizado com:
 
 -  [Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
 
--  [Como planear a sua implementação híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
+-  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
 
 
 
@@ -212,8 +212,8 @@ Ao utilizar o **Get-MSolDevice** cmdlet para verificar os detalhes do serviço:
 
 Se estiver tendo problemas com a conclusão da híbrida associação do Azure AD para o domínio dispositivos associados ao Windows, consulte:
 
-- [Associação ao Azure AD híbrido resolução de problemas para dispositivos atuais do Windows](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Resolução de problemas de associação do Azure AD híbrido para dispositivos de nível inferior do Windows](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Associação ao Azure AD híbrido resolução de problemas para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Resolução de problemas de associação do Azure AD híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +221,7 @@ Se estiver tendo problemas com a conclusão da híbrida associação do Azure AD
 
 > [!div class="nextstepaction"]
 > [Associação ao Azure Active Directory configurar híbrido para domínios geridos](hybrid-azuread-join-managed-domains.md)
-> [configurar manualmente a associação ao Azure Active Directory de híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [configurar manualmente a associação ao Azure Active Directory de híbrido](hybrid-azuread-join-manual-steps.md)
 
 
 

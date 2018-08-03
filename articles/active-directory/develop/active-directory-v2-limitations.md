@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 986440e5af2fb665f5d7e244f2df12edba09f022
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003963"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431305"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v2.0?
 
@@ -31,7 +31,7 @@ Quando criar aplicativos que se integram com o Azure Active Directory (Azure AD)
 Aqui está uma recomendação simplificada para desenvolvedores no momento:
 
 * Caso seja necessário suportar contas pessoais da Microsoft na sua aplicação, utilize o ponto final v2.0. Mas antes de o fazer, certifique-se de que compreende as limitações discutidas neste artigo.
-* Se seu aplicativo só precisa de suporte profissional da Microsoft contas escolares ou profissionais, não utilize o ponto final v2.0. Em vez disso, consulte a [Guia do programador do Azure AD](active-directory-developers-guide.md).
+* Se seu aplicativo só precisa de suporte profissional da Microsoft contas escolares ou profissionais, não utilize o ponto final v2.0. Em vez disso, consulte a [Guia do programador do Azure AD](azure-ad-developers-guide.md).
 
 O ponto final v2.0 irá evoluir para eliminar as restrições listadas aqui, para que apenas terá de utilizar o ponto final v2.0. Entretanto, utilize este artigo para determinar se o ponto final v2.0 é adequado para si. Vamos continuar a atualizar este artigo para refletir o estado atual do ponto final v2.0. Verifique novamente para reavaliar os requisitos de recursos da versão 2.0.
 

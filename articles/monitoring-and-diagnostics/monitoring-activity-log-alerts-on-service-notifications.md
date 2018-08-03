@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035718"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423893"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do registo de atividade nas notificações do serviço
 ## <a name="overview"></a>Descrição geral
@@ -43,32 +43,32 @@ Para obter informações sobre como configurar alertas de notificação de estad
 
     ![O serviço de "Estado de funcionamento do serviço"](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
-2. Na **alertas** secção, selecione **alertas de estado de funcionamento**.
+1. Na **alertas** secção, selecione **alertas de estado de funcionamento**.
 
     ![O separador "Alertas de estado de funcionamento"](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
 
-3. Selecione **alerta de estado de funcionamento do serviço de criar** e preencha os campos.
+1. Selecione **alerta de estado de funcionamento do serviço de criar** e preencha os campos.
 
     ![O comando "Criar alerta de estado de funcionamento do serviço"](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Selecione o **subscrição**, **serviços**, e **regiões** pretende ser alertado para.
+1. Selecione o **subscrição**, **serviços**, e **regiões** pretende ser alertado para.
 
     ![A caixa de diálogo "Adicionar alerta de registo de atividade"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > Esta subscrição é utilizada para guardar o alerta de registo de atividades. O recurso de alerta é implementado para esta subscrição e monitoriza os eventos no registo de atividades para o mesmo.
 
-5. Escolha o **tipos de eventos** pretende ser alertado para: *problema de serviço*, *a manutenção planeada*, e *aconselhamentos sobre o estado de funcionamento* 
+1. Escolha o **tipos de eventos** pretende ser alertado para: *problema de serviço*, *a manutenção planeada*, e *aconselhamentos sobre o estado de funcionamento* 
 
-6. Definir os detalhes do alerta ao introduzir uma **nome da regra de alerta** e **Descrição**.
+1. Definir os detalhes do alerta ao introduzir uma **nome da regra de alerta** e **Descrição**.
 
-7. Selecione o **grupo de recursos** onde pretende que o alerta seja salvo.
+1. Selecione o **grupo de recursos** onde pretende que o alerta seja salvo.
 
-8. Criar um novo grupo de ação selecionando **novo grupo de ação**. Introduza um nome na **nome do grupo de ação** caixa e introduza um nome na **nome abreviado** caixa. O nome abreviado é referenciado nas notificações que são enviadas quando este alerta é acionado.
+1. Criar um novo grupo de ação selecionando **novo grupo de ação**. Introduza um nome na **nome do grupo de ação** caixa e introduza um nome na **nome abreviado** caixa. O nome abreviado é referenciado nas notificações que são enviadas quando este alerta é acionado.
 
     ![Criar um novo grupo de ação](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
-9. Defina uma lista de destinatários ao indicar o recetor:
+1. Defina uma lista de destinatários ao indicar o recetor:
 
     a. **Nome**: introduza o nome, o alias ou o identificador do recetor.
 
@@ -76,7 +76,7 @@ Para obter informações sobre como configurar alertas de notificação de estad
 
     c. **Detalhes**: com base no tipo de ação escolhido, introduza um número de telefone, endereço de e-mail, webhook URI, etc.
 
-10. Selecione **OK** para criar o grupo de ação e, em seguida **criar regra de alerta** para concluir o seu alerta.
+1. Selecione **OK** para criar o grupo de ação e, em seguida **criar regra de alerta** para concluir o seu alerta.
 
 Em poucos minutos, o alerta está ativo e começa a acionar, com base nas condições que especificou durante a criação.
 
@@ -91,9 +91,9 @@ Saiba como [configurar notificações de webhook para sistemas de gestão existe
 
 1. Siga os passos 1 a 7 na secção anterior para criar a notificação de estado de funcionamento do serviço. 
 
-2. Sob **grupo de ação de definir**, clique nas **grupo de ação de seleção** botão. Selecione o grupo de medidas adequadas.
+1. Sob **grupo de ação de definir**, clique nas **grupo de ação de seleção** botão. Selecione o grupo de medidas adequadas.
 
-3. Selecione **Add** para adicionar o grupo de ação e, em seguida **criar regra de alerta** para concluir o seu alerta.
+1. Selecione **Add** para adicionar o grupo de ação e, em seguida **criar regra de alerta** para concluir o seu alerta.
 
 Em poucos minutos, o alerta está ativo e começa a acionar, com base nas condições que especificou durante a criação.
 

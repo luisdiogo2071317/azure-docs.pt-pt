@@ -1,6 +1,6 @@
 ---
-title: Quotas e limites de serviço para o Azure Batch | Microsoft Docs
-description: Saiba mais sobre quotas do Azure Batch predefinidas, os limites e restrições e aumenta como pedir quota
+title: Quotas e limites de serviço para o Azure Batch | Documentos da Microsoft
+description: Saiba mais sobre quotas do Azure Batch predefinidas, limites e restrições e aumenta a como pedir quota
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -12,28 +12,28 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304452"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423747"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
-Como com outros serviços do Azure, existem limites no certos recursos associados com o serviço Batch. Muitas destes limites são quotas predefinidas aplicadas pelo Azure da subscrição ou o nível de conta. Este artigo aborda as predefinições e como pode pedir quota aumenta.
+Como com outros serviços do Azure, existem limites em certos recursos associados com o serviço Batch. Muitos destes limites são quotas predefinidas aplicadas pelo Azure no nível de conta ou subscrição. Este artigo aborda os padrões e como pode solicitar quota aumenta.
 
-Ter destas quotas em mente como a estrutura e a escala se as cargas de trabalho do Batch. Por exemplo, se o conjunto não alcance o número de destino de nós de computação que especificou, poderá atingiu o limite de quota de núcleos para a sua conta do Batch.
+Tenha presentes estas quotas em mente à medida que, design e aumentar verticalmente as cargas de trabalho do Batch. Por exemplo, se o seu conjunto não alcance o número de destino de nós de computação que especificou, poderá atingiu o limite de quota de núcleos para a sua conta do Batch.
 
 Pode executar várias cargas de trabalho do Batch numa única conta do Batch ou distribuí-las entre contas do Batch que estejam na mesma subscrição, mas em diferentes regiões do Azure.
 
-Se planear executar cargas de trabalho de produção no Batch, poderá ter de aumentar a um ou mais das quotas acima a predefinição. Se pretender emitir uma quota, pode abrir um online [pedido de suporte ao cliente](#increase-a-quota) , sem encargos.
+Se planeja executar cargas de trabalho de produção no Batch, se pretender aumentar um ou mais das quotas acima da predefinição. Se pretender aumentar uma quota, pode abrir um online [pedido de suporte ao cliente](#increase-a-quota) sem encargos.
 
 > [!NOTE]
-> Uma quota é um limite de crédito, não é uma garantia de capacidade. Se tiver necessidades de capacidade em grande escala, contacte o suporte do Azure.
+> Uma quota é um limite de crédito, não uma garantia de capacidade. Se tiver necessidades de capacidade em grande escala, contacte o suporte do Azure.
 > 
 > 
 
@@ -43,41 +43,43 @@ Se planear executar cargas de trabalho de produção no Batch, poderá ter de au
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de núcleos no modo de subscrição de utilizador
 
-Se criou uma conta do Batch com o modo de atribuição de agrupamento definido como **subscrição de utilizador**, quotas são aplicadas de forma diferente. Neste modo, as VMs do Batch e a outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. As quotas de núcleos do Azure Batch não se aplicam a uma conta criada neste modo. Em vez disso, as quotas na sua subscrição para regionais compute núcleos e outros recursos são aplicados. Saiba mais sobre estas quotas no [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
+Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definido como **subscrição do utilizador**, as quotas são aplicadas de forma diferente. Neste modo, as VMs do Batch e outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. As quotas de núcleos do Azure Batch não são aplicáveis a uma conta criada neste modo. Em vez disso, as quotas na sua subscrição para regionais de núcleos de computação e outros recursos são aplicados. Saiba mais sobre estas quotas no [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Outros limites
+
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
-| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 x número de núcleos de nó |
-| [Aplicações](batch-application-packages.md) por conta do Batch |20 |
+| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 x número de núcleos do nó |
+| [Aplicativos](batch-application-packages.md) por conta do Batch |20 |
 | Pacotes de aplicação por aplicação |40 |
-| Duração máxima de tarefas | 7 dias<sup>1</sup> |
-| Nós de computação num conjunto de comunicação entre nós ativada | 100 |
+| Duração de tarefa máximo | 7 dias<sup>1</sup> |
+| Nós de computação no conjunto de comunicação entre nós ativada | 100 |
 
-<sup>1</sup> a duração máxima de uma tarefa, a partir da quando é adicionada à tarefa para quando estiver concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
+<sup>1</sup> a duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 
+## <a name="view-batch-quotas"></a>Ver quotas de Batch
 
-## <a name="view-batch-quotas"></a>Ver as quotas de Batch
-Ver as quotas de conta do Batch no [portal do Azure][portal].
+Ver as suas quotas de conta do Batch no [portal do Azure][portal].
 
-1. Selecione **contas do Batch** no portal, em seguida, selecione a conta do Batch estiver interessado em.
-2. Selecione **Quotas** no menu da conta do Batch.
-3. Ver as quotas atualmente aplicadas à conta do Batch
+1. Selecione **contas do Batch** no portal, em seguida, selecione a conta do Batch tiver interesse em.
+1. Selecione **Quotas** no menu da conta do Batch.
+1. Ver as quotas atualmente aplicadas para a conta do Batch
    
-    ![Quotas de conta do batch][account_quotas]
+    ![Quotas das contas do batch][account_quotas]
 
 
 
 ## <a name="increase-a-quota"></a>Aumentar uma quota
-Siga estes passos para pedir uma quota de aumentam a sua conta do Batch ou a sua subscrição utilizando o [portal do Azure][portal]. O tipo de aumento de quota depende o modo de atribuição de agrupamento da sua conta do Batch.
 
-### <a name="increase-a-batch-cores-quota"></a>Aumentar uma quota de núcleos de Batch 
+Siga estas etapas para pedir uma quota de aumentam para sua conta do Batch ou a sua subscrição com o [portal do Azure][portal]. O tipo de aumento de quota depende do modo de alocação de conjuntos da sua conta do Batch.
 
-1. Selecione o **ajuda + suporte** mosaico no dashboard do portal do ou o ponto de interrogação (**?**) no canto superior direito do portal.
-2. Selecione **novo pedido de suporte** > **Noções básicas**.
-3. No **Noções básicas**:
+### <a name="increase-a-batch-cores-quota"></a>Aumentar uma quota de núcleos do Batch 
+
+1. Selecione o **ajuda + suporte** mosaico no dashboard do portal ou o ponto de interrogação (**?**) no canto superior direito do portal.
+1. Selecione **novo pedido de suporte** > **Noções básicas**.
+1. Na **Noções básicas**:
    
-    a. **Emitir tipo** > **Quota**
+    a. **Tipo de problema** > **Quota**
    
     b. Selecione a sua subscrição.
    
@@ -86,22 +88,32 @@ Siga estes passos para pedir uma quota de aumentam a sua conta do Batch ou a sua
     d. **Plano de suporte** > **suporte de Quota - incluído**
    
     Clique em **Seguinte**.
-4. No **problema**:
+1. Na **problema**:
    
-    a. Selecione um **gravidade** acordo com seu [impacto comercial][support_sev].
+    a. Selecione um **gravidade** acordo com a sua [impacto comercial][support_sev].
    
-    b. No **detalhes**, especifique cada quota que pretende alterar, o nome de conta do Batch e o novo limite.
+    b. Na **detalhes**, especifique cada quota que pretende alterar o nome de conta do Batch e o novo limite.
    
     Clique em **Seguinte**.
-5. No **informações de contacto**:
+1. Na **informações de contacto**:
    
-    a. Selecione um **método de contacto preferencial**.
+    a. Selecione um **método preferencial de contacto**.
    
-    b. Certifique-se e introduza os detalhes de contactos necessários.
+    b. Verificar e introduza os detalhes de contactos necessários.
    
     Clique em **Criar** para submeter o pedido de suporte.
 
-Depois de ter submetido o pedido de suporte, o suporte do Azure irá contactá-lo. Tenha em atenção que a concluir o pedido pode demorar até 2 dias úteis.
+Depois de ter enviado o pedido de suporte, o suporte do Azure irá contactá-lo. Tenha em atenção que a conclusão do pedido pode demorar até 2 dias úteis.
+
+## <a name="related-quotas-for-vm-pools"></a>Quotas relacionadas para conjuntos VM
+
+Os conjuntos do batch na configuração da Máquina Virtual implementada numa rede virtual do Azure automaticamente alocar recursos de rede do Azure adicionais. Os recursos a seguir são necessários para cada nós de conjunto de 50 numa rede virtual:
+
+* 1 [grupo de segurança de rede](../virtual-network/security-overview.md#network-security-groups)
+* 1 [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 [Balanceador de carga](../load-balancer/load-balancer-overview.md)
+
+Esses recursos são alocados na subscrição que contém a rede virtual fornecida durante a criação de conjunto do Batch. Estes recursos estão limitados da subscrição [quotas de recursos](../azure-subscription-service-limits.md). Se planear implementações de grande pool numa rede virtual, verifique as quotas a subscrição para esses recursos. Se for necessário, pedir um aumento no portal do Azure, selecionando **ajuda + suporte**.
 
 
 ## <a name="related-topics"></a>Tópicos relacionados

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970864"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439502"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Código de ciência de dados de teste com o conjunto de dados de predição de rendimento para adultos UCI
 Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Um Team Data Science Process (TDSP), usamos [projeto que usa o conjunto de dados de rendimento para adultos de UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos anteriormente para mostrar como teste de código pode ser feito. 
@@ -60,11 +60,11 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     ![Explorador de Soluções](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. Feed seu código de projeto para o repositório de código do projeto VSTS: 
+1. Feed seu código de projeto para o repositório de código do projeto VSTS: 
 
     ![Repositório de código do projeto](./media/code-test/create_repo.PNG)
 
-4. Suponha que fez um trabalho de preparação de dados, como a ingestão de dados, engenharia de funcionalidades e criação de colunas de etiqueta. Pretende certificar-se de que seu código está a gerar os resultados esperados. Este é o código que pode usar para testar se o código de processamento de dados está a funcionar corretamente:
+1. Suponha que fez um trabalho de preparação de dados, como a ingestão de dados, engenharia de funcionalidades e criação de colunas de etiqueta. Pretende certificar-se de que seu código está a gerar os resultados esperados. Este é o código que pode usar para testar se o código de processamento de dados está a funcionar corretamente:
 
     * Verifique se os nomes de coluna são certos:
     
@@ -83,7 +83,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
       ![Código para obter uma taxa em falta](./media/code-test/check_missing_rate.PNG)
 
 
-5. Depois de fazer o processamento de dados e o trabalho de engenharia de funcionalidades e Treinou um bom modelo, certifique-se de que o modelo treinado por pode classificar novos conjuntos de dados corretamente. Pode utilizar os seguintes dois testes para verificar os níveis de previsão e distribuição de valores de etiqueta:
+1. Depois de fazer o processamento de dados e o trabalho de engenharia de funcionalidades e Treinou um bom modelo, certifique-se de que o modelo treinado por pode classificar novos conjuntos de dados corretamente. Pode utilizar os seguintes dois testes para verificar os níveis de previsão e distribuição de valores de etiqueta:
 
     * Verifique os níveis de predição:
     
@@ -93,58 +93,58 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
       ![Código para verificar os valores de previsão](./media/code-test/check_prediction_values.PNG)
 
-6. PUT todos testar as funções em conjunto num script de Python chamado **test_funcs.py**:
+1. PUT todos testar as funções em conjunto num script de Python chamado **test_funcs.py**:
 
     ![Script de Python para funções de teste](./media/code-test/create_file_test_func.PNG)
 
 
-7. Depois dos códigos de teste estão preparados, pode configurar o ambiente de teste no Visual Studio.
+1. Depois dos códigos de teste estão preparados, pode configurar o ambiente de teste no Visual Studio.
 
    Crie um ficheiro Python denominado **test1.py**. Este ficheiro, crie uma classe que inclui todos os testes que deseja fazer. O exemplo seguinte mostra seis testes preparados:
     
     ![Ficheiro de Python com uma lista de testes numa classe](./media/code-test/create_file_test1_class.PNG)
 
-8. Esses testes podem ser detetados automaticamente se colocar **codetest.testCase** após o nome da sua classe. Abra o Gerenciador de testes no painel da direita e selecione **executar todos**. Todos os testes serão executados sequencialmente e informará se o teste é efetuada com êxito ou não.
+1. Esses testes podem ser detetados automaticamente se colocar **codetest.testCase** após o nome da sua classe. Abra o Gerenciador de testes no painel da direita e selecione **executar todos**. Todos os testes serão executados sequencialmente e informará se o teste é efetuada com êxito ou não.
 
     ![Executar os testes](./media/code-test/run_tests.PNG)
 
-9. Verifique no seu código para o repositório do projeto ao utilizar comandos do Git. Seu trabalho mais recente será refletido daqui a pouco no VSTS.
+1. Verifique no seu código para o repositório do projeto ao utilizar comandos do Git. Seu trabalho mais recente será refletido daqui a pouco no VSTS.
 
     ![Comandos do Git para a verificação no código](./media/code-test/git_check_in.PNG)
 
     ![Trabalho mais recente no VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Configurar a compilação automática e teste no VSTS:
+1. Configurar a compilação automática e teste no VSTS:
 
     a. No repositório do projeto, selecione **criar e lançar**e, em seguida, selecione **+ novo** para criar um novo processo de compilação.
 
-       ![Seleções para iniciar um novo processo de compilação](./media/code-test/create_new_build.PNG)
+       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
     b. Siga as instruções para selecionar a localização do código de origem, nome do projeto, repositório e informações do ramo.
     
-       ![Origem, o nome, o repositório e informações do ramo](./media/code-test/fill_in_build_info.PNG)
+       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
     c. Selecione um modelo. Como não há nenhum modelo de projeto de Python, comece por selecionar **vazio processo**. 
 
-       ![Lista de modelos e botão "Vazio processo"](./media/code-test/start_empty_process_template.PNG)
+       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
     d. Nomeie a compilação e selecione o agente. Se pretender utilizar uma DSVM para concluir o processo de compilação, pode escolher o padrão aqui. Para obter mais informações sobre agentes de definição, consulte [criar e lançar agentes](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
-       ![Selecione as opções de compilação e o agente](./media/code-test/select_agent.PNG)
+       ![Build and agent selections](./media/code-test/select_agent.PNG)
 
     e. Selecione **+** no painel esquerdo, para adicionar uma tarefa para esta fase de compilação. Como nós vamos para executar o script de Python **test1.py** para concluir a todas as verificações, esta tarefa está a utilizar um comando do PowerShell para executar o código de Python.
     
-       ![Painel "Adicionar tarefas" com o PowerShell selecionado](./media/code-test/add_task_powershell.PNG)
+       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
     f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e versão do PowerShell. Escolher **o Inline Script de** como o tipo. 
     
-       Na caixa em **Inline Script**, pode escrever **python test1.py**. Certifique-se de que a variável de ambiente está configurada corretamente para o Python. Se precisar de uma versão diferente ou o kernel do Python, é possível especificar explicitamente o caminho como mostrado na figura: 
+       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
     
-       ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
+       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
     g. Selecione **guardar e colocar em fila** para concluir o processo de definição de compilação.
 
-       ![Botão "Guardar e colocar em fila"](./media/code-test/save_and_queue_build_definition.PNG)
+       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Agora sempre que uma consolidação novo é emitida para o repositório de código, o processo de compilação será iniciada automaticamente. (Aqui, vamos utilizar mestre como o repositório, mas pode definir qualquer ramo.) O processo é executado o **test1.py** ficheiro no computador agente para certificar-se de que tudo definidas no código é executado corretamente. 
 

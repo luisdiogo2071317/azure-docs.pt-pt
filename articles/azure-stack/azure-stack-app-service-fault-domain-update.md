@@ -1,6 +1,6 @@
 ---
-title: 'Serviço de aplicações na pilha do Azure: a falhas de atualização de domínio | Microsoft Docs'
-description: Como redistribuir o serviço de aplicações do Azure na pilha do Azure em vários domínios de falhas
+title: 'Serviço de aplicações no Azure Stack: atualização de domínio de falha | Documentos da Microsoft'
+description: Como redistribuir o serviço de aplicações do Azure no Azure Stack em domínios de falha
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130375"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440156"
 ---
-# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Como redistribuir o serviço de aplicações do Azure na pilha do Azure em vários domínios de falhas
+# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Como redistribuir o serviço de aplicações do Azure no Azure Stack em domínios de falha
 
-*Aplica-se a: Azure pilha integrado sistemas*
+*Aplica-se a: sistemas integrados do Azure Stack*
 
-Com a atualização de 1802 pilha do Azure suporta agora a distribuição de cargas de trabalho entre domínios de falhas, uma funcionalidade que é fundamental para uma elevada disponibilidade.
+Com a atualização 1802, Azure Stack agora suporta a distribuição de cargas de trabalho entre domínios de falha, uma funcionalidade que é fundamental para elevada disponibilidade.
 
 >[!IMPORTANT]
->Para tirar partido do suporte de domínio de falhas, tem de atualizar o sistema de pilha do Azure integrado 1802. Este documento só se aplica às implementações de fornecedor de recursos do serviço de aplicações que foram terminou antes da atualização da 1802. Se implementou o serviço de aplicações na pilha do Azure após a atualização de 1802 foi aplicada com pilha do Azure, o fornecedor de recursos já tenham sido distribuído em vários domínios de falhas.
+>Para tirar partido do suporte de domínio de falhas, tem de atualizar o seu sistema integrado do Azure Stack para 1802. Este documento aplica-se apenas para implementações de fornecedor de recursos do serviço de aplicações que foram concluídas antes da atualização 1802. Se tiver implementado o serviço de aplicações no Azure Stack depois da atualização 1802 foi aplicada ao Azure Stack, o fornecedor de recursos já é distribuído por domínios de falha.
 
-## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Rebalancear um fornecedor de recursos do serviço de aplicações em vários domínios de falhas
+## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Reequilibrar um fornecedor de recursos do serviço de aplicações em domínios de falha
 
-Para redistribuir os conjuntos de dimensionamento implementados para o fornecedor de recursos do serviço de aplicações, tem de efetuar os passos neste artigo para cada conjunto de dimensionamento. Por predefinição, os nomes de scaleset são:
+Para redistribuir os conjuntos de dimensionamento implementados para o fornecedor de recursos do serviço de aplicações, tem de efetuar os passos neste artigo para cada conjunto de dimensionamento. Por predefinição, os nomes de conjunto de dimensionamento são:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -43,17 +43,17 @@ Para redistribuir os conjuntos de dimensionamento implementados para o fornecedo
 * LargeWorkerTierScaleSet
 
 >[!NOTE]
-> Se não tiver implementadas em alguns dos conjuntos de dimensionamento de camada de trabalho de instâncias, não terá de reequilibrar os conjuntos de dimensionamento. Os conjuntos de dimensionamento irão ser balanceados corretamente quando dimensiona-los no futuro.
+> Se não tiver instâncias implementadas no alguns dos conjuntos de dimensionamento do escalão de worker, não tem de reequilibrar as esses conjuntos de dimensionamento. Os conjuntos de dimensionamento ser balanceados corretamente, quando dimensione-os no futuro.
 
-Para ampliar os conjuntos de dimensionamento, siga estes passos:
+Para aumentar horizontalmente os conjuntos de dimensionamento, siga estes passos:
 
-1. Inicie sessão no Portal de administrador de pilha do Azure.
-2. Selecione **mais serviços**.
-3. Em COMPUTAÇÃO, selecione **conjuntos de dimensionamento de Máquina Virtual**. Conjuntos de dimensionamento existentes implementados como parte da implementação do serviço de aplicações serão listados com as informações de contagem de instâncias. A seguinte captura de ecrã mostra um exemplo de conjuntos de dimensionamento.
+1. Inicie sessão no Portal do Azure Stack administrador.
+1. Selecione **mais serviços**.
+1. Em COMPUTAÇÃO, selecione **conjuntos de dimensionamento de máquinas virtuais**. Conjuntos de dimensionamento existente implementados como parte da implementação do serviço de aplicações serão listados com informações de contagem de instância. Captura de ecrã seguinte mostra um exemplo de conjuntos de dimensionamento.
 
-      ![Conjuntos de dimensionamento de serviço de aplicações do Azure listado no UX de conjuntos de dimensionamento de Máquina Virtual][1]
+      ![Conjuntos de dimensionamento de serviço de aplicações do Azure listados na UX de conjuntos de dimensionamento de Máquina Virtual][1]
 
-4. Aumentar horizontalmente cada conjunto. Por exemplo, se tiver três instâncias existentes no conjunto de dimensionamento, deve aumentar horizontalmente 6 para que as três novas instâncias são implementadas em vários domínios de falhas. Mostra o exemplo do PowerShell seguinte terminar para aumentar horizontalmente o conjunto de dimensionamento.
+1. Aumentar horizontalmente a cada conjunto. Por exemplo, se tiver três instâncias existentes no conjunto de dimensionamento deve aumentar horizontalmente a 6 para que as três novas instâncias são implementadas em domínios de falha. O exemplo de PowerShell seguinte mostra os para aumentar horizontalmente o conjunto de dimensionamento.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -69,20 +69,20 @@ Para ampliar os conjuntos de dimensionamento, siga estes passos:
    >[!NOTE]
    >Este passo pode demorar várias horas a concluir, dependendo do tipo de função e o número de instâncias.
 
-5. No **funções de administração do serviço de aplicações**, monitorizar o estado das novas instâncias de função. Para verificar o estado de uma instância de função, selecione o tipo de função na lista
+1. Na **funções de administração do serviço de aplicações**, monitorizar o estado das instâncias de função nova. Para verificar o estado de uma instância de função, selecione o tipo de função na lista
 
-    ![App Service do Azure, as funções de pilha do Azure][2]
+    ![Serviço de aplicações do Azure nas funções do Azure Stack][2]
 
-6. Quando o estado de novas instâncias de função é **pronto**, volte ao **conjunto de dimensionamento da Máquina Virtual** e **eliminar** as instâncias da função antigo.
+1. Quando o estado de novas instâncias de função é **pronto**, volte ao **conjunto de dimensionamento de máquinas virtuais** e **eliminar** as instâncias de função antigo.
 
-7. Repita estes passos para **cada** conjunto de dimensionamento da máquina virtual.
+1. Repita estes passos para **cada** conjunto de dimensionamento de máquina virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Também pode experimentar o outro [plataforma como dos serviços de serviço (PaaS)](azure-stack-tools-paas-services.md).
+Também pode tentar outros [plataforma como um serviço de serviço (PaaS)](azure-stack-tools-paas-services.md).
 
 * [Fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md)
-* [Fornecedor de recursos de MySQL](azure-stack-mysql-resource-provider-deploy.md)
+* [Fornecedor de recursos MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-fault-domain-update/app-service-scale-sets.png

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 57c418f686aa956294efeabd831042441c055e56
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 655140fc7f8cc52adf6a13a99cef531f28d5cefc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041114"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Active Directory com o Suite de BPM Questetra
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar conjunto de BPM Questetra a partir da Galeria
-2. Configurar e testar o Azure AD início de sessão único
+1. Configurar e testar o Azure AD início de sessão único
 
 ## <a name="add-questetra-bpm-suite-from-the-gallery"></a>Adicionar conjunto de BPM Questetra a partir da Galeria
 Para configurar a integração do Questetra BPM Suite para o Azure AD, terá de adicionar Questetra BPM Suite a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do Questetra BPM Suite para o Azure AD, terá de 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Suite de BPM Questetra**, selecione **Questetra BPM Suite** do painel de resultados e clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Suite de BPM Questetra**, selecione **Questetra BPM Suite** do painel de resultados e clique em **Add** botão para adicionar a aplicação.
 
     ![Adicionar a partir da Galeria](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Conjunto de BPM Questetra, atribuir o valor do **nome de utilizador** no Azure A
 Para configurar e testar o Azure AD início de sessão único com Questetra BPM Suite, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do conjunto de BPM Questetra](#create-a-questetra-bpm-suite-test-user)**  - para ter um equivalente da Eduarda Almeida no Questetra BPM Suite, que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do conjunto de BPM Questetra](#create-a-questetra-bpm-suite-test-user)**  - para ter um equivalente da Eduarda Almeida no Questetra BPM Suite, que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -101,11 +101,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Inicio de sessão baseado em SAML](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
 
-3. Sobre o **Questetra BPM Suite domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Questetra BPM Suite domínio e URLs** secção, execute os seguintes passos:
 
     ![Secção Questetra BPM Suite domínio e URLs](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
@@ -116,35 +116,35 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Pode obter estes valores a partir **informações de SP** secção no seu **Questetra BPM Suite** site da empresa, que é explicado mais tarde no tutorial ou contacte [suporte Questetra BPM Suite cliente equipe](https://www.questetra.com/contact/). 
  
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base 64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base 64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Secção do certificado de assinatura SAML](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Botão Guardar](./media/questetra-bpm-suite-tutorial/tutorial_general_400.png)
 
-6. Sobre o **Questetra BPM Suite Configuration** secção, clique em **configurar conjunto de BPM Questetra** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Questetra BPM Suite Configuration** secção, clique em **configurar conjunto de BPM Questetra** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Seção de configuração de conjunto de BPM Questetra](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_configure.png) 
 
-7. Numa janela do browser web diferente, inicie sessão no seu **Suite de BPM Questetra** site da empresa como administrador.
+1. Numa janela do browser web diferente, inicie sessão no seu **Suite de BPM Questetra** site da empresa como administrador.
 
-8. No menu na parte superior, clique em **definições do sistema**. 
+1. No menu na parte superior, clique em **definições do sistema**. 
    
     ![O Azure AD Single Sign-On][10]
 
-9. Para abrir o **SingleSignOnSAML** página, clique em **SSO (SAML)**. 
+1. Para abrir o **SingleSignOnSAML** página, clique em **SSO (SAML)**. 
    
     ![O Azure AD Single Sign-On][11]
 
-10. No seu **Suite de BPM Questetra** da empresa site, no **SP informações** secção, execute os seguintes passos:
+1. No seu **Suite de BPM Questetra** da empresa site, no **SP informações** secção, execute os seguintes passos:
 
     a. Cópia a **URL de ACS**e, em seguida, cole-o no **URL de início de sessão** caixa de texto no **Questetra BPM Suite domínio e URLs** seção do portal do Azure.
     
     b. Copiar o **ID de entidade**e, em seguida, cole-o no **identificador** caixa de texto no **Questetra BPM Suite domínio e URLs** seção do portal do Azure.
 
-11. No seu **Suite de BPM Questetra** da empresa site, execute os seguintes passos: 
+1. No seu **Suite de BPM Questetra** da empresa site, execute os seguintes passos: 
    
     ![Configurar o início de sessão único][15]
    
@@ -177,15 +177,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/questetra-bpm-suite-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/questetra-bpm-suite-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/questetra-bpm-suite-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/questetra-bpm-suite-tutorial/create_aaduser_04.png) 
 
@@ -204,8 +204,8 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Queste
 **Para criar um usuário chamado Eduarda Almeida no conjunto de BPM Questetra, execute os seguintes passos:**
 
 1. Inicie sessão site da sua empresa Questetra BPM Suite como um administrador.
-2. Aceda a **definições do sistema > lista de utilizadores > novo utilizador**. 
-3. Na caixa de diálogo novo utilizador, execute os seguintes passos: 
+1. Aceda a **definições do sistema > lista de utilizadores > novo utilizador**. 
+1. Na caixa de diálogo novo utilizador, execute os seguintes passos: 
    
     ![Criar utilizador de teste][300] 
    
@@ -229,23 +229,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Suite de BPM Questetra**.
+1. Na lista de aplicações, selecione **Suite de BPM Questetra**.
 
     ![Conjunto de BPM Questetra na lista de aplicações](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -257,7 +257,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

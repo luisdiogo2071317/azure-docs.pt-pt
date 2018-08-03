@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jeedes
-ms.openlocfilehash: d796ebf6e30476d766a0d9b6c78ba4b5cf577b47
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 871942db15d6a3cff45584e33b2191e21d2281a0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056230"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Azure Active Directory com Vidyard
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Vidyard da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-vidyard-from-the-gallery"></a>Adicionando Vidyard da Galeria
 Para configurar a integração do Vidyard com o Azure AD, terá de adicionar Vidyard a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do Vidyard com o Azure AD, terá de adicionar Vid
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Vidyard**, selecione **Vidyard** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Vidyard**, selecione **Vidyard** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Vidyard na lista de resultados](./media/vidyard-tutorial/tutorial_vidyard_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com Vidyard, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Vidyard](#create-a-vidyard-test-user)**  - para ter um equivalente da Eduarda Almeida na Vidyard que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste Vidyard](#create-a-vidyard-test-user)**  - para ter um equivalente da Eduarda Almeida na Vidyard que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -100,11 +100,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/vidyard-tutorial/tutorial_vidyard_samlbase.png)
 
-3. Sobre o **Vidyard domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+1. Sobre o **Vidyard domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Vidyard domínio e URLs únicas início de sessão em informações](./media/vidyard-tutorial/tutorial_vidyard_url2.png)
 
@@ -112,7 +112,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
-4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Vidyard domínio e URLs únicas início de sessão em informações](./media/vidyard-tutorial/tutorial_vidyard_url1.png)
 
@@ -125,17 +125,17 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![O link de download de certificado](./media/vidyard-tutorial/tutorial_vidyard_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/vidyard-tutorial/tutorial_general_400.png)
 
-7. Sobre o **Vidyard configuração** secção, clique em **configurar Vidyard** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Vidyard configuração** secção, clique em **configurar Vidyard** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/tutorial_vidyard_configure.png)
 
-8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Vidyard Software como um administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Vidyard Software como um administrador.
 
-9. A partir do Vidyard dashboard, selecione **grupo** > **segurança**
+1. A partir do Vidyard dashboard, selecione **grupo** > **segurança**
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/configure1.png)
 
@@ -143,7 +143,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/configure2.png)
 
-11. Na **configuração SAML do** secção, execute os seguintes passos:
+1. Na **configuração SAML do** secção, execute os seguintes passos:
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/configure3.png)
 
@@ -159,20 +159,20 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     f. Na **URL de ponto final de SAML** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço** copiados a partir do portal do Azure.
 
-    g. Clique em **confirmar**.
+    g. Clique em **Confirmar**.
 
-12. No separador de início de sessão único, selecione **atribuir** junto a um perfil existente
+1. No separador de início de sessão único, selecione **atribuir** junto a um perfil existente
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/configure4.png)
 
     > [!NOTE]
     > Depois de criar um perfil SSO, atribuí-la para qualquer grupo (s) para o qual os utilizadores precisarão de acesso através do Azure. Se o utilizador não existir dentro do grupo ao qual foram atribuídos, Vidyard irá automaticamente criar uma conta de utilizador e atribuir a respetiva função em tempo real.
 
-13. Selecione o seu grupo de organização, o que é visível no **grupos disponíveis para atribuir**.
+1. Selecione o seu grupo de organização, o que é visível no **grupos disponíveis para atribuir**.
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/configure5.png)
 
-14. Pode ver os grupos atribuídos sob o **grupos atribuídos**. Selecione uma função para o grupo de acordo com a sua organização e clique em **confirmar**.
+1. Pode ver os grupos atribuídos sob o **grupos atribuídos**. Selecione uma função para o grupo de acordo com a sua organização e clique em **confirmar**.
 
     ![Configuração de Vidyard](./media/vidyard-tutorial/configure6.png)
 
@@ -191,15 +191,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/vidyard-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/vidyard-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/vidyard-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/vidyard-tutorial/create_aaduser_04.png)
 
@@ -229,23 +229,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Vidyard**.
+1. Na lista de aplicações, selecione **Vidyard**.
 
     ![A ligação de Vidyard na lista de aplicações](./media/vidyard-tutorial/tutorial_vidyard_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -257,7 +257,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

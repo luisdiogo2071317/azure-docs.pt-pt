@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 1dba198c747e52be18ed49aca271109997c86929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c086d58a7de4897f93699d2c22b6598896eb50e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052633"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Azure Active Directory com o Gestor de risco IMPAC
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar IMPAC risco Manager a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-impac-risk-manager-from-the-gallery"></a>Adicionar IMPAC risco Manager a partir da Galeria
 Para configurar a integração do Gestor de risco de IMPAC com o Azure AD, terá de adicionar IMPAC risco Manager a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do Gestor de risco de IMPAC com o Azure AD, terá
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Gestor de risco IMPAC**, selecione **IMPAC risco Manager** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Gestor de risco IMPAC**, selecione **IMPAC risco Manager** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Gestor de risco de IMPAC na lista de resultados](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Gestor de IMPAC risco, atribuir o valor do **nome de utilizador** no Azure AD
 Para configurar e testar o Azure AD início de sessão único com o Gestor de risco IMPAC, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do Gestor de risco IMPAC](#create-a-impac-risk-manager-test-user)**  - para ter um equivalente da Eduarda Almeida no IMPAC risco Manager que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do Gestor de risco IMPAC](#create-a-impac-risk-manager-test-user)**  - para ter um equivalente da Eduarda Almeida no IMPAC risco Manager que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_samlbase.png)
 
-3. Sobre o **URLs de domínio do Gestor de risco IMPAC e** secção, execute os seguintes passos, se desejar configurar a aplicação no modo de IDP iniciado:
+1. Sobre o **URLs de domínio do Gestor de risco IMPAC e** secção, execute os seguintes passos, se desejar configurar a aplicação no modo de IDP iniciado:
 
     ![URLs de domínio do Gestor de risco IMPAC e únicas início de sessão em informações](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url_new.png)
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | Para o controle de qualidade |`https://QA.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para teste |`https://test.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
 
-4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![URLs de domínio do Gestor de risco IMPAC e únicas início de sessão em informações](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
@@ -137,19 +137,19 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente do Gestor de risco IMPAC](mailto:rmsupport@Impac.co.nz) obter esses valores.
 
-5. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/impacriskmanager-tutorial/tutorial_general_400.png)
     
-7. Na **configuração do Gestor de risco IMPAC** secção, clique em **configurar Gestor de risco de IMPAC** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço, o ID de entidade de SAML** e **URL de fim de sessão** partir o **secção de referência rápida.**
+1. Na **configuração do Gestor de risco IMPAC** secção, clique em **configurar Gestor de risco de IMPAC** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço, o ID de entidade de SAML** e **URL de fim de sessão** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
 
-8. Para configurar o início de sessão único num **Gestor de risco IMPAC** lado, terá de enviar o transferido **Certificate(Base64)**, **URL de fim de sessão, o ID de entidade de SAML,** e  **SAML único início de sessão no URL do serviço** para [equipa de suporte do Gestor de risco IMPAC](mailto:rmsupport@Impac.co.nz). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Gestor de risco IMPAC** lado, terá de enviar o transferido **Certificate(Base64)**, **URL de fim de sessão, o ID de entidade de SAML,** e  **SAML único início de sessão no URL do serviço** para [equipa de suporte do Gestor de risco IMPAC](mailto:rmsupport@Impac.co.nz). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,15 +166,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/impacriskmanager-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/impacriskmanager-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/impacriskmanager-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/impacriskmanager-tutorial/create_aaduser_04.png)
 
@@ -202,23 +202,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **IMPAC risco Manager**.
+1. Na lista de aplicações, selecione **IMPAC risco Manager**.
 
     ![A ligação de Gestor de risco IMPAC na lista de aplicações](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -230,7 +230,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

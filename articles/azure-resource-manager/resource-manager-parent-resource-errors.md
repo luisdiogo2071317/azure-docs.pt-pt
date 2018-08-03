@@ -1,32 +1,30 @@
 ---
-title: Erros de recursos do principal do Azure | Microsoft Docs
+title: Erros de recurso principal do Azure | Documentos da Microsoft
 description: Descreve como resolver erros ao trabalhar com um recurso principal.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/13/2017
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357780"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447307"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolva os erros para os recursos de principal
 
-Este artigo descreve os erros que poderá encontrar ao implementar um recurso que depende de um recurso principal.
+Este artigo descreve os erros que pode obter durante a implantação de um recurso que está dependente de um recurso principal.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando implementar um recurso que é um subordinado a outro recurso, poderá receber o erro seguinte:
+Ao implementar um recurso que é um filho para outro recurso, poderá receber o erro seguinte:
 
 ```
 Code=ParentResourceNotFound;
@@ -35,7 +33,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Quando um recurso é um subordinado a outro recurso, o recurso principal tem de existir antes de criar o recurso subordinado. O nome do recurso subordinado inclui o nome do principal. Por exemplo, uma base de dados do SQL Server pode ser definido como:
+Quando um recurso é um filho para outro recurso, o recurso principal tem de existir antes de criar o recurso de subordinados. O nome do recurso subordinado define a ligação com o recurso principal. O nome do recurso subordinado está no formato `<parent-resource-name>/<child-resource-name>`. Por exemplo, uma base de dados SQL pode ser definida como:
 
 ```json
 {
@@ -44,11 +42,13 @@ Quando um recurso é um subordinado a outro recurso, o recurso principal tem de 
   ...
 ```
 
-No entanto, se não especificar uma dependência no servidor, a implementação de base de dados poderá iniciar antes do servidor tenha implementado.
+Se implementar o servidor e a base de dados no mesmo modelo, mas não especificar uma dependência no servidor, a implementação de base de dados pode iniciar antes de ter implementado o servidor. 
+
+Se o recurso principal já existe e não está implementado no mesmo modelo, pode obter este erro quando o Gestor de recursos não é possível associar o recurso de subordinados com o elemento principal. Este erro poderá ocorrer se o recurso subordinado não está no formato correto ou o recurso de subordinado é implementado num grupo de recursos que é diferente do grupo de recursos para o recurso principal.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este erro, inclua uma dependência.
+Para resolver este erro quando os recursos principais e subordinadas são implementados no mesmo modelo, inclua uma dependência.
 
 ```json
 "dependsOn": [
@@ -56,4 +56,34 @@ Para resolver este erro, inclua uma dependência.
 ]
 ```
 
-Para obter mais informações, consulte [definir a ordem de implementação de recursos em modelos do Azure Resource Manager](resource-group-define-dependencies.md).
+Para resolver este erro quando o recurso principal foi anteriormente implementado num modelo diferente, não definir uma dependência. Em vez disso, implementar o filho no mesmo grupo de recursos e forneça o nome do recurso principal.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Para obter mais informações, consulte [definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager](resource-group-define-dependencies.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442176"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424233"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -162,7 +162,7 @@ O Azure fornece várias formas de utilizar contentores em seus aplicativos.
 
     >**Quando utilizar**: quando deseja fornecer uma experiência SSO, trabalhar com dados de gráfico ou autenticar utilizadores com base em domínio.
 
-    >**Começar a utilizar**: para obter mais informações, consulte a [guia para programadores do Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
+    >**Começar a utilizar**: para obter mais informações, consulte a [guia para programadores do Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 
 -   **Autenticação do serviço de aplicações**: ao escolher o serviço de aplicações para alojar a sua aplicação, obtém também suporte interno a autenticação para o Azure AD, juntamente com os fornecedores de identidade social — incluindo o Facebook, Google, Microsoft e Twitter.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b9acc829439578f2f86dfbd51164cb3eaf923c2a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f61f0649900c27a6aa3a873f60dc60b4985f5d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369311"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424192"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -48,7 +48,7 @@ Este tutorial parte do princípio de que está familiarizado com:
     
 -  [Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
     
--  [Como planear a sua implementação híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
+-  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
 
 Para configurar o cenário neste artigo, precisa da [a versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) a serem instalados. 
  
@@ -191,14 +191,13 @@ Ao utilizar o **Get-MSolDevice** cmdlet para verificar os detalhes do serviço:
 
 Se estiver tendo problemas com a conclusão da híbrida associação do Azure AD para o domínio dispositivos associados ao Windows, consulte:
 
-- [Associação ao Azure AD híbrido resolução de problemas para dispositivos atuais do Windows](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Resolução de problemas de associação do Azure AD híbrido para dispositivos de nível inferior do Windows](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Associação ao Azure AD híbrido resolução de problemas para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Resolução de problemas de associação do Azure AD híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Associação ao Azure Active Directory configurar híbrido para domínios federados](hybrid-azuread-join-federated-domains.md)
-> [configurar manualmente a associação ao Azure Active Directory de híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [configurar manualmente a associação ao Azure Active Directory de híbrido](hybrid-azuread-join-manual-steps.md)
 

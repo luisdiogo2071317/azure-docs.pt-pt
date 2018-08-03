@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391768"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427555"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar híbrida do Azure Active Directory associados a um dispositivos manualmente 
 
-Gestão de dispositivos no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores estão a aceder ao seus recursos de dispositivos que cumprem as normas de segurança e conformidade. Para obter mais detalhes, consulte [.... / Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md).
+Gestão de dispositivos no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores estão a aceder ao seus recursos de dispositivos que cumprem as normas de segurança e conformidade. Para obter mais detalhes, consulte a [introdução à gestão de dispositivos no Azure Active Directory](overview.md).
 
 Se tiver um ambiente do Active Directory no local e pretender associar os dispositivos associados a um domínio ao Azure AD, isso pode ser feito através da configuração de dispositivos de associados ao Azure AD híbrido. Este artigo fornece os passos relacionados. 
 
@@ -114,15 +114,15 @@ Utilize a tabela seguinte para obter uma descrição geral dos passos necessári
 
 | Passos                                      | Sincronização de hash de atual e a palavra-passe do Windows | Windows atual e a Federação | Windows de nível inferior |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Passo 1: Configurar o ponto de ligação de serviço | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
-| Passo 2: Configurar a emissão de afirmações           |                                        | ![Marcar][1]                    | ![Marcar][1]        |
-| Passo 3: Ativar os dispositivos não Windows 10      |                                        |                                | ![Marcar][1]        |
-| Passo 4: Controlo de implementação     | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
-| Passo 5: Verifique se a dispositivos associados          | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
+| Configurar o ponto de ligação de serviço | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
+| Instalação de emissão de afirmações           |                                        | ![Marcar][1]                    | ![Marcar][1]        |
+| Permitir que os dispositivos não Windows 10      |                                        |                                | ![Marcar][1]        |
+| Controlo de implementação     | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
+| Verifique se os dispositivos associados          | ![Marcar][1]                            | ![Marcar][1]                    | ![Marcar][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Passo 1: Configurar o ponto de ligação de serviço
+## <a name="configure-service-connection-point"></a>Configurar o ponto de ligação de serviço
 
 O objeto de (SCP) do ponto de ligação de serviço é utilizado pelos seus dispositivos durante o registo para detetar informações de inquilino do Azure AD. No seu local Active Directory (AD), o objeto de SCP para dispositivos associados ao Azure AD híbrido tem de existir na configuração da atribuição de nomes de partição de contexto da floresta do computador. Há apenas um contexto de nomenclatura de configuração por floresta. Numa configuração várias floresta do Active Directory, o ponto de ligação de serviço tem de existir em todas as florestas que contêm computadores associados a um domínio.
 
@@ -200,7 +200,7 @@ Para obter uma lista dos seus domínios de empresa verificado, pode utilizar o [
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>Passo 2: Configurar a emissão de afirmações
+## <a name="setup-issuance-of-claims"></a>Instalação de emissão de afirmações
 
 Num Azure federado configuração do AD, dispositivos dependem de serviços de Federação do Active Directory (AD FS) ou uma parte 3 no local-serviço de Federação para autenticar para o Azure AD. Os dispositivos serão autenticados para obter um token de acesso para registar com o serviço de registo de dispositivos de diretório Active Directory do Azure (Azure DRS).
 
@@ -504,7 +504,7 @@ O script seguinte ajuda-o com a criação de emissão descritas acima de regras 
 
 - Se já ter emitido uma **ImmutableID** de afirmação para contas de utilizador, defina o valor de **$immutableIDAlreadyIssuedforUsers** no script para **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Passo 3: Ativar os dispositivos de nível inferior do Windows
+## <a name="enable-windows-down-level-devices"></a>Permitir que os dispositivos de nível inferior do Windows
 
 Se alguns dos seus dispositivos associados a um domínio são dispositivos de nível inferior do Windows, terá de:
 
@@ -562,7 +562,7 @@ Para evitar certificado pede-lhe quando os utilizadores nos dispositivos Registr
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Passo 4: Controlo de implementação
+## <a name="control-deployment-and-rollout"></a>Controlo de implementação
 
 Quando tiver concluído os passos necessários, dispositivos associados a um domínio estiver prontos para automaticamente associados ao Azure AD:
 
@@ -611,15 +611,24 @@ Pode implementar o pacote através de um sistema de distribuição de software, 
 
 O instalador cria uma tarefa agendada no sistema que é executado no contexto do usuário. A tarefa é acionada quando o utilizador inicia sessão Windows. A tarefa silenciosamente associa o dispositivo com o Azure AD com as credenciais de utilizador após a autenticação com a autenticação integrada do Windows. Para ver a tarefa agendada, no dispositivo, aceda à **Microsoft** > **Workplace Join**e, em seguida, vá para a biblioteca do agendador de tarefas.
 
-## <a name="step-5-verify-joined-devices"></a>Passo 5: Verifique se a dispositivos associados
+## <a name="verify-joined-devices"></a>Verifique se os dispositivos associados
 
 Pode verificar dispositivos associados com êxito na sua organização com o [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet no [módulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 O resultado deste cmdlet mostra os dispositivos que são registados e associados com o Azure AD. Para obter todos os dispositivos, utilize o **-todos os** parâmetro e, em seguida, filtrá-los utilizando o **deviceTrustType** propriedade. Associado a um domínio dispositivos têm um valor de **associados a um domínio**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Resolver problemas relacionados com a implementação
+
+Se estiver tendo problemas com a conclusão da híbrida associação do Azure AD para o domínio dispositivos associados ao Windows, consulte:
+
+- [Associação ao Azure AD híbrido resolução de problemas para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Resolução de problemas de associação do Azure AD híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Introdução à gestão de dispositivos no Azure Active Directory](../device-management-introduction.md)
+* [Introdução à gestão de dispositivos no Azure Active Directory](overview.md)
 
 
 

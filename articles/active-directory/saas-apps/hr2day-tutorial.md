@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com HR2day por Merces | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e HR2day por Merces.
+title: 'Tutorial: Integração do Azure Active Directory com HR2day por Merces | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e HR2day por Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,129 +14,129 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: a63ef3b089ec80da6a75aaaf8a4bb2454fec6cf7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224186"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory com HR2day por Merces
 
-Neste tutorial, irá aprender a integrar HR2day por Merces com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar HR2day por Merces com o Azure Active Directory (Azure AD).
 
-Integrar HR2day por Merces com o Azure AD fornece as seguintes vantagens:
+Integrar HR2day por Merces no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao HR2day por Merces.
-- Pode permitir que os utilizadores automaticamente obter a sessão iniciada no HR2day por Merces com as respetivas contas do Azure AD.
-- Pode gerir as contas numa única localização central, o portal do Azure.
+- Pode permitir que os utilizadores automaticamente obter a sessão iniciada no HR2day por Merces com as suas contas do Azure AD.
+- Pode gerir as suas contas num local central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com HR2day por Merces, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD.
-- Um HR2day por Merces-início de sessão único ativar a subscrição.
+- Um HR2day por Merces início de sessão único ativar a subscrição.
 
 > [!NOTE]
-> Não recomendamos a utilização de um ambiente de produção para testar os passos neste tutorial.
+> Não é recomendado utilizar um ambiente de produção para testar os passos neste tutorial.
 
-Para testar os passos neste tutorial, siga estas recomendações:
+Para testar os passos neste tutorial, siga as seguintes recomendações:
 
-- Não utilize o seu ambiente de produção, exceto se for necessário.
-- Obter um [um mês a avaliação gratuita do Azure AD](https://azure.microsoft.com/pricing/free-trial/) se que ainda não o tiver.  
+- Não utilize o seu ambiente de produção, a menos que seja necessário.
+- Obter um [avaliação gratuita de um mês do Azure AD](https://azure.microsoft.com/pricing/free-trial/) se ainda não o tiver.  
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário aqui descrito é composto por dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário que está descrito aqui consiste em dois blocos de construção principais:
 
-1. Adicionar HR2day por Merces partir da galeria.
-2. Configurar e testar o Azure AD único início de sessão.
+1. Adicionando HR2day por Merces da galeria.
+1. Configuração e teste do Azure AD início de sessão único.
 
 ## <a name="add-hr2day-by-merces-from-the-gallery"></a>Adicionar HR2day por Merces a partir da Galeria
-Para configurar a integração de HR2day por Merces com o Azure AD, adicione HR2day por Merces na Galeria à sua lista de aplicações SaaS geridas.
+Para configurar a integração do HR2day por Merces com o Azure AD, adicione HR2day por Merces a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar HR2day por Merces a partir da galeria, siga os passos seguintes:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione o **do Azure Active Directory** ícone. 
+1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione a **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Aceda a **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+1. Aceda a **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão no topo da caixa de diálogo.
+1. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **HR2day por Merces**.
+1. Na caixa de pesquisa, escreva **HR2day por Merces**.
 
     ![Criar um utilizador de teste do Azure AD](./media/hr2day-tutorial/tutorial_hr2daybymerces_search.png)
 
-5. No painel de resultados, selecione **HR2day por Merces**e, em seguida, selecione o **adicionar** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **HR2day por Merces**e, em seguida, selecione a **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
-Nesta secção, configurar e testar o Azure AD-início de sessão único com HR2day por Merces com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+Nesta secção, configurar e testar o Azure AD início de sessão único com HR2day por Merces com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber que o utilizador homólogo no HR2day por Merces for para um utilizador no Azure AD. Por outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado no HR2day por Merces.
+Para o início de sessão único funcione, o Azure AD precisa saber que o utilizador de contraparte no HR2day por Merces for para um utilizador no Azure AD. Em outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado no HR2day por Merces.
 
 HR2day por Merces, atribuir os **nome de utilizador** no Azure AD para **Username** para estabelecer a relação.
 
-Para configurar e testar o Azure AD-início de sessão único com HR2day por Merces, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com HR2day por Merces, tem de concluir os seguintes blocos de construção:
 
-1. [Configurar o Azure AD-início de sessão único](#configuring-azure-ad-single-sign-on): permitir que os utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user): teste do Azure AD-início de sessão único com Britta Simon.
-3. [Criar um HR2day pelo utilizador de teste de Merces](#creating-an-hr2day-by-merces-test-user): criar um homólogo de Britta Simon no HR2day por Merces que está ligada a representação do Azure AD do utilizador.
-4. [Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user): Ativar Britta Simon para utilizar o Azure AD-início de sessão único.
-5. [Teste o início de sessão único](#testing-single-sign-on): Verifique se a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on): permitir que os utilizadores utilizar esta funcionalidade.
+1. [Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user): teste do Azure AD início de sessão único com Eduarda Almeida.
+1. [Criar um HR2day por utilizador de teste Merces](#creating-an-hr2day-by-merces-test-user): criar um equivalente da Eduarda Almeida na HR2day por Merces que está ligado à representação de utilizador do Azure AD.
+1. [Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user): Ativar a Eduarda Almeida para utilizar o Azure AD início de sessão único.
+1. [Testar início de sessão único](#testing-single-sign-on): verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, ativar o Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua HR2day Merces aplicação.
+Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único na sua HR2day pelo aplicativo Merces.
 
-**Para configurar o Azure AD-início de sessão único com HR2day por Merces, siga os passos seguintes:**
+**Para configurar o Azure AD início de sessão único com HR2day por Merces, siga os passos seguintes:**
 
-1. No portal do Azure, no **HR2day por Merces** página de integração de aplicações, selecione **de sessão único-**.
+1. No portal do Azure, sobre o **HR2day por Merces** página de integração de aplicações, selecione **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. Para ativar o início de sessão, no **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão**.
+1. Para ativar o início de sessão único, na **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon**.
  
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
 
-3. No **HR2day por domínio Merces e URLs** secção, siga os passos seguintes:
+1. Na **HR2day por Merces domínio e URLs** secção, siga os passos seguintes:
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    a. No **URL de início de sessão** caixa, escreva um URL, utilizando o padrão do seguinte: `https://<tenantname>.force.com/<instancename>`.
+    a. Na **URL de início de sessão** caixa, escreva um URL ao utilizar o seguinte padrão: `https://<tenantname>.force.com/<instancename>`.
 
-    b. No **identificador** caixa, escreva um URL, utilizando o padrão do seguinte: `https://hr2day.force.com/<companyname>`.
+    b. Na **identificador** caixa, escreva um URL ao utilizar o seguinte padrão: `https://hr2day.force.com/<companyname>`.
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) para obter estes valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte os [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) obter esses valores. 
  
 
 
-4. No **certificado de assinatura de SAML** secção, selecione **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, selecione **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
 
-5. Esta secção descreve como ativar utilizadores para se autenticar HR2day por Merces à respetiva conta no Azure AD. Tal utilizando federação com base no protocolo SAML.
+1. Esta secção descreve como permitir que os utilizadores autenticar para HR2day por Merces com suas contas no Azure AD. Eles fazem-lo utilizando o Federação baseia-se no protocolo SAML.
 
-    O HR2day por aplicação Merces espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizados para o seu token SAML. A seguinte captura de ecrã mostra um exemplo desta situação. 
+    Sua HR2day pelo aplicativo Merces espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizados para o token SAML. Captura de ecrã seguinte mostra um exemplo disso. 
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
     > [!NOTE] 
-    Antes de poder configurar a asserção SAML, tem de contactar o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) e pedir o valor do atributo de identificador exclusivo para o seu inquilino. É necessário este valor para concluir os passos na secção seguinte. 
+    Antes de poder configurar a asserção de SAML, tem de contactar o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) e pedir o valor do atributo de identificador exclusivo para o seu inquilino. Vai precisar deste valor para concluir os passos na secção seguinte. 
 
-6. No **de sessão único-** caixa de diálogo a **atributos de utilizador** secção, configure o atributo de token SAML, conforme mostrado na imagem seguinte. Em seguida, siga os passos seguintes.
+1. Na **início de sessão único** caixa de diálogo a **atributos de utilizador** secção, configure o atributo de token SAML, conforme mostrado na imagem seguinte. Em seguida, siga os passos seguintes.
     
-      | Nome do atributo    |   Valor do atributo |  
+      | Nome de atributo    |   Valor do atributo |  
     | ------------------- | -------------------- |    
     | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
     
@@ -146,113 +146,113 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_attribute_05.png)
 
-    b. No **nome** caixa, escreva **ATTR_LOGINCLAIM**.
+    b. Na **Name** , escreva **ATTR_LOGINCLAIM**.
 
-    c. Do **valor** lista, selecione **Join()**.
+    c. Partir do **valor** lista, selecione **Join()**.
 
-    d. Do **String1** lista, selecione **user.mail**.
+    d. Partir do **String1** lista, selecione **user.mail**.
 
     e. Para **String2**, escreva o identificador exclusivo que é fornecido pela sua equipa de HR2day.
 
-    f. No **separador** caixa, escreva **\@**.
+    f. Na **separador** , escreva **\@**.
     
     g. Selecione **Ok**.
 
-7. Selecione o botão **Guardar**.
+1. Selecione o botão **Guardar**.
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_general_400.png)
 
-8. No **HR2day pela configuração Merces** secção, selecione **configurar HR2day por Merces** para abrir o **configurar início de sessão** janela. Copiar o **Sign-Out URL**, **ID de entidade de SAML**, e **único início de sessão no URL do serviço SAML** do **referência rápida** secção.
+1. Na **HR2day pela configuração Merces** secção, selecione **configurar HR2day por Merces** para abrir o **configurar início de sessão** janela. Copiar o **URL de fim de sessão**, **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** do **referência rápida** secção.
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
 
-9. Para configurar o SSO para a sua aplicação, contacte o [HR2day pela equipa de suporte de cliente Merces](mailTo:servicedesk@merces.nl). Anexar o transferido **Certificate(Base64)** ficheiro ao seu e-mail. Também fornecem a **Sign-Out URL**, **ID de entidade de SAML**, e **único início de sessão no URL do serviço SAML** para que possa ser configurados para integração com o SSO.
+1. Para configurar o SSO para a sua aplicação, entre em contato com o [HR2day pela equipa de suporte de cliente Merces](mailTo:servicedesk@merces.nl). Anexar o transferido **Certificate(Base64)** ficheiro para o seu e-mail. Também fornecem a **URL de fim de sessão**, **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** para que possa ser configurados para integração de SSO.
 
     > [!NOTE]
-    >Mencionar à equipa de Merces que esta integração tem o ID de entidade para ser definido com o padrão **https://hr2day.force.com/INSTANCENAME**.
+    >Mencionar para a equipe de Merces que esta integração precisa o ID de entidade a ser definido com o padrão **https://hr2day.force.com/INSTANCENAME**.
 
     > [!TIP]
-    >Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir de **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador. Em seguida, aceder a documentação incorporada através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporado no [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985).
+    >Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador. Em seguida, aceder a documentação do embedded através do **configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded na [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, siga os passos seguintes:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, selecione o **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, selecione a **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/hr2day-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, selecione **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, selecione **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/hr2day-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, selecione **adicionar** no topo da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, selecione **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/hr2day-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo caixa, siga os passos seguintes:
+1. Na **utilizador** diálogo caixa, siga os passos seguintes:
  
     ![Criar um utilizador de teste do Azure AD](./media/hr2day-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa, escreva **BrittaSimon**.
+    a. Na **Name** , escreva **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa, escreva o **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** , escreva o **endereço de e-mail** de BrittaSimon.
 
     c. Selecione **mostrar palavra-passe**e, em seguida, anote a palavra-passe.
 
     d. Selecione **Criar**.
  
-### <a name="create-an-hr2day-by-merces-test-user"></a>Criar um HR2day pelo utilizador de teste de Merces
+### <a name="create-an-hr2day-by-merces-test-user"></a>Criar um HR2day por utilizador de teste Merces
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon no HR2day pelo Merces. Para adicionar os utilizadores na conta HR2day, trabalhar com o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl). 
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na HR2day por Merces. Para adicionar os utilizadores na conta HR2day, trabalhar com o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl). 
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, contacte o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl).
+> Se precisar de criar manualmente um utilizador, entre em contato com o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão único, conceder o acesso ao HR2day por Merces.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para HR2day por Merces.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a HR2day por Merces, siga os passos seguintes:**
+**Para atribuir a Eduarda Almeida a HR2day por Merces, siga os passos seguintes:**
 
-1. No portal do Azure, abra a vista de aplicações, aceda à vista de diretório e, em seguida, aceda a **aplicações empresariais**. Em seguida, selecione **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicações, vá para a vista de diretório e, em seguida, aceda a **aplicações empresariais**. Em seguida, selecione **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **HR2day por Merces**.
+1. Na lista de aplicações, selecione **HR2day por Merces**.
 
     ![Configurar o início de sessão único](./media/hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Selecione o **adicionar** botão. Em seguida, no **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
+1. Selecione o **adicionar** botão. Em seguida, na **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo a **utilizadores** lista, selecione **Britta Simon**.
+1. Na **utilizadores e grupos** caixa de diálogo a **utilizadores** lista, selecione **Eduarda Almeida**.
 
-6. Clique em de **selecione** botão.
+1. Clique nas **selecione** botão.
 
-7. No **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
+1. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão utilizando o painel de acesso.  
+O objetivo desta secção é testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.  
 
-Quando seleciona o HR2day por Merces mosaico no painel de acesso, que automaticamente obter sessão na sua HR2day por aplicação Merces.
+Quando seleciona o HR2day por Merces mosaico no painel de acesso, que automaticamente obter sessão iniciada no seu HR2day pelo aplicativo Merces.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

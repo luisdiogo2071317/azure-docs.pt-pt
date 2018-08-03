@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e83e6dc66ec6192db589a0964e235c395a26eba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc1ee04c9d614e895c4e8a021564e9b9405fa8c0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048111"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integração do Azure Active Directory com Autotask à área de trabalho
 
@@ -56,7 +56,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Autotask à área de trabalho a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-autotask-workplace-from-the-gallery"></a>Adicionar Autotask à área de trabalho a partir da Galeria
 Para configurar a integração do Autotask à área de trabalho para o Azure AD, terá de adicionar Autotask à área de trabalho a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -67,15 +67,15 @@ Para configurar a integração do Autotask à área de trabalho para o Azure AD,
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **à área de trabalho Autotask**, selecione **à área de trabalho Autotask** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **à área de trabalho Autotask**, selecione **à área de trabalho Autotask** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Autotask à área de trabalho na lista de resultados](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Na área de trabalho Autotask, atribuir o valor do **nome de utilizador** no Azu
 Para configurar e testar o Azure AD início de sessão único com Autotask à área de trabalho, terá de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de área de trabalho Autotask](#create-an-autotask-workplace-test-user)**  - para ter um equivalente da Eduarda Almeida na área de trabalho de Autotask que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de área de trabalho Autotask](#create-an-autotask-workplace-test-user)**  - para ter um equivalente da Eduarda Almeida na área de trabalho de Autotask que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -105,11 +105,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_samlbase.png)
 
-3. Se desejar configurar a aplicação no **IDP** iniciadas pelo modo, execute os seguintes passos no **Autotask à área de trabalho domínio e URLs** secção:
+1. Se desejar configurar a aplicação no **IDP** iniciadas pelo modo, execute os seguintes passos no **Autotask à área de trabalho domínio e URLs** secção:
 
     ![Área de trabalho Autotask domínio e URLs únicas início de sessão informações para o IDP](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url.png)
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
-4. Se desejar configurar a aplicação no **SP** modo iniciado, verificação **Mostrar definições de URL avançadas** e execute os seguintes passos:
+1. Se desejar configurar a aplicação no **SP** modo iniciado, verificação **Mostrar definições de URL avançadas** e execute os seguintes passos:
 
     ![Área de trabalho Autotask domínio e URLs únicas início de sessão em informações de SP](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
@@ -126,21 +126,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente de área de trabalho de Autotask](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) obter esses valores. 
 
-5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/autotaskworkplace-tutorial/tutorial_general_400.png)
 
-7. Numa janela do browser web diferente, inicie sessão à área de trabalho Online com as credenciais de administrador.
+1. Numa janela do browser web diferente, inicie sessão à área de trabalho Online com as credenciais de administrador.
 
     >[!Note]
     >Ao configurar o IdP, um subdomínio terá de ser especificado. Para confirmar o subdomínio correto, o início de sessão para o local de trabalho Online. Depois de iniciar sessão, tome nota para o subdomínio no URL.
     >O subdomínio é a parte entre o "https://" e ".awp.autotask.net/" e deve ser EUA, UE, AC ou au.
 
-8. Aceda a **Configuration** > **Single Sign-On** e execute os seguintes passos:
+1. Aceda a **Configuration** > **Single Sign-On** e execute os seguintes passos:
 
     ![Configuração do início de sessão único de Autotask](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
  
@@ -172,15 +172,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/autotaskworkplace-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/autotaskworkplace-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/autotaskworkplace-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/autotaskworkplace-tutorial/create_aaduser_04.png)
 
@@ -208,23 +208,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **à área de trabalho Autotask**.
+1. Na lista de aplicações, selecione **à área de trabalho Autotask**.
 
     ![A ligação de área de trabalho Autotask na lista de aplicações](./media/autotaskworkplace-tutorial/tutorial_autotaskworkplace_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -236,7 +236,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 <!--Image references-->

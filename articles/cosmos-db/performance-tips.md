@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126355"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480997"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -132,9 +132,10 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
     Se estiver a testar em níveis de débito elevado (> 50 000 RU/s), a aplicação cliente pode se tornar o afunilamento devido a máquina capping horizontalmente na utilização da CPU ou de rede. Se atingir este ponto, pode continuar a enviar por push ainda mais a conta do Azure Cosmos DB, aumente horizontalmente as suas aplicações de cliente em vários servidores.
 8. **Documento de cache URIs para menor latência de leitura**
 
-    Documento de cache URIs sempre que possível para o melhor desempenho de leitura.
+    Documento de cache URIs sempre que possível para o melhor desempenho de leitura. Tem de definir a lógica para colocar em cache o resourceid ao criar o recurso. ResourceId com base em pesquisas são mais rápidas do que as pesquisas de nome com base, para que estes valores de colocação em cache melhora o desempenho. 
+
    <a id="tune-page-size"></a>
-9. **Otimizar o tamanho da página para feeds de consultas/leitura para um melhor desempenho**
+1. **Otimizar o tamanho da página para feeds de consultas/leitura para um melhor desempenho**
 
     Quando efetuar uma massa lidos de documentos com a leitura do feed funcionalidade (por exemplo, ReadDocumentFeedAsync) ou ao emitir uma consulta SQL, os resultados são retornados de uma maneira segmentada se o conjunto de resultados é demasiado grande. Por predefinição, os resultados são devolvidos em blocos de 100 itens ou de 1 MB, consoante o limite for atingida primeiro.
 

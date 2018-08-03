@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 02c21453aca01ec0659d0b31738512525d2af51d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344635"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444322"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -279,7 +279,7 @@ Para obter mais informações sobre como criar subscrições com o portal do Azu
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma subscrição, utilizando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilize o [criar subscrição de evento do eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) comando.
+Para criar uma subscrição, utilizando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilize o [criar subscrição de evento do eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) comando.
 
 O comando requer o URL de ponto final que invoca a função. O exemplo seguinte mostra o padrão de URL:
 
@@ -340,7 +340,7 @@ Para testar um acionador do Event Grid localmente, terá de obter pedidos de HTT
 4. [Gerar um pedido](#generate-a-request) e copie o corpo do pedido a partir da aplicação de Visualizador.
 5. [Publique manualmente o pedido](#manually-post-the-request) para o URL de localhost do seu Event Grid acionar a função.
 
-Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) comando da CLI do Azure.
+Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) comando da CLI do Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web do Visualizador
 
@@ -406,7 +406,7 @@ A função de Acionador do Event Grid é executado e mostra os registos semelhan
 5. [Criar uma subscrição do Event Grid](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
 6. [Acionar um evento](#trigger-an-event).
 
-Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) comando da CLI do Azure.
+Quando terminar de teste, pode utilizar a mesma subscrição para produção, atualizando o ponto final. Utilize o [atualização de subscrição de evento de eventgrid az](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) comando da CLI do Azure.
 
 ### <a name="create-an-ngrok-endpoint"></a>Criar um ponto de extremidade ngrok
 

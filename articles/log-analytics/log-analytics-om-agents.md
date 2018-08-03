@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 37cabadb18bf065de64b7ae24c4ed19994e60625
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9f086687540ed12590429fb73b05083a8b8d7f33
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413642"
+ms.locfileid: "39435124"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ligar o Operations Manager ao Log Analytics
 Para manter o seu investimento existente no System Center Operations Manager e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a área de trabalho do Log Analytics.  Desta forma, pode tirar partido das oportunidades do Log Analytics e continuar a utilizar o Operations Manager para:
@@ -90,32 +90,32 @@ Durante o registo inicial do seu grupo de gestão do Operations Manager com uma 
 1. Abra uma linha de comandos elevada.
    a. Aceda a **começar** e escreva **cmd**.
    b. Com o botão direito **linha de comandos** e selecionar executar como administrador * *.
-2. Introduza o seguinte comando e prima **Enter**:
+1. Introduza o seguinte comando e prima **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
 Depois de concluir os passos seguintes para a integração com o Log Analytics, pode remover a configuração ao executar `netsh winhttp reset proxy` e, em seguida, utilize a opção **Configurar servidor proxy** na consola de Operações para especificar o proxy ou o servidor de Gateway do OMS. 
 
 1. Na consola do Operations Manager, selecione a área de trabalho **Administração**.
-2. Expanda o nó Operations Management Suite e clique em **Ligação**.
-3. Clique na ligação **Registar no Operations Management Suite**.
-4. Na página **Assistente de Inclusão do Operations Management Suite: Autenticação**, introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador associada à sua subscrição do OMS e clique em **Iniciar sessão**.
-5. Depois que serem autenticadas com êxito, no **Assistente de integração do Operations Management Suite: selecionar área de trabalho** página, lhe for pedido para selecionar o seu inquilino do Azure, a subscrição e a área de trabalho do Log Analytics.  Se tiver mais do que uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager na lista pendente e clique em **Seguinte**.
+1. Expanda o nó Operations Management Suite e clique em **Ligação**.
+1. Clique na ligação **Registar no Operations Management Suite**.
+1. Na página **Assistente de Inclusão do Operations Management Suite: Autenticação**, introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador associada à sua subscrição do OMS e clique em **Iniciar sessão**.
+1. Depois que serem autenticadas com êxito, no **Assistente de integração do Operations Management Suite: selecionar área de trabalho** página, lhe for pedido para selecionar o seu inquilino do Azure, a subscrição e a área de trabalho do Log Analytics.  Se tiver mais do que uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager na lista pendente e clique em **Seguinte**.
    
    > [!NOTE]
    > O Operations Manager suporta apenas uma área de trabalho do Log Analytics de cada vez. A ligação e os computadores que foram registados no Log Analytics com a área de trabalho anterior são removidos do Log Analytics.
    > 
    > 
-6. Na página **Assistente de Inclusão do Operations Management Suite: Resumo**, confirme as definições, verifique se estão corretas e clique em **Criar**.
-7. Na página **Assistente de Inclusão do Operations Management Suite: Concluir**, clique em **Fechar**.
+1. Na página **Assistente de Inclusão do Operations Management Suite: Resumo**, confirme as definições, verifique se estão corretas e clique em **Criar**.
+1. Na página **Assistente de Inclusão do Operations Management Suite: Concluir**, clique em **Fechar**.
 
 ### <a name="add-agent-managed-computers"></a>Adicionar computadores geridos por agentes
 Depois de configurar a integração com sua área de trabalho do Log Analytics, apenas estabelece uma ligação com o serviço, não existem dados são recolhidos a partir os agentes que reportam ao grupo de gestão. Isso não acontece até depois de configurar os computadores geridos por agente específicos recolher dados para o Log Analytics. Pode selecionar os objetos de computador individualmente ou pode selecionar um grupo que contenha objetos de computador do Windows. Não pode selecionar um grupo que contenha instâncias de outra classe, tais como discos lógicos ou bases de dados SQL.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-2. Expanda o nó Operations Management Suite e clique em **Ligação**.
-3. Clique na ligação **Adicionar um Computador/Grupo** sob o cabeçalho Ações, no lado direito do painel.
-4. Na caixa de diálogo **Pesquisa no Computador**, pode procurar os computadores ou os grupos monitorizados pelo Operations Manager. Selecione computadores ou grupos para carregar no Log Analytics, clique em **Adicionar** e, em seguida, clique em **OK**.
+1. Expanda o nó Operations Management Suite e clique em **Ligação**.
+1. Clique na ligação **Adicionar um Computador/Grupo** sob o cabeçalho Ações, no lado direito do painel.
+1. Na caixa de diálogo **Pesquisa no Computador**, pode procurar os computadores ou os grupos monitorizados pelo Operations Manager. Selecione computadores ou grupos para carregar no Log Analytics, clique em **Adicionar** e, em seguida, clique em **OK**.
 
 Pode ver os computadores e os grupos configurados para recolher dados a partir do nó Computadores Geridos no Operations Management Suite na área de trabalho **Administração** da Consola de operações.  Aqui, pode adicionar ou remover computadores e grupos, conforme necessário.
 
@@ -123,20 +123,20 @@ Pode ver os computadores e os grupos configurados para recolher dados a partir d
 Se um servidor proxy interno é entre o grupo de gestão e o serviço do Log Analytics, execute os seguintes passos.  Estas definições são geridas centralmente no grupo de gestão e distribuídas por sistemas geridos por agentes incluídos no âmbito para recolher dados para o Log Analytics.  Tal é benéfico para quando determinadas soluções ignoram o servidor de gestão e enviam dados diretamente para o serviço.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-2. Expanda o Operations Management Suite e clique em **Ligações**.
-3. Na vista Ligação OMS, clique em **Configurar Servidor Proxy**.
-4. Na página **Assistente do Operations Management Suite: Servidor Proxy**, selecione **Utilizar um servidor proxy para aceder ao Operations Management Suite**, escreva o URL com o número da porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **Concluir**.
+1. Expanda o Operations Management Suite e clique em **Ligações**.
+1. Na vista Ligação OMS, clique em **Configurar Servidor Proxy**.
+1. Na página **Assistente do Operations Management Suite: Servidor Proxy**, selecione **Utilizar um servidor proxy para aceder ao Operations Management Suite**, escreva o URL com o número da porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **Concluir**.
 
 Se o servidor proxy exigir a autenticação, realize os seguintes passos para configurar as credenciais e as definições necessárias para propagar para computadores geridos que reportam ao OMS no grupo de gestão.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-2. Em **Configuração RunAs**, selecione **Perfis**.
-3. Abra o perfil **System Center Advisor Run As Profile Proxy**.
-4. No Assistente do Perfil Run As, clique em Adicionar para utilizar uma conta Run As. Pode criar uma [conta Run As](https://technet.microsoft.com/library/hh321655.aspx) ou utilizar uma existente. Esta conta tem de ter permissões suficientes para passar através do servidor proxy.
-5. Para configurar a conta a gerir, escolha **Uma classe, um grupo ou um objeto selecionado**, clique em **Selecionar...** e, em seguida, clique em **Grupo...** para abrir a caixa **Pesquisa de Grupo**.
-6. Pesquise e, em seguida, selecione **Microsoft System Center Advisor Monitoring Server Group**.  Clique em **OK** depois de selecionar o grupo para fechar a caixa **Pesquisa de Grupo**.
-7. Clique em **OK** para fechar a caixa **Adicionar uma conta Run As**.
-8. Clique em **Guardar** para concluir o assistente e guardar as alterações.
+1. Em **Configuração RunAs**, selecione **Perfis**.
+1. Abra o perfil **System Center Advisor Run As Profile Proxy**.
+1. No Assistente do Perfil Run As, clique em Adicionar para utilizar uma conta Run As. Pode criar uma [conta Run As](https://technet.microsoft.com/library/hh321655.aspx) ou utilizar uma existente. Esta conta tem de ter permissões suficientes para passar através do servidor proxy.
+1. Para configurar a conta a gerir, escolha **Uma classe, um grupo ou um objeto selecionado**, clique em **Selecionar...** e, em seguida, clique em **Grupo...** para abrir a caixa **Pesquisa de Grupo**.
+1. Pesquise e, em seguida, selecione **Microsoft System Center Advisor Monitoring Server Group**.  Clique em **OK** depois de selecionar o grupo para fechar a caixa **Pesquisa de Grupo**.
+1. Clique em **OK** para fechar a caixa **Adicionar uma conta Run As**.
+1. Clique em **Guardar** para concluir o assistente e guardar as alterações.
 
 Depois de criar a ligação e configurar os agentes que vão recolher e comunicar os dados ao Log Analytics, é aplicada a seguinte configuração no grupo de gestão, não necessariamente por esta ordem:
 
@@ -156,11 +156,11 @@ Para continue a seguir o processo de controle de alteração existentes para con
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Mudar de um grupo do Operations Manager para uma nova Área de Trabalho do Log Analytics
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics** e, em seguida, crie uma área de trabalho.  
-3. Abra a consola do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager e selecione a área de trabalho **Administração**.
-4. Expanda o Operations Management Suite e selecione **Ligações**.
-5. Selecione a ligação **Reconfigurar o Operation Management Suite** no meio do painel.
-6. Siga o **Assistente de Inclusão do Operations Management Suite** e introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador associada à nova área de trabalho do Log Analytics.
+1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics** e, em seguida, crie uma área de trabalho.  
+1. Abra a consola do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager e selecione a área de trabalho **Administração**.
+1. Expanda o Operations Management Suite e selecione **Ligações**.
+1. Selecione a ligação **Reconfigurar o Operation Management Suite** no meio do painel.
+1. Siga o **Assistente de Inclusão do Operations Management Suite** e introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador associada à nova área de trabalho do Log Analytics.
    
    > [!NOTE]
    > A página **Assistente de Inclusão do Operations Management Suite: Selecionar Área de Trabalho** apresenta a área de trabalho existente que está a ser utilizada.
@@ -172,17 +172,17 @@ Existem algumas formas diferentes para verificar se a integração do Log Analyt
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Para confirmar a integração no portal do Azure
 1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada.
-2. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho aplicável.  
-3. Selecione **Definições avançadas**, **Origens Ligadas** e, em seguida, selecione **System Center**. 
-4. Na tabela na secção System Center Operations Manager, deve ver o nome do grupo de gestão listado com o número de agentes e o estado quando os dados foram recebidos pela última vez.
+1. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho aplicável.  
+1. Selecione **Definições avançadas**, **Origens Ligadas** e, em seguida, selecione **System Center**. 
+1. Na tabela na secção System Center Operations Manager, deve ver o nome do grupo de gestão listado com o número de agentes e o estado quando os dados foram recebidos pela última vez.
    
    ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração na consola de Operações
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-2. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:**, digite **Assistente** ou **Inteligência**.
-3. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondente listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução Gestão de Alertas, o pacote de gestão Microsoft System Center Advisor Alert Management será apresentado na lista.
-4. Na vista **Monitorização**, navegue até à vista **Operations Management Suite\Estado de Funcionamento**.  Selecione um servidor de Gestão no painel **Estado do Servidor de Gestão** e, no painel **Vista de Detalhes**, confirme se o valor da propriedade **URI do serviço de Autenticação** corresponde ao ID da Área de Trabalho do Log Analytics.
+1. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:**, digite **Assistente** ou **Inteligência**.
+1. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondente listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução Gestão de Alertas, o pacote de gestão Microsoft System Center Advisor Alert Management será apresentado na lista.
+1. Na vista **Monitorização**, navegue até à vista **Operations Management Suite\Estado de Funcionamento**.  Selecione um servidor de Gestão no painel **Estado do Servidor de Gestão** e, no painel **Vista de Detalhes**, confirme se o valor da propriedade **URI do serviço de Autenticação** corresponde ao ID da Área de Trabalho do Log Analytics.
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
@@ -197,29 +197,29 @@ Os pacotes de gestão para as soluções que ativou que se integram com o Operat
     > Verifique que não tem quaisquer pacotes de gestão personalizados com a palavra Assistente ou PacoteInteligente no nome antes de continuar. Caso contrário, os seguintes passos vão eliminá-los do grupo de gestão.
     > 
 
-2. Na shell de comandos, escreva `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. A seguir, escreva `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-4. Para remover quaisquer pacotes de gestão restantes que tenham dependências noutros pacotes de gestão do System Center Advisor, utilize o script *RecursiveRemove.ps1* que transferiu do Centro de Scripts da TechNet anteriormente.  
+1. Na shell de comandos, escreva `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. A seguir, escreva `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Para remover quaisquer pacotes de gestão restantes que tenham dependências noutros pacotes de gestão do System Center Advisor, utilize o script *RecursiveRemove.ps1* que transferiu do Centro de Scripts da TechNet anteriormente.  
  
     > [!NOTE]
     > O passo para remover os pacotes de gestão do Advisor com o PowerShell não irá eliminar automaticamente os pacotes de gestão do Microsoft System Center Advisor ou o Microsoft System Center Advisor interno.  Não tente eliminá-los.  
     >  
 
-5. Abra a consola de Operações do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager.
-6. Em **Administração**, selecione o nó **Pacotes de Gestão** e, na caixa **Procurar:**, escreva **Assistente** e verifique se os seguintes pacotes de gestão ainda estão a ser importados no grupo de gestão:
+1. Abra a consola de Operações do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager.
+1. Em **Administração**, selecione o nó **Pacotes de Gestão** e, na caixa **Procurar:**, escreva **Assistente** e verifique se os seguintes pacotes de gestão ainda estão a ser importados no grupo de gestão:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
 
-7. No portal do OMS, clique no mosaico **Definições**.
-8. Selecione **ligado a origens**.
-9. Na tabela na secção System Center Operations Manager, deverá ver o nome do grupo de gestão que pretende remover a área de trabalho.  Sob a coluna **Últimos Dados**, clique em **Remover**.  
+1. No portal do OMS, clique no mosaico **Definições**.
+1. Selecione **ligado a origens**.
+1. Na tabela na secção System Center Operations Manager, deverá ver o nome do grupo de gestão que pretende remover a área de trabalho.  Sob a coluna **Últimos Dados**, clique em **Remover**.  
    
     > [!NOTE]
     > A ligação **Remover** só estará disponível após 14 dias se não existir nenhuma atividade detetada no grupo de gestão ligado.  
     > 
 
-10. Será apresentada uma janela a pedir-lhe para confirmar que pretende prosseguir com a remoção.  Clique em **Sim** para continuar. 
+1. Será apresentada uma janela a pedir-lhe para confirmar que pretende prosseguir com a remoção.  Clique em **Sim** para continuar. 
 
 Para eliminar os dois conectores – Microsoft.SystemCenter.Advisor.DataConnector e Advisor Connector, guarde o script do PowerShell abaixo no computador e execute-o com os exemplos seguintes:
 

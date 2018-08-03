@@ -1,6 +1,6 @@
 ---
-title: Criar uma imagem de máquina virtual para o Azure Marketplace | Microsoft Docs
-description: Instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprar.
+title: Criar uma imagem de máquina virtual para o Azure Marketplace | Documentos da Microsoft
+description: Obter instruções detalhadas sobre como criar uma imagem de máquina virtual para o Azure Marketplace para outras pessoas comprar.
 services: Azure Marketplace
 documentationcenter: ''
 author: msmbaldwin
@@ -14,137 +14,137 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: ad6d48a03575e8fabd7eed2ebc1f7926ec4559d4
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: f997df7b6a36752ffa9f53979101b09421d68802
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808745"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425141"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
-Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
+Este artigo **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) irá implementar no Azure Marketplace. Os VHDs constituem os alicerces do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Linux ou Windows. Este artigo aborda os dois cenários. Este processo pode ser executado em paralelo com [criação e registo de contas][link-acct-creation].
 
 ## <a name="1-define-offers-and-skus"></a>1. Definir ofertas e SKUs
-Nesta secção, saiba definir as ofertas e os respetivos SKUs associados.
+Nesta secção, vai aprender a definir as ofertas e os SKUs associados.
 
-Uma oferta funciona como o "elemento principal" de todos os SKUs correspondentes. Pode ter várias ofertas. A forma como as ofertas são estruturadas é uma questão que lhe cabe a si decidir. Quando uma oferta é emitida para teste, a emissão é propagada por todos os SKUs correspondentes. Considere cuidadosamente os identificadores SKU, porque estará visíveis no URL:
+Uma oferta funciona como o "elemento principal" de todos os SKUs correspondentes. Pode ter várias ofertas. A forma como as ofertas são estruturadas é uma questão que lhe cabe a si decidir. Quando uma oferta é emitida para teste, a emissão é propagada por todos os SKUs correspondentes. Considere cuidadosamente os seus identificadores SKU, porque eles serão visíveis no URL:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 * Portal de pré-visualização do Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
-Um SKU é o nome comercial para uma imagem de VM. Uma imagem de VM contém disco de um sistema operativo e zero ou mais discos de dados. Trata-se, no fundo, do perfil de armazenamento completo de uma máquina virtual. É necessário um VHD por disco. Os discos de dados, mesmo em branco precisam de um VHD ser criado.
+Um SKU é o nome comercial de uma imagem de VM. Uma imagem VM contém o disco de um sistema operativo e zero ou mais discos de dados. Trata-se, no fundo, do perfil de armazenamento completo de uma máquina virtual. É necessário um VHD por disco. Os discos de dados, mesmo em branco precisam de um VHD a ser criada.
 
-Independentemente do sistema operativo utilizado, adicione apenas o número mínimo de discos de dados necessários ao SKU. Os clientes não é possível remover discos que fazem parte de uma imagem no momento da implementação, mas podem sempre adicionar discos durante ou após a implementação se precisam.
+Independentemente do sistema operativo utilizado, adicione apenas o número mínimo de discos de dados necessários ao SKU. Os clientes não é possível remover os discos que fazem parte de uma imagem no momento da implementação, mas podem sempre adicionar discos durante ou após a implantação se forem necessários.
 
 > [!IMPORTANT]
-> **Não altere a contagem de discos de uma nova versão da imagem.** Se tem de reconfigurar os discos de dados na imagem, defina um SKU de novo. Publicar uma nova versão de imagem com as contagens de outro disco será o potencial de quebra nova implementação com base na nova versão de imagem em casos de dimensionamento automático, automáticas implementações das soluções através de modelos ARM e outros cenários.
+> **Não altere o número de discos numa nova versão de imagem.** Se tem de reconfigurar discos de dados na imagem, defina um novo SKU. Publicar uma nova versão de imagem com contagens de outro disco será têm o potencial da nova implementação de última hora com base na nova versão de imagem em casos de Implantações de dimensionamento automático e automática de soluções através de modelos ARM e outros cenários.
 >
 >
 
 ### <a name="11-add-an-offer"></a>1.1 adicionar uma oferta
-1. Iniciar sessão para o [Portal publicação] [ link-pubportal] utilizando a sua conta vendedor.
-2. Selecione o **máquinas virtuais** separador do Portal de publicação. No campo do pedido de entrada, introduza o nome da oferta. A oferta é, normalmente, o nome do produto ou serviço que planear propor no Azure Marketplace.
-3. Selecione **Criar**.
+1. Inicie sessão para o [Portal de publicação] [ link-pubportal] usando sua conta de vendedor.
+1. Selecione o **máquinas virtuais** separador do Portal de publicação. No campo de entrada que, introduza o nome da sua oferta. O nome da oferta, normalmente, é o nome do produto ou serviço que pretende vender no Azure Marketplace.
+1. Selecione **Criar**.
 
 ### <a name="12-define-a-sku"></a>1.2 definir um SKU
-Depois de ter adicionado uma oferta, terá de definir e identificar os SKUs. Pode ter vários ofertas e cada oferta pode ter vários SKUs sob a mesma. Quando uma oferta é emitida para teste, a emissão é propagada por todos os SKUs correspondentes.
+Depois de ter adicionado uma oferta, terá de definir e identificar suas SKUs. Pode ter várias ofertas e cada oferta pode ter várias SKUs sob a mesma. Quando uma oferta é emitida para teste, a emissão é propagada por todos os SKUs correspondentes.
 
-1. **Adicione um SKU.** O SKU não requer um identificador, o que é utilizado no URL. O identificador tem de ser exclusivo no seu perfil de publicação, mas não existe nenhum risco de colisão identificador com outros fabricantes.
+1. **Adicione um SKU.** O SKU requer um identificador, o que é utilizado no URL. O identificador tem de ser exclusivo no seu perfil de publicação, mas não há risco de colidir identificador com outros editores.
 
    > [!NOTE]
-   > A oferta e identificadores SKU são apresentados no URL oferta no Marketplace.
+   > Os identificadores de SKU e a oferta são apresentados no URL oferta no Marketplace.
    >
    >
-2. **Adicione uma descrição sumária para o SKU.** Resumidas descrições são visíveis para os clientes, pelo que deve torná-los facilmente legível. Estas informações não precisam de ser bloqueado até que a fase de "Push para transição". Até lá, pode editá-las conforme necessário.
-3. Se estiver a utilizar SKUs baseadas no Windows, siga as ligações sugeridas para obter as versões aprovadas do Windows Server.
+1. **Adicione uma descrição de resumo para o SKU.** Descrições de resumidas são visíveis para os clientes, para que deve fazê-las facilmente legível. Estas informações não precisam de ser bloqueado até a fase de "fase emitir para teste". Até lá, pode editá-las conforme necessário.
+1. Se estiver a utilizar SKUs baseadas no Windows, siga as ligações sugeridas para obter as versões aprovadas do Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Criar um VHD compatível com o Azure (baseado em Linux)
-Esta secção está centrado nas melhores práticas para criar uma imagem VM baseadas em Linux para o Azure Marketplace. Para obter instruções passo a passo, consulte a seguinte documentação: [criar uma imagem de VM com Linux personalizada](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Esta secção concentra-se nas melhores práticas para criar uma imagem de VM baseado em Linux para o Azure Marketplace. Para obter instruções passo a passo, consulte a documentação do seguinte: [criar uma imagem de VM do Linux personalizada](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Criar um VHD compatível com o Azure (baseado no Windows)
-Esta secção centra-se os passos para criar um SKU baseado no Windows Server para o Azure Marketplace.
+## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Criar um VHD compatível com o Azure (baseados em Windows)
+Esta secção aborda os passos para criar um SKU com base no Windows Server para o Azure Marketplace.
 
-### <a name="31-ensure-that-you-are-using-the-correct-base-vhds"></a>3.1 Certifique-se de que está a utilizar os VHDs base corretos
-O VHD de sistema operativo para a imagem VM tem de ser baseada em imagem base aprovado do Azure que contém o Windows Server ou SQL Server.
+### <a name="31-ensure-that-you-are-using-the-correct-base-vhds"></a>3.1 Certifique-se de que está a utilizar os VHDs de bases corretos
+O sistema operativo VHD da imagem de VM deve basear-se numa imagem base aprovada do Azure que contém o Windows Server ou SQL Server.
 
 Para começar, crie uma VM a partir de um dos seguintes imagens, localizado no [portal do Microsoft Azure][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
 * SQL Server 2014 ([Enterprise][link-sql-2014-ent], [padrão][link-sql-2014-std], [Web] [ link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [padrão][link-sql-2012-std], [Web] [ link-sql-2012-web])
+* O SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [padrão][link-sql-2012-std], [Web] [ link-sql-2012-web])
 
 Estas ligações encontram-se igualmente disponíveis no Portal de Publicação, na página SKU.
 
 > [!TIP]
-> Se estiver a utilizar o portal do Azure atual ou o PowerShell, imagens do Windows Server publicadas no 8 de Setembro de 2014 e posteriores são aprovadas.
+> Se estiver a utilizar o portal do Azure atual ou o PowerShell, as imagens do Windows Server publicadas a 8 de Setembro de 2014 e versões posteriores são aprovadas.
 >
 >
 
-### <a name="32-create-your-windows-based-vm"></a>3.2 criar a VM com base no Windows
-Do portal do Microsoft Azure, pode criar a VM com base numa imagem base aprovada em apenas alguns passos simples. Segue-se uma descrição geral do processo:
+### <a name="32-create-your-windows-based-vm"></a>3.2 criar a sua VM com base no Windows
+No portal do Microsoft Azure, pode criar sua VM com base numa imagem base aprovada seguindo alguns passos simples. Segue-se uma descrição geral do processo:
 
-1. Na página de imagem de base, selecione **criar Máquina Virtual** para ser direcionado para o novo [portal do Microsoft Azure][link-azure-portal].
+1. Na página da imagem base, selecione **criar Máquina Virtual** para ser direcionado para a nova [portal do Microsoft Azure][link-azure-portal].
 
     ![desenho][img-acom-1]
-2. Inicie sessão no portal com a conta Microsoft e a palavra-passe para a subscrição do Azure que pretende utilizar.
-3. Siga as instruções para criar uma VM utilizando a imagem de base que selecionou. Tem de fornecer um anfitrião nome (nome do computador), o nome de utilizador (registado como administrador) e palavra-passe para a VM.
+1. Inicie sessão no portal com a conta Microsoft e a palavra-passe para a subscrição do Azure que pretende utilizar.
+1. Siga as instruções para criar uma VM com a imagem base selecionada. Tem de fornecer um host name (nome do computador), (registado como administrador) de nome de utilizador e palavra-passe para a VM.
 
     ![desenho][img-portal-vm-create]
-4. Selecione o tamanho da VM para implementar:
+1. Selecione o tamanho da VM para implementar:
 
-    a.    Se planear desenvolver o VHD no local, o tamanho não importa. Pondere utilizar uma das VMs mais pequenas.
+    a.    Se tenciona desenvolver o VHD no local, o tamanho não é relevante. Pondere utilizar uma das VMs mais pequenas.
 
     b.    Se tenciona desenvolver a imagem no Azure, pondere utilizar um dos tamanhos de VM recomendados para a imagem selecionada.
 
-    c.    Para obter informações sobre preços, consulte o **recomendado escalões de preço** Seletor apresentado no portal. Ser-lhe-ão indicados os três tamanhos recomendados fornecidos pelo editor. (Neste caso, o editor é a Microsoft.)
+    c.    Para obter informações sobre preços, consulte a **escalões de preço recomendados** Seletor apresentado no portal. Ser-lhe-ão indicados os três tamanhos recomendados fornecidos pelo editor. (Neste caso, o editor é a Microsoft.)
 
     ![desenho][img-portal-vm-size]
-5. Defina as propriedades:
+1. Definir as propriedades:
 
-    a.    Para uma implementação rápida, pode deixar os valores predefinidos para as propriedades em **configuração opcional** e **grupo de recursos**.
+    a.    Para uma implementação rápida, pode deixar os valores predefinidos das propriedades em **configuração opcional** e **grupo de recursos**.
 
-    b.    Em **conta de armazenamento**, opcionalmente, pode selecionar a conta de armazenamento no qual será armazenado o VHD de sistema operativo.
+    b.    Sob **conta de armazenamento**, opcionalmente, pode selecionar a conta de armazenamento na qual o sistema de operativo VHD será armazenado.
 
-    c.    Em **grupo de recursos**, opcionalmente, pode selecionar o grupo lógico onde colocar a VM.
-6. Selecione o **localização** para a implementação:
+    c.    Sob **grupo de recursos**, opcionalmente, pode selecionar o grupo lógico onde colocar a VM.
+1. Selecione o **localização** para a implementação:
 
-    a.    Se planear desenvolver o VHD no local, a localização é importante porque irá carregar a imagem para o Azure mais tarde.
+    a.    Se tenciona desenvolver o VHD no local, a localização não é relevante porque irá carregar a imagem para o Azure mais tarde.
 
-    b.    Se tenciona desenvolver a imagem no Azure, pondere utilizar uma das regiões do Microsoft Azure baseadas nos E.U.A. desde o início. Isto acelera o processo de cópia do VHD que efetua a Microsoft em seu nome ao submeter a imagem de certificação.
+    b.    Se tenciona desenvolver a imagem no Azure, pondere utilizar uma das regiões do Microsoft Azure baseadas nos E.U.A. desde o início. Isso acelera o processo de cópia do VHD que a Microsoft efetua em seu nome quando submete a imagem para certificação.
 
     ![desenho][img-portal-vm-location]
-7. Clique em **Criar**. A VM começa a implementar. No espaço de alguns minutos, terá uma implementação bem-sucedida à sua disposição, podendo começar a criar a imagem para o SKU.
+1. Clique em **Criar**. Inicie a VM a implementação. No espaço de alguns minutos, terá uma implementação bem-sucedida à sua disposição, podendo começar a criar a imagem para o SKU.
 
-### <a name="33-develop-your-vhd-in-the-cloud"></a>3.3 desenvolver o VHD na nuvem
-Recomendamos vivamente que desenvolver o VHD na nuvem utilizando o protocolo RDP (Remote Desktop Protocol). Ligar para o RDP com o nome de utilizador e palavra-passe especificada durante o aprovisionamento.
+### <a name="33-develop-your-vhd-in-the-cloud"></a>3.3 desenvolva o VHD na cloud
+Recomendamos vivamente que desenvolva o VHD na cloud utilizando o protocolo RDP (Remote Desktop). Ligar para RDP com o nome de utilizador e palavra-passe especificados durante o aprovisionamento.
 
 > [!IMPORTANT]
-> **Não utilize discos geridos.** A máquina virtual utilizada para desenvolver o VHD para a nuvem não deve basear-se em discos geridos como atualmente não suporta a criação de uma imagem dos mesmos.
-> Criar a máquina virtual na alteração de funcionalidade opcional a predefinição para discos geridos.
+> **Não utilize discos geridos.** A máquina virtual utilizada para desenvolver o VHD para a cloud não devem ser baseada em discos geridos, tal como atualmente não suporta a criação de uma imagem dos mesmos.
+> Criar a máquina virtual em que a alteração de funcionalidade opcional a predefinição para discos geridos.
 
-> Se desenvolver o VHD no local (que não seja recomendado), consulte [criar uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md). Transferir o VHD não é necessário se estiver a desenvolver na nuvem.
+> Se desenvolver o VHD no local (que não é recomendado), consulte [criando uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md). Transferir o VHD não é necessário se estiver a desenvolver na cloud.
 >
 >
 
-**Ligar através de RDP a utilizar o [portal do Microsoft Azure][link-azure-portal]**
+**Ligar via RDP usando o [portal do Microsoft Azure][link-azure-portal]**
 
 1. Selecione **todos os serviços** > **VMs**.
-2. É aberto o painel de máquinas virtuais. Certifique-se de que a VM que pretende estabelecer ligação com está em execução e, em seguida, selecione-o da lista de VMs implementadas.
-3. É aberto um painel que descreve a VM selecionada. Na parte superior, clique em **Connect**.
-4. Lhe for pedido que introduza o nome de utilizador e palavra-passe que especificou durante o aprovisionamento.
+1. É aberto o painel de máquinas virtuais. Certifique-se de que a VM que pretende ligar-se com está em execução e, em seguida, selecione-o na lista de VMs implantadas.
+1. É aberto um painel que descreve a VM selecionada. Na parte superior, clique em **Connect**.
+1. São-lhe pedido para introduzir o nome de utilizador e palavra-passe que especificou durante o aprovisionamento.
 
-**Ligar através de RDP com o PowerShell**
+**Ligar via RDP com o PowerShell**
 
-Para transferir um ficheiro de ambiente de trabalho remoto para um computador local, utilize o [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para utilizar este cmdlet, terá de saber o nome do serviço e nome da VM. Se tiver criado a VM a partir de [portal do Microsoft Azure][link-azure-portal], pode encontrar estas informações em propriedades VM:
+Para transferir um ficheiro de ambiente de trabalho remoto para um computador local, utilize o [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para utilizar este cmdlet, precisa saber o nome do serviço e o nome da VM. Se criou a VM a partir da [portal do Microsoft Azure][link-azure-portal], pode encontrar estas informações em Propriedades de VM:
 
 1. No portal do Microsoft Azure, selecione **todos os serviços** > **VMs**.
-2. É aberto o painel de máquinas virtuais. Selecione a VM que tenha implementado.
-3. É aberto um painel que descreve a VM selecionada.
-4. Clique em **Propriedades**.
-5. A primeira parte do nome de domínio corresponde ao nome do serviço. O nome do anfitrião é o nome da VM.
+1. É aberto o painel de máquinas virtuais. Selecione a VM que implementou.
+1. É aberto um painel que descreve a VM selecionada.
+1. Clique em **Propriedades**.
+1. A primeira parte do nome de domínio corresponde ao nome do serviço. O nome do anfitrião é o nome da VM.
 
     ![desenho][img-portal-vm-rdp]
-6. Segue-se o cmdlet para transferir o ficheiro RDP para a VM criada ao ambiente de trabalho do administrador local.
+1. Segue-se o cmdlet para transferir o ficheiro RDP da VM criada a área de trabalho do administrador local.
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
@@ -152,80 +152,80 @@ Podem encontrar mais informações sobre RDP no MSDN no artigo [ligar a uma VM d
 
 **Configurar uma VM e criar o SKU**
 
-Depois do sistema operativo que é transferida VHD, utilize o Hyper-v e configurar uma VM para começar a criar o SKU. Os passos detalhados podem ser encontrados na seguinte hiperligação do TechNet: [instalar o Hyper-v e configurar uma VM](http://technet.microsoft.com/library/hh846766.aspx).
+Depois do sistema de operativo que VHD tiver sido transferido, utilize o Hyper-v e configurar uma VM para começar a criar o SKU. Os passos detalhados podem ser encontrados em ligação do TechNet seguinte: [instalar o Hyper-v e configurar uma VM](http://technet.microsoft.com/library/hh846766.aspx).
 
-### <a name="34-choose-the-correct-vhd-size"></a>3.4 Escolha o tamanho do VHD correto
-O Windows VHD de sistema operativo da imagem do VM deve ser criado como um VHD de formato fixo de 128 GB.  
+### <a name="34-choose-the-correct-vhd-size"></a>3.4 escolher o tamanho do VHD correto
+O sistema de operativo VHD do Windows na imagem de VM deverá ser criado como um VHD de formato fixo de 128 GB.  
 
-Se o tamanho físico é inferior a 128 GB, o VHD deve ser disperso. As imagens do Windows e o SQL Server base fornecidas já cumpra estes requisitos, por isso, não altere o formato ou o tamanho do VHD obtido.  
+Se o tamanho físico for inferior a 128 GB, o VHD deverá ser disperso. As imagens do Windows e o SQL Server bases, fornecidas já cumprem estes requisitos, portanto, não altere o formato ou o tamanho do VHD obtido.  
 
-Os discos de dados podem ser igual a 1 TB. Quando decidir sobre o tamanho do disco, lembre-se de que os clientes não podem redimensionar os VHDs dentro de uma imagem no momento da implementação. VHDs de disco de dados devem ser criados como um VHD de formato fixo. Também deve ser dispersos. Os discos de dados podem estar vazios ou conter dados.
+Discos de dados podem ter até 1 TB. Ao decidir o tamanho do disco, lembre-se de que os clientes não podem redimensionar os VHDs de uma imagem no momento da implantação. Os VHDs de discos de dados deverá ser criados como um VHD de formato fixo. Também deverá ser dispersos. Os discos de dados podem estar vazios ou conter dados.
 
-### <a name="35-install-the-latest-windows-patches"></a>3.5 instalar as correções mais recentes do Windows
-As imagens base contêm os patches mais recentes até à data da publicação das mesmas. Antes de publicar o sistema operativo VHD que criou, certifique-se de que o Windows Update foi executada e de que todas as atualizações mais recentes crítico e importante segurança tem sido instaladas.
+### <a name="35-install-the-latest-windows-patches"></a>3.5 instalar os patches mais recentes do Windows
+As imagens base contêm os patches mais recentes até à data da publicação das mesmas. Antes de publicar o sistema de operativo VHD que criou, certifique-se de que a atualização do Windows foi executada e que todas as atualizações mais recentes críticas e importantes segurança foram instaladas.
 
-### <a name="36-perform-additional-configuration-and-schedule-tasks-as-necessary"></a>3.6 efetuar tarefas adicionais de configuração e a agenda conforme necessário
-Se não for necessária configuração adicional, considere a utilização de uma tarefa agendada que é executado no arranque para efetuar quaisquer alterações finais para a VM, depois de foi implementada:
+### <a name="36-perform-additional-configuration-and-schedule-tasks-as-necessary"></a>3.6 efetuar tarefas de configuração e programação adicionais conforme necessário
+Se é necessária qualquer configuração adicional, considere a utilização de uma tarefa agendada que seja executada no arranque para realizar eventuais alterações finais na VM depois de este ter sido implementado:
 
 * É considerada uma melhor prática que a tarefa esteja programada para se eliminar automaticamente após a execução bem-sucedida da mesma.
-* Nenhuma configuração deverá confiar em unidades diferentes unidades C ou D, porque estas são as unidades apenas dois sempre garantidos existir. Unidade C é o disco de sistema operativo, não sendo unidade D temporário disco local.
+* Nenhuma configuração deverá depender de outras unidades que não unidades C ou D, porque estes são as únicas duas unidades são existência garantidas. Unidade C é o disco do sistema operativo e a unidade D é o disco local temporário.
 
-### <a name="37-generalize-the-image"></a>3.7 generalize a imagem
-Todas as imagens no Azure Marketplace tem de ser reutilizáveis de forma genérica. Por outras palavras, deve ser generalizado o VHD de sistema operativo:
+### <a name="37-generalize-the-image"></a>3.7 generalizar a imagem
+Todas as imagens no Azure Marketplace tem de ser reutilizáveis de um modo geral. Em outras palavras, o sistema de operativo VHD tem de ser generalizado:
 
-* Para o Windows, a imagem deve ser "processado pelo Sysprep" e devem ser efetuadas não configurações que não suportam o **sysprep** comando.
+* Para Windows, a imagem deve ser "Sysprep" e devem ser feitas sem configurações que não suportam o **sysprep** comando.
 * Pode executar o seguinte comando a partir do diretório % windir%\System32\Sysprep.
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Orientações sobre a forma como a preparação de sistema o sistema operativo é fornecido no passo do seguinte artigo do MSDN: [criar e carregar um VHD do Windows Server para o Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Documentação de orientação sobre como ao sysprep do sistema operacional é fornecido no passo do seguinte artigo do MSDN: [criar e carregar um VHD do Windows Server para o Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="4-deploy-a-vm-from-your-vhds"></a>4. Implementar uma VM a partir do seu VHDs
-Depois de ter carregados os VHDs (o VHD de sistema operativo generalizado e zero ou mais dados em disco VHDs) a uma conta de armazenamento do Azure, pode registá-los como uma imagem VM de utilizador. Em seguida, pode testar essa imagem. Tenha em atenção que porque o sistema operativo VHD seja generalizado, não é possível diretamente implemente a VM ao fornecer o URL de VHD.
+## <a name="4-deploy-a-vm-from-your-vhds"></a>4. Implementar uma VM a partir dos VHDs
+Depois de carregar os VHDs (o sistema de operativo VHD generalizado e dados de zero ou mais VHDs de discos) a uma conta de armazenamento do Azure, pode registá-los como uma imagem de VM do utilizador. Em seguida, pode testar essa imagem. Tenha em atenção que uma vez que o sistema de operativo VHD é generalizado, não é possível diretamente implementar a VM ao fornecer o URL de VHD.
 
 Para mais informações sobre imagens VM, reveja as seguintes mensagens de blogue:
 
 * [Imagem de VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-* [VM imagem do PowerShell como](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
-* [Sobre as imagens VM no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
+* [Como PowerShell de imagem VM para](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+* [Sobre imagens VM no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurar as ferramentas necessárias, PowerShell e da CLI do Azure
+### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurar as ferramentas necessárias, PowerShell e CLI do Azure
 * [Como configurar o PowerShell](/powershell/azure/overview)
 * [Como configurar a CLI do Azure](../cli-install-nodejs.md)
 
-### <a name="41-create-a-user-vm-image"></a>4.1 criar uma imagem VM de utilizador
+### <a name="41-create-a-user-vm-image"></a>4.1 criar uma imagem de VM do utilizador
 #### <a name="capture-vm"></a>Captura de VM
-Leia as ligações indicadas abaixo para obter orientações sobre a VM com o PowerShell/API/Azure CLI a capturar.
+Leia as ligações indicadas abaixo para obter orientações sobre como capturar a VM com a CLI do PowerShell/API/Azure.
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [CLI do Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="generalize-image"></a>Generalize a imagem
-Leia as ligações indicadas abaixo para obter orientações sobre a VM com o PowerShell/API/Azure CLI a capturar.
+### <a name="generalize-image"></a>Generalizar a imagem
+Leia as ligações indicadas abaixo para obter orientações sobre como capturar a VM com a CLI do PowerShell/API/Azure.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [CLI do Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="42-deploy-a-vm-from-a-user-vm-image"></a>4.2 implementar uma VM a partir de uma imagem VM de utilizador
-Para implementar uma VM a partir de uma imagem VM de utilizador, pode utilizar atual [portal do Azure](https://manage.windowsazure.com) ou PowerShell.
+### <a name="42-deploy-a-vm-from-a-user-vm-image"></a>4.2 implementar uma VM a partir de uma imagem VM do utilizador
+Para implementar uma VM a partir de uma imagem VM do utilizador, pode utilizar o atual [portal do Azure](https://manage.windowsazure.com) ou o PowerShell.
 
 **Implementar uma VM a partir do portal do Azure**
 
-1. Aceda a **novo** > **computação** > **Máquina Virtual** > **da galeria**.
+1. Aceda a **New** > **computação** > **Máquina Virtual** > **da galeria**.
 
-2. Aceda a **minhas imagens**e, em seguida, selecione a imagem VM a partir da qual pode implementar uma VM:
+1. Aceda a **as minhas imagens**e, em seguida, selecione a imagem de VM a partir do qual pode implementar uma VM:
 
-   1. Preste especial atenção para a imagem que seleciona, porque o **minhas imagens** vista apresenta uma lista de imagens do sistema operativo e imagens VM.
-   2. Observar o número de discos pode ajudar a determinar o tipo de imagem que estiver a implementar, porque a maioria das imagens da VM tem mais de um disco. No entanto, é possível ter uma imagem de VM com apenas um único disco de sistema operativo, que, em seguida, teria **número de discos** definido como 1.
+   1. Preste muita atenção à imagem que selecionar, porque o **as minhas imagens** vista lista imagens do sistema operativo e imagens de VM.
+   1. Repare no número de discos pode ajudar a determinar o tipo de imagem está a implementar, porque a maioria das imagens de VM tem mais de um disco. No entanto, é possível ter uma imagem de VM com apenas um único disco do sistema operativo que, em seguida, teria **número de discos** definido como 1.
 
       ![desenho][img-manage-vm-select]
-3. Siga o Assistente de criação de VM e especifique a VM nome, VM tamanho, localização, nome de utilizador e palavra-passe.
+1. Siga o Assistente de criação de VM e especificar o VM name, VM tamanho, localização, nome de utilizador e palavra-passe.
 
 **Implementar uma VM a partir do PowerShell**
 
-Para implementar uma VM de grandes dimensões da imagem de VM generalizada acabou de criar, pode utilizar os seguintes cmdlets.
+Para implementar uma VM grande a partir da imagem de VM generalizada acabou de criar, pode utilizar os seguintes cmdlets.
 
     $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
@@ -234,208 +234,208 @@ Para implementar uma VM de grandes dimensões da imagem de VM generalizada acabo
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 
 > [!IMPORTANT]
-> Consulte [Resolução de problemas comuns quais os problemas encontrados durante a criação do VHD] para obter assistência adicional.
+> Para obter mais ajuda, consulte [Resolução de problemas o problemas comuns encontrados durante a criação do VHD].
 >
 >
 
-## <a name="5-obtain-certification-for-your-vm-image"></a>5. Obter a certificação para a imagem VM
-A preparar a imagem VM para o Azure Marketplace o passo seguinte é para que o certificado.
+## <a name="5-obtain-certification-for-your-vm-image"></a>5. Obter certificação para sua imagem VM
+O passo seguinte na preparação da imagem VM para o Azure Marketplace consiste em certificá-la.
 
-Este processo inclui a executar uma ferramenta de certificação especial, carregar os resultados de verificação para o contentor do Azure onde residem os VHDs, adicionar uma oferta, definir o SKU e submeter a imagem VM de certificação.
+Este processo inclui a execução de uma ferramenta de certificação especial, carregar os resultados de verificação para o contentor do Azure onde residem os VHDs, adição de uma oferta, definindo o SKU e submeter a sua imagem VM para obter uma certificação.
 
-### <a name="51-download-and-run-the-certification-test-tool-for-azure-certified"></a>5.1 transfira e execute a ferramenta de teste de certificação para o certificado do Azure
-A ferramenta de certificação é executada numa VM em execução, aprovisionada a partir da imagem de VM de utilizador, para garantir que a imagem VM é compatível com o Microsoft Azure. A ferramenta irá verificar se as orientações e os requisitos inerentes à preparação do VHD foram cumpridos. O resultado da ferramenta é um relatório de compatibilidade, que deve ser carregado no Portal de publicação ao requerente de certificação.
+### <a name="51-download-and-run-the-certification-test-tool-for-azure-certified"></a>5.1 Transferir e executar a ferramenta de teste de certificação para o Azure Certified
+A ferramenta de certificação é executado numa VM em execução, aprovisionada a partir da sua imagem VM do utilizador, para garantir que a imagem de VM é compatível com o Microsoft Azure. A ferramenta irá verificar se as orientações e os requisitos inerentes à preparação do VHD foram cumpridos. A saída da ferramenta é um relatório de compatibilidade, que deve ser carregado no Portal de publicação ao solicitante de certificação.
 
-A ferramenta de certificação pode ser utilizada com o Windows e VMs com Linux. Liga-se para as VMs baseadas em Windows através do PowerShell e liga-se para VMs com Linux através do SSH.Net:
+A ferramenta de certificação pode ser utilizada com o Windows e VMs do Linux. Ele se conecta a VMs baseadas no Windows através do PowerShell e liga-se para VMs do Linux via SSH.Net:
 
-1. Em primeiro lugar, transfira a ferramenta de certificação no [site de transferências da Microsoft][link-msft-download].
-2. Abrir a ferramenta de certificação e, em seguida, clique em de **Iniciar novo teste** botão.
-3. Do **testar informações** ecrã, introduza um nome para o execução do teste.
-4. Indique se a VM reporta ao Linux ou ao Windows. Dependendo da escolha efetuada, selecione as opções subsequentes.
+1. Em primeiro lugar, baixar a ferramenta de certificação no [site de download da Microsoft][link-msft-download].
+1. Abra a ferramenta de certificação e, em seguida, clique a **Start New Test** botão.
+1. Partir do **Test Information** ecrã, introduza um nome para a execução do teste.
+1. Indique se a VM reporta ao Linux ou ao Windows. Dependendo da escolha efetuada, selecione as opções subsequentes.
 
-### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>**Ligar a ferramenta de certificação para uma imagem de VM com Linux**
+### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>**Ligar a ferramenta de certificação a uma imagem de VM do Linux**
 1. Selecione o modo de autenticação de SSH: palavra-passe ou ficheiro de chave.
-2. Se utilizar autenticação baseada em palavra-passe, introduza o nome de sistema de nomes de domínio (DNS), nome de utilizador e palavra-passe.
-3. Se utilizar a autenticação de ficheiro de chave, introduza o nome DNS, o nome de utilizador e a localização da chave privada.
+1. Se utilizar autenticação baseada em palavra-passe, introduza o nome, nome de utilizador e palavra-passe do sistema de nomes de domínio (DNS).
+1. Se utilizar a autenticação do ficheiro de chave, introduza o nome DNS, o nome de utilizador e a localização da chave privada.
 
    ![Autenticação de palavra-passe da imagem de VM do Linux][img-cert-vm-pswd-lnx]
 
    ![Autenticação de chave de ficheiro de imagem de VM do Linux][img-cert-vm-key-lnx]
 
-### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ligar a ferramenta de certificação para uma imagem VM baseadas em Windows**
+### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ligar a ferramenta de certificação a uma imagem VM baseada no Windows**
 1. Introduza o nome de VM DNS completamente qualificado (por exemplo, MyVMName.Cloudapp.net).
-2. Introduza o nome de utilizador e palavra-passe.
+1. Introduza o nome de utilizador e palavra-passe.
 
    ![Autenticação de palavra-passe da imagem de VM do Windows][img-cert-vm-pswd-win]
 
-Depois de selecionar as opções corretas para a imagem VM de baseados em Windows ou Linux, selecione **Testar ligação** para garantir que SSH.Net ou o PowerShell tem uma ligação válida para fins de teste. Depois de é estabelecida uma ligação, selecione **seguinte** para iniciar o teste.
+Depois de selecionar as opções corretas para a sua imagem VM baseado em Windows ou do Linux, selecione **Testar ligação** para garantir que o SSH.Net ou o PowerShell tem uma ligação válida para fins de teste. Após uma conexão é estabelecida, selecione **seguinte** para iniciar o teste.
 
 Quando o teste estiver concluído, receberá os resultados (Pass/Fail/Warning) para cada elemento de teste.
 
-![Casos de teste para a imagem de VM do Linux][img-cert-vm-test-lnx]
+![Casos de teste de imagem de VM do Linux][img-cert-vm-test-lnx]
 
-![Casos de teste para a imagem de VM do Windows][img-cert-vm-test-win]
+![Casos de teste de imagem de VM do Windows][img-cert-vm-test-win]
 
-Se algum dos testes falhar, a imagem não irá ser certificada. Se isto ocorrer, reveja os requisitos e efetue as alterações necessárias.
+Se algum dos testes falharem, a imagem não irá ser certificada. Se isto ocorrer, reveja os requisitos e faça as alterações necessárias.
 
-Depois do teste automatizado, é-lhe pedido para fornecer informações adicionais sobre a imagem VM através de um ecrã questionário.  Conclua as perguntas e, em seguida, selecione **seguinte**.
+Após o teste automatizado, é-lhe perguntado para fornecer comentários adicionais sobre a imagem de VM por meio de uma tela de questionário.  Conclua as perguntas e, em seguida, selecione **seguinte**.
 
-![Questionário da ferramenta de certificação][img-cert-vm-questionnaire]
+![Questionário de ferramenta de certificação][img-cert-vm-questionnaire]
 
-![Questionário da ferramenta de certificação][img-cert-vm-questionnaire-2]
+![Questionário de ferramenta de certificação][img-cert-vm-questionnaire-2]
 
-Depois de concluir o questionário, pode fornecer informações adicionais, tais como informações de acesso SSH para a VM com Linux imagem e uma explicação para qualquer avaliações de falha. Pode transferir os resultados do teste e os ficheiros para os casos de teste executados para além das suas respostas ao questionário. Guarde os resultados no mesmo contentor que os VHDs.
+Depois de concluir o questionário, pode fornecer informações adicionais, tais como informações de acesso SSH para a VM do Linux, imagem e uma explicação para obter avaliações de qualquer falha. Pode transferir os resultados de teste e ficheiros de registo para os casos de teste foi executados, além das suas respostas ao questionário. Guarde os resultados no mesmo contentor que dos VHDs.
 
-![Guardar resultados do teste de certificação][img-cert-vm-results]
+![Guardar os resultados do teste de certificação][img-cert-vm-results]
 
-### <a name="52-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 obter a URI de assinatura de acesso partilhado para as imagens VM
-Durante o processo de publicação, especifique os identificadores de recurso uniforme (URI) que levar a cada um dos VHDs que criou para o SKU. A Microsoft precisa de aceder a estes VHDs durante o processo de certificação. Por conseguinte, terá de criar uma URI de assinatura de acesso partilhado para cada VHD. Este é o URI que deve ser introduzido no **imagens** separador no Portal de publicação.
+### <a name="52-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 obter o URI de assinatura de acesso partilhado para as imagens de VM
+Durante o processo de publicação, especificar os identificadores de recurso uniforme (URIs) que conduzem a cada um dos VHDs criados para o SKU. A Microsoft precisa de aceder a estes VHDs durante o processo de certificação. Por conseguinte, terá de criar um URI de assinatura de acesso partilhado para cada VHD. Este é o URI que deve ser introduzido no **imagens** separador no Portal de publicação.
 
-A assinatura de acesso partilhado que URI criado deve cumprir os requisitos seguintes:
+A assinatura de acesso partilhado criado deve obedecer aos seguintes requisitos:
 
-Nota: as instruções seguintes são aplicáveis apenas para os discos não geridos que são o único tipo suportado.
+Nota: as instruções seguintes são aplicáveis apenas para discos não geridos que são as únicas suportada.
 
-* Quando a gerar a assinatura de acesso partilhado URIs para os seus VHDs, permissões de leitura e de lista são suficientes. Não forneça acesso de Escrita ou de Eliminação.
-* A duração de acesso deve ter um mínimo de três (3) semanas a partir do quando é criada a assinatura de acesso partilhado URI.
-* Para salvaguardar para a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 6 de Outubro de 2014, selecione 5/10/2014.
+* Ao gerar a assinatura de acesso partilhado URIs para os VHDs, as permissões lista e leitura são suficientes. Não forneça acesso de Escrita ou de Eliminação.
+* A duração do acesso deve ser um mínimo de três (3) semanas desde quando é criado o URI de assinatura de acesso partilhado.
+* Para proteger-se para a hora UTC, selecione o dia antes da data atual. Por exemplo, se a data atual é de 6 de Outubro de 2014, selecione 10/5/2014.
 
-É possível gerar o SAS URL de várias formas para partilhar o VHD para o Azure Marketplace.
-Seguem-se as 3 ferramentas recomendadas:
+URL de SAS pode ser gerada de várias formas de partilhar o seu VHD para o Azure Marketplace.
+Seguem-se a 3 ferramentas recomendadas:
 
 1.  Explorador do Storage do Azure
-2.  Explorador de armazenamento da Microsoft
-3.  CLI do Azure
+1.  Explorador de armazenamento da Microsoft
+1.  CLI do Azure
 
 **Explorador de armazenamento do Azure (recomendado para utilizadores do Windows)**
 
-Seguem-se os passos para gerar o SAS URL utilizando o Explorador de armazenamento do Azure
+Seguem-se os passos para gerar o URL de SAS através do Explorador de armazenamento do Azure
 
-1. Transferir [pré-visualização 6 do Explorador de armazenamento do Azure 3](https://azurestorageexplorer.codeplex.com/) de CodePlex. Aceda a [pré-visualização de 6 do Explorador de armazenamento de Azure](https://azurestorageexplorer.codeplex.com/) e clique em **"Transferir"**.
+1. Baixe [armazenamento do Azure Explorer 6 pré-visualização 3](https://azurestorageexplorer.codeplex.com/) do CodePlex. Aceda a [pré-visualização do Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) e clique em **"Downloads"**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_01.png)
 
-2. Transferir [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) e instalar após unzipping-lo.
+1. Baixe [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) e instalar após descomprimi-lo.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_02.png)
 
-3. Depois de ser instalado, abra a aplicação.
-4. Clique em **adicionar conta**.
+1. Depois de ser instalado, abra a aplicação.
+1. Clique em **adicionar conta**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. Especifique o nome da conta de armazenamento, a chave de conta de armazenamento e o domínio de pontos finais de armazenamento. Esta é a conta de armazenamento na sua subscrição do Azure onde tiver mantido o VHD no portal do Azure.
+1. Especifique o nome da conta de armazenamento, a chave de conta de armazenamento e o domínio de pontos finais de armazenamento. Esta é a conta de armazenamento na sua subscrição do Azure onde tiver mantido o VHD no portal do Azure.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
-6. Depois do Explorador de armazenamento do Azure está ligado à sua conta de armazenamento específico, irá iniciar que mostra todas as contém dentro da conta de armazenamento. Selecione o contentor onde copiou o ficheiro VHD do disco do sistema operativo (também discos de dados se estas forem aplicáveis para o seu cenário).
+1. Assim que o Explorador de armazenamento do Azure está ligado à sua conta de armazenamento específica, irá começar mostrando todos os contém na conta de armazenamento. Selecione o contentor onde copiou o ficheiro VHD de disco do sistema operativo (também discos de dados se estas forem aplicáveis para o seu cenário).
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
 
-7. Depois de selecionar o contentor de blob, é iniciado Explorador de armazenamento do Azure que mostra os ficheiros dentro do contentor. Selecione o ficheiro de imagem (. vhd) que tem de ser submetidos.
+1. Depois de selecionar o contentor de BLOBs, o Explorador de armazenamento do Azure é iniciado mostrando os arquivos dentro do contentor. Selecione o ficheiro de imagem (. vhd) que tem de ser submetido.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.  Depois de selecionar o ficheiro. vhd no contentor, clique em de **segurança** separador.
+1.  Depois de selecionar o ficheiro. vhd no contentor, clique nas **segurança** separador.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.  No **segurança de contentor do Blob** diálogo caixa, deixe as predefinições no **nível de acesso** separador e, em seguida, clique em **assinaturas de acesso partilhado** separador.
+1.  Na **segurança do contentor de BLOBs** caixa de diálogo caixa, deixe as predefinições no **nível de acesso** separador e, em seguida, clique em **assinaturas de acesso partilhado** separador.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10. Siga os passos abaixo para gerar uma assinatura de acesso partilhado URI para a imagem de VHD:
+1.  Siga os passos abaixo para gerar um URI de assinatura de acesso partilhado para a imagem de VHD:
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
-    a. **Permissão de acesso do:** para salvaguardar para a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 6 de Outubro de 2014, selecione 5/10/2014.
+    a. **Acesso permitido a partir de:** para salvaguardar para a hora UTC, selecione o dia antes da data atual. Por exemplo, se a data atual é de 6 de Outubro de 2014, selecione 10/5/2014.
 
-    b. **Permissão de acesso à entidade:** Selecione uma data que seja, pelo menos, 3 semanas após o **permissão de acesso do** data.
+    b. **Permissão de acesso para:** Selecione uma data que seja, pelo menos, três semanas após a **acesso permitido de** data.
 
-    c. **As ações permitidas:** selecionar o **lista** e **leitura** permissões.
+    c. **Ações permitidas:** selecione o **lista** e **leitura** permissões.
 
-    d. Se tiver selecionado corretamente o ficheiro. vhd, em seguida, o ficheiro é apresentado no **nome do Blob para aceder à** com extensão VHD.
+    d. Se selecionou corretamente o ficheiro. vhd, então, seu arquivo aparece na **nome do Blob para aceder a** com. VHD de extensão.
 
-    e. Clique em **gerar a assinatura**.
+    e. Clique em **gerar assinatura**.
 
-    f. No **gerado partilhado acesso assinatura URI neste contentor**, verifique o seguinte conforme realçado acima:
+    f. Na **gerado partilhado acesso assinatura URI desse contêiner**, verifique o seguinte conforme realçado acima:
 
-       - Certifique-se de que a imagem de nome de ficheiro e **". vhd"** são no URI.
+       - Certifique-se de que sua imagem de nome de ficheiro e **". vhd"** são no URI.
        - No final da assinatura, certifique-se de que **"= rl"** aparece. Isto demonstra que o acesso de leitura e lista foi fornecido com êxito.
        - No meio da assinatura, certifique-se de que **"sr = c"** aparece. Isto demonstra que tem acesso ao nível do contentor
 
-11. Para garantir que o gerado partilhadas funciona URI de assinatura de acesso, clique em **teste no Browser**. Este deve iniciar o processo de transferência.
+1.  Para garantir que o gerado compartilhados funciona URI de assinatura de acesso, clique em **Test in Browser**. Ele deve começar o processo de transferência.
 
-12. Copie a URI de assinatura de acesso partilhado. Este é o URI que deverá colar no Portal de Publicação.
+1.  Copie o URI de assinatura de acesso partilhado. Este é o URI que deverá colar no Portal de Publicação.
 
-13. Repita os passos 6-10 para cada VHD no SKU.
+1.  Repita os passos 6 a 10 para cada VHD no SKU.
 
 **Explorador de armazenamento do Microsoft Azure (Windows/MAC/Linux)**
 
-Seguem-se os passos para gerar o SAS URL utilizando o Explorador de armazenamento do Microsoft Azure
+Seguem-se os passos para gerar o URL de SAS com o Explorador de armazenamento do Microsoft Azure
 
-1.  Transferir o formulário do Explorador de armazenamento do Microsoft Azure [ http://storageexplorer.com/ ](http://storageexplorer.com/) Web site. Aceda a [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **"Transferir para Windows"**.
+1.  Baixe o formulário do Microsoft Azure Storage Explorer [ http://storageexplorer.com/ ](http://storageexplorer.com/) Web site. Aceda a [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/releasenotes.html) e clique em **"Transferir para Windows"**.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.  Depois de ser instalado, abra a aplicação.
+1.  Depois de ser instalado, abra a aplicação.
 
-3.  Clique em **adicionar conta**.
+1.  Clique em **adicionar conta**.
 
-4.  Configurar o Explorador de armazenamento do Microsoft Azure à sua subscrição, inicie sessão na sua conta
+1.  Configurar o Explorador de armazenamento do Microsoft Azure à sua subscrição, inicie sessão na sua conta
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.  Ir para a conta de armazenamento e selecione o contentor
+1.  Aceder à conta de armazenamento e selecione o contentor
 
-6.  Selecione **"Obter assinatura de acesso de partilha.."** ao utilizar clique direito do **contentor**
+1.  Selecione **"Obter assinatura de acesso de partilha..."** com o clique direito do **contentor**
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.  Hora de início de atualização, a hora de expiração e as permissões de acordo com o seguinte
+1.  Hora de início de atualização, o tempo de expiração e as permissões de acordo com o seguinte
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.  **Hora de início:** para salvaguardar para a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 6 de Outubro de 2014, selecione 5/10/2014.
+    a.  **Hora de início:** para salvaguardar para a hora UTC, selecione o dia antes da data atual. Por exemplo, se a data atual é de 6 de Outubro de 2014, selecione 10/5/2014.
 
-    b.  **Hora de expiração:** Selecione uma data que seja, pelo menos, 3 semanas após o **hora de início** data.
+    b.  **Hora de expiração:** Selecione uma data que seja, pelo menos, três semanas após a **Start Time** data.
 
-    c.  **Permissões:** selecionar o **lista** e **leitura** permissões
+    c.  **Permissões:** selecione o **lista** e **leitura** permissões
 
-8.  Copie a assinatura de acesso partilhado do contentor URI
+1.  Copie o URI de assinatura de acesso partilhado do contentor
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
-    É gerado URL SAS para o contentor de nível e agora precisamos de adicionar o nome do VHD no mesmo.
+    URL de SAS gerado é para o nível de contêiner e agora, precisamos adicionar o nome do VHD no mesmo.
 
-    Formato do URL de SAS ao nível do contentor: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Formato do URL de SAS de nível de contêiner: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    Insira o nome do VHD após o nome de contentor no URL de SAS, tal como indicado abaixo `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Inserir o nome do VHD após o nome de contentor no URL de SAS, conforme mostrado a seguir `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Exemplo:
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    TestRGVM201631920152.vhd é o nome do VHD, em seguida, vai ser o URL de SAS de VHD `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    - Certifique-se de que a imagem de nome de ficheiro e **". vhd"** são no URI.
-    - No meio da assinatura, certifique-se de que **"SP2 = rl"** aparece. Isto demonstra que o acesso de leitura e lista foi fornecido com êxito.
+    - Certifique-se de que sua imagem de nome de ficheiro e **". vhd"** são no URI.
+    - No meio da assinatura, certifique-se de que **"sp = rl"** aparece. Isto demonstra que o acesso de leitura e lista foi fornecido com êxito.
     - No meio da assinatura, certifique-se de que **"sr = c"** aparece. Isto demonstra que tem acesso ao nível do contentor
 
-9.  Para garantir que o gerado partilhadas funciona URI de assinatura de acesso, testá-lo no browser. Este deve iniciar o processo de transferência
+1.  Para garantir que o gerado compartilhados funciona URI de assinatura de acesso, testá-la no browser. Este deve iniciar o processo de transferência
 
-10. Copie a URI de assinatura de acesso partilhado. Este é o URI que deverá colar no Portal de Publicação.
+1.  Copie o URI de assinatura de acesso partilhado. Este é o URI que deverá colar no Portal de Publicação.
 
-11. Repita estes passos para cada VHD no SKU.
+1.  Repita estes passos para cada VHD no SKU.
 
-**CLI do Azure (recomendado para a integração contínua & de não Windows)**
+**CLI do Azure (recomendada para integração contínua e de não Windows)**
 
-Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
+Seguem-se os passos para gerar o URL de SAS com a CLI do Azure
 
-1.  Transferir o Microsoft Azure CLI de [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Também pode encontrar ligações diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Transferir o Microsoft Azure CLI partir [aqui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Também pode encontrar ligações diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
-2.  Uma vez é transferido, instale o
+1.  Depois de transferida, instale o
 
-3.  Criar um PowerShell (ou outro executável de script) de ficheiros com o seguinte código e guardá-lo localmente
+1.  Criar um PowerShell (ou outro executável de script) de ficheiros com o código seguinte e guarde-o localmente
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -443,13 +443,13 @@ Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
 
     Atualize os parâmetros seguintes no acima
 
-    a. **`<StorageAccountName>`**: Dê o nome da sua conta de armazenamento
+    a. **`<StorageAccountName>`**: A dar o nome da sua conta de armazenamento
 
-    b. **`<Storage Account Key>`**: Dê a sua chave de conta do storage
+    b. **`<Storage Account Key>`**: Dar a sua chave de conta de armazenamento
 
-    c. **`<Permission Start Date>`**: Para salvaguardar para a hora UTC, selecione o dia anterior à data atual. Por exemplo, se a data atual for 25 de Outubro de 2016, em seguida, valor deve ser 25/10/2016. Se utilizar o Azure CLI 2.0 (az command), forneça a data e a hora no início e fim de datas, por exemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Para salvaguardar para a hora UTC, selecione o dia antes da data atual. Por exemplo, se a data atual é de 25 de Outubro de 2016, em seguida, valor deve ser 10/25/2016. Se utilizar a CLI 2.0 do Azure (comando az), forneça a data e a hora no início e datas de término, por exemplo: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: Selecione uma data que seja, pelo menos, 3 semanas após o **data de início**. O valor deve ser **11/02/2016**. Se utilizar o Azure CLI 2.0 (az command), forneça a data e a hora no início e fim de datas, por exemplo: 11-02-2016T00:00:00Z.
+    d. **`<Permission End Date>`**: Selecione uma data que seja, pelo menos, três semanas após a **data de início**. O valor deve estar **11/02/2016**. Se utilizar a CLI 2.0 do Azure (comando az), forneça a data e a hora no início e datas de término, por exemplo: 11-02-2016T00:00:00Z.
 
     Segue-se o código de exemplo depois de atualizar os parâmetros corretos
 
@@ -457,73 +457,73 @@ Seguem-se os passos para gerar o URL de SAS, utilizando a CLI do Azure
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  Abra o editor de Powershell com o modo de "Executar como administrador" e abra o ficheiro no passo 3 de #. Pode utilizar qualquer editor de scripts que está disponível no seu SO.
+1.  Abra o editor do Powershell com o modo de "Executar como administrador" e abra o ficheiro no passo 3 de #. Pode utilizar qualquer editor de script que está disponível no seu SO.
 
-5.  Execute o script e é-lhe o URL de SAS para o acesso ao nível do contentor
+1.  Execute o script e irá fornecer-lhe o URL de SAS para acesso ao nível do contentor
 
-    Seguinte será a saída da assinatura SAS e copie a parte realçada num bloco de notas
+    Seguinte será a saída da assinatura SAS e copiar a parte realçada num bloco de notas
 
     ![desenho](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.  Agora, irá obter SAS URL ao nível do contentor e tem de adicionar o nome do VHD no mesmo.
+1.  Agora, irá obter URL de SAS de nível de contêiner e tem de adicionar o nome do VHD no mesmo.
 
-    URL do contentor de nível SAS #
+    URL de SAS de nível contentor #
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  Insira o nome do VHD após o nome do contentor no SAS URL conforme mostrado abaixo `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+1.  Insira o nome do VHD após o nome do contentor no URL de SAS conforme mostrado abaixo `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Exemplo:
 
-    TestRGVM201631920152.vhd é o nome do VHD, em seguida, será o URL de SAS do VHD
+    TestRGVM201631920152.vhd é o nome do VHD, em seguida, vai ser o URL de SAS de VHD
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-    - Certifique-se de que o nome de ficheiro de imagem e ". vhd" no URI.
-    -   No meio da assinatura, certifique-se de que "SP2 = rl" aparece. Isto demonstra que o acesso de leitura e lista foi fornecido com êxito.
+    - Certifique-se de que seu nome de ficheiro de imagem e ". vhd" no URI.
+    -   No meio da assinatura, certifique-se de que "sp = rl" é apresentada. Isto demonstra que o acesso de leitura e lista foi fornecido com êxito.
     -   No meio da assinatura, certifique-se de que "sr = c" é apresentada. Isto demonstra que tem acesso ao nível do contentor
 
-8.  Para garantir que o gerado partilhadas funciona URI de assinatura de acesso, testá-lo no browser. Este deve iniciar o processo de transferência
+1.  Para garantir que o gerado compartilhados funciona URI de assinatura de acesso, testá-la no browser. Este deve iniciar o processo de transferência
 
-9.  Copie a URI de assinatura de acesso partilhado. Este é o URI que deverá colar no Portal de Publicação.
+1.  Copie o URI de assinatura de acesso partilhado. Este é o URI que deverá colar no Portal de Publicação.
 
-10. Repita estes passos para cada VHD no SKU.
+1.  Repita estes passos para cada VHD no SKU.
 
 
-### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 fornecem informações sobre a imagem VM e solicitar certificação no Portal de publicação
-Depois de ter criado a sua oferta e SKU, deverá introduzir os detalhes da imagem associados que SKU:
+### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 fornecem informações sobre a imagem de VM e solicitar a certificação no Portal de publicação
+Depois de criar a oferta e o SKU, que deve introduzir os detalhes de imagem associados esse SKU:
 
-1. Vá para o [Portal publicação][link-pubportal]e, em seguida, inicie sessão com a sua conta vendedor.
-2. Selecione o **imagens da VM** separador.
-3. O identificador listado na parte superior da página é, na verdade, o identificador de oferta e não o identificador SKU.
-4. Preencha as propriedades sob o **SKUs** secção.
-5. Em **família de sistemas operativos**, clique no tipo de sistema operativo associado ao sistema operativo VHD.
-6. No **sistema operativo** caixa, descrevem o sistema operativo. Considere um formato como família do sistema operativo, tipo, versão e atualizações. Um exemplo é "Windows Server Datacenter 2014 R2".
-7. Selecione até seis tamanhos de recomendado da máquina virtual. Estes são recomendações são apresentadas para o cliente no painel de escalão de preço no Portal do Azure quando se optam por adquirir e implementar a imagem. **Estes são apenas recomendações. O cliente é capaz de selecionar o tamanho VM que permite a discos especificados na imagem.**
-8. Introduza a versão. O campo de versão encapsula uma versão semântica para identificar o produto e respetivas atualizações:
-   * Versões devem ter o formato X.Y.Z, onde X, Y e Z são números inteiros.
-   * Imagens de SKUs diferentes podem ter diferentes versões principais e secundárias.
-   * Versões dentro de um SKU só devem ser as alterações incrementais, aumentam a versão de patch (Z do X.Y.Z).
-9. No **URL de VHD de SO** box, introduza a assinatura de acesso partilhado URI criado para o VHD de sistema operativo.
-10. Se existirem discos de dados associados este SKU, selecione o número de unidade lógica (LUN) ao qual pretende que este disco de dados seja montado após a implementação.
-11. No **LUN X VHD URL** box, introduza a URI criado para os primeiros dados VHD de assinatura de acesso partilhado.
+1. Vá para o [Portal de publicação][link-pubportal]e, em seguida, inicie sessão com a sua conta de vendedor.
+1. Selecione o **imagens de VM** separador.
+1. O identificador listado na parte superior da página é, na verdade, o identificador da oferta e não ao identificador do SKU.
+1. Preencha as propriedades sob o **SKUs** secção.
+1. Sob **família do sistema operativo**, clique no tipo de sistema operativo associado ao sistema de operativo VHD.
+1. Na **sistema operativo** caixa, descreva o sistema operativo. Considere um formato, como a família do sistema operativo, tipo, versão e atualizações. Um exemplo é "Windows Server Datacenter 2014 R2".
+1. Selecione até seis tamanhos de máquinas virtuais recomendados. Estas são recomendações apresentadas para o cliente no painel de escalão de preço no Portal do Azure quando este decide comprar e implementar a sua imagem. **Estas são apenas recomendações. O cliente é capaz de selecionar qualquer tamanho VM que englobe os discos especificados na sua imagem.**
+1. Introduza a versão. O campo versão encapsula uma versão semântica para identificar o produto e suas atualizações:
+   * Versões devem ter o formato x.y. z, em que X, Y e Z são números inteiros.
+   * Imagens em SKUs diferentes podem ter diferentes versões principais e secundárias.
+   * Versões dentro de um SKU só devem ser as alterações incrementais, aumentam a versão de patch (Z do x.y. z).
+1. Na **URL de VHD do SO** , introduza a URI criado para o sistema de operativo VHD de assinatura de acesso partilhado.
+1. Se existirem discos de dados associados este SKU, selecione o número de unidade lógica (LUN) para o qual pretende que este disco de dados seja montado aquando da implementação.
+1. Na **URL de VHD LUN X** , introduza a URI criado para o primeiro VHD de dados de assinatura de acesso partilhado.
 
     ![desenho](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 
-## <a name="common-sas-url-issues--fixes"></a>URL de SAS comum emite & corrige
+## <a name="common-sas-url-issues--fixes"></a>URL de SAS problemas comuns & de correções
 
-|Problema|Mensagem de falha|Corrigir|Ligação de documentação|
+|Problema|Mensagem de falha|Corrigir|Hiperligação para a documentação|
 |---|---|---|---|
-|Falha ao copiar imagens - "?" não foi encontrado no SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o SAS Url utilizando recomendado ferramentas|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - "st" e "zar" parâmetros não SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS com datas de início e fim no mesmo|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - "SP2 = rl" não está num SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS|Atualizar o Url de SAS com definido como "Leitura" & "lista de permissões|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - SAS url tem espaços em branco no nome do vhd|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS, sem espaços em branco|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – erro de autorização de Url SAS|Falha: Copiar as imagens. Não é possível transferir BLOBs devido a erro de autorização|Voltar a gerar o Url SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – o Url de SAS "st" e "zar" parâmetros não dispõe de especificação de data / hora completa|Falha: Copiar as imagens. Não é possível transferir BLOBs devido ao Url de SAS incorreto |Parâmetros de início do Url de SAS e a data de fim ("st", "zar") são necessários para ter a especificação de completa de data / hora, tal como 11-02-2017T00:00:00Z e não apenas a data ou versões reduzidas durante o período de tempo. É possível encontrar este cenário através do Azure CLI 2.0 (az command). Lembre-se de que fornecem a especificação de data / hora completa e voltar a gerar o Url de SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha na cópia dos imagens - "?" não foi encontrado no url SAS|Falha: Copiar as imagens. Não é possível transferir o blob com fornecida a Uri de SAS.|Atualizar o Url de SAS com recomendado de ferramentas|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Imagens de falha em Copiar - parâmetros "st" e "se" não está no url de SAS|Falha: Copiar as imagens. Não é possível transferir o blob com fornecida a Uri de SAS.|Atualize o Url de SAS com datas de início e fim no mesmo|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha na cópia dos imagens - "sp = rl" não está no url de SAS|Falha: Copiar as imagens. Não é possível transferir o blob com fornecida a Uri de SAS|Atualizar o Url de SAS com as permissões definidas como "Leitura" & "List|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha na cópia dos imagens - url de SAS tem espaços em branco no nome do vhd|Falha: Copiar as imagens. Não é possível transferir o blob com fornecida a Uri de SAS.|Atualizar o Url de SAS, sem espaços em branco|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha na cópia dos imagens – erro de autorização de Url de SAS|Falha: Copiar as imagens. Não é possível transferir blob devido a erro de autorização|Voltar a gerar o Url de SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha na cópia dos imagens – o Url de SAS "st" e os parâmetros de "se" não tem a especificação de data / hora completa|Falha: Copiar as imagens. Não é possível transferir blob devido a Url de SAS incorretos |Parâmetros de Url de SAS começar e a data de fim ("st", "se") são necessários para ter a especificação completa de data / hora, por exemplo, 11-02-2017T00:00:00Z e não apenas a data ou versões abreviadas para o tempo. É possível encontrar este cenário através do Azure CLI 2.0 (comando az). Certifique-se de que fornecem a especificação de data / hora completa e voltar a gerar o Url de SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Passo seguinte
-Depois de terminar com os detalhes do SKU, pode avançar para o [Guia do Azure Marketplace marketing conteúdo][link-pushstaging]. Esse passo do processo de publicação, deve fornecer o conteúdo de marketing, preço e outras informações necessárias antes **passo 3: testar a sua VM oferecem no modo de transição**, onde testar vários cenários de caso de utilização antes de implementar o oferta no Azure Marketplace para visibilidade pública e compra.  
+Depois de terminar com os detalhes SKU, pode avançar para o [guia de conteúdo de marketing do Azure Marketplace][link-pushstaging]. Essa etapa do processo de publicação, fornecer o conteúdo de marketing, os preços e outras informações necessárias anteriores ao **passo 3: testar a sua VM oferecem para efeitos de teste**, onde testar vários cenários de casos de utilização antes de implementar o oferta no Azure Marketplace para visibilidade pública e de compra.  
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)

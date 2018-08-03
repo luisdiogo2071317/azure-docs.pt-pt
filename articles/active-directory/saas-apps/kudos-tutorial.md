@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 5807ab0090f401c02599db40f110b7a9b1504060
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 878bbe16e2d33375c160c17d458654541e2f4174
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047057"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integração do Azure Active Directory com Parabéns pelo artigo
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar Parabéns pelo artigo a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-kudos-from-the-gallery"></a>Adicionar Parabéns pelo artigo a partir da Galeria
 Para configurar a integração de parabéns pelo artigo no Azure AD, terá de adicionar Parabéns pelo artigo a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração de parabéns pelo artigo no Azure AD, terá de ad
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Parabéns pelo artigo**.
+1. Na caixa de pesquisa, escreva **Parabéns pelo artigo**.
 
     ![Criar um utilizador de teste do Azure AD](./media/kudos-tutorial/tutorial_kudos_search.png)
 
-5. No painel de resultados, selecione **parabéns**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **parabéns**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/kudos-tutorial/tutorial_kudos_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Parabéns, atribua o valor do **nome de utilizador** no Azure AD como o valor do
 Para configurar e testar o Azure AD início de sessão único com Parabéns, precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de parabéns](#creating-a-kudos-test-user)**  - para ter um equivalente da Eduarda Almeida na Parabéns pelo artigo que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de parabéns](#creating-a-kudos-test-user)**  - para ter um equivalente da Eduarda Almeida na Parabéns pelo artigo que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,11 +104,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/kudos-tutorial/tutorial_kudos_samlbase.png)
 
-3. Sobre o **Parabéns pelo artigo domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Parabéns pelo artigo domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/kudos-tutorial/tutorial_kudos_url.png)
 
@@ -117,27 +117,27 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de parabéns pelo artigo](http://success.kudosnow.com/home) para obter este valor. 
  
-4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/kudos-tutorial/tutorial_kudos_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/kudos-tutorial/tutorial_general_400.png)
 
-6. Sobre o **configuração Parabéns pelo artigo** secção, clique em **configurar Parabéns pelo artigo** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **configuração Parabéns pelo artigo** secção, clique em **configurar Parabéns pelo artigo** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/kudos-tutorial/tutorial_kudos_configure.png) 
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Parabéns pelo artigo como um administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Parabéns pelo artigo como um administrador.
 
-8. No menu na parte superior, clique em **definições**.
+1. No menu na parte superior, clique em **definições**.
    
     ![As definições](./media/kudos-tutorial/ic787806.png "definições")
 
-9. Clique em **integrações \> SSO**.
+1. Clique em **integrações \> SSO**.
 
-10. Na **SSO** secção, execute os seguintes passos:
+1. Na **SSO** secção, execute os seguintes passos:
    
     ![SSO](./media/kudos-tutorial/ic787807.png "SSO")
    
@@ -166,15 +166,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/kudos-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/kudos-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/kudos-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/kudos-tutorial/create_aaduser_04.png) 
 
@@ -196,17 +196,17 @@ No caso de parabéns, o aprovisionamento é uma tarefa manual.
 
 1. Inicie sessão no seu **Parabéns pelo artigo** site da empresa como administrador.
 
-2. No menu na parte superior, clique em **definições**.
+1. No menu na parte superior, clique em **definições**.
    
    ![As definições](./media/kudos-tutorial/ic787806.png "definições")
 
-3. Clique em **utilizador administrador**.
+1. Clique em **utilizador administrador**.
 
-4. Clique nas **usuários** separador e, em seguida, clique em **adicionar um utilizador**.
+1. Clique nas **usuários** separador e, em seguida, clique em **adicionar um utilizador**.
    
    ![Utilizador administrador](./media/kudos-tutorial/ic787809.png "utilizador administrador")
 
-5. Na **adicionar um utilizador** secção, execute os seguintes passos:
+1. Na **adicionar um utilizador** secção, execute os seguintes passos:
    
     ![Adicionar um usuário](./media/kudos-tutorial/ic787810.png "adicionar um utilizador")
    
@@ -229,23 +229,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Parabéns pelo artigo**.
+1. Na lista de aplicações, selecione **Parabéns pelo artigo**.
 
     ![Configurar o início de sessão único](./media/kudos-tutorial/tutorial_kudos_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -256,7 +256,7 @@ Quando clica no mosaico de parabéns pelo artigo no painel de acesso, deve obter
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

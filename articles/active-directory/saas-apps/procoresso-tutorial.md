@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: bd84224f4c3a8a498a296ff50190713111895472
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 871fde799f064f52b11b75e190b9b7c8a73a843d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051620"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Active Directory com o Procore SSO
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Procore SSO da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-procore-sso-from-the-gallery"></a>Adicionando Procore SSO da Galeria
 Para configurar a integração do Procore SSO para o Azure AD, terá de adicionar Procore SSO partir da galeria, à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração do Procore SSO para o Azure AD, terá de adiciona
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Procore SSO**.
+1. Na caixa de pesquisa, escreva **Procore SSO**.
 
     ![Criar um utilizador de teste do Azure AD](./media/procoresso-tutorial/tutorial_procoresso_search.png)
 
-5. No painel de resultados, selecione **Procore SSO**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **Procore SSO**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/procoresso-tutorial/tutorial_procoresso_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relação de ligação é estabelecida atribuindo o valor do **nome de util
 Para configurar e testar o Azure AD início de sessão único com o Procore SSO, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste de Procore SSO](#creating-a-procore-sso-test-user)**  - para ter um equivalente da Eduarda Almeida na SSO Procore que está ligado à representação de ela do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste de Procore SSO](#creating-a-procore-sso-test-user)**  - para ter um equivalente da Eduarda Almeida na SSO Procore que está ligado à representação de ela do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,33 +104,33 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal de ge
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML início de sessão** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML início de sessão** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/procoresso-tutorial/tutorial_procoresso_samlbase.png)
 
-3. Sobre o **Procore de SSO de domínio e URLs** secção, o utilizador não tem de efetuar outros passos de como a aplicação já está pré-integrada com o Azure.
+1. Sobre o **Procore de SSO de domínio e URLs** secção, o utilizador não tem de efetuar outros passos de como a aplicação já está pré-integrada com o Azure.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/tutorial_procoresso_url.png)
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/tutorial_procoresso_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/tutorial_general_400.png)
 
-6. Sobre o **Procore de SSO de configuração** secção, clique em **configurar SSO Procore** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **Procore de SSO de configuração** secção, clique em **configurar SSO Procore** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/tutorial_procoresso_configure.png) 
 
-7. Para configurar o início de sessão único num **Procore SSO** lado, o início de sessão para o site da sua empresa procore como administrador.
+1. Para configurar o início de sessão único num **Procore SSO** lado, o início de sessão para o site da sua empresa procore como administrador.
 
-8. No menu de caixa de ferramentas para baixo, clique em **administrador** para abrir a página de definições de SSO.
+1. No menu de caixa de ferramentas para baixo, clique em **administrador** para abrir a página de definições de SSO.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/procore_tool_admin.png)
 
-9. Cole os valores nas caixas, conforme descrito abaixo-
+1. Cole os valores nas caixas, conforme descrito abaixo-
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/procore_setting_admin.png)  
 
@@ -140,9 +140,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal de ge
 
     c. Agora, abra a **XML de metadados** baixado anteriormente no portal do Azure e copie o certificado na marca com o nome **X509Certificate**. Cole o valor copiado para o **Single Sign On x509 certificado** caixa.
 
-10. Clique em **guardar alterações**.
+1. Clique em **guardar alterações**.
 
-11. Depois destas definições, precisa enviar o **nome de domínio** (por exemplo, de **contoso.com**) através do qual está a iniciar sessão em Procore para o [equipa de suporte Procore](https://support.procore.com/) e eles serão Ative o SSO federado para esse domínio.
+1. Depois destas definições, precisa enviar o **nome de domínio** (por exemplo, de **contoso.com**) através do qual está a iniciar sessão em Procore para o [equipa de suporte Procore](https://support.procore.com/) e eles serão Ative o SSO federado para esse domínio.
 
 <!--### Next steps
 
@@ -168,15 +168,15 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
     ![Criar um utilizador de teste do Azure AD](./media/procoresso-tutorial/create_aaduser_01.png) 
 
-2. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
+1. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
     
     ![Criar um utilizador de teste do Azure AD](./media/procoresso-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
+1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/procoresso-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/procoresso-tutorial/create_aaduser_04.png) 
 
@@ -194,11 +194,11 @@ Siga os passos abaixo para criar um utilizador de teste Procore no seu lado.
 
 1. Início de sessão para o site da sua empresa procore como administrador.  
 
-2. No menu de caixa de ferramentas para baixo, clique em **Directory** para abrir a página do diretório da empresa.
+1. No menu de caixa de ferramentas para baixo, clique em **Directory** para abrir a página do diretório da empresa.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/Procore_sso_directory.png)
 
-3. Clique em **adicionar uma pessoa** executar a opção para abrir o formulário e introduza seguindo as opções,
+1. Clique em **adicionar uma pessoa** executar a opção para abrir o formulário e introduza seguindo as opções,
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/Procore_user_add.png)
 
@@ -212,11 +212,11 @@ Siga os passos abaixo para criar um utilizador de teste Procore no seu lado.
 
     e. Clique em **Criar**.
 
-4. Verificar e atualizar os detalhes do contacto da recém-adicionada.
+1. Verificar e atualizar os detalhes do contacto da recém-adicionada.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Clique em **guardar e enviar Invitiation** (se um convite através de correio é necessário) ou **guardar** (guardar diretamente) para concluir o registo de utilizador.
+1. Clique em **guardar e enviar Invitiation** (se um convite através de correio é necessário) ou **guardar** (guardar diretamente) para concluir o registo de utilizador.
     
     ![Configurar o início de sessão único](./media/procoresso-tutorial/Procore_user_save.png)  
 
@@ -232,23 +232,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Procore SSO**.
+1. Na lista de aplicações, selecione **Procore SSO**.
 
     ![Configurar o início de sessão único](./media/procoresso-tutorial/tutorial_procoresso_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -259,7 +259,7 @@ Se pretender testar as definições de início de sessão únicas, abra o painel
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

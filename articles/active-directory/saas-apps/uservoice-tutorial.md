@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ead383ef0967fcaf67f3157f0a51104126ad618
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045415"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Azure Active Directory com o UserVoice
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o UserVoice da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-uservoice-from-the-gallery"></a>Adicionando o UserVoice da Galeria
 Para configurar a integração do UserVoice para o Azure AD, terá de adicionar UserVoice a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do UserVoice para o Azure AD, terá de adicionar 
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **UserVoice**, selecione **UserVoice** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **UserVoice**, selecione **UserVoice** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![UserVoice na lista de resultados](./media/uservoice-tutorial/tutorial_uservoice_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No UserVoice, atribuir o valor do **nome de utilizador** no Azure AD como o valo
 Para configurar e testar o Azure AD início de sessão único com o UserVoice, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do UserVoice](#create-a-uservoice-test-user)**  - para ter um equivalente da Eduarda Almeida no UserVoice que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do UserVoice](#create-a-uservoice-test-user)**  - para ter um equivalente da Eduarda Almeida no UserVoice que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/uservoice-tutorial/tutorial_uservoice_samlbase.png)
 
-3. Sobre o **UserVoice domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **UserVoice domínio e URLs** secção, execute os seguintes passos:
 
     ![UserVoice do domínio e URLs únicas início de sessão em informações](./media/uservoice-tutorial/tutorial_uservoice_url.png)
 
@@ -117,29 +117,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de UserVoice](https://www.uservoice.com/) obter esses valores.
 
-4. Sobre o **certificado de assinatura SAML** secção, copie a **THUMBPRINT** valor do certificado.
+1. Sobre o **certificado de assinatura SAML** secção, copie a **THUMBPRINT** valor do certificado.
 
     ![O link de download de certificado](./media/uservoice-tutorial/tutorial_uservoice_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/uservoice-tutorial/tutorial_general_400.png)
 
-6. Na **configuração do UserVoice** secção, clique em **configurar UserVoice** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Na **configuração do UserVoice** secção, clique em **configurar UserVoice** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de UserVoice](./media/uservoice-tutorial/tutorial_uservoice_configure.png) 
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa UserVoice como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa UserVoice como administrador.
 
-8. Na barra de ferramentas na parte superior, clique em **configurações**e, em seguida, selecione **Web portal** no menu.
+1. Na barra de ferramentas na parte superior, clique em **configurações**e, em seguida, selecione **Web portal** no menu.
    
     ![Secção de definições no lado de aplicação](./media/uservoice-tutorial/ic777519.png "definições")
 
-9. Sobre o **Web portal** separador o **autenticação de utilizador** secção, clique em **editar** para abrir o **editar autenticação de utilizador** página de diálogo.
+1. Sobre o **Web portal** separador o **autenticação de utilizador** secção, clique em **editar** para abrir o **editar autenticação de utilizador** página de diálogo.
    
     ![Portal Web do guia](./media/uservoice-tutorial/ic777520.png "Web portal")
 
-10. Sobre o **editar autenticação de utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **editar autenticação de utilizador** caixa de diálogo página, execute os seguintes passos:
    
     ![Editar autenticação de utilizador](./media/uservoice-tutorial/ic777521.png "editar autenticação de utilizador")
    
@@ -169,15 +169,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/uservoice-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/uservoice-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/uservoice-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/uservoice-tutorial/create_aaduser_04.png)
 
@@ -196,21 +196,21 @@ Para ativar a utilizadores do Azure AD iniciar sessão no UserVoice, tem de ser 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para Aprovisionar uma conta de utilizador, execute os seguintes passos:
 1. Inicie sessão no seu **UserVoice** inquilino.
 
-2. Aceda a **definições**.
+1. Aceda a **definições**.
    
     ![As definições](./media/uservoice-tutorial/ic777811.png "definições")
 
-3. Clique em **gerais**.
+1. Clique em **gerais**.
 
-4. Clique em **agentes e permissões**.
+1. Clique em **agentes e permissões**.
    
     ![Permissões e agentes](./media/uservoice-tutorial/ic777812.png "agentes e permissões")
 
-5. Clique em **adicionar administradores**.
+1. Clique em **adicionar administradores**.
    
     ![Adicionar administradores](./media/uservoice-tutorial/ic777813.png "adicionar administradores")
 
-6. Sobre o **convidar administradores** caixa de diálogo, execute os seguintes passos:
+1. Sobre o **convidar administradores** caixa de diálogo, execute os seguintes passos:
    
     ![Convidar admins](./media/uservoice-tutorial/ic777814.png "convidar os administradores")
    
@@ -233,23 +233,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **UserVoice**.
+1. Na lista de aplicações, selecione **UserVoice**.
 
     ![A ligação de UserVoice na lista de aplicações](./media/uservoice-tutorial/tutorial_uservoice_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -261,7 +261,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

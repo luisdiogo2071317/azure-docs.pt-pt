@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: eb848ede258d8d25d4734664bd500235f34359e7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144537"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Tutorial: Integração do Azure Active Directory ao Freshservice
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando ao Freshservice da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-freshservice-from-the-gallery"></a>Adicionando ao Freshservice da Galeria
 Para configurar a integração ao Freshservice com o Azure AD, terá de adicionar ao Freshservice a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,19 +63,19 @@ Para configurar a integração ao Freshservice com o Azure AD, terá de adiciona
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **ao Freshservice**.
+1. Na caixa de pesquisa, escreva **ao Freshservice**.
 
     ![Criar um utilizador de teste do Azure AD](./media/freshservice-tutorial/tutorial_freshservice_search.png)
 
-5. No painel de resultados, selecione **ao Freshservice**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. No painel de resultados, selecione **ao Freshservice**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Ao Freshservice, atribua o valor do **nome de utilizador** no Azure AD como o va
 Para configurar e testar o Azure AD início de sessão único ao Freshservice, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste ao Freshservice](#creating-a-freshservice-test-user)**  - para ter um equivalente da Eduarda Almeida ao Freshservice que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste ao Freshservice](#creating-a-freshservice-test-user)**  - para ter um equivalente da Eduarda Almeida ao Freshservice que está ligado à representação de utilizador do Azure AD.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
@@ -104,11 +104,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/freshservice-tutorial/tutorial_freshservice_samlbase.png)
 
-3. Sobre o **ao Freshservice domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **ao Freshservice domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/freshservice-tutorial/tutorial_freshservice_url.png)
 
@@ -119,29 +119,29 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente ao Freshservice](https://support.freshservice.com/) obter esses valores. 
  
-4. Sobre o **certificado de assinatura SAML** secção, copie **THUMBPRINT** valor do certificado.
+1. Sobre o **certificado de assinatura SAML** secção, copie **THUMBPRINT** valor do certificado.
 
     ![Configurar o início de sessão único](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/freshservice-tutorial/tutorial_general_400.png)
 
-6. Sobre o **configuração ao Freshservice** secção, clique em **ao Freshservice configurar** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **configuração ao Freshservice** secção, clique em **ao Freshservice configurar** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/freshservice-tutorial/tutorial_freshservice_configure.png) 
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa ao Freshservice como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa ao Freshservice como administrador.
 
-8. No menu na parte superior, clique em **administrador**.
+1. No menu na parte superior, clique em **administrador**.
    
     ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
-9. Na **Portal do cliente**, clique em **segurança**.
+1. Na **Portal do cliente**, clique em **segurança**.
    
     ![Segurança](./media/freshservice-tutorial/ic790815.png "segurança")
 
-10. Na **segurança** secção, execute os seguintes passos:
+1. Na **segurança** secção, execute os seguintes passos:
    
     ![Início de sessão único](./media/freshservice-tutorial/ic790816.png "início de sessão único")
    
@@ -168,15 +168,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![Criar um utilizador de teste do Azure AD](./media/freshservice-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
     ![Criar um utilizador de teste do Azure AD](./media/freshservice-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/freshservice-tutorial/create_aaduser_03.png) 
 
-4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
+1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/freshservice-tutorial/create_aaduser_04.png) 
 
@@ -196,19 +196,19 @@ Para ativar a utilizadores do Azure AD iniciar sessão ao FreshService, tem de s
 
 1. Inicie sessão no seu **ao FreshService** site da empresa como administrador.
 
-2. No menu na parte superior, clique em **administrador**.
+1. No menu na parte superior, clique em **administrador**.
    
     ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
-3. Na **gestão de utilizadores** secção, clique em **os solicitantes**.
+1. Na **gestão de utilizadores** secção, clique em **os solicitantes**.
    
     ![Os solicitantes](./media/freshservice-tutorial/ic790818.png "os solicitantes")
 
-4. Clique em **autor do pedido novo**.
+1. Clique em **autor do pedido novo**.
    
     ![Os solicitantes novos](./media/freshservice-tutorial/ic790819.png "os solicitantes de novo")
 
-5. Na **autor do pedido novo** secção, execute os seguintes passos:
+1. Na **autor do pedido novo** secção, execute os seguintes passos:
    
     ![Novo autor do pedido](./media/freshservice-tutorial/ic790820.png "novo autor do pedido")   
 
@@ -232,23 +232,23 @@ Para ativar a utilizadores do Azure AD iniciar sessão ao FreshService, tem de s
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **ao Freshservice**.
+1. Na lista de aplicações, selecione **ao Freshservice**.
 
     ![Configurar o início de sessão único](./media/freshservice-tutorial/tutorial_freshservice_app.png) 
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
@@ -259,7 +259,7 @@ Quando clica no mosaico ao Freshservice no painel de acesso, deve obter automati
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

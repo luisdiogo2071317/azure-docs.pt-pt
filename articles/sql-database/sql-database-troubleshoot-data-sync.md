@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 2be6d0321db41772116078d5308824fe8e1b64fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2853310df1183a8b32450c5b5c79289b78d1a26d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113904"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422506"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Resolver problemas com a sincronização de dados SQL
 
@@ -61,16 +61,16 @@ Qualquer uma das seguintes condições poderá resultar num grupo de sincroniza�
 - **Resolução**. Se o agente do cliente é desinstalada ou de outra forma de em falta:
 
     1. Remova o ficheiro XML do agente da pasta de instalação de sincronização de dados SQL, se o ficheiro existe.
-    2. Instale o agente num computador no local (pode ser a mesma ou num computador diferente). Em seguida, envie a chave de agente que é gerada no portal para o agente que está a aparecer como offline.
+    1. Instale o agente num computador no local (pode ser a mesma ou num computador diferente). Em seguida, envie a chave de agente que é gerada no portal para o agente que está a aparecer como offline.
 
 - **Causa**. O serviço de sincronização de dados SQL está parado.
 
 - **Resolução**. Reinicie o serviço de sincronização de dados SQL.
 
     1. Na **começar** menu, procure **serviços**.
-    2. Nos resultados da pesquisa, selecione **serviços**.
-    3. Encontrar o **sincronização de dados SQL** serviço.
-    4. Se o estado do serviço for **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
+    1. Nos resultados da pesquisa, selecione **serviços**.
+    1. Encontrar o **sincronização de dados SQL** serviço.
+    1. Se o estado do serviço for **parado**, faça duplo clique o nome do serviço e, em seguida, selecione **iniciar**.
 
 > [!NOTE]
 > Se as informações anteriores não mover o seu grupo de sincronização para fora do Estado de processamento, Support da Microsoft pode repor o estado do seu grupo de sincronização. Ter o estado do grupo de sincronização repor, além da [fórum de base de dados do Azure SQL](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), criar uma publicação. A postagem, incluem o seu ID de subscrição e o ID de grupo de sincronização para o grupo que tem de ser reposto. Um engenheiro de Support da Microsoft irá responder à sua postagem e irá informá-lo quando o estado foi reposto.
@@ -179,14 +179,14 @@ Descobre que o agente não está em execução num computador que aloja o SQL Se
     b. Na caixa de pesquisa, introduza **Services. msc**.  
     c. Nos resultados da pesquisa, selecione **serviços**.  
     d. Na **serviços** janela, desloque-se para a entrada para **agente de sincronização de dados SQL**.  
-  2. Com o botão direito **agente de sincronização de dados SQL**e, em seguida, selecione **parar**.
-  3. Com o botão direito **agente de sincronização de dados SQL**e, em seguida, selecione **propriedades**.
-  4. No **das propriedades do agente de sincronização de dados do SQL**, selecione a **iniciar sessão** separador.
-  5. Na **palavra-passe** , introduza a palavra-passe.
-  6. Na **Confirmar palavra-passe** caixa, reintroduza a palavra-passe.
-  7. Selecione **Apply** (Aplicar) e **OK**.
-  8. Na **serviços** janela, com o botão direito a **agente de sincronização de dados SQL** serviço e, em seguida, clique em **iniciar**.
-  9. Fechar o **serviços** janela.
+  1. Com o botão direito **agente de sincronização de dados SQL**e, em seguida, selecione **parar**.
+  1. Com o botão direito **agente de sincronização de dados SQL**e, em seguida, selecione **propriedades**.
+  1. No **das propriedades do agente de sincronização de dados do SQL**, selecione a **iniciar sessão** separador.
+  1. Na **palavra-passe** , introduza a palavra-passe.
+  1. Na **Confirmar palavra-passe** caixa, reintroduza a palavra-passe.
+  1. Selecione **Apply** (Aplicar) e **OK**.
+  1. Na **serviços** janela, com o botão direito a **agente de sincronização de dados SQL** serviço e, em seguida, clique em **iniciar**.
+  1. Fechar o **serviços** janela.
 
 ### <a name="agent-key"></a> Não consigo submeter a chave de agente
 
@@ -212,17 +212,17 @@ Depois de criar ou voltar a criar uma chave para um agente, tentar enviar a chav
 - **Resolução**. Se o agente não está a funcionar, é porque uma ou ambas estas condições não forem cumpridas. Para obter o seu agente para funcionar novamente:
 
   1. Gere uma nova chave.
-  2. Aplicam-se a nova chave para o agente.
+  1. Aplicam-se a nova chave para o agente.
 
   Para aplicar a nova chave para o agente:
 
   1. No Explorador de ficheiros, aceda ao seu diretório de instalação do agente. O diretório de instalação predefinido é c:\\Program Files (x86)\\sincronização de dados do Microsoft SQL.
-  2. Faça duplo clique no subdiretório bin.
-  3. Abra a aplicação de SqlAzureDataSyncAgent.
-  4. Selecione **submeter a chave de agente**.
-  5. No espaço fornecido, cole a chave da área de transferência.
-  6. Selecione **OK**.
-  7. Feche o programa.
+  1. Faça duplo clique no subdiretório bin.
+  1. Abra a aplicação de SqlAzureDataSyncAgent.
+  1. Selecione **submeter a chave de agente**.
+  1. No espaço fornecido, cole a chave da área de transferência.
+  1. Selecione **OK**.
+  1. Feche o programa.
 
 ### <a name="agent-delete"></a> Não é possível eliminar o agente do cliente no portal se é possível contactar o seu banco de dados associadas no local
 
@@ -240,12 +240,12 @@ Se um ponto final local (ou seja, uma base de dados) que está registado com um 
 - **Resolução**. Experimente os passos seguintes:
 
   1. Sair da aplicação.  
-  2. Abra o painel de serviços de componente.  
+  1. Abra o painel de serviços de componente.  
     a. Na caixa de pesquisa na barra de tarefas, introduza **Services. msc**.  
     b. Nos resultados da pesquisa, faça duplo clique em **serviços**.  
-  3. Parar o **sincronização de dados SQL** serviço.
-  4. Reinicie o **sincronização de dados SQL** serviço.  
-  5. Reabra a aplicação.
+  1. Parar o **sincronização de dados SQL** serviço.
+  1. Reinicie o **sincronização de dados SQL** serviço.  
+  1. Reabra a aplicação.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuração e manutenção
 
@@ -312,9 +312,9 @@ A tentativa de eliminar um grupo de sincronização falha. Qualquer um dos segui
     e. Se o serviço está em execução, impedi-lo.  
     f. Com o botão direito do serviço e, em seguida, selecione **iniciar**.  
     g. Verifique se a base de dados ainda está registado. Se já não estiver registado, já está. Caso contrário, continue com a próxima etapa.
-  2. Abra a aplicação de agente do cliente (SqlAzureDataSyncAgent).
-  3. Selecione **editar credenciais**e, em seguida, introduza as credenciais para a base de dados.
-  4. Continue com a anulação do registo.
+  1. Abra a aplicação de agente do cliente (SqlAzureDataSyncAgent).
+  1. Selecione **editar credenciais**e, em seguida, introduza as credenciais para a base de dados.
+  1. Continue com a anulação do registo.
 
 ### <a name="setup-perms"></a> Eu não tem privilégios suficientes para iniciar serviços do sistema
 
@@ -325,10 +325,10 @@ A tentativa de eliminar um grupo de sincronização falha. Qualquer um dos segui
 - **Resolução**. Conceder as credenciais do registo-no-como-serviço para a conta de utilizador:
 
   1. Aceda a **começar** > **painel de controlo** > **ferramentas administrativas** > **política de segurança Local**  >  **Política local** > **gestão de direitos de utilizador**.
-  2. Selecione **iniciar sessão como um serviço**.
-  3. Na **propriedades** diálogo caixa, adicione a conta de utilizador.
-  4. Selecione **Apply** (Aplicar) e **OK**.
-  5. Feche todas as janelas.
+  1. Selecione **iniciar sessão como um serviço**.
+  1. Na **propriedades** diálogo caixa, adicione a conta de utilizador.
+  1. Selecione **Apply** (Aplicar) e **OK**.
+  1. Feche todas as janelas.
 
 ### <a name="setup-date"></a> Uma base de dados tem o estado "Desatualizado"
 
@@ -339,7 +339,7 @@ A tentativa de eliminar um grupo de sincronização falha. Qualquer um dos segui
   Se o estado de uma base de dados for **desatualizados**:
 
   1. Remover a base de dados que tem um **desatualizados** estado do grupo de sincronização.
-  2. Adicionar a base de dados de volta para o grupo de sincronização.
+  1. Adicionar a base de dados de volta para o grupo de sincronização.
 
   > [!WARNING]
   > Perderá todas as alterações efetuadas a esta base de dados enquanto ela estava offline.
@@ -359,8 +359,8 @@ Não é possível eliminar um grupo de sincronização dentro de três minutos d
 - **Resolução**.
 
   1. Remover um grupo de sincronização, enquanto os agentes de sincronização associado estão online (recomendado).
-  2. Se o agente está offline, mas está instalado, colocá-la online no computador no local. Aguarde que o estado do agente a aparecer como **Online** no portal de sincronização de dados SQL. Em seguida, remova o grupo de sincronização.
-  3. Se o agente estiver offline, porque foi desinstalado:  
+  1. Se o agente está offline, mas está instalado, colocá-la online no computador no local. Aguarde que o estado do agente a aparecer como **Online** no portal de sincronização de dados SQL. Em seguida, remova o grupo de sincronização.
+  1. Se o agente estiver offline, porque foi desinstalado:  
     a.  Remova o ficheiro XML do agente da pasta de instalação de sincronização de dados SQL, se o ficheiro existe.  
     b.  Instale o agente num computador no local (pode ser a mesma ou num computador diferente). Em seguida, envie a chave de agente que é gerada no portal para o agente que está a aparecer como offline.  
     c. Tente eliminar o grupo de sincronização.

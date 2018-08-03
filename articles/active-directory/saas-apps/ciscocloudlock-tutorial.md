@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 56f88af5d1ec8adb44d5f5c7f539925e26459e19
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047948"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Integração do Azure Active Directory com os recursos de infraestrutura de segurança de Cloud
 
@@ -52,7 +52,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar os recursos de infraestrutura de segurança de Cloud a partir da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Adicionar os recursos de infraestrutura de segurança de Cloud a partir da Galeria
 Para configurar a integração de recursos de infraestrutura de segurança a Cloud com o Azure AD, terá de adicionar os recursos de infraestrutura de segurança de Cloud a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -63,15 +63,15 @@ Para configurar a integração de recursos de infraestrutura de segurança a Clo
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **a recursos de infraestrutura de segurança de Cloud**, selecione **os recursos de infraestrutura de segurança de Cloud** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **a recursos de infraestrutura de segurança de Cloud**, selecione **os recursos de infraestrutura de segurança de Cloud** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Recursos de infraestrutura de segurança da Cloud na lista de resultados](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 Para configurar e testar o Azure AD início de sessão único com os recursos de infraestrutura de segurança de Cloud, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste os recursos de infraestrutura de segurança de Cloud](#create-a-the-cloud-security-fabric-test-user)**  - para ter um equivalente da Eduarda Almeida no Fabric de segurança de Cloud que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste os recursos de infraestrutura de segurança de Cloud](#create-a-the-cloud-security-fabric-test-user)**  - para ter um equivalente da Eduarda Almeida no Fabric de segurança de Cloud que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -103,7 +103,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Caixa de diálogo de início de sessão único](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
 
-3. Sobre o **o domínio de recursos de infraestrutura de segurança na Cloud e URLs** secção, execute os seguintes passos:
+1. Sobre o **o domínio de recursos de infraestrutura de segurança na Cloud e URLs** secção, execute os seguintes passos:
 
     ![Os URLs e do domínio de recursos de infraestrutura de segurança de Cloud única informações de início de sessão](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
@@ -122,15 +122,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > O valor do identificador não é real. Atualize o valor com o identificador real. Contacte [equipa de suporte do cliente de recursos de infraestrutura de segurança de Cloud](mailto:support@cloudlock.com) para obter o valor. 
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![O link de download de certificado](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único num **a recursos de infraestrutura de segurança de Cloud** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte a recursos de infraestrutura de segurança de Cloud](mailto:support@cloudlock.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **a recursos de infraestrutura de segurança de Cloud** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte a recursos de infraestrutura de segurança de Cloud](mailto:support@cloudlock.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -144,15 +144,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/ciscocloudlock-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/ciscocloudlock-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/ciscocloudlock-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
 
@@ -180,23 +180,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
     ![Atribuir utilizador][201]
 
-2. Na lista de aplicações, selecione **a recursos de infraestrutura de segurança de Cloud**.
+1. Na lista de aplicações, selecione **a recursos de infraestrutura de segurança de Cloud**.
 
     ![A ligação de recursos de infraestrutura de segurança de Cloud na lista de aplicações](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -208,7 +208,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

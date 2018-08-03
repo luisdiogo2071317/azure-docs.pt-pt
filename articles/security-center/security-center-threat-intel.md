@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561369"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434195"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Informações sobre ameaças no Centro de Segurança do Azure
 Este artigo ajuda-o a utilizar as informações sobre ameaças do Centro de Segurança do Azure para lidar com problemas relacionados com segurança.
@@ -50,22 +50,22 @@ Para visualizar as informações sobre ameaças atuais relativamente ao seu ambi
 
 1. Abra o dashboard **Centro de Segurança**.
 
-2. No painel esquerdo, sob **proteção contra ameaças** selecionar **informações sobre ameaças**. É aberto um mapa.
+1. No painel esquerdo, sob **proteção contra ameaças** selecionar **informações sobre ameaças**. É aberto um mapa.
 
     ![Mapa das informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. Na parte superior do mapa, selecione **ver informações sobre ameaças clássico**. O **informações sobre ameaças** dashboard abre.
+1. Na parte superior do mapa, selecione **ver informações sobre ameaças clássico**. O **informações sobre ameaças** dashboard abre.
 
     ![Dashboard Informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para o plano Standard para utilizar esta funcionalidade. Se a coluna mais à direita mostrar **PRECISA DE ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança do Azure.
     >
-3. Se tiver mais do que uma área de trabalho para investigar, priorize a investigação de acordo com a coluna **IP malicioso**. Mostra o número atual de IPs maliciosos nesta área de trabalho. Selecione a área de trabalho que pretende utilizar e o dashboard **Informações sobre ameaças** é apresentado.
+1. Se tiver mais do que uma área de trabalho para investigar, priorize a investigação de acordo com a coluna **IP malicioso**. Mostra o número atual de IPs maliciosos nesta área de trabalho. Selecione a área de trabalho que pretende utilizar e o dashboard **Informações sobre ameaças** é apresentado.
 
     ![Dados de informações sobre ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. O dashboard está dividido em quatro mosaicos:
+1. O dashboard está dividido em quatro mosaicos:
 
     a.  **Tipos de ameaça**. Resume o tipo de ameaças que foram detetadas na área de trabalho selecionada.
 
