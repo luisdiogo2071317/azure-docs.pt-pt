@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b37c6d1c1c2e7ec002ac1b4ea5768c8972dd9e8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39039998"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory com QPrism
 
@@ -50,7 +50,7 @@ Para testar os passos neste tutorial, siga as seguintes recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando QPrism da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="add-qprism-from-the-gallery"></a>Adicionar QPrism a partir da Galeria
 Para configurar a integração do QPrism com o Azure AD, terá de adicionar QPrism a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -61,15 +61,15 @@ Para configurar a integração do QPrism com o Azure AD, terá de adicionar QPri
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais** > **todas as aplicações**.
+1. Navegue para **aplicações empresariais** > **todas as aplicações**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar um novo aplicativo, na parte superior da caixa de diálogo, selecione **nova aplicação**.
+1. Para adicionar um novo aplicativo, na parte superior da caixa de diálogo, selecione **nova aplicação**.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **QPrism**e selecione **QPrism** partir do painel de resultados. Em seguida, clique em **adicionar** para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **QPrism**e selecione **QPrism** partir do painel de resultados. Em seguida, clique em **adicionar** para adicionar a aplicação.
 
     ![QPrism na lista de resultados](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Para estabelecer esta relação na QPrism, atribua o valor do **nome de utilizad
 Para configurar e testar o Azure AD início de sessão único com QPrism, conclua os seguintes blocos de construção:
 
 1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. [Criar um utilizador de teste QPrism](#create-a-qprism-test-user) ter um equivalente da Eduarda Almeida na QPrism que está ligada à representação de utilizador do Azure AD.
-4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
+1. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. [Criar um utilizador de teste QPrism](#create-a-qprism-test-user) ter um equivalente da Eduarda Almeida na QPrism que está ligada à representação de utilizador do Azure AD.
+1. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -97,11 +97,11 @@ Nesta secção, ativar o Azure AD início de sessão único no portal do Azure e
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/qprism-tutorial/tutorial_qprism_samlbase.png)
 
-3. Na **QPrism domínio e URLs** secção, efetue o seguinte:
+1. Na **QPrism domínio e URLs** secção, efetue o seguinte:
 
     ![QPrism domínio e URLs únicas início de sessão em informações](./media/qprism-tutorial/tutorial_qprism_url.png)
 
@@ -112,15 +112,15 @@ Nesta secção, ativar o Azure AD início de sessão único no portal do Azure e
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador real e início de sessão no URL. Contacte [equipa de suporte de cliente QPrism](mailto:qsupport-ce@quatrro.com) obter esses valores. 
 
-4. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
      ![O link de download de certificado](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
-5. Selecione **Guardar**.
+1. Selecione **Guardar**.
 
     ![Configurar o início de sessão único botão Save](./media/qprism-tutorial/tutorial_general_400.png)
     
-6. Para configurar o início de sessão único num **QPrism** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de QPrism](mailto:qsupport-ce@quatrro.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **QPrism** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de QPrism](mailto:qsupport-ce@quatrro.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -134,15 +134,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/qprism-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/qprism-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, na parte superior a **todos os utilizadores** caixa de diálogo, selecione **Add**.
+1. Para abrir o **usuário** caixa de diálogo, na parte superior a **todos os utilizadores** caixa de diálogo, selecione **Add**.
 
     ![Botão Adicionar](./media/qprism-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, faça o seguinte:
+1. Na **utilizador** diálogo caixa, faça o seguinte:
 
     ![A caixa de diálogo de utilizador](./media/qprism-tutorial/create_aaduser_04.png)
 
@@ -170,23 +170,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **QPrism**.
+1. Na lista de aplicações, selecione **QPrism**.
 
     ![A ligação de QPrism na lista de aplicações](./media/qprism-tutorial/tutorial_qprism_app.png)  
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. No menu à esquerda, selecione **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Selecione **Adicionar**. Em seguida, em **adicionar atribuição**, selecione **utilizadores e grupos**.
+1. Selecione **Adicionar**. Em seguida, em **adicionar atribuição**, selecione **utilizadores e grupos**.
 
     ![O painel Adicionar atribuição][203]
 
-5. Sobre o **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** no **utilizadores** lista.
+1. Sobre o **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** no **utilizadores** lista.
 
-6. Sobre o **utilizadores e grupos** caixa de diálogo, selecione **selecione**.
+1. Sobre o **utilizadores e grupos** caixa de diálogo, selecione **selecione**.
 
-7. Sob **adicionar atribuição**, selecione **atribuir**.
+1. Sob **adicionar atribuição**, selecione **atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -198,7 +198,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

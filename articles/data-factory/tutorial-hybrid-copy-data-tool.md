@@ -164,7 +164,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
    ![Seleção do SQL Server](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-5. No Novo Serviço Ligado (SQL Server) **Nome***, introduza **SqlServerLinkedService**. Selecione **+Novo** em **Ligar através do runtime de integração**. Tem de criar um runtime de integração autoalojado, transferi-lo para o seu computador e registá-lo no Data Factory. O runtime de integração autoalojado copia dados entre o ambiente no local e a cloud.
+5. No Novo Serviço Ligado (SQL Server) **Nome**\*\*, introduza **SqlServerLinkedService**. Selecione **+Novo** em **Ligar através do runtime de integração**. Tem de criar um runtime de integração autoalojado, transferi-lo para o seu computador e registá-lo no Data Factory. O runtime de integração autoalojado copia dados entre o ambiente no local e a cloud.
 
    ![Criar o runtime de integração autoalojado](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4b060fc3d273a0243271d2c38f90e81f83857e79
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598429"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420333"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -50,25 +50,25 @@ Utilize os seguintes passos para definir um objetivo de cópia de segurança, de
     c. É apresentada a lista dos cofres dos Serviços de Recuperação. Selecione um cofre da lista.
 
      O dashboard do cofre selecionado é aberto.
-2. Na lista de itens que é apresentado no cofre, selecione **cópia de segurança** para começar a fazer backup da VM encriptada.
+1. Na lista de itens que é apresentado no cofre, selecione **cópia de segurança** para começar a fazer backup da VM encriptada.
 
       ![Painel cópia de segurança](./media/backup-azure-vms-encryption/select-backup.png)
-3. Sobre o **cópia de segurança** mosaico, selecione **objetivo de cópia de segurança**.
+1. Sobre o **cópia de segurança** mosaico, selecione **objetivo de cópia de segurança**.
 
       ![Painel cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
-4. Sob **em que a sua carga de trabalho é executado?**, selecione **Azure**. Sob **o que fazer quiser a cópia de segurança?**, selecione **Máquina Virtual**. Em seguida, selecione **OK**.
+1. Sob **em que a sua carga de trabalho é executado?**, selecione **Azure**. Sob **o que fazer quiser a cópia de segurança?**, selecione **Máquina Virtual**. Em seguida, selecione **OK**.
 
    ![Abrir o painel Cenário](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-5. Sob **escolher política de cópia de segurança**, selecione a política de cópia de segurança que pretende aplicar ao cofre. Em seguida, selecione **OK**.
+1. Sob **escolher política de cópia de segurança**, selecione a política de cópia de segurança que pretende aplicar ao cofre. Em seguida, selecione **OK**.
 
       ![Selecionar política de cópia de segurança](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
 
     Os detalhes da política predefinida são listados. Se quiser criar uma política, selecione **criar novo** na lista pendente. Depois de selecionar **OK**, a política de cópia de segurança é associada ao cofre.
 
-6. Escolha as VMs encriptadas a associar à política especificada e selecione **OK**.
+1. Escolha as VMs encriptadas a associar à política especificada e selecione **OK**.
 
       ![Selecione as VMs encriptadas](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. Esta página mostra uma mensagem sobre cofres de chaves associado para as VMs encriptadas que selecionou. Cópia de segurança requer acesso só de leitura para as chaves e segredos no Cofre de chaves. Utiliza estas permissões para criar cópias de segurança as chaves e segredos, juntamente com as VMs associadas.<br>
+1. Esta página mostra uma mensagem sobre cofres de chaves associado para as VMs encriptadas que selecionou. Cópia de segurança requer acesso só de leitura para as chaves e segredos no Cofre de chaves. Utiliza estas permissões para criar cópias de segurança as chaves e segredos, juntamente com as VMs associadas.<br>
 Se for um **utilizador de membro**, processo de ativar cópia de segurança será perfeitamente adquirir acesso ao Cofre de chaves para cópia de segurança VMs encriptadas sem exigir qualquer intervenção do utilizador.
 
    ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
@@ -79,7 +79,7 @@ Se for um **utilizador de membro**, processo de ativar cópia de segurança ser�
  
     Agora que definiu todas as definições do cofre, selecione **ativar cópia de segurança** na parte inferior da página. **Ativar cópia de segurança** implementa a política no cofre e as VMs.
   
-8. A próxima fase no processo de preparação está a instalar o agente da VM ou certificar-se de que o agente da VM está instalado. Para fazer o mesmo, siga os passos em [preparar o ambiente para cópia de segurança](backup-azure-arm-vms-prepare.md).
+1. A próxima fase no processo de preparação está a instalar o agente da VM ou certificar-se de que o agente da VM está instalado. Para fazer o mesmo, siga os passos em [preparar o ambiente para cópia de segurança](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Acionar uma tarefa de cópia de segurança
 Siga os passos em [VMs de cópia de segurança do Azure para um cofre dos serviços de recuperação](backup-azure-arm-vms.md) para acionar uma tarefa de cópia de segurança.
@@ -93,31 +93,31 @@ Utilize os seguintes passos para fornecer permissões relevantes à cópia de se
 
     ![Cofres de chaves](./media/backup-azure-vms-encryption/search-key-vault.png)
     
-2. Na lista de cofres de chaves, selecione o Cofre de chaves associado à VM encriptada que tem de ser efetuada a cópia de segurança.
+1. Na lista de cofres de chaves, selecione o Cofre de chaves associado à VM encriptada que tem de ser efetuada a cópia de segurança.
 
      ![Seleção de Cofre de chaves](./media/backup-azure-vms-encryption/select-key-vault.png)
      
-3. Selecione **políticas de acesso**e, em seguida, selecione **adicionar novo**.
+1. Selecione **políticas de acesso**e, em seguida, selecione **adicionar novo**.
 
     ![Adicionar nova](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
     
-4. Selecione **selecionar principal**e, em seguida, escreva **serviço de gestão de cópia de segurança** na caixa de pesquisa. 
+1. Selecione **selecionar principal**e, em seguida, escreva **serviço de gestão de cópia de segurança** na caixa de pesquisa. 
 
     ![Pesquisa de serviço de cópia de segurança](./media/backup-azure-vms-encryption/search-backup-service.png)
     
-5. Selecione **serviço de gestão de cópia de segurança**e, em seguida, selecione **selecione**.
+1. Selecione **serviço de gestão de cópia de segurança**e, em seguida, selecione **selecione**.
 
     ![Seleção de serviço de cópia de segurança](./media/backup-azure-vms-encryption/select-backup-service.png)
     
-6. Sob **configurar a partir de modelo (opcional)**, selecione **cópia de segurança do Azure**. As permissões necessárias são prefilled para **permissões da chave** e **permissões secretas**. Se a VM é encriptada utilizando **BEK só**, apenas para segredos são necessárias permissões de, pelo que tem de remover a seleção para **permissões da chave**.
+1. Sob **configurar a partir de modelo (opcional)**, selecione **cópia de segurança do Azure**. As permissões necessárias são prefilled para **permissões da chave** e **permissões secretas**. Se a VM é encriptada utilizando **BEK só**, apenas para segredos são necessárias permissões de, pelo que tem de remover a seleção para **permissões da chave**.
 
     ![Seleção de cópia de segurança do Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
     
-7. Selecione **OK**. Tenha em atenção que **serviço de gestão de cópia de segurança** é adicionado na **políticas de acesso**. 
+1. Selecione **OK**. Tenha em atenção que **serviço de gestão de cópia de segurança** é adicionado na **políticas de acesso**. 
 
     ![Políticas de acesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
     
-8. Selecione **guardar** para conceder as permissões necessárias para a cópia de segurança.
+1. Selecione **guardar** para conceder as permissões necessárias para a cópia de segurança.
 
     ![Política de cópia de segurança de acesso](./media/backup-azure-vms-encryption/save-access-policy.png)
 

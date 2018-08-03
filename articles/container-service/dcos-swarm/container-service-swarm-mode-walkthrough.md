@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 4a592a20d009b269f1e8f7079311caa4c33cf613
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113111"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421938"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implementar um cluster do Docker CE
 
@@ -28,7 +28,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos.
 
 O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* no *westus2* localização.
 
@@ -53,7 +53,7 @@ Saída:
 
 ## <a name="create-docker-swarm-cluster"></a>Criar um cluster do Docker Swarm
 
-Crie um cluster Docker CE no Azure Container Service com o comando [az acs create](/cli/azure/acs#az_acs_create). Para informações sobre a região availaiblity do Docker CE, consulte [regiões de ACS para o Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Crie um cluster Docker CE no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). Para informações sobre a região availaiblity do Docker CE, consulte [regiões de ACS para o Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 O exemplo seguinte cria um cluster com o nome *mySwarmCluster* com um nó principal do Linux e três nós de agente do Linux.
 
@@ -61,7 +61,7 @@ O exemplo seguinte cria um cluster com o nome *mySwarmCluster* com um nó princi
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az_acs_create). 
+Em alguns casos, como numa versão de avaliação limitada, uma subscrição do Azure tem acesso limitado aos recursos do Azure. Caso a implementação falhe devido a um número limitado de núcleos disponíveis, reduza a contagem de agentes pré-definida ao adicionar `--agent-count 1` ao comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 Ao fim de vários minutos, o comando é concluído e devolve informações sobre o cluster no formato JSON.
 
@@ -153,7 +153,7 @@ Navegue para o FQDN do conjunto de agentes do Swarm para testar a aplicação do
 ![Imagem de navegação para o Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Eliminar o cluster
-Quando o cluster já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
+Quando o cluster já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

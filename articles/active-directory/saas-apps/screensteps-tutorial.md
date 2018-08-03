@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 40aa948547587b224a81ac97a3554345d8ca783d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 105ec895635a882d562de48203222702a2c6bfed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051371"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integração do Azure Active Directory com ScreenSteps
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando ScreenSteps da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-screensteps-from-the-gallery"></a>Adicionando ScreenSteps da Galeria
 Para configurar a integração do ScreenSteps com o Azure AD, terá de adicionar ScreenSteps a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do ScreenSteps com o Azure AD, terá de adicionar
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **ScreenSteps**, selecione **ScreenSteps** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **ScreenSteps**, selecione **ScreenSteps** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![ScreenSteps na lista de resultados](./media/screensteps-tutorial/tutorial_screensteps_addfromgallery.png)
 
@@ -87,10 +87,10 @@ ScreenSteps, atribua o valor do **nome de utilizador** no Azure AD como o valor 
 Para configurar e testar o Azure AD início de sessão único com ScreenSteps, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste ScreenSteps](#create-a-screensteps-test-user)**  - para ter um equivalente da Eduarda Almeida na ScreenSteps que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste ScreenSteps](#create-a-screensteps-test-user)**  - para ter um equivalente da Eduarda Almeida na ScreenSteps que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/screensteps-tutorial/tutorial_screensteps_samlbase.png)
 
-3. Sobre o **ScreenSteps domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **ScreenSteps domínio e URLs** secção, execute os seguintes passos:
 
     ![ScreenSteps domínio e URLs únicas início de sessão em informações](./media/screensteps-tutorial/tutorial_screensteps_url.png)
 
@@ -115,33 +115,33 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o início de sessão no URL real, que é explicado posteriormente neste tutorial. 
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/screensteps-tutorial/tutorial_screensteps_certificate.png) 
 
-5. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/screensteps-tutorial/tutorial_general_400.png)
 
-6. Sobre o **ScreenSteps configuração** secção, clique em **configurar ScreenSteps** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Sobre o **ScreenSteps configuração** secção, clique em **configurar ScreenSteps** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração de ScreenSteps](./media/screensteps-tutorial/tutorial_screensteps_configure.png) 
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa ScreenSteps como um administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa ScreenSteps como um administrador.
 
-8. Clique em **definições da conta**.
+1. Clique em **definições da conta**.
 
     ![Gerenciamento de contas](./media/screensteps-tutorial/ic778523.png "gerenciamento de contas")
 
-9. Clique em **início de sessão único**.
+1. Clique em **início de sessão único**.
 
     ![Autenticação remota](./media/screensteps-tutorial/ic778524.png "autenticação remota")
 
-10. Clique em **criar o ponto final de início de sessão único**.
+1. Clique em **criar o ponto final de início de sessão único**.
 
     ![Autenticação remota](./media/screensteps-tutorial/ic778525.png "autenticação remota")
 
-11. Na **ponto final de início de sessão único criar** secção, execute os seguintes passos:
+1. Na **ponto final de início de sessão único criar** secção, execute os seguintes passos:
 
     ![Criar um ponto de final de autenticação](./media/screensteps-tutorial/ic778526.png "criar um ponto de final de autenticação")
     
@@ -151,11 +151,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     c. Clique em **Criar**.
 
-12. **Editar** o novo ponto final.
+1. **Editar** o novo ponto final.
 
     ![Editar o ponto final](./media/screensteps-tutorial/ic778528.png "editar o ponto final")
 
-13. Na **ponto final de início de sessão único editar** secção, execute os seguintes passos:
+1. Na **ponto final de início de sessão único editar** secção, execute os seguintes passos:
 
     ![Ponto final de autenticação remota](./media/screensteps-tutorial/ic778527.png "ponto final de autenticação remota")
 
@@ -191,15 +191,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/screensteps-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/screensteps-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/screensteps-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/screensteps-tutorial/create_aaduser_04.png)
 
@@ -227,23 +227,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **ScreenSteps**.
+1. Na lista de aplicações, selecione **ScreenSteps**.
 
     ![A ligação de ScreenSteps na lista de aplicações](./media/screensteps-tutorial/tutorial_screensteps_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -255,7 +255,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

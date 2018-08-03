@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 641f2e19791be48d014eeb61fb2848fc2a33a9cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 65b103d9dd4a2d50d9d51aabb1728d759351a548
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042049"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Azure Active Directory com o Workday
 
@@ -53,7 +53,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Workday da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-workday-from-the-gallery"></a>Adicionando o Workday da Galeria
 Para configurar a integração do Workday para o Azure AD, terá de adicionar dia de trabalho a partir da Galeria à sua lista de aplicações de SaaS geridas.
@@ -64,15 +64,15 @@ Para configurar a integração do Workday para o Azure AD, terá de adicionar di
 
     ![O botão do Azure Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
     
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
 
-4. Na caixa de pesquisa, escreva **Workday**, selecione **Workday** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **Workday**, selecione **Workday** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Dia de trabalho na lista de resultados](./media/workday-tutorial/tutorial_workday_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Workday, atribuir o valor do **nome de utilizador** no Azure AD como o valor 
 Para configurar e testar o Azure AD início de sessão único com o Workday, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste do Workday](#create-a-workday-test-user)**  - para ter um equivalente da Eduarda Almeida no Workday que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **[Criar um utilizador de teste do Workday](#create-a-workday-test-user)**  - para ter um equivalente da Eduarda Almeida no Workday que está ligado à representação de utilizador do Azure AD.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -102,11 +102,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar a ligação de início de sessão única][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Caixa de diálogo de início de sessão único](./media/workday-tutorial/tutorial_workday_samlbase.png)
 
-3. Sobre o **Workday domínio e URLs** secção, execute os seguintes passos:
+1. Sobre o **Workday domínio e URLs** secção, execute os seguintes passos:
 
     ![Workday URLs de domínio e única informações de início de sessão](./media/workday-tutorial/tutorial_workday_url.png)
 
@@ -114,7 +114,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Na **identificador** caixa de texto, escreva um URL: `http://www.workday.com`
 
-4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte:
+1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte:
 
     ![Workday URLs de domínio e única informações de início de sessão](./media/workday-tutorial/tutorial_workday_url1.png)
 
@@ -123,25 +123,25 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE] 
     > Estes valores não são o real. Atualize estes valores com o URL de início de sessão real e o URL de resposta. O URL de resposta tem de ter um subdomínio por exemplo: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Através de algo como "*http://www.myworkday.com*" funciona, mas "*http://myworkday.com*" não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) obter esses valores.  
 
-5. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![O link de download de certificado](./media/workday-tutorial/tutorial_workday_certificate.png) 
 
-6. Clique em **guardar** botão.
+1. Clique em **guardar** botão.
 
     ![Configurar o botão único início de sessão em Guardar](./media/workday-tutorial/tutorial_general_400.png)
     
-7. Na **configuração do Workday** secção, clique em **configurar Workday** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+1. Na **configuração do Workday** secção, clique em **configurar Workday** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configuração do workday](./media/workday-tutorial/tutorial_workday_configure.png) 
 
-8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Workday como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Workday como administrador.
 
-9. Na **caixa de pesquisa** pesquisa com o nome **Editar configuração de inquilino – segurança** na parte superior esquerda do lado da home page.
+1. Na **caixa de pesquisa** pesquisa com o nome **Editar configuração de inquilino – segurança** na parte superior esquerda do lado da home page.
    
     ![Editar a segurança de inquilino](./media/workday-tutorial/IC782925.png "Editar segurança do inquilino")
 
-10. Na **URLs de redirecionamento** secção, execute os seguintes passos:
+1. Na **URLs de redirecionamento** secção, execute os seguintes passos:
    
     ![URLs de redirecionamento](./media/workday-tutorial/IC7829581.png "URLs de redirecionamento")
    
@@ -158,7 +158,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     >-Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), o **ambiente** atributo tem de ser definido para a implementação.  
     >– Se o nome de domínio é iniciado com algo mais, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
 
-11. Na **programa de configuração de SAML** secção, execute os seguintes passos:
+1. Na **programa de configuração de SAML** secção, execute os seguintes passos:
    
     ![Configuração SAML](./media/workday-tutorial/IC782926.png "configuração SAML")
    
@@ -166,7 +166,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
    
     b.  Clique em **Adicionar linha**.
 
-12. Na **fornecedores de identidade de SAML** secção, execute os seguintes passos:
+1. Na **fornecedores de identidade de SAML** secção, execute os seguintes passos:
    
     ![Fornecedores de identidade SAML](./media/workday-tutorial/IC7829271.png "fornecedores de identidade SAML")
    
@@ -190,7 +190,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Crie](./media/workday-tutorial/IC782929.png "criar")
 
-13. Na **chave pública do Vista x509** secção, execute os seguintes passos: 
+1. Na **chave pública do Vista x509** secção, execute os seguintes passos: 
    
     ![Chave pública do Vista x509](./media/workday-tutorial/IC782930.png "vista x509 de chave pública") 
    
@@ -211,7 +211,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
    
     f.  Clique em **OK**.
 
-14. Execute os seguintes passos: 
+1. Execute os seguintes passos: 
    
     ![Configuração de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "configuração de SSO")
    
@@ -239,15 +239,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![O botão do Azure Active Directory](./media/workday-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/workday-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
 
     ![Botão Adicionar](./media/workday-tutorial/create_aaduser_03.png)
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+1. Na **utilizador** diálogo caixa, execute os seguintes passos:
 
     ![A caixa de diálogo de utilizador](./media/workday-tutorial/create_aaduser_04.png)
 
@@ -275,23 +275,23 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
     ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **Workday**.
+1. Na lista de aplicações, selecione **Workday**.
 
     ![A ligação de dia de trabalho na lista de aplicações](./media/workday-tutorial/tutorial_workday_app.png)  
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+1. No menu à esquerda, clique em **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"][202]
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar atribuição][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
+1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
@@ -303,7 +303,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 <!--Image references-->
