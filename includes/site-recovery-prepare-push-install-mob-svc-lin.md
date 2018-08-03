@@ -1,11 +1,11 @@
 ### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Preparar uma instalação por push num servidor Linux
 
 1. Certifique-se de que existe conectividade de rede entre o computador com Linux e o servidor de processos.
-2. Crie uma conta que possa ser utilizada pelo servidor de processos para aceder ao computador. A conta deve ser um utilizador **raiz** no servidor Linux de origem. Utilize esta conta apenas para a instalação de push e nas atualizações.
-3. Verifique se o ficheiro /etc/hosts no servidor Linux de origem tem entradas que mapeiam o nome de anfitrião local para endereços IP associados a todos os adaptadores de rede.
-4. Instale os pacotes openssh, openssh-server e openssl mais recentes no computador que quer replicar.
-5. Certifique-se de que o Secure Shell (SSH) está ativado e em execução na porta 22.
-6. Ative a autenticação de subsistema e palavra-passe SFTP no ficheiro sshd_config. Siga estes passos.
+1. Crie uma conta que possa ser utilizada pelo servidor de processos para aceder ao computador. A conta deve ser um utilizador **raiz** no servidor Linux de origem. Utilize esta conta apenas para a instalação de push e nas atualizações.
+1. Verifique se o ficheiro /etc/hosts no servidor Linux de origem tem entradas que mapeiam o nome de anfitrião local para endereços IP associados a todos os adaptadores de rede.
+1. Instale os pacotes openssh, openssh-server e openssl mais recentes no computador que quer replicar.
+1. Certifique-se de que o Secure Shell (SSH) está ativado e em execução na porta 22.
+1. Ative a autenticação de subsistema e palavra-passe SFTP no ficheiro sshd_config. Siga estes passos.
 
     a. Inicie sessão como **raiz**.
 
@@ -19,7 +19,7 @@
 
     e. Reinicie o serviço **sshd**.
 
-7. Adicione a conta que criou no CSPSConfigtool. Siga estes passos.
+1. Adicione a conta que criou no CSPSConfigtool. Siga estes passos.
 
     a. Inicie sessão no servidor de configuração.
 

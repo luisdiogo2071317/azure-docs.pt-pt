@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473754"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422438"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK de node. js de aplicações móveis
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -50,7 +50,7 @@ Todas as aplicações de Mobile node. js back-end é iniciado como um aplicativo
 1. Num comando ou janela do PowerShell, crie um diretório para o seu projeto:
 
         mkdir basicapp
-2. Executar `npm init` para inicializar a estrutura do pacote:
+1. Executar `npm init` para inicializar a estrutura do pacote:
 
         cd basicapp
         npm init
@@ -58,10 +58,10 @@ Todas as aplicações de Mobile node. js back-end é iniciado como um aplicativo
    O `npm init` comando pede-lhe um conjunto de perguntas para inicializar o projeto. Veja o resultado de exemplo:
 
    ![A saída de init do npm][0]
-3. Instalar o `express` e `azure-mobile-apps` bibliotecas a partir do repositório do npm:
+1. Instalar o `express` e `azure-mobile-apps` bibliotecas a partir do repositório do npm:
 
         npm install --save express azure-mobile-apps
-4. Crie um ficheiro App. js para implementar o servidor móvel básico:
+1. Crie um ficheiro App. js para implementar o servidor móvel básico:
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -94,18 +94,18 @@ Pode encontrar o código para esta aplicação básica no [exemplo de basicapp n
 Visual Studio 2015 requer uma extensão para desenvolver aplicações node. js no IDE. Para começar, instale o [Ferramentas do node. js 1.1 para o Visual Studio]. Quando concluir a instalação, crie um aplicativo de 4.x expresso:
 
 1. Abra o **novo projeto** caixa de diálogo (da **ficheiro** > **novo** > **projeto**).
-2. Expanda **modelos** > **JavaScript** > **node. js**.
-3. Selecione **aplicativo básico do Azure node. js Express 4**.
-4. Preencha o nome do projeto. Selecione **OK**.
+1. Expanda **modelos** > **JavaScript** > **node. js**.
+1. Selecione **aplicativo básico do Azure node. js Express 4**.
+1. Preencha o nome do projeto. Selecione **OK**.
 
    ![Visual Studio 2015 novo projeto][1]
-5. Com o botão direito a **npm** nó e selecione **instalar novos pacotes de npm**.
-6. Poderá ter de atualizar o catálogo de npm, depois de criar a sua primeira aplicação node. js. Selecione **atualizar** se necessário.
-7. Introduza **-aplicações móveis do azure** na caixa de pesquisa. Selecione o **-aplicações móveis do azure-2.0.0** do pacote e, em seguida, selecione **Instalar pacote**.
+1. Com o botão direito a **npm** nó e selecione **instalar novos pacotes de npm**.
+1. Poderá ter de atualizar o catálogo de npm, depois de criar a sua primeira aplicação node. js. Selecione **atualizar** se necessário.
+1. Introduza **-aplicações móveis do azure** na caixa de pesquisa. Selecione o **-aplicações móveis do azure-2.0.0** do pacote e, em seguida, selecione **Instalar pacote**.
 
    ![Instalar novos pacotes de npm][2]
-8. Selecione **fechar**.
-9. Abra o ficheiro App. js para adicionar suporte para o SDK de aplicações móveis. Na linha 6 at na parte inferior da biblioteca `require` instruções, adicione o seguinte código:
+1. Selecione **fechar**.
+1. Abra o ficheiro App. js para adicionar suporte para o SDK de aplicações móveis. Na linha 6 at na parte inferior da biblioteca `require` instruções, adicione o seguinte código:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -120,7 +120,7 @@ Visual Studio 2015 requer uma extensão para desenvolver aplicações node. js n
         app.use(mobile);
 
    Guarde o ficheiro.
-10. A executar a aplicação localmente (a API é atendida em http://localhost:3000) ou publicar no Azure.
+1. A executar a aplicação localmente (a API é atendida em http://localhost:3000) ou publicar no Azure.
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end de node. js com o portal do Azure
 Pode criar das aplicações móveis de back-end certo na [portal do Azure]. Pode concluir os passos seguintes ou criar um cliente e servidor em conjunto ao seguir a [criar uma aplicação móvel](app-service-mobile-ios-get-started.md) tutorial. O tutorial contém uma versão simplificada destas instruções e é melhor para projetos de prova de conceito.
@@ -136,13 +136,13 @@ Ao criar um back-end de aplicações móveis do node. js com o portal **guia de 
 O procedimento seguinte utiliza um repositório de Git para transferir o código de projeto de início rápido:
 
 1. Instale o Git, se ainda não o tiver feito. Os passos necessários para instalar o Git variam entre sistemas operativos. Para as distribuições de sistema operativo específico e orientações de instalação, consulte [instalar o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Ver [preparar o seu repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para ativar o repositório de Git para o seu site de back-end. Tome nota do nome de utilizador de implementação e a palavra-passe.
-3. No painel para as suas aplicações de Mobile back-end, anote o **URL de clone de Git** definição.
-4. Executar o `git clone` comando utilizando o URL de clone de Git. Introduza a palavra-passe quando for necessário, como no exemplo seguinte:
+1. Ver [preparar o seu repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para ativar o repositório de Git para o seu site de back-end. Tome nota do nome de utilizador de implementação e a palavra-passe.
+1. No painel para as suas aplicações de Mobile back-end, anote o **URL de clone de Git** definição.
+1. Executar o `git clone` comando utilizando o URL de clone de Git. Introduza a palavra-passe quando for necessário, como no exemplo seguinte:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Navegue para o diretório de local (`/todolist` no exemplo anterior) e tenha em atenção que os arquivos do projeto tiverem sido transferidos. Localize o ficheiro de todoitem.json no `/tables` diretório. Esse arquivo define as permissões na tabela. Também encontre o ficheiro de todoitem.js no mesmo diretório. Define os scripts de operação CRUD para a tabela.
-6. Depois de efetuar alterações aos ficheiros de projeto, executados os seguintes comandos para adicionar, consolidar e, em seguida, carregue as alterações para o site:
+1. Navegue para o diretório de local (`/todolist` no exemplo anterior) e tenha em atenção que os arquivos do projeto tiverem sido transferidos. Localize o ficheiro de todoitem.json no `/tables` diretório. Esse arquivo define as permissões na tabela. Também encontre o ficheiro de todoitem.js no mesmo diretório. Define os scripts de operação CRUD para a tabela.
+1. Depois de efetuar alterações aos ficheiros de projeto, executados os seguintes comandos para adicionar, consolidar e, em seguida, carregue as alterações para o site:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -252,7 +252,7 @@ O Mobile Apps node. js SDK utiliza o [pacote de node. js mssql] para estabelecer
 >
 
 1. Transfira e instale [Microsoft SQL Server 2014 Express]. Certifique-se de que instala o SQL Server 2014 Express com a edição de ferramentas. A menos que explicitamente necessitar de suporte de 64 bits, a versão de 32 bits consome menos memória quando em execução.
-2. Execute o Gestor de configuração do SQL Server 2014:
+1. Execute o Gestor de configuração do SQL Server 2014:
 
    a. Expanda a **configuração de rede do SQL Server** nó no menu de árvore.
 
@@ -275,25 +275,25 @@ O Mobile Apps node. js SDK utiliza o [pacote de node. js mssql] para estabelecer
    i. Com o botão direito **SQL Server (SQLEXPRESS)** e selecione **reiniciar**.
 
    j. Feche o Gestor de configuração do SQL Server 2014.
-3. Executar o SQL Server 2014 Management Studio e ligue-se à sua instância do SQL Server Express local:
+1. Executar o SQL Server 2014 Management Studio e ligue-se à sua instância do SQL Server Express local:
 
    1. A instância no Object Explorer com o botão direito e selecione **propriedades**.
-   2. Selecione o **segurança** página.
-   3. Certifique-se de que **modo de SQL Server e a autenticação do Windows** está selecionada.
-   4. Selecione **OK**.
+   1. Selecione o **segurança** página.
+   1. Certifique-se de que **modo de SQL Server e a autenticação do Windows** está selecionada.
+   1. Selecione **OK**.
 
       ![Configurar a autenticação do SQL Server Express][4]
-   5. Expanda **Security** > **inícios de sessão** no Object Explorer.
-   6. Com o botão direito **inícios de sessão** e selecione **novo início de sessão**.
-   7. Introduza um nome de início de sessão. Selecione **Autenticação do SQL Server**. Introduza uma palavra-passe e, em seguida, introduza a mesma palavra-passe no **Confirmar palavra-passe**. A palavra-passe tem de cumprir os requisitos de complexidade do Windows.
-   8. Selecione **OK**.
+   1. Expanda **Security** > **inícios de sessão** no Object Explorer.
+   1. Com o botão direito **inícios de sessão** e selecione **novo início de sessão**.
+   1. Introduza um nome de início de sessão. Selecione **Autenticação do SQL Server**. Introduza uma palavra-passe e, em seguida, introduza a mesma palavra-passe no **Confirmar palavra-passe**. A palavra-passe tem de cumprir os requisitos de complexidade do Windows.
+   1. Selecione **OK**.
 
       ![Adicionar um novo utilizador para o SQL Server Express][5]
-   9. Seu novo início de sessão com o botão direito e selecione **propriedades**.
-   10. Selecione o **funções de servidor** página.
-   11. Selecione a caixa de verificação para o **dbcreator** função de servidor.
-   12. Selecione **OK**.
-   13. Feche o SQL Server 2015 Management Studio.
+   1. Seu novo início de sessão com o botão direito e selecione **propriedades**.
+   1. Selecione o **funções de servidor** página.
+   1. Selecione a caixa de verificação para o **dbcreator** função de servidor.
+   1. Selecione **OK**.
+   1. Feche o SQL Server 2015 Management Studio.
 
 Certifique-se de que registe o nome de utilizador e palavra-passe que selecionou. Poderá ter de atribuir funções de servidor adicionais ou permissões, dependendo dos requisitos da base de dados.
 
@@ -348,13 +348,13 @@ A maioria das definições no ficheiro azureMobile.js tem uma definição de apl
 Para definir uma definição de aplicação:
 
 1. Inicie sessão no [Portal do Azure].
-2. Selecione **todos os recursos** ou **dos serviços de aplicações**e, em seguida, selecione o nome da sua aplicação móvel.
-3. O **definições** painel abre-se por predefinição. Se não, selecione **definições**.
-4. Sobre o **gerais** menu, selecione **configurações de aplicativo**.
-5. Desloque-se para o **as definições da aplicação** secção.
-6. Se a aplicação definir já existir, selecione o valor da definição de aplicação para editar o valor.
+1. Selecione **todos os recursos** ou **dos serviços de aplicações**e, em seguida, selecione o nome da sua aplicação móvel.
+1. O **definições** painel abre-se por predefinição. Se não, selecione **definições**.
+1. Sobre o **gerais** menu, selecione **configurações de aplicativo**.
+1. Desloque-se para o **as definições da aplicação** secção.
+1. Se a aplicação definir já existir, selecione o valor da definição de aplicação para editar o valor.
    Se a definição de aplicação não existe, introduza a definição de aplicação no **chave** caixa e o valor a **valor** caixa.
-8. Selecione **Guardar**.
+1. Selecione **Guardar**.
 
 Alterar a maioria das definições de aplicação requer um reinício do serviço.
 
@@ -364,9 +364,9 @@ Alterar a maioria das definições de aplicação requer um reinício do serviç
 Utilizar a SQL Database do Azure como um arquivo de dados é idêntica em todos os tipos de aplicação do serviço de aplicações do Azure. Se não o tiver feito isso já, siga estes passos para criar um back-end de aplicações móveis:
 
 1. Inicie sessão no [Portal do Azure].
-2. No canto superior esquerdo da janela, selecione o **+ novo** botão > **Web + móvel** > **aplicação móvel**e, em seguida, forneça um nome para as suas aplicações de Mobile back-end.
-3. Na **grupo de recursos** , introduza o mesmo nome que a sua aplicação.
-4. A predefinição é selecionado o plano do serviço de aplicações. Se pretender alterar o seu plano do serviço de aplicações:
+1. No canto superior esquerdo da janela, selecione o **+ novo** botão > **Web + móvel** > **aplicação móvel**e, em seguida, forneça um nome para as suas aplicações de Mobile back-end.
+1. Na **grupo de recursos** , introduza o mesmo nome que a sua aplicação.
+1. A predefinição é selecionado o plano do serviço de aplicações. Se pretender alterar o seu plano do serviço de aplicações:
 
    a. Selecione **plano do App Service** > **+ criar novo**. 
    
@@ -377,7 +377,7 @@ Utilizar a SQL Database do Azure como um arquivo de dados é idêntica em todos 
    d. Clique nas **selecione** botão. 
    
    e. De volta a **plano do App Service** painel, selecione **OK**.
-5. Selecione **Criar**. 
+1. Selecione **Criar**. 
 
 Aprovisionamento de aplicações de Mobile back-end pode demorar alguns minutos. Depois de fazer uma cópia das aplicações móveis final é aprovisionado, o portal abre o **definições** painel para o back-end de aplicações móveis.
 
@@ -389,13 +389,13 @@ Aprovisionamento de aplicações de Mobile back-end pode demorar alguns minutos.
 >
 
 1. No novo Mobile Apps back-end, selecione **configurações** > **aplicação móvel** > **dados** > **+ adicionar**.
-2. Na **adicionar ligação de dados** painel, selecione **base de dados do SQL - configurar definições necessárias** > **criar uma nova base de dados**. Introduza o nome da nova base de dados do **nome** caixa.
-3. Selecione **servidor**. Na **novo servidor** painel, introduza um nome de servidor exclusivo na **nome do servidor** caixa e forneça um servidor adequado, início de sessão de administrador e a palavra-passe. Certifique-se de que **permitir que os serviços do azure ao servidor de acesso** está selecionada. Selecione **OK**.
+1. Na **adicionar ligação de dados** painel, selecione **base de dados do SQL - configurar definições necessárias** > **criar uma nova base de dados**. Introduza o nome da nova base de dados do **nome** caixa.
+1. Selecione **servidor**. Na **novo servidor** painel, introduza um nome de servidor exclusivo na **nome do servidor** caixa e forneça um servidor adequado, início de sessão de administrador e a palavra-passe. Certifique-se de que **permitir que os serviços do azure ao servidor de acesso** está selecionada. Selecione **OK**.
 
    ![Criar uma SQL Database do Azure][6]
-4. Na **nova base de dados** painel, selecione **OK**.
-5. De volta a **adicionar ligação de dados** painel, selecione **cadeia de ligação**e introduza o início de sessão e palavra-passe que indicou quando criou a base de dados. Se utilizar uma base de dados existente, forneça as credenciais de início de sessão para essa base de dados. Selecione **OK**.
-6. De volta a **adicionar ligação de dados** painel mais uma vez, selecione **OK** para criar a base de dados.
+1. Na **nova base de dados** painel, selecione **OK**.
+1. De volta a **adicionar ligação de dados** painel, selecione **cadeia de ligação**e introduza o início de sessão e palavra-passe que indicou quando criou a base de dados. Se utilizar uma base de dados existente, forneça as credenciais de início de sessão para essa base de dados. Selecione **OK**.
+1. De volta a **adicionar ligação de dados** painel mais uma vez, selecione **OK** para criar a base de dados.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -693,8 +693,8 @@ Se pretender utilizar a autenticação do serviço de aplicações com uma API p
 APIs personalizadas são definidas no quase da mesma forma como a API de tabelas:
 
 1. Criar um `api` diretório.
-2. Criar um ficheiro de JavaScript de definição de API no `api` diretório.
-3. Utilize o método de importação para importar o `api` diretório.
+1. Criar um ficheiro de JavaScript de definição de API no `api` diretório.
+1. Utilize o método de importação para importar o `api` diretório.
 
 Aqui está o protótipo de definição de API com base no exemplo de aplicação básico que utilizámos anteriormente:
 
@@ -857,7 +857,7 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end de
 1. No painel para as suas aplicações de Mobile back-end, selecione **todas as definições** > qualquer um dos **tabelas simples** ou **APIs simples**. Selecione uma tabela ou a API e, em seguida, selecione **Editar script**. O ficheiro de script é aberto no Editor de serviço de aplicações.
 
    ![Editor do Serviço de Aplicação](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. Faça as alterações para o arquivo de código no online editor. As alterações são guardadas automaticamente à medida que escreve.
+1. Faça as alterações para o arquivo de código no online editor. As alterações são guardadas automaticamente à medida que escreve.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

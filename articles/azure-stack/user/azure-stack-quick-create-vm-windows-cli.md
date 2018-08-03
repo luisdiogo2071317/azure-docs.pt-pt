@@ -1,6 +1,6 @@
 ---
-title: Criar uma máquina virtual do Windows na pilha do Azure utilizando a CLI do Azure | Microsoft Docs
-description: Saiba como criar uma VM do Windows na pilha do Azure utilizando a CLI do Azure
+title: Criar uma máquina virtual do Windows no Azure Stack com a CLI do Azure | Documentos da Microsoft
+description: Saiba como criar uma VM do Windows no Azure Stack com a CLI do Azure
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,37 +15,37 @@ ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 381c1c37b0675d97adc058979a5d9b5c4fd2cc8b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4d062b937eb005b8c30a6f7f59b00f80095a7924
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155161"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422295"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Início rápido: criar uma máquina virtual do Windows, utilizando a CLI do Azure na pilha do Azure
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Início rápido: criar uma máquina virtual do Windows Server com a CLI do Azure no Azure Stack
 
-‎*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
+‎*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Pode criar uma máquina virtual do Windows Server 2016 com a CLI do Azure. Siga os passos neste artigo para criar e utilizar uma máquina virtual. Este artigo também dá-lhe os passos seguintes:
 
 * Ligar à máquina virtual com um cliente remoto.
-* Instalar o servidor de web IIS e ver a home page predefinida.
-* Limpe os seus recursos.
+* Instalar o servidor web IIS e ver a home page do padrão.
+* Limpe seus recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que o operador de pilha do Azure adicionadas a **Windows Server 2016** imagens no Marketplace de pilha do Azure.
+* Certifique-se de que o operador do Azure Stack é adicionado a **Windows Server 2016** imagem para o mercado do Azure Stack.
 
-* Pilha do Azure requer uma versão específica do CLI do Azure para criar e gerir os recursos. Se não tiver a CLI do Azure configurada para a pilha do Azure, siga os passos para [instalar e configurar a CLI do Azure](azure-stack-version-profiles-azurecli2.md).
+* O Azure Stack requer uma versão específica da CLI do Azure para criar e gerir os recursos. Se não tiver a CLI do Azure configurado para o Azure Stack, siga os passos para [instalar e configurar a CLI do Azure](azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico onde pode implementar e gerir recursos de pilha do Azure. A partir do seu ambiente de pilha do Azure, execute o [criar grupo az](/cli/azure/group#az_group_create) comando para criar um grupo de recursos.
+Um grupo de recursos é um contentor lógico onde pode implementar e gerir recursos do Azure Stack. A partir do seu ambiente do Azure Stack, execute o [criar grupo az](/cli/azure/group#az-group-create) comando para criar um grupo de recursos.
 
 >[!NOTE]
- Os valores são atribuídos para todas as variáveis nos exemplos de código. No entanto, pode atribuir novos valores, se pretender.
+ Os valores são atribuídos para todas as variáveis nos exemplos de código. No entanto, pode atribuir novos valores, se quiser.
 
-O exemplo seguinte cria um grupo de recursos denominado myResourceGroup na localização local.
+O exemplo seguinte cria um grupo de recursos com o nome myResourceGroup na localização local.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Criar uma máquina virtual (VM), utilizando o [az vm criar](/cli/azure/vm#az_vm_create) comando. O exemplo seguinte cria uma VM com o nome myVM. Este exemplo utiliza Demouser para um nome de utilizador administrativo e Demouser@123 como a palavra-passe do utilizador. Altere estes valores para algo que é adequado para o seu ambiente.
+Criar uma máquina virtual (VM) com o [az vm criar](/cli/azure/vm#az-vm-create) comando. O exemplo seguinte cria uma VM com o nome myVM. Este exemplo utiliza Demouser para um nome de utilizador administrativo e Demouser@123 como a palavra-passe do utilizador. Altere estes valores para algo que seja apropriado para seu ambiente.
 
 ```cli
 az vm create \
@@ -66,13 +66,13 @@ az vm create \
   --location local
 ```
 
-Quando é criada a VM, o **PublicIPAddress** parâmetro na saída contém o endereço IP público para a máquina virtual. Anote este endereço porque precisa de aceder à máquina virtual.
+Quando a VM é criada, o **PublicIPAddress** parâmetro na saída contém o endereço IP público para a máquina virtual. Anote este endereço, porque irá precisar dele para aceder à máquina virtual.
 
 ## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web
 
-Porque esta VM vai executar o servidor web do IIS, terá de abrir a porta 80 para tráfego de Internet.
+Uma vez que esta VM vai executar o servidor web IIS, terá de abrir a porta 80 ao tráfego da Internet.
 
-Utilize o [az vm open-porta](/cli/azure/vm#open-port) comando para abrir a porta 80.
+Utilize o [az vm open-port](/cli/azure/vm#open-port) comando para abrir a porta 80.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -80,7 +80,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>Ligar à máquina virtual
 
-Utilize o comando seguinte para criar uma ligação de ambiente de trabalho remoto para a máquina virtual. Substitua "Endereço IP público" com o endereço IP da sua máquina virtual. Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que utilizou para a máquina virtual.
+Utilize o comando seguinte para criar uma ligação de ambiente de trabalho remoto à máquina virtual. Substitua o endereço IP da sua máquina virtual "Endereço IP público". Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que utilizou para a máquina virtual.
 
 ```
 mstsc /v <Public IP Address>
@@ -96,13 +96,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Ver a página de boas-vindas do IIS
 
-Pode utilizar um browser web à sua escolha para ver a página de boas-vindas do IIS predefinido. Utilize o endereço IP público documentado na secção anterior para visitar a página predefinida.
+Pode utilizar um browser à sua escolha para ver a página de boas-vindas do IIS predefinida. Utilize o endereço IP público documentado na secção anterior para visitar a página predefinida.
 
 ![Site predefinido do IIS](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Limpe os recursos que não precisa de já. Utilize o [eliminação do grupo de az](/cli/azure/group#az_group_delete) comando para remover o grupo de recursos, a máquina virtual, e todos os recursos relacionados.
+Limpe os recursos que não precisa mais. Utilize o [eliminação do grupo de az](/cli/azure/group#az-group-delete) de comando para remover o grupo de recursos, a máquina virtual, e todos os recursos relacionados.
 
 ```cli
 az group delete --name myResourceGroup
@@ -110,4 +110,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de introdução implementada uma máquina de virtual básica do Windows Server. Para saber mais sobre as máquinas virtuais de pilha do Azure, avance para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
+Neste início rápido, implementou uma máquina de virtual básica do Windows Server. Para saber mais sobre as máquinas virtuais do Azure Stack, avance para [considerações para máquinas virtuais no Azure Stack](azure-stack-vm-considerations.md).
