@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Documentação da API de Serviço de Voz
+- name: Documentação do Serviço de Voz e do SDK
   href: index.yml
 - name: Descrição geral
   items:
     - name: Cenários de Voz
       href: speech-scenarios.md
-    - name: O que é o serviço de Voz?
-      href: overview.md
       expanded: true
+    - name: Serviço de Voz
+      href: overview.md
     - name: API de Voz
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
@@ -107,7 +107,7 @@
       displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: Conceitos
   items:
-    - name: Conversão de Voz em Texto
+    - name: Voz em Texto
       href: speech-to-text.md
       displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Conversão de Texto em Voz

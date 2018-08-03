@@ -8,7 +8,7 @@
 #### [Opções de faturação do Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Atribuição da utilização do cliente de parceiro do Azure](./azure-partner-customer-usage-attribution.md)
 
-### Lojas: [Comparar o AppSource e o Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
+### [Lojas](./comparing-appsource-azure-marketplace.md)  
 
 ### [Determinar a opção de publicação para a sua solução](./determine-your-listing-type.md)  
 
@@ -25,6 +25,6 @@
 ### [Desenvolva o seu negócio com o marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Soluções preferenciais](./preferred-solutions.md) 
 
-### Suporte [Suporte para o Azure Marketplace e AppSource](./support-azure-marketplace.md)  
+### [Suporte para o Azure Marketplace e AppSource](./support-azure-marketplace.md)  
 
 ## [Portal de Parceiros da Cloud](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

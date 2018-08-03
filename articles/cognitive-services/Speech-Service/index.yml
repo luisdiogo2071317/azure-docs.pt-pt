@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 0db6620c7433486babebe95090f3682582f1c212
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422166"
 documentType: LandingData
-title: Documentação do Serviço de Voz (Pré-visualização)
+title: Documentação do Serviço de Voz e do SDK (Pré-visualização)
 metadata:
   title: Documentação do Serviço de Voz - Tutoriais, Inícios Rápidos, Referência da API - Serviços Cognitivos | Microsoft Docs
-  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: "The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. \nExamples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.\n"
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -15,19 +21,16 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39070115"
 abstract:
-  description: O Serviço de Voz da Microsoft fornece aos programadores uma forma fácil de adicionar poderosas funcionalidades de voz às respetivas aplicações, incluindo controlo de comando de voz, transcrição, ditado e tradução com a <a href="rest-apis">API REST</a> ou um <a href="speech-sdk">SDK C#, C++ ou Java</a>.<p>O Serviço de Voz permite-lhe personalizar modelos de <a href="how-to-customize-speech-models">Conversão de Voz em Texto</a> para acomodar vocabulário especializado, ambientes ruidosos e diferentes formas de falar. A <a href="https://cris.ai/Home/customvoice">Conversão de Texto em Voz</a> e a <a href="https://www.microsoft.com/translator/customization.aspx">Tradução de Voz</a> também estão disponíveis.<p>Para obter mais detalhes, veja <a href="overview">O que é o serviço de Voz?</a>
+  description: >
+    Através do nosso SDK de Voz, o <a href="overview">Serviço de Voz</a> ajuda os programadores a adicionar funcionalidades de voz às aplicações.<br/>
+
+    As funcionalidades incluem&#58; <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS).
 sections:
-- title: Inícios Rápidos de 10 minutos
+- title: Transferência e início rápido de cinco minutos do SDK
   items:
   - type: paragraph
-    text: 'Saiba como instalar o SDK de Voz para começar a:'
+    text: Saiba como transferir, instalar e utilizar ao clicar na ligação de seta pretendida, <img src="media/index/link.jpg" height="15" width="15"></img> abaixo.
   - type: table
     style: dataMatrix
     columns:
@@ -40,13 +43,13 @@ sections:
     - image:
         src: media/index/logo_netcore.svg
     - image:
-        src: media/index/logo_java.svg
+        src: media/index/logo_java.jpg
     - image:
         src: media/index/logo_rest_sr.svg
     - image:
         src: media/index/logo_rest_tts.svg
     rows:
-    - title: Windows
+    - title: Windows (x86/x64)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
@@ -55,14 +58,14 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: Linux
+    - title: Linux (x86/x64)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
       - href: 
       - href: 
-    - title: SDK Android
+    - title: Android (ARM32/ARM64)
       values:
       - href: 
       - href: 
@@ -71,7 +74,7 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
-    - title: SDK de Dispositivos
+    - title: SDK de Dispositivo (ARM64)
       values:
       - href: 
       - href: 
@@ -89,17 +92,40 @@ sections:
       - href: 
       - href: rest-apis
       - href: rest-apis
-- title: Exemplos e Referência
+- title: Exemplos e referência do SDK de Voz
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: Exemplos
-      html: <ul><li><a href="speech-to-text-sample.md">Reconhecimento de Voz</a></li><li><a href="intent.md">Reconhecimento de Intenção</a></li><li><a href="translation.md">Tradução</a></li></ul>
+    - title: Amostras
+      html: >
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Conversão de voz em texto (SR)</a><br/>
+
+        &nbsp;&#8226; <a href="intent.md">Reconhecimento de Intenção</a><br/>
+
+        &nbsp;&#8226; <a href="translation.md">Tradução</a>
     - title: Referência da API
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C# (incluindo UWP e .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">API do C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java</a> para o SDK de Voz<br>e SDK de Dispositivos de Voz</li></ul>
-- title: SDK de Dispositivos de Voz
+      html: >
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">API C# (UWP e .NET)</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">API C++</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">API Java</a>
+  - type: paragraph
+    text: Utilize os exemplos e a API acima com a sua chave de subscrição (veja <a href="get-started.md">Experimentar o serviço de voz gratuitamente</a>).
+- title: Personalizar voz com os seus próprios dados
   items:
   - type: paragraph
-    text: Com a introdução do Serviço de Voz unificado, a Microsoft e os seus parceiros oferecem agora uma plataforma de hardware/software integrada otimizada para desenvolver dispositivos com funcionalidade de voz&#58; o <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>SDK de Dispositivos de Voz</a>. Adequado para o desenvolvimento de dispositivos de ambiente para todos os tipos de aplicações, este SDK permite-lhe definir uma <I>palavra de reativação</I> personalizada exclusiva para a sua marca. O hardware fornece processamento de áudio superior de origens de vários canais para um reconhecimento de voz mais exato, incluindo supressão de ruído, voz de campo distante e beamforming.
+    text: >
+      O nosso Serviço de Voz também lhe permite personalizar modelos para acomodar vocabulário especializado, ambientes ruidosos e diferentes formas de falar.<br/>
+
+      &nbsp;&#8226; <a href="how-to-customize-speech-models">Conversão de voz em texto personalizada</a><br/>
+
+      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Tradução de voz personalizada</a><br/>
+
+      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Conversão de texto em voz personalizada</a>
+- title: Estrutura de referência HW com funcionalidades de voz
+  items:
+  - type: paragraph
+    text: Para aqueles que queiram criar o novo HW de dispositivo com voz, ver o nosso dispositivo de referência em <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>SDK de Dispositivos de Voz</a>.

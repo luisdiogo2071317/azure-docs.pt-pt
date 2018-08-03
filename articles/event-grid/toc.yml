@@ -47,8 +47,34 @@
   items:
     - name: CLI do Azure
       href: cli-samples.md
+      items:
+        - name: Criar um tópico personalizado
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Subscrever uma subscrição do Azure
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Subscrever o Armazenamento de blobs
+          href: scripts/event-grid-cli-blob.md
+        - name: Subscrever um tópico personalizado
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Subscrever um grupo de recursos
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Subscrever e filtrar eventos para o grupo de recursos
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Criar um tópico personalizado
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Subscrever uma subscrição do Azure
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Subscrever o Armazenamento de blobs
+          href: scripts/event-grid-powershell-blob.md
+        - name: Subscrever um tópico personalizado
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Subscrever um grupo de recursos
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Subscrever e filtrar eventos para o grupo de recursos
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Modelos do Resource Manager
       href: template-samples.md
     - name: Exemplos de código
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Receber eventos num ponto final de HTTP
       href: receive-events.md
-    - name: Gerir a entrega de eventos
+    - name: Mensagens não entregues e tentar novamente
       href: manage-event-delivery.md
     - name: Monitorize a entrega de eventos
       href: monitor-event-delivery.md

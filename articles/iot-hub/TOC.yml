@@ -308,6 +308,8 @@
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: Previsão meteorológica com o Azure Machine Learning
               href: iot-hub-weather-forecast-machine-learning.md
+            - name: Gestão de dispositivos com o Azure IoT Toolkit para VS Code
+              href: iot-hub-device-management-iot-toolkit.md
             - name: Gestão de dispositivos com o iothub-explorer
               href: iot-hub-device-management-iothub-explorer.md
             - name: Gestão de dispositivos com a extensão do IoT do Azure CLI 2.0
