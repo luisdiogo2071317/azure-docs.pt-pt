@@ -1,10 +1,12 @@
 - A VNet tem de estar na mesma **região** e **subscrição** do Azure da conta do Batch.
 
-- Para os conjuntos criados com uma configuração de máquina virtual, apenas são suportadas VNets baseadas no Azure Resource Manager. Para os conjuntos criados com uma configuração de serviços cloud, apenas são suportadas VNets clássicas. 
+- Para os conjuntos criados com uma configuração de máquina virtual, apenas são suportadas VNets baseadas no Azure Resource Manager. Para os conjuntos criados com uma configuração de serviços cloud, apenas são suportadas VNets clássicas.
   
 - Para utilizar uma VNets clássica, o principal de serviço `MicrosoftAzureBatch` tem de ter a função `Classic Virtual Machine Contributor` do Controlo de Acesso Baseado em Funções (RBAC) na VNet especificada. Para utilizar uma VNet baseada no Azure Resource Manager, precisa de permissões para aceder à VNet e para implementar VMs na sub-rede.
 
 - A sub-rede especificada para o conjunto deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o conjunto; ou seja, a soma de propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do conjunto. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o conjunto atribui parcialmente os nós de computação e ocorre um erro de redimensionamento. 
+
+- Os agrupamentos na configuração da máquina virtual implementados numa VNet do Azure atribuem automaticamente os recursos de redes adicionais do Azure. Os recursos seguintes são necessários para cada 50 nós de agrupamento numa VNet: 1 grupo de segurança de rede, 1 endereço IP público e 1 balanceador de carga. Esses recursos estão limitados por [quotas](../articles/batch/batch-quota-limit.md) na subscrição que contém a rede virtual fornecida ao criar um agrupamento do Batch.
 
 - A VNet tem de permitir a comunicação do serviço Batch para conseguir agendar tarefas nos nós de computação. Isto pode ser verificado ao confirmar se a VNet tem grupos de segurança de rede (NSGs) associados. Se a comunicação com os nós de computação na sub-rede especificada for recusada por um NSG, o serviço Batch define o estado dos nós de computação como **inutilizável**. 
 
